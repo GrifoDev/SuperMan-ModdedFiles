@@ -60,14 +60,14 @@
 
     check-cast v0, Landroid/service/notification/ZenModeConfig$ZenRule;
 
-    invoke-static {v1, v0}, Lcom/android/systemui/volume/ZenModePanel;->-wrap4(Lcom/android/systemui/volume/ZenModePanel;Landroid/service/notification/ZenModeConfig$ZenRule;)V
+    invoke-static {v1, v0}, Lcom/android/systemui/volume/ZenModePanel;->-wrap3(Lcom/android/systemui/volume/ZenModePanel;Landroid/service/notification/ZenModeConfig$ZenRule;)V
 
     goto :goto_0
 
     :pswitch_1
     iget-object v0, p0, Lcom/android/systemui/volume/ZenModePanel$H;->this$0:Lcom/android/systemui/volume/ZenModePanel;
 
-    invoke-static {v0}, Lcom/android/systemui/volume/ZenModePanel;->-wrap7(Lcom/android/systemui/volume/ZenModePanel;)V
+    invoke-static {v0}, Lcom/android/systemui/volume/ZenModePanel;->-wrap6(Lcom/android/systemui/volume/ZenModePanel;)V
 
     goto :goto_0
 

@@ -80,7 +80,7 @@
 .method public constructor <init>(Landroid/support/v17/leanback/widget/BaseCardView$LayoutParams;)V
     .locals 1
 
-    invoke-direct {p0, p1}, Landroid/widget/FrameLayout$LayoutParams;-><init>(Landroid/view/ViewGroup$MarginLayoutParams;)V
+    invoke-direct {p0, p1}, Landroid/widget/FrameLayout$LayoutParams;-><init>(Landroid/widget/FrameLayout$LayoutParams;)V
 
     const/4 v0, 0x0
 

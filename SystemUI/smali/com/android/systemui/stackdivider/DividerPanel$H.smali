@@ -26,7 +26,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 4
+    .locals 3
 
     iget v0, p1, Landroid/os/Message;->what:I
 
@@ -42,17 +42,15 @@
 
     new-instance v1, Lcom/android/systemui/stackdivider/events/DividerButtonsVisibleEvent;
 
-    sget v2, Lcom/android/systemui/stackdivider/events/DividerButtonsVisibleEvent;->FLAG_VISIBLE:I
-
-    sget v3, Lcom/android/systemui/stackdivider/events/DividerButtonsVisibleEvent;->FLAG_ANIMATE:I
-
-    or-int/2addr v2, v3
-
-    sget v3, Lcom/android/systemui/stackdivider/events/DividerButtonsVisibleEvent;->FLAG_ONCE:I
-
-    or-int/2addr v2, v3
+    const/4 v2, 0x7
 
     invoke-direct {v1, v2}, Lcom/android/systemui/stackdivider/events/DividerButtonsVisibleEvent;-><init>(I)V
+
+    const-string/jumbo v2, "BUTTONS_SHOW_ANIM"
+
+    invoke-virtual {v1, v2}, Lcom/android/systemui/stackdivider/events/DividerButtonsVisibleEvent;->setReason(Ljava/lang/String;)Lcom/android/systemui/recents/events/EventBus$Event;
+
+    move-result-object v1
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/recents/events/EventBus;->post(Lcom/android/systemui/recents/events/EventBus$Event;)V
 
@@ -65,13 +63,15 @@
 
     new-instance v1, Lcom/android/systemui/stackdivider/events/DividerButtonsVisibleEvent;
 
-    sget v2, Lcom/android/systemui/stackdivider/events/DividerButtonsVisibleEvent;->FLAG_ANIMATE:I
+    const/4 v2, 0x6
 
     invoke-direct {v1, v2}, Lcom/android/systemui/stackdivider/events/DividerButtonsVisibleEvent;-><init>(I)V
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/recents/events/EventBus;->post(Lcom/android/systemui/recents/events/EventBus$Event;)V
 
     goto :goto_0
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1

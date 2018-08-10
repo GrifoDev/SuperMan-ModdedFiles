@@ -51,11 +51,8 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    xor-int/lit8 v0, v1, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     iget-object v1, p0, Lcom/android/systemui/tuner/PowerNotificationControlsFragment$1;->this$0:Lcom/android/systemui/tuner/PowerNotificationControlsFragment;
 
     invoke-virtual {v1}, Lcom/android/systemui/tuner/PowerNotificationControlsFragment;->getContext()Landroid/content/Context;
@@ -78,11 +75,11 @@
 
     const-string/jumbo v3, "show_importance_slider"
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     const/4 v1, 0x1
 
-    :goto_1
+    :goto_0
     invoke-static {v2, v3, v1}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     iget-object v1, p0, Lcom/android/systemui/tuner/PowerNotificationControlsFragment$1;->val$switchWidget:Landroid/widget/Switch;
@@ -91,39 +88,34 @@
 
     iget-object v2, p0, Lcom/android/systemui/tuner/PowerNotificationControlsFragment$1;->val$switchText:Landroid/widget/TextView;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     iget-object v1, p0, Lcom/android/systemui/tuner/PowerNotificationControlsFragment$1;->this$0:Lcom/android/systemui/tuner/PowerNotificationControlsFragment;
 
-    const v3, 0x7f0f0584
+    const v3, 0x7f120acf
 
     invoke-virtual {v1, v3}, Lcom/android/systemui/tuner/PowerNotificationControlsFragment;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    :goto_2
+    :goto_1
     invoke-virtual {v2, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     return-void
 
     :cond_0
-    const/4 v0, 0x1
+    const/4 v1, 0x0
 
     goto :goto_0
 
     :cond_1
-    const/4 v1, 0x0
-
-    goto :goto_1
-
-    :cond_2
     iget-object v1, p0, Lcom/android/systemui/tuner/PowerNotificationControlsFragment$1;->this$0:Lcom/android/systemui/tuner/PowerNotificationControlsFragment;
 
-    const v3, 0x7f0f0585
+    const v3, 0x7f120ace
 
     invoke-virtual {v1, v3}, Lcom/android/systemui/tuner/PowerNotificationControlsFragment;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    goto :goto_2
+    goto :goto_1
 .end method

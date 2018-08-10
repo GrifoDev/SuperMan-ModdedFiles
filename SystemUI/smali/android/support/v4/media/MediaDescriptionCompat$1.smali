@@ -49,9 +49,7 @@
 
     new-instance v0, Landroid/support/v4/media/MediaDescriptionCompat;
 
-    const/4 v1, 0x0
-
-    invoke-direct {v0, p1, v1}, Landroid/support/v4/media/MediaDescriptionCompat;-><init>(Landroid/os/Parcel;Landroid/support/v4/media/MediaDescriptionCompat;)V
+    invoke-direct {v0, p1}, Landroid/support/v4/media/MediaDescriptionCompat;-><init>(Landroid/os/Parcel;)V
 
     return-object v0
 

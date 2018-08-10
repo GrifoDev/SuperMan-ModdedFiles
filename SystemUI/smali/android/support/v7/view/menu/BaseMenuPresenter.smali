@@ -6,10 +6,20 @@
 .implements Landroid/support/v7/view/menu/MenuPresenter;
 
 
+# annotations
+.annotation build Landroid/support/annotation/RestrictTo;
+    value = {
+        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
+
 # instance fields
 .field private mCallback:Landroid/support/v7/view/menu/MenuPresenter$Callback;
 
 .field protected mContext:Landroid/content/Context;
+
+.field private mId:I
 
 .field protected mInflater:Landroid/view/LayoutInflater;
 
@@ -17,11 +27,35 @@
 
 .field protected mMenu:Landroid/support/v7/view/menu/MenuBuilder;
 
+.field private mMenuLayoutRes:I
+
 .field protected mMenuView:Landroid/support/v7/view/menu/MenuView;
 
 .field protected mSystemContext:Landroid/content/Context;
 
 .field protected mSystemInflater:Landroid/view/LayoutInflater;
+
+
+# direct methods
+.method public constructor <init>(Landroid/content/Context;II)V
+    .locals 1
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Landroid/support/v7/view/menu/BaseMenuPresenter;->mSystemContext:Landroid/content/Context;
+
+    invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+
+    move-result-object v0
+
+    iput-object v0, p0, Landroid/support/v7/view/menu/BaseMenuPresenter;->mSystemInflater:Landroid/view/LayoutInflater;
+
+    iput p2, p0, Landroid/support/v7/view/menu/BaseMenuPresenter;->mMenuLayoutRes:I
+
+    iput p3, p0, Landroid/support/v7/view/menu/BaseMenuPresenter;->mItemLayoutRes:I
+
+    return-void
+.end method
 
 
 # virtual methods
@@ -137,6 +171,43 @@
     goto :goto_0
 .end method
 
+.method public getMenuView(Landroid/view/ViewGroup;)Landroid/support/v7/view/menu/MenuView;
+    .locals 3
+
+    iget-object v0, p0, Landroid/support/v7/view/menu/BaseMenuPresenter;->mMenuView:Landroid/support/v7/view/menu/MenuView;
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Landroid/support/v7/view/menu/BaseMenuPresenter;->mSystemInflater:Landroid/view/LayoutInflater;
+
+    iget v1, p0, Landroid/support/v7/view/menu/BaseMenuPresenter;->mMenuLayoutRes:I
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, p1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/support/v7/view/menu/MenuView;
+
+    iput-object v0, p0, Landroid/support/v7/view/menu/BaseMenuPresenter;->mMenuView:Landroid/support/v7/view/menu/MenuView;
+
+    iget-object v0, p0, Landroid/support/v7/view/menu/BaseMenuPresenter;->mMenuView:Landroid/support/v7/view/menu/MenuView;
+
+    iget-object v1, p0, Landroid/support/v7/view/menu/BaseMenuPresenter;->mMenu:Landroid/support/v7/view/menu/MenuBuilder;
+
+    invoke-interface {v0, v1}, Landroid/support/v7/view/menu/MenuView;->initialize(Landroid/support/v7/view/menu/MenuBuilder;)V
+
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, v0}, Landroid/support/v7/view/menu/BaseMenuPresenter;->updateMenuView(Z)V
+
+    :cond_0
+    iget-object v0, p0, Landroid/support/v7/view/menu/BaseMenuPresenter;->mMenuView:Landroid/support/v7/view/menu/MenuView;
+
+    return-object v0
+.end method
+
 .method public initForMenu(Landroid/content/Context;Landroid/support/v7/view/menu/MenuBuilder;)V
     .locals 1
 
@@ -195,6 +266,14 @@
     .locals 0
 
     iput-object p1, p0, Landroid/support/v7/view/menu/BaseMenuPresenter;->mCallback:Landroid/support/v7/view/menu/MenuPresenter$Callback;
+
+    return-void
+.end method
+
+.method public setId(I)V
+    .locals 0
+
+    iput p1, p0, Landroid/support/v7/view/menu/BaseMenuPresenter;->mId:I
 
     return-void
 .end method
@@ -283,7 +362,7 @@
 
     invoke-virtual {v5, v9}, Landroid/view/View;->setPressed(Z)V
 
-    invoke-static {v5}, Landroid/support/v4/view/ViewCompat;->jumpDrawablesToCurrentState(Landroid/view/View;)V
+    invoke-virtual {v5}, Landroid/view/View;->jumpDrawablesToCurrentState()V
 
     :cond_1
     if-eq v5, v1, :cond_2

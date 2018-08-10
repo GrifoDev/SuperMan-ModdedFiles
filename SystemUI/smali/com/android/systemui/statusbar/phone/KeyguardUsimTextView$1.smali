@@ -31,6 +31,25 @@
 
 
 # virtual methods
+.method public onKeyguardVisibilityChanged(Z)V
+    .locals 2
+
+    if-eqz p1, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView$1;->this$0:Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView$1;->this$0:Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;
+
+    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->-wrap0(Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;)Lcom/android/internal/telephony/IccCardConstants$State;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->-wrap1(Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;Lcom/android/internal/telephony/IccCardConstants$State;)V
+
+    :cond_0
+    return-void
+.end method
+
 .method public onRefreshCarrierInfo()V
     .locals 2
 
@@ -44,11 +63,11 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView$1;->this$0:Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;
 
-    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->-get0(Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;)Lcom/android/internal/telephony/IccCardConstants$State;
+    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->-wrap0(Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;)Lcom/android/internal/telephony/IccCardConstants$State;
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->-wrap0(Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;Lcom/android/internal/telephony/IccCardConstants$State;)V
+    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->-wrap1(Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;Lcom/android/internal/telephony/IccCardConstants$State;)V
 
     return-void
 .end method
@@ -64,11 +83,13 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView$1;->this$0:Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;
 
-    invoke-static {v0, p3}, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->-set0(Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;Lcom/android/internal/telephony/IccCardConstants$State;)Lcom/android/internal/telephony/IccCardConstants$State;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView$1;->this$0:Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView$1;->this$0:Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;
+    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->-wrap0(Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;)Lcom/android/internal/telephony/IccCardConstants$State;
 
-    invoke-static {v0, p3}, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->-wrap0(Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;Lcom/android/internal/telephony/IccCardConstants$State;)V
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->-wrap1(Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;Lcom/android/internal/telephony/IccCardConstants$State;)V
 
     return-void
 .end method

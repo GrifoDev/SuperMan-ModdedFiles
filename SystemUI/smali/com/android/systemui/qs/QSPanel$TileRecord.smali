@@ -15,22 +15,13 @@
 
 
 # instance fields
-.field public callback:Lcom/android/systemui/qs/QSTile$Callback;
-
-.field public disableState:Z
+.field public callback:Lcom/android/systemui/plugins/qs/QSTile$Callback;
 
 .field public scanState:Z
 
-.field public tile:Lcom/android/systemui/qs/QSTile;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/android/systemui/qs/QSTile",
-            "<*>;"
-        }
-    .end annotation
-.end field
+.field public tile:Lcom/android/systemui/plugins/qs/QSTile;
 
-.field public tileView:Lcom/android/systemui/qs/QSTileBaseView;
+.field public tileView:Lcom/android/systemui/plugins/qs/QSTileView;
 
 
 # direct methods

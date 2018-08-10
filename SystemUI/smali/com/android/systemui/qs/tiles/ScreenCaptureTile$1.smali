@@ -32,9 +32,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 6
-
-    const/4 v5, 0x1
+    .locals 5
 
     const/4 v4, 0x0
 
@@ -72,11 +70,11 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/ScreenCaptureTile$1;->this$0:Lcom/android/systemui/qs/tiles/ScreenCaptureTile;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->-get5(Lcom/android/systemui/qs/tiles/ScreenCaptureTile;)Z
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->-get6(Lcom/android/systemui/qs/tiles/ScreenCaptureTile;)Z
 
     move-result v1
 
@@ -84,168 +82,54 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/ScreenCaptureTile$1;->this$0:Lcom/android/systemui/qs/tiles/ScreenCaptureTile;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->-wrap0(Lcom/android/systemui/qs/tiles/ScreenCaptureTile;)V
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->-wrap2(Lcom/android/systemui/qs/tiles/ScreenCaptureTile;)V
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/ScreenCaptureTile$1;->this$0:Lcom/android/systemui/qs/tiles/ScreenCaptureTile;
 
-    invoke-static {v1, v4}, Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->-set2(Lcom/android/systemui/qs/tiles/ScreenCaptureTile;Z)Z
+    invoke-static {v1, v4}, Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->-set1(Lcom/android/systemui/qs/tiles/ScreenCaptureTile;Z)Z
 
     :cond_0
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/ScreenCaptureTile$1;->this$0:Lcom/android/systemui/qs/tiles/ScreenCaptureTile;
-
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->-get6(Lcom/android/systemui/qs/tiles/ScreenCaptureTile;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/ScreenCaptureTile$1;->this$0:Lcom/android/systemui/qs/tiles/ScreenCaptureTile;
-
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->-wrap1(Lcom/android/systemui/qs/tiles/ScreenCaptureTile;)V
-
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/ScreenCaptureTile$1;->this$0:Lcom/android/systemui/qs/tiles/ScreenCaptureTile;
-
-    invoke-static {v1, v4}, Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->-set3(Lcom/android/systemui/qs/tiles/ScreenCaptureTile;Z)Z
-
-    :cond_1
     :goto_0
     return-void
 
-    :cond_2
+    :cond_1
     const-string/jumbo v1, "com.samsung.systemui.statusbar.EXPANDED"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_0
 
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/ScreenCaptureTile$1;->this$0:Lcom/android/systemui/qs/tiles/ScreenCaptureTile;
-
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->-get5(Lcom/android/systemui/qs/tiles/ScreenCaptureTile;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_3
-
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/ScreenCaptureTile$1;->this$0:Lcom/android/systemui/qs/tiles/ScreenCaptureTile;
-
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->-get4(Lcom/android/systemui/qs/tiles/ScreenCaptureTile;)Lcom/android/systemui/qs/QSTile$Host;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Lcom/android/systemui/qs/QSTile$Host;->getKeyguardMonitor()Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/policy/KeyguardMonitor;->isShowing()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_3
-
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/ScreenCaptureTile$1;->this$0:Lcom/android/systemui/qs/tiles/ScreenCaptureTile;
-
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->-wrap0(Lcom/android/systemui/qs/tiles/ScreenCaptureTile;)V
-
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/ScreenCaptureTile$1;->this$0:Lcom/android/systemui/qs/tiles/ScreenCaptureTile;
-
-    invoke-static {v1, v4}, Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->-set2(Lcom/android/systemui/qs/tiles/ScreenCaptureTile;Z)Z
-
-    :cond_3
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/ScreenCaptureTile$1;->this$0:Lcom/android/systemui/qs/tiles/ScreenCaptureTile;
 
     invoke-static {v1}, Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->-get6(Lcom/android/systemui/qs/tiles/ScreenCaptureTile;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/ScreenCaptureTile$1;->this$0:Lcom/android/systemui/qs/tiles/ScreenCaptureTile;
+    const-class v1, Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->-get4(Lcom/android/systemui/qs/tiles/ScreenCaptureTile;)Lcom/android/systemui/qs/QSTile$Host;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Lcom/android/systemui/qs/QSTile$Host;->getKeyguardMonitor()Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
+    invoke-static {v1}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/policy/KeyguardMonitor;->isShowing()Z
+    check-cast v1, Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
+
+    invoke-interface {v1}, Lcom/android/systemui/statusbar/policy/KeyguardMonitor;->isShowing()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/ScreenCaptureTile$1;->this$0:Lcom/android/systemui/qs/tiles/ScreenCaptureTile;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->-wrap1(Lcom/android/systemui/qs/tiles/ScreenCaptureTile;)V
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->-wrap2(Lcom/android/systemui/qs/tiles/ScreenCaptureTile;)V
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/ScreenCaptureTile$1;->this$0:Lcom/android/systemui/qs/tiles/ScreenCaptureTile;
 
-    invoke-static {v1, v4}, Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->-set3(Lcom/android/systemui/qs/tiles/ScreenCaptureTile;Z)Z
+    invoke-static {v1, v4}, Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->-set1(Lcom/android/systemui/qs/tiles/ScreenCaptureTile;Z)Z
 
     goto :goto_0
-
-    :cond_4
-    const-string/jumbo v1, "com.sec.app.screenrecorder.on"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_5
-
-    invoke-static {}, Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->-get0()Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "ACTION_SCREEN_RECORDER_ON"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/ScreenCaptureTile$1;->this$0:Lcom/android/systemui/qs/tiles/ScreenCaptureTile;
-
-    invoke-static {v1, v5}, Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->-set0(Lcom/android/systemui/qs/tiles/ScreenCaptureTile;Z)Z
-
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/ScreenCaptureTile$1;->this$0:Lcom/android/systemui/qs/tiles/ScreenCaptureTile;
-
-    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->-wrap2(Lcom/android/systemui/qs/tiles/ScreenCaptureTile;Ljava/lang/Object;)V
-
-    goto :goto_0
-
-    :cond_5
-    const-string/jumbo v1, "com.sec.app.screenrecorder.off"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    invoke-static {}, Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->-get0()Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "ACTION_SCREEN_RECORDER_OFF"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/ScreenCaptureTile$1;->this$0:Lcom/android/systemui/qs/tiles/ScreenCaptureTile;
-
-    invoke-static {v1, v4}, Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->-set0(Lcom/android/systemui/qs/tiles/ScreenCaptureTile;Z)Z
-
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/ScreenCaptureTile$1;->this$0:Lcom/android/systemui/qs/tiles/ScreenCaptureTile;
-
-    invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->-wrap2(Lcom/android/systemui/qs/tiles/ScreenCaptureTile;Ljava/lang/Object;)V
-
-    goto/16 :goto_0
 .end method

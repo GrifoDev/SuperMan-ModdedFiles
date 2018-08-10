@@ -11,7 +11,7 @@
         value = {
             "Ljava/util/ArrayList",
             "<",
-            "Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$TouchEvent;",
+            "Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$TouchEvent;",
             ">;"
         }
     .end annotation
@@ -22,7 +22,7 @@
         value = {
             "Ljava/util/ArrayList",
             "<",
-            "Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$PhoneEvent;",
+            "Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$PhoneEvent;",
             ">;"
         }
     .end annotation
@@ -35,7 +35,7 @@
         value = {
             "Ljava/util/ArrayList",
             "<",
-            "Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$SensorEvent;",
+            "Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$SensorEvent;",
             ">;"
         }
     .end annotation
@@ -91,16 +91,16 @@
     return-void
 .end method
 
-.method private motionEventToProto(Landroid/view/MotionEvent;)Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$TouchEvent;
+.method private motionEventToProto(Landroid/view/MotionEvent;)Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$TouchEvent;
     .locals 8
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getPointerCount()I
 
     move-result v0
 
-    new-instance v3, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$TouchEvent;
+    new-instance v3, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$TouchEvent;
 
-    invoke-direct {v3}, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$TouchEvent;-><init>()V
+    invoke-direct {v3}, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$TouchEvent;-><init>()V
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getEventTimeNano()J
 
@@ -110,64 +110,64 @@
 
     sub-long/2addr v4, v6
 
-    invoke-virtual {v3, v4, v5}, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$TouchEvent;->setTimeOffsetNanos(J)Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$TouchEvent;
+    invoke-virtual {v3, v4, v5}, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$TouchEvent;->setTimeOffsetNanos(J)Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$TouchEvent;
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v4
 
-    invoke-virtual {v3, v4}, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$TouchEvent;->setAction(I)Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$TouchEvent;
+    invoke-virtual {v3, v4}, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$TouchEvent;->setAction(I)Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$TouchEvent;
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionIndex()I
 
     move-result v4
 
-    invoke-virtual {v3, v4}, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$TouchEvent;->setActionIndex(I)Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$TouchEvent;
+    invoke-virtual {v3, v4}, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$TouchEvent;->setActionIndex(I)Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$TouchEvent;
 
-    new-array v4, v0, [Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$TouchEvent$Pointer;
+    new-array v4, v0, [Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$TouchEvent$Pointer;
 
-    iput-object v4, v3, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$TouchEvent;->pointers:[Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$TouchEvent$Pointer;
+    iput-object v4, v3, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$TouchEvent;->pointers:[Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$TouchEvent$Pointer;
 
     const/4 v1, 0x0
 
     :goto_0
     if-ge v1, v0, :cond_0
 
-    new-instance v2, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$TouchEvent$Pointer;
+    new-instance v2, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$TouchEvent$Pointer;
 
-    invoke-direct {v2}, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$TouchEvent$Pointer;-><init>()V
+    invoke-direct {v2}, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$TouchEvent$Pointer;-><init>()V
 
     invoke-virtual {p1, v1}, Landroid/view/MotionEvent;->getX(I)F
 
     move-result v4
 
-    invoke-virtual {v2, v4}, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$TouchEvent$Pointer;->setX(F)Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$TouchEvent$Pointer;
+    invoke-virtual {v2, v4}, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$TouchEvent$Pointer;->setX(F)Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$TouchEvent$Pointer;
 
     invoke-virtual {p1, v1}, Landroid/view/MotionEvent;->getY(I)F
 
     move-result v4
 
-    invoke-virtual {v2, v4}, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$TouchEvent$Pointer;->setY(F)Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$TouchEvent$Pointer;
+    invoke-virtual {v2, v4}, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$TouchEvent$Pointer;->setY(F)Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$TouchEvent$Pointer;
 
     invoke-virtual {p1, v1}, Landroid/view/MotionEvent;->getSize(I)F
 
     move-result v4
 
-    invoke-virtual {v2, v4}, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$TouchEvent$Pointer;->setSize(F)Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$TouchEvent$Pointer;
+    invoke-virtual {v2, v4}, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$TouchEvent$Pointer;->setSize(F)Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$TouchEvent$Pointer;
 
     invoke-virtual {p1, v1}, Landroid/view/MotionEvent;->getPressure(I)F
 
     move-result v4
 
-    invoke-virtual {v2, v4}, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$TouchEvent$Pointer;->setPressure(F)Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$TouchEvent$Pointer;
+    invoke-virtual {v2, v4}, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$TouchEvent$Pointer;->setPressure(F)Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$TouchEvent$Pointer;
 
     invoke-virtual {p1, v1}, Landroid/view/MotionEvent;->getPointerId(I)I
 
     move-result v4
 
-    invoke-virtual {v2, v4}, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$TouchEvent$Pointer;->setId(I)Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$TouchEvent$Pointer;
+    invoke-virtual {v2, v4}, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$TouchEvent$Pointer;->setId(I)Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$TouchEvent$Pointer;
 
-    iget-object v4, v3, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$TouchEvent;->pointers:[Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$TouchEvent$Pointer;
+    iget-object v4, v3, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$TouchEvent;->pointers:[Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$TouchEvent$Pointer;
 
     aput-object v2, v4, v1
 
@@ -179,30 +179,30 @@
     return-object v3
 .end method
 
-.method private phoneEventToProto(IJ)Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$PhoneEvent;
+.method private phoneEventToProto(IJ)Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$PhoneEvent;
     .locals 4
 
-    new-instance v0, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$PhoneEvent;
+    new-instance v0, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$PhoneEvent;
 
-    invoke-direct {v0}, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$PhoneEvent;-><init>()V
+    invoke-direct {v0}, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$PhoneEvent;-><init>()V
 
-    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$PhoneEvent;->setType(I)Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$PhoneEvent;
+    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$PhoneEvent;->setType(I)Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$PhoneEvent;
 
     iget-wide v2, p0, Lcom/android/systemui/analytics/SensorLoggerSession;->mStartSystemTimeNanos:J
 
     sub-long v2, p2, v2
 
-    invoke-virtual {v0, v2, v3}, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$PhoneEvent;->setTimeOffsetNanos(J)Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$PhoneEvent;
+    invoke-virtual {v0, v2, v3}, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$PhoneEvent;->setTimeOffsetNanos(J)Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$PhoneEvent;
 
     return-object v0
 .end method
 
-.method private sensorEventToProto(Landroid/hardware/SensorEvent;J)Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$SensorEvent;
+.method private sensorEventToProto(Landroid/hardware/SensorEvent;J)Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$SensorEvent;
     .locals 4
 
-    new-instance v0, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$SensorEvent;
+    new-instance v0, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$SensorEvent;
 
-    invoke-direct {v0}, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$SensorEvent;-><init>()V
+    invoke-direct {v0}, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$SensorEvent;-><init>()V
 
     iget-object v1, p1, Landroid/hardware/SensorEvent;->sensor:Landroid/hardware/Sensor;
 
@@ -210,17 +210,17 @@
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$SensorEvent;->setType(I)Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$SensorEvent;
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$SensorEvent;->setType(I)Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$SensorEvent;
 
     iget-wide v2, p0, Lcom/android/systemui/analytics/SensorLoggerSession;->mStartSystemTimeNanos:J
 
     sub-long v2, p2, v2
 
-    invoke-virtual {v0, v2, v3}, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$SensorEvent;->setTimeOffsetNanos(J)Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$SensorEvent;
+    invoke-virtual {v0, v2, v3}, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$SensorEvent;->setTimeOffsetNanos(J)Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$SensorEvent;
 
     iget-wide v2, p1, Landroid/hardware/SensorEvent;->timestamp:J
 
-    invoke-virtual {v0, v2, v3}, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$SensorEvent;->setTimestamp(J)Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$SensorEvent;
+    invoke-virtual {v0, v2, v3}, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$SensorEvent;->setTimestamp(J)Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$SensorEvent;
 
     iget-object v1, p1, Landroid/hardware/SensorEvent;->values:[F
 
@@ -230,7 +230,7 @@
 
     check-cast v1, [F
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$SensorEvent;->values:[F
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$SensorEvent;->values:[F
 
     return-object v0
 .end method
@@ -240,7 +240,7 @@
 .method public addMotionEvent(Landroid/view/MotionEvent;)V
     .locals 2
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/analytics/SensorLoggerSession;->motionEventToProto(Landroid/view/MotionEvent;)Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$TouchEvent;
+    invoke-direct {p0, p1}, Lcom/android/systemui/analytics/SensorLoggerSession;->motionEventToProto(Landroid/view/MotionEvent;)Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$TouchEvent;
 
     move-result-object v0
 
@@ -254,7 +254,7 @@
 .method public addPhoneEvent(IJ)V
     .locals 2
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/analytics/SensorLoggerSession;->phoneEventToProto(IJ)Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$PhoneEvent;
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/analytics/SensorLoggerSession;->phoneEventToProto(IJ)Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$PhoneEvent;
 
     move-result-object v0
 
@@ -268,7 +268,7 @@
 .method public addSensorEvent(Landroid/hardware/SensorEvent;J)V
     .locals 2
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/analytics/SensorLoggerSession;->sensorEventToProto(Landroid/hardware/SensorEvent;J)Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$SensorEvent;
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/analytics/SensorLoggerSession;->sensorEventToProto(Landroid/hardware/SensorEvent;J)Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$SensorEvent;
 
     move-result-object v0
 
@@ -315,16 +315,24 @@
     return-void
 .end method
 
-.method public toProto()Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session;
+.method public setType(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/analytics/SensorLoggerSession;->mType:I
+
+    return-void
+.end method
+
+.method public toProto()Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session;
     .locals 6
 
-    new-instance v0, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session;
+    new-instance v0, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session;
 
-    invoke-direct {v0}, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session;-><init>()V
+    invoke-direct {v0}, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session;-><init>()V
 
     iget-wide v2, p0, Lcom/android/systemui/analytics/SensorLoggerSession;->mStartTimestampMillis:J
 
-    invoke-virtual {v0, v2, v3}, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session;->setStartTimestampMillis(J)Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session;
+    invoke-virtual {v0, v2, v3}, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session;->setStartTimestampMillis(J)Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session;
 
     iget-wide v2, p0, Lcom/android/systemui/analytics/SensorLoggerSession;->mEndTimestampMillis:J
 
@@ -332,63 +340,63 @@
 
     sub-long/2addr v2, v4
 
-    invoke-virtual {v0, v2, v3}, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session;->setDurationMillis(J)Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session;
+    invoke-virtual {v0, v2, v3}, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session;->setDurationMillis(J)Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session;
 
     sget-object v1, Landroid/os/Build;->FINGERPRINT:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session;->setBuild(Ljava/lang/String;)Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session;
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session;->setBuild(Ljava/lang/String;)Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session;
 
     iget v1, p0, Lcom/android/systemui/analytics/SensorLoggerSession;->mResult:I
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session;->setResult(I)Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session;
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session;->setResult(I)Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session;
 
     iget v1, p0, Lcom/android/systemui/analytics/SensorLoggerSession;->mType:I
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session;->setType(I)Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session;
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session;->setType(I)Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session;
 
     iget-object v1, p0, Lcom/android/systemui/analytics/SensorLoggerSession;->mSensorEvents:Ljava/util/ArrayList;
 
-    iget-object v2, v0, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session;->sensorEvents:[Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$SensorEvent;
+    iget-object v2, v0, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session;->sensorEvents:[Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$SensorEvent;
 
     invoke-virtual {v1, v2}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
     move-result-object v1
 
-    check-cast v1, [Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$SensorEvent;
+    check-cast v1, [Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$SensorEvent;
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session;->sensorEvents:[Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$SensorEvent;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session;->sensorEvents:[Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$SensorEvent;
 
     iget-object v1, p0, Lcom/android/systemui/analytics/SensorLoggerSession;->mMotionEvents:Ljava/util/ArrayList;
 
-    iget-object v2, v0, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session;->touchEvents:[Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$TouchEvent;
+    iget-object v2, v0, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session;->touchEvents:[Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$TouchEvent;
 
     invoke-virtual {v1, v2}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
     move-result-object v1
 
-    check-cast v1, [Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$TouchEvent;
+    check-cast v1, [Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$TouchEvent;
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session;->touchEvents:[Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$TouchEvent;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session;->touchEvents:[Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$TouchEvent;
 
     iget-object v1, p0, Lcom/android/systemui/analytics/SensorLoggerSession;->mPhoneEvents:Ljava/util/ArrayList;
 
-    iget-object v2, v0, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session;->phoneEvents:[Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$PhoneEvent;
+    iget-object v2, v0, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session;->phoneEvents:[Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$PhoneEvent;
 
     invoke-virtual {v1, v2}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
     move-result-object v1
 
-    check-cast v1, [Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$PhoneEvent;
+    check-cast v1, [Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$PhoneEvent;
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session;->phoneEvents:[Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session$PhoneEvent;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session;->phoneEvents:[Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session$PhoneEvent;
 
     iget v1, p0, Lcom/android/systemui/analytics/SensorLoggerSession;->mTouchAreaWidth:I
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session;->setTouchAreaWidth(I)Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session;
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session;->setTouchAreaWidth(I)Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session;
 
     iget v1, p0, Lcom/android/systemui/analytics/SensorLoggerSession;->mTouchAreaHeight:I
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session;->setTouchAreaHeight(I)Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session;
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session;->setTouchAreaHeight(I)Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session;
 
     return-object v0
 .end method

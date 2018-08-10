@@ -40,7 +40,7 @@
 
     sub-float/2addr v1, p1
 
-    invoke-static {v0, v1}, Landroid/support/v4/widget/SwipeRefreshLayout;->-wrap2(Landroid/support/v4/widget/SwipeRefreshLayout;F)V
+    invoke-virtual {v0, v1}, Landroid/support/v4/widget/SwipeRefreshLayout;->setAnimationProgress(F)V
 
     return-void
 .end method

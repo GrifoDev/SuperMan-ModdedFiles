@@ -20,16 +20,20 @@
 # instance fields
 .field final synthetic this$1:Lcom/android/keyguard/KeyguardUCMPinView$CheckUcmPin;
 
+.field final synthetic val$passwordBundle:Landroid/os/Bundle;
+
 .field final synthetic val$result:[I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/keyguard/KeyguardUCMPinView$CheckUcmPin;[I)V
+.method constructor <init>(Lcom/android/keyguard/KeyguardUCMPinView$CheckUcmPin;[ILandroid/os/Bundle;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/KeyguardUCMPinView$CheckUcmPin$1;->this$1:Lcom/android/keyguard/KeyguardUCMPinView$CheckUcmPin;
 
     iput-object p2, p0, Lcom/android/keyguard/KeyguardUCMPinView$CheckUcmPin$1;->val$result:[I
+
+    iput-object p3, p0, Lcom/android/keyguard/KeyguardUCMPinView$CheckUcmPin$1;->val$passwordBundle:Landroid/os/Bundle;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -61,7 +65,9 @@
 
     aget v3, v3, v4
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/keyguard/KeyguardUCMPinView$CheckUcmPin;->onVerifyPinResponse(III)V
+    iget-object v4, p0, Lcom/android/keyguard/KeyguardUCMPinView$CheckUcmPin$1;->val$passwordBundle:Landroid/os/Bundle;
+
+    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/keyguard/KeyguardUCMPinView$CheckUcmPin;->onVerifyPinResponse(IIILandroid/os/Bundle;)V
 
     return-void
 .end method

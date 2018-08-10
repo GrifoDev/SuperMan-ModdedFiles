@@ -26,13 +26,13 @@
 
 .field private mMascotView:Landroid/widget/LinearLayout;
 
-.field private mPhoneStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
-
 .field private mRemoteViewReceiver:Landroid/content/BroadcastReceiver;
 
 .field private mRemoteViews:Landroid/widget/RemoteViews;
 
 .field public mServiceConnection:Landroid/content/ServiceConnection;
+
+.field private mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
 
 .field private sBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
@@ -54,18 +54,18 @@
     return v0
 .end method
 
-.method static synthetic -get2(Lcom/android/systemui/statusbar/phone/DcmKeyguardMascotUtils;)Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+.method static synthetic -get2(Lcom/android/systemui/statusbar/phone/DcmKeyguardMascotUtils;)Landroid/widget/RemoteViews;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardMascotUtils;->mPhoneStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardMascotUtils;->mRemoteViews:Landroid/widget/RemoteViews;
 
     return-object v0
 .end method
 
-.method static synthetic -get3(Lcom/android/systemui/statusbar/phone/DcmKeyguardMascotUtils;)Landroid/widget/RemoteViews;
+.method static synthetic -get3(Lcom/android/systemui/statusbar/phone/DcmKeyguardMascotUtils;)Lcom/android/systemui/statusbar/phone/StatusBar;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardMascotUtils;->mRemoteViews:Landroid/widget/RemoteViews;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardMascotUtils;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
 
     return-object v0
 .end method
@@ -94,7 +94,7 @@
     return-object p1
 .end method
 
-.method constructor <init>(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;)V
+.method constructor <init>(Lcom/android/systemui/statusbar/phone/StatusBar;)V
     .locals 2
 
     const/4 v1, 0x0
@@ -123,9 +123,9 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardMascotUtils;->mServiceConnection:Landroid/content/ServiceConnection;
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardMascotUtils;->mPhoneStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardMascotUtils;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
 
-    iget-object v0, p1, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mContext:Landroid/content/Context;
+    iget-object v0, p1, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardMascotUtils;->mContext:Landroid/content/Context;
 
@@ -245,6 +245,8 @@
 
     move-result-object v2
 
+    if-eqz v2, :cond_1
+
     invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
@@ -289,9 +291,9 @@
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardMascotUtils;->mPhoneStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardMascotUtils;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
 
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->isShowHistoryCountAndMascot()Z
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/StatusBar;->isShowHistoryCountAndMascot()Z
 
     move-result v1
 

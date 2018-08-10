@@ -1,5 +1,5 @@
 .class public Lcom/android/systemui/qs/tiles/UserTile;
-.super Lcom/android/systemui/qs/QSTile;
+.super Lcom/android/systemui/qs/tileimpl/QSTileImpl;
 .source "UserTile.java"
 
 # interfaces
@@ -9,9 +9,9 @@
 # annotations
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lcom/android/systemui/qs/QSTile",
+        "Lcom/android/systemui/qs/tileimpl/QSTileImpl",
         "<",
-        "Lcom/android/systemui/qs/QSTile$State;",
+        "Lcom/android/systemui/plugins/qs/QSTile$State;",
         ">;",
         "Lcom/android/systemui/statusbar/policy/UserInfoController$OnUserInfoChangedListener;"
     }
@@ -37,20 +37,28 @@
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/systemui/qs/QSTile$Host;)V
+.method public constructor <init>(Lcom/android/systemui/qs/QSHost;)V
     .locals 1
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/QSTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;-><init>(Lcom/android/systemui/qs/QSHost;)V
 
-    invoke-interface {p1}, Lcom/android/systemui/qs/QSTile$Host;->getUserSwitcherController()Lcom/android/systemui/statusbar/policy/UserSwitcherController;
+    const-class v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;
+
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
     iput-object v0, p0, Lcom/android/systemui/qs/tiles/UserTile;->mUserSwitcherController:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
-    invoke-interface {p1}, Lcom/android/systemui/qs/QSTile$Host;->getUserInfoController()Lcom/android/systemui/statusbar/policy/UserInfoController;
+    const-class v0, Lcom/android/systemui/statusbar/policy/UserInfoController;
+
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/policy/UserInfoController;
 
     iput-object v0, p0, Lcom/android/systemui/qs/tiles/UserTile;->mUserInfoController:Lcom/android/systemui/statusbar/policy/UserInfoController;
 
@@ -59,12 +67,12 @@
 
 
 # virtual methods
-.method public getDetailAdapter()Lcom/android/systemui/qs/QSTile$DetailAdapter;
+.method public getDetailAdapter()Lcom/android/systemui/plugins/qs/DetailAdapter;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/UserTile;->mUserSwitcherController:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
-    iget-object v0, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->userDetailAdapter:Lcom/android/systemui/qs/QSTile$DetailAdapter;
+    iget-object v0, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->userDetailAdapter:Lcom/android/systemui/plugins/qs/DetailAdapter;
 
     return-object v0
 .end method
@@ -92,11 +100,11 @@
 .method public getTileLabel()Ljava/lang/CharSequence;
     .locals 1
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/UserTile;->getState()Lcom/android/systemui/qs/QSTile$State;
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/UserTile;->getState()Lcom/android/systemui/plugins/qs/QSTile$State;
 
     move-result-object v0
 
-    iget-object v0, v0, Lcom/android/systemui/qs/QSTile$State;->label:Ljava/lang/CharSequence;
+    iget-object v0, v0, Lcom/android/systemui/plugins/qs/QSTile$State;->label:Ljava/lang/CharSequence;
 
     return-object v0
 .end method
@@ -111,14 +119,14 @@
     return-void
 .end method
 
-.method protected handleUpdateState(Lcom/android/systemui/qs/QSTile$State;Ljava/lang/Object;)V
+.method protected handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$State;Ljava/lang/Object;)V
     .locals 2
 
     if-eqz p2, :cond_1
 
-    check-cast p2, Landroid/util/Pair;
-
     move-object v0, p2
+
+    check-cast v0, Landroid/util/Pair;
 
     :goto_0
     if-eqz v0, :cond_0
@@ -127,19 +135,19 @@
 
     check-cast v1, Ljava/lang/CharSequence;
 
-    iput-object v1, p1, Lcom/android/systemui/qs/QSTile$State;->label:Ljava/lang/CharSequence;
+    iput-object v1, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->label:Ljava/lang/CharSequence;
 
     iget-object v1, v0, Landroid/util/Pair;->first:Ljava/lang/Object;
 
     check-cast v1, Ljava/lang/CharSequence;
 
-    iput-object v1, p1, Lcom/android/systemui/qs/QSTile$State;->contentDescription:Ljava/lang/CharSequence;
+    iput-object v1, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->contentDescription:Ljava/lang/CharSequence;
 
     new-instance v1, Lcom/android/systemui/qs/tiles/UserTile$1;
 
     invoke-direct {v1, p0, v0}, Lcom/android/systemui/qs/tiles/UserTile$1;-><init>(Lcom/android/systemui/qs/tiles/UserTile;Landroid/util/Pair;)V
 
-    iput-object v1, p1, Lcom/android/systemui/qs/QSTile$State;->icon:Lcom/android/systemui/qs/QSTile$Icon;
+    iput-object v1, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->icon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
     :cond_0
     return-void
@@ -150,17 +158,17 @@
     goto :goto_0
 .end method
 
-.method public newTileState()Lcom/android/systemui/qs/QSTile$State;
+.method public newTileState()Lcom/android/systemui/plugins/qs/QSTile$State;
     .locals 1
 
-    new-instance v0, Lcom/android/systemui/qs/QSTile$State;
+    new-instance v0, Lcom/android/systemui/plugins/qs/QSTile$State;
 
-    invoke-direct {v0}, Lcom/android/systemui/qs/QSTile$State;-><init>()V
+    invoke-direct {v0}, Lcom/android/systemui/plugins/qs/QSTile$State;-><init>()V
 
     return-object v0
 .end method
 
-.method public onUserInfoChanged(Ljava/lang/String;Landroid/graphics/drawable/Drawable;)V
+.method public onUserInfoChanged(Ljava/lang/String;Landroid/graphics/drawable/Drawable;Ljava/lang/String;)V
     .locals 1
 
     new-instance v0, Landroid/util/Pair;
@@ -183,7 +191,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/UserTile;->mUserInfoController:Lcom/android/systemui/statusbar/policy/UserInfoController;
 
-    invoke-virtual {v0, p0}, Lcom/android/systemui/statusbar/policy/UserInfoController;->addListener(Lcom/android/systemui/statusbar/policy/UserInfoController$OnUserInfoChangedListener;)V
+    invoke-interface {v0, p0}, Lcom/android/systemui/statusbar/policy/UserInfoController;->addCallback(Ljava/lang/Object;)V
 
     :goto_0
     return-void
@@ -191,7 +199,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/UserTile;->mUserInfoController:Lcom/android/systemui/statusbar/policy/UserInfoController;
 
-    invoke-virtual {v0, p0}, Lcom/android/systemui/statusbar/policy/UserInfoController;->remListener(Lcom/android/systemui/statusbar/policy/UserInfoController$OnUserInfoChangedListener;)V
+    invoke-interface {v0, p0}, Lcom/android/systemui/statusbar/policy/UserInfoController;->removeCallback(Ljava/lang/Object;)V
 
     goto :goto_0
 .end method

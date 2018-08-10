@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/recents/Recents;->onBusEvent(Lcom/android/systemui/recents/events/activity/DockedTopTaskEvent;)V
+    value = Lcom/android/systemui/recents/Recents;->onBusEvent(Lcom/android/systemui/recents/events/ui/RecentsDrawnEvent;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,16 +20,12 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/systemui/recents/Recents;
 
-.field final synthetic val$event:Lcom/android/systemui/recents/events/activity/DockedTopTaskEvent;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/recents/Recents;Lcom/android/systemui/recents/events/activity/DockedTopTaskEvent;)V
+.method constructor <init>(Lcom/android/systemui/recents/Recents;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/recents/Recents$6;->this$0:Lcom/android/systemui/recents/Recents;
-
-    iput-object p2, p0, Lcom/android/systemui/recents/Recents$6;->val$event:Lcom/android/systemui/recents/events/activity/DockedTopTaskEvent;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -39,24 +35,16 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 3
 
     :try_start_0
     iget-object v1, p0, Lcom/android/systemui/recents/Recents$6;->this$0:Lcom/android/systemui/recents/Recents;
 
-    invoke-static {v1}, Lcom/android/systemui/recents/Recents;->-get2(Lcom/android/systemui/recents/Recents;)Lcom/android/systemui/recents/IRecentsSystemUserCallbacks;
+    invoke-static {v1}, Lcom/android/systemui/recents/Recents;->-get3(Lcom/android/systemui/recents/Recents;)Lcom/android/systemui/recents/IRecentsSystemUserCallbacks;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/systemui/recents/Recents$6;->val$event:Lcom/android/systemui/recents/events/activity/DockedTopTaskEvent;
-
-    iget v2, v2, Lcom/android/systemui/recents/events/activity/DockedTopTaskEvent;->dragMode:I
-
-    iget-object v3, p0, Lcom/android/systemui/recents/Recents$6;->val$event:Lcom/android/systemui/recents/events/activity/DockedTopTaskEvent;
-
-    iget-object v3, v3, Lcom/android/systemui/recents/events/activity/DockedTopTaskEvent;->initialRect:Landroid/graphics/Rect;
-
-    invoke-interface {v1, v2, v3}, Lcom/android/systemui/recents/IRecentsSystemUserCallbacks;->sendDockingTopTaskEvent(ILandroid/graphics/Rect;)V
+    invoke-interface {v1}, Lcom/android/systemui/recents/IRecentsSystemUserCallbacks;->sendRecentsDrawnEvent()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 

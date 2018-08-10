@@ -1,11 +1,11 @@
 .class Lcom/android/systemui/statusbar/KeyguardIndicationController$4;
-.super Landroid/animation/AnimatorListenerAdapter;
+.super Landroid/content/BroadcastReceiver;
 .source "KeyguardIndicationController.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/KeyguardIndicationController;->showBounceAnimation()V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/systemui/statusbar/KeyguardIndicationController;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,120 +24,130 @@
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController$4;->this$0:Lcom/android/systemui/statusbar/KeyguardIndicationController;
 
-    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 11
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 5
 
-    const/4 v10, 0x2
+    const/4 v2, 0x1
 
-    const/high16 v9, 0x3f800000    # 1.0f
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    const/4 v8, 0x1
+    move-result-object v0
 
-    const/4 v7, 0x0
+    const-string/jumbo v1, "android.intent.action.CONFIGURATION_CHANGED"
 
-    new-instance v0, Landroid/animation/AnimatorSet;
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-direct {v0}, Landroid/animation/AnimatorSet;-><init>()V
-
-    iget-object v3, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController$4;->this$0:Lcom/android/systemui/statusbar/KeyguardIndicationController;
-
-    invoke-static {v3}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->-get1(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Lcom/android/systemui/statusbar/phone/BounceInterpolator;
-
-    move-result-object v3
-
-    invoke-virtual {v0, v3}, Landroid/animation/AnimatorSet;->setInterpolator(Landroid/animation/TimeInterpolator;)V
-
-    const-wide/16 v4, 0x15e
-
-    invoke-virtual {v0, v4, v5}, Landroid/animation/AnimatorSet;->setDuration(J)Landroid/animation/AnimatorSet;
-
-    iget-object v3, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController$4;->this$0:Lcom/android/systemui/statusbar/KeyguardIndicationController;
-
-    invoke-static {v3}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->-get0(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Ljava/util/ArrayList;
-
-    move-result-object v3
-
-    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    :cond_0
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/view/View;
+    move-result v1
 
     if-eqz v1, :cond_0
 
-    invoke-virtual {v1}, Landroid/view/View;->getVisibility()I
+    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController$4;->this$0:Lcom/android/systemui/statusbar/KeyguardIndicationController;
 
-    move-result v3
+    invoke-static {v1}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->-get8(Lcom/android/systemui/statusbar/KeyguardIndicationController;)I
 
-    if-nez v3, :cond_0
+    move-result v1
 
-    new-array v3, v8, [Landroid/animation/Animator;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController$4;->this$0:Lcom/android/systemui/statusbar/KeyguardIndicationController;
 
-    sget-object v4, Landroid/view/View;->SCALE_X:Landroid/util/Property;
+    invoke-static {v3}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->-get2(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Landroid/content/Context;
 
-    new-array v5, v10, [F
+    move-result-object v3
 
-    invoke-virtual {v1}, Landroid/view/View;->getScaleX()F
+    invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result v6
+    move-result-object v3
 
-    aput v6, v5, v7
+    invoke-virtual {v3}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
-    aput v9, v5, v8
+    move-result-object v3
 
-    invoke-static {v1, v4, v5}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
+    iget v3, v3, Landroid/content/res/Configuration;->semMobileKeyboardCovered:I
+
+    if-eq v1, v3, :cond_0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController$4;->this$0:Lcom/android/systemui/statusbar/KeyguardIndicationController;
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController$4;->this$0:Lcom/android/systemui/statusbar/KeyguardIndicationController;
+
+    invoke-static {v3}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->-get2(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Landroid/content/Context;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v3
+
+    iget v3, v3, Landroid/content/res/Configuration;->semMobileKeyboardCovered:I
+
+    invoke-static {v1, v3}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->-set8(Lcom/android/systemui/statusbar/KeyguardIndicationController;I)I
+
+    const-string/jumbo v3, "KeyguardIndication"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "onReceive mCurrentMobileKeyboard : "
+
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
-    aput-object v4, v3, v7
+    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController$4;->this$0:Lcom/android/systemui/statusbar/KeyguardIndicationController;
 
-    invoke-virtual {v0, v3}, Landroid/animation/AnimatorSet;->playTogether([Landroid/animation/Animator;)V
+    invoke-static {v1}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->-get8(Lcom/android/systemui/statusbar/KeyguardIndicationController;)I
 
-    new-array v3, v8, [Landroid/animation/Animator;
+    move-result v1
 
-    sget-object v4, Landroid/view/View;->SCALE_Y:Landroid/util/Property;
+    if-ne v1, v2, :cond_1
 
-    new-array v5, v10, [F
+    move v1, v2
 
-    invoke-virtual {v1}, Landroid/view/View;->getScaleY()F
+    :goto_0
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result v6
+    move-result-object v1
 
-    aput v6, v5, v7
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    aput v9, v5, v8
+    move-result-object v1
 
-    invoke-static {v1, v4, v5}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
+    invoke-static {v3, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v4
+    invoke-static {}, Lcom/android/systemui/Rune;->isFingerprintSensorRear()Z
 
-    aput-object v4, v3, v7
+    move-result v1
 
-    invoke-virtual {v0, v3}, Landroid/animation/AnimatorSet;->playTogether([Landroid/animation/Animator;)V
+    if-nez v1, :cond_0
 
-    goto :goto_0
+    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController$4;->this$0:Lcom/android/systemui/statusbar/KeyguardIndicationController;
+
+    invoke-static {v1}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->-get18(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController$4;->this$0:Lcom/android/systemui/statusbar/KeyguardIndicationController;
+
+    invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->setHelpText(I)V
+
+    :cond_0
+    return-void
 
     :cond_1
-    invoke-virtual {v0}, Landroid/animation/AnimatorSet;->start()V
+    const/4 v1, 0x0
 
-    return-void
+    goto :goto_0
 .end method

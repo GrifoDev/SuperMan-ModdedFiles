@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/policy/CallbackHandler;->setRssiTypeIcon(II)V
+    value = Lcom/android/systemui/statusbar/policy/CallbackHandler;->setSlotFocusVisible(ZII)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,24 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/systemui/statusbar/policy/CallbackHandler;
 
-.field final synthetic val$rssiTypeIconId:I
+.field final synthetic val$slotFocusIconId:I
 
 .field final synthetic val$subId:I
 
+.field final synthetic val$visible:Z
+
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/policy/CallbackHandler;II)V
+.method constructor <init>(Lcom/android/systemui/statusbar/policy/CallbackHandler;ZII)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$10;->this$0:Lcom/android/systemui/statusbar/policy/CallbackHandler;
 
-    iput p2, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$10;->val$rssiTypeIconId:I
+    iput-boolean p2, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$10;->val$visible:Z
 
-    iput p3, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$10;->val$subId:I
+    iput p3, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$10;->val$slotFocusIconId:I
+
+    iput p4, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$10;->val$subId:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,11 +47,11 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 5
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$10;->this$0:Lcom/android/systemui/statusbar/policy/CallbackHandler;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/policy/CallbackHandler;->-get0(Lcom/android/systemui/statusbar/policy/CallbackHandler;)Ljava/util/ArrayList;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/policy/CallbackHandler;->-get1(Lcom/android/systemui/statusbar/policy/CallbackHandler;)Ljava/util/ArrayList;
 
     move-result-object v2
 
@@ -68,11 +72,13 @@
 
     check-cast v0, Lcom/android/systemui/statusbar/policy/NetworkController$SignalCallback;
 
-    iget v2, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$10;->val$rssiTypeIconId:I
+    iget-boolean v2, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$10;->val$visible:Z
 
-    iget v3, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$10;->val$subId:I
+    iget v3, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$10;->val$slotFocusIconId:I
 
-    invoke-interface {v0, v2, v3}, Lcom/android/systemui/statusbar/policy/NetworkController$SignalCallback;->setRssiTypeIcon(II)V
+    iget v4, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$10;->val$subId:I
+
+    invoke-interface {v0, v2, v3, v4}, Lcom/android/systemui/statusbar/policy/NetworkController$SignalCallback;->setSlotFocusVisible(ZII)V
 
     goto :goto_0
 

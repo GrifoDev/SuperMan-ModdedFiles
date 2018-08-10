@@ -33,7 +33,7 @@
 
     invoke-direct {p0, p1, p2}, Landroid/support/v7/preference/DropDownPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    const v0, 0x104002f
+    const v0, 0x10409d7
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -71,53 +71,55 @@
 
 # virtual methods
 .method public onAttached()V
-    .locals 5
+    .locals 4
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     invoke-super {p0}, Landroid/support/v7/preference/DropDownPreference;->onAttached()V
 
     invoke-virtual {p0}, Lcom/android/systemui/tuner/BatteryPreference;->getContext()Landroid/content/Context;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-static {v2}, Lcom/android/systemui/tuner/TunerService;->get(Landroid/content/Context;)Lcom/android/systemui/tuner/TunerService;
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v2
-
-    new-array v3, v0, [Ljava/lang/String;
-
-    const-string/jumbo v4, "icon_blacklist"
-
-    aput-object v4, v3, v1
-
-    invoke-virtual {v2, p0, v3}, Lcom/android/systemui/tuner/TunerService;->addTunable(Lcom/android/systemui/tuner/TunerService$Tunable;[Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/tuner/BatteryPreference;->getContext()Landroid/content/Context;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v2
+    move-result-object v0
 
     const-string/jumbo v3, "status_bar_show_battery_percent"
 
-    invoke-static {v2, v3, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v0, v3, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
+
+    move v0, v1
 
     :goto_0
     iput-boolean v0, p0, Lcom/android/systemui/tuner/BatteryPreference;->mHasPercentage:Z
 
+    const-class v0, Lcom/android/systemui/tuner/TunerService;
+
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/tuner/TunerService;
+
+    new-array v1, v1, [Ljava/lang/String;
+
+    const-string/jumbo v3, "icon_blacklist"
+
+    aput-object v3, v1, v2
+
+    invoke-virtual {v0, p0, v1}, Lcom/android/systemui/tuner/TunerService;->addTunable(Lcom/android/systemui/tuner/TunerService$Tunable;[Ljava/lang/String;)V
+
     return-void
 
     :cond_0
-    move v0, v1
+    move v0, v2
 
     goto :goto_0
 .end method
@@ -125,13 +127,13 @@
 .method public onDetached()V
     .locals 1
 
-    invoke-virtual {p0}, Lcom/android/systemui/tuner/BatteryPreference;->getContext()Landroid/content/Context;
+    const-class v0, Lcom/android/systemui/tuner/TunerService;
+
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/android/systemui/tuner/TunerService;->get(Landroid/content/Context;)Lcom/android/systemui/tuner/TunerService;
-
-    move-result-object v0
+    check-cast v0, Lcom/android/systemui/tuner/TunerService;
 
     invoke-virtual {v0, p0}, Lcom/android/systemui/tuner/TunerService;->removeTunable(Lcom/android/systemui/tuner/TunerService$Tunable;)V
 
@@ -141,9 +143,7 @@
 .end method
 
 .method public onTuningChanged(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 3
-
-    const/4 v1, 0x1
+    .locals 2
 
     const-string/jumbo v0, "icon_blacklist"
 
@@ -161,17 +161,14 @@
 
     iget-object v0, p0, Lcom/android/systemui/tuner/BatteryPreference;->mBlacklist:Landroid/util/ArraySet;
 
-    iget-object v2, p0, Lcom/android/systemui/tuner/BatteryPreference;->mBattery:Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/systemui/tuner/BatteryPreference;->mBattery:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     iput-boolean v0, p0, Lcom/android/systemui/tuner/BatteryPreference;->mBatteryEnabled:Z
 
     :cond_0
@@ -179,46 +176,43 @@
 
     if-nez v0, :cond_1
 
-    iput-boolean v1, p0, Lcom/android/systemui/tuner/BatteryPreference;->mHasSetValue:Z
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/systemui/tuner/BatteryPreference;->mHasSetValue:Z
 
     iget-boolean v0, p0, Lcom/android/systemui/tuner/BatteryPreference;->mBatteryEnabled:Z
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2
 
     iget-boolean v0, p0, Lcom/android/systemui/tuner/BatteryPreference;->mHasPercentage:Z
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2
 
     const-string/jumbo v0, "percent"
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/tuner/BatteryPreference;->setValue(Ljava/lang/String;)V
 
     :cond_1
-    :goto_1
+    :goto_0
     return-void
 
     :cond_2
-    move v0, v1
-
-    goto :goto_0
-
-    :cond_3
     iget-boolean v0, p0, Lcom/android/systemui/tuner/BatteryPreference;->mBatteryEnabled:Z
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_3
 
     const-string/jumbo v0, "default"
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/tuner/BatteryPreference;->setValue(Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_4
+    :cond_3
     const-string/jumbo v0, "disabled"
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/tuner/BatteryPreference;->setValue(Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_0
 .end method
 
 .method protected persistString(Ljava/lang/String;)Z
@@ -272,13 +266,13 @@
     invoke-virtual {v1, v3}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
     :goto_1
-    invoke-virtual {p0}, Lcom/android/systemui/tuner/BatteryPreference;->getContext()Landroid/content/Context;
+    const-class v1, Lcom/android/systemui/tuner/TunerService;
+
+    invoke-static {v1}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v1
 
-    invoke-static {v1}, Lcom/android/systemui/tuner/TunerService;->get(Landroid/content/Context;)Lcom/android/systemui/tuner/TunerService;
-
-    move-result-object v1
+    check-cast v1, Lcom/android/systemui/tuner/TunerService;
 
     const-string/jumbo v3, "icon_blacklist"
 

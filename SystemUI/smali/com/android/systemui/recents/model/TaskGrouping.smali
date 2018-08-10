@@ -138,9 +138,12 @@
 
 
 # virtual methods
-.method addTask(Lcom/android/systemui/recents/model/Task;)V
+.method declared-synchronized addTask(Lcom/android/systemui/recents/model/Task;)V
     .locals 4
 
+    monitor-enter p0
+
+    :try_start_0
     iget-object v0, p0, Lcom/android/systemui/recents/model/TaskGrouping;->mTaskKeys:Ljava/util/ArrayList;
 
     iget-object v1, p1, Lcom/android/systemui/recents/model/Task;->key:Lcom/android/systemui/recents/model/Task$TaskKey;
@@ -167,13 +170,27 @@
     invoke-virtual {p1, p0}, Lcom/android/systemui/recents/model/Task;->setGroup(Lcom/android/systemui/recents/model/TaskGrouping;)V
 
     invoke-direct {p0}, Lcom/android/systemui/recents/model/TaskGrouping;->updateTaskIndices()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
 
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
 .end method
 
-.method public getNextTaskInGroup(Lcom/android/systemui/recents/model/Task;)Lcom/android/systemui/recents/model/Task$TaskKey;
+.method public declared-synchronized getNextTaskInGroup(Lcom/android/systemui/recents/model/Task;)Lcom/android/systemui/recents/model/Task$TaskKey;
     .locals 3
 
+    monitor-enter p0
+
+    :try_start_0
     invoke-virtual {p0, p1}, Lcom/android/systemui/recents/model/TaskGrouping;->indexOf(Lcom/android/systemui/recents/model/Task;)I
 
     move-result v0
@@ -195,18 +212,34 @@
     move-result-object v1
 
     check-cast v1, Lcom/android/systemui/recents/model/Task$TaskKey;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
 
     return-object v1
 
     :cond_0
     const/4 v1, 0x0
 
+    monitor-exit p0
+
     return-object v1
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit p0
+
+    throw v1
 .end method
 
-.method public getPrevTaskInGroup(Lcom/android/systemui/recents/model/Task;)Lcom/android/systemui/recents/model/Task$TaskKey;
+.method public declared-synchronized getPrevTaskInGroup(Lcom/android/systemui/recents/model/Task;)Lcom/android/systemui/recents/model/Task$TaskKey;
     .locals 3
 
+    monitor-enter p0
+
+    :try_start_0
     invoke-virtual {p0, p1}, Lcom/android/systemui/recents/model/TaskGrouping;->indexOf(Lcom/android/systemui/recents/model/Task;)I
 
     move-result v0
@@ -224,30 +257,60 @@
     move-result-object v1
 
     check-cast v1, Lcom/android/systemui/recents/model/Task$TaskKey;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
 
     return-object v1
 
     :cond_0
     const/4 v1, 0x0
 
+    monitor-exit p0
+
     return-object v1
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit p0
+
+    throw v1
 .end method
 
-.method public getTaskCount()I
+.method public declared-synchronized getTaskCount()I
     .locals 1
 
+    monitor-enter p0
+
+    :try_start_0
     iget-object v0, p0, Lcom/android/systemui/recents/model/TaskGrouping;->mTaskKeys:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v0
 
+    monitor-exit p0
+
     return v0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
 .end method
 
-.method public indexOf(Lcom/android/systemui/recents/model/Task;)I
+.method public declared-synchronized indexOf(Lcom/android/systemui/recents/model/Task;)I
     .locals 2
 
+    monitor-enter p0
+
+    :try_start_0
     iget-object v0, p0, Lcom/android/systemui/recents/model/TaskGrouping;->mTaskKeyIndices:Landroid/util/ArrayMap;
 
     iget-object v1, p1, Lcom/android/systemui/recents/model/Task;->key:Lcom/android/systemui/recents/model/Task$TaskKey;
@@ -259,37 +322,65 @@
     check-cast v0, Ljava/lang/Integer;
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v0
 
+    monitor-exit p0
+
     return v0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
 .end method
 
-.method public isFrontMostTask(Lcom/android/systemui/recents/model/Task;)Z
+.method public declared-synchronized isFrontMostTask(Lcom/android/systemui/recents/model/Task;)Z
     .locals 2
 
+    monitor-enter p0
+
+    :try_start_0
     iget-object v0, p1, Lcom/android/systemui/recents/model/Task;->key:Lcom/android/systemui/recents/model/Task$TaskKey;
 
     iget-object v1, p0, Lcom/android/systemui/recents/model/TaskGrouping;->mFrontMostTaskKey:Lcom/android/systemui/recents/model/Task$TaskKey;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
     :goto_0
+    monitor-exit p0
+
     return v0
 
     :cond_0
     const/4 v0, 0x0
 
     goto :goto_0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
 .end method
 
-.method public isTaskAboveTask(Lcom/android/systemui/recents/model/Task;Lcom/android/systemui/recents/model/Task;)Z
+.method public declared-synchronized isTaskAboveTask(Lcom/android/systemui/recents/model/Task;Lcom/android/systemui/recents/model/Task;)Z
     .locals 4
 
     const/4 v1, 0x0
 
+    monitor-enter p0
+
+    :try_start_0
     iget-object v0, p0, Lcom/android/systemui/recents/model/TaskGrouping;->mTaskKeyIndices:Landroid/util/ArrayMap;
 
     iget-object v2, p1, Lcom/android/systemui/recents/model/Task;->key:Lcom/android/systemui/recents/model/Task$TaskKey;
@@ -335,6 +426,8 @@
     check-cast v0, Ljava/lang/Integer;
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v0
 
@@ -343,6 +436,8 @@
     const/4 v0, 0x1
 
     :goto_0
+    monitor-exit p0
+
     return v0
 
     :cond_0
@@ -354,11 +449,21 @@
     move v0, v1
 
     goto :goto_0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
 .end method
 
-.method removeTask(Lcom/android/systemui/recents/model/Task;)V
+.method declared-synchronized removeTask(Lcom/android/systemui/recents/model/Task;)V
     .locals 6
 
+    monitor-enter p0
+
+    :try_start_0
     iget-object v4, p0, Lcom/android/systemui/recents/model/TaskGrouping;->mTaskKeys:Ljava/util/ArrayList;
 
     iget-object v5, p1, Lcom/android/systemui/recents/model/Task;->key:Lcom/android/systemui/recents/model/Task$TaskKey;
@@ -409,6 +514,17 @@
     invoke-virtual {p1, v4}, Lcom/android/systemui/recents/model/Task;->setGroup(Lcom/android/systemui/recents/model/TaskGrouping;)V
 
     invoke-direct {p0}, Lcom/android/systemui/recents/model/TaskGrouping;->updateTaskIndices()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
 
     return-void
+
+    :catchall_0
+    move-exception v4
+
+    monitor-exit p0
+
+    throw v4
 .end method

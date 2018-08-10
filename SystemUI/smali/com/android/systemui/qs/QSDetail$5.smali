@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/qs/QSDetail;->handleShowingDetail(Lcom/android/systemui/qs/QSTile$DetailAdapter;II)V
+    value = Lcom/android/systemui/qs/QSDetail;->handleShowingDetail(Lcom/android/systemui/plugins/qs/DetailAdapter;IIZ)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,16 +20,12 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/systemui/qs/QSDetail;
 
-.field final synthetic val$adapter:Lcom/android/systemui/qs/QSTile$DetailAdapter;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/QSDetail;Lcom/android/systemui/qs/QSTile$DetailAdapter;)V
+.method constructor <init>(Lcom/android/systemui/qs/QSDetail;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/QSDetail$5;->this$0:Lcom/android/systemui/qs/QSDetail;
-
-    iput-object p2, p0, Lcom/android/systemui/qs/QSDetail$5;->val$adapter:Lcom/android/systemui/qs/QSTile$DetailAdapter;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -39,68 +35,45 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 8
+    .locals 3
 
-    iget-object v2, p0, Lcom/android/systemui/qs/QSDetail$5;->this$0:Lcom/android/systemui/qs/QSDetail;
+    iget-object v1, p0, Lcom/android/systemui/qs/QSDetail$5;->this$0:Lcom/android/systemui/qs/QSDetail;
 
-    invoke-static {v2}, Lcom/android/systemui/qs/QSDetail;->-get5(Lcom/android/systemui/qs/QSDetail;)Landroid/widget/Switch;
+    invoke-static {v1}, Lcom/android/systemui/qs/QSDetail;->-get2(Lcom/android/systemui/qs/QSDetail;)Lcom/android/systemui/plugins/qs/DetailAdapter;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Landroid/widget/Switch;->isChecked()Z
+    if-eqz v1, :cond_1
 
-    move-result v0
+    iget-object v1, p0, Lcom/android/systemui/qs/QSDetail$5;->this$0:Lcom/android/systemui/qs/QSDetail;
 
-    iget-object v2, p0, Lcom/android/systemui/qs/QSDetail$5;->val$adapter:Lcom/android/systemui/qs/QSTile$DetailAdapter;
+    invoke-static {v1}, Lcom/android/systemui/qs/QSDetail;->-get2(Lcom/android/systemui/qs/QSDetail;)Lcom/android/systemui/plugins/qs/DetailAdapter;
 
-    invoke-interface {v2, v0}, Lcom/android/systemui/qs/QSTile$DetailAdapter;->setToggleState(Z)Z
+    move-result-object v1
 
-    move-result v1
+    invoke-interface {v1}, Lcom/android/systemui/plugins/qs/DetailAdapter;->getTileString()Ljava/lang/String;
 
-    iget-object v2, p0, Lcom/android/systemui/qs/QSDetail$5;->this$0:Lcom/android/systemui/qs/QSDetail;
+    move-result-object v0
 
-    invoke-static {v2}, Lcom/android/systemui/qs/QSDetail;->-get5(Lcom/android/systemui/qs/QSDetail;)Landroid/widget/Switch;
+    if-eqz v0, :cond_0
 
-    move-result-object v2
+    sget-object v1, Lcom/android/systemui/SystemUIAnalytics;->mCurrentScreenID:Ljava/lang/String;
 
-    invoke-virtual {v2, v1}, Landroid/widget/Switch;->setChecked(Z)V
+    const-string/jumbo v2, "4002"
 
-    sget-boolean v2, Lcom/android/systemui/SystemUIRune;->SUPPORT_GSIM_LOG:Z
-
-    if-eqz v2, :cond_0
-
-    iget-object v2, p0, Lcom/android/systemui/qs/QSDetail$5;->this$0:Lcom/android/systemui/qs/QSDetail;
-
-    invoke-static {v2}, Lcom/android/systemui/qs/QSDetail;->-get0(Lcom/android/systemui/qs/QSDetail;)Landroid/content/Context;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "com.android.systemui.statusbar.policy.quicksetting"
-
-    const-string/jumbo v4, "QS11"
-
-    iget-object v5, p0, Lcom/android/systemui/qs/QSDetail$5;->val$adapter:Lcom/android/systemui/qs/QSTile$DetailAdapter;
-
-    invoke-virtual {v5}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v5
-
-    const-string/jumbo v6, "DetailAdapter"
-
-    const-string/jumbo v7, ""
-
-    invoke-virtual {v5, v6, v7}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
-
-    move-result-object v5
-
-    const/4 v6, 0x0
-
-    invoke-static {v2, v3, v4, v5, v6}, Lcom/android/keyguard/util/GsimLogManager;->sendLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;)V
+    invoke-static {v1, v2, v0}, Lcom/android/systemui/SystemUIAnalytics;->sendEventLog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
+    const-string/jumbo v1, "299"
+
+    invoke-static {v1}, Lcom/android/systemui/SystemUIAnalytics;->sendScreenViewLog(Ljava/lang/String;)V
+
+    :cond_1
+    iget-object v1, p0, Lcom/android/systemui/qs/QSDetail$5;->this$0:Lcom/android/systemui/qs/QSDetail;
+
+    iget-object v1, v1, Lcom/android/systemui/qs/QSDetail;->mHost:Lcom/android/systemui/qs/QSTileHost;
+
+    invoke-virtual {v1}, Lcom/android/systemui/qs/QSTileHost;->collapsePanels()V
+
     return-void
 .end method

@@ -3,12 +3,12 @@
 .source "DozeScrimController.java"
 
 # interfaces
-.implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/phone/DozeScrimController;->startScrimAnimation(ZFJLandroid/view/animation/Interpolator;Ljava/lang/Runnable;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/systemui/statusbar/phone/DozeScrimController;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,16 +20,12 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/systemui/statusbar/phone/DozeScrimController;
 
-.field final synthetic val$inFront:Z
-
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/phone/DozeScrimController;Z)V
+.method constructor <init>(Lcom/android/systemui/statusbar/phone/DozeScrimController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController$5;->this$0:Lcom/android/systemui/statusbar/phone/DozeScrimController;
-
-    iput-boolean p2, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController$5;->val$inFront:Z
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,24 +34,27 @@
 
 
 # virtual methods
-.method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 3
+.method public run()V
+    .locals 2
 
-    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/Float;
-
-    invoke-virtual {v1}, Ljava/lang/Float;->floatValue()F
+    invoke-static {}, Lcom/android/systemui/statusbar/phone/DozeScrimController;->-get0()Z
 
     move-result v0
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController$5;->this$0:Lcom/android/systemui/statusbar/phone/DozeScrimController;
+    if-eqz v0, :cond_0
 
-    iget-boolean v2, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController$5;->val$inFront:Z
+    const-string/jumbo v0, "DozeScrimController"
 
-    invoke-static {v1, v2, v0}, Lcom/android/systemui/statusbar/phone/DozeScrimController;->-wrap3(Lcom/android/systemui/statusbar/phone/DozeScrimController;ZF)V
+    const-string/jumbo v1, "Pulse out finished"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    invoke-static {}, Lcom/android/systemui/doze/DozeLog;->tracePulseFinish()V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController$5;->this$0:Lcom/android/systemui/statusbar/phone/DozeScrimController;
+
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/DozeScrimController;->-wrap0(Lcom/android/systemui/statusbar/phone/DozeScrimController;)V
 
     return-void
 .end method

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="keyguard_bottom_area_emergency_button_area_min_height">35.0dip</dimen>
+    <dimen name="keyguard_security_height">420.0dip</dimen>
+    <dimen name="keyguard_security_width">420.0dip</dimen>
+    <dimen name="kg_emergency_button_font_size">18.0dip</dimen>
+    <dimen name="kg_emergency_button_stroke">2.0px</dimen>
+    <dimen name="kg_iris_preview_height">484.0dip</dimen>
+    <dimen name="kg_message_area_font_size">19.0dip</dimen>
+    <dimen name="kg_pattern_eca_margin_bottom">24.0dip</dimen>
+    <dimen name="kg_pattern_lock_pattern_view_height">329.0dip</dimen>
+    <dimen name="kg_pattern_lock_pattern_view_margin_bottom">24.0dip</dimen>
+    <dimen name="kg_pattern_lock_pattern_view_width">329.0dip</dimen>
+    <dimen name="kg_pattern_message_area_margin_bottom">19.0dip</dimen>
+    <item type="dimen" name="mr_dialog_fixed_width_major">50.0%</item>
+    <item type="dimen" name="mr_dialog_fixed_width_minor">70.00001%</item>
+    <dimen name="status_bar_icon_padding">1.0dip</dimen>
+    <dimen name="widget_big_font_size">100.0dip</dimen>
+    <dimen name="notification_panel_min_height">770.0dip</dimen>
+    <dimen name="panel_float">56.0dip</dimen>
+</resources>

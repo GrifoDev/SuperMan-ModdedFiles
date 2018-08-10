@@ -4,10 +4,6 @@
 
 
 # annotations
-.annotation build Landroid/annotation/TargetApi;
-    value = 0x15
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/support/graphics/drawable/VectorDrawableCompat$VClipPath;,
@@ -46,16 +42,6 @@
 
 
 # direct methods
-.method static synthetic -wrap0(IF)I
-    .locals 1
-
-    invoke-static {p0, p1}, Landroid/support/graphics/drawable/VectorDrawableCompat;->applyAlpha(IF)I
-
-    move-result v0
-
-    return v0
-.end method
-
 .method static constructor <clinit>()V
     .locals 1
 
@@ -66,7 +52,7 @@
     return-void
 .end method
 
-.method private constructor <init>()V
+.method constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Landroid/support/graphics/drawable/VectorDrawableCommon;-><init>()V
@@ -102,7 +88,7 @@
     return-void
 .end method
 
-.method private constructor <init>(Landroid/support/graphics/drawable/VectorDrawableCompat$VectorDrawableCompatState;)V
+.method constructor <init>(Landroid/support/graphics/drawable/VectorDrawableCompat$VectorDrawableCompatState;)V
     .locals 3
     .param p1    # Landroid/support/graphics/drawable/VectorDrawableCompat$VectorDrawableCompatState;
         .annotation build Landroid/support/annotation/NonNull;
@@ -150,23 +136,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Landroid/support/graphics/drawable/VectorDrawableCompat$VectorDrawableCompatState;Landroid/support/graphics/drawable/VectorDrawableCompat;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Landroid/support/graphics/drawable/VectorDrawableCompat;-><init>(Landroid/support/graphics/drawable/VectorDrawableCompat$VectorDrawableCompatState;)V
-
-    return-void
-.end method
-
-.method synthetic constructor <init>(Landroid/support/graphics/drawable/VectorDrawableCompat;)V
-    .locals 0
-
-    invoke-direct {p0}, Landroid/support/graphics/drawable/VectorDrawableCompat;-><init>()V
-
-    return-void
-.end method
-
-.method private static applyAlpha(IF)I
+.method static applyAlpha(IF)I
     .locals 2
 
     invoke-static {p0}, Landroid/graphics/Color;->alpha(I)I
@@ -211,7 +181,7 @@
 
     sget v6, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    const/16 v7, 0x17
+    const/16 v7, 0x18
 
     if-lt v6, v7, :cond_0
 
@@ -330,7 +300,7 @@
 .end method
 
 .method private inflateInternal(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V
-    .locals 18
+    .locals 19
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -340,38 +310,65 @@
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/support/graphics/drawable/VectorDrawableCompat;->mVectorState:Landroid/support/graphics/drawable/VectorDrawableCompat$VectorDrawableCompatState;
+    iget-object v13, v0, Landroid/support/graphics/drawable/VectorDrawableCompat;->mVectorState:Landroid/support/graphics/drawable/VectorDrawableCompat$VectorDrawableCompatState;
 
-    iget-object v11, v12, Landroid/support/graphics/drawable/VectorDrawableCompat$VectorDrawableCompatState;->mVPathRenderer:Landroid/support/graphics/drawable/VectorDrawableCompat$VPathRenderer;
+    iget-object v12, v13, Landroid/support/graphics/drawable/VectorDrawableCompat$VectorDrawableCompatState;->mVPathRenderer:Landroid/support/graphics/drawable/VectorDrawableCompat$VPathRenderer;
 
-    const/4 v8, 0x1
+    const/4 v9, 0x1
 
     new-instance v6, Ljava/util/Stack;
 
     invoke-direct {v6}, Ljava/util/Stack;-><init>()V
 
-    invoke-static {v11}, Landroid/support/graphics/drawable/VectorDrawableCompat$VPathRenderer;->-get1(Landroid/support/graphics/drawable/VectorDrawableCompat$VPathRenderer;)Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;
+    iget-object v0, v12, Landroid/support/graphics/drawable/VectorDrawableCompat$VPathRenderer;->mRootGroup:Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;
 
-    move-result-object v15
+    move-object/from16 v16, v0
 
-    invoke-virtual {v6, v15}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
+    move-object/from16 v0, v16
+
+    invoke-virtual {v6, v0}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
 
     invoke-interface/range {p2 .. p2}, Lorg/xmlpull/v1/XmlPullParser;->getEventType()I
 
     move-result v5
 
+    invoke-interface/range {p2 .. p2}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
+
+    move-result v16
+
+    add-int/lit8 v7, v16, 0x1
+
     :goto_0
-    const/4 v15, 0x1
+    const/16 v16, 0x1
 
-    if-eq v5, v15, :cond_7
+    move/from16 v0, v16
 
-    const/4 v15, 0x2
+    if-eq v5, v0, :cond_8
 
-    if-ne v5, v15, :cond_6
+    invoke-interface/range {p2 .. p2}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
+
+    move-result v16
+
+    move/from16 v0, v16
+
+    if-ge v0, v7, :cond_0
+
+    const/16 v16, 0x3
+
+    move/from16 v0, v16
+
+    if-eq v5, v0, :cond_8
+
+    :cond_0
+    const/16 v16, 0x2
+
+    move/from16 v0, v16
+
+    if-ne v5, v0, :cond_7
 
     invoke-interface/range {p2 .. p2}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v14
+    move-result-object v15
 
     invoke-virtual {v6}, Ljava/util/Stack;->peek()Ljava/lang/Object;
 
@@ -379,17 +376,19 @@
 
     check-cast v4, Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;
 
-    const-string/jumbo v15, "path"
+    const-string/jumbo v16, "path"
 
-    invoke-virtual {v15, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-object/from16 v0, v16
 
-    move-result v15
+    invoke-virtual {v0, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-eqz v15, :cond_2
+    move-result v16
 
-    new-instance v10, Landroid/support/graphics/drawable/VectorDrawableCompat$VFullPath;
+    if-eqz v16, :cond_3
 
-    invoke-direct {v10}, Landroid/support/graphics/drawable/VectorDrawableCompat$VFullPath;-><init>()V
+    new-instance v11, Landroid/support/graphics/drawable/VectorDrawableCompat$VFullPath;
+
+    invoke-direct {v11}, Landroid/support/graphics/drawable/VectorDrawableCompat$VFullPath;-><init>()V
 
     move-object/from16 v0, p1
 
@@ -399,42 +398,54 @@
 
     move-object/from16 v3, p2
 
-    invoke-virtual {v10, v0, v1, v2, v3}, Landroid/support/graphics/drawable/VectorDrawableCompat$VFullPath;->inflate(Landroid/content/res/Resources;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;Lorg/xmlpull/v1/XmlPullParser;)V
+    invoke-virtual {v11, v0, v1, v2, v3}, Landroid/support/graphics/drawable/VectorDrawableCompat$VFullPath;->inflate(Landroid/content/res/Resources;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;Lorg/xmlpull/v1/XmlPullParser;)V
 
-    iget-object v15, v4, Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;->mChildren:Ljava/util/ArrayList;
+    iget-object v0, v4, Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;->mChildren:Ljava/util/ArrayList;
 
-    invoke-virtual {v15, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    invoke-virtual {v10}, Landroid/support/graphics/drawable/VectorDrawableCompat$VFullPath;->getPathName()Ljava/lang/String;
-
-    move-result-object v15
-
-    if-eqz v15, :cond_0
-
-    iget-object v15, v11, Landroid/support/graphics/drawable/VectorDrawableCompat$VPathRenderer;->mVGTargetsMap:Landroid/support/v4/util/ArrayMap;
-
-    invoke-virtual {v10}, Landroid/support/graphics/drawable/VectorDrawableCompat$VFullPath;->getPathName()Ljava/lang/String;
-
-    move-result-object v16
+    move-object/from16 v16, v0
 
     move-object/from16 v0, v16
 
-    invoke-virtual {v15, v0, v10}, Landroid/support/v4/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v11}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_0
-    const/4 v8, 0x0
+    invoke-virtual {v11}, Landroid/support/graphics/drawable/VectorDrawableCompat$VFullPath;->getPathName()Ljava/lang/String;
 
-    iget v15, v12, Landroid/support/graphics/drawable/VectorDrawableCompat$VectorDrawableCompatState;->mChangingConfigurations:I
+    move-result-object v16
 
-    iget v0, v10, Landroid/support/graphics/drawable/VectorDrawableCompat$VFullPath;->mChangingConfigurations:I
+    if-eqz v16, :cond_1
+
+    iget-object v0, v12, Landroid/support/graphics/drawable/VectorDrawableCompat$VPathRenderer;->mVGTargetsMap:Landroid/support/v4/util/ArrayMap;
+
+    move-object/from16 v16, v0
+
+    invoke-virtual {v11}, Landroid/support/graphics/drawable/VectorDrawableCompat$VFullPath;->getPathName()Ljava/lang/String;
+
+    move-result-object v17
+
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v17
+
+    invoke-virtual {v0, v1, v11}, Landroid/support/v4/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_1
+    const/4 v9, 0x0
+
+    iget v0, v13, Landroid/support/graphics/drawable/VectorDrawableCompat$VectorDrawableCompatState;->mChangingConfigurations:I
 
     move/from16 v16, v0
 
-    or-int v15, v15, v16
+    iget v0, v11, Landroid/support/graphics/drawable/VectorDrawableCompat$VFullPath;->mChangingConfigurations:I
 
-    iput v15, v12, Landroid/support/graphics/drawable/VectorDrawableCompat$VectorDrawableCompatState;->mChangingConfigurations:I
+    move/from16 v17, v0
 
-    :cond_1
+    or-int v16, v16, v17
+
+    move/from16 v0, v16
+
+    iput v0, v13, Landroid/support/graphics/drawable/VectorDrawableCompat$VectorDrawableCompatState;->mChangingConfigurations:I
+
+    :cond_2
     :goto_1
     invoke-interface/range {p2 .. p2}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
@@ -442,209 +453,274 @@
 
     goto :goto_0
 
-    :cond_2
-    const-string/jumbo v15, "clip-path"
-
-    invoke-virtual {v15, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v15
-
-    if-eqz v15, :cond_4
-
-    new-instance v9, Landroid/support/graphics/drawable/VectorDrawableCompat$VClipPath;
-
-    invoke-direct {v9}, Landroid/support/graphics/drawable/VectorDrawableCompat$VClipPath;-><init>()V
-
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, p3
-
-    move-object/from16 v2, p4
-
-    move-object/from16 v3, p2
-
-    invoke-virtual {v9, v0, v1, v2, v3}, Landroid/support/graphics/drawable/VectorDrawableCompat$VClipPath;->inflate(Landroid/content/res/Resources;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;Lorg/xmlpull/v1/XmlPullParser;)V
-
-    iget-object v15, v4, Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;->mChildren:Ljava/util/ArrayList;
-
-    invoke-virtual {v15, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    invoke-virtual {v9}, Landroid/support/graphics/drawable/VectorDrawableCompat$VClipPath;->getPathName()Ljava/lang/String;
-
-    move-result-object v15
-
-    if-eqz v15, :cond_3
-
-    iget-object v15, v11, Landroid/support/graphics/drawable/VectorDrawableCompat$VPathRenderer;->mVGTargetsMap:Landroid/support/v4/util/ArrayMap;
-
-    invoke-virtual {v9}, Landroid/support/graphics/drawable/VectorDrawableCompat$VClipPath;->getPathName()Ljava/lang/String;
-
-    move-result-object v16
-
-    move-object/from16 v0, v16
-
-    invoke-virtual {v15, v0, v9}, Landroid/support/v4/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
     :cond_3
-    iget v15, v12, Landroid/support/graphics/drawable/VectorDrawableCompat$VectorDrawableCompatState;->mChangingConfigurations:I
-
-    iget v0, v9, Landroid/support/graphics/drawable/VectorDrawableCompat$VClipPath;->mChangingConfigurations:I
-
-    move/from16 v16, v0
-
-    or-int v15, v15, v16
-
-    iput v15, v12, Landroid/support/graphics/drawable/VectorDrawableCompat$VectorDrawableCompatState;->mChangingConfigurations:I
-
-    goto :goto_1
-
-    :cond_4
-    const-string/jumbo v15, "group"
-
-    invoke-virtual {v15, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v15
-
-    if-eqz v15, :cond_1
-
-    new-instance v7, Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;
-
-    invoke-direct {v7}, Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;-><init>()V
-
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, p3
-
-    move-object/from16 v2, p4
-
-    move-object/from16 v3, p2
-
-    invoke-virtual {v7, v0, v1, v2, v3}, Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;->inflate(Landroid/content/res/Resources;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;Lorg/xmlpull/v1/XmlPullParser;)V
-
-    iget-object v15, v4, Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;->mChildren:Ljava/util/ArrayList;
-
-    invoke-virtual {v15, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    invoke-virtual {v6, v7}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
-
-    invoke-virtual {v7}, Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;->getGroupName()Ljava/lang/String;
-
-    move-result-object v15
-
-    if-eqz v15, :cond_5
-
-    iget-object v15, v11, Landroid/support/graphics/drawable/VectorDrawableCompat$VPathRenderer;->mVGTargetsMap:Landroid/support/v4/util/ArrayMap;
-
-    invoke-virtual {v7}, Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;->getGroupName()Ljava/lang/String;
-
-    move-result-object v16
+    const-string/jumbo v16, "clip-path"
 
     move-object/from16 v0, v16
 
-    invoke-virtual {v15, v0, v7}, Landroid/support/v4/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    :cond_5
-    iget v15, v12, Landroid/support/graphics/drawable/VectorDrawableCompat$VectorDrawableCompatState;->mChangingConfigurations:I
-
-    invoke-static {v7}, Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;->-get0(Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;)I
+    invoke-virtual {v0, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v16
 
-    or-int v15, v15, v16
+    if-eqz v16, :cond_5
 
-    iput v15, v12, Landroid/support/graphics/drawable/VectorDrawableCompat$VectorDrawableCompatState;->mChangingConfigurations:I
+    new-instance v10, Landroid/support/graphics/drawable/VectorDrawableCompat$VClipPath;
+
+    invoke-direct {v10}, Landroid/support/graphics/drawable/VectorDrawableCompat$VClipPath;-><init>()V
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, p3
+
+    move-object/from16 v2, p4
+
+    move-object/from16 v3, p2
+
+    invoke-virtual {v10, v0, v1, v2, v3}, Landroid/support/graphics/drawable/VectorDrawableCompat$VClipPath;->inflate(Landroid/content/res/Resources;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;Lorg/xmlpull/v1/XmlPullParser;)V
+
+    iget-object v0, v4, Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;->mChildren:Ljava/util/ArrayList;
+
+    move-object/from16 v16, v0
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    invoke-virtual {v10}, Landroid/support/graphics/drawable/VectorDrawableCompat$VClipPath;->getPathName()Ljava/lang/String;
+
+    move-result-object v16
+
+    if-eqz v16, :cond_4
+
+    iget-object v0, v12, Landroid/support/graphics/drawable/VectorDrawableCompat$VPathRenderer;->mVGTargetsMap:Landroid/support/v4/util/ArrayMap;
+
+    move-object/from16 v16, v0
+
+    invoke-virtual {v10}, Landroid/support/graphics/drawable/VectorDrawableCompat$VClipPath;->getPathName()Ljava/lang/String;
+
+    move-result-object v17
+
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v17
+
+    invoke-virtual {v0, v1, v10}, Landroid/support/v4/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_4
+    iget v0, v13, Landroid/support/graphics/drawable/VectorDrawableCompat$VectorDrawableCompatState;->mChangingConfigurations:I
+
+    move/from16 v16, v0
+
+    iget v0, v10, Landroid/support/graphics/drawable/VectorDrawableCompat$VClipPath;->mChangingConfigurations:I
+
+    move/from16 v17, v0
+
+    or-int v16, v16, v17
+
+    move/from16 v0, v16
+
+    iput v0, v13, Landroid/support/graphics/drawable/VectorDrawableCompat$VectorDrawableCompatState;->mChangingConfigurations:I
 
     goto :goto_1
 
-    :cond_6
-    const/4 v15, 0x3
+    :cond_5
+    const-string/jumbo v16, "group"
 
-    if-ne v5, v15, :cond_1
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v16
+
+    if-eqz v16, :cond_2
+
+    new-instance v8, Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;
+
+    invoke-direct {v8}, Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;-><init>()V
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, p3
+
+    move-object/from16 v2, p4
+
+    move-object/from16 v3, p2
+
+    invoke-virtual {v8, v0, v1, v2, v3}, Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;->inflate(Landroid/content/res/Resources;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;Lorg/xmlpull/v1/XmlPullParser;)V
+
+    iget-object v0, v4, Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;->mChildren:Ljava/util/ArrayList;
+
+    move-object/from16 v16, v0
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    invoke-virtual {v6, v8}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
+
+    invoke-virtual {v8}, Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;->getGroupName()Ljava/lang/String;
+
+    move-result-object v16
+
+    if-eqz v16, :cond_6
+
+    iget-object v0, v12, Landroid/support/graphics/drawable/VectorDrawableCompat$VPathRenderer;->mVGTargetsMap:Landroid/support/v4/util/ArrayMap;
+
+    move-object/from16 v16, v0
+
+    invoke-virtual {v8}, Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;->getGroupName()Ljava/lang/String;
+
+    move-result-object v17
+
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v17
+
+    invoke-virtual {v0, v1, v8}, Landroid/support/v4/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_6
+    iget v0, v13, Landroid/support/graphics/drawable/VectorDrawableCompat$VectorDrawableCompatState;->mChangingConfigurations:I
+
+    move/from16 v16, v0
+
+    iget v0, v8, Landroid/support/graphics/drawable/VectorDrawableCompat$VGroup;->mChangingConfigurations:I
+
+    move/from16 v17, v0
+
+    or-int v16, v16, v17
+
+    move/from16 v0, v16
+
+    iput v0, v13, Landroid/support/graphics/drawable/VectorDrawableCompat$VectorDrawableCompatState;->mChangingConfigurations:I
+
+    goto/16 :goto_1
+
+    :cond_7
+    const/16 v16, 0x3
+
+    move/from16 v0, v16
+
+    if-ne v5, v0, :cond_2
 
     invoke-interface/range {p2 .. p2}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v14
+    move-result-object v15
 
-    const-string/jumbo v15, "group"
+    const-string/jumbo v16, "group"
 
-    invoke-virtual {v15, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-object/from16 v0, v16
 
-    move-result v15
+    invoke-virtual {v0, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-eqz v15, :cond_1
+    move-result v16
+
+    if-eqz v16, :cond_2
 
     invoke-virtual {v6}, Ljava/util/Stack;->pop()Ljava/lang/Object;
 
     goto/16 :goto_1
 
-    :cond_7
-    if-eqz v8, :cond_9
-
-    new-instance v13, Ljava/lang/StringBuffer;
-
-    invoke-direct {v13}, Ljava/lang/StringBuffer;-><init>()V
-
-    invoke-virtual {v13}, Ljava/lang/StringBuffer;->length()I
-
-    move-result v15
-
-    if-lez v15, :cond_8
-
-    const-string/jumbo v15, " or "
-
-    invoke-virtual {v13, v15}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
     :cond_8
-    const-string/jumbo v15, "path"
+    if-eqz v9, :cond_a
 
-    invoke-virtual {v13, v15}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    new-instance v14, Ljava/lang/StringBuffer;
 
-    new-instance v15, Lorg/xmlpull/v1/XmlPullParserException;
+    invoke-direct {v14}, Ljava/lang/StringBuffer;-><init>()V
 
-    new-instance v16, Ljava/lang/StringBuilder;
+    invoke-virtual {v14}, Ljava/lang/StringBuffer;->length()I
 
-    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
+    move-result v16
 
-    const-string/jumbo v17, "no "
+    if-lez v16, :cond_9
 
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v16
+    const-string/jumbo v16, " or "
 
     move-object/from16 v0, v16
 
-    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v16
-
-    const-string/jumbo v17, " defined"
-
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v16
-
-    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v16
-
-    invoke-direct/range {v15 .. v16}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
-
-    throw v15
+    invoke-virtual {v14, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     :cond_9
+    const-string/jumbo v16, "path"
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v14, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    new-instance v16, Lorg/xmlpull/v1/XmlPullParserException;
+
+    new-instance v17, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v17 .. v17}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v18, "no "
+
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v17
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v17
+
+    const-string/jumbo v18, " defined"
+
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v17
+
+    invoke-virtual/range {v17 .. v17}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v17
+
+    invoke-direct/range {v16 .. v17}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+
+    throw v16
+
+    :cond_a
     return-void
 .end method
 
 .method private needMirroring()Z
-    .locals 1
+    .locals 4
 
-    const/4 v0, 0x0
+    const/4 v0, 0x1
 
+    const/4 v1, 0x0
+
+    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v3, 0x11
+
+    if-lt v2, v3, :cond_1
+
+    invoke-virtual {p0}, Landroid/support/graphics/drawable/VectorDrawableCompat;->isAutoMirrored()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {p0}, Landroid/support/graphics/drawable/VectorDrawableCompat;->getLayoutDirection()I
+
+    move-result v2
+
+    if-ne v2, v0, :cond_0
+
+    :goto_0
     return v0
+
+    :cond_0
+    move v0, v1
+
+    goto :goto_0
+
+    :cond_1
+    return v1
 .end method
 
 .method private static parseTintModeCompat(ILandroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuff$Mode;
-    .locals 1
+    .locals 2
 
     packed-switch p0, :pswitch_data_0
 
@@ -677,9 +753,20 @@
     return-object v0
 
     :pswitch_6
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v1, 0xb
+
+    if-lt v0, v1, :cond_0
+
     sget-object v0, Landroid/graphics/PorterDuff$Mode;->ADD:Landroid/graphics/PorterDuff$Mode;
 
     return-object v0
+
+    :cond_0
+    return-object p1
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x3
@@ -720,7 +807,7 @@
 
     const/4 v8, -0x1
 
-    invoke-static {p1, p2, v6, v7, v8}, Landroid/support/graphics/drawable/TypedArrayUtils;->getNamedInt(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;II)I
+    invoke-static {p1, p2, v6, v7, v8}, Landroid/support/v4/content/res/TypedArrayUtils;->getNamedInt(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;II)I
 
     move-result v1
 
@@ -749,7 +836,7 @@
 
     const/4 v8, 0x5
 
-    invoke-static {p1, p2, v6, v8, v7}, Landroid/support/graphics/drawable/TypedArrayUtils;->getNamedBoolean(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IZ)Z
+    invoke-static {p1, p2, v6, v8, v7}, Landroid/support/v4/content/res/TypedArrayUtils;->getNamedBoolean(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IZ)Z
 
     move-result v6
 
@@ -761,7 +848,7 @@
 
     const/4 v8, 0x7
 
-    invoke-static {p1, p2, v6, v8, v7}, Landroid/support/graphics/drawable/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
+    invoke-static {p1, p2, v6, v8, v7}, Landroid/support/v4/content/res/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
 
     move-result v6
 
@@ -773,7 +860,7 @@
 
     const/16 v8, 0x8
 
-    invoke-static {p1, p2, v6, v8, v7}, Landroid/support/graphics/drawable/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
+    invoke-static {p1, p2, v6, v8, v7}, Landroid/support/v4/content/res/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
 
     move-result v6
 
@@ -947,7 +1034,7 @@
 
     const/4 v8, 0x4
 
-    invoke-static {p1, p2, v6, v8, v7}, Landroid/support/graphics/drawable/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
+    invoke-static {p1, p2, v6, v8, v7}, Landroid/support/v4/content/res/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
 
     move-result v0
 
@@ -1328,6 +1415,12 @@
 
     if-eqz v0, :cond_0
 
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v1, 0x18
+
+    if-lt v0, v1, :cond_0
+
     new-instance v0, Landroid/support/graphics/drawable/VectorDrawableCompat$VectorDrawableDelegateState;
 
     iget-object v1, p0, Landroid/support/graphics/drawable/VectorDrawableCompat;->mDelegateDrawable:Landroid/graphics/drawable/Drawable;
@@ -1414,16 +1507,6 @@
     iget v0, v0, Landroid/support/graphics/drawable/VectorDrawableCompat$VPathRenderer;->mBaseWidth:F
 
     float-to-int v0, v0
-
-    return v0
-.end method
-
-.method public bridge synthetic getLayoutDirection()I
-    .locals 1
-
-    invoke-super {p0}, Landroid/support/graphics/drawable/VectorDrawableCommon;->getLayoutDirection()I
-
-    move-result v0
 
     return v0
 .end method
@@ -1570,9 +1653,9 @@
 
     iput-object v1, v2, Landroid/support/graphics/drawable/VectorDrawableCompat$VectorDrawableCompatState;->mVPathRenderer:Landroid/support/graphics/drawable/VectorDrawableCompat$VPathRenderer;
 
-    sget-object v3, Landroid/support/graphics/drawable/AndroidResources;->styleable_VectorDrawableTypeArray:[I
+    sget-object v3, Landroid/support/graphics/drawable/AndroidResources;->STYLEABLE_VECTOR_DRAWABLE_TYPE_ARRAY:[I
 
-    invoke-static {p1, p4, p3, v3}, Landroid/support/graphics/drawable/VectorDrawableCompat;->obtainAttributes(Landroid/content/res/Resources;Landroid/content/res/Resources$Theme;Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
+    invoke-static {p1, p4, p3, v3}, Landroid/support/v4/content/res/TypedArrayUtils;->obtainAttributes(Landroid/content/res/Resources;Landroid/content/res/Resources$Theme;Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
@@ -1626,12 +1709,25 @@
     return-void
 .end method
 
-.method public bridge synthetic isAutoMirrored()Z
+.method public isAutoMirrored()Z
     .locals 1
 
-    invoke-super {p0}, Landroid/support/graphics/drawable/VectorDrawableCommon;->isAutoMirrored()Z
+    iget-object v0, p0, Landroid/support/graphics/drawable/VectorDrawableCompat;->mDelegateDrawable:Landroid/graphics/drawable/Drawable;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/support/graphics/drawable/VectorDrawableCompat;->mDelegateDrawable:Landroid/graphics/drawable/Drawable;
+
+    invoke-static {v0}, Landroid/support/v4/graphics/drawable/DrawableCompat;->isAutoMirrored(Landroid/graphics/drawable/Drawable;)Z
 
     move-result v0
+
+    return v0
+
+    :cond_0
+    iget-object v0, p0, Landroid/support/graphics/drawable/VectorDrawableCompat;->mVectorState:Landroid/support/graphics/drawable/VectorDrawableCompat$VectorDrawableCompatState;
+
+    iget-boolean v0, v0, Landroid/support/graphics/drawable/VectorDrawableCompat$VectorDrawableCompatState;->mAutoMirrored:Z
 
     return v0
 .end method
@@ -1866,10 +1962,23 @@
     return-void
 .end method
 
-.method public bridge synthetic setAutoMirrored(Z)V
-    .locals 0
+.method public setAutoMirrored(Z)V
+    .locals 1
 
-    invoke-super {p0, p1}, Landroid/support/graphics/drawable/VectorDrawableCommon;->setAutoMirrored(Z)V
+    iget-object v0, p0, Landroid/support/graphics/drawable/VectorDrawableCompat;->mDelegateDrawable:Landroid/graphics/drawable/Drawable;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/support/graphics/drawable/VectorDrawableCompat;->mDelegateDrawable:Landroid/graphics/drawable/Drawable;
+
+    invoke-static {v0, p1}, Landroid/support/v4/graphics/drawable/DrawableCompat;->setAutoMirrored(Landroid/graphics/drawable/Drawable;Z)V
+
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Landroid/support/graphics/drawable/VectorDrawableCompat;->mVectorState:Landroid/support/graphics/drawable/VectorDrawableCompat$VectorDrawableCompatState;
+
+    iput-boolean p1, v0, Landroid/support/graphics/drawable/VectorDrawableCompat$VectorDrawableCompatState;->mAutoMirrored:Z
 
     return-void
 .end method

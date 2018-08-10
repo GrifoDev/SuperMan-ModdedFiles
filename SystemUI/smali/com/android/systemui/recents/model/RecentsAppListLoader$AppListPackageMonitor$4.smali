@@ -20,16 +20,20 @@
 # instance fields
 .field final synthetic this$1:Lcom/android/systemui/recents/model/RecentsAppListLoader$AppListPackageMonitor;
 
+.field final synthetic val$eventUserId:I
+
 .field final synthetic val$packages:[Ljava/lang/String;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/recents/model/RecentsAppListLoader$AppListPackageMonitor;[Ljava/lang/String;)V
+.method constructor <init>(Lcom/android/systemui/recents/model/RecentsAppListLoader$AppListPackageMonitor;[Ljava/lang/String;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/recents/model/RecentsAppListLoader$AppListPackageMonitor$4;->this$1:Lcom/android/systemui/recents/model/RecentsAppListLoader$AppListPackageMonitor;
 
     iput-object p2, p0, Lcom/android/systemui/recents/model/RecentsAppListLoader$AppListPackageMonitor$4;->val$packages:[Ljava/lang/String;
+
+    iput p3, p0, Lcom/android/systemui/recents/model/RecentsAppListLoader$AppListPackageMonitor$4;->val$eventUserId:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -39,7 +43,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 7
+    .locals 8
 
     const/4 v3, 0x0
 
@@ -58,7 +62,9 @@
 
     iget-object v6, p0, Lcom/android/systemui/recents/model/RecentsAppListLoader$AppListPackageMonitor$4;->this$1:Lcom/android/systemui/recents/model/RecentsAppListLoader$AppListPackageMonitor;
 
-    invoke-static {v6, v0, v3}, Lcom/android/systemui/recents/model/RecentsAppListLoader$AppListPackageMonitor;->-wrap1(Lcom/android/systemui/recents/model/RecentsAppListLoader$AppListPackageMonitor;Ljava/lang/String;Z)Z
+    iget v7, p0, Lcom/android/systemui/recents/model/RecentsAppListLoader$AppListPackageMonitor$4;->val$eventUserId:I
+
+    invoke-static {v6, v0, v7, v3}, Lcom/android/systemui/recents/model/RecentsAppListLoader$AppListPackageMonitor;->-wrap1(Lcom/android/systemui/recents/model/RecentsAppListLoader$AppListPackageMonitor;Ljava/lang/String;IZ)Z
 
     move-result v6
 
@@ -66,7 +72,9 @@
 
     iget-object v6, p0, Lcom/android/systemui/recents/model/RecentsAppListLoader$AppListPackageMonitor$4;->this$1:Lcom/android/systemui/recents/model/RecentsAppListLoader$AppListPackageMonitor;
 
-    invoke-static {v6, v0}, Lcom/android/systemui/recents/model/RecentsAppListLoader$AppListPackageMonitor;->-wrap0(Lcom/android/systemui/recents/model/RecentsAppListLoader$AppListPackageMonitor;Ljava/lang/String;)Z
+    iget v7, p0, Lcom/android/systemui/recents/model/RecentsAppListLoader$AppListPackageMonitor$4;->val$eventUserId:I
+
+    invoke-static {v6, v0, v7}, Lcom/android/systemui/recents/model/RecentsAppListLoader$AppListPackageMonitor;->-wrap0(Lcom/android/systemui/recents/model/RecentsAppListLoader$AppListPackageMonitor;Ljava/lang/String;I)Z
 
     move-result v6
 

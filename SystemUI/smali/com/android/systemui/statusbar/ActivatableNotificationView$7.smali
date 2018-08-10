@@ -39,13 +39,13 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView$7;->this$0:Lcom/android/systemui/statusbar/ActivatableNotificationView;
 
-    invoke-static {v1}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->-get1(Lcom/android/systemui/statusbar/ActivatableNotificationView;)I
+    invoke-static {v1}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->-get3(Lcom/android/systemui/statusbar/ActivatableNotificationView;)I
 
     move-result v1
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView$7;->this$0:Lcom/android/systemui/statusbar/ActivatableNotificationView;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->-get2(Lcom/android/systemui/statusbar/ActivatableNotificationView;)I
+    invoke-static {v2}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->-get4(Lcom/android/systemui/statusbar/ActivatableNotificationView;)I
 
     move-result v2
 

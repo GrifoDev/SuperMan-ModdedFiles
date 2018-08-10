@@ -51,7 +51,7 @@
 
     const-string/jumbo v5, "android.intent.extra.shortcut.ICON_RESOURCE"
 
-    const v6, 0x7f030001
+    const v6, 0x7f0f0001
 
     invoke-static {p0, v6}, Landroid/content/Intent$ShortcutIconResource;->fromContext(Landroid/content/Context;I)Landroid/content/Intent$ShortcutIconResource;
 
@@ -65,7 +65,7 @@
 
     const-string/jumbo v5, "android.intent.extra.shortcut.NAME"
 
-    const v6, 0x7f0f0347
+    const v6, 0x7f120a8f
 
     invoke-virtual {p0, v6}, Lcom/android/systemui/Somnambulator;->getString(I)Ljava/lang/String;
 

@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;
+.class public Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;
 .super Landroid/graphics/drawable/Drawable;
 .source "BarTransitions.java"
 
@@ -9,13 +9,15 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0xc
     name = "BarBackgroundDrawable"
 .end annotation
 
 
 # instance fields
 .field private mAnimating:Z
+
+.field protected mBlackOpaque:I
 
 .field private mColor:I
 
@@ -31,7 +33,7 @@
 
 .field private mMode:I
 
-.field private final mOpaque:I
+.field protected mOpaque:I
 
 .field private mPaint:Landroid/graphics/Paint;
 
@@ -66,11 +68,7 @@
 
     move-result-object v0
 
-    sget-boolean v1, Lcom/android/systemui/SystemUIRune;->SUPPORT_LIGHT_NAVIGATIONBAR:Z
-
-    if-nez v1, :cond_0
-
-    const v1, 0x7f0b008f
+    const v1, 0x7f0601e6
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getColor(I)I
 
@@ -78,8 +76,7 @@
 
     iput v1, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mOpaque:I
 
-    :goto_0
-    const v1, 0x1060073
+    const v1, 0x10601bb
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getColor(I)I
 
@@ -87,7 +84,7 @@
 
     iput v1, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mSemiTransparent:I
 
-    const v1, 0x7f0b0090
+    const v1, 0x7f0601e7
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getColor(I)I
 
@@ -95,9 +92,9 @@
 
     iput v1, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mTransparent:I
 
-    const v1, 0x106005b
+    const v1, 0x1010543
 
-    invoke-virtual {p1, v1}, Landroid/content/Context;->getColor(I)I
+    invoke-static {p1, v1}, Lcom/android/settingslib/Utils;->getColorAttr(Landroid/content/Context;I)I
 
     move-result v1
 
@@ -110,17 +107,6 @@
     iput-object v1, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mGradient:Landroid/graphics/drawable/Drawable;
 
     return-void
-
-    :cond_0
-    const v1, 0x7f0b015e
-
-    invoke-virtual {p1, v1}, Landroid/content/Context;->getColor(I)I
-
-    move-result v1
-
-    iput v1, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mOpaque:I
-
-    goto :goto_0
 .end method
 
 
@@ -168,82 +154,84 @@
 .end method
 
 .method public draw(Landroid/graphics/Canvas;)V
-    .locals 12
+    .locals 14
 
-    const/4 v11, 0x0
+    const/4 v13, 0x0
 
     const/4 v8, 0x0
 
-    const/high16 v10, 0x3f800000    # 1.0f
+    const/high16 v12, 0x3f800000    # 1.0f
+
+    const/4 v4, 0x0
 
     const/4 v3, 0x0
 
-    iget v5, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mMode:I
+    iget v6, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mMode:I
 
-    const/4 v6, 0x5
+    const/4 v7, 0x5
 
-    if-ne v5, v6, :cond_4
+    if-ne v6, v7, :cond_4
 
     iget v3, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mWarning:I
 
     :goto_0
-    iget-boolean v5, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mAnimating:Z
+    iget-boolean v6, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mAnimating:Z
 
-    if-nez v5, :cond_9
+    if-nez v6, :cond_a
 
     iput v3, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mColor:I
 
     iput v8, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mGradientAlpha:I
 
     :goto_1
-    iget v5, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mGradientAlpha:I
-
-    if-lez v5, :cond_0
-
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mGradient:Landroid/graphics/drawable/Drawable;
-
     iget v6, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mGradientAlpha:I
 
-    invoke-virtual {v5, v6}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
+    if-lez v6, :cond_0
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mGradient:Landroid/graphics/drawable/Drawable;
+    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mGradient:Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {v5, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
+    iget v7, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mGradientAlpha:I
+
+    invoke-virtual {v6, v7}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
+
+    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mGradient:Landroid/graphics/drawable/Drawable;
+
+    invoke-virtual {v6, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
     :cond_0
-    iget v5, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mColor:I
-
-    invoke-static {v5}, Landroid/graphics/Color;->alpha(I)I
-
-    move-result v5
-
-    if-lez v5, :cond_2
-
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mPaint:Landroid/graphics/Paint;
-
     iget v6, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mColor:I
 
-    invoke-virtual {v5, v6}, Landroid/graphics/Paint;->setColor(I)V
+    invoke-static {v6}, Landroid/graphics/Color;->alpha(I)I
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mTintFilter:Landroid/graphics/PorterDuffColorFilter;
+    move-result v6
 
-    if-eqz v5, :cond_1
+    if-lez v6, :cond_2
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mPaint:Landroid/graphics/Paint;
+    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mPaint:Landroid/graphics/Paint;
+
+    iget v7, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mColor:I
+
+    invoke-virtual {v6, v7}, Landroid/graphics/Paint;->setColor(I)V
 
     iget-object v6, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mTintFilter:Landroid/graphics/PorterDuffColorFilter;
 
-    invoke-virtual {v5, v6}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
+    if-eqz v6, :cond_1
+
+    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mPaint:Landroid/graphics/Paint;
+
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mTintFilter:Landroid/graphics/PorterDuffColorFilter;
+
+    invoke-virtual {v6, v7}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
 
     :cond_1
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mPaint:Landroid/graphics/Paint;
+    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {p1, v5}, Landroid/graphics/Canvas;->drawPaint(Landroid/graphics/Paint;)V
+    invoke-virtual {p1, v6}, Landroid/graphics/Canvas;->drawPaint(Landroid/graphics/Paint;)V
 
     :cond_2
-    iget-boolean v5, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mAnimating:Z
+    iget-boolean v6, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mAnimating:Z
 
-    if-eqz v5, :cond_3
+    if-eqz v6, :cond_3
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->invalidateSelf()V
 
@@ -251,39 +239,39 @@
     return-void
 
     :cond_4
-    iget v5, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mMode:I
+    iget v6, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mMode:I
 
-    const/4 v6, 0x2
+    const/4 v7, 0x2
 
-    if-ne v5, v6, :cond_5
+    if-ne v6, v7, :cond_5
 
     iget v3, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mSemiTransparent:I
 
     goto :goto_0
 
     :cond_5
-    iget v5, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mMode:I
+    iget v6, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mMode:I
 
-    const/4 v6, 0x1
+    const/4 v7, 0x1
 
-    if-ne v5, v6, :cond_6
+    if-ne v6, v7, :cond_6
 
     iget v3, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mSemiTransparent:I
 
     goto :goto_0
 
     :cond_6
-    iget v5, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mMode:I
+    iget v6, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mMode:I
 
-    const/4 v6, 0x4
+    const/4 v7, 0x4
 
-    if-eq v5, v6, :cond_7
+    if-eq v6, v7, :cond_7
 
-    iget v5, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mMode:I
+    iget v6, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mMode:I
 
-    const/4 v6, 0x6
+    const/4 v7, 0x6
 
-    if-ne v5, v6, :cond_8
+    if-ne v6, v7, :cond_8
 
     :cond_7
     iget v3, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mTransparent:I
@@ -291,20 +279,31 @@
     goto :goto_0
 
     :cond_8
-    iget v3, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mOpaque:I
+    iget v6, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mMode:I
+
+    const/4 v7, 0x7
+
+    if-ne v6, v7, :cond_9
+
+    iget v3, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mBlackOpaque:I
 
     goto :goto_0
 
     :cond_9
+    iget v3, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mOpaque:I
+
+    goto :goto_0
+
+    :cond_a
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v0
 
     iget-wide v6, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mEndTime:J
 
-    cmp-long v5, v0, v6
+    cmp-long v6, v0, v6
 
-    if-ltz v5, :cond_a
+    if-ltz v6, :cond_b
 
     iput-boolean v8, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mAnimating:Z
 
@@ -314,94 +313,44 @@
 
     goto :goto_1
 
-    :cond_a
+    :cond_b
     iget-wide v6, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mStartTime:J
 
     sub-long v6, v0, v6
 
-    long-to-float v5, v6
-
-    iget-wide v6, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mEndTime:J
-
-    iget-wide v8, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mStartTime:J
-
-    sub-long/2addr v6, v8
-
     long-to-float v6, v6
 
-    div-float v2, v5, v6
+    iget-wide v8, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mEndTime:J
 
-    sget-object v5, Lcom/android/systemui/Interpolators;->LINEAR:Landroid/view/animation/Interpolator;
+    iget-wide v10, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mStartTime:J
 
-    invoke-interface {v5, v2}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
+    sub-long/2addr v8, v10
 
-    move-result v5
+    long-to-float v7, v8
 
-    invoke-static {v5, v10}, Ljava/lang/Math;->min(FF)F
+    div-float v2, v6, v7
 
-    move-result v5
+    sget-object v6, Lcom/android/systemui/Interpolators;->LINEAR:Landroid/view/animation/Interpolator;
 
-    invoke-static {v11, v5}, Ljava/lang/Math;->max(FF)F
-
-    move-result v4
-
-    mul-float v5, v4, v11
-
-    iget v6, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mGradientAlphaStart:I
-
-    int-to-float v6, v6
-
-    sub-float v7, v10, v4
-
-    mul-float/2addr v6, v7
-
-    add-float/2addr v5, v6
-
-    float-to-int v5, v5
-
-    iput v5, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mGradientAlpha:I
-
-    invoke-static {v3}, Landroid/graphics/Color;->alpha(I)I
-
-    move-result v5
-
-    int-to-float v5, v5
-
-    mul-float/2addr v5, v4
-
-    iget v6, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mColorStart:I
-
-    invoke-static {v6}, Landroid/graphics/Color;->alpha(I)I
+    invoke-interface {v6, v2}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
 
     move-result v6
 
-    int-to-float v6, v6
-
-    sub-float v7, v10, v4
-
-    mul-float/2addr v6, v7
-
-    add-float/2addr v5, v6
-
-    float-to-int v5, v5
-
-    invoke-static {v3}, Landroid/graphics/Color;->red(I)I
+    invoke-static {v6, v12}, Ljava/lang/Math;->min(FF)F
 
     move-result v6
 
-    int-to-float v6, v6
+    invoke-static {v13, v6}, Ljava/lang/Math;->max(FF)F
 
-    mul-float/2addr v6, v4
+    move-result v5
 
-    iget v7, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mColorStart:I
+    mul-float v6, v5, v13
 
-    invoke-static {v7}, Landroid/graphics/Color;->red(I)I
-
-    move-result v7
+    iget v7, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mGradientAlphaStart:I
 
     int-to-float v7, v7
 
-    sub-float v8, v10, v4
+    sub-float v8, v12, v5
 
     mul-float/2addr v7, v8
 
@@ -409,23 +358,49 @@
 
     float-to-int v6, v6
 
-    invoke-static {v3}, Landroid/graphics/Color;->green(I)I
+    iput v6, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mGradientAlpha:I
+
+    invoke-static {v3}, Landroid/graphics/Color;->alpha(I)I
+
+    move-result v6
+
+    int-to-float v6, v6
+
+    mul-float/2addr v6, v5
+
+    iget v7, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mColorStart:I
+
+    invoke-static {v7}, Landroid/graphics/Color;->alpha(I)I
 
     move-result v7
 
     int-to-float v7, v7
 
-    mul-float/2addr v7, v4
+    sub-float v8, v12, v5
+
+    mul-float/2addr v7, v8
+
+    add-float/2addr v6, v7
+
+    float-to-int v6, v6
+
+    invoke-static {v3}, Landroid/graphics/Color;->red(I)I
+
+    move-result v7
+
+    int-to-float v7, v7
+
+    mul-float/2addr v7, v5
 
     iget v8, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mColorStart:I
 
-    invoke-static {v8}, Landroid/graphics/Color;->green(I)I
+    invoke-static {v8}, Landroid/graphics/Color;->red(I)I
 
     move-result v8
 
     int-to-float v8, v8
 
-    sub-float v9, v10, v4
+    sub-float v9, v12, v5
 
     mul-float/2addr v8, v9
 
@@ -433,23 +408,23 @@
 
     float-to-int v7, v7
 
-    invoke-static {v3}, Landroid/graphics/Color;->blue(I)I
+    invoke-static {v3}, Landroid/graphics/Color;->green(I)I
 
     move-result v8
 
     int-to-float v8, v8
 
-    mul-float/2addr v8, v4
+    mul-float/2addr v8, v5
 
     iget v9, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mColorStart:I
 
-    invoke-static {v9}, Landroid/graphics/Color;->blue(I)I
+    invoke-static {v9}, Landroid/graphics/Color;->green(I)I
 
     move-result v9
 
     int-to-float v9, v9
 
-    sub-float/2addr v10, v4
+    sub-float v10, v12, v5
 
     mul-float/2addr v9, v10
 
@@ -457,11 +432,35 @@
 
     float-to-int v8, v8
 
-    invoke-static {v5, v6, v7, v8}, Landroid/graphics/Color;->argb(IIII)I
+    invoke-static {v3}, Landroid/graphics/Color;->blue(I)I
 
-    move-result v5
+    move-result v9
 
-    iput v5, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mColor:I
+    int-to-float v9, v9
+
+    mul-float/2addr v9, v5
+
+    iget v10, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mColorStart:I
+
+    invoke-static {v10}, Landroid/graphics/Color;->blue(I)I
+
+    move-result v10
+
+    int-to-float v10, v10
+
+    sub-float v11, v12, v5
+
+    mul-float/2addr v10, v11
+
+    add-float/2addr v9, v10
+
+    float-to-int v9, v9
+
+    invoke-static {v6, v7, v8, v9}, Landroid/graphics/Color;->argb(IIII)I
+
+    move-result v6
+
+    iput v6, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mColor:I
 
     goto/16 :goto_1
 .end method
@@ -569,4 +568,10 @@
     invoke-virtual {v0, p1}, Landroid/graphics/PorterDuffColorFilter;->setMode(Landroid/graphics/PorterDuff$Mode;)V
 
     goto :goto_0
+.end method
+
+.method public updateOpaqueColor(I)V
+    .locals 0
+
+    return-void
 .end method

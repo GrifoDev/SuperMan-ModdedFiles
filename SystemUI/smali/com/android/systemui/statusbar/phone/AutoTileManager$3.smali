@@ -3,7 +3,7 @@
 .source "AutoTileManager.java"
 
 # interfaces
-.implements Lcom/android/systemui/statusbar/policy/DataSaverController$Listener;
+.implements Lcom/android/systemui/statusbar/policy/HotspotController$Callback;
 
 
 # annotations
@@ -34,45 +34,20 @@
 
 
 # virtual methods
-.method public onDataSaverChanged(Z)V
-    .locals 3
+.method public onHotspotChanged(Z)V
+    .locals 0
 
-    if-eqz p1, :cond_0
+    return-void
+.end method
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/AutoTileManager$3;->this$0:Lcom/android/systemui/statusbar/phone/AutoTileManager;
+.method public onHotspotPrepared()V
+    .locals 0
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/AutoTileManager;->-get3(Lcom/android/systemui/statusbar/phone/AutoTileManager;)Lcom/android/systemui/statusbar/phone/QSTileHost;
+    return-void
+.end method
 
-    move-result-object v0
+.method public onUpdateConnectedDevices(Z)V
+    .locals 0
 
-    const-string/jumbo v1, "saver"
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/QSTileHost;->addTile(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/AutoTileManager$3;->this$0:Lcom/android/systemui/statusbar/phone/AutoTileManager;
-
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/AutoTileManager;->-get0(Lcom/android/systemui/statusbar/phone/AutoTileManager;)Landroid/content/Context;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "QsDataSaverAdded"
-
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1, v2}, Lcom/android/systemui/Prefs;->putBoolean(Landroid/content/Context;Ljava/lang/String;Z)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/AutoTileManager$3;->this$0:Lcom/android/systemui/statusbar/phone/AutoTileManager;
-
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/AutoTileManager;->-get2(Lcom/android/systemui/statusbar/phone/AutoTileManager;)Landroid/os/Handler;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/android/systemui/statusbar/phone/AutoTileManager$3$1;
-
-    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/phone/AutoTileManager$3$1;-><init>(Lcom/android/systemui/statusbar/phone/AutoTileManager$3;)V
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    :cond_0
     return-void
 .end method

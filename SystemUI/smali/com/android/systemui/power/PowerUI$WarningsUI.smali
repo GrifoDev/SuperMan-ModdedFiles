@@ -24,6 +24,9 @@
 .method public abstract dismissFullBatteryNotice()V
 .end method
 
+.method public abstract dismissHighTemperatureWarning()V
+.end method
+
 .method public abstract dismissIncompatibleChargerNotice()V
 .end method
 
@@ -45,7 +48,7 @@
 .method public abstract dismissUnintentionalLcdOnNotice()V
 .end method
 
-.method public abstract dismissWaterProtectionAlertDialog()V
+.method public abstract dismissWaterProtectionAlertDialog(Z)V
 .end method
 
 .method public abstract dismissWillOverheatShutdownWarning()V
@@ -60,7 +63,13 @@
 .method public abstract isLowBatteryWarningShowing()Z
 .end method
 
+.method public abstract onDensityOrFontScaleChanged()V
+.end method
+
 .method public abstract playPowerSound(I)V
+.end method
+
+.method public abstract reCreatePowerUINotificationChannel()V
 .end method
 
 .method public abstract runOverheatShutdownTask(I)V
@@ -76,6 +85,9 @@
 .end method
 
 .method public abstract showFullBatteryNotice()V
+.end method
+
+.method public abstract showHighTemperatureWarning()V
 .end method
 
 .method public abstract showIncompatibleChargerNotice()V
@@ -102,10 +114,13 @@
 .method public abstract showSafeModeNotice()V
 .end method
 
+.method public abstract showThermalShutdownWarning()V
+.end method
+
 .method public abstract showUnintentionalLcdOnNotice()V
 .end method
 
-.method public abstract showWaterProtectionAlertDialog()V
+.method public abstract showWaterProtectionAlertDialog(Z)V
 .end method
 
 .method public abstract showWillOverheatShutdownWarning()V
@@ -114,10 +129,19 @@
 .method public abstract showWirelessChargerDisconnectNotice()V
 .end method
 
+.method public abstract stopPowerSound(I)V
+.end method
+
 .method public abstract update(IIJII)V
 .end method
 
+.method public abstract updateHiccupState(Z)V
+.end method
+
 .method public abstract updateLowBatteryWarning()V
+.end method
+
+.method public abstract updatePowerSharingCableAlertDialog(Z)V
 .end method
 
 .method public abstract userSwitched()V

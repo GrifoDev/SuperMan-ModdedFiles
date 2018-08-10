@@ -20,92 +20,51 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 2
+    .locals 1
 
     invoke-direct {p0, p1, p2}, Lcom/android/systemui/qs/TileLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    const/4 v0, 0x4
+    const/4 v0, 0x3
 
     iput v0, p0, Lcom/android/systemui/qs/PagedTileLayout$TilePage;->mMaxRows:I
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/PagedTileLayout$TilePage;->updateResources()Z
 
-    iget-object v0, p0, Lcom/android/systemui/qs/PagedTileLayout$TilePage;->mContext:Landroid/content/Context;
+    const v0, 0x7f0a0142
 
-    const v1, 0x7f0f02fa
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/PagedTileLayout$TilePage;->setNextFocusUpId(I)V
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/PagedTileLayout$TilePage;->setContentDescription(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0}, Lcom/android/systemui/qs/PagedTileLayout$TilePage;->setFocusablility()V
 
     return-void
 .end method
 
 .method private getRows()I
-    .locals 4
+    .locals 3
 
-    const/4 v2, 0x1
+    const-class v0, Lcom/android/systemui/tuner/TunerService;
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/PagedTileLayout$TilePage;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+    check-cast v0, Lcom/android/systemui/tuner/TunerService;
 
-    move-result-object v1
+    const-string/jumbo v1, "qs_tile_row"
 
-    iget v1, v1, Landroid/content/res/Configuration;->orientation:I
+    const/4 v2, 0x3
 
-    if-ne v1, v2, :cond_1
+    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/tuner/TunerService;->getValue(Ljava/lang/String;I)I
 
-    iget-object v1, p0, Lcom/android/systemui/qs/PagedTileLayout$TilePage;->mContext:Landroid/content/Context;
+    move-result v0
 
-    invoke-static {v1}, Lcom/android/systemui/statusbar/DeviceState;->isMobileKeyboardConnected(Landroid/content/Context;)Z
+    const/4 v1, 0x1
 
-    move-result v1
+    invoke-static {v1, v0}, Ljava/lang/Math;->max(II)I
 
-    if-eqz v1, :cond_0
+    move-result v0
 
-    const/4 v1, 0x2
-
-    :goto_0
-    return v1
-
-    :cond_0
-    iget-object v1, p0, Lcom/android/systemui/qs/PagedTileLayout$TilePage;->mContext:Landroid/content/Context;
-
-    invoke-static {v1}, Lcom/android/systemui/tuner/TunerService;->get(Landroid/content/Context;)Lcom/android/systemui/tuner/TunerService;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "qs_tile_row"
-
-    const/4 v3, 0x3
-
-    invoke-virtual {v1, v2, v3}, Lcom/android/systemui/tuner/TunerService;->getValue(Ljava/lang/String;I)I
-
-    move-result v1
-
-    goto :goto_0
-
-    :cond_1
-    const v1, 0x7f0c0031
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v1
-
-    invoke-static {v2, v1}, Ljava/lang/Math;->max(II)I
-
-    move-result v1
-
-    return v1
+    return v0
 .end method
 
 
@@ -138,20 +97,58 @@
     goto :goto_0
 .end method
 
-.method public updateResources()Z
-    .locals 4
+.method public setFocusablility()V
+    .locals 1
 
-    const/4 v2, 0x1
+    iget-boolean v0, p0, Lcom/android/systemui/qs/PagedTileLayout$TilePage;->mListening:Z
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/PagedTileLayout$TilePage;->setFocusable(Z)V
+
+    const/high16 v0, 0x20000
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/PagedTileLayout$TilePage;->setDescendantFocusability(I)V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/PagedTileLayout$TilePage;->setFocusable(Z)V
+
+    const/high16 v0, 0x60000
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/PagedTileLayout$TilePage;->setDescendantFocusability(I)V
+
+    goto :goto_0
+.end method
+
+.method public setListening(Z)V
+    .locals 0
+
+    invoke-super {p0, p1}, Lcom/android/systemui/qs/TileLayout;->setListening(Z)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/PagedTileLayout$TilePage;->setFocusablility()V
+
+    return-void
+.end method
+
+.method public updateResources()Z
+    .locals 3
 
     invoke-direct {p0}, Lcom/android/systemui/qs/PagedTileLayout$TilePage;->getRows()I
 
     move-result v1
 
-    iget v3, p0, Lcom/android/systemui/qs/PagedTileLayout$TilePage;->mMaxRows:I
+    iget v2, p0, Lcom/android/systemui/qs/PagedTileLayout$TilePage;->mMaxRows:I
 
-    if-eq v1, v3, :cond_1
+    if-eq v1, v2, :cond_1
 
-    move v0, v2
+    const/4 v0, 0x1
 
     :goto_0
     if-eqz v0, :cond_0
@@ -163,9 +160,9 @@
     :cond_0
     invoke-super {p0}, Lcom/android/systemui/qs/TileLayout;->updateResources()Z
 
-    move-result v3
+    move-result v2
 
-    if-nez v3, :cond_2
+    if-nez v2, :cond_2
 
     :goto_1
     return v0
@@ -176,7 +173,7 @@
     goto :goto_0
 
     :cond_2
-    move v0, v2
+    const/4 v0, 0x1
 
     goto :goto_1
 .end method

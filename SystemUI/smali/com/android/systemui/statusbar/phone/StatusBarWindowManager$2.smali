@@ -3,7 +3,7 @@
 .source "StatusBarWindowManager.java"
 
 # interfaces
-.implements Lcom/android/keyguard/util/SettingsHelper$OnChangedCallback;
+.implements Lcom/android/systemui/util/SettingsHelper$OnChangedCallback;
 
 
 # annotations

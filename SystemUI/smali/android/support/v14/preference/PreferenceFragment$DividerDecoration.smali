@@ -15,6 +15,8 @@
 
 
 # instance fields
+.field private mAllowDividerAfterLastItem:Z
+
 .field private mDivider:Landroid/graphics/drawable/Drawable;
 
 .field private mDividerHeight:I
@@ -24,11 +26,15 @@
 
 # direct methods
 .method private constructor <init>(Landroid/support/v14/preference/PreferenceFragment;)V
-    .locals 0
+    .locals 1
 
     iput-object p1, p0, Landroid/support/v14/preference/PreferenceFragment$DividerDecoration;->this$0:Landroid/support/v14/preference/PreferenceFragment;
 
     invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$ItemDecoration;-><init>()V
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Landroid/support/v14/preference/PreferenceFragment$DividerDecoration;->mAllowDividerAfterLastItem:Z
 
     return-void
 .end method
@@ -42,17 +48,15 @@
 .end method
 
 .method private shouldDrawDividerBelow(Landroid/view/View;Landroid/support/v7/widget/RecyclerView;)Z
-    .locals 8
-
-    const/4 v6, 0x0
+    .locals 7
 
     invoke-virtual {p2, p1}, Landroid/support/v7/widget/RecyclerView;->getChildViewHolder(Landroid/view/View;)Landroid/support/v7/widget/RecyclerView$ViewHolder;
 
     move-result-object v1
 
-    instance-of v7, v1, Landroid/support/v7/preference/PreferenceViewHolder;
+    instance-of v6, v1, Landroid/support/v7/preference/PreferenceViewHolder;
 
-    if-eqz v7, :cond_0
+    if-eqz v6, :cond_0
 
     check-cast v1, Landroid/support/v7/preference/PreferenceViewHolder;
 
@@ -63,15 +67,17 @@
     :goto_0
     if-nez v0, :cond_1
 
+    const/4 v6, 0x0
+
     return v6
 
     :cond_0
-    move v0, v6
+    const/4 v0, 0x0
 
     goto :goto_0
 
     :cond_1
-    const/4 v3, 0x1
+    iget-boolean v3, p0, Landroid/support/v14/preference/PreferenceFragment$DividerDecoration;->mAllowDividerAfterLastItem:Z
 
     invoke-virtual {p2, p1}, Landroid/support/v7/widget/RecyclerView;->indexOfChild(Landroid/view/View;)I
 
@@ -167,7 +173,7 @@
 
     if-eqz v5, :cond_1
 
-    invoke-static {v3}, Landroid/support/v4/view/ViewCompat;->getY(Landroid/view/View;)F
+    invoke-virtual {v3}, Landroid/view/View;->getY()F
 
     move-result v5
 
@@ -199,6 +205,14 @@
     goto :goto_0
 
     :cond_2
+    return-void
+.end method
+
+.method public setAllowDividerAfterLastItem(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Landroid/support/v14/preference/PreferenceFragment$DividerDecoration;->mAllowDividerAfterLastItem:Z
+
     return-void
 .end method
 

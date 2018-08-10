@@ -3,8 +3,10 @@
 .source "AppCompatTextHelperV17.java"
 
 
-# static fields
-.field private static final VIEW_ATTRS_v17:[I
+# annotations
+.annotation build Landroid/support/annotation/RequiresApi;
+    value = 0x11
+.end annotation
 
 
 # instance fields
@@ -14,22 +16,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 2
-
-    const v0, 0x1010392
-
-    const v1, 0x1010393
-
-    filled-new-array {v0, v1}, [I
-
-    move-result-object v0
-
-    sput-object v0, Landroid/support/v7/widget/AppCompatTextHelperV17;->VIEW_ATTRS_v17:[I
-
-    return-void
-.end method
-
 .method constructor <init>(Landroid/widget/TextView;)V
     .locals 0
 
@@ -81,9 +67,7 @@
 .end method
 
 .method loadFromAttributes(Landroid/util/AttributeSet;I)V
-    .locals 6
-
-    const/4 v5, 0x1
+    .locals 5
 
     const/4 v4, 0x0
 
@@ -99,19 +83,23 @@
 
     move-result-object v2
 
-    sget-object v3, Landroid/support/v7/widget/AppCompatTextHelperV17;->VIEW_ATTRS_v17:[I
+    sget-object v3, Landroid/support/v7/appcompat/R$styleable;->AppCompatTextHelper:[I
 
     invoke-virtual {v1, p1, v3, p2, v4}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    invoke-virtual {v0, v4}, Landroid/content/res/TypedArray;->hasValue(I)Z
+    sget v3, Landroid/support/v7/appcompat/R$styleable;->AppCompatTextHelper_android_drawableStart:I
+
+    invoke-virtual {v0, v3}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
     move-result v3
 
     if-eqz v3, :cond_0
 
-    invoke-virtual {v0, v4, v4}, Landroid/content/res/TypedArray;->getResourceId(II)I
+    sget v3, Landroid/support/v7/appcompat/R$styleable;->AppCompatTextHelper_android_drawableStart:I
+
+    invoke-virtual {v0, v3, v4}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v3
 
@@ -122,13 +110,17 @@
     iput-object v3, p0, Landroid/support/v7/widget/AppCompatTextHelperV17;->mDrawableStartTint:Landroid/support/v7/widget/TintInfo;
 
     :cond_0
-    invoke-virtual {v0, v5}, Landroid/content/res/TypedArray;->hasValue(I)Z
+    sget v3, Landroid/support/v7/appcompat/R$styleable;->AppCompatTextHelper_android_drawableEnd:I
+
+    invoke-virtual {v0, v3}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
     move-result v3
 
     if-eqz v3, :cond_1
 
-    invoke-virtual {v0, v5, v4}, Landroid/content/res/TypedArray;->getResourceId(II)I
+    sget v3, Landroid/support/v7/appcompat/R$styleable;->AppCompatTextHelper_android_drawableEnd:I
+
+    invoke-virtual {v0, v3, v4}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v3
 

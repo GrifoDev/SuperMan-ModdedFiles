@@ -43,40 +43,6 @@
     return-object v0
 .end method
 
-.method public constructor <init>(Landroid/content/Context;)V
-    .locals 2
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/systemui/recents/ScreenPinningRequest;->mContext:Landroid/content/Context;
-
-    iget-object v0, p0, Lcom/android/systemui/recents/ScreenPinningRequest;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v1, "accessibility"
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/view/accessibility/AccessibilityManager;
-
-    iput-object v0, p0, Lcom/android/systemui/recents/ScreenPinningRequest;->mAccessibilityService:Landroid/view/accessibility/AccessibilityManager;
-
-    iget-object v0, p0, Lcom/android/systemui/recents/ScreenPinningRequest;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v1, "window"
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/view/WindowManager;
-
-    iput-object v0, p0, Lcom/android/systemui/recents/ScreenPinningRequest;->mWindowManager:Landroid/view/WindowManager;
-
-    return-void
-.end method
-
 .method private getWindowLayoutParams()Landroid/view/WindowManager$LayoutParams;
     .locals 6
 
@@ -93,6 +59,12 @@
     move v2, v1
 
     invoke-direct/range {v0 .. v5}, Landroid/view/WindowManager$LayoutParams;-><init>(IIIII)V
+
+    new-instance v1, Landroid/os/Binder;
+
+    invoke-direct {v1}, Landroid/os/Binder;-><init>()V
+
+    iput-object v1, v0, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
     iget v1, v0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
@@ -134,16 +106,18 @@
     return-void
 .end method
 
-.method public getRequestLayoutParams(Z)Landroid/widget/FrameLayout$LayoutParams;
+.method public getRequestLayoutParams(I)Landroid/widget/FrameLayout$LayoutParams;
     .locals 3
 
     const/4 v2, -0x2
 
     new-instance v1, Landroid/widget/FrameLayout$LayoutParams;
 
-    if-eqz p1, :cond_0
+    const/4 v0, 0x2
 
-    const/16 v0, 0x15
+    if-ne p1, v0, :cond_0
+
+    const/16 v0, 0x13
 
     :goto_0
     invoke-direct {v1, v2, v2, v0}, Landroid/widget/FrameLayout$LayoutParams;-><init>(III)V
@@ -151,6 +125,15 @@
     return-object v1
 
     :cond_0
+    const/4 v0, 0x1
+
+    if-ne p1, v0, :cond_1
+
+    const/16 v0, 0x15
+
+    goto :goto_0
+
+    :cond_1
     const/16 v0, 0x51
 
     goto :goto_0
@@ -163,7 +146,7 @@
 
     move-result v1
 
-    const v2, 0x7f13036d
+    const v2, 0x7f0a0459
 
     if-eq v1, v2, :cond_0
 
@@ -173,7 +156,7 @@
 
     :cond_0
     :try_start_0
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
     move-result-object v1
 
@@ -193,21 +176,6 @@
     move-exception v0
 
     goto :goto_0
-.end method
-
-.method public onConfigurationChanged()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/recents/ScreenPinningRequest;->mRequestWindow:Lcom/android/systemui/recents/ScreenPinningRequest$RequestWindowView;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/recents/ScreenPinningRequest;->mRequestWindow:Lcom/android/systemui/recents/ScreenPinningRequest$RequestWindowView;
-
-    invoke-virtual {v0}, Lcom/android/systemui/recents/ScreenPinningRequest$RequestWindowView;->onConfigurationChanged()V
-
-    :cond_0
-    return-void
 .end method
 
 .method public showPrompt(IZ)V

@@ -31,6 +31,16 @@
 
 
 # virtual methods
+.method public onDexModeChanged(Z)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardHostView$1;->this$0:Lcom/android/keyguard/KeyguardHostView;
+
+    invoke-static {v0, p1}, Lcom/android/keyguard/KeyguardHostView;->-wrap1(Lcom/android/keyguard/KeyguardHostView;Z)V
+
+    return-void
+.end method
+
 .method public onTrustGrantedWithFlags(II)V
     .locals 6
 
@@ -107,7 +117,7 @@
     :cond_4
     iget-object v3, p0, Lcom/android/keyguard/KeyguardHostView$1;->this$0:Lcom/android/keyguard/KeyguardHostView;
 
-    invoke-virtual {v3, v5}, Lcom/android/keyguard/KeyguardHostView;->dismiss(Z)Z
+    invoke-virtual {v3, v5, p2}, Lcom/android/keyguard/KeyguardHostView;->dismiss(ZI)Z
 
     :cond_5
     :goto_2

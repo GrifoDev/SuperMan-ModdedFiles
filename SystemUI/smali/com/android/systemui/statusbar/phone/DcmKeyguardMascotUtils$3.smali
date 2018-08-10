@@ -46,7 +46,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1
 
     const-string/jumbo v4, "eventType"
 
@@ -83,11 +83,19 @@
     packed-switch v1, :pswitch_data_0
 
     :goto_0
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     new-instance v3, Landroid/content/Intent;
 
     invoke-direct {v3, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v4, "LOCK_CLICK_MASCOT"
+
+    invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
 
     const-string/jumbo v4, "com.nttdocomo.android.mascot"
 
@@ -95,6 +103,7 @@
 
     invoke-virtual {v3, v4, v5}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
+    :cond_0
     const-string/jumbo v4, "android.intent.category.LAUNCHER"
 
     invoke-virtual {v3, v4}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
@@ -113,13 +122,13 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardMascotUtils$3;->this$0:Lcom/android/systemui/statusbar/phone/DcmKeyguardMascotUtils;
 
-    invoke-static {v4}, Lcom/android/systemui/statusbar/phone/DcmKeyguardMascotUtils;->-get2(Lcom/android/systemui/statusbar/phone/DcmKeyguardMascotUtils;)Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    invoke-static {v4}, Lcom/android/systemui/statusbar/phone/DcmKeyguardMascotUtils;->-get3(Lcom/android/systemui/statusbar/phone/DcmKeyguardMascotUtils;)Lcom/android/systemui/statusbar/phone/StatusBar;
 
     move-result-object v4
 
-    invoke-virtual {v4, v3, v7}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->startActivity(Landroid/content/Intent;Z)V
+    invoke-virtual {v4, v3, v7}, Lcom/android/systemui/statusbar/phone/StatusBar;->startActivity(Landroid/content/Intent;Z)V
 
-    :cond_0
+    :cond_1
     return-void
 
     :pswitch_0
@@ -136,8 +145,6 @@
     const-string/jumbo v2, "ACTION_UNLOCK"
 
     goto :goto_0
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x1

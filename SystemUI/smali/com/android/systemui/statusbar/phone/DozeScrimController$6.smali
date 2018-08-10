@@ -1,6 +1,9 @@
 .class Lcom/android/systemui/statusbar/phone/DozeScrimController$6;
-.super Landroid/animation/AnimatorListenerAdapter;
+.super Ljava/lang/Object;
 .source "DozeScrimController.java"
+
+# interfaces
+.implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
 
 # annotations
@@ -17,47 +20,42 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/systemui/statusbar/phone/DozeScrimController;
 
-.field final synthetic val$endRunnable:Ljava/lang/Runnable;
-
 .field final synthetic val$inFront:Z
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/phone/DozeScrimController;ZLjava/lang/Runnable;)V
+.method constructor <init>(Lcom/android/systemui/statusbar/phone/DozeScrimController;Z)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController$6;->this$0:Lcom/android/systemui/statusbar/phone/DozeScrimController;
 
     iput-boolean p2, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController$6;->val$inFront:Z
 
-    iput-object p3, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController$6;->val$endRunnable:Ljava/lang/Runnable;
-
-    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 3
 
-    const/4 v2, 0x0
+    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController$6;->this$0:Lcom/android/systemui/statusbar/phone/DozeScrimController;
+    move-result-object v1
 
-    iget-boolean v1, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController$6;->val$inFront:Z
+    check-cast v1, Ljava/lang/Float;
 
-    invoke-static {v0, v1, v2}, Lcom/android/systemui/statusbar/phone/DozeScrimController;->-wrap2(Lcom/android/systemui/statusbar/phone/DozeScrimController;ZLandroid/animation/Animator;)V
+    invoke-virtual {v1}, Ljava/lang/Float;->floatValue()F
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController$6;->val$endRunnable:Ljava/lang/Runnable;
+    move-result v0
 
-    if-eqz v0, :cond_0
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController$6;->this$0:Lcom/android/systemui/statusbar/phone/DozeScrimController;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController$6;->val$endRunnable:Ljava/lang/Runnable;
+    iget-boolean v2, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController$6;->val$inFront:Z
 
-    invoke-interface {v0}, Ljava/lang/Runnable;->run()V
+    invoke-static {v1, v2, v0}, Lcom/android/systemui/statusbar/phone/DozeScrimController;->-wrap3(Lcom/android/systemui/statusbar/phone/DozeScrimController;ZF)V
 
-    :cond_0
     return-void
 .end method

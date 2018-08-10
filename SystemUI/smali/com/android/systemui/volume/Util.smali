@@ -15,7 +15,7 @@
 .method static constructor <clinit>()V
     .locals 4
 
-    const/16 v3, 0xa
+    const/16 v3, 0x10
 
     new-instance v0, Ljava/text/SimpleDateFormat;
 
@@ -89,9 +89,45 @@
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "DISMISS_UI_WARNINGS"
+    const-string/jumbo v1, "FINE_VOLUME"
 
     const/16 v2, 0x9
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "NO_VOICE_ASSISTANT"
+
+    const/16 v2, 0xa
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "DISPLAY_VOLUME_CONTROL"
+
+    const/16 v2, 0xb
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "MULTI_SOUND"
+
+    const/16 v2, 0xc
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "UPDATE_STATE"
+
+    const/16 v2, 0xd
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "SKIP_RINGER_MODES"
+
+    const/16 v2, 0xe
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "DISMISS_UI_WARNINGS"
+
+    const/16 v2, 0xf
 
     aput-object v1, v0, v2
 
@@ -110,6 +146,12 @@
         0x80
         0x1000
         0x400
+        0x200000
+        0x400000
+        0x800000
+        0x1000000
+        0x2000000
+        0x4000000
         0x10000000
     .end array-data
 .end method
@@ -238,50 +280,27 @@
 .end method
 
 .method public static isVoiceCapable(Landroid/content/Context;)Z
-    .locals 4
+    .locals 2
 
-    const-string/jumbo v2, "phone"
+    const-string/jumbo v1, "phone"
 
-    invoke-virtual {p0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/telephony/TelephonyManager;
-
-    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "CscFeature_IMS_ConfigMdmnType"
-
-    invoke-virtual {v2, v3}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
-    if-eqz v1, :cond_1
+    check-cast v0, Landroid/telephony/TelephonyManager;
 
-    invoke-virtual {v1}, Landroid/telephony/TelephonyManager;->isVoiceCapable()Z
+    if-eqz v0, :cond_0
 
-    move-result v2
+    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->isVoiceCapable()Z
 
-    if-nez v2, :cond_0
-
-    const-string/jumbo v2, "Softphone"
-
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v2
+    move-result v1
 
     :goto_0
-    return v2
+    return v1
 
     :cond_0
-    const/4 v2, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     goto :goto_0
 .end method

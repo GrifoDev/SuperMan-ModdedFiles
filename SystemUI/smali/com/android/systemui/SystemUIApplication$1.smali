@@ -47,6 +47,18 @@
     :cond_0
     iget-object v2, p0, Lcom/android/systemui/SystemUIApplication$1;->this$0:Lcom/android/systemui/SystemUIApplication;
 
+    invoke-static {v2}, Lcom/android/systemui/util/AnalyticUtils;->setConfiguration(Landroid/app/Application;)V
+
+    invoke-static {}, Lcom/android/systemui/SystemUIAnalytics;->makeSAPreferences()V
+
+    const-string/jumbo v2, "SystemUIService"
+
+    const-string/jumbo v3, "BOOT_COMPLETED received"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v2, p0, Lcom/android/systemui/SystemUIApplication$1;->this$0:Lcom/android/systemui/SystemUIApplication;
+
     invoke-virtual {v2, p0}, Lcom/android/systemui/SystemUIApplication;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
     iget-object v2, p0, Lcom/android/systemui/SystemUIApplication$1;->this$0:Lcom/android/systemui/SystemUIApplication;

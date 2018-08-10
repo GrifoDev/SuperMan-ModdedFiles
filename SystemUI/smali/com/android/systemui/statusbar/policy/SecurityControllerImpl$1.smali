@@ -67,7 +67,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl$1;->this$0:Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->-wrap1(Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;)V
+    invoke-static {v0}, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->-wrap2(Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl$1;->this$0:Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;
 
@@ -112,7 +112,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl$1;->this$0:Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->-wrap1(Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;)V
+    invoke-static {v0}, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->-wrap2(Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl$1;->this$0:Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;
 

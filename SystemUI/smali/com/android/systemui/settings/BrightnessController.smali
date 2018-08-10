@@ -9,6 +9,15 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/systemui/settings/BrightnessController$1;,
+        Lcom/android/systemui/settings/BrightnessController$2;,
+        Lcom/android/systemui/settings/BrightnessController$3;,
+        Lcom/android/systemui/settings/BrightnessController$4;,
+        Lcom/android/systemui/settings/BrightnessController$5;,
+        Lcom/android/systemui/settings/BrightnessController$6;,
+        Lcom/android/systemui/settings/BrightnessController$7;,
+        Lcom/android/systemui/settings/BrightnessController$8;,
+        Lcom/android/systemui/settings/BrightnessController$9;,
         Lcom/android/systemui/settings/BrightnessController$BrightnessObserver;,
         Lcom/android/systemui/settings/BrightnessController$BrightnessStateChangeCallback;
     }
@@ -16,9 +25,11 @@
 
 
 # instance fields
-.field private mAutomatic:Z
+.field private volatile mAutomatic:Z
 
 .field private final mAutomaticAvailable:Z
+
+.field private final mBackgroundHandler:Landroid/os/Handler;
 
 .field private final mBrightnessObserver:Lcom/android/systemui/settings/BrightnessController$BrightnessObserver;
 
@@ -43,19 +54,41 @@
 
 .field private final mHandler:Landroid/os/Handler;
 
+.field private final mHighBrightnessModeRunnable:Ljava/lang/Runnable;
+
 .field private final mIcon:Landroid/widget/ImageView;
+
+.field private volatile mIsVrModeEnabled:Z
 
 .field private mListening:Z
 
 .field private final mMaximumBacklight:I
 
+.field private final mMaximumBacklightForVr:I
+
 .field private final mMinimumBacklight:I
 
-.field private mOutdoorMode:Z
+.field private final mMinimumBacklightForVr:I
+
+.field private final mOutdoorModeRunnable:Ljava/lang/Runnable;
 
 .field private final mPower:Landroid/os/IPowerManager;
 
+.field private final mStartListeningRunnable:Ljava/lang/Runnable;
+
+.field private final mStopListeningRunnable:Ljava/lang/Runnable;
+
+.field private final mStrainDialogRunnable:Ljava/lang/Runnable;
+
+.field private final mUpdateModeRunnable:Ljava/lang/Runnable;
+
+.field private final mUpdateSliderRunnable:Ljava/lang/Runnable;
+
 .field private final mUserTracker:Lcom/android/systemui/settings/CurrentUserTracker;
+
+.field private final mVrManager:Landroid/service/vr/IVrManager;
+
+.field private final mVrStateCallbacks:Landroid/service/vr/IVrStateCallbacks;
 
 
 # direct methods
@@ -67,7 +100,111 @@
     return v0
 .end method
 
-.method static synthetic -get1(Lcom/android/systemui/settings/BrightnessController;)Ljava/util/ArrayList;
+.method static synthetic -get1(Lcom/android/systemui/settings/BrightnessController;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/settings/BrightnessController;->mAutomaticAvailable:Z
+
+    return v0
+.end method
+
+.method static synthetic -get10(Lcom/android/systemui/settings/BrightnessController;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/settings/BrightnessController;->mIsVrModeEnabled:Z
+
+    return v0
+.end method
+
+.method static synthetic -get11(Lcom/android/systemui/settings/BrightnessController;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/systemui/settings/BrightnessController;->mMaximumBacklight:I
+
+    return v0
+.end method
+
+.method static synthetic -get12(Lcom/android/systemui/settings/BrightnessController;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/systemui/settings/BrightnessController;->mMaximumBacklightForVr:I
+
+    return v0
+.end method
+
+.method static synthetic -get13(Lcom/android/systemui/settings/BrightnessController;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/systemui/settings/BrightnessController;->mMinimumBacklight:I
+
+    return v0
+.end method
+
+.method static synthetic -get14(Lcom/android/systemui/settings/BrightnessController;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/systemui/settings/BrightnessController;->mMinimumBacklightForVr:I
+
+    return v0
+.end method
+
+.method static synthetic -get15(Lcom/android/systemui/settings/BrightnessController;)Ljava/lang/Runnable;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessController;->mOutdoorModeRunnable:Ljava/lang/Runnable;
+
+    return-object v0
+.end method
+
+.method static synthetic -get16(Lcom/android/systemui/settings/BrightnessController;)Ljava/lang/Runnable;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessController;->mStrainDialogRunnable:Ljava/lang/Runnable;
+
+    return-object v0
+.end method
+
+.method static synthetic -get17(Lcom/android/systemui/settings/BrightnessController;)Ljava/lang/Runnable;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessController;->mUpdateModeRunnable:Ljava/lang/Runnable;
+
+    return-object v0
+.end method
+
+.method static synthetic -get18(Lcom/android/systemui/settings/BrightnessController;)Ljava/lang/Runnable;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessController;->mUpdateSliderRunnable:Ljava/lang/Runnable;
+
+    return-object v0
+.end method
+
+.method static synthetic -get19(Lcom/android/systemui/settings/BrightnessController;)Lcom/android/systemui/settings/CurrentUserTracker;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessController;->mUserTracker:Lcom/android/systemui/settings/CurrentUserTracker;
+
+    return-object v0
+.end method
+
+.method static synthetic -get2(Lcom/android/systemui/settings/BrightnessController;)Landroid/os/Handler;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessController;->mBackgroundHandler:Landroid/os/Handler;
+
+    return-object v0
+.end method
+
+.method static synthetic -get3(Lcom/android/systemui/settings/BrightnessController;)Lcom/android/systemui/settings/BrightnessController$BrightnessObserver;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessController;->mBrightnessObserver:Lcom/android/systemui/settings/BrightnessController$BrightnessObserver;
+
+    return-object v0
+.end method
+
+.method static synthetic -get4(Lcom/android/systemui/settings/BrightnessController;)Ljava/util/ArrayList;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/settings/BrightnessController;->mChangeCallbacks:Ljava/util/ArrayList;
@@ -75,7 +212,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get2(Lcom/android/systemui/settings/BrightnessController;)Landroid/content/Context;
+.method static synthetic -get5(Lcom/android/systemui/settings/BrightnessController;)Landroid/content/Context;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/settings/BrightnessController;->mContext:Landroid/content/Context;
@@ -83,18 +220,42 @@
     return-object v0
 .end method
 
-.method static synthetic -get3(Lcom/android/systemui/settings/BrightnessController;)Z
+.method static synthetic -get6(Lcom/android/systemui/settings/BrightnessController;)Lcom/android/systemui/settings/ToggleSlider;
     .locals 1
 
-    iget-boolean v0, p0, Lcom/android/systemui/settings/BrightnessController;->mOutdoorMode:Z
+    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessController;->mControl:Lcom/android/systemui/settings/ToggleSlider;
+
+    return-object v0
+.end method
+
+.method static synthetic -get7(Lcom/android/systemui/settings/BrightnessController;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/systemui/settings/BrightnessController;->mDeafultBacklight:I
 
     return v0
+.end method
+
+.method static synthetic -get8(Lcom/android/systemui/settings/BrightnessController;)Landroid/os/Handler;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessController;->mHandler:Landroid/os/Handler;
+
+    return-object v0
+.end method
+
+.method static synthetic -get9(Lcom/android/systemui/settings/BrightnessController;)Ljava/lang/Runnable;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessController;->mHighBrightnessModeRunnable:Ljava/lang/Runnable;
+
+    return-object v0
 .end method
 
 .method static synthetic -set0(Lcom/android/systemui/settings/BrightnessController;Z)Z
     .locals 0
 
-    iput-boolean p1, p0, Lcom/android/systemui/settings/BrightnessController;->mExternalChange:Z
+    iput-boolean p1, p0, Lcom/android/systemui/settings/BrightnessController;->mAutomatic:Z
 
     return p1
 .end method
@@ -102,7 +263,7 @@
 .method static synthetic -set1(Lcom/android/systemui/settings/BrightnessController;Z)Z
     .locals 0
 
-    iput-boolean p1, p0, Lcom/android/systemui/settings/BrightnessController;->mOutdoorMode:Z
+    iput-boolean p1, p0, Lcom/android/systemui/settings/BrightnessController;->mExternalChange:Z
 
     return p1
 .end method
@@ -115,34 +276,10 @@
     return-void
 .end method
 
-.method static synthetic -wrap1(Lcom/android/systemui/settings/BrightnessController;)V
+.method static synthetic -wrap1(Lcom/android/systemui/settings/BrightnessController;Z)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/settings/BrightnessController;->updateHBMMode()V
-
-    return-void
-.end method
-
-.method static synthetic -wrap2(Lcom/android/systemui/settings/BrightnessController;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/settings/BrightnessController;->updateMode()V
-
-    return-void
-.end method
-
-.method static synthetic -wrap3(Lcom/android/systemui/settings/BrightnessController;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/settings/BrightnessController;->updateOutdoorMode(Z)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap4(Lcom/android/systemui/settings/BrightnessController;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/settings/BrightnessController;->updateSlider()V
+    invoke-direct {p0, p1}, Lcom/android/systemui/settings/BrightnessController;->updateVrMode(Z)V
 
     return-void
 .end method
@@ -158,23 +295,85 @@
 
     iput-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mChangeCallbacks:Ljava/util/ArrayList;
 
+    new-instance v1, Lcom/android/systemui/settings/BrightnessController$1;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/settings/BrightnessController$1;-><init>(Lcom/android/systemui/settings/BrightnessController;)V
+
+    iput-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mStartListeningRunnable:Ljava/lang/Runnable;
+
+    new-instance v1, Lcom/android/systemui/settings/BrightnessController$2;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/settings/BrightnessController$2;-><init>(Lcom/android/systemui/settings/BrightnessController;)V
+
+    iput-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mStopListeningRunnable:Ljava/lang/Runnable;
+
+    new-instance v1, Lcom/android/systemui/settings/BrightnessController$3;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/settings/BrightnessController$3;-><init>(Lcom/android/systemui/settings/BrightnessController;)V
+
+    iput-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mUpdateModeRunnable:Ljava/lang/Runnable;
+
+    new-instance v1, Lcom/android/systemui/settings/BrightnessController$4;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/settings/BrightnessController$4;-><init>(Lcom/android/systemui/settings/BrightnessController;)V
+
+    iput-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mUpdateSliderRunnable:Ljava/lang/Runnable;
+
+    new-instance v1, Lcom/android/systemui/settings/BrightnessController$5;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/settings/BrightnessController$5;-><init>(Lcom/android/systemui/settings/BrightnessController;)V
+
+    iput-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mHighBrightnessModeRunnable:Ljava/lang/Runnable;
+
+    new-instance v1, Lcom/android/systemui/settings/BrightnessController$6;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/settings/BrightnessController$6;-><init>(Lcom/android/systemui/settings/BrightnessController;)V
+
+    iput-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mStrainDialogRunnable:Ljava/lang/Runnable;
+
+    new-instance v1, Lcom/android/systemui/settings/BrightnessController$7;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/settings/BrightnessController$7;-><init>(Lcom/android/systemui/settings/BrightnessController;)V
+
+    iput-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mOutdoorModeRunnable:Ljava/lang/Runnable;
+
+    new-instance v1, Lcom/android/systemui/settings/BrightnessController$8;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/settings/BrightnessController$8;-><init>(Lcom/android/systemui/settings/BrightnessController;)V
+
+    iput-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mVrStateCallbacks:Landroid/service/vr/IVrStateCallbacks;
+
+    new-instance v1, Lcom/android/systemui/settings/BrightnessController$9;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/settings/BrightnessController$9;-><init>(Lcom/android/systemui/settings/BrightnessController;)V
+
+    iput-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mHandler:Landroid/os/Handler;
+
     iput-object p1, p0, Lcom/android/systemui/settings/BrightnessController;->mContext:Landroid/content/Context;
 
     iput-object p2, p0, Lcom/android/systemui/settings/BrightnessController;->mIcon:Landroid/widget/ImageView;
 
     iput-object p3, p0, Lcom/android/systemui/settings/BrightnessController;->mControl:Lcom/android/systemui/settings/ToggleSlider;
 
-    new-instance v1, Landroid/os/Handler;
+    new-instance v2, Landroid/os/Handler;
 
-    invoke-direct {v1}, Landroid/os/Handler;-><init>()V
+    sget-object v1, Lcom/android/systemui/Dependency;->BG_LOOPER:Lcom/android/systemui/Dependency$DependencyKey;
 
-    iput-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mHandler:Landroid/os/Handler;
+    invoke-static {v1}, Lcom/android/systemui/Dependency;->get(Lcom/android/systemui/Dependency$DependencyKey;)Ljava/lang/Object;
 
-    new-instance v1, Lcom/android/systemui/settings/BrightnessController$1;
+    move-result-object v1
+
+    check-cast v1, Landroid/os/Looper;
+
+    invoke-direct {v2, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+
+    iput-object v2, p0, Lcom/android/systemui/settings/BrightnessController;->mBackgroundHandler:Landroid/os/Handler;
+
+    new-instance v1, Lcom/android/systemui/settings/BrightnessController$10;
 
     iget-object v2, p0, Lcom/android/systemui/settings/BrightnessController;->mContext:Landroid/content/Context;
 
-    invoke-direct {v1, p0, v2}, Lcom/android/systemui/settings/BrightnessController$1;-><init>(Lcom/android/systemui/settings/BrightnessController;Landroid/content/Context;)V
+    invoke-direct {v1, p0, v2}, Lcom/android/systemui/settings/BrightnessController$10;-><init>(Lcom/android/systemui/settings/BrightnessController;Landroid/content/Context;)V
 
     iput-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mUserTracker:Lcom/android/systemui/settings/CurrentUserTracker;
 
@@ -206,33 +405,27 @@
 
     iput v1, p0, Lcom/android/systemui/settings/BrightnessController;->mMaximumBacklight:I
 
+    invoke-virtual {v0}, Landroid/os/PowerManager;->getMinimumScreenBrightnessForVrSetting()I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/systemui/settings/BrightnessController;->mMinimumBacklightForVr:I
+
+    invoke-virtual {v0}, Landroid/os/PowerManager;->getMaximumScreenBrightnessForVrSetting()I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/systemui/settings/BrightnessController;->mMaximumBacklightForVr:I
+
     invoke-virtual {v0}, Landroid/os/PowerManager;->getDefaultScreenBrightnessSetting()I
 
     move-result v1
 
     iput v1, p0, Lcom/android/systemui/settings/BrightnessController;->mDeafultBacklight:I
 
-    iget-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mControl:Lcom/android/systemui/settings/ToggleSlider;
+    iget-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mContext:Landroid/content/Context;
 
-    iget v2, p0, Lcom/android/systemui/settings/BrightnessController;->mMaximumBacklight:I
-
-    iget v3, p0, Lcom/android/systemui/settings/BrightnessController;->mMinimumBacklight:I
-
-    sub-int/2addr v2, v3
-
-    invoke-virtual {v1, v2}, Lcom/android/systemui/settings/ToggleSlider;->setMax(I)V
-
-    iget-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mControl:Lcom/android/systemui/settings/ToggleSlider;
-
-    invoke-virtual {v1, p3}, Lcom/android/systemui/settings/ToggleSlider;->initSlider(Lcom/android/systemui/settings/ToggleSlider;)V
-
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v2, 0x1120023
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
+    invoke-static {v1}, Lcom/android/systemui/statusbar/DeviceState;->isLightSensorAvailable(Landroid/content/Context;)Z
 
     move-result v1
 
@@ -250,14 +443,48 @@
 
     iput-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mPower:Landroid/os/IPowerManager;
 
-    sget-boolean v1, Lcom/android/systemui/SystemUIRune;->SUPPORT_PERSONAL_AUTO_BRIGHTNESS_CONTROL:Z
+    const-string/jumbo v1, "vrmanager"
+
+    invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/service/vr/IVrManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/service/vr/IVrManager;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mVrManager:Landroid/service/vr/IVrManager;
+
+    iget-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mControl:Lcom/android/systemui/settings/ToggleSlider;
+
+    iget v2, p0, Lcom/android/systemui/settings/BrightnessController;->mMaximumBacklight:I
+
+    iget v3, p0, Lcom/android/systemui/settings/BrightnessController;->mMinimumBacklight:I
+
+    sub-int/2addr v2, v3
+
+    invoke-interface {v1, v2}, Lcom/android/systemui/settings/ToggleSlider;->setMax(I)V
+
+    iget-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mControl:Lcom/android/systemui/settings/ToggleSlider;
+
+    invoke-interface {v1}, Lcom/android/systemui/settings/ToggleSlider;->setDualColorSlider()V
+
+    sget-boolean v1, Lcom/android/systemui/Rune;->QPANEL_SUPPORT_PERSONAL_AUTO_BRIGHTNESS_CONTROL:Z
 
     if-eqz v1, :cond_0
 
-    invoke-direct {p0}, Lcom/android/systemui/settings/BrightnessController;->updateHBMMode()V
+    iget-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mBackgroundHandler:Landroid/os/Handler;
+
+    iget-object v2, p0, Lcom/android/systemui/settings/BrightnessController;->mHighBrightnessModeRunnable:Ljava/lang/Runnable;
+
+    invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     :cond_0
-    invoke-virtual {p0}, Lcom/android/systemui/settings/BrightnessController;->setDoNotShowStrainPopup()V
+    iget-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mBackgroundHandler:Landroid/os/Handler;
+
+    iget-object v2, p0, Lcom/android/systemui/settings/BrightnessController;->mStrainDialogRunnable:Ljava/lang/Runnable;
+
+    invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
@@ -310,7 +537,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "setMarkerBrightness = "
+    const-string/jumbo v3, "setMarkerBrightness() : brightness = "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -363,325 +590,27 @@
     return-void
 .end method
 
-.method private updateHBMMode()V
-    .locals 5
+.method private updateVrMode(Z)V
+    .locals 2
 
-    const/4 v4, 0x0
+    iget-boolean v0, p0, Lcom/android/systemui/settings/BrightnessController;->mIsVrModeEnabled:Z
 
-    sget-boolean v1, Lcom/android/systemui/SystemUIRune;->SUPPORT_PERSONAL_AUTO_BRIGHTNESS_CONTROL:Z
+    if-eq v0, p1, :cond_0
 
-    if-eqz v1, :cond_0
+    iput-boolean p1, p0, Lcom/android/systemui/settings/BrightnessController;->mIsVrModeEnabled:Z
 
-    iget-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessController;->mBackgroundHandler:Landroid/os/Handler;
 
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    iget-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mUpdateSliderRunnable:Ljava/lang/Runnable;
 
-    move-result-object v1
-
-    const-string/jumbo v2, "high_brightness_mode_pms_enter"
-
-    const/4 v3, -0x2
-
-    invoke-static {v1, v2, v4, v3}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    const/4 v0, 0x1
-
-    :goto_0
-    iget-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mControl:Lcom/android/systemui/settings/ToggleSlider;
-
-    invoke-virtual {v1, v0}, Lcom/android/systemui/settings/ToggleSlider;->setHbmMode(Z)V
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     :cond_0
     return-void
-
-    :cond_1
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
-.method private updateIcon(Z)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessController;->mIcon:Landroid/widget/ImageView;
-
-    if-eqz v0, :cond_0
-
-    :cond_0
-    return-void
-.end method
-
-.method private updateMode()V
-    .locals 5
-
-    const/4 v1, 0x0
-
-    iget-boolean v2, p0, Lcom/android/systemui/settings/BrightnessController;->mAutomaticAvailable:Z
-
-    if-eqz v2, :cond_1
-
-    iget-object v2, p0, Lcom/android/systemui/settings/BrightnessController;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "screen_brightness_mode"
-
-    const/4 v4, -0x2
-
-    invoke-static {v2, v3, v1, v4}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const/4 v1, 0x1
-
-    :cond_0
-    iput-boolean v1, p0, Lcom/android/systemui/settings/BrightnessController;->mAutomatic:Z
-
-    iget-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mControl:Lcom/android/systemui/settings/ToggleSlider;
-
-    iget-boolean v2, p0, Lcom/android/systemui/settings/BrightnessController;->mAutomatic:Z
-
-    invoke-virtual {v1, v2}, Lcom/android/systemui/settings/ToggleSlider;->setChecked(Z)V
-
-    iget-boolean v1, p0, Lcom/android/systemui/settings/BrightnessController;->mAutomatic:Z
-
-    invoke-direct {p0, v1}, Lcom/android/systemui/settings/BrightnessController;->updateIcon(Z)V
-
-    :goto_0
-    const-string/jumbo v1, "StatusBar.BrightnessController"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "updateMode  autobrightness is  "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget-boolean v3, p0, Lcom/android/systemui/settings/BrightnessController;->mAutomatic:Z
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_1
-    iget-object v2, p0, Lcom/android/systemui/settings/BrightnessController;->mControl:Lcom/android/systemui/settings/ToggleSlider;
-
-    invoke-virtual {v2, v1}, Lcom/android/systemui/settings/ToggleSlider;->setChecked(Z)V
-
-    invoke-direct {p0, v1}, Lcom/android/systemui/settings/BrightnessController;->updateIcon(Z)V
-
-    goto :goto_0
-.end method
-
-.method private updateOutdoorMode(Z)V
-    .locals 4
-
-    const/4 v2, 0x1
-
-    const/4 v1, 0x0
-
-    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessController;->mControl:Lcom/android/systemui/settings/ToggleSlider;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessController;->mControl:Lcom/android/systemui/settings/ToggleSlider;
-
-    invoke-virtual {v0, p1}, Lcom/android/systemui/settings/ToggleSlider;->setOutdoorMode(Z)V
-
-    iget-object v3, p0, Lcom/android/systemui/settings/BrightnessController;->mControl:Lcom/android/systemui/settings/ToggleSlider;
-
-    if-eqz p1, :cond_1
-
-    move v0, v1
-
-    :goto_0
-    invoke-virtual {v3, v0}, Lcom/android/systemui/settings/ToggleSlider;->setTouchEnabled(Z)V
-
-    :cond_0
-    if-eqz p1, :cond_2
-
-    :goto_1
-    iput-boolean v1, p0, Lcom/android/systemui/settings/BrightnessController;->mListening:Z
-
-    return-void
-
-    :cond_1
-    move v0, v2
-
-    goto :goto_0
-
-    :cond_2
-    move v1, v2
-
-    goto :goto_1
-.end method
-
-.method private updateSlider()V
-    .locals 5
-
-    const/4 v4, -0x2
-
-    sget-boolean v1, Lcom/android/systemui/SystemUIRune;->SUPPORT_PERSONAL_AUTO_BRIGHTNESS_CONTROL:Z
-
-    if-eqz v1, :cond_1
-
-    iget-boolean v1, p0, Lcom/android/systemui/settings/BrightnessController;->mAutomatic:Z
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "brightness_pms_marker_screen"
-
-    iget v3, p0, Lcom/android/systemui/settings/BrightnessController;->mMaximumBacklight:I
-
-    invoke-static {v1, v2, v3, v4}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
-
-    move-result v0
-
-    :goto_0
-    iget-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mControl:Lcom/android/systemui/settings/ToggleSlider;
-
-    iget v2, p0, Lcom/android/systemui/settings/BrightnessController;->mMaximumBacklight:I
-
-    iget v3, p0, Lcom/android/systemui/settings/BrightnessController;->mMinimumBacklight:I
-
-    sub-int/2addr v2, v3
-
-    invoke-virtual {v1, v2}, Lcom/android/systemui/settings/ToggleSlider;->setMax(I)V
-
-    iget-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mControl:Lcom/android/systemui/settings/ToggleSlider;
-
-    iget v2, p0, Lcom/android/systemui/settings/BrightnessController;->mMinimumBacklight:I
-
-    sub-int v2, v0, v2
-
-    invoke-virtual {v1, v2}, Lcom/android/systemui/settings/ToggleSlider;->setValue(I)V
-
-    const-string/jumbo v1, "StatusBar.BrightnessController"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "updateSlider = "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget v3, p0, Lcom/android/systemui/settings/BrightnessController;->mMinimumBacklight:I
-
-    sub-int v3, v0, v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_0
-    iget-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "screen_brightness"
-
-    iget v3, p0, Lcom/android/systemui/settings/BrightnessController;->mMaximumBacklight:I
-
-    invoke-static {v1, v2, v3, v4}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
-
-    move-result v0
-
-    goto :goto_0
-
-    :cond_1
-    iget-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "screen_brightness"
-
-    iget v3, p0, Lcom/android/systemui/settings/BrightnessController;->mMaximumBacklight:I
-
-    invoke-static {v1, v2, v3, v4}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
-
-    move-result v0
-
-    goto :goto_0
 .end method
 
 
 # virtual methods
-.method public SendLogForBrightness(ZI)V
-    .locals 5
-
-    if-eqz p1, :cond_0
-
-    const-string/jumbo v0, "Auto"
-
-    :goto_0
-    iget-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v2, "com.android.systemui.statusbar.policy.quicksetting"
-
-    const-string/jumbo v3, "QP05"
-
-    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    invoke-static {v1, v2, v3, v0, v4}, Lcom/android/keyguard/util/GsimLogManager;->sendLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;)V
-
-    return-void
-
-    :cond_0
-    const-string/jumbo v0, "Manual"
-
-    goto :goto_0
-.end method
-
-.method public isSliderEnabled()Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/settings/BrightnessController;->mListening:Z
-
-    return v0
-.end method
-
 .method public onChanged(Lcom/android/systemui/settings/ToggleSlider;ZZIZ)V
     .locals 10
 
@@ -706,7 +635,7 @@
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "onChanged  setMode = "
+    const-string/jumbo v7, "onChanged() automaic = "
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -722,7 +651,7 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    sget-boolean v5, Lcom/android/systemui/SystemUIRune;->SUPPORT_PERSONAL_AUTO_BRIGHTNESS_CONTROL:Z
+    sget-boolean v5, Lcom/android/systemui/Rune;->QPANEL_SUPPORT_PERSONAL_AUTO_BRIGHTNESS_CONTROL:Z
 
     if-eqz v5, :cond_1
 
@@ -792,11 +721,11 @@
     goto :goto_1
 
     :cond_4
-    iget-boolean v5, p0, Lcom/android/systemui/settings/BrightnessController;->mAutomatic:Z
+    iget-boolean v5, p0, Lcom/android/systemui/settings/BrightnessController;->mIsVrModeEnabled:Z
 
-    if-nez v5, :cond_7
+    if-eqz v5, :cond_7
 
-    iget v5, p0, Lcom/android/systemui/settings/BrightnessController;->mMinimumBacklight:I
+    iget v5, p0, Lcom/android/systemui/settings/BrightnessController;->mMinimumBacklightForVr:I
 
     add-int v4, p4, v5
 
@@ -804,7 +733,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/settings/BrightnessController;->mContext:Landroid/content/Context;
 
-    const/16 v6, 0xda
+    const/16 v6, 0x1f2
 
     invoke-static {v5, v6, v4}, Lcom/android/internal/logging/MetricsLogger;->action(Landroid/content/Context;II)V
 
@@ -813,9 +742,9 @@
 
     if-nez p2, :cond_6
 
-    new-instance v5, Lcom/android/systemui/settings/BrightnessController$2;
+    new-instance v5, Lcom/android/systemui/settings/BrightnessController$11;
 
-    invoke-direct {v5, p0, v4}, Lcom/android/systemui/settings/BrightnessController$2;-><init>(Lcom/android/systemui/settings/BrightnessController;I)V
+    invoke-direct {v5, p0, v4}, Lcom/android/systemui/settings/BrightnessController$11;-><init>(Lcom/android/systemui/settings/BrightnessController;I)V
 
     invoke-static {v5}, Landroid/os/AsyncTask;->execute(Ljava/lang/Runnable;)V
 
@@ -832,7 +761,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_d
+    if-eqz v5, :cond_f
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -845,9 +774,39 @@
     goto :goto_3
 
     :cond_7
-    const/4 v0, 0x0
+    iget-boolean v5, p0, Lcom/android/systemui/settings/BrightnessController;->mAutomatic:Z
+
+    if-nez v5, :cond_9
+
+    iget v5, p0, Lcom/android/systemui/settings/BrightnessController;->mMinimumBacklight:I
+
+    add-int v4, p4, v5
 
     if-eqz p5, :cond_8
+
+    iget-object v5, p0, Lcom/android/systemui/settings/BrightnessController;->mContext:Landroid/content/Context;
+
+    const/16 v6, 0xda
+
+    invoke-static {v5, v6, v4}, Lcom/android/internal/logging/MetricsLogger;->action(Landroid/content/Context;II)V
+
+    :cond_8
+    invoke-direct {p0, v4}, Lcom/android/systemui/settings/BrightnessController;->setBrightness(I)V
+
+    if-nez p2, :cond_6
+
+    new-instance v5, Lcom/android/systemui/settings/BrightnessController$12;
+
+    invoke-direct {v5, p0, v4}, Lcom/android/systemui/settings/BrightnessController$12;-><init>(Lcom/android/systemui/settings/BrightnessController;I)V
+
+    invoke-static {v5}, Landroid/os/AsyncTask;->execute(Ljava/lang/Runnable;)V
+
+    goto :goto_2
+
+    :cond_9
+    const/4 v0, 0x0
+
+    if-eqz p5, :cond_a
 
     iget-object v5, p0, Lcom/android/systemui/settings/BrightnessController;->mContext:Landroid/content/Context;
 
@@ -855,18 +814,18 @@
 
     invoke-static {v5, v6, p4}, Lcom/android/internal/logging/MetricsLogger;->action(Landroid/content/Context;II)V
 
-    :cond_8
+    :cond_a
     iget v5, p0, Lcom/android/systemui/settings/BrightnessController;->mMinimumBacklight:I
 
     add-int v4, p4, v5
 
-    sget-boolean v5, Lcom/android/systemui/SystemUIRune;->SUPPORT_PERSONAL_AUTO_BRIGHTNESS_CONTROL:Z
+    sget-boolean v5, Lcom/android/systemui/Rune;->QPANEL_SUPPORT_PERSONAL_AUTO_BRIGHTNESS_CONTROL:Z
 
-    if-nez v5, :cond_a
+    if-nez v5, :cond_c
 
     iget v5, p0, Lcom/android/systemui/settings/BrightnessController;->mDeafultBacklight:I
 
-    if-le v4, v5, :cond_b
+    if-le v4, v5, :cond_d
 
     iget v5, p0, Lcom/android/systemui/settings/BrightnessController;->mDeafultBacklight:I
 
@@ -884,7 +843,7 @@
 
     div-float v0, v5, v6
 
-    :cond_9
+    :cond_b
     :goto_4
     const-string/jumbo v5, "StatusBar.BrightnessController"
 
@@ -892,7 +851,7 @@
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "auto brightness onChanged  val = "
+    const-string/jumbo v7, "onChanged() : val = "
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -902,7 +861,7 @@
 
     move-result-object v6
 
-    const-string/jumbo v7, " adj = "
+    const-string/jumbo v7, ", adj = "
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -920,21 +879,21 @@
 
     invoke-direct {p0, v0}, Lcom/android/systemui/settings/BrightnessController;->setBrightnessAdj(F)V
 
-    :cond_a
-    if-nez p2, :cond_c
+    :cond_c
+    if-nez p2, :cond_e
 
-    new-instance v5, Lcom/android/systemui/settings/BrightnessController$3;
+    new-instance v5, Lcom/android/systemui/settings/BrightnessController$13;
 
-    invoke-direct {v5, p0, v4}, Lcom/android/systemui/settings/BrightnessController$3;-><init>(Lcom/android/systemui/settings/BrightnessController;I)V
+    invoke-direct {v5, p0, v4}, Lcom/android/systemui/settings/BrightnessController$13;-><init>(Lcom/android/systemui/settings/BrightnessController;I)V
 
     invoke-static {v5}, Landroid/os/AsyncTask;->execute(Ljava/lang/Runnable;)V
 
-    goto :goto_2
+    goto/16 :goto_2
 
-    :cond_b
+    :cond_d
     iget v5, p0, Lcom/android/systemui/settings/BrightnessController;->mDeafultBacklight:I
 
-    if-ge v4, v5, :cond_9
+    if-ge v4, v5, :cond_b
 
     iget v5, p0, Lcom/android/systemui/settings/BrightnessController;->mDeafultBacklight:I
 
@@ -954,12 +913,12 @@
 
     goto :goto_4
 
-    :cond_c
+    :cond_e
     invoke-direct {p0, v4}, Lcom/android/systemui/settings/BrightnessController;->setMarkerBrightness(I)V
 
     goto/16 :goto_2
 
-    :cond_d
+    :cond_f
     return-void
 .end method
 
@@ -970,163 +929,107 @@
 .end method
 
 .method public registerCallbacks()V
-    .locals 5
+    .locals 3
 
-    const/4 v0, 0x1
-
-    const/4 v1, 0x0
-
-    iget-boolean v2, p0, Lcom/android/systemui/settings/BrightnessController;->mListening:Z
-
-    if-eqz v2, :cond_0
-
-    return-void
-
-    :cond_0
-    iget-object v2, p0, Lcom/android/systemui/settings/BrightnessController;->mBrightnessObserver:Lcom/android/systemui/settings/BrightnessController$BrightnessObserver;
-
-    invoke-virtual {v2}, Lcom/android/systemui/settings/BrightnessController$BrightnessObserver;->startObserving()V
-
-    iget-object v2, p0, Lcom/android/systemui/settings/BrightnessController;->mUserTracker:Lcom/android/systemui/settings/CurrentUserTracker;
-
-    invoke-virtual {v2}, Lcom/android/systemui/settings/CurrentUserTracker;->startTracking()V
-
-    invoke-direct {p0}, Lcom/android/systemui/settings/BrightnessController;->updateMode()V
-
-    invoke-direct {p0}, Lcom/android/systemui/settings/BrightnessController;->updateSlider()V
-
-    iget-object v2, p0, Lcom/android/systemui/settings/BrightnessController;->mControl:Lcom/android/systemui/settings/ToggleSlider;
-
-    invoke-virtual {v2, p0}, Lcom/android/systemui/settings/ToggleSlider;->setOnChangedListener(Lcom/android/systemui/settings/ToggleSlider$Listener;)V
-
-    iput-boolean v0, p0, Lcom/android/systemui/settings/BrightnessController;->mListening:Z
-
-    iget-object v2, p0, Lcom/android/systemui/settings/BrightnessController;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "display_outdoor_mode"
-
-    const/4 v4, -0x2
-
-    invoke-static {v2, v3, v1, v4}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    :goto_0
-    iput-boolean v0, p0, Lcom/android/systemui/settings/BrightnessController;->mOutdoorMode:Z
-
-    iget-boolean v0, p0, Lcom/android/systemui/settings/BrightnessController;->mOutdoorMode:Z
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/settings/BrightnessController;->updateOutdoorMode(Z)V
-
-    return-void
-
-    :cond_1
-    move v0, v1
-
-    goto :goto_0
-.end method
-
-.method public setDoNotShowStrainPopup()V
-    .locals 4
-
-    const/4 v3, 0x0
-
-    iget-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "shown_max_brightness_dialog"
-
-    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v1
+    iget-boolean v1, p0, Lcom/android/systemui/settings/BrightnessController;->mListening:Z
 
     if-eqz v1, :cond_0
 
-    const/4 v0, 0x1
-
-    :goto_0
-    iget-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mControl:Lcom/android/systemui/settings/ToggleSlider;
-
-    invoke-virtual {v1, v0}, Lcom/android/systemui/settings/ToggleSlider;->setDoNotShowStrainPopup(Z)V
-
     return-void
 
     :cond_0
-    const/4 v0, 0x0
+    iget-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mVrManager:Landroid/service/vr/IVrManager;
 
-    goto :goto_0
-.end method
+    if-eqz v1, :cond_1
 
-.method public setSliderEnabled(Z)V
-    .locals 3
+    :try_start_0
+    iget-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mVrManager:Landroid/service/vr/IVrManager;
 
-    const/4 v2, 0x1
+    iget-object v2, p0, Lcom/android/systemui/settings/BrightnessController;->mVrStateCallbacks:Landroid/service/vr/IVrStateCallbacks;
 
-    const/4 v1, 0x0
+    invoke-interface {v1, v2}, Landroid/service/vr/IVrManager;->registerListener(Landroid/service/vr/IVrStateCallbacks;)V
 
-    iget-boolean v0, p0, Lcom/android/systemui/settings/BrightnessController;->mOutdoorMode:Z
+    iget-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mVrManager:Landroid/service/vr/IVrManager;
 
-    if-eqz v0, :cond_0
+    invoke-interface {v1}, Landroid/service/vr/IVrManager;->getVrModeState()Z
 
-    return-void
+    move-result v1
 
-    :cond_0
-    if-eqz p1, :cond_1
-
-    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessController;->mControl:Lcom/android/systemui/settings/ToggleSlider;
-
-    invoke-virtual {v0, v2}, Lcom/android/systemui/settings/ToggleSlider;->setTouchEnabled(Z)V
-
-    iput-boolean v2, p0, Lcom/android/systemui/settings/BrightnessController;->mListening:Z
-
-    :goto_0
-    return-void
+    iput-boolean v1, p0, Lcom/android/systemui/settings/BrightnessController;->mIsVrModeEnabled:Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_1
-    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessController;->mControl:Lcom/android/systemui/settings/ToggleSlider;
+    :goto_0
+    iget-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mBackgroundHandler:Landroid/os/Handler;
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/settings/ToggleSlider;->setTouchEnabled(Z)V
+    iget-object v2, p0, Lcom/android/systemui/settings/BrightnessController;->mStartListeningRunnable:Ljava/lang/Runnable;
+
+    invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    const/4 v1, 0x1
 
     iput-boolean v1, p0, Lcom/android/systemui/settings/BrightnessController;->mListening:Z
+
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "StatusBar.BrightnessController"
+
+    const-string/jumbo v2, "Failed to register VR mode state listener: "
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 .end method
 
 .method public unregisterCallbacks()V
-    .locals 2
+    .locals 3
 
-    const-string/jumbo v0, "StatusBar.BrightnessController"
+    iget-boolean v1, p0, Lcom/android/systemui/settings/BrightnessController;->mListening:Z
 
-    const-string/jumbo v1, "unregisterCallbacks"
+    if-nez v1, :cond_0
 
-    invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    return-void
 
-    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessController;->mBrightnessObserver:Lcom/android/systemui/settings/BrightnessController$BrightnessObserver;
+    :cond_0
+    iget-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mVrManager:Landroid/service/vr/IVrManager;
 
-    invoke-virtual {v0}, Lcom/android/systemui/settings/BrightnessController$BrightnessObserver;->stopObserving()V
+    if-eqz v1, :cond_1
 
-    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessController;->mUserTracker:Lcom/android/systemui/settings/CurrentUserTracker;
+    :try_start_0
+    iget-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mVrManager:Landroid/service/vr/IVrManager;
 
-    invoke-virtual {v0}, Lcom/android/systemui/settings/CurrentUserTracker;->stopTracking()V
+    iget-object v2, p0, Lcom/android/systemui/settings/BrightnessController;->mVrStateCallbacks:Landroid/service/vr/IVrStateCallbacks;
 
-    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessController;->mControl:Lcom/android/systemui/settings/ToggleSlider;
+    invoke-interface {v1, v2}, Landroid/service/vr/IVrManager;->unregisterListener(Landroid/service/vr/IVrStateCallbacks;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_1
+    :goto_0
+    iget-object v1, p0, Lcom/android/systemui/settings/BrightnessController;->mBackgroundHandler:Landroid/os/Handler;
+
+    iget-object v2, p0, Lcom/android/systemui/settings/BrightnessController;->mStopListeningRunnable:Ljava/lang/Runnable;
+
+    invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/settings/ToggleSlider;->setOnChangedListener(Lcom/android/systemui/settings/ToggleSlider$Listener;)V
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/systemui/settings/BrightnessController;->mListening:Z
+    iput-boolean v1, p0, Lcom/android/systemui/settings/BrightnessController;->mListening:Z
 
     return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "StatusBar.BrightnessController"
+
+    const-string/jumbo v2, "Failed to unregister VR mode state listener: "
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
 .end method

@@ -49,7 +49,7 @@
 
     iget-object v0, v0, Lcom/android/systemui/volume/ZenModePanel$2;->this$0:Lcom/android/systemui/volume/ZenModePanel;
 
-    invoke-static {v0}, Lcom/android/systemui/volume/ZenModePanel;->-get5(Lcom/android/systemui/volume/ZenModePanel;)Lcom/android/systemui/statusbar/policy/ZenModeController;
+    invoke-static {v0}, Lcom/android/systemui/volume/ZenModePanel;->-get4(Lcom/android/systemui/volume/ZenModePanel;)Lcom/android/systemui/statusbar/policy/ZenModeController;
 
     move-result-object v0
 
@@ -69,7 +69,7 @@
 
     iget-object v0, v0, Lcom/android/systemui/volume/ZenModePanel$2;->this$0:Lcom/android/systemui/volume/ZenModePanel;
 
-    invoke-static {v0}, Lcom/android/systemui/volume/ZenModePanel;->-get4(Lcom/android/systemui/volume/ZenModePanel;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/systemui/volume/ZenModePanel;->-get3(Lcom/android/systemui/volume/ZenModePanel;)Landroid/content/Context;
 
     move-result-object v0
 

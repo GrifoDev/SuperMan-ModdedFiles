@@ -40,9 +40,13 @@
 
     if-eqz v0, :cond_0
 
-    invoke-static {p1}, Lcom/android/systemui/tuner/TunerService;->get(Landroid/content/Context;)Lcom/android/systemui/tuner/TunerService;
+    const-class v0, Lcom/android/systemui/tuner/TunerService;
+
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/tuner/TunerService;
 
     invoke-virtual {v0}, Lcom/android/systemui/tuner/TunerService;->clearAll()V
 

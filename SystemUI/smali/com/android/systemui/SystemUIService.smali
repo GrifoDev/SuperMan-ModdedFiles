@@ -123,7 +123,7 @@
 .end method
 
 .method public onCreate()V
-    .locals 3
+    .locals 4
 
     invoke-super {p0}, Landroid/app/Service;->onCreate()V
 
@@ -149,6 +149,27 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_0
+    sget-boolean v2, Landroid/os/Build;->IS_DEBUGGABLE:Z
+
+    if-eqz v2, :cond_0
+
+    const-string/jumbo v2, "debug.crash_sysui"
+
+    const/4 v3, 0x0
+
+    invoke-static {v2, v3}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    new-instance v2, Ljava/lang/RuntimeException;
+
+    invoke-direct {v2}, Ljava/lang/RuntimeException;-><init>()V
+
+    throw v2
+
+    :cond_0
     return-void
 
     :catch_0

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:background="@color/docked_divider_background" android:layout_width="fill_parent" android:layout_height="fill_parent" style="@style/DockedDividerBackground"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.android.systemui.stackdivider.DividerHandleView android:id="@id/docked_divider_handle_paired_image" android:background="@null" android:contentDescription="@string/accessibility_divider" style="@style/DockedDividerHandle" />
+</LinearLayout>

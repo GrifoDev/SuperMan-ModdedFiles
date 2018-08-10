@@ -87,9 +87,7 @@
 
     iget-object v4, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController$7;->this$0:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
-    invoke-static {v4}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->-get9(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)Landroid/os/UserManager;
-
-    move-result-object v4
+    iget-object v4, v4, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mUserManager:Landroid/os/UserManager;
 
     const/4 v5, 0x1
 
@@ -122,9 +120,7 @@
 
     iget-object v4, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController$7;->this$0:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
-    invoke-static {v4}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->-get9(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)Landroid/os/UserManager;
-
-    move-result-object v4
+    iget-object v4, v4, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mUserManager:Landroid/os/UserManager;
 
     invoke-virtual {v4}, Landroid/os/UserManager;->canSwitchUsers()Z
 
@@ -230,9 +226,7 @@
 
     iget-object v4, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController$7;->this$0:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
-    invoke-static {v4}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->-get9(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)Landroid/os/UserManager;
-
-    move-result-object v4
+    iget-object v4, v4, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mUserManager:Landroid/os/UserManager;
 
     iget v5, v3, Landroid/content/pm/UserInfo;->id:I
 
@@ -246,15 +240,13 @@
 
     iget-object v4, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController$7;->this$0:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
-    invoke-static {v4}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->-get1(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)Landroid/content/Context;
-
-    move-result-object v4
+    iget-object v4, v4, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mContext:Landroid/content/Context;
 
     invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
 
-    const v5, 0x7f0d029b
+    const v5, 0x7f0703a5
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -310,9 +302,7 @@
 
     iget-object v4, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController$7;->this$0:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
-    invoke-static {v4}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->-get9(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)Landroid/os/UserManager;
-
-    move-result-object v4
+    iget-object v4, v4, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mUserManager:Landroid/os/UserManager;
 
     const-string/jumbo v5, "no_add_user"
 
@@ -322,12 +312,9 @@
 
     move-result v4
 
-    if-eqz v4, :cond_f
+    xor-int/lit8 v38, v4, 0x1
 
-    const/16 v38, 0x0
-
-    :goto_4
-    if-eqz v33, :cond_10
+    if-eqz v33, :cond_e
 
     invoke-virtual/range {v33 .. v33}, Landroid/content/pm/UserInfo;->isAdmin()Z
 
@@ -339,13 +326,13 @@
 
     iget v4, v0, Landroid/content/pm/UserInfo;->id:I
 
-    if-nez v4, :cond_10
+    if-nez v4, :cond_e
 
     :cond_9
     move/from16 v32, v38
 
-    :goto_5
-    if-eqz v38, :cond_11
+    :goto_4
+    if-eqz v38, :cond_f
 
     move-object/from16 v0, p0
 
@@ -353,66 +340,58 @@
 
     move/from16 v26, v0
 
-    :goto_6
+    :goto_5
     if-nez v32, :cond_a
 
-    if-eqz v26, :cond_13
+    if-eqz v26, :cond_11
 
     :cond_a
-    if-nez v2, :cond_13
+    if-nez v2, :cond_11
 
-    sget-boolean v4, Lcom/android/systemui/SystemUIRune;->SUPPORT_DUAL_NUMBER:Z
+    sget-boolean v4, Lcom/android/systemui/Rune;->QPANEL_SUPPORT_DUAL_NUMBER:Z
 
-    if-nez v4, :cond_b
+    if-nez v4, :cond_10
 
-    sget-boolean v4, Lcom/android/systemui/SystemUIRune;->SUPPORT_TWO_PHONE:Z
+    sget-boolean v4, Lcom/android/systemui/Rune;->QPANEL_SUPPORT_TWO_PHONE:Z
 
-    if-eqz v4, :cond_12
+    xor-int/lit8 v29, v4, 0x1
+
+    :goto_6
+    if-nez v32, :cond_b
+
+    if-eqz v26, :cond_12
 
     :cond_b
-    const/16 v29, 0x0
-
-    :goto_7
-    if-nez v32, :cond_c
-
-    if-eqz v26, :cond_14
-
-    :cond_c
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController$7;->this$0:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
-    invoke-static {v4}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->-get9(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)Landroid/os/UserManager;
-
-    move-result-object v4
+    iget-object v4, v4, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mUserManager:Landroid/os/UserManager;
 
     invoke-virtual {v4}, Landroid/os/UserManager;->canAddMoreUsers()Z
 
     move-result v30
 
-    :goto_8
+    :goto_7
     move-object/from16 v0, p0
 
     iget-boolean v4, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController$7;->val$addUsersWhenLocked:Z
 
-    if-eqz v4, :cond_15
+    xor-int/lit8 v24, v4, 0x1
 
-    const/16 v24, 0x0
-
-    :goto_9
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController$7;->this$0:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
-    invoke-static {v4}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->-get7(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)Z
+    invoke-static {v4}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->-get4(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)Z
 
     move-result v4
 
-    if-nez v4, :cond_d
+    if-nez v4, :cond_c
 
-    if-nez v2, :cond_16
+    if-nez v2, :cond_13
 
-    if-eqz v29, :cond_d
+    if-eqz v29, :cond_c
 
     new-instance v2, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;
 
@@ -442,19 +421,19 @@
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_d
-    :goto_a
+    :cond_c
+    :goto_8
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController$7;->this$0:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
-    invoke-static {v4}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->-get7(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)Z
+    invoke-static {v4}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->-get4(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)Z
 
     move-result v4
 
-    if-nez v4, :cond_e
+    if-nez v4, :cond_d
 
-    if-eqz v30, :cond_e
+    if-eqz v30, :cond_d
 
     new-instance v18, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;
 
@@ -486,66 +465,56 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_e
+    :cond_d
     return-object v37
 
-    :cond_f
-    const/16 v38, 0x1
+    :cond_e
+    const/16 v32, 0x0
 
     goto/16 :goto_4
 
-    :cond_10
-    const/16 v32, 0x0
+    :cond_f
+    const/16 v26, 0x0
 
     goto/16 :goto_5
 
-    :cond_11
-    const/16 v26, 0x0
-
-    goto/16 :goto_6
-
-    :cond_12
-    const/16 v29, 0x1
-
-    goto/16 :goto_7
-
-    :cond_13
+    :cond_10
     const/16 v29, 0x0
 
-    goto/16 :goto_7
+    goto :goto_6
 
-    :cond_14
+    :cond_11
+    const/16 v29, 0x0
+
+    goto :goto_6
+
+    :cond_12
     const/16 v30, 0x0
 
-    goto :goto_8
+    goto :goto_7
 
-    :cond_15
-    const/16 v24, 0x1
-
-    goto :goto_9
-
-    :cond_16
+    :cond_13
     iget-boolean v4, v2, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->isCurrent:Z
 
-    if-eqz v4, :cond_17
+    if-eqz v4, :cond_14
 
     const/16 v34, 0x0
 
-    :goto_b
+    :goto_9
     move-object/from16 v0, v37
 
     move/from16 v1, v34
 
     invoke-virtual {v0, v1, v2}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
 
-    goto :goto_a
+    goto :goto_8
 
-    :cond_17
+    :cond_14
     invoke-virtual/range {v37 .. v37}, Ljava/util/ArrayList;->size()I
 
     move-result v34
 
-    goto :goto_b
+    goto :goto_9
 .end method
 
 .method protected bridge synthetic onPostExecute(Ljava/lang/Object;)V
@@ -578,7 +547,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController$7;->this$0:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->-wrap2(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)V
+    invoke-static {v0}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->-wrap1(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)V
 
     :cond_0
     return-void

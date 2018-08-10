@@ -38,7 +38,9 @@
 
     const/4 v1, 0x1
 
-    sget-boolean v2, Lcom/android/keyguard/KeyguardRune;->SUPPORT_HOME_WALLPAPER_TILT_EFFECT:Z
+    invoke-static {}, Lcom/android/systemui/ImageWallpaper;->-get1()Z
+
+    move-result v2
 
     if-eqz v2, :cond_1
 
@@ -65,7 +67,7 @@
     move v0, v1
 
     :cond_0
-    invoke-static {v2, v0}, Lcom/android/systemui/ImageWallpaper;->-set3(Lcom/android/systemui/ImageWallpaper;Z)Z
+    invoke-static {v2, v0}, Lcom/android/systemui/ImageWallpaper;->-set4(Lcom/android/systemui/ImageWallpaper;Z)Z
 
     const-string/jumbo v0, "ImageWallpaper"
 
@@ -83,7 +85,7 @@
 
     iget-object v3, v3, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->this$0:Lcom/android/systemui/ImageWallpaper;
 
-    invoke-static {v3}, Lcom/android/systemui/ImageWallpaper;->-get3(Lcom/android/systemui/ImageWallpaper;)Z
+    invoke-static {v3}, Lcom/android/systemui/ImageWallpaper;->-get5(Lcom/android/systemui/ImageWallpaper;)Z
 
     move-result v3
 
@@ -101,7 +103,7 @@
 
     iget-object v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->this$0:Lcom/android/systemui/ImageWallpaper;
 
-    invoke-static {v0}, Lcom/android/systemui/ImageWallpaper;->-get2(Lcom/android/systemui/ImageWallpaper;)Z
+    invoke-static {v0}, Lcom/android/systemui/ImageWallpaper;->-get4(Lcom/android/systemui/ImageWallpaper;)Z
 
     move-result v0
 
@@ -111,7 +113,7 @@
 
     iget-object v0, v0, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->this$0:Lcom/android/systemui/ImageWallpaper;
 
-    invoke-static {v0, v1}, Lcom/android/systemui/ImageWallpaper;->-set2(Lcom/android/systemui/ImageWallpaper;Z)Z
+    invoke-static {v0, v1}, Lcom/android/systemui/ImageWallpaper;->-set3(Lcom/android/systemui/ImageWallpaper;Z)Z
 
     :cond_1
     return-void

@@ -41,11 +41,11 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/QSDetail$4;->this$0:Lcom/android/systemui/qs/QSDetail;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/QSDetail;->-get0(Lcom/android/systemui/qs/QSDetail;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/systemui/qs/QSDetail;->-get1(Lcom/android/systemui/qs/QSDetail;)Landroid/content/Context;
 
     move-result-object v1
 
-    const v2, 0x7f0f02fa
+    const v2, 0x7f120064
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -55,7 +55,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSDetail$4;->this$0:Lcom/android/systemui/qs/QSDetail;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/QSDetail;->-get6(Lcom/android/systemui/qs/QSDetail;)Lcom/android/systemui/qs/QSPanel;
+    invoke-static {v0}, Lcom/android/systemui/qs/QSDetail;->-get5(Lcom/android/systemui/qs/QSDetail;)Lcom/android/systemui/qs/QSPanel;
 
     move-result-object v0
 

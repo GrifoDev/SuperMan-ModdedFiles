@@ -1,6 +1,9 @@
 .class final Lcom/android/systemui/qs/tiles/CellularTile$CellSignalCallback;
-.super Lcom/android/systemui/statusbar/policy/SignalCallbackAdapter;
+.super Ljava/lang/Object;
 .source "CellularTile.java"
+
+# interfaces
+.implements Lcom/android/systemui/statusbar/policy/NetworkController$SignalCallback;
 
 
 # annotations
@@ -34,7 +37,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/CellularTile$CellSignalCallback;->this$0:Lcom/android/systemui/qs/tiles/CellularTile;
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/SignalCallbackAdapter;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     new-instance v0, Lcom/android/systemui/qs/tiles/CellularTile$CallbackInfo;
 
@@ -89,7 +92,7 @@
     return-void
 .end method
 
-.method public setMobileDataIndicators(Lcom/android/systemui/statusbar/policy/NetworkController$IconState;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;IIZZLjava/lang/String;Ljava/lang/String;ZI)V
+.method public setMobileDataIndicators(Lcom/android/systemui/statusbar/policy/NetworkController$IconState;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;IIZZLjava/lang/String;Ljava/lang/String;ZIZ)V
     .locals 3
 
     const/4 v0, 0x0
@@ -144,6 +147,10 @@
     :goto_0
     iput-boolean p9, v1, Lcom/android/systemui/qs/tiles/CellularTile$CallbackInfo;->isDataTypeIconWide:Z
 
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/CellularTile$CellSignalCallback;->mInfo:Lcom/android/systemui/qs/tiles/CellularTile$CallbackInfo;
+
+    iput-boolean p11, v0, Lcom/android/systemui/qs/tiles/CellularTile$CallbackInfo;->roaming:Z
+
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/CellularTile$CellSignalCallback;->this$0:Lcom/android/systemui/qs/tiles/CellularTile;
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/CellularTile$CellSignalCallback;->mInfo:Lcom/android/systemui/qs/tiles/CellularTile$CallbackInfo;
@@ -195,7 +202,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0f06e6
+    const v2, 0x7f120489
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -221,7 +228,7 @@
     return-void
 .end method
 
-.method public setWifiIndicators(ZLcom/android/systemui/statusbar/policy/NetworkController$IconState;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;ZZLjava/lang/String;)V
+.method public setWifiIndicators(ZLcom/android/systemui/statusbar/policy/NetworkController$IconState;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;ZZLjava/lang/String;Z)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/CellularTile$CellSignalCallback;->mInfo:Lcom/android/systemui/qs/tiles/CellularTile$CallbackInfo;

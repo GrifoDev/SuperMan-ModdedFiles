@@ -3,10 +3,15 @@
 .source "R.java"
 
 
-# static fields
-.field public static final lockscreen_num_pad_klondike:I = 0x7f110035
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/keyguard/R;
+.end annotation
 
-.field public static final month_name:I = 0x7f110036
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "array"
+.end annotation
 
 
 # direct methods

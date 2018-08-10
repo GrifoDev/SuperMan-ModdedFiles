@@ -68,7 +68,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$1;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
 
-    invoke-static {v2}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get8(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)I
+    invoke-static {v2}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get9(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)I
 
     move-result v2
 
@@ -82,7 +82,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v0, "android.intent.action.AIRPLANE_MODE"
+    const-string/jumbo v0, "android.intent.action.CLOSE_SYSTEM_DIALOGS"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -96,13 +96,56 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$1;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
 
-    invoke-virtual {v0}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->refreshState()V
+    invoke-static {v0}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get2(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)Landroid/app/AlertDialog;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$1;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
+
+    invoke-static {v0}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get2(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)Landroid/app/AlertDialog;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->isShowing()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$1;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
+
+    invoke-static {v0}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get2(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)Landroid/app/AlertDialog;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->cancel()V
 
     :cond_0
     :goto_0
     return-void
 
     :cond_1
+    const-string/jumbo v0, "android.intent.action.AIRPLANE_MODE"
+
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$1;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->refreshState()V
+
+    goto :goto_0
+
+    :cond_2
     const-string/jumbo v0, "android.intent.action.ACTION_SUBINFO_RECORD_UPDATED"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -113,7 +156,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3
 
     const-string/jumbo v0, "android.intent.action.SIM_STATE_CHANGED"
 
@@ -125,51 +168,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
-
-    :cond_2
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$1;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
-
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get8(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)I
-
-    move-result v0
-
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$1;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
-
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get1(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/android/systemui/statusbar/DeviceState;->getActiveSimCount(Landroid/content/Context;)I
-
-    move-result v1
-
-    if-ne v0, v1, :cond_3
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$1;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
-
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get4(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)[Landroid/telephony/PhoneStateListener;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$1;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
-
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get4(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)[Landroid/telephony/PhoneStateListener;
-
-    move-result-object v0
-
-    aget-object v0, v0, v3
-
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_5
 
     :cond_3
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$1;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
 
+    invoke-static {v0}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get9(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)I
+
+    move-result v0
+
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$1;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get1(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get3(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)Landroid/content/Context;
 
     move-result-object v1
 
@@ -177,92 +187,22 @@
 
     move-result v1
 
-    invoke-static {v0, v1}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-set1(Lcom/android/systemui/qs/tiles/AirplaneModeTile;I)I
+    if-ne v0, v1, :cond_4
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$1;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get0(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-wrap0(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)Z
 
-    move-result-object v0
+    move-result v0
 
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "new mSimCount : "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$1;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
-
-    invoke-static {v2}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get8(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)I
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$1;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
-
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-wrap5(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$1;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
-
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$1;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
-
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get1(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-wrap3(Lcom/android/systemui/qs/tiles/AirplaneModeTile;Landroid/content/Context;)V
-
-    goto/16 :goto_0
+    if-eqz v0, :cond_0
 
     :cond_4
-    const-string/jumbo v0, "com.samsung.settings.SIMCARD_MGT_ACTIVATED"
-
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_5
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$1;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
-
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get8(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)I
-
-    move-result v0
-
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$1;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
-
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get1(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/android/systemui/statusbar/DeviceState;->getActiveSimCount(Landroid/content/Context;)I
-
-    move-result v1
-
-    if-eq v0, v1, :cond_0
-
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$1;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$1;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get1(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get3(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)Landroid/content/Context;
 
     move-result-object v1
 
@@ -290,7 +230,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$1;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
 
-    invoke-static {v2}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get8(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)I
+    invoke-static {v2}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get9(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)I
 
     move-result v2
 
@@ -306,17 +246,17 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$1;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-wrap5(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)V
+    invoke-static {v0}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-wrap9(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)V
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$1;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$1;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get1(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get3(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)Landroid/content/Context;
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-wrap3(Lcom/android/systemui/qs/tiles/AirplaneModeTile;Landroid/content/Context;)V
+    invoke-static {v0, v1}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-wrap5(Lcom/android/systemui/qs/tiles/AirplaneModeTile;Landroid/content/Context;)V
 
     goto/16 :goto_0
 
@@ -343,7 +283,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$1;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get3(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)Z
+    invoke-static {v0}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get5(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)Z
 
     move-result v0
 
@@ -357,7 +297,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-wrap4(Lcom/android/systemui/qs/tiles/AirplaneModeTile;Z)V
+    invoke-static {v0, v1}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-wrap6(Lcom/android/systemui/qs/tiles/AirplaneModeTile;Z)V
 
     goto/16 :goto_0
 .end method

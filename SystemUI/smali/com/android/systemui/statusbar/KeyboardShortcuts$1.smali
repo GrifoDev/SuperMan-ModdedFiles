@@ -3,7 +3,7 @@
 .source "KeyboardShortcuts.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
@@ -34,12 +34,12 @@
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
+.method public onClick(Landroid/view/View;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts$1;->this$0:Lcom/android/systemui/statusbar/KeyboardShortcuts;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/KeyboardShortcuts;->-wrap2(Lcom/android/systemui/statusbar/KeyboardShortcuts;)V
+    invoke-static {v0}, Lcom/android/systemui/statusbar/KeyboardShortcuts;->-wrap4(Lcom/android/systemui/statusbar/KeyboardShortcuts;)V
 
     return-void
 .end method

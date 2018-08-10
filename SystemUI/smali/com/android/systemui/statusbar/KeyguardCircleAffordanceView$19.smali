@@ -49,17 +49,17 @@
 
     move-result v0
 
-    invoke-static {v1, v0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set1(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;I)I
+    invoke-static {v1, v0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set2(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;I)I
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$19;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get5(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Landroid/graphics/Paint;
+    invoke-static {v0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get4(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Landroid/graphics/Paint;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$19;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v1}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get3(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)I
+    invoke-static {v1}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get2(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)I
 
     move-result v1
 

@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->setImageAlpha(FZJJLandroid/view/animation/Interpolator;Ljava/lang/Runnable;)V
+    value = Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->setImageAlpha(FZJLandroid/view/animation/Interpolator;Ljava/lang/Runnable;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -67,10 +67,6 @@
     iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$25;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
     invoke-virtual {v1, v0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->setImageAlpha(I)V
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$25;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
-
-    invoke-static {v1, v0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-wrap7(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;I)V
 
     return-void
 .end method

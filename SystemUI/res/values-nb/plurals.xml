@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <plurals name="status_bar_accessibility_recent_apps">
-        <item quantity="other">1 skjerm i oversikten</item>
-        <item quantity="one">%d skjermer i oversikten</item>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">%d forsøk gjenstår</item>
+        <item quantity="one">%d forsøk gjenstår</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(%d forsøk gjenstår)</item>
+        <item quantity="one">(1 forsøk gjenstår)</item>
     </plurals>
     <plurals name="kg_password_wrong_pin_code">
         <item quantity="other">Feil PIN-kode for SIM-kortet. Du har %d forsøk igjen.</item>
@@ -12,25 +16,17 @@
         <item quantity="other">Feil PUK-kode for SIM-kortet. Du har %d forsøk igjen før SIM-kortet blir permanent ubrukelig.</item>
         <item quantity="one">Feil PUK-kode for SIM-kortet. Du har %d forsøk igjen før SIM-kortet blir permanent ubrukelig.</item>
     </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">Enheten har ikke blitt låst opp de siste %d timene. Bekreft passordet.</item>
+        <item quantity="one">Enheten har ikke blitt låst opp på %d time. Bekreft passordet.</item>
+    </plurals>
     <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">Enheten er ikke blitt låst opp de siste %d timene. Bekreft mønsteret.</item>
-        <item quantity="one">Enheten er ikke blitt låst opp den siste %d timen. Bekreft mønsteret.</item>
+        <item quantity="other">Enheten har ikke blitt låst opp de siste %d timene. Bekreft mønsteret.</item>
+        <item quantity="one">Enheten har ikke blitt låst opp på %d time. Bekreft mønsteret.</item>
     </plurals>
     <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">Enheten er ikke blitt låst opp de siste %d timene. Bekreft PIN-koden.</item>
-        <item quantity="one">Enheten er ikke blitt låst opp den siste %d timen. Bekreft PIN-koden.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">Enheten er ikke blitt låst opp de siste %d timene. Bekreft passordet.</item>
-        <item quantity="one">Enheten er ikke blitt låst opp den siste %d timen. Bekreft passordet.</item>
-    </plurals>
-    <plurals name="kg_attempt_remaining">
-        <item quantity="other">(%d forsøk gjenstår)</item>
-        <item quantity="one">(1 forsøk gjenstår)</item>
-    </plurals>
-    <plurals name="kg_attempt_left">
-        <item quantity="other">%d forsøk gjenstår</item>
-        <item quantity="one">%d forsøk gjenstår</item>
+        <item quantity="other">Enheten har ikke blitt låst opp de siste %d timene. Bekreft PIN-koden.</item>
+        <item quantity="one">Enheten har ikke blitt låst opp på %d time. Bekreft PIN-koden.</item>
     </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown_min">
         <item quantity="other">Prøv igjen om %d minutter</item>
@@ -39,5 +35,29 @@
     <plurals name="kg_too_many_failed_attempts_countdown_sec">
         <item quantity="other">Prøv igjen om %d sekunder</item>
         <item quantity="one">Prøv igjen om %d sekund</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_countdown_by_biometrics">
+        <item quantity="other">Det er gjort %1$d feilaktige forsøk på å bekrefte biometri. Prøv igjen om %2$d sekunder.</item>
+        <item quantity="one">Det er gjort %1$d feilaktige forsøk på å bekrefte biometri. Prøv igjen om %2$d sekund.</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_countdown_by_fingerprint">
+        <item quantity="other">Det er gjort %1$d feilaktige forsøk på å bekrefte fingeravtrykkene. Prøv igjen om %2$d sekunder.</item>
+        <item quantity="one">Det er gjort %1$d feilaktige forsøk på å bekrefte fingeravtrykkene. Prøv igjen om %2$d sekund.</item>
+    </plurals>
+    <plurals name="notification_channels_list_desc_2_and_others">
+        <item quantity="other">%1$s, %2$s og %3$d andre</item>
+        <item quantity="one">%1$s, %2$s og %3$d annen</item>
+    </plurals>
+    <plurals name="notification_num_channels_desc">
+        <item quantity="other">1 av %d varselkategorier fra denne appen</item>
+        <item quantity="one">1 av %d varselkategori fra denne appen</item>
+    </plurals>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">%d skjermer i oversikten</item>
+        <item quantity="one">1 skjerm i oversikten</item>
+    </plurals>
+    <plurals name="notification_group_overflow_description">
+        <item quantity="other">%s andre varsler i gruppen.</item>
+        <item quantity="one">%s annet varsel i gruppen.</item>
     </plurals>
 </resources>

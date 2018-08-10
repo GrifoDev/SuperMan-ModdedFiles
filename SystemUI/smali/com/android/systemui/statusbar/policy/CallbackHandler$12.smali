@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/policy/CallbackHandler;->setEthernetIndicators(Lcom/android/systemui/statusbar/policy/NetworkController$IconState;I)V
+    value = Lcom/android/systemui/statusbar/policy/CallbackHandler;->setOperatorLogoIconVisible(Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/systemui/statusbar/policy/CallbackHandler;
 
-.field final synthetic val$activityIcon:I
-
-.field final synthetic val$icon:Lcom/android/systemui/statusbar/policy/NetworkController$IconState;
+.field final synthetic val$visible:Z
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/policy/CallbackHandler;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;I)V
+.method constructor <init>(Lcom/android/systemui/statusbar/policy/CallbackHandler;Z)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$12;->this$0:Lcom/android/systemui/statusbar/policy/CallbackHandler;
 
-    iput-object p2, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$12;->val$icon:Lcom/android/systemui/statusbar/policy/NetworkController$IconState;
-
-    iput p3, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$12;->val$activityIcon:I
+    iput-boolean p2, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$12;->val$visible:Z
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,7 +39,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 3
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$12;->this$0:Lcom/android/systemui/statusbar/policy/CallbackHandler;
 
@@ -66,13 +62,11 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/systemui/statusbar/policy/NetworkController$SignalCallback;
+    check-cast v0, Lcom/android/systemui/statusbar/policy/NetworkController$OperatorLogoIconListener;
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$12;->val$icon:Lcom/android/systemui/statusbar/policy/NetworkController$IconState;
+    iget-boolean v2, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$12;->val$visible:Z
 
-    iget v3, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$12;->val$activityIcon:I
-
-    invoke-interface {v0, v2, v3}, Lcom/android/systemui/statusbar/policy/NetworkController$SignalCallback;->setEthernetIndicators(Lcom/android/systemui/statusbar/policy/NetworkController$IconState;I)V
+    invoke-interface {v0, v2}, Lcom/android/systemui/statusbar/policy/NetworkController$OperatorLogoIconListener;->setOperatorLogoIconVisible(Z)V
 
     goto :goto_0
 

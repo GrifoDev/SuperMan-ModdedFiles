@@ -29,68 +29,18 @@
 
 
 # instance fields
-.field private mOneDot:Landroid/graphics/Bitmap;
+.field mOneDot:Landroid/graphics/Bitmap;
 
-.field private final mRandom:Ljava/util/Random;
+.field final mRandom:Ljava/util/Random;
 
-.field private mStreamPosition:I
+.field mStreamPosition:I
 
 .field private mStreamingAnimation:Landroid/animation/ObjectAnimator;
 
-.field private mTwoDot:Landroid/graphics/Bitmap;
+.field mTwoDot:Landroid/graphics/Bitmap;
 
 
 # direct methods
-.method static synthetic -get0(Landroid/support/v17/leanback/widget/StreamingTextView;)Landroid/graphics/Bitmap;
-    .locals 1
-
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/StreamingTextView;->mOneDot:Landroid/graphics/Bitmap;
-
-    return-object v0
-.end method
-
-.method static synthetic -get1(Landroid/support/v17/leanback/widget/StreamingTextView;)Ljava/util/Random;
-    .locals 1
-
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/StreamingTextView;->mRandom:Ljava/util/Random;
-
-    return-object v0
-.end method
-
-.method static synthetic -get2(Landroid/support/v17/leanback/widget/StreamingTextView;)I
-    .locals 1
-
-    iget v0, p0, Landroid/support/v17/leanback/widget/StreamingTextView;->mStreamPosition:I
-
-    return v0
-.end method
-
-.method static synthetic -get3(Landroid/support/v17/leanback/widget/StreamingTextView;)Landroid/graphics/Bitmap;
-    .locals 1
-
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/StreamingTextView;->mTwoDot:Landroid/graphics/Bitmap;
-
-    return-object v0
-.end method
-
-.method static synthetic -wrap0(Landroid/support/v17/leanback/widget/StreamingTextView;)I
-    .locals 1
-
-    invoke-direct {p0}, Landroid/support/v17/leanback/widget/StreamingTextView;->getStreamPosition()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic -wrap1(Landroid/support/v17/leanback/widget/StreamingTextView;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Landroid/support/v17/leanback/widget/StreamingTextView;->setStreamPosition(I)V
-
-    return-void
-.end method
-
 .method static constructor <clinit>()V
     .locals 3
 
@@ -248,14 +198,6 @@
     return-object v1
 .end method
 
-.method private getStreamPosition()I
-    .locals 1
-
-    iget v0, p0, Landroid/support/v17/leanback/widget/StreamingTextView;->mStreamPosition:I
-
-    return v0
-.end method
-
 .method public static isLayoutRtl(Landroid/view/View;)Z
     .locals 4
 
@@ -287,16 +229,6 @@
     return v1
 .end method
 
-.method private setStreamPosition(I)V
-    .locals 0
-
-    iput p1, p0, Landroid/support/v17/leanback/widget/StreamingTextView;->mStreamPosition:I
-
-    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/StreamingTextView;->invalidate()V
-
-    return-void
-.end method
-
 .method private startStreamAnimation()V
     .locals 8
 
@@ -304,7 +236,7 @@
 
     invoke-direct {p0}, Landroid/support/v17/leanback/widget/StreamingTextView;->cancelStreamAnimation()V
 
-    invoke-direct {p0}, Landroid/support/v17/leanback/widget/StreamingTextView;->getStreamPosition()I
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/StreamingTextView;->getStreamPosition()I
 
     move-result v1
 
@@ -385,6 +317,14 @@
 
 
 # virtual methods
+.method getStreamPosition()I
+    .locals 1
+
+    iget v0, p0, Landroid/support/v17/leanback/widget/StreamingTextView;->mStreamPosition:I
+
+    return v0
+.end method
+
 .method protected onFinishInflate()V
     .locals 2
 
@@ -441,6 +381,16 @@
     const-string/jumbo v0, ""
 
     invoke-virtual {p0, v0}, Landroid/support/v17/leanback/widget/StreamingTextView;->setText(Ljava/lang/CharSequence;)V
+
+    return-void
+.end method
+
+.method setStreamPosition(I)V
+    .locals 0
+
+    iput p1, p0, Landroid/support/v17/leanback/widget/StreamingTextView;->mStreamPosition:I
+
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/StreamingTextView;->invalidate()V
 
     return-void
 .end method

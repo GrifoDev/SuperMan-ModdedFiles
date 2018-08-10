@@ -754,6 +754,92 @@
     goto/16 :goto_2
 .end method
 
+.method public static calculateContrast(II)D
+    .locals 8
+    .param p0    # I
+        .annotation build Landroid/support/annotation/ColorInt;
+        .end annotation
+    .end param
+    .param p1    # I
+        .annotation build Landroid/support/annotation/ColorInt;
+        .end annotation
+    .end param
+
+    const/16 v5, 0xff
+
+    const-wide v6, 0x3fa999999999999aL    # 0.05
+
+    invoke-static {p1}, Landroid/graphics/Color;->alpha(I)I
+
+    move-result v4
+
+    if-eq v4, v5, :cond_0
+
+    new-instance v4, Ljava/lang/IllegalArgumentException;
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "background can not be translucent: #"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-static {p1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-direct {v4, v5}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v4
+
+    :cond_0
+    invoke-static {p0}, Landroid/graphics/Color;->alpha(I)I
+
+    move-result v4
+
+    if-ge v4, v5, :cond_1
+
+    invoke-static {p0, p1}, Landroid/support/v4/graphics/ColorUtils;->compositeColors(II)I
+
+    move-result p0
+
+    :cond_1
+    invoke-static {p0}, Landroid/support/v4/graphics/ColorUtils;->calculateLuminance(I)D
+
+    move-result-wide v4
+
+    add-double v0, v4, v6
+
+    invoke-static {p1}, Landroid/support/v4/graphics/ColorUtils;->calculateLuminance(I)D
+
+    move-result-wide v4
+
+    add-double v2, v4, v6
+
+    invoke-static {v0, v1, v2, v3}, Ljava/lang/Math;->max(DD)D
+
+    move-result-wide v4
+
+    invoke-static {v0, v1, v2, v3}, Ljava/lang/Math;->min(DD)D
+
+    move-result-wide v6
+
+    div-double/2addr v4, v6
+
+    return-wide v4
+.end method
+
 .method public static calculateLuminance(I)D
     .locals 6
     .param p0    # I
@@ -780,6 +866,124 @@
     div-double/2addr v2, v4
 
     return-wide v2
+.end method
+
+.method public static calculateMinimumAlpha(IIF)I
+    .locals 10
+    .param p0    # I
+        .annotation build Landroid/support/annotation/ColorInt;
+        .end annotation
+    .end param
+    .param p1    # I
+        .annotation build Landroid/support/annotation/ColorInt;
+        .end annotation
+    .end param
+
+    const/16 v8, 0xff
+
+    invoke-static {p1}, Landroid/graphics/Color;->alpha(I)I
+
+    move-result v5
+
+    if-eq v5, v8, :cond_0
+
+    new-instance v5, Ljava/lang/IllegalArgumentException;
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "background can not be translucent: #"
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-static {p1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-direct {v5, v8}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v5
+
+    :cond_0
+    invoke-static {p0, v8}, Landroid/support/v4/graphics/ColorUtils;->setAlphaComponent(II)I
+
+    move-result v4
+
+    invoke-static {v4, p1}, Landroid/support/v4/graphics/ColorUtils;->calculateContrast(II)D
+
+    move-result-wide v6
+
+    float-to-double v8, p2
+
+    cmpg-double v5, v6, v8
+
+    if-gez v5, :cond_1
+
+    const/4 v5, -0x1
+
+    return v5
+
+    :cond_1
+    const/4 v2, 0x0
+
+    const/4 v1, 0x0
+
+    const/16 v0, 0xff
+
+    :goto_0
+    const/16 v5, 0xa
+
+    if-gt v2, v5, :cond_3
+
+    sub-int v5, v0, v1
+
+    const/4 v8, 0x1
+
+    if-le v5, v8, :cond_3
+
+    add-int v5, v1, v0
+
+    div-int/lit8 v3, v5, 0x2
+
+    invoke-static {p0, v3}, Landroid/support/v4/graphics/ColorUtils;->setAlphaComponent(II)I
+
+    move-result v4
+
+    invoke-static {v4, p1}, Landroid/support/v4/graphics/ColorUtils;->calculateContrast(II)D
+
+    move-result-wide v6
+
+    float-to-double v8, p2
+
+    cmpg-double v5, v6, v8
+
+    if-gez v5, :cond_2
+
+    move v1, v3
+
+    :goto_1
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    move v0, v3
+
+    goto :goto_1
+
+    :cond_3
+    return v0
 .end method
 
 .method static circularInterpolate(FFF)F

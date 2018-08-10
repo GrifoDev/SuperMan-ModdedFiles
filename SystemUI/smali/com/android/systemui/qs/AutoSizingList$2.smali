@@ -36,20 +36,6 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/AutoSizingList$2;->this$0:Lcom/android/systemui/qs/AutoSizingList;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/AutoSizingList;->-get0(Lcom/android/systemui/qs/AutoSizingList;)I
-
-    move-result v0
-
-    iget-object v1, p0, Lcom/android/systemui/qs/AutoSizingList$2;->this$0:Lcom/android/systemui/qs/AutoSizingList;
-
-    invoke-static {v1}, Lcom/android/systemui/qs/AutoSizingList;->-wrap0(Lcom/android/systemui/qs/AutoSizingList;)I
-
-    move-result v1
-
-    if-le v0, v1, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/qs/AutoSizingList$2;->this$0:Lcom/android/systemui/qs/AutoSizingList;
-
     iget-object v1, p0, Lcom/android/systemui/qs/AutoSizingList$2;->this$0:Lcom/android/systemui/qs/AutoSizingList;
 
     invoke-static {v1}, Lcom/android/systemui/qs/AutoSizingList;->-wrap0(Lcom/android/systemui/qs/AutoSizingList;)I
@@ -58,7 +44,6 @@
 
     invoke-static {v0, v1}, Lcom/android/systemui/qs/AutoSizingList;->-set0(Lcom/android/systemui/qs/AutoSizingList;I)I
 
-    :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/AutoSizingList$2;->this$0:Lcom/android/systemui/qs/AutoSizingList;
 
     invoke-static {v0}, Lcom/android/systemui/qs/AutoSizingList;->-wrap1(Lcom/android/systemui/qs/AutoSizingList;)V

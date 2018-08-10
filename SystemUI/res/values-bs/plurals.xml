@@ -1,20 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <plurals name="kg_password_wrong_pin_code">
-        <item quantity="other">An incorrect PIN has been entered. You have %d attempts left.</item>
-        <item quantity="one">An incorrect PIN has been entered. If an incorrect PIN is entered %d more times, you will have to contact your service provider to unlock your device.</item>
-    </plurals>
-    <plurals name="kg_password_wrong_puk_code">
-        <item quantity="other">An incorrect PUK has been entered. If an incorrect PUK is entered %d more times, the SIM card will be permanently locked.</item>
-        <item quantity="one">An incorrect PUK has been entered. If an incorrect PUK is entered %d more times, the SIM card will be permanently locked.</item>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">Preostali broj pokušaja: %d</item>
+        <item quantity="one">Preostao je %d pokušaj</item>
     </plurals>
     <plurals name="kg_attempt_remaining">
         <item quantity="other">(preostalo je %d pokušaja)</item>
         <item quantity="one">(1 pokušaj je preostao)</item>
     </plurals>
-    <plurals name="kg_attempt_left">
-        <item quantity="other">Preostali broj pokušaja: %d</item>
-        <item quantity="one">Preostao je %d pokušaj</item>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">PIN kôd za SIM karticu je netačan. Imate još %d pokušaja.</item>
+        <item quantity="one">PIN kôd za SIM karticu je netačan. Imate još %d pokušaj.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">PUK kôd za SIM karticu je netačan. Imate još %d pokušaja prije nego što SIM kartica postane trajno neupotrebljiva.</item>
+        <item quantity="one">PUK kôd za SIM karticu je netačan. Imate još %d pokušaj prije nego što SIM kartica postane trajno neupotrebljiva.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">Uređaj nije otključavan %d sati. Potvrdite lozinku.</item>
+        <item quantity="one">Uređaj nije otključavan %d sat. Potvrdite lozinku.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">Uređaj nije otključavan %d sati. Potvrdite uzorak.</item>
+        <item quantity="one">Uređaj nije otključavan %d sat. Potvrdite uzorak.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">Uređaj nije otključavan %d sati. Potvrdite PIN kôd.</item>
+        <item quantity="one">Uređaj nije otključavan %d sat. Potvrdite PIN kôd.</item>
     </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown_min">
         <item quantity="other">Pokušajte ponovno za %d minuta</item>
@@ -23,5 +35,33 @@
     <plurals name="kg_too_many_failed_attempts_countdown_sec">
         <item quantity="other">Pokušajte ponovno za %d sekunde/i</item>
         <item quantity="one">Pokušaj ponovno za %d sekundu</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_countdown_by_biometrics">
+        <item quantity="other">Broj netačnih pokušaja potvrđivanja biometrijskih podataka: %1$d. Pokušajte ponovno za %2$d sekunde/i.</item>
+        <item quantity="one">Broj netačnih pokušaja potvrđivanja biometrijskih podataka: %1$d. Pokušajte ponovno za %2$d sekund.</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_countdown_by_fingerprint">
+        <item quantity="other">Broj netačnih pokušaja potvrđivanja otisaka prstiju: %1$d. Pokušajte ponovno za %2$d sekunde/i.</item>
+        <item quantity="one">Broj netačnih pokušaja potvrđivanja otisaka prstiju: %1$d. Pokušajte ponovno za %2$d sekund.</item>
+    </plurals>
+    <plurals name="notification_channels_list_desc_2_and_others">
+        <item quantity="other">%1$s, %2$s, i još %3$d</item>
+        <item quantity="one">%1$s, %2$s, i još %3$d</item>
+        <item quantity="few">%1$s, %2$s, i još %3$d</item>
+    </plurals>
+    <plurals name="notification_num_channels_desc">
+        <item quantity="other">1 od %d kategorija obavještenja iz ove aplikacije</item>
+        <item quantity="one">1 od %d kategorije obavještenja iz ove aplikacije</item>
+        <item quantity="few">1 od %d kategorije obavještenja iz ove aplikacije</item>
+    </plurals>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">%d ekrana u Pregledu</item>
+        <item quantity="one">%d ekran u Pregledu</item>
+        <item quantity="few">%d ekrana u Pregledu</item>
+    </plurals>
+    <plurals name="notification_group_overflow_description">
+        <item quantity="other">Još %s obavještenja unutra.</item>
+        <item quantity="one">Još %s obavještenje unutra.</item>
+        <item quantity="few">Još %s obavještenja unutra.</item>
     </plurals>
 </resources>

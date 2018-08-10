@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/qs/tiles/VoLteTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
+    value = Lcom/android/systemui/qs/tiles/VoLteTile;-><init>(Lcom/android/systemui/qs/QSHost;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -40,7 +40,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/android/systemui/qs/tiles/VoLteTile;->-wrap2(Lcom/android/systemui/qs/tiles/VoLteTile;Ljava/lang/Object;)V
+    invoke-static {v0, v1}, Lcom/android/systemui/qs/tiles/VoLteTile;->-wrap3(Lcom/android/systemui/qs/tiles/VoLteTile;Ljava/lang/Object;)V
 
     return-void
 .end method

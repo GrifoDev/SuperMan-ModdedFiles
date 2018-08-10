@@ -81,6 +81,16 @@
 .end method
 
 .method public static fadeIn(Landroid/view/View;F)V
+    .locals 1
+
+    const/4 v0, 0x1
+
+    invoke-static {p0, p1, v0}, Lcom/android/systemui/statusbar/CrossFadeHelper;->fadeIn(Landroid/view/View;FZ)V
+
+    return-void
+.end method
+
+.method public static fadeIn(Landroid/view/View;FZ)V
     .locals 3
 
     invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
@@ -102,10 +112,13 @@
     invoke-virtual {p0, v1}, Landroid/view/View;->setVisibility(I)V
 
     :cond_0
+    if-eqz p2, :cond_1
+
     invoke-static {p1}, Lcom/android/systemui/statusbar/CrossFadeHelper;->mapToFadeDuration(F)F
 
     move-result p1
 
+    :cond_1
     sget-object v1, Lcom/android/systemui/Interpolators;->ALPHA_IN:Landroid/view/animation/Interpolator;
 
     invoke-interface {v1, p1}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
@@ -120,6 +133,16 @@
 .end method
 
 .method public static fadeOut(Landroid/view/View;F)V
+    .locals 1
+
+    const/4 v0, 0x1
+
+    invoke-static {p0, p1, v0}, Lcom/android/systemui/statusbar/CrossFadeHelper;->fadeOut(Landroid/view/View;FZ)V
+
+    return-void
+.end method
+
+.method public static fadeOut(Landroid/view/View;FZ)V
     .locals 4
 
     const/4 v3, 0x4
@@ -134,16 +157,19 @@
 
     cmpl-float v1, p1, v2
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2
 
     invoke-virtual {p0, v3}, Landroid/view/View;->setVisibility(I)V
 
     :cond_0
     :goto_0
+    if-eqz p2, :cond_1
+
     invoke-static {p1}, Lcom/android/systemui/statusbar/CrossFadeHelper;->mapToFadeDuration(F)F
 
     move-result p1
 
+    :cond_1
     sget-object v1, Lcom/android/systemui/Interpolators;->ALPHA_OUT:Landroid/view/animation/Interpolator;
 
     sub-float/2addr v2, p1
@@ -158,7 +184,7 @@
 
     return-void
 
-    :cond_1
+    :cond_2
     invoke-virtual {p0}, Landroid/view/View;->getVisibility()I
 
     move-result v1
@@ -226,19 +252,21 @@
 .end method
 
 .method private static mapToFadeDuration(F)F
-    .locals 2
+    .locals 3
 
     const v0, 0x3f155555
 
-    div-float v0, p0, v0
+    const v1, 0x3f155555
 
-    const/high16 v1, 0x3f800000    # 1.0f
+    div-float v1, p0, v1
 
-    invoke-static {v0, v1}, Ljava/lang/Math;->min(FF)F
+    const/high16 v2, 0x3f800000    # 1.0f
 
-    move-result v0
+    invoke-static {v1, v2}, Ljava/lang/Math;->min(FF)F
 
-    return v0
+    move-result v1
+
+    return v1
 .end method
 
 .method private static updateLayerType(Landroid/view/View;F)V

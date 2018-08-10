@@ -48,7 +48,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$1;->this$0:Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;
 
-    iput-object v2, v0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mTargetedView:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iput-object v2, v0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mTargetedView:Landroid/view/View;
 
     return-void
 .end method

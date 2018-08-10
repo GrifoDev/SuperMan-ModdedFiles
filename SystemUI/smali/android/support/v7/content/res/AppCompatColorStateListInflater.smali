@@ -254,7 +254,9 @@
 
     move-result v24
 
-    if-eqz v24, :cond_0
+    xor-int/lit8 v24, v24, 0x1
+
+    if-nez v24, :cond_0
 
     sget-object v24, Landroid/support/v7/appcompat/R$styleable;->ColorStateListItem:[I
 

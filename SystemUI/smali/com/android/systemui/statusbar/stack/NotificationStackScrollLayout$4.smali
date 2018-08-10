@@ -49,7 +49,7 @@
 
     move-result v0
 
-    invoke-static {v1, v0}, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->-wrap4(Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;F)V
+    invoke-static {v1, v0}, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->-wrap7(Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;F)V
 
     return-void
 .end method

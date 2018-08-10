@@ -43,7 +43,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView$2;->this$0:Lcom/android/systemui/recents/views/RecentsSlidingView;
 
-    invoke-virtual {v0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->resetScroll()V
+    invoke-virtual {v0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->resetViews()V
 
     return-void
 .end method
@@ -53,7 +53,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView$2;->this$0:Lcom/android/systemui/recents/views/RecentsSlidingView;
 
-    invoke-virtual {v0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->resetScroll()V
+    invoke-virtual {v0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->resetViews()V
 
     return-void
 .end method

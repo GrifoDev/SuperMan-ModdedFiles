@@ -75,11 +75,11 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Lcom/android/systemui/recents/ScreenPinningRequest$RequestWindowView;->-wrap0(Lcom/android/systemui/recents/ScreenPinningRequest$RequestWindowView;Landroid/content/Context;)Z
+    invoke-static {v2, v3}, Lcom/android/systemui/recents/ScreenPinningRequest$RequestWindowView;->-wrap0(Lcom/android/systemui/recents/ScreenPinningRequest$RequestWindowView;Landroid/content/Context;)I
 
     move-result v2
 
-    invoke-virtual {v1, v2}, Lcom/android/systemui/recents/ScreenPinningRequest;->getRequestLayoutParams(Z)Landroid/widget/FrameLayout$LayoutParams;
+    invoke-virtual {v1, v2}, Lcom/android/systemui/recents/ScreenPinningRequest;->getRequestLayoutParams(I)Landroid/widget/FrameLayout$LayoutParams;
 
     move-result-object v1
 

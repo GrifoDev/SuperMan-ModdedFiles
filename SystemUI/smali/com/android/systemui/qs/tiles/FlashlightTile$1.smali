@@ -52,11 +52,11 @@
 
     iget-object v5, p0, Lcom/android/systemui/qs/tiles/FlashlightTile$1;->this$0:Lcom/android/systemui/qs/tiles/FlashlightTile;
 
-    invoke-static {v5}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-get4(Lcom/android/systemui/qs/tiles/FlashlightTile;)Lcom/android/systemui/statusbar/policy/FlashlightController;
+    invoke-static {v5}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-get3(Lcom/android/systemui/qs/tiles/FlashlightTile;)Lcom/android/systemui/statusbar/policy/FlashlightController;
 
     move-result-object v5
 
-    invoke-virtual {v5}, Lcom/android/systemui/statusbar/policy/FlashlightController;->isEnabled()Z
+    invoke-interface {v5}, Lcom/android/systemui/statusbar/policy/FlashlightController;->isEnabled()Z
 
     move-result v5
 
@@ -64,14 +64,14 @@
 
     iget-object v5, p0, Lcom/android/systemui/qs/tiles/FlashlightTile$1;->this$0:Lcom/android/systemui/qs/tiles/FlashlightTile;
 
-    invoke-static {v5, v9}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-wrap1(Lcom/android/systemui/qs/tiles/FlashlightTile;Z)V
+    invoke-static {v5, v9}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-wrap2(Lcom/android/systemui/qs/tiles/FlashlightTile;Z)V
 
     :cond_0
     :goto_0
     return-void
 
     :cond_1
-    const-string/jumbo v5, "com.samsung.systemui.statusbar.action.FLASHLIGHT_OFF"
+    const-string/jumbo v5, "com.sec.android.systemui.action.FLASHLIGHT_OFF"
 
     invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -90,7 +90,7 @@
     :cond_2
     iget-object v5, p0, Lcom/android/systemui/qs/tiles/FlashlightTile$1;->this$0:Lcom/android/systemui/qs/tiles/FlashlightTile;
 
-    invoke-static {v5}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-get1(Lcom/android/systemui/qs/tiles/FlashlightTile;)Ljava/lang/String;
+    invoke-static {v5}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-get0(Lcom/android/systemui/qs/tiles/FlashlightTile;)Ljava/lang/String;
 
     move-result-object v5
 
@@ -116,11 +116,11 @@
 
     iget-object v5, p0, Lcom/android/systemui/qs/tiles/FlashlightTile$1;->this$0:Lcom/android/systemui/qs/tiles/FlashlightTile;
 
-    invoke-static {v5}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-get4(Lcom/android/systemui/qs/tiles/FlashlightTile;)Lcom/android/systemui/statusbar/policy/FlashlightController;
+    invoke-static {v5}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-get3(Lcom/android/systemui/qs/tiles/FlashlightTile;)Lcom/android/systemui/statusbar/policy/FlashlightController;
 
     move-result-object v5
 
-    invoke-virtual {v5}, Lcom/android/systemui/statusbar/policy/FlashlightController;->isEnabled()Z
+    invoke-interface {v5}, Lcom/android/systemui/statusbar/policy/FlashlightController;->isEnabled()Z
 
     move-result v5
 
@@ -128,16 +128,16 @@
 
     iget-object v5, p0, Lcom/android/systemui/qs/tiles/FlashlightTile$1;->this$0:Lcom/android/systemui/qs/tiles/FlashlightTile;
 
-    invoke-static {v5}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-get4(Lcom/android/systemui/qs/tiles/FlashlightTile;)Lcom/android/systemui/statusbar/policy/FlashlightController;
+    invoke-static {v5}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-get3(Lcom/android/systemui/qs/tiles/FlashlightTile;)Lcom/android/systemui/statusbar/policy/FlashlightController;
 
     move-result-object v5
 
-    invoke-virtual {v5, v8}, Lcom/android/systemui/statusbar/policy/FlashlightController;->setFlashlight(Z)V
+    invoke-interface {v5, v8}, Lcom/android/systemui/statusbar/policy/FlashlightController;->setFlashlight(Z)V
 
     goto :goto_0
 
     :cond_3
-    const-string/jumbo v5, "com.samsung.intent.action.SIOP_LEVEL_CHANGED"
+    const-string/jumbo v5, "android.intent.action.SIOP_LEVEL_CHANGED"
 
     invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -157,7 +157,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/qs/tiles/FlashlightTile$1;->this$0:Lcom/android/systemui/qs/tiles/FlashlightTile;
 
-    invoke-static {v5}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-get1(Lcom/android/systemui/qs/tiles/FlashlightTile;)Ljava/lang/String;
+    invoke-static {v5}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-get0(Lcom/android/systemui/qs/tiles/FlashlightTile;)Ljava/lang/String;
 
     move-result-object v5
 
@@ -193,11 +193,11 @@
 
     iget-object v5, p0, Lcom/android/systemui/qs/tiles/FlashlightTile$1;->this$0:Lcom/android/systemui/qs/tiles/FlashlightTile;
 
-    invoke-static {v5}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-get4(Lcom/android/systemui/qs/tiles/FlashlightTile;)Lcom/android/systemui/statusbar/policy/FlashlightController;
+    invoke-static {v5}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-get3(Lcom/android/systemui/qs/tiles/FlashlightTile;)Lcom/android/systemui/statusbar/policy/FlashlightController;
 
     move-result-object v5
 
-    invoke-virtual {v5}, Lcom/android/systemui/statusbar/policy/FlashlightController;->isEnabled()Z
+    invoke-interface {v5}, Lcom/android/systemui/statusbar/policy/FlashlightController;->isEnabled()Z
 
     move-result v5
 
@@ -207,11 +207,11 @@
 
     iget-object v5, p0, Lcom/android/systemui/qs/tiles/FlashlightTile$1;->this$0:Lcom/android/systemui/qs/tiles/FlashlightTile;
 
-    invoke-static {v5}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-get4(Lcom/android/systemui/qs/tiles/FlashlightTile;)Lcom/android/systemui/statusbar/policy/FlashlightController;
+    invoke-static {v5}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-get3(Lcom/android/systemui/qs/tiles/FlashlightTile;)Lcom/android/systemui/statusbar/policy/FlashlightController;
 
     move-result-object v5
 
-    invoke-virtual {v5, v8}, Lcom/android/systemui/statusbar/policy/FlashlightController;->setFlashlight(Z)V
+    invoke-interface {v5, v8}, Lcom/android/systemui/statusbar/policy/FlashlightController;->setFlashlight(Z)V
 
     goto/16 :goto_0
 
@@ -236,9 +236,21 @@
 
     move-result v1
 
+    const/4 v5, 0x5
+
+    if-gt v2, v5, :cond_6
+
+    const/4 v5, 0x2
+
+    if-eq v1, v5, :cond_6
+
     iget-object v5, p0, Lcom/android/systemui/qs/tiles/FlashlightTile$1;->this$0:Lcom/android/systemui/qs/tiles/FlashlightTile;
 
-    invoke-static {v5}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-get2(Lcom/android/systemui/qs/tiles/FlashlightTile;)Landroid/content/Context;
+    invoke-static {v5, v9}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-set0(Lcom/android/systemui/qs/tiles/FlashlightTile;Z)Z
+
+    iget-object v5, p0, Lcom/android/systemui/qs/tiles/FlashlightTile$1;->this$0:Lcom/android/systemui/qs/tiles/FlashlightTile;
+
+    invoke-static {v5}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-get1(Lcom/android/systemui/qs/tiles/FlashlightTile;)Landroid/content/Context;
 
     move-result-object v5
 
@@ -261,7 +273,7 @@
     :goto_1
     iget-object v5, p0, Lcom/android/systemui/qs/tiles/FlashlightTile$1;->this$0:Lcom/android/systemui/qs/tiles/FlashlightTile;
 
-    invoke-static {v5}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-get1(Lcom/android/systemui/qs/tiles/FlashlightTile;)Ljava/lang/String;
+    invoke-static {v5}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-get0(Lcom/android/systemui/qs/tiles/FlashlightTile;)Ljava/lang/String;
 
     move-result-object v5
 
@@ -295,55 +307,45 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v5, 0x5
-
-    if-gt v2, v5, :cond_6
-
-    const/4 v5, 0x2
-
-    if-eq v1, v5, :cond_6
-
     iget-object v5, p0, Lcom/android/systemui/qs/tiles/FlashlightTile$1;->this$0:Lcom/android/systemui/qs/tiles/FlashlightTile;
 
-    invoke-static {v5, v9}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-set0(Lcom/android/systemui/qs/tiles/FlashlightTile;Z)Z
-
-    iget-object v5, p0, Lcom/android/systemui/qs/tiles/FlashlightTile$1;->this$0:Lcom/android/systemui/qs/tiles/FlashlightTile;
-
-    invoke-static {v5}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-get4(Lcom/android/systemui/qs/tiles/FlashlightTile;)Lcom/android/systemui/statusbar/policy/FlashlightController;
+    invoke-static {v5}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-get3(Lcom/android/systemui/qs/tiles/FlashlightTile;)Lcom/android/systemui/statusbar/policy/FlashlightController;
 
     move-result-object v5
 
-    invoke-virtual {v5}, Lcom/android/systemui/statusbar/policy/FlashlightController;->isEnabled()Z
+    invoke-interface {v5}, Lcom/android/systemui/statusbar/policy/FlashlightController;->isEnabled()Z
 
     move-result v5
 
     if-eqz v5, :cond_0
 
-    if-nez v3, :cond_0
+    xor-int/lit8 v5, v3, 0x1
+
+    if-eqz v5, :cond_0
 
     iget-object v5, p0, Lcom/android/systemui/qs/tiles/FlashlightTile$1;->this$0:Lcom/android/systemui/qs/tiles/FlashlightTile;
 
     iget-object v6, p0, Lcom/android/systemui/qs/tiles/FlashlightTile$1;->this$0:Lcom/android/systemui/qs/tiles/FlashlightTile;
 
-    invoke-static {v6}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-get2(Lcom/android/systemui/qs/tiles/FlashlightTile;)Landroid/content/Context;
+    invoke-static {v6}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-get1(Lcom/android/systemui/qs/tiles/FlashlightTile;)Landroid/content/Context;
 
     move-result-object v6
 
-    const v7, 0x7f0f040c
+    const v7, 0x7f1203b3
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v6
 
-    invoke-static {v5, v6}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-wrap0(Lcom/android/systemui/qs/tiles/FlashlightTile;Ljava/lang/CharSequence;)V
+    invoke-static {v5, v6}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-wrap1(Lcom/android/systemui/qs/tiles/FlashlightTile;Ljava/lang/CharSequence;)V
 
     iget-object v5, p0, Lcom/android/systemui/qs/tiles/FlashlightTile$1;->this$0:Lcom/android/systemui/qs/tiles/FlashlightTile;
 
-    invoke-static {v5}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-get4(Lcom/android/systemui/qs/tiles/FlashlightTile;)Lcom/android/systemui/statusbar/policy/FlashlightController;
+    invoke-static {v5}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-get3(Lcom/android/systemui/qs/tiles/FlashlightTile;)Lcom/android/systemui/statusbar/policy/FlashlightController;
 
     move-result-object v5
 
-    invoke-virtual {v5, v8}, Lcom/android/systemui/statusbar/policy/FlashlightController;->setFlashlight(Z)V
+    invoke-interface {v5, v8}, Lcom/android/systemui/statusbar/policy/FlashlightController;->setFlashlight(Z)V
 
     goto/16 :goto_0
 

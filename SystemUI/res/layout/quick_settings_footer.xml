@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:paddingTop="@dimen/qs_tile_padding_top" android:paddingBottom="@dimen/qs_tile_padding_top" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content"
+<LinearLayout android:gravity="center_vertical" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/qs_footer_padding_start" android:paddingEnd="@dimen/qs_footer_padding_end"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:textSize="@dimen/qs_tile_text_size" android:id="@id/footer_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" />
-    <ImageView android:id="@id/footer_icon" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_qs_vpn" android:layout_centerVertical="true" android:contentDescription="@null" android:layout_marginEnd="8.0dip" android:layout_toStartOf="@id/footer_text" />
-</RelativeLayout>
+    <TextView android:textSize="@dimen/qs_security_footer_text_size" android:textColor="?android:textColorSecondary" android:gravity="start" android:id="@id/footer_text" android:paddingTop="@dimen/qs_security_footer_text_padding" android:paddingBottom="@dimen/qs_security_footer_text_padding" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0" android:fontFamily="sec-roboto-light" />
+    <ImageView android:id="@id/footer_icon" android:layout_width="@dimen/qs_footer_icon_size" android:layout_height="wrap_content" android:src="@drawable/quickpanel_icon_managed_device" android:tint="?android:textColorSecondary" android:contentDescription="@null" />
+</LinearLayout>

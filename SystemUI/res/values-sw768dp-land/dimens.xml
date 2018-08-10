@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="keyguard_indication_area_height">184.0dip</dimen>
+    <dimen name="keyguard_usim_text_area_height">232.0dip</dimen>
+    <dimen name="servicebox_big_content_padding_side">300.0dip</dimen>
+    <dimen name="servicebox_bigpage_top_margin">44.0dip</dimen>
+    <dimen name="servicebox_guide_arrow_anim_distance">310.0dip</dimen>
+    <dimen name="servicebox_guide_arrow_side_margin">310.0dip</dimen>
+    <dimen name="servicebox_navigation_bar_height">130.0dip</dimen>
+    <dimen name="servicebox_page_expanded_height">442.0dip</dimen>
+    <dimen name="servicebox_page_margin_side">329.0dip</dimen>
+    <dimen name="servicebox_page_small_height">268.0dip</dimen>
+    <dimen name="servicebox_music_page_big_top_margin">20.0dip</dimen>
+</resources>

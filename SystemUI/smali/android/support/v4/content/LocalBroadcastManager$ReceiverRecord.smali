@@ -1,4 +1,4 @@
-.class Landroid/support/v4/content/LocalBroadcastManager$ReceiverRecord;
+.class final Landroid/support/v4/content/LocalBroadcastManager$ReceiverRecord;
 .super Ljava/lang/Object;
 .source "LocalBroadcastManager.java"
 
@@ -9,13 +9,15 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x1a
     name = "ReceiverRecord"
 .end annotation
 
 
 # instance fields
 .field broadcasting:Z
+
+.field dead:Z
 
 .field final filter:Landroid/content/IntentFilter;
 
@@ -62,6 +64,15 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    iget-boolean v1, p0, Landroid/support/v4/content/LocalBroadcastManager$ReceiverRecord;->dead:Z
+
+    if-eqz v1, :cond_0
+
+    const-string/jumbo v1, " DEAD"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_0
     const-string/jumbo v1, "}"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

@@ -375,7 +375,7 @@
 
     if-eqz v11, :cond_14
 
-    iget v11, p0, Landroid/support/v17/leanback/widget/StaggeredGridDefault;->mMargin:I
+    iget v11, p0, Landroid/support/v17/leanback/widget/StaggeredGridDefault;->mSpacing:I
 
     neg-int v11, v11
 
@@ -438,7 +438,7 @@
     goto :goto_a
 
     :cond_14
-    iget v11, p0, Landroid/support/v17/leanback/widget/StaggeredGridDefault;->mMargin:I
+    iget v11, p0, Landroid/support/v17/leanback/widget/StaggeredGridDefault;->mSpacing:I
 
     goto :goto_b
 
@@ -469,7 +469,7 @@
 
     if-eqz v11, :cond_18
 
-    iget v11, p0, Landroid/support/v17/leanback/widget/StaggeredGridDefault;->mMargin:I
+    iget v11, p0, Landroid/support/v17/leanback/widget/StaggeredGridDefault;->mSpacing:I
 
     neg-int v11, v11
 
@@ -479,7 +479,7 @@
     goto :goto_c
 
     :cond_18
-    iget v11, p0, Landroid/support/v17/leanback/widget/StaggeredGridDefault;->mMargin:I
+    iget v11, p0, Landroid/support/v17/leanback/widget/StaggeredGridDefault;->mSpacing:I
 
     goto :goto_e
 
@@ -501,7 +501,7 @@
 
     neg-int v11, v10
 
-    iget v12, p0, Landroid/support/v17/leanback/widget/StaggeredGridDefault;->mMargin:I
+    iget v12, p0, Landroid/support/v17/leanback/widget/StaggeredGridDefault;->mSpacing:I
 
     sub-int/2addr v11, v12
 
@@ -517,7 +517,7 @@
     goto :goto_d
 
     :cond_1c
-    iget v11, p0, Landroid/support/v17/leanback/widget/StaggeredGridDefault;->mMargin:I
+    iget v11, p0, Landroid/support/v17/leanback/widget/StaggeredGridDefault;->mSpacing:I
 
     add-int/2addr v11, v10
 
@@ -1437,7 +1437,7 @@
 
     if-eqz v10, :cond_14
 
-    iget v10, p0, Landroid/support/v17/leanback/widget/StaggeredGridDefault;->mMargin:I
+    iget v10, p0, Landroid/support/v17/leanback/widget/StaggeredGridDefault;->mSpacing:I
 
     :goto_b
     add-int/2addr v7, v10
@@ -1494,7 +1494,7 @@
     goto :goto_a
 
     :cond_14
-    iget v10, p0, Landroid/support/v17/leanback/widget/StaggeredGridDefault;->mMargin:I
+    iget v10, p0, Landroid/support/v17/leanback/widget/StaggeredGridDefault;->mSpacing:I
 
     neg-int v10, v10
 
@@ -1527,7 +1527,7 @@
 
     if-eqz v10, :cond_18
 
-    iget v10, p0, Landroid/support/v17/leanback/widget/StaggeredGridDefault;->mMargin:I
+    iget v10, p0, Landroid/support/v17/leanback/widget/StaggeredGridDefault;->mSpacing:I
 
     :goto_e
     add-int/2addr v7, v10
@@ -1535,7 +1535,7 @@
     goto :goto_c
 
     :cond_18
-    iget v10, p0, Landroid/support/v17/leanback/widget/StaggeredGridDefault;->mMargin:I
+    iget v10, p0, Landroid/support/v17/leanback/widget/StaggeredGridDefault;->mSpacing:I
 
     neg-int v10, v10
 
@@ -1559,7 +1559,7 @@
 
     if-eqz v10, :cond_1c
 
-    iget v10, p0, Landroid/support/v17/leanback/widget/StaggeredGridDefault;->mMargin:I
+    iget v10, p0, Landroid/support/v17/leanback/widget/StaggeredGridDefault;->mSpacing:I
 
     add-int/2addr v10, v9
 
@@ -1579,7 +1579,7 @@
     :cond_1c
     neg-int v10, v9
 
-    iget v11, p0, Landroid/support/v17/leanback/widget/StaggeredGridDefault;->mMargin:I
+    iget v11, p0, Landroid/support/v17/leanback/widget/StaggeredGridDefault;->mSpacing:I
 
     sub-int/2addr v10, v11
 

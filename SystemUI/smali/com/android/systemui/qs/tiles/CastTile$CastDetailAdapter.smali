@@ -3,7 +3,7 @@
 .source "CastTile.java"
 
 # interfaces
-.implements Lcom/android/systemui/qs/QSTile$DetailAdapter;
+.implements Lcom/android/systemui/plugins/qs/DetailAdapter;
 .implements Lcom/android/systemui/qs/QSDetailItems$Callback;
 
 
@@ -100,32 +100,26 @@
     :cond_0
     const/4 v7, 0x0
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_6
 
     invoke-interface {p1}, Ljava/util/Set;->isEmpty()Z
 
     move-result v8
 
-    if-eqz v8, :cond_2
+    xor-int/lit8 v8, v8, 0x1
 
-    :cond_1
-    iget-object v8, p0, Lcom/android/systemui/qs/tiles/CastTile$CastDetailAdapter;->mItems:Lcom/android/systemui/qs/QSDetailItems;
+    if-eqz v8, :cond_6
 
-    invoke-virtual {v8, v7}, Lcom/android/systemui/qs/QSDetailItems;->setItems([Lcom/android/systemui/qs/QSDetailItems$Item;)V
-
-    return-void
-
-    :cond_2
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :cond_3
+    :cond_1
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_4
+    if-eqz v8, :cond_2
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -137,13 +131,13 @@
 
     const/4 v9, 0x2
 
-    if-ne v8, v9, :cond_3
+    if-ne v8, v9, :cond_1
 
     new-instance v6, Lcom/android/systemui/qs/QSDetailItems$Item;
 
     invoke-direct {v6}, Lcom/android/systemui/qs/QSDetailItems$Item;-><init>()V
 
-    const v8, 0x7f0201b8
+    const v8, 0x7f08029d
 
     iput v8, v6, Lcom/android/systemui/qs/QSDetailItems$Item;->icon:I
 
@@ -161,7 +155,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0f039b
+    const v9, 0x7f1208d1
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -179,8 +173,8 @@
 
     aput-object v6, v7, v8
 
-    :cond_4
-    if-nez v7, :cond_1
+    :cond_2
+    if-nez v7, :cond_6
 
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
@@ -191,7 +185,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_5
+    if-eqz v8, :cond_3
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -207,7 +201,7 @@
 
     goto :goto_0
 
-    :cond_5
+    :cond_3
     invoke-interface {p1}, Ljava/util/Set;->size()I
 
     move-result v8
@@ -226,13 +220,13 @@
 
     move-result-object v5
 
-    :cond_6
+    :cond_4
     :goto_1
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_6
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -252,13 +246,13 @@
 
     move-result v8
 
-    if-eqz v8, :cond_6
+    if-eqz v8, :cond_4
 
     new-instance v6, Lcom/android/systemui/qs/QSDetailItems$Item;
 
     invoke-direct {v6}, Lcom/android/systemui/qs/QSDetailItems$Item;-><init>()V
 
-    const v8, 0x7f0201b7
+    const v8, 0x7f08029c
 
     iput v8, v6, Lcom/android/systemui/qs/QSDetailItems$Item;->icon:I
 
@@ -272,7 +266,7 @@
 
     iget v8, v0, Lcom/android/systemui/statusbar/policy/CastController$CastDevice;->state:I
 
-    if-ne v8, v10, :cond_7
+    if-ne v8, v10, :cond_5
 
     iget-object v8, p0, Lcom/android/systemui/qs/tiles/CastTile$CastDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/CastTile;
 
@@ -280,7 +274,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0f039c
+    const v9, 0x7f1208d2
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -288,7 +282,7 @@
 
     iput-object v8, v6, Lcom/android/systemui/qs/QSDetailItems$Item;->line2:Ljava/lang/CharSequence;
 
-    :cond_7
+    :cond_5
     iput-object v0, v6, Lcom/android/systemui/qs/QSDetailItems$Item;->tag:Ljava/lang/Object;
 
     add-int/lit8 v3, v2, 0x1
@@ -298,6 +292,13 @@
     move v2, v3
 
     goto :goto_1
+
+    :cond_6
+    iget-object v8, p0, Lcom/android/systemui/qs/tiles/CastTile$CastDetailAdapter;->mItems:Lcom/android/systemui/qs/QSDetailItems;
+
+    invoke-virtual {v8, v7}, Lcom/android/systemui/qs/QSDetailItems;->setItems([Lcom/android/systemui/qs/QSDetailItems$Item;)V
+
+    return-void
 .end method
 
 
@@ -347,9 +348,9 @@
     :cond_1
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/CastTile$CastDetailAdapter;->mItems:Lcom/android/systemui/qs/QSDetailItems;
 
-    const v1, 0x7f0201b6
+    const v1, 0x7f08029b
 
-    const v2, 0x7f0f0393
+    const v2, 0x7f1208c4
 
     invoke-virtual {v0, v1, v2}, Lcom/android/systemui/qs/QSDetailItems;->setEmptyState(II)V
 
@@ -411,7 +412,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f038f
+    const v1, 0x7f1208c7
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

@@ -34,22 +34,6 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
-
-    invoke-direct {p0, p1, p2, p3}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-
-    const/4 v0, -0x1
-
-    iput v0, p0, Landroid/support/v17/leanback/widget/PersistentFocusWrapper;->mSelectedPosition:I
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Landroid/support/v17/leanback/widget/PersistentFocusWrapper;->mPersistFocusVertical:Z
-
-    return-void
-.end method
-
 .method private shouldPersistFocusFromDirection(I)Z
     .locals 3
 
@@ -85,6 +69,10 @@
     const/16 v2, 0x42
 
     if-eq p1, v2, :cond_0
+
+    move v0, v1
+
+    goto :goto_0
 
     :cond_2
     move v0, v1
@@ -129,7 +117,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
+
+    if-nez v0, :cond_0
 
     invoke-virtual {p1, p0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 

@@ -65,7 +65,7 @@
 
 
 # direct methods
-.method public constructor <init>(Landroid/graphics/drawable/Drawable$Callback;)V
+.method constructor <init>(Landroid/graphics/drawable/Drawable$Callback;)V
     .locals 3
 
     const/4 v2, 0x1

@@ -52,6 +52,24 @@
     return-void
 .end method
 
+.method public constructor <init>(IIIII)V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput p1, p0, Landroid/support/v4/media/session/ParcelableVolumeInfo;->volumeType:I
+
+    iput p2, p0, Landroid/support/v4/media/session/ParcelableVolumeInfo;->audioStream:I
+
+    iput p3, p0, Landroid/support/v4/media/session/ParcelableVolumeInfo;->controlType:I
+
+    iput p4, p0, Landroid/support/v4/media/session/ParcelableVolumeInfo;->maxVolume:I
+
+    iput p5, p0, Landroid/support/v4/media/session/ParcelableVolumeInfo;->currentVolume:I
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 1
 

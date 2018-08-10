@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <plurals name="status_bar_accessibility_recent_apps">
-        <item quantity="other">En skärm i översikten</item>
-        <item quantity="one">%d skärmar i översikten</item>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">%d försök kvar</item>
+        <item quantity="one">%d försök kvar</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(%d försök återstår)</item>
+        <item quantity="one">(1 försök återstår)</item>
     </plurals>
     <plurals name="kg_password_wrong_pin_code">
         <item quantity="other">Du angav fel pinkod för SIM-kortet. %d försök återstår.</item>
@@ -12,6 +16,10 @@
         <item quantity="other">Du angav fel PUK-kod för SIM-kortet. %d försök återstår innan SIM-kortet blir obrukbart.</item>
         <item quantity="one">Du angav fel PUK-kod för SIM-kortet. %d försök återstår innan SIM-kortet blir obrukbart.</item>
     </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">Enheten har inte låsts upp på %d timmar. Bekräfta lösenordet.</item>
+        <item quantity="one">Enheten har inte låsts upp på %d timme. Bekräfta lösenordet.</item>
+    </plurals>
     <plurals name="kg_prompt_reason_time_pattern">
         <item quantity="other">Enheten har inte låsts upp på %d timmar. Bekräfta det grafiska lösenordet.</item>
         <item quantity="one">Enheten har inte låsts upp på %d timme. Bekräfta det grafiska lösenordet.</item>
@@ -20,18 +28,6 @@
         <item quantity="other">Enheten har inte låsts upp på %d timmar. Bekräfta pinkoden.</item>
         <item quantity="one">Enheten har inte låsts upp på %d timme. Bekräfta pinkoden.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">Enheten har inte låsts upp på %d timmar. Bekräfta lösenordet.</item>
-        <item quantity="one">Enheten har inte låsts upp på %d timme. Bekräfta lösenordet.</item>
-    </plurals>
-    <plurals name="kg_attempt_remaining">
-        <item quantity="other">(%d försök återstår)</item>
-        <item quantity="one">(1 försök återstår)</item>
-    </plurals>
-    <plurals name="kg_attempt_left">
-        <item quantity="other">%d försök kvar</item>
-        <item quantity="one">%d försök kvar</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown_min">
         <item quantity="other">Försök igen om %d minuter</item>
         <item quantity="one">Försök igen om %d minut</item>
@@ -39,5 +35,29 @@
     <plurals name="kg_too_many_failed_attempts_countdown_sec">
         <item quantity="other">Försök igen om %d sekunder</item>
         <item quantity="one">Försök igen om %d sekund</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_countdown_by_biometrics">
+        <item quantity="other">%1$d försök att verifiera din biometrik har gjorts. Försök igen om %2$d sekunder.</item>
+        <item quantity="one">%1$d felaktiga försök att verifiera din biometrik har gjorts. Försök igen om %2$d sekund.</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_countdown_by_fingerprint">
+        <item quantity="other">%1$d försök att verifiera dina fingeravtryck har gjorts. Försök igen om %2$d sekunder.</item>
+        <item quantity="one">%1$d felaktiga försök att verifiera dina fingeravtryck har gjorts. Försök igen om %2$d sekund.</item>
+    </plurals>
+    <plurals name="notification_channels_list_desc_2_and_others">
+        <item quantity="other">%1$s, %2$s och %3$d till</item>
+        <item quantity="one">%1$s, %2$s och %3$d till</item>
+    </plurals>
+    <plurals name="notification_num_channels_desc">
+        <item quantity="other">1 av %d aviseringskategorier från denna app</item>
+        <item quantity="one">1 av %d aviseringskategorier från denna app</item>
+    </plurals>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">%d skärmar i översikten</item>
+        <item quantity="one">En skärm i översikten</item>
+    </plurals>
+    <plurals name="notification_group_overflow_description">
+        <item quantity="other">%s fler aviseringar i gruppen.</item>
+        <item quantity="one">%s till avisering i gruppen.</item>
     </plurals>
 </resources>

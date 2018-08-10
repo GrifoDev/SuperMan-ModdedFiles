@@ -48,7 +48,7 @@
 
     iget-object v11, p0, Landroid/support/v4/widget/MaterialProgressDrawable$2;->val$ring:Landroid/support/v4/widget/MaterialProgressDrawable$Ring;
 
-    invoke-static {v10, p1, v11}, Landroid/support/v4/widget/MaterialProgressDrawable;->-wrap1(Landroid/support/v4/widget/MaterialProgressDrawable;FLandroid/support/v4/widget/MaterialProgressDrawable$Ring;)V
+    invoke-virtual {v10, p1, v11}, Landroid/support/v4/widget/MaterialProgressDrawable;->applyFinishTranslation(FLandroid/support/v4/widget/MaterialProgressDrawable$Ring;)V
 
     :goto_0
     return-void
@@ -58,7 +58,7 @@
 
     iget-object v11, p0, Landroid/support/v4/widget/MaterialProgressDrawable$2;->val$ring:Landroid/support/v4/widget/MaterialProgressDrawable$Ring;
 
-    invoke-static {v10, v11}, Landroid/support/v4/widget/MaterialProgressDrawable;->-wrap0(Landroid/support/v4/widget/MaterialProgressDrawable;Landroid/support/v4/widget/MaterialProgressDrawable$Ring;)F
+    invoke-virtual {v10, v11}, Landroid/support/v4/widget/MaterialProgressDrawable;->getMinProgressArc(Landroid/support/v4/widget/MaterialProgressDrawable$Ring;)F
 
     move-result v3
 
@@ -84,7 +84,7 @@
 
     iget-object v11, p0, Landroid/support/v4/widget/MaterialProgressDrawable$2;->val$ring:Landroid/support/v4/widget/MaterialProgressDrawable$Ring;
 
-    invoke-static {v10, p1, v11}, Landroid/support/v4/widget/MaterialProgressDrawable;->-wrap2(Landroid/support/v4/widget/MaterialProgressDrawable;FLandroid/support/v4/widget/MaterialProgressDrawable$Ring;)V
+    invoke-virtual {v10, p1, v11}, Landroid/support/v4/widget/MaterialProgressDrawable;->updateRingColor(FLandroid/support/v4/widget/MaterialProgressDrawable$Ring;)V
 
     const/high16 v10, 0x3f000000    # 0.5f
 
@@ -100,9 +100,7 @@
 
     sub-float/2addr v10, v3
 
-    invoke-static {}, Landroid/support/v4/widget/MaterialProgressDrawable;->-get0()Landroid/view/animation/Interpolator;
-
-    move-result-object v11
+    sget-object v11, Landroid/support/v4/widget/MaterialProgressDrawable;->MATERIAL_INTERPOLATOR:Landroid/view/animation/Interpolator;
 
     invoke-interface {v11, v5}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
 
@@ -135,9 +133,7 @@
 
     div-float v5, v10, v11
 
-    invoke-static {}, Landroid/support/v4/widget/MaterialProgressDrawable;->-get0()Landroid/view/animation/Interpolator;
-
-    move-result-object v10
+    sget-object v10, Landroid/support/v4/widget/MaterialProgressDrawable;->MATERIAL_INTERPOLATOR:Landroid/view/animation/Interpolator;
 
     invoke-interface {v10, v5}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
 
@@ -168,9 +164,7 @@
 
     iget-object v11, p0, Landroid/support/v4/widget/MaterialProgressDrawable$2;->this$0:Landroid/support/v4/widget/MaterialProgressDrawable;
 
-    invoke-static {v11}, Landroid/support/v4/widget/MaterialProgressDrawable;->-get1(Landroid/support/v4/widget/MaterialProgressDrawable;)F
-
-    move-result v11
+    iget v11, v11, Landroid/support/v4/widget/MaterialProgressDrawable;->mRotationCount:F
 
     const/high16 v12, 0x40a00000    # 5.0f
 
@@ -186,5 +180,5 @@
 
     invoke-virtual {v10, v1}, Landroid/support/v4/widget/MaterialProgressDrawable;->setRotation(F)V
 
-    goto/16 :goto_0
+    goto :goto_0
 .end method

@@ -4,7 +4,9 @@
 
 
 # instance fields
-.field private mIsLayoutRtl:Z
+.field private mIsAlternativeOrder:Z
+
+.field private mIsLayoutReverse:Z
 
 
 # direct methods
@@ -35,31 +37,24 @@
     return-void
 .end method
 
-.method private updateRTLOrder()V
-    .locals 6
+.method private updateOrder()V
+    .locals 7
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/ReverseLinearLayout;->getResources()Landroid/content/res/Resources;
+    sget-boolean v5, Lcom/android/systemui/Rune;->NAVBAR_SUPPORT_STABLE_LAYOUT:Z
 
-    move-result-object v4
+    if-eqz v5, :cond_1
 
-    invoke-virtual {v4}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Landroid/content/res/Configuration;->getLayoutDirection()I
-
-    move-result v4
-
-    const/4 v5, 0x1
-
-    if-ne v4, v5, :cond_0
-
-    const/4 v3, 0x1
+    :cond_0
+    const/4 v4, 0x0
 
     :goto_0
-    iget-boolean v4, p0, Lcom/android/systemui/statusbar/phone/ReverseLinearLayout;->mIsLayoutRtl:Z
+    iget-boolean v5, p0, Lcom/android/systemui/statusbar/phone/ReverseLinearLayout;->mIsAlternativeOrder:Z
 
-    if-eq v4, v3, :cond_3
+    xor-int v3, v4, v5
+
+    iget-boolean v5, p0, Lcom/android/systemui/statusbar/phone/ReverseLinearLayout;->mIsLayoutReverse:Z
+
+    if-eq v5, v3, :cond_4
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/ReverseLinearLayout;->getChildCount()I
 
@@ -72,47 +67,55 @@
     const/4 v2, 0x0
 
     :goto_1
-    if-ge v2, v0, :cond_1
+    if-ge v2, v0, :cond_2
 
     invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/phone/ReverseLinearLayout;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v1, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
-    :cond_0
-    const/4 v3, 0x0
+    :cond_1
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/ReverseLinearLayout;->getLayoutDirection()I
+
+    move-result v5
+
+    const/4 v6, 0x1
+
+    if-ne v5, v6, :cond_0
+
+    const/4 v4, 0x1
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/ReverseLinearLayout;->removeAllViews()V
 
     add-int/lit8 v2, v0, -0x1
 
     :goto_2
-    if-ltz v2, :cond_2
+    if-ltz v2, :cond_3
 
     invoke-virtual {v1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v5
 
-    check-cast v4, Landroid/view/View;
+    check-cast v5, Landroid/view/View;
 
-    invoke-super {p0, v4}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-super {p0, v5}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
     add-int/lit8 v2, v2, -0x1
 
     goto :goto_2
 
-    :cond_2
-    iput-boolean v3, p0, Lcom/android/systemui/statusbar/phone/ReverseLinearLayout;->mIsLayoutRtl:Z
-
     :cond_3
+    iput-boolean v3, p0, Lcom/android/systemui/statusbar/phone/ReverseLinearLayout;->mIsLayoutReverse:Z
+
+    :cond_4
     return-void
 .end method
 
@@ -127,19 +130,19 @@
 
     invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/phone/ReverseLinearLayout;->reversParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ReverseLinearLayout;->mIsLayoutRtl:Z
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ReverseLinearLayout;->mIsLayoutReverse:Z
 
     if-eqz v0, :cond_0
 
-    invoke-super {p0, p1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    const/4 v0, 0x0
+
+    invoke-super {p0, p1, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;I)V
 
     :goto_0
     return-void
 
     :cond_0
-    const/4 v0, 0x0
-
-    invoke-super {p0, p1, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;I)V
+    invoke-super {p0, p1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
     goto :goto_0
 .end method
@@ -149,61 +152,49 @@
 
     invoke-direct {p0, p2}, Lcom/android/systemui/statusbar/phone/ReverseLinearLayout;->reversParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ReverseLinearLayout;->mIsLayoutRtl:Z
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ReverseLinearLayout;->mIsLayoutReverse:Z
 
     if-eqz v0, :cond_0
 
-    invoke-super {p0, p1, p2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-
-    :goto_0
-    return-void
-
-    :cond_0
     const/4 v0, 0x0
 
     invoke-super {p0, p1, v0, p2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
 
-    goto :goto_0
-.end method
-
-.method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .locals 0
-
-    invoke-super {p0, p1}, Landroid/widget/LinearLayout;->onConfigurationChanged(Landroid/content/res/Configuration;)V
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/ReverseLinearLayout;->updateRTLOrder()V
-
-    return-void
-.end method
-
-.method protected onFinishInflate()V
-    .locals 2
-
-    const/4 v0, 0x1
-
-    invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/ReverseLinearLayout;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/content/res/Configuration;->getLayoutDirection()I
-
-    move-result v1
-
-    if-ne v1, v0, :cond_0
-
     :goto_0
-    iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ReverseLinearLayout;->mIsLayoutRtl:Z
-
     return-void
 
     :cond_0
-    const/4 v0, 0x0
+    invoke-super {p0, p1, p2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     goto :goto_0
+.end method
+
+.method protected onFinishInflate()V
+    .locals 0
+
+    invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/ReverseLinearLayout;->updateOrder()V
+
+    return-void
+.end method
+
+.method public onRtlPropertiesChanged(I)V
+    .locals 0
+
+    invoke-super {p0, p1}, Landroid/widget/LinearLayout;->onRtlPropertiesChanged(I)V
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/ReverseLinearLayout;->updateOrder()V
+
+    return-void
+.end method
+
+.method public setAlternativeOrder(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/phone/ReverseLinearLayout;->mIsAlternativeOrder:Z
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/ReverseLinearLayout;->updateOrder()V
+
+    return-void
 .end method

@@ -3,6 +3,14 @@
 .source "DatePicker.java"
 
 
+# annotations
+.annotation build Landroid/support/annotation/RestrictTo;
+    value = {
+        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
+
 # static fields
 .field private static DATE_FIELDS:[I
 
@@ -14,7 +22,7 @@
 
 .field mColYearIndex:I
 
-.field mConstant:Landroid/support/v17/leanback/widget/picker/PickerConstant;
+.field mConstant:Landroid/support/v17/leanback/widget/picker/PickerUtility$DateConstant;
 
 .field mCurrentDate:Ljava/util/Calendar;
 
@@ -36,14 +44,6 @@
 
 
 # direct methods
-.method static synthetic -wrap0(Landroid/support/v17/leanback/widget/picker/DatePicker;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Landroid/support/v17/leanback/widget/picker/DatePicker;->updateSpinnersImpl(Z)V
-
-    return-void
-.end method
-
 .method static constructor <clinit>()V
     .locals 3
 
@@ -95,9 +95,9 @@
 
     invoke-direct {p0}, Landroid/support/v17/leanback/widget/picker/DatePicker;->updateCurrentLocale()V
 
-    iget-object v4, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mConstant:Landroid/support/v17/leanback/widget/picker/PickerConstant;
+    iget-object v4, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mConstant:Landroid/support/v17/leanback/widget/picker/PickerUtility$DateConstant;
 
-    iget-object v4, v4, Landroid/support/v17/leanback/widget/picker/PickerConstant;->dateSeparator:Ljava/lang/String;
+    iget-object v4, v4, Landroid/support/v17/leanback/widget/picker/PickerUtility$DateConstant;->dateSeparator:Ljava/lang/String;
 
     invoke-virtual {p0, v4}, Landroid/support/v17/leanback/widget/picker/DatePicker;->setSeparator(Ljava/lang/CharSequence;)V
 
@@ -227,29 +227,47 @@
     goto :goto_1
 .end method
 
-.method private getCalendarForLocale(Ljava/util/Calendar;Ljava/util/Locale;)Ljava/util/Calendar;
-    .locals 4
+.method private isNewDate(III)Z
+    .locals 3
 
-    if-nez p1, :cond_0
+    const/4 v0, 0x1
 
-    invoke-static {p2}, Ljava/util/Calendar;->getInstance(Ljava/util/Locale;)Ljava/util/Calendar;
+    iget-object v1, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mCurrentDate:Ljava/util/Calendar;
 
-    move-result-object v3
+    invoke-virtual {v1, v0}, Ljava/util/Calendar;->get(I)I
 
-    return-object v3
+    move-result v1
+
+    if-ne v1, p1, :cond_0
+
+    iget-object v1, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mCurrentDate:Ljava/util/Calendar;
+
+    const/4 v2, 0x2
+
+    invoke-virtual {v1, v2}, Ljava/util/Calendar;->get(I)I
+
+    move-result v1
+
+    if-eq v1, p3, :cond_1
 
     :cond_0
-    invoke-virtual {p1}, Ljava/util/Calendar;->getTimeInMillis()J
+    :goto_0
+    return v0
 
-    move-result-wide v0
+    :cond_1
+    iget-object v1, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mCurrentDate:Ljava/util/Calendar;
 
-    invoke-static {p2}, Ljava/util/Calendar;->getInstance(Ljava/util/Locale;)Ljava/util/Calendar;
+    const/4 v2, 0x5
 
-    move-result-object v2
+    invoke-virtual {v1, v2}, Ljava/util/Calendar;->get(I)I
 
-    invoke-virtual {v2, v0, v1}, Ljava/util/Calendar;->setTimeInMillis(J)V
+    move-result v1
 
-    return-object v2
+    if-ne v1, p2, :cond_0
+
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method private parseDate(Ljava/lang/String;Ljava/util/Calendar;)Z
@@ -368,33 +386,33 @@
 .end method
 
 .method private updateCurrentLocale()V
-    .locals 3
-
-    new-instance v0, Landroid/support/v17/leanback/widget/picker/PickerConstant;
+    .locals 2
 
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
-    move-result-object v1
+    move-result-object v0
 
     invoke-virtual {p0}, Landroid/support/v17/leanback/widget/picker/DatePicker;->getContext()Landroid/content/Context;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-direct {v0, v1, v2}, Landroid/support/v17/leanback/widget/picker/PickerConstant;-><init>(Ljava/util/Locale;Landroid/content/res/Resources;)V
+    invoke-static {v0, v1}, Landroid/support/v17/leanback/widget/picker/PickerUtility;->getDateConstantInstance(Ljava/util/Locale;Landroid/content/res/Resources;)Landroid/support/v17/leanback/widget/picker/PickerUtility$DateConstant;
 
-    iput-object v0, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mConstant:Landroid/support/v17/leanback/widget/picker/PickerConstant;
+    move-result-object v0
+
+    iput-object v0, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mConstant:Landroid/support/v17/leanback/widget/picker/PickerUtility$DateConstant;
 
     iget-object v0, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mTempDate:Ljava/util/Calendar;
 
-    iget-object v1, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mConstant:Landroid/support/v17/leanback/widget/picker/PickerConstant;
+    iget-object v1, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mConstant:Landroid/support/v17/leanback/widget/picker/PickerUtility$DateConstant;
 
-    iget-object v1, v1, Landroid/support/v17/leanback/widget/picker/PickerConstant;->locale:Ljava/util/Locale;
+    iget-object v1, v1, Landroid/support/v17/leanback/widget/picker/PickerUtility$DateConstant;->locale:Ljava/util/Locale;
 
-    invoke-direct {p0, v0, v1}, Landroid/support/v17/leanback/widget/picker/DatePicker;->getCalendarForLocale(Ljava/util/Calendar;Ljava/util/Locale;)Ljava/util/Calendar;
+    invoke-static {v0, v1}, Landroid/support/v17/leanback/widget/picker/PickerUtility;->getCalendarForLocale(Ljava/util/Calendar;Ljava/util/Locale;)Ljava/util/Calendar;
 
     move-result-object v0
 
@@ -402,11 +420,11 @@
 
     iget-object v0, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mMinDate:Ljava/util/Calendar;
 
-    iget-object v1, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mConstant:Landroid/support/v17/leanback/widget/picker/PickerConstant;
+    iget-object v1, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mConstant:Landroid/support/v17/leanback/widget/picker/PickerUtility$DateConstant;
 
-    iget-object v1, v1, Landroid/support/v17/leanback/widget/picker/PickerConstant;->locale:Ljava/util/Locale;
+    iget-object v1, v1, Landroid/support/v17/leanback/widget/picker/PickerUtility$DateConstant;->locale:Ljava/util/Locale;
 
-    invoke-direct {p0, v0, v1}, Landroid/support/v17/leanback/widget/picker/DatePicker;->getCalendarForLocale(Ljava/util/Calendar;Ljava/util/Locale;)Ljava/util/Calendar;
+    invoke-static {v0, v1}, Landroid/support/v17/leanback/widget/picker/PickerUtility;->getCalendarForLocale(Ljava/util/Calendar;Ljava/util/Locale;)Ljava/util/Calendar;
 
     move-result-object v0
 
@@ -414,11 +432,11 @@
 
     iget-object v0, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mMaxDate:Ljava/util/Calendar;
 
-    iget-object v1, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mConstant:Landroid/support/v17/leanback/widget/picker/PickerConstant;
+    iget-object v1, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mConstant:Landroid/support/v17/leanback/widget/picker/PickerUtility$DateConstant;
 
-    iget-object v1, v1, Landroid/support/v17/leanback/widget/picker/PickerConstant;->locale:Ljava/util/Locale;
+    iget-object v1, v1, Landroid/support/v17/leanback/widget/picker/PickerUtility$DateConstant;->locale:Ljava/util/Locale;
 
-    invoke-direct {p0, v0, v1}, Landroid/support/v17/leanback/widget/picker/DatePicker;->getCalendarForLocale(Ljava/util/Calendar;Ljava/util/Locale;)Ljava/util/Calendar;
+    invoke-static {v0, v1}, Landroid/support/v17/leanback/widget/picker/PickerUtility;->getCalendarForLocale(Ljava/util/Calendar;Ljava/util/Locale;)Ljava/util/Calendar;
 
     move-result-object v0
 
@@ -426,11 +444,11 @@
 
     iget-object v0, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mCurrentDate:Ljava/util/Calendar;
 
-    iget-object v1, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mConstant:Landroid/support/v17/leanback/widget/picker/PickerConstant;
+    iget-object v1, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mConstant:Landroid/support/v17/leanback/widget/picker/PickerUtility$DateConstant;
 
-    iget-object v1, v1, Landroid/support/v17/leanback/widget/picker/PickerConstant;->locale:Ljava/util/Locale;
+    iget-object v1, v1, Landroid/support/v17/leanback/widget/picker/PickerUtility$DateConstant;->locale:Ljava/util/Locale;
 
-    invoke-direct {p0, v0, v1}, Landroid/support/v17/leanback/widget/picker/DatePicker;->getCalendarForLocale(Ljava/util/Calendar;Ljava/util/Locale;)Ljava/util/Calendar;
+    invoke-static {v0, v1}, Landroid/support/v17/leanback/widget/picker/PickerUtility;->getCalendarForLocale(Ljava/util/Calendar;Ljava/util/Locale;)Ljava/util/Calendar;
 
     move-result-object v0
 
@@ -442,9 +460,9 @@
 
     iget-object v0, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mMonthColumn:Landroid/support/v17/leanback/widget/picker/PickerColumn;
 
-    iget-object v1, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mConstant:Landroid/support/v17/leanback/widget/picker/PickerConstant;
+    iget-object v1, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mConstant:Landroid/support/v17/leanback/widget/picker/PickerUtility$DateConstant;
 
-    iget-object v1, v1, Landroid/support/v17/leanback/widget/picker/PickerConstant;->months:[Ljava/lang/String;
+    iget-object v1, v1, Landroid/support/v17/leanback/widget/picker/PickerUtility$DateConstant;->months:[Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Landroid/support/v17/leanback/widget/picker/PickerColumn;->setStaticLabels([Ljava/lang/CharSequence;)V
 
@@ -512,193 +530,20 @@
     return-void
 .end method
 
-.method private updateSpinnersImpl(Z)V
-    .locals 11
-
-    const/4 v8, 0x1
-
-    const/4 v9, 0x0
-
-    const/4 v7, 0x3
-
-    new-array v5, v7, [I
-
-    iget v7, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mColDayIndex:I
-
-    aput v7, v5, v9
-
-    iget v7, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mColMonthIndex:I
-
-    aput v7, v5, v8
-
-    iget v7, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mColYearIndex:I
-
-    const/4 v10, 0x2
-
-    aput v7, v5, v10
-
-    const/4 v1, 0x1
-
-    const/4 v0, 0x1
-
-    sget-object v7, Landroid/support/v17/leanback/widget/picker/DatePicker;->DATE_FIELDS:[I
-
-    array-length v7, v7
-
-    add-int/lit8 v6, v7, -0x1
-
-    :goto_0
-    if-ltz v6, :cond_6
-
-    aget v7, v5, v6
-
-    if-gez v7, :cond_0
-
-    :goto_1
-    add-int/lit8 v6, v6, -0x1
-
-    goto :goto_0
-
-    :cond_0
-    sget-object v7, Landroid/support/v17/leanback/widget/picker/DatePicker;->DATE_FIELDS:[I
-
-    aget v2, v7, v6
-
-    aget v7, v5, v6
-
-    invoke-virtual {p0, v7}, Landroid/support/v17/leanback/widget/picker/DatePicker;->getColumnAt(I)Landroid/support/v17/leanback/widget/picker/PickerColumn;
-
-    move-result-object v3
-
-    if-eqz v1, :cond_2
-
-    iget-object v7, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mMinDate:Ljava/util/Calendar;
-
-    invoke-virtual {v7, v2}, Ljava/util/Calendar;->get(I)I
-
-    move-result v7
-
-    invoke-static {v3, v7}, Landroid/support/v17/leanback/widget/picker/DatePicker;->updateMin(Landroid/support/v17/leanback/widget/picker/PickerColumn;I)Z
-
-    move-result v4
-
-    :goto_2
-    if-eqz v0, :cond_3
-
-    iget-object v7, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mMaxDate:Ljava/util/Calendar;
-
-    invoke-virtual {v7, v2}, Ljava/util/Calendar;->get(I)I
-
-    move-result v7
-
-    invoke-static {v3, v7}, Landroid/support/v17/leanback/widget/picker/DatePicker;->updateMax(Landroid/support/v17/leanback/widget/picker/PickerColumn;I)Z
-
-    move-result v7
-
-    or-int/2addr v4, v7
-
-    :goto_3
-    iget-object v7, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mCurrentDate:Ljava/util/Calendar;
-
-    invoke-virtual {v7, v2}, Ljava/util/Calendar;->get(I)I
-
-    move-result v7
-
-    iget-object v10, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mMinDate:Ljava/util/Calendar;
-
-    invoke-virtual {v10, v2}, Ljava/util/Calendar;->get(I)I
-
-    move-result v10
-
-    if-ne v7, v10, :cond_4
-
-    move v7, v8
-
-    :goto_4
-    and-int/2addr v1, v7
-
-    iget-object v7, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mCurrentDate:Ljava/util/Calendar;
-
-    invoke-virtual {v7, v2}, Ljava/util/Calendar;->get(I)I
-
-    move-result v7
-
-    iget-object v10, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mMaxDate:Ljava/util/Calendar;
-
-    invoke-virtual {v10, v2}, Ljava/util/Calendar;->get(I)I
-
-    move-result v10
-
-    if-ne v7, v10, :cond_5
-
-    move v7, v8
-
-    :goto_5
-    and-int/2addr v0, v7
-
-    if-eqz v4, :cond_1
-
-    aget v7, v5, v6
-
-    invoke-virtual {p0, v7, v3}, Landroid/support/v17/leanback/widget/picker/DatePicker;->setColumnAt(ILandroid/support/v17/leanback/widget/picker/PickerColumn;)V
-
-    :cond_1
-    aget v7, v5, v6
-
-    iget-object v10, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mCurrentDate:Ljava/util/Calendar;
-
-    invoke-virtual {v10, v2}, Ljava/util/Calendar;->get(I)I
-
-    move-result v10
-
-    invoke-virtual {p0, v7, v10, p1}, Landroid/support/v17/leanback/widget/picker/DatePicker;->setColumnValue(IIZ)V
-
-    goto :goto_1
-
-    :cond_2
-    iget-object v7, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mCurrentDate:Ljava/util/Calendar;
-
-    invoke-virtual {v7, v2}, Ljava/util/Calendar;->getActualMinimum(I)I
-
-    move-result v7
-
-    invoke-static {v3, v7}, Landroid/support/v17/leanback/widget/picker/DatePicker;->updateMin(Landroid/support/v17/leanback/widget/picker/PickerColumn;I)Z
-
-    move-result v4
-
-    goto :goto_2
-
-    :cond_3
-    iget-object v7, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mCurrentDate:Ljava/util/Calendar;
-
-    invoke-virtual {v7, v2}, Ljava/util/Calendar;->getActualMaximum(I)I
-
-    move-result v7
-
-    invoke-static {v3, v7}, Landroid/support/v17/leanback/widget/picker/DatePicker;->updateMax(Landroid/support/v17/leanback/widget/picker/PickerColumn;I)Z
-
-    move-result v7
-
-    or-int/2addr v4, v7
-
-    goto :goto_3
-
-    :cond_4
-    move v7, v9
-
-    goto :goto_4
-
-    :cond_5
-    move v7, v9
-
-    goto :goto_5
-
-    :cond_6
-    return-void
-.end method
-
 
 # virtual methods
+.method public getDate()J
+    .locals 2
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mCurrentDate:Ljava/util/Calendar;
+
+    invoke-virtual {v0}, Ljava/util/Calendar;->getTimeInMillis()J
+
+    move-result-wide v0
+
+    return-wide v0
+.end method
+
 .method public final onColumnValueChanged(II)V
     .locals 7
 
@@ -940,9 +785,9 @@
 
     iget-object v2, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mMonthColumn:Landroid/support/v17/leanback/widget/picker/PickerColumn;
 
-    iget-object v3, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mConstant:Landroid/support/v17/leanback/widget/picker/PickerConstant;
+    iget-object v3, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mConstant:Landroid/support/v17/leanback/widget/picker/PickerUtility$DateConstant;
 
-    iget-object v3, v3, Landroid/support/v17/leanback/widget/picker/PickerConstant;->months:[Ljava/lang/String;
+    iget-object v3, v3, Landroid/support/v17/leanback/widget/picker/PickerUtility$DateConstant;->months:[Ljava/lang/String;
 
     invoke-virtual {v2, v3}, Landroid/support/v17/leanback/widget/picker/PickerColumn;->setStaticLabels([Ljava/lang/CharSequence;)V
 
@@ -997,4 +842,358 @@
         0x4d -> :sswitch_1
         0x59 -> :sswitch_0
     .end sparse-switch
+.end method
+
+.method public setMaxDate(J)V
+    .locals 5
+
+    const/4 v3, 0x6
+
+    const/4 v2, 0x1
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mTempDate:Ljava/util/Calendar;
+
+    invoke-virtual {v0, p1, p2}, Ljava/util/Calendar;->setTimeInMillis(J)V
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mTempDate:Ljava/util/Calendar;
+
+    invoke-virtual {v0, v2}, Ljava/util/Calendar;->get(I)I
+
+    move-result v0
+
+    iget-object v1, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mMaxDate:Ljava/util/Calendar;
+
+    invoke-virtual {v1, v2}, Ljava/util/Calendar;->get(I)I
+
+    move-result v1
+
+    if-ne v0, v1, :cond_0
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mTempDate:Ljava/util/Calendar;
+
+    invoke-virtual {v0, v3}, Ljava/util/Calendar;->get(I)I
+
+    move-result v0
+
+    iget-object v1, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mMaxDate:Ljava/util/Calendar;
+
+    invoke-virtual {v1, v3}, Ljava/util/Calendar;->get(I)I
+
+    move-result v1
+
+    if-eq v0, v1, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mMaxDate:Ljava/util/Calendar;
+
+    invoke-virtual {v0, p1, p2}, Ljava/util/Calendar;->setTimeInMillis(J)V
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mCurrentDate:Ljava/util/Calendar;
+
+    iget-object v1, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mMaxDate:Ljava/util/Calendar;
+
+    invoke-virtual {v0, v1}, Ljava/util/Calendar;->after(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mCurrentDate:Ljava/util/Calendar;
+
+    iget-object v1, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mMaxDate:Ljava/util/Calendar;
+
+    invoke-virtual {v1}, Ljava/util/Calendar;->getTimeInMillis()J
+
+    move-result-wide v2
+
+    invoke-virtual {v0, v2, v3}, Ljava/util/Calendar;->setTimeInMillis(J)V
+
+    :cond_1
+    const/4 v0, 0x0
+
+    invoke-direct {p0, v0}, Landroid/support/v17/leanback/widget/picker/DatePicker;->updateSpinners(Z)V
+
+    return-void
+.end method
+
+.method public setMinDate(J)V
+    .locals 5
+
+    const/4 v3, 0x6
+
+    const/4 v2, 0x1
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mTempDate:Ljava/util/Calendar;
+
+    invoke-virtual {v0, p1, p2}, Ljava/util/Calendar;->setTimeInMillis(J)V
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mTempDate:Ljava/util/Calendar;
+
+    invoke-virtual {v0, v2}, Ljava/util/Calendar;->get(I)I
+
+    move-result v0
+
+    iget-object v1, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mMinDate:Ljava/util/Calendar;
+
+    invoke-virtual {v1, v2}, Ljava/util/Calendar;->get(I)I
+
+    move-result v1
+
+    if-ne v0, v1, :cond_0
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mTempDate:Ljava/util/Calendar;
+
+    invoke-virtual {v0, v3}, Ljava/util/Calendar;->get(I)I
+
+    move-result v0
+
+    iget-object v1, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mMinDate:Ljava/util/Calendar;
+
+    invoke-virtual {v1, v3}, Ljava/util/Calendar;->get(I)I
+
+    move-result v1
+
+    if-eq v0, v1, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mMinDate:Ljava/util/Calendar;
+
+    invoke-virtual {v0, p1, p2}, Ljava/util/Calendar;->setTimeInMillis(J)V
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mCurrentDate:Ljava/util/Calendar;
+
+    iget-object v1, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mMinDate:Ljava/util/Calendar;
+
+    invoke-virtual {v0, v1}, Ljava/util/Calendar;->before(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mCurrentDate:Ljava/util/Calendar;
+
+    iget-object v1, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mMinDate:Ljava/util/Calendar;
+
+    invoke-virtual {v1}, Ljava/util/Calendar;->getTimeInMillis()J
+
+    move-result-wide v2
+
+    invoke-virtual {v0, v2, v3}, Ljava/util/Calendar;->setTimeInMillis(J)V
+
+    :cond_1
+    const/4 v0, 0x0
+
+    invoke-direct {p0, v0}, Landroid/support/v17/leanback/widget/picker/DatePicker;->updateSpinners(Z)V
+
+    return-void
+.end method
+
+.method public updateDate(IIIZ)V
+    .locals 1
+
+    invoke-direct {p0, p1, p2, p3}, Landroid/support/v17/leanback/widget/picker/DatePicker;->isNewDate(III)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-direct {p0, p1, p2, p3}, Landroid/support/v17/leanback/widget/picker/DatePicker;->setDate(III)V
+
+    invoke-direct {p0, p4}, Landroid/support/v17/leanback/widget/picker/DatePicker;->updateSpinners(Z)V
+
+    return-void
+.end method
+
+.method updateSpinnersImpl(Z)V
+    .locals 11
+
+    const/4 v8, 0x1
+
+    const/4 v9, 0x0
+
+    const/4 v7, 0x3
+
+    new-array v5, v7, [I
+
+    iget v7, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mColDayIndex:I
+
+    aput v7, v5, v9
+
+    iget v7, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mColMonthIndex:I
+
+    aput v7, v5, v8
+
+    iget v7, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mColYearIndex:I
+
+    const/4 v10, 0x2
+
+    aput v7, v5, v10
+
+    const/4 v1, 0x1
+
+    const/4 v0, 0x1
+
+    sget-object v7, Landroid/support/v17/leanback/widget/picker/DatePicker;->DATE_FIELDS:[I
+
+    array-length v7, v7
+
+    add-int/lit8 v6, v7, -0x1
+
+    :goto_0
+    if-ltz v6, :cond_6
+
+    const/4 v4, 0x0
+
+    aget v7, v5, v6
+
+    if-gez v7, :cond_0
+
+    :goto_1
+    add-int/lit8 v6, v6, -0x1
+
+    goto :goto_0
+
+    :cond_0
+    sget-object v7, Landroid/support/v17/leanback/widget/picker/DatePicker;->DATE_FIELDS:[I
+
+    aget v2, v7, v6
+
+    aget v7, v5, v6
+
+    invoke-virtual {p0, v7}, Landroid/support/v17/leanback/widget/picker/DatePicker;->getColumnAt(I)Landroid/support/v17/leanback/widget/picker/PickerColumn;
+
+    move-result-object v3
+
+    if-eqz v1, :cond_2
+
+    iget-object v7, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mMinDate:Ljava/util/Calendar;
+
+    invoke-virtual {v7, v2}, Ljava/util/Calendar;->get(I)I
+
+    move-result v7
+
+    invoke-static {v3, v7}, Landroid/support/v17/leanback/widget/picker/DatePicker;->updateMin(Landroid/support/v17/leanback/widget/picker/PickerColumn;I)Z
+
+    move-result v4
+
+    :goto_2
+    if-eqz v0, :cond_3
+
+    iget-object v7, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mMaxDate:Ljava/util/Calendar;
+
+    invoke-virtual {v7, v2}, Ljava/util/Calendar;->get(I)I
+
+    move-result v7
+
+    invoke-static {v3, v7}, Landroid/support/v17/leanback/widget/picker/DatePicker;->updateMax(Landroid/support/v17/leanback/widget/picker/PickerColumn;I)Z
+
+    move-result v7
+
+    or-int/2addr v4, v7
+
+    :goto_3
+    iget-object v7, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mCurrentDate:Ljava/util/Calendar;
+
+    invoke-virtual {v7, v2}, Ljava/util/Calendar;->get(I)I
+
+    move-result v7
+
+    iget-object v10, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mMinDate:Ljava/util/Calendar;
+
+    invoke-virtual {v10, v2}, Ljava/util/Calendar;->get(I)I
+
+    move-result v10
+
+    if-ne v7, v10, :cond_4
+
+    move v7, v8
+
+    :goto_4
+    and-int/2addr v1, v7
+
+    iget-object v7, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mCurrentDate:Ljava/util/Calendar;
+
+    invoke-virtual {v7, v2}, Ljava/util/Calendar;->get(I)I
+
+    move-result v7
+
+    iget-object v10, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mMaxDate:Ljava/util/Calendar;
+
+    invoke-virtual {v10, v2}, Ljava/util/Calendar;->get(I)I
+
+    move-result v10
+
+    if-ne v7, v10, :cond_5
+
+    move v7, v8
+
+    :goto_5
+    and-int/2addr v0, v7
+
+    if-eqz v4, :cond_1
+
+    aget v7, v5, v6
+
+    invoke-virtual {p0, v7, v3}, Landroid/support/v17/leanback/widget/picker/DatePicker;->setColumnAt(ILandroid/support/v17/leanback/widget/picker/PickerColumn;)V
+
+    :cond_1
+    aget v7, v5, v6
+
+    iget-object v10, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mCurrentDate:Ljava/util/Calendar;
+
+    invoke-virtual {v10, v2}, Ljava/util/Calendar;->get(I)I
+
+    move-result v10
+
+    invoke-virtual {p0, v7, v10, p1}, Landroid/support/v17/leanback/widget/picker/DatePicker;->setColumnValue(IIZ)V
+
+    goto :goto_1
+
+    :cond_2
+    iget-object v7, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mCurrentDate:Ljava/util/Calendar;
+
+    invoke-virtual {v7, v2}, Ljava/util/Calendar;->getActualMinimum(I)I
+
+    move-result v7
+
+    invoke-static {v3, v7}, Landroid/support/v17/leanback/widget/picker/DatePicker;->updateMin(Landroid/support/v17/leanback/widget/picker/PickerColumn;I)Z
+
+    move-result v4
+
+    goto :goto_2
+
+    :cond_3
+    iget-object v7, p0, Landroid/support/v17/leanback/widget/picker/DatePicker;->mCurrentDate:Ljava/util/Calendar;
+
+    invoke-virtual {v7, v2}, Ljava/util/Calendar;->getActualMaximum(I)I
+
+    move-result v7
+
+    invoke-static {v3, v7}, Landroid/support/v17/leanback/widget/picker/DatePicker;->updateMax(Landroid/support/v17/leanback/widget/picker/PickerColumn;I)Z
+
+    move-result v7
+
+    or-int/2addr v4, v7
+
+    goto :goto_3
+
+    :cond_4
+    move v7, v9
+
+    goto :goto_4
+
+    :cond_5
+    move v7, v9
+
+    goto :goto_5
+
+    :cond_6
+    return-void
 .end method

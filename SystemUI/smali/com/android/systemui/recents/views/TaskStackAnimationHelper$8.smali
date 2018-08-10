@@ -1,14 +1,11 @@
 .class Lcom/android/systemui/recents/views/TaskStackAnimationHelper$8;
-.super Ljava/lang/Object;
+.super Landroid/animation/AnimatorListenerAdapter;
 .source "TaskStackAnimationHelper.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/recents/views/TaskStackAnimationHelper;->startScrollToFocusedTaskAnimation(Lcom/android/systemui/recents/model/Task;Z)Z
+    value = Lcom/android/systemui/recents/views/TaskStackAnimationHelper;->startTaskGridDeleteTaskAnimation(Lcom/android/systemui/recents/views/TaskView;Lcom/android/systemui/recents/misc/ReferenceCountedTrigger;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,36 +17,30 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/systemui/recents/views/TaskStackAnimationHelper;
 
-.field final synthetic val$newScroll:F
+.field final synthetic val$postAnimationTrigger:Lcom/android/systemui/recents/misc/ReferenceCountedTrigger;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/recents/views/TaskStackAnimationHelper;F)V
+.method constructor <init>(Lcom/android/systemui/recents/views/TaskStackAnimationHelper;Lcom/android/systemui/recents/misc/ReferenceCountedTrigger;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/recents/views/TaskStackAnimationHelper$8;->this$0:Lcom/android/systemui/recents/views/TaskStackAnimationHelper;
 
-    iput p2, p0, Lcom/android/systemui/recents/views/TaskStackAnimationHelper$8;->val$newScroll:F
+    iput-object p2, p0, Lcom/android/systemui/recents/views/TaskStackAnimationHelper$8;->val$postAnimationTrigger:Lcom/android/systemui/recents/misc/ReferenceCountedTrigger;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 2
+.method public onAnimationEnd(Landroid/animation/Animator;)V
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/recents/views/TaskStackAnimationHelper$8;->this$0:Lcom/android/systemui/recents/views/TaskStackAnimationHelper;
+    iget-object v0, p0, Lcom/android/systemui/recents/views/TaskStackAnimationHelper$8;->val$postAnimationTrigger:Lcom/android/systemui/recents/misc/ReferenceCountedTrigger;
 
-    invoke-static {v0}, Lcom/android/systemui/recents/views/TaskStackAnimationHelper;->-get1(Lcom/android/systemui/recents/views/TaskStackAnimationHelper;)Lcom/android/systemui/recents/views/TaskStackView;
-
-    move-result-object v0
-
-    iget v1, p0, Lcom/android/systemui/recents/views/TaskStackAnimationHelper$8;->val$newScroll:F
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/views/TaskStackView;->bindVisibleTaskViews(F)V
+    invoke-virtual {v0}, Lcom/android/systemui/recents/misc/ReferenceCountedTrigger;->decrement()V
 
     return-void
 .end method

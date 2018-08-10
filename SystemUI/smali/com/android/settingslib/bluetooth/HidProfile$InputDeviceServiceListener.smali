@@ -226,6 +226,14 @@
 
     invoke-static {v5, v6}, Lcom/android/settingslib/bluetooth/HidProfile;->-set0(Lcom/android/settingslib/bluetooth/HidProfile;Z)Z
 
+    iget-object v5, p0, Lcom/android/settingslib/bluetooth/HidProfile$InputDeviceServiceListener;->this$0:Lcom/android/settingslib/bluetooth/HidProfile;
+
+    invoke-static {v5}, Lcom/android/settingslib/bluetooth/HidProfile;->-get3(Lcom/android/settingslib/bluetooth/HidProfile;)Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;->callServiceConnectedListeners()V
+
     return-void
 .end method
 
@@ -250,6 +258,14 @@
     const/4 v1, 0x0
 
     invoke-static {v0, v1}, Lcom/android/settingslib/bluetooth/HidProfile;->-set0(Lcom/android/settingslib/bluetooth/HidProfile;Z)Z
+
+    iget-object v0, p0, Lcom/android/settingslib/bluetooth/HidProfile$InputDeviceServiceListener;->this$0:Lcom/android/settingslib/bluetooth/HidProfile;
+
+    invoke-static {v0}, Lcom/android/settingslib/bluetooth/HidProfile;->-get3(Lcom/android/settingslib/bluetooth/HidProfile;)Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;->callServiceDisconnectedListeners()V
 
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/HidProfile$InputDeviceServiceListener;->this$0:Lcom/android/settingslib/bluetooth/HidProfile;
 

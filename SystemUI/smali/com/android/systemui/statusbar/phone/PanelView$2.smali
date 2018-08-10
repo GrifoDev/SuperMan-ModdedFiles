@@ -45,7 +45,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/PanelView$2;->this$0:Lcom/android/systemui/statusbar/phone/PanelView;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/phone/PanelView;->-get2(Lcom/android/systemui/statusbar/phone/PanelView;)F
+    invoke-static {v2}, Lcom/android/systemui/statusbar/phone/PanelView;->-get3(Lcom/android/systemui/statusbar/phone/PanelView;)F
 
     move-result v2
 

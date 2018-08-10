@@ -444,14 +444,6 @@
     return v0
 .end method
 
-.method public getOrdinal()I
-    .locals 1
-
-    const/16 v0, 0xa
-
-    return v0
-.end method
-
 .method public isAutoConnectable()Z
     .locals 1
 

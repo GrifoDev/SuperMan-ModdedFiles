@@ -62,7 +62,7 @@
 
     iget-object v2, p0, Landroid/support/v7/widget/DefaultItemAnimator$2;->this$0:Landroid/support/v7/widget/DefaultItemAnimator;
 
-    invoke-static {v2, v0}, Landroid/support/v7/widget/DefaultItemAnimator;->-wrap1(Landroid/support/v7/widget/DefaultItemAnimator;Landroid/support/v7/widget/DefaultItemAnimator$ChangeInfo;)V
+    invoke-virtual {v2, v0}, Landroid/support/v7/widget/DefaultItemAnimator;->animateChangeImpl(Landroid/support/v7/widget/DefaultItemAnimator$ChangeInfo;)V
 
     goto :goto_0
 
@@ -73,9 +73,7 @@
 
     iget-object v2, p0, Landroid/support/v7/widget/DefaultItemAnimator$2;->this$0:Landroid/support/v7/widget/DefaultItemAnimator;
 
-    invoke-static {v2}, Landroid/support/v7/widget/DefaultItemAnimator;->-get3(Landroid/support/v7/widget/DefaultItemAnimator;)Ljava/util/ArrayList;
-
-    move-result-object v2
+    iget-object v2, v2, Landroid/support/v7/widget/DefaultItemAnimator;->mChangesList:Ljava/util/ArrayList;
 
     iget-object v3, p0, Landroid/support/v7/widget/DefaultItemAnimator$2;->val$changes:Ljava/util/ArrayList;
 

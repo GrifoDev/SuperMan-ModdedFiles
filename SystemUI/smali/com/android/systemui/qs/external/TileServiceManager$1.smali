@@ -35,7 +35,27 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .locals 4
+
+    iget-object v0, p0, Lcom/android/systemui/qs/external/TileServiceManager$1;->this$0:Lcom/android/systemui/qs/external/TileServiceManager;
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/systemui/qs/external/TileServiceManager;->-set1(Lcom/android/systemui/qs/external/TileServiceManager;Z)Z
+
+    const-string/jumbo v0, "TileServiceManager"
+
+    const-string/jumbo v1, "mStopWaitingUnlock : "
+
+    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/android/systemui/qs/external/TileServiceManager$1;->this$0:Lcom/android/systemui/qs/external/TileServiceManager;
+
+    invoke-static {v0}, Lcom/android/systemui/qs/external/TileServiceManager;->-get3(Lcom/android/systemui/qs/external/TileServiceManager;)Lcom/android/systemui/qs/external/TileServices;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/external/TileServices;->recalculateBindAllowance()V
 
     iget-object v0, p0, Lcom/android/systemui/qs/external/TileServiceManager$1;->this$0:Lcom/android/systemui/qs/external/TileServiceManager;
 
@@ -51,16 +71,26 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v0, :cond_0
 
-    :cond_1
     iget-object v0, p0, Lcom/android/systemui/qs/external/TileServiceManager$1;->this$0:Lcom/android/systemui/qs/external/TileServiceManager;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/external/TileServiceManager;->-wrap0(Lcom/android/systemui/qs/external/TileServiceManager;)V
+    invoke-static {v0}, Lcom/android/systemui/qs/external/TileServiceManager;->-get2(Lcom/android/systemui/qs/external/TileServiceManager;)Landroid/os/Handler;
 
-    goto :goto_0
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/systemui/qs/external/TileServiceManager$1;->this$0:Lcom/android/systemui/qs/external/TileServiceManager;
+
+    invoke-static {v1}, Lcom/android/systemui/qs/external/TileServiceManager;->-get5(Lcom/android/systemui/qs/external/TileServiceManager;)Ljava/lang/Runnable;
+
+    move-result-object v1
+
+    const-wide/16 v2, 0x7530
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    :cond_0
+    return-void
 .end method

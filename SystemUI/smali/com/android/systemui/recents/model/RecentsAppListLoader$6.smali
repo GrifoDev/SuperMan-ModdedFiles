@@ -47,7 +47,11 @@
 
     iget-object v2, v2, Lcom/android/systemui/recents/model/AppInfo;->resolveInfo:Landroid/content/pm/ResolveInfo;
 
-    invoke-static {v1, v2}, Lcom/android/systemui/recents/model/RecentsAppListLoader;->-wrap0(Lcom/android/systemui/recents/model/RecentsAppListLoader;Landroid/content/pm/ResolveInfo;)Landroid/graphics/drawable/Drawable;
+    iget-object v3, p0, Lcom/android/systemui/recents/model/RecentsAppListLoader$6;->val$info:Lcom/android/systemui/recents/model/AppInfo;
+
+    iget v3, v3, Lcom/android/systemui/recents/model/AppInfo;->userId:I
+
+    invoke-static {v1, v2, v3}, Lcom/android/systemui/recents/model/RecentsAppListLoader;->-wrap0(Lcom/android/systemui/recents/model/RecentsAppListLoader;Landroid/content/pm/ResolveInfo;I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
@@ -61,7 +65,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/recents/model/RecentsAppListLoader$6;->this$0:Lcom/android/systemui/recents/model/RecentsAppListLoader;
 
-    invoke-static {v1}, Lcom/android/systemui/recents/model/RecentsAppListLoader;->-get4(Lcom/android/systemui/recents/model/RecentsAppListLoader;)Landroid/os/Handler;
+    invoke-static {v1}, Lcom/android/systemui/recents/model/RecentsAppListLoader;->-get3(Lcom/android/systemui/recents/model/RecentsAppListLoader;)Landroid/os/Handler;
 
     move-result-object v1
 

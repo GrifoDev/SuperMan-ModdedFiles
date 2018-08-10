@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/qs/tiles/LocationTile;->handleClick()V
+    value = Lcom/android/systemui/qs/tiles/LocationTile;->showLocationConsentDialog()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -39,13 +39,13 @@
 
     const/4 v1, 0x1
 
-    sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_DCM_POPUP:Z
+    sget-boolean v0, Lcom/android/systemui/Rune;->QPANEL_IS_DCM_POPUP:Z
 
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/LocationTile$1;->this$0:Lcom/android/systemui/qs/tiles/LocationTile;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/LocationTile;->-get1(Lcom/android/systemui/qs/tiles/LocationTile;)Lcom/android/systemui/statusbar/policy/LocationController;
+    invoke-static {v0}, Lcom/android/systemui/qs/tiles/LocationTile;->-get2(Lcom/android/systemui/qs/tiles/LocationTile;)Lcom/android/systemui/statusbar/policy/LocationController;
 
     move-result-object v0
 
@@ -61,7 +61,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/LocationTile$1;->this$0:Lcom/android/systemui/qs/tiles/LocationTile;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/LocationTile;->-get1(Lcom/android/systemui/qs/tiles/LocationTile;)Lcom/android/systemui/statusbar/policy/LocationController;
+    invoke-static {v0}, Lcom/android/systemui/qs/tiles/LocationTile;->-get2(Lcom/android/systemui/qs/tiles/LocationTile;)Lcom/android/systemui/statusbar/policy/LocationController;
 
     move-result-object v0
 

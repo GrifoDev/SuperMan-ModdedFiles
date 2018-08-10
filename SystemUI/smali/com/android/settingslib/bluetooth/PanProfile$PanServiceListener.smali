@@ -212,6 +212,14 @@
 
     invoke-static {v4, v5}, Lcom/android/settingslib/bluetooth/PanProfile;->-set0(Lcom/android/settingslib/bluetooth/PanProfile;Z)Z
 
+    iget-object v4, p0, Lcom/android/settingslib/bluetooth/PanProfile$PanServiceListener;->this$0:Lcom/android/settingslib/bluetooth/PanProfile;
+
+    invoke-static {v4}, Lcom/android/settingslib/bluetooth/PanProfile;->-get3(Lcom/android/settingslib/bluetooth/PanProfile;)Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;->callServiceConnectedListeners()V
+
     return-void
 .end method
 
@@ -236,6 +244,14 @@
     const/4 v1, 0x0
 
     invoke-static {v0, v1}, Lcom/android/settingslib/bluetooth/PanProfile;->-set0(Lcom/android/settingslib/bluetooth/PanProfile;Z)Z
+
+    iget-object v0, p0, Lcom/android/settingslib/bluetooth/PanProfile$PanServiceListener;->this$0:Lcom/android/settingslib/bluetooth/PanProfile;
+
+    invoke-static {v0}, Lcom/android/settingslib/bluetooth/PanProfile;->-get3(Lcom/android/settingslib/bluetooth/PanProfile;)Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;->callServiceDisconnectedListeners()V
 
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/PanProfile$PanServiceListener;->this$0:Lcom/android/settingslib/bluetooth/PanProfile;
 

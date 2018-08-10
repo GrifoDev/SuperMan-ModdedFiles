@@ -40,3 +40,9 @@
 
     return-void
 .end method
+
+.method public onAnimationStart(Landroid/animation/Animator;)V
+    .locals 0
+
+    return-void
+.end method

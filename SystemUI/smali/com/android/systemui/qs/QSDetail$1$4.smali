@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/qs/QSDetail$1;->onDisableStateChanged(Z)V
+    value = Lcom/android/systemui/qs/QSDetail$1;->onUpdatingDetail(Lcom/android/systemui/plugins/qs/DetailAdapter;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,16 +20,16 @@
 # instance fields
 .field final synthetic this$1:Lcom/android/systemui/qs/QSDetail$1;
 
-.field final synthetic val$state:Z
+.field final synthetic val$detail:Lcom/android/systemui/plugins/qs/DetailAdapter;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/QSDetail$1;Z)V
+.method constructor <init>(Lcom/android/systemui/qs/QSDetail$1;Lcom/android/systemui/plugins/qs/DetailAdapter;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/QSDetail$1$4;->this$1:Lcom/android/systemui/qs/QSDetail$1;
 
-    iput-boolean p2, p0, Lcom/android/systemui/qs/QSDetail$1$4;->val$state:Z
+    iput-object p2, p0, Lcom/android/systemui/qs/QSDetail$1$4;->val$detail:Lcom/android/systemui/plugins/qs/DetailAdapter;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -45,9 +45,9 @@
 
     iget-object v0, v0, Lcom/android/systemui/qs/QSDetail$1;->this$0:Lcom/android/systemui/qs/QSDetail;
 
-    iget-boolean v1, p0, Lcom/android/systemui/qs/QSDetail$1$4;->val$state:Z
+    iget-object v1, p0, Lcom/android/systemui/qs/QSDetail$1$4;->val$detail:Lcom/android/systemui/plugins/qs/DetailAdapter;
 
-    invoke-static {v0, v1}, Lcom/android/systemui/qs/QSDetail;->-wrap0(Lcom/android/systemui/qs/QSDetail;Z)V
+    invoke-static {v0, v1}, Lcom/android/systemui/qs/QSDetail;->-wrap4(Lcom/android/systemui/qs/QSDetail;Lcom/android/systemui/plugins/qs/DetailAdapter;)V
 
     return-void
 .end method

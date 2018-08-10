@@ -38,7 +38,7 @@
 .method public get(Landroid/support/v17/leanback/widget/StreamingTextView;)Ljava/lang/Integer;
     .locals 1
 
-    invoke-static {p1}, Landroid/support/v17/leanback/widget/StreamingTextView;->-wrap0(Landroid/support/v17/leanback/widget/StreamingTextView;)I
+    invoke-virtual {p1}, Landroid/support/v17/leanback/widget/StreamingTextView;->getStreamPosition()I
 
     move-result v0
 
@@ -68,7 +68,7 @@
 
     move-result v0
 
-    invoke-static {p1, v0}, Landroid/support/v17/leanback/widget/StreamingTextView;->-wrap1(Landroid/support/v17/leanback/widget/StreamingTextView;I)V
+    invoke-virtual {p1, v0}, Landroid/support/v17/leanback/widget/StreamingTextView;->setStreamPosition(I)V
 
     return-void
 .end method

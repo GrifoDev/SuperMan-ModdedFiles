@@ -41,12 +41,12 @@
 
     iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar$2;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v0}, Landroid/support/v17/leanback/widget/SearchBar;->-wrap5(Landroid/support/v17/leanback/widget/SearchBar;)V
+    invoke-virtual {v0}, Landroid/support/v17/leanback/widget/SearchBar;->showNativeKeyboard()V
 
     :cond_0
     iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar$2;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v0, p2}, Landroid/support/v17/leanback/widget/SearchBar;->-wrap8(Landroid/support/v17/leanback/widget/SearchBar;Z)V
+    invoke-virtual {v0, p2}, Landroid/support/v17/leanback/widget/SearchBar;->updateUi(Z)V
 
     return-void
 .end method

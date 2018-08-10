@@ -60,11 +60,11 @@
 
     iget-object v2, p0, Lcom/android/keyguard/KeyguardUCMPinView$UCMAsyncTask;->this$0:Lcom/android/keyguard/KeyguardUCMPinView;
 
-    invoke-static {v2}, Lcom/android/keyguard/KeyguardUCMPinView;->-wrap8(Lcom/android/keyguard/KeyguardUCMPinView;)V
+    invoke-static {v2}, Lcom/android/keyguard/KeyguardUCMPinView;->-wrap9(Lcom/android/keyguard/KeyguardUCMPinView;)V
 
     iget-object v2, p0, Lcom/android/keyguard/KeyguardUCMPinView$UCMAsyncTask;->this$0:Lcom/android/keyguard/KeyguardUCMPinView;
 
-    invoke-static {v2}, Lcom/android/keyguard/KeyguardUCMPinView;->-get4(Lcom/android/keyguard/KeyguardUCMPinView;)I
+    invoke-static {v2}, Lcom/android/keyguard/KeyguardUCMPinView;->-get6(Lcom/android/keyguard/KeyguardUCMPinView;)I
 
     move-result v2
 
@@ -86,7 +86,7 @@
     invoke-interface {v2}, Lcom/android/keyguard/KeyguardSecurityCallback;->userActivity()V
 
     :cond_1
-    invoke-static {}, Lcom/android/keyguard/KeyguardUCMPinView;->-get7()Ljava/lang/Object;
+    invoke-static {}, Lcom/android/keyguard/KeyguardUCMPinView;->-get9()Ljava/lang/Object;
 
     move-result-object v3
 
@@ -108,7 +108,7 @@
     :cond_2
     iget-object v2, p0, Lcom/android/keyguard/KeyguardUCMPinView$UCMAsyncTask;->this$0:Lcom/android/keyguard/KeyguardUCMPinView;
 
-    invoke-static {v2}, Lcom/android/keyguard/KeyguardUCMPinView;->-get0(Lcom/android/keyguard/KeyguardUCMPinView;)I
+    invoke-static {v2}, Lcom/android/keyguard/KeyguardUCMPinView;->-get1(Lcom/android/keyguard/KeyguardUCMPinView;)I
 
     move-result v2
 
@@ -136,7 +136,7 @@
 
     iget-object v4, p0, Lcom/android/keyguard/KeyguardUCMPinView$UCMAsyncTask;->this$0:Lcom/android/keyguard/KeyguardUCMPinView;
 
-    invoke-static {v4}, Lcom/android/keyguard/KeyguardUCMPinView;->-get4(Lcom/android/keyguard/KeyguardUCMPinView;)I
+    invoke-static {v4}, Lcom/android/keyguard/KeyguardUCMPinView;->-get6(Lcom/android/keyguard/KeyguardUCMPinView;)I
 
     move-result v4
 
@@ -212,33 +212,35 @@
 .end method
 
 .method protected onPostExecute(Ljava/lang/Integer;)V
-    .locals 4
+    .locals 5
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUCMPinView$UCMAsyncTask;->this$0:Lcom/android/keyguard/KeyguardUCMPinView;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardUCMPinView;->-get3(Lcom/android/keyguard/KeyguardUCMPinView;)Lcom/android/keyguard/KeyguardUCMPinView$StateMachine;
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardUCMPinView;->-get5(Lcom/android/keyguard/KeyguardUCMPinView;)Lcom/android/keyguard/KeyguardUCMPinView$StateMachine;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardUCMPinView$UCMAsyncTask;->this$0:Lcom/android/keyguard/KeyguardUCMPinView;
 
-    invoke-static {v1}, Lcom/android/keyguard/KeyguardUCMPinView;->-get4(Lcom/android/keyguard/KeyguardUCMPinView;)I
+    invoke-static {v1}, Lcom/android/keyguard/KeyguardUCMPinView;->-get6(Lcom/android/keyguard/KeyguardUCMPinView;)I
 
     move-result v1
 
     iget-object v2, p0, Lcom/android/keyguard/KeyguardUCMPinView$UCMAsyncTask;->this$0:Lcom/android/keyguard/KeyguardUCMPinView;
 
-    invoke-static {v2}, Lcom/android/keyguard/KeyguardUCMPinView;->-get0(Lcom/android/keyguard/KeyguardUCMPinView;)I
+    invoke-static {v2}, Lcom/android/keyguard/KeyguardUCMPinView;->-get1(Lcom/android/keyguard/KeyguardUCMPinView;)I
 
     move-result v2
 
     const/4 v3, 0x1
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/keyguard/KeyguardUCMPinView$StateMachine;->setStateAndRefreshUIIfNeeded(IIZ)V
+    const/4 v4, 0x0
+
+    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/keyguard/KeyguardUCMPinView$StateMachine;->setStateAndRefreshUIIfNeeded(IIZLandroid/os/Bundle;)V
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUCMPinView$UCMAsyncTask;->this$0:Lcom/android/keyguard/KeyguardUCMPinView;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardUCMPinView;->-wrap10(Lcom/android/keyguard/KeyguardUCMPinView;)V
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardUCMPinView;->-wrap11(Lcom/android/keyguard/KeyguardUCMPinView;)V
 
     return-void
 .end method
@@ -264,7 +266,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUCMPinView$UCMAsyncTask;->this$0:Lcom/android/keyguard/KeyguardUCMPinView;
 
-    invoke-static {v0, v1}, Lcom/android/keyguard/KeyguardUCMPinView;->-wrap9(Lcom/android/keyguard/KeyguardUCMPinView;Z)V
+    invoke-static {v0, v1}, Lcom/android/keyguard/KeyguardUCMPinView;->-wrap10(Lcom/android/keyguard/KeyguardUCMPinView;Z)V
 
     :goto_0
     return-void
@@ -274,7 +276,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/keyguard/KeyguardUCMPinView;->-wrap9(Lcom/android/keyguard/KeyguardUCMPinView;Z)V
+    invoke-static {v0, v1}, Lcom/android/keyguard/KeyguardUCMPinView;->-wrap10(Lcom/android/keyguard/KeyguardUCMPinView;Z)V
 
     goto :goto_0
 .end method

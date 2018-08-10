@@ -1,5 +1,5 @@
 .class Lcom/android/keyguard/EmergencyButton$2;
-.super Lcom/android/keyguard/KnoxStateMonitorCallback;
+.super Lcom/android/systemui/KnoxStateMonitorCallback;
 .source "EmergencyButton.java"
 
 
@@ -24,7 +24,7 @@
 
     iput-object p1, p0, Lcom/android/keyguard/EmergencyButton$2;->this$0:Lcom/android/keyguard/EmergencyButton;
 
-    invoke-direct {p0}, Lcom/android/keyguard/KnoxStateMonitorCallback;-><init>()V
+    invoke-direct {p0}, Lcom/android/systemui/KnoxStateMonitorCallback;-><init>()V
 
     return-void
 .end method
@@ -36,7 +36,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/EmergencyButton$2;->this$0:Lcom/android/keyguard/EmergencyButton;
 
-    invoke-virtual {v0}, Lcom/android/keyguard/EmergencyButton;->updateEmergencyCallButton()V
+    invoke-static {v0}, Lcom/android/keyguard/EmergencyButton;->-wrap2(Lcom/android/keyguard/EmergencyButton;)V
 
     return-void
 .end method

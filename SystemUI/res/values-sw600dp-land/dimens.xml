@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="battery_detail_graph_space_bottom">27.0dip</dimen>
+    <dimen name="battery_detail_graph_space_top">27.0dip</dimen>
+    <dimen name="keyguard_clock_notifications_margin_max">36.0dip</dimen>
+    <dimen name="keyguard_clock_notifications_margin_min">36.0dip</dimen>
+    <dimen name="keyguard_indication_margin_bottom">80.0dip</dimen>
+    <dimen name="navigation_key_padding">42.0dip</dimen>
+    <dimen name="navigation_key_width">162.0dip</dimen>
+    <dimen name="qs_brightness_padding_top">6.0dip</dimen>
+    <dimen name="qs_detail_margin_top">28.0dip</dimen>
+    <dimen name="qs_tile_margin_top">16.0dip</dimen>
+    <dimen name="screen_pinning_request_button_width">162.0dip</dimen>
+    <dimen name="screen_pinning_request_frame_padding">39.0dip</dimen>
+    <dimen name="screen_pinning_request_side_width">2.0dip</dimen>
+    <dimen name="screen_pinning_request_width">490.0dip</dimen>
+    <dimen name="servicebox_big_content_padding_side">291.0dip</dimen>
+    <dimen name="servicebox_bigpage_top_margin">38.0dip</dimen>
+    <dimen name="servicebox_guide_arrow_anim_distance">294.0dip</dimen>
+    <dimen name="servicebox_guide_arrow_side_margin">294.0dip</dimen>
+    <dimen name="servicebox_navigation_bar_height">99.0dip</dimen>
+    <dimen name="servicebox_page_expanded_height">350.0dip</dimen>
+    <dimen name="servicebox_page_margin_side">317.0dip</dimen>
+    <dimen name="servicebox_page_small_height">177.0dip</dimen>
+    <dimen name="widget_big_font_size">88.0dip</dimen>
+    <dimen name="servicebox_music_page_big_appinfo_top_margin">30.0dip</dimen>
+    <dimen name="servicebox_music_page_big_top_margin">33.0dip</dimen>
+</resources>

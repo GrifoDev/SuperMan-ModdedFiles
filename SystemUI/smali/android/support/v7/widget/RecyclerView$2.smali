@@ -54,7 +54,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Landroid/support/v7/widget/RecyclerView;->-set2(Landroid/support/v7/widget/RecyclerView;Z)Z
+    iput-boolean v1, v0, Landroid/support/v7/widget/RecyclerView;->mPostedAnimatorRunner:Z
 
     return-void
 .end method

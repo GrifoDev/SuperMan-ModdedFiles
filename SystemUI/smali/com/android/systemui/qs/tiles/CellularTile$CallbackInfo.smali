@@ -35,6 +35,8 @@
 
 .field noSim:Z
 
+.field roaming:Z
+
 .field signalContentDescription:Ljava/lang/String;
 
 .field wifiEnabled:Z

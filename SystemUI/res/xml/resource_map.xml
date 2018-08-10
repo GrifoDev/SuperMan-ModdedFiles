@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resource-map>
+    <color>
+        <match overlay="qs_page_indicator_tint_color">
+            <original>qs_page_indicator_tint_color_unselected</original>
+        </match>
+        <match overlay="qs_tile_icon_on_dim_tint_color">
+            <original>qs_tile_icon_on_tint_color</original>
+        </match>
+        <match overlay="qs_detail_description_text_color">
+            <original>qs_detail_torch_level_text</original>
+        </match>
+        <match overlay="qs_tile_icon_off_tint_color">
+            <original>qs_edit_panel_cross_icon_tint_color</original>
+        </match>
+    </color>
+</resource-map>

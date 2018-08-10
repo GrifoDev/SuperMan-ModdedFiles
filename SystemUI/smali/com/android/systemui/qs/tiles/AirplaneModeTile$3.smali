@@ -1,11 +1,14 @@
 .class Lcom/android/systemui/qs/tiles/AirplaneModeTile$3;
-.super Lcom/android/systemui/qs/SecureSetting;
+.super Ljava/lang/Object;
 .source "AirplaneModeTile.java"
+
+# interfaces
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/qs/tiles/AirplaneModeTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
+    value = Lcom/android/systemui/qs/tiles/AirplaneModeTile;->handleClick()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -19,50 +22,24 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/tiles/AirplaneModeTile;Landroid/content/Context;Landroid/os/Handler;Ljava/lang/String;)V
+.method constructor <init>(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$3;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
 
-    invoke-direct {p0, p2, p3, p4}, Lcom/android/systemui/qs/SecureSetting;-><init>(Landroid/content/Context;Landroid/os/Handler;Ljava/lang/String;)V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method protected handleValueChanged(IZ)V
-    .locals 3
+.method public run()V
+    .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$3;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get0(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)Ljava/lang/String;
-
-    move-result-object v0
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "shopdemo : "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$3;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
-
-    invoke-virtual {v0}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->refreshState()V
+    invoke-static {v0}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-wrap7(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)V
 
     return-void
 .end method

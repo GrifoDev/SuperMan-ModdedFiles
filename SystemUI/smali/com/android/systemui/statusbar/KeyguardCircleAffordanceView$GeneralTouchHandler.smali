@@ -89,7 +89,7 @@
 
     iget-object v9, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v9}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get12(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Z
+    invoke-static {v9}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get11(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Z
 
     move-result v9
 
@@ -105,7 +105,7 @@
 
     iget-object v9, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v9}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get22(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Z
+    invoke-static {v9}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get21(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Z
 
     move-result v9
 
@@ -146,7 +146,7 @@
     :pswitch_1
     iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get20(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Landroid/view/View;
+    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get19(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Landroid/view/View;
 
     move-result-object v7
 
@@ -154,7 +154,7 @@
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get20(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Landroid/view/View;
+    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get19(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Landroid/view/View;
 
     move-result-object v7
 
@@ -180,27 +180,27 @@
 
     const/4 v8, 0x0
 
-    invoke-static {v7, v8}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set20(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
+    invoke-static {v7, v8}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set23(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
     const/4 v8, 0x0
 
-    invoke-static {v7, v8}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set26(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)Z
+    invoke-static {v7, v8}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set29(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)Z
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
     const/4 v8, 0x1
 
-    invoke-static {v7, v8}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set19(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)Z
+    invoke-static {v7, v8}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set22(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)Z
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v7, v3}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set16(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
+    invoke-static {v7, v3}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set19(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v7, v5}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set17(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
+    invoke-static {v7, v5}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set20(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
@@ -212,7 +212,7 @@
 
     iget-object v8, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v8}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get25(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Z
+    invoke-static {v8}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get24(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Z
 
     move-result v8
 
@@ -242,14 +242,6 @@
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get9(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Landroid/animation/ValueAnimator;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Landroid/animation/ValueAnimator;->start()V
-
-    iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
-
     invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get8(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Landroid/animation/ValueAnimator;
 
     move-result-object v7
@@ -258,7 +250,7 @@
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get6(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Landroid/animation/ValueAnimator;
+    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get7(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Landroid/animation/ValueAnimator;
 
     move-result-object v7
 
@@ -266,7 +258,7 @@
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get4(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Landroid/animation/ValueAnimator;
+    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get5(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Landroid/animation/ValueAnimator;
 
     move-result-object v7
 
@@ -274,7 +266,15 @@
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get2(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Landroid/animation/ValueAnimator;
+    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get3(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Landroid/animation/ValueAnimator;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Landroid/animation/ValueAnimator;->start()V
+
+    iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+
+    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get1(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Landroid/animation/ValueAnimator;
 
     move-result-object v7
 
@@ -293,7 +293,7 @@
     :pswitch_2
     iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get26(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Z
+    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get25(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Z
 
     move-result v7
 
@@ -311,7 +311,7 @@
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get13(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)F
+    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get12(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)F
 
     move-result v7
 
@@ -319,7 +319,7 @@
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get14(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)F
+    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get13(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)F
 
     move-result v7
 
@@ -337,11 +337,9 @@
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v7, v1}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set6(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
+    invoke-static {v7, v1}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set8(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
 
-    iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
-
-    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get7(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Landroid/content/Context;
+    invoke-static {}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get6()Landroid/content/Context;
 
     move-result-object v7
 
@@ -371,7 +369,7 @@
 
     const/4 v8, 0x0
 
-    invoke-static {v7, v8}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set19(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)Z
+    invoke-static {v7, v8}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set22(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)Z
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
@@ -384,7 +382,7 @@
     invoke-virtual {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->invalidate()V
 
     :cond_4
-    sget-boolean v7, Lcom/android/keyguard/KeyguardRune;->SUPPORT_SKIP_SHORTCUT_ARROW_SHOWING_VI:Z
+    sget-boolean v7, Lcom/android/systemui/Rune;->KEYWI_SUPPORT_SHORTCUT_CUE:Z
 
     if-nez v7, :cond_1
 
@@ -394,14 +392,14 @@
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v7, v1}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set20(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
+    invoke-static {v7, v1}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set23(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
 
     goto/16 :goto_0
 
     :pswitch_3
     iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get26(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Z
+    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get25(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Z
 
     move-result v7
 
@@ -415,7 +413,7 @@
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get15(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Z
+    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get14(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Z
 
     move-result v7
 
@@ -443,13 +441,13 @@
 
     cmp-long v7, v8, v10
 
-    if-lez v7, :cond_6
+    if-lez v7, :cond_7
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
     const/4 v8, 0x0
 
-    invoke-static {v7, v8}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set19(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)Z
+    invoke-static {v7, v8}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set22(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)Z
 
     :cond_5
     :goto_1
@@ -458,13 +456,13 @@
 
     const/4 v8, 0x1
 
-    invoke-static {v7, v8}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set26(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)Z
+    invoke-static {v7, v8}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set29(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)Z
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
     iget-object v8, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v8}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get2(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Landroid/animation/ValueAnimator;
+    invoke-static {v8}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get1(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Landroid/animation/ValueAnimator;
 
     move-result-object v8
 
@@ -490,7 +488,7 @@
 
     iget-object v9, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v9}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get15(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Z
+    invoke-static {v9}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get14(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Z
 
     move-result v9
 
@@ -506,7 +504,7 @@
 
     iget-object v9, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v9}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get21(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Z
+    invoke-static {v9}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get20(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Z
 
     move-result v9
 
@@ -532,7 +530,7 @@
 
     iget-object v9, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v9}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get11(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Z
+    invoke-static {v9}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get10(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Z
 
     move-result v9
 
@@ -548,69 +546,45 @@
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get15(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Z
+    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get14(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_7
+    if-eqz v7, :cond_6
 
-    if-eqz v2, :cond_7
+    xor-int/lit8 v7, v2, 0x1
 
-    iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
-
-    invoke-virtual {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->releaseShader()V
-
-    goto/16 :goto_0
+    if-eqz v7, :cond_c
 
     :cond_6
-    iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v8, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get17(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Landroid/graphics/RectF;
+    invoke-static {}, Lcom/android/systemui/util/SettingsHelper;->getInstance()Lcom/android/systemui/util/SettingsHelper;
 
     move-result-object v7
 
-    const/4 v8, 0x0
-
-    const/4 v9, 0x0
-
-    const/4 v10, 0x0
-
-    const/4 v11, 0x0
-
-    invoke-virtual {v7, v8, v9, v10, v11}, Landroid/graphics/RectF;->set(FFFF)V
-
-    iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
-
-    iget-object v7, v7, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mHelperCallback:Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$Callback;
-
-    iget-object v8, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
-
-    invoke-static {v8}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get22(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Z
-
-    move-result v8
-
-    invoke-interface {v7, v8}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$Callback;->onIconClicked(Z)Z
-
-    goto/16 :goto_1
-
-    :cond_7
-    iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
-
-    const/16 v8, 0x59
-
-    invoke-static {v7, v8}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set7(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;I)I
-
-    iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
-
-    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get21(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Z
+    invoke-virtual {v7}, Lcom/android/systemui/util/SettingsHelper;->isWhiteKeyguardWallpaper()Z
 
     move-result v7
 
-    if-nez v7, :cond_9
+    if-eqz v7, :cond_8
+
+    const/16 v7, 0x29
+
+    :goto_2
+    invoke-static {v8, v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set9(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;I)I
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get11(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Z
+    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get20(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Z
+
+    move-result v7
+
+    if-nez v7, :cond_a
+
+    iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+
+    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get10(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Z
 
     move-result v7
 
@@ -644,15 +618,7 @@
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get18(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Landroid/animation/ValueAnimator;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Landroid/animation/ValueAnimator;->start()V
-
-    iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
-
-    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get9(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Landroid/animation/ValueAnimator;
+    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get17(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Landroid/animation/ValueAnimator;
 
     move-result-object v7
 
@@ -668,7 +634,7 @@
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get19(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Landroid/animation/ValueAnimator;
+    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get7(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Landroid/animation/ValueAnimator;
 
     move-result-object v7
 
@@ -676,7 +642,15 @@
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get5(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Landroid/graphics/Paint;
+    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get18(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Landroid/animation/ValueAnimator;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Landroid/animation/ValueAnimator;->start()V
+
+    iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+
+    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get4(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Landroid/graphics/Paint;
 
     move-result-object v7
 
@@ -684,7 +658,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_8
+    if-eqz v7, :cond_9
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
@@ -694,7 +668,7 @@
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get6(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Landroid/animation/ValueAnimator;
+    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get5(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Landroid/animation/ValueAnimator;
 
     move-result-object v7
 
@@ -702,23 +676,59 @@
 
     goto/16 :goto_0
 
+    :cond_7
+    iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+
+    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get16(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Landroid/graphics/RectF;
+
+    move-result-object v7
+
+    const/4 v8, 0x0
+
+    const/4 v9, 0x0
+
+    const/4 v10, 0x0
+
+    const/4 v11, 0x0
+
+    invoke-virtual {v7, v8, v9, v10, v11}, Landroid/graphics/RectF;->set(FFFF)V
+
+    iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+
+    iget-object v7, v7, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mHelperCallback:Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$Callback;
+
+    iget-object v8, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+
+    invoke-static {v8}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get21(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Z
+
+    move-result v8
+
+    invoke-interface {v7, v8}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$Callback;->onIconClicked(Z)Z
+
+    goto/16 :goto_1
+
     :cond_8
+    const/16 v7, 0x59
+
+    goto/16 :goto_2
+
+    :cond_9
     iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
     const/4 v8, 0x0
 
-    invoke-static {v7, v8}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set3(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
+    invoke-static {v7, v8}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set4(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
 
     goto/16 :goto_0
 
-    :cond_9
+    :cond_a
     iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
     invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-wrap0(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_a
+    if-eqz v7, :cond_b
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
@@ -728,17 +738,17 @@
 
     const/4 v8, 0x0
 
-    invoke-static {v7, v8}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set10(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
+    invoke-static {v7, v8}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set12(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
     const/4 v8, 0x0
 
-    invoke-static {v7, v8}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set3(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
+    invoke-static {v7, v8}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set4(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get5(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Landroid/graphics/Paint;
+    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get4(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Landroid/graphics/Paint;
 
     move-result-object v7
 
@@ -766,10 +776,10 @@
 
     goto/16 :goto_0
 
-    :cond_a
+    :cond_b
     iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get24(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Z
+    invoke-static {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get23(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Z
 
     move-result v7
 
@@ -785,12 +795,19 @@
 
     goto/16 :goto_0
 
+    :cond_c
+    iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+
+    invoke-virtual {v7}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->releaseShader()V
+
+    goto/16 :goto_0
+
     :pswitch_5
     iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
     const/4 v8, 0x0
 
-    invoke-static {v7, v8}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set19(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)Z
+    invoke-static {v7, v8}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set22(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)Z
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$GeneralTouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 

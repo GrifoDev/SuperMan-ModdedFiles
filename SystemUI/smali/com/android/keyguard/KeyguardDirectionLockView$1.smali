@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardDirectionLockView$1;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get6(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/internal/widget/DirectionLockView;
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get8(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/internal/widget/DirectionLockView;
 
     move-result-object v0
 
@@ -47,7 +47,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardDirectionLockView$1;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get6(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/internal/widget/DirectionLockView;
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get8(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/internal/widget/DirectionLockView;
 
     move-result-object v0
 
@@ -59,7 +59,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardDirectionLockView$1;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardDirectionLockView;->-wrap3(Lcom/android/keyguard/KeyguardDirectionLockView;)V
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardDirectionLockView;->-wrap2(Lcom/android/keyguard/KeyguardDirectionLockView;)V
 
     return-void
 .end method

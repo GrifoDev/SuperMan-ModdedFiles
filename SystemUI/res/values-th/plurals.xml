@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <plurals name="status_bar_accessibility_recent_apps">
-        <item quantity="other">1 หน้าจอในภาพรวม</item>
-        <item quantity="one">%d หน้าจอในภาพรวม</item>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">เหลือความพยายาม %d ครั้ง</item>
+        <item quantity="one">เหลือความพยายาม %d ครั้ง</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(เหลือความพยายาม %d ครั้ง)</item>
+        <item quantity="one">(เหลือความพยายาม 1 ครั้ง)</item>
     </plurals>
     <plurals name="kg_password_wrong_pin_code">
         <item quantity="other">รหัส PIN ของซิมไม่ถูกต้อง คุณพยายามได้อีก %d ครั้ง</item>
@@ -12,25 +16,17 @@
         <item quantity="other">รหัส PUK ของซิมไม่ถูกต้อง คุณพยายามได้อีก %d ครั้งก่อนที่ซิมจะไม่สามารถใช้งานได้อย่างถาวร</item>
         <item quantity="one">รหัส PUK ของซิมไม่ถูกต้อง คุณพยายามได้อีก %d ครั้งก่อนที่ซิมจะไม่สามารถใช้งานได้อย่างถาวร</item>
     </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">ไม่มีการปลดล็อกอุปกรณ์มา %d ชั่วโมงแล้ว ยืนยันรหัสผ่าน</item>
+        <item quantity="one">ไม่มีการปลดล็อกอุปกรณ์มา %d ชั่วโมงแล้ว ยืนยันรหัสผ่าน</item>
+    </plurals>
     <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">ไม่มีการปลดล็อกอุปกรณ์เป็นเวลา %d ชั่วโมง ยืนยันรูปแบบ</item>
-        <item quantity="one">ไม่มีการปลดล็อกอุปกรณ์เป็นเวลา %d ชั่วโมง ยืนยันรูปแบบ</item>
+        <item quantity="other">ไม่มีการปลดล็อกอุปกรณ์มา %d ชั่วโมงแล้ว ยืนยันรูปแบบ</item>
+        <item quantity="one">ไม่มีการปลดล็อกอุปกรณ์มา %d ชั่วโมงแล้ว ยืนยันรูปแบบ</item>
     </plurals>
     <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">ไม่มีการปลดล็อกอุปกรณ์เป็นเวลา %d ชั่วโมง ยืนยัน PIN</item>
-        <item quantity="one">ไม่มีการปลดล็อกอุปกรณ์เป็นเวลา %d ชั่วโมง ยืนยัน PIN</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">ไม่มีการปลดล็อกอุปกรณ์เป็นเวลา %d ชั่วโมง ยืนยันรหัสผ่าน</item>
-        <item quantity="one">ไม่มีการปลดล็อกอุปกรณ์เป็นเวลา %d ชั่วโมง ยืนยันรหัสผ่าน</item>
-    </plurals>
-    <plurals name="kg_attempt_remaining">
-        <item quantity="other">(เหลือความพยายาม %d ครั้ง)</item>
-        <item quantity="one">(เหลือความพยายาม 1 ครั้ง)</item>
-    </plurals>
-    <plurals name="kg_attempt_left">
-        <item quantity="other">เหลือความพยายาม %d ครั้ง</item>
-        <item quantity="one">เหลือความพยายาม %d ครั้ง</item>
+        <item quantity="other">ไม่มีการปลดล็อกอุปกรณ์มา %d ชั่วโมงแล้ว ยืนยัน PIN</item>
+        <item quantity="one">ไม่มีการปลดล็อกอุปกรณ์มา %d ชั่วโมงแล้ว ยืนยัน PIN</item>
     </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown_min">
         <item quantity="other">ลองอีกครั้งใน %d นาที</item>
@@ -39,5 +35,29 @@
     <plurals name="kg_too_many_failed_attempts_countdown_sec">
         <item quantity="other">ลองอีกครั้งใน %d วินาที</item>
         <item quantity="one">ลองอีกครั้งใน %d วินาที</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_countdown_by_biometrics">
+        <item quantity="other">มีความพยายามในการยืนยันข้อมูลชีวมาตรไม่ถูกต้อง %1$d ครั้งแล้ว โปรดลองอีกครั้งในอีก %2$d วินาที</item>
+        <item quantity="one">การยืนยันข้อมูลชีวมาตรไม่ถูกต้อง %1$d ครั้งแล้ว โปรดลองอีกครั้งในอีก %2$d วินาที</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_countdown_by_fingerprint">
+        <item quantity="other">มีความพยายามในการยืนยันลายนิ้วมือไม่ถูกต้อง %1$d ครั้งแล้ว โปรดลองอีกครั้งในอีก %2$d วินาที</item>
+        <item quantity="one">มีความพยายามในการยืนยันลายนิ้วมือไม่ถูกต้อง %1$d ครั้งแล้ว โปรดลองอีกครั้งในอีก %2$d วินาที</item>
+    </plurals>
+    <plurals name="notification_channels_list_desc_2_and_others">
+        <item quantity="other">%1$s, %2$s และอีก %3$d ช่องทาง</item>
+        <item quantity="one">%1$s, %2$s และอีก %3$d ช่องทาง</item>
+    </plurals>
+    <plurals name="notification_num_channels_desc">
+        <item quantity="other">การแจ้งเตือน 1 ใน %d หมวดหมู่จากแอปนี้</item>
+        <item quantity="one">การแจ้งเตือน 1 ใน %d หมวดหมู่จากแอปนี้</item>
+    </plurals>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">%d หน้าจอในภาพรวม</item>
+        <item quantity="one">1 หน้าจอในภาพรวม</item>
+    </plurals>
+    <plurals name="notification_group_overflow_description">
+        <item quantity="other">มีการแจ้งเตือนอีก %s รายการด้านใน</item>
+        <item quantity="one">มีการแจ้งเตือนอีก %s รายการด้านใน</item>
     </plurals>
 </resources>

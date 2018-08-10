@@ -4,5 +4,5 @@
 
 
 # virtual methods
-.method public abstract acceptsDrop(IIIIZ)Z
+.method public abstract acceptsDrop(IIIILandroid/graphics/Rect;Z)Z
 .end method

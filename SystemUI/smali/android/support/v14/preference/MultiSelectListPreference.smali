@@ -1,5 +1,5 @@
 .class public Landroid/support/v14/preference/MultiSelectListPreference;
-.super Landroid/support/v7/preference/DialogPreference;
+.super Landroid/support/v7/preference/internal/AbstractMultiSelectListPreference;
 .source "MultiSelectListPreference.java"
 
 
@@ -58,7 +58,7 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
     .locals 3
 
-    invoke-direct {p0, p1, p2, p3, p4}, Landroid/support/v7/preference/DialogPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
+    invoke-direct {p0, p1, p2, p3, p4}, Landroid/support/v7/preference/internal/AbstractMultiSelectListPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
     new-instance v1, Ljava/util/HashSet;
 
@@ -111,50 +111,6 @@
     .locals 1
 
     iget-object v0, p0, Landroid/support/v14/preference/MultiSelectListPreference;->mEntryValues:[Ljava/lang/CharSequence;
-
-    return-object v0
-.end method
-
-.method protected getPersistedStringSet(Ljava/util/Set;)Ljava/util/Set;
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Set",
-            "<",
-            "Ljava/lang/String;",
-            ">;)",
-            "Ljava/util/Set",
-            "<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-
-    invoke-virtual {p0}, Landroid/support/v14/preference/MultiSelectListPreference;->shouldPersist()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    return-object p1
-
-    :cond_0
-    invoke-virtual {p0}, Landroid/support/v14/preference/MultiSelectListPreference;->getPreferenceManager()Landroid/support/v7/preference/PreferenceManager;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/support/v7/preference/PreferenceManager;->getSharedPreferences()Landroid/content/SharedPreferences;
-
-    move-result-object v0
-
-    invoke-virtual {p0}, Landroid/support/v14/preference/MultiSelectListPreference;->getKey()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-interface {v0, v1, p1}, Landroid/content/SharedPreferences;->getStringSet(Ljava/lang/String;Ljava/util/Set;)Ljava/util/Set;
-
-    move-result-object v0
 
     return-object v0
 .end method
@@ -225,8 +181,16 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    xor-int/lit8 v1, v1, 0x1
 
+    if-eqz v1, :cond_1
+
+    :cond_0
+    invoke-super {p0, p1}, Landroid/support/v7/preference/internal/AbstractMultiSelectListPreference;->onRestoreInstanceState(Landroid/os/Parcelable;)V
+
+    return-void
+
+    :cond_1
     move-object v0, p1
 
     check-cast v0, Landroid/support/v14/preference/MultiSelectListPreference$SavedState;
@@ -235,16 +199,11 @@
 
     move-result-object v1
 
-    invoke-super {p0, v1}, Landroid/support/v7/preference/DialogPreference;->onRestoreInstanceState(Landroid/os/Parcelable;)V
+    invoke-super {p0, v1}, Landroid/support/v7/preference/internal/AbstractMultiSelectListPreference;->onRestoreInstanceState(Landroid/os/Parcelable;)V
 
     iget-object v1, v0, Landroid/support/v14/preference/MultiSelectListPreference$SavedState;->values:Ljava/util/Set;
 
     invoke-virtual {p0, v1}, Landroid/support/v14/preference/MultiSelectListPreference;->setValues(Ljava/util/Set;)V
-
-    return-void
-
-    :cond_0
-    invoke-super {p0, p1}, Landroid/support/v7/preference/DialogPreference;->onRestoreInstanceState(Landroid/os/Parcelable;)V
 
     return-void
 .end method
@@ -252,7 +211,7 @@
 .method protected onSaveInstanceState()Landroid/os/Parcelable;
     .locals 3
 
-    invoke-super {p0}, Landroid/support/v7/preference/DialogPreference;->onSaveInstanceState()Landroid/os/Parcelable;
+    invoke-super {p0}, Landroid/support/v7/preference/internal/AbstractMultiSelectListPreference;->onSaveInstanceState()Landroid/os/Parcelable;
 
     move-result-object v1
 
@@ -298,73 +257,6 @@
     check-cast p2, Ljava/util/Set;
 
     goto :goto_0
-.end method
-
-.method protected persistStringSet(Ljava/util/Set;)Z
-    .locals 3
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Set",
-            "<",
-            "Ljava/lang/String;",
-            ">;)Z"
-        }
-    .end annotation
-
-    const/4 v2, 0x1
-
-    invoke-virtual {p0}, Landroid/support/v14/preference/MultiSelectListPreference;->shouldPersist()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p0, v1}, Landroid/support/v14/preference/MultiSelectListPreference;->getPersistedStringSet(Ljava/util/Set;)Ljava/util/Set;
-
-    move-result-object v1
-
-    invoke-interface {p1, v1}, Ljava/util/Set;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    return v2
-
-    :cond_0
-    invoke-virtual {p0}, Landroid/support/v14/preference/MultiSelectListPreference;->getPreferenceManager()Landroid/support/v7/preference/PreferenceManager;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/support/v7/preference/PreferenceManager;->getSharedPreferences()Landroid/content/SharedPreferences;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
-
-    move-result-object v0
-
-    invoke-virtual {p0}, Landroid/support/v14/preference/MultiSelectListPreference;->getKey()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-interface {v0, v1, p1}, Landroid/content/SharedPreferences$Editor;->putStringSet(Ljava/lang/String;Ljava/util/Set;)Landroid/content/SharedPreferences$Editor;
-
-    invoke-static {}, Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat;->getInstance()Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat;->apply(Landroid/content/SharedPreferences$Editor;)V
-
-    return v2
-
-    :cond_1
-    const/4 v1, 0x0
-
-    return v1
 .end method
 
 .method public setValues(Ljava/util/Set;)V

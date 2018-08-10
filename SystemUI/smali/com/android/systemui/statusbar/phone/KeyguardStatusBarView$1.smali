@@ -3,12 +3,12 @@
 .source "KeyguardStatusBarView.java"
 
 # interfaces
-.implements Lcom/android/systemui/statusbar/policy/UserInfoController$OnUserInfoChangedListener;
+.implements Lcom/android/systemui/statusbar/policy/Clock$Callback;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->setUserInfoController(Lcom/android/systemui/statusbar/policy/UserInfoController;)V
+    value = Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->onFinishInflate()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,20 +34,12 @@
 
 
 # virtual methods
-.method public onUserInfoChanged(Ljava/lang/String;Landroid/graphics/drawable/Drawable;)V
+.method public onTimeTextChanged()V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView$1;->this$0:Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->-get0(Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;)Landroid/widget/ImageView;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p2}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView$1;->this$0:Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;
-
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->-wrap0(Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;)V
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->updateClockAnimator()V
 
     return-void
 .end method

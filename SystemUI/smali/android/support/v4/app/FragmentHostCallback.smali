@@ -153,7 +153,9 @@
 
     iget-boolean v0, v0, Landroid/support/v4/app/LoaderManagerImpl;->mStarted:Z
 
-    if-nez v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Landroid/support/v4/app/FragmentHostCallback;->mLoaderManager:Landroid/support/v4/app/LoaderManagerImpl;
 
@@ -323,7 +325,7 @@
 
     if-nez v0, :cond_2
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_2
 
     new-instance v0, Landroid/support/v4/app/LoaderManagerImpl;
 
@@ -338,7 +340,17 @@
     return-object v0
 
     :cond_2
-    invoke-virtual {v0, p0}, Landroid/support/v4/app/LoaderManagerImpl;->updateHostController(Landroid/support/v4/app/FragmentHostCallback;)V
+    if-eqz p2, :cond_1
+
+    if-eqz v0, :cond_1
+
+    iget-boolean v1, v0, Landroid/support/v4/app/LoaderManagerImpl;->mStarted:Z
+
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {v0}, Landroid/support/v4/app/LoaderManagerImpl;->doStart()V
 
     goto :goto_0
 .end method
@@ -370,20 +382,18 @@
 
     iget-boolean v1, v0, Landroid/support/v4/app/LoaderManagerImpl;->mRetaining:Z
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v1, :cond_0
 
-    :cond_1
     invoke-virtual {v0}, Landroid/support/v4/app/LoaderManagerImpl;->doDestroy()V
 
     iget-object v1, p0, Landroid/support/v4/app/FragmentHostCallback;->mAllLoaderManagers:Landroid/support/v4/util/SimpleArrayMap;
 
     invoke-virtual {v1, p1}, Landroid/support/v4/util/SimpleArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method onAttachFragment(Landroid/support/v4/app/Fragment;)V
@@ -446,6 +456,20 @@
     const/4 v0, 0x1
 
     return v0
+.end method
+
+.method public onRequestPermissionsFromFragment(Landroid/support/v4/app/Fragment;[Ljava/lang/String;I)V
+    .locals 0
+    .param p1    # Landroid/support/v4/app/Fragment;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # [Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    return-void
 .end method
 
 .method public onShouldSaveFragmentState(Landroid/support/v4/app/Fragment;)Z
@@ -517,7 +541,7 @@
 .end method
 
 .method restoreLoaderNonConfig(Landroid/support/v4/util/SimpleArrayMap;)V
-    .locals 0
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -529,6 +553,30 @@
         }
     .end annotation
 
+    if-eqz p1, :cond_0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p1}, Landroid/support/v4/util/SimpleArrayMap;->size()I
+
+    move-result v0
+
+    :goto_0
+    if-ge v1, v0, :cond_0
+
+    invoke-virtual {p1, v1}, Landroid/support/v4/util/SimpleArrayMap;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/support/v4/app/LoaderManagerImpl;
+
+    invoke-virtual {v2, p0}, Landroid/support/v4/app/LoaderManagerImpl;->updateHostController(Landroid/support/v4/app/FragmentHostCallback;)V
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_0
     iput-object p1, p0, Landroid/support/v4/app/FragmentHostCallback;->mAllLoaderManagers:Landroid/support/v4/util/SimpleArrayMap;
 
     return-void

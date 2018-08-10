@@ -1,5 +1,5 @@
 .class public Lcom/android/systemui/qs/tiles/VoLteTile;
-.super Lcom/android/systemui/qs/QSTile;
+.super Lcom/android/systemui/qs/tileimpl/QSTileImpl;
 .source "VoLteTile.java"
 
 
@@ -7,22 +7,25 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/systemui/qs/tiles/VoLteTile$1;,
+        Lcom/android/systemui/qs/tiles/VoLteTile$2;,
         Lcom/android/systemui/qs/tiles/VoLteTile$VoLteDetailAdapter;
     }
 .end annotation
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lcom/android/systemui/qs/QSTile",
+        "Lcom/android/systemui/qs/tileimpl/QSTileImpl",
         "<",
-        "Lcom/android/systemui/qs/QSTile$BooleanState;",
+        "Lcom/android/systemui/plugins/qs/QSTile$BooleanState;",
         ">;"
     }
 .end annotation
 
 
 # static fields
-.field private static final DB_VOICECALL_TYPE:Ljava/lang/String; = "voicecall_type"
+.field private static final DB_VOICECALL_TYPE_SLOT1:Ljava/lang/String; = "voicecall_type"
+
+.field private static final DB_VOICECALL_TYPE_SLOT2:Ljava/lang/String; = "voicecall_type2"
 
 .field private static final VOICECALL_TYPE_CS:I = 0x1
 
@@ -36,13 +39,17 @@
 
 .field private mAlertDialog:Landroid/app/AlertDialog;
 
-.field private mDetailAdapter:Lcom/android/systemui/qs/QSTile$DetailAdapter;
+.field private mDetailAdapter:Lcom/android/systemui/plugins/qs/DetailAdapter;
 
 .field private mListening:Z
 
 .field private final mReceiver:Landroid/content/BroadcastReceiver;
 
-.field private final mSetting:Lcom/android/systemui/qs/SystemSetting;
+.field private mSettingsCallback:Lcom/android/systemui/util/SettingsHelper$OnChangedCallback;
+
+.field private mSettingsHelper:Lcom/android/systemui/util/SettingsHelper;
+
+.field private mSettingsValueList:[Landroid/net/Uri;
 
 .field private mTM:Landroid/telephony/TelephonyManager;
 
@@ -80,18 +87,18 @@
     return-object v0
 .end method
 
-.method static synthetic -get4(Lcom/android/systemui/qs/tiles/VoLteTile;)Lcom/android/systemui/qs/SystemSetting;
+.method static synthetic -get4(Lcom/android/systemui/qs/tiles/VoLteTile;)Lcom/android/systemui/util/SettingsHelper;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mSetting:Lcom/android/systemui/qs/SystemSetting;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mSettingsHelper:Lcom/android/systemui/util/SettingsHelper;
 
     return-object v0
 .end method
 
-.method static synthetic -get5(Lcom/android/systemui/qs/tiles/VoLteTile;)Lcom/android/systemui/qs/QSTile$State;
+.method static synthetic -get5(Lcom/android/systemui/qs/tiles/VoLteTile;)Lcom/android/systemui/plugins/qs/QSTile$State;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mState:Lcom/android/systemui/qs/QSTile$State;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
 
     return-object v0
 .end method
@@ -124,10 +131,28 @@
     return v0
 .end method
 
-.method static synthetic -wrap2(Lcom/android/systemui/qs/tiles/VoLteTile;Ljava/lang/Object;)V
+.method static synthetic -wrap2(Lcom/android/systemui/qs/tiles/VoLteTile;)I
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/VoLteTile;->getVoiceCallType()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic -wrap3(Lcom/android/systemui/qs/tiles/VoLteTile;Ljava/lang/Object;)V
     .locals 0
 
     invoke-virtual {p0, p1}, Lcom/android/systemui/qs/tiles/VoLteTile;->handleRefreshState(Ljava/lang/Object;)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap4(Lcom/android/systemui/qs/tiles/VoLteTile;)V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/VoLteTile;->showItPolicyToast()V
 
     return-void
 .end method
@@ -141,9 +166,9 @@
 
     new-instance v1, Landroid/content/ComponentName;
 
-    const-string/jumbo v2, "com.android.phone"
+    const-string/jumbo v2, "com.samsung.networkui"
 
-    const-string/jumbo v3, "com.android.phone.MobileNetworkSettings"
+    const-string/jumbo v3, "com.samsung.networkui.MobileNetworkSettings"
 
     invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -156,10 +181,36 @@
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/systemui/qs/QSTile$Host;)V
+.method public constructor <init>(Lcom/android/systemui/qs/QSHost;)V
     .locals 4
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/QSTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;-><init>(Lcom/android/systemui/qs/QSHost;)V
+
+    const/4 v0, 0x2
+
+    new-array v0, v0, [Landroid/net/Uri;
+
+    const-string/jumbo v1, "voicecall_type"
+
+    invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "voicecall_type2"
+
+    invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    const/4 v2, 0x1
+
+    aput-object v1, v0, v2
+
+    iput-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mSettingsValueList:[Landroid/net/Uri;
 
     new-instance v0, Lcom/android/systemui/qs/tiles/VoLteTile$1;
 
@@ -169,21 +220,21 @@
 
     new-instance v0, Lcom/android/systemui/qs/tiles/VoLteTile$2;
 
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mContext:Landroid/content/Context;
+    invoke-direct {v0, p0}, Lcom/android/systemui/qs/tiles/VoLteTile$2;-><init>(Lcom/android/systemui/qs/tiles/VoLteTile;)V
 
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mHandler:Lcom/android/systemui/qs/QSTile$H;
+    iput-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mSettingsCallback:Lcom/android/systemui/util/SettingsHelper$OnChangedCallback;
 
-    const-string/jumbo v3, "voicecall_type"
+    invoke-static {}, Lcom/android/systemui/util/SettingsHelper;->getInstance()Lcom/android/systemui/util/SettingsHelper;
 
-    invoke-direct {v0, p0, v1, v2, v3}, Lcom/android/systemui/qs/tiles/VoLteTile$2;-><init>(Lcom/android/systemui/qs/tiles/VoLteTile;Landroid/content/Context;Landroid/os/Handler;Ljava/lang/String;)V
+    move-result-object v0
 
-    iput-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mSetting:Lcom/android/systemui/qs/SystemSetting;
+    iput-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mSettingsHelper:Lcom/android/systemui/util/SettingsHelper;
 
     new-instance v0, Lcom/android/systemui/qs/tiles/VoLteTile$3;
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mContext:Landroid/content/Context;
 
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mHandler:Lcom/android/systemui/qs/QSTile$H;
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mHandler:Lcom/android/systemui/qs/tileimpl/QSTileImpl$H;
 
     const-string/jumbo v3, "airplane_mode_on"
 
@@ -209,7 +260,7 @@
 
     invoke-direct {v0, p0, v1}, Lcom/android/systemui/qs/tiles/VoLteTile$VoLteDetailAdapter;-><init>(Lcom/android/systemui/qs/tiles/VoLteTile;Lcom/android/systemui/qs/tiles/VoLteTile$VoLteDetailAdapter;)V
 
-    iput-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mDetailAdapter:Lcom/android/systemui/qs/QSTile$DetailAdapter;
+    iput-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mDetailAdapter:Lcom/android/systemui/plugins/qs/DetailAdapter;
 
     return-void
 .end method
@@ -217,21 +268,10 @@
 .method private getOperatorNumeric()Ljava/lang/String;
     .locals 2
 
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mContext:Landroid/content/Context;
-
-    invoke-static {v1}, Landroid/telephony/SubscriptionManager;->from(Landroid/content/Context;)Landroid/telephony/SubscriptionManager;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/telephony/SubscriptionManager;->getDefaultDataPhoneId()I
+    invoke-static {}, Lcom/android/systemui/statusbar/DeviceState;->getDefaultDataPhoneId()I
 
     move-result v0
 
-    if-gez v0, :cond_0
-
-    const/4 v0, 0x0
-
-    :cond_0
     invoke-static {v0}, Lcom/android/systemui/statusbar/DeviceState;->getOperatorNumeric(I)Ljava/lang/String;
 
     move-result-object v1
@@ -239,10 +279,117 @@
     return-object v1
 .end method
 
+.method private getVoiceCallType()I
+    .locals 8
+
+    const/4 v7, 0x1
+
+    const/4 v6, 0x0
+
+    invoke-static {}, Lcom/android/systemui/Rune;->supportDualIms()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_5
+
+    iget-object v3, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mSettingsHelper:Lcom/android/systemui/util/SettingsHelper;
+
+    invoke-virtual {v3, v6}, Lcom/android/systemui/util/SettingsHelper;->getVoiceCallType(I)I
+
+    move-result v0
+
+    iget-object v3, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mSettingsHelper:Lcom/android/systemui/util/SettingsHelper;
+
+    invoke-virtual {v3, v7}, Lcom/android/systemui/util/SettingsHelper;->getVoiceCallType(I)I
+
+    move-result v1
+
+    iget-object v3, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mContext:Landroid/content/Context;
+
+    invoke-static {v3}, Lcom/android/systemui/statusbar/DeviceState;->getVoLTEEnableState(Landroid/content/Context;)I
+
+    move-result v2
+
+    iget-object v3, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->TAG:Ljava/lang/String;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "getVoiceCallType : voLTEEnabledState = "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v3, 0x3
+
+    if-ne v2, v3, :cond_2
+
+    if-eqz v0, :cond_0
+
+    if-nez v1, :cond_1
+
+    :cond_0
+    return v6
+
+    :cond_1
+    return v7
+
+    :cond_2
+    if-ne v2, v7, :cond_3
+
+    return v0
+
+    :cond_3
+    const/4 v3, 0x2
+
+    if-ne v2, v3, :cond_4
+
+    return v1
+
+    :cond_4
+    return v7
+
+    :cond_5
+    invoke-static {}, Lcom/android/systemui/statusbar/DeviceState;->getDefaultDataPhoneId()I
+
+    move-result v3
+
+    if-nez v3, :cond_6
+
+    iget-object v3, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mSettingsHelper:Lcom/android/systemui/util/SettingsHelper;
+
+    invoke-virtual {v3, v6}, Lcom/android/systemui/util/SettingsHelper;->getVoiceCallType(I)I
+
+    move-result v3
+
+    return v3
+
+    :cond_6
+    iget-object v3, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mSettingsHelper:Lcom/android/systemui/util/SettingsHelper;
+
+    invoke-virtual {v3, v7}, Lcom/android/systemui/util/SettingsHelper;->getVoiceCallType(I)I
+
+    move-result v3
+
+    return v3
+.end method
+
 .method private isVolteSupportedOpeartor()Z
     .locals 1
 
-    sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_QS_VOLTE_CHECK_OPERATOR:Z
+    sget-boolean v0, Lcom/android/systemui/Rune;->QPANEL_SUPPORT_VOLTE_CHECK_OPERATOR:Z
 
     if-eqz v0, :cond_0
 
@@ -258,6 +405,104 @@
     const/4 v0, 0x1
 
     return v0
+.end method
+
+.method private setVoiceCallType(I)V
+    .locals 6
+
+    const/4 v5, 0x1
+
+    const/4 v4, 0x0
+
+    invoke-static {}, Lcom/android/systemui/Rune;->supportDualIms()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mContext:Landroid/content/Context;
+
+    invoke-static {v1}, Lcom/android/systemui/statusbar/DeviceState;->getVoLTEEnableState(Landroid/content/Context;)I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->TAG:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "setVoiceCallType : voLTEEnabledState = "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v1, 0x3
+
+    if-ne v0, v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mSettingsHelper:Lcom/android/systemui/util/SettingsHelper;
+
+    invoke-virtual {v1, p1, v4}, Lcom/android/systemui/util/SettingsHelper;->setVoiceCallType(II)V
+
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mSettingsHelper:Lcom/android/systemui/util/SettingsHelper;
+
+    invoke-virtual {v1, p1, v5}, Lcom/android/systemui/util/SettingsHelper;->setVoiceCallType(II)V
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    if-ne v0, v5, :cond_2
+
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mSettingsHelper:Lcom/android/systemui/util/SettingsHelper;
+
+    invoke-virtual {v1, p1, v4}, Lcom/android/systemui/util/SettingsHelper;->setVoiceCallType(II)V
+
+    goto :goto_0
+
+    :cond_2
+    const/4 v1, 0x2
+
+    if-ne v0, v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mSettingsHelper:Lcom/android/systemui/util/SettingsHelper;
+
+    invoke-virtual {v1, p1, v5}, Lcom/android/systemui/util/SettingsHelper;->setVoiceCallType(II)V
+
+    goto :goto_0
+
+    :cond_3
+    invoke-static {}, Lcom/android/systemui/statusbar/DeviceState;->getDefaultDataPhoneId()I
+
+    move-result v1
+
+    if-nez v1, :cond_4
+
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mSettingsHelper:Lcom/android/systemui/util/SettingsHelper;
+
+    invoke-virtual {v1, p1, v4}, Lcom/android/systemui/util/SettingsHelper;->setVoiceCallType(II)V
+
+    goto :goto_0
+
+    :cond_4
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mSettingsHelper:Lcom/android/systemui/util/SettingsHelper;
+
+    invoke-virtual {v1, p1, v5}, Lcom/android/systemui/util/SettingsHelper;->setVoiceCallType(II)V
+
+    goto :goto_0
 .end method
 
 .method private showNoSIMDialog()V
@@ -284,13 +529,13 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0f03e4
+    const v1, 0x7f12041e
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f0f03e5
+    const v1, 0x7f12041f
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -320,9 +565,9 @@
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mHost:Lcom/android/systemui/qs/QSTile$Host;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mHost:Lcom/android/systemui/qs/QSHost;
 
-    invoke-interface {v0}, Lcom/android/systemui/qs/QSTile$Host;->collapsePanels()V
+    invoke-interface {v0}, Lcom/android/systemui/qs/QSHost;->collapsePanels()V
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mAlertDialog:Landroid/app/AlertDialog;
 
@@ -336,39 +581,12 @@
 .end method
 
 .method private supportVolteDBChange()Z
-    .locals 3
+    .locals 2
 
     invoke-direct {p0}, Lcom/android/systemui/qs/tiles/VoLteTile;->getOperatorNumeric()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/VoLteTile;->isVolteSupportedOpeartor()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    if-eqz v0, :cond_0
-
-    const-string/jumbo v1, "46605"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v2, "supportVolteDBChange false in GT(APT) sim"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v1, 0x0
-
-    return v1
-
-    :cond_0
     const/4 v1, 0x1
 
     return v1
@@ -376,10 +594,10 @@
 
 
 # virtual methods
-.method public getDetailAdapter()Lcom/android/systemui/qs/QSTile$DetailAdapter;
+.method public getDetailAdapter()Lcom/android/systemui/plugins/qs/DetailAdapter;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mDetailAdapter:Lcom/android/systemui/qs/QSTile$DetailAdapter;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mDetailAdapter:Lcom/android/systemui/plugins/qs/DetailAdapter;
 
     return-object v0
 .end method
@@ -387,6 +605,27 @@
 .method public getLongClickIntent()Landroid/content/Intent;
     .locals 1
 
+    const-class v0, Lcom/android/systemui/KnoxStateMonitor;
+
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/KnoxStateMonitor;
+
+    invoke-virtual {v0}, Lcom/android/systemui/KnoxStateMonitor;->isVoLteTileBlocked()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/VoLteTile;->showItPolicyToast()V
+
+    const/4 v0, 0x0
+
+    return-object v0
+
+    :cond_0
     sget-object v0, Lcom/android/systemui/qs/tiles/VoLteTile;->VOLTE_SETTINGS:Landroid/content/Intent;
 
     return-object v0
@@ -395,7 +634,7 @@
 .method public getMetricsCategory()I
     .locals 1
 
-    const/16 v0, 0x1f4
+    const/16 v0, 0x1392
 
     return v0
 .end method
@@ -403,43 +642,59 @@
 .method public getTileLabel()Ljava/lang/CharSequence;
     .locals 2
 
+    sget-boolean v0, Lcom/android/systemui/Rune;->QPANEL_IS_ZVV_ICON:Z
+
+    if-eqz v0, :cond_0
+
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f03ba
+    const v1, 0x7f120938
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
+    :goto_0
     return-object v0
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mContext:Landroid/content/Context;
+
+    const v1, 0x7f120937
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
 .end method
 
 .method public handleClick()V
     .locals 5
 
-    const/4 v2, 0x1
+    const/4 v4, 0x1
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    iget-object v3, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->TAG:Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->TAG:Ljava/lang/String;
 
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "handleClick : "
+    const-string/jumbo v2, "handleClick : "
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v2
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mState:Lcom/android/systemui/qs/QSTile$State;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
 
-    check-cast v0, Lcom/android/systemui/qs/QSTile$BooleanState;
+    check-cast v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
-    iget-boolean v0, v0, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
+    iget-boolean v0, v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
 
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
@@ -447,51 +702,62 @@
 
     move-result-object v0
 
-    invoke-static {v3, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v3, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mContext:Landroid/content/Context;
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/VoLteTile;->getMetricsCategory()I
 
-    move-result v4
+    move-result v2
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mState:Lcom/android/systemui/qs/QSTile$State;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
 
-    check-cast v0, Lcom/android/systemui/qs/QSTile$BooleanState;
+    check-cast v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
-    iget-boolean v0, v0, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
+    iget-boolean v0, v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
+
+    xor-int/lit8 v0, v0, 0x1
+
+    invoke-static {v1, v2, v0}, Lcom/android/internal/logging/MetricsLogger;->action(Landroid/content/Context;IZ)V
+
+    const-class v0, Lcom/android/systemui/KnoxStateMonitor;
+
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/KnoxStateMonitor;
+
+    invoke-virtual {v0}, Lcom/android/systemui/KnoxStateMonitor;->isVoLteTileBlocked()Z
+
+    move-result v0
 
     if-eqz v0, :cond_0
 
-    move v0, v1
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/VoLteTile;->showItPolicyToast()V
 
-    :goto_0
-    invoke-static {v3, v4, v0}, Lcom/android/internal/logging/MetricsLogger;->action(Landroid/content/Context;IZ)V
+    return-void
 
+    :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mAirplaneSetting:Lcom/android/systemui/qs/GlobalSetting;
 
     invoke-virtual {v0}, Lcom/android/systemui/qs/GlobalSetting;->getValue()I
 
     move-result v0
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, v4, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f03e7
+    const v1, 0x7f120b8d
 
-    invoke-static {v0, v2, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+    invoke-static {v0, v1, v3}, Lcom/android/systemui/SysUIToast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
     return-void
-
-    :cond_0
-    move v0, v2
-
-    goto :goto_0
 
     :cond_1
     invoke-direct {p0}, Lcom/android/systemui/qs/tiles/VoLteTile;->supportVolteDBChange()Z
@@ -502,9 +768,9 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f03e9
+    const v1, 0x7f120b8e
 
-    invoke-static {v0, v2, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+    invoke-static {v0, v1, v3}, Lcom/android/systemui/SysUIToast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
     move-result-object v0
 
@@ -519,7 +785,7 @@
 
     move-result v0
 
-    if-eq v0, v2, :cond_3
+    if-eq v0, v4, :cond_3
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mTM:Landroid/telephony/TelephonyManager;
 
@@ -527,30 +793,16 @@
 
     move-result v0
 
-    const/4 v3, 0x2
+    const/4 v1, 0x2
 
-    if-ne v0, v3, :cond_4
+    if-ne v0, v1, :cond_4
 
     :cond_3
-    const-string/jumbo v0, "LTE"
-
-    iget-object v3, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mTM:Landroid/telephony/TelephonyManager;
-
-    invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->getNetworkTypeName()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f03e8
+    const v1, 0x7f120b90
 
-    invoke-static {v0, v2, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+    invoke-static {v0, v1, v3}, Lcom/android/systemui/SysUIToast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
     move-result-object v0
 
@@ -563,7 +815,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_7
 
     invoke-direct {p0}, Lcom/android/systemui/qs/tiles/VoLteTile;->isVolteSupportedOpeartor()Z
 
@@ -573,9 +825,9 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f03ea
+    const v1, 0x7f120b91
 
-    invoke-static {v0, v2, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+    invoke-static {v0, v1, v3}, Lcom/android/systemui/SysUIToast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
     move-result-object v0
 
@@ -584,56 +836,73 @@
     return-void
 
     :cond_5
-    sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_QS_VOLTE_CHECK_OPERATOR:Z
+    sget-boolean v0, Lcom/android/systemui/Rune;->QPANEL_SUPPORT_VOLTE_CHECK_OPERATOR:Z
 
     if-eqz v0, :cond_6
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mState:Lcom/android/systemui/qs/QSTile$State;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
 
-    check-cast v0, Lcom/android/systemui/qs/QSTile$BooleanState;
+    check-cast v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
-    iget-boolean v0, v0, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
+    iget-boolean v0, v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
 
-    if-eqz v0, :cond_7
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_6
-    :goto_1
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mState:Lcom/android/systemui/qs/QSTile$State;
+    if-eqz v0, :cond_6
 
-    check-cast v0, Lcom/android/systemui/qs/QSTile$BooleanState;
-
-    iget-boolean v0, v0, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
-
-    if-eqz v0, :cond_8
-
-    :goto_2
-    invoke-virtual {p0, v1}, Lcom/android/systemui/qs/tiles/VoLteTile;->setEnabled(Z)V
-
-    :goto_3
-    return-void
-
-    :cond_7
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0f03eb
+    const v1, 0x7f120b8f
 
-    invoke-static {v0, v3, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+    invoke-static {v0, v1, v3}, Lcom/android/systemui/SysUIToast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    goto :goto_1
+    :cond_6
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
 
-    :cond_8
-    move v1, v2
+    check-cast v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
-    goto :goto_2
+    iget-boolean v0, v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
 
-    :cond_9
+    xor-int/lit8 v0, v0, 0x1
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tiles/VoLteTile;->setEnabled(Z)V
+
+    :goto_0
+    return-void
+
+    :cond_7
     invoke-direct {p0}, Lcom/android/systemui/qs/tiles/VoLteTile;->showNoSIMDialog()V
 
-    goto :goto_3
+    goto :goto_0
+.end method
+
+.method protected handleDestroy()V
+    .locals 1
+
+    invoke-super {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->handleDestroy()V
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mAlertDialog:Landroid/app/AlertDialog;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mAlertDialog:Landroid/app/AlertDialog;
+
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->isShowing()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mAlertDialog:Landroid/app/AlertDialog;
+
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+
+    :cond_0
+    return-void
 .end method
 
 .method protected handleSecondaryClick()V
@@ -655,42 +924,80 @@
     return-void
 .end method
 
-.method protected handleUpdateState(Lcom/android/systemui/qs/QSTile$BooleanState;Ljava/lang/Object;)V
-    .locals 2
+.method protected handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$BooleanState;Ljava/lang/Object;)V
+    .locals 3
+
+    const/4 v1, 0x1
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/VoLteTile;->isVoLteEnabled()Z
 
     move-result v0
 
-    iput-boolean v0, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
+    iput-boolean v0, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mContext:Landroid/content/Context;
+    iget-boolean v0, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
 
-    const v1, 0x7f0f03ba
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    const/4 v0, 0x2
+
+    :goto_0
+    iput v0, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->state:I
+
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mContext:Landroid/content/Context;
+
+    sget-boolean v0, Lcom/android/systemui/Rune;->QPANEL_IS_ZVV_ICON:Z
+
+    if-eqz v0, :cond_1
+
+    const v0, 0x7f120938
+
+    :goto_1
+    invoke-virtual {v2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->label:Ljava/lang/CharSequence;
+    iput-object v0, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->label:Ljava/lang/CharSequence;
 
-    const v0, 0x7f0203ff
+    sget-boolean v0, Lcom/android/systemui/Rune;->QPANEL_IS_ZVV_ICON:Z
 
-    invoke-static {v0}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
+    if-eqz v0, :cond_2
+
+    const v0, 0x7f080540
+
+    :goto_2
+    invoke-static {v0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl$ResourceIcon;->get(I)Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
     move-result-object v0
 
-    iput-object v0, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->icon:Lcom/android/systemui/qs/QSTile$Icon;
+    iput-object v0, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->icon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
+
+    iput-boolean v1, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->dualTarget:Z
 
     return-void
+
+    :cond_0
+    move v0, v1
+
+    goto :goto_0
+
+    :cond_1
+    const v0, 0x7f120937
+
+    goto :goto_1
+
+    :cond_2
+    const v0, 0x7f08053f
+
+    goto :goto_2
 .end method
 
-.method protected bridge synthetic handleUpdateState(Lcom/android/systemui/qs/QSTile$State;Ljava/lang/Object;)V
+.method protected bridge synthetic handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$State;Ljava/lang/Object;)V
     .locals 0
 
-    check-cast p1, Lcom/android/systemui/qs/QSTile$BooleanState;
+    check-cast p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/qs/tiles/VoLteTile;->handleUpdateState(Lcom/android/systemui/qs/QSTile$BooleanState;Ljava/lang/Object;)V
+    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/qs/tiles/VoLteTile;->handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$BooleanState;Ljava/lang/Object;)V
 
     return-void
 .end method
@@ -698,13 +1005,7 @@
 .method protected handleUserSwitch(I)V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mSetting:Lcom/android/systemui/qs/SystemSetting;
-
-    invoke-virtual {v0, p1}, Lcom/android/systemui/qs/SystemSetting;->setUserId(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mSetting:Lcom/android/systemui/qs/SystemSetting;
-
-    invoke-virtual {v0}, Lcom/android/systemui/qs/SystemSetting;->getValue()I
+    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/VoLteTile;->getVoiceCallType()I
 
     move-result v0
 
@@ -718,69 +1019,76 @@
 .end method
 
 .method public isAvailable()Z
-    .locals 3
-
-    const/4 v0, 0x0
+    .locals 2
 
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
-    move-result-object v1
+    move-result-object v0
 
-    const-string/jumbo v2, "CscFeature_IMS_EnableVoLTE"
+    const-string/jumbo v1, "CscFeature_IMS_EnableIMS"
 
-    invoke-virtual {v1, v2}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
+    invoke-virtual {v0, v1}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mHost:Lcom/android/systemui/qs/QSTile$Host;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mHost:Lcom/android/systemui/qs/QSHost;
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/VoLteTile;->getTileSpec()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-interface {v1, v2}, Lcom/android/systemui/qs/QSTile$Host;->shouldBeHiddenByKnox(Ljava/lang/String;)Z
+    invoke-interface {v0, v1}, Lcom/android/systemui/qs/QSHost;->shouldBeHiddenByKnox(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
     :goto_0
     return v0
 
-    :cond_1
-    const/4 v0, 0x1
+    :cond_0
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method
 
 .method public isVoLteEnabled()Z
-    .locals 3
-
-    const/4 v0, 0x1
+    .locals 4
 
     const/4 v1, 0x0
 
-    sget-boolean v2, Lcom/android/systemui/SystemUIRune;->IS_TW_POPUP:Z
+    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/VoLteTile;->getVoiceCallType()I
 
-    if-eqz v2, :cond_0
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    sget-boolean v2, Lcom/android/systemui/Rune;->QPANEL_IS_TW_POPUP:Z
+
+    if-eqz v2, :cond_1
 
     invoke-direct {p0}, Lcom/android/systemui/qs/tiles/VoLteTile;->supportVolteDBChange()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_1
+
+    return v0
 
     :cond_0
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mSetting:Lcom/android/systemui/qs/SystemSetting;
+    const/4 v0, 0x0
 
-    invoke-virtual {v2}, Lcom/android/systemui/qs/SystemSetting;->getValue()I
+    goto :goto_0
 
-    move-result v2
-
-    if-nez v2, :cond_1
+    :cond_1
+    if-eqz v0, :cond_2
 
     iget-object v2, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mAirplaneSetting:Lcom/android/systemui/qs/GlobalSetting;
 
@@ -788,53 +1096,38 @@
 
     move-result v2
 
-    if-eq v2, v0, :cond_1
+    const/4 v3, 0x1
+
+    if-eq v2, v3, :cond_2
 
     invoke-static {}, Lcom/android/systemui/statusbar/DeviceState;->isSimReady()Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_1
+    if-eqz v2, :cond_2
 
     invoke-direct {p0}, Lcom/android/systemui/qs/tiles/VoLteTile;->isVolteSupportedOpeartor()Z
 
     move-result v1
 
-    :cond_1
-    return v1
-
     :cond_2
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mSetting:Lcom/android/systemui/qs/SystemSetting;
-
-    invoke-virtual {v2}, Lcom/android/systemui/qs/SystemSetting;->getValue()I
-
-    move-result v2
-
-    if-nez v2, :cond_3
-
-    :goto_0
-    return v0
-
-    :cond_3
-    move v0, v1
-
-    goto :goto_0
+    return v1
 .end method
 
-.method public newTileState()Lcom/android/systemui/qs/QSTile$BooleanState;
+.method public newTileState()Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
     .locals 1
 
-    new-instance v0, Lcom/android/systemui/qs/QSTile$BooleanState;
+    new-instance v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
-    invoke-direct {v0}, Lcom/android/systemui/qs/QSTile$BooleanState;-><init>()V
+    invoke-direct {v0}, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;-><init>()V
 
     return-object v0
 .end method
 
-.method public bridge synthetic newTileState()Lcom/android/systemui/qs/QSTile$State;
+.method public bridge synthetic newTileState()Lcom/android/systemui/plugins/qs/QSTile$State;
     .locals 1
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/VoLteTile;->newTileState()Lcom/android/systemui/qs/QSTile$BooleanState;
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/VoLteTile;->newTileState()Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
     move-result-object v0
 
@@ -868,27 +1161,23 @@
 
     if-eqz p1, :cond_0
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mSetting:Lcom/android/systemui/qs/SystemSetting;
+    const/4 v0, 0x0
 
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/SystemSetting;->setValue(I)V
+    invoke-direct {p0, v0}, Lcom/android/systemui/qs/tiles/VoLteTile;->setVoiceCallType(I)V
 
     :goto_0
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mSetting:Lcom/android/systemui/qs/SystemSetting;
+    const/4 v0, 0x1
 
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/SystemSetting;->setValue(I)V
+    invoke-direct {p0, v0}, Lcom/android/systemui/qs/tiles/VoLteTile;->setVoiceCallType(I)V
 
     goto :goto_0
 .end method
 
 .method public setListening(Z)V
-    .locals 3
+    .locals 4
 
     iget-boolean v1, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mListening:Z
 
@@ -927,11 +1216,15 @@
 
     invoke-virtual {v1, v2, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mSettingsHelper:Lcom/android/systemui/util/SettingsHelper;
+
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mSettingsCallback:Lcom/android/systemui/util/SettingsHelper$OnChangedCallback;
+
+    iget-object v3, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mSettingsValueList:[Landroid/net/Uri;
+
+    invoke-virtual {v1, v2, v3}, Lcom/android/systemui/util/SettingsHelper;->registerCallback(Lcom/android/systemui/util/SettingsHelper$OnChangedCallback;[Landroid/net/Uri;)V
+
     :goto_0
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mSetting:Lcom/android/systemui/qs/SystemSetting;
-
-    invoke-virtual {v1, p1}, Lcom/android/systemui/qs/SystemSetting;->setListening(Z)V
-
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mAirplaneSetting:Lcom/android/systemui/qs/GlobalSetting;
 
     invoke-virtual {v1, p1}, Lcom/android/systemui/qs/GlobalSetting;->setListening(Z)V
@@ -944,6 +1237,12 @@
     iget-object v2, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mSettingsHelper:Lcom/android/systemui/util/SettingsHelper;
+
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/VoLteTile;->mSettingsCallback:Lcom/android/systemui/util/SettingsHelper$OnChangedCallback;
+
+    invoke-virtual {v1, v2}, Lcom/android/systemui/util/SettingsHelper;->unregisterCallback(Lcom/android/systemui/util/SettingsHelper$OnChangedCallback;)V
 
     goto :goto_0
 .end method

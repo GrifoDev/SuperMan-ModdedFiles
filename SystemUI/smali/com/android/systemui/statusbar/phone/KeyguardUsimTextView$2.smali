@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView$2;->this$0:Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->-get1(Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;)Lcom/android/systemui/statusbar/phone/KeyguardAlphaAffordanceAnimation;
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->-get0(Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;)Lcom/android/systemui/statusbar/phone/KeyguardAlphaAffordanceAnimation;
 
     move-result-object v0
 

@@ -6,6 +6,14 @@
 .implements Landroid/support/v7/view/menu/MenuView$ItemView;
 
 
+# annotations
+.annotation build Landroid/support/annotation/RestrictTo;
+    value = {
+        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
+
 # instance fields
 .field private mBackground:Landroid/graphics/drawable/Drawable;
 
@@ -301,6 +309,12 @@
 
     invoke-direct {p0, v0}, Landroid/support/v7/view/menu/ListMenuItemView;->setSubMenuArrowVisible(Z)V
 
+    invoke-virtual {p1}, Landroid/support/v7/view/menu/MenuItemImpl;->getContentDescription()Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Landroid/support/v7/view/menu/ListMenuItemView;->setContentDescription(Ljava/lang/CharSequence;)V
+
     return-void
 
     :cond_0
@@ -316,7 +330,7 @@
 
     iget-object v0, p0, Landroid/support/v7/view/menu/ListMenuItemView;->mBackground:Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {p0, v0}, Landroid/support/v7/view/menu/ListMenuItemView;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-static {p0, v0}, Landroid/support/v4/view/ViewCompat;->setBackground(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V
 
     sget v0, Landroid/support/v7/appcompat/R$id;->title:I
 
@@ -565,46 +579,59 @@
 
     move-result v2
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_0
 
     iget-boolean v0, p0, Landroid/support/v7/view/menu/ListMenuItemView;->mForceShowIcon:Z
 
     :goto_0
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
     iget-boolean v2, p0, Landroid/support/v7/view/menu/ListMenuItemView;->mPreserveIconSpacing:Z
 
-    if-eqz v2, :cond_6
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_1
+
+    return-void
 
     :cond_0
-    iget-object v2, p0, Landroid/support/v7/view/menu/ListMenuItemView;->mIconView:Landroid/widget/ImageView;
+    const/4 v0, 0x1
 
-    if-nez v2, :cond_1
-
-    if-nez p1, :cond_1
-
-    iget-boolean v2, p0, Landroid/support/v7/view/menu/ListMenuItemView;->mPreserveIconSpacing:Z
-
-    if-eqz v2, :cond_7
+    goto :goto_0
 
     :cond_1
     iget-object v2, p0, Landroid/support/v7/view/menu/ListMenuItemView;->mIconView:Landroid/widget/ImageView;
 
     if-nez v2, :cond_2
 
-    invoke-direct {p0}, Landroid/support/v7/view/menu/ListMenuItemView;->insertIconView()V
-
-    :cond_2
-    if-nez p1, :cond_3
+    if-nez p1, :cond_2
 
     iget-boolean v2, p0, Landroid/support/v7/view/menu/ListMenuItemView;->mPreserveIconSpacing:Z
 
-    if-eqz v2, :cond_9
+    xor-int/lit8 v2, v2, 0x1
 
-    :cond_3
+    if-eqz v2, :cond_2
+
+    return-void
+
+    :cond_2
     iget-object v2, p0, Landroid/support/v7/view/menu/ListMenuItemView;->mIconView:Landroid/widget/ImageView;
 
-    if-eqz v0, :cond_8
+    if-nez v2, :cond_3
+
+    invoke-direct {p0}, Landroid/support/v7/view/menu/ListMenuItemView;->insertIconView()V
+
+    :cond_3
+    if-nez p1, :cond_4
+
+    iget-boolean v2, p0, Landroid/support/v7/view/menu/ListMenuItemView;->mPreserveIconSpacing:Z
+
+    if-eqz v2, :cond_7
+
+    :cond_4
+    iget-object v2, p0, Landroid/support/v7/view/menu/ListMenuItemView;->mIconView:Landroid/widget/ImageView;
+
+    if-eqz v0, :cond_6
 
     :goto_1
     invoke-virtual {v2, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
@@ -615,33 +642,22 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_5
 
     iget-object v1, p0, Landroid/support/v7/view/menu/ListMenuItemView;->mIconView:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v3}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    :cond_4
+    :cond_5
     :goto_2
     return-void
 
-    :cond_5
-    const/4 v0, 0x1
-
-    goto :goto_0
-
     :cond_6
-    return-void
-
-    :cond_7
-    return-void
-
-    :cond_8
     move-object p1, v1
 
     goto :goto_1
 
-    :cond_9
+    :cond_7
     iget-object v1, p0, Landroid/support/v7/view/menu/ListMenuItemView;->mIconView:Landroid/widget/ImageView;
 
     const/16 v2, 0x8
@@ -654,8 +670,6 @@
 .method public setShortcut(ZC)V
     .locals 3
 
-    const/4 v0, 0x0
-
     if-eqz p1, :cond_2
 
     iget-object v1, p0, Landroid/support/v7/view/menu/ListMenuItemView;->mItemData:Landroid/support/v7/view/menu/MenuItemImpl;
@@ -665,6 +679,8 @@
     move-result v1
 
     if-eqz v1, :cond_2
+
+    const/4 v0, 0x0
 
     :goto_0
     if-nez v0, :cond_0

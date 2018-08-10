@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/ksh_help_popup_font_size" android:gravity="center_vertical" android:id="@id/info_key_text" android:padding="@dimen/ksh_help_popup_padding" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/keyboard_shortcut_popup_help" android:includeFontPadding="false" />
+</FrameLayout>

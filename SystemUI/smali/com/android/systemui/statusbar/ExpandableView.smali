@@ -20,11 +20,15 @@
 
 .field private mChangingPosition:Z
 
+.field protected mClipBottomAmount:I
+
 .field private mClipToActualHeight:Z
 
 .field protected mClipTopAmount:I
 
 .field private mDark:Z
+
+.field private mInShelf:Z
 
 .field private mMatchParentViews:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
@@ -41,7 +45,7 @@
 
 .field protected mOnHeightChangedListener:Lcom/android/systemui/statusbar/ExpandableView$OnHeightChangedListener;
 
-.field protected mShowBackground:Z
+.field private mTransformingInShelf:Z
 
 .field private mTransientContainer:Landroid/view/ViewGroup;
 
@@ -90,25 +94,12 @@
 
     iget-boolean v1, p0, Lcom/android/systemui/statusbar/ExpandableView;->mClipToActualHeight:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/ExpandableView;->getClipTopAmount()I
 
     move-result v0
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ExpandableView;->getActualHeight()I
-
-    move-result v1
-
-    if-lt v0, v1, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ExpandableView;->getActualHeight()I
-
-    move-result v1
-
-    add-int/lit8 v0, v1, -0x1
-
-    :cond_0
     sget-object v1, Lcom/android/systemui/statusbar/ExpandableView;->mClipRect:Landroid/graphics/Rect;
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/ExpandableView;->getWidth()I
@@ -116,6 +107,20 @@
     move-result v2
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/ExpandableView;->getActualHeight()I
+
+    move-result v3
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ExpandableView;->getExtraBottomPadding()I
+
+    move-result v4
+
+    add-int/2addr v3, v4
+
+    iget v4, p0, Lcom/android/systemui/statusbar/ExpandableView;->mClipBottomAmount:I
+
+    sub-int/2addr v3, v4
+
+    invoke-static {v3, v0}, Ljava/lang/Math;->max(II)I
 
     move-result v3
 
@@ -130,7 +135,7 @@
     :goto_0
     return-void
 
-    :cond_1
+    :cond_0
     const/4 v1, 0x0
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/ExpandableView;->setClipBounds(Landroid/graphics/Rect;)V
@@ -148,12 +153,14 @@
     return v0
 .end method
 
-.method public canBeSwiped()Z
+.method public createNewViewState(Lcom/android/systemui/statusbar/stack/StackScrollState;)Lcom/android/systemui/statusbar/stack/ExpandableViewState;
     .locals 1
 
-    const/4 v0, 0x1
+    new-instance v0, Lcom/android/systemui/statusbar/stack/ExpandableViewState;
 
-    return v0
+    invoke-direct {v0}, Lcom/android/systemui/statusbar/stack/ExpandableViewState;-><init>()V
+
+    return-object v0
 .end method
 
 .method public getActualHeight()I
@@ -165,10 +172,51 @@
 .end method
 
 .method public getBoundsOnScreen(Landroid/graphics/Rect;Z)V
-    .locals 2
+    .locals 3
 
     invoke-super {p0, p1, p2}, Landroid/widget/FrameLayout;->getBoundsOnScreen(Landroid/graphics/Rect;Z)V
 
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ExpandableView;->getTop()I
+
+    move-result v0
+
+    int-to-float v0, v0
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ExpandableView;->getTranslationY()F
+
+    move-result v1
+
+    add-float/2addr v0, v1
+
+    const/4 v1, 0x0
+
+    cmpg-float v0, v0, v1
+
+    if-gez v0, :cond_0
+
+    iget v0, p1, Landroid/graphics/Rect;->top:I
+
+    int-to-float v0, v0
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ExpandableView;->getTop()I
+
+    move-result v1
+
+    int-to-float v1, v1
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ExpandableView;->getTranslationY()F
+
+    move-result v2
+
+    add-float/2addr v1, v2
+
+    add-float/2addr v0, v1
+
+    float-to-int v0, v0
+
+    iput v0, p1, Landroid/graphics/Rect;->top:I
+
+    :cond_0
     iget v0, p1, Landroid/graphics/Rect;->top:I
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/ExpandableView;->getActualHeight()I
@@ -190,6 +238,14 @@
     iput v0, p1, Landroid/graphics/Rect;->top:I
 
     return-void
+.end method
+
+.method public getClipBottomAmount()I
+    .locals 1
+
+    iget v0, p0, Lcom/android/systemui/statusbar/ExpandableView;->mClipBottomAmount:I
+
+    return v0
 .end method
 
 .method public getClipTopAmount()I
@@ -290,6 +346,14 @@
     return-void
 .end method
 
+.method public getExtraBottomPadding()I
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
 .method public getIncreasedPaddingAmount()F
     .locals 1
 
@@ -344,6 +408,16 @@
     return v0
 .end method
 
+.method public getPinnedHeadsUpHeight()I
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ExpandableView;->getIntrinsicHeight()I
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public getShadowAlpha()F
     .locals 1
 
@@ -366,6 +440,14 @@
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/ExpandableView;->getTranslationX()F
 
     move-result v0
+
+    return v0
+.end method
+
+.method public hasNoContentHeight()Z
+    .locals 1
+
+    const/4 v0, 0x0
 
     return v0
 .end method
@@ -397,10 +479,26 @@
     return v0
 .end method
 
+.method public isAboveShelf()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
 .method public isChangingPosition()Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/ExpandableView;->mChangingPosition:Z
+
+    return v0
+.end method
+
+.method public isChildInGroup()Z
+    .locals 1
+
+    const/4 v0, 0x0
 
     return v0
 .end method
@@ -421,10 +519,42 @@
     return v0
 .end method
 
+.method public isGroupExpanded()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public isGroupExpansionChanging()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public isInShelf()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/ExpandableView;->mInShelf:Z
+
+    return v0
+.end method
+
 .method public isSummaryWithChildren()Z
     .locals 1
 
     const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public isTransformingIntoShelf()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/ExpandableView;->mTransformingInShelf:Z
 
     return v0
 .end method
@@ -830,6 +960,12 @@
     return-void
 .end method
 
+.method public setActualHeightAnimating(Z)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public setBelowSpeedBump(Z)V
     .locals 0
 
@@ -840,6 +976,16 @@
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/systemui/statusbar/ExpandableView;->mChangingPosition:Z
+
+    return-void
+.end method
+
+.method public setClipBottomAmount(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/statusbar/ExpandableView;->mClipBottomAmount:I
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/ExpandableView;->updateClipping()V
 
     return-void
 .end method
@@ -896,6 +1042,14 @@
     return-void
 .end method
 
+.method public setInShelf(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/ExpandableView;->mInShelf:Z
+
+    return-void
+.end method
+
 .method public setLayerType(ILandroid/graphics/Paint;)V
     .locals 1
 
@@ -929,6 +1083,14 @@
 
 .method public setShadowAlpha(F)V
     .locals 0
+
+    return-void
+.end method
+
+.method public setTransformingInShelf(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/ExpandableView;->mTransformingInShelf:Z
 
     return-void
 .end method

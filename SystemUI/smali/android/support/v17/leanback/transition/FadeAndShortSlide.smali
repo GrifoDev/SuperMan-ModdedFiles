@@ -4,6 +4,16 @@
 
 
 # annotations
+.annotation build Landroid/support/annotation/RequiresApi;
+    value = 0x15
+.end annotation
+
+.annotation build Landroid/support/annotation/RestrictTo;
+    value = {
+        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/support/v17/leanback/transition/FadeAndShortSlide$1;,
@@ -246,6 +256,21 @@
     check-cast v1, Landroid/transition/Visibility;
 
     iput-object v1, v0, Landroid/support/v17/leanback/transition/FadeAndShortSlide;->mFade:Landroid/transition/Visibility;
+
+    return-object v0
+.end method
+
+.method public bridge synthetic clone()Ljava/lang/Object;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/CloneNotSupportedException;
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Landroid/support/v17/leanback/transition/FadeAndShortSlide;->clone()Landroid/transition/Transition;
+
+    move-result-object v0
 
     return-object v0
 .end method
@@ -574,6 +599,14 @@
     move-result-object v0
 
     return-object v0
+.end method
+
+.method public setDistance(F)V
+    .locals 0
+
+    iput p1, p0, Landroid/support/v17/leanback/transition/FadeAndShortSlide;->mDistance:F
+
+    return-void
 .end method
 
 .method public setEpicenterCallback(Landroid/transition/Transition$EpicenterCallback;)V

@@ -17,32 +17,40 @@
 
 .field protected mLastVisibleIndex:I
 
-.field protected mMargin:I
-
 .field protected mNumRows:I
 
 .field protected mProvider:Landroid/support/v17/leanback/widget/Grid$Provider;
 
 .field protected mReversedFlow:Z
 
+.field protected mSpacing:I
+
 .field protected mStartIndex:I
+
+.field mTmpItem:[Ljava/lang/Object;
 
 .field protected mTmpItemPositionsInRows:[Landroid/support/v4/util/CircularIntArray;
 
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .locals 2
 
-    const/4 v0, -0x1
+    const/4 v1, -0x1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput v0, p0, Landroid/support/v17/leanback/widget/Grid;->mFirstVisibleIndex:I
+    const/4 v0, 0x1
 
-    iput v0, p0, Landroid/support/v17/leanback/widget/Grid;->mLastVisibleIndex:I
+    new-array v0, v0, [Ljava/lang/Object;
 
-    iput v0, p0, Landroid/support/v17/leanback/widget/Grid;->mStartIndex:I
+    iput-object v0, p0, Landroid/support/v17/leanback/widget/Grid;->mTmpItem:[Ljava/lang/Object;
+
+    iput v1, p0, Landroid/support/v17/leanback/widget/Grid;->mFirstVisibleIndex:I
+
+    iput v1, p0, Landroid/support/v17/leanback/widget/Grid;->mLastVisibleIndex:I
+
+    iput v1, p0, Landroid/support/v17/leanback/widget/Grid;->mStartIndex:I
 
     return-void
 .end method
@@ -71,7 +79,7 @@
     goto :goto_0
 .end method
 
-.method private resetVisbileIndexIfEmpty()V
+.method private resetVisibleIndexIfEmpty()V
     .locals 2
 
     iget v0, p0, Landroid/support/v17/leanback/widget/Grid;->mLastVisibleIndex:I
@@ -149,7 +157,7 @@
 
     move-result v2
 
-    iget v3, p0, Landroid/support/v17/leanback/widget/Grid;->mMargin:I
+    iget v3, p0, Landroid/support/v17/leanback/widget/Grid;->mSpacing:I
 
     add-int/2addr v3, p1
 
@@ -169,7 +177,7 @@
 
     move-result v2
 
-    iget v3, p0, Landroid/support/v17/leanback/widget/Grid;->mMargin:I
+    iget v3, p0, Landroid/support/v17/leanback/widget/Grid;->mSpacing:I
 
     sub-int v3, p1, v3
 
@@ -204,9 +212,9 @@
 
     move-result v2
 
-    iget v3, p0, Landroid/support/v17/leanback/widget/Grid;->mMargin:I
+    iget v3, p0, Landroid/support/v17/leanback/widget/Grid;->mSpacing:I
 
-    add-int/2addr v3, p1
+    sub-int v3, p1, v3
 
     if-lt v2, v3, :cond_2
 
@@ -224,9 +232,9 @@
 
     move-result v2
 
-    iget v3, p0, Landroid/support/v17/leanback/widget/Grid;->mMargin:I
+    iget v3, p0, Landroid/support/v17/leanback/widget/Grid;->mSpacing:I
 
-    sub-int v3, p1, v3
+    add-int/2addr v3, p1
 
     if-le v2, v3, :cond_1
 
@@ -235,11 +243,331 @@
     goto :goto_0
 .end method
 
+.method public collectAdjacentPrefetchPositions(IILandroid/support/v7/widget/RecyclerView$LayoutManager$LayoutPrefetchRegistry;)V
+    .locals 0
+    .param p3    # Landroid/support/v7/widget/RecyclerView$LayoutManager$LayoutPrefetchRegistry;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    return-void
+.end method
+
+.method public fillDisappearingItems([IILandroid/util/SparseIntArray;)V
+    .locals 16
+
+    invoke-virtual/range {p0 .. p0}, Landroid/support/v17/leanback/widget/Grid;->getLastVisibleIndex()I
+
+    move-result v11
+
+    if-ltz v11, :cond_1
+
+    const/4 v2, 0x0
+
+    move-object/from16 v0, p1
+
+    move/from16 v1, p2
+
+    invoke-static {v0, v2, v1, v11}, Ljava/util/Arrays;->binarySearch([IIII)I
+
+    move-result v13
+
+    :goto_0
+    if-gez v13, :cond_4
+
+    neg-int v2, v13
+
+    add-int/lit8 v8, v2, -0x1
+
+    move-object/from16 v0, p0
+
+    iget-boolean v2, v0, Landroid/support/v17/leanback/widget/Grid;->mReversedFlow:Z
+
+    if-eqz v2, :cond_2
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/support/v17/leanback/widget/Grid;->mProvider:Landroid/support/v17/leanback/widget/Grid$Provider;
+
+    invoke-interface {v2, v11}, Landroid/support/v17/leanback/widget/Grid$Provider;->getEdge(I)I
+
+    move-result v2
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Landroid/support/v17/leanback/widget/Grid;->mProvider:Landroid/support/v17/leanback/widget/Grid$Provider;
+
+    invoke-interface {v3, v11}, Landroid/support/v17/leanback/widget/Grid$Provider;->getSize(I)I
+
+    move-result v3
+
+    sub-int/2addr v2, v3
+
+    move-object/from16 v0, p0
+
+    iget v3, v0, Landroid/support/v17/leanback/widget/Grid;->mSpacing:I
+
+    sub-int v7, v2, v3
+
+    :goto_1
+    move v10, v8
+
+    :goto_2
+    move/from16 v0, p2
+
+    if-ge v10, v0, :cond_4
+
+    aget v4, p1, v10
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v4}, Landroid/util/SparseIntArray;->get(I)I
+
+    move-result v6
+
+    if-gez v6, :cond_0
+
+    const/4 v6, 0x0
+
+    :cond_0
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/support/v17/leanback/widget/Grid;->mProvider:Landroid/support/v17/leanback/widget/Grid$Provider;
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Landroid/support/v17/leanback/widget/Grid;->mTmpItem:[Ljava/lang/Object;
+
+    const/4 v14, 0x1
+
+    const/4 v15, 0x1
+
+    invoke-interface {v2, v4, v14, v3, v15}, Landroid/support/v17/leanback/widget/Grid$Provider;->createItem(IZ[Ljava/lang/Object;Z)I
+
+    move-result v5
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/support/v17/leanback/widget/Grid;->mProvider:Landroid/support/v17/leanback/widget/Grid$Provider;
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Landroid/support/v17/leanback/widget/Grid;->mTmpItem:[Ljava/lang/Object;
+
+    const/4 v14, 0x0
+
+    aget-object v3, v3, v14
+
+    invoke-interface/range {v2 .. v7}, Landroid/support/v17/leanback/widget/Grid$Provider;->addItem(Ljava/lang/Object;IIII)V
+
+    move-object/from16 v0, p0
+
+    iget-boolean v2, v0, Landroid/support/v17/leanback/widget/Grid;->mReversedFlow:Z
+
+    if-eqz v2, :cond_3
+
+    sub-int v2, v7, v5
+
+    move-object/from16 v0, p0
+
+    iget v3, v0, Landroid/support/v17/leanback/widget/Grid;->mSpacing:I
+
+    sub-int v7, v2, v3
+
+    :goto_3
+    add-int/lit8 v10, v10, 0x1
+
+    goto :goto_2
+
+    :cond_1
+    const/4 v13, 0x0
+
+    goto :goto_0
+
+    :cond_2
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/support/v17/leanback/widget/Grid;->mProvider:Landroid/support/v17/leanback/widget/Grid$Provider;
+
+    invoke-interface {v2, v11}, Landroid/support/v17/leanback/widget/Grid$Provider;->getEdge(I)I
+
+    move-result v2
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Landroid/support/v17/leanback/widget/Grid;->mProvider:Landroid/support/v17/leanback/widget/Grid$Provider;
+
+    invoke-interface {v3, v11}, Landroid/support/v17/leanback/widget/Grid$Provider;->getSize(I)I
+
+    move-result v3
+
+    add-int/2addr v2, v3
+
+    move-object/from16 v0, p0
+
+    iget v3, v0, Landroid/support/v17/leanback/widget/Grid;->mSpacing:I
+
+    add-int v7, v2, v3
+
+    goto :goto_1
+
+    :cond_3
+    add-int v2, v7, v5
+
+    move-object/from16 v0, p0
+
+    iget v3, v0, Landroid/support/v17/leanback/widget/Grid;->mSpacing:I
+
+    add-int v7, v2, v3
+
+    goto :goto_3
+
+    :cond_4
+    invoke-virtual/range {p0 .. p0}, Landroid/support/v17/leanback/widget/Grid;->getFirstVisibleIndex()I
+
+    move-result v9
+
+    if-ltz v9, :cond_6
+
+    const/4 v2, 0x0
+
+    move-object/from16 v0, p1
+
+    move/from16 v1, p2
+
+    invoke-static {v0, v2, v1, v9}, Ljava/util/Arrays;->binarySearch([IIII)I
+
+    move-result v12
+
+    :goto_4
+    if-gez v12, :cond_9
+
+    neg-int v2, v12
+
+    add-int/lit8 v8, v2, -0x2
+
+    move-object/from16 v0, p0
+
+    iget-boolean v2, v0, Landroid/support/v17/leanback/widget/Grid;->mReversedFlow:Z
+
+    if-eqz v2, :cond_7
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/support/v17/leanback/widget/Grid;->mProvider:Landroid/support/v17/leanback/widget/Grid$Provider;
+
+    invoke-interface {v2, v9}, Landroid/support/v17/leanback/widget/Grid$Provider;->getEdge(I)I
+
+    move-result v7
+
+    :goto_5
+    move v10, v8
+
+    :goto_6
+    if-ltz v10, :cond_9
+
+    aget v4, p1, v10
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v4}, Landroid/util/SparseIntArray;->get(I)I
+
+    move-result v6
+
+    if-gez v6, :cond_5
+
+    const/4 v6, 0x0
+
+    :cond_5
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/support/v17/leanback/widget/Grid;->mProvider:Landroid/support/v17/leanback/widget/Grid$Provider;
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Landroid/support/v17/leanback/widget/Grid;->mTmpItem:[Ljava/lang/Object;
+
+    const/4 v14, 0x0
+
+    const/4 v15, 0x1
+
+    invoke-interface {v2, v4, v14, v3, v15}, Landroid/support/v17/leanback/widget/Grid$Provider;->createItem(IZ[Ljava/lang/Object;Z)I
+
+    move-result v5
+
+    move-object/from16 v0, p0
+
+    iget-boolean v2, v0, Landroid/support/v17/leanback/widget/Grid;->mReversedFlow:Z
+
+    if-eqz v2, :cond_8
+
+    move-object/from16 v0, p0
+
+    iget v2, v0, Landroid/support/v17/leanback/widget/Grid;->mSpacing:I
+
+    add-int/2addr v2, v7
+
+    add-int v7, v2, v5
+
+    :goto_7
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/support/v17/leanback/widget/Grid;->mProvider:Landroid/support/v17/leanback/widget/Grid$Provider;
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Landroid/support/v17/leanback/widget/Grid;->mTmpItem:[Ljava/lang/Object;
+
+    const/4 v14, 0x0
+
+    aget-object v3, v3, v14
+
+    invoke-interface/range {v2 .. v7}, Landroid/support/v17/leanback/widget/Grid$Provider;->addItem(Ljava/lang/Object;IIII)V
+
+    add-int/lit8 v10, v10, -0x1
+
+    goto :goto_6
+
+    :cond_6
+    const/4 v12, 0x0
+
+    goto :goto_4
+
+    :cond_7
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/support/v17/leanback/widget/Grid;->mProvider:Landroid/support/v17/leanback/widget/Grid$Provider;
+
+    invoke-interface {v2, v9}, Landroid/support/v17/leanback/widget/Grid$Provider;->getEdge(I)I
+
+    move-result v7
+
+    goto :goto_5
+
+    :cond_8
+    move-object/from16 v0, p0
+
+    iget v2, v0, Landroid/support/v17/leanback/widget/Grid;->mSpacing:I
+
+    sub-int v2, v7, v2
+
+    sub-int v7, v2, v5
+
+    goto :goto_7
+
+    :cond_9
+    return-void
+.end method
+
 .method protected abstract findRowMax(ZI[I)I
 .end method
 
 .method public final findRowMax(Z[I)I
     .locals 1
+    .param p2    # [I
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     iget-boolean v0, p0, Landroid/support/v17/leanback/widget/Grid;->mReversedFlow:Z
 
@@ -265,6 +593,10 @@
 
 .method public final findRowMin(Z[I)I
     .locals 1
+    .param p2    # [I
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     iget-boolean v0, p0, Landroid/support/v17/leanback/widget/Grid;->mReversedFlow:Z
 
@@ -334,19 +666,26 @@
 .end method
 
 .method public final getRowIndex(I)I
-    .locals 1
+    .locals 2
 
     invoke-virtual {p0, p1}, Landroid/support/v17/leanback/widget/Grid;->getLocation(I)Landroid/support/v17/leanback/widget/Grid$Location;
 
     move-result-object v0
 
-    iget v0, v0, Landroid/support/v17/leanback/widget/Grid$Location;->row:I
+    if-nez v0, :cond_0
 
-    return v0
+    const/4 v1, -0x1
+
+    return v1
+
+    :cond_0
+    iget v1, v0, Landroid/support/v17/leanback/widget/Grid$Location;->row:I
+
+    return v1
 .end method
 
 .method public invalidateItemsAfter(I)V
-    .locals 2
+    .locals 1
 
     if-gez p1, :cond_0
 
@@ -360,27 +699,16 @@
     return-void
 
     :cond_1
-    :goto_0
     iget v0, p0, Landroid/support/v17/leanback/widget/Grid;->mLastVisibleIndex:I
 
     if-lt v0, p1, :cond_2
 
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/Grid;->mProvider:Landroid/support/v17/leanback/widget/Grid$Provider;
-
-    iget v1, p0, Landroid/support/v17/leanback/widget/Grid;->mLastVisibleIndex:I
-
-    invoke-interface {v0, v1}, Landroid/support/v17/leanback/widget/Grid$Provider;->removeItem(I)V
-
-    iget v0, p0, Landroid/support/v17/leanback/widget/Grid;->mLastVisibleIndex:I
-
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 v0, p1, -0x1
 
     iput v0, p0, Landroid/support/v17/leanback/widget/Grid;->mLastVisibleIndex:I
 
-    goto :goto_0
-
     :cond_2
-    invoke-direct {p0}, Landroid/support/v17/leanback/widget/Grid;->resetVisbileIndexIfEmpty()V
+    invoke-direct {p0}, Landroid/support/v17/leanback/widget/Grid;->resetVisibleIndexIfEmpty()V
 
     invoke-virtual {p0}, Landroid/support/v17/leanback/widget/Grid;->getFirstVisibleIndex()I
 
@@ -440,185 +768,169 @@
 .end method
 
 .method public removeInvisibleItemsAtEnd(II)V
-    .locals 5
-
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
+    .locals 3
 
     :goto_0
-    iget v3, p0, Landroid/support/v17/leanback/widget/Grid;->mLastVisibleIndex:I
+    iget v1, p0, Landroid/support/v17/leanback/widget/Grid;->mLastVisibleIndex:I
 
-    iget v4, p0, Landroid/support/v17/leanback/widget/Grid;->mFirstVisibleIndex:I
+    iget v2, p0, Landroid/support/v17/leanback/widget/Grid;->mFirstVisibleIndex:I
 
-    if-lt v3, v4, :cond_3
+    if-lt v1, v2, :cond_3
 
-    iget v3, p0, Landroid/support/v17/leanback/widget/Grid;->mLastVisibleIndex:I
+    iget v1, p0, Landroid/support/v17/leanback/widget/Grid;->mLastVisibleIndex:I
 
-    if-le v3, p1, :cond_3
+    if-le v1, p1, :cond_3
 
-    iget-boolean v3, p0, Landroid/support/v17/leanback/widget/Grid;->mReversedFlow:Z
+    iget-boolean v1, p0, Landroid/support/v17/leanback/widget/Grid;->mReversedFlow:Z
 
-    if-nez v3, :cond_1
+    if-nez v1, :cond_1
 
-    iget-object v3, p0, Landroid/support/v17/leanback/widget/Grid;->mProvider:Landroid/support/v17/leanback/widget/Grid$Provider;
+    iget-object v1, p0, Landroid/support/v17/leanback/widget/Grid;->mProvider:Landroid/support/v17/leanback/widget/Grid$Provider;
 
-    iget v4, p0, Landroid/support/v17/leanback/widget/Grid;->mLastVisibleIndex:I
+    iget v2, p0, Landroid/support/v17/leanback/widget/Grid;->mLastVisibleIndex:I
 
-    invoke-interface {v3, v4}, Landroid/support/v17/leanback/widget/Grid$Provider;->getEdge(I)I
+    invoke-interface {v1, v2}, Landroid/support/v17/leanback/widget/Grid$Provider;->getEdge(I)I
 
-    move-result v3
+    move-result v1
 
-    if-lt v3, p2, :cond_0
+    if-lt v1, p2, :cond_0
 
-    move v0, v1
+    const/4 v0, 0x1
 
     :goto_1
     if-eqz v0, :cond_3
 
-    iget-object v3, p0, Landroid/support/v17/leanback/widget/Grid;->mProvider:Landroid/support/v17/leanback/widget/Grid$Provider;
+    iget-object v1, p0, Landroid/support/v17/leanback/widget/Grid;->mProvider:Landroid/support/v17/leanback/widget/Grid$Provider;
 
-    iget v4, p0, Landroid/support/v17/leanback/widget/Grid;->mLastVisibleIndex:I
+    iget v2, p0, Landroid/support/v17/leanback/widget/Grid;->mLastVisibleIndex:I
 
-    invoke-interface {v3, v4}, Landroid/support/v17/leanback/widget/Grid$Provider;->removeItem(I)V
+    invoke-interface {v1, v2}, Landroid/support/v17/leanback/widget/Grid$Provider;->removeItem(I)V
 
-    iget v3, p0, Landroid/support/v17/leanback/widget/Grid;->mLastVisibleIndex:I
+    iget v1, p0, Landroid/support/v17/leanback/widget/Grid;->mLastVisibleIndex:I
 
-    add-int/lit8 v3, v3, -0x1
+    add-int/lit8 v1, v1, -0x1
 
-    iput v3, p0, Landroid/support/v17/leanback/widget/Grid;->mLastVisibleIndex:I
+    iput v1, p0, Landroid/support/v17/leanback/widget/Grid;->mLastVisibleIndex:I
 
     goto :goto_0
 
     :cond_0
-    move v0, v2
+    const/4 v0, 0x0
 
     goto :goto_1
 
     :cond_1
-    iget-object v3, p0, Landroid/support/v17/leanback/widget/Grid;->mProvider:Landroid/support/v17/leanback/widget/Grid$Provider;
+    iget-object v1, p0, Landroid/support/v17/leanback/widget/Grid;->mProvider:Landroid/support/v17/leanback/widget/Grid$Provider;
 
-    iget v4, p0, Landroid/support/v17/leanback/widget/Grid;->mLastVisibleIndex:I
+    iget v2, p0, Landroid/support/v17/leanback/widget/Grid;->mLastVisibleIndex:I
 
-    invoke-interface {v3, v4}, Landroid/support/v17/leanback/widget/Grid$Provider;->getEdge(I)I
+    invoke-interface {v1, v2}, Landroid/support/v17/leanback/widget/Grid$Provider;->getEdge(I)I
 
-    move-result v3
+    move-result v1
 
-    if-gt v3, p2, :cond_2
+    if-gt v1, p2, :cond_2
 
-    move v0, v1
+    const/4 v0, 0x1
 
     goto :goto_1
 
     :cond_2
-    move v0, v2
+    const/4 v0, 0x0
 
     goto :goto_1
 
     :cond_3
-    invoke-direct {p0}, Landroid/support/v17/leanback/widget/Grid;->resetVisbileIndexIfEmpty()V
+    invoke-direct {p0}, Landroid/support/v17/leanback/widget/Grid;->resetVisibleIndexIfEmpty()V
 
     return-void
 .end method
 
 .method public removeInvisibleItemsAtFront(II)V
-    .locals 6
-
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
+    .locals 4
 
     :goto_0
-    iget v3, p0, Landroid/support/v17/leanback/widget/Grid;->mLastVisibleIndex:I
-
-    iget v4, p0, Landroid/support/v17/leanback/widget/Grid;->mFirstVisibleIndex:I
-
-    if-lt v3, v4, :cond_3
+    iget v2, p0, Landroid/support/v17/leanback/widget/Grid;->mLastVisibleIndex:I
 
     iget v3, p0, Landroid/support/v17/leanback/widget/Grid;->mFirstVisibleIndex:I
 
-    if-ge v3, p1, :cond_3
+    if-lt v2, v3, :cond_3
 
-    iget-boolean v3, p0, Landroid/support/v17/leanback/widget/Grid;->mReversedFlow:Z
+    iget v2, p0, Landroid/support/v17/leanback/widget/Grid;->mFirstVisibleIndex:I
 
-    if-nez v3, :cond_1
+    if-ge v2, p1, :cond_3
 
-    iget-object v3, p0, Landroid/support/v17/leanback/widget/Grid;->mProvider:Landroid/support/v17/leanback/widget/Grid$Provider;
+    iget-object v2, p0, Landroid/support/v17/leanback/widget/Grid;->mProvider:Landroid/support/v17/leanback/widget/Grid$Provider;
 
-    iget v4, p0, Landroid/support/v17/leanback/widget/Grid;->mFirstVisibleIndex:I
+    iget v3, p0, Landroid/support/v17/leanback/widget/Grid;->mFirstVisibleIndex:I
 
-    invoke-interface {v3, v4}, Landroid/support/v17/leanback/widget/Grid$Provider;->getEdge(I)I
+    invoke-interface {v2, v3}, Landroid/support/v17/leanback/widget/Grid$Provider;->getSize(I)I
 
-    move-result v3
+    move-result v1
 
-    iget-object v4, p0, Landroid/support/v17/leanback/widget/Grid;->mProvider:Landroid/support/v17/leanback/widget/Grid$Provider;
+    iget-boolean v2, p0, Landroid/support/v17/leanback/widget/Grid;->mReversedFlow:Z
 
-    iget v5, p0, Landroid/support/v17/leanback/widget/Grid;->mFirstVisibleIndex:I
+    if-nez v2, :cond_1
 
-    invoke-interface {v4, v5}, Landroid/support/v17/leanback/widget/Grid$Provider;->getSize(I)I
+    iget-object v2, p0, Landroid/support/v17/leanback/widget/Grid;->mProvider:Landroid/support/v17/leanback/widget/Grid$Provider;
 
-    move-result v4
+    iget v3, p0, Landroid/support/v17/leanback/widget/Grid;->mFirstVisibleIndex:I
 
-    add-int/2addr v3, v4
+    invoke-interface {v2, v3}, Landroid/support/v17/leanback/widget/Grid$Provider;->getEdge(I)I
 
-    if-gt v3, p2, :cond_0
+    move-result v2
 
-    move v0, v1
+    add-int/2addr v2, v1
+
+    if-gt v2, p2, :cond_0
+
+    const/4 v0, 0x1
 
     :goto_1
     if-eqz v0, :cond_3
 
-    iget-object v3, p0, Landroid/support/v17/leanback/widget/Grid;->mProvider:Landroid/support/v17/leanback/widget/Grid$Provider;
-
-    iget v4, p0, Landroid/support/v17/leanback/widget/Grid;->mFirstVisibleIndex:I
-
-    invoke-interface {v3, v4}, Landroid/support/v17/leanback/widget/Grid$Provider;->removeItem(I)V
+    iget-object v2, p0, Landroid/support/v17/leanback/widget/Grid;->mProvider:Landroid/support/v17/leanback/widget/Grid$Provider;
 
     iget v3, p0, Landroid/support/v17/leanback/widget/Grid;->mFirstVisibleIndex:I
 
-    add-int/lit8 v3, v3, 0x1
+    invoke-interface {v2, v3}, Landroid/support/v17/leanback/widget/Grid$Provider;->removeItem(I)V
 
-    iput v3, p0, Landroid/support/v17/leanback/widget/Grid;->mFirstVisibleIndex:I
+    iget v2, p0, Landroid/support/v17/leanback/widget/Grid;->mFirstVisibleIndex:I
+
+    add-int/lit8 v2, v2, 0x1
+
+    iput v2, p0, Landroid/support/v17/leanback/widget/Grid;->mFirstVisibleIndex:I
 
     goto :goto_0
 
     :cond_0
-    move v0, v2
+    const/4 v0, 0x0
 
     goto :goto_1
 
     :cond_1
-    iget-object v3, p0, Landroid/support/v17/leanback/widget/Grid;->mProvider:Landroid/support/v17/leanback/widget/Grid$Provider;
+    iget-object v2, p0, Landroid/support/v17/leanback/widget/Grid;->mProvider:Landroid/support/v17/leanback/widget/Grid$Provider;
 
-    iget v4, p0, Landroid/support/v17/leanback/widget/Grid;->mFirstVisibleIndex:I
+    iget v3, p0, Landroid/support/v17/leanback/widget/Grid;->mFirstVisibleIndex:I
 
-    invoke-interface {v3, v4}, Landroid/support/v17/leanback/widget/Grid$Provider;->getEdge(I)I
+    invoke-interface {v2, v3}, Landroid/support/v17/leanback/widget/Grid$Provider;->getEdge(I)I
 
-    move-result v3
+    move-result v2
 
-    iget-object v4, p0, Landroid/support/v17/leanback/widget/Grid;->mProvider:Landroid/support/v17/leanback/widget/Grid$Provider;
+    sub-int/2addr v2, v1
 
-    iget v5, p0, Landroid/support/v17/leanback/widget/Grid;->mFirstVisibleIndex:I
+    if-lt v2, p2, :cond_2
 
-    invoke-interface {v4, v5}, Landroid/support/v17/leanback/widget/Grid$Provider;->getSize(I)I
-
-    move-result v4
-
-    sub-int/2addr v3, v4
-
-    if-lt v3, p2, :cond_2
-
-    move v0, v1
+    const/4 v0, 0x1
 
     goto :goto_1
 
     :cond_2
-    move v0, v2
+    const/4 v0, 0x0
 
     goto :goto_1
 
     :cond_3
-    invoke-direct {p0}, Landroid/support/v17/leanback/widget/Grid;->resetVisbileIndexIfEmpty()V
+    invoke-direct {p0}, Landroid/support/v17/leanback/widget/Grid;->resetVisibleIndexIfEmpty()V
 
     return-void
 .end method
@@ -631,14 +943,6 @@
     iput v0, p0, Landroid/support/v17/leanback/widget/Grid;->mLastVisibleIndex:I
 
     iput v0, p0, Landroid/support/v17/leanback/widget/Grid;->mFirstVisibleIndex:I
-
-    return-void
-.end method
-
-.method public final setMargin(I)V
-    .locals 0
-
-    iput p1, p0, Landroid/support/v17/leanback/widget/Grid;->mMargin:I
 
     return-void
 .end method
@@ -705,6 +1009,14 @@
     .locals 0
 
     iput-boolean p1, p0, Landroid/support/v17/leanback/widget/Grid;->mReversedFlow:Z
+
+    return-void
+.end method
+
+.method public final setSpacing(I)V
+    .locals 0
+
+    iput p1, p0, Landroid/support/v17/leanback/widget/Grid;->mSpacing:I
 
     return-void
 .end method

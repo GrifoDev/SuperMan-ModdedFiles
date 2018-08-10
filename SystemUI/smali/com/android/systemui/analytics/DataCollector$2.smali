@@ -43,11 +43,11 @@
 
     iget-object v5, p0, Lcom/android/systemui/analytics/DataCollector$2;->val$currentSession:Lcom/android/systemui/analytics/SensorLoggerSession;
 
-    invoke-virtual {v5}, Lcom/android/systemui/analytics/SensorLoggerSession;->toProto()Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session;
+    invoke-virtual {v5}, Lcom/android/systemui/analytics/SensorLoggerSession;->toProto()Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session;
 
     move-result-object v5
 
-    invoke-static {v5}, Lcom/android/systemui/statusbar/phone/TouchAnalyticsProto$Session;->toByteArray(Lcom/google/protobuf/nano/MessageNano;)[B
+    invoke-static {v5}, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session;->toByteArray(Lcom/google/protobuf/nano/MessageNano;)[B
 
     move-result-object v0
 

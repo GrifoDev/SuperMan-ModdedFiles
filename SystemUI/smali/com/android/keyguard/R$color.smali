@@ -3,22 +3,15 @@
 .source "R.java"
 
 
-# static fields
-.field public static final theme_clock_date_color:I = 0x7f0b0195
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/keyguard/R;
+.end annotation
 
-.field public static final theme_keyguard_indication_text_color:I = 0x7f0b0191
-
-.field public static final theme_keyguard_message_area_text_color:I = 0x7f0b0190
-
-.field public static final theme_pattern_line_color:I = 0x7f0b018b
-
-.field public static final theme_pin_digit_text_color:I = 0x7f0b018e
-
-.field public static final theme_pin_klondike_text_color:I = 0x7f0b018f
-
-.field public static final theme_pin_text_color:I = 0x7f0b018c
-
-.field public static final theme_textclock_color:I = 0x7f0b0194
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "color"
+.end annotation
 
 
 # direct methods

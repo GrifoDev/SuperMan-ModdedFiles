@@ -260,7 +260,7 @@
     const/4 v10, 0x1
 
     :goto_1
-    const/16 v18, 0x5
+    const/16 v18, 0x4
 
     move/from16 v0, v18
 
@@ -271,7 +271,7 @@
     move-result v8
 
     :goto_2
-    const/16 v18, 0x5
+    const/16 v18, 0x4
 
     move/from16 v0, v18
 
@@ -446,13 +446,9 @@
 
     move-wide/from16 v20, v0
 
-    sub-long v18, v18, v20
+    invoke-static/range {v18 .. v21}, Ljava/lang/Long;->compare(JJ)I
 
-    move-wide/from16 v0, v18
-
-    long-to-int v0, v0
-
-    move/from16 v18, v0
+    move-result v18
 
     return v18
 .end method

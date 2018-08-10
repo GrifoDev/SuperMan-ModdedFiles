@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/qs/tiles/AirplaneModeTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
+    value = Lcom/android/systemui/qs/tiles/AirplaneModeTile;-><init>(Lcom/android/systemui/qs/QSHost;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -62,7 +62,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$2;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
 
-    invoke-static {v2}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get8(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)I
+    invoke-static {v2}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get9(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)I
 
     move-result v2
 
@@ -78,7 +78,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$2;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get8(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)I
+    invoke-static {v0}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get9(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)I
 
     move-result v0
 

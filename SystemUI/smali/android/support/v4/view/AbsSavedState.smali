@@ -48,10 +48,6 @@
 
     invoke-direct {v0}, Landroid/support/v4/view/AbsSavedState$2;-><init>()V
 
-    invoke-static {v0}, Landroid/support/v4/os/ParcelableCompat;->newCreator(Landroid/support/v4/os/ParcelableCompatCreatorCallbacks;)Landroid/os/Parcelable$Creator;
-
-    move-result-object v0
-
     sput-object v0, Landroid/support/v4/view/AbsSavedState;->CREATOR:Landroid/os/Parcelable$Creator;
 
     return-void

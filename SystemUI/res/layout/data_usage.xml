@@ -12,4 +12,5 @@
         <TextView android:textAppearance="@style/TextAppearance.QS.DataUsage.Secondary" android:id="@id/usage_period_text" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
         <TextView android:textAppearance="@style/TextAppearance.QS.DataUsage.Secondary" android:id="@id/usage_info_bottom_text" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
     </LinearLayout>
+    <TextView android:textAppearance="@style/TextAppearance.QS.DataUsage.Secondary" android:id="@id/roaming_text" android:paddingTop="16.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/accessibility_data_connection_roaming" />
 </com.android.systemui.qs.tiles.DataUsageDetailView>

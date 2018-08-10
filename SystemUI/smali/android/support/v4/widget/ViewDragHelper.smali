@@ -52,7 +52,7 @@
 
 .field private mReleaseInProgress:Z
 
-.field private mScroller:Landroid/support/v4/widget/ScrollerCompat;
+.field private mScroller:Landroid/widget/OverScroller;
 
 .field private final mSetIdleRunnable:Ljava/lang/Runnable;
 
@@ -165,13 +165,13 @@
 
     iput v2, p0, Landroid/support/v4/widget/ViewDragHelper;->mMinVelocity:F
 
-    sget-object v2, Landroid/support/v4/widget/ViewDragHelper;->sInterpolator:Landroid/view/animation/Interpolator;
+    new-instance v2, Landroid/widget/OverScroller;
 
-    invoke-static {p1, v2}, Landroid/support/v4/widget/ScrollerCompat;->create(Landroid/content/Context;Landroid/view/animation/Interpolator;)Landroid/support/v4/widget/ScrollerCompat;
+    sget-object v3, Landroid/support/v4/widget/ViewDragHelper;->sInterpolator:Landroid/view/animation/Interpolator;
 
-    move-result-object v2
+    invoke-direct {v2, p1, v3}, Landroid/widget/OverScroller;-><init>(Landroid/content/Context;Landroid/view/animation/Interpolator;)V
 
-    iput-object v2, p0, Landroid/support/v4/widget/ViewDragHelper;->mScroller:Landroid/support/v4/widget/ScrollerCompat;
+    iput-object v2, p0, Landroid/support/v4/widget/ViewDragHelper;->mScroller:Landroid/widget/OverScroller;
 
     return-void
 .end method
@@ -541,8 +541,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
+    if-eqz v0, :cond_1
+
+    :cond_0
+    return-void
+
+    :cond_1
     iget-object v0, p0, Landroid/support/v4/widget/ViewDragHelper;->mInitialMotionX:[F
 
     aput v1, v0, p1
@@ -583,9 +589,6 @@
 
     iput v0, p0, Landroid/support/v4/widget/ViewDragHelper;->mPointersDown:I
 
-    return-void
-
-    :cond_0
     return-void
 .end method
 
@@ -886,19 +889,15 @@
 .end method
 
 .method private distanceInfluenceForSnapDuration(F)F
-    .locals 4
+    .locals 2
 
     const/high16 v0, 0x3f000000    # 0.5f
 
     sub-float/2addr p1, v0
 
-    float-to-double v0, p1
+    const v0, 0x3ef1463b
 
-    const-wide v2, 0x3fde28c7460698c7L    # 0.4712389167638204
-
-    mul-double/2addr v0, v2
-
-    double-to-float p1, v0
+    mul-float/2addr p1, v0
 
     float-to-double v0, p1
 
@@ -1131,9 +1130,9 @@
 
     if-nez v3, :cond_0
 
-    iget-object v0, p0, Landroid/support/v4/widget/ViewDragHelper;->mScroller:Landroid/support/v4/widget/ScrollerCompat;
+    iget-object v0, p0, Landroid/support/v4/widget/ViewDragHelper;->mScroller:Landroid/widget/OverScroller;
 
-    invoke-virtual {v0}, Landroid/support/v4/widget/ScrollerCompat;->abortAnimation()V
+    invoke-virtual {v0}, Landroid/widget/OverScroller;->abortAnimation()V
 
     invoke-virtual {p0, v1}, Landroid/support/v4/widget/ViewDragHelper;->setDragState(I)V
 
@@ -1152,7 +1151,7 @@
 
     move-result v9
 
-    iget-object v4, p0, Landroid/support/v4/widget/ViewDragHelper;->mScroller:Landroid/support/v4/widget/ScrollerCompat;
+    iget-object v4, p0, Landroid/support/v4/widget/ViewDragHelper;->mScroller:Landroid/widget/OverScroller;
 
     move v5, v10
 
@@ -1160,7 +1159,7 @@
 
     move v8, v3
 
-    invoke-virtual/range {v4 .. v9}, Landroid/support/v4/widget/ScrollerCompat;->startScroll(IIIII)V
+    invoke-virtual/range {v4 .. v9}, Landroid/widget/OverScroller;->startScroll(IIIII)V
 
     const/4 v0, 0x2
 
@@ -1313,7 +1312,7 @@
 
     iget v3, p0, Landroid/support/v4/widget/ViewDragHelper;->mActivePointerId:I
 
-    invoke-static {v2, v3}, Landroid/support/v4/view/VelocityTrackerCompat;->getXVelocity(Landroid/view/VelocityTracker;I)F
+    invoke-virtual {v2, v3}, Landroid/view/VelocityTracker;->getXVelocity(I)F
 
     move-result v2
 
@@ -1329,7 +1328,7 @@
 
     iget v3, p0, Landroid/support/v4/widget/ViewDragHelper;->mActivePointerId:I
 
-    invoke-static {v2, v3}, Landroid/support/v4/view/VelocityTrackerCompat;->getYVelocity(Landroid/view/VelocityTracker;I)F
+    invoke-virtual {v2, v3}, Landroid/view/VelocityTracker;->getYVelocity(I)F
 
     move-result v2
 
@@ -1462,7 +1461,7 @@
 .method private saveLastMotion(Landroid/view/MotionEvent;)V
     .locals 6
 
-    invoke-static {p1}, Landroid/support/v4/view/MotionEventCompat;->getPointerCount(Landroid/view/MotionEvent;)I
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getPointerCount()I
 
     move-result v1
 
@@ -1471,7 +1470,7 @@
     :goto_0
     if-ge v0, v1, :cond_1
 
-    invoke-static {p1, v0}, Landroid/support/v4/view/MotionEventCompat;->getPointerId(Landroid/view/MotionEvent;I)I
+    invoke-virtual {p1, v0}, Landroid/view/MotionEvent;->getPointerId(I)I
 
     move-result v2
 
@@ -1487,11 +1486,11 @@
     goto :goto_0
 
     :cond_0
-    invoke-static {p1, v0}, Landroid/support/v4/view/MotionEventCompat;->getX(Landroid/view/MotionEvent;I)F
+    invoke-virtual {p1, v0}, Landroid/view/MotionEvent;->getX(I)F
 
     move-result v3
 
-    invoke-static {p1, v0}, Landroid/support/v4/view/MotionEventCompat;->getY(Landroid/view/MotionEvent;I)F
+    invoke-virtual {p1, v0}, Landroid/view/MotionEvent;->getY(I)F
 
     move-result v4
 
@@ -1522,31 +1521,31 @@
 
     if-ne v0, v1, :cond_0
 
-    iget-object v0, p0, Landroid/support/v4/widget/ViewDragHelper;->mScroller:Landroid/support/v4/widget/ScrollerCompat;
+    iget-object v0, p0, Landroid/support/v4/widget/ViewDragHelper;->mScroller:Landroid/widget/OverScroller;
 
-    invoke-virtual {v0}, Landroid/support/v4/widget/ScrollerCompat;->getCurrX()I
+    invoke-virtual {v0}, Landroid/widget/OverScroller;->getCurrX()I
 
     move-result v6
 
-    iget-object v0, p0, Landroid/support/v4/widget/ViewDragHelper;->mScroller:Landroid/support/v4/widget/ScrollerCompat;
+    iget-object v0, p0, Landroid/support/v4/widget/ViewDragHelper;->mScroller:Landroid/widget/OverScroller;
 
-    invoke-virtual {v0}, Landroid/support/v4/widget/ScrollerCompat;->getCurrY()I
+    invoke-virtual {v0}, Landroid/widget/OverScroller;->getCurrY()I
 
     move-result v7
 
-    iget-object v0, p0, Landroid/support/v4/widget/ViewDragHelper;->mScroller:Landroid/support/v4/widget/ScrollerCompat;
+    iget-object v0, p0, Landroid/support/v4/widget/ViewDragHelper;->mScroller:Landroid/widget/OverScroller;
 
-    invoke-virtual {v0}, Landroid/support/v4/widget/ScrollerCompat;->abortAnimation()V
+    invoke-virtual {v0}, Landroid/widget/OverScroller;->abortAnimation()V
 
-    iget-object v0, p0, Landroid/support/v4/widget/ViewDragHelper;->mScroller:Landroid/support/v4/widget/ScrollerCompat;
+    iget-object v0, p0, Landroid/support/v4/widget/ViewDragHelper;->mScroller:Landroid/widget/OverScroller;
 
-    invoke-virtual {v0}, Landroid/support/v4/widget/ScrollerCompat;->getCurrX()I
+    invoke-virtual {v0}, Landroid/widget/OverScroller;->getCurrX()I
 
     move-result v2
 
-    iget-object v0, p0, Landroid/support/v4/widget/ViewDragHelper;->mScroller:Landroid/support/v4/widget/ScrollerCompat;
+    iget-object v0, p0, Landroid/support/v4/widget/ViewDragHelper;->mScroller:Landroid/widget/OverScroller;
 
-    invoke-virtual {v0}, Landroid/support/v4/widget/ScrollerCompat;->getCurrY()I
+    invoke-virtual {v0}, Landroid/widget/OverScroller;->getCurrY()I
 
     move-result v3
 
@@ -1838,21 +1837,21 @@
 
     if-ne v0, v8, :cond_5
 
-    iget-object v0, p0, Landroid/support/v4/widget/ViewDragHelper;->mScroller:Landroid/support/v4/widget/ScrollerCompat;
+    iget-object v0, p0, Landroid/support/v4/widget/ViewDragHelper;->mScroller:Landroid/widget/OverScroller;
 
-    invoke-virtual {v0}, Landroid/support/v4/widget/ScrollerCompat;->computeScrollOffset()Z
+    invoke-virtual {v0}, Landroid/widget/OverScroller;->computeScrollOffset()Z
 
     move-result v6
 
-    iget-object v0, p0, Landroid/support/v4/widget/ViewDragHelper;->mScroller:Landroid/support/v4/widget/ScrollerCompat;
+    iget-object v0, p0, Landroid/support/v4/widget/ViewDragHelper;->mScroller:Landroid/widget/OverScroller;
 
-    invoke-virtual {v0}, Landroid/support/v4/widget/ScrollerCompat;->getCurrX()I
+    invoke-virtual {v0}, Landroid/widget/OverScroller;->getCurrX()I
 
     move-result v2
 
-    iget-object v0, p0, Landroid/support/v4/widget/ViewDragHelper;->mScroller:Landroid/support/v4/widget/ScrollerCompat;
+    iget-object v0, p0, Landroid/support/v4/widget/ViewDragHelper;->mScroller:Landroid/widget/OverScroller;
 
-    invoke-virtual {v0}, Landroid/support/v4/widget/ScrollerCompat;->getCurrY()I
+    invoke-virtual {v0}, Landroid/widget/OverScroller;->getCurrY()I
 
     move-result v3
 
@@ -1900,25 +1899,25 @@
     :cond_3
     if-eqz v6, :cond_4
 
-    iget-object v0, p0, Landroid/support/v4/widget/ViewDragHelper;->mScroller:Landroid/support/v4/widget/ScrollerCompat;
+    iget-object v0, p0, Landroid/support/v4/widget/ViewDragHelper;->mScroller:Landroid/widget/OverScroller;
 
-    invoke-virtual {v0}, Landroid/support/v4/widget/ScrollerCompat;->getFinalX()I
+    invoke-virtual {v0}, Landroid/widget/OverScroller;->getFinalX()I
 
     move-result v0
 
     if-ne v2, v0, :cond_4
 
-    iget-object v0, p0, Landroid/support/v4/widget/ViewDragHelper;->mScroller:Landroid/support/v4/widget/ScrollerCompat;
+    iget-object v0, p0, Landroid/support/v4/widget/ViewDragHelper;->mScroller:Landroid/widget/OverScroller;
 
-    invoke-virtual {v0}, Landroid/support/v4/widget/ScrollerCompat;->getFinalY()I
+    invoke-virtual {v0}, Landroid/widget/OverScroller;->getFinalY()I
 
     move-result v0
 
     if-ne v3, v0, :cond_4
 
-    iget-object v0, p0, Landroid/support/v4/widget/ViewDragHelper;->mScroller:Landroid/support/v4/widget/ScrollerCompat;
+    iget-object v0, p0, Landroid/support/v4/widget/ViewDragHelper;->mScroller:Landroid/widget/OverScroller;
 
-    invoke-virtual {v0}, Landroid/support/v4/widget/ScrollerCompat;->abortAnimation()V
+    invoke-virtual {v0}, Landroid/widget/OverScroller;->abortAnimation()V
 
     const/4 v6, 0x0
 
@@ -2187,11 +2186,11 @@
 .method public processTouchEvent(Landroid/view/MotionEvent;)V
     .locals 21
 
-    invoke-static/range {p1 .. p1}, Landroid/support/v4/view/MotionEventCompat;->getActionMasked(Landroid/view/MotionEvent;)I
+    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v3
 
-    invoke-static/range {p1 .. p1}, Landroid/support/v4/view/MotionEventCompat;->getActionIndex(Landroid/view/MotionEvent;)I
+    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getActionIndex()I
 
     move-result v4
 
@@ -2253,7 +2252,7 @@
 
     move/from16 v1, v19
 
-    invoke-static {v0, v1}, Landroid/support/v4/view/MotionEventCompat;->getPointerId(Landroid/view/MotionEvent;I)I
+    invoke-virtual {v0, v1}, Landroid/view/MotionEvent;->getPointerId(I)I
 
     move-result v15
 
@@ -2336,19 +2335,19 @@
     :pswitch_2
     move-object/from16 v0, p1
 
-    invoke-static {v0, v4}, Landroid/support/v4/view/MotionEventCompat;->getPointerId(Landroid/view/MotionEvent;I)I
+    invoke-virtual {v0, v4}, Landroid/view/MotionEvent;->getPointerId(I)I
 
     move-result v15
 
     move-object/from16 v0, p1
 
-    invoke-static {v0, v4}, Landroid/support/v4/view/MotionEventCompat;->getX(Landroid/view/MotionEvent;I)F
+    invoke-virtual {v0, v4}, Landroid/view/MotionEvent;->getX(I)F
 
     move-result v17
 
     move-object/from16 v0, p1
 
-    invoke-static {v0, v4}, Landroid/support/v4/view/MotionEventCompat;->getY(Landroid/view/MotionEvent;I)F
+    invoke-virtual {v0, v4}, Landroid/view/MotionEvent;->getY(I)F
 
     move-result v18
 
@@ -2516,19 +2515,19 @@
 
     move/from16 v1, v19
 
-    invoke-static {v0, v1}, Landroid/support/v4/view/MotionEventCompat;->findPointerIndex(Landroid/view/MotionEvent;I)I
+    invoke-virtual {v0, v1}, Landroid/view/MotionEvent;->findPointerIndex(I)I
 
     move-result v12
 
     move-object/from16 v0, p1
 
-    invoke-static {v0, v12}, Landroid/support/v4/view/MotionEventCompat;->getX(Landroid/view/MotionEvent;I)F
+    invoke-virtual {v0, v12}, Landroid/view/MotionEvent;->getX(I)F
 
     move-result v17
 
     move-object/from16 v0, p1
 
-    invoke-static {v0, v12}, Landroid/support/v4/view/MotionEventCompat;->getY(Landroid/view/MotionEvent;I)F
+    invoke-virtual {v0, v12}, Landroid/view/MotionEvent;->getY(I)F
 
     move-result v18
 
@@ -2609,7 +2608,7 @@
     goto/16 :goto_0
 
     :cond_4
-    invoke-static/range {p1 .. p1}, Landroid/support/v4/view/MotionEventCompat;->getPointerCount(Landroid/view/MotionEvent;)I
+    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getPointerCount()I
 
     move-result v14
 
@@ -2620,7 +2619,7 @@
 
     move-object/from16 v0, p1
 
-    invoke-static {v0, v8}, Landroid/support/v4/view/MotionEventCompat;->getPointerId(Landroid/view/MotionEvent;I)I
+    invoke-virtual {v0, v8}, Landroid/view/MotionEvent;->getPointerId(I)I
 
     move-result v15
 
@@ -2640,13 +2639,13 @@
     :cond_6
     move-object/from16 v0, p1
 
-    invoke-static {v0, v8}, Landroid/support/v4/view/MotionEventCompat;->getX(Landroid/view/MotionEvent;I)F
+    invoke-virtual {v0, v8}, Landroid/view/MotionEvent;->getX(I)F
 
     move-result v17
 
     move-object/from16 v0, p1
 
-    invoke-static {v0, v8}, Landroid/support/v4/view/MotionEventCompat;->getY(Landroid/view/MotionEvent;I)F
+    invoke-virtual {v0, v8}, Landroid/view/MotionEvent;->getY(I)F
 
     move-result v18
 
@@ -2742,7 +2741,7 @@
     :pswitch_4
     move-object/from16 v0, p1
 
-    invoke-static {v0, v4}, Landroid/support/v4/view/MotionEventCompat;->getPointerId(Landroid/view/MotionEvent;I)I
+    invoke-virtual {v0, v4}, Landroid/view/MotionEvent;->getPointerId(I)I
 
     move-result v15
 
@@ -2772,7 +2771,7 @@
 
     const/4 v13, -0x1
 
-    invoke-static/range {p1 .. p1}, Landroid/support/v4/view/MotionEventCompat;->getPointerCount(Landroid/view/MotionEvent;)I
+    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getPointerCount()I
 
     move-result v14
 
@@ -2783,7 +2782,7 @@
 
     move-object/from16 v0, p1
 
-    invoke-static {v0, v8}, Landroid/support/v4/view/MotionEventCompat;->getPointerId(Landroid/view/MotionEvent;I)I
+    invoke-virtual {v0, v8}, Landroid/view/MotionEvent;->getPointerId(I)I
 
     move-result v9
 
@@ -2805,13 +2804,13 @@
     :cond_a
     move-object/from16 v0, p1
 
-    invoke-static {v0, v8}, Landroid/support/v4/view/MotionEventCompat;->getX(Landroid/view/MotionEvent;I)F
+    invoke-virtual {v0, v8}, Landroid/view/MotionEvent;->getX(I)F
 
     move-result v17
 
     move-object/from16 v0, p1
 
-    invoke-static {v0, v8}, Landroid/support/v4/view/MotionEventCompat;->getY(Landroid/view/MotionEvent;I)F
+    invoke-virtual {v0, v8}, Landroid/view/MotionEvent;->getY(I)F
 
     move-result v18
 
@@ -3018,7 +3017,7 @@
 
     iget v1, p0, Landroid/support/v4/widget/ViewDragHelper;->mActivePointerId:I
 
-    invoke-static {v0, v1}, Landroid/support/v4/view/VelocityTrackerCompat;->getXVelocity(Landroid/view/VelocityTracker;I)F
+    invoke-virtual {v0, v1}, Landroid/view/VelocityTracker;->getXVelocity(I)F
 
     move-result v0
 
@@ -3028,7 +3027,7 @@
 
     iget v2, p0, Landroid/support/v4/widget/ViewDragHelper;->mActivePointerId:I
 
-    invoke-static {v1, v2}, Landroid/support/v4/view/VelocityTrackerCompat;->getYVelocity(Landroid/view/VelocityTracker;I)F
+    invoke-virtual {v1, v2}, Landroid/view/VelocityTracker;->getYVelocity(I)F
 
     move-result v1
 
@@ -3044,11 +3043,11 @@
 .method public shouldInterceptTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 26
 
-    invoke-static/range {p1 .. p1}, Landroid/support/v4/view/MotionEventCompat;->getActionMasked(Landroid/view/MotionEvent;)I
+    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v4
 
-    invoke-static/range {p1 .. p1}, Landroid/support/v4/view/MotionEventCompat;->getActionIndex(Landroid/view/MotionEvent;)I
+    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getActionIndex()I
 
     move-result v5
 
@@ -3127,7 +3126,7 @@
 
     move/from16 v1, v24
 
-    invoke-static {v0, v1}, Landroid/support/v4/view/MotionEventCompat;->getPointerId(Landroid/view/MotionEvent;I)I
+    invoke-virtual {v0, v1}, Landroid/view/MotionEvent;->getPointerId(I)I
 
     move-result v17
 
@@ -3243,19 +3242,19 @@
     :pswitch_2
     move-object/from16 v0, p1
 
-    invoke-static {v0, v5}, Landroid/support/v4/view/MotionEventCompat;->getPointerId(Landroid/view/MotionEvent;I)I
+    invoke-virtual {v0, v5}, Landroid/view/MotionEvent;->getPointerId(I)I
 
     move-result v17
 
     move-object/from16 v0, p1
 
-    invoke-static {v0, v5}, Landroid/support/v4/view/MotionEventCompat;->getX(Landroid/view/MotionEvent;I)F
+    invoke-virtual {v0, v5}, Landroid/view/MotionEvent;->getX(I)F
 
     move-result v22
 
     move-object/from16 v0, p1
 
-    invoke-static {v0, v5}, Landroid/support/v4/view/MotionEventCompat;->getY(Landroid/view/MotionEvent;I)F
+    invoke-virtual {v0, v5}, Landroid/view/MotionEvent;->getY(I)F
 
     move-result v23
 
@@ -3395,7 +3394,7 @@
 
     if-eqz v24, :cond_2
 
-    invoke-static/range {p1 .. p1}, Landroid/support/v4/view/MotionEventCompat;->getPointerCount(Landroid/view/MotionEvent;)I
+    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getPointerCount()I
 
     move-result v16
 
@@ -3408,7 +3407,7 @@
 
     move-object/from16 v0, p1
 
-    invoke-static {v0, v10}, Landroid/support/v4/view/MotionEventCompat;->getPointerId(Landroid/view/MotionEvent;I)I
+    invoke-virtual {v0, v10}, Landroid/view/MotionEvent;->getPointerId(I)I
 
     move-result v17
 
@@ -3430,13 +3429,13 @@
     :cond_6
     move-object/from16 v0, p1
 
-    invoke-static {v0, v10}, Landroid/support/v4/view/MotionEventCompat;->getX(Landroid/view/MotionEvent;I)F
+    invoke-virtual {v0, v10}, Landroid/view/MotionEvent;->getX(I)F
 
     move-result v22
 
     move-object/from16 v0, p1
 
-    invoke-static {v0, v10}, Landroid/support/v4/view/MotionEventCompat;->getY(Landroid/view/MotionEvent;I)F
+    invoke-virtual {v0, v10}, Landroid/view/MotionEvent;->getY(I)F
 
     move-result v23
 
@@ -3651,7 +3650,7 @@
     :pswitch_4
     move-object/from16 v0, p1
 
-    invoke-static {v0, v5}, Landroid/support/v4/view/MotionEventCompat;->getPointerId(Landroid/view/MotionEvent;I)I
+    invoke-virtual {v0, v5}, Landroid/view/MotionEvent;->getPointerId(I)I
 
     move-result v17
 

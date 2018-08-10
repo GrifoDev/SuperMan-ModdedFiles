@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager$3;->this$0:Lcom/android/systemui/statusbar/policy/HeadsUpManager;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->-get7(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)Landroid/view/View;
+    invoke-static {v0}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->-get8(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)Landroid/view/View;
 
     move-result-object v0
 
@@ -49,7 +49,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager$3;->this$0:Lcom/android/systemui/statusbar/policy/HeadsUpManager;
 
-    invoke-static {v1}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->-get6(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)I
+    invoke-static {v1}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->-get7(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)I
 
     move-result v1
 
@@ -57,7 +57,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager$3;->this$0:Lcom/android/systemui/statusbar/policy/HeadsUpManager;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->-get7(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)Landroid/view/View;
+    invoke-static {v0}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->-get8(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)Landroid/view/View;
 
     move-result-object v0
 

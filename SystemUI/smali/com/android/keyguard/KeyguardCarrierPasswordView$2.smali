@@ -3,12 +3,12 @@
 .source "KeyguardCarrierPasswordView.java"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/keyguard/KeyguardCarrierPasswordView;->onFinishInflate()V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/keyguard/KeyguardCarrierPasswordView;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,16 +34,41 @@
 
 
 # virtual methods
-.method public onClick(Landroid/view/View;)V
-    .locals 1
+.method public run()V
+    .locals 3
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView$2;->this$0:Lcom/android/keyguard/KeyguardCarrierPasswordView;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardCarrierPasswordView;->-get1(Lcom/android/keyguard/KeyguardCarrierPasswordView;)Lcom/android/keyguard/KeyguardSecurityCallback;
+    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardCarrierPasswordView;->isShown()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView$2;->this$0:Lcom/android/keyguard/KeyguardCarrierPasswordView;
+
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardCarrierPasswordView;->-get3(Lcom/android/keyguard/KeyguardCarrierPasswordView;)Landroid/widget/EditText;
 
     move-result-object v0
 
-    invoke-interface {v0}, Lcom/android/keyguard/KeyguardSecurityCallback;->userActivity()V
+    invoke-virtual {v0}, Landroid/widget/EditText;->requestFocus()Z
 
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView$2;->this$0:Lcom/android/keyguard/KeyguardCarrierPasswordView;
+
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardCarrierPasswordView;->-get0(Lcom/android/keyguard/KeyguardCarrierPasswordView;)Landroid/view/inputmethod/InputMethodManager;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView$2;->this$0:Lcom/android/keyguard/KeyguardCarrierPasswordView;
+
+    invoke-static {v1}, Lcom/android/keyguard/KeyguardCarrierPasswordView;->-get3(Lcom/android/keyguard/KeyguardCarrierPasswordView;)Landroid/widget/EditText;
+
+    move-result-object v1
+
+    const/4 v2, 0x1
+
+    invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->showSoftInput(Landroid/view/View;I)Z
+
+    :cond_0
     return-void
 .end method

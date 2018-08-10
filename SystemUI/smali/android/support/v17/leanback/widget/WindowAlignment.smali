@@ -77,7 +77,7 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Landroid/support/v17/leanback/widget/WindowAlignment$Axis;->-wrap0(Landroid/support/v17/leanback/widget/WindowAlignment$Axis;)V
+    invoke-virtual {v0}, Landroid/support/v17/leanback/widget/WindowAlignment$Axis;->reset()V
 
     return-void
 .end method

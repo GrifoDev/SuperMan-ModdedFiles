@@ -1,6 +1,9 @@
 .class Lcom/android/systemui/volume/ZenFooter$1;
-.super Lcom/android/systemui/statusbar/policy/ZenModeController$Callback;
+.super Ljava/lang/Object;
 .source "ZenFooter.java"
+
+# interfaces
+.implements Lcom/android/systemui/statusbar/policy/ZenModeController$Callback;
 
 
 # annotations
@@ -24,7 +27,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/volume/ZenFooter$1;->this$0:Lcom/android/systemui/volume/ZenFooter;
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/ZenModeController$Callback;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -36,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/volume/ZenFooter$1;->this$0:Lcom/android/systemui/volume/ZenFooter;
 
-    invoke-static {v0, p1}, Lcom/android/systemui/volume/ZenFooter;->-wrap0(Lcom/android/systemui/volume/ZenFooter;Landroid/service/notification/ZenModeConfig;)V
+    invoke-static {v0, p1}, Lcom/android/systemui/volume/ZenFooter;->-wrap1(Lcom/android/systemui/volume/ZenFooter;Landroid/service/notification/ZenModeConfig;)V
 
     return-void
 .end method
@@ -46,7 +49,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/volume/ZenFooter$1;->this$0:Lcom/android/systemui/volume/ZenFooter;
 
-    invoke-static {v0, p1}, Lcom/android/systemui/volume/ZenFooter;->-wrap1(Lcom/android/systemui/volume/ZenFooter;I)V
+    invoke-static {v0, p1}, Lcom/android/systemui/volume/ZenFooter;->-wrap2(Lcom/android/systemui/volume/ZenFooter;I)V
 
     return-void
 .end method

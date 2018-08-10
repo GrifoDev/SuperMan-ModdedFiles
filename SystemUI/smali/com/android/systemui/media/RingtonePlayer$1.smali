@@ -393,12 +393,41 @@
 
     check-cast v0, Lcom/android/systemui/media/RingtonePlayer$Client;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
     invoke-static {}, Landroid/os/Binder;->getCallingUserHandle()Landroid/os/UserHandle;
 
     move-result-object v4
 
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v1
+
+    const/16 v2, 0x3e8
+
+    if-ne v1, v2, :cond_0
+
+    invoke-virtual {p3}, Landroid/media/AudioAttributes;->getTags()Ljava/util/Set;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "AUDIO_STREAM_RING"
+
+    invoke-interface {v1, v2}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
+
+    move-result v1
+
+    invoke-static {v1}, Landroid/os/UserHandle;->of(I)Landroid/os/UserHandle;
+
+    move-result-object v4
+
+    :cond_0
     new-instance v0, Lcom/android/systemui/media/RingtonePlayer$Client;
 
     iget-object v1, p0, Lcom/android/systemui/media/RingtonePlayer$1;->this$0:Lcom/android/systemui/media/RingtonePlayer;
@@ -425,7 +454,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :cond_0
+    :cond_1
     monitor-exit v6
 
     invoke-static {v0}, Lcom/android/systemui/media/RingtonePlayer$Client;->-get0(Lcom/android/systemui/media/RingtonePlayer$Client;)Landroid/media/Ringtone;

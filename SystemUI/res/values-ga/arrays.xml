@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="bluetooth_ss_a2dp_codec_summaries">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Gach comhbhrú/dí-chomhbhrú</item>
+        <item>Comhbhrú/dí-chomhbhrú réamhshocraithe</item>
+    </string-array>
+    <string-array name="bluetooth_ss_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Gach comhbhrú/dí-chomhbhrú</item>
+        <item>Comhbhrú/dí-chomhbhrú réamhshocraithe</item>
+    </string-array>
+    <string-array name="bluetooth_ss_japan_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Gach comhbhrú/dí-chomhbhrú</item>
+        <item>Comhbhrú/dí-chomhbhrú réamhshocraithe</item>
+    </string-array>
+    <string-array name="wifi_ap_wifi_sharing">
+        <item>Cas air Comhroinnt Wi-Fi</item>
+        <item>Cas as Comhroinnt Wi-Fi</item>
+    </string-array>
+    <string-array name="wifi_status">
+        <item></item>
+        <item>Ag scanadh…</item>
+        <item>Ag nascadh…</item>
+        <item>Ag fíordheimhniú…</item>
+        <item>Seoladh IP á fháil…</item>
+        <item>Nasctha</item>
+        <item>Ar fionraí</item>
+        <item>Ag dínascadh…</item>
+        <item>Dínasctha</item>
+        <item>Níor éirigh leis</item>
+        <item>Bactha</item>
+        <item>Cáilíocht do naisc Idirlín á seiceáil…</item>
+    </string-array>
+</resources>

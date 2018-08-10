@@ -26,11 +26,11 @@
 # static fields
 .field private static final synthetic $VALUES:[Lcom/android/keyguard/KeyguardDirectionLockView$FooterMode;
 
-.field public static final enum BackupPIN:Lcom/android/keyguard/KeyguardDirectionLockView$FooterMode;
-
 .field public static final enum ForgotLockDirection:Lcom/android/keyguard/KeyguardDirectionLockView$FooterMode;
 
 .field public static final enum Normal:Lcom/android/keyguard/KeyguardDirectionLockView$FooterMode;
+
+.field public static final enum SamsungAccountOnly:Lcom/android/keyguard/KeyguardDirectionLockView$FooterMode;
 
 .field public static final enum VerifyUnlocked:Lcom/android/keyguard/KeyguardDirectionLockView$FooterMode;
 
@@ -65,19 +65,19 @@
 
     new-instance v0, Lcom/android/keyguard/KeyguardDirectionLockView$FooterMode;
 
-    const-string/jumbo v1, "BackupPIN"
+    const-string/jumbo v1, "VerifyUnlocked"
 
     invoke-direct {v0, v1, v4}, Lcom/android/keyguard/KeyguardDirectionLockView$FooterMode;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/android/keyguard/KeyguardDirectionLockView$FooterMode;->BackupPIN:Lcom/android/keyguard/KeyguardDirectionLockView$FooterMode;
+    sput-object v0, Lcom/android/keyguard/KeyguardDirectionLockView$FooterMode;->VerifyUnlocked:Lcom/android/keyguard/KeyguardDirectionLockView$FooterMode;
 
     new-instance v0, Lcom/android/keyguard/KeyguardDirectionLockView$FooterMode;
 
-    const-string/jumbo v1, "VerifyUnlocked"
+    const-string/jumbo v1, "SamsungAccountOnly"
 
     invoke-direct {v0, v1, v5}, Lcom/android/keyguard/KeyguardDirectionLockView$FooterMode;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/android/keyguard/KeyguardDirectionLockView$FooterMode;->VerifyUnlocked:Lcom/android/keyguard/KeyguardDirectionLockView$FooterMode;
+    sput-object v0, Lcom/android/keyguard/KeyguardDirectionLockView$FooterMode;->SamsungAccountOnly:Lcom/android/keyguard/KeyguardDirectionLockView$FooterMode;
 
     const/4 v0, 0x4
 
@@ -91,11 +91,11 @@
 
     aput-object v1, v0, v3
 
-    sget-object v1, Lcom/android/keyguard/KeyguardDirectionLockView$FooterMode;->BackupPIN:Lcom/android/keyguard/KeyguardDirectionLockView$FooterMode;
+    sget-object v1, Lcom/android/keyguard/KeyguardDirectionLockView$FooterMode;->VerifyUnlocked:Lcom/android/keyguard/KeyguardDirectionLockView$FooterMode;
 
     aput-object v1, v0, v4
 
-    sget-object v1, Lcom/android/keyguard/KeyguardDirectionLockView$FooterMode;->VerifyUnlocked:Lcom/android/keyguard/KeyguardDirectionLockView$FooterMode;
+    sget-object v1, Lcom/android/keyguard/KeyguardDirectionLockView$FooterMode;->SamsungAccountOnly:Lcom/android/keyguard/KeyguardDirectionLockView$FooterMode;
 
     aput-object v1, v0, v5
 

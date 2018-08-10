@@ -32,55 +32,32 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 2
+    .locals 1
 
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    iget-object v0, p0, Lcom/android/systemui/recents/ScreenPinningRequestDialog$1;->this$0:Lcom/android/systemui/recents/ScreenPinningRequestDialog;
+
+    invoke-static {v0}, Lcom/android/systemui/recents/ScreenPinningRequestDialog;->-get0(Lcom/android/systemui/recents/ScreenPinningRequestDialog;)Landroid/app/AlertDialog;
 
     move-result-object v0
 
-    const-string/jumbo v1, "android.intent.action.CLOSE_SYSTEM_DIALOGS"
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    iget-object v0, p0, Lcom/android/systemui/recents/ScreenPinningRequestDialog$1;->this$0:Lcom/android/systemui/recents/ScreenPinningRequestDialog;
+
+    invoke-static {v0}, Lcom/android/systemui/recents/ScreenPinningRequestDialog;->-get0(Lcom/android/systemui/recents/ScreenPinningRequestDialog;)Landroid/app/AlertDialog;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->isShowing()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
-
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "android.intent.action.SCREEN_OFF"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "com.samsung.systemui.statusbar.ANIMATING"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    :cond_0
-    invoke-static {}, Lcom/android/systemui/recents/ScreenPinningRequestDialog;->-get0()Landroid/app/AlertDialog;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/systemui/recents/ScreenPinningRequestDialog$1;->this$0:Lcom/android/systemui/recents/ScreenPinningRequestDialog;
 
     invoke-virtual {v0}, Lcom/android/systemui/recents/ScreenPinningRequestDialog;->clearPrompt()V
 
-    :cond_1
+    :cond_0
     return-void
 .end method

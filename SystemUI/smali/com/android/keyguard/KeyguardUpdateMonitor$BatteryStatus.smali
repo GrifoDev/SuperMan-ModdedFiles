@@ -31,6 +31,8 @@
 
 .field public final plugged:I
 
+.field public remaining:J
+
 .field public final status:I
 
 

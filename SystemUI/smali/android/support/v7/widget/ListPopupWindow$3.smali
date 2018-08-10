@@ -52,9 +52,7 @@
 
     iget-object v1, p0, Landroid/support/v7/widget/ListPopupWindow$3;->this$0:Landroid/support/v7/widget/ListPopupWindow;
 
-    invoke-static {v1}, Landroid/support/v7/widget/ListPopupWindow;->-get0(Landroid/support/v7/widget/ListPopupWindow;)Landroid/support/v7/widget/DropDownListView;
-
-    move-result-object v0
+    iget-object v0, v1, Landroid/support/v7/widget/ListPopupWindow;->mDropDownList:Landroid/support/v7/widget/DropDownListView;
 
     if-eqz v0, :cond_0
 

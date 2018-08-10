@@ -35,13 +35,31 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 3
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/BluetoothTile$1$1;->this$1:Lcom/android/systemui/qs/tiles/BluetoothTile$1;
 
     iget-object v1, v1, Lcom/android/systemui/qs/tiles/BluetoothTile$1;->this$0:Lcom/android/systemui/qs/tiles/BluetoothTile;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/BluetoothTile;->-get4(Lcom/android/systemui/qs/tiles/BluetoothTile;)Z
+    invoke-virtual {v1}, Lcom/android/systemui/qs/tiles/BluetoothTile;->refreshState()V
+
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/BluetoothTile$1$1;->this$1:Lcom/android/systemui/qs/tiles/BluetoothTile$1;
+
+    iget-object v1, v1, Lcom/android/systemui/qs/tiles/BluetoothTile$1;->this$0:Lcom/android/systemui/qs/tiles/BluetoothTile;
+
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/BluetoothTile;->-get1(Lcom/android/systemui/qs/tiles/BluetoothTile;)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "onBluetoothDevicesChanged "
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/BluetoothTile$1$1;->this$1:Lcom/android/systemui/qs/tiles/BluetoothTile$1;
+
+    iget-object v1, v1, Lcom/android/systemui/qs/tiles/BluetoothTile$1;->this$0:Lcom/android/systemui/qs/tiles/BluetoothTile;
+
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/BluetoothTile;->-get6(Lcom/android/systemui/qs/tiles/BluetoothTile;)Z
 
     move-result v1
 
@@ -51,13 +69,13 @@
 
     iget-object v1, v1, Lcom/android/systemui/qs/tiles/BluetoothTile$1;->this$0:Lcom/android/systemui/qs/tiles/BluetoothTile;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/BluetoothTile;->-get6(Lcom/android/systemui/qs/tiles/BluetoothTile;)Lcom/android/systemui/qs/QSTile$State;
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/BluetoothTile;->-get10(Lcom/android/systemui/qs/tiles/BluetoothTile;)Lcom/android/systemui/plugins/qs/QSTile$State;
 
     move-result-object v1
 
-    check-cast v1, Lcom/android/systemui/qs/QSTile$BooleanState;
+    check-cast v1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
-    iget-boolean v0, v1, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
+    iget-boolean v0, v1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
 
     :goto_0
     if-eqz v0, :cond_0
@@ -66,7 +84,7 @@
 
     iget-object v1, v1, Lcom/android/systemui/qs/tiles/BluetoothTile$1;->this$0:Lcom/android/systemui/qs/tiles/BluetoothTile;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/BluetoothTile;->-get3(Lcom/android/systemui/qs/tiles/BluetoothTile;)Lcom/android/systemui/qs/tiles/BluetoothTile$BluetoothDetailAdapter;
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/BluetoothTile;->-get5(Lcom/android/systemui/qs/tiles/BluetoothTile;)Lcom/android/systemui/qs/tiles/BluetoothTile$BluetoothDetailAdapter;
 
     move-result-object v1
 

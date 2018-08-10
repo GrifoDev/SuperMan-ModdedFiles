@@ -65,9 +65,13 @@
 
     new-instance v0, Landroid/graphics/Rect;
 
-    iget v1, p0, Lcom/android/systemui/screenshot/ScreenCaptureHelperForMobileKeypad;->mScreenWidth:I
+    iget v1, p0, Lcom/android/systemui/screenshot/ScreenCaptureHelperForMobileKeypad;->mScreenNativeWidth:F
 
-    iget v2, p0, Lcom/android/systemui/screenshot/ScreenCaptureHelperForMobileKeypad;->mScreenHeight:I
+    float-to-int v1, v1
+
+    iget v2, p0, Lcom/android/systemui/screenshot/ScreenCaptureHelperForMobileKeypad;->mScreenNativeHeight:F
+
+    float-to-int v2, v2
 
     invoke-direct {v0, v3, v3, v1, v2}, Landroid/graphics/Rect;-><init>(IIII)V
 

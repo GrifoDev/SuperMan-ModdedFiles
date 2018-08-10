@@ -3,12 +3,12 @@
 .source "KeyguardLockSecureIconView.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/animation/Animator$AnimatorListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/phone/KeyguardLockSecureIconView;->startShortcutHintAnimation()V
+    value = Lcom/android/systemui/statusbar/phone/KeyguardLockSecureIconView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,24 +34,32 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 7
+.method public onAnimationCancel(Landroid/animation/Animator;)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardLockSecureIconView$1;->this$0:Lcom/android/systemui/statusbar/phone/KeyguardLockSecureIconView;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/KeyguardLockSecureIconView;->-get0(Lcom/android/systemui/statusbar/phone/KeyguardLockSecureIconView;)Lcom/android/systemui/statusbar/phone/KeyguardAlphaAffordanceAnimation;
+    const v1, 0x3f4ccccd    # 0.8f
 
-    move-result-object v0
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/KeyguardLockSecureIconView;->setAlpha(F)V
 
-    const-wide/16 v4, 0x190
+    return-void
+.end method
 
-    const/high16 v1, 0x3f800000    # 1.0f
+.method public onAnimationEnd(Landroid/animation/Animator;)V
+    .locals 0
 
-    const-wide/16 v2, 0x96
+    return-void
+.end method
 
-    const/4 v6, 0x0
+.method public onAnimationRepeat(Landroid/animation/Animator;)V
+    .locals 0
 
-    invoke-virtual/range {v0 .. v6}, Lcom/android/systemui/statusbar/phone/KeyguardAlphaAffordanceAnimation;->setViewAlpha(FJJLjava/lang/Runnable;)V
+    return-void
+.end method
+
+.method public onAnimationStart(Landroid/animation/Animator;)V
+    .locals 0
 
     return-void
 .end method

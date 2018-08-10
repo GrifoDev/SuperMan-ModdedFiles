@@ -1007,9 +1007,7 @@
 
     iget-boolean v3, p0, Lcom/android/keyguard/PasswordTextView$CharState;->dotAnimationIsGrowing:Z
 
-    if-eqz v3, :cond_4
-
-    const/4 v0, 0x0
+    xor-int/lit8 v0, v3, 0x1
 
     :goto_0
     iget-object v3, p0, Lcom/android/keyguard/PasswordTextView$CharState;->this$0:Lcom/android/keyguard/PasswordTextView;
@@ -1026,9 +1024,7 @@
 
     iget-boolean v3, p0, Lcom/android/keyguard/PasswordTextView$CharState;->textAnimationIsGrowing:Z
 
-    if-eqz v3, :cond_6
-
-    const/4 v1, 0x0
+    xor-int/lit8 v1, v3, 0x1
 
     :goto_1
     iget-object v3, p0, Lcom/android/keyguard/PasswordTextView$CharState;->widthAnimator:Landroid/animation/ValueAnimator;
@@ -1037,9 +1033,7 @@
 
     iget-boolean v3, p0, Lcom/android/keyguard/PasswordTextView$CharState;->widthAnimationIsGrowing:Z
 
-    if-eqz v3, :cond_8
-
-    const/4 v2, 0x0
+    xor-int/lit8 v2, v3, 0x1
 
     :goto_2
     if-eqz v0, :cond_0

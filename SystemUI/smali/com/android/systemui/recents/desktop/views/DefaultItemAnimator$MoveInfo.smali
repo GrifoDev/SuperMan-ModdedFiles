@@ -27,7 +27,7 @@
 
 
 # direct methods
-.method private constructor <init>(Landroid/support/v7/widget/RecyclerView$ViewHolder;IIII)V
+.method constructor <init>(Landroid/support/v7/widget/RecyclerView$ViewHolder;IIII)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,14 +41,6 @@
     iput p4, p0, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator$MoveInfo;->toX:I
 
     iput p5, p0, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator$MoveInfo;->toY:I
-
-    return-void
-.end method
-
-.method synthetic constructor <init>(Landroid/support/v7/widget/RecyclerView$ViewHolder;IIIILcom/android/systemui/recents/desktop/views/DefaultItemAnimator$MoveInfo;)V
-    .locals 0
-
-    invoke-direct/range {p0 .. p5}, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator$MoveInfo;-><init>(Landroid/support/v7/widget/RecyclerView$ViewHolder;IIII)V
 
     return-void
 .end method

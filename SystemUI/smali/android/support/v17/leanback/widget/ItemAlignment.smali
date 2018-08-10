@@ -60,6 +60,14 @@
 
 
 # virtual methods
+.method public final mainAxis()Landroid/support/v17/leanback/widget/ItemAlignment$Axis;
+    .locals 1
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/ItemAlignment;->mMainAxis:Landroid/support/v17/leanback/widget/ItemAlignment$Axis;
+
+    return-object v0
+.end method
+
 .method public final setOrientation(I)V
     .locals 1
 

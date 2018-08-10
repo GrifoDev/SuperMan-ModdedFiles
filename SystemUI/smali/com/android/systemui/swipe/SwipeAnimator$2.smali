@@ -52,9 +52,7 @@
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 5
-
-    const/4 v4, 0x0
+    .locals 8
 
     const/4 v2, 0x1
 
@@ -64,7 +62,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3
 
     const/4 v0, 0x0
 
@@ -86,7 +84,7 @@
     :cond_0
     iget-object v1, p0, Lcom/android/systemui/swipe/SwipeAnimator$2;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
 
-    invoke-static {v1}, Lcom/android/systemui/swipe/SwipeAnimator;->-get8(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/view/View;
+    invoke-static {v1}, Lcom/android/systemui/swipe/SwipeAnimator;->-get7(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/view/View;
 
     move-result-object v1
 
@@ -98,9 +96,28 @@
 
     iget-boolean v1, p0, Lcom/android/systemui/swipe/SwipeAnimator$2;->isAnimationCanceled:Z
 
-    if-eqz v1, :cond_3
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/systemui/swipe/SwipeAnimator$2;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
+
+    invoke-static {v1, v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-set1(Lcom/android/systemui/swipe/SwipeAnimator;Z)Z
 
     :cond_1
+    iget-boolean v1, p0, Lcom/android/systemui/swipe/SwipeAnimator$2;->val$enabled:Z
+
+    if-eqz v1, :cond_4
+
+    iget-object v1, p0, Lcom/android/systemui/swipe/SwipeAnimator$2;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v2
+
+    invoke-static {v1, v2, v3}, Lcom/android/systemui/swipe/SwipeAnimator;->-set0(Lcom/android/systemui/swipe/SwipeAnimator;J)J
+
+    :cond_2
     :goto_1
     iget-object v1, p0, Lcom/android/systemui/swipe/SwipeAnimator$2;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
 
@@ -112,27 +129,35 @@
 
     return-void
 
-    :cond_2
+    :cond_3
     const/high16 v0, 0x3f800000    # 1.0f
 
     goto :goto_0
 
-    :cond_3
-    iget-object v1, p0, Lcom/android/systemui/swipe/SwipeAnimator$2;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
+    :cond_4
+    iget-boolean v1, p0, Lcom/android/systemui/swipe/SwipeAnimator$2;->isAnimationCanceled:Z
 
-    invoke-static {v1, v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-set0(Lcom/android/systemui/swipe/SwipeAnimator;Z)Z
+    if-nez v1, :cond_2
 
-    iget-object v1, p0, Lcom/android/systemui/swipe/SwipeAnimator$2;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
+    const-string/jumbo v1, "101"
 
-    invoke-static {v1}, Lcom/android/systemui/swipe/SwipeAnimator;->-get3(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/content/Context;
+    const-string/jumbo v2, "1011"
 
-    move-result-object v1
+    const-string/jumbo v3, "1"
 
-    const-string/jumbo v2, "com.android.systemui"
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    const-string/jumbo v3, "LWFV"
+    move-result-wide v4
 
-    invoke-static {v1, v2, v3, v4, v4}, Lcom/android/keyguard/util/GsimLogManager;->sendLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;)V
+    iget-object v6, p0, Lcom/android/systemui/swipe/SwipeAnimator$2;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
+
+    invoke-static {v6}, Lcom/android/systemui/swipe/SwipeAnimator;->-get3(Lcom/android/systemui/swipe/SwipeAnimator;)J
+
+    move-result-wide v6
+
+    sub-long/2addr v4, v6
+
+    invoke-static {v1, v2, v3, v4, v5}, Lcom/android/systemui/util/AnalyticUtils;->sendEventLog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)V
 
     goto :goto_1
 .end method

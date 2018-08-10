@@ -3,6 +3,14 @@
 .source "ScaleFrameLayout.java"
 
 
+# annotations
+.annotation build Landroid/support/annotation/RestrictTo;
+    value = {
+        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
+
 # instance fields
 .field private mChildScale:F
 
@@ -626,6 +634,46 @@
     goto :goto_0
 .end method
 
+.method public setChildScale(F)V
+    .locals 2
+
+    iget v1, p0, Landroid/support/v17/leanback/widget/ScaleFrameLayout;->mChildScale:F
+
+    cmpl-float v1, v1, p1
+
+    if-eqz v1, :cond_0
+
+    iput p1, p0, Landroid/support/v17/leanback/widget/ScaleFrameLayout;->mChildScale:F
+
+    const/4 v0, 0x0
+
+    :goto_0
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/ScaleFrameLayout;->getChildCount()I
+
+    move-result v1
+
+    if-ge v0, v1, :cond_0
+
+    invoke-virtual {p0, v0}, Landroid/support/v17/leanback/widget/ScaleFrameLayout;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Landroid/view/View;->setScaleX(F)V
+
+    invoke-virtual {p0, v0}, Landroid/support/v17/leanback/widget/ScaleFrameLayout;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Landroid/view/View;->setScaleY(F)V
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    return-void
+.end method
+
 .method public setForeground(Landroid/graphics/drawable/Drawable;)V
     .locals 1
 
@@ -634,4 +682,21 @@
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
     throw v0
+.end method
+
+.method public setLayoutScaleY(F)V
+    .locals 1
+
+    iget v0, p0, Landroid/support/v17/leanback/widget/ScaleFrameLayout;->mLayoutScaleY:F
+
+    cmpl-float v0, p1, v0
+
+    if-eqz v0, :cond_0
+
+    iput p1, p0, Landroid/support/v17/leanback/widget/ScaleFrameLayout;->mLayoutScaleY:F
+
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/ScaleFrameLayout;->requestLayout()V
+
+    :cond_0
+    return-void
 .end method

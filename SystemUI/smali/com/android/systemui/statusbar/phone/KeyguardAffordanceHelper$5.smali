@@ -22,16 +22,16 @@
 
 .field final synthetic val$right:Z
 
-.field final synthetic val$targetView:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+.field final synthetic val$targetView:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)V
+.method constructor <init>(Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;Lcom/android/systemui/statusbar/KeyguardAffordanceView;Z)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$5;->this$0:Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;
 
-    iput-object p2, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$5;->val$targetView:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iput-object p2, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$5;->val$targetView:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     iput-boolean p3, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$5;->val$right:Z
 
@@ -55,9 +55,9 @@
 
     move-result v0
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$5;->val$targetView:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$5;->val$targetView:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
-    invoke-virtual {v2, v0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->setCircleRadiusWithoutAnimation(F)V
+    invoke-virtual {v2, v0}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->setCircleRadiusWithoutAnimation(F)V
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$5;->this$0:Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;
 
@@ -78,9 +78,9 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$5;->this$0:Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$5;->val$targetView:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$5;->val$targetView:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
-    invoke-static {v2, v3}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->-wrap2(Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)V
+    invoke-static {v2, v3}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->-wrap2(Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;Lcom/android/systemui/statusbar/KeyguardAffordanceView;)V
 
     return-void
 .end method

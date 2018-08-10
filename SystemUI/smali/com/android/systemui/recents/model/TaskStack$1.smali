@@ -47,7 +47,7 @@
 .method public compare(Lcom/android/systemui/recents/model/Task;Lcom/android/systemui/recents/model/Task;)I
     .locals 4
 
-    sget-boolean v0, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableFreeformInTaskStack:Z
+    sget-boolean v0, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableCombinedTaskStack:Z
 
     if-nez v0, :cond_1
 
@@ -61,7 +61,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    return v0
 
     :cond_0
     invoke-virtual {p2}, Lcom/android/systemui/recents/model/Task;->isFreeformTask()Z
@@ -74,7 +80,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_1
+
+    const/4 v0, -0x1
+
+    return v0
 
     :cond_1
     iget v0, p1, Lcom/android/systemui/recents/model/Task;->temporarySortIndexInStack:I
@@ -88,16 +100,6 @@
     invoke-static {v0, v1, v2, v3}, Ljava/lang/Long;->compare(JJ)I
 
     move-result v0
-
-    return v0
-
-    :cond_2
-    const/4 v0, 0x1
-
-    return v0
-
-    :cond_3
-    const/4 v0, -0x1
 
     return v0
 .end method

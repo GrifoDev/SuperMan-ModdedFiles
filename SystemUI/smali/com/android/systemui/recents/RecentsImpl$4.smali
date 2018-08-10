@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/recents/RecentsImpl;->getThumbnailTransitionActivityOptions(Landroid/app/ActivityManager$RunningTaskInfo;Lcom/android/systemui/recents/views/TaskStackView;Landroid/graphics/Rect;I)Landroid/app/ActivityOptions;
+    value = Lcom/android/systemui/recents/RecentsImpl;->getHomeTransitionActivityOptions()Landroid/app/ActivityOptions;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -43,23 +43,23 @@
 .method public onAnimationStarted()V
     .locals 2
 
-    iget-boolean v0, p0, Lcom/android/systemui/recents/RecentsImpl$4;->triggered:Z
+    iget-boolean v1, p0, Lcom/android/systemui/recents/RecentsImpl$4;->triggered:Z
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
+
+    new-instance v0, Lcom/android/systemui/recents/events/activity/EnterRecentsWindowAnimationCompletedEvent;
+
+    invoke-direct {v0}, Lcom/android/systemui/recents/events/activity/EnterRecentsWindowAnimationCompletedEvent;-><init>()V
 
     invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
 
-    move-result-object v0
+    move-result-object v1
 
-    new-instance v1, Lcom/android/systemui/recents/events/activity/EnterRecentsWindowAnimationCompletedEvent;
+    invoke-virtual {v1, v0}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
 
-    invoke-direct {v1}, Lcom/android/systemui/recents/events/activity/EnterRecentsWindowAnimationCompletedEvent;-><init>()V
+    const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/systemui/recents/RecentsImpl$4;->triggered:Z
+    iput-boolean v1, p0, Lcom/android/systemui/recents/RecentsImpl$4;->triggered:Z
 
     :cond_0
     return-void

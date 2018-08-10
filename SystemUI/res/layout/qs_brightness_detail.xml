@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.keyguard.AlphaOptimizedLinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="@style/TextAppearance.QS.DetailContentPrimary" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/qs_brightness_detail_level" android:paddingStart="@dimen/qs_detail_items_side_padding" android:paddingEnd="@dimen/qs_detail_items_side_padding" />
+    <include android:paddingBottom="@dimen/qs_brightness_detail_items_between_padding" layout="@layout/qs_brightness_dialog" />
+    <com.android.keyguard.AlphaOptimizedLinearLayout android:orientation="horizontal" android:id="@id/auto_brightness_container" android:background="@drawable/btn_borderless_rect" android:paddingTop="@dimen/qs_brightness_detail_items_between_padding" android:paddingBottom="@dimen/qs_brightness_detail_items_between_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/qs_detail_items_side_padding" android:paddingEnd="@dimen/qs_detail_items_side_padding">
+        <com.android.keyguard.AlphaOptimizedLinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <TextView android:textAppearance="@style/TextAppearance.QS.DetailContentPrimary" android:id="@id/auto_brightness_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/qs_brightness_auto_brightness_title" />
+            <TextView android:textAppearance="@style/TextAppearance.QS.DetailContentSecondary" android:id="@id/auto_brightness_summary" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/qs_brightness_auto_brightness_summary" />
+        </com.android.keyguard.AlphaOptimizedLinearLayout>
+        <com.android.systemui.qs.QSSwitch android:id="@id/auto_brightness_switch" android:importantForAccessibility="no" style="@style/QSDetailSwitch" />
+    </com.android.keyguard.AlphaOptimizedLinearLayout>
+    <com.android.keyguard.AlphaOptimizedLinearLayout android:orientation="horizontal" android:id="@id/control_on_top_container" android:background="@drawable/btn_borderless_rect" android:paddingTop="@dimen/qs_brightness_detail_items_between_padding" android:paddingBottom="@dimen/qs_brightness_detail_items_between_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/qs_detail_items_side_padding" android:paddingEnd="@dimen/qs_detail_items_side_padding">
+        <com.android.keyguard.AlphaOptimizedLinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <TextView android:textAppearance="@style/TextAppearance.QS.DetailContentPrimary" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/qs_brightness_control_on_the_top_title" />
+            <TextView android:textAppearance="@style/TextAppearance.QS.DetailContentSecondary" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/qs_brightness_control_on_the_top_summary" />
+        </com.android.keyguard.AlphaOptimizedLinearLayout>
+        <com.android.systemui.qs.QSSwitch android:id="@id/control_on_top_switch" android:importantForAccessibility="no" style="@style/QSDetailSwitch" />
+    </com.android.keyguard.AlphaOptimizedLinearLayout>
+</com.android.keyguard.AlphaOptimizedLinearLayout>

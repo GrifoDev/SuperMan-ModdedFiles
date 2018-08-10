@@ -68,17 +68,9 @@
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_4
 
     invoke-static {}, Lcom/android/systemui/statusbar/DeviceState;->isNoSimState()Z
-
-    move-result v5
-
-    if-nez v5, :cond_2
-
-    iget-object v5, p0, Lcom/android/systemui/popup/PopupUI$1;->this$0:Lcom/android/systemui/popup/PopupUI;
-
-    invoke-static {v5}, Lcom/android/systemui/popup/PopupUI;->-get0(Lcom/android/systemui/popup/PopupUI;)Z
 
     move-result v5
 
@@ -86,34 +78,24 @@
 
     iget-object v5, p0, Lcom/android/systemui/popup/PopupUI$1;->this$0:Lcom/android/systemui/popup/PopupUI;
 
+    invoke-static {v5}, Lcom/android/systemui/popup/PopupUI;->-get0(Lcom/android/systemui/popup/PopupUI;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_1
+
+    iget-object v5, p0, Lcom/android/systemui/popup/PopupUI$1;->this$0:Lcom/android/systemui/popup/PopupUI;
+
     invoke-static {v5}, Lcom/android/systemui/popup/PopupUI;->-get1(Lcom/android/systemui/popup/PopupUI;)Z
 
     move-result v5
 
+    :goto_0
+    xor-int/lit8 v5, v5, 0x1
+
     if-eqz v5, :cond_2
 
     :cond_0
-    const-string/jumbo v5, "type"
-
-    const/4 v6, -0x1
-
-    invoke-virtual {p2, v5, v6}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
-
-    move-result v4
-
-    iget-object v5, p0, Lcom/android/systemui/popup/PopupUI$1;->this$0:Lcom/android/systemui/popup/PopupUI;
-
-    invoke-static {v5}, Lcom/android/systemui/popup/PopupUI;->-get2(Lcom/android/systemui/popup/PopupUI;)Lcom/android/systemui/popup/PopupUINotificationsImpl;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v4}, Lcom/android/systemui/popup/PopupUINotificationsImpl;->showDataConnectionAlertDialogs(I)V
-
-    :cond_1
-    :goto_0
-    return-void
-
-    :cond_2
     const-string/jumbo v5, "PopupUI"
 
     const-string/jumbo v6, "showDataConnectionToastNotification()"
@@ -130,18 +112,48 @@
 
     return-void
 
+    :cond_1
+    const/4 v5, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    iget-object v5, p0, Lcom/android/systemui/popup/PopupUI$1;->this$0:Lcom/android/systemui/popup/PopupUI;
+
+    invoke-static {v5}, Lcom/android/systemui/popup/PopupUI;->-get2(Lcom/android/systemui/popup/PopupUI;)Lcom/android/systemui/popup/PopupUINotificationsImpl;
+
+    move-result-object v5
+
+    invoke-virtual {v5, p2}, Lcom/android/systemui/popup/PopupUINotificationsImpl;->showDataConnectionAlertDialogs(Landroid/content/Intent;)V
+
     :cond_3
+    :goto_1
+    return-void
+
+    :cond_4
     const-string/jumbo v5, "android.intent.action.BOOT_COMPLETED"
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
+    if-eqz v5, :cond_6
+
+    iget-object v5, p0, Lcom/android/systemui/popup/PopupUI$1;->this$0:Lcom/android/systemui/popup/PopupUI;
+
+    invoke-static {v5}, Lcom/android/systemui/popup/PopupUI;->-get3(Lcom/android/systemui/popup/PopupUI;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_6
+
+    iget-object v5, p0, Lcom/android/systemui/popup/PopupUI$1;->this$0:Lcom/android/systemui/popup/PopupUI;
+
+    invoke-static {v5, v8}, Lcom/android/systemui/popup/PopupUI;->-set0(Lcom/android/systemui/popup/PopupUI;Z)Z
+
+    sget-boolean v5, Lcom/android/systemui/Rune;->POPUP_SUPPORT_MOBILE_DEVICE_WARNING_POPUP:Z
+
     if-eqz v5, :cond_5
-
-    sget-boolean v5, Lcom/android/systemui/SystemUIRune;->SUPPORT_MOBILE_DEVICE_WARNING_POPUP:Z
-
-    if-eqz v5, :cond_4
 
     iget-object v5, p0, Lcom/android/systemui/popup/PopupUI$1;->this$0:Lcom/android/systemui/popup/PopupUI;
 
@@ -151,10 +163,10 @@
 
     invoke-virtual {v5}, Lcom/android/systemui/popup/PopupUINotificationsImpl;->showMobileDeviceWarningToastNotification()V
 
-    :cond_4
-    sget-boolean v5, Lcom/android/systemui/SystemUIRune;->SUPPORT_FLIGHTMODE_ENABLED_POPUP:Z
+    :cond_5
+    sget-boolean v5, Lcom/android/systemui/Rune;->POPUP_SUPPORT_FLIGHTMODE_ENABLED_POPUP:Z
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_3
 
     const-string/jumbo v5, "trigger_restart_min_framework"
 
@@ -168,17 +180,17 @@
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_3
 
-    iget-object v5, p0, Lcom/android/systemui/popup/PopupUI$1;->this$0:Lcom/android/systemui/popup/PopupUI;
+    const-class v5, Lcom/android/systemui/util/SettingsHelper;
 
-    iget-object v5, v5, Lcom/android/systemui/popup/PopupUI;->mContext:Landroid/content/Context;
-
-    invoke-static {v5}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+    invoke-static {v5}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v5
 
-    invoke-virtual {v5}, Lcom/android/keyguard/util/SettingsHelper;->isAirplaneModeOn()Z
+    check-cast v5, Lcom/android/systemui/util/SettingsHelper;
+
+    invoke-virtual {v5}, Lcom/android/systemui/util/SettingsHelper;->isAirplaneModeOn()Z
 
     move-result v2
 
@@ -204,7 +216,7 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3
 
     iget-object v5, p0, Lcom/android/systemui/popup/PopupUI$1;->this$0:Lcom/android/systemui/popup/PopupUI;
 
@@ -214,16 +226,16 @@
 
     invoke-virtual {v5}, Lcom/android/systemui/popup/PopupUINotificationsImpl;->showFlightModeEnabledAlertDialog()V
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_5
+    :cond_6
     const-string/jumbo v5, "com.samsung.systemui.popup.intent.SIM_CARD_TRAY_WATER_PROTECTION_POPUP"
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_7
 
     const-string/jumbo v5, "type"
 
@@ -277,5 +289,24 @@
 
     invoke-virtual {v5, v4, v1}, Lcom/android/systemui/popup/PopupUINotificationsImpl;->showSIMCardTrayWaterProtectionAlertDialog(IZ)V
 
-    goto/16 :goto_0
+    goto/16 :goto_1
+
+    :cond_7
+    const-string/jumbo v5, "android.intent.action.CLOSE_SYSTEM_DIALOGS"
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_3
+
+    iget-object v5, p0, Lcom/android/systemui/popup/PopupUI$1;->this$0:Lcom/android/systemui/popup/PopupUI;
+
+    invoke-static {v5}, Lcom/android/systemui/popup/PopupUI;->-get2(Lcom/android/systemui/popup/PopupUI;)Lcom/android/systemui/popup/PopupUINotificationsImpl;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/android/systemui/popup/PopupUINotificationsImpl;->dismissAlertDialogs()V
+
+    goto/16 :goto_1
 .end method

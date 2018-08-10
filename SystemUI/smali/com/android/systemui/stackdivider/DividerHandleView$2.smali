@@ -38,7 +38,7 @@
 .method public get(Lcom/android/systemui/stackdivider/DividerHandleView;)Ljava/lang/Integer;
     .locals 1
 
-    invoke-static {p1}, Lcom/android/systemui/stackdivider/DividerHandleView;->-get0(Lcom/android/systemui/stackdivider/DividerHandleView;)I
+    invoke-static {p1}, Lcom/android/systemui/stackdivider/DividerHandleView;->-get1(Lcom/android/systemui/stackdivider/DividerHandleView;)I
 
     move-result v0
 

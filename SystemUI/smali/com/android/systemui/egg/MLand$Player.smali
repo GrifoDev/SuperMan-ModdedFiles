@@ -141,7 +141,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/egg/MLand$Player;->corners:[F
 
-    const v0, 0x7f02004c
+    const v0, 0x7f080058
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/egg/MLand$Player;->setBackgroundResource(I)V
 
@@ -425,9 +425,6 @@
 
     iget-object v0, p0, Lcom/android/systemui/egg/MLand$Player;->mScoreField:Landroid/widget/TextView;
 
-    if-eqz v0, :cond_0
-
-    :cond_0
     return-void
 .end method
 

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/preview_blending_bg_view" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="centerCrop" />
+    <LinearLayout android:orientation="vertical" android:clipChildren="false" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:gravity="center_horizontal" android:paddingTop="@dimen/kg_title_text_view_margin_top" android:layout_width="fill_parent" android:layout_height="@dimen/kg_preview_container_margin_top" android:text="@string/kg_wallpaper_preview_title" style="@style/title_text_style" />
+        <FrameLayout android:clipChildren="false" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <FrameLayout android:layout_gravity="center_horizontal" android:background="@android:color/black" android:layout_width="@dimen/kg_preview_container_width" android:layout_height="@dimen/kg_preview_container_height" android:elevation="@dimen/kg_preview_container_shadow_elevation">
+                <ImageView android:id="@id/lock_screen_fake_view" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="centerCrop" />
+                <TextureView android:id="@id/lock_screen_preview" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+                <ImageView android:id="@id/lock_screen_overlay" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="fitXY" />
+            </FrameLayout>
+        </FrameLayout>
+        <Space android:layout_width="0.0dip" android:layout_height="0.0dip" android:layout_weight="1.0" />
+        <TextView android:gravity="center_horizontal" android:id="@id/preview_info" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/kg_wallpaper_preview_video_long_info" android:paddingStart="@dimen/kg_option_container_margin_side" android:paddingEnd="@dimen/kg_option_container_margin_side" style="@style/wallpaper_description_text_style" />
+        <Space android:layout_width="0.0dip" android:layout_height="0.0dip" android:layout_weight="1.0" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/kg_set_as_wallpaper_button_view_height" android:layout_marginBottom="@dimen/kg_set_as_wallpaper_button_view_margin_bottom" android:paddingStart="@dimen/kg_preview_btn_size_padding" android:paddingEnd="@dimen/kg_preview_btn_size_padding">
+            <FrameLayout android:id="@id/edit_btn_container" android:background="@drawable/set_as_wallpaper_button_background_drawable" android:focusable="true" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+                <TextView android:gravity="center" android:id="@id/edit_btn" android:background="@drawable/ripple_drawable" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/sec_qs_edit" style="@style/set_as_wallpaper_text_style" />
+            </FrameLayout>
+            <Space android:id="@id/saparator" android:layout_width="@dimen/kg_preview_btn_saparator" android:layout_height="wrap_content" />
+            <FrameLayout android:id="@id/set_btn_container" android:background="@drawable/set_as_wallpaper_button_background_drawable" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+                <TextView android:gravity="center" android:id="@id/set_btn" android:background="@drawable/ripple_drawable" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/kg_wallpaper_preview_button" style="@style/set_as_wallpaper_text_style" />
+            </FrameLayout>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

@@ -6,12 +6,6 @@
 .implements Landroid/support/v4/graphics/drawable/TintAwareDrawable;
 
 
-# annotations
-.annotation build Landroid/annotation/TargetApi;
-    value = 0x15
-.end annotation
-
-
 # instance fields
 .field mDelegateDrawable:Landroid/graphics/drawable/Drawable;
 
@@ -23,27 +17,6 @@
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable;-><init>()V
 
     return-void
-.end method
-
-.method static obtainAttributes(Landroid/content/res/Resources;Landroid/content/res/Resources$Theme;Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
-    .locals 1
-
-    const/4 v0, 0x0
-
-    if-nez p1, :cond_0
-
-    invoke-virtual {p0, p2, p3}, Landroid/content/res/Resources;->obtainAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
-
-    move-result-object v0
-
-    return-object v0
-
-    :cond_0
-    invoke-virtual {p1, p2, p3, v0, v0}, Landroid/content/res/Resources$Theme;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
-
-    move-result-object v0
-
-    return-object v0
 .end method
 
 
@@ -126,23 +99,6 @@
     move-result-object v0
 
     return-object v0
-.end method
-
-.method public getLayoutDirection()I
-    .locals 1
-
-    iget-object v0, p0, Landroid/support/graphics/drawable/VectorDrawableCommon;->mDelegateDrawable:Landroid/graphics/drawable/Drawable;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Landroid/support/graphics/drawable/VectorDrawableCommon;->mDelegateDrawable:Landroid/graphics/drawable/Drawable;
-
-    invoke-static {v0}, Landroid/support/v4/graphics/drawable/DrawableCompat;->getLayoutDirection(Landroid/graphics/drawable/Drawable;)I
-
-    :cond_0
-    const/4 v0, 0x0
-
-    return v0
 .end method
 
 .method public getMinimumHeight()I
@@ -260,23 +216,6 @@
     return-object v0
 .end method
 
-.method public isAutoMirrored()Z
-    .locals 1
-
-    iget-object v0, p0, Landroid/support/graphics/drawable/VectorDrawableCommon;->mDelegateDrawable:Landroid/graphics/drawable/Drawable;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Landroid/support/graphics/drawable/VectorDrawableCommon;->mDelegateDrawable:Landroid/graphics/drawable/Drawable;
-
-    invoke-static {v0}, Landroid/support/v4/graphics/drawable/DrawableCompat;->isAutoMirrored(Landroid/graphics/drawable/Drawable;)Z
-
-    :cond_0
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
 .method public jumpToCurrentState()V
     .locals 1
 
@@ -334,23 +273,6 @@
     move-result v0
 
     return v0
-.end method
-
-.method public setAutoMirrored(Z)V
-    .locals 1
-
-    iget-object v0, p0, Landroid/support/graphics/drawable/VectorDrawableCommon;->mDelegateDrawable:Landroid/graphics/drawable/Drawable;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Landroid/support/graphics/drawable/VectorDrawableCommon;->mDelegateDrawable:Landroid/graphics/drawable/Drawable;
-
-    invoke-static {v0, p1}, Landroid/support/v4/graphics/drawable/DrawableCompat;->setAutoMirrored(Landroid/graphics/drawable/Drawable;Z)V
-
-    return-void
-
-    :cond_0
-    return-void
 .end method
 
 .method public setChangingConfigurations(I)V

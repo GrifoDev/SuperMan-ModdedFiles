@@ -40,6 +40,16 @@
 
 .field private mRemoteInputs:[Landroid/app/RemoteInput;
 
+.field private mRemoved:Z
+
+.field private mResetting:Z
+
+.field private mRevealCx:I
+
+.field private mRevealCy:I
+
+.field private mRevealR:I
+
 .field private mScrollContainer:Lcom/android/systemui/statusbar/stack/ScrollContainer;
 
 .field private mScrollContainerChild:Landroid/view/View;
@@ -49,6 +59,10 @@
 .field private mSignature:Ljava/lang/String;
 
 .field private mTextLimitToast:Landroid/widget/Toast;
+
+.field public final mToken:Ljava/lang/Object;
+
+.field private mWrapper:Lcom/android/systemui/statusbar/notification/NotificationViewWrapper;
 
 
 # direct methods
@@ -68,7 +82,31 @@
     return-object v0
 .end method
 
-.method static synthetic -wrap0(Lcom/android/systemui/statusbar/policy/RemoteInputView;)V
+.method static synthetic -get2(Lcom/android/systemui/statusbar/policy/RemoteInputView;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mRemoved:Z
+
+    return v0
+.end method
+
+.method static synthetic -get3(Lcom/android/systemui/statusbar/policy/RemoteInputView;)Lcom/android/systemui/statusbar/notification/NotificationViewWrapper;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mWrapper:Lcom/android/systemui/statusbar/notification/NotificationViewWrapper;
+
+    return-object v0
+.end method
+
+.method static synthetic -wrap0(Lcom/android/systemui/statusbar/policy/RemoteInputView;Z)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->onDefocus(Z)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap1(Lcom/android/systemui/statusbar/policy/RemoteInputView;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->sendRemoteInput()V
@@ -92,6 +130,12 @@
     .locals 1
 
     invoke-direct {p0, p1, p2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+
+    new-instance v0, Ljava/lang/Object;
+
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mToken:Ljava/lang/Object;
 
     const/4 v0, 0x0
 
@@ -117,9 +161,9 @@
 
     if-nez v1, :cond_1
 
-    move-object v0, p0
-
     iput-object v2, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mScrollContainerChild:Landroid/view/View;
+
+    move-object v0, p0
 
     :goto_0
     if-eqz v0, :cond_1
@@ -181,7 +225,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040131
+    const v2, 0x7f0d0185
 
     const/4 v3, 0x0
 
@@ -202,8 +246,111 @@
     return-object v0
 .end method
 
+.method private onDefocus(Z)V
+    .locals 5
+
+    const/4 v4, 0x0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mController:Lcom/android/systemui/statusbar/RemoteInputController;
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mEntry:Lcom/android/systemui/statusbar/NotificationData$Entry;
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mToken:Ljava/lang/Object;
+
+    invoke-virtual {v1, v2, v3}, Lcom/android/systemui/statusbar/RemoteInputController;->removeRemoteInput(Lcom/android/systemui/statusbar/NotificationData$Entry;Ljava/lang/Object;)V
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mEntry:Lcom/android/systemui/statusbar/NotificationData$Entry;
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mEditText:Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;
+
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->getText()Landroid/text/Editable;
+
+    move-result-object v2
+
+    iput-object v2, v1, Lcom/android/systemui/statusbar/NotificationData$Entry;->remoteInputText:Ljava/lang/CharSequence;
+
+    iget-boolean v1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mRemoved:Z
+
+    if-nez v1, :cond_0
+
+    if-eqz p1, :cond_1
+
+    iget v1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mRevealR:I
+
+    if-lez v1, :cond_1
+
+    iget v1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mRevealCx:I
+
+    iget v2, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mRevealCy:I
+
+    iget v3, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mRevealR:I
+
+    int-to-float v3, v3
+
+    const/4 v4, 0x0
+
+    invoke-static {p0, v1, v2, v3, v4}, Landroid/view/ViewAnimationUtils;->createCircularReveal(Landroid/view/View;IIFF)Landroid/animation/Animator;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/android/systemui/Interpolators;->FAST_OUT_LINEAR_IN:Landroid/view/animation/Interpolator;
+
+    invoke-virtual {v0, v1}, Landroid/animation/Animator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+
+    const-wide/16 v2, 0x96
+
+    invoke-virtual {v0, v2, v3}, Landroid/animation/Animator;->setDuration(J)Landroid/animation/Animator;
+
+    new-instance v1, Lcom/android/systemui/statusbar/policy/RemoteInputView$2;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/policy/RemoteInputView$2;-><init>(Lcom/android/systemui/statusbar/policy/RemoteInputView;)V
+
+    invoke-virtual {v0, v1}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+
+    invoke-virtual {v0}, Landroid/animation/Animator;->start()V
+
+    :cond_0
+    :goto_0
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mContext:Landroid/content/Context;
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mEntry:Lcom/android/systemui/statusbar/NotificationData$Entry;
+
+    iget-object v2, v2, Lcom/android/systemui/statusbar/NotificationData$Entry;->notification:Landroid/service/notification/StatusBarNotification;
+
+    invoke-virtual {v2}, Landroid/service/notification/StatusBarNotification;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    const/16 v3, 0x190
+
+    invoke-static {v1, v3, v2}, Lcom/android/internal/logging/MetricsLogger;->action(Landroid/content/Context;ILjava/lang/String;)V
+
+    return-void
+
+    :cond_1
+    const/4 v1, 0x4
+
+    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->setVisibility(I)V
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mWrapper:Lcom/android/systemui/statusbar/notification/NotificationViewWrapper;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mWrapper:Lcom/android/systemui/statusbar/notification/NotificationViewWrapper;
+
+    invoke-virtual {v1, v4}, Lcom/android/systemui/statusbar/notification/NotificationViewWrapper;->setRemoteInputVisible(Z)V
+
+    goto :goto_0
+.end method
+
 .method private reset()V
-    .locals 2
+    .locals 4
+
+    const/4 v1, 0x1
+
+    const/4 v3, 0x0
+
+    iput-boolean v1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mResetting:Z
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mEditText:Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;
 
@@ -215,15 +362,11 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mEditText:Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;
 
-    const/4 v1, 0x1
-
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->setEnabled(Z)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mSendButton:Landroid/widget/TextView;
 
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setVisibility(I)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mProgressBar:Landroid/widget/ProgressBar;
 
@@ -237,19 +380,23 @@
 
     iget-object v1, v1, Lcom/android/systemui/statusbar/NotificationData$Entry;->key:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/RemoteInputController;->removeSpinning(Ljava/lang/String;)V
+    iget-object v2, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mToken:Ljava/lang/Object;
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/statusbar/RemoteInputController;->removeSpinning(Ljava/lang/String;Ljava/lang/Object;)V
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->updateSendButton()V
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->onDefocus()V
+    invoke-direct {p0, v3}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->onDefocus(Z)V
+
+    iput-boolean v3, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mResetting:Z
 
     return-void
 .end method
 
 .method private sendRemoteInput()V
-    .locals 6
+    .locals 7
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
     new-instance v2, Landroid/os/Bundle;
 
@@ -289,7 +436,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mEditText:Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;
 
-    invoke-virtual {v3, v5}, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->setEnabled(Z)V
+    invoke-virtual {v3, v6}, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->setEnabled(Z)V
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mSendButton:Landroid/widget/TextView;
 
@@ -299,7 +446,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mProgressBar:Landroid/widget/ProgressBar;
 
-    invoke-virtual {v3, v5}, Landroid/widget/ProgressBar;->setVisibility(I)V
+    invoke-virtual {v3, v6}, Landroid/widget/ProgressBar;->setVisibility(I)V
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mEntry:Lcom/android/systemui/statusbar/NotificationData$Entry;
 
@@ -317,23 +464,61 @@
 
     iget-object v4, v4, Lcom/android/systemui/statusbar/NotificationData$Entry;->key:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Lcom/android/systemui/statusbar/RemoteInputController;->addSpinning(Ljava/lang/String;)V
+    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mToken:Ljava/lang/Object;
+
+    invoke-virtual {v3, v4, v5}, Lcom/android/systemui/statusbar/RemoteInputController;->addSpinning(Ljava/lang/String;Ljava/lang/Object;)V
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mController:Lcom/android/systemui/statusbar/RemoteInputController;
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mEntry:Lcom/android/systemui/statusbar/NotificationData$Entry;
 
-    invoke-virtual {v3, v4}, Lcom/android/systemui/statusbar/RemoteInputController;->removeRemoteInput(Lcom/android/systemui/statusbar/NotificationData$Entry;)V
+    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mToken:Ljava/lang/Object;
+
+    invoke-virtual {v3, v4, v5}, Lcom/android/systemui/statusbar/RemoteInputController;->removeRemoteInput(Lcom/android/systemui/statusbar/NotificationData$Entry;Ljava/lang/Object;)V
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mEditText:Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;
 
-    iput-boolean v5, v3, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->mShowImeOnInputConnection:Z
+    iput-boolean v6, v3, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->mShowImeOnInputConnection:Z
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mController:Lcom/android/systemui/statusbar/RemoteInputController;
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mEntry:Lcom/android/systemui/statusbar/NotificationData$Entry;
 
     invoke-virtual {v3, v4}, Lcom/android/systemui/statusbar/RemoteInputController;->remoteInputSent(Lcom/android/systemui/statusbar/NotificationData$Entry;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->getContext()Landroid/content/Context;
+
+    move-result-object v3
+
+    const-class v4, Landroid/content/pm/ShortcutManager;
+
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/content/pm/ShortcutManager;
+
+    iget-object v4, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mEntry:Lcom/android/systemui/statusbar/NotificationData$Entry;
+
+    iget-object v4, v4, Lcom/android/systemui/statusbar/NotificationData$Entry;->notification:Landroid/service/notification/StatusBarNotification;
+
+    invoke-virtual {v4}, Landroid/service/notification/StatusBarNotification;->getPackageName()Ljava/lang/String;
+
+    move-result-object v4
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mEntry:Lcom/android/systemui/statusbar/NotificationData$Entry;
+
+    iget-object v5, v5, Lcom/android/systemui/statusbar/NotificationData$Entry;->notification:Landroid/service/notification/StatusBarNotification;
+
+    invoke-virtual {v5}, Landroid/service/notification/StatusBarNotification;->getUser()Landroid/os/UserHandle;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v5
+
+    invoke-virtual {v3, v4, v5}, Landroid/content/pm/ShortcutManager;->onApplicationActive(Ljava/lang/String;I)V
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mContext:Landroid/content/Context;
 
@@ -389,6 +574,51 @@
     goto :goto_0
 .end method
 
+.method private showExceedTextLimitToast()V
+    .locals 3
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f120802
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mTextLimitToast:Landroid/widget/Toast;
+
+    if-nez v1, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    const/4 v2, 0x1
+
+    invoke-static {v1, v0, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mTextLimitToast:Landroid/widget/Toast;
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mTextLimitToast:Landroid/widget/Toast;
+
+    invoke-virtual {v1, v0}, Landroid/widget/Toast;->setText(Ljava/lang/CharSequence;)V
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mTextLimitToast:Landroid/widget/Toast;
+
+    invoke-virtual {v1}, Landroid/widget/Toast;->show()V
+
+    return-void
+.end method
+
 .method private updateSendButton()V
     .locals 3
 
@@ -433,11 +663,59 @@
 .end method
 
 .method public close()V
-    .locals 1
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mEditText:Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->-wrap0(Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;)V
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->-wrap0(Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;Z)V
+
+    return-void
+.end method
+
+.method public dispatchFinishTemporaryDetach()V
+    .locals 3
+
+    const/4 v2, 0x0
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->isAttachedToWindow()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mEditText:Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mEditText:Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;
+
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v1
+
+    invoke-virtual {p0, v0, v2, v1}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->attachViewToParent(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
+
+    :goto_0
+    invoke-super {p0}, Landroid/widget/LinearLayout;->dispatchFinishTemporaryDetach()V
+
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mEditText:Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;
+
+    invoke-virtual {p0, v0, v2}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->removeDetachedView(Landroid/view/View;Z)V
+
+    goto :goto_0
+.end method
+
+.method public dispatchStartTemporaryDetach()V
+    .locals 1
+
+    invoke-super {p0}, Landroid/widget/LinearLayout;->dispatchStartTemporaryDetach()V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mEditText:Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->detachViewFromParent(Landroid/view/View;)V
 
     return-void
 .end method
@@ -465,11 +743,22 @@
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->setVisibility(I)V
 
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mWrapper:Lcom/android/systemui/statusbar/notification/NotificationViewWrapper;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mWrapper:Lcom/android/systemui/statusbar/notification/NotificationViewWrapper;
+
+    invoke-virtual {v0, v3}, Lcom/android/systemui/statusbar/notification/NotificationViewWrapper;->setRemoteInputVisible(Z)V
+
+    :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mController:Lcom/android/systemui/statusbar/RemoteInputController;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mEntry:Lcom/android/systemui/statusbar/NotificationData$Entry;
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/RemoteInputController;->addRemoteInput(Lcom/android/systemui/statusbar/NotificationData$Entry;)V
+    iget-object v2, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mToken:Ljava/lang/Object;
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/statusbar/RemoteInputController;->addRemoteInput(Lcom/android/systemui/statusbar/NotificationData$Entry;Ljava/lang/Object;)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mEditText:Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;
 
@@ -510,6 +799,45 @@
     return-void
 .end method
 
+.method public focusAnimated()V
+    .locals 5
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->getVisibility()I
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget v1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mRevealCx:I
+
+    iget v2, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mRevealCy:I
+
+    const/4 v3, 0x0
+
+    iget v4, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mRevealR:I
+
+    int-to-float v4, v4
+
+    invoke-static {p0, v1, v2, v3, v4}, Landroid/view/ViewAnimationUtils;->createCircularReveal(Landroid/view/View;IIFF)Landroid/animation/Animator;
+
+    move-result-object v0
+
+    const-wide/16 v2, 0x168
+
+    invoke-virtual {v0, v2, v3}, Landroid/animation/Animator;->setDuration(J)Landroid/animation/Animator;
+
+    sget-object v1, Lcom/android/systemui/Interpolators;->LINEAR_OUT_SLOW_IN:Landroid/view/animation/Interpolator;
+
+    invoke-virtual {v0, v1}, Landroid/animation/Animator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+
+    invoke-virtual {v0}, Landroid/animation/Animator;->start()V
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->focus()V
+
+    return-void
+.end method
+
 .method public getPendingIntent()Landroid/app/PendingIntent;
     .locals 1
 
@@ -527,7 +855,21 @@
 
     move-result v0
 
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mEditText:Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->isEnabled()Z
+
+    move-result v0
+
+    :goto_0
     return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method protected onAttachedToWindow()V
@@ -580,48 +922,8 @@
     return-void
 .end method
 
-.method public onDefocus()V
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mController:Lcom/android/systemui/statusbar/RemoteInputController;
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mEntry:Lcom/android/systemui/statusbar/NotificationData$Entry;
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/RemoteInputController;->removeRemoteInput(Lcom/android/systemui/statusbar/NotificationData$Entry;)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mEntry:Lcom/android/systemui/statusbar/NotificationData$Entry;
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mEditText:Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;
-
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->getText()Landroid/text/Editable;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/statusbar/NotificationData$Entry;->remoteInputText:Ljava/lang/CharSequence;
-
-    const/4 v0, 0x4
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->setVisibility(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mContext:Landroid/content/Context;
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mEntry:Lcom/android/systemui/statusbar/NotificationData$Entry;
-
-    iget-object v1, v1, Lcom/android/systemui/statusbar/NotificationData$Entry;->notification:Landroid/service/notification/StatusBarNotification;
-
-    invoke-virtual {v1}, Landroid/service/notification/StatusBarNotification;->getPackageName()Ljava/lang/String;
-
-    move-result-object v1
-
-    const/16 v2, 0x190
-
-    invoke-static {v0, v2, v1}, Lcom/android/internal/logging/MetricsLogger;->action(Landroid/content/Context;ILjava/lang/String;)V
-
-    return-void
-.end method
-
 .method protected onDetachedFromWindow()V
-    .locals 2
+    .locals 3
 
     invoke-super {p0}, Landroid/widget/LinearLayout;->onDetachedFromWindow()V
 
@@ -633,16 +935,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
-    return-void
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->isTemporarilyDetached()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
 
     :cond_0
+    return-void
+
+    :cond_1
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mController:Lcom/android/systemui/statusbar/RemoteInputController;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mEntry:Lcom/android/systemui/statusbar/NotificationData$Entry;
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/RemoteInputController;->removeRemoteInput(Lcom/android/systemui/statusbar/NotificationData$Entry;)V
+    iget-object v2, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mToken:Ljava/lang/Object;
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/statusbar/RemoteInputController;->removeRemoteInput(Lcom/android/systemui/statusbar/NotificationData$Entry;Ljava/lang/Object;)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mController:Lcom/android/systemui/statusbar/RemoteInputController;
 
@@ -650,7 +961,9 @@
 
     iget-object v1, v1, Lcom/android/systemui/statusbar/NotificationData$Entry;->key:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/RemoteInputController;->removeSpinning(Ljava/lang/String;)V
+    iget-object v2, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mToken:Ljava/lang/Object;
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/statusbar/RemoteInputController;->removeSpinning(Ljava/lang/String;Ljava/lang/Object;)V
 
     return-void
 .end method
@@ -662,7 +975,7 @@
 
     invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
 
-    const v0, 0x7f130354
+    const v0, 0x7f0a0426
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->findViewById(I)Landroid/view/View;
 
@@ -672,7 +985,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mProgressBar:Landroid/widget/ProgressBar;
 
-    const v0, 0x7f130353
+    const v0, 0x7f0a0427
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->findViewById(I)Landroid/view/View;
 
@@ -749,9 +1062,7 @@
 .end method
 
 .method public onNotificationUpdateOrReset()V
-    .locals 2
-
-    const/4 v0, 0x0
+    .locals 3
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mProgressBar:Landroid/widget/ProgressBar;
 
@@ -759,17 +1070,62 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_2
 
     const/4 v0, 0x1
 
-    :cond_0
-    if-eqz v0, :cond_1
+    :goto_0
+    if-eqz v0, :cond_0
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->reset()V
 
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->isActive()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mWrapper:Lcom/android/systemui/statusbar/notification/NotificationViewWrapper;
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mWrapper:Lcom/android/systemui/statusbar/notification/NotificationViewWrapper;
+
+    const/4 v2, 0x1
+
+    invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/notification/NotificationViewWrapper;->setRemoteInputVisible(Z)V
+
     :cond_1
     return-void
+
+    :cond_2
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public onRequestSendAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mResetting:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mEditText:Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;
+
+    if-ne p1, v0, :cond_0
+
+    const/4 v0, 0x0
+
+    return v0
+
+    :cond_0
+    invoke-super {p0, p1, p2}, Landroid/widget/LinearLayout;->onRequestSendAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
@@ -844,6 +1200,8 @@
     invoke-virtual {v3, v4}, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->setSelection(I)V
 
     :cond_0
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->showExceedTextLimitToast()V
+
     return-void
 
     :cond_1
@@ -904,6 +1262,15 @@
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->findScrollContainer()V
 
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mScrollContainer:Lcom/android/systemui/statusbar/stack/ScrollContainer;
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x0
+
+    return v0
+
+    :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mScrollContainer:Lcom/android/systemui/statusbar/stack/ScrollContainer;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mScrollContainerChild:Landroid/view/View;
@@ -989,8 +1356,38 @@
     return-void
 .end method
 
+.method public setRemoved()V
+    .locals 1
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mRemoved:Z
+
+    return-void
+.end method
+
+.method public setRevealParameters(III)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mRevealCx:I
+
+    iput p2, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mRevealCy:I
+
+    iput p3, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mRevealR:I
+
+    return-void
+.end method
+
+.method public setWrapper(Lcom/android/systemui/statusbar/notification/NotificationViewWrapper;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mWrapper:Lcom/android/systemui/statusbar/notification/NotificationViewWrapper;
+
+    return-void
+.end method
+
 .method public stealFocusFrom(Lcom/android/systemui/statusbar/policy/RemoteInputView;)V
-    .locals 2
+    .locals 3
 
     invoke-virtual {p1}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->close()V
 
@@ -1004,115 +1401,121 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->setRemoteInput([Landroid/app/RemoteInput;Landroid/app/RemoteInput;)V
 
+    iget v0, p1, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mRevealCx:I
+
+    iget v1, p1, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mRevealCy:I
+
+    iget v2, p1, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mRevealR:I
+
+    invoke-virtual {p0, v0, v1, v2}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->setRevealParameters(III)V
+
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->focus()V
 
     return-void
 .end method
 
 .method public updatePendingIntentFromActions([Landroid/app/Notification$Action;)Z
-    .locals 13
+    .locals 12
 
-    const/4 v8, 0x0
+    const/4 v7, 0x0
 
-    const/4 v3, 0x0
+    iget-object v6, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mPendingIntent:Landroid/app/PendingIntent;
 
-    iget-object v7, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mPendingIntent:Landroid/app/PendingIntent;
-
-    if-eqz v7, :cond_0
+    if-eqz v6, :cond_0
 
     if-nez p1, :cond_1
 
     :cond_0
-    return v8
+    return v7
 
     :cond_1
-    iget-object v7, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mPendingIntent:Landroid/app/PendingIntent;
+    iget-object v6, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mPendingIntent:Landroid/app/PendingIntent;
 
-    invoke-virtual {v7}, Landroid/app/PendingIntent;->getIntent()Landroid/content/Intent;
+    invoke-virtual {v6}, Landroid/app/PendingIntent;->getIntent()Landroid/content/Intent;
 
     move-result-object v2
 
     if-nez v2, :cond_2
 
-    return v8
+    return v7
 
     :cond_2
-    array-length v10, p1
+    array-length v9, p1
 
-    move v9, v8
+    move v8, v7
 
     :goto_0
-    if-ge v9, v10, :cond_7
+    if-ge v8, v9, :cond_7
 
-    aget-object v0, p1, v9
+    aget-object v0, p1, v8
 
     invoke-virtual {v0}, Landroid/app/Notification$Action;->getRemoteInputs()[Landroid/app/RemoteInput;
 
-    move-result-object v6
+    move-result-object v5
 
-    iget-object v7, v0, Landroid/app/Notification$Action;->actionIntent:Landroid/app/PendingIntent;
+    iget-object v6, v0, Landroid/app/Notification$Action;->actionIntent:Landroid/app/PendingIntent;
 
-    if-eqz v7, :cond_3
+    if-eqz v6, :cond_3
 
-    if-nez v6, :cond_4
+    if-nez v5, :cond_4
 
     :cond_3
-    add-int/lit8 v7, v9, 0x1
+    add-int/lit8 v6, v8, 0x1
 
-    move v9, v7
+    move v8, v6
 
     goto :goto_0
 
     :cond_4
-    iget-object v7, v0, Landroid/app/Notification$Action;->actionIntent:Landroid/app/PendingIntent;
+    iget-object v6, v0, Landroid/app/Notification$Action;->actionIntent:Landroid/app/PendingIntent;
 
-    invoke-virtual {v7}, Landroid/app/PendingIntent;->getIntent()Landroid/content/Intent;
+    invoke-virtual {v6}, Landroid/app/PendingIntent;->getIntent()Landroid/content/Intent;
 
     move-result-object v1
 
     invoke-virtual {v2, v1}, Landroid/content/Intent;->filterEquals(Landroid/content/Intent;)Z
 
-    move-result v7
+    move-result v6
 
-    if-eqz v7, :cond_3
+    if-eqz v6, :cond_3
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
-    array-length v11, v6
+    array-length v10, v5
 
-    move v7, v8
+    move v6, v7
 
     :goto_1
-    if-ge v7, v11, :cond_6
+    if-ge v6, v10, :cond_6
 
-    aget-object v4, v6, v7
+    aget-object v3, v5, v6
 
-    invoke-virtual {v4}, Landroid/app/RemoteInput;->getAllowFreeFormInput()Z
+    invoke-virtual {v3}, Landroid/app/RemoteInput;->getAllowFreeFormInput()Z
 
-    move-result v12
+    move-result v11
 
-    if-eqz v12, :cond_5
+    if-eqz v11, :cond_5
 
-    move-object v5, v4
+    move-object v4, v3
 
     :cond_5
-    add-int/lit8 v7, v7, 0x1
+    add-int/lit8 v6, v6, 0x1
 
     goto :goto_1
 
     :cond_6
-    if-eqz v5, :cond_3
+    if-eqz v4, :cond_3
 
-    iget-object v7, v0, Landroid/app/Notification$Action;->actionIntent:Landroid/app/PendingIntent;
+    iget-object v6, v0, Landroid/app/Notification$Action;->actionIntent:Landroid/app/PendingIntent;
 
-    invoke-virtual {p0, v7}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->setPendingIntent(Landroid/app/PendingIntent;)V
+    invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->setPendingIntent(Landroid/app/PendingIntent;)V
 
-    invoke-virtual {p0, v6, v5}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->setRemoteInput([Landroid/app/RemoteInput;Landroid/app/RemoteInput;)V
+    invoke-virtual {p0, v5, v4}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->setRemoteInput([Landroid/app/RemoteInput;Landroid/app/RemoteInput;)V
 
-    const/4 v7, 0x1
+    const/4 v6, 0x1
 
-    return v7
+    return v6
 
     :cond_7
-    return v8
+    return v7
 .end method

@@ -1,55 +1,48 @@
-.class Lcom/android/systemui/statusbar/stack/NotificationChildrenContainer$1;
-.super Ljava/lang/Object;
+.class final Lcom/android/systemui/statusbar/stack/NotificationChildrenContainer$1;
+.super Lcom/android/systemui/statusbar/stack/AnimationProperties;
 .source "NotificationChildrenContainer.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/stack/NotificationChildrenContainer;->removeNotification(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/systemui/statusbar/stack/NotificationChildrenContainer;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x8
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/stack/NotificationChildrenContainer;
-
-.field final synthetic val$divider:Landroid/view/View;
+.field private mAnimationFilter:Lcom/android/systemui/statusbar/stack/AnimationFilter;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/stack/NotificationChildrenContainer;Landroid/view/View;)V
-    .locals 0
+.method constructor <init>()V
+    .locals 1
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/stack/NotificationChildrenContainer$1;->this$0:Lcom/android/systemui/statusbar/stack/NotificationChildrenContainer;
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/stack/AnimationProperties;-><init>()V
 
-    iput-object p2, p0, Lcom/android/systemui/statusbar/stack/NotificationChildrenContainer$1;->val$divider:Landroid/view/View;
+    new-instance v0, Lcom/android/systemui/statusbar/stack/AnimationFilter;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {v0}, Lcom/android/systemui/statusbar/stack/AnimationFilter;-><init>()V
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/stack/AnimationFilter;->animateAlpha()Lcom/android/systemui/statusbar/stack/AnimationFilter;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/stack/NotificationChildrenContainer$1;->mAnimationFilter:Lcom/android/systemui/statusbar/stack/AnimationFilter;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 2
+.method public getAnimationFilter()Lcom/android/systemui/statusbar/stack/AnimationFilter;
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/stack/NotificationChildrenContainer$1;->this$0:Lcom/android/systemui/statusbar/stack/NotificationChildrenContainer;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/stack/NotificationChildrenContainer$1;->mAnimationFilter:Lcom/android/systemui/statusbar/stack/AnimationFilter;
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/stack/NotificationChildrenContainer;->getOverlay()Landroid/view/ViewGroupOverlay;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/stack/NotificationChildrenContainer$1;->val$divider:Landroid/view/View;
-
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroupOverlay;->remove(Landroid/view/View;)V
-
-    return-void
+    return-object v0
 .end method

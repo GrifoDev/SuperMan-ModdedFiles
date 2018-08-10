@@ -3,14 +3,15 @@
 .source "R.java"
 
 
-# static fields
-.field public static final keyguard_error_text_enter_animation:I = 0x7f050071
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/keyguard/R;
+.end annotation
 
-.field public static final keyguard_error_text_exit_animation:I = 0x7f050072
-
-.field public static final servicebox_container_affordance_arrow_left:I = 0x7f0500c4
-
-.field public static final servicebox_container_affordance_arrow_right:I = 0x7f0500c5
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "anim"
+.end annotation
 
 
 # direct methods

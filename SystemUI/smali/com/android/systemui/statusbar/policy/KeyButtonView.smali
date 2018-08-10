@@ -2,6 +2,9 @@
 .super Landroid/widget/ImageView;
 .source "KeyButtonView.java"
 
+# interfaces
+.implements Lcom/android/systemui/plugins/statusbar/phone/NavBarButtonProvider$ButtonInterface;
+
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
@@ -9,6 +12,10 @@
         Lcom/android/systemui/statusbar/policy/KeyButtonView$1;
     }
 .end annotation
+
+
+# static fields
+.field private static final DEBUG:Z
 
 
 # instance fields
@@ -22,9 +29,9 @@
 
 .field private mDownTime:J
 
-.field private mForceHandled:Z
+.field private mForceActionChecked:Z
 
-.field private mForceHandler:Lcom/android/systemui/statusbar/phone/NaviBarForceTouchHandler;
+.field private mForceActionHandled:Z
 
 .field private mForcePressed:Z
 
@@ -34,7 +41,13 @@
 
 .field private mLongClicked:Z
 
-.field private mRipple:Lcom/android/systemui/statusbar/policy/KeyButtonRipple;
+.field private final mMetricsLogger:Lcom/android/internal/logging/MetricsLogger;
+
+.field private mOnClickListener:Landroid/view/View$OnClickListener;
+
+.field private final mPlaySounds:Z
+
+.field private final mRipple:Lcom/android/systemui/statusbar/policy/KeyButtonRipple;
 
 .field private mSupportsLongpress:Z
 
@@ -66,6 +79,25 @@
     return p1
 .end method
 
+.method static constructor <clinit>()V
+    .locals 2
+
+    const/4 v0, 0x1
+
+    invoke-static {}, Landroid/os/Debug;->isProductShip()I
+
+    move-result v1
+
+    if-ne v1, v0, :cond_0
+
+    const/4 v0, 0x0
+
+    :cond_0
+    sput-boolean v0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->DEBUG:Z
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
 
@@ -86,6 +118,16 @@
     invoke-direct {p0, p1, p2}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     iput-boolean v3, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mSupportsLongpress:Z
+
+    const-class v2, Lcom/android/internal/logging/MetricsLogger;
+
+    invoke-static {v2}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/internal/logging/MetricsLogger;
+
+    iput-object v2, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mMetricsLogger:Lcom/android/internal/logging/MetricsLogger;
 
     new-instance v2, Lcom/android/systemui/statusbar/policy/KeyButtonView$1;
 
@@ -112,6 +154,14 @@
     move-result v2
 
     iput-boolean v2, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mSupportsLongpress:Z
+
+    const/4 v2, 0x3
+
+    invoke-virtual {v0, v2, v3}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
+
+    move-result v2
+
+    iput-boolean v2, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mPlaySounds:Z
 
     new-instance v1, Landroid/util/TypedValue;
 
@@ -152,20 +202,6 @@
 
     iput-object v2, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mAudioManager:Landroid/media/AudioManager;
 
-    sget-boolean v2, Lcom/android/systemui/SystemUIRune;->SUPPORT_LIGHT_NAVIGATIONBAR:Z
-
-    if-nez v2, :cond_1
-
-    new-instance v2, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;
-
-    invoke-direct {v2, p1, p0}, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;-><init>(Landroid/content/Context;Landroid/view/View;)V
-
-    invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->setBackground(Landroid/graphics/drawable/Drawable;)V
-
-    :goto_0
-    return-void
-
-    :cond_1
     new-instance v2, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;
 
     invoke-direct {v2, p1, p0}, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;-><init>(Landroid/content/Context;Landroid/view/View;)V
@@ -176,7 +212,7 @@
 
     invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    goto :goto_0
+    return-void
 .end method
 
 
@@ -195,7 +231,7 @@
     return-void
 .end method
 
-.method public loadAsync(Ljava/lang/String;)V
+.method public loadAsync(Landroid/graphics/drawable/Icon;)V
     .locals 3
 
     new-instance v0, Lcom/android/systemui/statusbar/policy/KeyButtonView$2;
@@ -204,7 +240,7 @@
 
     const/4 v1, 0x1
 
-    new-array v1, v1, [Ljava/lang/String;
+    new-array v1, v1, [Landroid/graphics/drawable/Icon;
 
     const/4 v2, 0x0
 
@@ -216,25 +252,10 @@
 .end method
 
 .method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .locals 2
+    .locals 0
 
     invoke-super {p0, p1}, Landroid/widget/ImageView;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    iget v0, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mContentDescriptionRes:I
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mContext:Landroid/content/Context;
-
-    iget v1, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mContentDescriptionRes:I
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->setContentDescription(Ljava/lang/CharSequence;)V
-
-    :cond_0
     return-void
 .end method
 
@@ -281,13 +302,15 @@
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 12
+    .locals 14
 
-    const/high16 v11, -0x80000000
+    const/high16 v13, -0x80000000
 
-    const/16 v10, 0x20
+    const/high16 v9, 0x100000
 
-    const/4 v6, 0x1
+    const/16 v6, 0x66
+
+    const/4 v8, 0x1
 
     const/4 v7, 0x0
 
@@ -300,358 +323,568 @@
     iput-boolean v7, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mGestureAborted:Z
 
     :cond_0
-    iget-boolean v5, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mGestureAborted:Z
+    iget-boolean v10, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mGestureAborted:Z
 
-    if-eqz v5, :cond_1
+    if-eqz v10, :cond_1
 
     return v7
 
     :cond_1
-    packed-switch v0, :pswitch_data_0
+    sget-boolean v10, Lcom/android/systemui/statusbar/policy/KeyButtonView;->DEBUG:Z
+
+    if-eqz v10, :cond_2
+
+    const/4 v10, 0x2
+
+    if-eq v0, v10, :cond_2
+
+    const-string/jumbo v10, "KeyButtonView"
+
+    new-instance v11, Ljava/lang/StringBuilder;
+
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v12, "Motion event="
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
+    packed-switch v0, :pswitch_data_0
+
+    :cond_3
     :goto_0
-    return v6
+    return v8
 
     :pswitch_0
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    move-result-wide v8
+    move-result-wide v10
 
-    iput-wide v8, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mDownTime:J
+    iput-wide v10, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mDownTime:J
 
     iput-boolean v7, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mLongClicked:Z
 
-    invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->setPressed(Z)V
+    invoke-virtual {p0, v8}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->setPressed(Z)V
 
-    iget v5, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mCode:I
+    iget v9, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mCode:I
 
-    if-eqz v5, :cond_3
+    if-eqz v9, :cond_6
 
-    iget-wide v8, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mDownTime:J
+    iget-wide v10, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mDownTime:J
 
-    invoke-virtual {p0, v7, v7, v8, v9}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->sendEvent(IIJ)V
+    invoke-virtual {p0, v7, v7, v10, v11}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->sendEvent(IIJ)V
+
+    sget-boolean v9, Lcom/android/systemui/Rune;->NAVBAR_SUPPORT_FORCE_TOUCH:Z
+
+    if-nez v9, :cond_4
+
+    sget-boolean v9, Lcom/android/systemui/Rune;->NAVBAR_SUPPORT_OPEN_THEME:Z
+
+    if-eqz v9, :cond_5
 
     :goto_1
+    invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->playSoundEffect(I)V
+
+    :cond_4
+    :goto_2
     iput-boolean v7, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForcePressing:Z
 
     iput-boolean v7, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForcePressed:Z
 
-    iput-boolean v7, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForceHandled:Z
+    iput-boolean v7, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForceActionChecked:Z
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mCheckLongPress:Ljava/lang/Runnable;
+    iput-boolean v7, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForceActionHandled:Z
 
-    invoke-virtual {p0, v5}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->removeCallbacks(Ljava/lang/Runnable;)Z
+    iget-object v6, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mCheckLongPress:Ljava/lang/Runnable;
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mCheckLongPress:Ljava/lang/Runnable;
+    invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->removeCallbacks(Ljava/lang/Runnable;)Z
+
+    iget-object v6, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mCheckLongPress:Ljava/lang/Runnable;
 
     invoke-static {}, Landroid/view/ViewConfiguration;->getLongPressTimeout()I
 
     move-result v7
 
-    int-to-long v8, v7
+    int-to-long v10, v7
 
-    invoke-virtual {p0, v5, v8, v9}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {p0, v6, v10, v11}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->postDelayed(Ljava/lang/Runnable;J)Z
 
     goto :goto_0
 
-    :cond_3
-    invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->performHapticFeedback(I)Z
+    :cond_5
+    move v6, v7
 
     goto :goto_1
 
-    :pswitch_1
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
-
-    move-result v5
-
-    float-to-int v3, v5
-
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
-
-    move-result v5
-
-    float-to-int v4, v5
-
-    iget v5, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mTouchSlop:I
-
-    neg-int v5, v5
-
-    if-lt v3, v5, :cond_7
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->getWidth()I
-
-    move-result v5
-
-    iget v8, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mTouchSlop:I
-
-    add-int/2addr v5, v8
-
-    if-ge v3, v5, :cond_7
-
-    iget v5, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mTouchSlop:I
-
-    neg-int v5, v5
-
-    if-lt v4, v5, :cond_7
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->getHeight()I
-
-    move-result v5
-
-    iget v8, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mTouchSlop:I
-
-    add-int/2addr v5, v8
-
-    if-ge v4, v5, :cond_6
-
-    move v5, v6
-
-    :goto_2
-    invoke-virtual {p0, v5}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->setPressed(Z)V
-
-    sget-boolean v5, Lcom/android/systemui/SystemUIRune;->SUPPORT_NAVIBAR_FORCE_TOUCH:Z
-
-    if-eqz v5, :cond_2
-
-    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForceHandler:Lcom/android/systemui/statusbar/phone/NaviBarForceTouchHandler;
-
-    if-nez v5, :cond_4
-
-    invoke-static {}, Lcom/android/systemui/statusbar/phone/NaviBarForceTouchHandler;->getInstance()Lcom/android/systemui/statusbar/phone/NaviBarForceTouchHandler;
-
-    move-result-object v5
-
-    iput-object v5, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForceHandler:Lcom/android/systemui/statusbar/phone/NaviBarForceTouchHandler;
-
-    :cond_4
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getButtonState()I
-
-    move-result v1
-
-    const-string/jumbo v5, "KeyButtonView"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "buttonState="
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v5, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-boolean v5, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForceHandled:Z
-
-    if-nez v5, :cond_5
-
-    iget-boolean v5, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForcePressing:Z
-
-    if-eqz v5, :cond_8
-
-    :cond_5
-    iget-boolean v5, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForcePressing:Z
-
-    if-eqz v5, :cond_2
-
-    and-int v5, v1, v11
-
-    if-nez v5, :cond_2
-
-    const-string/jumbo v5, "KeyButtonView"
-
-    const-string/jumbo v8, "Force Released!!!!!"
-
-    invoke-static {v5, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {p0, v6, v7}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->sendEvent(II)V
-
-    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mCheckLongPress:Ljava/lang/Runnable;
-
-    invoke-virtual {p0, v5}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->removeCallbacks(Ljava/lang/Runnable;)Z
-
-    iput-boolean v7, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForcePressing:Z
-
-    goto/16 :goto_0
-
     :cond_6
-    move v5, v7
+    const v9, 0xc369
+
+    invoke-virtual {p0, v9}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->performHapticFeedback(I)Z
+
+    sget-boolean v9, Lcom/android/systemui/Rune;->NAVBAR_SUPPORT_OPEN_THEME:Z
+
+    if-eqz v9, :cond_7
+
+    :goto_3
+    invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->playSoundEffect(I)V
 
     goto :goto_2
 
     :cond_7
-    move v5, v7
+    move v6, v7
 
-    goto :goto_2
+    goto :goto_3
+
+    :pswitch_1
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
+
+    move-result v6
+
+    float-to-int v4, v6
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
+
+    move-result v6
+
+    float-to-int v5, v6
+
+    iget v6, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mTouchSlop:I
+
+    neg-int v6, v6
+
+    if-lt v4, v6, :cond_a
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->getWidth()I
+
+    move-result v6
+
+    iget v10, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mTouchSlop:I
+
+    add-int/2addr v6, v10
+
+    if-ge v4, v6, :cond_a
+
+    iget v6, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mTouchSlop:I
+
+    neg-int v6, v6
+
+    if-lt v5, v6, :cond_a
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->getHeight()I
+
+    move-result v6
+
+    iget v10, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mTouchSlop:I
+
+    add-int/2addr v6, v10
+
+    if-ge v5, v6, :cond_9
+
+    move v6, v8
+
+    :goto_4
+    invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->setPressed(Z)V
+
+    sget-boolean v6, Lcom/android/systemui/Rune;->NAVBAR_SUPPORT_FORCE_TOUCH:Z
+
+    if-eqz v6, :cond_3
+
+    iget-boolean v6, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mLongClicked:Z
+
+    xor-int/lit8 v6, v6, 0x1
+
+    if-eqz v6, :cond_3
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getButtonState()I
+
+    move-result v1
+
+    iget-boolean v6, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForceActionHandled:Z
+
+    if-nez v6, :cond_b
+
+    iget-boolean v6, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForcePressing:Z
+
+    xor-int/lit8 v6, v6, 0x1
+
+    if-eqz v6, :cond_b
+
+    and-int v6, v1, v13
+
+    if-eqz v6, :cond_b
+
+    iget-object v6, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mCheckLongPress:Ljava/lang/Runnable;
+
+    invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->removeCallbacks(Ljava/lang/Runnable;)Z
+
+    iget-object v6, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mCheckLongPress:Ljava/lang/Runnable;
+
+    invoke-static {}, Landroid/view/ViewConfiguration;->getLongPressTimeout()I
+
+    move-result v10
+
+    int-to-long v10, v10
+
+    invoke-virtual {p0, v6, v10, v11}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    const-string/jumbo v6, "KeyButtonView"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "Force Pressed. mCode="
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    iget v11, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mCode:I
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string/jumbo v11, ", mForcePressed="
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    iget-boolean v11, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForcePressed:Z
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string/jumbo v11, ", buttonState=0x"
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-static {v1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v6, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-boolean v6, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForcePressed:Z
+
+    if-eqz v6, :cond_8
+
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v10
+
+    invoke-virtual {p0, v7, v9, v10, v11}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->sendEvent(IIJ)V
 
     :cond_8
-    and-int v5, v1, v11
+    iput-boolean v8, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForceActionChecked:Z
 
-    if-eqz v5, :cond_5
+    iput-boolean v8, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForcePressing:Z
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForceHandler:Lcom/android/systemui/statusbar/phone/NaviBarForceTouchHandler;
-
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawX()F
-
-    move-result v8
-
-    float-to-int v8, v8
-
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawY()F
-
-    move-result v9
-
-    float-to-int v9, v9
-
-    invoke-virtual {v5, v8, v9}, Lcom/android/systemui/statusbar/phone/NaviBarForceTouchHandler;->forceClickOnNaviBar(II)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_9
-
-    invoke-virtual {p0, v6, v10}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->sendEvent(II)V
-
-    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mCheckLongPress:Ljava/lang/Runnable;
-
-    invoke-virtual {p0, v5}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->removeCallbacks(Ljava/lang/Runnable;)Z
-
-    iput-boolean v6, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForceHandled:Z
+    iput-boolean v8, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForcePressed:Z
 
     goto/16 :goto_0
 
     :cond_9
-    const-string/jumbo v5, "KeyButtonView"
+    move v6, v7
 
-    const-string/jumbo v8, "Force Pressed!!!!!"
-
-    invoke-static {v5, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-boolean v5, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForcePressed:Z
-
-    if-eqz v5, :cond_a
-
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
-
-    move-result-wide v8
-
-    invoke-virtual {p0, v7, v7, v8, v9}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->sendEvent(IIJ)V
+    goto :goto_4
 
     :cond_a
-    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mCheckLongPress:Ljava/lang/Runnable;
+    move v6, v7
 
-    invoke-virtual {p0, v5}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->removeCallbacks(Ljava/lang/Runnable;)Z
+    goto :goto_4
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mCheckLongPress:Ljava/lang/Runnable;
+    :cond_b
+    iget-boolean v6, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForcePressing:Z
 
-    invoke-static {}, Landroid/view/ViewConfiguration;->getLongPressTimeout()I
+    if-eqz v6, :cond_3
 
-    move-result v7
+    and-int v6, v1, v13
 
-    int-to-long v8, v7
+    if-nez v6, :cond_3
 
-    invoke-virtual {p0, v5, v8, v9}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->postDelayed(Ljava/lang/Runnable;J)Z
+    sget-boolean v6, Lcom/android/systemui/statusbar/policy/KeyButtonView;->DEBUG:Z
 
-    iput-boolean v6, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForcePressing:Z
+    if-eqz v6, :cond_c
 
-    iput-boolean v6, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForcePressed:Z
+    const-string/jumbo v6, "KeyButtonView"
+
+    const-string/jumbo v10, "Force Released"
+
+    invoke-static {v6, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_c
+    iget-object v6, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mCheckLongPress:Ljava/lang/Runnable;
+
+    invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->removeCallbacks(Ljava/lang/Runnable;)Z
+
+    invoke-virtual {p0, v8, v9}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->sendEvent(II)V
+
+    iput-boolean v7, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForcePressing:Z
 
     goto/16 :goto_0
 
     :pswitch_2
     invoke-virtual {p0, v7}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->setPressed(Z)V
 
-    iget v5, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mCode:I
+    iget v6, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mCode:I
 
-    if-eqz v5, :cond_b
+    if-eqz v6, :cond_d
 
-    invoke-virtual {p0, v6, v10}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->sendEvent(II)V
+    iget-boolean v6, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForcePressing:Z
 
-    :cond_b
-    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mCheckLongPress:Ljava/lang/Runnable;
+    if-eqz v6, :cond_e
 
-    invoke-virtual {p0, v5}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->removeCallbacks(Ljava/lang/Runnable;)Z
+    move v6, v9
 
-    goto/16 :goto_0
-
-    :pswitch_3
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->isPressed()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_c
-
-    iget-boolean v5, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mLongClicked:Z
-
-    if-eqz v5, :cond_e
-
-    :cond_c
-    const/4 v2, 0x0
-
-    :goto_3
-    invoke-virtual {p0, v7}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->setPressed(Z)V
-
-    iget v5, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mCode:I
-
-    if-eqz v5, :cond_10
-
-    if-eqz v2, :cond_f
-
-    invoke-virtual {p0, v6, v7}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->sendEvent(II)V
-
-    invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->sendAccessibilityEvent(I)V
-
-    invoke-virtual {p0, v7}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->playSoundEffect(I)V
+    :goto_5
+    invoke-virtual {p0, v8, v6}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->sendEvent(II)V
 
     :cond_d
-    :goto_4
-    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mCheckLongPress:Ljava/lang/Runnable;
+    iget-object v6, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mCheckLongPress:Ljava/lang/Runnable;
 
-    invoke-virtual {p0, v5}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->removeCallbacks(Ljava/lang/Runnable;)Z
+    invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     goto/16 :goto_0
 
     :cond_e
-    iget-boolean v5, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForcePressed:Z
+    const/16 v6, 0x20
 
-    if-nez v5, :cond_c
+    goto :goto_5
 
-    iget-boolean v5, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForceHandled:Z
+    :pswitch_3
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->isPressed()Z
 
-    if-nez v5, :cond_c
+    move-result v9
 
-    const/4 v2, 0x1
+    if-eqz v9, :cond_13
 
-    goto :goto_3
+    iget-boolean v9, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mLongClicked:Z
+
+    xor-int/lit8 v9, v9, 0x1
+
+    if-eqz v9, :cond_13
+
+    iget-boolean v9, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForcePressed:Z
+
+    if-eqz v9, :cond_f
+
+    iget-boolean v9, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForcePressing:Z
+
+    if-eqz v9, :cond_13
 
     :cond_f
-    iget-boolean v5, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForcePressed:Z
+    iget-boolean v9, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForceActionHandled:Z
 
-    if-nez v5, :cond_d
+    xor-int/lit8 v2, v9, 0x1
 
-    iget-boolean v5, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForceHandled:Z
+    :goto_6
+    sget-boolean v9, Lcom/android/systemui/statusbar/policy/KeyButtonView;->DEBUG:Z
 
-    if-nez v5, :cond_d
+    if-eqz v9, :cond_10
 
-    invoke-virtual {p0, v6, v10}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->sendEvent(II)V
+    const-string/jumbo v9, "KeyButtonView"
 
-    goto :goto_4
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "MotionEvent.ACTION_UP mCode="
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    iget v11, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mCode:I
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string/jumbo v11, ", doIt="
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string/jumbo v11, ", isPressed()="
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->isPressed()Z
+
+    move-result v11
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string/jumbo v11, ", mForcePressed="
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    iget-boolean v11, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForcePressed:Z
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string/jumbo v11, ", mForcePressing="
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    iget-boolean v11, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForcePressing:Z
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string/jumbo v11, ", mForceActionHandled="
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    iget-boolean v11, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForceActionHandled:Z
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_10
-    if-eqz v2, :cond_d
+    invoke-virtual {p0, v7}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->setPressed(Z)V
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->performClick()Z
+    iget v9, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mCode:I
 
-    goto :goto_4
+    if-eqz v9, :cond_18
+
+    if-eqz v2, :cond_15
+
+    iget-boolean v9, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForcePressing:Z
+
+    if-eqz v9, :cond_14
+
+    const/high16 v3, 0x100000
+
+    :goto_7
+    invoke-virtual {p0, v8, v3}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->sendEvent(II)V
+
+    invoke-virtual {p0, v8}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->sendAccessibilityEvent(I)V
+
+    :cond_11
+    :goto_8
+    sget-boolean v9, Lcom/android/systemui/Rune;->NAVBAR_SUPPORT_FORCE_TOUCH:Z
+
+    if-eqz v9, :cond_12
+
+    sget-boolean v9, Lcom/android/systemui/Rune;->NAVBAR_SUPPORT_OPEN_THEME:Z
+
+    if-eqz v9, :cond_17
+
+    :goto_9
+    invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->playSoundEffect(I)V
+
+    :cond_12
+    :goto_a
+    iget-object v6, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mCheckLongPress:Ljava/lang/Runnable;
+
+    invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->removeCallbacks(Ljava/lang/Runnable;)Z
+
+    goto/16 :goto_0
+
+    :cond_13
+    const/4 v2, 0x0
+
+    goto/16 :goto_6
+
+    :cond_14
+    const/4 v3, 0x0
+
+    goto :goto_7
+
+    :cond_15
+    iget-boolean v9, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mLongClicked:Z
+
+    if-nez v9, :cond_16
+
+    iget-boolean v9, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForcePressed:Z
+
+    if-nez v9, :cond_11
+
+    iget-boolean v9, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mForceActionHandled:Z
+
+    xor-int/lit8 v9, v9, 0x1
+
+    if-eqz v9, :cond_11
+
+    :cond_16
+    const/16 v9, 0x20
+
+    invoke-virtual {p0, v8, v9}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->sendEvent(II)V
+
+    goto :goto_8
+
+    :cond_17
+    move v6, v7
+
+    goto :goto_9
+
+    :cond_18
+    if-eqz v2, :cond_12
+
+    iget-object v6, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mOnClickListener:Landroid/view/View$OnClickListener;
+
+    if-eqz v6, :cond_12
+
+    iget-object v6, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mOnClickListener:Landroid/view/View$OnClickListener;
+
+    invoke-interface {v6, p0}, Landroid/view/View$OnClickListener;->onClick(Landroid/view/View;)V
+
+    invoke-virtual {p0, v8}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->sendAccessibilityEvent(I)V
+
+    goto :goto_a
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -684,11 +917,11 @@
 
     const/16 v0, 0x10
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_1
 
     iget v0, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mCode:I
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
@@ -700,18 +933,30 @@
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->sendAccessibilityEvent(I)V
 
-    invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->playSoundEffect(I)V
+    sget-boolean v0, Lcom/android/systemui/Rune;->NAVBAR_SUPPORT_OPEN_THEME:Z
 
+    if-eqz v0, :cond_0
+
+    const/16 v0, 0x66
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->playSoundEffect(I)V
+
+    :goto_0
     return v3
 
     :cond_0
+    invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->playSoundEffect(I)V
+
+    goto :goto_0
+
+    :cond_1
     const/16 v0, 0x20
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_2
 
     iget v0, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mCode:I
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     const/16 v0, 0x80
 
@@ -725,7 +970,7 @@
 
     return v3
 
-    :cond_1
+    :cond_2
     invoke-super {p0, p1, p2}, Landroid/widget/ImageView;->performAccessibilityActionInternal(ILandroid/os/Bundle;)Z
 
     move-result v0
@@ -736,6 +981,13 @@
 .method public playSoundEffect(I)V
     .locals 2
 
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mPlaySounds:Z
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mAudioManager:Landroid/media/AudioManager;
 
     invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
@@ -762,11 +1014,128 @@
 .method sendEvent(IIJ)V
     .locals 17
 
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mMetricsLogger:Lcom/android/internal/logging/MetricsLogger;
+
+    new-instance v4, Landroid/metrics/LogMaker;
+
+    const/16 v5, 0x3a3
+
+    invoke-direct {v4, v5}, Landroid/metrics/LogMaker;-><init>(I)V
+
+    const/4 v5, 0x4
+
+    invoke-virtual {v4, v5}, Landroid/metrics/LogMaker;->setType(I)Landroid/metrics/LogMaker;
+
+    move-result-object v4
+
+    move-object/from16 v0, p0
+
+    iget v5, v0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mCode:I
+
+    invoke-virtual {v4, v5}, Landroid/metrics/LogMaker;->setSubtype(I)Landroid/metrics/LogMaker;
+
+    move-result-object v4
+
+    invoke-static/range {p1 .. p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    const/16 v6, 0x3a5
+
+    invoke-virtual {v4, v6, v5}, Landroid/metrics/LogMaker;->addTaggedData(ILjava/lang/Object;)Landroid/metrics/LogMaker;
+
+    move-result-object v4
+
+    invoke-static/range {p2 .. p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    const/16 v6, 0x3a4
+
+    invoke-virtual {v4, v6, v5}, Landroid/metrics/LogMaker;->addTaggedData(ILjava/lang/Object;)Landroid/metrics/LogMaker;
+
+    move-result-object v4
+
+    invoke-virtual {v2, v4}, Lcom/android/internal/logging/MetricsLogger;->write(Landroid/metrics/LogMaker;)V
+
+    sget-boolean v2, Lcom/android/systemui/statusbar/policy/KeyButtonView;->DEBUG:Z
+
+    if-eqz v2, :cond_0
+
+    const-string/jumbo v2, "KeyButtonView"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "sendEvent() mCode="
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    move-object/from16 v0, p0
+
+    iget v5, v0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mCode:I
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, ", action="
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    move/from16 v0, p1
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, ", flags="
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    move/from16 v0, p2
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, ", callers="
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const/4 v5, 0x5
+
+    invoke-static {v5}, Landroid/os/Debug;->getCallers(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v2, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     move/from16 v0, p2
 
     and-int/lit16 v2, v0, 0x80
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     const/4 v10, 0x1
 
@@ -809,10 +1178,16 @@
 
     return-void
 
-    :cond_0
+    :cond_1
     const/4 v10, 0x0
 
     goto :goto_0
+.end method
+
+.method public setCarMode(Z)V
+    .locals 0
+
+    return-void
 .end method
 
 .method public setCode(I)V
@@ -823,17 +1198,45 @@
     return-void
 .end method
 
-.method public setRippleColor(I)V
-    .locals 1
+.method public setDarkIntensity(F)V
+    .locals 2
 
-    sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_LIGHT_NAVIGATIONBAR:Z
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->getDrawable()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mRipple:Lcom/android/systemui/statusbar/policy/KeyButtonRipple;
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->getDrawable()Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->setRippleColor(I)V
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;
+
+    invoke-virtual {v1, p1}, Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;->setDarkIntensity(F)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->invalidate()V
 
     :cond_0
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mRipple:Lcom/android/systemui/statusbar/policy/KeyButtonRipple;
+
+    invoke-virtual {v1, p1}, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->setDarkIntensity(F)V
+
+    return-void
+.end method
+
+.method public setOnClickListener(Landroid/view/View$OnClickListener;)V
+    .locals 0
+
+    invoke-super {p0, p1}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    iput-object p1, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView;->mOnClickListener:Landroid/view/View$OnClickListener;
+
+    return-void
+.end method
+
+.method public setVertical(Z)V
+    .locals 0
+
     return-void
 .end method

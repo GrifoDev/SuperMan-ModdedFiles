@@ -8,9 +8,7 @@
 
 
 # instance fields
-.field private mDrawableManager:Landroid/support/v7/widget/AppCompatDrawableManager;
-
-.field private mTextHelper:Landroid/support/v7/widget/AppCompatTextHelper;
+.field private final mTextHelper:Landroid/support/v7/widget/AppCompatTextHelper;
 
 
 # direct methods
@@ -67,12 +65,6 @@
 
     invoke-virtual {v1}, Landroid/support/v7/widget/AppCompatTextHelper;->applyCompoundDrawablesTints()V
 
-    invoke-static {}, Landroid/support/v7/widget/AppCompatDrawableManager;->get()Landroid/support/v7/widget/AppCompatDrawableManager;
-
-    move-result-object v1
-
-    iput-object v1, p0, Landroid/support/v7/widget/AppCompatCheckedTextView;->mDrawableManager:Landroid/support/v7/widget/AppCompatDrawableManager;
-
     invoke-virtual {p0}, Landroid/support/v7/widget/AppCompatCheckedTextView;->getContext()Landroid/content/Context;
 
     move-result-object v1
@@ -114,35 +106,23 @@
 .end method
 
 .method public setCheckMarkDrawable(I)V
-    .locals 2
+    .locals 1
     .param p1    # I
         .annotation build Landroid/support/annotation/DrawableRes;
         .end annotation
     .end param
 
-    iget-object v0, p0, Landroid/support/v7/widget/AppCompatCheckedTextView;->mDrawableManager:Landroid/support/v7/widget/AppCompatDrawableManager;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Landroid/support/v7/widget/AppCompatCheckedTextView;->mDrawableManager:Landroid/support/v7/widget/AppCompatDrawableManager;
-
     invoke-virtual {p0}, Landroid/support/v7/widget/AppCompatCheckedTextView;->getContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v0, v1, p1}, Landroid/support/v7/widget/AppCompatDrawableManager;->getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
+    invoke-static {v0, p1}, Landroid/support/v7/content/res/AppCompatResources;->getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
     invoke-virtual {p0, v0}, Landroid/support/v7/widget/AppCompatCheckedTextView;->setCheckMarkDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    :goto_0
     return-void
-
-    :cond_0
-    invoke-super {p0, p1}, Landroid/widget/CheckedTextView;->setCheckMarkDrawable(I)V
-
-    goto :goto_0
 .end method
 
 .method public setTextAppearance(Landroid/content/Context;I)V

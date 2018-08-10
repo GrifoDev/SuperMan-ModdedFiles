@@ -36,15 +36,11 @@
 
     iget-object v1, p0, Landroid/support/v4/widget/SwipeRefreshLayout$8;->this$0:Landroid/support/v4/widget/SwipeRefreshLayout;
 
-    invoke-static {v1}, Landroid/support/v4/widget/SwipeRefreshLayout;->-get7(Landroid/support/v4/widget/SwipeRefreshLayout;)F
-
-    move-result v1
+    iget v1, v1, Landroid/support/v4/widget/SwipeRefreshLayout;->mStartingScale:F
 
     iget-object v2, p0, Landroid/support/v4/widget/SwipeRefreshLayout$8;->this$0:Landroid/support/v4/widget/SwipeRefreshLayout;
 
-    invoke-static {v2}, Landroid/support/v4/widget/SwipeRefreshLayout;->-get7(Landroid/support/v4/widget/SwipeRefreshLayout;)F
-
-    move-result v2
+    iget v2, v2, Landroid/support/v4/widget/SwipeRefreshLayout;->mStartingScale:F
 
     neg-float v2, v2
 
@@ -54,11 +50,11 @@
 
     iget-object v1, p0, Landroid/support/v4/widget/SwipeRefreshLayout$8;->this$0:Landroid/support/v4/widget/SwipeRefreshLayout;
 
-    invoke-static {v1, v0}, Landroid/support/v4/widget/SwipeRefreshLayout;->-wrap2(Landroid/support/v4/widget/SwipeRefreshLayout;F)V
+    invoke-virtual {v1, v0}, Landroid/support/v4/widget/SwipeRefreshLayout;->setAnimationProgress(F)V
 
     iget-object v1, p0, Landroid/support/v4/widget/SwipeRefreshLayout$8;->this$0:Landroid/support/v4/widget/SwipeRefreshLayout;
 
-    invoke-static {v1, p1}, Landroid/support/v4/widget/SwipeRefreshLayout;->-wrap0(Landroid/support/v4/widget/SwipeRefreshLayout;F)V
+    invoke-virtual {v1, p1}, Landroid/support/v4/widget/SwipeRefreshLayout;->moveToStart(F)V
 
     return-void
 .end method

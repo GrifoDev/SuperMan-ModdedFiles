@@ -19,12 +19,12 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/tiles/AirplaneModeTile;I)V
+.method constructor <init>(Lcom/android/systemui/qs/tiles/AirplaneModeTile;Ljava/lang/Integer;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$4;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
 
-    invoke-direct {p0, p2}, Landroid/telephony/PhoneStateListener;-><init>(I)V
+    invoke-direct {p0, p2}, Landroid/telephony/PhoneStateListener;-><init>(Ljava/lang/Integer;)V
 
     return-void
 .end method
@@ -36,15 +36,19 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$4;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
 
-    iget v2, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$4;->mSubId:I
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$4;->mSubId:Ljava/lang/Integer;
 
-    invoke-static {v1, v2}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-wrap1(Lcom/android/systemui/qs/tiles/AirplaneModeTile;I)I
+    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+
+    move-result v2
+
+    invoke-static {v1, v2}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-wrap2(Lcom/android/systemui/qs/tiles/AirplaneModeTile;I)I
 
     move-result v0
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$4;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get5(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)[I
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get7(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)[I
 
     move-result-object v1
 
@@ -55,7 +59,7 @@
     :cond_0
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$4;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get5(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)[I
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get7(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)[I
 
     move-result-object v1
 
@@ -69,7 +73,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$4;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get10(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)Z
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get11(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)Z
 
     move-result v1
 
@@ -82,7 +86,7 @@
     :cond_1
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$4;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get5(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)[I
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get7(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)[I
 
     move-result-object v1
 
@@ -142,7 +146,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$4;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
 
-    invoke-static {v3}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get10(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)Z
+    invoke-static {v3}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->-get11(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)Z
 
     move-result v3
 

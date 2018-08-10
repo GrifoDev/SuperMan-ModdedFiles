@@ -133,7 +133,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_0
 
     iget-object v2, p0, Lcom/android/systemui/classifier/AnglesClassifier$Data;->mLastThreePoints:Ljava/util/List;
 
@@ -155,20 +155,18 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_2
 
     :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
     iget-object v2, p0, Lcom/android/systemui/classifier/AnglesClassifier$Data;->mLastThreePoints:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_1
 
     iget v3, p0, Lcom/android/systemui/classifier/AnglesClassifier$Data;->mLength:F
 
@@ -196,7 +194,7 @@
 
     iput v2, p0, Lcom/android/systemui/classifier/AnglesClassifier$Data;->mLength:F
 
-    :cond_2
+    :cond_1
     iget-object v2, p0, Lcom/android/systemui/classifier/AnglesClassifier$Data;->mLastThreePoints:Ljava/util/List;
 
     invoke-interface {v2, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -209,7 +207,7 @@
 
     const/4 v3, 0x4
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_2
 
     iget-object v2, p0, Lcom/android/systemui/classifier/AnglesClassifier$Data;->mLastThreePoints:Ljava/util/List;
 
@@ -267,7 +265,7 @@
 
     iput v2, p0, Lcom/android/systemui/classifier/AnglesClassifier$Data;->mLeftAngles:F
 
-    :goto_1
+    :goto_0
     iget v2, p0, Lcom/android/systemui/classifier/AnglesClassifier$Data;->mPreviousAngle:F
 
     sub-float v1, v0, v2
@@ -302,7 +300,7 @@
 
     iput v6, p0, Lcom/android/systemui/classifier/AnglesClassifier$Data;->mSecondCount:F
 
-    :goto_2
+    :goto_1
     iget v2, p0, Lcom/android/systemui/classifier/AnglesClassifier$Data;->mSum:F
 
     add-float/2addr v2, v1
@@ -329,7 +327,8 @@
 
     iput v0, p0, Lcom/android/systemui/classifier/AnglesClassifier$Data;->mPreviousAngle:F
 
-    goto/16 :goto_0
+    :cond_2
+    return-void
 
     :cond_3
     float-to-double v2, v0
@@ -346,7 +345,7 @@
 
     iput v2, p0, Lcom/android/systemui/classifier/AnglesClassifier$Data;->mStraightAngles:F
 
-    goto :goto_1
+    goto :goto_0
 
     :cond_4
     iget v2, p0, Lcom/android/systemui/classifier/AnglesClassifier$Data;->mRightAngles:F
@@ -355,7 +354,7 @@
 
     iput v2, p0, Lcom/android/systemui/classifier/AnglesClassifier$Data;->mRightAngles:F
 
-    goto :goto_1
+    goto :goto_0
 
     :cond_5
     iget v2, p0, Lcom/android/systemui/classifier/AnglesClassifier$Data;->mSecondSum:F
@@ -382,7 +381,7 @@
 
     iput v2, p0, Lcom/android/systemui/classifier/AnglesClassifier$Data;->mSecondCount:F
 
-    goto :goto_2
+    goto :goto_1
 .end method
 
 .method public getAnglesPercentage()F

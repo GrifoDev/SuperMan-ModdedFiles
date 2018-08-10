@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="wifi_ap_wifi_sharing">
+        <item>Turn on &lt;cst>Wi-Fi&lt;/cst> sharing</item>
+        <item>Turn off &lt;cst>Wi-Fi&lt;/cst> sharing</item>
+    </string-array>
+</resources>

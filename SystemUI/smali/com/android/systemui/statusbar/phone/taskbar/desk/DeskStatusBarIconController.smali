@@ -1,13 +1,14 @@
-.class public Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskStatusBarIconController;
-.super Lcom/android/systemui/statusbar/phone/StatusBarIconController;
+.class public interface abstract Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskStatusBarIconController;
+.super Ljava/lang/Object;
 .source "DeskStatusBarIconController.java"
 
+# interfaces
+.implements Lcom/android/systemui/statusbar/phone/StatusBarIconController;
 
-# direct methods
-.method public constructor <init>(Landroid/content/Context;Landroid/view/View;Landroid/view/View;Lcom/android/systemui/statusbar/phone/PhoneStatusBar;)V
-    .locals 0
 
-    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;-><init>(Landroid/content/Context;Landroid/view/View;Landroid/view/View;Lcom/android/systemui/statusbar/phone/PhoneStatusBar;)V
-
-    return-void
-.end method
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskStatusBarIconController$DeskIconManager;
+    }
+.end annotation

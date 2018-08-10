@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:theme="@style/Theme.SystemUI.Dialog" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="17.0sp" android:textColor="?android:textColorAlertDialogListItem" android:id="@id/airplane_message_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/checkbox_popup_text_top_margin" android:layout_marginBottom="@dimen/checkbox_popup_text_top_margin" android:layout_marginStart="@dimen/checkbox_popup_text_margin" android:layout_marginEnd="@dimen/checkbox_popup_text_margin" style="?android:textAppearance" />
+        <CheckBox android:textSize="17.0sp" android:id="@id/airplane_message_checkbox" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6.0dip" android:text="@string/warning_alert_check" android:fontFamily="sec-roboto-light" android:paddingStart="5.0dip" android:layout_marginStart="@dimen/checkbox_popup_checkbox_margin" style="?android:textAppearance" />
+    </LinearLayout>
+</ScrollView>

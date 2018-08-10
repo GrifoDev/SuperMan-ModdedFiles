@@ -76,15 +76,15 @@
 
     invoke-virtual {v1, v2}, Lcom/android/systemui/qs/external/CustomTile;->showDetail(Z)V
 
-    iget-object v1, p0, Lcom/android/systemui/qs/external/CustomTile$CustomDetailAdapter$1;->this$1:Lcom/android/systemui/qs/external/CustomTile$CustomDetailAdapter;
+    const-class v1, Lcom/android/systemui/plugins/ActivityStarter;
 
-    iget-object v1, v1, Lcom/android/systemui/qs/external/CustomTile$CustomDetailAdapter;->this$0:Lcom/android/systemui/qs/external/CustomTile;
-
-    invoke-static {v1}, Lcom/android/systemui/qs/external/CustomTile;->-get1(Lcom/android/systemui/qs/external/CustomTile;)Lcom/android/systemui/qs/QSTile$Host;
+    invoke-static {v1}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v1
 
-    invoke-interface {v1, p2}, Lcom/android/systemui/qs/QSTile$Host;->startActivityDismissingKeyguard(Landroid/app/PendingIntent;)V
+    check-cast v1, Lcom/android/systemui/plugins/ActivityStarter;
+
+    invoke-interface {v1, p2}, Lcom/android/systemui/plugins/ActivityStarter;->postStartActivityDismissingKeyguard(Landroid/app/PendingIntent;)V
 
     const/4 v1, 0x1
 

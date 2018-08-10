@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inset android:drawable="@drawable/divider_snapview_handle_point" android:insetLeft="15.0dip" android:insetRight="15.0dip" android:insetTop="13.5dip" android:insetBottom="16.5dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

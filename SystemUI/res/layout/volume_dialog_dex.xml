@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/volume_dialog" android:background="@drawable/volume_dialog_background_dex" android:paddingTop="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/volume_dialog_content" android:paddingBottom="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <com.android.keyguard.AlphaOptimizedImageButton android:id="@id/volume_expand_button" android:clickable="true" android:layout_width="@dimen/volume_button_size" android:layout_height="@dimen/volume_button_size" android:src="@android:drawable/tw_expander_open_mtrl_alpha" android:layout_marginEnd="16.0dip" android:layout_alignParentEnd="true" style="@style/VolumeButtons"
+      xmlns:android="http://schemas.android.com/apk/res/android" />
+    <LinearLayout android:orientation="vertical" android:id="@id/volume_dialog_defaultvolumecontrol" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/volume_dialog_content" />
+    <LinearLayout android:orientation="vertical" android:id="@id/volume_dialog_dnd" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/volume_dialog_defaultvolumecontrol" />
+</RelativeLayout>

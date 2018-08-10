@@ -25,9 +25,7 @@
 
 
 # instance fields
-.field private mClock:Landroid/view/View;
-
-.field private mHandler:Landroid/os/Handler;
+.field private mClock:Lcom/android/keyguard/KeyguardStatusView;
 
 .field private mMarginLeft:I
 
@@ -41,23 +39,15 @@
 
 
 # direct methods
-.method static synthetic -get0(Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;)Landroid/view/View;
+.method static synthetic -get0(Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;)Lcom/android/keyguard/KeyguardStatusView;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mClock:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mClock:Lcom/android/keyguard/KeyguardStatusView;
 
     return-object v0
 .end method
 
-.method static synthetic -get1(Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;)Landroid/os/Handler;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mHandler:Landroid/os/Handler;
-
-    return-object v0
-.end method
-
-.method static synthetic -get2(Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;)I
+.method static synthetic -get1(Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;)I
     .locals 1
 
     iget v0, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mMarginLeft:I
@@ -65,7 +55,7 @@
     return v0
 .end method
 
-.method static synthetic -get3(Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;)I
+.method static synthetic -get2(Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;)I
     .locals 1
 
     iget v0, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mMarginTop:I
@@ -73,7 +63,7 @@
     return v0
 .end method
 
-.method static synthetic -get4(Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;)I
+.method static synthetic -get3(Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;)I
     .locals 1
 
     iget v0, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mUsableHeight:I
@@ -81,7 +71,7 @@
     return v0
 .end method
 
-.method static synthetic -get5(Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;)I
+.method static synthetic -get4(Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;)I
     .locals 1
 
     iget v0, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mUsableWidth:I
@@ -150,20 +140,6 @@
 
 
 # virtual methods
-.method public onAttachedToWindow()V
-    .locals 4
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mHandler:Landroid/os/Handler;
-
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mMoveTextRunnable:Ljava/lang/Runnable;
-
-    const-wide/16 v2, 0x2710
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    return-void
-.end method
-
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 3
 
@@ -211,29 +187,25 @@
 
     iput v1, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mMarginTop:I
 
-    sget v1, Lcom/android/keyguard/R$layout;->keyguard_presentation:I
+    const v1, 0x7f0d0083
 
     invoke-virtual {p0, v1}, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->setContentView(I)V
 
-    sget v1, Lcom/android/keyguard/R$id;->clock:I
+    const v1, 0x7f0a00e6
 
     invoke-virtual {p0, v1}, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mClock:Landroid/view/View;
+    check-cast v1, Lcom/android/keyguard/KeyguardStatusView;
 
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mClock:Landroid/view/View;
+    iput-object v1, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mClock:Lcom/android/keyguard/KeyguardStatusView;
 
-    const/4 v2, 0x0
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mClock:Lcom/android/keyguard/KeyguardStatusView;
 
-    invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mMoveTextRunnable:Ljava/lang/Runnable;
 
-    new-instance v1, Landroid/os/Handler;
-
-    invoke-direct {v1}, Landroid/os/Handler;-><init>()V
-
-    iput-object v1, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mHandler:Landroid/os/Handler;
+    invoke-virtual {v1, v2}, Lcom/android/keyguard/KeyguardStatusView;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
@@ -241,11 +213,11 @@
 .method public onDetachedFromWindow()V
     .locals 2
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mHandler:Landroid/os/Handler;
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mClock:Lcom/android/keyguard/KeyguardStatusView;
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mMoveTextRunnable:Ljava/lang/Runnable;
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+    invoke-virtual {v0, v1}, Lcom/android/keyguard/KeyguardStatusView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     return-void
 .end method

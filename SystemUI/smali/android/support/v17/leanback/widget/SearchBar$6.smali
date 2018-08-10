@@ -50,21 +50,17 @@
     :cond_0
     iget-object v1, p0, Landroid/support/v17/leanback/widget/SearchBar$6;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v1}, Landroid/support/v17/leanback/widget/SearchBar;->-get4(Landroid/support/v17/leanback/widget/SearchBar;)Landroid/support/v17/leanback/widget/SearchBar$SearchBarListener;
-
-    move-result-object v1
+    iget-object v1, v1, Landroid/support/v17/leanback/widget/SearchBar;->mSearchBarListener:Landroid/support/v17/leanback/widget/SearchBar$SearchBarListener;
 
     if-eqz v1, :cond_1
 
     iget-object v1, p0, Landroid/support/v17/leanback/widget/SearchBar$6;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v1}, Landroid/support/v17/leanback/widget/SearchBar;->-wrap0(Landroid/support/v17/leanback/widget/SearchBar;)V
+    invoke-virtual {v1}, Landroid/support/v17/leanback/widget/SearchBar;->hideNativeKeyboard()V
 
     iget-object v1, p0, Landroid/support/v17/leanback/widget/SearchBar$6;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v1}, Landroid/support/v17/leanback/widget/SearchBar;->-get2(Landroid/support/v17/leanback/widget/SearchBar;)Landroid/os/Handler;
-
-    move-result-object v1
+    iget-object v1, v1, Landroid/support/v17/leanback/widget/SearchBar;->mHandler:Landroid/os/Handler;
 
     new-instance v2, Landroid/support/v17/leanback/widget/SearchBar$6$1;
 
@@ -82,21 +78,17 @@
 
     iget-object v1, p0, Landroid/support/v17/leanback/widget/SearchBar$6;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v1}, Landroid/support/v17/leanback/widget/SearchBar;->-get4(Landroid/support/v17/leanback/widget/SearchBar;)Landroid/support/v17/leanback/widget/SearchBar$SearchBarListener;
-
-    move-result-object v1
+    iget-object v1, v1, Landroid/support/v17/leanback/widget/SearchBar;->mSearchBarListener:Landroid/support/v17/leanback/widget/SearchBar$SearchBarListener;
 
     if-eqz v1, :cond_2
 
     iget-object v1, p0, Landroid/support/v17/leanback/widget/SearchBar$6;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v1}, Landroid/support/v17/leanback/widget/SearchBar;->-wrap0(Landroid/support/v17/leanback/widget/SearchBar;)V
+    invoke-virtual {v1}, Landroid/support/v17/leanback/widget/SearchBar;->hideNativeKeyboard()V
 
     iget-object v1, p0, Landroid/support/v17/leanback/widget/SearchBar$6;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v1}, Landroid/support/v17/leanback/widget/SearchBar;->-get2(Landroid/support/v17/leanback/widget/SearchBar;)Landroid/os/Handler;
-
-    move-result-object v1
+    iget-object v1, v1, Landroid/support/v17/leanback/widget/SearchBar;->mHandler:Landroid/os/Handler;
 
     new-instance v2, Landroid/support/v17/leanback/widget/SearchBar$6$2;
 
@@ -113,13 +105,11 @@
 
     iget-object v1, p0, Landroid/support/v17/leanback/widget/SearchBar$6;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v1}, Landroid/support/v17/leanback/widget/SearchBar;->-wrap0(Landroid/support/v17/leanback/widget/SearchBar;)V
+    invoke-virtual {v1}, Landroid/support/v17/leanback/widget/SearchBar;->hideNativeKeyboard()V
 
     iget-object v1, p0, Landroid/support/v17/leanback/widget/SearchBar$6;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v1}, Landroid/support/v17/leanback/widget/SearchBar;->-get2(Landroid/support/v17/leanback/widget/SearchBar;)Landroid/os/Handler;
-
-    move-result-object v1
+    iget-object v1, v1, Landroid/support/v17/leanback/widget/SearchBar;->mHandler:Landroid/os/Handler;
 
     new-instance v2, Landroid/support/v17/leanback/widget/SearchBar$6$3;
 

@@ -44,7 +44,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/shortcut/ShortcutKeyDispatcher;->mWindowManagerService:Landroid/view/IWindowManager;
 
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
     move-result-object v0
 
@@ -81,122 +81,182 @@
     .locals 15
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/systemui/shortcut/ShortcutKeyDispatcher;->mWindowManagerService:Landroid/view/IWindowManager;
+    iget-object v10, p0, Lcom/android/systemui/shortcut/ShortcutKeyDispatcher;->mWindowManagerService:Landroid/view/IWindowManager;
 
-    invoke-interface {v1}, Landroid/view/IWindowManager;->getDockedStackSide()I
+    invoke-interface {v10}, Landroid/view/IWindowManager;->getDockedStackSide()I
 
-    move-result v9
+    move-result v4
 
-    const/4 v1, -0x1
+    const/4 v10, -0x1
 
-    if-ne v9, v1, :cond_1
+    if-ne v4, v10, :cond_2
 
-    const-class v1, Lcom/android/systemui/recents/Recents;
+    const-class v10, Lcom/android/systemui/recents/Recents;
 
-    invoke-virtual {p0, v1}, Lcom/android/systemui/shortcut/ShortcutKeyDispatcher;->getComponent(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/recents/Recents;
-
-    const-wide v4, 0x1000000000047L
-
-    cmp-long v1, p1, v4
-
-    if-nez v1, :cond_0
-
-    const/4 v2, 0x0
-
-    :goto_0
-    const/4 v1, -0x1
-
-    const/4 v3, 0x0
-
-    const/16 v4, 0x160
-
-    const/4 v5, 0x1
-
-    invoke-virtual/range {v0 .. v5}, Lcom/android/systemui/recents/Recents;->dockTopTask(IILandroid/graphics/Rect;IZ)Z
-
-    :goto_1
-    return-void
-
-    :cond_0
-    const/4 v2, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    const-class v1, Lcom/android/systemui/stackdivider/Divider;
-
-    invoke-virtual {p0, v1}, Lcom/android/systemui/shortcut/ShortcutKeyDispatcher;->getComponent(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/systemui/stackdivider/Divider;
-
-    invoke-virtual {v1}, Lcom/android/systemui/stackdivider/Divider;->getView()Lcom/android/systemui/stackdivider/DividerView;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Lcom/android/systemui/stackdivider/DividerView;->getSnapAlgorithm()Lcom/android/internal/policy/DividerSnapAlgorithm;
-
-    move-result-object v12
-
-    invoke-virtual {v8}, Lcom/android/systemui/stackdivider/DividerView;->getCurrentPosition()I
-
-    move-result v7
-
-    invoke-virtual {v12, v7}, Lcom/android/internal/policy/DividerSnapAlgorithm;->calculateNonDismissingSnapTarget(I)Lcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;
+    invoke-virtual {p0, v10}, Lcom/android/systemui/shortcut/ShortcutKeyDispatcher;->getComponent(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v6
 
-    const-wide v4, 0x1000000000047L
+    check-cast v6, Lcom/android/systemui/recents/Recents;
 
-    cmp-long v1, p1, v4
+    const-wide v10, 0x1000000000047L
 
-    if-nez v1, :cond_2
+    cmp-long v10, p1, v10
 
-    const/4 v11, -0x1
+    if-nez v10, :cond_1
+
+    const/4 v3, 0x0
+
+    :goto_0
+    iget-object v10, p0, Lcom/android/systemui/shortcut/ShortcutKeyDispatcher;->mContext:Landroid/content/Context;
+
+    invoke-static {v10}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->getInstance(Landroid/content/Context;)Lcom/android/systemui/recents/misc/SystemServicesProxy;
+
+    move-result-object v10
+
+    new-instance v11, Landroid/util/ArraySet;
+
+    invoke-direct {v11}, Landroid/util/ArraySet;-><init>()V
+
+    const/4 v12, 0x1
+
+    const/4 v13, -0x2
+
+    const/4 v14, 0x0
+
+    invoke-virtual {v10, v12, v13, v14, v11}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->getRecentTasks(IIZLandroid/util/ArraySet;)Ljava/util/List;
+
+    move-result-object v9
+
+    const/4 v10, 0x0
+
+    const/4 v11, 0x0
+
+    invoke-virtual {v6, v10, v11}, Lcom/android/systemui/recents/Recents;->showRecentApps(ZZ)V
+
+    invoke-interface {v9}, Ljava/util/List;->isEmpty()Z
+
+    move-result v10
+
+    if-nez v10, :cond_0
+
+    iget-object v10, p0, Lcom/android/systemui/shortcut/ShortcutKeyDispatcher;->mContext:Landroid/content/Context;
+
+    invoke-static {v10}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->getInstance(Landroid/content/Context;)Lcom/android/systemui/recents/misc/SystemServicesProxy;
+
+    move-result-object v11
+
+    const/4 v10, 0x0
+
+    invoke-interface {v9, v10}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v10
+
+    check-cast v10, Landroid/app/ActivityManager$RecentTaskInfo;
+
+    iget v12, v10, Landroid/app/ActivityManager$RecentTaskInfo;->id:I
+
+    iget-object v13, p0, Lcom/android/systemui/shortcut/ShortcutKeyDispatcher;->mContext:Landroid/content/Context;
+
+    const/4 v10, 0x0
+
+    invoke-interface {v9, v10}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v10
+
+    check-cast v10, Landroid/app/ActivityManager$RecentTaskInfo;
+
+    iget-object v10, v10, Landroid/app/ActivityManager$RecentTaskInfo;->taskDescription:Landroid/app/ActivityManager$TaskDescription;
+
+    invoke-virtual {v10}, Landroid/app/ActivityManager$TaskDescription;->getLabel()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v11, v12, v3, v13, v10}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->startTaskInDockedMode(IILandroid/content/Context;Ljava/lang/String;)Z
+
+    :cond_0
+    :goto_1
+    return-void
+
+    :cond_1
+    const/4 v3, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    const-class v10, Lcom/android/systemui/stackdivider/Divider;
+
+    invoke-virtual {p0, v10}, Lcom/android/systemui/shortcut/ShortcutKeyDispatcher;->getComponent(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v10
+
+    check-cast v10, Lcom/android/systemui/stackdivider/Divider;
+
+    invoke-virtual {v10}, Lcom/android/systemui/stackdivider/Divider;->getView()Lcom/android/systemui/stackdivider/DividerView;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/systemui/stackdivider/DividerView;->getSnapAlgorithm()Lcom/android/internal/policy/DividerSnapAlgorithm;
+
+    move-result-object v7
+
+    invoke-virtual {v2}, Lcom/android/systemui/stackdivider/DividerView;->getCurrentPosition()I
+
+    move-result v1
+
+    invoke-virtual {v7, v1}, Lcom/android/internal/policy/DividerSnapAlgorithm;->calculateNonDismissingSnapTarget(I)Lcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;
+
+    move-result-object v0
+
+    const-wide v10, 0x1000000000047L
+
+    cmp-long v10, p1, v10
+
+    if-nez v10, :cond_3
+
+    invoke-virtual {v7, v0}, Lcom/android/internal/policy/DividerSnapAlgorithm;->getPreviousTarget(Lcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;)Lcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;
+
+    move-result-object v8
 
     :goto_2
-    invoke-virtual {v12, v6, v11}, Lcom/android/internal/policy/DividerSnapAlgorithm;->cycleNonDismissTarget(Lcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;I)Lcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;
+    const/4 v10, 0x1
 
-    move-result-object v13
+    const/4 v11, 0x0
 
-    const/4 v1, 0x1
+    invoke-virtual {v2, v10, v11}, Lcom/android/systemui/stackdivider/DividerView;->startDragging(ZZ)Z
 
-    const/4 v3, 0x0
+    iget v10, v8, Lcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;->position:I
 
-    invoke-virtual {v8, v1, v3}, Lcom/android/systemui/stackdivider/DividerView;->startDragging(ZZ)Z
+    const/4 v11, 0x0
 
-    iget v1, v13, Lcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;->position:I
+    const/4 v12, 0x0
 
-    const/4 v3, 0x0
+    const/4 v13, 0x1
 
-    const/4 v4, 0x1
-
-    const/4 v5, 0x1
-
-    invoke-virtual {v8, v1, v3, v4, v5}, Lcom/android/systemui/stackdivider/DividerView;->stopDragging(IFZZ)V
+    invoke-virtual {v2, v10, v11, v12, v13}, Lcom/android/systemui/stackdivider/DividerView;->stopDragging(IFZZ)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_1
 
     :catch_0
-    move-exception v10
+    move-exception v5
 
-    const-string/jumbo v1, "ShortcutKeyDispatcher"
+    const-string/jumbo v10, "ShortcutKeyDispatcher"
 
-    const-string/jumbo v3, "handleDockKey() failed."
+    const-string/jumbo v11, "handleDockKey() failed."
 
-    invoke-static {v1, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v10, v11}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1
 
-    :cond_2
-    const/4 v11, 0x1
+    :cond_3
+    :try_start_1
+    invoke-virtual {v7, v0}, Lcom/android/internal/policy/DividerSnapAlgorithm;->getNextTarget(Lcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;)Lcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+
+    move-result-object v8
 
     goto :goto_2
 .end method

@@ -3,12 +3,12 @@
 .source "NetworkControllerImpl.java"
 
 # interfaces
-.implements Ljava/util/Comparator;
+.implements Lcom/android/systemui/statusbar/policy/DeviceProvisionedController$DeviceProvisionedListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->setCurrentSubscriptions(Ljava/util/List;)V
+    value = Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;-><init>(Landroid/content/Context;Landroid/net/ConnectivityManager;Landroid/net/NetworkScoreManager;Landroid/telephony/TelephonyManager;Landroid/net/wifi/WifiManager;Landroid/telephony/SubscriptionManager;Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$Config;Landroid/os/Looper;Lcom/android/systemui/statusbar/policy/CallbackHandler;Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;Lcom/android/settingslib/net/DataUsageController;Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$SubscriptionDefaults;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -16,26 +16,20 @@
     name = null
 .end annotation
 
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Ljava/util/Comparator",
-        "<",
-        "Landroid/telephony/SubscriptionInfo;",
-        ">;"
-    }
-.end annotation
-
 
 # instance fields
 .field final synthetic this$0:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
+.field final synthetic val$deviceProvisionedController:Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
+
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)V
+.method constructor <init>(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$6;->this$0:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
+
+    iput-object p2, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$6;->val$deviceProvisionedController:Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -44,56 +38,24 @@
 
 
 # virtual methods
-.method public compare(Landroid/telephony/SubscriptionInfo;Landroid/telephony/SubscriptionInfo;)I
-    .locals 2
+.method public onUserSetupChanged()V
+    .locals 3
 
-    invoke-virtual {p1}, Landroid/telephony/SubscriptionInfo;->getSimSlotIndex()I
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$6;->this$0:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
-    move-result v0
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$6;->val$deviceProvisionedController:Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
 
-    invoke-virtual {p2}, Landroid/telephony/SubscriptionInfo;->getSimSlotIndex()I
+    iget-object v2, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$6;->val$deviceProvisionedController:Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
 
-    move-result v1
+    invoke-interface {v2}, Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;->getCurrentUser()I
 
-    if-ne v0, v1, :cond_0
+    move-result v2
 
-    invoke-virtual {p1}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
-
-    move-result v0
-
-    invoke-virtual {p2}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
+    invoke-interface {v1, v2}, Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;->isUserSetup(I)Z
 
     move-result v1
 
-    sub-int/2addr v0, v1
+    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->-wrap4(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;Z)V
 
-    :goto_0
-    return v0
-
-    :cond_0
-    invoke-virtual {p1}, Landroid/telephony/SubscriptionInfo;->getSimSlotIndex()I
-
-    move-result v0
-
-    invoke-virtual {p2}, Landroid/telephony/SubscriptionInfo;->getSimSlotIndex()I
-
-    move-result v1
-
-    sub-int/2addr v0, v1
-
-    goto :goto_0
-.end method
-
-.method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 1
-
-    check-cast p1, Landroid/telephony/SubscriptionInfo;
-
-    check-cast p2, Landroid/telephony/SubscriptionInfo;
-
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$6;->compare(Landroid/telephony/SubscriptionInfo;Landroid/telephony/SubscriptionInfo;)I
-
-    move-result v0
-
-    return v0
+    return-void
 .end method

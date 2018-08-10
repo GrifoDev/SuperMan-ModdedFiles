@@ -23,7 +23,7 @@
     .end annotation
 .end method
 
-.method public abstract dockTopTask(IIILandroid/graphics/Rect;Z)V
+.method public abstract dockTopTask(IIILandroid/graphics/Rect;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -64,6 +64,14 @@
 .end method
 
 .method public abstract preloadRecents()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract showCurrentUserToast(II)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

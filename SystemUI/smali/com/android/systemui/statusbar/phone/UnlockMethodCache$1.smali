@@ -78,6 +78,18 @@
     return-void
 .end method
 
+.method public onScreenTurnedOff()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/UnlockMethodCache$1;->this$0:Lcom/android/systemui/statusbar/phone/UnlockMethodCache;
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/phone/UnlockMethodCache;->-wrap0(Lcom/android/systemui/statusbar/phone/UnlockMethodCache;Z)V
+
+    return-void
+.end method
+
 .method public onStartedWakingUp()V
     .locals 2
 

@@ -35,17 +35,15 @@
 
 # virtual methods
 .method public onTuningChanged(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/qs/QuickQSPanel$1;->this$0:Lcom/android/systemui/qs/QuickQSPanel;
 
     iget-object v1, p0, Lcom/android/systemui/qs/QuickQSPanel$1;->this$0:Lcom/android/systemui/qs/QuickQSPanel;
 
-    iget-object v2, p0, Lcom/android/systemui/qs/QuickQSPanel$1;->this$0:Lcom/android/systemui/qs/QuickQSPanel;
+    iget-object v1, v1, Lcom/android/systemui/qs/QuickQSPanel;->mContext:Landroid/content/Context;
 
-    iget-object v2, v2, Lcom/android/systemui/qs/QuickQSPanel;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1, v2}, Lcom/android/systemui/qs/QuickQSPanel;->getNumQuickTiles(Landroid/content/Context;)I
+    invoke-static {v1}, Lcom/android/systemui/qs/QuickQSPanel;->getNumQuickTiles(Landroid/content/Context;)I
 
     move-result v1
 

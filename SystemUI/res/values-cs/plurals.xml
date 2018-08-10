@@ -1,46 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <plurals name="status_bar_accessibility_recent_apps">
-        <item quantity="other">%d obrazovky v Přehledu</item>
-        <item quantity="one">%d obrazovky v Přehledu</item>
-    </plurals>
-    <plurals name="kg_password_wrong_pin_code">
-        <item quantity="other">Zadali jste nesprávný kód PIN SIM karty. Máte ještě %d pokusů.</item>
-        <item quantity="one">Zadali jste nesprávný PIN SIM karty. Zbývá %d pokus, poté bude muset zařízení odemknout operátor.</item>
-        <item quantity="few">Zadali jste nesprávný kód PIN SIM karty. Máte ještě %d pokusy.</item>
-        <item quantity="many">Zadali jste nesprávný kód PIN SIM karty. Máte ještě %d pokusu.</item>
-    </plurals>
-    <plurals name="kg_password_wrong_puk_code">
-        <item quantity="other">Nesprávný kód PUK SIM karty. Máte ještě %d pokusů, poté bude SIM karta natrvalo zablokována.</item>
-        <item quantity="one">Nesprávný kód PUK SIM karty. Máte ještě %d pokus, poté bude SIM karta natrvalo zablokována.</item>
-        <item quantity="few">Nesprávný kód PUK SIM karty. Máte ještě %d pokusy, poté bude SIM karta natrvalo zablokována.</item>
-        <item quantity="many">Nesprávný kód PUK SIM karty. Máte ještě %d pokusu, poté bude SIM karta natrvalo zablokována.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">Zařízení již %d hodin nebylo odemknuto. Potvrďte gesto.</item>
-        <item quantity="one">Zařízení již %d hodinu nebylo odemknuto. Potvrďte gesto.</item>
-        <item quantity="few">Zařízení již %d hodiny nebylo odemknuto. Potvrďte gesto.</item>
-        <item quantity="many">Zařízení již %d hodiny nebylo odemknuto. Potvrďte gesto.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">Zařízení již %d hodin nebylo odemknuto. Potvrďte PIN.</item>
-        <item quantity="one">Zařízení již %d hodinu nebylo odemknuto. Potvrďte PIN.</item>
-        <item quantity="few">Zařízení již %d hodiny nebylo odemknuto. Potvrďte PIN.</item>
-        <item quantity="many">Zařízení již %d hodiny nebylo odemknuto. Potvrďte PIN.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">Zařízení již %d hodin nebylo odemknuto. Potvrďte heslo.</item>
-        <item quantity="one">Zařízení již %d hodinu nebylo odemknuto. Potvrďte heslo.</item>
-        <item quantity="few">Zařízení již %d hodiny nebylo odemknuto. Potvrďte heslo.</item>
-        <item quantity="many">Zařízení již %d hodiny nebylo odemknuto. Potvrďte heslo.</item>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">Zbývá %d pokusů</item>
+        <item quantity="one">Zbývá %d pokusů</item>
     </plurals>
     <plurals name="kg_attempt_remaining">
         <item quantity="other">(zbývá %d pokusů)</item>
         <item quantity="one">(zbývá 1 pokus)</item>
     </plurals>
-    <plurals name="kg_attempt_left">
-        <item quantity="other">Zbývá %d pokusů</item>
-        <item quantity="one">Zbývá %d pokusů</item>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">Zadali jste nesprávný kód PIN SIM karty. Máte ještě %d pokusů.</item>
+        <item quantity="one">Zadali jste nesprávný PIN SIM karty. Zbývá %d pokus, poté bude muset zařízení odemknout operátor.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">Nesprávný kód PUK SIM karty. Máte ještě %d pokusů, poté bude SIM karta natrvalo zablokována.</item>
+        <item quantity="one">Nesprávný kód PUK SIM karty. Máte ještě %d pokus, poté bude SIM karta natrvalo zablokována.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">Zařízení již %d hodin nebylo odemknuto. Zadejte heslo.</item>
+        <item quantity="one">Zařízení již %d hodinu nebylo odemknuto. Zadejte heslo.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">Zařízení již %d hodin nebylo odemknuto. Zadejte gesto.</item>
+        <item quantity="one">Zařízení již %d hodinu nebylo odemknuto. Zadejte gesto.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">Zařízení již %d hodin nebylo odemknuto. Zadejte PIN.</item>
+        <item quantity="one">Zařízení již %d hodinu nebylo odemknuto. Zadejte PIN.</item>
     </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown_min">
         <item quantity="other">Opakujte akci za %d minut</item>
@@ -49,5 +35,37 @@
     <plurals name="kg_too_many_failed_attempts_countdown_sec">
         <item quantity="other">Opakovat akci za %d sekund</item>
         <item quantity="one">Opakovat akci za %d sekundu</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_countdown_by_biometrics">
+        <item quantity="other">Bylo učiněno %1$d chybných pokusů o ověření biometriky. Opakujte akci za %2$d sekund.</item>
+        <item quantity="one">Bylo učiněno %1$d chybných pokusů o ověření biometriky. Opakujte akci za %2$d sekundu.</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_countdown_by_fingerprint">
+        <item quantity="other">Bylo učiněno %1$d chybných pokusů o ověření otisků prstů. Opakujte akci za %2$d sekund.</item>
+        <item quantity="one">Bylo učiněno %1$d chybných pokusů o ověření otisků prstů. Opakujte akci za %2$d sekundu.</item>
+    </plurals>
+    <plurals name="notification_channels_list_desc_2_and_others">
+        <item quantity="other">%1$s, %2$s a %3$d dalších</item>
+        <item quantity="one">%1$s, %2$s a %3$d další</item>
+        <item quantity="few">%1$s, %2$s a %3$d další</item>
+        <item quantity="many">%1$s, %2$s a %3$d dalšího</item>
+    </plurals>
+    <plurals name="notification_num_channels_desc">
+        <item quantity="other">1 z %d kategorií oznámení z této aplikace</item>
+        <item quantity="one">1 z %d kategorie oznámení z této aplikace</item>
+        <item quantity="few">1 ze %d kategorií oznámení z této aplikace</item>
+        <item quantity="many">1 z %d kategorie oznámení z této aplikace</item>
+    </plurals>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">%d obrazovek v Přehledu</item>
+        <item quantity="one">1 obrazovka v Přehledu</item>
+        <item quantity="few">%d obrazovky v Přehledu</item>
+        <item quantity="many">%d obrazovky v Přehledu</item>
+    </plurals>
+    <plurals name="notification_group_overflow_description">
+        <item quantity="other">Skupina obsahuje ještě %s oznámení.</item>
+        <item quantity="one">Skupina obsahuje ještě %s oznámení.</item>
+        <item quantity="few">Skupina obsahuje ještě %s oznámení.</item>
+        <item quantity="many">Skupina obsahuje ještě %s oznámení.</item>
     </plurals>
 </resources>

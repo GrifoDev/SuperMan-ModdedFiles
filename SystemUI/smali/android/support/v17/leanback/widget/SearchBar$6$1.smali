@@ -41,7 +41,7 @@
 
     iget-object v0, v0, Landroid/support/v17/leanback/widget/SearchBar$6;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v0}, Landroid/support/v17/leanback/widget/SearchBar;->-wrap6(Landroid/support/v17/leanback/widget/SearchBar;)V
+    invoke-virtual {v0}, Landroid/support/v17/leanback/widget/SearchBar;->submitQuery()V
 
     return-void
 .end method

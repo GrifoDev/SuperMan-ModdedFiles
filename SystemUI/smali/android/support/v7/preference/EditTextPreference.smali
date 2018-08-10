@@ -85,8 +85,16 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    xor-int/lit8 v1, v1, 0x1
 
+    if-eqz v1, :cond_1
+
+    :cond_0
+    invoke-super {p0, p1}, Landroid/support/v7/preference/DialogPreference;->onRestoreInstanceState(Landroid/os/Parcelable;)V
+
+    return-void
+
+    :cond_1
     move-object v0, p1
 
     check-cast v0, Landroid/support/v7/preference/EditTextPreference$SavedState;
@@ -100,11 +108,6 @@
     iget-object v1, v0, Landroid/support/v7/preference/EditTextPreference$SavedState;->text:Ljava/lang/String;
 
     invoke-virtual {p0, v1}, Landroid/support/v7/preference/EditTextPreference;->setText(Ljava/lang/String;)V
-
-    return-void
-
-    :cond_0
-    invoke-super {p0, p1}, Landroid/support/v7/preference/DialogPreference;->onRestoreInstanceState(Landroid/os/Parcelable;)V
 
     return-void
 .end method

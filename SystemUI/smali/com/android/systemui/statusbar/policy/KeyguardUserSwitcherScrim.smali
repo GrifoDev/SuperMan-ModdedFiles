@@ -34,7 +34,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherScrim;->mRadialGradientPaint:Landroid/graphics/Paint;
 
-    const v0, 0x7f0b00d8
+    const v0, 0x7f0600a0
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getColor(I)I
 

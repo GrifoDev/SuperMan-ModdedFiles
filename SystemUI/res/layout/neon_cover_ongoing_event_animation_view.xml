@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:gravity="center" android:orientation="vertical" android:background="@android:color/black" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center" android:id="@id/neon_logo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/neon_cover_logo" />
+    <View android:layout_gravity="center" android:id="@id/first_anim_view" android:background="@drawable/neon_cover_ongoing_animation_circle" android:layout_width="0.0dip" android:layout_height="0.0dip" />
+    <View android:layout_gravity="center" android:id="@id/second_anim_view" android:background="@drawable/neon_cover_ongoing_animation_circle" android:layout_width="0.0dip" android:layout_height="0.0dip" />
+</FrameLayout>

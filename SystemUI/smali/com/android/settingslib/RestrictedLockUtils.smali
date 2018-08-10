@@ -6,12 +6,35 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
+        Lcom/android/settingslib/RestrictedLockUtils$1;,
+        Lcom/android/settingslib/RestrictedLockUtils$2;,
+        Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;,
+        Lcom/android/settingslib/RestrictedLockUtils$LockSettingCheck;,
+        Lcom/android/settingslib/RestrictedLockUtils$Proxy;
     }
 .end annotation
 
 
+# static fields
+.field static sProxy:Lcom/android/settingslib/RestrictedLockUtils$Proxy;
+    .annotation build Landroid/support/annotation/VisibleForTesting;
+    .end annotation
+.end field
+
+
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    new-instance v0, Lcom/android/settingslib/RestrictedLockUtils$Proxy;
+
+    invoke-direct {v0}, Lcom/android/settingslib/RestrictedLockUtils$Proxy;-><init>()V
+
+    sput-object v0, Lcom/android/settingslib/RestrictedLockUtils;->sProxy:Lcom/android/settingslib/RestrictedLockUtils$Proxy;
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 0
 
@@ -21,9 +44,11 @@
 .end method
 
 .method public static checkIfRestrictionEnforced(Landroid/content/Context;Ljava/lang/String;I)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
-    .locals 8
+    .locals 10
 
-    const/4 v7, 0x0
+    const/4 v9, 0x0
+
+    const/4 v8, 0x0
 
     const-string/jumbo v6, "device_policy"
 
@@ -35,7 +60,7 @@
 
     if-nez v1, :cond_0
 
-    return-object v7
+    return-object v8
 
     :cond_0
     invoke-static {p0}, Landroid/os/UserManager;->get(Landroid/content/Context;)Landroid/os/UserManager;
@@ -46,73 +71,112 @@
 
     move-result-object v6
 
-    invoke-virtual {v5, p1, v6}, Landroid/os/UserManager;->getUserRestrictionSource(Ljava/lang/String;Landroid/os/UserHandle;)I
+    invoke-virtual {v5, p1, v6}, Landroid/os/UserManager;->getUserRestrictionSources(Ljava/lang/String;Landroid/os/UserHandle;)Ljava/util/List;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_1
+
+    return-object v8
+
+    :cond_1
+    invoke-interface {v2}, Ljava/util/List;->size()I
+
+    move-result v6
+
+    const/4 v7, 0x1
+
+    if-le v6, v7, :cond_2
+
+    sget-object v6, Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;->MULTIPLE_ENFORCED_ADMIN:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
+
+    return-object v6
+
+    :cond_2
+    invoke-interface {v2, v9}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/os/UserManager$EnforcingUser;
+
+    invoke-virtual {v6}, Landroid/os/UserManager$EnforcingUser;->getUserRestrictionSource()I
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    invoke-interface {v2, v9}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    const/4 v6, 0x1
+    move-result-object v6
 
-    if-ne v4, v6, :cond_2
+    check-cast v6, Landroid/os/UserManager$EnforcingUser;
 
-    :cond_1
-    return-object v7
+    invoke-virtual {v6}, Landroid/os/UserManager$EnforcingUser;->getUserHandle()Landroid/os/UserHandle;
 
-    :cond_2
-    and-int/lit8 v6, v4, 0x4
+    move-result-object v6
 
-    if-eqz v6, :cond_3
+    invoke-virtual {v6}, Landroid/os/UserHandle;->getIdentifier()I
 
-    const/4 v3, 0x1
+    move-result v0
 
-    :goto_0
-    and-int/lit8 v6, v4, 0x2
+    const/4 v6, 0x4
 
-    if-eqz v6, :cond_4
+    if-ne v4, v6, :cond_5
 
-    const/4 v2, 0x1
+    if-ne v0, p2, :cond_3
 
-    :goto_1
-    if-eqz v3, :cond_5
-
-    invoke-static {p0, p2}, Lcom/android/settingslib/RestrictedLockUtils;->getProfileOwner(Landroid/content/Context;I)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
+    invoke-static {p0, v0}, Lcom/android/settingslib/RestrictedLockUtils;->getProfileOwner(Landroid/content/Context;I)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 
     move-result-object v6
 
     return-object v6
 
     :cond_3
-    const/4 v3, 0x0
+    invoke-virtual {v5, v0}, Landroid/os/UserManager;->getProfileParent(I)Landroid/content/pm/UserInfo;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_4
+
+    iget v6, v3, Landroid/content/pm/UserInfo;->id:I
+
+    if-ne v6, p2, :cond_4
+
+    invoke-static {p0, v0}, Lcom/android/settingslib/RestrictedLockUtils;->getProfileOwner(Landroid/content/Context;I)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
+
+    move-result-object v6
+
+    :goto_0
+    return-object v6
+
+    :cond_4
+    sget-object v6, Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;->MULTIPLE_ENFORCED_ADMIN:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 
     goto :goto_0
 
-    :cond_4
-    const/4 v2, 0x0
-
-    goto :goto_1
-
     :cond_5
-    if-eqz v2, :cond_7
+    const/4 v6, 0x2
+
+    if-ne v4, v6, :cond_7
+
+    if-ne v0, p2, :cond_6
 
     invoke-static {p0}, Lcom/android/settingslib/RestrictedLockUtils;->getDeviceOwner(Landroid/content/Context;)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 
-    move-result-object v0
+    move-result-object v6
 
-    iget v6, v0, Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;->userId:I
-
-    if-ne v6, p2, :cond_6
-
-    :goto_2
-    return-object v0
+    :goto_1
+    return-object v6
 
     :cond_6
-    sget-object v0, Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;->MULTIPLE_ENFORCED_ADMIN:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
+    sget-object v6, Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;->MULTIPLE_ENFORCED_ADMIN:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 
-    goto :goto_2
+    goto :goto_1
 
     :cond_7
-    return-object v7
+    return-object v8
 .end method
 
 .method public static getDeviceOwner(Landroid/content/Context;)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
@@ -259,16 +323,64 @@
     return v1
 .end method
 
+.method public static isCurrentUserOrProfile(Landroid/content/Context;I)Z
+    .locals 4
+
+    invoke-static {p0}, Landroid/os/UserManager;->get(Landroid/content/Context;)Landroid/os/UserManager;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v3
+
+    invoke-virtual {v0, v3}, Landroid/os/UserManager;->getProfiles(I)Ljava/util/List;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :cond_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/content/pm/UserInfo;
+
+    iget v3, v1, Landroid/content/pm/UserInfo;->id:I
+
+    if-ne v3, p1, :cond_0
+
+    const/4 v3, 0x1
+
+    return v3
+
+    :cond_1
+    const/4 v3, 0x0
+
+    return v3
+.end method
+
 .method public static sendShowAdminSupportDetailsIntent(Landroid/content/Context;Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)V
     .locals 4
 
     invoke-static {p0, p1}, Lcom/android/settingslib/RestrictedLockUtils;->getShowAdminSupportDetailsIntent(Landroid/content/Context;Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)Landroid/content/Intent;
 
-    move-result-object v1
+    move-result-object v0
 
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
-    move-result v0
+    move-result v1
+
+    if-eqz p1, :cond_0
 
     iget v2, p1, Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;->userId:I
 
@@ -276,14 +388,22 @@
 
     if-eq v2, v3, :cond_0
 
-    iget v0, p1, Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;->userId:I
+    iget v2, p1, Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;->userId:I
+
+    invoke-static {p0, v2}, Lcom/android/settingslib/RestrictedLockUtils;->isCurrentUserOrProfile(Landroid/content/Context;I)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    iget v1, p1, Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;->userId:I
 
     :cond_0
     new-instance v2, Landroid/os/UserHandle;
 
-    invoke-direct {v2, v0}, Landroid/os/UserHandle;-><init>(I)V
+    invoke-direct {v2, v1}, Landroid/os/UserHandle;-><init>(I)V
 
-    invoke-virtual {p0, v1, v2}, Landroid/content/Context;->startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+    invoke-virtual {p0, v0, v2}, Landroid/content/Context;->startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
     return-void
 .end method

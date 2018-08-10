@@ -3,6 +3,14 @@
 .source "ActionBarContainer.java"
 
 
+# annotations
+.annotation build Landroid/support/annotation/RestrictTo;
+    value = {
+        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
+
 # instance fields
 .field private mActionBarView:Landroid/view/View;
 
@@ -56,7 +64,7 @@
     invoke-direct {v1, p0}, Landroid/support/v7/widget/ActionBarBackgroundDrawableV21;-><init>(Landroid/support/v7/widget/ActionBarContainer;)V
 
     :goto_0
-    invoke-virtual {p0, v1}, Landroid/support/v7/widget/ActionBarContainer;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-static {p0, v1}, Landroid/support/v4/view/ViewCompat;->setBackground(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V
 
     sget-object v4, Landroid/support/v7/appcompat/R$styleable;->ActionBar:[I
 
@@ -291,13 +299,7 @@
 .end method
 
 .method public jumpDrawablesToCurrentState()V
-    .locals 2
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0xb
-
-    if-lt v0, v1, :cond_2
+    .locals 1
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->jumpDrawablesToCurrentState()V
 
@@ -353,6 +355,16 @@
     iput-object v0, p0, Landroid/support/v7/widget/ActionBarContainer;->mContextView:Landroid/view/View;
 
     return-void
+.end method
+
+.method public onHoverEvent(Landroid/view/MotionEvent;)Z
+    .locals 1
+
+    invoke-super {p0, p1}, Landroid/widget/FrameLayout;->onHoverEvent(Landroid/view/MotionEvent;)Z
+
+    const/4 v0, 0x1
+
+    return v0
 .end method
 
 .method public onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
@@ -756,6 +768,64 @@
     return v0
 .end method
 
+.method public setTabContainer(Landroid/support/v7/widget/ScrollingTabContainerView;)V
+    .locals 2
+
+    iget-object v1, p0, Landroid/support/v7/widget/ActionBarContainer;->mTabContainer:Landroid/view/View;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Landroid/support/v7/widget/ActionBarContainer;->mTabContainer:Landroid/view/View;
+
+    invoke-virtual {p0, v1}, Landroid/support/v7/widget/ActionBarContainer;->removeView(Landroid/view/View;)V
+
+    :cond_0
+    iput-object p1, p0, Landroid/support/v7/widget/ActionBarContainer;->mTabContainer:Landroid/view/View;
+
+    if-eqz p1, :cond_1
+
+    invoke-virtual {p0, p1}, Landroid/support/v7/widget/ActionBarContainer;->addView(Landroid/view/View;)V
+
+    invoke-virtual {p1}, Landroid/support/v7/widget/ScrollingTabContainerView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v0
+
+    const/4 v1, -0x1
+
+    iput v1, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
+
+    const/4 v1, -0x2
+
+    iput v1, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p1, v1}, Landroid/support/v7/widget/ScrollingTabContainerView;->setAllowCollapse(Z)V
+
+    :cond_1
+    return-void
+.end method
+
+.method public setTransitioning(Z)V
+    .locals 1
+
+    iput-boolean p1, p0, Landroid/support/v7/widget/ActionBarContainer;->mIsTransitioning:Z
+
+    if-eqz p1, :cond_0
+
+    const/high16 v0, 0x60000
+
+    :goto_0
+    invoke-virtual {p0, v0}, Landroid/support/v7/widget/ActionBarContainer;->setDescendantFocusability(I)V
+
+    return-void
+
+    :cond_0
+    const/high16 v0, 0x40000
+
+    goto :goto_0
+.end method
+
 .method public setVisibility(I)V
     .locals 3
 
@@ -837,7 +907,9 @@
 
     iget-boolean v0, p0, Landroid/support/v7/widget/ActionBarContainer;->mIsSplit:Z
 
-    if-eqz v0, :cond_3
+    xor-int/lit8 v0, v0, 0x1
+
+    if-nez v0, :cond_3
 
     :cond_0
     iget-object v0, p0, Landroid/support/v7/widget/ActionBarContainer;->mStackedBackground:Landroid/graphics/drawable/Drawable;

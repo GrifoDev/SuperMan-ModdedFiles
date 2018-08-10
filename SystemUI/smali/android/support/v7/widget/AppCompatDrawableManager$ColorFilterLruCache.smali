@@ -36,6 +36,8 @@
 .method private static generateCacheKey(ILandroid/graphics/PorterDuff$Mode;)I
     .locals 3
 
+    const/4 v0, 0x1
+
     add-int/lit8 v0, p0, 0x1f
 
     mul-int/lit8 v1, v0, 0x1f

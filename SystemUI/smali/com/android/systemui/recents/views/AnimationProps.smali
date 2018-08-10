@@ -3,6 +3,14 @@
 .source "AnimationProps.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/android/systemui/recents/views/AnimationProps$PropType;
+    }
+.end annotation
+
+
 # static fields
 .field public static final IMMEDIATE:Lcom/android/systemui/recents/views/AnimationProps;
 
@@ -11,8 +19,6 @@
 .field private mListener:Landroid/animation/Animator$AnimatorListener;
 
 .field private mPropDuration:Landroid/util/SparseLongArray;
-
-.field private mPropInitialPlayTime:Landroid/util/SparseLongArray;
 
 .field private mPropInterpolators:Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
@@ -106,7 +112,7 @@
 
 # virtual methods
 .method public apply(ILandroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
-    .locals 4
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -117,35 +123,22 @@
 
     invoke-virtual {p0, p1}, Lcom/android/systemui/recents/views/AnimationProps;->getStartDelay(I)J
 
-    move-result-wide v2
+    move-result-wide v0
 
-    invoke-virtual {p2, v2, v3}, Landroid/animation/ValueAnimator;->setStartDelay(J)V
+    invoke-virtual {p2, v0, v1}, Landroid/animation/ValueAnimator;->setStartDelay(J)V
 
     invoke-virtual {p0, p1}, Lcom/android/systemui/recents/views/AnimationProps;->getDuration(I)J
 
-    move-result-wide v2
+    move-result-wide v0
 
-    invoke-virtual {p2, v2, v3}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+    invoke-virtual {p2, v0, v1}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
     invoke-virtual {p0, p1}, Lcom/android/systemui/recents/views/AnimationProps;->getInterpolator(I)Landroid/view/animation/Interpolator;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {p2, v2}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+    invoke-virtual {p2, v0}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/recents/views/AnimationProps;->getInitialPlayTime(I)J
-
-    move-result-wide v0
-
-    const-wide/16 v2, 0x0
-
-    cmp-long v2, v0, v2
-
-    if-eqz v2, :cond_0
-
-    invoke-virtual {p2, v0, v1}, Landroid/animation/ValueAnimator;->setCurrentPlayTime(J)V
-
-    :cond_0
     return-object p2
 .end method
 
@@ -216,48 +209,6 @@
 
     :cond_1
     return-wide v6
-.end method
-
-.method public getInitialPlayTime(I)J
-    .locals 4
-
-    const-wide/16 v2, 0x0
-
-    iget-object v0, p0, Lcom/android/systemui/recents/views/AnimationProps;->mPropInitialPlayTime:Landroid/util/SparseLongArray;
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/systemui/recents/views/AnimationProps;->mPropInitialPlayTime:Landroid/util/SparseLongArray;
-
-    invoke-virtual {v0, p1}, Landroid/util/SparseLongArray;->indexOfKey(I)I
-
-    move-result v0
-
-    const/4 v1, -0x1
-
-    if-eq v0, v1, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/recents/views/AnimationProps;->mPropInitialPlayTime:Landroid/util/SparseLongArray;
-
-    invoke-virtual {v0, p1}, Landroid/util/SparseLongArray;->get(I)J
-
-    move-result-wide v0
-
-    return-wide v0
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/recents/views/AnimationProps;->mPropInitialPlayTime:Landroid/util/SparseLongArray;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/util/SparseLongArray;->get(IJ)J
-
-    move-result-wide v0
-
-    return-wide v0
-
-    :cond_1
-    return-wide v2
 .end method
 
 .method public getInterpolator(I)Landroid/view/animation/Interpolator;
@@ -402,29 +353,6 @@
 
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/recents/views/AnimationProps;->mPropDuration:Landroid/util/SparseLongArray;
-
-    int-to-long v2, p2
-
-    invoke-virtual {v0, p1, v2, v3}, Landroid/util/SparseLongArray;->append(IJ)V
-
-    return-object p0
-.end method
-
-.method public setInitialPlayTime(II)Lcom/android/systemui/recents/views/AnimationProps;
-    .locals 4
-
-    iget-object v0, p0, Lcom/android/systemui/recents/views/AnimationProps;->mPropInitialPlayTime:Landroid/util/SparseLongArray;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Landroid/util/SparseLongArray;
-
-    invoke-direct {v0}, Landroid/util/SparseLongArray;-><init>()V
-
-    iput-object v0, p0, Lcom/android/systemui/recents/views/AnimationProps;->mPropInitialPlayTime:Landroid/util/SparseLongArray;
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/recents/views/AnimationProps;->mPropInitialPlayTime:Landroid/util/SparseLongArray;
 
     int-to-long v2, p2
 

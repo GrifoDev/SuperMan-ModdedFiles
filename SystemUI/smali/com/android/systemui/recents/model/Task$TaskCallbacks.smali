@@ -15,7 +15,7 @@
 
 
 # virtual methods
-.method public abstract onTaskDataLoaded(Lcom/android/systemui/recents/model/Task;Landroid/app/ActivityManager$TaskThumbnailInfo;)V
+.method public abstract onTaskDataLoaded(Lcom/android/systemui/recents/model/Task;Lcom/android/systemui/recents/model/ThumbnailData;)V
 .end method
 
 .method public abstract onTaskDataUnloaded()V

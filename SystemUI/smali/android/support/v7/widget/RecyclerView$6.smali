@@ -225,13 +225,11 @@
 
     iget-object v0, v0, Landroid/support/v7/widget/RecyclerView;->mState:Landroid/support/v7/widget/RecyclerView$State;
 
-    invoke-static {v0}, Landroid/support/v7/widget/RecyclerView$State;->-get0(Landroid/support/v7/widget/RecyclerView$State;)I
-
-    move-result v1
+    iget v1, v0, Landroid/support/v7/widget/RecyclerView$State;->mDeletedInvisibleItemCountSincePreviousLayout:I
 
     add-int/2addr v1, p2
 
-    invoke-static {v0, v1}, Landroid/support/v7/widget/RecyclerView$State;->-set0(Landroid/support/v7/widget/RecyclerView$State;I)I
+    iput v1, v0, Landroid/support/v7/widget/RecyclerView$State;->mDeletedInvisibleItemCountSincePreviousLayout:I
 
     return-void
 .end method

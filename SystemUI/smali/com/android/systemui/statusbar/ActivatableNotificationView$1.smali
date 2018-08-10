@@ -41,7 +41,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView$1;->this$0:Lcom/android/systemui/statusbar/ActivatableNotificationView;
 
-    invoke-static {v1}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->-get0(Lcom/android/systemui/statusbar/ActivatableNotificationView;)Lcom/android/systemui/statusbar/NotificationBackgroundView;
+    invoke-static {v1}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->-get1(Lcom/android/systemui/statusbar/ActivatableNotificationView;)Lcom/android/systemui/statusbar/NotificationBackgroundView;
 
     move-result-object v1
 
@@ -50,6 +50,20 @@
     move-result v1
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->setNormalBackgroundVisibilityAmount(F)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView$1;->this$0:Lcom/android/systemui/statusbar/ActivatableNotificationView;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView$1;->this$0:Lcom/android/systemui/statusbar/ActivatableNotificationView;
+
+    invoke-static {v1}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->-get0(Lcom/android/systemui/statusbar/ActivatableNotificationView;)Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->getAlpha()F
+
+    move-result v1
+
+    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->-set3(Lcom/android/systemui/statusbar/ActivatableNotificationView;F)F
 
     return-void
 .end method

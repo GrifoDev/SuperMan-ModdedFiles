@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;->removeTask(Lcom/android/systemui/recents/model/Task;)V
+    value = Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;->onViewAttachAnimation(Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,16 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;
 
-.field final synthetic val$taskId:I
+.field final synthetic val$holder:Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;I)V
+.method constructor <init>(Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$2;->this$0:Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;
 
-    iput p2, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$2;->val$taskId:I
+    iput-object p2, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$2;->val$holder:Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -39,24 +39,35 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 4
 
-    :try_start_0
-    iget-object v1, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$2;->this$0:Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;
+    iget-object v1, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$2;->val$holder:Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;
 
-    iget-object v1, v1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;->mActivityManager:Landroid/app/ActivityManager;
+    iget-object v1, v1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->itemView:Landroid/view/View;
 
-    iget v2, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$2;->val$taskId:I
+    const-string/jumbo v2, "alpha"
 
-    invoke-virtual {v1, v2}, Landroid/app/ActivityManager;->removeTask(I)Z
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    const/4 v3, 0x2
 
-    :goto_0
+    new-array v3, v3, [F
+
+    fill-array-data v3, :array_0
+
+    invoke-static {v1, v2, v3}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
+
+    move-result-object v0
+
+    const-wide/16 v2, 0x14d
+
+    invoke-virtual {v0, v2, v3}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
+
+    invoke-virtual {v0}, Landroid/animation/ObjectAnimator;->start()V
+
     return-void
 
-    :catch_0
-    move-exception v0
-
-    goto :goto_0
+    :array_0
+    .array-data 4
+        0x0
+        0x3f800000    # 1.0f
+    .end array-data
 .end method

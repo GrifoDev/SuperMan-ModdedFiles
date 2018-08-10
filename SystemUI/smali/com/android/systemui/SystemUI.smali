@@ -2,6 +2,9 @@
 .super Ljava/lang/Object;
 .source "SystemUI.java"
 
+# interfaces
+.implements Lcom/android/systemui/SysUiServiceProvider;
+
 
 # instance fields
 .field public mComponents:Ljava/util/Map;
@@ -44,7 +47,7 @@
 
     const-string/jumbo v1, "android.substName"
 
-    const v2, 0x104014e
+    const v2, 0x10400b9
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

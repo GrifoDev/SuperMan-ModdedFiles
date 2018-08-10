@@ -7,19 +7,16 @@
 .method public abstract getBouncerPromptReason()I
 .end method
 
-.method public abstract isInputRestricted()Z
-.end method
-
 .method public abstract isScreenOn()Z
 .end method
 
-.method public abstract keyguardDone(Z)V
+.method public abstract keyguardDone(ZI)V
 .end method
 
 .method public abstract keyguardDoneDrawing()V
 .end method
 
-.method public abstract keyguardDonePending(Z)V
+.method public abstract keyguardDonePending(ZI)V
 .end method
 
 .method public abstract keyguardGone()V
@@ -35,6 +32,9 @@
 .end method
 
 .method public abstract resetKeyguard()V
+.end method
+
+.method public abstract resetKeyguardDismissAction()V
 .end method
 
 .method public abstract setNeedsInput(Z)V

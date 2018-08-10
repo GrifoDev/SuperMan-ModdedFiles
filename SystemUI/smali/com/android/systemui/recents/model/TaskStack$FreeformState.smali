@@ -24,23 +24,17 @@
 
 
 # static fields
-.field public static final BOTTOM:Lcom/android/systemui/recents/model/TaskStack$FreeformState;
+.field public static final FREEFORM:Lcom/android/systemui/recents/model/TaskStack$FreeformState;
 
-.field public static final LEFT:Lcom/android/systemui/recents/model/TaskStack$FreeformState;
+.field public static final FREEFORM_DROP_GUIDE:Lcom/android/systemui/recents/model/TaskStack$FreeformState;
 
 .field public static final NONE:Lcom/android/systemui/recents/model/TaskStack$FreeformState;
-
-.field public static final RIGHT:Lcom/android/systemui/recents/model/TaskStack$FreeformState;
-
-.field public static final TOP:Lcom/android/systemui/recents/model/TaskStack$FreeformState;
 
 
 # instance fields
 .field private expandedTouchFreeformArea:Landroid/graphics/RectF;
 
 .field private freeformArea:Landroid/graphics/RectF;
-
-.field public final freeformSide:I
 
 .field private freeform_area_overlay_height:F
 
@@ -57,169 +51,77 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 15
+    .locals 4
 
-    const/4 v5, 0x0
-
-    const/4 v14, 0x1
+    const/4 v3, 0x0
 
     const/16 v2, 0x50
 
-    const/4 v4, 0x0
-
-    const/4 v13, 0x0
-
     new-instance v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;
 
-    const/4 v1, -0x1
+    const/16 v1, 0xff
 
-    const/16 v3, 0xff
-
-    move-object v6, v5
-
-    move-object v7, v5
-
-    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/recents/model/TaskStack$FreeformState;-><init>(IIIILandroid/graphics/RectF;Landroid/graphics/RectF;Landroid/graphics/RectF;)V
+    invoke-direct {v0, v2, v1}, Lcom/android/systemui/recents/model/TaskStack$FreeformState;-><init>(II)V
 
     sput-object v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->NONE:Lcom/android/systemui/recents/model/TaskStack$FreeformState;
 
-    new-instance v5, Lcom/android/systemui/recents/model/TaskStack$FreeformState;
+    new-instance v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;
 
-    new-instance v10, Landroid/graphics/RectF;
+    invoke-direct {v0, v2, v3}, Lcom/android/systemui/recents/model/TaskStack$FreeformState;-><init>(II)V
 
-    invoke-direct {v10, v13, v13, v13, v13}, Landroid/graphics/RectF;-><init>(FFFF)V
-
-    new-instance v11, Landroid/graphics/RectF;
-
-    invoke-direct {v11, v13, v13, v13, v13}, Landroid/graphics/RectF;-><init>(FFFF)V
-
-    new-instance v12, Landroid/graphics/RectF;
-
-    invoke-direct {v12, v13, v13, v13, v13}, Landroid/graphics/RectF;-><init>(FFFF)V
-
-    move v6, v14
-
-    move v7, v2
-
-    move v8, v4
-
-    move v9, v14
-
-    invoke-direct/range {v5 .. v12}, Lcom/android/systemui/recents/model/TaskStack$FreeformState;-><init>(IIIILandroid/graphics/RectF;Landroid/graphics/RectF;Landroid/graphics/RectF;)V
-
-    sput-object v5, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->LEFT:Lcom/android/systemui/recents/model/TaskStack$FreeformState;
+    sput-object v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->FREEFORM:Lcom/android/systemui/recents/model/TaskStack$FreeformState;
 
     new-instance v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;
 
-    new-instance v5, Landroid/graphics/RectF;
+    invoke-direct {v0, v2, v3}, Lcom/android/systemui/recents/model/TaskStack$FreeformState;-><init>(II)V
 
-    invoke-direct {v5, v13, v13, v13, v13}, Landroid/graphics/RectF;-><init>(FFFF)V
-
-    new-instance v6, Landroid/graphics/RectF;
-
-    invoke-direct {v6, v13, v13, v13, v13}, Landroid/graphics/RectF;-><init>(FFFF)V
-
-    new-instance v7, Landroid/graphics/RectF;
-
-    invoke-direct {v7, v13, v13, v13, v13}, Landroid/graphics/RectF;-><init>(FFFF)V
-
-    const/4 v1, 0x2
-
-    move v3, v4
-
-    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/recents/model/TaskStack$FreeformState;-><init>(IIIILandroid/graphics/RectF;Landroid/graphics/RectF;Landroid/graphics/RectF;)V
-
-    sput-object v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->TOP:Lcom/android/systemui/recents/model/TaskStack$FreeformState;
-
-    new-instance v5, Lcom/android/systemui/recents/model/TaskStack$FreeformState;
-
-    new-instance v10, Landroid/graphics/RectF;
-
-    invoke-direct {v10, v13, v13, v13, v13}, Landroid/graphics/RectF;-><init>(FFFF)V
-
-    new-instance v11, Landroid/graphics/RectF;
-
-    invoke-direct {v11, v13, v13, v13, v13}, Landroid/graphics/RectF;-><init>(FFFF)V
-
-    new-instance v12, Landroid/graphics/RectF;
-
-    invoke-direct {v12, v13, v13, v13, v13}, Landroid/graphics/RectF;-><init>(FFFF)V
-
-    const/4 v6, 0x3
-
-    move v7, v2
-
-    move v8, v4
-
-    move v9, v14
-
-    invoke-direct/range {v5 .. v12}, Lcom/android/systemui/recents/model/TaskStack$FreeformState;-><init>(IIIILandroid/graphics/RectF;Landroid/graphics/RectF;Landroid/graphics/RectF;)V
-
-    sput-object v5, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->RIGHT:Lcom/android/systemui/recents/model/TaskStack$FreeformState;
-
-    new-instance v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;
-
-    new-instance v5, Landroid/graphics/RectF;
-
-    invoke-direct {v5, v13, v13, v13, v13}, Landroid/graphics/RectF;-><init>(FFFF)V
-
-    new-instance v6, Landroid/graphics/RectF;
-
-    invoke-direct {v6, v13, v13, v13, v13}, Landroid/graphics/RectF;-><init>(FFFF)V
-
-    new-instance v7, Landroid/graphics/RectF;
-
-    invoke-direct {v7, v13, v13, v13, v13}, Landroid/graphics/RectF;-><init>(FFFF)V
-
-    const/4 v1, 0x4
-
-    move v3, v4
-
-    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/recents/model/TaskStack$FreeformState;-><init>(IIIILandroid/graphics/RectF;Landroid/graphics/RectF;Landroid/graphics/RectF;)V
-
-    sput-object v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->BOTTOM:Lcom/android/systemui/recents/model/TaskStack$FreeformState;
+    sput-object v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->FREEFORM_DROP_GUIDE:Lcom/android/systemui/recents/model/TaskStack$FreeformState;
 
     return-void
 .end method
 
-.method constructor <init>(IIIILandroid/graphics/RectF;Landroid/graphics/RectF;Landroid/graphics/RectF;)V
-    .locals 6
+.method constructor <init>(II)V
+    .locals 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput p1, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->freeformSide:I
+    new-instance v0, Landroid/graphics/RectF;
+
+    invoke-direct {v0}, Landroid/graphics/RectF;-><init>()V
+
+    iput-object v0, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->touchArea:Landroid/graphics/RectF;
+
+    new-instance v0, Landroid/graphics/RectF;
+
+    invoke-direct {v0}, Landroid/graphics/RectF;-><init>()V
+
+    iput-object v0, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->freeformArea:Landroid/graphics/RectF;
+
+    new-instance v0, Landroid/graphics/RectF;
+
+    invoke-direct {v0}, Landroid/graphics/RectF;-><init>()V
+
+    iput-object v0, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->expandedTouchFreeformArea:Landroid/graphics/RectF;
 
     new-instance v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;
 
-    const v4, 0x7f0f0460
+    const v1, 0x7f12095d
 
-    const/4 v5, 0x0
+    const/4 v2, 0x0
 
-    move v1, p2
-
-    move v2, p3
-
-    move v3, p4
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;-><init>(IIIILcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;)V
+    invoke-direct {v0, p1, p2, v1, v2}, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;-><init>(IIILcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;)V
 
     iput-object v0, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->viewState:Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;
-
-    iput-object p6, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->freeformArea:Landroid/graphics/RectF;
-
-    iput-object p5, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->touchArea:Landroid/graphics/RectF;
-
-    iput-object p7, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->expandedTouchFreeformArea:Landroid/graphics/RectF;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public acceptsDrop(IIIIZ)Z
+.method public acceptsDrop(IIIILandroid/graphics/Rect;Z)Z
     .locals 6
 
-    if-eqz p5, :cond_0
+    if-eqz p6, :cond_0
 
     iget-object v1, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->expandedTouchFreeformArea:Landroid/graphics/RectF;
 
@@ -438,7 +340,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0303
+    const v1, 0x7f070559
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -452,7 +354,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0304
+    const v1, 0x7f070555
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -466,7 +368,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0307
+    const v1, 0x7f070554
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -480,7 +382,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0308
+    const v1, 0x7f070553
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -493,159 +395,202 @@
     return-void
 .end method
 
-.method public updateFreeformArea(II)V
-    .locals 9
+.method public updateFreeformArea(IILandroid/graphics/Rect;)V
+    .locals 2
 
-    const/high16 v8, 0x40000000    # 2.0f
-
-    const/high16 v2, 0x40000000    # 2.0f
+    const/4 v0, 0x1
 
     invoke-static {}, Lcom/android/systemui/recents/Recents;->getConfiguration()Lcom/android/systemui/recents/RecentsConfiguration;
 
-    move-result-object v5
+    move-result-object v1
 
-    iget-boolean v5, v5, Lcom/android/systemui/recents/RecentsConfiguration;->isInMultiWindowMode:Z
+    iget-object v1, v1, Lcom/android/systemui/recents/RecentsConfiguration;->currentState:Lcom/android/systemui/recents/RecentsConfiguration$RecentsActivityCurrentState;
 
-    if-nez v5, :cond_0
+    iget v1, v1, Lcom/android/systemui/recents/RecentsConfiguration$RecentsActivityCurrentState;->mode:I
 
-    const v2, 0x3faa3d71    # 1.33f
+    if-ne v1, v0, :cond_0
+
+    :goto_0
+    invoke-virtual {p0, p1, p2, v0, p3}, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->updateFreeformArea(IIZLandroid/graphics/Rect;)V
+
+    return-void
 
     :cond_0
-    int-to-float v5, p1
+    const/4 v0, 0x0
 
-    iget v6, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->freeform_area_overlay_width:F
+    goto :goto_0
+.end method
 
-    sub-float/2addr v5, v6
+.method public updateFreeformArea(IIZLandroid/graphics/Rect;)V
+    .locals 10
 
-    div-float/2addr v5, v8
+    const/high16 v3, 0x40800000    # 4.0f
 
-    int-to-float v6, p1
+    const/high16 v2, 0x40000000    # 2.0f
 
-    div-float v1, v5, v6
+    iget v6, p4, Landroid/graphics/Rect;->bottom:I
 
-    int-to-float v5, p2
-
-    iget v6, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->freeform_area_overlay_height:F
-
-    sub-float/2addr v5, v6
-
-    div-float/2addr v5, v2
-
-    int-to-float v6, p2
-
-    div-float v4, v5, v6
-
-    iget v5, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->freeform_area_overlay_width:F
+    sub-int/2addr p2, v6
 
     int-to-float v6, p1
 
-    div-float/2addr v5, v6
-
-    add-float v3, v1, v5
-
-    iget v5, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->freeform_area_overlay_height:F
-
-    int-to-float v6, p2
-
-    div-float/2addr v5, v6
-
-    add-float v0, v4, v5
-
-    iget-object v5, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->touchArea:Landroid/graphics/RectF;
-
-    iput v1, v5, Landroid/graphics/RectF;->left:F
-
-    iget-object v5, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->touchArea:Landroid/graphics/RectF;
-
-    iput v4, v5, Landroid/graphics/RectF;->top:F
-
-    iget-object v5, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->touchArea:Landroid/graphics/RectF;
-
-    iput v3, v5, Landroid/graphics/RectF;->right:F
-
-    iget-object v5, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->touchArea:Landroid/graphics/RectF;
-
-    iput v0, v5, Landroid/graphics/RectF;->bottom:F
-
-    iget-object v5, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->freeformArea:Landroid/graphics/RectF;
-
-    iput v1, v5, Landroid/graphics/RectF;->left:F
-
-    iget-object v5, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->freeformArea:Landroid/graphics/RectF;
-
-    iput v4, v5, Landroid/graphics/RectF;->top:F
-
-    iget-object v5, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->freeformArea:Landroid/graphics/RectF;
-
-    iput v3, v5, Landroid/graphics/RectF;->right:F
-
-    iget-object v5, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->freeformArea:Landroid/graphics/RectF;
-
-    iput v0, v5, Landroid/graphics/RectF;->bottom:F
-
-    iget-object v5, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->expandedTouchFreeformArea:Landroid/graphics/RectF;
-
-    int-to-float v6, p1
-
-    iget v7, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->freeform_expanded_area_overlay_width:F
+    iget v7, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->freeform_area_overlay_width:F
 
     sub-float/2addr v6, v7
 
-    div-float/2addr v6, v8
+    const/high16 v7, 0x40000000    # 2.0f
+
+    div-float/2addr v6, v7
+
+    int-to-float v7, p1
+
+    div-float v1, v6, v7
+
+    int-to-float v6, p2
+
+    const/high16 v7, 0x40800000    # 4.0f
+
+    div-float/2addr v6, v7
+
+    const/high16 v7, 0x40200000    # 2.5f
+
+    mul-float/2addr v6, v7
+
+    iget v7, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->freeform_area_overlay_height:F
+
+    const/high16 v8, 0x40000000    # 2.0f
+
+    div-float/2addr v7, v8
+
+    sub-float/2addr v6, v7
+
+    int-to-float v7, p2
+
+    div-float v5, v6, v7
+
+    iget v6, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->freeform_area_overlay_width:F
 
     int-to-float v7, p1
 
     div-float/2addr v6, v7
 
-    iput v6, v5, Landroid/graphics/RectF;->left:F
+    add-float v4, v1, v6
 
-    iget-object v5, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->expandedTouchFreeformArea:Landroid/graphics/RectF;
-
-    int-to-float v6, p2
-
-    iget v7, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->freeform_expanded_area_overlay_height:F
-
-    sub-float/2addr v6, v7
-
-    div-float/2addr v6, v2
+    iget v6, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->freeform_area_overlay_height:F
 
     int-to-float v7, p2
 
     div-float/2addr v6, v7
 
-    iput v6, v5, Landroid/graphics/RectF;->top:F
+    add-float v0, v5, v6
 
-    iget-object v5, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->expandedTouchFreeformArea:Landroid/graphics/RectF;
+    iget-object v6, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->touchArea:Landroid/graphics/RectF;
+
+    iput v1, v6, Landroid/graphics/RectF;->left:F
+
+    iget-object v6, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->touchArea:Landroid/graphics/RectF;
+
+    iput v5, v6, Landroid/graphics/RectF;->top:F
+
+    iget-object v6, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->touchArea:Landroid/graphics/RectF;
+
+    iput v4, v6, Landroid/graphics/RectF;->right:F
+
+    iget-object v6, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->touchArea:Landroid/graphics/RectF;
+
+    iput v0, v6, Landroid/graphics/RectF;->bottom:F
+
+    iget-object v6, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->freeformArea:Landroid/graphics/RectF;
+
+    iput v1, v6, Landroid/graphics/RectF;->left:F
+
+    iget-object v6, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->freeformArea:Landroid/graphics/RectF;
+
+    iput v5, v6, Landroid/graphics/RectF;->top:F
+
+    iget-object v6, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->freeformArea:Landroid/graphics/RectF;
+
+    iput v4, v6, Landroid/graphics/RectF;->right:F
+
+    iget-object v6, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->freeformArea:Landroid/graphics/RectF;
+
+    iput v0, v6, Landroid/graphics/RectF;->bottom:F
 
     iget-object v6, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->expandedTouchFreeformArea:Landroid/graphics/RectF;
 
-    iget v6, v6, Landroid/graphics/RectF;->left:F
+    int-to-float v7, p1
 
-    iget v7, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->freeform_expanded_area_overlay_width:F
+    iget v8, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->freeform_expanded_area_overlay_width:F
+
+    sub-float/2addr v7, v8
+
+    const/high16 v8, 0x40000000    # 2.0f
+
+    div-float/2addr v7, v8
 
     int-to-float v8, p1
 
     div-float/2addr v7, v8
 
-    add-float/2addr v6, v7
-
-    iput v6, v5, Landroid/graphics/RectF;->right:F
-
-    iget-object v5, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->expandedTouchFreeformArea:Landroid/graphics/RectF;
+    iput v7, v6, Landroid/graphics/RectF;->left:F
 
     iget-object v6, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->expandedTouchFreeformArea:Landroid/graphics/RectF;
 
-    iget v6, v6, Landroid/graphics/RectF;->top:F
+    int-to-float v7, p2
 
-    iget v7, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->freeform_expanded_area_overlay_height:F
+    const/high16 v8, 0x40800000    # 4.0f
+
+    div-float/2addr v7, v8
+
+    const/high16 v8, 0x40200000    # 2.5f
+
+    mul-float/2addr v7, v8
+
+    iget v8, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->freeform_expanded_area_overlay_height:F
+
+    const/high16 v9, 0x40000000    # 2.0f
+
+    div-float/2addr v8, v9
+
+    sub-float/2addr v7, v8
 
     int-to-float v8, p2
 
     div-float/2addr v7, v8
 
-    add-float/2addr v6, v7
+    iput v7, v6, Landroid/graphics/RectF;->top:F
 
-    iput v6, v5, Landroid/graphics/RectF;->bottom:F
+    iget-object v6, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->expandedTouchFreeformArea:Landroid/graphics/RectF;
+
+    iget-object v7, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->expandedTouchFreeformArea:Landroid/graphics/RectF;
+
+    iget v7, v7, Landroid/graphics/RectF;->left:F
+
+    iget v8, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->freeform_expanded_area_overlay_width:F
+
+    int-to-float v9, p1
+
+    div-float/2addr v8, v9
+
+    add-float/2addr v7, v8
+
+    iput v7, v6, Landroid/graphics/RectF;->right:F
+
+    iget-object v6, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->expandedTouchFreeformArea:Landroid/graphics/RectF;
+
+    iget-object v7, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->expandedTouchFreeformArea:Landroid/graphics/RectF;
+
+    iget v7, v7, Landroid/graphics/RectF;->top:F
+
+    iget v8, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->freeform_expanded_area_overlay_height:F
+
+    int-to-float v9, p2
+
+    div-float/2addr v8, v9
+
+    add-float/2addr v7, v8
+
+    iput v7, v6, Landroid/graphics/RectF;->bottom:F
 
     return-void
 .end method

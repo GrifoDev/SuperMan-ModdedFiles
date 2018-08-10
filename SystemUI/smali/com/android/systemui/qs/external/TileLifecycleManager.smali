@@ -17,6 +17,8 @@
 
 
 # instance fields
+.field private mBindRetryDelay:I
+
 .field private mBindTryCount:I
 
 .field private mBound:Z
@@ -35,6 +37,8 @@
 
 .field private mListening:Z
 
+.field private final mPackageManagerAdapter:Lcom/android/systemui/qs/external/PackageManagerAdapter;
+
 .field private mQueuedMessages:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -47,9 +51,6 @@
 .end field
 
 .field mReceiverRegistered:Z
-    .annotation build Landroid/support/annotation/VisibleForTesting;
-    .end annotation
-.end field
 
 .field private mToggleState:Z
 
@@ -72,7 +73,35 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Handler;Landroid/content/Context;Landroid/service/quicksettings/IQSService;Landroid/service/quicksettings/Tile;Landroid/content/Intent;Landroid/os/UserHandle;)V
+    .locals 8
+
+    new-instance v7, Lcom/android/systemui/qs/external/PackageManagerAdapter;
+
+    invoke-direct {v7, p2}, Lcom/android/systemui/qs/external/PackageManagerAdapter;-><init>(Landroid/content/Context;)V
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move-object v2, p2
+
+    move-object v3, p3
+
+    move-object v4, p4
+
+    move-object v5, p5
+
+    move-object v6, p6
+
+    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/qs/external/TileLifecycleManager;-><init>(Landroid/os/Handler;Landroid/content/Context;Landroid/service/quicksettings/IQSService;Landroid/service/quicksettings/Tile;Landroid/content/Intent;Landroid/os/UserHandle;Lcom/android/systemui/qs/external/PackageManagerAdapter;)V
+
+    return-void
+.end method
+
+.method constructor <init>(Landroid/os/Handler;Landroid/content/Context;Landroid/service/quicksettings/IQSService;Landroid/service/quicksettings/Tile;Landroid/content/Intent;Landroid/os/UserHandle;Lcom/android/systemui/qs/external/PackageManagerAdapter;)V
     .locals 3
+    .annotation build Landroid/support/annotation/VisibleForTesting;
+    .end annotation
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
@@ -87,6 +116,10 @@
     invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
 
     iput-object v0, p0, Lcom/android/systemui/qs/external/TileLifecycleManager;->mQueuedMessages:Ljava/util/Set;
+
+    const/16 v0, 0x3e8
+
+    iput v0, p0, Lcom/android/systemui/qs/external/TileLifecycleManager;->mBindRetryDelay:I
 
     iput-object p2, p0, Lcom/android/systemui/qs/external/TileLifecycleManager;->mContext:Landroid/content/Context;
 
@@ -113,6 +146,8 @@
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/IBinder;)Landroid/content/Intent;
 
     iput-object p6, p0, Lcom/android/systemui/qs/external/TileLifecycleManager;->mUser:Landroid/os/UserHandle;
+
+    iput-object p7, p0, Lcom/android/systemui/qs/external/TileLifecycleManager;->mPackageManagerAdapter:Lcom/android/systemui/qs/external/PackageManagerAdapter;
 
     const-string/jumbo v0, "TileLifecycleManager"
 
@@ -154,36 +189,33 @@
 .end method
 
 .method private checkComponentState()Z
-    .locals 2
+    .locals 1
 
-    iget-object v1, p0, Lcom/android/systemui/qs/external/TileLifecycleManager;->mContext:Landroid/content/Context;
+    invoke-direct {p0}, Lcom/android/systemui/qs/external/TileLifecycleManager;->isPackageAvailable()Z
 
-    invoke-virtual {v1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    move-result v0
 
-    move-result-object v0
+    if-eqz v0, :cond_0
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/qs/external/TileLifecycleManager;->isPackageAvailable(Landroid/content/pm/PackageManager;)Z
+    invoke-direct {p0}, Lcom/android/systemui/qs/external/TileLifecycleManager;->isComponentAvailable()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/qs/external/TileLifecycleManager;->isComponentAvailable(Landroid/content/pm/PackageManager;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    const/4 v1, 0x1
-
-    return v1
+    if-eqz v0, :cond_1
 
     :cond_0
     invoke-direct {p0}, Lcom/android/systemui/qs/external/TileLifecycleManager;->startPackageListening()V
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    return v1
+    return v0
+
+    :cond_1
+    const/4 v0, 0x1
+
+    return v0
 .end method
 
 .method private handleDeath()V
@@ -225,7 +257,9 @@
 
     invoke-direct {v1, p0}, Lcom/android/systemui/qs/external/TileLifecycleManager$1;-><init>(Lcom/android/systemui/qs/external/TileLifecycleManager;)V
 
-    const-wide/16 v2, 0x3e8
+    iget v2, p0, Lcom/android/systemui/qs/external/TileLifecycleManager;->mBindRetryDelay:I
+
+    int-to-long v2, v2
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
@@ -451,7 +485,7 @@
     goto :goto_2
 .end method
 
-.method private isComponentAvailable(Landroid/content/pm/PackageManager;)Z
+.method private isComponentAvailable()Z
     .locals 8
 
     const/4 v3, 0x0
@@ -467,9 +501,7 @@
     move-result-object v1
 
     :try_start_0
-    invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
-
-    move-result-object v4
+    iget-object v4, p0, Lcom/android/systemui/qs/external/TileLifecycleManager;->mPackageManagerAdapter:Lcom/android/systemui/qs/external/PackageManagerAdapter;
 
     iget-object v5, p0, Lcom/android/systemui/qs/external/TileLifecycleManager;->mIntent:Landroid/content/Intent;
 
@@ -485,7 +517,7 @@
 
     const/4 v7, 0x0
 
-    invoke-interface {v4, v5, v7, v6}, Landroid/content/pm/IPackageManager;->getServiceInfo(Landroid/content/ComponentName;II)Landroid/content/pm/ServiceInfo;
+    invoke-virtual {v4, v5, v7, v6}, Lcom/android/systemui/qs/external/PackageManagerAdapter;->getServiceInfo(Landroid/content/ComponentName;II)Landroid/content/pm/ServiceInfo;
 
     move-result-object v2
 
@@ -535,7 +567,7 @@
     return v3
 .end method
 
-.method private isPackageAvailable(Landroid/content/pm/PackageManager;)Z
+.method private isPackageAvailable()Z
     .locals 6
 
     const/4 v5, 0x0
@@ -551,15 +583,17 @@
     move-result-object v1
 
     :try_start_0
-    iget-object v2, p0, Lcom/android/systemui/qs/external/TileLifecycleManager;->mUser:Landroid/os/UserHandle;
+    iget-object v2, p0, Lcom/android/systemui/qs/external/TileLifecycleManager;->mPackageManagerAdapter:Lcom/android/systemui/qs/external/PackageManagerAdapter;
 
-    invoke-virtual {v2}, Landroid/os/UserHandle;->getIdentifier()I
+    iget-object v3, p0, Lcom/android/systemui/qs/external/TileLifecycleManager;->mUser:Landroid/os/UserHandle;
 
-    move-result v2
+    invoke-virtual {v3}, Landroid/os/UserHandle;->getIdentifier()I
 
-    const/4 v3, 0x0
+    move-result v3
 
-    invoke-virtual {p1, v1, v3, v2}, Landroid/content/pm/PackageManager;->getPackageInfoAsUser(Ljava/lang/String;II)Landroid/content/pm/PackageInfo;
+    const/4 v4, 0x0
+
+    invoke-virtual {v2, v1, v4, v3}, Lcom/android/systemui/qs/external/PackageManagerAdapter;->getPackageInfoAsUser(Ljava/lang/String;II)Landroid/content/pm/PackageInfo;
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -913,11 +947,7 @@
     const/4 v2, 0x0
 
     :try_start_0
-    iget-object v3, p0, Lcom/android/systemui/qs/external/TileLifecycleManager;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v3}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v3
+    iget-object v3, p0, Lcom/android/systemui/qs/external/TileLifecycleManager;->mPackageManagerAdapter:Lcom/android/systemui/qs/external/PackageManagerAdapter;
 
     iget-object v4, p0, Lcom/android/systemui/qs/external/TileLifecycleManager;->mIntent:Landroid/content/Intent;
 
@@ -927,7 +957,7 @@
 
     const/16 v5, 0x2080
 
-    invoke-virtual {v3, v4, v5}, Landroid/content/pm/PackageManager;->getServiceInfo(Landroid/content/ComponentName;I)Landroid/content/pm/ServiceInfo;
+    invoke-virtual {v3, v4, v5}, Lcom/android/systemui/qs/external/PackageManagerAdapter;->getServiceInfo(Landroid/content/ComponentName;I)Landroid/content/pm/ServiceInfo;
 
     move-result-object v1
 
@@ -1003,10 +1033,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    :goto_0
-    return-void
+    if-eqz v0, :cond_1
 
     :cond_0
     iput-object p1, p0, Lcom/android/systemui/qs/external/TileLifecycleManager;->mClickBinder:Landroid/os/IBinder;
@@ -1017,7 +1046,8 @@
 
     invoke-direct {p0}, Lcom/android/systemui/qs/external/TileLifecycleManager;->handleDeath()V
 
-    goto :goto_0
+    :cond_1
+    return-void
 .end method
 
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
@@ -1241,16 +1271,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v0, :cond_0
 
-    :cond_1
     invoke-direct {p0}, Lcom/android/systemui/qs/external/TileLifecycleManager;->handleDeath()V
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method public onStopListening()V
@@ -1276,16 +1304,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v0, :cond_0
 
-    :cond_1
     invoke-direct {p0}, Lcom/android/systemui/qs/external/TileLifecycleManager;->handleDeath()V
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method public onTileAdded()V
@@ -1307,10 +1333,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    :goto_0
-    return-void
+    if-eqz v0, :cond_1
 
     :cond_0
     const/4 v0, 0x0
@@ -1319,7 +1344,8 @@
 
     invoke-direct {p0}, Lcom/android/systemui/qs/external/TileLifecycleManager;->handleDeath()V
 
-    goto :goto_0
+    :cond_1
+    return-void
 .end method
 
 .method public onTileRemoved()V
@@ -1341,10 +1367,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    :goto_0
-    return-void
+    if-eqz v0, :cond_1
 
     :cond_0
     const/4 v0, 0x1
@@ -1353,7 +1378,8 @@
 
     invoke-direct {p0}, Lcom/android/systemui/qs/external/TileLifecycleManager;->handleDeath()V
 
-    goto :goto_0
+    :cond_1
+    return-void
 .end method
 
 .method public onUnlockComplete()V
@@ -1375,10 +1401,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    :goto_0
-    return-void
+    if-eqz v0, :cond_1
 
     :cond_0
     const/4 v0, 0x3
@@ -1387,7 +1412,8 @@
 
     invoke-direct {p0}, Lcom/android/systemui/qs/external/TileLifecycleManager;->handleDeath()V
 
-    goto :goto_0
+    :cond_1
+    return-void
 .end method
 
 .method public semGetDetailView()Landroid/widget/RemoteViews;
@@ -1413,6 +1439,35 @@
     iget-object v0, p0, Lcom/android/systemui/qs/external/TileLifecycleManager;->mWrapper:Lcom/android/systemui/qs/external/QSTileServiceWrapper;
 
     invoke-virtual {v0}, Lcom/android/systemui/qs/external/QSTileServiceWrapper;->semGetDetailView()Landroid/widget/RemoteViews;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public semGetDetailViewSettingButtonName()Ljava/lang/CharSequence;
+    .locals 3
+
+    const/4 v2, 0x0
+
+    const-string/jumbo v0, "TileLifecycleManager"
+
+    const-string/jumbo v1, "semGetDetailViewSettingButtonName"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/android/systemui/qs/external/TileLifecycleManager;->mWrapper:Lcom/android/systemui/qs/external/QSTileServiceWrapper;
+
+    if-nez v0, :cond_0
+
+    invoke-direct {p0}, Lcom/android/systemui/qs/external/TileLifecycleManager;->handleDeath()V
+
+    return-object v2
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/qs/external/TileLifecycleManager;->mWrapper:Lcom/android/systemui/qs/external/QSTileServiceWrapper;
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/external/QSTileServiceWrapper;->semGetDetailViewSettingButtonName()Ljava/lang/CharSequence;
 
     move-result-object v0
 
@@ -1535,31 +1590,6 @@
     return v0
 .end method
 
-.method public semRefreshConnection(Landroid/content/Intent;)V
-    .locals 2
-
-    const-string/jumbo v0, "TileLifecycleManager"
-
-    const-string/jumbo v1, "semRefreshConnection"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v0, p0, Lcom/android/systemui/qs/external/TileLifecycleManager;->mWrapper:Lcom/android/systemui/qs/external/QSTileServiceWrapper;
-
-    if-nez v0, :cond_0
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/external/TileLifecycleManager;->handleDeath()V
-
-    return-void
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/qs/external/TileLifecycleManager;->mWrapper:Lcom/android/systemui/qs/external/QSTileServiceWrapper;
-
-    invoke-virtual {v0, p1}, Lcom/android/systemui/qs/external/QSTileServiceWrapper;->semRefreshConnection(Landroid/content/Intent;)V
-
-    return-void
-.end method
-
 .method public semSetToggleButtonChecked(Z)V
     .locals 2
 
@@ -1579,10 +1609,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    :goto_0
-    return-void
+    if-eqz v0, :cond_1
 
     :cond_0
     iput-boolean p1, p0, Lcom/android/systemui/qs/external/TileLifecycleManager;->mToggleState:Z
@@ -1593,7 +1622,8 @@
 
     invoke-direct {p0}, Lcom/android/systemui/qs/external/TileLifecycleManager;->handleDeath()V
 
-    goto :goto_0
+    :cond_1
+    return-void
 .end method
 
 .method public setBindService(Z)V

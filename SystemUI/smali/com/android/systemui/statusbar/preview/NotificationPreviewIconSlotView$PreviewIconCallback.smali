@@ -15,5 +15,5 @@
 
 
 # virtual methods
-.method public abstract goToLockShade()V
+.method public abstract goToLockShade(Landroid/view/View;)V
 .end method

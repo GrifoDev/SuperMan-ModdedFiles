@@ -3,32 +3,47 @@
 .source "R.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/settingslib/R;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "id"
+.end annotation
+
+
 # static fields
-.field public static final additional_summary:I = 0x7f130356
+.field public static final additional_summary:I = 0x7f0a0033
 
-.field public static final bottom_label_group:I = 0x7f130415
+.field public static final bottom_label_group:I = 0x7f0a0097
 
-.field public static final content_frame:I = 0x7f130219
+.field public static final bottom_label_space:I = 0x7f0a0098
 
-.field public static final drawer_layout:I = 0x7f13038f
+.field public static final content_frame:I = 0x7f0a00fc
 
-.field public static final graph_label_group:I = 0x7f13040e
+.field public static final graph_label_group:I = 0x7f0a01d3
 
-.field public static final label_bottom:I = 0x7f130414
+.field public static final icon_container:I = 0x7f0a0220
 
-.field public static final label_end:I = 0x7f130417
+.field public static final label_bottom:I = 0x7f0a02ce
 
-.field public static final label_group:I = 0x7f13040f
+.field public static final label_end:I = 0x7f0a02cf
 
-.field public static final label_middle:I = 0x7f130412
+.field public static final label_group:I = 0x7f0a02d0
 
-.field public static final label_start:I = 0x7f130416
+.field public static final label_middle:I = 0x7f0a02d1
 
-.field public static final label_top:I = 0x7f130410
+.field public static final label_start:I = 0x7f0a02d2
 
-.field public static final restricted_icon:I = 0x7f130355
+.field public static final label_top:I = 0x7f0a02d3
 
-.field public static final usage_graph:I = 0x7f13010c
+.field public static final restricted_icon:I = 0x7f0a042b
+
+.field public static final two_target_divider:I = 0x7f0a0557
+
+.field public static final usage_graph:I = 0x7f0a055f
 
 
 # direct methods

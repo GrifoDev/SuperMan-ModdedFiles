@@ -63,7 +63,7 @@
 .method public setValue(Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;F)V
     .locals 0
 
-    invoke-static {p1, p2}, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->-wrap3(Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;F)V
+    invoke-static {p1, p2}, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->-wrap6(Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;F)V
 
     return-void
 .end method

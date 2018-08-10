@@ -18,9 +18,6 @@
 .method public abstract canChildBeDismissed(Landroid/view/View;)Z
 .end method
 
-.method public abstract canChildBeSwiped(Landroid/view/View;)Z
-.end method
-
 .method public abstract getChildAtPosition(Landroid/view/MotionEvent;)Landroid/view/View;
 .end method
 

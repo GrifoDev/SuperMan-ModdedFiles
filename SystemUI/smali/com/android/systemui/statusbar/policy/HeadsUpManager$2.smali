@@ -56,7 +56,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager$2;->this$0:Lcom/android/systemui/statusbar/policy/HeadsUpManager;
 
-    invoke-static {v1}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->-get5(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)I
+    invoke-static {v1}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->-get6(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)I
 
     move-result v1
 

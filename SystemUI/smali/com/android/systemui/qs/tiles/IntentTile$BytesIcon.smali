@@ -1,5 +1,5 @@
 .class Lcom/android/systemui/qs/tiles/IntentTile$BytesIcon;
-.super Lcom/android/systemui/qs/QSTile$Icon;
+.super Lcom/android/systemui/plugins/qs/QSTile$Icon;
 .source "IntentTile.java"
 
 
@@ -22,7 +22,7 @@
 .method public constructor <init>([B)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/qs/QSTile$Icon;-><init>()V
+    invoke-direct {p0}, Lcom/android/systemui/plugins/qs/QSTile$Icon;-><init>()V
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/IntentTile$BytesIcon;->mBytes:[B
 

@@ -300,6 +300,28 @@
     return-object v0
 .end method
 
+.method public final declared-synchronized maxSize()I
+    .locals 1
+
+    monitor-enter p0
+
+    :try_start_0
+    iget v0, p0, Landroid/support/v4/util/LruCache;->maxSize:I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
+
+    return v0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
+.end method
+
 .method public final put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 3
     .annotation system Ldalvik/annotation/Signature;

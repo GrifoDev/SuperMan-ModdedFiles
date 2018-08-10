@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="keyguard_max_notification_count">5</integer>
+    <integer name="kg_fmm_message_max_line_landscape">3</integer>
+    <integer name="kg_fmm_message_max_line_portrait">6</integer>
+    <integer name="long_press_dock_anim_duration">290</integer>
+    <integer name="quick_qs_tile_min_num">8</integer>
+    <integer name="quick_settings_user_time_settings_tile_span">1</integer>
+    <integer name="quick_settings_max_rows">4</integer>
+</resources>

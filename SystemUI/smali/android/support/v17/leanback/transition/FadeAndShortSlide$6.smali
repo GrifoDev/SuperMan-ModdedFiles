@@ -20,13 +20,11 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v17/leanback/transition/FadeAndShortSlide;)V
-    .locals 1
+    .locals 0
 
     iput-object p1, p0, Landroid/support/v17/leanback/transition/FadeAndShortSlide$6;->this$0:Landroid/support/v17/leanback/transition/FadeAndShortSlide;
 
-    const/4 v0, 0x0
-
-    invoke-direct {p0, v0}, Landroid/support/v17/leanback/transition/FadeAndShortSlide$CalculateSlide;-><init>(Landroid/support/v17/leanback/transition/FadeAndShortSlide$CalculateSlide;)V
+    invoke-direct {p0}, Landroid/support/v17/leanback/transition/FadeAndShortSlide$CalculateSlide;-><init>()V
 
     return-void
 .end method

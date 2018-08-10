@@ -334,7 +334,7 @@
     return v0
 .end method
 
-.method findFragmentByWho(Ljava/lang/String;)Landroid/support/v4/app/Fragment;
+.method public findFragmentByWho(Ljava/lang/String;)Landroid/support/v4/app/Fragment;
     .locals 1
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation

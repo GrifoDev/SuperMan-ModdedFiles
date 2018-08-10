@@ -19,6 +19,8 @@
 
 
 # instance fields
+.field private mAllowReportRejectedTouch:Z
+
 .field private mCollectBadTouches:Z
 
 .field private final mContext:Landroid/content/Context;
@@ -84,7 +86,11 @@
 
     new-instance v0, Landroid/os/Handler;
 
-    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
+    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
     iput-object v0, p0, Lcom/android/systemui/analytics/DataCollector;->mHandler:Landroid/os/Handler;
 
@@ -101,6 +107,8 @@
     iput-boolean v3, p0, Lcom/android/systemui/analytics/DataCollector;->mCornerSwiping:Z
 
     iput-boolean v3, p0, Lcom/android/systemui/analytics/DataCollector;->mTrackingStarted:Z
+
+    iput-boolean v3, p0, Lcom/android/systemui/analytics/DataCollector;->mAllowReportRejectedTouch:Z
 
     new-instance v0, Lcom/android/systemui/analytics/DataCollector$1;
 
@@ -144,6 +152,22 @@
 
     invoke-virtual {v0, v1, v3, v2, v4}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
 
+    iget-object v0, p0, Lcom/android/systemui/analytics/DataCollector;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "data_collector_allow_rejected_touch_reports"
+
+    invoke-static {v1}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/systemui/analytics/DataCollector;->mSettingsObserver:Landroid/database/ContentObserver;
+
+    invoke-virtual {v0, v1, v3, v2, v4}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
+
     invoke-direct {p0}, Lcom/android/systemui/analytics/DataCollector;->updateConfiguration()V
 
     return-void
@@ -152,7 +176,9 @@
 .method private addEvent(I)V
     .locals 4
 
-    iget-boolean v0, p0, Lcom/android/systemui/analytics/DataCollector;->mEnableCollector:Z
+    invoke-virtual {p0}, Lcom/android/systemui/analytics/DataCollector;->isEnabled()Z
+
+    move-result v0
 
     if-eqz v0, :cond_0
 
@@ -233,6 +259,10 @@
 
     iput-object v1, p0, Lcom/android/systemui/analytics/DataCollector;->mCurrentSession:Lcom/android/systemui/analytics/SensorLoggerSession;
 
+    iget-boolean v1, p0, Lcom/android/systemui/analytics/DataCollector;->mEnableCollector:Z
+
+    if-eqz v1, :cond_0
+
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v2
@@ -241,6 +271,7 @@
 
     invoke-direct {p0, v0}, Lcom/android/systemui/analytics/DataCollector;->queueSession(Lcom/android/systemui/analytics/SensorLoggerSession;)V
 
+    :cond_0
     return-void
 .end method
 
@@ -285,7 +316,9 @@
 .method private sessionEntrypoint()Z
     .locals 1
 
-    iget-boolean v0, p0, Lcom/android/systemui/analytics/DataCollector;->mEnableCollector:Z
+    invoke-virtual {p0}, Lcom/android/systemui/analytics/DataCollector;->isEnabled()Z
+
+    move-result v0
 
     if-eqz v0, :cond_0
 
@@ -307,10 +340,6 @@
 
 .method private sessionExitpoint(I)V
     .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/analytics/DataCollector;->mEnableCollector:Z
-
-    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/systemui/analytics/DataCollector;->mCurrentSession:Lcom/android/systemui/analytics/SensorLoggerSession;
 
@@ -354,7 +383,7 @@
 
     iget-boolean v0, p0, Lcom/android/systemui/analytics/DataCollector;->mEnableCollector:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Lcom/android/systemui/analytics/DataCollector;->mContext:Landroid/content/Context;
 
@@ -368,12 +397,35 @@
 
     move-result v0
 
+    if-eqz v0, :cond_2
+
+    move v0, v1
+
+    :goto_1
+    iput-boolean v0, p0, Lcom/android/systemui/analytics/DataCollector;->mCollectBadTouches:Z
+
+    sget-boolean v0, Landroid/os/Build;->IS_DEBUGGABLE:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/analytics/DataCollector;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string/jumbo v3, "data_collector_allow_rejected_touch_reports"
+
+    invoke-static {v0, v3, v2}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
     if-eqz v0, :cond_0
 
     move v2, v1
 
     :cond_0
-    iput-boolean v2, p0, Lcom/android/systemui/analytics/DataCollector;->mCollectBadTouches:Z
+    iput-boolean v2, p0, Lcom/android/systemui/analytics/DataCollector;->mAllowReportRejectedTouch:Z
 
     return-void
 
@@ -381,6 +433,11 @@
     move v0, v2
 
     goto :goto_0
+
+    :cond_2
+    move v0, v2
+
+    goto :goto_1
 .end method
 
 
@@ -389,6 +446,32 @@
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/systemui/analytics/DataCollector;->mEnableCollector:Z
+
+    if-nez v0, :cond_0
+
+    iget-boolean v0, p0, Lcom/android/systemui/analytics/DataCollector;->mAllowReportRejectedTouch:Z
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x1
+
+    goto :goto_0
+.end method
+
+.method public isEnabledFull()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/analytics/DataCollector;->mEnableCollector:Z
+
+    return v0
+.end method
+
+.method public isReportingEnabled()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/analytics/DataCollector;->mAllowReportRejectedTouch:Z
 
     return v0
 .end method
@@ -462,10 +545,30 @@
     return-void
 .end method
 
+.method public onCameraHintStarted()V
+    .locals 1
+
+    const/16 v0, 0x1b
+
+    invoke-direct {p0, v0}, Lcom/android/systemui/analytics/DataCollector;->addEvent(I)V
+
+    return-void
+.end method
+
 .method public onCameraOn()V
     .locals 1
 
     const/16 v0, 0x18
+
+    invoke-direct {p0, v0}, Lcom/android/systemui/analytics/DataCollector;->addEvent(I)V
+
+    return-void
+.end method
+
+.method public onLeftAffordanceHintStarted()V
+    .locals 1
+
+    const/16 v0, 0x1c
 
     invoke-direct {p0, v0}, Lcom/android/systemui/analytics/DataCollector;->addEvent(I)V
 
@@ -616,7 +719,9 @@
     monitor-enter p0
 
     :try_start_0
-    iget-boolean v0, p0, Lcom/android/systemui/analytics/DataCollector;->mEnableCollector:Z
+    invoke-virtual {p0}, Lcom/android/systemui/analytics/DataCollector;->isEnabled()Z
+
+    move-result v0
 
     if-eqz v0, :cond_0
 
@@ -725,6 +830,115 @@
     invoke-direct {p0, v0}, Lcom/android/systemui/analytics/DataCollector;->addEvent(I)V
 
     return-void
+.end method
+
+.method public reportRejectedTouch()Landroid/net/Uri;
+    .locals 10
+
+    const/4 v9, 0x0
+
+    const/4 v8, 0x1
+
+    iget-object v6, p0, Lcom/android/systemui/analytics/DataCollector;->mCurrentSession:Lcom/android/systemui/analytics/SensorLoggerSession;
+
+    if-nez v6, :cond_0
+
+    iget-object v6, p0, Lcom/android/systemui/analytics/DataCollector;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v7, "Generating rejected touch report failed: session timed out."
+
+    invoke-static {v6, v7, v8}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Landroid/widget/Toast;->show()V
+
+    return-object v9
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/systemui/analytics/DataCollector;->mCurrentSession:Lcom/android/systemui/analytics/SensorLoggerSession;
+
+    const/4 v6, 0x4
+
+    invoke-virtual {v1, v6}, Lcom/android/systemui/analytics/SensorLoggerSession;->setType(I)V
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v6
+
+    invoke-virtual {v1, v6, v7, v8}, Lcom/android/systemui/analytics/SensorLoggerSession;->end(JI)V
+
+    invoke-virtual {v1}, Lcom/android/systemui/analytics/SensorLoggerSession;->toProto()Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/android/systemui/statusbar/phone/nano/TouchAnalyticsProto$Session;->toByteArray(Lcom/google/protobuf/nano/MessageNano;)[B
+
+    move-result-object v0
+
+    new-instance v2, Ljava/io/File;
+
+    iget-object v6, p0, Lcom/android/systemui/analytics/DataCollector;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v6}, Landroid/content/Context;->getExternalCacheDir()Ljava/io/File;
+
+    move-result-object v6
+
+    const-string/jumbo v7, "rejected_touch_reports"
+
+    invoke-direct {v2, v6, v7}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    invoke-virtual {v2}, Ljava/io/File;->mkdir()Z
+
+    new-instance v5, Ljava/io/File;
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "rejected_touch_report_"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v8
+
+    invoke-virtual {v6, v8, v9}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-direct {v5, v2, v6}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    :try_start_0
+    new-instance v6, Ljava/io/FileOutputStream;
+
+    invoke-direct {v6, v5}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
+
+    invoke-virtual {v6, v0}, Ljava/io/FileOutputStream;->write([B)V
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+
+    invoke-static {v5}, Landroid/net/Uri;->fromFile(Ljava/io/File;)Landroid/net/Uri;
+
+    move-result-object v6
+
+    return-object v6
+
+    :catch_0
+    move-exception v3
+
+    new-instance v6, Ljava/lang/RuntimeException;
+
+    invoke-direct {v6, v3}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+
+    throw v6
 .end method
 
 .method public setNotificationExpanded()V

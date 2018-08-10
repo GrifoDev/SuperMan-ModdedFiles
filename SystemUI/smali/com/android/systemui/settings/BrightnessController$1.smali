@@ -1,11 +1,14 @@
 .class Lcom/android/systemui/settings/BrightnessController$1;
-.super Lcom/android/systemui/settings/CurrentUserTracker;
+.super Ljava/lang/Object;
 .source "BrightnessController.java"
+
+# interfaces
+.implements Ljava/lang/Runnable;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/settings/BrightnessController;-><init>(Landroid/content/Context;Landroid/widget/ImageView;Lcom/android/systemui/settings/ToggleSlider;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/systemui/settings/BrightnessController;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -19,28 +22,70 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/settings/BrightnessController;Landroid/content/Context;)V
+.method constructor <init>(Lcom/android/systemui/settings/BrightnessController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/settings/BrightnessController$1;->this$0:Lcom/android/systemui/settings/BrightnessController;
 
-    invoke-direct {p0, p2}, Lcom/android/systemui/settings/CurrentUserTracker;-><init>(Landroid/content/Context;)V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onUserSwitched(I)V
-    .locals 1
+.method public run()V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/settings/BrightnessController$1;->this$0:Lcom/android/systemui/settings/BrightnessController;
 
-    invoke-static {v0}, Lcom/android/systemui/settings/BrightnessController;->-wrap2(Lcom/android/systemui/settings/BrightnessController;)V
+    invoke-static {v0}, Lcom/android/systemui/settings/BrightnessController;->-get3(Lcom/android/systemui/settings/BrightnessController;)Lcom/android/systemui/settings/BrightnessController$BrightnessObserver;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/systemui/settings/BrightnessController$BrightnessObserver;->startObserving()V
 
     iget-object v0, p0, Lcom/android/systemui/settings/BrightnessController$1;->this$0:Lcom/android/systemui/settings/BrightnessController;
 
-    invoke-static {v0}, Lcom/android/systemui/settings/BrightnessController;->-wrap4(Lcom/android/systemui/settings/BrightnessController;)V
+    invoke-static {v0}, Lcom/android/systemui/settings/BrightnessController;->-get19(Lcom/android/systemui/settings/BrightnessController;)Lcom/android/systemui/settings/CurrentUserTracker;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/systemui/settings/CurrentUserTracker;->startTracking()V
+
+    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessController$1;->this$0:Lcom/android/systemui/settings/BrightnessController;
+
+    invoke-static {v0}, Lcom/android/systemui/settings/BrightnessController;->-get17(Lcom/android/systemui/settings/BrightnessController;)Ljava/lang/Runnable;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/lang/Runnable;->run()V
+
+    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessController$1;->this$0:Lcom/android/systemui/settings/BrightnessController;
+
+    invoke-static {v0}, Lcom/android/systemui/settings/BrightnessController;->-get18(Lcom/android/systemui/settings/BrightnessController;)Ljava/lang/Runnable;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/lang/Runnable;->run()V
+
+    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessController$1;->this$0:Lcom/android/systemui/settings/BrightnessController;
+
+    invoke-static {v0}, Lcom/android/systemui/settings/BrightnessController;->-get15(Lcom/android/systemui/settings/BrightnessController;)Ljava/lang/Runnable;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/lang/Runnable;->run()V
+
+    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessController$1;->this$0:Lcom/android/systemui/settings/BrightnessController;
+
+    invoke-static {v0}, Lcom/android/systemui/settings/BrightnessController;->-get8(Lcom/android/systemui/settings/BrightnessController;)Landroid/os/Handler;
+
+    move-result-object v0
+
+    const/4 v1, 0x3
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
     return-void
 .end method

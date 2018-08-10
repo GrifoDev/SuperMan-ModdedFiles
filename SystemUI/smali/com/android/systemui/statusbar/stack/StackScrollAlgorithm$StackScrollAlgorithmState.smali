@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/stack/StackScrollAlgorithm$StackScrollAlgorithmState;
+.class public Lcom/android/systemui/statusbar/stack/StackScrollAlgorithm$StackScrollAlgorithmState;
 .super Ljava/lang/Object;
 .source "StackScrollAlgorithm.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "StackScrollAlgorithmState"
 .end annotation
 
 
 # instance fields
-.field public final increasedPaddingMap:Ljava/util/HashMap;
+.field public final paddingMap:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashMap",
@@ -26,10 +26,6 @@
         }
     .end annotation
 .end field
-
-.field public itemsInBottomStack:F
-
-.field public partialInBottom:F
 
 .field public scrollY:I
 
@@ -48,7 +44,7 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/stack/StackScrollAlgorithm;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/stack/StackScrollAlgorithm;)V
     .locals 1
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/stack/StackScrollAlgorithm$StackScrollAlgorithmState;->this$0:Lcom/android/systemui/statusbar/stack/StackScrollAlgorithm;
@@ -65,7 +61,40 @@
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v0, p0, Lcom/android/systemui/statusbar/stack/StackScrollAlgorithm$StackScrollAlgorithmState;->increasedPaddingMap:Ljava/util/HashMap;
+    iput-object v0, p0, Lcom/android/systemui/statusbar/stack/StackScrollAlgorithm$StackScrollAlgorithmState;->paddingMap:Ljava/util/HashMap;
 
     return-void
+.end method
+
+
+# virtual methods
+.method public getPaddingAfterChild(Lcom/android/systemui/statusbar/ExpandableView;)I
+    .locals 2
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/stack/StackScrollAlgorithm$StackScrollAlgorithmState;->paddingMap:Ljava/util/HashMap;
+
+    invoke-virtual {v1, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Float;
+
+    if-nez v0, :cond_0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/stack/StackScrollAlgorithm$StackScrollAlgorithmState;->this$0:Lcom/android/systemui/statusbar/stack/StackScrollAlgorithm;
+
+    invoke-static {v1}, Lcom/android/systemui/statusbar/stack/StackScrollAlgorithm;->-get0(Lcom/android/systemui/statusbar/stack/StackScrollAlgorithm;)I
+
+    move-result v1
+
+    return v1
+
+    :cond_0
+    invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
+
+    move-result v1
+
+    float-to-int v1, v1
+
+    return v1
 .end method

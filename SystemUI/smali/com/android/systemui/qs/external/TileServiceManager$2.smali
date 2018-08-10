@@ -35,21 +35,30 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/qs/external/TileServiceManager$2;->this$0:Lcom/android/systemui/qs/external/TileServiceManager;
 
-    const/4 v1, 0x0
+    invoke-static {v0}, Lcom/android/systemui/qs/external/TileServiceManager;->-get1(Lcom/android/systemui/qs/external/TileServiceManager;)Z
 
-    invoke-static {v0, v1}, Lcom/android/systemui/qs/external/TileServiceManager;->-set0(Lcom/android/systemui/qs/external/TileServiceManager;Z)Z
+    move-result v0
+
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/systemui/qs/external/TileServiceManager$2;->this$0:Lcom/android/systemui/qs/external/TileServiceManager;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/external/TileServiceManager;->-get2(Lcom/android/systemui/qs/external/TileServiceManager;)Lcom/android/systemui/qs/external/TileServices;
+    invoke-static {v0}, Lcom/android/systemui/qs/external/TileServiceManager;->-get0(Lcom/android/systemui/qs/external/TileServiceManager;)Z
 
-    move-result-object v0
+    move-result v0
 
-    invoke-virtual {v0}, Lcom/android/systemui/qs/external/TileServices;->recalculateBindAllowance()V
+    xor-int/lit8 v0, v0, 0x1
 
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/qs/external/TileServiceManager$2;->this$0:Lcom/android/systemui/qs/external/TileServiceManager;
+
+    invoke-static {v0}, Lcom/android/systemui/qs/external/TileServiceManager;->-wrap0(Lcom/android/systemui/qs/external/TileServiceManager;)V
+
+    :cond_0
     return-void
 .end method

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:gravity="center" android:background="@android:color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:layout_gravity="center" android:id="@id/cover_close_light_grey" android:background="@drawable/neon_cover_close_animation_circle" android:visibility="invisible" android:layout_width="@dimen/neon_cover_circle_layout_size" android:layout_height="@dimen/neon_cover_circle_layout_size" android:backgroundTint="@color/neon_cover_animation_light_grey" />
+    <View android:layout_gravity="center" android:id="@id/cover_close_dark_grey" android:background="@drawable/neon_cover_close_animation_circle" android:visibility="invisible" android:layout_width="@dimen/neon_cover_circle_layout_size" android:layout_height="@dimen/neon_cover_circle_layout_size" android:backgroundTint="@color/neon_cover_animation_dark_grey" />
+    <View android:layout_gravity="center" android:id="@id/cover_close_black" android:background="@drawable/neon_cover_close_animation_circle" android:visibility="invisible" android:layout_width="@dimen/neon_cover_circle_layout_size" android:layout_height="@dimen/neon_cover_circle_layout_size" android:backgroundTint="@android:color/black" />
+    <ImageView android:layout_gravity="center" android:id="@id/cover_close_neon_logo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/neon_cover_logo" />
+</FrameLayout>

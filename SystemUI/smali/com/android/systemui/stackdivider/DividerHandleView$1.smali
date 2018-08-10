@@ -68,7 +68,7 @@
 
     move-result v0
 
-    invoke-static {p1, v0}, Lcom/android/systemui/stackdivider/DividerHandleView;->-set3(Lcom/android/systemui/stackdivider/DividerHandleView;I)I
+    invoke-static {p1, v0}, Lcom/android/systemui/stackdivider/DividerHandleView;->-set2(Lcom/android/systemui/stackdivider/DividerHandleView;I)I
 
     invoke-virtual {p1}, Lcom/android/systemui/stackdivider/DividerHandleView;->invalidate()V
 

@@ -67,9 +67,19 @@
 
     iget v1, v0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
-    or-int/lit8 v1, v1, 0x0
+    or-int/lit8 v1, v1, 0x10
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
+
+    iget-object v0, p0, Lcom/android/systemui/stackdivider/DividerSnapViewWindowManager;->mLp:Landroid/view/WindowManager$LayoutParams;
+
+    iget v1, v0, Landroid/view/WindowManager$LayoutParams;->samsungFlags:I
+
+    const/high16 v2, 0x4000000
+
+    or-int/2addr v1, v2
+
+    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->samsungFlags:I
 
     const/16 v0, 0x700
 
@@ -87,9 +97,9 @@
 .end method
 
 .method public remove()V
-    .locals 3
+    .locals 4
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
     const/4 v2, 0x0
 
@@ -101,7 +111,9 @@
 
     check-cast v0, Lcom/android/systemui/stackdivider/DividerSnapView;
 
-    invoke-virtual {v0, v1, v1, v2}, Lcom/android/systemui/stackdivider/DividerSnapView;->makeVisible(ZILandroid/graphics/Rect;)V
+    const-string/jumbo v1, "finish"
+
+    invoke-virtual {v0, v3, v3, v2, v1}, Lcom/android/systemui/stackdivider/DividerSnapView;->makeVisible(ZILandroid/graphics/Rect;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/systemui/stackdivider/DividerSnapViewWindowManager;->mWindowManager:Landroid/view/WindowManager;
 

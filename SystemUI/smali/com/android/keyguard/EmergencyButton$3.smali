@@ -3,12 +3,12 @@
 .source "EmergencyButton.java"
 
 # interfaces
-.implements Lcom/android/keyguard/util/SettingsHelper$OnChangedCallback;
+.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/keyguard/EmergencyButton;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/keyguard/EmergencyButton;->onFinishInflate()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,21 +34,18 @@
 
 
 # virtual methods
-.method public onChanged(Landroid/net/Uri;)V
-    .locals 1
+.method public onClick(Landroid/view/View;)V
+    .locals 2
+
+    const-string/jumbo v0, "EmergencyButton"
+
+    const-string/jumbo v1, "onClick"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v0, p0, Lcom/android/keyguard/EmergencyButton$3;->this$0:Lcom/android/keyguard/EmergencyButton;
 
-    invoke-static {v0}, Lcom/android/keyguard/EmergencyButton;->-get0(Lcom/android/keyguard/EmergencyButton;)Z
+    invoke-virtual {v0}, Lcom/android/keyguard/EmergencyButton;->takeEmergencyCallAction()V
 
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/keyguard/EmergencyButton$3;->this$0:Lcom/android/keyguard/EmergencyButton;
-
-    invoke-virtual {v0}, Lcom/android/keyguard/EmergencyButton;->updateEmergencyCallButton()V
-
-    :cond_0
     return-void
 .end method

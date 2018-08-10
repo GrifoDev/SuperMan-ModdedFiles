@@ -15,5 +15,11 @@
 
 
 # virtual methods
+.method public abstract addDynamicShadow(Landroid/view/View;FFI)Ljava/lang/Object;
+.end method
+
+.method public abstract setShadowFocusLevel(Ljava/lang/Object;F)V
+.end method
+
 .method public abstract setZ(Landroid/view/View;F)V
 .end method

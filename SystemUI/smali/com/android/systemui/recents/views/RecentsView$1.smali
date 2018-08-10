@@ -53,9 +53,11 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsView$1;->this$0:Lcom/android/systemui/recents/views/RecentsView;
 
-    iget-object v0, v0, Lcom/android/systemui/recents/views/RecentsView;->mTaskStackView:Lcom/android/systemui/recents/views/TaskStackView;
+    invoke-static {v0}, Lcom/android/systemui/recents/views/RecentsView;->-get3(Lcom/android/systemui/recents/views/RecentsView;)Lcom/android/systemui/recents/views/ITaskStackView;
 
-    invoke-virtual {v0}, Lcom/android/systemui/recents/views/TaskStackView;->getStack()Lcom/android/systemui/recents/model/TaskStack;
+    move-result-object v0
+
+    invoke-interface {v0}, Lcom/android/systemui/recents/views/ITaskStackView;->getStack()Lcom/android/systemui/recents/model/TaskStack;
 
     move-result-object v0
 

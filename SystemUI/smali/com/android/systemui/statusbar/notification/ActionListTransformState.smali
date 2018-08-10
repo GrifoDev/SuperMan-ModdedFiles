@@ -105,3 +105,15 @@
 
     return v0
 .end method
+
+.method public transformViewFullyFrom(Lcom/android/systemui/statusbar/notification/TransformState;F)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public transformViewFullyTo(Lcom/android/systemui/statusbar/notification/TransformState;F)V
+    .locals 0
+
+    return-void
+.end method

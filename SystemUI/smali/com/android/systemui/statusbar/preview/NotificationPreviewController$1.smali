@@ -3,7 +3,7 @@
 .source "NotificationPreviewController.java"
 
 # interfaces
-.implements Lcom/android/systemui/statusbar/preview/NotificationPreviewIconSlotView$PreviewIconCallback;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
@@ -34,27 +34,18 @@
 
 
 # virtual methods
-.method public goToLockShade()V
+.method public run()V
     .locals 2
 
     const/4 v1, 0x0
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController$1;->this$0:Lcom/android/systemui/statusbar/preview/NotificationPreviewController;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->-get0(Lcom/android/systemui/statusbar/preview/NotificationPreviewController;)Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
+    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->-set2(Lcom/android/systemui/statusbar/preview/NotificationPreviewController;Z)Z
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController$1;->this$0:Lcom/android/systemui/statusbar/preview/NotificationPreviewController;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->-get0(Lcom/android/systemui/statusbar/preview/NotificationPreviewController;)Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->-set1(Lcom/android/systemui/statusbar/preview/NotificationPreviewController;Z)Z
 
-    move-result-object v0
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->goToLockedShade(Landroid/view/View;)V
-
-    :cond_0
     return-void
 .end method

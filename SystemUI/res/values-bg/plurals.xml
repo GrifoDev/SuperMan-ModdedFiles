@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <plurals name="status_bar_accessibility_recent_apps">
-        <item quantity="other">1 екран в панела за общ преглед</item>
-        <item quantity="one">%d екрана в панела за общ преглед</item>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">%d оставащи опита</item>
+        <item quantity="one">Остава %d опит</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(%d оставащи опита)</item>
+        <item quantity="one">(1 оставащ опит)</item>
     </plurals>
     <plurals name="kg_password_wrong_pin_code">
         <item quantity="other">Неправилен ПИН код за SIM картата – остават ви %d опита.</item>
@@ -12,6 +16,10 @@
         <item quantity="other">Неправилен PUK код за SIM картата – остават ви %d опита, преди тя да стане неизползваема завинаги.</item>
         <item quantity="one">Неправилен PUK код за SIM картата – остава ви %d опит, преди тя да стане неизползваема завинаги.</item>
     </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">Устройството не е отключвано от %d часа. Потвърдете паролата.</item>
+        <item quantity="one">Устройството не е отключвано от %d час. Потвърдете паролата.</item>
+    </plurals>
     <plurals name="kg_prompt_reason_time_pattern">
         <item quantity="other">Устройството не е отключвано от %d часа. Потвърдете фигурата.</item>
         <item quantity="one">Устройството не е отключвано от %d час. Потвърдете фигурата.</item>
@@ -20,18 +28,6 @@
         <item quantity="other">Устройството не е отключвано от %d часа. Потвърдете ПИН кода.</item>
         <item quantity="one">Устройството не е отключвано от %d час. Потвърдете ПИН кода.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">Устройството не е отключвано от %d часа. Потвърдете паролата.</item>
-        <item quantity="one">Устройството не е отключвано от %d час. Потвърдете паролата.</item>
-    </plurals>
-    <plurals name="kg_attempt_remaining">
-        <item quantity="other">(%d оставащи опита)</item>
-        <item quantity="one">(1 оставащ опит)</item>
-    </plurals>
-    <plurals name="kg_attempt_left">
-        <item quantity="other">%d оставащи опита</item>
-        <item quantity="one">Остава %d опит</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown_min">
         <item quantity="other">Опитайте пак след %d минути</item>
         <item quantity="one">Опитайте отново след %d минута</item>
@@ -39,5 +35,29 @@
     <plurals name="kg_too_many_failed_attempts_countdown_sec">
         <item quantity="other">Опитайте пак след %d секунди</item>
         <item quantity="one">Опитайте отново след %d секунда</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_countdown_by_biometrics">
+        <item quantity="other">%1$d неправилни опита за потвърждаване на биометричните данни. Опитайте отново след %2$d секунди.</item>
+        <item quantity="one">%1$d неправилни опита за потвърждаване на биометричните данни. Опитайте отново след %2$d секунда.</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_countdown_by_fingerprint">
+        <item quantity="other">%1$d неправилни опита за потвърждаване на пръстовите отпечатъци. Опитайте отново след %2$d секунди.</item>
+        <item quantity="one">%1$d неправилни опита за потвърждаване на пръстовите отпечатъци. Опитайте отново след %2$d секунда.</item>
+    </plurals>
+    <plurals name="notification_channels_list_desc_2_and_others">
+        <item quantity="other">„%1$s“, „%2$s“ и още %3$d</item>
+        <item quantity="one">„%1$s“, „%2$s“ и още %3$d</item>
+    </plurals>
+    <plurals name="notification_num_channels_desc">
+        <item quantity="other">1 от %d категории известия от това приложение</item>
+        <item quantity="one">1 от %d категория известия от това приложение</item>
+    </plurals>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">%d екрана в панела за общ преглед</item>
+        <item quantity="one">1 екран в панела за общ преглед</item>
+    </plurals>
+    <plurals name="notification_group_overflow_description">
+        <item quantity="other">Съдържа още %s известия.</item>
+        <item quantity="one">Съдържа още %s известие.</item>
     </plurals>
 </resources>

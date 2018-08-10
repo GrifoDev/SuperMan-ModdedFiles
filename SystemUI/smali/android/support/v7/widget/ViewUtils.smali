@@ -3,6 +3,14 @@
 .source "ViewUtils.java"
 
 
+# annotations
+.annotation build Landroid/support/annotation/RestrictTo;
+    value = {
+        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
+
 # static fields
 .field private static sComputeFitSystemWindowsMethod:Ljava/lang/reflect/Method;
 
@@ -46,7 +54,7 @@
 
     sget-object v1, Landroid/support/v7/widget/ViewUtils;->sComputeFitSystemWindowsMethod:Ljava/lang/reflect/Method;
 
-    invoke-virtual {v1}, Ljava/lang/reflect/AccessibleObject;->isAccessible()Z
+    invoke-virtual {v1}, Ljava/lang/reflect/Method;->isAccessible()Z
 
     move-result v1
 
@@ -56,7 +64,7 @@
 
     const/4 v2, 0x1
 
-    invoke-virtual {v1, v2}, Ljava/lang/reflect/AccessibleObject;->setAccessible(Z)V
+    invoke-virtual {v1, v2}, Ljava/lang/reflect/Method;->setAccessible(Z)V
     :try_end_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -86,8 +94,12 @@
 
 .method public static combineMeasuredStates(II)I
     .locals 1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
-    or-int v0, p0, p1
+    invoke-static {p0, p1}, Landroid/view/View;->combineMeasuredStates(II)I
+
+    move-result v0
 
     return v0
 .end method
@@ -150,6 +162,89 @@
 
     :cond_0
     const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static makeOptionalFitsSystemWindows(Landroid/view/View;)V
+    .locals 7
+
+    sget v4, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v5, 0x10
+
+    if-lt v4, v5, :cond_1
+
+    :try_start_0
+    invoke-virtual {p0}, Landroid/view/View;->getClass()Ljava/lang/Class;
+
+    move-result-object v4
+
+    const-string/jumbo v5, "makeOptionalFitsSystemWindows"
+
+    const/4 v6, 0x0
+
+    new-array v6, v6, [Ljava/lang/Class;
+
+    invoke-virtual {v4, v5, v6}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/reflect/Method;->isAccessible()Z
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    const/4 v4, 0x1
+
+    invoke-virtual {v3, v4}, Ljava/lang/reflect/Method;->setAccessible(Z)V
+
+    :cond_0
+    const/4 v4, 0x0
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    invoke-virtual {v3, p0, v4}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_0
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_2
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_1
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v4, "ViewUtils"
+
+    const-string/jumbo v5, "Could not invoke makeOptionalFitsSystemWindows"
+
+    invoke-static {v4, v5, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+
+    :catch_1
+    move-exception v2
+
+    const-string/jumbo v4, "ViewUtils"
+
+    const-string/jumbo v5, "Could not invoke makeOptionalFitsSystemWindows"
+
+    invoke-static {v4, v5, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+
+    :catch_2
+    move-exception v1
+
+    const-string/jumbo v4, "ViewUtils"
+
+    const-string/jumbo v5, "Could not find method makeOptionalFitsSystemWindows. Oh well..."
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method

@@ -16,12 +16,12 @@
     return-void
 .end method
 
-.method private resolveViews(Landroid/service/notification/StatusBarNotification;)V
+.method private resolveViews()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationMediaTemplateViewWrapper;->mView:Landroid/view/View;
 
-    const v1, 0x1020438
+    const v1, 0x1020372
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -34,12 +34,20 @@
 
 
 # virtual methods
-.method public notifyContentUpdated(Landroid/service/notification/StatusBarNotification;)V
+.method public isDimmable()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public onContentUpdated(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/NotificationMediaTemplateViewWrapper;->resolveViews(Landroid/service/notification/StatusBarNotification;)V
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/NotificationMediaTemplateViewWrapper;->resolveViews()V
 
-    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/notification/NotificationTemplateViewWrapper;->notifyContentUpdated(Landroid/service/notification/StatusBarNotification;)V
+    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/notification/NotificationTemplateViewWrapper;->onContentUpdated(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)V
 
     return-void
 .end method

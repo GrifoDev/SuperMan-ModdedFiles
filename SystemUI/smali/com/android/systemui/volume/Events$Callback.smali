@@ -18,5 +18,5 @@
 .method public abstract writeEvent(JI[Ljava/lang/Object;)V
 .end method
 
-.method public abstract writeState(JLcom/android/systemui/volume/VolumeDialogController$State;)V
+.method public abstract writeState(JLcom/android/systemui/plugins/VolumeDialogController$State;)V
 .end method

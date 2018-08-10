@@ -430,7 +430,7 @@
     add-int/lit8 v0, v3, -0x1
 
     :goto_0
-    if-ltz v0, :cond_8
+    if-ltz v0, :cond_7
 
     iget-object v3, p0, Landroid/support/v7/widget/ViewInfoStore;->mLayoutHolderMap:Landroid/support/v4/util/ArrayMap;
 
@@ -454,11 +454,10 @@
 
     const/4 v4, 0x3
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_0
 
     invoke-interface {p1, v2}, Landroid/support/v7/widget/ViewInfoStore$ProcessCallback;->unused(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
 
-    :cond_0
     :goto_1
     invoke-static {v1}, Landroid/support/v7/widget/ViewInfoStore$InfoRecord;->recycle(Landroid/support/v7/widget/ViewInfoStore$InfoRecord;)V
 
@@ -466,22 +465,22 @@
 
     goto :goto_0
 
-    :cond_1
+    :cond_0
     iget v3, v1, Landroid/support/v7/widget/ViewInfoStore$InfoRecord;->flags:I
 
     and-int/lit8 v3, v3, 0x1
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_2
 
     iget-object v3, v1, Landroid/support/v7/widget/ViewInfoStore$InfoRecord;->preInfo:Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_1
 
     invoke-interface {p1, v2}, Landroid/support/v7/widget/ViewInfoStore$ProcessCallback;->unused(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
 
     goto :goto_1
 
-    :cond_2
+    :cond_1
     iget-object v3, v1, Landroid/support/v7/widget/ViewInfoStore$InfoRecord;->preInfo:Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;
 
     iget-object v4, v1, Landroid/support/v7/widget/ViewInfoStore$InfoRecord;->postInfo:Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;
@@ -490,14 +489,14 @@
 
     goto :goto_1
 
-    :cond_3
+    :cond_2
     iget v3, v1, Landroid/support/v7/widget/ViewInfoStore$InfoRecord;->flags:I
 
     and-int/lit8 v3, v3, 0xe
 
     const/16 v4, 0xe
 
-    if-ne v3, v4, :cond_4
+    if-ne v3, v4, :cond_3
 
     iget-object v3, v1, Landroid/support/v7/widget/ViewInfoStore$InfoRecord;->preInfo:Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;
 
@@ -507,14 +506,14 @@
 
     goto :goto_1
 
-    :cond_4
+    :cond_3
     iget v3, v1, Landroid/support/v7/widget/ViewInfoStore$InfoRecord;->flags:I
 
     and-int/lit8 v3, v3, 0xc
 
     const/16 v4, 0xc
 
-    if-ne v3, v4, :cond_5
+    if-ne v3, v4, :cond_4
 
     iget-object v3, v1, Landroid/support/v7/widget/ViewInfoStore$InfoRecord;->preInfo:Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;
 
@@ -524,12 +523,12 @@
 
     goto :goto_1
 
-    :cond_5
+    :cond_4
     iget v3, v1, Landroid/support/v7/widget/ViewInfoStore$InfoRecord;->flags:I
 
     and-int/lit8 v3, v3, 0x4
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_5
 
     iget-object v3, v1, Landroid/support/v7/widget/ViewInfoStore$InfoRecord;->preInfo:Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;
 
@@ -537,12 +536,12 @@
 
     goto :goto_1
 
-    :cond_6
+    :cond_5
     iget v3, v1, Landroid/support/v7/widget/ViewInfoStore$InfoRecord;->flags:I
 
     and-int/lit8 v3, v3, 0x8
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_6
 
     iget-object v3, v1, Landroid/support/v7/widget/ViewInfoStore$InfoRecord;->preInfo:Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;
 
@@ -552,16 +551,14 @@
 
     goto :goto_1
 
-    :cond_7
+    :cond_6
     iget v3, v1, Landroid/support/v7/widget/ViewInfoStore$InfoRecord;->flags:I
 
     and-int/lit8 v3, v3, 0x2
 
-    if-eqz v3, :cond_0
-
     goto :goto_1
 
-    :cond_8
+    :cond_7
     return-void
 .end method
 

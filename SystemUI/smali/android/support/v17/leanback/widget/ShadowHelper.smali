@@ -37,9 +37,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 3
-
-    const/4 v2, 0x0
+    .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -55,7 +53,7 @@
 
     new-instance v0, Landroid/support/v17/leanback/widget/ShadowHelper$ShadowHelperApi21Impl;
 
-    invoke-direct {v0, v2}, Landroid/support/v17/leanback/widget/ShadowHelper$ShadowHelperApi21Impl;-><init>(Landroid/support/v17/leanback/widget/ShadowHelper$ShadowHelperApi21Impl;)V
+    invoke-direct {v0}, Landroid/support/v17/leanback/widget/ShadowHelper$ShadowHelperApi21Impl;-><init>()V
 
     iput-object v0, p0, Landroid/support/v17/leanback/widget/ShadowHelper;->mImpl:Landroid/support/v17/leanback/widget/ShadowHelper$ShadowHelperVersionImpl;
 
@@ -65,7 +63,7 @@
     :cond_0
     new-instance v0, Landroid/support/v17/leanback/widget/ShadowHelper$ShadowHelperStubImpl;
 
-    invoke-direct {v0, v2}, Landroid/support/v17/leanback/widget/ShadowHelper$ShadowHelperStubImpl;-><init>(Landroid/support/v17/leanback/widget/ShadowHelper$ShadowHelperStubImpl;)V
+    invoke-direct {v0}, Landroid/support/v17/leanback/widget/ShadowHelper$ShadowHelperStubImpl;-><init>()V
 
     iput-object v0, p0, Landroid/support/v17/leanback/widget/ShadowHelper;->mImpl:Landroid/support/v17/leanback/widget/ShadowHelper$ShadowHelperVersionImpl;
 
@@ -82,6 +80,28 @@
 
 
 # virtual methods
+.method public addDynamicShadow(Landroid/view/View;FFI)Ljava/lang/Object;
+    .locals 1
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/ShadowHelper;->mImpl:Landroid/support/v17/leanback/widget/ShadowHelper$ShadowHelperVersionImpl;
+
+    invoke-interface {v0, p1, p2, p3, p4}, Landroid/support/v17/leanback/widget/ShadowHelper$ShadowHelperVersionImpl;->addDynamicShadow(Landroid/view/View;FFI)Ljava/lang/Object;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public setShadowFocusLevel(Ljava/lang/Object;F)V
+    .locals 1
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/ShadowHelper;->mImpl:Landroid/support/v17/leanback/widget/ShadowHelper$ShadowHelperVersionImpl;
+
+    invoke-interface {v0, p1, p2}, Landroid/support/v17/leanback/widget/ShadowHelper$ShadowHelperVersionImpl;->setShadowFocusLevel(Ljava/lang/Object;F)V
+
+    return-void
+.end method
+
 .method public setZ(Landroid/view/View;F)V
     .locals 1
 

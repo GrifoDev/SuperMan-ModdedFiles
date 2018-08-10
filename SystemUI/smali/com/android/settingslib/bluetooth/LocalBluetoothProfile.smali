@@ -16,9 +16,6 @@
 .method public abstract getDrawableResource(Landroid/bluetooth/BluetoothClass;)I
 .end method
 
-.method public abstract getOrdinal()I
-.end method
-
 .method public abstract isAutoConnectable()Z
 .end method
 

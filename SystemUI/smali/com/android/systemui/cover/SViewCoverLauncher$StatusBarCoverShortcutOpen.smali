@@ -12,17 +12,3 @@
     accessFlags = 0x609
     name = "StatusBarCoverShortcutOpen"
 .end annotation
-
-
-# virtual methods
-.method public abstract startNotifcationIntent(Landroid/app/PendingIntent;)V
-.end method
-
-.method public abstract startShortcutApp(Landroid/content/Intent;)V
-.end method
-
-.method public abstract startShortcutDragAnimation()V
-.end method
-
-.method public abstract stopShortcutDragAnimation()V
-.end method

@@ -292,34 +292,26 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_6
 
     invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    xor-int/lit8 v3, v3, 0x1
 
-    :cond_2
-    const-string/jumbo v3, "HeadsetProfile"
+    if-eqz v3, :cond_6
 
-    const-string/jumbo v4, "connected device list is empty..."
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v6
-
-    :cond_3
     invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :cond_4
+    :cond_2
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_5
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -331,11 +323,11 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_2
 
     sget-boolean v3, Lcom/android/settingslib/bluetooth/HeadsetProfile;->V:Z
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_3
 
     const-string/jumbo v3, "HeadsetProfile"
 
@@ -343,20 +335,20 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_5
+    :cond_3
     iget-object v3, p0, Lcom/android/settingslib/bluetooth/HeadsetProfile;->mService:Landroid/bluetooth/BluetoothHeadset;
 
     invoke-virtual {v3, p1}, Landroid/bluetooth/BluetoothHeadset;->getPriority(Landroid/bluetooth/BluetoothDevice;)I
 
     move-result v3
 
-    if-le v3, v7, :cond_6
+    if-le v3, v7, :cond_4
 
     iget-object v3, p0, Lcom/android/settingslib/bluetooth/HeadsetProfile;->mService:Landroid/bluetooth/BluetoothHeadset;
 
     invoke-virtual {v3, p1, v7}, Landroid/bluetooth/BluetoothHeadset;->setPriority(Landroid/bluetooth/BluetoothDevice;I)Z
 
-    :cond_6
+    :cond_4
     const-string/jumbo v3, "HeadsetProfile"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -391,7 +383,16 @@
 
     return v3
 
-    :cond_7
+    :cond_5
+    return v6
+
+    :cond_6
+    const-string/jumbo v3, "HeadsetProfile"
+
+    const-string/jumbo v4, "connected device list is empty..."
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     return v6
 .end method
 
@@ -495,34 +496,26 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3
 
     invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
 
     move-result v4
 
+    xor-int/lit8 v4, v4, 0x1
+
     if-eqz v4, :cond_3
 
-    :cond_2
-    const-string/jumbo v4, "HeadsetProfile"
-
-    const-string/jumbo v5, "getConnectionStatus :: BluetoothProfile.STATE_DISCONNECTED (cannot find device)"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v7
-
-    :cond_3
     invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :cond_4
+    :cond_2
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_3
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -534,7 +527,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_2
 
     iget-object v4, p0, Lcom/android/settingslib/bluetooth/HeadsetProfile;->mService:Landroid/bluetooth/BluetoothHeadset;
 
@@ -565,20 +558,21 @@
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return v3
+
+    :cond_3
+    const-string/jumbo v4, "HeadsetProfile"
+
+    const-string/jumbo v5, "getConnectionStatus :: BluetoothProfile.STATE_DISCONNECTED (cannot find device)"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v7
 .end method
 
 .method public getDrawableResource(Landroid/bluetooth/BluetoothClass;)I
     .locals 1
 
     sget v0, Lcom/android/settingslib/R$drawable;->list_ic_mono_headset:I
-
-    return v0
-.end method
-
-.method public getOrdinal()I
-    .locals 1
-
-    const/4 v0, 0x1
 
     return v0
 .end method

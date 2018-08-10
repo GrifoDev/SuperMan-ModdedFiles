@@ -6,52 +6,36 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/systemui/statusbar/phone/DozeParameters$PulseSchedule;
+        Lcom/android/systemui/statusbar/phone/DozeParameters$IntInOutMatcher;
     }
 .end annotation
 
 
 # static fields
-.field private static final DEBUG:Z
-
-.field private static sPulseSchedule:Lcom/android/systemui/statusbar/phone/DozeParameters$PulseSchedule;
+.field private static sPickupSubtypePerformsProxMatcher:Lcom/android/systemui/statusbar/phone/DozeParameters$IntInOutMatcher;
 
 
 # instance fields
+.field private final mAmbientDisplayConfiguration:Lcom/android/internal/hardware/AmbientDisplayConfiguration;
+
 .field private final mContext:Landroid/content/Context;
 
 
 # direct methods
-.method static synthetic -get0()Z
-    .locals 1
-
-    sget-boolean v0, Lcom/android/systemui/statusbar/phone/DozeParameters;->DEBUG:Z
-
-    return v0
-.end method
-
-.method static constructor <clinit>()V
-    .locals 2
-
-    const-string/jumbo v0, "DozeParameters"
-
-    const/4 v1, 0x3
-
-    invoke-static {v0, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
-
-    move-result v0
-
-    sput-boolean v0, Lcom/android/systemui/statusbar/phone/DozeParameters;->DEBUG:Z
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/DozeParameters;->mContext:Landroid/content/Context;
+
+    new-instance v0, Lcom/android/internal/hardware/AmbientDisplayConfiguration;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/DozeParameters;->mContext:Landroid/content/Context;
+
+    invoke-direct {v0, v1}, Lcom/android/internal/hardware/AmbientDisplayConfiguration;-><init>(Landroid/content/Context;)V
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/DozeParameters;->mAmbientDisplayConfiguration:Lcom/android/internal/hardware/AmbientDisplayConfiguration;
 
     return-void
 .end method
@@ -122,188 +106,18 @@
 
 
 # virtual methods
-.method public dump(Ljava/io/PrintWriter;)V
-    .locals 3
+.method public getAlwaysOn()Z
+    .locals 2
 
-    const/4 v2, 0x1
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DozeParameters;->mAmbientDisplayConfiguration:Lcom/android/internal/hardware/AmbientDisplayConfiguration;
 
-    const/4 v1, 0x0
+    const/4 v1, -0x2
 
-    const-string/jumbo v0, "  DozeParameters:"
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    const-string/jumbo v0, "    getDisplayStateSupported(): "
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getDisplayStateSupported()Z
+    invoke-virtual {v0, v1}, Lcom/android/internal/hardware/AmbientDisplayConfiguration;->alwaysOnEnabled(I)Z
 
     move-result v0
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Z)V
-
-    const-string/jumbo v0, "    getPulseDuration(pickup=false): "
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getPulseDuration(Z)I
-
-    move-result v0
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(I)V
-
-    const-string/jumbo v0, "    getPulseDuration(pickup=true): "
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getPulseDuration(Z)I
-
-    move-result v0
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(I)V
-
-    const-string/jumbo v0, "    getPulseInDuration(pickup=false): "
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getPulseInDuration(Z)I
-
-    move-result v0
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(I)V
-
-    const-string/jumbo v0, "    getPulseInDuration(pickup=true): "
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getPulseInDuration(Z)I
-
-    move-result v0
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(I)V
-
-    const-string/jumbo v0, "    getPulseInVisibleDuration(): "
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getPulseVisibleDuration()I
-
-    move-result v0
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(I)V
-
-    const-string/jumbo v0, "    getPulseOutDuration(): "
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getPulseOutDuration()I
-
-    move-result v0
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(I)V
-
-    const-string/jumbo v0, "    getPulseOnSigMotion(): "
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getPulseOnSigMotion()Z
-
-    move-result v0
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Z)V
-
-    const-string/jumbo v0, "    getVibrateOnSigMotion(): "
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getVibrateOnSigMotion()Z
-
-    move-result v0
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Z)V
-
-    const-string/jumbo v0, "    getPulseOnPickup(): "
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getPulseOnPickup()Z
-
-    move-result v0
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Z)V
-
-    const-string/jumbo v0, "    getVibrateOnPickup(): "
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getVibrateOnPickup()Z
-
-    move-result v0
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Z)V
-
-    const-string/jumbo v0, "    getProxCheckBeforePulse(): "
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getProxCheckBeforePulse()Z
-
-    move-result v0
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Z)V
-
-    const-string/jumbo v0, "    getPulseOnNotifications(): "
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getPulseOnNotifications()Z
-
-    move-result v0
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Z)V
-
-    const-string/jumbo v0, "    getPulseSchedule(): "
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getPulseSchedule()Lcom/android/systemui/statusbar/phone/DozeParameters$PulseSchedule;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
-
-    const-string/jumbo v0, "    getPulseScheduleResets(): "
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getPulseScheduleResets()I
-
-    move-result v0
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(I)V
-
-    const-string/jumbo v0, "    getPickupVibrationThreshold(): "
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getPickupVibrationThreshold()I
-
-    move-result v0
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(I)V
-
-    const-string/jumbo v0, "    getPickupPerformsProxCheck(): "
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getPickupPerformsProxCheck()Z
-
-    move-result v0
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Z)V
-
-    return-void
+    return v0
 .end method
 
 .method public getDisplayStateSupported()Z
@@ -311,7 +125,7 @@
 
     const-string/jumbo v0, "doze.display.supported"
 
-    const v1, 0x7f120018
+    const v1, 0x7f050023
 
     invoke-direct {p0, v0, v1}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getBoolean(Ljava/lang/String;I)Z
 
@@ -320,18 +134,69 @@
     return v0
 .end method
 
-.method public getPickupPerformsProxCheck()Z
-    .locals 2
+.method public getPickupSubtypePerformsProxCheck(I)Z
+    .locals 3
 
-    const-string/jumbo v0, "doze.pickup.proxcheck"
+    const-string/jumbo v1, "doze.pickup.proxcheck"
 
-    const v1, 0x7f12001d
+    const v2, 0x7f1202d9
 
-    invoke-direct {p0, v0, v1}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getBoolean(Ljava/lang/String;I)Z
+    invoke-direct {p0, v1, v2}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getString(Ljava/lang/String;I)Ljava/lang/String;
 
-    move-result v0
+    move-result-object v0
 
-    return v0
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/DozeParameters;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f050024
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result v1
+
+    return v1
+
+    :cond_0
+    sget-object v1, Lcom/android/systemui/statusbar/phone/DozeParameters;->sPickupSubtypePerformsProxMatcher:Lcom/android/systemui/statusbar/phone/DozeParameters$IntInOutMatcher;
+
+    if-eqz v1, :cond_1
+
+    sget-object v1, Lcom/android/systemui/statusbar/phone/DozeParameters;->sPickupSubtypePerformsProxMatcher:Lcom/android/systemui/statusbar/phone/DozeParameters$IntInOutMatcher;
+
+    iget-object v1, v1, Lcom/android/systemui/statusbar/phone/DozeParameters$IntInOutMatcher;->mSpec:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_2
+
+    :cond_1
+    new-instance v1, Lcom/android/systemui/statusbar/phone/DozeParameters$IntInOutMatcher;
+
+    invoke-direct {v1, v0}, Lcom/android/systemui/statusbar/phone/DozeParameters$IntInOutMatcher;-><init>(Ljava/lang/String;)V
+
+    sput-object v1, Lcom/android/systemui/statusbar/phone/DozeParameters;->sPickupSubtypePerformsProxMatcher:Lcom/android/systemui/statusbar/phone/DozeParameters$IntInOutMatcher;
+
+    :cond_2
+    sget-object v1, Lcom/android/systemui/statusbar/phone/DozeParameters;->sPickupSubtypePerformsProxMatcher:Lcom/android/systemui/statusbar/phone/DozeParameters$IntInOutMatcher;
+
+    invoke-virtual {v1, p1}, Lcom/android/systemui/statusbar/phone/DozeParameters$IntInOutMatcher;->isIn(I)Z
+
+    move-result v1
+
+    return v1
 .end method
 
 .method public getPickupVibrationThreshold()I
@@ -339,7 +204,7 @@
 
     const-string/jumbo v0, "doze.pickup.vibration.threshold"
 
-    const v1, 0x7f0c005e
+    const v1, 0x7f0b0017
 
     invoke-direct {p0, v0, v1}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getInt(Ljava/lang/String;I)I
 
@@ -353,33 +218,11 @@
 
     const-string/jumbo v0, "doze.pulse.proxcheck"
 
-    const v1, 0x7f12001b
+    const v1, 0x7f050025
 
     invoke-direct {p0, v0, v1}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getBoolean(Ljava/lang/String;I)Z
 
     move-result v0
-
-    return v0
-.end method
-
-.method public getPulseDuration(Z)I
-    .locals 2
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getPulseInDuration(Z)I
-
-    move-result v0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getPulseVisibleDuration()I
-
-    move-result v1
-
-    add-int/2addr v0, v1
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getPulseOutDuration()I
-
-    move-result v1
-
-    add-int/2addr v0, v1
 
     return v0
 .end method
@@ -391,7 +234,7 @@
 
     const-string/jumbo v0, "doze.pulse.duration.in.pickup"
 
-    const v1, 0x7f0c0060
+    const v1, 0x7f0b0019
 
     invoke-direct {p0, v0, v1}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getInt(Ljava/lang/String;I)I
 
@@ -403,7 +246,7 @@
     :cond_0
     const-string/jumbo v0, "doze.pulse.duration.in"
 
-    const v1, 0x7f0c005f
+    const v1, 0x7f0b0018
 
     invoke-direct {p0, v0, v1}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getInt(Ljava/lang/String;I)I
 
@@ -412,46 +255,12 @@
     goto :goto_0
 .end method
 
-.method public getPulseOnNotifications()Z
-    .locals 2
-
-    const-string/jumbo v0, "doze.pulse.notifications"
-
-    const v1, 0x7f12001c
-
-    invoke-direct {p0, v0, v1}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getBoolean(Ljava/lang/String;I)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getPulseOnPickup()Z
-    .locals 2
-
-    const-string/jumbo v0, "doze.pulse.pickup"
-
-    const v1, 0x7f12001a
-
-    invoke-direct {p0, v0, v1}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getBoolean(Ljava/lang/String;I)Z
-
-    move-result v0
-
-    const-string v1, "doze_pulse_pickup"
-
-    invoke-static {v1, v0}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
-
-    move-result v0
-
-    return v0
-.end method
-
 .method public getPulseOnSigMotion()Z
     .locals 2
 
     const-string/jumbo v0, "doze.pulse.sigmotion"
 
-    const v1, 0x7f120019
+    const v1, 0x7f050027
 
     invoke-direct {p0, v0, v1}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getBoolean(Ljava/lang/String;I)Z
 
@@ -465,63 +274,7 @@
 
     const-string/jumbo v0, "doze.pulse.duration.out"
 
-    const v1, 0x7f0c0062
-
-    invoke-direct {p0, v0, v1}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getInt(Ljava/lang/String;I)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getPulseSchedule()Lcom/android/systemui/statusbar/phone/DozeParameters$PulseSchedule;
-    .locals 3
-
-    const-string/jumbo v1, "doze.pulse.schedule"
-
-    const v2, 0x7f0f022d
-
-    invoke-direct {p0, v1, v2}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getString(Ljava/lang/String;I)Ljava/lang/String;
-
-    move-result-object v0
-
-    sget-object v1, Lcom/android/systemui/statusbar/phone/DozeParameters;->sPulseSchedule:Lcom/android/systemui/statusbar/phone/DozeParameters$PulseSchedule;
-
-    if-eqz v1, :cond_0
-
-    sget-object v1, Lcom/android/systemui/statusbar/phone/DozeParameters;->sPulseSchedule:Lcom/android/systemui/statusbar/phone/DozeParameters$PulseSchedule;
-
-    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/DozeParameters$PulseSchedule;->-get0(Lcom/android/systemui/statusbar/phone/DozeParameters$PulseSchedule;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    :goto_0
-    sget-object v1, Lcom/android/systemui/statusbar/phone/DozeParameters;->sPulseSchedule:Lcom/android/systemui/statusbar/phone/DozeParameters$PulseSchedule;
-
-    return-object v1
-
-    :cond_0
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/DozeParameters$PulseSchedule;->parse(Ljava/lang/String;)Lcom/android/systemui/statusbar/phone/DozeParameters$PulseSchedule;
-
-    move-result-object v1
-
-    sput-object v1, Lcom/android/systemui/statusbar/phone/DozeParameters;->sPulseSchedule:Lcom/android/systemui/statusbar/phone/DozeParameters$PulseSchedule;
-
-    goto :goto_0
-.end method
-
-.method public getPulseScheduleResets()I
-    .locals 2
-
-    const-string/jumbo v0, "doze.pulse.schedule.resets"
-
-    const v1, 0x7f0c005d
+    const v1, 0x7f0b001a
 
     invoke-direct {p0, v0, v1}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getInt(Ljava/lang/String;I)I
 
@@ -531,49 +284,27 @@
 .end method
 
 .method public getPulseVisibleDuration()I
-    .locals 4
+    .locals 2
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/DozeParameters;->mContext:Landroid/content/Context;
+    const-string/jumbo v0, "doze.pulse.duration.visible"
 
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    const v1, 0x7f0b001b
 
-    move-result-object v1
-
-    const-string v2, "doze_timeout"
-
-    const v3, 0xe74
-
-    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-direct {p0, v0, v1}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getInt(Ljava/lang/String;I)I
 
     move-result v0
 
     return v0
 .end method
 
-.method public getVibrateOnPickup()Z
-    .locals 2
+.method public getPulseVisibleDurationExtended()I
+    .locals 1
 
-    const-string/jumbo v0, "doze_vibrate_pickup"
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getPulseVisibleDuration()I
 
     move-result v0
 
-    return v0
-.end method
-
-.method public getVibrateOnSigMotion()Z
-    .locals 2
-
-    const-string/jumbo v0, "doze.vibrate.sigmotion"
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v0
+    mul-int/lit8 v0, v0, 0x2
 
     return v0
 .end method

@@ -22,20 +22,12 @@
 
 
 # direct methods
-.method private constructor <init>(Landroid/support/v7/widget/RecyclerView;)V
+.method constructor <init>(Landroid/support/v7/widget/RecyclerView;)V
     .locals 0
 
     iput-object p1, p0, Landroid/support/v7/widget/RecyclerView$ItemAnimatorRestoreListener;->this$0:Landroid/support/v7/widget/RecyclerView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method synthetic constructor <init>(Landroid/support/v7/widget/RecyclerView;Landroid/support/v7/widget/RecyclerView$ItemAnimatorRestoreListener;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Landroid/support/v7/widget/RecyclerView$ItemAnimatorRestoreListener;-><init>(Landroid/support/v7/widget/RecyclerView;)V
 
     return-void
 .end method
@@ -74,7 +66,7 @@
 
     iget-object v1, p1, Landroid/support/v7/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    invoke-static {v0, v1}, Landroid/support/v7/widget/RecyclerView;->-wrap2(Landroid/support/v7/widget/RecyclerView;Landroid/view/View;)Z
+    invoke-virtual {v0, v1}, Landroid/support/v7/widget/RecyclerView;->removeAnimatingView(Landroid/view/View;)Z
 
     move-result v0
 

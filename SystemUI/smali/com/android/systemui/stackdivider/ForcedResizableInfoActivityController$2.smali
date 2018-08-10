@@ -41,12 +41,22 @@
     return-void
 .end method
 
-.method public onActivityForcedResizable(Ljava/lang/String;I)V
+.method public onActivityForcedResizable(Ljava/lang/String;II)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController$2;->this$0:Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;
 
-    invoke-static {v0, p1, p2}, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;->-wrap1(Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;Ljava/lang/String;I)V
+    invoke-static {v0, p1, p2, p3}, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;->-wrap1(Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;Ljava/lang/String;II)V
+
+    return-void
+.end method
+
+.method public onActivityLaunchOnSecondaryDisplayFailed()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController$2;->this$0:Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;
+
+    invoke-static {v0}, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;->-wrap2(Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;)V
 
     return-void
 .end method

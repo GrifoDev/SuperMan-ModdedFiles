@@ -39,6 +39,36 @@
 .field final synthetic this$0:Landroid/support/v17/leanback/widget/PagingIndicator;
 
 
+# direct methods
+.method public constructor <init>(Landroid/support/v17/leanback/widget/PagingIndicator;)V
+    .locals 2
+
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    iput-object p1, p0, Landroid/support/v17/leanback/widget/PagingIndicator$Dot;->this$0:Landroid/support/v17/leanback/widget/PagingIndicator;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput v0, p0, Landroid/support/v17/leanback/widget/PagingIndicator$Dot;->mDirection:F
+
+    iget-object v1, p0, Landroid/support/v17/leanback/widget/PagingIndicator$Dot;->this$0:Landroid/support/v17/leanback/widget/PagingIndicator;
+
+    iget-boolean v1, v1, Landroid/support/v17/leanback/widget/PagingIndicator;->mIsLtr:Z
+
+    if-eqz v1, :cond_0
+
+    :goto_0
+    iput v0, p0, Landroid/support/v17/leanback/widget/PagingIndicator$Dot;->mLayoutDirection:F
+
+    return-void
+
+    :cond_0
+    const/high16 v0, -0x40800000    # -1.0f
+
+    goto :goto_0
+.end method
+
+
 # virtual methods
 .method public adjustAlpha()V
     .locals 6
@@ -55,9 +85,7 @@
 
     iget-object v4, p0, Landroid/support/v17/leanback/widget/PagingIndicator$Dot;->this$0:Landroid/support/v17/leanback/widget/PagingIndicator;
 
-    invoke-static {v4}, Landroid/support/v17/leanback/widget/PagingIndicator;->-get8(Landroid/support/v17/leanback/widget/PagingIndicator;)I
-
-    move-result v4
+    iget v4, v4, Landroid/support/v17/leanback/widget/PagingIndicator;->mDotFgSelectColor:I
 
     invoke-static {v4}, Landroid/graphics/Color;->red(I)I
 
@@ -65,9 +93,7 @@
 
     iget-object v4, p0, Landroid/support/v17/leanback/widget/PagingIndicator$Dot;->this$0:Landroid/support/v17/leanback/widget/PagingIndicator;
 
-    invoke-static {v4}, Landroid/support/v17/leanback/widget/PagingIndicator;->-get8(Landroid/support/v17/leanback/widget/PagingIndicator;)I
-
-    move-result v4
+    iget v4, v4, Landroid/support/v17/leanback/widget/PagingIndicator;->mDotFgSelectColor:I
 
     invoke-static {v4}, Landroid/graphics/Color;->green(I)I
 
@@ -75,9 +101,7 @@
 
     iget-object v4, p0, Landroid/support/v17/leanback/widget/PagingIndicator$Dot;->this$0:Landroid/support/v17/leanback/widget/PagingIndicator;
 
-    invoke-static {v4}, Landroid/support/v17/leanback/widget/PagingIndicator;->-get8(Landroid/support/v17/leanback/widget/PagingIndicator;)I
-
-    move-result v4
+    iget v4, v4, Landroid/support/v17/leanback/widget/PagingIndicator;->mDotFgSelectColor:I
 
     invoke-static {v4}, Landroid/graphics/Color;->blue(I)I
 
@@ -103,9 +127,7 @@
 
     iget-object v0, p0, Landroid/support/v17/leanback/widget/PagingIndicator$Dot;->this$0:Landroid/support/v17/leanback/widget/PagingIndicator;
 
-    invoke-static {v0}, Landroid/support/v17/leanback/widget/PagingIndicator;->-get7(Landroid/support/v17/leanback/widget/PagingIndicator;)I
-
-    move-result v0
+    iget v0, v0, Landroid/support/v17/leanback/widget/PagingIndicator;->mDotDiameter:I
 
     int-to-float v0, v0
 
@@ -113,9 +135,7 @@
 
     iget-object v0, p0, Landroid/support/v17/leanback/widget/PagingIndicator$Dot;->this$0:Landroid/support/v17/leanback/widget/PagingIndicator;
 
-    invoke-static {v0}, Landroid/support/v17/leanback/widget/PagingIndicator;->-get9(Landroid/support/v17/leanback/widget/PagingIndicator;)I
-
-    move-result v0
+    iget v0, v0, Landroid/support/v17/leanback/widget/PagingIndicator;->mDotRadius:I
 
     int-to-float v0, v0
 
@@ -125,9 +145,7 @@
 
     iget-object v1, p0, Landroid/support/v17/leanback/widget/PagingIndicator$Dot;->this$0:Landroid/support/v17/leanback/widget/PagingIndicator;
 
-    invoke-static {v1}, Landroid/support/v17/leanback/widget/PagingIndicator;->-get4(Landroid/support/v17/leanback/widget/PagingIndicator;)F
-
-    move-result v1
+    iget v1, v1, Landroid/support/v17/leanback/widget/PagingIndicator;->mArrowToBgRatio:F
 
     mul-float/2addr v0, v1
 
@@ -151,9 +169,7 @@
 
     iget-object v1, p0, Landroid/support/v17/leanback/widget/PagingIndicator$Dot;->this$0:Landroid/support/v17/leanback/widget/PagingIndicator;
 
-    invoke-static {v1}, Landroid/support/v17/leanback/widget/PagingIndicator;->-get6(Landroid/support/v17/leanback/widget/PagingIndicator;)I
-
-    move-result v1
+    iget v1, v1, Landroid/support/v17/leanback/widget/PagingIndicator;->mDotCenterY:I
 
     int-to-float v1, v1
 
@@ -161,9 +177,7 @@
 
     iget-object v3, p0, Landroid/support/v17/leanback/widget/PagingIndicator$Dot;->this$0:Landroid/support/v17/leanback/widget/PagingIndicator;
 
-    invoke-static {v3}, Landroid/support/v17/leanback/widget/PagingIndicator;->-get5(Landroid/support/v17/leanback/widget/PagingIndicator;)Landroid/graphics/Paint;
-
-    move-result-object v3
+    iget-object v3, v3, Landroid/support/v17/leanback/widget/PagingIndicator;->mBgPaint:Landroid/graphics/Paint;
 
     invoke-virtual {p1, v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
 
@@ -177,9 +191,7 @@
 
     iget-object v1, p0, Landroid/support/v17/leanback/widget/PagingIndicator$Dot;->this$0:Landroid/support/v17/leanback/widget/PagingIndicator;
 
-    invoke-static {v1}, Landroid/support/v17/leanback/widget/PagingIndicator;->-get10(Landroid/support/v17/leanback/widget/PagingIndicator;)Landroid/graphics/Paint;
-
-    move-result-object v1
+    iget-object v1, v1, Landroid/support/v17/leanback/widget/PagingIndicator;->mFgPaint:Landroid/graphics/Paint;
 
     iget v2, p0, Landroid/support/v17/leanback/widget/PagingIndicator$Dot;->mFgColor:I
 
@@ -187,9 +199,7 @@
 
     iget-object v1, p0, Landroid/support/v17/leanback/widget/PagingIndicator$Dot;->this$0:Landroid/support/v17/leanback/widget/PagingIndicator;
 
-    invoke-static {v1}, Landroid/support/v17/leanback/widget/PagingIndicator;->-get6(Landroid/support/v17/leanback/widget/PagingIndicator;)I
-
-    move-result v1
+    iget v1, v1, Landroid/support/v17/leanback/widget/PagingIndicator;->mDotCenterY:I
 
     int-to-float v1, v1
 
@@ -197,23 +207,17 @@
 
     iget-object v3, p0, Landroid/support/v17/leanback/widget/PagingIndicator$Dot;->this$0:Landroid/support/v17/leanback/widget/PagingIndicator;
 
-    invoke-static {v3}, Landroid/support/v17/leanback/widget/PagingIndicator;->-get10(Landroid/support/v17/leanback/widget/PagingIndicator;)Landroid/graphics/Paint;
-
-    move-result-object v3
+    iget-object v3, v3, Landroid/support/v17/leanback/widget/PagingIndicator;->mFgPaint:Landroid/graphics/Paint;
 
     invoke-virtual {p1, v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
 
     iget-object v1, p0, Landroid/support/v17/leanback/widget/PagingIndicator$Dot;->this$0:Landroid/support/v17/leanback/widget/PagingIndicator;
 
-    invoke-static {v1}, Landroid/support/v17/leanback/widget/PagingIndicator;->-get0(Landroid/support/v17/leanback/widget/PagingIndicator;)Landroid/graphics/Bitmap;
-
-    move-result-object v1
+    iget-object v1, v1, Landroid/support/v17/leanback/widget/PagingIndicator;->mArrow:Landroid/graphics/Bitmap;
 
     iget-object v2, p0, Landroid/support/v17/leanback/widget/PagingIndicator$Dot;->this$0:Landroid/support/v17/leanback/widget/PagingIndicator;
 
-    invoke-static {v2}, Landroid/support/v17/leanback/widget/PagingIndicator;->-get3(Landroid/support/v17/leanback/widget/PagingIndicator;)Landroid/graphics/Rect;
-
-    move-result-object v2
+    iget-object v2, v2, Landroid/support/v17/leanback/widget/PagingIndicator;->mArrowRect:Landroid/graphics/Rect;
 
     new-instance v3, Landroid/graphics/Rect;
 
@@ -225,9 +229,7 @@
 
     iget-object v5, p0, Landroid/support/v17/leanback/widget/PagingIndicator$Dot;->this$0:Landroid/support/v17/leanback/widget/PagingIndicator;
 
-    invoke-static {v5}, Landroid/support/v17/leanback/widget/PagingIndicator;->-get6(Landroid/support/v17/leanback/widget/PagingIndicator;)I
-
-    move-result v5
+    iget v5, v5, Landroid/support/v17/leanback/widget/PagingIndicator;->mDotCenterY:I
 
     int-to-float v5, v5
 
@@ -245,9 +247,7 @@
 
     iget-object v7, p0, Landroid/support/v17/leanback/widget/PagingIndicator$Dot;->this$0:Landroid/support/v17/leanback/widget/PagingIndicator;
 
-    invoke-static {v7}, Landroid/support/v17/leanback/widget/PagingIndicator;->-get6(Landroid/support/v17/leanback/widget/PagingIndicator;)I
-
-    move-result v7
+    iget v7, v7, Landroid/support/v17/leanback/widget/PagingIndicator;->mDotCenterY:I
 
     int-to-float v7, v7
 
@@ -259,7 +259,9 @@
 
     invoke-direct {v3, v4, v5, v6, v7}, Landroid/graphics/Rect;-><init>(IIII)V
 
-    const/4 v4, 0x0
+    iget-object v4, p0, Landroid/support/v17/leanback/widget/PagingIndicator$Dot;->this$0:Landroid/support/v17/leanback/widget/PagingIndicator;
+
+    iget-object v4, v4, Landroid/support/v17/leanback/widget/PagingIndicator;->mArrowPaint:Landroid/graphics/Paint;
 
     invoke-virtual {p1, v1, v2, v3, v4}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Paint;)V
 
@@ -296,9 +298,7 @@
 
     iget-object v0, p0, Landroid/support/v17/leanback/widget/PagingIndicator$Dot;->this$0:Landroid/support/v17/leanback/widget/PagingIndicator;
 
-    invoke-static {v0}, Landroid/support/v17/leanback/widget/PagingIndicator;->-get11(Landroid/support/v17/leanback/widget/PagingIndicator;)Z
-
-    move-result v0
+    iget-boolean v0, v0, Landroid/support/v17/leanback/widget/PagingIndicator;->mIsLtr:Z
 
     if-eqz v0, :cond_0
 
@@ -326,9 +326,7 @@
 
     iget-object v0, p0, Landroid/support/v17/leanback/widget/PagingIndicator$Dot;->this$0:Landroid/support/v17/leanback/widget/PagingIndicator;
 
-    invoke-static {v0}, Landroid/support/v17/leanback/widget/PagingIndicator;->-get1(Landroid/support/v17/leanback/widget/PagingIndicator;)I
-
-    move-result v0
+    iget v0, v0, Landroid/support/v17/leanback/widget/PagingIndicator;->mArrowDiameter:I
 
     int-to-float v0, v0
 
@@ -336,9 +334,7 @@
 
     iget-object v0, p0, Landroid/support/v17/leanback/widget/PagingIndicator$Dot;->this$0:Landroid/support/v17/leanback/widget/PagingIndicator;
 
-    invoke-static {v0}, Landroid/support/v17/leanback/widget/PagingIndicator;->-get2(Landroid/support/v17/leanback/widget/PagingIndicator;)I
-
-    move-result v0
+    iget v0, v0, Landroid/support/v17/leanback/widget/PagingIndicator;->mArrowRadius:I
 
     int-to-float v0, v0
 
@@ -348,9 +344,7 @@
 
     iget-object v1, p0, Landroid/support/v17/leanback/widget/PagingIndicator$Dot;->this$0:Landroid/support/v17/leanback/widget/PagingIndicator;
 
-    invoke-static {v1}, Landroid/support/v17/leanback/widget/PagingIndicator;->-get4(Landroid/support/v17/leanback/widget/PagingIndicator;)F
-
-    move-result v1
+    iget v1, v1, Landroid/support/v17/leanback/widget/PagingIndicator;->mArrowToBgRatio:F
 
     mul-float/2addr v0, v1
 
@@ -394,9 +388,7 @@
 
     iget-object v1, p0, Landroid/support/v17/leanback/widget/PagingIndicator$Dot;->this$0:Landroid/support/v17/leanback/widget/PagingIndicator;
 
-    invoke-static {v1}, Landroid/support/v17/leanback/widget/PagingIndicator;->-get4(Landroid/support/v17/leanback/widget/PagingIndicator;)F
-
-    move-result v1
+    iget v1, v1, Landroid/support/v17/leanback/widget/PagingIndicator;->mArrowToBgRatio:F
 
     mul-float/2addr v0, v1
 

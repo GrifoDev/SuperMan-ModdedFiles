@@ -89,12 +89,12 @@
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Lcom/android/keyguard/KeyguardDirectionLockView;->-set2(Lcom/android/keyguard/KeyguardDirectionLockView;Z)Z
+    invoke-static {v0, v1}, Lcom/android/keyguard/KeyguardDirectionLockView;->-set3(Lcom/android/keyguard/KeyguardDirectionLockView;Z)Z
 
     :cond_0
     iget-object v0, p0, Lcom/android/keyguard/KeyguardDirectionLockView$AccountAnalyzer;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get15(Lcom/android/keyguard/KeyguardDirectionLockView;)Z
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get16(Lcom/android/keyguard/KeyguardDirectionLockView;)Z
 
     move-result v0
 
@@ -153,7 +153,7 @@
         }
     .end annotation
 
-    const-string/jumbo v4, "KeyguardDirectionLockView"
+    const-string/jumbo v4, "KeyguardDirectionLock"
 
     const-string/jumbo v5, "AccountManagerFuture() run: "
 
@@ -178,7 +178,7 @@
 
     const/4 v5, 0x1
 
-    invoke-static {v4, v5}, Lcom/android/keyguard/KeyguardDirectionLockView;->-set2(Lcom/android/keyguard/KeyguardDirectionLockView;Z)Z
+    invoke-static {v4, v5}, Lcom/android/keyguard/KeyguardDirectionLockView;->-set3(Lcom/android/keyguard/KeyguardDirectionLockView;Z)Z
     :try_end_0
     .catch Landroid/accounts/OperationCanceledException; {:try_start_0 .. :try_end_0} :catch_2
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
@@ -201,7 +201,7 @@
     move-exception v0
 
     :try_start_1
-    const-string/jumbo v4, "KeyguardDirectionLockView"
+    const-string/jumbo v4, "KeyguardDirectionLock"
 
     const-string/jumbo v5, "AuthenticatorException occurred"
 
@@ -223,7 +223,7 @@
     move-exception v2
 
     :try_start_2
-    const-string/jumbo v4, "KeyguardDirectionLockView"
+    const-string/jumbo v4, "KeyguardDirectionLock"
 
     const-string/jumbo v5, "IOException occurred"
 
@@ -245,7 +245,7 @@
     move-exception v1
 
     :try_start_3
-    const-string/jumbo v4, "KeyguardDirectionLockView"
+    const-string/jumbo v4, "KeyguardDirectionLock"
 
     const-string/jumbo v5, "OperationCanceledException occurred"
 
@@ -284,7 +284,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardDirectionLockView$AccountAnalyzer;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    invoke-static {v0, v1}, Lcom/android/keyguard/KeyguardDirectionLockView;->-set2(Lcom/android/keyguard/KeyguardDirectionLockView;Z)Z
+    invoke-static {v0, v1}, Lcom/android/keyguard/KeyguardDirectionLockView;->-set3(Lcom/android/keyguard/KeyguardDirectionLockView;Z)Z
 
     iput v1, p0, Lcom/android/keyguard/KeyguardDirectionLockView$AccountAnalyzer;->mAccountIndex:I
 

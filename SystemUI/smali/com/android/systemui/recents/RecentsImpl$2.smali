@@ -1,14 +1,11 @@
 .class Lcom/android/systemui/recents/RecentsImpl$2;
-.super Ljava/lang/Object;
+.super Landroid/content/BroadcastReceiver;
 .source "RecentsImpl.java"
-
-# interfaces
-.implements Landroid/app/ActivityOptions$OnAnimationStartedListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/recents/RecentsImpl;->getUnknownTransitionActivityOptions()Landroid/app/ActivityOptions;
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/systemui/recents/RecentsImpl;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,47 +17,76 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/systemui/recents/RecentsImpl;
 
-.field triggered:Z
-
 
 # direct methods
 .method constructor <init>(Lcom/android/systemui/recents/RecentsImpl;)V
-    .locals 1
+    .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/recents/RecentsImpl$2;->this$0:Lcom/android/systemui/recents/RecentsImpl;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/systemui/recents/RecentsImpl$2;->triggered:Z
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onAnimationStarted()V
-    .locals 2
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 3
 
-    iget-boolean v0, p0, Lcom/android/systemui/recents/RecentsImpl$2;->triggered:Z
-
-    if-nez v0, :cond_0
-
-    invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/systemui/recents/events/activity/EnterRecentsWindowAnimationCompletedEvent;
+    const-string/jumbo v1, "android.intent.action.LOCALE_CHANGED"
 
-    invoke-direct {v1}, Lcom/android/systemui/recents/events/activity/EnterRecentsWindowAnimationCompletedEvent;-><init>()V
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
+    move-result v0
 
-    const/4 v0, 0x1
+    if-eqz v0, :cond_1
 
-    iput-boolean v0, p0, Lcom/android/systemui/recents/RecentsImpl$2;->triggered:Z
+    const-string/jumbo v0, "RecentsImpl"
+
+    const-string/jumbo v1, "ACTION_LOCALE_CHANGED"
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {}, Lcom/android/systemui/recents/Recents;->getTaskLoader()Lcom/android/systemui/recents/model/RecentsTaskLoader;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/systemui/recents/model/RecentsTaskLoader;->clearLabelCache()V
+
+    iget-object v0, p0, Lcom/android/systemui/recents/RecentsImpl$2;->this$0:Lcom/android/systemui/recents/RecentsImpl;
+
+    invoke-static {v0}, Lcom/android/systemui/recents/RecentsImpl;->-get1(Lcom/android/systemui/recents/RecentsImpl;)Lcom/android/systemui/recents/desktop/RecentsWindow;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/recents/RecentsImpl$2;->this$0:Lcom/android/systemui/recents/RecentsImpl;
+
+    invoke-static {v0}, Lcom/android/systemui/recents/RecentsImpl;->-get1(Lcom/android/systemui/recents/RecentsImpl;)Lcom/android/systemui/recents/desktop/RecentsWindow;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/systemui/recents/desktop/RecentsWindow;->dismiss()V
 
     :cond_0
+    iget-object v0, p0, Lcom/android/systemui/recents/RecentsImpl$2;->this$0:Lcom/android/systemui/recents/RecentsImpl;
+
+    new-instance v1, Lcom/android/systemui/recents/desktop/RecentsWindow;
+
+    iget-object v2, p0, Lcom/android/systemui/recents/RecentsImpl$2;->this$0:Lcom/android/systemui/recents/RecentsImpl;
+
+    iget-object v2, v2, Lcom/android/systemui/recents/RecentsImpl;->mContext:Landroid/content/Context;
+
+    invoke-direct {v1, v2}, Lcom/android/systemui/recents/desktop/RecentsWindow;-><init>(Landroid/content/Context;)V
+
+    invoke-static {v0, v1}, Lcom/android/systemui/recents/RecentsImpl;->-set0(Lcom/android/systemui/recents/RecentsImpl;Lcom/android/systemui/recents/desktop/RecentsWindow;)Lcom/android/systemui/recents/desktop/RecentsWindow;
+
+    :cond_1
     return-void
 .end method

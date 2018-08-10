@@ -61,7 +61,7 @@
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardMessageArea$3;->this$0:Lcom/android/keyguard/KeyguardMessageArea;
 
-    invoke-static {v1}, Lcom/android/keyguard/KeyguardMessageArea;->-get0(Lcom/android/keyguard/KeyguardMessageArea;)Landroid/view/animation/Interpolator;
+    invoke-static {v1}, Lcom/android/keyguard/KeyguardMessageArea;->-get0(Lcom/android/keyguard/KeyguardMessageArea;)Lcom/android/keyguard/KeyguardMessageArea$BounceInterpolator;
 
     move-result-object v1
 

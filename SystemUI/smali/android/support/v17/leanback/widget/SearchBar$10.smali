@@ -57,9 +57,7 @@
 
     packed-switch p1, :pswitch_data_0
 
-    invoke-static {}, Landroid/support/v17/leanback/widget/SearchBar;->-get0()Ljava/lang/String;
-
-    move-result-object v0
+    sget-object v0, Landroid/support/v17/leanback/widget/SearchBar;->TAG:Ljava/lang/String;
 
     const-string/jumbo v1, "recognizer other error"
 
@@ -72,14 +70,12 @@
 
     iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar$10;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v0}, Landroid/support/v17/leanback/widget/SearchBar;->-wrap1(Landroid/support/v17/leanback/widget/SearchBar;)V
+    invoke-virtual {v0}, Landroid/support/v17/leanback/widget/SearchBar;->playSearchFailure()V
 
     return-void
 
     :pswitch_0
-    invoke-static {}, Landroid/support/v17/leanback/widget/SearchBar;->-get0()Ljava/lang/String;
-
-    move-result-object v0
+    sget-object v0, Landroid/support/v17/leanback/widget/SearchBar;->TAG:Ljava/lang/String;
 
     const-string/jumbo v1, "recognizer network timeout"
 
@@ -88,9 +84,7 @@
     goto :goto_0
 
     :pswitch_1
-    invoke-static {}, Landroid/support/v17/leanback/widget/SearchBar;->-get0()Ljava/lang/String;
-
-    move-result-object v0
+    sget-object v0, Landroid/support/v17/leanback/widget/SearchBar;->TAG:Ljava/lang/String;
 
     const-string/jumbo v1, "recognizer network error"
 
@@ -99,9 +93,7 @@
     goto :goto_0
 
     :pswitch_2
-    invoke-static {}, Landroid/support/v17/leanback/widget/SearchBar;->-get0()Ljava/lang/String;
-
-    move-result-object v0
+    sget-object v0, Landroid/support/v17/leanback/widget/SearchBar;->TAG:Ljava/lang/String;
 
     const-string/jumbo v1, "recognizer audio error"
 
@@ -110,9 +102,7 @@
     goto :goto_0
 
     :pswitch_3
-    invoke-static {}, Landroid/support/v17/leanback/widget/SearchBar;->-get0()Ljava/lang/String;
-
-    move-result-object v0
+    sget-object v0, Landroid/support/v17/leanback/widget/SearchBar;->TAG:Ljava/lang/String;
 
     const-string/jumbo v1, "recognizer server error"
 
@@ -121,9 +111,7 @@
     goto :goto_0
 
     :pswitch_4
-    invoke-static {}, Landroid/support/v17/leanback/widget/SearchBar;->-get0()Ljava/lang/String;
-
-    move-result-object v0
+    sget-object v0, Landroid/support/v17/leanback/widget/SearchBar;->TAG:Ljava/lang/String;
 
     const-string/jumbo v1, "recognizer client error"
 
@@ -132,9 +120,7 @@
     goto :goto_0
 
     :pswitch_5
-    invoke-static {}, Landroid/support/v17/leanback/widget/SearchBar;->-get0()Ljava/lang/String;
-
-    move-result-object v0
+    sget-object v0, Landroid/support/v17/leanback/widget/SearchBar;->TAG:Ljava/lang/String;
 
     const-string/jumbo v1, "recognizer speech timeout"
 
@@ -143,9 +129,7 @@
     goto :goto_0
 
     :pswitch_6
-    invoke-static {}, Landroid/support/v17/leanback/widget/SearchBar;->-get0()Ljava/lang/String;
-
-    move-result-object v0
+    sget-object v0, Landroid/support/v17/leanback/widget/SearchBar;->TAG:Ljava/lang/String;
 
     const-string/jumbo v1, "recognizer no match"
 
@@ -154,9 +138,7 @@
     goto :goto_0
 
     :pswitch_7
-    invoke-static {}, Landroid/support/v17/leanback/widget/SearchBar;->-get0()Ljava/lang/String;
-
-    move-result-object v0
+    sget-object v0, Landroid/support/v17/leanback/widget/SearchBar;->TAG:Ljava/lang/String;
 
     const-string/jumbo v1, "recognizer busy"
 
@@ -165,9 +147,7 @@
     goto :goto_0
 
     :pswitch_8
-    invoke-static {}, Landroid/support/v17/leanback/widget/SearchBar;->-get0()Ljava/lang/String;
-
-    move-result-object v0
+    sget-object v0, Landroid/support/v17/leanback/widget/SearchBar;->TAG:Ljava/lang/String;
 
     const-string/jumbo v1, "recognizer insufficient permissions"
 
@@ -243,9 +223,7 @@
     :goto_0
     iget-object v3, p0, Landroid/support/v17/leanback/widget/SearchBar$10;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v3}, Landroid/support/v17/leanback/widget/SearchBar;->-get6(Landroid/support/v17/leanback/widget/SearchBar;)Landroid/support/v17/leanback/widget/SearchEditText;
-
-    move-result-object v3
+    iget-object v3, v3, Landroid/support/v17/leanback/widget/SearchBar;->mSearchTextEditor:Landroid/support/v17/leanback/widget/SearchEditText;
 
     invoke-virtual {v3, v2, v0}, Landroid/support/v17/leanback/widget/SearchEditText;->updateRecognizedText(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -262,15 +240,13 @@
 
     iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar$10;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v0}, Landroid/support/v17/leanback/widget/SearchBar;->-get9(Landroid/support/v17/leanback/widget/SearchBar;)Landroid/support/v17/leanback/widget/SpeechOrbView;
-
-    move-result-object v0
+    iget-object v0, v0, Landroid/support/v17/leanback/widget/SearchBar;->mSpeechOrbView:Landroid/support/v17/leanback/widget/SpeechOrbView;
 
     invoke-virtual {v0}, Landroid/support/v17/leanback/widget/SpeechOrbView;->showListening()V
 
     iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar$10;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v0}, Landroid/support/v17/leanback/widget/SearchBar;->-wrap2(Landroid/support/v17/leanback/widget/SearchBar;)V
+    invoke-virtual {v0}, Landroid/support/v17/leanback/widget/SearchBar;->playSearchOpen()V
 
     return-void
 .end method
@@ -296,25 +272,21 @@
 
     check-cast v1, Ljava/lang/String;
 
-    invoke-static {v2, v1}, Landroid/support/v17/leanback/widget/SearchBar;->-set1(Landroid/support/v17/leanback/widget/SearchBar;Ljava/lang/String;)Ljava/lang/String;
+    iput-object v1, v2, Landroid/support/v17/leanback/widget/SearchBar;->mSearchQuery:Ljava/lang/String;
 
     iget-object v1, p0, Landroid/support/v17/leanback/widget/SearchBar$10;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v1}, Landroid/support/v17/leanback/widget/SearchBar;->-get6(Landroid/support/v17/leanback/widget/SearchBar;)Landroid/support/v17/leanback/widget/SearchEditText;
-
-    move-result-object v1
+    iget-object v1, v1, Landroid/support/v17/leanback/widget/SearchBar;->mSearchTextEditor:Landroid/support/v17/leanback/widget/SearchEditText;
 
     iget-object v2, p0, Landroid/support/v17/leanback/widget/SearchBar$10;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v2}, Landroid/support/v17/leanback/widget/SearchBar;->-get5(Landroid/support/v17/leanback/widget/SearchBar;)Ljava/lang/String;
-
-    move-result-object v2
+    iget-object v2, v2, Landroid/support/v17/leanback/widget/SearchBar;->mSearchQuery:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Landroid/support/v17/leanback/widget/SearchEditText;->setText(Ljava/lang/CharSequence;)V
 
     iget-object v1, p0, Landroid/support/v17/leanback/widget/SearchBar$10;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v1}, Landroid/support/v17/leanback/widget/SearchBar;->-wrap6(Landroid/support/v17/leanback/widget/SearchBar;)V
+    invoke-virtual {v1}, Landroid/support/v17/leanback/widget/SearchBar;->submitQuery()V
 
     :cond_0
     iget-object v1, p0, Landroid/support/v17/leanback/widget/SearchBar$10;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
@@ -323,7 +295,7 @@
 
     iget-object v1, p0, Landroid/support/v17/leanback/widget/SearchBar$10;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v1}, Landroid/support/v17/leanback/widget/SearchBar;->-wrap3(Landroid/support/v17/leanback/widget/SearchBar;)V
+    invoke-virtual {v1}, Landroid/support/v17/leanback/widget/SearchBar;->playSearchSuccess()V
 
     return-void
 .end method
@@ -342,9 +314,7 @@
     :goto_0
     iget-object v1, p0, Landroid/support/v17/leanback/widget/SearchBar$10;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v1}, Landroid/support/v17/leanback/widget/SearchBar;->-get9(Landroid/support/v17/leanback/widget/SearchBar;)Landroid/support/v17/leanback/widget/SpeechOrbView;
-
-    move-result-object v1
+    iget-object v1, v1, Landroid/support/v17/leanback/widget/SearchBar;->mSpeechOrbView:Landroid/support/v17/leanback/widget/SpeechOrbView;
 
     invoke-virtual {v1, v0}, Landroid/support/v17/leanback/widget/SpeechOrbView;->setSoundLevel(I)V
 

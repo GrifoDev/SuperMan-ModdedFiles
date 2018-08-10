@@ -6,19 +6,27 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/systemui/qs/DataUsageView$1;
+        Lcom/android/systemui/qs/DataUsageView$1;,
+        Lcom/android/systemui/qs/DataUsageView$2;,
+        Lcom/android/systemui/qs/DataUsageView$Formatter;
     }
 .end annotation
 
 
 # static fields
-.field private static final mIsSupportDataCalibration:Z
+.field private static final DEBUG:Z
+
+.field private static final mIsSupportCHNDataUsageConcept:Z
 
 
 # instance fields
+.field private mController:Lcom/android/systemui/statusbar/policy/NetworkController;
+
 .field private mCurrentDataSubId:I
 
 .field private mDataController:Lcom/android/settingslib/net/DataUsageController;
+
+.field private mDataLimitObserver:Landroid/database/ContentObserver;
 
 .field private mDataUsage:Ljava/lang/String;
 
@@ -26,23 +34,21 @@
 
 .field private mHandler:Landroid/os/Handler;
 
+.field private mLimitLevel:J
+
+.field private mRegistered:Z
+
 .field private mStart:J
 
 .field private mThread:Ljava/lang/Thread;
 
 .field mUpdateRunnable:Ljava/lang/Runnable;
 
+.field private mUsageLevel:J
+
 
 # direct methods
-.method static synthetic -get0(Lcom/android/systemui/qs/DataUsageView;)Landroid/content/Context;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/qs/DataUsageView;->mContext:Landroid/content/Context;
-
-    return-object v0
-.end method
-
-.method static synthetic -get1(Lcom/android/systemui/qs/DataUsageView;)Lcom/android/settingslib/net/DataUsageController;
+.method static synthetic -get0(Lcom/android/systemui/qs/DataUsageView;)Lcom/android/settingslib/net/DataUsageController;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/qs/DataUsageView;->mDataController:Lcom/android/settingslib/net/DataUsageController;
@@ -50,15 +56,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get2(Lcom/android/systemui/qs/DataUsageView;)Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/qs/DataUsageView;->mDataUsage:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic -get3(Lcom/android/systemui/qs/DataUsageView;)Landroid/os/Handler;
+.method static synthetic -get1(Lcom/android/systemui/qs/DataUsageView;)Landroid/os/Handler;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/qs/DataUsageView;->mHandler:Landroid/os/Handler;
@@ -66,20 +64,36 @@
     return-object v0
 .end method
 
-.method static synthetic -get4()Z
+.method static synthetic -get2()Z
     .locals 1
 
-    sget-boolean v0, Lcom/android/systemui/qs/DataUsageView;->mIsSupportDataCalibration:Z
+    sget-boolean v0, Lcom/android/systemui/qs/DataUsageView;->mIsSupportCHNDataUsageConcept:Z
 
     return v0
 .end method
 
-.method static synthetic -set0(Lcom/android/systemui/qs/DataUsageView;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
+.method static synthetic -get3(Lcom/android/systemui/qs/DataUsageView;)J
+    .locals 2
 
-    iput-object p1, p0, Lcom/android/systemui/qs/DataUsageView;->mDataUsage:Ljava/lang/String;
+    iget-wide v0, p0, Lcom/android/systemui/qs/DataUsageView;->mLimitLevel:J
 
-    return-object p1
+    return-wide v0
+.end method
+
+.method static synthetic -get4(Lcom/android/systemui/qs/DataUsageView;)J
+    .locals 2
+
+    iget-wide v0, p0, Lcom/android/systemui/qs/DataUsageView;->mUsageLevel:J
+
+    return-wide v0
+.end method
+
+.method static synthetic -set0(Lcom/android/systemui/qs/DataUsageView;J)J
+    .locals 1
+
+    iput-wide p1, p0, Lcom/android/systemui/qs/DataUsageView;->mLimitLevel:J
+
+    return-wide p1
 .end method
 
 .method static synthetic -set1(Lcom/android/systemui/qs/DataUsageView;Ljava/lang/Thread;)Ljava/lang/Thread;
@@ -88,6 +102,14 @@
     iput-object p1, p0, Lcom/android/systemui/qs/DataUsageView;->mThread:Ljava/lang/Thread;
 
     return-object p1
+.end method
+
+.method static synthetic -set2(Lcom/android/systemui/qs/DataUsageView;J)J
+    .locals 1
+
+    iput-wide p1, p0, Lcom/android/systemui/qs/DataUsageView;->mUsageLevel:J
+
+    return-wide p1
 .end method
 
 .method static synthetic -wrap0(Lcom/android/systemui/qs/DataUsageView;Lcom/android/settingslib/net/DataUsageController$DataUsageInfo;)J
@@ -100,8 +122,37 @@
     return-wide v0
 .end method
 
+.method static synthetic -wrap1(Lcom/android/systemui/qs/DataUsageView;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/systemui/qs/DataUsageView;->updateDataText()V
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
-    .locals 1
+    .locals 2
+
+    const-string/jumbo v0, "eng"
+
+    sget-object v1, Landroid/os/Build;->TYPE:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-string/jumbo v0, "DataUsageView"
+
+    const/4 v1, 0x3
+
+    invoke-static {v0, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+
+    move-result v0
+
+    :goto_0
+    sput-boolean v0, Lcom/android/systemui/qs/DataUsageView;->DEBUG:Z
 
     const-string/jumbo v0, "trafficmanager"
 
@@ -109,17 +160,22 @@
 
     move-result v0
 
-    sput-boolean v0, Lcom/android/systemui/qs/DataUsageView;->mIsSupportDataCalibration:Z
+    sput-boolean v0, Lcom/android/systemui/qs/DataUsageView;->mIsSupportCHNDataUsageConcept:Z
 
     return-void
+
+    :cond_0
+    const/4 v0, 0x1
+
+    goto :goto_0
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 4
 
-    const-wide/16 v2, 0x0
-
     const/4 v1, 0x0
+
+    const-wide/16 v2, 0x0
 
     invoke-direct {p0, p1}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
@@ -127,7 +183,7 @@
 
     iput-wide v2, p0, Lcom/android/systemui/qs/DataUsageView;->mEnd:J
 
-    const/4 v0, 0x0
+    const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/systemui/qs/DataUsageView;->mCurrentDataSubId:I
 
@@ -137,9 +193,27 @@
 
     iput-object v1, p0, Lcom/android/systemui/qs/DataUsageView;->mThread:Ljava/lang/Thread;
 
+    iput-wide v2, p0, Lcom/android/systemui/qs/DataUsageView;->mUsageLevel:J
+
+    iput-wide v2, p0, Lcom/android/systemui/qs/DataUsageView;->mLimitLevel:J
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/systemui/qs/DataUsageView;->mRegistered:Z
+
     new-instance v0, Lcom/android/systemui/qs/DataUsageView$1;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/qs/DataUsageView$1;-><init>(Lcom/android/systemui/qs/DataUsageView;)V
+    new-instance v1, Landroid/os/Handler;
+
+    invoke-direct {v1}, Landroid/os/Handler;-><init>()V
+
+    invoke-direct {v0, p0, v1}, Lcom/android/systemui/qs/DataUsageView$1;-><init>(Lcom/android/systemui/qs/DataUsageView;Landroid/os/Handler;)V
+
+    iput-object v0, p0, Lcom/android/systemui/qs/DataUsageView;->mDataLimitObserver:Landroid/database/ContentObserver;
+
+    new-instance v0, Lcom/android/systemui/qs/DataUsageView$2;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/qs/DataUsageView$2;-><init>(Lcom/android/systemui/qs/DataUsageView;)V
 
     iput-object v0, p0, Lcom/android/systemui/qs/DataUsageView;->mUpdateRunnable:Ljava/lang/Runnable;
 
@@ -151,9 +225,9 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 4
 
-    const-wide/16 v2, 0x0
-
     const/4 v1, 0x0
+
+    const-wide/16 v2, 0x0
 
     invoke-direct {p0, p1, p2}, Landroid/widget/TextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
@@ -161,7 +235,7 @@
 
     iput-wide v2, p0, Lcom/android/systemui/qs/DataUsageView;->mEnd:J
 
-    const/4 v0, 0x0
+    const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/systemui/qs/DataUsageView;->mCurrentDataSubId:I
 
@@ -171,9 +245,27 @@
 
     iput-object v1, p0, Lcom/android/systemui/qs/DataUsageView;->mThread:Ljava/lang/Thread;
 
+    iput-wide v2, p0, Lcom/android/systemui/qs/DataUsageView;->mUsageLevel:J
+
+    iput-wide v2, p0, Lcom/android/systemui/qs/DataUsageView;->mLimitLevel:J
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/systemui/qs/DataUsageView;->mRegistered:Z
+
     new-instance v0, Lcom/android/systemui/qs/DataUsageView$1;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/qs/DataUsageView$1;-><init>(Lcom/android/systemui/qs/DataUsageView;)V
+    new-instance v1, Landroid/os/Handler;
+
+    invoke-direct {v1}, Landroid/os/Handler;-><init>()V
+
+    invoke-direct {v0, p0, v1}, Lcom/android/systemui/qs/DataUsageView$1;-><init>(Lcom/android/systemui/qs/DataUsageView;Landroid/os/Handler;)V
+
+    iput-object v0, p0, Lcom/android/systemui/qs/DataUsageView;->mDataLimitObserver:Landroid/database/ContentObserver;
+
+    new-instance v0, Lcom/android/systemui/qs/DataUsageView$2;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/qs/DataUsageView$2;-><init>(Lcom/android/systemui/qs/DataUsageView;)V
 
     iput-object v0, p0, Lcom/android/systemui/qs/DataUsageView;->mUpdateRunnable:Ljava/lang/Runnable;
 
@@ -185,9 +277,9 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 4
 
-    const-wide/16 v2, 0x0
-
     const/4 v1, 0x0
+
+    const-wide/16 v2, 0x0
 
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/TextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
@@ -195,7 +287,7 @@
 
     iput-wide v2, p0, Lcom/android/systemui/qs/DataUsageView;->mEnd:J
 
-    const/4 v0, 0x0
+    const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/systemui/qs/DataUsageView;->mCurrentDataSubId:I
 
@@ -205,9 +297,27 @@
 
     iput-object v1, p0, Lcom/android/systemui/qs/DataUsageView;->mThread:Ljava/lang/Thread;
 
+    iput-wide v2, p0, Lcom/android/systemui/qs/DataUsageView;->mUsageLevel:J
+
+    iput-wide v2, p0, Lcom/android/systemui/qs/DataUsageView;->mLimitLevel:J
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/systemui/qs/DataUsageView;->mRegistered:Z
+
     new-instance v0, Lcom/android/systemui/qs/DataUsageView$1;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/qs/DataUsageView$1;-><init>(Lcom/android/systemui/qs/DataUsageView;)V
+    new-instance v1, Landroid/os/Handler;
+
+    invoke-direct {v1}, Landroid/os/Handler;-><init>()V
+
+    invoke-direct {v0, p0, v1}, Lcom/android/systemui/qs/DataUsageView$1;-><init>(Lcom/android/systemui/qs/DataUsageView;Landroid/os/Handler;)V
+
+    iput-object v0, p0, Lcom/android/systemui/qs/DataUsageView;->mDataLimitObserver:Landroid/database/ContentObserver;
+
+    new-instance v0, Lcom/android/systemui/qs/DataUsageView$2;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/qs/DataUsageView$2;-><init>(Lcom/android/systemui/qs/DataUsageView;)V
 
     iput-object v0, p0, Lcom/android/systemui/qs/DataUsageView;->mUpdateRunnable:Ljava/lang/Runnable;
 
@@ -219,9 +329,9 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
     .locals 4
 
-    const-wide/16 v2, 0x0
-
     const/4 v1, 0x0
+
+    const-wide/16 v2, 0x0
 
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/widget/TextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
@@ -229,7 +339,7 @@
 
     iput-wide v2, p0, Lcom/android/systemui/qs/DataUsageView;->mEnd:J
 
-    const/4 v0, 0x0
+    const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/systemui/qs/DataUsageView;->mCurrentDataSubId:I
 
@@ -239,9 +349,27 @@
 
     iput-object v1, p0, Lcom/android/systemui/qs/DataUsageView;->mThread:Ljava/lang/Thread;
 
+    iput-wide v2, p0, Lcom/android/systemui/qs/DataUsageView;->mUsageLevel:J
+
+    iput-wide v2, p0, Lcom/android/systemui/qs/DataUsageView;->mLimitLevel:J
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/systemui/qs/DataUsageView;->mRegistered:Z
+
     new-instance v0, Lcom/android/systemui/qs/DataUsageView$1;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/qs/DataUsageView$1;-><init>(Lcom/android/systemui/qs/DataUsageView;)V
+    new-instance v1, Landroid/os/Handler;
+
+    invoke-direct {v1}, Landroid/os/Handler;-><init>()V
+
+    invoke-direct {v0, p0, v1}, Lcom/android/systemui/qs/DataUsageView$1;-><init>(Lcom/android/systemui/qs/DataUsageView;Landroid/os/Handler;)V
+
+    iput-object v0, p0, Lcom/android/systemui/qs/DataUsageView;->mDataLimitObserver:Landroid/database/ContentObserver;
+
+    new-instance v0, Lcom/android/systemui/qs/DataUsageView$2;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/qs/DataUsageView$2;-><init>(Lcom/android/systemui/qs/DataUsageView;)V
 
     iput-object v0, p0, Lcom/android/systemui/qs/DataUsageView;->mUpdateRunnable:Ljava/lang/Runnable;
 
@@ -533,9 +661,13 @@
 
     move-result v7
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_2
 
     :cond_0
+    sget-boolean v7, Lcom/android/systemui/qs/DataUsageView;->DEBUG:Z
+
+    if-eqz v7, :cond_1
+
     const-string/jumbo v7, "DataUsageView"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -558,9 +690,10 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    :cond_1
     return-wide v10
 
-    :cond_1
+    :cond_2
     :try_start_0
     invoke-static {v6}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
     :try_end_0
@@ -744,8 +877,6 @@
 
     iget-wide v14, v0, Lcom/android/settingslib/net/DataUsageController$DataUsageInfo;->usageLevel:J
 
-    invoke-direct/range {p0 .. p0}, Lcom/android/systemui/qs/DataUsageView;->updateCurrentDataSubId()V
-
     invoke-direct/range {p0 .. p0}, Lcom/android/systemui/qs/DataUsageView;->getStartDay()I
 
     move-result v16
@@ -928,13 +1059,31 @@
 .method private initView()V
     .locals 3
 
+    const-class v0, Lcom/android/systemui/statusbar/policy/NetworkController;
+
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/policy/NetworkController;
+
+    iput-object v0, p0, Lcom/android/systemui/qs/DataUsageView;->mController:Lcom/android/systemui/statusbar/policy/NetworkController;
+
+    iget-object v0, p0, Lcom/android/systemui/qs/DataUsageView;->mController:Lcom/android/systemui/statusbar/policy/NetworkController;
+
+    invoke-interface {v0}, Lcom/android/systemui/statusbar/policy/NetworkController;->getMobileDataController()Lcom/android/settingslib/net/DataUsageController;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/qs/DataUsageView;->mDataController:Lcom/android/settingslib/net/DataUsageController;
+
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     iget-object v1, p0, Lcom/android/systemui/qs/DataUsageView;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f0685
+    const v2, 0x7f1208b0
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -961,6 +1110,8 @@
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
     iput-object v0, p0, Lcom/android/systemui/qs/DataUsageView;->mHandler:Landroid/os/Handler;
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/DataUsageView;->updateCurrentDataSubId()V
 
     return-void
 .end method
@@ -993,22 +1144,37 @@
     goto :goto_0
 .end method
 
-.method private updateCurrentDataSubId()V
-    .locals 3
+.method private registerContentObserver()V
+    .locals 4
 
-    invoke-static {}, Landroid/telephony/SubscriptionManager;->getDefaultDataSubscriptionId()I
+    const/4 v3, 0x0
 
-    move-result v0
+    sget-boolean v0, Lcom/android/systemui/qs/DataUsageView;->DEBUG:Z
 
-    iput v0, p0, Lcom/android/systemui/qs/DataUsageView;->mCurrentDataSubId:I
+    if-eqz v0, :cond_0
 
     const-string/jumbo v0, "DataUsageView"
+
+    const-string/jumbo v1, "registerContentObserver"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    iget-boolean v0, p0, Lcom/android/systemui/qs/DataUsageView;->mRegistered:Z
+
+    if-nez v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/DataUsageView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "Current Data SubId:"
+    const-string/jumbo v2, "switch_traffic_settings"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1024,9 +1190,244 @@
 
     move-result-object v1
 
+    invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/systemui/qs/DataUsageView;->mDataLimitObserver:Landroid/database/ContentObserver;
+
+    invoke-virtual {v0, v1, v3, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    iget-object v0, p0, Lcom/android/systemui/qs/DataUsageView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "set_data_limit"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget v2, p0, Lcom/android/systemui/qs/DataUsageView;->mCurrentDataSubId:I
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/systemui/qs/DataUsageView;->mDataLimitObserver:Landroid/database/ContentObserver;
+
+    invoke-virtual {v0, v1, v3, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/systemui/qs/DataUsageView;->mRegistered:Z
+
+    :cond_1
+    return-void
+.end method
+
+.method private unregisterContentObserver()V
+    .locals 2
+
+    sget-boolean v0, Lcom/android/systemui/qs/DataUsageView;->DEBUG:Z
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "DataUsageView"
+
+    const-string/jumbo v1, "unregisterContentObserver"
+
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    :cond_0
+    iget-boolean v0, p0, Lcom/android/systemui/qs/DataUsageView;->mRegistered:Z
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/DataUsageView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/systemui/qs/DataUsageView;->mDataLimitObserver:Landroid/database/ContentObserver;
+
+    invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/systemui/qs/DataUsageView;->mRegistered:Z
+
+    :cond_1
     return-void
+.end method
+
+.method private updateDataText()V
+    .locals 10
+
+    const-wide/16 v8, 0x0
+
+    const v6, 0x7f1208b0
+
+    iget-wide v2, p0, Lcom/android/systemui/qs/DataUsageView;->mUsageLevel:J
+
+    cmp-long v2, v2, v8
+
+    if-lez v2, :cond_2
+
+    iget-object v2, p0, Lcom/android/systemui/qs/DataUsageView;->mContext:Landroid/content/Context;
+
+    iget-wide v4, p0, Lcom/android/systemui/qs/DataUsageView;->mUsageLevel:J
+
+    invoke-static {v2, v4, v5}, Lcom/android/systemui/qs/DataUsageView$Formatter;->formatFileSize(Landroid/content/Context;J)Ljava/lang/String;
+
+    move-result-object v0
+
+    iget-wide v2, p0, Lcom/android/systemui/qs/DataUsageView;->mLimitLevel:J
+
+    cmp-long v2, v2, v8
+
+    if-lez v2, :cond_0
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " / "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/systemui/qs/DataUsageView;->mContext:Landroid/content/Context;
+
+    iget-wide v4, p0, Lcom/android/systemui/qs/DataUsageView;->mLimitLevel:J
+
+    invoke-static {v3, v4, v5}, Lcom/android/systemui/qs/DataUsageView$Formatter;->formatFileSize(Landroid/content/Context;J)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    :cond_0
+    iget-object v2, p0, Lcom/android/systemui/qs/DataUsageView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/android/systemui/qs/DataUsageView;->mDataUsage:Ljava/lang/String;
+
+    :goto_0
+    const-string/jumbo v2, "DataUsageView"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Data Usage:"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/android/systemui/qs/DataUsageView;->mDataUsage:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v2, p0, Lcom/android/systemui/qs/DataUsageView;->mDataUsage:Ljava/lang/String;
+
+    if-eqz v2, :cond_1
+
+    iget-object v2, p0, Lcom/android/systemui/qs/DataUsageView;->mDataUsage:Ljava/lang/String;
+
+    invoke-virtual {p0, v2}, Lcom/android/systemui/qs/DataUsageView;->setText(Ljava/lang/CharSequence;)V
+
+    :cond_1
+    return-void
+
+    :cond_2
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v3, p0, Lcom/android/systemui/qs/DataUsageView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " : 0 B"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/android/systemui/qs/DataUsageView;->mDataUsage:Ljava/lang/String;
+
+    goto :goto_0
 .end method
 
 
@@ -1070,7 +1471,11 @@
 
     move-result v7
 
-    if-nez v7, :cond_0
+    if-nez v7, :cond_1
+
+    sget-boolean v7, Lcom/android/systemui/qs/DataUsageView;->DEBUG:Z
+
+    if-eqz v7, :cond_0
 
     const-string/jumbo v7, "DataUsageView"
 
@@ -1094,9 +1499,10 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    :cond_0
     return-wide v10
 
-    :cond_0
+    :cond_1
     :try_start_0
     invoke-static {v6}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
     :try_end_0
@@ -1312,124 +1718,57 @@
     return v5
 .end method
 
-.method public onWindowFocusChanged(Z)V
-    .locals 9
+.method public updateCurrentDataSubId()V
+    .locals 4
 
-    const/4 v8, 0x1
-
-    const/4 v7, 0x0
-
-    const/4 v6, 0x0
-
-    invoke-super {p0, p1}, Landroid/widget/TextView;->onWindowFocusChanged(Z)V
-
-    if-eqz p1, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/DataUsageView;->getVisibility()I
-
-    move-result v4
-
-    if-nez v4, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/DataUsageView;->getContext()Landroid/content/Context;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v1
-
-    const-string v4, "data_usage_text_color"
-
-    const-string v5, "#e61e4e78"
-
-    invoke-static {v5}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
-
-    move-result v5
-
-    invoke-static {v1, v4, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {}, Landroid/telephony/SubscriptionManager;->getDefaultDataSubscriptionId()I
 
     move-result v0
 
-    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/DataUsageView;->setTextColor(I)V
+    iget v1, p0, Lcom/android/systemui/qs/DataUsageView;->mCurrentDataSubId:I
 
-    const-string v4, "data_usage_text_gravity"
+    if-eq v0, v1, :cond_0
 
-    invoke-static {v1, v4, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    iput v0, p0, Lcom/android/systemui/qs/DataUsageView;->mCurrentDataSubId:I
 
-    move-result v2
+    sget-boolean v1, Lcom/android/systemui/qs/DataUsageView;->mIsSupportCHNDataUsageConcept:Z
 
-    packed-switch v2, :pswitch_data_0
+    if-eqz v1, :cond_0
 
-    const v4, 0x800005
+    invoke-direct {p0}, Lcom/android/systemui/qs/DataUsageView;->unregisterContentObserver()V
 
-    invoke-virtual {p0, v4}, Lcom/android/systemui/qs/DataUsageView;->setGravity(I)V
-
-    :goto_0
-    const-string v4, "data_usage_view_text_style"
-
-    invoke-static {v1, v4, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v3
-
-    packed-switch v3, :pswitch_data_1
-
-    invoke-virtual {p0, v6, v7}, Lcom/android/systemui/qs/DataUsageView;->setTypeface(Landroid/graphics/Typeface;I)V
+    invoke-direct {p0}, Lcom/android/systemui/qs/DataUsageView;->registerContentObserver()V
 
     :cond_0
-    :goto_1
-    return-void
+    sget-boolean v1, Lcom/android/systemui/qs/DataUsageView;->DEBUG:Z
 
-    :pswitch_0
-    invoke-virtual {p0, v8}, Lcom/android/systemui/qs/DataUsageView;->setGravity(I)V
+    if-eqz v1, :cond_1
 
-    goto :goto_0
+    const-string/jumbo v1, "DataUsageView"
 
-    :pswitch_1
-    const v4, 0x800003
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0, v4}, Lcom/android/systemui/qs/DataUsageView;->setGravity(I)V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    goto :goto_0
+    const-string/jumbo v3, "Current Data SubId:"
 
-    :pswitch_2
-    invoke-virtual {p0, v6, v8}, Lcom/android/systemui/qs/DataUsageView;->setTypeface(Landroid/graphics/Typeface;I)V
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    move-result-object v2
 
-    :pswitch_3
-    const/4 v4, 0x2
+    iget v3, p0, Lcom/android/systemui/qs/DataUsageView;->mCurrentDataSubId:I
 
-    invoke-virtual {p0, v6, v4}, Lcom/android/systemui/qs/DataUsageView;->setTypeface(Landroid/graphics/Typeface;I)V
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    move-result-object v2
 
-    :pswitch_4
-    const/4 v4, 0x3
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {p0, v6, v4}, Lcom/android/systemui/qs/DataUsageView;->setTypeface(Landroid/graphics/Typeface;I)V
+    move-result-object v2
 
-    goto :goto_1
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_0
-        :pswitch_1
-    .end packed-switch
-
-    :pswitch_data_1
-    .packed-switch 0x1
-        :pswitch_2
-        :pswitch_3
-        :pswitch_4
-    .end packed-switch
-.end method
-
-.method public setDataUsageController(Lcom/android/settingslib/net/DataUsageController;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/qs/DataUsageView;->mDataController:Lcom/android/settingslib/net/DataUsageController;
-
+    :cond_1
     return-void
 .end method
 
@@ -1440,9 +1779,9 @@
 
     if-nez v0, :cond_0
 
-    new-instance v0, Lcom/android/systemui/qs/DataUsageView$2;
+    new-instance v0, Lcom/android/systemui/qs/DataUsageView$3;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/qs/DataUsageView$2;-><init>(Lcom/android/systemui/qs/DataUsageView;)V
+    invoke-direct {v0, p0}, Lcom/android/systemui/qs/DataUsageView$3;-><init>(Lcom/android/systemui/qs/DataUsageView;)V
 
     iput-object v0, p0, Lcom/android/systemui/qs/DataUsageView;->mThread:Ljava/lang/Thread;
 

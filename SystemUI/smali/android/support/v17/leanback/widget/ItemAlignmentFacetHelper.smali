@@ -29,11 +29,13 @@
 .end method
 
 .method static getAlignmentPosition(Landroid/view/View;Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;I)I
-    .locals 9
+    .locals 8
 
-    const/high16 v8, 0x42c80000    # 100.0f
+    const/4 v7, 0x0
 
     const/high16 v6, -0x40800000    # -1.0f
+
+    const/high16 v5, 0x42c80000    # 100.0f
 
     invoke-virtual {p0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
@@ -41,230 +43,335 @@
 
     check-cast v1, Landroid/support/v17/leanback/widget/GridLayoutManager$LayoutParams;
 
-    move-object v4, p0
+    move-object v2, p0
 
-    iget v5, p1, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->mViewId:I
+    iget v3, p1, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->mViewId:I
 
-    if-eqz v5, :cond_0
+    if-eqz v3, :cond_0
 
-    iget v5, p1, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->mViewId:I
+    iget v3, p1, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->mViewId:I
 
-    invoke-virtual {p0, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v4
+    move-result-object v2
 
-    if-nez v4, :cond_0
+    if-nez v2, :cond_0
 
-    move-object v4, p0
+    move-object v2, p0
 
     :cond_0
     iget v0, p1, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->mOffset:I
 
-    if-nez p2, :cond_6
+    if-nez p2, :cond_c
 
-    iget v5, p1, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->mOffset:I
+    invoke-virtual {p0}, Landroid/view/View;->getLayoutDirection()I
 
-    if-ltz v5, :cond_4
+    move-result v3
 
-    iget-boolean v5, p1, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->mOffsetWithPadding:Z
+    const/4 v4, 0x1
 
-    if-eqz v5, :cond_1
+    if-ne v3, v4, :cond_7
 
-    invoke-virtual {v4}, Landroid/view/View;->getPaddingLeft()I
+    if-ne v2, p0, :cond_4
 
-    move-result v5
+    invoke-virtual {v1, v2}, Landroid/support/v17/leanback/widget/GridLayoutManager$LayoutParams;->getOpticalWidth(Landroid/view/View;)I
 
-    add-int/2addr v0, v5
+    move-result v3
+
+    :goto_0
+    sub-int v0, v3, v0
+
+    iget-boolean v3, p1, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->mOffsetWithPadding:Z
+
+    if-eqz v3, :cond_1
+
+    iget v3, p1, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->mOffsetPercent:F
+
+    cmpl-float v3, v3, v7
+
+    if-nez v3, :cond_5
+
+    invoke-virtual {v2}, Landroid/view/View;->getPaddingRight()I
+
+    move-result v3
+
+    sub-int/2addr v0, v3
 
     :cond_1
-    :goto_0
-    iget v5, p1, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->mOffsetPercent:F
-
-    cmpl-float v5, v5, v6
-
-    if-eqz v5, :cond_2
-
-    int-to-float v6, v0
-
-    if-ne v4, p0, :cond_5
-
-    invoke-virtual {v1, v4}, Landroid/support/v17/leanback/widget/GridLayoutManager$LayoutParams;->getOpticalWidth(Landroid/view/View;)I
-
-    move-result v5
-
     :goto_1
-    int-to-float v5, v5
+    iget v3, p1, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->mOffsetPercent:F
 
-    iget v7, p1, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->mOffsetPercent:F
+    cmpl-float v3, v3, v6
 
-    mul-float/2addr v5, v7
+    if-eqz v3, :cond_2
 
-    div-float/2addr v5, v8
+    if-ne v2, p0, :cond_6
 
-    add-float/2addr v5, v6
+    invoke-virtual {v1, v2}, Landroid/support/v17/leanback/widget/GridLayoutManager$LayoutParams;->getOpticalWidth(Landroid/view/View;)I
 
-    float-to-int v0, v5
+    move-result v3
+
+    :goto_2
+    int-to-float v3, v3
+
+    iget v4, p1, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->mOffsetPercent:F
+
+    mul-float/2addr v3, v4
+
+    div-float/2addr v3, v5
+
+    float-to-int v3, v3
+
+    sub-int/2addr v0, v3
 
     :cond_2
-    if-eq p0, v4, :cond_3
+    if-eq p0, v2, :cond_3
 
-    sget-object v5, Landroid/support/v17/leanback/widget/ItemAlignmentFacetHelper;->sRect:Landroid/graphics/Rect;
+    sget-object v3, Landroid/support/v17/leanback/widget/ItemAlignmentFacetHelper;->sRect:Landroid/graphics/Rect;
 
-    iput v0, v5, Landroid/graphics/Rect;->left:I
+    iput v0, v3, Landroid/graphics/Rect;->right:I
 
     check-cast p0, Landroid/view/ViewGroup;
 
-    sget-object v5, Landroid/support/v17/leanback/widget/ItemAlignmentFacetHelper;->sRect:Landroid/graphics/Rect;
+    sget-object v3, Landroid/support/v17/leanback/widget/ItemAlignmentFacetHelper;->sRect:Landroid/graphics/Rect;
 
-    invoke-virtual {p0, v4, v5}, Landroid/view/ViewGroup;->offsetDescendantRectToMyCoords(Landroid/view/View;Landroid/graphics/Rect;)V
+    invoke-virtual {p0, v2, v3}, Landroid/view/ViewGroup;->offsetDescendantRectToMyCoords(Landroid/view/View;Landroid/graphics/Rect;)V
 
-    sget-object v5, Landroid/support/v17/leanback/widget/ItemAlignmentFacetHelper;->sRect:Landroid/graphics/Rect;
+    sget-object v3, Landroid/support/v17/leanback/widget/ItemAlignmentFacetHelper;->sRect:Landroid/graphics/Rect;
 
-    iget v5, v5, Landroid/graphics/Rect;->left:I
+    iget v3, v3, Landroid/graphics/Rect;->right:I
 
-    invoke-virtual {v1}, Landroid/support/v17/leanback/widget/GridLayoutManager$LayoutParams;->getOpticalLeftInset()I
+    invoke-virtual {v1}, Landroid/support/v17/leanback/widget/GridLayoutManager$LayoutParams;->getOpticalRightInset()I
 
-    move-result v6
+    move-result v4
 
-    sub-int v0, v5, v6
+    add-int v0, v3, v4
 
     :cond_3
-    :goto_2
+    :goto_3
     return v0
 
     :cond_4
-    iget-boolean v5, p1, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->mOffsetWithPadding:Z
+    invoke-virtual {v2}, Landroid/view/View;->getWidth()I
 
-    if-eqz v5, :cond_1
-
-    invoke-virtual {v4}, Landroid/view/View;->getPaddingRight()I
-
-    move-result v5
-
-    sub-int/2addr v0, v5
+    move-result v3
 
     goto :goto_0
 
     :cond_5
-    invoke-virtual {v4}, Landroid/view/View;->getWidth()I
+    iget v3, p1, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->mOffsetPercent:F
 
-    move-result v5
+    cmpl-float v3, v3, v5
+
+    if-nez v3, :cond_1
+
+    invoke-virtual {v2}, Landroid/view/View;->getPaddingLeft()I
+
+    move-result v3
+
+    add-int/2addr v0, v3
 
     goto :goto_1
 
     :cond_6
-    iget v5, p1, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->mOffset:I
+    invoke-virtual {v2}, Landroid/view/View;->getWidth()I
 
-    if-ltz v5, :cond_a
-
-    iget-boolean v5, p1, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->mOffsetWithPadding:Z
-
-    if-eqz v5, :cond_7
-
-    invoke-virtual {v4}, Landroid/view/View;->getPaddingTop()I
-
-    move-result v5
-
-    add-int/2addr v0, v5
-
-    :cond_7
-    :goto_3
-    iget v5, p1, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->mOffsetPercent:F
-
-    cmpl-float v5, v5, v6
-
-    if-eqz v5, :cond_8
-
-    int-to-float v6, v0
-
-    if-ne v4, p0, :cond_b
-
-    invoke-virtual {v1, v4}, Landroid/support/v17/leanback/widget/GridLayoutManager$LayoutParams;->getOpticalHeight(Landroid/view/View;)I
-
-    move-result v5
-
-    :goto_4
-    int-to-float v5, v5
-
-    iget v7, p1, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->mOffsetPercent:F
-
-    mul-float/2addr v5, v7
-
-    div-float/2addr v5, v8
-
-    add-float/2addr v5, v6
-
-    float-to-int v0, v5
-
-    :cond_8
-    if-eq p0, v4, :cond_9
-
-    sget-object v5, Landroid/support/v17/leanback/widget/ItemAlignmentFacetHelper;->sRect:Landroid/graphics/Rect;
-
-    iput v0, v5, Landroid/graphics/Rect;->top:I
-
-    check-cast p0, Landroid/view/ViewGroup;
-
-    sget-object v5, Landroid/support/v17/leanback/widget/ItemAlignmentFacetHelper;->sRect:Landroid/graphics/Rect;
-
-    invoke-virtual {p0, v4, v5}, Landroid/view/ViewGroup;->offsetDescendantRectToMyCoords(Landroid/view/View;Landroid/graphics/Rect;)V
-
-    sget-object v5, Landroid/support/v17/leanback/widget/ItemAlignmentFacetHelper;->sRect:Landroid/graphics/Rect;
-
-    iget v5, v5, Landroid/graphics/Rect;->top:I
-
-    invoke-virtual {v1}, Landroid/support/v17/leanback/widget/GridLayoutManager$LayoutParams;->getOpticalTopInset()I
-
-    move-result v6
-
-    sub-int v0, v5, v6
-
-    :cond_9
-    instance-of v5, v4, Landroid/widget/TextView;
-
-    if-eqz v5, :cond_3
-
-    invoke-virtual {p1}, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->isAlignedToTextViewBaseLine()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_3
-
-    check-cast v4, Landroid/widget/TextView;
-
-    invoke-virtual {v4}, Landroid/widget/TextView;->getPaint()Landroid/text/TextPaint;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/graphics/Paint;->getFontMetricsInt()Landroid/graphics/Paint$FontMetricsInt;
-
-    move-result-object v5
-
-    iget v5, v5, Landroid/graphics/Paint$FontMetricsInt;->top:I
-
-    neg-int v3, v5
-
-    add-int/2addr v0, v3
+    move-result v3
 
     goto :goto_2
 
-    :cond_a
-    iget-boolean v5, p1, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->mOffsetWithPadding:Z
+    :cond_7
+    iget-boolean v3, p1, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->mOffsetWithPadding:Z
 
-    if-eqz v5, :cond_7
+    if-eqz v3, :cond_8
 
-    invoke-virtual {v4}, Landroid/view/View;->getPaddingBottom()I
+    iget v3, p1, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->mOffsetPercent:F
 
-    move-result v5
+    cmpl-float v3, v3, v7
 
-    sub-int/2addr v0, v5
+    if-nez v3, :cond_a
+
+    invoke-virtual {v2}, Landroid/view/View;->getPaddingLeft()I
+
+    move-result v3
+
+    add-int/2addr v0, v3
+
+    :cond_8
+    :goto_4
+    iget v3, p1, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->mOffsetPercent:F
+
+    cmpl-float v3, v3, v6
+
+    if-eqz v3, :cond_9
+
+    if-ne v2, p0, :cond_b
+
+    invoke-virtual {v1, v2}, Landroid/support/v17/leanback/widget/GridLayoutManager$LayoutParams;->getOpticalWidth(Landroid/view/View;)I
+
+    move-result v3
+
+    :goto_5
+    int-to-float v3, v3
+
+    iget v4, p1, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->mOffsetPercent:F
+
+    mul-float/2addr v3, v4
+
+    div-float/2addr v3, v5
+
+    float-to-int v3, v3
+
+    add-int/2addr v0, v3
+
+    :cond_9
+    if-eq p0, v2, :cond_3
+
+    sget-object v3, Landroid/support/v17/leanback/widget/ItemAlignmentFacetHelper;->sRect:Landroid/graphics/Rect;
+
+    iput v0, v3, Landroid/graphics/Rect;->left:I
+
+    check-cast p0, Landroid/view/ViewGroup;
+
+    sget-object v3, Landroid/support/v17/leanback/widget/ItemAlignmentFacetHelper;->sRect:Landroid/graphics/Rect;
+
+    invoke-virtual {p0, v2, v3}, Landroid/view/ViewGroup;->offsetDescendantRectToMyCoords(Landroid/view/View;Landroid/graphics/Rect;)V
+
+    sget-object v3, Landroid/support/v17/leanback/widget/ItemAlignmentFacetHelper;->sRect:Landroid/graphics/Rect;
+
+    iget v3, v3, Landroid/graphics/Rect;->left:I
+
+    invoke-virtual {v1}, Landroid/support/v17/leanback/widget/GridLayoutManager$LayoutParams;->getOpticalLeftInset()I
+
+    move-result v4
+
+    sub-int v0, v3, v4
 
     goto :goto_3
 
-    :cond_b
-    invoke-virtual {v4}, Landroid/view/View;->getHeight()I
+    :cond_a
+    iget v3, p1, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->mOffsetPercent:F
 
-    move-result v5
+    cmpl-float v3, v3, v5
+
+    if-nez v3, :cond_8
+
+    invoke-virtual {v2}, Landroid/view/View;->getPaddingRight()I
+
+    move-result v3
+
+    sub-int/2addr v0, v3
 
     goto :goto_4
+
+    :cond_b
+    invoke-virtual {v2}, Landroid/view/View;->getWidth()I
+
+    move-result v3
+
+    goto :goto_5
+
+    :cond_c
+    iget-boolean v3, p1, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->mOffsetWithPadding:Z
+
+    if-eqz v3, :cond_d
+
+    iget v3, p1, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->mOffsetPercent:F
+
+    cmpl-float v3, v3, v7
+
+    if-nez v3, :cond_10
+
+    invoke-virtual {v2}, Landroid/view/View;->getPaddingTop()I
+
+    move-result v3
+
+    add-int/2addr v0, v3
+
+    :cond_d
+    :goto_6
+    iget v3, p1, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->mOffsetPercent:F
+
+    cmpl-float v3, v3, v6
+
+    if-eqz v3, :cond_e
+
+    if-ne v2, p0, :cond_11
+
+    invoke-virtual {v1, v2}, Landroid/support/v17/leanback/widget/GridLayoutManager$LayoutParams;->getOpticalHeight(Landroid/view/View;)I
+
+    move-result v3
+
+    :goto_7
+    int-to-float v3, v3
+
+    iget v4, p1, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->mOffsetPercent:F
+
+    mul-float/2addr v3, v4
+
+    div-float/2addr v3, v5
+
+    float-to-int v3, v3
+
+    add-int/2addr v0, v3
+
+    :cond_e
+    if-eq p0, v2, :cond_f
+
+    sget-object v3, Landroid/support/v17/leanback/widget/ItemAlignmentFacetHelper;->sRect:Landroid/graphics/Rect;
+
+    iput v0, v3, Landroid/graphics/Rect;->top:I
+
+    check-cast p0, Landroid/view/ViewGroup;
+
+    sget-object v3, Landroid/support/v17/leanback/widget/ItemAlignmentFacetHelper;->sRect:Landroid/graphics/Rect;
+
+    invoke-virtual {p0, v2, v3}, Landroid/view/ViewGroup;->offsetDescendantRectToMyCoords(Landroid/view/View;Landroid/graphics/Rect;)V
+
+    sget-object v3, Landroid/support/v17/leanback/widget/ItemAlignmentFacetHelper;->sRect:Landroid/graphics/Rect;
+
+    iget v3, v3, Landroid/graphics/Rect;->top:I
+
+    invoke-virtual {v1}, Landroid/support/v17/leanback/widget/GridLayoutManager$LayoutParams;->getOpticalTopInset()I
+
+    move-result v4
+
+    sub-int v0, v3, v4
+
+    :cond_f
+    invoke-virtual {p1}, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->isAlignedToTextViewBaseLine()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
+    invoke-virtual {v2}, Landroid/view/View;->getBaseline()I
+
+    move-result v3
+
+    add-int/2addr v0, v3
+
+    goto/16 :goto_3
+
+    :cond_10
+    iget v3, p1, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->mOffsetPercent:F
+
+    cmpl-float v3, v3, v5
+
+    if-nez v3, :cond_d
+
+    invoke-virtual {v2}, Landroid/view/View;->getPaddingBottom()I
+
+    move-result v3
+
+    sub-int/2addr v0, v3
+
+    goto :goto_6
+
+    :cond_11
+    invoke-virtual {v2}, Landroid/view/View;->getHeight()I
+
+    move-result v3
+
+    goto :goto_7
 .end method

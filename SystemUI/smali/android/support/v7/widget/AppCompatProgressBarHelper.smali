@@ -8,8 +8,6 @@
 
 
 # instance fields
-.field final mDrawableManager:Landroid/support/v7/widget/AppCompatDrawableManager;
-
 .field private mSampleTile:Landroid/graphics/Bitmap;
 
 .field private final mView:Landroid/widget/ProgressBar;
@@ -32,14 +30,12 @@
     return-void
 .end method
 
-.method constructor <init>(Landroid/widget/ProgressBar;Landroid/support/v7/widget/AppCompatDrawableManager;)V
+.method constructor <init>(Landroid/widget/ProgressBar;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Landroid/support/v7/widget/AppCompatProgressBarHelper;->mView:Landroid/widget/ProgressBar;
-
-    iput-object p2, p0, Landroid/support/v7/widget/AppCompatProgressBarHelper;->mDrawableManager:Landroid/support/v7/widget/AppCompatDrawableManager;
 
     return-void
 .end method

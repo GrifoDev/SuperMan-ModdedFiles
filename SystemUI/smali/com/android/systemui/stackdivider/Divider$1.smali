@@ -39,52 +39,82 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 4
+
+    const/4 v1, 0x0
 
     iget-object v0, p0, Lcom/android/systemui/stackdivider/Divider$1;->this$0:Lcom/android/systemui/stackdivider/Divider;
 
-    invoke-static {v0}, Lcom/android/systemui/stackdivider/Divider;->-get12(Lcom/android/systemui/stackdivider/Divider;)Z
+    invoke-static {v0}, Lcom/android/systemui/stackdivider/Divider;->-get8(Lcom/android/systemui/stackdivider/Divider;)Z
 
     move-result v0
 
-    iget-boolean v1, p0, Lcom/android/systemui/stackdivider/Divider$1;->val$visible:Z
+    iget-boolean v2, p0, Lcom/android/systemui/stackdivider/Divider$1;->val$visible:Z
 
-    if-eq v0, v1, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/Divider$1;->this$0:Lcom/android/systemui/stackdivider/Divider;
-
-    iget-boolean v1, p0, Lcom/android/systemui/stackdivider/Divider$1;->val$visible:Z
-
-    invoke-static {v0, v1}, Lcom/android/systemui/stackdivider/Divider;->-set6(Lcom/android/systemui/stackdivider/Divider;Z)Z
+    if-eq v0, v2, :cond_0
 
     iget-object v0, p0, Lcom/android/systemui/stackdivider/Divider$1;->this$0:Lcom/android/systemui/stackdivider/Divider;
 
-    invoke-static {v0}, Lcom/android/systemui/stackdivider/Divider;->-get11(Lcom/android/systemui/stackdivider/Divider;)Lcom/android/systemui/stackdivider/DividerView;
+    iget-boolean v2, p0, Lcom/android/systemui/stackdivider/Divider$1;->val$visible:Z
 
-    move-result-object v1
+    invoke-static {v0, v2}, Lcom/android/systemui/stackdivider/Divider;->-set5(Lcom/android/systemui/stackdivider/Divider;Z)Z
+
+    iget-object v0, p0, Lcom/android/systemui/stackdivider/Divider$1;->this$0:Lcom/android/systemui/stackdivider/Divider;
+
+    invoke-static {v0}, Lcom/android/systemui/stackdivider/Divider;->-get7(Lcom/android/systemui/stackdivider/Divider;)Lcom/android/systemui/stackdivider/DividerView;
+
+    move-result-object v2
 
     iget-boolean v0, p0, Lcom/android/systemui/stackdivider/Divider$1;->val$visible:Z
 
     if-eqz v0, :cond_1
 
-    const/4 v0, 0x0
+    move v0, v1
 
     :goto_0
-    invoke-virtual {v1, v0}, Lcom/android/systemui/stackdivider/DividerView;->setVisibility(I)V
+    invoke-virtual {v2, v0}, Lcom/android/systemui/stackdivider/DividerView;->setVisibility(I)V
 
     iget-object v0, p0, Lcom/android/systemui/stackdivider/Divider$1;->this$0:Lcom/android/systemui/stackdivider/Divider;
 
-    invoke-static {v0}, Lcom/android/systemui/stackdivider/Divider;->-get11(Lcom/android/systemui/stackdivider/Divider;)Lcom/android/systemui/stackdivider/DividerView;
+    invoke-static {v0}, Lcom/android/systemui/stackdivider/Divider;->-get7(Lcom/android/systemui/stackdivider/Divider;)Lcom/android/systemui/stackdivider/DividerView;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/systemui/stackdivider/Divider$1;->this$0:Lcom/android/systemui/stackdivider/Divider;
+    iget-object v2, p0, Lcom/android/systemui/stackdivider/Divider$1;->this$0:Lcom/android/systemui/stackdivider/Divider;
 
-    invoke-static {v1}, Lcom/android/systemui/stackdivider/Divider;->-get7(Lcom/android/systemui/stackdivider/Divider;)Z
+    invoke-static {v2}, Lcom/android/systemui/stackdivider/Divider;->-get5(Lcom/android/systemui/stackdivider/Divider;)Z
 
-    move-result v1
+    move-result v2
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/stackdivider/DividerView;->setMinimizedDockStack(Z)V
+    iget-object v3, p0, Lcom/android/systemui/stackdivider/Divider$1;->this$0:Lcom/android/systemui/stackdivider/Divider;
+
+    invoke-static {v3}, Lcom/android/systemui/stackdivider/Divider;->-get3(Lcom/android/systemui/stackdivider/Divider;)Z
+
+    move-result v3
+
+    invoke-virtual {v0, v2, v3}, Lcom/android/systemui/stackdivider/DividerView;->setMinimizedDockStack(ZZ)V
+
+    iget-boolean v0, p0, Lcom/android/systemui/stackdivider/Divider$1;->val$visible:Z
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/stackdivider/Divider$1;->this$0:Lcom/android/systemui/stackdivider/Divider;
+
+    invoke-static {v0}, Lcom/android/systemui/stackdivider/Divider;->-get7(Lcom/android/systemui/stackdivider/Divider;)Lcom/android/systemui/stackdivider/DividerView;
+
+    move-result-object v0
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v1, v2}, Lcom/android/systemui/stackdivider/DividerView;->showSnapGuide(ZILandroid/graphics/Rect;)V
+
+    iget-object v0, p0, Lcom/android/systemui/stackdivider/Divider$1;->this$0:Lcom/android/systemui/stackdivider/Divider;
+
+    invoke-static {v0}, Lcom/android/systemui/stackdivider/Divider;->-get7(Lcom/android/systemui/stackdivider/Divider;)Lcom/android/systemui/stackdivider/DividerView;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v1, v1, v1}, Lcom/android/systemui/stackdivider/DividerView;->startSnapMode(ZZI)V
 
     :cond_0
     return-void

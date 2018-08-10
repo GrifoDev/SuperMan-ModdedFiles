@@ -21,6 +21,18 @@
 .field final synthetic this$0:Landroid/support/v7/widget/ActionMenuPresenter;
 
 
+# direct methods
+.method constructor <init>(Landroid/support/v7/widget/ActionMenuPresenter;)V
+    .locals 0
+
+    iput-object p1, p0, Landroid/support/v7/widget/ActionMenuPresenter$PopupPresenterCallback;->this$0:Landroid/support/v7/widget/ActionMenuPresenter;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
 # virtual methods
 .method public onCloseMenu(Landroid/support/v7/view/menu/MenuBuilder;Z)V
     .locals 3

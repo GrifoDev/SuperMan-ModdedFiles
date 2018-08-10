@@ -59,7 +59,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/power/ChargerAnimationView$2;->this$0:Lcom/android/systemui/power/ChargerAnimationView;
 
-    invoke-static {v0}, Lcom/android/systemui/power/ChargerAnimationView;->-get9(Lcom/android/systemui/power/ChargerAnimationView;)Landroid/graphics/drawable/AnimationDrawable;
+    invoke-static {v0}, Lcom/android/systemui/power/ChargerAnimationView;->-get8(Lcom/android/systemui/power/ChargerAnimationView;)Landroid/graphics/drawable/AnimationDrawable;
 
     move-result-object v0
 
@@ -69,13 +69,13 @@
 
     iget-object v1, p0, Lcom/android/systemui/power/ChargerAnimationView$2;->this$0:Lcom/android/systemui/power/ChargerAnimationView;
 
-    invoke-static {v1}, Lcom/android/systemui/power/ChargerAnimationView;->-get9(Lcom/android/systemui/power/ChargerAnimationView;)Landroid/graphics/drawable/AnimationDrawable;
+    invoke-static {v1}, Lcom/android/systemui/power/ChargerAnimationView;->-get8(Lcom/android/systemui/power/ChargerAnimationView;)Landroid/graphics/drawable/AnimationDrawable;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/systemui/power/ChargerAnimationView$2;->this$0:Lcom/android/systemui/power/ChargerAnimationView;
 
-    invoke-static {v2}, Lcom/android/systemui/power/ChargerAnimationView;->-get9(Lcom/android/systemui/power/ChargerAnimationView;)Landroid/graphics/drawable/AnimationDrawable;
+    invoke-static {v2}, Lcom/android/systemui/power/ChargerAnimationView;->-get8(Lcom/android/systemui/power/ChargerAnimationView;)Landroid/graphics/drawable/AnimationDrawable;
 
     move-result-object v2
 
@@ -139,7 +139,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/power/ChargerAnimationView$2;->this$0:Lcom/android/systemui/power/ChargerAnimationView;
 
-    invoke-static {v0}, Lcom/android/systemui/power/ChargerAnimationView;->-get9(Lcom/android/systemui/power/ChargerAnimationView;)Landroid/graphics/drawable/AnimationDrawable;
+    invoke-static {v0}, Lcom/android/systemui/power/ChargerAnimationView;->-get8(Lcom/android/systemui/power/ChargerAnimationView;)Landroid/graphics/drawable/AnimationDrawable;
 
     move-result-object v0
 
@@ -148,14 +148,6 @@
     iget-object v0, p0, Lcom/android/systemui/power/ChargerAnimationView$2;->this$0:Lcom/android/systemui/power/ChargerAnimationView;
 
     invoke-virtual {v0, v5}, Lcom/android/systemui/power/ChargerAnimationView;->setChargerAnimationViewVisibility(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/power/ChargerAnimationView$2;->this$0:Lcom/android/systemui/power/ChargerAnimationView;
-
-    invoke-static {v0}, Lcom/android/systemui/power/ChargerAnimationView;->-get7(Lcom/android/systemui/power/ChargerAnimationView;)Landroid/os/DVFSHelper;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/os/DVFSHelper;->release()V
 
     iget-object v0, p0, Lcom/android/systemui/power/ChargerAnimationView$2;->this$0:Lcom/android/systemui/power/ChargerAnimationView;
 
@@ -182,7 +174,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/systemui/power/ChargerAnimationView$2;->this$0:Lcom/android/systemui/power/ChargerAnimationView;
 
-    invoke-static {v0}, Lcom/android/systemui/power/ChargerAnimationView;->-get8(Lcom/android/systemui/power/ChargerAnimationView;)Landroid/graphics/drawable/AnimationDrawable;
+    invoke-static {v0}, Lcom/android/systemui/power/ChargerAnimationView;->-get7(Lcom/android/systemui/power/ChargerAnimationView;)Landroid/graphics/drawable/AnimationDrawable;
 
     move-result-object v0
 
@@ -192,13 +184,13 @@
 
     iget-object v1, p0, Lcom/android/systemui/power/ChargerAnimationView$2;->this$0:Lcom/android/systemui/power/ChargerAnimationView;
 
-    invoke-static {v1}, Lcom/android/systemui/power/ChargerAnimationView;->-get8(Lcom/android/systemui/power/ChargerAnimationView;)Landroid/graphics/drawable/AnimationDrawable;
+    invoke-static {v1}, Lcom/android/systemui/power/ChargerAnimationView;->-get7(Lcom/android/systemui/power/ChargerAnimationView;)Landroid/graphics/drawable/AnimationDrawable;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/systemui/power/ChargerAnimationView$2;->this$0:Lcom/android/systemui/power/ChargerAnimationView;
 
-    invoke-static {v2}, Lcom/android/systemui/power/ChargerAnimationView;->-get8(Lcom/android/systemui/power/ChargerAnimationView;)Landroid/graphics/drawable/AnimationDrawable;
+    invoke-static {v2}, Lcom/android/systemui/power/ChargerAnimationView;->-get7(Lcom/android/systemui/power/ChargerAnimationView;)Landroid/graphics/drawable/AnimationDrawable;
 
     move-result-object v2
 
@@ -234,7 +226,7 @@
 
     invoke-static {v0, v7, v1}, Lcom/android/systemui/power/ChargerAnimationView;->-wrap1(Lcom/android/systemui/power/ChargerAnimationView;II)V
 
-    goto/16 :goto_0
+    goto :goto_0
 
     :cond_2
     const-string/jumbo v0, "PowerUI.ChargerAnimationView"
@@ -245,7 +237,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/power/ChargerAnimationView$2;->this$0:Lcom/android/systemui/power/ChargerAnimationView;
 
-    invoke-static {v0}, Lcom/android/systemui/power/ChargerAnimationView;->-get8(Lcom/android/systemui/power/ChargerAnimationView;)Landroid/graphics/drawable/AnimationDrawable;
+    invoke-static {v0}, Lcom/android/systemui/power/ChargerAnimationView;->-get7(Lcom/android/systemui/power/ChargerAnimationView;)Landroid/graphics/drawable/AnimationDrawable;
 
     move-result-object v0
 
@@ -254,14 +246,6 @@
     iget-object v0, p0, Lcom/android/systemui/power/ChargerAnimationView$2;->this$0:Lcom/android/systemui/power/ChargerAnimationView;
 
     invoke-virtual {v0, v5}, Lcom/android/systemui/power/ChargerAnimationView;->setChargerAnimationViewVisibility(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/power/ChargerAnimationView$2;->this$0:Lcom/android/systemui/power/ChargerAnimationView;
-
-    invoke-static {v0}, Lcom/android/systemui/power/ChargerAnimationView;->-get7(Lcom/android/systemui/power/ChargerAnimationView;)Landroid/os/DVFSHelper;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/os/DVFSHelper;->release()V
 
     iget-object v0, p0, Lcom/android/systemui/power/ChargerAnimationView$2;->this$0:Lcom/android/systemui/power/ChargerAnimationView;
 

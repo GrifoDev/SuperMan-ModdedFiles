@@ -35,56 +35,65 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 4
+    .locals 3
 
-    const/4 v3, 0x0
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardSimPukTMOView$2;->this$0:Lcom/android/keyguard/KeyguardSimPukTMOView;
 
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardSimPukTMOView$2;->this$0:Lcom/android/keyguard/KeyguardSimPukTMOView;
-
-    invoke-static {v1}, Lcom/android/keyguard/KeyguardSimPukTMOView;->-get0(Lcom/android/keyguard/KeyguardSimPukTMOView;)Lcom/android/keyguard/KeyguardSecurityCallback;
+    invoke-static {v2}, Lcom/android/keyguard/KeyguardSimPukTMOView;->-wrap0(Lcom/android/keyguard/KeyguardSimPukTMOView;)Landroid/telecom/TelecomManager;
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardSimPukTMOView$2;->this$0:Lcom/android/keyguard/KeyguardSimPukTMOView;
+
+    invoke-static {v2, v1}, Lcom/android/keyguard/KeyguardSimPukTMOView;->-wrap1(Lcom/android/keyguard/KeyguardSimPukTMOView;Landroid/telecom/TelecomManager;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardSimPukTMOView$2;->this$0:Lcom/android/keyguard/KeyguardSimPukTMOView;
+
+    invoke-static {v2, v1}, Lcom/android/keyguard/KeyguardSimPukTMOView;->-wrap2(Lcom/android/keyguard/KeyguardSimPukTMOView;Landroid/telecom/TelecomManager;)V
 
     return-void
 
     :cond_0
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardSimPukTMOView$2;->this$0:Lcom/android/keyguard/KeyguardSimPukTMOView;
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardSimPukTMOView$2;->this$0:Lcom/android/keyguard/KeyguardSimPukTMOView;
 
-    invoke-static {v1}, Lcom/android/keyguard/KeyguardSimPukTMOView;->-get0(Lcom/android/keyguard/KeyguardSimPukTMOView;)Lcom/android/keyguard/KeyguardSecurityCallback;
+    invoke-static {v2}, Lcom/android/keyguard/KeyguardSimPukTMOView;->-get0(Lcom/android/keyguard/KeyguardSimPukTMOView;)Lcom/android/keyguard/KeyguardSecurityCallback;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-interface {v1}, Lcom/android/keyguard/KeyguardSecurityCallback;->userActivity()V
+    if-nez v2, :cond_1
+
+    return-void
+
+    :cond_1
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardSimPukTMOView$2;->this$0:Lcom/android/keyguard/KeyguardSimPukTMOView;
+
+    invoke-static {v2}, Lcom/android/keyguard/KeyguardSimPukTMOView;->-get0(Lcom/android/keyguard/KeyguardSimPukTMOView;)Lcom/android/keyguard/KeyguardSecurityCallback;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Lcom/android/keyguard/KeyguardSecurityCallback;->userActivity()V
 
     new-instance v0, Landroid/content/Intent;
 
-    const-string/jumbo v1, "android.intent.action.CALL_EMERGENCY"
+    const-string/jumbo v2, "com.android.phone.EmergencyDialer.DIAL"
 
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v1, "tel"
+    const/high16 v2, 0x10800000
 
-    const-string/jumbo v2, "911"
+    invoke-virtual {v0, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    invoke-static {v1, v2, v3}, Landroid/net/Uri;->fromParts(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardSimPukTMOView$2;->this$0:Lcom/android/keyguard/KeyguardSimPukTMOView;
 
-    move-result-object v1
+    invoke-static {v2}, Lcom/android/keyguard/KeyguardSimPukTMOView;->-get1(Lcom/android/keyguard/KeyguardSimPukTMOView;)Landroid/content/Context;
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
+    move-result-object v2
 
-    const/high16 v1, 0x10000000
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
-
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardSimPukTMOView$2;->this$0:Lcom/android/keyguard/KeyguardSimPukTMOView;
-
-    invoke-static {v1}, Lcom/android/keyguard/KeyguardSimPukTMOView;->-get1(Lcom/android/keyguard/KeyguardSimPukTMOView;)Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {v2, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
     return-void
 .end method

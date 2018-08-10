@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController$1;->this$0:Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;
 
-    invoke-static {v0}, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;->-wrap2(Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;)V
+    invoke-static {v0}, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;->-wrap3(Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;)V
 
     return-void
 .end method

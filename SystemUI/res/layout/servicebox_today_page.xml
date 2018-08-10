@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.systemui.servicebox.pages.calendar.CalendarEventPage android:focusable="true" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:sysui="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:layout_gravity="bottom|center" android:id="@id/servicebox_today_page_holder" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+</com.android.systemui.servicebox.pages.calendar.CalendarEventPage>

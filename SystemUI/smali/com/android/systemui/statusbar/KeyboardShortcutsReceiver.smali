@@ -17,7 +17,7 @@
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 2
 
-    const-string/jumbo v0, "android.intent.action.SHOW_KEYBOARD_SHORTCUTS"
+    const-string/jumbo v0, "com.android.intent.action.SHOW_KEYBOARD_SHORTCUTS"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -38,7 +38,7 @@
     return-void
 
     :cond_1
-    const-string/jumbo v0, "android.intent.action.DISMISS_KEYBOARD_SHORTCUTS"
+    const-string/jumbo v0, "com.android.intent.action.DISMISS_KEYBOARD_SHORTCUTS"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 

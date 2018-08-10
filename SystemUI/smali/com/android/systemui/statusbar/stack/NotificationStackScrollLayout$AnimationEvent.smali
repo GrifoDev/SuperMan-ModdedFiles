@@ -258,17 +258,7 @@
 
     aput-object v1, v0, v2
 
-    new-instance v1, Lcom/android/systemui/statusbar/stack/AnimationFilter;
-
-    invoke-direct {v1}, Lcom/android/systemui/statusbar/stack/AnimationFilter;-><init>()V
-
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/stack/AnimationFilter;->animateDark()Lcom/android/systemui/statusbar/stack/AnimationFilter;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/stack/AnimationFilter;->hasDelays()Lcom/android/systemui/statusbar/stack/AnimationFilter;
-
-    move-result-object v1
+    const/4 v1, 0x0
 
     const/16 v2, 0x9
 
@@ -565,7 +555,7 @@
         0xdc
         0xdc
         0x168
-        0x168
+        0xc8
         0x1c0
         0x168
         0x168
@@ -593,6 +583,26 @@
 .end method
 
 .method constructor <init>(Landroid/view/View;IJ)V
+    .locals 7
+
+    sget-object v0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout$AnimationEvent;->FILTERS:[Lcom/android/systemui/statusbar/stack/AnimationFilter;
+
+    aget-object v6, v0, p2
+
+    move-object v1, p0
+
+    move-object v2, p1
+
+    move v3, p2
+
+    move-wide v4, p3
+
+    invoke-direct/range {v1 .. v6}, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout$AnimationEvent;-><init>(Landroid/view/View;IJLcom/android/systemui/statusbar/stack/AnimationFilter;)V
+
+    return-void
+.end method
+
+.method constructor <init>(Landroid/view/View;IJLcom/android/systemui/statusbar/stack/AnimationFilter;)V
     .locals 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -607,13 +617,31 @@
 
     iput p2, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout$AnimationEvent;->animationType:I
 
-    sget-object v0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout$AnimationEvent;->FILTERS:[Lcom/android/systemui/statusbar/stack/AnimationFilter;
-
-    aget-object v0, v0, p2
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout$AnimationEvent;->filter:Lcom/android/systemui/statusbar/stack/AnimationFilter;
-
     iput-wide p3, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout$AnimationEvent;->length:J
+
+    iput-object p5, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout$AnimationEvent;->filter:Lcom/android/systemui/statusbar/stack/AnimationFilter;
+
+    return-void
+.end method
+
+.method constructor <init>(Landroid/view/View;ILcom/android/systemui/statusbar/stack/AnimationFilter;)V
+    .locals 7
+
+    sget-object v0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout$AnimationEvent;->LENGTHS:[I
+
+    aget v0, v0, p2
+
+    int-to-long v4, v0
+
+    move-object v1, p0
+
+    move-object v2, p1
+
+    move v3, p2
+
+    move-object v6, p3
+
+    invoke-direct/range {v1 .. v6}, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout$AnimationEvent;-><init>(Landroid/view/View;IJLcom/android/systemui/statusbar/stack/AnimationFilter;)V
 
     return-void
 .end method

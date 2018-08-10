@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x11
+    accessFlags = 0x19
     name = "ActivityResolveInfo"
 .end annotation
 
@@ -30,20 +30,16 @@
 # instance fields
 .field public final resolveInfo:Landroid/content/pm/ResolveInfo;
 
-.field final synthetic this$0:Landroid/support/v7/widget/ActivityChooserModel;
-
 .field public weight:F
 
 
 # direct methods
-.method public constructor <init>(Landroid/support/v7/widget/ActivityChooserModel;Landroid/content/pm/ResolveInfo;)V
+.method public constructor <init>(Landroid/content/pm/ResolveInfo;)V
     .locals 0
-
-    iput-object p1, p0, Landroid/support/v7/widget/ActivityChooserModel$ActivityResolveInfo;->this$0:Landroid/support/v7/widget/ActivityChooserModel;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p2, p0, Landroid/support/v7/widget/ActivityChooserModel$ActivityResolveInfo;->resolveInfo:Landroid/content/pm/ResolveInfo;
+    iput-object p1, p0, Landroid/support/v7/widget/ActivityChooserModel$ActivityResolveInfo;->resolveInfo:Landroid/content/pm/ResolveInfo;
 
     return-void
 .end method

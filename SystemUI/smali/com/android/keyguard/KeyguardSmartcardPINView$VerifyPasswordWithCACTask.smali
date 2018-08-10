@@ -306,7 +306,7 @@
     packed-switch v0, :pswitch_data_0
 
     :pswitch_0
-    sget v0, Lcom/android/keyguard/R$string;->lockscreen_smartcard_internalerror:I
+    const v0, 0x7f12075f
 
     iput v0, p0, Lcom/android/keyguard/KeyguardSmartcardPINView$VerifyPasswordWithCACTask;->errorMsgId:I
 
@@ -335,35 +335,35 @@
     goto :goto_0
 
     :pswitch_2
-    sget v0, Lcom/android/keyguard/R$string;->lockscreen_smartcard_invalid_pin:I
+    const v0, 0x7f120760
 
     iput v0, p0, Lcom/android/keyguard/KeyguardSmartcardPINView$VerifyPasswordWithCACTask;->errorMsgId:I
 
     goto :goto_0
 
     :pswitch_3
-    sget v0, Lcom/android/keyguard/R$string;->lockscreen_smartcard_locked:I
+    const v0, 0x7f120761
 
     iput v0, p0, Lcom/android/keyguard/KeyguardSmartcardPINView$VerifyPasswordWithCACTask;->errorMsgId:I
 
     goto :goto_0
 
     :pswitch_4
-    sget v0, Lcom/android/keyguard/R$string;->lockscreen_smartcard_expired:I
+    const v0, 0x7f12075d
 
     iput v0, p0, Lcom/android/keyguard/KeyguardSmartcardPINView$VerifyPasswordWithCACTask;->errorMsgId:I
 
     goto :goto_0
 
     :pswitch_5
-    sget v0, Lcom/android/keyguard/R$string;->lockscreen_smartcard_connectionerror:I
+    const v0, 0x7f12075c
 
     iput v0, p0, Lcom/android/keyguard/KeyguardSmartcardPINView$VerifyPasswordWithCACTask;->errorMsgId:I
 
     goto :goto_0
 
     :pswitch_6
-    sget v0, Lcom/android/keyguard/R$string;->lockscreen_smartcard_wrong_card:I
+    const v0, 0x7f120762
 
     iput v0, p0, Lcom/android/keyguard/KeyguardSmartcardPINView$VerifyPasswordWithCACTask;->errorMsgId:I
 
@@ -433,9 +433,9 @@
 
     iget-object v0, v0, Lcom/android/keyguard/KeyguardSmartcardPINView;->mSecurityMessageDisplay:Lcom/android/keyguard/SecurityMessageDisplay;
 
-    sget v1, Lcom/android/keyguard/R$string;->lockscreen_smartcard_check_pin:I
+    const v1, 0x7f12075b
 
-    invoke-interface {v0, v1, v2}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(IZ)V
+    invoke-interface {v0, v1}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(I)V
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardSmartcardPINView$VerifyPasswordWithCACTask;->this$0:Lcom/android/keyguard/KeyguardSmartcardPINView;
 

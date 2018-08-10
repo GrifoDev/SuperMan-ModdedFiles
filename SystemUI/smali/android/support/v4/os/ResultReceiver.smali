@@ -7,6 +7,12 @@
 
 
 # annotations
+.annotation build Landroid/support/annotation/RestrictTo;
+    value = {
+        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/support/v4/os/ResultReceiver$1;,
@@ -90,6 +96,55 @@
     .locals 0
 
     return-void
+.end method
+
+.method public send(ILandroid/os/Bundle;)V
+    .locals 3
+
+    iget-boolean v1, p0, Landroid/support/v4/os/ResultReceiver;->mLocal:Z
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Landroid/support/v4/os/ResultReceiver;->mHandler:Landroid/os/Handler;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Landroid/support/v4/os/ResultReceiver;->mHandler:Landroid/os/Handler;
+
+    new-instance v2, Landroid/support/v4/os/ResultReceiver$MyRunnable;
+
+    invoke-direct {v2, p0, p1, p2}, Landroid/support/v4/os/ResultReceiver$MyRunnable;-><init>(Landroid/support/v4/os/ResultReceiver;ILandroid/os/Bundle;)V
+
+    invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    :goto_0
+    return-void
+
+    :cond_0
+    invoke-virtual {p0, p1, p2}, Landroid/support/v4/os/ResultReceiver;->onReceiveResult(ILandroid/os/Bundle;)V
+
+    goto :goto_0
+
+    :cond_1
+    iget-object v1, p0, Landroid/support/v4/os/ResultReceiver;->mReceiver:Landroid/support/v4/os/IResultReceiver;
+
+    if-eqz v1, :cond_2
+
+    :try_start_0
+    iget-object v1, p0, Landroid/support/v4/os/ResultReceiver;->mReceiver:Landroid/support/v4/os/IResultReceiver;
+
+    invoke-interface {v1, p1, p2}, Landroid/support/v4/os/IResultReceiver;->send(ILandroid/os/Bundle;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_2
+    :goto_1
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    goto :goto_1
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V

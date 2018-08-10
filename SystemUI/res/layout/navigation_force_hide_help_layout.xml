@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:scrollbarStyle="outsideOverlay" android:gravity="top" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:paddingTop="@dimen/navigation_force_immersive_help_dialog_margin_top" android:paddingBottom="@dimen/navigation_force_immersive_help_dialog_margin_bottom" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/navigation_force_immersive_help_dialog_margin_start" android:paddingEnd="@dimen/navigation_force_immersive_help_dialog_margin_end">
+        <TextView android:textAppearance="?android:textAppearance" android:id="@id/help_dialog_header" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="17.0dip" />
+        <LinearLayout android:orientation="vertical" android:id="@id/help_dialog_message" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="8.0dip" android:layout_marginStart="@dimen/navigation_force_immersive_help_dialog_message_margin_start" />
+        <TextView android:textAppearance="?android:textAppearance" android:id="@id/help_dialog_settings_path" android:layout_width="fill_parent" android:layout_height="wrap_content" android:lineSpacingExtra="4.0dip" />
+    </LinearLayout>
+</ScrollView>

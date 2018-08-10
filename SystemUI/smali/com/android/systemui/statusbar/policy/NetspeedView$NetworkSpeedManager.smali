@@ -1,5 +1,5 @@
-.class public Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;
-.super Ljava/lang/Object;
+.class Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;
+.super Ljava/util/Observable;
 .source "NetspeedView.java"
 
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x9
+    accessFlags = 0xa
     name = "NetworkSpeedManager"
 .end annotation
 
@@ -21,7 +21,7 @@
 
 
 # static fields
-.field private static mInstance:Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;
+.field private static volatile mInstance:Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;
 
 
 # instance fields
@@ -29,107 +29,30 @@
 
 .field private final UPDATE_DATA2:I
 
-.field private final UPDATE_VIEW:I
-
-.field private mAfterRxspd:D
-
-.field private mBeforeRxspd:D
-
 .field private mContext:Landroid/content/Context;
 
 .field private mHandler:Landroid/os/Handler;
 
-.field private mRxspd:D
-
-.field private observers:Ljava/util/ArrayList;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/ArrayList",
-            "<",
-            "Landroid/widget/TextView;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 
 # direct methods
-.method static synthetic -get0(Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;)D
-    .locals 2
+.method static synthetic -wrap0(Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;)V
+    .locals 0
 
-    iget-wide v0, p0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->mAfterRxspd:D
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->setChanged()V
 
-    return-wide v0
+    return-void
 .end method
 
-.method static synthetic -get1(Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;)D
-    .locals 2
-
-    iget-wide v0, p0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->mBeforeRxspd:D
-
-    return-wide v0
-.end method
-
-.method static synthetic -get2(Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;)D
-    .locals 2
-
-    iget-wide v0, p0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->mRxspd:D
-
-    return-wide v0
-.end method
-
-.method static synthetic -get3(Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;)Ljava/util/ArrayList;
+.method private constructor <init>(Landroid/content/Context;)V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->observers:Ljava/util/ArrayList;
-
-    return-object v0
-.end method
-
-.method static synthetic -set0(Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;D)D
-    .locals 1
-
-    iput-wide p1, p0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->mAfterRxspd:D
-
-    return-wide p1
-.end method
-
-.method static synthetic -set1(Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;D)D
-    .locals 1
-
-    iput-wide p1, p0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->mBeforeRxspd:D
-
-    return-wide p1
-.end method
-
-.method static synthetic -set2(Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;D)D
-    .locals 1
-
-    iput-wide p1, p0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->mRxspd:D
-
-    return-wide p1
-.end method
-
-.method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->observers:Ljava/util/ArrayList;
+    invoke-direct {p0}, Ljava/util/Observable;-><init>()V
 
     const/4 v0, 0x1
 
-    iput v0, p0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->UPDATE_VIEW:I
-
-    const/4 v0, 0x2
-
     iput v0, p0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->UPDATE_DATA1:I
 
-    const/4 v0, 0x3
+    const/4 v0, 0x2
 
     iput v0, p0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->UPDATE_DATA2:I
 
@@ -145,40 +68,57 @@
 .end method
 
 .method public static getInstance(Landroid/content/Context;)Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;
-    .locals 2
+    .locals 3
 
+    sget-object v0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->mInstance:Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;
+
+    if-nez v0, :cond_1
+
+    const-class v1, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;
+
+    monitor-enter v1
+
+    :try_start_0
     sget-object v0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->mInstance:Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;
 
     if-nez v0, :cond_0
 
     const-string/jumbo v0, "NetworkSpeedManager"
 
-    const-string/jumbo v1, "getInstance == null"
+    const-string/jumbo v2, "getInstance == null"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     new-instance v0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;
 
     invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;-><init>(Landroid/content/Context;)V
 
     sput-object v0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->mInstance:Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_0
+    monitor-exit v1
+
+    :cond_1
     sget-object v0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->mInstance:Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;
 
     return-object v0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
 
 # virtual methods
-.method public addObserver(Landroid/widget/TextView;)V
-    .locals 3
+.method public addObserver(Ljava/util/Observer;)V
+    .locals 2
 
-    const/4 v2, 0x0
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->observers:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->countObservers()I
 
     move-result v0
 
@@ -186,56 +126,26 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->mHandler:Landroid/os/Handler;
 
-    const/4 v1, 0x2
+    const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
     :cond_0
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->observers:Ljava/util/ArrayList;
-
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->observers:Ljava/util/ArrayList;
-
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    :cond_1
-    invoke-virtual {p1, v2}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-super {p0, p1}, Ljava/util/Observable;->addObserver(Ljava/util/Observer;)V
 
     return-void
 .end method
 
-.method public removeObserver(Landroid/widget/TextView;)V
+.method public deleteObserver(Ljava/util/Observer;)V
     .locals 2
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->observers:Ljava/util/ArrayList;
+    invoke-super {p0, p1}, Ljava/util/Observable;->deleteObserver(Ljava/util/Observer;)V
 
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->observers:Ljava/util/ArrayList;
-
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
-
-    :cond_0
-    const/16 v0, 0x8
-
-    invoke-virtual {p1, v0}, Landroid/widget/TextView;->setVisibility(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->observers:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->countObservers()I
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/NetspeedView$NetworkSpeedManager;->mHandler:Landroid/os/Handler;
 
@@ -243,6 +153,6 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
 
-    :cond_1
+    :cond_0
     return-void
 .end method

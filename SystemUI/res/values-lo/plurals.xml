@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">ລະຫັດ SIM PIN ບໍ່ຖືກຕ້ອງ, ທ່ານຍັງພະຍາຍາມໄດ້ອີກ %d ຄັ້ງ.</item>
+        <item quantity="one">ລະຫັດ PIN ຂອງ SIM ບໍ່ຖືກຕ້ອງ, ທ່ານສາມາດລອງໄດ້ອີກ %d ເທື່ອກ່ອນທີ່ທ່ານຈະຕ້ອງຕິດຕໍ່ຫາຜູ່ໃຫ້ບໍລິການຂອງທ່ານ ເພື່ອປົດລັອກອຸປະກອນຂອງທ່ານ.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">ລະຫັດ PUK ຂອງ SIM ບໍ່ຖືກຕ້ອງ, ທ່ານສາມາດລອງໄດ້ອີກ %d ເທື່ອກ່ອນທີ່ SIM ຂອງທ່ານຈະໃຊ້ບໍ່ໄດ້ຢ່າງຖາວອນ.</item>
+        <item quantity="one">ລະຫັດ PUK ຂອງ SIM ບໍ່ຖືກຕ້ອງ, ທ່ານສາມາດລອງໄດ້ອີກ %d ເທື່ອກ່ອນທີ່ SIM ຂອງທ່ານຈະໃຊ້ບໍ່ໄດ້ຢ່າງຖາວອນ.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">ອຸປະກອນບໍ່ໄດ້ຖືກປົດລັອກເປັນເວລາ %d ຊົ່ວໂມງ. ຢືນຢັນລະຫັດຜ່ານ.</item>
+        <item quantity="one">ອຸປະກອນບໍ່ໄດ້ຖືກປົດລັອກເປັນເວລາ %d ຊົ່ວໂມງ. ຢືນຢັນລະຫັດຜ່ານ.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">ອຸປະກອນບໍ່ໄດ້ຖືກປົດລັອກເປັນເວລາ %d ຊົ່ວໂມງ. ຢືນຢັນແບບຮູບ.</item>
+        <item quantity="one">ອຸປະກອນບໍ່ໄດ້ຖືກປົດລັອກເປັນເວລາ %d ຊົ່ວໂມງ. ຢືນຢັນແບບຮູບ.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">ອຸປະກອນບໍ່ໄດ້ຖືກປົດລັອກເປັນເວລາ %d ຊົ່ວໂມງ. ຢືນຢັນ PIN</item>
+        <item quantity="one">ອຸປະກອນບໍ່ໄດ້ຖືກປົດລັອກເປັນເວລາ %d ຊົ່ວໂມງ. ຢືນຢັນ PIN</item>
+    </plurals>
+    <plurals name="notification_channels_list_desc_2_and_others">
+        <item quantity="other">%1$s, %2$s ແລະ ອີກ %3$d ຊ່ອງອື່ນໆ</item>
+        <item quantity="one">%1$s, %2$s ແລະ ອີກ %3$d ຊ່ອງອື່ນໆ</item>
+    </plurals>
+    <plurals name="notification_num_channels_desc">
+        <item quantity="other">1 ຈາກທັງໝົດ %d ໝວດໝູ່ການແຈ້ງເຕືອນຈາກແອັບນີ້</item>
+        <item quantity="one">1 ຈາກທັງໝົດ %d ໝວດໝູ່ການແຈ້ງເຕືອນຈາກແອັບນີ້</item>
+    </plurals>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">%d ໜ້າ​ຈໍ​ຢູ່​ໃນ​ພາບ​ລວມ</item>
+        <item quantity="one">1 ​ໜ້າ​ຈໍ​ຢູ່​ໃນ​ພາບ​ລວມ</item>
+    </plurals>
+    <plurals name="notification_group_overflow_description">
+        <item quantity="other">ມີ %s ການແຈ້ງເຕືອນເພີ່ມເຕີມຢູ່ທາງໃນ.</item>
+        <item quantity="one">ມີ %s ການແຈ້ງເຕືອນເພີ່ມເຕີມຢູ່ທາງໃນ.</item>
+    </plurals>
+</resources>

@@ -4,8 +4,6 @@
 
 
 # instance fields
-.field private mBatteryLevel:I
-
 .field private final mBottomLabels:[Landroid/widget/TextView;
 
 .field private final mLabels:[Landroid/widget/TextView;
@@ -15,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 12
+    .locals 11
 
     invoke-direct {p0, p1, p2}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
@@ -253,48 +251,32 @@
 
     invoke-virtual {p0, v8}, Lcom/android/settingslib/graph/UsageView;->findViewById(I)Landroid/view/View;
 
+    move-result-object v1
+
+    check-cast v1, Landroid/widget/LinearLayout;
+
+    sget v8, Lcom/android/settingslib/R$id;->bottom_label_space:I
+
+    invoke-virtual {v1, v8}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
+
     move-result-object v2
 
-    check-cast v2, Landroid/widget/LinearLayout;
+    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->removeView(Landroid/view/View;)V
 
-    invoke-virtual {v2}, Landroid/widget/LinearLayout;->getPaddingRight()I
+    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    move-result v8
+    :cond_4
+    iget-object v8, p0, Lcom/android/settingslib/graph/UsageView;->mUsageGraph:Lcom/android/settingslib/graph/UsageGraph;
 
-    invoke-virtual {v2}, Landroid/widget/LinearLayout;->getPaddingTop()I
+    sget v9, Lcom/android/settingslib/R$styleable;->UsageView_android_colorAccent:I
+
+    const/4 v10, 0x0
+
+    invoke-virtual {v0, v9, v10}, Landroid/content/res/TypedArray;->getColor(II)I
 
     move-result v9
 
-    invoke-virtual {v2}, Landroid/widget/LinearLayout;->getPaddingLeft()I
-
-    move-result v10
-
-    invoke-virtual {v2}, Landroid/widget/LinearLayout;->getPaddingBottom()I
-
-    move-result v11
-
-    invoke-virtual {v2, v8, v9, v10, v11}, Landroid/widget/LinearLayout;->setPadding(IIII)V
-
-    :cond_4
-    new-instance v8, Landroid/content/IntentFilter;
-
-    const-string/jumbo v9, "android.intent.action.BATTERY_CHANGED"
-
-    invoke-direct {v8, v9}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
-
-    const/4 v9, 0x0
-
-    invoke-virtual {p1, v9, v8}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/android/settingslib/Utils;->getBatteryLevel(Landroid/content/Intent;)I
-
-    move-result v8
-
-    iput v8, p0, Lcom/android/settingslib/graph/UsageView;->mBatteryLevel:I
-
-    invoke-direct {p0}, Lcom/android/settingslib/graph/UsageView;->setBatteryGraphColor()V
+    invoke-virtual {v8, v9}, Lcom/android/settingslib/graph/UsageGraph;->setAccentColor(I)V
 
     return-void
 
@@ -326,49 +308,6 @@
     invoke-direct {v8, v9}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v8
-.end method
-
-.method private setBatteryGraphColor()V
-    .locals 2
-
-    iget v0, p0, Lcom/android/settingslib/graph/UsageView;->mBatteryLevel:I
-
-    const/16 v1, 0xa
-
-    if-gt v0, v1, :cond_0
-
-    iget-object v0, p0, Lcom/android/settingslib/graph/UsageView;->mUsageGraph:Lcom/android/settingslib/graph/UsageGraph;
-
-    const v1, -0x11aafd
-
-    invoke-virtual {v0, v1}, Lcom/android/settingslib/graph/UsageGraph;->setAccentColor(I)V
-
-    :goto_0
-    return-void
-
-    :cond_0
-    iget v0, p0, Lcom/android/settingslib/graph/UsageView;->mBatteryLevel:I
-
-    const/16 v1, 0x14
-
-    if-gt v0, v1, :cond_1
-
-    iget-object v0, p0, Lcom/android/settingslib/graph/UsageView;->mUsageGraph:Lcom/android/settingslib/graph/UsageGraph;
-
-    const v1, -0x282829
-
-    invoke-virtual {v0, v1}, Lcom/android/settingslib/graph/UsageGraph;->setAccentColor(I)V
-
-    goto :goto_0
-
-    :cond_1
-    iget-object v0, p0, Lcom/android/settingslib/graph/UsageView;->mUsageGraph:Lcom/android/settingslib/graph/UsageGraph;
-
-    const v1, -0xa143c3
-
-    invoke-virtual {v0, v1}, Lcom/android/settingslib/graph/UsageGraph;->setAccentColor(I)V
-
-    goto :goto_0
 .end method
 
 

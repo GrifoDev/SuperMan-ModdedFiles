@@ -64,5 +64,11 @@
     invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/TransformableView;->setVisible(Z)V
 
     :cond_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationContentView$2;->this$0:Lcom/android/systemui/statusbar/NotificationContentView;
+
+    const/4 v1, -0x1
+
+    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/NotificationContentView;->-set1(Lcom/android/systemui/statusbar/NotificationContentView;I)I
+
     return-void
 .end method

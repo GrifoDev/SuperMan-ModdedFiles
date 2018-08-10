@@ -63,13 +63,13 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d022a
+    const v3, 0x7f0704ec
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    const v3, 0x7f0d022b
+    const v3, 0x7f0704eb
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -95,7 +95,7 @@
 
     new-instance v3, Landroid/graphics/PorterDuffColorFilter;
 
-    const v4, 0x7f0b00b4
+    const v4, 0x7f060173
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -109,7 +109,7 @@
 
     new-instance v3, Landroid/graphics/PorterDuffColorFilter;
 
-    const v4, 0x7f0b00b5
+    const v4, 0x7f060174
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getColor(I)I
 

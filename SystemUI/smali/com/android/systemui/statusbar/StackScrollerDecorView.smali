@@ -134,6 +134,24 @@
     return v0
 .end method
 
+.method public isVisible()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/StackScrollerDecorView;->mIsVisible:Z
+
+    if-nez v0, :cond_0
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/StackScrollerDecorView;->mAnimating:Z
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x1
+
+    goto :goto_0
+.end method
+
 .method protected onFinishInflate()V
     .locals 1
 

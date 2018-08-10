@@ -3,7 +3,7 @@
 .source "KeyguardStatusView.java"
 
 # interfaces
-.implements Lcom/android/keyguard/servicebox/KeyguardStatusBase;
+.implements Lcom/android/systemui/servicebox/KeyguardStatusBase;
 
 
 # annotations
@@ -20,15 +20,25 @@
 
 .field private mAlarmStatusView:Landroid/widget/TextView;
 
+.field private mBatteryDoze:Lcom/android/systemui/ChargingView;
+
+.field private mClockContainer:Landroid/view/ViewGroup;
+
 .field private mClockView:Landroid/widget/TextClock;
 
-.field private mDateView:Landroid/widget/TextClock;
+.field private mDark:Z
+
+.field private mDateView:Lcom/android/systemui/statusbar/policy/DateView;
 
 .field private mInfoCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 
 .field private final mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
 .field private mOwnerInfo:Landroid/widget/TextView;
+
+.field private mPulsing:Z
+
+.field private mVisibleInDoze:[Landroid/view/View;
 
 
 # direct methods
@@ -300,6 +310,50 @@
     goto :goto_0
 .end method
 
+.method private updateDozeVisibleViews()V
+    .locals 5
+
+    iget-object v3, p0, Lcom/android/keyguard/KeyguardStatusView;->mVisibleInDoze:[Landroid/view/View;
+
+    const/4 v1, 0x0
+
+    array-length v4, v3
+
+    move v2, v1
+
+    :goto_0
+    if-ge v2, v4, :cond_1
+
+    aget-object v0, v3, v2
+
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardStatusView;->mDark:Z
+
+    if-eqz v1, :cond_0
+
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardStatusView;->mPulsing:Z
+
+    if-eqz v1, :cond_0
+
+    const v1, 0x3f4ccccd    # 0.8f
+
+    :goto_1
+    invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
+
+    add-int/lit8 v1, v2, 0x1
+
+    move v2, v1
+
+    goto :goto_0
+
+    :cond_0
+    const/high16 v1, 0x3f800000    # 1.0f
+
+    goto :goto_1
+
+    :cond_1
+    return-void
+.end method
+
 .method private updateOwnerInfo()V
     .locals 3
 
@@ -345,7 +399,39 @@
 
 
 # virtual methods
+.method public getClockBottom()I
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardStatusView;->mClockView:Landroid/widget/TextClock;
+
+    invoke-virtual {v0}, Landroid/widget/TextClock;->getBottom()I
+
+    move-result v1
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardStatusView;->mClockView:Landroid/widget/TextClock;
+
+    invoke-virtual {v0}, Landroid/widget/TextClock;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/ViewGroup$MarginLayoutParams;
+
+    iget v0, v0, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
+
+    add-int/2addr v0, v1
+
+    return v0
+.end method
+
 .method public hasOverlappingRendering()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public isPagedViewEnabled()Z
     .locals 1
 
     const/4 v0, 0x0
@@ -372,60 +458,87 @@
 .end method
 
 .method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .locals 4
+    .locals 6
 
-    const/4 v3, 0x0
+    const v5, 0x7f070718
+
+    const/4 v4, 0x0
 
     invoke-super {p0, p1}, Landroid/widget/GridLayout;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardStatusView;->mClockView:Landroid/widget/TextClock;
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardStatusView;->mClockView:Landroid/widget/TextClock;
+
+    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardStatusView;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f070717
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v2
+
+    int-to-float v2, v2
+
+    invoke-virtual {v1, v4, v2}, Landroid/widget/TextClock;->setTextSize(IF)V
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardStatusView;->mClockView:Landroid/widget/TextClock;
+
+    invoke-virtual {v1}, Landroid/widget/TextClock;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/ViewGroup$MarginLayoutParams;
 
     invoke-virtual {p0}, Lcom/android/keyguard/KeyguardStatusView;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    sget v2, Lcom/android/keyguard/R$dimen;->widget_big_font_size:I
+    const v2, 0x7f0700a1
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    int-to-float v1, v1
+    iput v1, v0, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
 
-    invoke-virtual {v0, v3, v1}, Landroid/widget/TextClock;->setTextSize(IF)V
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardStatusView;->mClockView:Landroid/widget/TextClock;
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardStatusView;->mDateView:Landroid/widget/TextClock;
+    invoke-virtual {v1, v0}, Landroid/widget/TextClock;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardStatusView;->mDateView:Lcom/android/systemui/statusbar/policy/DateView;
 
     invoke-virtual {p0}, Lcom/android/keyguard/KeyguardStatusView;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v1
+    move-result-object v2
 
-    sget v2, Lcom/android/keyguard/R$dimen;->widget_label_font_size:I
+    invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    move-result v2
 
-    move-result v1
+    int-to-float v2, v2
 
-    int-to-float v1, v1
+    invoke-virtual {v1, v4, v2}, Lcom/android/systemui/statusbar/policy/DateView;->setTextSize(IF)V
 
-    invoke-virtual {v0, v3, v1}, Landroid/widget/TextClock;->setTextSize(IF)V
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardStatusView;->mOwnerInfo:Landroid/widget/TextView;
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardStatusView;->mOwnerInfo:Landroid/widget/TextView;
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardStatusView;->mOwnerInfo:Landroid/widget/TextView;
 
     invoke-virtual {p0}, Lcom/android/keyguard/KeyguardStatusView;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v1
+    move-result-object v2
 
-    sget v2, Lcom/android/keyguard/R$dimen;->widget_label_font_size:I
+    invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    move-result v2
 
-    move-result v1
+    int-to-float v2, v2
 
-    int-to-float v1, v1
+    invoke-virtual {v1, v4, v2}, Landroid/widget/TextView;->setTextSize(IF)V
 
-    invoke-virtual {v0, v3, v1}, Landroid/widget/TextView;->setTextSize(IF)V
-
+    :cond_0
     return-void
 .end method
 
@@ -454,17 +567,25 @@
 .end method
 
 .method protected onFinishInflate()V
-    .locals 3
+    .locals 6
 
-    const/4 v2, 0x1
+    const/4 v5, 0x1
+
+    const/4 v4, 0x0
 
     invoke-super {p0}, Landroid/widget/GridLayout;->onFinishInflate()V
 
-    const/16 v1, 0x8
+    const v1, 0x7f0a0263
 
-    invoke-virtual {p0, v1}, Lcom/android/keyguard/KeyguardStatusView;->setVisibility(I)V
+    invoke-virtual {p0, v1}, Lcom/android/keyguard/KeyguardStatusView;->findViewById(I)Landroid/view/View;
 
-    sget v1, Lcom/android/keyguard/R$id;->alarm_status:I
+    move-result-object v1
+
+    check-cast v1, Landroid/view/ViewGroup;
+
+    iput-object v1, p0, Lcom/android/keyguard/KeyguardStatusView;->mClockContainer:Landroid/view/ViewGroup;
+
+    const v1, 0x7f0a0039
 
     invoke-virtual {p0, v1}, Lcom/android/keyguard/KeyguardStatusView;->findViewById(I)Landroid/view/View;
 
@@ -474,17 +595,17 @@
 
     iput-object v1, p0, Lcom/android/keyguard/KeyguardStatusView;->mAlarmStatusView:Landroid/widget/TextView;
 
-    sget v1, Lcom/android/keyguard/R$id;->date_view:I
+    const v1, 0x7f0a0143
 
     invoke-virtual {p0, v1}, Lcom/android/keyguard/KeyguardStatusView;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
-    check-cast v1, Landroid/widget/TextClock;
+    check-cast v1, Lcom/android/systemui/statusbar/policy/DateView;
 
-    iput-object v1, p0, Lcom/android/keyguard/KeyguardStatusView;->mDateView:Landroid/widget/TextClock;
+    iput-object v1, p0, Lcom/android/keyguard/KeyguardStatusView;->mDateView:Lcom/android/systemui/statusbar/policy/DateView;
 
-    sget v1, Lcom/android/keyguard/R$id;->clock_view:I
+    const v1, 0x7f0a00e7
 
     invoke-virtual {p0, v1}, Lcom/android/keyguard/KeyguardStatusView;->findViewById(I)Landroid/view/View;
 
@@ -494,15 +615,21 @@
 
     iput-object v1, p0, Lcom/android/keyguard/KeyguardStatusView;->mClockView:Landroid/widget/TextClock;
 
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardStatusView;->mDateView:Landroid/widget/TextClock;
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardStatusView;->mClockView:Landroid/widget/TextClock;
 
-    invoke-virtual {v1, v2}, Landroid/widget/TextClock;->setShowCurrentUserTime(Z)V
+    invoke-virtual {v1, v5}, Landroid/widget/TextClock;->setShowCurrentUserTime(Z)V
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardStatusView;->mClockView:Landroid/widget/TextClock;
 
-    invoke-virtual {v1, v2}, Landroid/widget/TextClock;->setShowCurrentUserTime(Z)V
+    new-instance v2, Lcom/android/keyguard/KeyguardClockAccessibilityDelegate;
 
-    sget v1, Lcom/android/keyguard/R$id;->owner_info:I
+    iget-object v3, p0, Lcom/android/keyguard/KeyguardStatusView;->mContext:Landroid/content/Context;
+
+    invoke-direct {v2, v3}, Lcom/android/keyguard/KeyguardClockAccessibilityDelegate;-><init>(Landroid/content/Context;)V
+
+    invoke-virtual {v1, v2}, Landroid/widget/TextClock;->setAccessibilityDelegate(Landroid/view/View$AccessibilityDelegate;)V
+
+    const v1, 0x7f0a03ba
 
     invoke-virtual {p0, v1}, Lcom/android/keyguard/KeyguardStatusView;->findViewById(I)Landroid/view/View;
 
@@ -511,6 +638,30 @@
     check-cast v1, Landroid/widget/TextView;
 
     iput-object v1, p0, Lcom/android/keyguard/KeyguardStatusView;->mOwnerInfo:Landroid/widget/TextView;
+
+    const v1, 0x7f0a007e
+
+    invoke-virtual {p0, v1}, Lcom/android/keyguard/KeyguardStatusView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/ChargingView;
+
+    iput-object v1, p0, Lcom/android/keyguard/KeyguardStatusView;->mBatteryDoze:Lcom/android/systemui/ChargingView;
+
+    const/4 v1, 0x2
+
+    new-array v1, v1, [Landroid/view/View;
+
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardStatusView;->mBatteryDoze:Lcom/android/systemui/ChargingView;
+
+    aput-object v2, v1, v4
+
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardStatusView;->mClockView:Landroid/widget/TextClock;
+
+    aput-object v2, v1, v5
+
+    iput-object v1, p0, Lcom/android/keyguard/KeyguardStatusView;->mVisibleInDoze:[Landroid/view/View;
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardStatusView;->mContext:Landroid/content/Context;
 
@@ -530,9 +681,7 @@
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardStatusView;->mClockView:Landroid/widget/TextClock;
 
-    const/4 v2, 0x0
-
-    invoke-virtual {v1, v2}, Landroid/widget/TextClock;->setElegantTextHeight(Z)V
+    invoke-virtual {v1, v4}, Landroid/widget/TextClock;->setElegantTextHeight(Z)V
 
     return-void
 .end method
@@ -560,15 +709,15 @@
 
     move-result-object v2
 
-    sget v3, Lcom/android/keyguard/R$string;->keyguard_accessibility_next_alarm:I
+    const/4 v3, 0x1
 
-    const/4 v4, 0x1
+    new-array v3, v3, [Ljava/lang/Object;
 
-    new-array v4, v4, [Ljava/lang/Object;
+    aput-object v0, v3, v5
 
-    aput-object v0, v4, v5
+    const v4, 0x7f12046a
 
-    invoke-virtual {v2, v3, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v2, v4, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v2
 
@@ -594,17 +743,11 @@
 .method public refreshTime()V
     .locals 2
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardStatusView;->mDateView:Landroid/widget/TextClock;
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardStatusView;->mDateView:Lcom/android/systemui/statusbar/policy/DateView;
 
-    sget-object v1, Lcom/android/keyguard/KeyguardStatusView$Patterns;->dateView:Ljava/lang/String;
+    sget-object v1, Lcom/android/keyguard/KeyguardStatusView$Patterns;->dateViewSkel:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextClock;->setFormat24Hour(Ljava/lang/CharSequence;)V
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardStatusView;->mDateView:Landroid/widget/TextClock;
-
-    sget-object v1, Lcom/android/keyguard/KeyguardStatusView$Patterns;->dateView:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextClock;->setFormat12Hour(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/policy/DateView;->setDatePattern(Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardStatusView;->mClockView:Landroid/widget/TextClock;
 
@@ -621,13 +764,98 @@
     return-void
 .end method
 
-.method public setCoverState(Z)V
+.method public setDark(Z)V
+    .locals 4
+
+    iget-boolean v3, p0, Lcom/android/keyguard/KeyguardStatusView;->mDark:Z
+
+    if-ne v3, p1, :cond_0
+
+    return-void
+
+    :cond_0
+    iput-boolean p1, p0, Lcom/android/keyguard/KeyguardStatusView;->mDark:Z
+
+    iget-object v3, p0, Lcom/android/keyguard/KeyguardStatusView;->mClockContainer:Landroid/view/ViewGroup;
+
+    invoke-virtual {v3}, Landroid/view/ViewGroup;->getChildCount()I
+
+    move-result v0
+
+    const/4 v2, 0x0
+
+    :goto_0
+    if-ge v2, v0, :cond_3
+
+    iget-object v3, p0, Lcom/android/keyguard/KeyguardStatusView;->mClockContainer:Landroid/view/ViewGroup;
+
+    invoke-virtual {v3, v2}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v1
+
+    iget-object v3, p0, Lcom/android/keyguard/KeyguardStatusView;->mVisibleInDoze:[Landroid/view/View;
+
+    invoke-static {v3, v1}, Lcom/android/internal/util/ArrayUtils;->contains([Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    :goto_1
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    if-eqz p1, :cond_2
+
+    const/4 v3, 0x0
+
+    :goto_2
+    int-to-float v3, v3
+
+    invoke-virtual {v1, v3}, Landroid/view/View;->setAlpha(F)V
+
+    goto :goto_1
+
+    :cond_2
+    const/4 v3, 0x1
+
+    goto :goto_2
+
+    :cond_3
+    invoke-direct {p0}, Lcom/android/keyguard/KeyguardStatusView;->updateDozeVisibleViews()V
+
+    iget-object v3, p0, Lcom/android/keyguard/KeyguardStatusView;->mBatteryDoze:Lcom/android/systemui/ChargingView;
+
+    invoke-virtual {v3, p1}, Lcom/android/systemui/ChargingView;->setDark(Z)V
+
+    return-void
+.end method
+
+.method public setExpandState(Z)V
     .locals 0
 
     return-void
 .end method
 
-.method public showServiceBox(Ljava/lang/String;)V
+.method public setPulsing(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/keyguard/KeyguardStatusView;->mPulsing:Z
+
+    invoke-direct {p0}, Lcom/android/keyguard/KeyguardStatusView;->updateDozeVisibleViews()V
+
+    return-void
+.end method
+
+.method public setStatusCallback(Lcom/android/systemui/servicebox/KeyguardStatusCallback;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public showServiceBox(Ljava/lang/String;Z)V
     .locals 0
 
     return-void

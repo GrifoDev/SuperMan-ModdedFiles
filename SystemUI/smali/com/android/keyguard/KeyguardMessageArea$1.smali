@@ -41,11 +41,11 @@
 
     const/4 v1, 0x0
 
-    iput-object v1, v0, Lcom/android/keyguard/KeyguardMessageArea;->mMessage:Ljava/lang/CharSequence;
+    invoke-static {v0, v1}, Lcom/android/keyguard/KeyguardMessageArea;->-set2(Lcom/android/keyguard/KeyguardMessageArea;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardMessageArea$1;->this$0:Lcom/android/keyguard/KeyguardMessageArea;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardMessageArea;->-wrap0(Lcom/android/keyguard/KeyguardMessageArea;)V
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardMessageArea;->-wrap1(Lcom/android/keyguard/KeyguardMessageArea;)V
 
     return-void
 .end method

@@ -40,6 +40,17 @@
 
 .field mItemViewType:I
 
+.field mNestedRecyclerView:Ljava/lang/ref/WeakReference;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/lang/ref/WeakReference",
+            "<",
+            "Landroid/support/v7/widget/RecyclerView;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field mOldPosition:I
 
 .field mOwnerRecyclerView:Landroid/support/v7/widget/RecyclerView;
@@ -52,6 +63,11 @@
             "Ljava/lang/Object;",
             ">;"
         }
+    .end annotation
+.end field
+
+.field mPendingAccessibilityState:I
+    .annotation build Landroid/support/annotation/VisibleForTesting;
     .end annotation
 .end field
 
@@ -132,18 +148,18 @@
     return v0
 .end method
 
-.method static synthetic -wrap2(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
+.method static synthetic -wrap2(Landroid/support/v7/widget/RecyclerView$ViewHolder;Landroid/support/v7/widget/RecyclerView;)V
     .locals 0
 
-    invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$ViewHolder;->onEnteredHiddenState()V
+    invoke-direct {p0, p1}, Landroid/support/v7/widget/RecyclerView$ViewHolder;->onEnteredHiddenState(Landroid/support/v7/widget/RecyclerView;)V
 
     return-void
 .end method
 
-.method static synthetic -wrap3(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
+.method static synthetic -wrap3(Landroid/support/v7/widget/RecyclerView$ViewHolder;Landroid/support/v7/widget/RecyclerView;)V
     .locals 0
 
-    invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$ViewHolder;->onLeftHiddenState()V
+    invoke-direct {p0, p1}, Landroid/support/v7/widget/RecyclerView$ViewHolder;->onLeftHiddenState(Landroid/support/v7/widget/RecyclerView;)V
 
     return-void
 .end method
@@ -196,6 +212,8 @@
     iput-boolean v4, p0, Landroid/support/v7/widget/RecyclerView$ViewHolder;->mInChangeScrap:Z
 
     iput v4, p0, Landroid/support/v7/widget/RecyclerView$ViewHolder;->mWasImportantForAccessibilityBeforeHidden:I
+
+    iput v3, p0, Landroid/support/v7/widget/RecyclerView$ViewHolder;->mPendingAccessibilityState:I
 
     if-nez p1, :cond_0
 
@@ -259,8 +277,8 @@
     return v0
 .end method
 
-.method private onEnteredHiddenState()V
-    .locals 2
+.method private onEnteredHiddenState(Landroid/support/v7/widget/RecyclerView;)V
+    .locals 1
 
     iget-object v0, p0, Landroid/support/v7/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
@@ -270,23 +288,19 @@
 
     iput v0, p0, Landroid/support/v7/widget/RecyclerView$ViewHolder;->mWasImportantForAccessibilityBeforeHidden:I
 
-    iget-object v0, p0, Landroid/support/v7/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
+    const/4 v0, 0x4
 
-    const/4 v1, 0x4
-
-    invoke-static {v0, v1}, Landroid/support/v4/view/ViewCompat;->setImportantForAccessibility(Landroid/view/View;I)V
+    invoke-virtual {p1, p0, v0}, Landroid/support/v7/widget/RecyclerView;->setChildImportantForAccessibilityInternal(Landroid/support/v7/widget/RecyclerView$ViewHolder;I)Z
 
     return-void
 .end method
 
-.method private onLeftHiddenState()V
-    .locals 2
+.method private onLeftHiddenState(Landroid/support/v7/widget/RecyclerView;)V
+    .locals 1
 
-    iget-object v0, p0, Landroid/support/v7/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
+    iget v0, p0, Landroid/support/v7/widget/RecyclerView$ViewHolder;->mWasImportantForAccessibilityBeforeHidden:I
 
-    iget v1, p0, Landroid/support/v7/widget/RecyclerView$ViewHolder;->mWasImportantForAccessibilityBeforeHidden:I
-
-    invoke-static {v0, v1}, Landroid/support/v4/view/ViewCompat;->setImportantForAccessibility(Landroid/view/View;I)V
+    invoke-virtual {p1, p0, v0}, Landroid/support/v7/widget/RecyclerView;->setChildImportantForAccessibilityInternal(Landroid/support/v7/widget/RecyclerView$ViewHolder;I)Z
 
     const/4 v0, 0x0
 
@@ -440,7 +454,7 @@
     :cond_0
     iget-object v0, p0, Landroid/support/v7/widget/RecyclerView$ViewHolder;->mOwnerRecyclerView:Landroid/support/v7/widget/RecyclerView;
 
-    invoke-static {v0, p0}, Landroid/support/v7/widget/RecyclerView;->-wrap3(Landroid/support/v7/widget/RecyclerView;Landroid/support/v7/widget/RecyclerView$ViewHolder;)I
+    invoke-virtual {v0, p0}, Landroid/support/v7/widget/RecyclerView;->getAdapterPositionFor(Landroid/support/v7/widget/RecyclerView$ViewHolder;)I
 
     move-result v0
 
@@ -643,22 +657,16 @@
 
     if-nez v1, :cond_0
 
-    iget-object v1, p0, Landroid/support/v7/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
+    iget-object v0, p0, Landroid/support/v7/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    invoke-static {v1}, Landroid/support/v4/view/ViewCompat;->hasTransientState(Landroid/view/View;)Z
+    invoke-static {v0}, Landroid/support/v4/view/ViewCompat;->hasTransientState(Landroid/view/View;)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
     :cond_0
-    :goto_0
     return v0
-
-    :cond_1
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method isRemoved()Z
@@ -839,6 +847,10 @@
     invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView$ViewHolder;->clearPayload()V
 
     iput v3, p0, Landroid/support/v7/widget/RecyclerView$ViewHolder;->mWasImportantForAccessibilityBeforeHidden:I
+
+    iput v2, p0, Landroid/support/v7/widget/RecyclerView$ViewHolder;->mPendingAccessibilityState:I
+
+    invoke-static {p0}, Landroid/support/v7/widget/RecyclerView;->clearNestedRecyclerViewIfNotNested(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
 
     return-void
 .end method

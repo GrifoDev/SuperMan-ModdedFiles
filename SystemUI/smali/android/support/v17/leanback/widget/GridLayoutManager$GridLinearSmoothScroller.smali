@@ -24,9 +24,7 @@
 
     iput-object p1, p0, Landroid/support/v17/leanback/widget/GridLayoutManager$GridLinearSmoothScroller;->this$0:Landroid/support/v17/leanback/widget/GridLayoutManager;
 
-    invoke-static {p1}, Landroid/support/v17/leanback/widget/GridLayoutManager;->-get0(Landroid/support/v17/leanback/widget/GridLayoutManager;)Landroid/support/v17/leanback/widget/BaseGridView;
-
-    move-result-object v0
+    iget-object v0, p1, Landroid/support/v17/leanback/widget/GridLayoutManager;->mBaseGridView:Landroid/support/v17/leanback/widget/BaseGridView;
 
     invoke-virtual {v0}, Landroid/support/v17/leanback/widget/BaseGridView;->getContext()Landroid/content/Context;
 
@@ -48,9 +46,7 @@
 
     iget-object v2, p0, Landroid/support/v17/leanback/widget/GridLayoutManager$GridLinearSmoothScroller;->this$0:Landroid/support/v17/leanback/widget/GridLayoutManager;
 
-    invoke-static {v2}, Landroid/support/v17/leanback/widget/GridLayoutManager;->-get15(Landroid/support/v17/leanback/widget/GridLayoutManager;)Landroid/support/v17/leanback/widget/WindowAlignment;
-
-    move-result-object v2
+    iget-object v2, v2, Landroid/support/v17/leanback/widget/GridLayoutManager;->mWindowAlignment:Landroid/support/v17/leanback/widget/WindowAlignment;
 
     invoke-virtual {v2}, Landroid/support/v17/leanback/widget/WindowAlignment;->mainAxis()Landroid/support/v17/leanback/widget/WindowAlignment$Axis;
 
@@ -64,9 +60,7 @@
 
     iget-object v2, p0, Landroid/support/v17/leanback/widget/GridLayoutManager$GridLinearSmoothScroller;->this$0:Landroid/support/v17/leanback/widget/GridLayoutManager;
 
-    invoke-static {v2}, Landroid/support/v17/leanback/widget/GridLayoutManager;->-get15(Landroid/support/v17/leanback/widget/GridLayoutManager;)Landroid/support/v17/leanback/widget/WindowAlignment;
-
-    move-result-object v2
+    iget-object v2, v2, Landroid/support/v17/leanback/widget/GridLayoutManager;->mWindowAlignment:Landroid/support/v17/leanback/widget/WindowAlignment;
 
     invoke-virtual {v2}, Landroid/support/v17/leanback/widget/WindowAlignment;->mainAxis()Landroid/support/v17/leanback/widget/WindowAlignment$Axis;
 
@@ -125,7 +119,7 @@
 
     move-result v2
 
-    invoke-static {v1, v2, v3, v3, v3}, Landroid/support/v17/leanback/widget/GridLayoutManager;->-wrap13(Landroid/support/v17/leanback/widget/GridLayoutManager;IIZI)V
+    invoke-virtual {v1, v2, v3, v3, v3}, Landroid/support/v17/leanback/widget/GridLayoutManager;->scrollToSelection(IIZI)V
 
     :cond_0
     invoke-super {p0}, Landroid/support/v7/widget/LinearSmoothScroller;->onStop()V
@@ -135,28 +129,51 @@
     :cond_1
     iget-object v1, p0, Landroid/support/v17/leanback/widget/GridLayoutManager$GridLinearSmoothScroller;->this$0:Landroid/support/v17/leanback/widget/GridLayoutManager;
 
+    iget v1, v1, Landroid/support/v17/leanback/widget/GridLayoutManager;->mFocusPosition:I
+
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/GridLayoutManager$GridLinearSmoothScroller;->getTargetPosition()I
+
+    move-result v2
+
+    if-eq v1, v2, :cond_2
+
+    iget-object v1, p0, Landroid/support/v17/leanback/widget/GridLayoutManager$GridLinearSmoothScroller;->this$0:Landroid/support/v17/leanback/widget/GridLayoutManager;
+
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/GridLayoutManager$GridLinearSmoothScroller;->getTargetPosition()I
+
+    move-result v2
+
+    iput v2, v1, Landroid/support/v17/leanback/widget/GridLayoutManager;->mFocusPosition:I
+
+    :cond_2
+    iget-object v1, p0, Landroid/support/v17/leanback/widget/GridLayoutManager$GridLinearSmoothScroller;->this$0:Landroid/support/v17/leanback/widget/GridLayoutManager;
+
     invoke-virtual {v1}, Landroid/support/v17/leanback/widget/GridLayoutManager;->hasFocus()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3
 
     iget-object v1, p0, Landroid/support/v17/leanback/widget/GridLayoutManager$GridLinearSmoothScroller;->this$0:Landroid/support/v17/leanback/widget/GridLayoutManager;
 
     const/4 v2, 0x1
 
-    invoke-static {v1, v2}, Landroid/support/v17/leanback/widget/GridLayoutManager;->-set2(Landroid/support/v17/leanback/widget/GridLayoutManager;Z)Z
+    iput-boolean v2, v1, Landroid/support/v17/leanback/widget/GridLayoutManager;->mInSelection:Z
 
     invoke-virtual {v0}, Landroid/view/View;->requestFocus()Z
 
     iget-object v1, p0, Landroid/support/v17/leanback/widget/GridLayoutManager$GridLinearSmoothScroller;->this$0:Landroid/support/v17/leanback/widget/GridLayoutManager;
 
-    invoke-static {v1, v3}, Landroid/support/v17/leanback/widget/GridLayoutManager;->-set2(Landroid/support/v17/leanback/widget/GridLayoutManager;Z)Z
+    iput-boolean v3, v1, Landroid/support/v17/leanback/widget/GridLayoutManager;->mInSelection:Z
 
-    :cond_2
+    :cond_3
     iget-object v1, p0, Landroid/support/v17/leanback/widget/GridLayoutManager$GridLinearSmoothScroller;->this$0:Landroid/support/v17/leanback/widget/GridLayoutManager;
 
-    invoke-static {v1}, Landroid/support/v17/leanback/widget/GridLayoutManager;->-wrap10(Landroid/support/v17/leanback/widget/GridLayoutManager;)V
+    invoke-virtual {v1}, Landroid/support/v17/leanback/widget/GridLayoutManager;->dispatchChildSelected()V
+
+    iget-object v1, p0, Landroid/support/v17/leanback/widget/GridLayoutManager$GridLinearSmoothScroller;->this$0:Landroid/support/v17/leanback/widget/GridLayoutManager;
+
+    invoke-static {v1}, Landroid/support/v17/leanback/widget/GridLayoutManager;->-wrap0(Landroid/support/v17/leanback/widget/GridLayoutManager;)V
 
     invoke-super {p0}, Landroid/support/v7/widget/LinearSmoothScroller;->onStop()V
 
@@ -172,13 +189,11 @@
 
     iget-object v4, p0, Landroid/support/v17/leanback/widget/GridLayoutManager$GridLinearSmoothScroller;->this$0:Landroid/support/v17/leanback/widget/GridLayoutManager;
 
-    invoke-static {}, Landroid/support/v17/leanback/widget/GridLayoutManager;->-get16()[I
-
-    move-result-object v5
+    sget-object v5, Landroid/support/v17/leanback/widget/GridLayoutManager;->sTwoInts:[I
 
     const/4 v6, 0x0
 
-    invoke-static {v4, p1, v6, v5}, Landroid/support/v17/leanback/widget/GridLayoutManager;->-wrap0(Landroid/support/v17/leanback/widget/GridLayoutManager;Landroid/view/View;Landroid/view/View;[I)Z
+    invoke-virtual {v4, p1, v6, v5}, Landroid/support/v17/leanback/widget/GridLayoutManager;->getScrollPosition(Landroid/view/View;Landroid/view/View;[I)Z
 
     move-result v4
 
@@ -186,21 +201,15 @@
 
     iget-object v4, p0, Landroid/support/v17/leanback/widget/GridLayoutManager$GridLinearSmoothScroller;->this$0:Landroid/support/v17/leanback/widget/GridLayoutManager;
 
-    invoke-static {v4}, Landroid/support/v17/leanback/widget/GridLayoutManager;->-get8(Landroid/support/v17/leanback/widget/GridLayoutManager;)I
-
-    move-result v4
+    iget v4, v4, Landroid/support/v17/leanback/widget/GridLayoutManager;->mOrientation:I
 
     if-nez v4, :cond_1
 
-    invoke-static {}, Landroid/support/v17/leanback/widget/GridLayoutManager;->-get16()[I
-
-    move-result-object v4
+    sget-object v4, Landroid/support/v17/leanback/widget/GridLayoutManager;->sTwoInts:[I
 
     aget v1, v4, v7
 
-    invoke-static {}, Landroid/support/v17/leanback/widget/GridLayoutManager;->-get16()[I
-
-    move-result-object v4
+    sget-object v4, Landroid/support/v17/leanback/widget/GridLayoutManager;->sTwoInts:[I
 
     aget v2, v4, v8
 
@@ -231,15 +240,11 @@
     return-void
 
     :cond_1
-    invoke-static {}, Landroid/support/v17/leanback/widget/GridLayoutManager;->-get16()[I
-
-    move-result-object v4
+    sget-object v4, Landroid/support/v17/leanback/widget/GridLayoutManager;->sTwoInts:[I
 
     aget v1, v4, v8
 
-    invoke-static {}, Landroid/support/v17/leanback/widget/GridLayoutManager;->-get16()[I
-
-    move-result-object v4
+    sget-object v4, Landroid/support/v17/leanback/widget/GridLayoutManager;->sTwoInts:[I
 
     aget v2, v4, v7
 

@@ -224,18 +224,12 @@
 
     if-nez v1, :cond_0
 
-    iget-boolean v1, p0, Lcom/android/systemui/assist/AssistOrbContainer;->mAnimatingOut:Z
+    iget-boolean v0, p0, Lcom/android/systemui/assist/AssistOrbContainer;->mAnimatingOut:Z
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
     :cond_0
-    :goto_0
     return v0
-
-    :cond_1
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method protected onFinishInflate()V
@@ -243,7 +237,7 @@
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    const v0, 0x7f1300bb
+    const v0, 0x7f0a0058
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/assist/AssistOrbContainer;->findViewById(I)Landroid/view/View;
 
@@ -251,7 +245,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/assist/AssistOrbContainer;->mScrim:Landroid/view/View;
 
-    const v0, 0x7f1300be
+    const v0, 0x7f0a0057
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/assist/AssistOrbContainer;->findViewById(I)Landroid/view/View;
 
@@ -259,7 +253,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/assist/AssistOrbContainer;->mNavbarScrim:Landroid/view/View;
 
-    const v0, 0x7f1300bc
+    const v0, 0x7f0a0056
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/assist/AssistOrbContainer;->findViewById(I)Landroid/view/View;
 

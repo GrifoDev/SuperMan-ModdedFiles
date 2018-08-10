@@ -61,7 +61,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/ScrimController$2;->val$scrim:Landroid/view/View;
 
-    invoke-static {v1, v2}, Lcom/android/systemui/statusbar/phone/ScrimController;->-wrap1(Lcom/android/systemui/statusbar/phone/ScrimController;Landroid/view/View;)V
+    invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/phone/ScrimController;->updateScrimColor(Landroid/view/View;)V
 
     return-void
 .end method

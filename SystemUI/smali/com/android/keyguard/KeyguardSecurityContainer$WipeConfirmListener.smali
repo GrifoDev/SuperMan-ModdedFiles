@@ -21,26 +21,6 @@
 .field final synthetic this$0:Lcom/android/keyguard/KeyguardSecurityContainer;
 
 
-# direct methods
-.method private constructor <init>(Lcom/android/keyguard/KeyguardSecurityContainer;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardSecurityContainer$WipeConfirmListener;->this$0:Lcom/android/keyguard/KeyguardSecurityContainer;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method synthetic constructor <init>(Lcom/android/keyguard/KeyguardSecurityContainer;Lcom/android/keyguard/KeyguardSecurityContainer$WipeConfirmListener;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardSecurityContainer$WipeConfirmListener;-><init>(Lcom/android/keyguard/KeyguardSecurityContainer;)V
-
-    return-void
-.end method
-
-
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 2
@@ -51,7 +31,7 @@
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSecurityContainer$WipeConfirmListener;->this$0:Lcom/android/keyguard/KeyguardSecurityContainer;
 
-    invoke-static {v1}, Lcom/android/keyguard/KeyguardSecurityContainer;->-get1(Lcom/android/keyguard/KeyguardSecurityContainer;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/keyguard/KeyguardSecurityContainer;->-get0(Lcom/android/keyguard/KeyguardSecurityContainer;)Landroid/content/Context;
 
     move-result-object v1
 
@@ -76,13 +56,13 @@
     :cond_1
     new-instance v0, Landroid/content/Intent;
 
-    const-string/jumbo v1, "android.intent.action.MASTER_CLEAR"
+    const-string/jumbo v1, "android.intent.action.FACTORY_RESET"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSecurityContainer$WipeConfirmListener;->this$0:Lcom/android/keyguard/KeyguardSecurityContainer;
 
-    invoke-static {v1}, Lcom/android/keyguard/KeyguardSecurityContainer;->-get1(Lcom/android/keyguard/KeyguardSecurityContainer;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/keyguard/KeyguardSecurityContainer;->-get0(Lcom/android/keyguard/KeyguardSecurityContainer;)Landroid/content/Context;
 
     move-result-object v1
 

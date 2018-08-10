@@ -39,11 +39,11 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardPatternView$1;->this$0:Lcom/android/keyguard/KeyguardPatternView;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardPatternView;->-get7(Lcom/android/keyguard/KeyguardPatternView;)Lcom/android/keyguard/LockDecoPatternView;
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardPatternView;->-get16(Lcom/android/keyguard/KeyguardPatternView;)Lcom/android/keyguard/SecLockPatternView;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/keyguard/LockDecoPatternView;->clearPattern()V
+    invoke-virtual {v0}, Lcom/android/keyguard/SecLockPatternView;->clearPattern()V
 
     return-void
 .end method

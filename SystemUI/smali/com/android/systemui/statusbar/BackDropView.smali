@@ -57,11 +57,11 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/BackDropView;->mContext:Landroid/content/Context;
 
-    invoke-static {v0}, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;
+    invoke-static {v0}, Lcom/android/systemui/wallpaper/KeyguardWallpaperController;->getInstance(Landroid/content/Context;)Lcom/android/systemui/wallpaper/KeyguardWallpaperController;
 
     move-result-object v0
 
-    invoke-virtual {v0, p0}, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;->setRootView(Landroid/view/ViewGroup;)V
+    invoke-virtual {v0, p0}, Lcom/android/systemui/wallpaper/KeyguardWallpaperController;->setRootView(Landroid/view/ViewGroup;)V
 
     return-void
 .end method

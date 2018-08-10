@@ -237,7 +237,7 @@
 
     if-le v1, v2, :cond_2
 
-    sget v1, Lcom/android/keyguard/R$string;->lockscreen_smartcard_invalid_pin:I
+    const v1, 0x7f120760
 
     if-ne p3, v1, :cond_2
 
@@ -258,7 +258,15 @@
 .method protected getPasswordTextViewId()I
     .locals 1
 
-    sget v0, Lcom/android/keyguard/R$id;->pinEntry:I
+    const v0, 0x7f0a03cc
+
+    return v0
+.end method
+
+.method protected getSecurityViewId()I
+    .locals 1
+
+    const v0, 0x7f0a02bf
 
     return v0
 .end method
@@ -266,7 +274,7 @@
 .method public getWrongPasswordStringId()I
     .locals 1
 
-    sget v0, Lcom/android/keyguard/R$string;->kg_incorrect_pin:I
+    const v0, 0x7f12052a
 
     return v0
 .end method
@@ -286,26 +294,23 @@
 
     iget-boolean v0, p0, Lcom/android/keyguard/KeyguardSmartcardPINView;->mSmartcardAuthProgress:Z
 
-    if-nez v0, :cond_0
-
-    :cond_0
     iget-boolean v0, p0, Lcom/android/keyguard/KeyguardSmartcardPINView;->mSmartcardAuthProgress:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     invoke-virtual {p0, v2, v2}, Lcom/android/keyguard/KeyguardSmartcardPINView;->resetPasswordText(ZZ)V
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardSmartcardPINView;->mSecurityMessageDisplay:Lcom/android/keyguard/SecurityMessageDisplay;
 
-    sget v1, Lcom/android/keyguard/R$string;->lockscreen_smartcard_check_pin:I
+    const v1, 0x7f12075b
 
-    invoke-interface {v0, v1, v2}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(IZ)V
+    invoke-interface {v0, v1}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(I)V
 
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardSmartcardPINView;->setPasswordEntryEnabled(Z)V
 
-    :cond_1
+    :cond_0
     iget-object v0, p0, Lcom/android/keyguard/KeyguardSmartcardPINView;->mPasswordEntry:Lcom/android/keyguard/PasswordTextView;
 
     invoke-virtual {v0}, Lcom/android/keyguard/PasswordTextView;->requestFocus()Z
@@ -316,9 +321,9 @@
 .method protected onPasswordChecked(IZIZ)V
     .locals 8
 
-    const/4 v7, 0x0
+    const/4 v7, 0x1
 
-    const/4 v6, 0x1
+    const/4 v6, 0x0
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSmartcardPINView;->TAG:Ljava/lang/String;
 
@@ -366,14 +371,14 @@
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSmartcardPINView;->mCallback:Lcom/android/keyguard/KeyguardSecurityCallback;
 
-    invoke-interface {v1, p1, p2, v7}, Lcom/android/keyguard/KeyguardSecurityCallback;->reportUnlockAttempt(IZI)V
+    invoke-interface {v1, p1, p2, v6}, Lcom/android/keyguard/KeyguardSecurityCallback;->reportUnlockAttempt(IZI)V
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSmartcardPINView;->mCallback:Lcom/android/keyguard/KeyguardSecurityCallback;
 
-    invoke-interface {v1, v6}, Lcom/android/keyguard/KeyguardSecurityCallback;->dismiss(Z)V
+    invoke-interface {v1, v7, p1}, Lcom/android/keyguard/KeyguardSecurityCallback;->dismiss(ZI)V
 
     :goto_0
-    invoke-virtual {p0, v6, v6}, Lcom/android/keyguard/KeyguardSmartcardPINView;->resetPasswordText(ZZ)V
+    invoke-virtual {p0, v7, v7}, Lcom/android/keyguard/KeyguardSmartcardPINView;->resetPasswordText(ZZ)V
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSmartcardPINView;->TAG:Ljava/lang/String;
 
@@ -391,7 +396,7 @@
 
     if-eqz v1, :cond_0
 
-    invoke-virtual {p0, v7}, Lcom/android/keyguard/KeyguardSmartcardPINView;->setKeepScreenOn(Z)V
+    invoke-virtual {p0, v6}, Lcom/android/keyguard/KeyguardSmartcardPINView;->setKeepScreenOn(Z)V
 
     :cond_0
     return-void
@@ -401,7 +406,7 @@
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSmartcardPINView;->mCallback:Lcom/android/keyguard/KeyguardSecurityCallback;
 
-    invoke-interface {v1, p1, p2, v7}, Lcom/android/keyguard/KeyguardSecurityCallback;->reportUnlockAttempt(IZI)V
+    invoke-interface {v1, p1, p2, v6}, Lcom/android/keyguard/KeyguardSecurityCallback;->reportUnlockAttempt(IZI)V
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSmartcardPINView;->mContext:Landroid/content/Context;
 
@@ -421,7 +426,7 @@
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSmartcardPINView;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    invoke-virtual {v1, p1}, Lcom/android/internal/widget/LockPatternUtils;->setLockoutAttemptDeadline(I)J
+    invoke-virtual {v1, p1, v0}, Lcom/android/internal/widget/LockPatternUtils;->setLockoutAttemptDeadline(II)J
 
     move-result-wide v2
 
@@ -434,14 +439,14 @@
 
     move-result v4
 
-    invoke-interface {v1, v4, v6}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(IZ)V
+    invoke-interface {v1, v4}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(I)V
 
     goto :goto_0
 
     :cond_3
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSmartcardPINView;->mSecurityMessageDisplay:Lcom/android/keyguard/SecurityMessageDisplay;
 
-    invoke-interface {v1, p3, v6}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(IZ)V
+    invoke-interface {v1, p3}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(I)V
 
     goto :goto_0
 .end method
@@ -483,9 +488,7 @@
 .end method
 
 .method public onResume(I)V
-    .locals 4
-
-    const/4 v3, 0x1
+    .locals 3
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardSmartcardPINView;->TAG:Ljava/lang/String;
 
@@ -541,9 +544,9 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardSmartcardPINView;->mSecurityMessageDisplay:Lcom/android/keyguard/SecurityMessageDisplay;
 
-    sget v1, Lcom/android/keyguard/R$string;->lockscreen_smartcard_check_pin:I
+    const v1, 0x7f12075b
 
-    invoke-interface {v0, v1, v3}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(IZ)V
+    invoke-interface {v0, v1}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(I)V
 
     const/4 v0, 0x0
 
@@ -557,9 +560,9 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardSmartcardPINView;->mSecurityMessageDisplay:Lcom/android/keyguard/SecurityMessageDisplay;
 
-    sget v1, Lcom/android/keyguard/R$string;->lockscreen_smartcard_instruction:I
+    const v1, 0x7f12075e
 
-    invoke-interface {v0, v1, v3}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(IZ)V
+    invoke-interface {v0, v1}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(I)V
 
     goto :goto_0
 .end method

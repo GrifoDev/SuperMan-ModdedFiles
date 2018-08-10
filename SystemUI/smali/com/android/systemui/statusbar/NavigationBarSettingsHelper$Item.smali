@@ -25,6 +25,8 @@
 
 .field mKey:Ljava/lang/String;
 
+.field mSettingType:Ljava/lang/String;
+
 .field mStringValue:Ljava/lang/String;
 
 .field mUri:Landroid/net/Uri;
@@ -33,29 +35,83 @@
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Z)V
-    .locals 2
+.method public constructor <init>(Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Z)V
+    .locals 3
+
+    const/4 v1, 0x1
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;->this$0:Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p2, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;->mKey:Ljava/lang/String;
+    iput-object p2, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;->mSettingType:Ljava/lang/String;
 
-    iput-object p3, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;->mDataType:Ljava/lang/String;
+    iput-object p3, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;->mKey:Ljava/lang/String;
 
-    iput-object p4, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;->mDef:Ljava/lang/Integer;
+    iput-object p4, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;->mDataType:Ljava/lang/String;
 
-    if-eqz p5, :cond_1
+    iput-object p5, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;->mDef:Ljava/lang/Integer;
+
+    if-eqz p6, :cond_0
 
     const-string/jumbo v0, "ForUser"
 
     :goto_0
     iput-object v0, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;->mForUser:Ljava/lang/String;
 
+    const-string/jumbo v0, "Global"
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;->mSettingType:Ljava/lang/String;
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    const-string/jumbo v0, "Secure"
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;->mSettingType:Ljava/lang/String;
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    const-string/jumbo v0, "System"
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;->mSettingType:Ljava/lang/String;
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    :goto_1
+    if-nez v0, :cond_2
+
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v1, "Invalid setting type"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_0
+    const-string/jumbo v0, ""
+
+    goto :goto_0
+
+    :cond_1
+    move v0, v1
+
+    goto :goto_1
+
+    :cond_2
     iget-object v0, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;->mKey:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;->mKey:Ljava/lang/String;
 
@@ -63,9 +119,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_4
 
-    :cond_0
+    :cond_3
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "Invalid setting key"
@@ -74,21 +130,16 @@
 
     throw v0
 
-    :cond_1
-    const-string/jumbo v0, ""
-
-    goto :goto_0
-
-    :cond_2
+    :cond_4
     const-string/jumbo v0, "Int"
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;->mDataType:Ljava/lang/String;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;->mDataType:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_5
 
     const-string/jumbo v0, "String"
 
@@ -98,8 +149,8 @@
 
     move-result v0
 
-    :goto_1
-    if-nez v0, :cond_4
+    :goto_2
+    if-nez v0, :cond_6
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -109,12 +160,12 @@
 
     throw v0
 
-    :cond_3
-    const/4 v0, 0x1
+    :cond_5
+    move v0, v1
 
-    goto :goto_1
+    goto :goto_2
 
-    :cond_4
+    :cond_6
     iget-object v0, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;->mKey:Ljava/lang/String;
 
     invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;->getUri(Ljava/lang/String;)Landroid/net/Uri;
@@ -132,7 +183,25 @@
     const/4 v4, 0x0
 
     :try_start_0
-    const-string/jumbo v5, "android.provider.Settings$System"
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "android.provider.Settings$"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    iget-object v6, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;->mSettingType:Ljava/lang/String;
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
 
     invoke-static {v5}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
@@ -222,19 +291,29 @@
     return v0
 .end method
 
-.method public getStringValue()Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;->mStringValue:Ljava/lang/String;
-
-    return-object v0
-.end method
-
 .method public read(Landroid/content/ContentResolver;)V
     .locals 7
 
     :try_start_0
-    const-string/jumbo v3, "android.provider.Settings$System"
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "android.provider.Settings$"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;->mSettingType:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
 
     invoke-static {v3}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
@@ -885,6 +964,14 @@
     const/4 v4, -0x2
 
     invoke-virtual {v0, v1, v3, v2, v4}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
+
+    return-void
+.end method
+
+.method public setIntValue(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;->mIntValue:I
 
     return-void
 .end method

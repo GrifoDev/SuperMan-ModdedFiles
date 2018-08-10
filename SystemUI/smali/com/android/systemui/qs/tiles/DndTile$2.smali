@@ -1,6 +1,9 @@
 .class Lcom/android/systemui/qs/tiles/DndTile$2;
-.super Lcom/android/systemui/statusbar/policy/ZenModeController$Callback;
+.super Ljava/lang/Object;
 .source "DndTile.java"
+
+# interfaces
+.implements Lcom/android/systemui/statusbar/policy/ZenModeController$Callback;
 
 
 # annotations
@@ -24,15 +27,29 @@
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/DndTile$2;->this$0:Lcom/android/systemui/qs/tiles/DndTile;
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/ZenModeController$Callback;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
+.method public onConfigChanged(Landroid/service/notification/ZenModeConfig;)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public onZenChanged(I)V
     .locals 3
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/DndTile$2;->this$0:Lcom/android/systemui/qs/tiles/DndTile;
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/systemui/qs/tiles/DndTile;->-wrap0(Lcom/android/systemui/qs/tiles/DndTile;Ljava/lang/Object;)V
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/DndTile$2;->this$0:Lcom/android/systemui/qs/tiles/DndTile;
 
@@ -59,14 +76,6 @@
     move-result-object v1
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/DndTile$2;->this$0:Lcom/android/systemui/qs/tiles/DndTile;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/android/systemui/qs/tiles/DndTile;->-wrap0(Lcom/android/systemui/qs/tiles/DndTile;Ljava/lang/Object;)V
 
     return-void
 .end method

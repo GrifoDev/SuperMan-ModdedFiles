@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.systemui.statusbar.phone.taskbar.desk.DeskPanelViewNotification android:id="@id/desk_panel_view_notification" android:focusable="true" android:focusableInTouchMode="true" android:visibility="gone" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:systemui="http://schemas.android.com/apk/res-auto">
+    <com.android.systemui.statusbar.phone.taskbar.desk.DeskPanelViewNotificationAll android:orientation="vertical" android:id="@id/desk_panel_view_notification_all" android:visibility="gone" android:layout_width="@dimen/desk_panel_view_width" android:layout_height="wrap_content">
+        <com.android.systemui.statusbar.phone.taskbar.desk.DeskExpandableDrawWidget android:id="@id/desk_panel_view_notification_all_header_area" android:layout_width="fill_parent" android:layout_height="@dimen/desk_panel_view_notification_all_header_height" />
+        <ScrollView android:scrollbarThumbVertical="@drawable/desk_panel_view_notification_all_scroll" android:orientation="vertical" android:id="@id/desk_panel_view_notification_all_scrollview" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <com.android.systemui.statusbar.phone.taskbar.desk.DeskPanelViewNotificationAllArea android:id="@id/desk_panel_view_notification_all_area" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        </ScrollView>
+        <include android:id="@id/desk_panel_view_notification_all_bottom_area" layout="@layout/desk_panel_view_notification_all_bottom_area" />
+    </com.android.systemui.statusbar.phone.taskbar.desk.DeskPanelViewNotificationAll>
+    <com.android.systemui.statusbar.phone.taskbar.desk.DeskPanelViewNotificationHeadsUp android:id="@id/desk_panel_view_notification_heads_up" android:visibility="gone" android:layout_width="@dimen/desk_panel_view_width" android:layout_height="wrap_content" />
+    <com.android.systemui.statusbar.phone.taskbar.desk.DeskPanelViewNotificationPreview android:id="@id/desk_panel_view_notification_preview" android:visibility="gone" android:layout_width="@dimen/desk_panel_view_width" android:layout_height="wrap_content" />
+</com.android.systemui.statusbar.phone.taskbar.desk.DeskPanelViewNotification>

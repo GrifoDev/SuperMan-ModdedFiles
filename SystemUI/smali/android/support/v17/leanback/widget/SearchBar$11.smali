@@ -45,9 +45,7 @@
 
     iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar$11;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v0}, Landroid/support/v17/leanback/widget/SearchBar;->-get7(Landroid/support/v17/leanback/widget/SearchBar;)Landroid/util/SparseIntArray;
-
-    move-result-object v0
+    iget-object v0, v0, Landroid/support/v17/leanback/widget/SearchBar;->mSoundMap:Landroid/util/SparseIntArray;
 
     iget v3, p0, Landroid/support/v17/leanback/widget/SearchBar$11;->val$resId:I
 
@@ -57,9 +55,7 @@
 
     iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar$11;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v0}, Landroid/support/v17/leanback/widget/SearchBar;->-get8(Landroid/support/v17/leanback/widget/SearchBar;)Landroid/media/SoundPool;
-
-    move-result-object v0
+    iget-object v0, v0, Landroid/support/v17/leanback/widget/SearchBar;->mSoundPool:Landroid/media/SoundPool;
 
     const/4 v4, 0x1
 

@@ -1,5 +1,5 @@
 .class Lcom/android/keyguard/KeyguardCarrierView$2;
-.super Landroid/telephony/PhoneStateListener;
+.super Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 .source "KeyguardCarrierView.java"
 
 
@@ -24,19 +24,23 @@
 
     iput-object p1, p0, Lcom/android/keyguard/KeyguardCarrierView$2;->this$0:Lcom/android/keyguard/KeyguardCarrierView;
 
-    invoke-direct {p0}, Landroid/telephony/PhoneStateListener;-><init>()V
+    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onServiceStateChanged(Landroid/telephony/ServiceState;)V
+.method public onPhoneStateChanged(I)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierView$2;->this$0:Lcom/android/keyguard/KeyguardCarrierView;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardCarrierView;->-wrap1(Lcom/android/keyguard/KeyguardCarrierView;)V
+    invoke-static {v0, p1}, Lcom/android/keyguard/KeyguardCarrierView;->-set0(Lcom/android/keyguard/KeyguardCarrierView;I)I
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierView$2;->this$0:Lcom/android/keyguard/KeyguardCarrierView;
+
+    invoke-static {v0, p1}, Lcom/android/keyguard/KeyguardCarrierView;->-wrap4(Lcom/android/keyguard/KeyguardCarrierView;I)V
 
     return-void
 .end method

@@ -3,7 +3,7 @@
 .source "KeyguardSecurityContainer.java"
 
 # interfaces
-.implements Lcom/android/keyguard/util/SettingsHelper$OnChangedCallback;
+.implements Lcom/android/keyguard/KeyguardSecurityCallback;
 
 
 # annotations
@@ -34,28 +34,46 @@
 
 
 # virtual methods
-.method public onChanged(Landroid/net/Uri;)V
-    .locals 2
-
-    if-nez p1, :cond_0
+.method public dismiss(ZI)V
+    .locals 0
 
     return-void
+.end method
 
-    :cond_0
-    const-string/jumbo v0, "white_lockscreen_wallpaper"
+.method public isVerifyUnlockOnly()Z
+    .locals 1
 
-    invoke-virtual {p1, v0}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
+    const/4 v0, 0x0
 
-    move-result v0
+    return v0
+.end method
 
-    if-eqz v0, :cond_1
+.method public reportUnlockAttempt(IZI)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainer$2;->this$0:Lcom/android/keyguard/KeyguardSecurityContainer;
+    return-void
+.end method
 
-    sget-object v1, Lcom/android/keyguard/util/ViewStyleUtils$UpdatedFrom;->WhiteWallpaper:Lcom/android/keyguard/util/ViewStyleUtils$UpdatedFrom;
+.method public reset()V
+    .locals 0
 
-    invoke-static {v0, v1}, Lcom/android/keyguard/KeyguardSecurityContainer;->-wrap3(Lcom/android/keyguard/KeyguardSecurityContainer;Lcom/android/keyguard/util/ViewStyleUtils$UpdatedFrom;)V
+    return-void
+.end method
 
-    :cond_1
+.method public setNeedsInput(Z)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public showBackupSecurity(Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public userActivity()V
+    .locals 0
+
     return-void
 .end method

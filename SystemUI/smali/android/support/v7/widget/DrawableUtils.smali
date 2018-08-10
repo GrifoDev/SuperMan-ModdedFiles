@@ -3,6 +3,14 @@
 .source "DrawableUtils.java"
 
 
+# annotations
+.annotation build Landroid/support/annotation/RestrictTo;
+    value = {
+        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
+
 # static fields
 .field public static final INSETS_NONE:Landroid/graphics/Rect;
 
@@ -68,17 +76,15 @@
         .end annotation
     .end param
 
-    const/16 v6, 0xf
+    const/16 v5, 0xf
 
     const/4 v4, 0x0
 
     sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    const/16 v5, 0x8
-
     if-ge v3, v5, :cond_0
 
-    instance-of v3, p0, Landroid/graphics/drawable/StateListDrawable;
+    instance-of v3, p0, Landroid/graphics/drawable/InsetDrawable;
 
     if-eqz v3, :cond_0
 
@@ -87,9 +93,9 @@
     :cond_0
     sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    if-ge v3, v6, :cond_1
+    if-ge v3, v5, :cond_1
 
-    instance-of v3, p0, Landroid/graphics/drawable/InsetDrawable;
+    instance-of v3, p0, Landroid/graphics/drawable/GradientDrawable;
 
     if-eqz v3, :cond_1
 
@@ -98,31 +104,20 @@
     :cond_1
     sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    if-ge v3, v6, :cond_2
+    const/16 v5, 0x11
 
-    instance-of v3, p0, Landroid/graphics/drawable/GradientDrawable;
+    if-ge v3, v5, :cond_2
+
+    instance-of v3, p0, Landroid/graphics/drawable/LayerDrawable;
 
     if-eqz v3, :cond_2
 
     return v4
 
     :cond_2
-    sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v5, 0x11
-
-    if-ge v3, v5, :cond_3
-
-    instance-of v3, p0, Landroid/graphics/drawable/LayerDrawable;
-
-    if-eqz v3, :cond_3
-
-    return v4
-
-    :cond_3
     instance-of v3, p0, Landroid/graphics/drawable/DrawableContainer;
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_4
 
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
 
@@ -130,7 +125,7 @@
 
     instance-of v3, v2, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_7
 
     move-object v1, v2
 
@@ -145,7 +140,7 @@
     move v3, v4
 
     :goto_0
-    if-ge v3, v6, :cond_8
+    if-ge v3, v6, :cond_7
 
     aget-object v0, v5, v3
 
@@ -153,19 +148,19 @@
 
     move-result v7
 
-    if-nez v7, :cond_4
+    if-nez v7, :cond_3
 
     return v4
 
-    :cond_4
+    :cond_3
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    :cond_5
+    :cond_4
     instance-of v3, p0, Landroid/support/v4/graphics/drawable/DrawableWrapper;
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_5
 
     check-cast p0, Landroid/support/v4/graphics/drawable/DrawableWrapper;
 
@@ -179,10 +174,10 @@
 
     return v3
 
-    :cond_6
+    :cond_5
     instance-of v3, p0, Landroid/support/v7/graphics/drawable/DrawableWrapper;
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_6
 
     check-cast p0, Landroid/support/v7/graphics/drawable/DrawableWrapper;
 
@@ -196,10 +191,10 @@
 
     return v3
 
-    :cond_7
+    :cond_6
     instance-of v3, p0, Landroid/graphics/drawable/ScaleDrawable;
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_7
 
     check-cast p0, Landroid/graphics/drawable/ScaleDrawable;
 
@@ -213,7 +208,7 @@
 
     return v3
 
-    :cond_8
+    :cond_7
     const/4 v3, 0x1
 
     return v3
@@ -438,7 +433,7 @@
     return-object v4
 .end method
 
-.method static parseTintMode(ILandroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuff$Mode;
+.method public static parseTintMode(ILandroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuff$Mode;
     .locals 2
 
     packed-switch p0, :pswitch_data_0

@@ -6,12 +6,6 @@
 .implements Lcom/android/systemui/statusbar/TransformableView;
 
 
-# static fields
-.field public static mNotifSummaryTextColor:I
-
-.field public static mNotifTitleTextColor:I
-
-
 # instance fields
 .field private mInvertHelper:Lcom/android/systemui/ViewInvertHelper;
 
@@ -158,15 +152,13 @@
 .end method
 
 .method protected onFinishInflate()V
-    .locals 6
+    .locals 5
 
     const/4 v4, 0x2
 
     invoke-super {p0}, Lcom/android/keyguard/AlphaOptimizedLinearLayout;->onFinishInflate()V
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/HybridNotificationView;->setNotifTextColor()V
-
-    const v0, 0x7f130130
+    const v0, 0x7f0a03b0
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/notification/HybridNotificationView;->findViewById(I)Landroid/view/View;
 
@@ -176,7 +168,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/notification/HybridNotificationView;->mTitleView:Landroid/widget/TextView;
 
-    const v0, 0x7f130131
+    const v0, 0x7f0a03af
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/notification/HybridNotificationView;->findViewById(I)Landroid/view/View;
 
@@ -212,15 +204,6 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/notification/HybridNotificationView;->mTitleView:Landroid/widget/TextView;
 
-    sget-boolean v5, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mAllowNotificationColorChange:Z
-
-    if-eqz v5, :cond_0
-
-    sget v5, Lcom/android/systemui/statusbar/notification/HybridNotificationView;->mNotifTitleTextColor:I
-
-    invoke-virtual {v1, v5}, Landroid/widget/TextView;->setTextColor(I)V
-
-    :cond_0
     const/4 v2, 0x1
 
     invoke-virtual {v0, v2, v1}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->addTransformedView(ILandroid/view/View;)V
@@ -229,15 +212,6 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/notification/HybridNotificationView;->mTextView:Landroid/widget/TextView;
 
-    sget-boolean v5, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mAllowNotificationColorChange:Z
-
-    if-eqz v5, :cond_1
-
-    sget v5, Lcom/android/systemui/statusbar/notification/HybridNotificationView;->mNotifSummaryTextColor:I
-
-    invoke-virtual {v1, v5}, Landroid/widget/TextView;->setTextColor(I)V
-
-    :cond_1
     invoke-virtual {v0, v4, v1}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->addTransformedView(ILandroid/view/View;)V
 
     return-void
@@ -249,32 +223,6 @@
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/HybridNotificationView;->mInvertHelper:Lcom/android/systemui/ViewInvertHelper;
 
     invoke-virtual {v0, p1, p2, p3, p4}, Lcom/android/systemui/ViewInvertHelper;->setInverted(ZZJ)V
-
-    return-void
-.end method
-
-.method setNotifTextColor()V
-    .locals 3
-
-    const-string/jumbo v0, "notification_title_text_color"
-
-    const v1, -0xdedede
-
-    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
-
-    move-result v0
-
-    sput v0, Lcom/android/systemui/statusbar/notification/HybridNotificationView;->mNotifTitleTextColor:I
-
-    const-string/jumbo v0, "notification_summary_text_color"
-
-    const v1, -0xdedede
-
-    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
-
-    move-result v0
-
-    sput v0, Lcom/android/systemui/statusbar/notification/HybridNotificationView;->mNotifSummaryTextColor:I
 
     return-void
 .end method

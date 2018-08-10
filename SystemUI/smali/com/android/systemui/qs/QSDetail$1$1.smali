@@ -39,15 +39,43 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QSDetail$1$1;->this$1:Lcom/android/systemui/qs/QSDetail$1;
+
+    iget-object v1, v0, Lcom/android/systemui/qs/QSDetail$1;->this$0:Lcom/android/systemui/qs/QSDetail;
+
+    iget-boolean v2, p0, Lcom/android/systemui/qs/QSDetail$1$1;->val$state:Z
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSDetail$1$1;->this$1:Lcom/android/systemui/qs/QSDetail$1;
 
     iget-object v0, v0, Lcom/android/systemui/qs/QSDetail$1;->this$0:Lcom/android/systemui/qs/QSDetail;
 
-    iget-boolean v1, p0, Lcom/android/systemui/qs/QSDetail$1$1;->val$state:Z
+    invoke-static {v0}, Lcom/android/systemui/qs/QSDetail;->-get2(Lcom/android/systemui/qs/QSDetail;)Lcom/android/systemui/plugins/qs/DetailAdapter;
 
-    invoke-static {v0, v1}, Lcom/android/systemui/qs/QSDetail;->-wrap3(Lcom/android/systemui/qs/QSDetail;Z)V
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QSDetail$1$1;->this$1:Lcom/android/systemui/qs/QSDetail$1;
+
+    iget-object v0, v0, Lcom/android/systemui/qs/QSDetail$1;->this$0:Lcom/android/systemui/qs/QSDetail;
+
+    invoke-static {v0}, Lcom/android/systemui/qs/QSDetail;->-get2(Lcom/android/systemui/qs/QSDetail;)Lcom/android/systemui/plugins/qs/DetailAdapter;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Lcom/android/systemui/plugins/qs/DetailAdapter;->getToggleEnabled()Z
+
+    move-result v0
+
+    :goto_0
+    invoke-static {v1, v2, v0}, Lcom/android/systemui/qs/QSDetail;->-wrap3(Lcom/android/systemui/qs/QSDetail;ZZ)V
 
     return-void
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method

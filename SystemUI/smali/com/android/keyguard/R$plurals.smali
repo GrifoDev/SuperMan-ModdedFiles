@@ -3,14 +3,15 @@
 .source "R.java"
 
 
-# static fields
-.field public static final kg_attempt_left:I = 0x7f140009
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/keyguard/R;
+.end annotation
 
-.field public static final kg_attempt_remaining:I = 0x7f140008
-
-.field public static final kg_too_many_failed_attempts_countdown_min:I = 0x7f14000a
-
-.field public static final kg_too_many_failed_attempts_countdown_sec:I = 0x7f14000b
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "plurals"
+.end annotation
 
 
 # direct methods

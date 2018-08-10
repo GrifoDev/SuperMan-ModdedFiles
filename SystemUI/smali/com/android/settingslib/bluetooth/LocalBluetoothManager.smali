@@ -1,4 +1,4 @@
-.class public final Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
+.class public Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
 .super Ljava/lang/Object;
 .source "LocalBluetoothManager.java"
 
@@ -12,6 +12,10 @@
 
 
 # static fields
+.field private static mForegroundCount:I
+
+.field private static mSystemUiInstance:Z
+
 .field private static sInstance:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
 
 
@@ -28,6 +32,18 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    sput v0, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->mForegroundCount:I
+
+    sput-boolean v0, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->mSystemUiInstance:Z
+
+    return-void
+.end method
+
 .method private constructor <init>(Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;Landroid/content/Context;)V
     .locals 4
 
@@ -75,24 +91,24 @@
 .end method
 
 .method public static declared-synchronized getInstance(Landroid/content/Context;Lcom/android/settingslib/bluetooth/LocalBluetoothManager$BluetoothManagerCallback;)Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
-    .locals 6
+    .locals 7
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
-    const-class v3, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
+    const-class v4, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
 
-    monitor-enter v3
+    monitor-enter v4
 
     :try_start_0
-    sget-object v2, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->sInstance:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
+    sget-object v3, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->sInstance:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
 
-    if-nez v2, :cond_1
+    if-nez v3, :cond_3
 
-    const-string/jumbo v2, "LocalBluetoothManager"
+    const-string/jumbo v3, "LocalBluetoothManager"
 
-    const-string/jumbo v4, "LocalBluetoothManager :: sInstance == null"
+    const-string/jumbo v5, "LocalBluetoothManager :: sInstance == null"
 
-    invoke-static {v2, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-static {}, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->getInstance()Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;
 
@@ -100,17 +116,17 @@
 
     if-nez v0, :cond_0
 
-    const-string/jumbo v2, "LocalBluetoothManager"
+    const-string/jumbo v3, "LocalBluetoothManager"
 
-    const-string/jumbo v4, "LocalBluetoothManager :: adapter == null"
+    const-string/jumbo v5, "LocalBluetoothManager :: adapter == null"
 
-    invoke-static {v2, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit v3
+    monitor-exit v4
 
-    return-object v5
+    return-object v6
 
     :cond_0
     :try_start_1
@@ -118,39 +134,65 @@
 
     move-result-object v1
 
-    new-instance v2, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
+    new-instance v3, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
 
-    invoke-direct {v2, v0, v1}, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;-><init>(Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;Landroid/content/Context;)V
+    invoke-direct {v3, v0, v1}, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;-><init>(Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;Landroid/content/Context;)V
 
-    sput-object v2, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->sInstance:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
+    sput-object v3, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->sInstance:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
 
-    if-eqz p1, :cond_1
+    invoke-static {}, Landroid/app/ActivityThread;->currentPackageName()Ljava/lang/String;
 
-    const-string/jumbo v2, "LocalBluetoothManager"
+    move-result-object v2
 
-    const-string/jumbo v4, "LocalBluetoothManager :: onInitCallback != null"
+    const-string/jumbo v3, "com.android.systemui"
 
-    invoke-static {v2, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v2}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
-    sget-object v2, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->sInstance:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
+    move-result-object v5
 
-    invoke-interface {p1, v1, v2}, Lcom/android/settingslib/bluetooth/LocalBluetoothManager$BluetoothManagerCallback;->onBluetoothManagerInitialized(Landroid/content/Context;Lcom/android/settingslib/bluetooth/LocalBluetoothManager;)V
+    invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    const/4 v3, 0x1
+
+    sput-boolean v3, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->mSystemUiInstance:Z
 
     :cond_1
-    sget-object v2, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->sInstance:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
+    if-eqz p1, :cond_2
+
+    const-string/jumbo v3, "LocalBluetoothManager"
+
+    const-string/jumbo v5, "LocalBluetoothManager :: onInitCallback != null"
+
+    invoke-static {v3, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    sget-object v3, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->sInstance:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
+
+    invoke-interface {p1, v1, v3}, Lcom/android/settingslib/bluetooth/LocalBluetoothManager$BluetoothManagerCallback;->onBluetoothManagerInitialized(Landroid/content/Context;Lcom/android/settingslib/bluetooth/LocalBluetoothManager;)V
+
+    :cond_2
+    const/4 v3, 0x0
+
+    sput v3, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->mForegroundCount:I
+
+    :cond_3
+    sget-object v3, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->sInstance:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    monitor-exit v3
+    monitor-exit v4
 
-    return-object v2
+    return-object v3
 
     :catchall_0
-    move-exception v2
+    move-exception v3
 
-    monitor-exit v3
+    monitor-exit v4
 
-    throw v2
+    throw v3
 .end method
 
 
@@ -171,14 +213,6 @@
     return-object v0
 .end method
 
-.method public getContext()Landroid/content/Context;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->mContext:Landroid/content/Context;
-
-    return-object v0
-.end method
-
 .method public getEventManager()Lcom/android/settingslib/bluetooth/BluetoothEventManager;
     .locals 1
 
@@ -193,4 +227,12 @@
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->mProfileManager:Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
 
     return-object v0
+.end method
+
+.method public instanceForSystemUI()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->mSystemUiInstance:Z
+
+    return v0
 .end method

@@ -3,12 +3,12 @@
 .source "KeyguardRecoveryView.java"
 
 # interfaces
-.implements Lcom/android/internal/widget/LockPatternChecker$OnCheckCallback;
+.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/keyguard/KeyguardRecoveryView;->verifyPasswordAndUnlock()V
+    value = Lcom/android/keyguard/KeyguardRecoveryView;->onFinishInflate()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,16 +20,12 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/keyguard/KeyguardRecoveryView;
 
-.field final synthetic val$userId:I
-
 
 # direct methods
-.method constructor <init>(Lcom/android/keyguard/KeyguardRecoveryView;I)V
+.method constructor <init>(Lcom/android/keyguard/KeyguardRecoveryView;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/KeyguardRecoveryView$4;->this$0:Lcom/android/keyguard/KeyguardRecoveryView;
-
-    iput p2, p0, Lcom/android/keyguard/KeyguardRecoveryView$4;->val$userId:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,26 +34,22 @@
 
 
 # virtual methods
-.method public onChecked(ZI)V
-    .locals 3
-
-    const/4 v2, 0x1
+.method public onClick(Landroid/view/View;)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardRecoveryView$4;->this$0:Lcom/android/keyguard/KeyguardRecoveryView;
 
-    invoke-virtual {v0, v2}, Lcom/android/keyguard/KeyguardRecoveryView;->setPasswordEntryInputEnabled(Z)V
+    iget-object v0, v0, Lcom/android/keyguard/KeyguardRecoveryView;->mCallback:Lcom/android/keyguard/KeyguardSecurityCallback;
+
+    invoke-interface {v0}, Lcom/android/keyguard/KeyguardSecurityCallback;->userActivity()V
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardRecoveryView$4;->this$0:Lcom/android/keyguard/KeyguardRecoveryView;
+
+    iget-object v0, v0, Lcom/android/keyguard/KeyguardRecoveryView;->mImm:Landroid/view/inputmethod/InputMethodManager;
 
     const/4 v1, 0x0
 
-    iput-object v1, v0, Lcom/android/keyguard/KeyguardRecoveryView;->mPendingLockCheck:Landroid/os/AsyncTask;
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardRecoveryView$4;->this$0:Lcom/android/keyguard/KeyguardRecoveryView;
-
-    iget v1, p0, Lcom/android/keyguard/KeyguardRecoveryView$4;->val$userId:I
-
-    invoke-virtual {v0, v1, p1, p2, v2}, Lcom/android/keyguard/KeyguardRecoveryView;->onPasswordChecked(IZIZ)V
+    invoke-virtual {v0, v1}, Landroid/view/inputmethod/InputMethodManager;->showInputMethodPicker(Z)V
 
     return-void
 .end method

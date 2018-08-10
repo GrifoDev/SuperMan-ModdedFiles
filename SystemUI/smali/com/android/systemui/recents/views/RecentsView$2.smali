@@ -3,12 +3,12 @@
 .source "RecentsView.java"
 
 # interfaces
-.implements Lcom/android/systemui/recents/views/RecentsTransitionHelper$AnimationSpecComposer;
+.implements Landroid/app/ActivityOptions$OnAnimationStartedListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/recents/views/RecentsView;->onBusEvent(Lcom/android/systemui/recents/events/activity/LaunchSplitTaskEvent;)V
+    value = Lcom/android/systemui/recents/views/RecentsView;->onBusEvent(Lcom/android/systemui/recents/events/ui/dragndrop/DragEndEvent;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/systemui/recents/views/RecentsView;
 
-.field final synthetic val$event:Lcom/android/systemui/recents/events/activity/LaunchSplitTaskEvent;
-
-.field final synthetic val$taskRect:Landroid/graphics/Rect;
+.field final synthetic val$event:Lcom/android/systemui/recents/events/ui/dragndrop/DragEndEvent;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/recents/views/RecentsView;Lcom/android/systemui/recents/events/activity/LaunchSplitTaskEvent;Landroid/graphics/Rect;)V
+.method constructor <init>(Lcom/android/systemui/recents/views/RecentsView;Lcom/android/systemui/recents/events/ui/dragndrop/DragEndEvent;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/recents/views/RecentsView$2;->this$0:Lcom/android/systemui/recents/views/RecentsView;
 
-    iput-object p2, p0, Lcom/android/systemui/recents/views/RecentsView$2;->val$event:Lcom/android/systemui/recents/events/activity/LaunchSplitTaskEvent;
-
-    iput-object p3, p0, Lcom/android/systemui/recents/views/RecentsView$2;->val$taskRect:Landroid/graphics/Rect;
+    iput-object p2, p0, Lcom/android/systemui/recents/views/RecentsView$2;->val$event:Lcom/android/systemui/recents/events/ui/dragndrop/DragEndEvent;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -42,33 +38,34 @@
 
 
 # virtual methods
-.method public composeSpecs()Ljava/util/List;
-    .locals 3
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List",
-            "<",
-            "Landroid/view/AppTransitionAnimationSpec;",
-            ">;"
-        }
-    .end annotation
+.method public onAnimationStarted()V
+    .locals 4
+
+    invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/systemui/recents/events/activity/DockedFirstAnimationFrameEvent;
+
+    invoke-direct {v1}, Lcom/android/systemui/recents/events/activity/DockedFirstAnimationFrameEvent;-><init>()V
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsView$2;->this$0:Lcom/android/systemui/recents/views/RecentsView;
 
-    invoke-static {v0}, Lcom/android/systemui/recents/views/RecentsView;->-get5(Lcom/android/systemui/recents/views/RecentsView;)Lcom/android/systemui/recents/views/RecentsTransitionHelper;
+    invoke-virtual {v0}, Lcom/android/systemui/recents/views/RecentsView;->getStack()Lcom/android/systemui/recents/model/TaskStack;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/systemui/recents/views/RecentsView$2;->val$event:Lcom/android/systemui/recents/events/activity/LaunchSplitTaskEvent;
+    iget-object v1, p0, Lcom/android/systemui/recents/views/RecentsView$2;->val$event:Lcom/android/systemui/recents/events/ui/dragndrop/DragEndEvent;
 
-    iget-object v1, v1, Lcom/android/systemui/recents/events/activity/LaunchSplitTaskEvent;->taskView:Lcom/android/systemui/recents/views/TaskView;
+    iget-object v1, v1, Lcom/android/systemui/recents/events/ui/dragndrop/DragEndEvent;->task:Lcom/android/systemui/recents/model/Task;
 
-    iget-object v2, p0, Lcom/android/systemui/recents/views/RecentsView$2;->val$taskRect:Landroid/graphics/Rect;
+    const/4 v2, 0x0
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/recents/views/RecentsTransitionHelper;->composeDockAnimationSpec(Lcom/android/systemui/recents/views/TaskView;Landroid/graphics/Rect;)Ljava/util/List;
+    const/4 v3, 0x1
 
-    move-result-object v0
+    invoke-virtual {v0, v1, v2, v3}, Lcom/android/systemui/recents/model/TaskStack;->removeTask(Lcom/android/systemui/recents/model/Task;Lcom/android/systemui/recents/views/AnimationProps;Z)V
 
-    return-object v0
+    return-void
 .end method

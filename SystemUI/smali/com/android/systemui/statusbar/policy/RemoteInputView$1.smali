@@ -93,7 +93,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView$1;->this$0:Lcom/android/systemui/statusbar/policy/RemoteInputView;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->-wrap0(Lcom/android/systemui/statusbar/policy/RemoteInputView;)V
+    invoke-static {v2}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->-wrap1(Lcom/android/systemui/statusbar/policy/RemoteInputView;)V
 
     :cond_2
     const/4 v2, 0x1

@@ -4,13 +4,9 @@
 
 
 # instance fields
-.field private mContext:Landroid/content/Context;
-
 .field private mHasDockedTasks:Z
 
 .field private mHasNavBarScrim:Z
-
-.field private mHasSoftNavBar:Z
 
 .field private mHasTransposedNavBar:Z
 
@@ -22,72 +18,6 @@
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/systemui/recents/RecentsActivity;)V
-    .locals 2
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/systemui/recents/views/SystemBarScrimViews;->mContext:Landroid/content/Context;
-
-    const v0, 0x7f130317
-
-    invoke-virtual {p1, v0}, Lcom/android/systemui/recents/RecentsActivity;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/systemui/recents/views/SystemBarScrimViews;->mNavBarScrimView:Landroid/view/View;
-
-    iget-object v0, p0, Lcom/android/systemui/recents/views/SystemBarScrimViews;->mNavBarScrimView:Landroid/view/View;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->forceHasOverlappingRendering(Z)V
-
-    invoke-virtual {p1}, Lcom/android/systemui/recents/RecentsActivity;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x7f0c003d
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/systemui/recents/views/SystemBarScrimViews;->mNavBarScrimEnterDuration:I
-
-    invoke-static {}, Lcom/android/systemui/recents/Recents;->getSystemServices()Lcom/android/systemui/recents/misc/SystemServicesProxy;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->hasTransposedNavigationBar()Z
-
-    move-result v0
-
-    iput-boolean v0, p0, Lcom/android/systemui/recents/views/SystemBarScrimViews;->mHasNavBarScrim:Z
-
-    invoke-static {}, Lcom/android/systemui/recents/Recents;->getSystemServices()Lcom/android/systemui/recents/misc/SystemServicesProxy;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->hasDockedTask()Z
-
-    move-result v0
-
-    iput-boolean v0, p0, Lcom/android/systemui/recents/views/SystemBarScrimViews;->mHasDockedTasks:Z
-
-    invoke-static {}, Lcom/android/systemui/recents/Recents;->getSystemServices()Lcom/android/systemui/recents/misc/SystemServicesProxy;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->hasSoftNavigationBar()Z
-
-    move-result v0
-
-    iput-boolean v0, p0, Lcom/android/systemui/recents/views/SystemBarScrimViews;->mHasSoftNavBar:Z
-
-    return-void
-.end method
-
 .method private animateNavBarScrimVisibility(ZLcom/android/systemui/recents/views/AnimationProps;)V
     .locals 5
 
@@ -234,50 +164,18 @@
 
     iget-boolean v0, p0, Lcom/android/systemui/recents/views/SystemBarScrimViews;->mHasTransposedNavBar:Z
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    const/4 v0, 0x0
+    if-eqz v0, :cond_0
+
+    iget-boolean v0, p0, Lcom/android/systemui/recents/views/SystemBarScrimViews;->mHasDockedTasks:Z
+
+    xor-int/lit8 v0, v0, 0x1
 
     :goto_0
     return v0
 
-    :cond_1
-    iget-boolean v0, p0, Lcom/android/systemui/recents/views/SystemBarScrimViews;->mHasDockedTasks:Z
-
-    if-nez v0, :cond_0
-
-    iget-boolean v0, p0, Lcom/android/systemui/recents/views/SystemBarScrimViews;->mHasSoftNavBar:Z
-
-    goto :goto_0
-.end method
-
-.method private prepareEnterRecentsAnimation(ZZ)V
-    .locals 2
-
-    iput-boolean p1, p0, Lcom/android/systemui/recents/views/SystemBarScrimViews;->mHasNavBarScrim:Z
-
-    iput-boolean p2, p0, Lcom/android/systemui/recents/views/SystemBarScrimViews;->mShouldAnimateNavBarScrim:Z
-
-    iget-object v1, p0, Lcom/android/systemui/recents/views/SystemBarScrimViews;->mNavBarScrimView:Landroid/view/View;
-
-    iget-boolean v0, p0, Lcom/android/systemui/recents/views/SystemBarScrimViews;->mHasNavBarScrim:Z
-
-    if-eqz v0, :cond_0
-
-    iget-boolean v0, p0, Lcom/android/systemui/recents/views/SystemBarScrimViews;->mShouldAnimateNavBarScrim:Z
-
-    if-eqz v0, :cond_1
-
     :cond_0
-    const/4 v0, 0x4
-
-    :goto_0
-    invoke-virtual {v1, v0}, Landroid/view/View;->setVisibility(I)V
-
-    return-void
-
-    :cond_1
     const/4 v0, 0x0
 
     goto :goto_0
@@ -453,27 +351,6 @@
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lcom/android/systemui/recents/views/SystemBarScrimViews;->animateScrimToCurrentNavBarState(Z)V
-
-    :cond_0
-    return-void
-.end method
-
-.method public updateNavBarScrim(ZZLcom/android/systemui/recents/views/AnimationProps;)V
-    .locals 1
-
-    invoke-direct {p0, p2}, Lcom/android/systemui/recents/views/SystemBarScrimViews;->isNavBarScrimRequired(Z)Z
-
-    move-result v0
-
-    invoke-direct {p0, v0, p1}, Lcom/android/systemui/recents/views/SystemBarScrimViews;->prepareEnterRecentsAnimation(ZZ)V
-
-    if-eqz p1, :cond_0
-
-    if-eqz p3, :cond_0
-
-    const/4 v0, 0x1
-
-    invoke-direct {p0, v0, p3}, Lcom/android/systemui/recents/views/SystemBarScrimViews;->animateNavBarScrimVisibility(ZLcom/android/systemui/recents/views/AnimationProps;)V
 
     :cond_0
     return-void

@@ -21,17 +21,17 @@
 
 # virtual methods
 .method public onFinishInflate()V
-    .locals 4
+    .locals 5
 
-    const v2, 0x106000d
+    const v4, 0x106000d
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     const v3, 0x3f333333    # 0.7f
 
     invoke-super {p0}, Landroid/widget/RelativeLayout;->onFinishInflate()V
 
-    const v0, 0x7f1300d8
+    const v0, 0x7f0a00c8
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/car/CarNavigationButton;->findViewById(I)Landroid/view/View;
 
@@ -43,17 +43,23 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/car/CarNavigationButton;->mIcon:Lcom/android/keyguard/AlphaOptimizedImageButton;
 
-    invoke-virtual {v0, v1}, Lcom/android/keyguard/AlphaOptimizedImageButton;->setClickable(Z)V
+    sget-object v1, Landroid/widget/ImageView$ScaleType;->CENTER:Landroid/widget/ImageView$ScaleType;
+
+    invoke-virtual {v0, v1}, Lcom/android/keyguard/AlphaOptimizedImageButton;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/car/CarNavigationButton;->mIcon:Lcom/android/keyguard/AlphaOptimizedImageButton;
 
-    invoke-virtual {v0, v2}, Lcom/android/keyguard/AlphaOptimizedImageButton;->setBackgroundColor(I)V
+    invoke-virtual {v0, v2}, Lcom/android/keyguard/AlphaOptimizedImageButton;->setClickable(Z)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/car/CarNavigationButton;->mIcon:Lcom/android/keyguard/AlphaOptimizedImageButton;
+
+    invoke-virtual {v0, v4}, Lcom/android/keyguard/AlphaOptimizedImageButton;->setBackgroundColor(I)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/car/CarNavigationButton;->mIcon:Lcom/android/keyguard/AlphaOptimizedImageButton;
 
     invoke-virtual {v0, v3}, Lcom/android/keyguard/AlphaOptimizedImageButton;->setAlpha(F)V
 
-    const v0, 0x7f1300d9
+    const v0, 0x7f0a00c9
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/car/CarNavigationButton;->findViewById(I)Landroid/view/View;
 
@@ -65,11 +71,11 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/car/CarNavigationButton;->mMoreIcon:Lcom/android/keyguard/AlphaOptimizedImageButton;
 
-    invoke-virtual {v0, v1}, Lcom/android/keyguard/AlphaOptimizedImageButton;->setClickable(Z)V
+    invoke-virtual {v0, v2}, Lcom/android/keyguard/AlphaOptimizedImageButton;->setClickable(Z)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/car/CarNavigationButton;->mMoreIcon:Lcom/android/keyguard/AlphaOptimizedImageButton;
 
-    invoke-virtual {v0, v2}, Lcom/android/keyguard/AlphaOptimizedImageButton;->setBackgroundColor(I)V
+    invoke-virtual {v0, v4}, Lcom/android/keyguard/AlphaOptimizedImageButton;->setBackgroundColor(I)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/car/CarNavigationButton;->mMoreIcon:Lcom/android/keyguard/AlphaOptimizedImageButton;
 
@@ -83,7 +89,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f020059
+    const v2, 0x7f08008e
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

@@ -16,4 +16,8 @@
 
 # virtual methods
 .method public abstract onPreferenceDisplayDialog(Landroid/support/v14/preference/PreferenceFragment;Landroid/support/v7/preference/Preference;)Z
+    .param p1    # Landroid/support/v14/preference/PreferenceFragment;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 .end method

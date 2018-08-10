@@ -30,20 +30,12 @@
 
 
 # direct methods
-.method private constructor <init>(Landroid/support/v7/widget/ActivityChooserModel;)V
+.method constructor <init>(Landroid/support/v7/widget/ActivityChooserModel;)V
     .locals 0
 
     iput-object p1, p0, Landroid/support/v7/widget/ActivityChooserModel$PersistHistoryAsyncTask;->this$0:Landroid/support/v7/widget/ActivityChooserModel;
 
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
-
-    return-void
-.end method
-
-.method synthetic constructor <init>(Landroid/support/v7/widget/ActivityChooserModel;Landroid/support/v7/widget/ActivityChooserModel$PersistHistoryAsyncTask;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Landroid/support/v7/widget/ActivityChooserModel$PersistHistoryAsyncTask;-><init>(Landroid/support/v7/widget/ActivityChooserModel;)V
 
     return-void
 .end method
@@ -82,9 +74,7 @@
 
     iget-object v14, v0, Landroid/support/v7/widget/ActivityChooserModel$PersistHistoryAsyncTask;->this$0:Landroid/support/v7/widget/ActivityChooserModel;
 
-    invoke-static {v14}, Landroid/support/v7/widget/ActivityChooserModel;->-get1(Landroid/support/v7/widget/ActivityChooserModel;)Landroid/content/Context;
-
-    move-result-object v14
+    iget-object v14, v14, Landroid/support/v7/widget/ActivityChooserModel;->mContext:Landroid/content/Context;
 
     const/4 v15, 0x0
 
@@ -204,15 +194,13 @@
     :catch_0
     move-exception v3
 
-    invoke-static {}, Landroid/support/v7/widget/ActivityChooserModel;->-get0()Ljava/lang/String;
-
-    move-result-object v14
+    sget-object v14, Landroid/support/v7/widget/ActivityChooserModel;->LOG_TAG:Ljava/lang/String;
 
     new-instance v15, Ljava/lang/StringBuilder;
 
     invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v16, "Error writing historical recrod file: "
+    const-string/jumbo v16, "Error writing historical record file: "
 
     invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -253,7 +241,7 @@
 
     const/4 v15, 0x1
 
-    invoke-static {v14, v15}, Landroid/support/v7/widget/ActivityChooserModel;->-set0(Landroid/support/v7/widget/ActivityChooserModel;Z)Z
+    iput-boolean v15, v14, Landroid/support/v7/widget/ActivityChooserModel;->mCanReadHistoricalData:Z
 
     if-eqz v4, :cond_1
 
@@ -277,15 +265,13 @@
     move-exception v9
 
     :try_start_4
-    invoke-static {}, Landroid/support/v7/widget/ActivityChooserModel;->-get0()Ljava/lang/String;
-
-    move-result-object v14
+    sget-object v14, Landroid/support/v7/widget/ActivityChooserModel;->LOG_TAG:Ljava/lang/String;
 
     new-instance v15, Ljava/lang/StringBuilder;
 
     invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v16, "Error writing historical recrod file: "
+    const-string/jumbo v16, "Error writing historical record file: "
 
     invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -297,9 +283,11 @@
 
     move-object/from16 v16, v0
 
-    invoke-static/range {v16 .. v16}, Landroid/support/v7/widget/ActivityChooserModel;->-get2(Landroid/support/v7/widget/ActivityChooserModel;)Ljava/lang/String;
+    move-object/from16 v0, v16
 
-    move-result-object v16
+    iget-object v0, v0, Landroid/support/v7/widget/ActivityChooserModel;->mHistoryFileName:Ljava/lang/String;
+
+    move-object/from16 v16, v0
 
     invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -319,7 +307,7 @@
 
     const/4 v15, 0x1
 
-    invoke-static {v14, v15}, Landroid/support/v7/widget/ActivityChooserModel;->-set0(Landroid/support/v7/widget/ActivityChooserModel;Z)Z
+    iput-boolean v15, v14, Landroid/support/v7/widget/ActivityChooserModel;->mCanReadHistoricalData:Z
 
     if-eqz v4, :cond_1
 
@@ -339,15 +327,13 @@
     move-exception v10
 
     :try_start_6
-    invoke-static {}, Landroid/support/v7/widget/ActivityChooserModel;->-get0()Ljava/lang/String;
-
-    move-result-object v14
+    sget-object v14, Landroid/support/v7/widget/ActivityChooserModel;->LOG_TAG:Ljava/lang/String;
 
     new-instance v15, Ljava/lang/StringBuilder;
 
     invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v16, "Error writing historical recrod file: "
+    const-string/jumbo v16, "Error writing historical record file: "
 
     invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -359,9 +345,11 @@
 
     move-object/from16 v16, v0
 
-    invoke-static/range {v16 .. v16}, Landroid/support/v7/widget/ActivityChooserModel;->-get2(Landroid/support/v7/widget/ActivityChooserModel;)Ljava/lang/String;
+    move-object/from16 v0, v16
 
-    move-result-object v16
+    iget-object v0, v0, Landroid/support/v7/widget/ActivityChooserModel;->mHistoryFileName:Ljava/lang/String;
+
+    move-object/from16 v16, v0
 
     invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -381,7 +369,7 @@
 
     const/4 v15, 0x1
 
-    invoke-static {v14, v15}, Landroid/support/v7/widget/ActivityChooserModel;->-set0(Landroid/support/v7/widget/ActivityChooserModel;Z)Z
+    iput-boolean v15, v14, Landroid/support/v7/widget/ActivityChooserModel;->mCanReadHistoricalData:Z
 
     if-eqz v4, :cond_1
 
@@ -401,15 +389,13 @@
     move-exception v8
 
     :try_start_8
-    invoke-static {}, Landroid/support/v7/widget/ActivityChooserModel;->-get0()Ljava/lang/String;
-
-    move-result-object v14
+    sget-object v14, Landroid/support/v7/widget/ActivityChooserModel;->LOG_TAG:Ljava/lang/String;
 
     new-instance v15, Ljava/lang/StringBuilder;
 
     invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v16, "Error writing historical recrod file: "
+    const-string/jumbo v16, "Error writing historical record file: "
 
     invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -421,9 +407,11 @@
 
     move-object/from16 v16, v0
 
-    invoke-static/range {v16 .. v16}, Landroid/support/v7/widget/ActivityChooserModel;->-get2(Landroid/support/v7/widget/ActivityChooserModel;)Ljava/lang/String;
+    move-object/from16 v0, v16
 
-    move-result-object v16
+    iget-object v0, v0, Landroid/support/v7/widget/ActivityChooserModel;->mHistoryFileName:Ljava/lang/String;
+
+    move-object/from16 v16, v0
 
     invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -443,7 +431,7 @@
 
     const/4 v15, 0x1
 
-    invoke-static {v14, v15}, Landroid/support/v7/widget/ActivityChooserModel;->-set0(Landroid/support/v7/widget/ActivityChooserModel;Z)Z
+    iput-boolean v15, v14, Landroid/support/v7/widget/ActivityChooserModel;->mCanReadHistoricalData:Z
 
     if-eqz v4, :cond_1
 
@@ -468,7 +456,9 @@
 
     const/16 v16, 0x1
 
-    invoke-static/range {v15 .. v16}, Landroid/support/v7/widget/ActivityChooserModel;->-set0(Landroid/support/v7/widget/ActivityChooserModel;Z)Z
+    move/from16 v0, v16
+
+    iput-boolean v0, v15, Landroid/support/v7/widget/ActivityChooserModel;->mCanReadHistoricalData:Z
 
     if-eqz v4, :cond_2
 

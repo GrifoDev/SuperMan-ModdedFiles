@@ -90,6 +90,11 @@
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 0
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "MissingSuperCall"
+        }
+    .end annotation
 
     return-void
 .end method

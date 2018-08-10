@@ -4,9 +4,7 @@
 
 
 # instance fields
-.field private mAppCompatProgressBarHelper:Landroid/support/v7/widget/AppCompatProgressBarHelper;
-
-.field private mDrawableManager:Landroid/support/v7/widget/AppCompatDrawableManager;
+.field private final mAppCompatProgressBarHelper:Landroid/support/v7/widget/AppCompatProgressBarHelper;
 
 
 # direct methods
@@ -21,21 +19,13 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 2
+    .locals 1
 
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/RatingBar;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    invoke-static {}, Landroid/support/v7/widget/AppCompatDrawableManager;->get()Landroid/support/v7/widget/AppCompatDrawableManager;
-
-    move-result-object v0
-
-    iput-object v0, p0, Landroid/support/v7/widget/AppCompatRatingBar;->mDrawableManager:Landroid/support/v7/widget/AppCompatDrawableManager;
-
     new-instance v0, Landroid/support/v7/widget/AppCompatProgressBarHelper;
 
-    iget-object v1, p0, Landroid/support/v7/widget/AppCompatRatingBar;->mDrawableManager:Landroid/support/v7/widget/AppCompatDrawableManager;
-
-    invoke-direct {v0, p0, v1}, Landroid/support/v7/widget/AppCompatProgressBarHelper;-><init>(Landroid/widget/ProgressBar;Landroid/support/v7/widget/AppCompatDrawableManager;)V
+    invoke-direct {v0, p0}, Landroid/support/v7/widget/AppCompatProgressBarHelper;-><init>(Landroid/widget/ProgressBar;)V
 
     iput-object v0, p0, Landroid/support/v7/widget/AppCompatRatingBar;->mAppCompatProgressBarHelper:Landroid/support/v7/widget/AppCompatProgressBarHelper;
 
@@ -76,7 +66,7 @@
 
     const/4 v2, 0x0
 
-    invoke-static {v1, p1, v2}, Landroid/support/v4/view/ViewCompat;->resolveSizeAndState(III)I
+    invoke-static {v1, p1, v2}, Landroid/view/View;->resolveSizeAndState(III)I
 
     move-result v2
 

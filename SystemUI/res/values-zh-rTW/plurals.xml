@@ -1,36 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <plurals name="status_bar_accessibility_recent_apps">
-        <item quantity="other">總覽中有 1 個畫面</item>
-        <item quantity="one">總覽中有 %d 個畫面</item>
-    </plurals>
-    <plurals name="kg_password_wrong_pin_code">
-        <item quantity="other">SIM 卡的 PIN 碼輸入錯誤，您還可以再試 %d 次。</item>
-        <item quantity="one">SIM 卡的 PIN 碼輸入錯誤，您還可以再試 %d 次。如果仍然失敗，就必須請行動通訊業者為裝置解鎖。</item>
-    </plurals>
-    <plurals name="kg_password_wrong_puk_code">
-        <item quantity="other">SIM 卡的 PUK 碼輸入錯誤，您還可以再試 %d 次。如果仍然失敗，SIM 卡將永久無法使用。</item>
-        <item quantity="one">SIM 卡的 PUK 碼輸入錯誤，您還可以再試 %d 次。如果仍然失敗，SIM 卡將永久無法使用。</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">裝置已有 %d 小時未解鎖。請確認圖案。</item>
-        <item quantity="one">裝置已有 %d 小時未解鎖。請確認圖案。</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">裝置已有 %d 小時未解鎖。請確認 PIN 碼。</item>
-        <item quantity="one">裝置已有 %d 小時未解鎖。請確認 PIN 碼。</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">裝置已有 %d 小時未解鎖。請確認密碼。</item>
-        <item quantity="one">裝置已有 %d 小時未解鎖。請確認密碼。</item>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">還可嘗試 %d 次</item>
+        <item quantity="one">還可嘗試 %d 次</item>
     </plurals>
     <plurals name="kg_attempt_remaining">
         <item quantity="other">(剩 %d 次機會)</item>
         <item quantity="one">(剩 1 次機會)</item>
     </plurals>
-    <plurals name="kg_attempt_left">
-        <item quantity="other">還可嘗試 %d 次</item>
-        <item quantity="one">還可嘗試 %d 次</item>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">SIM 卡的 PIN 碼輸入錯誤，你還可以再試 %d 次。</item>
+        <item quantity="one">SIM 卡的 PIN 碼輸入錯誤，你還可以再試 %d 次。如果仍然失敗，就必須請電信業者為裝置解鎖。</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">SIM 卡的 PUK 碼輸入錯誤，你還可以再試 %d 次。如果仍然失敗，SIM 卡將永久無法使用。</item>
+        <item quantity="one">SIM 卡的 PUK 碼輸入錯誤，你還可以再試 %d 次。如果仍然失敗，SIM 卡將永久無法使用。</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">裝置已有 %d 小時未解鎖。請確認密碼。</item>
+        <item quantity="one">裝置已有 %d 小時未解鎖。請確認密碼。</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">裝置已有 %d 小時未解鎖。請確認解鎖圖案。</item>
+        <item quantity="one">裝置已有 %d 小時未解鎖。請確認解鎖圖案。</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">裝置已有 %d 小時未解鎖。請確認 PIN 碼。</item>
+        <item quantity="one">裝置已有 %d 小時未解鎖。請確認 PIN 碼。</item>
     </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown_min">
         <item quantity="other">請於 %d 分鐘後重試</item>
@@ -39,5 +35,29 @@
     <plurals name="kg_too_many_failed_attempts_countdown_sec">
         <item quantity="other">請於 %d 秒鐘後重試</item>
         <item quantity="one">請於 %d 秒鐘後重試</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_countdown_by_biometrics">
+        <item quantity="other">已嘗試 %1$d 次錯誤的生物辨識驗證。請於 %2$d 秒後重試。</item>
+        <item quantity="one">已嘗試 %1$d 次錯誤的生物辨識驗證。請於 %2$d 秒後重試。</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_countdown_by_fingerprint">
+        <item quantity="other">已嘗試 %1$d 次錯誤的指紋驗證。請於 %2$d 秒後重試。</item>
+        <item quantity="one">已嘗試 %1$d 次錯誤的指紋驗證。請於 %2$d 秒後重試。</item>
+    </plurals>
+    <plurals name="notification_channels_list_desc_2_and_others">
+        <item quantity="other">%1$s、%2$s和另外 %3$d 個管道</item>
+        <item quantity="one">%1$s、%2$s和另外 %3$d 個管道</item>
+    </plurals>
+    <plurals name="notification_num_channels_desc">
+        <item quantity="other">在 %d 個通知類別中，有 1 個類別是來自這個應用程式</item>
+        <item quantity="one">在 %d 個通知類別中，有 1 個類別是來自這個應用程式</item>
+    </plurals>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">總覽中有 %d 個畫面</item>
+        <item quantity="one">總覽中有 1 個畫面</item>
+    </plurals>
+    <plurals name="notification_group_overflow_description">
+        <item quantity="other">群組中還有 %s 則通知。</item>
+        <item quantity="one">群組中還有 %s 則通知。</item>
     </plurals>
 </resources>

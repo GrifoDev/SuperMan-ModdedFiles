@@ -29,7 +29,7 @@
 
 
 # direct methods
-.method private constructor <init>(Landroid/support/v7/widget/ActivityChooserView;)V
+.method constructor <init>(Landroid/support/v7/widget/ActivityChooserView;)V
     .locals 1
 
     iput-object p1, p0, Landroid/support/v7/widget/ActivityChooserView$ActivityChooserViewAdapter;->this$0:Landroid/support/v7/widget/ActivityChooserView;
@@ -39,14 +39,6 @@
     const/4 v0, 0x4
 
     iput v0, p0, Landroid/support/v7/widget/ActivityChooserView$ActivityChooserViewAdapter;->mMaxActivityCount:I
-
-    return-void
-.end method
-
-.method synthetic constructor <init>(Landroid/support/v7/widget/ActivityChooserView;Landroid/support/v7/widget/ActivityChooserView$ActivityChooserViewAdapter;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Landroid/support/v7/widget/ActivityChooserView$ActivityChooserViewAdapter;-><init>(Landroid/support/v7/widget/ActivityChooserView;)V
 
     return-void
 .end method
@@ -386,13 +378,13 @@
 
     if-eqz v5, :cond_4
 
-    invoke-static {p2, v8}, Landroid/support/v4/view/ViewCompat;->setActivated(Landroid/view/View;Z)V
+    invoke-virtual {p2, v8}, Landroid/view/View;->setActivated(Z)V
 
     :goto_0
     return-object p2
 
     :cond_4
-    invoke-static {p2, v7}, Landroid/support/v4/view/ViewCompat;->setActivated(Landroid/view/View;Z)V
+    invoke-virtual {p2, v7}, Landroid/view/View;->setActivated(Z)V
 
     goto :goto_0
 
@@ -467,6 +459,58 @@
     iput v5, p0, Landroid/support/v7/widget/ActivityChooserView$ActivityChooserViewAdapter;->mMaxActivityCount:I
 
     return v0
+.end method
+
+.method public setDataModel(Landroid/support/v7/widget/ActivityChooserModel;)V
+    .locals 2
+
+    iget-object v1, p0, Landroid/support/v7/widget/ActivityChooserView$ActivityChooserViewAdapter;->this$0:Landroid/support/v7/widget/ActivityChooserView;
+
+    iget-object v1, v1, Landroid/support/v7/widget/ActivityChooserView;->mAdapter:Landroid/support/v7/widget/ActivityChooserView$ActivityChooserViewAdapter;
+
+    invoke-virtual {v1}, Landroid/support/v7/widget/ActivityChooserView$ActivityChooserViewAdapter;->getDataModel()Landroid/support/v7/widget/ActivityChooserModel;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v1, p0, Landroid/support/v7/widget/ActivityChooserView$ActivityChooserViewAdapter;->this$0:Landroid/support/v7/widget/ActivityChooserView;
+
+    invoke-virtual {v1}, Landroid/support/v7/widget/ActivityChooserView;->isShown()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Landroid/support/v7/widget/ActivityChooserView$ActivityChooserViewAdapter;->this$0:Landroid/support/v7/widget/ActivityChooserView;
+
+    iget-object v1, v1, Landroid/support/v7/widget/ActivityChooserView;->mModelDataSetObserver:Landroid/database/DataSetObserver;
+
+    invoke-virtual {v0, v1}, Landroid/support/v7/widget/ActivityChooserModel;->unregisterObserver(Ljava/lang/Object;)V
+
+    :cond_0
+    iput-object p1, p0, Landroid/support/v7/widget/ActivityChooserView$ActivityChooserViewAdapter;->mDataModel:Landroid/support/v7/widget/ActivityChooserModel;
+
+    if-eqz p1, :cond_1
+
+    iget-object v1, p0, Landroid/support/v7/widget/ActivityChooserView$ActivityChooserViewAdapter;->this$0:Landroid/support/v7/widget/ActivityChooserView;
+
+    invoke-virtual {v1}, Landroid/support/v7/widget/ActivityChooserView;->isShown()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Landroid/support/v7/widget/ActivityChooserView$ActivityChooserViewAdapter;->this$0:Landroid/support/v7/widget/ActivityChooserView;
+
+    iget-object v1, v1, Landroid/support/v7/widget/ActivityChooserView;->mModelDataSetObserver:Landroid/database/DataSetObserver;
+
+    invoke-virtual {p1, v1}, Landroid/support/v7/widget/ActivityChooserModel;->registerObserver(Ljava/lang/Object;)V
+
+    :cond_1
+    invoke-virtual {p0}, Landroid/support/v7/widget/ActivityChooserView$ActivityChooserViewAdapter;->notifyDataSetChanged()V
+
+    return-void
 .end method
 
 .method public setMaxActivityCount(I)V

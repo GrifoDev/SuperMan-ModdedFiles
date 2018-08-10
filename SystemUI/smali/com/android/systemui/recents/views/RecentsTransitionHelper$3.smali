@@ -1,14 +1,11 @@
 .class Lcom/android/systemui/recents/views/RecentsTransitionHelper$3;
-.super Ljava/lang/Object;
+.super Landroid/os/IRemoteCallback$Stub;
 .source "RecentsTransitionHelper.java"
-
-# interfaces
-.implements Landroid/app/ActivityOptions$OnAnimationStartedListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/recents/views/RecentsTransitionHelper;->launchTaskFromRecents(Lcom/android/systemui/recents/model/TaskStack;Lcom/android/systemui/recents/model/Task;Lcom/android/systemui/recents/views/TaskStackView;Lcom/android/systemui/recents/views/TaskView;ZLandroid/graphics/Rect;IZ)V
+    value = Lcom/android/systemui/recents/views/RecentsTransitionHelper;->wrapStartedListener(Landroid/app/ActivityOptions$OnAnimationStartedListener;)Landroid/os/IRemoteCallback;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,56 +17,45 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/systemui/recents/views/RecentsTransitionHelper;
 
-.field final synthetic val$stackView:Lcom/android/systemui/recents/views/TaskStackView;
-
-.field final synthetic val$task:Lcom/android/systemui/recents/model/Task;
+.field final synthetic val$listener:Landroid/app/ActivityOptions$OnAnimationStartedListener;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/recents/views/RecentsTransitionHelper;Lcom/android/systemui/recents/model/Task;Lcom/android/systemui/recents/views/TaskStackView;)V
+.method constructor <init>(Lcom/android/systemui/recents/views/RecentsTransitionHelper;Landroid/app/ActivityOptions$OnAnimationStartedListener;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/recents/views/RecentsTransitionHelper$3;->this$0:Lcom/android/systemui/recents/views/RecentsTransitionHelper;
 
-    iput-object p2, p0, Lcom/android/systemui/recents/views/RecentsTransitionHelper$3;->val$task:Lcom/android/systemui/recents/model/Task;
+    iput-object p2, p0, Lcom/android/systemui/recents/views/RecentsTransitionHelper$3;->val$listener:Landroid/app/ActivityOptions$OnAnimationStartedListener;
 
-    iput-object p3, p0, Lcom/android/systemui/recents/views/RecentsTransitionHelper$3;->val$stackView:Lcom/android/systemui/recents/views/TaskStackView;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/os/IRemoteCallback$Stub;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onAnimationStarted()V
+.method public sendResult(Landroid/os/Bundle;)V
     .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
 
-    invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
+    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsTransitionHelper$3;->this$0:Lcom/android/systemui/recents/views/RecentsTransitionHelper;
 
-    move-result-object v0
-
-    new-instance v1, Lcom/android/systemui/recents/events/activity/CancelEnterRecentsWindowAnimationEvent;
-
-    iget-object v2, p0, Lcom/android/systemui/recents/views/RecentsTransitionHelper$3;->val$task:Lcom/android/systemui/recents/model/Task;
-
-    invoke-direct {v1, v2}, Lcom/android/systemui/recents/events/activity/CancelEnterRecentsWindowAnimationEvent;-><init>(Lcom/android/systemui/recents/model/Task;)V
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
-
-    invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
+    invoke-static {v0}, Lcom/android/systemui/recents/views/RecentsTransitionHelper;->-get4(Lcom/android/systemui/recents/views/RecentsTransitionHelper;)Landroid/os/Handler;
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/systemui/recents/events/activity/ExitRecentsWindowFirstAnimationFrameEvent;
+    new-instance v1, Lcom/android/systemui/recents/views/RecentsTransitionHelper$3$1;
 
-    invoke-direct {v1}, Lcom/android/systemui/recents/events/activity/ExitRecentsWindowFirstAnimationFrameEvent;-><init>()V
+    iget-object v2, p0, Lcom/android/systemui/recents/views/RecentsTransitionHelper$3;->val$listener:Landroid/app/ActivityOptions$OnAnimationStartedListener;
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
+    invoke-direct {v1, p0, v2}, Lcom/android/systemui/recents/views/RecentsTransitionHelper$3$1;-><init>(Lcom/android/systemui/recents/views/RecentsTransitionHelper$3;Landroid/app/ActivityOptions$OnAnimationStartedListener;)V
 
-    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsTransitionHelper$3;->val$stackView:Lcom/android/systemui/recents/views/TaskStackView;
-
-    invoke-virtual {v0}, Lcom/android/systemui/recents/views/TaskStackView;->cancelAllTaskViewAnimations()V
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method

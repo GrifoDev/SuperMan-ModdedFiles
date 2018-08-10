@@ -120,19 +120,20 @@
 
     if-eqz v0, :cond_0
 
-    if-eqz v2, :cond_1
+    xor-int/lit8 v6, v2, 0x1
+
+    if-eqz v6, :cond_0
+
+    return v5
 
     :cond_0
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_1
 
     return v4
 
     :cond_1
-    return v5
-
-    :cond_2
     iget-object v6, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;->this$0:Lcom/android/systemui/statusbar/policy/HeadsUpManager;
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;->entry:Lcom/android/systemui/statusbar/NotificationData$Entry;
@@ -149,63 +150,65 @@
 
     move-result v1
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_2
 
-    if-eqz v1, :cond_4
+    xor-int/lit8 v6, v1, 0x1
+
+    if-eqz v6, :cond_2
+
+    return v5
+
+    :cond_2
+    if-nez v3, :cond_3
+
+    if-eqz v1, :cond_3
+
+    return v4
 
     :cond_3
-    if-nez v3, :cond_5
+    iget-boolean v6, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;->remoteInputActive:Z
 
-    if-eqz v1, :cond_5
+    if-eqz v6, :cond_4
 
-    return v4
+    iget-boolean v6, p1, Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;->remoteInputActive:Z
+
+    xor-int/lit8 v6, v6, 0x1
+
+    if-eqz v6, :cond_4
+
+    return v5
 
     :cond_4
-    return v5
-
-    :cond_5
     iget-boolean v6, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;->remoteInputActive:Z
 
-    if-eqz v6, :cond_6
+    if-nez v6, :cond_5
 
     iget-boolean v6, p1, Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;->remoteInputActive:Z
 
-    if-eqz v6, :cond_7
-
-    :cond_6
-    iget-boolean v6, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;->remoteInputActive:Z
-
-    if-nez v6, :cond_8
-
-    iget-boolean v6, p1, Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;->remoteInputActive:Z
-
-    if-eqz v6, :cond_8
+    if-eqz v6, :cond_5
 
     return v4
 
-    :cond_7
-    return v5
-
-    :cond_8
+    :cond_5
     iget-wide v6, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;->postTime:J
 
     iget-wide v8, p1, Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;->postTime:J
 
     cmp-long v6, v6, v8
 
-    if-gez v6, :cond_9
+    if-gez v6, :cond_6
 
     :goto_0
     return v4
 
-    :cond_9
+    :cond_6
     iget-wide v6, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;->postTime:J
 
     iget-wide v8, p1, Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;->postTime:J
 
     cmp-long v4, v6, v8
 
-    if-nez v4, :cond_a
+    if-nez v4, :cond_7
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;->entry:Lcom/android/systemui/statusbar/NotificationData$Entry;
 
@@ -221,7 +224,7 @@
 
     goto :goto_0
 
-    :cond_a
+    :cond_7
     move v4, v5
 
     goto :goto_0
@@ -246,7 +249,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;->this$0:Lcom/android/systemui/statusbar/policy/HeadsUpManager;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->-get2(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->-get3(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)Landroid/os/Handler;
 
     move-result-object v0
 
@@ -276,7 +279,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;->this$0:Lcom/android/systemui/statusbar/policy/HeadsUpManager;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->-get2(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->-get3(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)Landroid/os/Handler;
 
     move-result-object v0
 
@@ -324,7 +327,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;->this$0:Lcom/android/systemui/statusbar/policy/HeadsUpManager;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->-get8(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)I
+    invoke-static {v2}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->-get9(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)I
 
     move-result v2
 
@@ -370,7 +373,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;->this$0:Lcom/android/systemui/statusbar/policy/HeadsUpManager;
 
-    invoke-static {v6}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->-get4(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)I
+    invoke-static {v6}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->-get5(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)I
 
     move-result v6
 
@@ -418,17 +421,42 @@
     invoke-virtual {v6, v7}, Ljava/util/HashSet;->remove(Ljava/lang/Object;)Z
 
     :cond_1
+    iget-object v6, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;->this$0:Lcom/android/systemui/statusbar/policy/HeadsUpManager;
+
+    invoke-static {v6}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->-get2(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)Landroid/support/v4/util/ArraySet;
+
+    move-result-object v6
+
+    iget-object v7, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;->entry:Lcom/android/systemui/statusbar/NotificationData$Entry;
+
+    invoke-virtual {v6, v7}, Landroid/support/v4/util/ArraySet;->contains(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_2
+
+    iget-object v6, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;->this$0:Lcom/android/systemui/statusbar/policy/HeadsUpManager;
+
+    invoke-static {v6}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->-get2(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)Landroid/support/v4/util/ArraySet;
+
+    move-result-object v6
+
+    iget-object v7, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;->entry:Lcom/android/systemui/statusbar/NotificationData$Entry;
+
+    invoke-virtual {v6, v7}, Landroid/support/v4/util/ArraySet;->remove(Ljava/lang/Object;)Z
+
+    :cond_2
     invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;->isSticky()Z
 
     move-result v6
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_3
 
     iget-wide v6, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;->postTime:J
 
     iget-object v8, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;->this$0:Lcom/android/systemui/statusbar/policy/HeadsUpManager;
 
-    invoke-static {v8}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->-get3(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)I
+    invoke-static {v8}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->-get4(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)I
 
     move-result v8
 
@@ -440,7 +468,7 @@
 
     iget-object v8, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;->this$0:Lcom/android/systemui/statusbar/policy/HeadsUpManager;
 
-    invoke-static {v8}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->-get4(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)I
+    invoke-static {v8}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->-get5(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)I
 
     move-result v8
 
@@ -452,7 +480,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;->this$0:Lcom/android/systemui/statusbar/policy/HeadsUpManager;
 
-    invoke-static {v6}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->-get2(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)Landroid/os/Handler;
+    invoke-static {v6}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->-get3(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)Landroid/os/Handler;
 
     move-result-object v6
 
@@ -460,7 +488,7 @@
 
     invoke-virtual {v6, v7, v4, v5}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    :cond_2
+    :cond_3
     return-void
 .end method
 

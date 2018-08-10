@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <plurals name="status_bar_accessibility_recent_apps">
-        <item quantity="other">%d screens in Overview</item>
-        <item quantity="one">1 screen in Overview</item>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">%d attempts left</item>
+        <item quantity="one">%d attempt left</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(%d attempts remaining)</item>
+        <item quantity="one">(1 attempt remaining)</item>
+    </plurals>
+    <plurals name="kg_password_default_pin_message">
+        <item quantity="other">Enter SIM%1$d PIN, you have %2$d remaining mpts.</item>
+        <item quantity="one">Enter SIM%1$d PIN, you have %2$d remaining mpt before you must contact your carrier to unlock your device.</item>
+    </plurals>
+    <plurals name="kg_password_default_puk_message">
+        <item quantity="other">SIM is now disabled. Enter PUK code to continue. You have %d remaining attempts before SIM becomes permanently unusable. Contact carrier for details.</item>
+        <item quantity="one">SIM is now disabled. Enter PUK code to continue. You have %d remaining attempt before SIM becomes permanently unusable. Contact carrier for details.</item>
     </plurals>
     <plurals name="kg_password_wrong_pin_code">
         <item quantity="other">Incorrect SIM PIN code, you have %d remaining attempts.</item>
@@ -12,6 +24,10 @@
         <item quantity="other">Incorrect SIM PUK code, you have %d remaining attempts before SIM becomes permanently unusable.</item>
         <item quantity="one">Incorrect SIM PUK code, you have %d remaining attempt before SIM becomes permanently unusable.</item>
     </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">"Device hasn't been unlocked for %d hours. Confirm password."</item>
+        <item quantity="one">"Device hasn't been unlocked for %d hour. Confirm password."</item>
+    </plurals>
     <plurals name="kg_prompt_reason_time_pattern">
         <item quantity="other">"Device hasn't been unlocked for %d hours. Confirm pattern."</item>
         <item quantity="one">"Device hasn't been unlocked for %d hour. Confirm pattern."</item>
@@ -20,36 +36,40 @@
         <item quantity="other">"Device hasn't been unlocked for %d hours. Confirm PIN."</item>
         <item quantity="one">"Device hasn't been unlocked for %d hour. Confirm PIN."</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">"Device hasn't been unlocked for %d hours. Confirm password."</item>
-        <item quantity="one">"Device hasn't been unlocked for %d hour. Confirm password."</item>
-    </plurals>
-    <plurals name="kg_password_default_pin_message">
-        <item quantity="other">Enter SIM%1$d PIN, you have %2$d remaining attempts.</item>
-        <item quantity="one">Enter SIM%1$d PIN, you have %2$d remaining attempt before you must contact your carrier to unlock your device.</item>
-    </plurals>
-    <plurals name="kg_password_default_puk_message">
-        <item quantity="other">SIM is now disabled. Enter PUK code to continue. You have %d remaining attempts before SIM becomes permanently unusable. Contact carrier for details.</item>
-        <item quantity="one">SIM is now disabled. Enter PUK code to continue. You have %d remaining attempt before SIM becomes permanently unusable. Contact carrier for details.</item>
-    </plurals>
-    <plurals name="kg_attempt_remaining">
-        <item quantity="other">(%d attempts remaining)</item>
-        <item quantity="one">(1 attempt remaining)</item>
-    </plurals>
-    <plurals name="kg_attempt_left">
-        <item quantity="other">%d attempts left</item>
-        <item quantity="one">1 attempt left</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown_min">
         <item quantity="other">Try again in %d minutes</item>
-        <item quantity="one">Try again in 1 minute</item>
+        <item quantity="one">Try again in %d minute</item>
     </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown_sec">
         <item quantity="other">Try again in %d seconds</item>
-        <item quantity="one">Try again in 1 second</item>
+        <item quantity="one">Try again in %d second</item>
     </plurals>
-    <plurals name="kg_ucm_password_wrong_pin_code">
-        <item quantity="other">Incorrect PIN. %d attempts left</item>
-        <item quantity="one">Incorrect PIN. %d attempt left</item>
+    <plurals name="kg_too_many_failed_countdown_by_biometrics">
+        <item quantity="other">%1$d incorrect attempts to verify biometrics. Try again in %2$d seconds.</item>
+        <item quantity="one">%1$d incorrect attempts to verify biometrics. Try again in %2$d second.</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_countdown_by_biometrics_in_2step_verification">
+        <item quantity="other">%1$d incorrect attempts to verify biometrics. 2 step verification is blocked. Try again in %2$d seconds.</item>
+        <item quantity="one">%1$d incorrect attempts to verify biometrics. 2 step verification is blocked. Try again in %2$d second.</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_countdown_by_fingerprint">
+        <item quantity="other">%1$d incorrect attempts to verify fingerprints. Try again in %2$d seconds.</item>
+        <item quantity="one">%1$d incorrect attempts to verify fingerprints. Try again in %2$d second.</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_countdown_by_fingerprint_in_2step_verification">
+        <item quantity="other">%1$d incorrect attempts to verify fingerprints. 2 step verification is blocked. Try again in %2$d seconds.</item>
+        <item quantity="one">%1$d incorrect attempts to verify fingerprints. 2 step verification is blocked. Try again in %2$d second.</item>
+    </plurals>
+    <plurals name="notification_channels_list_desc_2_and_others">
+        <item quantity="other">%1$s, %2$s, and %3$d others</item>
+        <item quantity="one">%1$s, %2$s, and %3$d other</item>
+    </plurals>
+    <plurals name="notification_num_channels_desc">
+        <item quantity="other">1 out of %d notification categories from this app</item>
+        <item quantity="one">1 out of %d notification category from this app</item>
+    </plurals>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">%d screens in Overview</item>
+        <item quantity="one">1 screen in Overview</item>
     </plurals>
 </resources>

@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->updateEmptyShadeView(Z)V
+    value = Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,12 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;
 
+.field final synthetic val$lastRow:Landroid/view/View;
+
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;)V
+.method constructor <init>(Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;Landroid/view/View;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout$11;->this$0:Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;
+
+    iput-object p2, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout$11;->val$lastRow:Landroid/view/View;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -35,41 +39,11 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout$11;->this$0:Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout$11;->val$lastRow:Landroid/view/View;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->-get4(Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;)Lcom/android/systemui/statusbar/EmptyShadeView;
-
-    move-result-object v0
-
-    const/16 v1, 0x8
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/EmptyShadeView;->setVisibility(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout$11;->this$0:Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;
-
-    invoke-static {v0}, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->-get4(Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;)Lcom/android/systemui/statusbar/EmptyShadeView;
-
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/EmptyShadeView;->setWillBeGone(Z)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout$11;->this$0:Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;
-
-    invoke-static {v0}, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->-wrap7(Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout$11;->this$0:Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout$11;->this$0:Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;
-
-    invoke-static {v1}, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->-get4(Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;)Lcom/android/systemui/statusbar/EmptyShadeView;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->-wrap2(Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;Lcom/android/systemui/statusbar/ExpandableView;)V
+    invoke-virtual {v0}, Landroid/view/View;->requestFocus()Z
 
     return-void
 .end method

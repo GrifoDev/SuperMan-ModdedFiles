@@ -1,9 +1,6 @@
 .class Lcom/android/systemui/qs/DataUsageView$1;
-.super Ljava/lang/Object;
+.super Landroid/database/ContentObserver;
 .source "DataUsageView.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
@@ -22,73 +19,48 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/DataUsageView;)V
+.method constructor <init>(Lcom/android/systemui/qs/DataUsageView;Landroid/os/Handler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/DataUsageView$1;->this$0:Lcom/android/systemui/qs/DataUsageView;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 4
-
-    const/4 v3, 0x0
-
-    const-string/jumbo v0, "DataUsageView"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "Data Usage:"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
+.method public onChange(Z)V
+    .locals 3
 
     iget-object v2, p0, Lcom/android/systemui/qs/DataUsageView$1;->this$0:Lcom/android/systemui/qs/DataUsageView;
 
-    invoke-static {v2}, Lcom/android/systemui/qs/DataUsageView;->-get2(Lcom/android/systemui/qs/DataUsageView;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     iget-object v0, p0, Lcom/android/systemui/qs/DataUsageView$1;->this$0:Lcom/android/systemui/qs/DataUsageView;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/DataUsageView;->-get2(Lcom/android/systemui/qs/DataUsageView;)Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/android/systemui/qs/DataUsageView;->isLimitSet()Z
 
-    move-result-object v0
+    move-result v0
 
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/systemui/qs/DataUsageView$1;->this$0:Lcom/android/systemui/qs/DataUsageView;
 
-    iget-object v1, p0, Lcom/android/systemui/qs/DataUsageView$1;->this$0:Lcom/android/systemui/qs/DataUsageView;
+    invoke-virtual {v0}, Lcom/android/systemui/qs/DataUsageView;->getLimitBytes()J
 
-    invoke-static {v1}, Lcom/android/systemui/qs/DataUsageView;->-get2(Lcom/android/systemui/qs/DataUsageView;)Ljava/lang/String;
+    move-result-wide v0
 
-    move-result-object v1
+    :goto_0
+    invoke-static {v2, v0, v1}, Lcom/android/systemui/qs/DataUsageView;->-set0(Lcom/android/systemui/qs/DataUsageView;J)J
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/DataUsageView;->setText(Ljava/lang/CharSequence;)V
-
-    :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/DataUsageView$1;->this$0:Lcom/android/systemui/qs/DataUsageView;
 
-    invoke-static {v0, v3}, Lcom/android/systemui/qs/DataUsageView;->-set1(Lcom/android/systemui/qs/DataUsageView;Ljava/lang/Thread;)Ljava/lang/Thread;
+    invoke-static {v0}, Lcom/android/systemui/qs/DataUsageView;->-wrap1(Lcom/android/systemui/qs/DataUsageView;)V
 
     return-void
+
+    :cond_0
+    const-wide/16 v0, 0x0
+
+    goto :goto_0
 .end method

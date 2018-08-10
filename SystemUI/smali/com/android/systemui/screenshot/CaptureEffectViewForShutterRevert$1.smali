@@ -43,7 +43,7 @@
 
     const-string/jumbo v1, "onAnimationEnd"
 
-    invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method
@@ -55,19 +55,21 @@
 .end method
 
 .method public onAnimationStart(Landroid/view/animation/Animation;)V
-    .locals 4
+    .locals 6
 
-    new-instance v0, Landroid/os/Handler;
+    const/16 v0, 0x180
 
-    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
+    new-instance v1, Landroid/os/Handler;
 
-    new-instance v1, Lcom/android/systemui/screenshot/CaptureEffectViewForShutterRevert$1$1;
+    invoke-direct {v1}, Landroid/os/Handler;-><init>()V
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/screenshot/CaptureEffectViewForShutterRevert$1$1;-><init>(Lcom/android/systemui/screenshot/CaptureEffectViewForShutterRevert$1;)V
+    new-instance v2, Lcom/android/systemui/screenshot/CaptureEffectViewForShutterRevert$1$1;
 
-    const-wide/16 v2, 0x18f
+    invoke-direct {v2, p0}, Lcom/android/systemui/screenshot/CaptureEffectViewForShutterRevert$1$1;-><init>(Lcom/android/systemui/screenshot/CaptureEffectViewForShutterRevert$1;)V
 
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    const-wide/16 v4, 0x180
+
+    invoke-virtual {v1, v2, v4, v5}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     return-void
 .end method

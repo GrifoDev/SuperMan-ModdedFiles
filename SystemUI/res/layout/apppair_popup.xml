@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.systemui.stackdivider.AppPairPopupView android:background="@android:color/transparent" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:gravity="center_horizontal" android:id="@id/mw_apppair_popup_framelayout" android:background="@color/transparent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/mw_apppair_popup_basic_margin" android:layout_marginTop="@dimen/mw_apppair_popup_basic_margin" android:layout_marginRight="@dimen/mw_apppair_popup_basic_margin" android:layout_marginBottom="@dimen/mw_apppair_popup_basic_margin">
+        <LinearLayout android:orientation="horizontal" android:id="@id/mw_apppair_popup_bubble_linearlayout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layoutDirection="ltr">
+            <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <ImageView android:id="@id/bubble_first_body" android:background="@drawable/bubble_bottom_arrow_left" android:layout_width="50.0dip" android:layout_height="50.0dip" />
+                <ImageView android:id="@id/bubble_first_line" android:background="@drawable/bubble_line_bottom_arrow_left" android:layout_width="50.0dip" android:layout_height="50.0dip" />
+            </FrameLayout>
+            <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <ImageView android:id="@id/bubble_second_body" android:background="@drawable/bubble_bottom_arrow_right" android:layout_width="50.0dip" android:layout_height="50.0dip" />
+                <ImageView android:id="@id/bubble_second_line" android:background="@drawable/bubble_line_bottom_arrow_right" android:layout_width="50.0dip" android:layout_height="50.0dip" />
+            </FrameLayout>
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/mw_apppair_popup_text_linearlayout" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/mw_apppair_popup_text_title_size" android:textColor="#ff252525" android:id="@id/mw_apppair_popup_text_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/mw_apppair_popup_text_margin_18dp" android:layout_marginTop="@dimen/mw_apppair_popup_text_margin_16dp" android:layout_marginRight="@dimen/mw_apppair_popup_text_margin_18dp" android:layout_marginBottom="@dimen/mw_apppair_popup_text_margin_16dp" android:text="@string/mw_divider_button_add_app_pair" android:fontFamily="sec-roboto-regurlar" />
+            <ScrollView android:id="@id/mw_apppair_popup_text_content_scroll" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/mw_apppair_popup_text_margin_18dp" android:layout_marginRight="@dimen/mw_apppair_popup_text_margin_18dp" android:layout_marginBottom="@dimen/mw_apppair_popup_arrow_width_portrait">
+                <TextView android:textSize="@dimen/mw_apppair_popup_text_content_size" android:textColor="#ff252525" android:id="@id/mw_apppair_popup_text_content" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/mw_divider_button_add_app_pair_body" android:fontFamily="sec-roboto-regurlar" />
+            </ScrollView>
+        </LinearLayout>
+    </FrameLayout>
+    <FrameLayout android:layout_gravity="center|left|top" android:id="@id/mw_apppair_popup_circle_framelayout" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:id="@id/mw_apppair_popup_circle_image" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/circle" android:alpha="0.2" />
+    </FrameLayout>
+</com.android.systemui.stackdivider.AppPairPopupView>

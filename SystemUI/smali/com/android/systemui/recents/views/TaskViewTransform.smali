@@ -73,8 +73,6 @@
 
     iput v1, p0, Lcom/android/systemui/recents/views/TaskViewTransform;->scale:F
 
-    iput v1, p0, Lcom/android/systemui/recents/views/TaskViewTransform;->animationScale:F
-
     iput v1, p0, Lcom/android/systemui/recents/views/TaskViewTransform;->alpha:F
 
     iput v0, p0, Lcom/android/systemui/recents/views/TaskViewTransform;->dimAlpha:F
@@ -90,6 +88,8 @@
     invoke-direct {v0}, Landroid/graphics/RectF;-><init>()V
 
     iput-object v0, p0, Lcom/android/systemui/recents/views/TaskViewTransform;->rect:Landroid/graphics/RectF;
+
+    iput v1, p0, Lcom/android/systemui/recents/views/TaskViewTransform;->animationScale:F
 
     return-void
 .end method
@@ -143,6 +143,10 @@
         }
     .end annotation
 
+    const/high16 v6, 0x40000000    # 2.0f
+
+    const/4 v5, 0x0
+
     const/4 v10, 0x2
 
     const/4 v9, 0x1
@@ -156,15 +160,12 @@
     return-void
 
     :cond_0
-    sget-boolean v4, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableTransParentBehindTaskView:Z
+    invoke-static {}, Lcom/android/systemui/recents/RecentsDebugFlags;->useCustomCurveLayout()Z
 
-    if-nez v4, :cond_1
-
-    sget-boolean v4, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableSecondViewExpanded:Z
+    move-result v4
 
     if-eqz v4, :cond_6
 
-    :cond_1
     iget v2, p0, Lcom/android/systemui/recents/views/TaskViewTransform;->animationScale:F
 
     :goto_0
@@ -174,6 +175,25 @@
 
     if-eqz v4, :cond_7
 
+    invoke-static {}, Lcom/android/systemui/recents/RecentsDebugFlags;->useCustomCurveLayout()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    invoke-virtual {p1}, Lcom/android/systemui/recents/views/TaskView;->getMeasuredWidth()I
+
+    move-result v4
+
+    int-to-float v4, v4
+
+    div-float/2addr v4, v6
+
+    invoke-virtual {p1, v4}, Lcom/android/systemui/recents/views/TaskView;->setPivotX(F)V
+
+    invoke-virtual {p1, v5}, Lcom/android/systemui/recents/views/TaskView;->setPivotY(F)V
+
+    :cond_1
     if-eqz p4, :cond_2
 
     invoke-virtual {p1}, Lcom/android/systemui/recents/views/TaskView;->getTranslationZ()F
@@ -263,7 +283,26 @@
     goto :goto_0
 
     :cond_7
-    if-eqz p4, :cond_8
+    invoke-static {}, Lcom/android/systemui/recents/RecentsDebugFlags;->useCustomCurveLayout()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_8
+
+    invoke-virtual {p1}, Lcom/android/systemui/recents/views/TaskView;->getMeasuredWidth()I
+
+    move-result v4
+
+    int-to-float v4, v4
+
+    div-float/2addr v4, v6
+
+    invoke-virtual {p1, v4}, Lcom/android/systemui/recents/views/TaskView;->setPivotX(F)V
+
+    invoke-virtual {p1, v5}, Lcom/android/systemui/recents/views/TaskView;->setPivotY(F)V
+
+    :cond_8
+    if-eqz p4, :cond_9
 
     invoke-virtual {p1}, Lcom/android/systemui/recents/views/TaskView;->getTranslationZ()F
 
@@ -273,7 +312,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_8
+    if-eqz v4, :cond_9
 
     sget-object v4, Landroid/view/View;->TRANSLATION_Z:Landroid/util/Property;
 
@@ -301,7 +340,7 @@
 
     invoke-virtual {p2, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_8
+    :cond_9
     invoke-virtual {p1}, Lcom/android/systemui/recents/views/TaskView;->getScaleX()F
 
     move-result v4
@@ -310,7 +349,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_a
 
     new-array v4, v10, [Landroid/animation/PropertyValuesHolder;
 
@@ -362,7 +401,7 @@
 
     invoke-virtual {p2, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_9
+    :cond_a
     invoke-virtual {p1}, Lcom/android/systemui/recents/views/TaskView;->getAlpha()F
 
     move-result v4
@@ -371,7 +410,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_b
 
     sget-object v4, Landroid/view/View;->ALPHA:Landroid/util/Property;
 
@@ -399,7 +438,7 @@
 
     invoke-virtual {p2, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_a
+    :cond_b
     invoke-virtual {p0, p1}, Lcom/android/systemui/recents/views/TaskViewTransform;->hasRectChangedFrom(Landroid/view/View;)Z
 
     move-result v4
@@ -516,22 +555,12 @@
 
     iput v0, p0, Lcom/android/systemui/recents/views/TaskViewTransform;->translationZ:F
 
-    sget-boolean v0, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableTransParentBehindTaskView:Z
-
-    if-nez v0, :cond_0
-
-    sget-boolean v0, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableSecondViewExpanded:Z
-
-    if-eqz v0, :cond_1
-
-    :cond_0
-    invoke-virtual {p1}, Lcom/android/systemui/recents/views/TaskView;->getScale()F
+    invoke-virtual {p1}, Lcom/android/systemui/recents/views/TaskView;->getScaleX()F
 
     move-result v0
 
     iput v0, p0, Lcom/android/systemui/recents/views/TaskViewTransform;->scale:F
 
-    :goto_0
     invoke-virtual {p1}, Lcom/android/systemui/recents/views/TaskView;->getAlpha()F
 
     move-result v0
@@ -593,15 +622,6 @@
     iput v0, p0, Lcom/android/systemui/recents/views/TaskViewTransform;->animationScale:F
 
     return-void
-
-    :cond_1
-    invoke-virtual {p1}, Lcom/android/systemui/recents/views/TaskView;->getScaleX()F
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/systemui/recents/views/TaskViewTransform;->scale:F
-
-    goto :goto_0
 .end method
 
 .method public hasAlphaChangedFrom(F)Z
@@ -693,44 +713,41 @@
 
     const/4 v1, 0x0
 
-    sget-boolean v2, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableTransParentBehindTaskView:Z
+    invoke-static {}, Lcom/android/systemui/recents/RecentsDebugFlags;->useCustomCurveLayout()Z
 
-    if-nez v2, :cond_0
+    move-result v2
 
-    sget-boolean v2, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableSecondViewExpanded:Z
+    if-eqz v2, :cond_1
 
-    if-eqz v2, :cond_2
-
-    :cond_0
     iget v2, p0, Lcom/android/systemui/recents/views/TaskViewTransform;->animationScale:F
 
     invoke-static {v2, p1}, Ljava/lang/Float;->compare(FF)I
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_0
 
     :goto_0
     return v0
 
-    :cond_1
+    :cond_0
     move v0, v1
 
     goto :goto_0
 
-    :cond_2
+    :cond_1
     iget v2, p0, Lcom/android/systemui/recents/views/TaskViewTransform;->scale:F
 
     invoke-static {v2, p1}, Ljava/lang/Float;->compare(FF)I
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_2
 
     :goto_1
     return v0
 
-    :cond_3
+    :cond_2
     move v0, v1
 
     goto :goto_1
@@ -831,9 +848,9 @@
 
     iput v0, p0, Lcom/android/systemui/recents/views/TaskViewTransform;->translationZ:F
 
-    iput v1, p0, Lcom/android/systemui/recents/views/TaskViewTransform;->scale:F
-
     iput v1, p0, Lcom/android/systemui/recents/views/TaskViewTransform;->animationScale:F
+
+    iput v1, p0, Lcom/android/systemui/recents/views/TaskViewTransform;->scale:F
 
     iput v1, p0, Lcom/android/systemui/recents/views/TaskViewTransform;->alpha:F
 
@@ -848,32 +865,6 @@
     iget-object v0, p0, Lcom/android/systemui/recents/views/TaskViewTransform;->rect:Landroid/graphics/RectF;
 
     invoke-virtual {v0}, Landroid/graphics/RectF;->setEmpty()V
-
-    return-void
-.end method
-
-.method public setRect(Landroid/graphics/Rect;)V
-    .locals 5
-
-    iget-object v0, p0, Lcom/android/systemui/recents/views/TaskViewTransform;->rect:Landroid/graphics/RectF;
-
-    iget v1, p1, Landroid/graphics/Rect;->left:I
-
-    int-to-float v1, v1
-
-    iget v2, p1, Landroid/graphics/Rect;->top:I
-
-    int-to-float v2, v2
-
-    iget v3, p1, Landroid/graphics/Rect;->right:I
-
-    int-to-float v3, v3
-
-    iget v4, p1, Landroid/graphics/Rect;->bottom:I
-
-    int-to-float v4, v4
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/RectF;->set(FFFF)V
 
     return-void
 .end method

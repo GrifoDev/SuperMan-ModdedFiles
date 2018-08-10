@@ -4,6 +4,12 @@
 
 
 # annotations
+.annotation build Landroid/support/annotation/RestrictTo;
+    value = {
+        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/support/v7/widget/ListViewCompat$GateKeeperDrawable;
@@ -201,37 +207,30 @@
 
     move-result v2
 
-    if-nez v2, :cond_7
+    if-nez v2, :cond_6
 
-    if-eqz p2, :cond_5
+    if-eqz p2, :cond_2
 
     invoke-static {v3, p1}, Ljava/lang/Math;->max(II)I
 
     move-result p1
 
     :goto_0
-    if-ge p1, v1, :cond_2
+    if-ge p1, v1, :cond_3
 
     invoke-interface {v0, p1}, Landroid/widget/ListAdapter;->isEnabled(I)Z
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    xor-int/lit8 v2, v2, 0x1
 
-    :cond_2
-    if-ltz p1, :cond_3
+    if-eqz v2, :cond_3
 
-    if-lt p1, v1, :cond_6
-
-    :cond_3
-    return v4
-
-    :cond_4
     add-int/lit8 p1, p1, 0x1
 
     goto :goto_0
 
-    :cond_5
+    :cond_2
     add-int/lit8 v2, v1, -0x1
 
     invoke-static {p1, v2}, Ljava/lang/Math;->min(II)I
@@ -239,30 +238,40 @@
     move-result p1
 
     :goto_1
-    if-ltz p1, :cond_2
+    if-ltz p1, :cond_3
 
     invoke-interface {v0, p1}, Landroid/widget/ListAdapter;->isEnabled(I)Z
 
     move-result v2
 
-    if-nez v2, :cond_2
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_3
 
     add-int/lit8 p1, p1, -0x1
 
     goto :goto_1
 
-    :cond_6
-    return p1
+    :cond_3
+    if-ltz p1, :cond_4
 
-    :cond_7
-    if-ltz p1, :cond_8
+    if-lt p1, v1, :cond_5
 
-    if-lt p1, v1, :cond_9
-
-    :cond_8
+    :cond_4
     return v4
 
-    :cond_9
+    :cond_5
+    return p1
+
+    :cond_6
+    if-ltz p1, :cond_7
+
+    if-lt p1, v1, :cond_8
+
+    :cond_7
+    return v4
+
+    :cond_8
     return p1
 .end method
 
@@ -569,18 +578,15 @@
 
     if-eq v3, v1, :cond_0
 
-    iget-object v4, p0, Landroid/support/v7/widget/ListViewCompat;->mIsChildViewEnabled:Ljava/lang/reflect/Field;
+    iget-object v3, p0, Landroid/support/v7/widget/ListViewCompat;->mIsChildViewEnabled:Ljava/lang/reflect/Field;
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v4, v1, 0x1
 
-    const/4 v3, 0x0
+    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    :goto_0
-    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    move-result-object v4
 
-    move-result-object v3
-
-    invoke-virtual {v4, p0, v3}, Ljava/lang/reflect/Field;->set(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-virtual {v3, p0, v4}, Ljava/lang/reflect/Field;->set(Ljava/lang/Object;Ljava/lang/Object;)V
 
     const/4 v3, -0x1
 
@@ -591,26 +597,19 @@
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_0
-    :goto_1
+    :goto_0
     return-void
-
-    :cond_1
-    const/4 v3, 0x1
-
-    goto :goto_0
 
     :catch_0
     move-exception v0
 
     invoke-virtual {v0}, Ljava/lang/IllegalAccessException;->printStackTrace()V
 
-    goto :goto_1
+    goto :goto_0
 .end method
 
 .method protected positionSelectorLikeFocusCompat(ILandroid/view/View;)V
-    .locals 8
-
-    const/4 v5, 0x1
+    .locals 7
 
     const/4 v6, 0x0
 
@@ -620,11 +619,11 @@
 
     if-eqz v2, :cond_2
 
-    const/4 v7, -0x1
+    const/4 v5, -0x1
 
-    if-eq p1, v7, :cond_2
+    if-eq p1, v5, :cond_2
 
-    move v1, v5
+    const/4 v1, 0x1
 
     :goto_0
     if-eqz v1, :cond_0
@@ -648,9 +647,11 @@
 
     invoke-virtual {p0}, Landroid/support/v7/widget/ListViewCompat;->getVisibility()I
 
-    move-result v7
+    move-result v5
 
-    if-nez v7, :cond_3
+    if-nez v5, :cond_3
+
+    const/4 v5, 0x1
 
     :goto_1
     invoke-virtual {v2, v5, v6}, Landroid/graphics/drawable/Drawable;->setVisible(ZZ)Z
@@ -661,7 +662,7 @@
     return-void
 
     :cond_2
-    move v1, v6
+    const/4 v1, 0x0
 
     goto :goto_0
 

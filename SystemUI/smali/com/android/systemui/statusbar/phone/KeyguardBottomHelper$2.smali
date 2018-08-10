@@ -39,7 +39,9 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBottomHelper$2;->this$0:Lcom/android/systemui/statusbar/phone/KeyguardBottomHelper;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/phone/KeyguardBottomHelper;->mCenterIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/KeyguardBottomHelper;->-get1(Lcom/android/systemui/statusbar/phone/KeyguardBottomHelper;)Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+
+    move-result-object v1
 
     const-wide/16 v4, 0x226
 

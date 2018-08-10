@@ -35,13 +35,32 @@
 
 # virtual methods
 .method public onPageScrollStateChanged(I)V
-    .locals 0
+    .locals 4
 
+    if-nez p1, :cond_0
+
+    sget-object v0, Lcom/android/systemui/SystemUIAnalytics;->mCurrentScreenID:Ljava/lang/String;
+
+    const-string/jumbo v1, "2024"
+
+    iget-object v2, p0, Lcom/android/systemui/qs/PagedTileLayout$3;->this$0:Lcom/android/systemui/qs/PagedTileLayout;
+
+    invoke-static {v2}, Lcom/android/systemui/qs/PagedTileLayout;->-get4(Lcom/android/systemui/qs/PagedTileLayout;)I
+
+    move-result v2
+
+    add-int/lit8 v2, v2, 0x1
+
+    int-to-long v2, v2
+
+    invoke-static {v0, v1, v2, v3}, Lcom/android/systemui/SystemUIAnalytics;->sendEventLog(Ljava/lang/String;Ljava/lang/String;J)V
+
+    :cond_0
     return-void
 .end method
 
 .method public onPageScrolled(IFI)V
-    .locals 5
+    .locals 4
 
     const/4 v1, 0x1
 
@@ -49,7 +68,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/PagedTileLayout$3;->this$0:Lcom/android/systemui/qs/PagedTileLayout;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/PagedTileLayout;->-get1(Lcom/android/systemui/qs/PagedTileLayout;)Lcom/android/systemui/qs/PageIndicator;
+    invoke-static {v0}, Lcom/android/systemui/qs/PagedTileLayout;->-get1(Lcom/android/systemui/qs/PagedTileLayout;)Lcom/android/systemui/qs/SecPageIndicator;
 
     move-result-object v0
 
@@ -58,47 +77,22 @@
     return-void
 
     :cond_0
-    iget-object v4, p0, Lcom/android/systemui/qs/PagedTileLayout$3;->this$0:Lcom/android/systemui/qs/PagedTileLayout;
+    iget-object v3, p0, Lcom/android/systemui/qs/PagedTileLayout$3;->this$0:Lcom/android/systemui/qs/PagedTileLayout;
 
-    iget-object v0, p0, Lcom/android/systemui/qs/PagedTileLayout$3;->this$0:Lcom/android/systemui/qs/PagedTileLayout;
-
-    invoke-virtual {v0}, Lcom/android/systemui/qs/PagedTileLayout;->isLayoutRtl()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    iget-object v0, p0, Lcom/android/systemui/qs/PagedTileLayout$3;->this$0:Lcom/android/systemui/qs/PagedTileLayout;
-
-    invoke-static {v0}, Lcom/android/systemui/qs/PagedTileLayout;->-get3(Lcom/android/systemui/qs/PagedTileLayout;)Ljava/util/ArrayList;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
-
-    move-result v0
-
-    add-int/lit8 v0, v0, -0x1
-
-    sub-int/2addr v0, p1
-
-    move v3, v0
-
-    :goto_0
     const/4 v0, 0x0
 
     cmpl-float v0, p2, v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_3
 
     move v0, v1
 
-    :goto_1
-    invoke-static {v4, v3, v0}, Lcom/android/systemui/qs/PagedTileLayout;->-wrap1(Lcom/android/systemui/qs/PagedTileLayout;IZ)V
+    :goto_0
+    invoke-static {v3, p1, v0}, Lcom/android/systemui/qs/PagedTileLayout;->-wrap1(Lcom/android/systemui/qs/PagedTileLayout;IZ)V
 
     iget-object v0, p0, Lcom/android/systemui/qs/PagedTileLayout$3;->this$0:Lcom/android/systemui/qs/PagedTileLayout;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/PagedTileLayout;->-get1(Lcom/android/systemui/qs/PagedTileLayout;)Lcom/android/systemui/qs/PageIndicator;
+    invoke-static {v0}, Lcom/android/systemui/qs/PagedTileLayout;->-get1(Lcom/android/systemui/qs/PagedTileLayout;)Lcom/android/systemui/qs/SecPageIndicator;
 
     move-result-object v0
 
@@ -106,7 +100,7 @@
 
     add-float/2addr v3, p2
 
-    invoke-virtual {v0, v3}, Lcom/android/systemui/qs/PageIndicator;->setLocation(F)V
+    invoke-virtual {v0, v3}, Lcom/android/systemui/qs/SecPageIndicator;->setLocation(F)V
 
     iget-object v0, p0, Lcom/android/systemui/qs/PagedTileLayout$3;->this$0:Lcom/android/systemui/qs/PagedTileLayout;
 
@@ -130,7 +124,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_4
 
     iget-object v3, p0, Lcom/android/systemui/qs/PagedTileLayout$3;->this$0:Lcom/android/systemui/qs/PagedTileLayout;
 
@@ -146,7 +140,7 @@
 
     if-ne p1, v3, :cond_1
 
-    :goto_2
+    :goto_1
     move v2, v1
 
     :cond_1
@@ -156,19 +150,14 @@
     return-void
 
     :cond_3
-    move v3, p1
+    move v0, v2
 
     goto :goto_0
 
     :cond_4
-    move v0, v2
-
-    goto :goto_1
-
-    :cond_5
     if-nez p1, :cond_1
 
-    goto :goto_2
+    goto :goto_1
 .end method
 
 .method public onPageSelected(I)V
@@ -180,7 +169,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/qs/PagedTileLayout$3;->this$0:Lcom/android/systemui/qs/PagedTileLayout;
 
-    invoke-static {v2}, Lcom/android/systemui/qs/PagedTileLayout;->-get1(Lcom/android/systemui/qs/PagedTileLayout;)Lcom/android/systemui/qs/PageIndicator;
+    invoke-static {v2}, Lcom/android/systemui/qs/PagedTileLayout;->-get1(Lcom/android/systemui/qs/PagedTileLayout;)Lcom/android/systemui/qs/SecPageIndicator;
 
     move-result-object v2
 

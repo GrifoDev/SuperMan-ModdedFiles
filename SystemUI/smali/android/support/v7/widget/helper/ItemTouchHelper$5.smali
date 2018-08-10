@@ -39,9 +39,7 @@
 
     iget-object v1, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$5;->this$0:Landroid/support/v7/widget/helper/ItemTouchHelper;
 
-    invoke-static {v1}, Landroid/support/v7/widget/helper/ItemTouchHelper;->-get1(Landroid/support/v7/widget/helper/ItemTouchHelper;)Landroid/view/View;
-
-    move-result-object v1
+    iget-object v1, v1, Landroid/support/v7/widget/helper/ItemTouchHelper;->mOverdrawChild:Landroid/view/View;
 
     if-nez v1, :cond_0
 
@@ -50,9 +48,7 @@
     :cond_0
     iget-object v1, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$5;->this$0:Landroid/support/v7/widget/helper/ItemTouchHelper;
 
-    invoke-static {v1}, Landroid/support/v7/widget/helper/ItemTouchHelper;->-get2(Landroid/support/v7/widget/helper/ItemTouchHelper;)I
-
-    move-result v0
+    iget v0, v1, Landroid/support/v7/widget/helper/ItemTouchHelper;->mOverdrawChildPosition:I
 
     const/4 v1, -0x1
 
@@ -60,15 +56,11 @@
 
     iget-object v1, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$5;->this$0:Landroid/support/v7/widget/helper/ItemTouchHelper;
 
-    invoke-static {v1}, Landroid/support/v7/widget/helper/ItemTouchHelper;->-get3(Landroid/support/v7/widget/helper/ItemTouchHelper;)Landroid/support/v7/widget/RecyclerView;
-
-    move-result-object v1
+    iget-object v1, v1, Landroid/support/v7/widget/helper/ItemTouchHelper;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
 
     iget-object v2, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$5;->this$0:Landroid/support/v7/widget/helper/ItemTouchHelper;
 
-    invoke-static {v2}, Landroid/support/v7/widget/helper/ItemTouchHelper;->-get1(Landroid/support/v7/widget/helper/ItemTouchHelper;)Landroid/view/View;
-
-    move-result-object v2
+    iget-object v2, v2, Landroid/support/v7/widget/helper/ItemTouchHelper;->mOverdrawChild:Landroid/view/View;
 
     invoke-virtual {v1, v2}, Landroid/support/v7/widget/RecyclerView;->indexOfChild(Landroid/view/View;)I
 
@@ -76,7 +68,7 @@
 
     iget-object v1, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$5;->this$0:Landroid/support/v7/widget/helper/ItemTouchHelper;
 
-    invoke-static {v1, v0}, Landroid/support/v7/widget/helper/ItemTouchHelper;->-set0(Landroid/support/v7/widget/helper/ItemTouchHelper;I)I
+    iput v0, v1, Landroid/support/v7/widget/helper/ItemTouchHelper;->mOverdrawChildPosition:I
 
     :cond_1
     add-int/lit8 v1, p1, -0x1

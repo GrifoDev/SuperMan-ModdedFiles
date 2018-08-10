@@ -33,13 +33,13 @@
 
 .field private final mHandler:Lcom/android/systemui/qs/QSDetailItems$H;
 
-.field mIsOpenTheme:Z
-
-.field private mItemList:Landroid/view/ViewGroup;
+.field private mItemList:Lcom/android/systemui/qs/AutoSizingList;
 
 .field private mItems:[Lcom/android/systemui/qs/QSDetailItems$Item;
 
 .field private mItemsVisible:Z
+
+.field private final mQsDetailIconOverlaySize:I
 
 .field private mTag:Ljava/lang/String;
 
@@ -73,6 +73,14 @@
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/systemui/qs/QSDetailItems;->mItemsVisible:Z
+
+    return v0
+.end method
+
+.method static synthetic -get4(Lcom/android/systemui/qs/QSDetailItems;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/systemui/qs/QSDetailItems;->mQsDetailIconOverlaySize:I
 
     return v0
 .end method
@@ -146,6 +154,20 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/QSDetailItems;->mTag:Ljava/lang/String;
 
+    invoke-virtual {p0}, Lcom/android/systemui/qs/QSDetailItems;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x7f0704ab
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v0
+
+    float-to-int v0, v0
+
+    iput v0, p0, Lcom/android/systemui/qs/QSDetailItems;->mQsDetailIconOverlaySize:I
+
     return-void
 .end method
 
@@ -165,7 +187,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040144
+    const v1, 0x7f0d0145
 
     const/4 v2, 0x0
 
@@ -187,127 +209,55 @@
 .end method
 
 .method private handleSetItems([Lcom/android/systemui/qs/QSDetailItems$Item;)V
-    .locals 8
+    .locals 5
 
-    const/16 v6, 0x8
+    const/16 v3, 0x8
 
-    const/4 v5, 0x0
+    const/4 v2, 0x0
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_0
 
-    array-length v1, p1
+    array-length v0, p1
 
     :goto_0
-    iget-object v7, p0, Lcom/android/systemui/qs/QSDetailItems;->mEmpty:Landroid/view/View;
+    iget-object v4, p0, Lcom/android/systemui/qs/QSDetailItems;->mEmpty:Landroid/view/View;
 
-    if-nez v1, :cond_3
+    if-nez v0, :cond_1
 
-    move v4, v5
+    move v1, v2
 
     :goto_1
-    invoke-virtual {v7, v4}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v4, v1}, Landroid/view/View;->setVisibility(I)V
 
-    iget-object v4, p0, Lcom/android/systemui/qs/QSDetailItems;->mItemList:Landroid/view/ViewGroup;
+    iget-object v1, p0, Lcom/android/systemui/qs/QSDetailItems;->mItemList:Lcom/android/systemui/qs/AutoSizingList;
 
-    if-nez v1, :cond_4
+    if-nez v0, :cond_2
 
     :goto_2
-    invoke-virtual {v4, v6}, Landroid/view/ViewGroup;->setVisibility(I)V
+    invoke-virtual {v1, v3}, Lcom/android/systemui/qs/AutoSizingList;->setVisibility(I)V
 
     iput-object p1, p0, Lcom/android/systemui/qs/QSDetailItems;->mItems:[Lcom/android/systemui/qs/QSDetailItems$Item;
 
-    const/4 v0, 0x0
+    iget-object v1, p0, Lcom/android/systemui/qs/QSDetailItems;->mAdapter:Lcom/android/systemui/qs/QSDetailItems$Adapter;
 
-    :goto_3
-    if-ge v0, v1, :cond_6
+    invoke-virtual {v1}, Lcom/android/systemui/qs/QSDetailItems$Adapter;->notifyDataSetChanged()V
 
-    iget-object v4, p0, Lcom/android/systemui/qs/QSDetailItems;->mItemList:Landroid/view/ViewGroup;
-
-    invoke-virtual {v4}, Landroid/view/ViewGroup;->getChildCount()I
-
-    move-result v4
-
-    if-ge v0, v4, :cond_5
-
-    iget-object v4, p0, Lcom/android/systemui/qs/QSDetailItems;->mItemList:Landroid/view/ViewGroup;
-
-    invoke-virtual {v4, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v3
-
-    :goto_4
-    iget-object v4, p0, Lcom/android/systemui/qs/QSDetailItems;->mAdapter:Lcom/android/systemui/qs/QSDetailItems$Adapter;
-
-    iget-object v5, p0, Lcom/android/systemui/qs/QSDetailItems;->mItemList:Landroid/view/ViewGroup;
-
-    invoke-virtual {v4, v0, v3, v5}, Lcom/android/systemui/qs/QSDetailItems$Adapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object v2
-
-    if-eq v2, v3, :cond_1
-
-    if-eqz v3, :cond_0
-
-    iget-object v4, p0, Lcom/android/systemui/qs/QSDetailItems;->mItemList:Landroid/view/ViewGroup;
-
-    invoke-virtual {v4, v3}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
+    return-void
 
     :cond_0
-    iget-object v4, p0, Lcom/android/systemui/qs/QSDetailItems;->mItemList:Landroid/view/ViewGroup;
-
-    invoke-virtual {v4, v2, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;I)V
-
-    :cond_1
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_3
-
-    :cond_2
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     goto :goto_0
 
-    :cond_3
-    move v4, v6
+    :cond_1
+    move v1, v3
 
     goto :goto_1
 
-    :cond_4
-    move v6, v5
+    :cond_2
+    move v3, v2
 
     goto :goto_2
-
-    :cond_5
-    const/4 v3, 0x0
-
-    goto :goto_4
-
-    :cond_6
-    :goto_5
-    iget-object v4, p0, Lcom/android/systemui/qs/QSDetailItems;->mItemList:Landroid/view/ViewGroup;
-
-    invoke-virtual {v4}, Landroid/view/ViewGroup;->getChildCount()I
-
-    move-result v4
-
-    if-le v4, v1, :cond_7
-
-    iget-object v4, p0, Lcom/android/systemui/qs/QSDetailItems;->mItemList:Landroid/view/ViewGroup;
-
-    iget-object v5, p0, Lcom/android/systemui/qs/QSDetailItems;->mItemList:Landroid/view/ViewGroup;
-
-    invoke-virtual {v5}, Landroid/view/ViewGroup;->getChildCount()I
-
-    move-result v5
-
-    add-int/lit8 v5, v5, -0x1
-
-    invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->removeViewAt(I)V
-
-    goto :goto_5
-
-    :cond_7
-    return-void
 .end method
 
 .method private handleSetItemsVisible(Z)V
@@ -325,17 +275,17 @@
     const/4 v0, 0x0
 
     :goto_0
-    iget-object v1, p0, Lcom/android/systemui/qs/QSDetailItems;->mItemList:Landroid/view/ViewGroup;
+    iget-object v1, p0, Lcom/android/systemui/qs/QSDetailItems;->mItemList:Lcom/android/systemui/qs/AutoSizingList;
 
-    invoke-virtual {v1}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {v1}, Lcom/android/systemui/qs/AutoSizingList;->getChildCount()I
 
     move-result v1
 
     if-ge v0, v1, :cond_2
 
-    iget-object v1, p0, Lcom/android/systemui/qs/QSDetailItems;->mItemList:Landroid/view/ViewGroup;
+    iget-object v1, p0, Lcom/android/systemui/qs/QSDetailItems;->mItemList:Lcom/android/systemui/qs/AutoSizingList;
 
-    invoke-virtual {v1, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v1, v0}, Lcom/android/systemui/qs/AutoSizingList;->getChildAt(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -389,13 +339,13 @@
 
     iget-object v3, p0, Lcom/android/systemui/qs/QSDetailItems;->mEmptyText:Landroid/widget/TextView;
 
-    const v4, 0x7f0d021e
+    const v4, 0x7f0704a2
 
     invoke-static {v3, v4}, Lcom/android/systemui/FontSizeUtils;->updateFontSize(Landroid/widget/TextView;I)V
 
-    iget-object v3, p0, Lcom/android/systemui/qs/QSDetailItems;->mItemList:Landroid/view/ViewGroup;
+    iget-object v3, p0, Lcom/android/systemui/qs/QSDetailItems;->mItemList:Lcom/android/systemui/qs/AutoSizingList;
 
-    invoke-virtual {v3}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {v3}, Lcom/android/systemui/qs/AutoSizingList;->getChildCount()I
 
     move-result v0
 
@@ -404,21 +354,21 @@
     :goto_0
     if-ge v1, v0, :cond_0
 
-    iget-object v3, p0, Lcom/android/systemui/qs/QSDetailItems;->mItemList:Landroid/view/ViewGroup;
+    iget-object v3, p0, Lcom/android/systemui/qs/QSDetailItems;->mItemList:Lcom/android/systemui/qs/AutoSizingList;
 
-    invoke-virtual {v3, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v3, v1}, Lcom/android/systemui/qs/AutoSizingList;->getChildAt(I)Landroid/view/View;
 
     move-result-object v2
 
     const v3, 0x1020016
 
-    const v4, 0x7f0d021a
+    const v4, 0x7f0704b3
 
     invoke-static {v2, v3, v4}, Lcom/android/systemui/FontSizeUtils;->updateFontSize(Landroid/view/View;II)V
 
     const v3, 0x1020010
 
-    const v4, 0x7f0d021b
+    const v4, 0x7f0704b4
 
     invoke-static {v2, v3, v4}, Lcom/android/systemui/FontSizeUtils;->updateFontSize(Landroid/view/View;II)V
 
@@ -456,9 +406,7 @@
 .method protected onFinishInflate()V
     .locals 3
 
-    const v2, 0x1020016
-
-    const/16 v1, 0x8
+    const/16 v2, 0x8
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
@@ -468,13 +416,19 @@
 
     move-result-object v0
 
-    check-cast v0, Landroid/view/ViewGroup;
+    check-cast v0, Lcom/android/systemui/qs/AutoSizingList;
 
-    iput-object v0, p0, Lcom/android/systemui/qs/QSDetailItems;->mItemList:Landroid/view/ViewGroup;
+    iput-object v0, p0, Lcom/android/systemui/qs/QSDetailItems;->mItemList:Lcom/android/systemui/qs/AutoSizingList;
 
-    iget-object v0, p0, Lcom/android/systemui/qs/QSDetailItems;->mItemList:Landroid/view/ViewGroup;
+    iget-object v0, p0, Lcom/android/systemui/qs/QSDetailItems;->mItemList:Lcom/android/systemui/qs/AutoSizingList;
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->setVisibility(I)V
+    invoke-virtual {v0, v2}, Lcom/android/systemui/qs/AutoSizingList;->setVisibility(I)V
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QSDetailItems;->mItemList:Lcom/android/systemui/qs/AutoSizingList;
+
+    iget-object v1, p0, Lcom/android/systemui/qs/QSDetailItems;->mAdapter:Lcom/android/systemui/qs/QSDetailItems$Adapter;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/AutoSizingList;->setAdapter(Landroid/widget/ListAdapter;)V
 
     const v0, 0x1020004
 
@@ -486,15 +440,13 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSDetailItems;->mEmpty:Landroid/view/View;
 
-    if-eqz v0, :cond_0
+    invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSDetailItems;->mEmpty:Landroid/view/View;
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+    const v1, 0x1020016
 
-    iget-object v0, p0, Lcom/android/systemui/qs/QSDetailItems;->mEmpty:Landroid/view/View;
-
-    invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -514,47 +466,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/QSDetailItems;->mEmptyIcon:Landroid/widget/ImageView;
 
-    :goto_0
-    iget-object v0, p0, Lcom/android/systemui/qs/QSDetailItems;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "current_sec_active_themepackage"
-
-    invoke-static {v0, v1}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_1
-
-    const/4 v0, 0x1
-
-    :goto_1
-    iput-boolean v0, p0, Lcom/android/systemui/qs/QSDetailItems;->mIsOpenTheme:Z
-
     return-void
-
-    :cond_0
-    invoke-virtual {p0, v2}, Lcom/android/systemui/qs/QSDetailItems;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/TextView;
-
-    iput-object v0, p0, Lcom/android/systemui/qs/QSDetailItems;->mEmptyText:Landroid/widget/TextView;
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QSDetailItems;->mEmptyText:Landroid/widget/TextView;
-
-    iput-object v0, p0, Lcom/android/systemui/qs/QSDetailItems;->mEmpty:Landroid/view/View;
-
-    goto :goto_0
-
-    :cond_1
-    const/4 v0, 0x0
-
-    goto :goto_1
 .end method
 
 .method public setCallback(Lcom/android/systemui/qs/QSDetailItems$Callback;)V
@@ -580,15 +492,6 @@
 .method public setEmptyState(II)V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/qs/QSDetailItems;->mEmptyIcon:Landroid/widget/ImageView;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QSDetailItems;->mEmptyIcon:Landroid/widget/ImageView;
-
-    invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setImageResource(I)V
-
-    :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/QSDetailItems;->mEmptyText:Landroid/widget/TextView;
 
     invoke-virtual {v0, p2}, Landroid/widget/TextView;->setText(I)V
@@ -614,38 +517,6 @@
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
     return-void
-.end method
-
-.method public setItemsVisible(Z)V
-    .locals 4
-
-    const/4 v3, 0x3
-
-    const/4 v1, 0x0
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QSDetailItems;->mHandler:Lcom/android/systemui/qs/QSDetailItems$H;
-
-    invoke-virtual {v0, v3}, Lcom/android/systemui/qs/QSDetailItems$H;->removeMessages(I)V
-
-    iget-object v2, p0, Lcom/android/systemui/qs/QSDetailItems;->mHandler:Lcom/android/systemui/qs/QSDetailItems$H;
-
-    if-eqz p1, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_0
-    invoke-virtual {v2, v3, v0, v1}, Lcom/android/systemui/qs/QSDetailItems$H;->obtainMessage(III)Landroid/os/Message;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
-
-    return-void
-
-    :cond_0
-    move v0, v1
-
-    goto :goto_0
 .end method
 
 .method public setTagSuffix(Ljava/lang/String;)V

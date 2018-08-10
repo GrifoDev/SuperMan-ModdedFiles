@@ -15,44 +15,12 @@
 
 
 # instance fields
-.field private mSpanIndex:I
+.field mSpanIndex:I
 
-.field private mSpanSize:I
+.field mSpanSize:I
 
 
 # direct methods
-.method static synthetic -get0(Landroid/support/v7/widget/GridLayoutManager$LayoutParams;)I
-    .locals 1
-
-    iget v0, p0, Landroid/support/v7/widget/GridLayoutManager$LayoutParams;->mSpanIndex:I
-
-    return v0
-.end method
-
-.method static synthetic -get1(Landroid/support/v7/widget/GridLayoutManager$LayoutParams;)I
-    .locals 1
-
-    iget v0, p0, Landroid/support/v7/widget/GridLayoutManager$LayoutParams;->mSpanSize:I
-
-    return v0
-.end method
-
-.method static synthetic -set0(Landroid/support/v7/widget/GridLayoutManager$LayoutParams;I)I
-    .locals 0
-
-    iput p1, p0, Landroid/support/v7/widget/GridLayoutManager$LayoutParams;->mSpanIndex:I
-
-    return p1
-.end method
-
-.method static synthetic -set1(Landroid/support/v7/widget/GridLayoutManager$LayoutParams;I)I
-    .locals 0
-
-    iput p1, p0, Landroid/support/v7/widget/GridLayoutManager$LayoutParams;->mSpanSize:I
-
-    return p1
-.end method
-
 .method public constructor <init>(II)V
     .locals 1
 

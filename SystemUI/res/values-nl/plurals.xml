@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <plurals name="status_bar_accessibility_recent_apps">
-        <item quantity="other">1 scherm in Overzicht</item>
-        <item quantity="one">%d schermen in Overzicht</item>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">%d pogingen over</item>
+        <item quantity="one">%d poging over</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(%d pogingen over)</item>
+        <item quantity="one">(1 poging over)</item>
     </plurals>
     <plurals name="kg_password_wrong_pin_code">
         <item quantity="other">Onjuiste pincode voor simkaart. Je hebt nog %d pogingen over.</item>
-        <item quantity="one">Onjuiste pincode voor simkaart. Je hebt nog %d poging over voordat u contact met je provider moet opnemen om je apparaat te ontgrendelen.</item>
+        <item quantity="one">Onjuiste pincode voor simkaart. Je hebt nog %d poging over voordat je contact met je provider moet opnemen om je apparaat te ontgrendelen.</item>
     </plurals>
     <plurals name="kg_password_wrong_puk_code">
         <item quantity="other">Onjuiste pukcode voor simkaart. Je hebt nog %d pogingen over voordat de simkaart definitief onbruikbaar wordt.</item>
         <item quantity="one">Onjuiste pukcode voor simkaart. Je hebt nog %d poging over voordat de simkaart definitief onbruikbaar wordt.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">Apparaat is al %d uur niet ontgrendeld. Bevestig het wachtwoord.</item>
+        <item quantity="one">Apparaat is al %d uur niet ontgrendeld. Bevestig het wachtwoord.</item>
     </plurals>
     <plurals name="kg_prompt_reason_time_pattern">
         <item quantity="other">Apparaat is al %d uur niet ontgrendeld. Bevestig het patroon.</item>
@@ -20,18 +28,6 @@
         <item quantity="other">Apparaat is al %d uur niet ontgrendeld. Bevestig de pincode.</item>
         <item quantity="one">Apparaat is al %d uur niet ontgrendeld. Bevestig de pincode.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">Apparaat is al %d uur niet ontgrendeld. Bevestig het wachtwoord.</item>
-        <item quantity="one">Apparaat is al %d uur niet ontgrendeld. Bevestig het wachtwoord.</item>
-    </plurals>
-    <plurals name="kg_attempt_remaining">
-        <item quantity="other">(%d pogingen over)</item>
-        <item quantity="one">(1 poging over)</item>
-    </plurals>
-    <plurals name="kg_attempt_left">
-        <item quantity="other">%d pogingen over</item>
-        <item quantity="one">%d poging over</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown_min">
         <item quantity="other">Probeer opnieuw over %d minuten</item>
         <item quantity="one">Probeer het opnieuw over %d minuut</item>
@@ -39,5 +35,29 @@
     <plurals name="kg_too_many_failed_attempts_countdown_sec">
         <item quantity="other">Probeer opnieuw over %d seconden</item>
         <item quantity="one">Probeer het opnieuw over %d seconde</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_countdown_by_biometrics">
+        <item quantity="other">%1$d onjuiste pogingen om uw biometrische gegevens te verifiëren. Probeer het opnieuw over %2$d seconden.</item>
+        <item quantity="one">%1$d onjuiste pogingen om uw biometrische gegevens te verifiëren. Probeer het opnieuw over %2$d seconde.</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_countdown_by_fingerprint">
+        <item quantity="other">%1$d onjuiste pogingen om uw vingerafdrukken te verifiëren. Probeer het opnieuw over %2$d seconden.</item>
+        <item quantity="one">%1$d onjuiste pogingen om uw vingerafdrukken te verifiëren. Probeer het opnieuw over %2$d seconde.</item>
+    </plurals>
+    <plurals name="notification_channels_list_desc_2_and_others">
+        <item quantity="other">%1$s, %2$s en %3$d andere</item>
+        <item quantity="one">%1$s, %2$s en %3$d andere</item>
+    </plurals>
+    <plurals name="notification_num_channels_desc">
+        <item quantity="other">1 van %d meldingscategorieën van deze app</item>
+        <item quantity="one">1 van %d meldingscategorie van deze app</item>
+    </plurals>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">%d schermen in Overzicht</item>
+        <item quantity="one">1 scherm in Overzicht</item>
+    </plurals>
+    <plurals name="notification_group_overflow_description">
+        <item quantity="other">Nog %s meldingen in deze groep.</item>
+        <item quantity="one">Nog %s melding in deze groep.</item>
     </plurals>
 </resources>

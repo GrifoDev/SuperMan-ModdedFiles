@@ -1,5 +1,5 @@
 .class public Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;
-.super Landroid/widget/TextView;
+.super Lcom/android/systemui/widget/SystemUITextView;
 .source "KeyguardUsimTextView.java"
 
 # interfaces
@@ -15,8 +15,6 @@
 
 
 # instance fields
-.field private mCurrentSimState:Lcom/android/internal/telephony/IccCardConstants$State;
-
 .field mInfoCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 
 .field private mPlayingShortcutAffordance:Z
@@ -29,15 +27,7 @@
 
 
 # direct methods
-.method static synthetic -get0(Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;)Lcom/android/internal/telephony/IccCardConstants$State;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->mCurrentSimState:Lcom/android/internal/telephony/IccCardConstants$State;
-
-    return-object v0
-.end method
-
-.method static synthetic -get1(Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;)Lcom/android/systemui/statusbar/phone/KeyguardAlphaAffordanceAnimation;
+.method static synthetic -get0(Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;)Lcom/android/systemui/statusbar/phone/KeyguardAlphaAffordanceAnimation;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->mTextAnimtion:Lcom/android/systemui/statusbar/phone/KeyguardAlphaAffordanceAnimation;
@@ -45,15 +35,17 @@
     return-object v0
 .end method
 
-.method static synthetic -set0(Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;Lcom/android/internal/telephony/IccCardConstants$State;)Lcom/android/internal/telephony/IccCardConstants$State;
-    .locals 0
+.method static synthetic -wrap0(Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;)Lcom/android/internal/telephony/IccCardConstants$State;
+    .locals 1
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->mCurrentSimState:Lcom/android/internal/telephony/IccCardConstants$State;
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->getCurrentSimState()Lcom/android/internal/telephony/IccCardConstants$State;
 
-    return-object p1
+    move-result-object v0
+
+    return-object v0
 .end method
 
-.method static synthetic -wrap0(Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;Lcom/android/internal/telephony/IccCardConstants$State;)V
+.method static synthetic -wrap1(Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;Lcom/android/internal/telephony/IccCardConstants$State;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->updateText(Lcom/android/internal/telephony/IccCardConstants$State;)V
@@ -74,15 +66,11 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
 
-    invoke-direct {p0, p1, p2}, Landroid/widget/TextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+    invoke-direct {p0, p1, p2}, Lcom/android/systemui/widget/SystemUITextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->mPlayingShortcutAffordance:Z
-
-    sget-object v0, Lcom/android/internal/telephony/IccCardConstants$State;->ABSENT:Lcom/android/internal/telephony/IccCardConstants$State;
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->mCurrentSimState:Lcom/android/internal/telephony/IccCardConstants$State;
 
     new-instance v0, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView$1;
 
@@ -137,12 +125,83 @@
     return-object v0
 .end method
 
+.method private getCurrentSimState()Lcom/android/internal/telephony/IccCardConstants$State;
+    .locals 3
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->mTelephonyManager:Landroid/telephony/TelephonyManager;
+
+    if-nez v1, :cond_0
+
+    sget-object v1, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v2, "phone"
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/telephony/TelephonyManager;
+
+    iput-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->mTelephonyManager:Landroid/telephony/TelephonyManager;
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->mTelephonyManager:Landroid/telephony/TelephonyManager;
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->mTelephonyManager:Landroid/telephony/TelephonyManager;
+
+    invoke-virtual {v1}, Landroid/telephony/TelephonyManager;->getSimState()I
+
+    move-result v1
+
+    invoke-static {v1}, Lcom/android/internal/telephony/IccCardConstants$State;->intToState(I)Lcom/android/internal/telephony/IccCardConstants$State;
+
+    move-result-object v0
+
+    :goto_0
+    return-object v0
+
+    :cond_1
+    const-string/jumbo v1, "KeyguardUsimTextView"
+
+    const-string/jumbo v2, "mTelephonyManager is null"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    sget-object v0, Lcom/android/internal/telephony/IccCardConstants$State;->ABSENT:Lcom/android/internal/telephony/IccCardConstants$State;
+
+    goto :goto_0
+.end method
+
 .method private updateText(Lcom/android/internal/telephony/IccCardConstants$State;)V
     .locals 7
 
     const/16 v5, 0x8
 
     const/4 v6, 0x0
+
+    const-string/jumbo v2, "KeyguardUsimTextView"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "updateText(simState): "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->getContext()Landroid/content/Context;
 
@@ -169,12 +228,6 @@
 
     if-ne p1, v2, :cond_2
 
-    const-string/jumbo v2, "KeyguardUsimTextView"
-
-    const-string/jumbo v3, "TelephonyManager.SIM_STATE_ABSENT  "
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
     invoke-virtual {v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isDeviceProvisioned()Z
@@ -193,7 +246,7 @@
 
     move-result-object v4
 
-    const v5, 0x10402a4
+    const v5, 0x10404c6
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -217,7 +270,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0f0665
+    const v5, 0x7f120488
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -258,7 +311,7 @@
     goto :goto_0
 
     :cond_1
-    const v2, 0x7f0f0667
+    const v2, 0x7f120756
 
     invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->setText(I)V
 
@@ -268,12 +321,6 @@
     sget-object v2, Lcom/android/internal/telephony/IccCardConstants$State;->PERM_DISABLED:Lcom/android/internal/telephony/IccCardConstants$State;
 
     if-ne p1, v2, :cond_4
-
-    const-string/jumbo v2, "KeyguardUsimTextView"
-
-    const-string/jumbo v3, "mEmergencyCallText TelephonyManager.SIM_STATE_PERM_DISABLED  "
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
@@ -299,7 +346,7 @@
 
     aput-object v4, v3, v6
 
-    const v4, 0x7f0f0666
+    const v4, 0x7f1204a0
 
     invoke-virtual {v2, v4, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -319,7 +366,7 @@
 
     if-ne p1, v2, :cond_5
 
-    sget-boolean v2, Lcom/android/keyguard/KeyguardRune;->SUPPORT_SKT_USIM_TEXT:Z
+    sget-boolean v2, Lcom/android/systemui/Rune;->KEYGUARD_SUPPORT_SKT_USIM_TEXT:Z
 
     if-eqz v2, :cond_5
 
@@ -335,36 +382,10 @@
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    xor-int/lit8 v2, v2, 0x1
 
-    :cond_5
-    const-string/jumbo v2, "KeyguardUsimTextView"
+    if-eqz v2, :cond_5
 
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "mEmergencyCallText TelephonyManager ELSE!!!!!, simState : "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {p0, v5}, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->setVisibility(I)V
-
-    goto :goto_1
-
-    :cond_6
     const-string/jumbo v2, "ril.simtype"
 
     invoke-static {v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
@@ -383,11 +404,16 @@
 
     if-ne v3, v2, :cond_5
 
-    const v2, 0x7f0f0664
+    const v2, 0x7f12049e
 
     invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->setText(I)V
 
-    goto/16 :goto_1
+    goto :goto_1
+
+    :cond_5
+    invoke-virtual {p0, v5}, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->setVisibility(I)V
+
+    goto :goto_1
 .end method
 
 
@@ -395,7 +421,7 @@
 .method protected onAttachedToWindow()V
     .locals 2
 
-    invoke-super {p0}, Landroid/widget/TextView;->onAttachedToWindow()V
+    invoke-super {p0}, Lcom/android/systemui/widget/SystemUITextView;->onAttachedToWindow()V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
@@ -409,9 +435,11 @@
 .method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
     .locals 1
 
-    invoke-super {p0, p1}, Landroid/widget/TextView;->onConfigurationChanged(Landroid/content/res/Configuration;)V
+    invoke-super {p0, p1}, Lcom/android/systemui/widget/SystemUITextView;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->mCurrentSimState:Lcom/android/internal/telephony/IccCardConstants$State;
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->getCurrentSimState()Lcom/android/internal/telephony/IccCardConstants$State;
+
+    move-result-object v0
 
     invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->updateText(Lcom/android/internal/telephony/IccCardConstants$State;)V
 
@@ -421,7 +449,7 @@
 .method protected onDetachedFromWindow()V
     .locals 2
 
-    invoke-super {p0}, Landroid/widget/TextView;->onDetachedFromWindow()V
+    invoke-super {p0}, Lcom/android/systemui/widget/SystemUITextView;->onDetachedFromWindow()V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
@@ -435,9 +463,9 @@
 .method protected onFinishInflate()V
     .locals 3
 
-    invoke-super {p0}, Landroid/widget/TextView;->onFinishInflate()V
+    invoke-super {p0}, Lcom/android/systemui/widget/SystemUITextView;->onFinishInflate()V
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->mContext:Landroid/content/Context;
+    sget-object v1, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->mContext:Landroid/content/Context;
 
     const-string/jumbo v2, "phone"
 
@@ -449,7 +477,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->mContext:Landroid/content/Context;
+    sget-object v1, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->mContext:Landroid/content/Context;
 
     invoke-static {v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
 
@@ -457,13 +485,13 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->mContext:Landroid/content/Context;
+    sget-object v1, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x112005c
+    const v2, 0x11200c1
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -471,7 +499,9 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->mCurrentSimState:Lcom/android/internal/telephony/IccCardConstants$State;
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->getCurrentSimState()Lcom/android/internal/telephony/IccCardConstants$State;
+
+    move-result-object v1
 
     invoke-direct {p0, v1}, Lcom/android/systemui/statusbar/phone/KeyguardUsimTextView;->updateText(Lcom/android/internal/telephony/IccCardConstants$State;)V
 
@@ -493,16 +523,28 @@
 
     if-nez v0, :cond_0
 
-    invoke-super {p0, p1}, Landroid/widget/TextView;->setAlpha(F)V
+    const v0, 0x3f4ccccd    # 0.8f
+
+    invoke-static {p1, v0}, Ljava/lang/Math;->min(FF)F
+
+    move-result v0
+
+    invoke-super {p0, v0}, Lcom/android/systemui/widget/SystemUITextView;->setAlpha(F)V
 
     :cond_0
     return-void
 .end method
 
 .method public setAlphaByAffordance(F)V
-    .locals 0
+    .locals 1
 
-    invoke-super {p0, p1}, Landroid/widget/TextView;->setAlpha(F)V
+    const v0, 0x3f4ccccd    # 0.8f
+
+    invoke-static {p1, v0}, Ljava/lang/Math;->min(FF)F
+
+    move-result v0
+
+    invoke-super {p0, v0}, Lcom/android/systemui/widget/SystemUITextView;->setAlpha(F)V
 
     return-void
 .end method

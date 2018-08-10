@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="keyguard_max_notification_count">3</integer>
+    <integer name="quick_settings_num_columns">3</integer>
+    <integer name="quick_settings_num_columns_3">3</integer>
+    <integer name="quick_settings_num_columns_4">4</integer>
+    <integer name="quick_settings_num_columns_5">5</integer>
+    <integer name="quick_settings_num_rows">3</integer>
+</resources>

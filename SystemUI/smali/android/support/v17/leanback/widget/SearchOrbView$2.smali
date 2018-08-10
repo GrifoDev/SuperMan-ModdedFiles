@@ -43,7 +43,7 @@
 
     move-result v1
 
-    invoke-static {v0, v1}, Landroid/support/v17/leanback/widget/SearchOrbView;->-wrap1(Landroid/support/v17/leanback/widget/SearchOrbView;F)V
+    invoke-virtual {v0, v1}, Landroid/support/v17/leanback/widget/SearchOrbView;->setSearchOrbZ(F)V
 
     return-void
 .end method

@@ -15,8 +15,14 @@
 
 
 # virtual methods
-.method public abstract onBatteryLevelChanged(IZZIIIIZ)V
+.method public onBatteryLevelChanged(IZZIIIIZ)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract onPowerSaveChanged(Z)V
+.method public onPowerSaveChanged(Z)V
+    .locals 0
+
+    return-void
 .end method

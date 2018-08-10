@@ -15,10 +15,10 @@
 
 
 # virtual methods
-.method public abstract dismiss(Z)Z
+.method public abstract dismiss(ZI)Z
 .end method
 
-.method public abstract finish(Z)V
+.method public abstract finish(ZI)V
 .end method
 
 .method public abstract onSecurityModeChanged(Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;Z)V

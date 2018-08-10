@@ -17,18 +17,77 @@
 # instance fields
 .field private mAlwaysAllow:Landroid/widget/CheckBox;
 
+.field private mCheckBoxText:Landroid/widget/TextView;
+
 .field private mDisconnectedReceiver:Lcom/android/systemui/usb/UsbDebuggingActivity$UsbDisconnectedReceiver;
 
 .field private mKey:Ljava/lang/String;
 
 
 # direct methods
+.method static synthetic -get0(Lcom/android/systemui/usb/UsbDebuggingActivity;)Landroid/widget/CheckBox;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/usb/UsbDebuggingActivity;->mAlwaysAllow:Landroid/widget/CheckBox;
+
+    return-object v0
+.end method
+
 .method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/internal/app/AlertActivity;-><init>()V
 
     return-void
+.end method
+
+.method static synthetic lambda$-com_android_systemui_usb_UsbDebuggingActivity_4049(Landroid/view/View;Landroid/view/MotionEvent;)Z
+    .locals 4
+
+    const/4 v3, 0x1
+
+    const/4 v2, 0x0
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getFlags()I
+
+    move-result v0
+
+    and-int/lit8 v0, v0, 0x1
+
+    if-nez v0, :cond_0
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getFlags()I
+
+    move-result v0
+
+    and-int/lit8 v0, v0, 0x2
+
+    if-eqz v0, :cond_2
+
+    :cond_0
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
+
+    move-result v0
+
+    if-ne v0, v3, :cond_1
+
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    const v1, 0x7f120b1a
+
+    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+
+    :cond_1
+    return v3
+
+    :cond_2
+    return v2
 .end method
 
 
@@ -174,7 +233,7 @@
     :cond_2
     iget-object v0, p0, Lcom/android/systemui/usb/UsbDebuggingActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    const v7, 0x7f0f0261
+    const v7, 0x7f120b72
 
     invoke-virtual {p0, v7}, Lcom/android/systemui/usb/UsbDebuggingActivity;->getString(I)Ljava/lang/String;
 
@@ -188,7 +247,7 @@
 
     aput-object v3, v7, v8
 
-    const v8, 0x7f0f0262
+    const v8, 0x7f120b6f
 
     invoke-virtual {p0, v8, v7}, Lcom/android/systemui/usb/UsbDebuggingActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -216,19 +275,25 @@
 
     iput-object p0, v0, Lcom/android/internal/app/AlertController$AlertParams;->mNegativeButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
+    const-string/jumbo v7, "UsbDebuggingActivity"
+
+    const-string/jumbo v8, "onCreate use sec_always_use_checkbox"
+
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     iget-object v7, v0, Lcom/android/internal/app/AlertController$AlertParams;->mContext:Landroid/content/Context;
 
     invoke-static {v7}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v4
 
-    const v7, 0x1090031
+    const v7, 0x7f0d0193
 
     invoke-virtual {v4, v7, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v1
 
-    const v7, 0x1020391
+    const v7, 0x7f0a0041
 
     invoke-virtual {v1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -238,23 +303,37 @@
 
     iput-object v7, p0, Lcom/android/systemui/usb/UsbDebuggingActivity;->mAlwaysAllow:Landroid/widget/CheckBox;
 
-    iget-object v7, p0, Lcom/android/systemui/usb/UsbDebuggingActivity;->mAlwaysAllow:Landroid/widget/CheckBox;
+    const v7, 0x7f0a00d9
 
-    const v8, 0x7f0f0263
+    invoke-virtual {v1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    invoke-virtual {p0, v8}, Lcom/android/systemui/usb/UsbDebuggingActivity;->getString(I)Ljava/lang/String;
+    move-result-object v7
 
-    move-result-object v8
+    check-cast v7, Landroid/widget/TextView;
 
-    invoke-virtual {v7, v8}, Landroid/widget/CheckBox;->setText(Ljava/lang/CharSequence;)V
+    iput-object v7, p0, Lcom/android/systemui/usb/UsbDebuggingActivity;->mCheckBoxText:Landroid/widget/TextView;
+
+    iget-object v7, p0, Lcom/android/systemui/usb/UsbDebuggingActivity;->mCheckBoxText:Landroid/widget/TextView;
+
+    const v8, 0x7f120b6e
+
+    invoke-virtual {v7, v8}, Landroid/widget/TextView;->setText(I)V
+
+    iget-object v7, p0, Lcom/android/systemui/usb/UsbDebuggingActivity;->mCheckBoxText:Landroid/widget/TextView;
+
+    new-instance v8, Lcom/android/systemui/usb/UsbDebuggingActivity$1;
+
+    invoke-direct {v8, p0}, Lcom/android/systemui/usb/UsbDebuggingActivity$1;-><init>(Lcom/android/systemui/usb/UsbDebuggingActivity;)V
+
+    invoke-virtual {v7, v8}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     iput-object v1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
     invoke-virtual {p0}, Lcom/android/systemui/usb/UsbDebuggingActivity;->setupAlert()V
 
-    new-instance v2, Lcom/android/systemui/usb/UsbDebuggingActivity$1;
+    new-instance v2, Lcom/android/systemui/usb/-$Lambda$i092pT7BFOR732L1S_poxukWflE;
 
-    invoke-direct {v2, p0}, Lcom/android/systemui/usb/UsbDebuggingActivity$1;-><init>(Lcom/android/systemui/usb/UsbDebuggingActivity;)V
+    invoke-direct {v2}, Lcom/android/systemui/usb/-$Lambda$i092pT7BFOR732L1S_poxukWflE;-><init>()V
 
     iget-object v7, p0, Lcom/android/systemui/usb/UsbDebuggingActivity;->mAlert:Lcom/android/internal/app/AlertController;
 

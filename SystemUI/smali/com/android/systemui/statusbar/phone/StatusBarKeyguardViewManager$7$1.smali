@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager$7;->onPreDraw()Z
+    value = Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager$7;->run()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,12 @@
 # instance fields
 .field final synthetic this$1:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager$7;
 
-.field final synthetic val$finalDelay:J
-
-.field final synthetic val$finalFadeoutDuration:J
-
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager$7;JJ)V
+.method constructor <init>(Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager$7;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager$7$1;->this$1:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager$7;
-
-    iput-wide p2, p0, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager$7$1;->val$finalDelay:J
-
-    iput-wide p4, p0, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager$7$1;->val$finalFadeoutDuration:J
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,27 +35,15 @@
 
 # virtual methods
 .method public run()V
-    .locals 7
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager$7$1;->this$1:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager$7;
-
-    iget-object v1, v0, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager$7;->this$0:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
-
-    iget-wide v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager$7$1;->val$finalDelay:J
-
-    iget-wide v4, p0, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager$7$1;->val$finalFadeoutDuration:J
-
-    const/4 v6, 0x0
-
-    invoke-static/range {v1 .. v6}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->-wrap0(Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;JJZ)V
+    .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager$7$1;->this$1:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager$7;
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager$7;->this$0:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
 
-    const/4 v1, 0x0
+    iget-object v0, v0, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
 
-    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->-set0(Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;Ljava/lang/Runnable;)Ljava/lang/Runnable;
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->hideKeyguard()Z
 
     return-void
 .end method

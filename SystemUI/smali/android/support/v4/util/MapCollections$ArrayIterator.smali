@@ -93,6 +93,19 @@
         }
     .end annotation
 
+    invoke-virtual {p0}, Landroid/support/v4/util/MapCollections$ArrayIterator;->hasNext()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    new-instance v1, Ljava/util/NoSuchElementException;
+
+    invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
+
+    throw v1
+
+    :cond_0
     iget-object v1, p0, Landroid/support/v4/util/MapCollections$ArrayIterator;->this$0:Landroid/support/v4/util/MapCollections;
 
     iget v2, p0, Landroid/support/v4/util/MapCollections$ArrayIterator;->mIndex:I

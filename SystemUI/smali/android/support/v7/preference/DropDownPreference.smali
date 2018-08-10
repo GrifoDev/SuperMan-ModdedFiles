@@ -13,15 +13,6 @@
 
 # instance fields
 .field private final mAdapter:Landroid/widget/ArrayAdapter;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Landroid/widget/ArrayAdapter",
-            "<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-.end field
 
 .field private final mContext:Landroid/content/Context;
 
@@ -145,6 +136,11 @@
 
 .method public findSpinnerIndexOfValue(Ljava/lang/String;)I
     .locals 3
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     invoke-virtual {p0}, Landroid/support/v7/preference/DropDownPreference;->getEntryValues()[Ljava/lang/CharSequence;
 
@@ -244,6 +240,20 @@
     iget-object v0, p0, Landroid/support/v7/preference/DropDownPreference;->mSpinner:Landroid/widget/Spinner;
 
     invoke-virtual {v0}, Landroid/widget/Spinner;->performClick()Z
+
+    return-void
+.end method
+
+.method public setEntries([Ljava/lang/CharSequence;)V
+    .locals 0
+    .param p1    # [Ljava/lang/CharSequence;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    invoke-super {p0, p1}, Landroid/support/v7/preference/ListPreference;->setEntries([Ljava/lang/CharSequence;)V
+
+    invoke-direct {p0}, Landroid/support/v7/preference/DropDownPreference;->updateEntries()V
 
     return-void
 .end method

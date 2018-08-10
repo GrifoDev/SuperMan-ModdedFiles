@@ -8,7 +8,8 @@
     value = {
         Lcom/android/systemui/qs/external/TileServiceManager$1;,
         Lcom/android/systemui/qs/external/TileServiceManager$2;,
-        Lcom/android/systemui/qs/external/TileServiceManager$3;
+        Lcom/android/systemui/qs/external/TileServiceManager$3;,
+        Lcom/android/systemui/qs/external/TileServiceManager$4;
     }
 .end annotation
 
@@ -50,9 +51,13 @@
 
 .field private final mStateManager:Lcom/android/systemui/qs/external/TileLifecycleManager;
 
+.field private final mStopWaitingUnlock:Ljava/lang/Runnable;
+
 .field private final mUnbind:Ljava/lang/Runnable;
 
 .field private final mUninstallReceiver:Landroid/content/BroadcastReceiver;
+
+.field private mWaitingUnlock:Z
 
 
 # direct methods
@@ -72,7 +77,15 @@
     return v0
 .end method
 
-.method static synthetic -get2(Lcom/android/systemui/qs/external/TileServiceManager;)Lcom/android/systemui/qs/external/TileServices;
+.method static synthetic -get2(Lcom/android/systemui/qs/external/TileServiceManager;)Landroid/os/Handler;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mHandler:Landroid/os/Handler;
+
+    return-object v0
+.end method
+
+.method static synthetic -get3(Lcom/android/systemui/qs/external/TileServiceManager;)Lcom/android/systemui/qs/external/TileServices;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mServices:Lcom/android/systemui/qs/external/TileServices;
@@ -80,10 +93,18 @@
     return-object v0
 .end method
 
-.method static synthetic -get3(Lcom/android/systemui/qs/external/TileServiceManager;)Lcom/android/systemui/qs/external/TileLifecycleManager;
+.method static synthetic -get4(Lcom/android/systemui/qs/external/TileServiceManager;)Lcom/android/systemui/qs/external/TileLifecycleManager;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mStateManager:Lcom/android/systemui/qs/external/TileLifecycleManager;
+
+    return-object v0
+.end method
+
+.method static synthetic -get5(Lcom/android/systemui/qs/external/TileServiceManager;)Ljava/lang/Runnable;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mUnbind:Ljava/lang/Runnable;
 
     return-object v0
 .end method
@@ -92,6 +113,14 @@
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mJustBound:Z
+
+    return p1
+.end method
+
+.method static synthetic -set1(Lcom/android/systemui/qs/external/TileServiceManager;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mWaitingUnlock:Z
 
     return p1
 .end method
@@ -157,17 +186,23 @@
 
     invoke-direct {v1, p0}, Lcom/android/systemui/qs/external/TileServiceManager$1;-><init>(Lcom/android/systemui/qs/external/TileServiceManager;)V
 
-    iput-object v1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mUnbind:Ljava/lang/Runnable;
+    iput-object v1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mStopWaitingUnlock:Ljava/lang/Runnable;
 
     new-instance v1, Lcom/android/systemui/qs/external/TileServiceManager$2;
 
     invoke-direct {v1, p0}, Lcom/android/systemui/qs/external/TileServiceManager$2;-><init>(Lcom/android/systemui/qs/external/TileServiceManager;)V
 
-    iput-object v1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mJustBoundOver:Ljava/lang/Runnable;
+    iput-object v1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mUnbind:Ljava/lang/Runnable;
 
     new-instance v1, Lcom/android/systemui/qs/external/TileServiceManager$3;
 
     invoke-direct {v1, p0}, Lcom/android/systemui/qs/external/TileServiceManager$3;-><init>(Lcom/android/systemui/qs/external/TileServiceManager;)V
+
+    iput-object v1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mJustBoundOver:Ljava/lang/Runnable;
+
+    new-instance v1, Lcom/android/systemui/qs/external/TileServiceManager$4;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/qs/external/TileServiceManager$4;-><init>(Lcom/android/systemui/qs/external/TileServiceManager;)V
 
     iput-object v1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mUninstallReceiver:Landroid/content/BroadcastReceiver;
 
@@ -337,9 +372,24 @@
     goto :goto_0
 
     :cond_1
-    iget-boolean v2, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mShowingDialog:Z
+    iget-boolean v2, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mWaitingUnlock:Z
 
     if-eqz v2, :cond_2
+
+    iput v3, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mPriority:I
+
+    const-string/jumbo v2, "TileServiceManager"
+
+    const-string/jumbo v3, "calculateBindPriority : mWaitingUnlock"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :cond_2
+    iget-boolean v2, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mShowingDialog:Z
+
+    if-eqz v2, :cond_3
 
     const v2, 0x7ffffffe
 
@@ -347,10 +397,10 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     iget-boolean v2, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mJustBound:Z
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_4
 
     const v2, 0x7ffffffd
 
@@ -358,10 +408,10 @@
 
     goto :goto_0
 
-    :cond_3
+    :cond_4
     iget-boolean v2, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mBindRequested:Z
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_5
 
     const/high16 v2, -0x80000000
 
@@ -369,7 +419,7 @@
 
     goto :goto_0
 
-    :cond_4
+    :cond_5
     iget-wide v2, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mLastUpdate:J
 
     sub-long v0, p1, v2
@@ -378,7 +428,7 @@
 
     cmp-long v2, v0, v2
 
-    if-lez v2, :cond_5
+    if-lez v2, :cond_6
 
     const v2, 0x7ffffffc
 
@@ -386,7 +436,7 @@
 
     goto :goto_0
 
-    :cond_5
+    :cond_6
     long-to-int v2, v0
 
     iput v2, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mPriority:I
@@ -442,6 +492,10 @@
 
 .method public handleDestroy()V
     .locals 2
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/external/TileServiceManager;->setBindAllowed(Z)V
 
     iget-object v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mServices:Lcom/android/systemui/qs/external/TileServices;
 
@@ -517,7 +571,9 @@
 
     iget-boolean v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mBound:Z
 
-    if-nez v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_1
 
     invoke-direct {p0}, Lcom/android/systemui/qs/external/TileServiceManager;->bindService()V
 
@@ -538,35 +594,18 @@
 
     iget-boolean v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mBindAllowed:Z
 
-    if-eqz v0, :cond_1
-
-    iget-boolean v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mBindRequested:Z
-
-    if-eqz v0, :cond_1
-
-    iget-boolean v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mBound:Z
-
-    if-eqz v0, :cond_3
-
-    :cond_1
-    iget-object v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mServices:Lcom/android/systemui/qs/external/TileServices;
-
-    invoke-virtual {v0}, Lcom/android/systemui/qs/external/TileServices;->recalculateBindAllowance()V
-
-    :goto_0
-    iget-boolean v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mBound:Z
-
     if-eqz v0, :cond_2
 
     iget-boolean v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mBindRequested:Z
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_2
 
-    :cond_2
-    :goto_1
-    return-void
+    iget-boolean v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mBound:Z
 
-    :cond_3
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_2
+
     iget-object v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mHandler:Landroid/os/Handler;
 
     iget-object v1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mUnbind:Ljava/lang/Runnable;
@@ -575,9 +614,17 @@
 
     invoke-direct {p0}, Lcom/android/systemui/qs/external/TileServiceManager;->bindService()V
 
-    goto :goto_0
+    :goto_0
+    iget-boolean v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mBound:Z
 
-    :cond_4
+    if-eqz v0, :cond_1
+
+    iget-boolean v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mBindRequested:Z
+
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_1
+
     iget-object v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mHandler:Landroid/os/Handler;
 
     iget-object v1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mUnbind:Ljava/lang/Runnable;
@@ -586,7 +633,15 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    goto :goto_1
+    :cond_1
+    return-void
+
+    :cond_2
+    iget-object v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mServices:Lcom/android/systemui/qs/external/TileServices;
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/external/TileServices;->recalculateBindAllowance()V
+
+    goto :goto_0
 .end method
 
 .method public setIsDefaultTile(Z)V
@@ -644,4 +699,83 @@
     invoke-virtual {v0, p1}, Lcom/android/systemui/qs/external/TileLifecycleManager;->setTileChangeListener(Lcom/android/systemui/qs/external/TileLifecycleManager$TileChangeListener;)V
 
     return-void
+.end method
+
+.method public setWaitingUnlockState(Z)V
+    .locals 4
+
+    iput-boolean p1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mWaitingUnlock:Z
+
+    const-string/jumbo v0, "TileServiceManager"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "setWaitingUnlockState : waitingUnlock = "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mHandler:Landroid/os/Handler;
+
+    iget-object v1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mStopWaitingUnlock:Ljava/lang/Runnable;
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+
+    if-eqz p1, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mHandler:Landroid/os/Handler;
+
+    iget-object v1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mUnbind:Ljava/lang/Runnable;
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+
+    iget-object v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mHandler:Landroid/os/Handler;
+
+    iget-object v1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mStopWaitingUnlock:Ljava/lang/Runnable;
+
+    const-wide/16 v2, 0x2710
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mServices:Lcom/android/systemui/qs/external/TileServices;
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/external/TileServices;->recalculateBindAllowance()V
+
+    iget-boolean v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mBound:Z
+
+    if-eqz v0, :cond_0
+
+    iget-boolean v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mBindRequested:Z
+
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mHandler:Landroid/os/Handler;
+
+    iget-object v1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mUnbind:Ljava/lang/Runnable;
+
+    const-wide/16 v2, 0x7530
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    goto :goto_0
 .end method

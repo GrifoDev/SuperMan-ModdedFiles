@@ -4,7 +4,9 @@
 
 
 # instance fields
-.field public isFreeformDragging:Z
+.field public byDoubleTap:Z
+
+.field public position:I
 
 .field public postRunnable:Ljava/lang/Runnable;
 
@@ -22,32 +24,60 @@
 
 
 # direct methods
-.method public constructor <init>(I)V
-    .locals 0
+.method public constructor <init>(ILjava/lang/Runnable;I)V
+    .locals 1
 
     invoke-direct {p0}, Lcom/android/systemui/recents/events/EventBus$Event;-><init>()V
 
-    iput p1, p0, Lcom/android/systemui/recents/events/activity/LaunchTaskPostEvent;->target:I
+    const/4 v0, 0x0
 
-    return-void
-.end method
+    iput-boolean v0, p0, Lcom/android/systemui/recents/events/activity/LaunchTaskPostEvent;->byDoubleTap:Z
 
-.method public constructor <init>(ILjava/lang/Runnable;)V
-    .locals 0
+    const/4 v0, -0x1
 
-    invoke-direct {p0}, Lcom/android/systemui/recents/events/EventBus$Event;-><init>()V
+    iput v0, p0, Lcom/android/systemui/recents/events/activity/LaunchTaskPostEvent;->position:I
 
     iput p1, p0, Lcom/android/systemui/recents/events/activity/LaunchTaskPostEvent;->target:I
 
     iput-object p2, p0, Lcom/android/systemui/recents/events/activity/LaunchTaskPostEvent;->postRunnable:Ljava/lang/Runnable;
 
+    iput p3, p0, Lcom/android/systemui/recents/events/activity/LaunchTaskPostEvent;->position:I
+
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/systemui/recents/views/TaskView;Lcom/android/systemui/recents/model/Task;Landroid/graphics/Rect;IZZI)V
-    .locals 0
+.method public constructor <init>(IZ)V
+    .locals 1
 
     invoke-direct {p0}, Lcom/android/systemui/recents/events/EventBus$Event;-><init>()V
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/systemui/recents/events/activity/LaunchTaskPostEvent;->byDoubleTap:Z
+
+    const/4 v0, -0x1
+
+    iput v0, p0, Lcom/android/systemui/recents/events/activity/LaunchTaskPostEvent;->position:I
+
+    iput p1, p0, Lcom/android/systemui/recents/events/activity/LaunchTaskPostEvent;->target:I
+
+    iput-boolean p2, p0, Lcom/android/systemui/recents/events/activity/LaunchTaskPostEvent;->byDoubleTap:Z
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/systemui/recents/views/TaskView;Lcom/android/systemui/recents/model/Task;Landroid/graphics/Rect;IZI)V
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/systemui/recents/events/EventBus$Event;-><init>()V
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/systemui/recents/events/activity/LaunchTaskPostEvent;->byDoubleTap:Z
+
+    const/4 v0, -0x1
+
+    iput v0, p0, Lcom/android/systemui/recents/events/activity/LaunchTaskPostEvent;->position:I
 
     iput-object p1, p0, Lcom/android/systemui/recents/events/activity/LaunchTaskPostEvent;->taskView:Lcom/android/systemui/recents/views/TaskView;
 
@@ -59,9 +89,7 @@
 
     iput-boolean p5, p0, Lcom/android/systemui/recents/events/activity/LaunchTaskPostEvent;->screenPinningRequested:Z
 
-    iput-boolean p6, p0, Lcom/android/systemui/recents/events/activity/LaunchTaskPostEvent;->isFreeformDragging:Z
-
-    iput p7, p0, Lcom/android/systemui/recents/events/activity/LaunchTaskPostEvent;->target:I
+    iput p6, p0, Lcom/android/systemui/recents/events/activity/LaunchTaskPostEvent;->target:I
 
     return-void
 .end method

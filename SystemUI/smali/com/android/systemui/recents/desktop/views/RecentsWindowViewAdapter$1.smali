@@ -39,13 +39,61 @@
 
 # virtual methods
 .method public onTransitionCancel(Landroid/transition/Transition;)V
-    .locals 0
+    .locals 2
+
+    const-string/jumbo v0, "RecentsWindowViewAdapter"
+
+    const-string/jumbo v1, "onTransitionCancel"
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$1;->this$0:Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;
+
+    const/4 v1, 0x0
+
+    iput-boolean v1, v0, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;->mIsSceneTransitionRequested:Z
 
     return-void
 .end method
 
 .method public onTransitionEnd(Landroid/transition/Transition;)V
+    .locals 2
+
+    const-string/jumbo v0, "RecentsWindowViewAdapter"
+
+    const-string/jumbo v1, "onTransitionEnd"
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$1;->this$0:Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;
+
+    const/4 v1, 0x0
+
+    iput-boolean v1, v0, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;->mIsSceneTransitionRequested:Z
+
+    return-void
+.end method
+
+.method public onTransitionPause(Landroid/transition/Transition;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onTransitionResume(Landroid/transition/Transition;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onTransitionStart(Landroid/transition/Transition;)V
     .locals 3
+
+    const-string/jumbo v0, "RecentsWindowViewAdapter"
+
+    const-string/jumbo v1, "onTransitionStart"
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget v0, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$1;->val$removePosition:I
 
@@ -80,22 +128,4 @@
     invoke-virtual {v0, v1}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
 
     goto :goto_0
-.end method
-
-.method public onTransitionPause(Landroid/transition/Transition;)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onTransitionResume(Landroid/transition/Transition;)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onTransitionStart(Landroid/transition/Transition;)V
-    .locals 0
-
-    return-void
 .end method

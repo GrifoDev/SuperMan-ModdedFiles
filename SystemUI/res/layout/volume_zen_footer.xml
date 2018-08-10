@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.android.systemui.volume.ZenFooter android:orientation="vertical" android:id="@id/volume_zen_footer" android:layout_width="fill_parent" android:layout_height="wrap_content"
+<com.android.systemui.volume.ZenFooter android:orientation="vertical" android:id="@id/volume_zen_footer" android:paddingBottom="8.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <View android:id="@id/zen_embedded_divider" android:background="@color/qs_tile_divider" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_marginTop="8.0dip" android:layout_marginBottom="12.0dip" />
+    <RelativeLayout android:theme="@android:style/ThemeOverlay.DeviceDefault.Accent.Light" android:id="@id/zen_introduction" android:background="@drawable/zen_introduction_message_background" android:paddingTop="8.0dip" android:paddingBottom="8.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="16.0dip" android:layout_marginEnd="16.0dip">
+        <ImageView android:id="@id/zen_introduction_confirm" android:background="@drawable/btn_borderless_rect" android:clickable="true" android:layout_width="48.0dip" android:layout_height="48.0dip" android:src="@drawable/ic_close" android:scaleType="center" android:tint="@android:color/white" android:contentDescription="@string/accessibility_desc_close" android:layout_marginEnd="8.0dip" android:layout_alignParentEnd="true" />
+        <TextView android:textAppearance="@style/TextAppearance.QS.Introduction" android:id="@id/zen_introduction_message" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dip" android:text="@string/zen_alarms_introduction" android:lineSpacingMultiplier="1.20029" android:textDirection="locale" android:layout_marginStart="24.0dip" android:layout_toStartOf="@id/zen_introduction_confirm" />
+        <View android:layout_width="0.0dip" android:layout_height="16.0dip" android:layout_below="@id/zen_introduction_message" android:layout_alignParentEnd="true" />
+    </RelativeLayout>
     <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
         <ImageView android:id="@id/volume_zen_icon" android:layout_width="@dimen/volume_button_size" android:layout_height="@dimen/volume_button_size" android:scaleType="center" android:layout_marginEnd="7.0dip" />
         <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
@@ -9,5 +14,5 @@
             <TextView android:textAppearance="@style/TextAppearance.Volume.ZenDetail" android:id="@id/volume_zen_summary_line_2" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="1.0dip" android:textDirection="locale" />
         </LinearLayout>
     </LinearLayout>
-    <TextView android:textAppearance="@style/TextAppearance.QS.DetailButton" android:textColor="@color/system_accent_color" android:layout_gravity="end" android:id="@id/volume_zen_end_now" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/volume_zen_end_now" android:paddingStart="15.0dip" android:paddingEnd="15.0dip" android:layout_marginEnd="8.0dip" style="@style/QSBorderlessButton" />
+    <TextView android:textAppearance="@style/TextAppearance.QS.DetailButton" android:textColor="?android:colorAccent" android:layout_gravity="end" android:id="@id/volume_zen_end_now" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/volume_zen_end_now" android:paddingStart="15.0dip" android:paddingEnd="15.0dip" android:layout_marginEnd="8.0dip" style="@style/QSBorderlessButton" />
 </com.android.systemui.volume.ZenFooter>

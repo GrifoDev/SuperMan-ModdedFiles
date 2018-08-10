@@ -12,24 +12,16 @@
 
 
 # instance fields
-.field private mCarrierText:Lcom/android/keyguard/CarrierText;
+.field private mBiometricDexButtonView:Lcom/android/keyguard/biometric/KeyguardBiometricDexButtonView;
 
 .field private mEmergencyButton:Lcom/android/keyguard/EmergencyButton;
 
 .field private mEmergencyButtonArea:Landroid/widget/LinearLayout;
 
-.field private mForgotPatternButton:Landroid/widget/Button;
+.field private mForgotPatternButton:Lcom/android/systemui/widget/SystemUIButton;
 
 
 # direct methods
-.method static synthetic -get0(Lcom/android/keyguard/EmergencyCarrierArea;)Lcom/android/keyguard/CarrierText;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/keyguard/EmergencyCarrierArea;->mCarrierText:Lcom/android/keyguard/CarrierText;
-
-    return-object v0
-.end method
-
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
 
@@ -49,25 +41,21 @@
 
 # virtual methods
 .method protected onFinishInflate()V
-    .locals 2
+    .locals 1
 
     invoke-super {p0}, Lcom/android/keyguard/AlphaOptimizedLinearLayout;->onFinishInflate()V
 
-    sget-boolean v0, Lcom/android/keyguard/KeyguardRune;->SUPPORT_SAMSUNG_ACCOUNT_RECOVERY:Z
-
-    if-eqz v0, :cond_0
-
-    sget v0, Lcom/android/keyguard/R$id;->forgot_password_button:I
+    const v0, 0x7f0a01c8
 
     invoke-virtual {p0, v0}, Lcom/android/keyguard/EmergencyCarrierArea;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    check-cast v0, Landroid/widget/Button;
+    check-cast v0, Lcom/android/systemui/widget/SystemUIButton;
 
-    iput-object v0, p0, Lcom/android/keyguard/EmergencyCarrierArea;->mForgotPatternButton:Landroid/widget/Button;
+    iput-object v0, p0, Lcom/android/keyguard/EmergencyCarrierArea;->mForgotPatternButton:Lcom/android/systemui/widget/SystemUIButton;
 
-    sget v0, Lcom/android/keyguard/R$id;->emergency_call_button:I
+    const v0, 0x7f0a01a0
 
     invoke-virtual {p0, v0}, Lcom/android/keyguard/EmergencyCarrierArea;->findViewById(I)Landroid/view/View;
 
@@ -77,7 +65,7 @@
 
     iput-object v0, p0, Lcom/android/keyguard/EmergencyCarrierArea;->mEmergencyButton:Lcom/android/keyguard/EmergencyButton;
 
-    sget v0, Lcom/android/keyguard/R$id;->keyguard_emergency_button_area:I
+    const v0, 0x7f0a0269
 
     invoke-virtual {p0, v0}, Lcom/android/keyguard/EmergencyCarrierArea;->findViewById(I)Landroid/view/View;
 
@@ -87,41 +75,19 @@
 
     iput-object v0, p0, Lcom/android/keyguard/EmergencyCarrierArea;->mEmergencyButtonArea:Landroid/widget/LinearLayout;
 
-    :goto_0
+    const v0, 0x7f0a0252
+
+    invoke-virtual {p0, v0}, Lcom/android/keyguard/EmergencyCarrierArea;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/keyguard/biometric/KeyguardBiometricDexButtonView;
+
+    iput-object v0, p0, Lcom/android/keyguard/EmergencyCarrierArea;->mBiometricDexButtonView:Lcom/android/keyguard/biometric/KeyguardBiometricDexButtonView;
+
     invoke-virtual {p0}, Lcom/android/keyguard/EmergencyCarrierArea;->resizeFooter()V
 
     return-void
-
-    :cond_0
-    sget v0, Lcom/android/keyguard/R$id;->carrier_text:I
-
-    invoke-virtual {p0, v0}, Lcom/android/keyguard/EmergencyCarrierArea;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/keyguard/CarrierText;
-
-    iput-object v0, p0, Lcom/android/keyguard/EmergencyCarrierArea;->mCarrierText:Lcom/android/keyguard/CarrierText;
-
-    sget v0, Lcom/android/keyguard/R$id;->emergency_call_button:I
-
-    invoke-virtual {p0, v0}, Lcom/android/keyguard/EmergencyCarrierArea;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/keyguard/EmergencyButton;
-
-    iput-object v0, p0, Lcom/android/keyguard/EmergencyCarrierArea;->mEmergencyButton:Lcom/android/keyguard/EmergencyButton;
-
-    iget-object v0, p0, Lcom/android/keyguard/EmergencyCarrierArea;->mEmergencyButton:Lcom/android/keyguard/EmergencyButton;
-
-    new-instance v1, Lcom/android/keyguard/EmergencyCarrierArea$1;
-
-    invoke-direct {v1, p0}, Lcom/android/keyguard/EmergencyCarrierArea$1;-><init>(Lcom/android/keyguard/EmergencyCarrierArea;)V
-
-    invoke-virtual {v0, v1}, Lcom/android/keyguard/EmergencyButton;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
-
-    goto :goto_0
 .end method
 
 .method public resizeFooter()V
@@ -143,7 +109,7 @@
     return-void
 
     :cond_1
-    iget-object v6, p0, Lcom/android/keyguard/EmergencyCarrierArea;->mForgotPatternButton:Landroid/widget/Button;
+    iget-object v6, p0, Lcom/android/keyguard/EmergencyCarrierArea;->mForgotPatternButton:Lcom/android/systemui/widget/SystemUIButton;
 
     if-eqz v6, :cond_0
 
@@ -251,9 +217,9 @@
 
     check-cast v0, Landroid/widget/LinearLayout$LayoutParams;
 
-    iget-object v6, p0, Lcom/android/keyguard/EmergencyCarrierArea;->mForgotPatternButton:Landroid/widget/Button;
+    iget-object v6, p0, Lcom/android/keyguard/EmergencyCarrierArea;->mForgotPatternButton:Lcom/android/systemui/widget/SystemUIButton;
 
-    invoke-virtual {v6}, Landroid/widget/Button;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual {v6}, Lcom/android/systemui/widget/SystemUIButton;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v1
 
@@ -271,13 +237,13 @@
 
     invoke-virtual {v6, v0}, Lcom/android/keyguard/EmergencyButton;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    iget-object v6, p0, Lcom/android/keyguard/EmergencyCarrierArea;->mForgotPatternButton:Landroid/widget/Button;
+    iget-object v6, p0, Lcom/android/keyguard/EmergencyCarrierArea;->mForgotPatternButton:Lcom/android/systemui/widget/SystemUIButton;
 
-    invoke-virtual {v6, v1}, Landroid/widget/Button;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v6, v1}, Lcom/android/systemui/widget/SystemUIButton;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    iget-object v6, p0, Lcom/android/keyguard/EmergencyCarrierArea;->mForgotPatternButton:Landroid/widget/Button;
+    iget-object v6, p0, Lcom/android/keyguard/EmergencyCarrierArea;->mForgotPatternButton:Lcom/android/systemui/widget/SystemUIButton;
 
-    invoke-virtual {v6, v8, v8, v8, v8}, Landroid/widget/Button;->setPadding(IIII)V
+    invoke-virtual {v6, v8, v8, v8, v8}, Lcom/android/systemui/widget/SystemUIButton;->setPadding(IIII)V
 
     goto :goto_1
 
@@ -288,64 +254,16 @@
     .end packed-switch
 .end method
 
-.method public updateChildViewsLook()V
-    .locals 3
+.method public updateDexButtonVisibility()V
+    .locals 1
 
-    const/4 v2, 0x2
-
-    iget-object v0, p0, Lcom/android/keyguard/EmergencyCarrierArea;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/keyguard/util/ViewStyleUtils;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/ViewStyleUtils;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/keyguard/EmergencyCarrierArea;->mCarrierText:Lcom/android/keyguard/CarrierText;
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/keyguard/util/ViewStyleUtils;->updateViewStyle(Landroid/widget/TextView;I)V
-
-    iget-object v0, p0, Lcom/android/keyguard/EmergencyCarrierArea;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/keyguard/util/ViewStyleUtils;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/ViewStyleUtils;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/keyguard/EmergencyCarrierArea;->mEmergencyButton:Lcom/android/keyguard/EmergencyButton;
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/keyguard/util/ViewStyleUtils;->updateViewStyle(Landroid/widget/TextView;I)V
-
-    iget-object v0, p0, Lcom/android/keyguard/EmergencyCarrierArea;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/keyguard/util/ViewStyleUtils;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/ViewStyleUtils;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/keyguard/EmergencyCarrierArea;->mEmergencyButton:Lcom/android/keyguard/EmergencyButton;
-
-    invoke-virtual {v0, v1}, Lcom/android/keyguard/util/ViewStyleUtils;->updateButtonOuterlineColor(Landroid/widget/TextView;)V
-
-    sget-boolean v0, Lcom/android/keyguard/KeyguardRune;->SUPPORT_SAMSUNG_ACCOUNT_RECOVERY:Z
+    iget-object v0, p0, Lcom/android/keyguard/EmergencyCarrierArea;->mBiometricDexButtonView:Lcom/android/keyguard/biometric/KeyguardBiometricDexButtonView;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/keyguard/EmergencyCarrierArea;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/keyguard/EmergencyCarrierArea;->mBiometricDexButtonView:Lcom/android/keyguard/biometric/KeyguardBiometricDexButtonView;
 
-    invoke-static {v0}, Lcom/android/keyguard/util/ViewStyleUtils;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/ViewStyleUtils;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/keyguard/EmergencyCarrierArea;->mForgotPatternButton:Landroid/widget/Button;
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/keyguard/util/ViewStyleUtils;->updateViewStyle(Landroid/widget/TextView;I)V
-
-    iget-object v0, p0, Lcom/android/keyguard/EmergencyCarrierArea;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/keyguard/util/ViewStyleUtils;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/ViewStyleUtils;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/keyguard/EmergencyCarrierArea;->mForgotPatternButton:Landroid/widget/Button;
-
-    invoke-virtual {v0, v1}, Lcom/android/keyguard/util/ViewStyleUtils;->updateButtonOuterlineColor(Landroid/widget/TextView;)V
+    invoke-virtual {v0}, Lcom/android/keyguard/biometric/KeyguardBiometricDexButtonView;->updateButtonVisibility()V
 
     :cond_0
     return-void

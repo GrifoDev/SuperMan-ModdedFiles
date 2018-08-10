@@ -33,6 +33,3 @@
 
 .method public abstract startDisappearAnimation(Ljava/lang/Runnable;)Z
 .end method
-
-.method public abstract updateChildViewsLook()V
-.end method

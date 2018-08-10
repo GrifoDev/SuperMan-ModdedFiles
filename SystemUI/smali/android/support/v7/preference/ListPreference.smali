@@ -281,8 +281,16 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    xor-int/lit8 v1, v1, 0x1
 
+    if-eqz v1, :cond_1
+
+    :cond_0
+    invoke-super {p0, p1}, Landroid/support/v7/preference/DialogPreference;->onRestoreInstanceState(Landroid/os/Parcelable;)V
+
+    return-void
+
+    :cond_1
     move-object v0, p1
 
     check-cast v0, Landroid/support/v7/preference/ListPreference$SavedState;
@@ -296,11 +304,6 @@
     iget-object v1, v0, Landroid/support/v7/preference/ListPreference$SavedState;->value:Ljava/lang/String;
 
     invoke-virtual {p0, v1}, Landroid/support/v7/preference/ListPreference;->setValue(Ljava/lang/String;)V
-
-    return-void
-
-    :cond_0
-    invoke-super {p0, p1}, Landroid/support/v7/preference/DialogPreference;->onRestoreInstanceState(Landroid/os/Parcelable;)V
 
     return-void
 .end method
@@ -356,6 +359,14 @@
     goto :goto_0
 .end method
 
+.method public setEntries([Ljava/lang/CharSequence;)V
+    .locals 0
+
+    iput-object p1, p0, Landroid/support/v7/preference/ListPreference;->mEntries:[Ljava/lang/CharSequence;
+
+    return-void
+.end method
+
 .method public setEntryValues([Ljava/lang/CharSequence;)V
     .locals 0
 
@@ -392,7 +403,9 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
 
     invoke-interface {p1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
@@ -404,46 +417,37 @@
 .end method
 
 .method public setValue(Ljava/lang/String;)V
-    .locals 3
+    .locals 2
 
-    const/4 v1, 0x1
+    iget-object v1, p0, Landroid/support/v7/preference/ListPreference;->mValue:Ljava/lang/String;
 
-    iget-object v2, p0, Landroid/support/v7/preference/ListPreference;->mValue:Ljava/lang/String;
+    invoke-static {v1, p1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 
-    invoke-static {v2, p1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+    move-result v1
 
-    move-result v2
+    xor-int/lit8 v0, v1, 0x1
 
-    if-eqz v2, :cond_1
+    if-nez v0, :cond_0
 
-    const/4 v0, 0x0
+    iget-boolean v1, p0, Landroid/support/v7/preference/ListPreference;->mValueSet:Z
 
-    :goto_0
-    if-nez v0, :cond_2
+    xor-int/lit8 v1, v1, 0x1
 
-    iget-boolean v2, p0, Landroid/support/v7/preference/ListPreference;->mValueSet:Z
-
-    if-eqz v2, :cond_2
+    if-eqz v1, :cond_1
 
     :cond_0
-    :goto_1
-    return-void
-
-    :cond_1
-    move v0, v1
-
-    goto :goto_0
-
-    :cond_2
     iput-object p1, p0, Landroid/support/v7/preference/ListPreference;->mValue:Ljava/lang/String;
+
+    const/4 v1, 0x1
 
     iput-boolean v1, p0, Landroid/support/v7/preference/ListPreference;->mValueSet:Z
 
     invoke-virtual {p0, p1}, Landroid/support/v7/preference/ListPreference;->persistString(Ljava/lang/String;)Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     invoke-virtual {p0}, Landroid/support/v7/preference/ListPreference;->notifyChanged()V
 
-    goto :goto_1
+    :cond_1
+    return-void
 .end method

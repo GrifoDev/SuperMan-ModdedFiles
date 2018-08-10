@@ -55,7 +55,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/classifier/HistoryEvaluator;->mGestureWeights:Ljava/util/ArrayList;
 
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v0
 
@@ -67,39 +67,48 @@
 .method private decayValue()V
     .locals 8
 
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    move-result-wide v0
+    move-result-wide v2
 
+    iget-wide v4, p0, Lcom/android/systemui/classifier/HistoryEvaluator;->mLastUpdate:J
+
+    cmp-long v1, v2, v4
+
+    if-gtz v1, :cond_0
+
+    return-void
+
+    :cond_0
     const-wide v4, 0x3fecccccc0000000L    # 0.8999999761581421
 
     iget-wide v6, p0, Lcom/android/systemui/classifier/HistoryEvaluator;->mLastUpdate:J
 
-    sub-long v6, v0, v6
+    sub-long v6, v2, v6
 
-    long-to-float v3, v6
+    long-to-float v1, v6
 
     const/high16 v6, 0x42480000    # 50.0f
 
-    div-float/2addr v3, v6
+    div-float/2addr v1, v6
 
-    float-to-double v6, v3
+    float-to-double v6, v1
 
     invoke-static {v4, v5, v6, v7}, Ljava/lang/Math;->pow(DD)D
 
     move-result-wide v4
 
-    double-to-float v2, v4
+    double-to-float v0, v4
 
-    iget-object v3, p0, Lcom/android/systemui/classifier/HistoryEvaluator;->mStrokes:Ljava/util/ArrayList;
+    iget-object v1, p0, Lcom/android/systemui/classifier/HistoryEvaluator;->mStrokes:Ljava/util/ArrayList;
 
-    invoke-direct {p0, v3, v2}, Lcom/android/systemui/classifier/HistoryEvaluator;->decayValue(Ljava/util/ArrayList;F)V
+    invoke-direct {p0, v1, v0}, Lcom/android/systemui/classifier/HistoryEvaluator;->decayValue(Ljava/util/ArrayList;F)V
 
-    iget-object v3, p0, Lcom/android/systemui/classifier/HistoryEvaluator;->mGestureWeights:Ljava/util/ArrayList;
+    iget-object v1, p0, Lcom/android/systemui/classifier/HistoryEvaluator;->mGestureWeights:Ljava/util/ArrayList;
 
-    invoke-direct {p0, v3, v2}, Lcom/android/systemui/classifier/HistoryEvaluator;->decayValue(Ljava/util/ArrayList;F)V
+    invoke-direct {p0, v1, v0}, Lcom/android/systemui/classifier/HistoryEvaluator;->decayValue(Ljava/util/ArrayList;F)V
 
-    iput-wide v0, p0, Lcom/android/systemui/classifier/HistoryEvaluator;->mLastUpdate:J
+    iput-wide v2, p0, Lcom/android/systemui/classifier/HistoryEvaluator;->mLastUpdate:J
 
     return-void
 .end method

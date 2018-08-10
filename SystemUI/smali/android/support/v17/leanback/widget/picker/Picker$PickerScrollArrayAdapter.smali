@@ -49,9 +49,7 @@
 
     iput p4, p0, Landroid/support/v17/leanback/widget/picker/Picker$PickerScrollArrayAdapter;->mTextViewResourceId:I
 
-    invoke-static {p1}, Landroid/support/v17/leanback/widget/picker/Picker;->-get1(Landroid/support/v17/leanback/widget/picker/Picker;)Ljava/util/ArrayList;
-
-    move-result-object v0
+    iget-object v0, p1, Landroid/support/v17/leanback/widget/picker/Picker;->mColumns:Ljava/util/ArrayList;
 
     iget v1, p0, Landroid/support/v17/leanback/widget/picker/Picker$PickerScrollArrayAdapter;->mColIndex:I
 
@@ -128,9 +126,7 @@
 
     iget-object v0, p0, Landroid/support/v17/leanback/widget/picker/Picker$PickerScrollArrayAdapter;->this$0:Landroid/support/v17/leanback/widget/picker/Picker;
 
-    invoke-static {v0}, Landroid/support/v17/leanback/widget/picker/Picker;->-get0(Landroid/support/v17/leanback/widget/picker/Picker;)Ljava/util/List;
-
-    move-result-object v0
+    iget-object v0, v0, Landroid/support/v17/leanback/widget/picker/Picker;->mColumnViews:Ljava/util/List;
 
     iget v4, p0, Landroid/support/v17/leanback/widget/picker/Picker$PickerScrollArrayAdapter;->mColIndex:I
 
@@ -151,7 +147,7 @@
     :goto_0
     iget v4, p0, Landroid/support/v17/leanback/widget/picker/Picker$PickerScrollArrayAdapter;->mColIndex:I
 
-    invoke-static {v2, v3, v0, v4, v1}, Landroid/support/v17/leanback/widget/picker/Picker;->-wrap0(Landroid/support/v17/leanback/widget/picker/Picker;Landroid/view/View;ZIZ)V
+    invoke-virtual {v2, v3, v0, v4, v1}, Landroid/support/v17/leanback/widget/picker/Picker;->setOrAnimateAlpha(Landroid/view/View;ZIZ)V
 
     return-void
 

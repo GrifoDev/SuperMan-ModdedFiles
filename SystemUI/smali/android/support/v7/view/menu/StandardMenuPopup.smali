@@ -12,7 +12,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/support/v7/view/menu/StandardMenuPopup$1;
+        Landroid/support/v7/view/menu/StandardMenuPopup$1;,
+        Landroid/support/v7/view/menu/StandardMenuPopup$2;
     }
 .end annotation
 
@@ -21,6 +22,8 @@
 .field private final mAdapter:Landroid/support/v7/view/menu/MenuAdapter;
 
 .field private mAnchorView:Landroid/view/View;
+
+.field private final mAttachStateChangeListener:Landroid/view/View$OnAttachStateChangeListener;
 
 .field private mContentWidth:I
 
@@ -38,7 +41,7 @@
 
 .field private final mOverflowOnly:Z
 
-.field private final mPopup:Landroid/support/v7/widget/MenuPopupWindow;
+.field final mPopup:Landroid/support/v7/widget/MenuPopupWindow;
 
 .field private final mPopupMaxWidth:I
 
@@ -50,7 +53,7 @@
 
 .field private mShowTitle:Z
 
-.field private mShownAnchorView:Landroid/view/View;
+.field mShownAnchorView:Landroid/view/View;
 
 .field private mTreeObserver:Landroid/view/ViewTreeObserver;
 
@@ -58,20 +61,28 @@
 
 
 # direct methods
-.method static synthetic -get0(Landroid/support/v7/view/menu/StandardMenuPopup;)Landroid/support/v7/widget/MenuPopupWindow;
+.method static synthetic -get0(Landroid/support/v7/view/menu/StandardMenuPopup;)Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
     .locals 1
 
-    iget-object v0, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mPopup:Landroid/support/v7/widget/MenuPopupWindow;
+    iget-object v0, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mGlobalLayoutListener:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
 
     return-object v0
 .end method
 
-.method static synthetic -get1(Landroid/support/v7/view/menu/StandardMenuPopup;)Landroid/view/View;
+.method static synthetic -get1(Landroid/support/v7/view/menu/StandardMenuPopup;)Landroid/view/ViewTreeObserver;
     .locals 1
 
-    iget-object v0, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mShownAnchorView:Landroid/view/View;
+    iget-object v0, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mTreeObserver:Landroid/view/ViewTreeObserver;
 
     return-object v0
+.end method
+
+.method static synthetic -set0(Landroid/support/v7/view/menu/StandardMenuPopup;Landroid/view/ViewTreeObserver;)Landroid/view/ViewTreeObserver;
+    .locals 0
+
+    iput-object p1, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mTreeObserver:Landroid/view/ViewTreeObserver;
+
+    return-object p1
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/support/v7/view/menu/MenuBuilder;Landroid/view/View;IIZ)V
@@ -84,6 +95,12 @@
     invoke-direct {v2, p0}, Landroid/support/v7/view/menu/StandardMenuPopup$1;-><init>(Landroid/support/v7/view/menu/StandardMenuPopup;)V
 
     iput-object v2, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mGlobalLayoutListener:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
+
+    new-instance v2, Landroid/support/v7/view/menu/StandardMenuPopup$2;
+
+    invoke-direct {v2, p0}, Landroid/support/v7/view/menu/StandardMenuPopup$2;-><init>(Landroid/support/v7/view/menu/StandardMenuPopup;)V
+
+    iput-object v2, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mAttachStateChangeListener:Landroid/view/View$OnAttachStateChangeListener;
 
     const/4 v2, 0x0
 
@@ -226,6 +243,10 @@
     invoke-virtual {v5, v6}, Landroid/view/ViewTreeObserver;->addOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
 
     :cond_3
+    iget-object v5, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mAttachStateChangeListener:Landroid/view/View$OnAttachStateChangeListener;
+
+    invoke-virtual {v1, v5}, Landroid/view/View;->addOnAttachStateChangeListener(Landroid/view/View$OnAttachStateChangeListener;)V
+
     iget-object v5, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mPopup:Landroid/support/v7/widget/MenuPopupWindow;
 
     invoke-virtual {v5, v1}, Landroid/support/v7/widget/MenuPopupWindow;->setAnchorView(Landroid/view/View;)V
@@ -489,6 +510,12 @@
     iput-object v2, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mTreeObserver:Landroid/view/ViewTreeObserver;
 
     :cond_1
+    iget-object v0, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mShownAnchorView:Landroid/view/View;
+
+    iget-object v1, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mAttachStateChangeListener:Landroid/view/View$OnAttachStateChangeListener;
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->removeOnAttachStateChangeListener(Landroid/view/View$OnAttachStateChangeListener;)V
+
     iget-object v0, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mOnDismissListener:Landroid/widget/PopupWindow$OnDismissListener;
 
     if-eqz v0, :cond_2
@@ -564,6 +591,10 @@
     move-result v1
 
     invoke-virtual {v0, v1}, Landroid/support/v7/view/menu/MenuPopupHelper;->setForceShowIcon(Z)V
+
+    iget v1, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mDropDownGravity:I
+
+    invoke-virtual {v0, v1}, Landroid/support/v7/view/menu/MenuPopupHelper;->setGravity(I)V
 
     iget-object v1, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mOnDismissListener:Landroid/widget/PopupWindow$OnDismissListener;
 

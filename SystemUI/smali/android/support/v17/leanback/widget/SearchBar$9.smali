@@ -41,17 +41,13 @@
 
     iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar$9;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v0}, Landroid/support/v17/leanback/widget/SearchBar;->-get6(Landroid/support/v17/leanback/widget/SearchBar;)Landroid/support/v17/leanback/widget/SearchEditText;
-
-    move-result-object v0
+    iget-object v0, v0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchTextEditor:Landroid/support/v17/leanback/widget/SearchEditText;
 
     invoke-virtual {v0}, Landroid/support/v17/leanback/widget/SearchEditText;->requestFocusFromTouch()Z
 
     iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar$9;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v0}, Landroid/support/v17/leanback/widget/SearchBar;->-get6(Landroid/support/v17/leanback/widget/SearchBar;)Landroid/support/v17/leanback/widget/SearchEditText;
-
-    move-result-object v8
+    iget-object v8, v0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchTextEditor:Landroid/support/v17/leanback/widget/SearchEditText;
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
@@ -63,9 +59,7 @@
 
     iget-object v5, p0, Landroid/support/v17/leanback/widget/SearchBar$9;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v5}, Landroid/support/v17/leanback/widget/SearchBar;->-get6(Landroid/support/v17/leanback/widget/SearchBar;)Landroid/support/v17/leanback/widget/SearchEditText;
-
-    move-result-object v5
+    iget-object v5, v5, Landroid/support/v17/leanback/widget/SearchBar;->mSearchTextEditor:Landroid/support/v17/leanback/widget/SearchEditText;
 
     invoke-virtual {v5}, Landroid/support/v17/leanback/widget/SearchEditText;->getWidth()I
 
@@ -75,9 +69,7 @@
 
     iget-object v6, p0, Landroid/support/v17/leanback/widget/SearchBar$9;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v6}, Landroid/support/v17/leanback/widget/SearchBar;->-get6(Landroid/support/v17/leanback/widget/SearchBar;)Landroid/support/v17/leanback/widget/SearchEditText;
-
-    move-result-object v6
+    iget-object v6, v6, Landroid/support/v17/leanback/widget/SearchBar;->mSearchTextEditor:Landroid/support/v17/leanback/widget/SearchEditText;
 
     invoke-virtual {v6}, Landroid/support/v17/leanback/widget/SearchEditText;->getHeight()I
 
@@ -95,9 +87,7 @@
 
     iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar$9;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v0}, Landroid/support/v17/leanback/widget/SearchBar;->-get6(Landroid/support/v17/leanback/widget/SearchBar;)Landroid/support/v17/leanback/widget/SearchEditText;
-
-    move-result-object v0
+    iget-object v0, v0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchTextEditor:Landroid/support/v17/leanback/widget/SearchEditText;
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
@@ -109,9 +99,7 @@
 
     iget-object v1, p0, Landroid/support/v17/leanback/widget/SearchBar$9;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v1}, Landroid/support/v17/leanback/widget/SearchBar;->-get6(Landroid/support/v17/leanback/widget/SearchBar;)Landroid/support/v17/leanback/widget/SearchEditText;
-
-    move-result-object v1
+    iget-object v1, v1, Landroid/support/v17/leanback/widget/SearchBar;->mSearchTextEditor:Landroid/support/v17/leanback/widget/SearchEditText;
 
     invoke-virtual {v1}, Landroid/support/v17/leanback/widget/SearchEditText;->getWidth()I
 
@@ -121,9 +109,7 @@
 
     iget-object v1, p0, Landroid/support/v17/leanback/widget/SearchBar$9;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v1}, Landroid/support/v17/leanback/widget/SearchBar;->-get6(Landroid/support/v17/leanback/widget/SearchBar;)Landroid/support/v17/leanback/widget/SearchEditText;
-
-    move-result-object v1
+    iget-object v1, v1, Landroid/support/v17/leanback/widget/SearchBar;->mSearchTextEditor:Landroid/support/v17/leanback/widget/SearchEditText;
 
     invoke-virtual {v1}, Landroid/support/v17/leanback/widget/SearchEditText;->getHeight()I
 

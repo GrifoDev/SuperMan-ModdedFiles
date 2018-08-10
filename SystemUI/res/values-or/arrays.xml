@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="bluetooth_ss_a2dp_codec_summaries">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>ସମସ୍ତ କୋଡ୍</item>
+        <item>ଡିଫଲ୍ଟ କୋଡେକ୍</item>
+    </string-array>
+    <string-array name="bluetooth_ss_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>ସମସ୍ତ କୋଡ୍</item>
+        <item>ଡିଫଲ୍ଟ କୋଡେକ୍</item>
+    </string-array>
+    <string-array name="bluetooth_ss_japan_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>ସମସ୍ତ କୋଡ୍</item>
+        <item>ଡିଫଲ୍ଟ କୋଡେକ୍</item>
+    </string-array>
+    <string-array name="wifi_ap_wifi_sharing">
+        <item>Wi-Fi ଅଂଶୀଦାର ଟର୍ନ୍ ଅନ୍ କରନ୍ତୁ</item>
+        <item>Wi-Fi ଅଂଶୀଦାର ଟର୍ନ୍ ଅଫ୍ କରନ୍ତୁ</item>
+    </string-array>
+    <string-array name="wifi_status">
+        <item></item>
+        <item>ଡିଭାଇସ୍ ସ୍କାନ୍ ହେଉଛି…</item>
+        <item>ସଂଯୋଗ କରୁଛି…</item>
+        <item>ପ୍ରାମାଣିକରଣ କରୁଛି…</item>
+        <item>IP ଠିକଣା ଗ୍ରହଣ କରୁଛି…</item>
+        <item>ସଂଯୋଜିତ</item>
+        <item>ବାତିଲ୍ ହୋଇଛି</item>
+        <item>ବିଛିନ୍ନ କରୁଛି…</item>
+        <item>ବିଛିନ୍ନ ହେଲା</item>
+        <item>ଅସଫଳ</item>
+        <item>ଅବରୋଧିତ</item>
+        <item>ଆପଣଙ୍କ ଇଣ୍ଟର୍ନେଟ୍ ସଂଯୋଜନାର ଗୁଣବତ୍ତା ଯାଞ୍ଚ କରୁଛି…</item>
+    </string-array>
+</resources>

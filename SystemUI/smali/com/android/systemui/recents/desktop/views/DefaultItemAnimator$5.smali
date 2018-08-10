@@ -1,5 +1,5 @@
 .class Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator$5;
-.super Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator$VpaListenerAdapter;
+.super Landroid/animation/AnimatorListenerAdapter;
 .source "DefaultItemAnimator.java"
 
 
@@ -17,48 +17,52 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator;
 
-.field final synthetic val$animation:Landroid/support/v4/view/ViewPropertyAnimatorCompat;
+.field final synthetic val$animation:Landroid/view/ViewPropertyAnimator;
 
 .field final synthetic val$holder:Landroid/support/v7/widget/RecyclerView$ViewHolder;
 
+.field final synthetic val$view:Landroid/view/View;
+
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator;Landroid/support/v7/widget/RecyclerView$ViewHolder;Landroid/support/v4/view/ViewPropertyAnimatorCompat;)V
-    .locals 1
+.method constructor <init>(Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator;Landroid/support/v7/widget/RecyclerView$ViewHolder;Landroid/view/View;Landroid/view/ViewPropertyAnimator;)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator$5;->this$0:Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator;
 
     iput-object p2, p0, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator$5;->val$holder:Landroid/support/v7/widget/RecyclerView$ViewHolder;
 
-    iput-object p3, p0, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator$5;->val$animation:Landroid/support/v4/view/ViewPropertyAnimatorCompat;
+    iput-object p3, p0, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator$5;->val$view:Landroid/view/View;
 
-    const/4 v0, 0x0
+    iput-object p4, p0, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator$5;->val$animation:Landroid/view/ViewPropertyAnimator;
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator$VpaListenerAdapter;-><init>(Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator$VpaListenerAdapter;)V
+    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/view/View;)V
-    .locals 1
+.method public onAnimationCancel(Landroid/animation/Animator;)V
+    .locals 2
 
-    const/high16 v0, 0x3f800000    # 1.0f
+    iget-object v0, p0, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator$5;->val$view:Landroid/view/View;
 
-    invoke-static {p1, v0}, Landroid/support/v4/view/ViewCompat;->setAlpha(Landroid/view/View;F)V
+    const/high16 v1, 0x3f800000    # 1.0f
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
 
     return-void
 .end method
 
-.method public onAnimationEnd(Landroid/view/View;)V
+.method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
 
-    iget-object v0, p0, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator$5;->val$animation:Landroid/support/v4/view/ViewPropertyAnimatorCompat;
+    iget-object v0, p0, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator$5;->val$animation:Landroid/view/ViewPropertyAnimator;
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/support/v4/view/ViewPropertyAnimatorCompat;->setListener(Landroid/support/v4/view/ViewPropertyAnimatorListener;)Landroid/support/v4/view/ViewPropertyAnimatorCompat;
+    invoke-virtual {v0, v1}, Landroid/view/ViewPropertyAnimator;->setListener(Landroid/animation/Animator$AnimatorListener;)Landroid/view/ViewPropertyAnimator;
 
     iget-object v0, p0, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator$5;->this$0:Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator;
 
@@ -68,9 +72,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator$5;->this$0:Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator;
 
-    invoke-static {v0}, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator;->-get0(Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator;)Ljava/util/ArrayList;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator;->mAddAnimations:Ljava/util/ArrayList;
 
     iget-object v1, p0, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator$5;->val$holder:Landroid/support/v7/widget/RecyclerView$ViewHolder;
 
@@ -78,12 +80,12 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator$5;->this$0:Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator;
 
-    invoke-static {v0}, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator;->-wrap3(Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator;)V
+    invoke-virtual {v0}, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator;->dispatchFinishedWhenDone()V
 
     return-void
 .end method
 
-.method public onAnimationStart(Landroid/view/View;)V
+.method public onAnimationStart(Landroid/animation/Animator;)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator$5;->this$0:Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator;

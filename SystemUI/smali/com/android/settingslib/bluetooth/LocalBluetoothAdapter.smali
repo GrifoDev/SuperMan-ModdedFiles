@@ -1,4 +1,4 @@
-.class public final Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;
+.class public Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;
 .super Ljava/lang/Object;
 .source "LocalBluetoothAdapter.java"
 
@@ -154,6 +154,27 @@
     return-object v0
 .end method
 
+.method public getConnectedDeviceList()Ljava/util/List;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List",
+            "<",
+            "Landroid/bluetooth/BluetoothDevice;",
+            ">;"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->mAdapter:Landroid/bluetooth/BluetoothAdapter;
+
+    invoke-virtual {v0}, Landroid/bluetooth/BluetoothAdapter;->getConnectedDeviceList()Ljava/util/List;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public getConnectionState()I
     .locals 1
 
@@ -211,18 +232,6 @@
     return-object v0
 .end method
 
-.method public getProfileConnectionState(I)I
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->mAdapter:Landroid/bluetooth/BluetoothAdapter;
-
-    invoke-virtual {v0, p1}, Landroid/bluetooth/BluetoothAdapter;->getProfileConnectionState(I)I
-
-    move-result v0
-
-    return v0
-.end method
-
 .method getProfileProxy(Landroid/content/Context;Landroid/bluetooth/BluetoothProfile$ServiceListener;I)V
     .locals 1
 
@@ -255,6 +264,18 @@
     move-result-object v0
 
     return-object v0
+.end method
+
+.method public isClientModeSupported()Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->mAdapter:Landroid/bluetooth/BluetoothAdapter;
+
+    invoke-virtual {v0}, Landroid/bluetooth/BluetoothAdapter;->semIsClientModeSupported()Z
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public isDiscovering()Z
@@ -398,56 +419,58 @@
     return-void
 .end method
 
-.method public startScanning(Z)V
-    .locals 6
+.method public startScanning(Z)Z
+    .locals 7
 
-    const-string/jumbo v1, "LocalBluetoothAdapter"
+    const/4 v6, 0x0
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    const-string/jumbo v2, "LocalBluetoothAdapter"
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v3, "startScanning :: "
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v4, "startScanning :: "
 
-    move-result-object v2
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    move-result-object v2
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v3, ", isDiscovering : "
+    move-result-object v3
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v4, ", isDiscovering : "
 
-    move-result-object v2
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v3, p0, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->mAdapter:Landroid/bluetooth/BluetoothAdapter;
+    move-result-object v3
 
-    invoke-virtual {v3}, Landroid/bluetooth/BluetoothAdapter;->isDiscovering()Z
+    iget-object v4, p0, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->mAdapter:Landroid/bluetooth/BluetoothAdapter;
 
-    move-result v3
+    invoke-virtual {v4}, Landroid/bluetooth/BluetoothAdapter;->isDiscovering()Z
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    move-result v4
 
-    move-result-object v2
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v3
 
-    move-result-object v2
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v3
 
-    iget-object v1, p0, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->mAdapter:Landroid/bluetooth/BluetoothAdapter;
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v1}, Landroid/bluetooth/BluetoothAdapter;->isDiscovering()Z
+    iget-object v2, p0, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->mAdapter:Landroid/bluetooth/BluetoothAdapter;
 
-    move-result v1
+    invoke-virtual {v2}, Landroid/bluetooth/BluetoothAdapter;->isDiscovering()Z
 
-    if-nez v1, :cond_3
+    move-result v2
 
-    if-nez p1, :cond_1
+    if-nez v2, :cond_3
+
+    if-nez p1, :cond_2
 
     iget-wide v2, p0, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->mLastScan:J
 
@@ -459,66 +482,66 @@
 
     move-result-wide v4
 
-    cmp-long v1, v2, v4
+    cmp-long v2, v2, v4
 
-    if-lez v1, :cond_0
+    if-lez v2, :cond_0
 
-    const-string/jumbo v1, "LocalBluetoothAdapter"
+    const-string/jumbo v2, "LocalBluetoothAdapter"
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "startScanning:mLastScan="
+    const-string/jumbo v4, "startScanning:mLastScan="
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
     iget-wide v4, p0, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->mLastScan:J
 
-    invoke-virtual {v2, v4, v5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4, v5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string/jumbo v3, ", EXPIRATION="
+    const-string/jumbo v4, ", EXPIRATION="
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    const v3, 0x493e0
+    const v4, 0x493e0
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string/jumbo v3, ", currentTime="
+    const-string/jumbo v4, ", currentTime="
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v4
 
-    invoke-virtual {v2, v4, v5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4, v5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    return-void
+    return v6
 
     :cond_0
-    iget-object v1, p0, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->mProfileManager:Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
+    iget-object v2, p0, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->mProfileManager:Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
 
-    invoke-virtual {v1}, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;->getA2dpProfile()Lcom/android/settingslib/bluetooth/A2dpProfile;
+    invoke-virtual {v2}, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;->getA2dpProfile()Lcom/android/settingslib/bluetooth/A2dpProfile;
 
     move-result-object v0
 
@@ -526,26 +549,43 @@
 
     invoke-virtual {v0}, Lcom/android/settingslib/bluetooth/A2dpProfile;->isA2dpPlaying()Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_1
+    if-eqz v2, :cond_1
 
-    const-string/jumbo v1, "LocalBluetoothAdapter"
+    const-string/jumbo v2, "LocalBluetoothAdapter"
 
-    const-string/jumbo v2, "startScanning ::A2dp is playing"
+    const-string/jumbo v3, "startScanning ::A2dp is playing"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    return-void
+    return v6
 
     :cond_1
-    iget-object v1, p0, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->mAdapter:Landroid/bluetooth/BluetoothAdapter;
+    iget-object v2, p0, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->mProfileManager:Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
 
-    invoke-virtual {v1}, Landroid/bluetooth/BluetoothAdapter;->startDiscovery()Z
+    invoke-virtual {v2}, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;->getA2dpSinkProfile()Lcom/android/settingslib/bluetooth/A2dpSinkProfile;
 
-    move-result v1
+    move-result-object v1
 
     if-eqz v1, :cond_2
+
+    invoke-virtual {v1}, Lcom/android/settingslib/bluetooth/A2dpSinkProfile;->isA2dpPlaying()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    return v6
+
+    :cond_2
+    iget-object v2, p0, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->mAdapter:Landroid/bluetooth/BluetoothAdapter;
+
+    invoke-virtual {v2}, Landroid/bluetooth/BluetoothAdapter;->startDiscovery()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
@@ -553,33 +593,36 @@
 
     iput-wide v2, p0, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->mLastScan:J
 
-    :cond_2
-    const-string/jumbo v1, "LocalBluetoothAdapter"
+    const-string/jumbo v2, "LocalBluetoothAdapter"
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "startScanning :: done! mLastScan="
+    const-string/jumbo v4, "startScanning :: done! mLastScan="
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
     iget-wide v4, p0, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->mLastScan:J
 
-    invoke-virtual {v2, v4, v5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4, v5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v2, 0x1
+
+    return v2
 
     :cond_3
-    return-void
+    return v6
 .end method
 
 .method public stopScanning()V

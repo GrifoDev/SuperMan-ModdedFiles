@@ -52,6 +52,98 @@
 
 
 # virtual methods
+.method protected applyPolicyChanges()V
+    .locals 4
+
+    const v3, 0x7fffffff
+
+    const/4 v2, 0x0
+
+    iget v0, p0, Landroid/support/v17/leanback/widget/ViewsStateBundle;->mSavePolicy:I
+
+    const/4 v1, 0x2
+
+    if-ne v0, v1, :cond_3
+
+    iget v0, p0, Landroid/support/v17/leanback/widget/ViewsStateBundle;->mLimitNumber:I
+
+    if-gtz v0, :cond_0
+
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
+
+    throw v0
+
+    :cond_0
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/ViewsStateBundle;->mChildStates:Landroid/support/v4/util/LruCache;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/ViewsStateBundle;->mChildStates:Landroid/support/v4/util/LruCache;
+
+    invoke-virtual {v0}, Landroid/support/v4/util/LruCache;->maxSize()I
+
+    move-result v0
+
+    iget v1, p0, Landroid/support/v17/leanback/widget/ViewsStateBundle;->mLimitNumber:I
+
+    if-eq v0, v1, :cond_2
+
+    :cond_1
+    new-instance v0, Landroid/support/v4/util/LruCache;
+
+    iget v1, p0, Landroid/support/v17/leanback/widget/ViewsStateBundle;->mLimitNumber:I
+
+    invoke-direct {v0, v1}, Landroid/support/v4/util/LruCache;-><init>(I)V
+
+    iput-object v0, p0, Landroid/support/v17/leanback/widget/ViewsStateBundle;->mChildStates:Landroid/support/v4/util/LruCache;
+
+    :cond_2
+    :goto_0
+    return-void
+
+    :cond_3
+    iget v0, p0, Landroid/support/v17/leanback/widget/ViewsStateBundle;->mSavePolicy:I
+
+    const/4 v1, 0x3
+
+    if-eq v0, v1, :cond_4
+
+    iget v0, p0, Landroid/support/v17/leanback/widget/ViewsStateBundle;->mSavePolicy:I
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_6
+
+    :cond_4
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/ViewsStateBundle;->mChildStates:Landroid/support/v4/util/LruCache;
+
+    if-eqz v0, :cond_5
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/ViewsStateBundle;->mChildStates:Landroid/support/v4/util/LruCache;
+
+    invoke-virtual {v0}, Landroid/support/v4/util/LruCache;->maxSize()I
+
+    move-result v0
+
+    if-eq v0, v3, :cond_2
+
+    :cond_5
+    new-instance v0, Landroid/support/v4/util/LruCache;
+
+    invoke-direct {v0, v3}, Landroid/support/v4/util/LruCache;-><init>(I)V
+
+    iput-object v0, p0, Landroid/support/v17/leanback/widget/ViewsStateBundle;->mChildStates:Landroid/support/v4/util/LruCache;
+
+    goto :goto_0
+
+    :cond_6
+    iput-object v2, p0, Landroid/support/v17/leanback/widget/ViewsStateBundle;->mChildStates:Landroid/support/v4/util/LruCache;
+
+    goto :goto_0
+.end method
+
 .method public clear()V
     .locals 1
 
@@ -321,5 +413,15 @@
     invoke-virtual {v2, v1, v0}, Landroid/support/v4/util/LruCache;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_0
+    return-void
+.end method
+
+.method public final setSavePolicy(I)V
+    .locals 0
+
+    iput p1, p0, Landroid/support/v17/leanback/widget/ViewsStateBundle;->mSavePolicy:I
+
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/ViewsStateBundle;->applyPolicyChanges()V
+
     return-void
 .end method

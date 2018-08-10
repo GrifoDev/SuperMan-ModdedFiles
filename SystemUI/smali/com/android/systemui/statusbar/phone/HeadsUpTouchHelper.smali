@@ -2,6 +2,9 @@
 .super Ljava/lang/Object;
 .source "HeadsUpTouchHelper.java"
 
+# interfaces
+.implements Lcom/android/systemui/Gefingerpoken;
+
 
 # instance fields
 .field private mCollapseSnoozes:Z
@@ -124,28 +127,28 @@
 .end method
 
 .method public onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 11
+    .locals 12
 
-    const/4 v3, 0x1
+    const/4 v8, 0x1
 
     const/4 v9, 0x0
 
-    iget-boolean v8, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mTouchingHeadsUpView:Z
+    iget-boolean v10, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mTouchingHeadsUpView:Z
 
-    if-nez v8, :cond_0
+    if-nez v10, :cond_0
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
-    move-result v8
+    move-result v10
 
-    if-eqz v8, :cond_0
+    if-eqz v10, :cond_0
 
     return v9
 
     :cond_0
-    iget v8, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mTrackingPointer:I
+    iget v10, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mTrackingPointer:I
 
-    invoke-virtual {p1, v8}, Landroid/view/MotionEvent;->findPointerIndex(I)I
+    invoke-virtual {p1, v10}, Landroid/view/MotionEvent;->findPointerIndex(I)I
 
     move-result v4
 
@@ -155,9 +158,9 @@
 
     invoke-virtual {p1, v4}, Landroid/view/MotionEvent;->getPointerId(I)I
 
-    move-result v8
+    move-result v10
 
-    iput v8, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mTrackingPointer:I
+    iput v10, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mTrackingPointer:I
 
     :cond_1
     invoke-virtual {p1, v4}, Landroid/view/MotionEvent;->getX(I)F
@@ -170,9 +173,9 @@
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
-    move-result v8
+    move-result v10
 
-    packed-switch v8, :pswitch_data_0
+    packed-switch v10, :pswitch_data_0
 
     :cond_2
     :goto_0
@@ -253,9 +256,9 @@
 
     if-eq v8, v5, :cond_4
 
-    move v3, v9
+    const/4 v3, 0x0
 
-    :cond_4
+    :goto_2
     invoke-virtual {p1, v3}, Landroid/view/MotionEvent;->getPointerId(I)I
 
     move-result v8
@@ -276,50 +279,55 @@
 
     goto :goto_0
 
+    :cond_4
+    const/4 v3, 0x1
+
+    goto :goto_2
+
     :pswitch_3
-    iget v8, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mInitialTouchY:F
+    iget v10, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mInitialTouchY:F
 
-    sub-float v2, v7, v8
+    sub-float v2, v7, v10
 
-    iget-boolean v8, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mTouchingHeadsUpView:Z
+    iget-boolean v10, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mTouchingHeadsUpView:Z
 
-    if-eqz v8, :cond_2
-
-    invoke-static {v2}, Ljava/lang/Math;->abs(F)F
-
-    move-result v8
-
-    iget v10, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mTouchSlop:F
-
-    cmpl-float v8, v8, v10
-
-    if-lez v8, :cond_2
+    if-eqz v10, :cond_2
 
     invoke-static {v2}, Ljava/lang/Math;->abs(F)F
-
-    move-result v8
-
-    iget v10, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mInitialTouchX:F
-
-    sub-float v10, v6, v10
-
-    invoke-static {v10}, Ljava/lang/Math;->abs(F)F
 
     move-result v10
 
-    cmpl-float v8, v8, v10
+    iget v11, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mTouchSlop:F
 
-    if-lez v8, :cond_2
+    cmpl-float v10, v10, v11
 
-    invoke-direct {p0, v3}, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->setTrackingHeadsUp(Z)V
+    if-lez v10, :cond_2
 
-    const/4 v8, 0x0
+    invoke-static {v2}, Ljava/lang/Math;->abs(F)F
 
-    cmpg-float v8, v2, v8
+    move-result v10
 
-    if-gez v8, :cond_5
+    iget v11, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mInitialTouchX:F
 
-    move v9, v3
+    sub-float v11, v6, v11
+
+    invoke-static {v11}, Ljava/lang/Math;->abs(F)F
+
+    move-result v11
+
+    cmpl-float v10, v10, v11
+
+    if-lez v10, :cond_2
+
+    invoke-direct {p0, v8}, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->setTrackingHeadsUp(Z)V
+
+    const/4 v10, 0x0
+
+    cmpg-float v10, v2, v10
+
+    if-gez v10, :cond_5
+
+    move v9, v8
 
     :cond_5
     iput-boolean v9, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mCollapseSnoozes:Z
@@ -328,81 +336,83 @@
 
     iput v7, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mInitialTouchY:F
 
-    iget-object v8, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mPickedChild:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
+    iget-object v9, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mPickedChild:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
 
-    invoke-virtual {v8}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->getActualHeight()I
+    invoke-virtual {v9}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->getActualHeight()I
 
     move-result v1
 
-    iget-object v8, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mPanel:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
+    iget-object v9, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mPanel:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
 
-    int-to-float v9, v1
+    int-to-float v10, v1
 
-    iget-object v10, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mPanel:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
+    iget-object v11, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mPanel:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
 
-    invoke-virtual {v10}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->getMaxPanelHeight()I
+    invoke-virtual {v11}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->getMaxPanelHeight()I
+
+    move-result v11
+
+    int-to-float v11, v11
+
+    div-float/2addr v10, v11
+
+    invoke-virtual {v9, v10}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->setPanelScrimMinFraction(F)V
+
+    iget-object v9, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mPanel:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
+
+    int-to-float v10, v1
+
+    invoke-virtual {v9, v6, v7, v8, v10}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->startExpandMotion(FFZF)V
+
+    iget-object v9, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mPanel:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
+
+    invoke-virtual {v9}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->startExpandingFromPeek()V
+
+    iget-object v9, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mHeadsUpManager:Lcom/android/systemui/statusbar/policy/HeadsUpManager;
+
+    invoke-virtual {v9}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->unpinAll()V
+
+    iget-object v9, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mPanel:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
+
+    invoke-virtual {v9}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->clearNotificationEffects()V
+
+    return v8
+
+    :pswitch_4
+    iget-object v10, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mPickedChild:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
+
+    if-eqz v10, :cond_6
+
+    iget-boolean v10, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mTouchingHeadsUpView:Z
+
+    if-eqz v10, :cond_6
+
+    iget-object v10, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mHeadsUpManager:Lcom/android/systemui/statusbar/policy/HeadsUpManager;
+
+    iget-object v11, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mPickedChild:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
+
+    invoke-virtual {v11}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->getStatusBarNotification()Landroid/service/notification/StatusBarNotification;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Landroid/service/notification/StatusBarNotification;->getKey()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v10, v11}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->shouldSwallowClick(Ljava/lang/String;)Z
 
     move-result v10
 
-    int-to-float v10, v10
-
-    div-float/2addr v9, v10
-
-    invoke-virtual {v8, v9}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->setPanelScrimMinFraction(F)V
-
-    iget-object v8, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mPanel:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
-
-    int-to-float v9, v1
-
-    invoke-virtual {v8, v6, v7, v3, v9}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->startExpandMotion(FFZF)V
-
-    iget-object v8, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mHeadsUpManager:Lcom/android/systemui/statusbar/policy/HeadsUpManager;
-
-    invoke-virtual {v8}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->unpinAll()V
-
-    iget-object v8, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mPanel:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
-
-    invoke-virtual {v8}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->clearNotificationEffects()V
-
-    return v3
-
-    :pswitch_4
-    iget-object v8, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mPickedChild:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
-
-    if-eqz v8, :cond_6
-
-    iget-boolean v8, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mTouchingHeadsUpView:Z
-
-    if-eqz v8, :cond_6
-
-    iget-object v8, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mHeadsUpManager:Lcom/android/systemui/statusbar/policy/HeadsUpManager;
-
-    iget-object v10, p0, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->mPickedChild:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
-
-    invoke-virtual {v10}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->getStatusBarNotification()Landroid/service/notification/StatusBarNotification;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Landroid/service/notification/StatusBarNotification;->getKey()Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-virtual {v8, v10}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->shouldSwallowClick(Ljava/lang/String;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_6
+    if-eqz v10, :cond_6
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->endMotion()V
 
-    return v3
+    return v8
 
     :cond_6
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/HeadsUpTouchHelper;->endMotion()V
 
     goto/16 :goto_0
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x0

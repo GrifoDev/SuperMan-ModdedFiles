@@ -35,7 +35,17 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 1
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/MobileDataTile$11;->this$0:Lcom/android/systemui/qs/tiles/MobileDataTile;
+
+    invoke-static {v0}, Lcom/android/systemui/qs/tiles/MobileDataTile;->-get4(Lcom/android/systemui/qs/tiles/MobileDataTile;)Lcom/android/settingslib/net/DataUsageController;
+
+    move-result-object v0
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/android/settingslib/net/DataUsageController;->setMobileDataEnabled(Z)V
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/MobileDataTile$11;->this$0:Lcom/android/systemui/qs/tiles/MobileDataTile;
 

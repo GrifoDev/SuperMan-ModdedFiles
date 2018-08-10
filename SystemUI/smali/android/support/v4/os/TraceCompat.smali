@@ -21,7 +21,7 @@
 
     if-lt v0, v1, :cond_0
 
-    invoke-static {p0}, Landroid/support/v4/os/TraceJellybeanMR2;->beginSection(Ljava/lang/String;)V
+    invoke-static {p0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
 
     :cond_0
     return-void
@@ -36,7 +36,7 @@
 
     if-lt v0, v1, :cond_0
 
-    invoke-static {}, Landroid/support/v4/os/TraceJellybeanMR2;->endSection()V
+    invoke-static {}, Landroid/os/Trace;->endSection()V
 
     :cond_0
     return-void

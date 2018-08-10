@@ -1,83 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="wifi_status">
-        <item></item>
-        <item>Поиск...</item>
-        <item>Подключение...</item>
-        <item>Аутентификация...</item>
-        <item>Получение IP-адреса...</item>
-        <item>Подключено</item>
-        <item>Приостановлено</item>
-        <item>Отключение...</item>
-        <item>Нет подключения</item>
-        <item>Сбой</item>
-        <item>Заблокировано</item>
-        <item>Временно избегать плохого соединения</item>
-    </string-array>
-    <string-array name="wifi_status_with_ssid">
-        <item></item>
-        <item>Поиск...</item>
-        <item>Соединение с сетью %1$s…</item>
-        <item>Аутентификация в сети %1$s...</item>
-        <item>Получение IP-адреса от %1$s…</item>
-        <item>Подключено к %1$s</item>
-        <item>Приостановлено</item>
-        <item>Отключение от %1$s…</item>
-        <item>Нет подключения</item>
-        <item>Сбой</item>
-        <item>Заблокировано</item>
-        <item>Временно избегать плохого соединения</item>
-    </string-array>
-    <string-array name="hdcp_checking_titles">
-        <item>Никогда не проверять</item>
-        <item>Проверять только DRM-контент</item>
-        <item>Всегда проверять</item>
-    </string-array>
-    <string-array name="hdcp_checking_summaries">
-        <item>Не использовать проверку HDCP</item>
-        <item>Использовать проверку HDCP только для DRM-контента</item>
-        <item>Всегда использовать проверку HDCP</item>
-    </string-array>
-    <string-array name="select_logd_size_titles">
-        <item>Выкл.</item>
-        <item>64 КБ</item>
-        <item>256 КБ</item>
-        <item>1 МБ</item>
-        <item>4 МБ</item>
-        <item>16 МБ</item>
-    </string-array>
-    <string-array name="select_logd_size_lowram_titles">
-        <item>Выкл.</item>
-        <item>64 КБ</item>
-        <item>256 КБ</item>
-        <item>1 МБ</item>
-    </string-array>
-    <string-array name="select_logd_size_summaries">
-        <item>Выкл.</item>
-        <item>Буфер: макс. 64 КБ</item>
-        <item>Буфер: макс. 256 КБ</item>
-        <item>Буфер: макс. 1 МБ</item>
-        <item>Буфер: макс. 4 МБ</item>
-        <item>Буфер: макс. 16 МБ</item>
-    </string-array>
-    <string-array name="window_animation_scale_entries">
-        <item>Без анимации</item>
-        <item>Анимация 0,5x</item>
-        <item>Анимация 1x</item>
-        <item>Анимация 1,5x</item>
-        <item>Анимация 2x</item>
-        <item>Анимация 5x</item>
-        <item>Анимация 10x</item>
-    </string-array>
-    <string-array name="transition_animation_scale_entries">
-        <item>Без анимации</item>
-        <item>Анимация 0,5x</item>
-        <item>Анимация 1x</item>
-        <item>Анимация 1,5x</item>
-        <item>Анимация 2x</item>
-        <item>Анимация 5x</item>
-        <item>Анимация 10x</item>
-    </string-array>
     <string-array name="animator_duration_scale_entries">
         <item>Без анимации</item>
         <item>Анимация 0,5x</item>
@@ -86,6 +8,173 @@
         <item>Анимация 2x</item>
         <item>Анимация 5x</item>
         <item>Анимация 10x</item>
+    </string-array>
+    <string-array name="app_process_limit_entries">
+        <item>Стандартное ограничение</item>
+        <item>Без фоновых процессов</item>
+        <item>Не более одного процесса</item>
+        <item>Не более 2 процессов</item>
+        <item>Не более 3 процессов</item>
+        <item>Не более 4 процессов</item>
+    </string-array>
+    <string-array name="battery_options">
+        <item>Всегда показывать процент заряда</item>
+        <item>Показывать процент во время зарядки (по умолчанию)</item>
+        <item>Не показывать этот значок</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_bits_per_sample_summaries">
+        <item>Выбор системы (по умолчанию)</item>
+        <item>16 бит/отсчет</item>
+        <item>24 бит/отсчет</item>
+        <item>32 бит/отсчет</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_bits_per_sample_titles">
+        <item>Выбор системы (по умолчанию)</item>
+        <item>16 бит/отсчет</item>
+        <item>24 бит/отсчет</item>
+        <item>32 бит/отсчет</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_channel_mode_summaries">
+        <item>Выбор системы (по умолчанию)</item>
+        <item>Моно</item>
+        <item>Стерео</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_channel_mode_titles">
+        <item>Выбор системы (по умолчанию)</item>
+        <item>Моно</item>
+        <item>Стерео</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_ldac_playback_quality_summaries">
+        <item>Оптимизировать качество звука</item>
+        <item>Баланс качества звука и скорости подключения</item>
+        <item>Оптимизировать скорость подключения</item>
+        <item>Лучший возможный результат (адаптивный битрейт)</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_ldac_playback_quality_titles">
+        <item>Оптимизировать качество звука (990/909 Кбит/с)</item>
+        <item>Баланс качества звука и скорости подключения (660/606 кбит/с)</item>
+        <item>Оптимизировать скорость подключения (330/303 Кбит/с)</item>
+        <item>Лучший возможный результат (адаптивный битрейт)</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_sample_rate_summaries">
+        <item>Выбор системы (по умолчанию)</item>
+        <item>44,1 кГц</item>
+        <item>48 кГц</item>
+        <item>88,2 кГц</item>
+        <item>96 кГц</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_sample_rate_titles">
+        <item>Выбор системы (по умолчанию)</item>
+        <item>44,1 кГц</item>
+        <item>48 кГц</item>
+        <item>88,2 кГц</item>
+        <item>96 кГц</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_summaries">
+        <item>Выбор системы (по умолчанию)</item>
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>aptX HD</item>
+        <item>LDAC</item>
+        <item>Включить дополнительные кодеки</item>
+        <item>Отключить дополнительные кодеки</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_titles">
+        <item>Выбор системы (по умолчанию)</item>
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>aptX HD</item>
+        <item>LDAC</item>
+        <item>Включить дополнительные кодеки</item>
+        <item>Отключить дополнительные кодеки</item>
+    </string-array>
+    <string-array name="bluetooth_avrcp_versions">
+        <item>AVRCP 1.4 (по умолчанию)</item>
+        <item>AVRCP 1.5</item>
+        <item>AVRCP 1.6</item>
+    </string-array>
+    <string-array name="bluetooth_ss_a2dp_codec_summaries">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Все кодеки</item>
+        <item>Стандартный кодек</item>
+    </string-array>
+    <string-array name="bluetooth_ss_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Все кодеки</item>
+        <item>Стандартный кодек</item>
+    </string-array>
+    <string-array name="bluetooth_ss_japan_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Все кодеки</item>
+        <item>Стандартный кодек</item>
+    </string-array>
+    <string-array name="clock_options">
+        <item>Часы, минуты и секунды</item>
+        <item>Часы и минуты (по умолчанию)</item>
+        <item>Не показывать этот значок</item>
+    </string-array>
+    <string-array name="color_mode_descriptions">
+        <item>Улучшенные цвета</item>
+        <item>Натуральные цвета, привычные глазу</item>
+        <item>Цвета, оптимизированные для цифрового контента</item>
+    </string-array>
+    <string-array name="color_mode_names">
+        <item>Насыщенный (по умолчанию)</item>
+        <item>Естественный</item>
+        <item>Стандартный</item>
+    </string-array>
+    <string-array name="debug_hw_overdraw_entries">
+        <item>ВЫКЛ</item>
+        <item>Показывать области наложения</item>
+        <item>Выделять области определенного цвета</item>
+    </string-array>
+    <string-array name="debug_hw_renderer_entries">
+        <item>OpenGL (по умолчанию)</item>
+        <item>OpenGL (Skia)</item>
+    </string-array>
+    <string-array name="enable_opengl_traces_entries">
+        <item>Нет</item>
+        <item>Logcat</item>
+        <item>Systrace (графика)</item>
+        <item>Список вызовов в glGetError</item>
+    </string-array>
+    <string-array name="hdcp_checking_summaries">
+        <item>Не использовать проверку HDCP</item>
+        <item>Использовать проверку HDCP только для DRM-контента</item>
+        <item>Всегда использовать проверку HDCP</item>
+    </string-array>
+    <string-array name="hdcp_checking_titles">
+        <item>Никогда не проверять</item>
+        <item>Проверять только DRM-контент</item>
+        <item>Всегда проверять</item>
+    </string-array>
+    <string-array name="nav_bar_buttons">
+        <item>Буфер обмена</item>
+        <item>Код клавиши</item>
+        <item>Переключение раскладки</item>
+        <item>Нет</item>
+    </string-array>
+    <string-array name="nav_bar_layouts">
+        <item>Обычная</item>
+        <item>Компактная</item>
+        <item>Со сдвигом влево</item>
+        <item>Со сдвигом вправо</item>
     </string-array>
     <string-array name="overlay_display_devices_entries">
         <item>Нет</item>
@@ -101,11 +190,40 @@
         <item>4K (масштабирование, защита)</item>
         <item>720p, 1080p (два экрана)</item>
     </string-array>
-    <string-array name="enable_opengl_traces_entries">
-        <item>Нет</item>
-        <item>Logcat</item>
-        <item>Systrace (графика)</item>
-        <item>Список вызовов в glGetError</item>
+    <array name="recents_blacklist_array" />
+    <string-array name="select_logd_size_lowram_titles">
+        <item>Выкл.</item>
+        <item>64 КБ</item>
+        <item>256 КБ</item>
+        <item>1 МБ</item>
+    </string-array>
+    <string-array name="select_logd_size_summaries">
+        <item>Выкл.</item>
+        <item>Буфер: макс. 64 КБ</item>
+        <item>Буфер: макс. 256 КБ</item>
+        <item>Буфер: макс. 1 МБ</item>
+        <item>Буфер: макс. 4 МБ</item>
+        <item>Буфер: макс. 16 МБ</item>
+    </string-array>
+    <string-array name="select_logd_size_titles">
+        <item>Выкл.</item>
+        <item>64 КБ</item>
+        <item>256 КБ</item>
+        <item>1 МБ</item>
+        <item>4 МБ</item>
+        <item>16 МБ</item>
+    </string-array>
+    <string-array name="select_logpersist_summaries">
+        <item>Отключено</item>
+        <item>Все буферы журналов</item>
+        <item>Все, кроме буферов системного журнала</item>
+        <item>только буфер журнала ядра</item>
+    </string-array>
+    <string-array name="select_logpersist_titles">
+        <item>Отключено</item>
+        <item>Все</item>
+        <item>Все, кроме системных</item>
+        <item>только ядро</item>
     </string-array>
     <string-array name="show_non_rect_clip_entries">
         <item>Откл.</item>
@@ -115,28 +233,16 @@
     <string-array name="track_frame_time_entries">
         <item>Отключить</item>
         <item>На экране в виде полос</item>
-        <item>В adb shell dumpsys gfxinfo</item>
+        <item>В adb shell dumpsys gfxinfo</item>
     </string-array>
-    <string-array name="debug_hw_overdraw_entries">
-        <item>ВЫКЛ</item>
-        <item>Показывать области наложения</item>
-        <item>Выделять области определенного цвета</item>
-    </string-array>
-    <string-array name="app_process_limit_entries">
-        <item>Стандартное ограничение</item>
-        <item>Без фоновых процессов</item>
-        <item>Не более одного процесса</item>
-        <item>Не более 2 процессов</item>
-        <item>Не более 3 процессов</item>
-        <item>Не более 4 процессов</item>
-    </string-array>
-    <string-array name="usb_configuration_titles">
-        <item>Зарядка</item>
-        <item>MTP</item>
-        <item>PTP</item>
-        <item>RNDIS (USB Ethernet)</item>
-        <item>Источник аудио</item>
-        <item>MIDI</item>
+    <string-array name="transition_animation_scale_entries">
+        <item>Без анимации</item>
+        <item>Анимация 0,5x</item>
+        <item>Анимация 1x</item>
+        <item>Анимация 1,5x</item>
+        <item>Анимация 2x</item>
+        <item>Анимация 5x</item>
+        <item>Анимация 10x</item>
     </string-array>
     <string-array name="tts_rate_entries">
         <item>Очень медленная</item>
@@ -149,25 +255,53 @@
         <item>Сильно ускоренная</item>
         <item>Максимальная</item>
     </string-array>
-    <string-array name="color_mode_names">
-        <item>Насыщенный (по умолчанию)</item>
-        <item>Естественный</item>
-        <item>Стандартный</item>
+    <string-array name="usb_configuration_titles">
+        <item>Зарядка</item>
+        <item>MTP</item>
+        <item>PTP</item>
+        <item>RNDIS (USB Ethernet)</item>
+        <item>Источник аудио</item>
+        <item>MIDI</item>
     </string-array>
-    <string-array name="color_mode_descriptions">
-        <item>Улучшенные цвета</item>
-        <item>Натуральные цвета, привычные глазу</item>
-        <item>Цвета, оптимизированные для цифрового контента</item>
+    <string-array name="wifi_ap_wifi_sharing">
+        <item>Включить предоставление общего доступа к Wi-Fi</item>
+        <item>Отключить предоставление общего доступа к Wi-Fi</item>
     </string-array>
-    <string-array name="clock_options">
-        <item>Часы, минуты и секунды</item>
-        <item>Часы и минуты (по умолчанию)</item>
-        <item>Не показывать этот значок</item>
+    <string-array name="wifi_status">
+        <item></item>
+        <item>Поиск…</item>
+        <item>Подключение…</item>
+        <item>Проверка подлинности…</item>
+        <item>Получение IP-адреса…</item>
+        <item>Подключено</item>
+        <item>Приостановлено</item>
+        <item>Отключение…</item>
+        <item>Отключено</item>
+        <item>Сбой</item>
+        <item>Заблокировано</item>
+        <item>Проверка качества подключения к Интернету…</item>
     </string-array>
-    <string-array name="battery_options">
-        <item>Всегда показывать процент заряда</item>
-        <item>Показывать процент во время зарядки (по умолчанию)</item>
-        <item>Не показывать этот значок</item>
+    <string-array name="wifi_status_with_ssid">
+        <item></item>
+        <item>Поиск...</item>
+        <item>Соединение с сетью %1$s…</item>
+        <item>Аутентификация в сети %1$s...</item>
+        <item>Получение IP-адреса от %1$s…</item>
+        <item>Подключено к %1$s</item>
+        <item>Приостановлено</item>
+        <item>Отключение от %1$s…</item>
+        <item>Нет подключения</item>
+        <item>Сбой</item>
+        <item>Заблокировано</item>
+        <item>Временно избегать плохого соединения</item>
     </string-array>
-    <array name="recents_tv_blacklist_array" />
+    <string-array name="window_animation_scale_entries">
+        <item>Без анимации</item>
+        <item>Анимация 0,5x</item>
+        <item>Анимация 1x</item>
+        <item>Анимация 1,5x</item>
+        <item>Анимация 2x</item>
+        <item>Анимация 5x</item>
+        <item>Анимация 10x</item>
+    </string-array>
 </resources>

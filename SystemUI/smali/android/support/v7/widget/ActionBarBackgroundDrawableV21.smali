@@ -3,6 +3,12 @@
 .source "ActionBarBackgroundDrawableV21.java"
 
 
+# annotations
+.annotation build Landroid/support/annotation/RequiresApi;
+    value = 0x15
+.end annotation
+
+
 # direct methods
 .method public constructor <init>(Landroid/support/v7/widget/ActionBarContainer;)V
     .locals 0

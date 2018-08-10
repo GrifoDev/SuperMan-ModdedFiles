@@ -7,20 +7,17 @@
 .method public abstract displayFailedAnimation()V
 .end method
 
-.method public abstract setMessage(IZ)V
+.method public varargs abstract formatMessage(I[Ljava/lang/Object;)V
 .end method
 
-.method public varargs abstract setMessage(IZ[Ljava/lang/Object;)V
+.method public abstract setMessage(I)V
 .end method
 
-.method public abstract setMessage(Ljava/lang/CharSequence;Z)V
+.method public abstract setMessage(Ljava/lang/CharSequence;)V
 .end method
 
 .method public abstract setNextMessageColor(I)V
 .end method
 
 .method public abstract setTimeout(I)V
-.end method
-
-.method public abstract updateMessageColor()V
 .end method

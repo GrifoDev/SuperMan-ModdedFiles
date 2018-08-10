@@ -3,7 +3,7 @@
 .source "SearchView.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
@@ -34,37 +34,72 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 2
-
-    const/4 v1, 0x0
+.method public onClick(Landroid/view/View;)V
+    .locals 1
 
     iget-object v0, p0, Landroid/support/v7/widget/SearchView$3;->this$0:Landroid/support/v7/widget/SearchView;
 
-    invoke-static {v0}, Landroid/support/v7/widget/SearchView;->-get6(Landroid/support/v7/widget/SearchView;)Landroid/support/v4/widget/CursorAdapter;
+    iget-object v0, v0, Landroid/support/v7/widget/SearchView;->mSearchButton:Landroid/widget/ImageView;
 
-    move-result-object v0
-
-    if-eqz v0, :cond_0
+    if-ne p1, v0, :cond_1
 
     iget-object v0, p0, Landroid/support/v7/widget/SearchView$3;->this$0:Landroid/support/v7/widget/SearchView;
 
-    invoke-static {v0}, Landroid/support/v7/widget/SearchView;->-get6(Landroid/support/v7/widget/SearchView;)Landroid/support/v4/widget/CursorAdapter;
-
-    move-result-object v0
-
-    instance-of v0, v0, Landroid/support/v7/widget/SuggestionsAdapter;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Landroid/support/v7/widget/SearchView$3;->this$0:Landroid/support/v7/widget/SearchView;
-
-    invoke-static {v0}, Landroid/support/v7/widget/SearchView;->-get6(Landroid/support/v7/widget/SearchView;)Landroid/support/v4/widget/CursorAdapter;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v1}, Landroid/support/v4/widget/CursorAdapter;->changeCursor(Landroid/database/Cursor;)V
+    invoke-virtual {v0}, Landroid/support/v7/widget/SearchView;->onSearchClicked()V
 
     :cond_0
+    :goto_0
     return-void
+
+    :cond_1
+    iget-object v0, p0, Landroid/support/v7/widget/SearchView$3;->this$0:Landroid/support/v7/widget/SearchView;
+
+    iget-object v0, v0, Landroid/support/v7/widget/SearchView;->mCloseButton:Landroid/widget/ImageView;
+
+    if-ne p1, v0, :cond_2
+
+    iget-object v0, p0, Landroid/support/v7/widget/SearchView$3;->this$0:Landroid/support/v7/widget/SearchView;
+
+    invoke-virtual {v0}, Landroid/support/v7/widget/SearchView;->onCloseClicked()V
+
+    goto :goto_0
+
+    :cond_2
+    iget-object v0, p0, Landroid/support/v7/widget/SearchView$3;->this$0:Landroid/support/v7/widget/SearchView;
+
+    iget-object v0, v0, Landroid/support/v7/widget/SearchView;->mGoButton:Landroid/widget/ImageView;
+
+    if-ne p1, v0, :cond_3
+
+    iget-object v0, p0, Landroid/support/v7/widget/SearchView$3;->this$0:Landroid/support/v7/widget/SearchView;
+
+    invoke-virtual {v0}, Landroid/support/v7/widget/SearchView;->onSubmitQuery()V
+
+    goto :goto_0
+
+    :cond_3
+    iget-object v0, p0, Landroid/support/v7/widget/SearchView$3;->this$0:Landroid/support/v7/widget/SearchView;
+
+    iget-object v0, v0, Landroid/support/v7/widget/SearchView;->mVoiceButton:Landroid/widget/ImageView;
+
+    if-ne p1, v0, :cond_4
+
+    iget-object v0, p0, Landroid/support/v7/widget/SearchView$3;->this$0:Landroid/support/v7/widget/SearchView;
+
+    invoke-virtual {v0}, Landroid/support/v7/widget/SearchView;->onVoiceClicked()V
+
+    goto :goto_0
+
+    :cond_4
+    iget-object v0, p0, Landroid/support/v7/widget/SearchView$3;->this$0:Landroid/support/v7/widget/SearchView;
+
+    iget-object v0, v0, Landroid/support/v7/widget/SearchView;->mSearchSrcTextView:Landroid/support/v7/widget/SearchView$SearchAutoComplete;
+
+    if-ne p1, v0, :cond_0
+
+    iget-object v0, p0, Landroid/support/v7/widget/SearchView$3;->this$0:Landroid/support/v7/widget/SearchView;
+
+    invoke-virtual {v0}, Landroid/support/v7/widget/SearchView;->forceSuggestionQuery()V
+
+    goto :goto_0
 .end method

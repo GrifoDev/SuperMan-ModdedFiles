@@ -41,7 +41,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Landroid/support/v17/leanback/widget/BaseCardView;->-wrap0(Landroid/support/v17/leanback/widget/BaseCardView;Z)V
+    invoke-virtual {v0, v1}, Landroid/support/v17/leanback/widget/BaseCardView;->animateInfoOffset(Z)V
 
     return-void
 .end method

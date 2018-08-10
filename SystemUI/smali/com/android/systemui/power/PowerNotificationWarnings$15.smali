@@ -3,12 +3,12 @@
 .source "PowerNotificationWarnings.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/content/DialogInterface$OnDismissListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/power/PowerNotificationWarnings;->showIncompatibleChargerPopUpAndNotification()V
+    value = Lcom/android/systemui/power/PowerNotificationWarnings;->showBatteryHealthInterruptionPopUp()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,12 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
-.field final synthetic val$disableAlertCheckBox:Landroid/widget/CheckBox;
-
-.field final synthetic val$incompatibleChargingSharedPrefs:Landroid/content/SharedPreferences;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/power/PowerNotificationWarnings;Landroid/widget/CheckBox;Landroid/content/SharedPreferences;)V
+.method constructor <init>(Lcom/android/systemui/power/PowerNotificationWarnings;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/power/PowerNotificationWarnings$15;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
-
-    iput-object p2, p0, Lcom/android/systemui/power/PowerNotificationWarnings$15;->val$disableAlertCheckBox:Landroid/widget/CheckBox;
-
-    iput-object p3, p0, Lcom/android/systemui/power/PowerNotificationWarnings$15;->val$incompatibleChargingSharedPrefs:Landroid/content/SharedPreferences;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -42,30 +34,38 @@
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 3
+.method public onDismiss(Landroid/content/DialogInterface;)V
+    .locals 4
 
-    iget-object v1, p0, Lcom/android/systemui/power/PowerNotificationWarnings$15;->val$disableAlertCheckBox:Landroid/widget/CheckBox;
+    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$15;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
-    invoke-virtual {v1}, Landroid/widget/CheckBox;->isChecked()Z
+    const/4 v1, 0x0
 
-    move-result v1
+    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerNotificationWarnings;->-set0(Lcom/android/systemui/power/PowerNotificationWarnings;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
 
-    if-eqz v1, :cond_0
+    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$15;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
-    iget-object v1, p0, Lcom/android/systemui/power/PowerNotificationWarnings$15;->val$incompatibleChargingSharedPrefs:Landroid/content/SharedPreferences;
+    invoke-static {v0}, Lcom/android/systemui/power/PowerNotificationWarnings;->-get1(Lcom/android/systemui/power/PowerNotificationWarnings;)I
 
-    invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    move-result v0
+
+    const/4 v1, 0x4
+
+    if-ne v1, v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$15;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+
+    invoke-static {v0}, Lcom/android/systemui/power/PowerNotificationWarnings;->-get5(Lcom/android/systemui/power/PowerNotificationWarnings;)Landroid/os/Handler;
 
     move-result-object v0
 
-    const-string/jumbo v1, "DoNotShowIncompatibleChargerWarning"
+    iget-object v1, p0, Lcom/android/systemui/power/PowerNotificationWarnings$15;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
-    const/4 v2, 0x1
+    iget-object v1, v1, Lcom/android/systemui/power/PowerNotificationWarnings;->mBatteryHealthInterruptionTask:Ljava/lang/Runnable;
 
-    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
+    const-wide/32 v2, 0xea60
 
-    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
+    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     :cond_0
     return-void

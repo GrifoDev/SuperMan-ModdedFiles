@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/widget/SpinnerAdapter;Landroid/content/res/Resources$Theme;)V
-    .locals 3
+    .locals 4
     .param p1    # Landroid/widget/SpinnerAdapter;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -53,11 +53,11 @@
     :cond_0
     if-eqz p2, :cond_1
 
-    invoke-static {}, Landroid/support/v7/widget/AppCompatSpinner;->-get0()Z
+    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    move-result v2
+    const/16 v3, 0x17
 
-    if-eqz v2, :cond_2
+    if-lt v2, v3, :cond_2
 
     instance-of v2, p1, Landroid/widget/ThemedSpinnerAdapter;
 

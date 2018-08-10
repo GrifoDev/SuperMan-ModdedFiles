@@ -2,6 +2,10 @@
 .super Ljava/lang/Object;
 .source "HotspotController.java"
 
+# interfaces
+.implements Lcom/android/systemui/statusbar/policy/CallbackController;
+.implements Lcom/android/systemui/Dumpable;
+
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
@@ -10,11 +14,19 @@
     }
 .end annotation
 
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Lcom/android/systemui/statusbar/policy/CallbackController",
+        "<",
+        "Lcom/android/systemui/statusbar/policy/HotspotController$Callback;",
+        ">;",
+        "Lcom/android/systemui/Dumpable;"
+    }
+.end annotation
+
 
 # virtual methods
-.method public abstract addCallback(Lcom/android/systemui/statusbar/policy/HotspotController$Callback;)V
-.end method
-
 .method public abstract getConnectedDeviceList()[Ljava/lang/String;
 .end method
 
@@ -24,7 +36,7 @@
 .method public abstract isHotspotSupported()Z
 .end method
 
-.method public abstract removeCallback(Lcom/android/systemui/statusbar/policy/HotspotController$Callback;)V
+.method public abstract isHotspotTransient()Z
 .end method
 
 .method public abstract setHotspotEnabled(Z)V

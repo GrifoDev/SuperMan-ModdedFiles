@@ -26,8 +26,6 @@
 # static fields
 .field private static final synthetic $VALUES:[Lcom/android/keyguard/EmergencyCarrierArea$FooterMode;
 
-.field public static final enum BackupPIN:Lcom/android/keyguard/EmergencyCarrierArea$FooterMode;
-
 .field public static final enum ForgotLockPattern:Lcom/android/keyguard/EmergencyCarrierArea$FooterMode;
 
 .field public static final enum Normal:Lcom/android/keyguard/EmergencyCarrierArea$FooterMode;
@@ -39,9 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
-
-    const/4 v6, 0x4
+    .locals 6
 
     const/4 v5, 0x3
 
@@ -69,17 +65,9 @@
 
     new-instance v0, Lcom/android/keyguard/EmergencyCarrierArea$FooterMode;
 
-    const-string/jumbo v1, "BackupPIN"
-
-    invoke-direct {v0, v1, v4}, Lcom/android/keyguard/EmergencyCarrierArea$FooterMode;-><init>(Ljava/lang/String;I)V
-
-    sput-object v0, Lcom/android/keyguard/EmergencyCarrierArea$FooterMode;->BackupPIN:Lcom/android/keyguard/EmergencyCarrierArea$FooterMode;
-
-    new-instance v0, Lcom/android/keyguard/EmergencyCarrierArea$FooterMode;
-
     const-string/jumbo v1, "VerifyUnlocked"
 
-    invoke-direct {v0, v1, v5}, Lcom/android/keyguard/EmergencyCarrierArea$FooterMode;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v1, v4}, Lcom/android/keyguard/EmergencyCarrierArea$FooterMode;-><init>(Ljava/lang/String;I)V
 
     sput-object v0, Lcom/android/keyguard/EmergencyCarrierArea$FooterMode;->VerifyUnlocked:Lcom/android/keyguard/EmergencyCarrierArea$FooterMode;
 
@@ -87,11 +75,11 @@
 
     const-string/jumbo v1, "SamsungAccountOnly"
 
-    invoke-direct {v0, v1, v6}, Lcom/android/keyguard/EmergencyCarrierArea$FooterMode;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v1, v5}, Lcom/android/keyguard/EmergencyCarrierArea$FooterMode;-><init>(Ljava/lang/String;I)V
 
     sput-object v0, Lcom/android/keyguard/EmergencyCarrierArea$FooterMode;->SamsungAccountOnly:Lcom/android/keyguard/EmergencyCarrierArea$FooterMode;
 
-    const/4 v0, 0x5
+    const/4 v0, 0x4
 
     new-array v0, v0, [Lcom/android/keyguard/EmergencyCarrierArea$FooterMode;
 
@@ -103,17 +91,13 @@
 
     aput-object v1, v0, v3
 
-    sget-object v1, Lcom/android/keyguard/EmergencyCarrierArea$FooterMode;->BackupPIN:Lcom/android/keyguard/EmergencyCarrierArea$FooterMode;
+    sget-object v1, Lcom/android/keyguard/EmergencyCarrierArea$FooterMode;->VerifyUnlocked:Lcom/android/keyguard/EmergencyCarrierArea$FooterMode;
 
     aput-object v1, v0, v4
 
-    sget-object v1, Lcom/android/keyguard/EmergencyCarrierArea$FooterMode;->VerifyUnlocked:Lcom/android/keyguard/EmergencyCarrierArea$FooterMode;
-
-    aput-object v1, v0, v5
-
     sget-object v1, Lcom/android/keyguard/EmergencyCarrierArea$FooterMode;->SamsungAccountOnly:Lcom/android/keyguard/EmergencyCarrierArea$FooterMode;
 
-    aput-object v1, v0, v6
+    aput-object v1, v0, v5
 
     sput-object v0, Lcom/android/keyguard/EmergencyCarrierArea$FooterMode;->$VALUES:[Lcom/android/keyguard/EmergencyCarrierArea$FooterMode;
 

@@ -15,5 +15,5 @@
 
 
 # virtual methods
-.method public abstract onKeyguardChanged()V
+.method public abstract onKeyguardShowingChanged()V
 .end method

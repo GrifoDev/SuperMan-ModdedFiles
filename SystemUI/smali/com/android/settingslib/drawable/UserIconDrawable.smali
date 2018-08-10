@@ -155,13 +155,31 @@
 
     move-result-object v2
 
-    const v3, 0x10803bf
+    const v3, 0x10803d2
 
     invoke-virtual {v1, v3, v0, v2}, Landroid/content/res/Resources;->getDrawableForDensity(IILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
     return-object v1
+.end method
+
+.method public static getSizeForList(Landroid/content/Context;)I
+    .locals 2
+
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    sget v1, Lcom/android/settingslib/R$dimen;->circle_avatar_size:I
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v0
+
+    float-to-int v0, v0
+
+    return v0
 .end method
 
 .method private initFramePaint()V
@@ -600,6 +618,22 @@
     invoke-virtual {v1, v0}, Landroid/graphics/PorterDuffColorFilter;->setColor(I)V
 
     goto :goto_0
+.end method
+
+.method public getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
+    .locals 2
+
+    new-instance v0, Landroid/graphics/drawable/BitmapDrawable;
+
+    iget-object v1, p0, Lcom/android/settingslib/drawable/UserIconDrawable;->mBitmap:Landroid/graphics/Bitmap;
+
+    invoke-direct {v0, v1}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/graphics/Bitmap;)V
+
+    invoke-virtual {v0}, Landroid/graphics/drawable/BitmapDrawable;->getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public getIntrinsicHeight()I

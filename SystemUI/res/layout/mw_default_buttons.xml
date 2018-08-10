@@ -3,6 +3,7 @@
   xmlns:android="http://schemas.android.com/apk/res/android">
     <FrameLayout android:id="@id/mw_buttons_ripple_view" android:background="@drawable/divider_buttons_ripple" android:layout_width="fill_parent" android:layout_height="fill_parent">
         <LinearLayout android:layout_gravity="center" android:id="@id/mw_buttons_wrapper" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:id="@id/mw_addpair_button" android:src="@drawable/multiwindow_split_option_btn_addpair_mtrl" android:contentDescription="@string/mw_divider_button_add_app_pair" style="@style/DividerButtonIcon" />
             <ImageView android:id="@id/mw_snapview_button" android:src="@drawable/multiwindow_split_option_btn_crop_mtrl" android:contentDescription="@string/mw_divider_button_snap" style="@style/DividerButtonIcon" />
             <ImageView android:id="@id/mw_switch_button" android:src="@drawable/multiwindow_split_option_btn_switch_mtrl" android:contentDescription="@string/mw_divider_button_switch" style="@style/DividerButtonIcon" />
             <ImageView android:id="@id/mw_freeform_button" android:src="@drawable/multiwindow_split_option_btn_popup_mtrl" android:contentDescription="@string/mw_divider_button_freeform" style="@style/DividerButtonIcon" />

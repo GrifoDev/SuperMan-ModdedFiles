@@ -2,6 +2,9 @@
 .super Ljava/lang/Object;
 .source "AssistManager.java"
 
+# interfaces
+.implements Lcom/android/systemui/ConfigurationChangedReceiver;
+
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
@@ -17,15 +20,19 @@
 # instance fields
 .field private final mAssistDisclosure:Lcom/android/systemui/assist/AssistDisclosure;
 
-.field private final mAssistUtils:Lcom/android/internal/app/AssistUtils;
+.field protected final mAssistUtils:Lcom/android/internal/app/AssistUtils;
 
 .field private mAssistanceAppSettingAlertDialog:Landroid/app/AlertDialog;
 
-.field private final mBar:Lcom/android/systemui/statusbar/BaseStatusBar;
+.field protected final mContext:Landroid/content/Context;
 
-.field private final mContext:Landroid/content/Context;
+.field private final mDeviceProvisionedController:Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
 
 .field private mHideRunnable:Ljava/lang/Runnable;
+
+.field private final mInterestingConfigChanges:Lcom/android/settingslib/applications/InterestingConfigChanges;
+
+.field private mIsAssistAppAvailable:Z
 
 .field private mLayoutInflater:Landroid/view/LayoutInflater;
 
@@ -37,15 +44,7 @@
 
 
 # direct methods
-.method static synthetic -get0(Lcom/android/systemui/assist/AssistManager;)Landroid/content/Context;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/assist/AssistManager;->mContext:Landroid/content/Context;
-
-    return-object v0
-.end method
-
-.method static synthetic -get1(Lcom/android/systemui/assist/AssistManager;)Ljava/lang/Runnable;
+.method static synthetic -get0(Lcom/android/systemui/assist/AssistManager;)Ljava/lang/Runnable;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/assist/AssistManager;->mHideRunnable:Ljava/lang/Runnable;
@@ -53,7 +52,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get2(Lcom/android/systemui/assist/AssistManager;)Landroid/view/LayoutInflater;
+.method static synthetic -get1(Lcom/android/systemui/assist/AssistManager;)Landroid/view/LayoutInflater;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/assist/AssistManager;->mLayoutInflater:Landroid/view/LayoutInflater;
@@ -61,7 +60,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get3(Lcom/android/systemui/assist/AssistManager;)Lcom/android/systemui/assist/AssistOrbContainer;
+.method static synthetic -get2(Lcom/android/systemui/assist/AssistManager;)Lcom/android/systemui/assist/AssistOrbContainer;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/assist/AssistManager;->mView:Lcom/android/systemui/assist/AssistOrbContainer;
@@ -85,10 +84,14 @@
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/systemui/statusbar/BaseStatusBar;Landroid/content/Context;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Landroid/content/Context;)V
     .locals 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/systemui/assist/AssistManager;->mIsAssistAppAvailable:Z
 
     new-instance v0, Lcom/android/systemui/assist/AssistManager$1;
 
@@ -104,7 +107,7 @@
 
     iput-object p2, p0, Lcom/android/systemui/assist/AssistManager;->mContext:Landroid/content/Context;
 
-    iput-object p1, p0, Lcom/android/systemui/assist/AssistManager;->mBar:Lcom/android/systemui/statusbar/BaseStatusBar;
+    iput-object p1, p0, Lcom/android/systemui/assist/AssistManager;->mDeviceProvisionedController:Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
 
     iget-object v0, p0, Lcom/android/systemui/assist/AssistManager;->mContext:Landroid/content/Context;
 
@@ -134,7 +137,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/assist/AssistManager;->mAssistDisclosure:Lcom/android/systemui/assist/AssistDisclosure;
 
-    sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_ASSISTANCE_APP_SETTING_POPUP:Z
+    sget-boolean v0, Lcom/android/systemui/Rune;->ASSIST_SUPPORT_ASSISTANCE_APP_SETTING_POPUP:Z
 
     if-eqz v0, :cond_0
 
@@ -153,6 +156,26 @@
     iput-object v0, p0, Lcom/android/systemui/assist/AssistManager;->mLayoutInflater:Landroid/view/LayoutInflater;
 
     :cond_0
+    invoke-virtual {p0}, Lcom/android/systemui/assist/AssistManager;->registerVoiceInteractionSessionListener()V
+
+    new-instance v0, Lcom/android/settingslib/applications/InterestingConfigChanges;
+
+    const v1, -0x7ffffc7c
+
+    invoke-direct {v0, v1}, Lcom/android/settingslib/applications/InterestingConfigChanges;-><init>(I)V
+
+    iput-object v0, p0, Lcom/android/systemui/assist/AssistManager;->mInterestingConfigChanges:Lcom/android/settingslib/applications/InterestingConfigChanges;
+
+    invoke-virtual {p2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/assist/AssistManager;->onConfigurationChanged(Landroid/content/res/Configuration;)V
+
     return-void
 .end method
 
@@ -705,7 +728,7 @@
 
     iget-object v3, v0, Lcom/android/systemui/assist/AssistManager;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f0201ee
+    const v8, 0x7f0802ce
 
     invoke-virtual {v3, v8}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -715,7 +738,7 @@
 
     iget-object v3, v0, Lcom/android/systemui/assist/AssistManager;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f0f0693
+    const v8, 0x7f12012f
 
     invoke-virtual {v3, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -748,7 +771,9 @@
 
     iget-object v0, p0, Lcom/android/systemui/assist/AssistManager;->mAssistUtils:Lcom/android/internal/app/AssistUtils;
 
-    const/4 v1, -0x2
+    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
+
+    move-result v1
 
     invoke-virtual {v0, v1}, Lcom/android/internal/app/AssistUtils;->getAssistComponentForUser(I)Landroid/content/ComponentName;
 
@@ -826,7 +851,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d02a6
+    const v2, 0x7f07006e
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -841,6 +866,12 @@
     const/4 v5, -0x3
 
     invoke-direct/range {v0 .. v5}, Landroid/view/WindowManager$LayoutParams;-><init>(IIIII)V
+
+    new-instance v1, Landroid/os/Binder;
+
+    invoke-direct {v1}, Landroid/os/Binder;-><init>()V
+
+    iput-object v1, v0, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
     invoke-static {}, Landroid/app/ActivityManager;->isHighEndGfx()Z
 
@@ -1104,8 +1135,6 @@
 .method private showAssistanceAppSettingAlertDialog()V
     .locals 13
 
-    const/4 v11, -0x2
-
     const/4 v12, 0x0
 
     iget-object v9, p0, Lcom/android/systemui/assist/AssistManager;->mAssistanceAppSettingAlertDialog:Landroid/app/AlertDialog;
@@ -1114,7 +1143,7 @@
 
     iget-object v9, p0, Lcom/android/systemui/assist/AssistManager;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v10, 0x7f04001b
+    const v10, 0x7f0d0020
 
     invoke-virtual {v9, v10, v12}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -1122,7 +1151,7 @@
 
     check-cast v7, Landroid/widget/LinearLayout;
 
-    const v9, 0x7f130094
+    const v9, 0x7f0a0532
 
     invoke-virtual {v7, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1136,7 +1165,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0f0692
+    const v10, 0x7f12012e
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1152,13 +1181,17 @@
 
     iget-object v9, p0, Lcom/android/systemui/assist/AssistManager;->mContext:Landroid/content/Context;
 
-    const v10, 0x7f04001c
+    const v10, 0x7f0d0021
 
     invoke-direct {v0, p0, v9, v10, v6}, Lcom/android/systemui/assist/AssistManager$AssistanceAppItemListAdapter;-><init>(Lcom/android/systemui/assist/AssistManager;Landroid/content/Context;ILjava/util/ArrayList;)V
 
     iget-object v9, p0, Lcom/android/systemui/assist/AssistManager;->mAssistUtils:Lcom/android/internal/app/AssistUtils;
 
-    invoke-virtual {v9, v11}, Lcom/android/internal/app/AssistUtils;->getAssistComponentForUser(I)Landroid/content/ComponentName;
+    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
+
+    move-result v10
+
+    invoke-virtual {v9, v10}, Lcom/android/internal/app/AssistUtils;->getAssistComponentForUser(I)Landroid/content/ComponentName;
 
     move-result-object v3
 
@@ -1168,7 +1201,11 @@
 
     iget-object v9, p0, Lcom/android/systemui/assist/AssistManager;->mAssistUtils:Lcom/android/internal/app/AssistUtils;
 
-    invoke-virtual {v9, v11}, Lcom/android/internal/app/AssistUtils;->getAssistComponentForUser(I)Landroid/content/ComponentName;
+    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
+
+    move-result v10
+
+    invoke-virtual {v9, v10}, Lcom/android/internal/app/AssistUtils;->getAssistComponentForUser(I)Landroid/content/ComponentName;
 
     move-result-object v9
 
@@ -1229,9 +1266,9 @@
 
     invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    new-instance v1, Lcom/android/systemui/assist/AssistManager$4;
+    new-instance v1, Lcom/android/systemui/assist/AssistManager$5;
 
-    invoke-direct {v1, p0, v6, v0}, Lcom/android/systemui/assist/AssistManager$4;-><init>(Lcom/android/systemui/assist/AssistManager;Ljava/util/ArrayList;Landroid/widget/ArrayAdapter;)V
+    invoke-direct {v1, p0, v6, v0}, Lcom/android/systemui/assist/AssistManager$5;-><init>(Lcom/android/systemui/assist/AssistManager;Ljava/util/ArrayList;Landroid/widget/ArrayAdapter;)V
 
     new-instance v2, Landroid/app/AlertDialog$Builder;
 
@@ -1247,17 +1284,17 @@
 
     invoke-virtual {v2, v9, v12}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    new-instance v9, Lcom/android/systemui/assist/AssistManager$5;
+    new-instance v9, Lcom/android/systemui/assist/AssistManager$6;
 
-    invoke-direct {v9, p0, v0}, Lcom/android/systemui/assist/AssistManager$5;-><init>(Lcom/android/systemui/assist/AssistManager;Landroid/widget/ArrayAdapter;)V
+    invoke-direct {v9, p0, v0}, Lcom/android/systemui/assist/AssistManager$6;-><init>(Lcom/android/systemui/assist/AssistManager;Landroid/widget/ArrayAdapter;)V
 
     const v10, 0x104000a
 
     invoke-virtual {v2, v10, v9}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    new-instance v9, Lcom/android/systemui/assist/AssistManager$6;
+    new-instance v9, Lcom/android/systemui/assist/AssistManager$7;
 
-    invoke-direct {v9, p0}, Lcom/android/systemui/assist/AssistManager$6;-><init>(Lcom/android/systemui/assist/AssistManager;)V
+    invoke-direct {v9, p0}, Lcom/android/systemui/assist/AssistManager$7;-><init>(Lcom/android/systemui/assist/AssistManager;)V
 
     invoke-virtual {v2, v9}, Landroid/app/AlertDialog$Builder;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1302,9 +1339,9 @@
 .method private startAssistActivity(Landroid/os/Bundle;Landroid/content/ComponentName;)V
     .locals 8
 
-    iget-object v4, p0, Lcom/android/systemui/assist/AssistManager;->mBar:Lcom/android/systemui/statusbar/BaseStatusBar;
+    iget-object v4, p0, Lcom/android/systemui/assist/AssistManager;->mDeviceProvisionedController:Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
 
-    invoke-virtual {v4}, Lcom/android/systemui/statusbar/BaseStatusBar;->isDeviceProvisioned()Z
+    invoke-interface {v4}, Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;->isDeviceProvisioned()Z
 
     move-result v4
 
@@ -1313,11 +1350,19 @@
     return-void
 
     :cond_0
-    iget-object v4, p0, Lcom/android/systemui/assist/AssistManager;->mBar:Lcom/android/systemui/statusbar/BaseStatusBar;
+    iget-object v4, p0, Lcom/android/systemui/assist/AssistManager;->mContext:Landroid/content/Context;
+
+    const-class v5, Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v4, v5}, Lcom/android/systemui/SysUiServiceProvider;->getComponent(Landroid/content/Context;Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Lcom/android/systemui/statusbar/CommandQueue;
 
     const/4 v5, 0x3
 
-    invoke-virtual {v4, v5}, Lcom/android/systemui/statusbar/BaseStatusBar;->animateCollapsePanels(I)V
+    invoke-virtual {v4, v5}, Lcom/android/systemui/statusbar/CommandQueue;->animateCollapsePanels(I)V
 
     iget-object v4, p0, Lcom/android/systemui/assist/AssistManager;->mContext:Landroid/content/Context;
 
@@ -1376,9 +1421,9 @@
     :try_start_0
     iget-object v4, p0, Lcom/android/systemui/assist/AssistManager;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0500c2
+    const v5, 0x7f0100c0
 
-    const v6, 0x7f0500c3
+    const v6, 0x7f0100c1
 
     invoke-static {v4, v5, v6}, Landroid/app/ActivityOptions;->makeCustomAnimation(Landroid/content/Context;II)Landroid/app/ActivityOptions;
 
@@ -1388,9 +1433,9 @@
 
     invoke-virtual {v1, v4}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    new-instance v4, Lcom/android/systemui/assist/AssistManager$3;
+    new-instance v4, Lcom/android/systemui/assist/AssistManager$4;
 
-    invoke-direct {v4, p0, v1, v2}, Lcom/android/systemui/assist/AssistManager$3;-><init>(Lcom/android/systemui/assist/AssistManager;Landroid/content/Intent;Landroid/app/ActivityOptions;)V
+    invoke-direct {v4, p0, v1, v2}, Lcom/android/systemui/assist/AssistManager$4;-><init>(Lcom/android/systemui/assist/AssistManager;Landroid/content/Intent;Landroid/app/ActivityOptions;)V
 
     invoke-static {v4}, Landroid/os/AsyncTask;->execute(Ljava/lang/Runnable;)V
     :try_end_0
@@ -1432,49 +1477,97 @@
 .end method
 
 .method private startAssistInternal(Landroid/os/Bundle;Landroid/content/ComponentName;Z)V
-    .locals 0
+    .locals 1
 
-    if-eqz p3, :cond_0
+    sget-boolean v0, Lcom/android/systemui/Rune;->ASSIST_SUPPORT_ASSISTANCE_APP_SETTING_POPUP:Z
+
+    if-eqz v0, :cond_0
+
+    iget-boolean v0, p0, Lcom/android/systemui/assist/AssistManager;->mIsAssistAppAvailable:Z
+
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    invoke-direct {p0}, Lcom/android/systemui/assist/AssistManager;->showAssistanceAppSettingAlertDialog()V
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/systemui/assist/AssistManager;->mIsAssistAppAvailable:Z
+
+    :cond_0
+    if-eqz p3, :cond_1
 
     invoke-direct {p0, p1}, Lcom/android/systemui/assist/AssistManager;->startVoiceInteractor(Landroid/os/Bundle;)V
 
     :goto_0
     return-void
 
-    :cond_0
+    :cond_1
     invoke-direct {p0, p1, p2}, Lcom/android/systemui/assist/AssistManager;->startAssistActivity(Landroid/os/Bundle;Landroid/content/ComponentName;)V
 
     goto :goto_0
 .end method
 
 .method private startVoiceInteractor(Landroid/os/Bundle;)V
-    .locals 4
+    .locals 5
 
-    iget-object v0, p0, Lcom/android/systemui/assist/AssistManager;->mAssistUtils:Lcom/android/internal/app/AssistUtils;
+    :try_start_0
+    iget-object v1, p0, Lcom/android/systemui/assist/AssistManager;->mAssistUtils:Lcom/android/internal/app/AssistUtils;
 
-    iget-object v1, p0, Lcom/android/systemui/assist/AssistManager;->mShowCallback:Lcom/android/internal/app/IVoiceInteractionSessionShowCallback;
+    iget-object v2, p0, Lcom/android/systemui/assist/AssistManager;->mShowCallback:Lcom/android/internal/app/IVoiceInteractionSessionShowCallback;
 
-    const/4 v2, 0x4
+    const/4 v3, 0x4
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    invoke-virtual {v0, p1, v2, v1, v3}, Lcom/android/internal/app/AssistUtils;->showSessionForActiveService(Landroid/os/Bundle;ILcom/android/internal/app/IVoiceInteractionSessionShowCallback;Landroid/os/IBinder;)Z
+    invoke-virtual {v1, p1, v3, v2, v4}, Lcom/android/internal/app/AssistUtils;->showSessionForActiveService(Landroid/os/Bundle;ILcom/android/internal/app/IVoiceInteractionSessionShowCallback;Landroid/os/IBinder;)Z
+    :try_end_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
 
+    :goto_0
     return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "AssistManager"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "startVoiceInteractor() NullPointerException! "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 .end method
 
 
 # virtual methods
-.method public destroy()V
-    .locals 2
+.method public canVoiceAssistBeLaunchedFromKeyguard()Z
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/assist/AssistManager;->mWindowManager:Landroid/view/WindowManager;
+    iget-object v0, p0, Lcom/android/systemui/assist/AssistManager;->mAssistUtils:Lcom/android/internal/app/AssistUtils;
 
-    iget-object v1, p0, Lcom/android/systemui/assist/AssistManager;->mView:Lcom/android/systemui/assist/AssistOrbContainer;
+    invoke-virtual {v0}, Lcom/android/internal/app/AssistUtils;->activeServiceSupportsLaunchFromKeyguard()Z
 
-    invoke-interface {v0, v1}, Landroid/view/WindowManager;->removeViewImmediate(Landroid/view/View;)V
+    move-result v0
 
-    return-void
+    return v0
 .end method
 
 .method public getVoiceInteractorComponentName()Landroid/content/ComponentName;
@@ -1509,16 +1602,33 @@
     return-void
 .end method
 
-.method public onConfigurationChanged()V
+.method public onConfigurationChanged(Landroid/content/res/Configuration;)V
     .locals 5
 
     const/4 v4, 0x0
 
+    iget-object v2, p0, Lcom/android/systemui/assist/AssistManager;->mInterestingConfigChanges:Lcom/android/settingslib/applications/InterestingConfigChanges;
+
+    iget-object v3, p0, Lcom/android/systemui/assist/AssistManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Lcom/android/settingslib/applications/InterestingConfigChanges;->applyNewConfig(Landroid/content/res/Resources;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    return-void
+
+    :cond_0
     const/4 v1, 0x0
 
     iget-object v2, p0, Lcom/android/systemui/assist/AssistManager;->mView:Lcom/android/systemui/assist/AssistOrbContainer;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     iget-object v2, p0, Lcom/android/systemui/assist/AssistManager;->mView:Lcom/android/systemui/assist/AssistOrbContainer;
 
@@ -1532,14 +1642,14 @@
 
     invoke-interface {v2, v3}, Landroid/view/WindowManager;->removeView(Landroid/view/View;)V
 
-    :cond_0
+    :cond_1
     iget-object v2, p0, Lcom/android/systemui/assist/AssistManager;->mContext:Landroid/content/Context;
 
     invoke-static {v2}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v2
 
-    const v3, 0x7f04001a
+    const v3, 0x7f0d001f
 
     invoke-virtual {v2, v3, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -1571,7 +1681,7 @@
 
     invoke-interface {v2, v3, v0}, Landroid/view/WindowManager;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
     iget-object v2, p0, Lcom/android/systemui/assist/AssistManager;->mView:Lcom/android/systemui/assist/AssistOrbContainer;
 
@@ -1581,7 +1691,7 @@
 
     invoke-virtual {v2, v3, v4}, Lcom/android/systemui/assist/AssistOrbContainer;->show(ZZ)V
 
-    :cond_1
+    :cond_2
     return-void
 .end method
 
@@ -1595,29 +1705,45 @@
     return-void
 .end method
 
-.method public replaceDrawable(Landroid/widget/ImageView;Landroid/content/ComponentName;Ljava/lang/String;Z)V
-    .locals 11
+.method protected registerVoiceInteractionSessionListener()V
+    .locals 2
 
-    const/4 v10, 0x0
+    iget-object v0, p0, Lcom/android/systemui/assist/AssistManager;->mAssistUtils:Lcom/android/internal/app/AssistUtils;
+
+    new-instance v1, Lcom/android/systemui/assist/AssistManager$3;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/assist/AssistManager$3;-><init>(Lcom/android/systemui/assist/AssistManager;)V
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/app/AssistUtils;->registerVoiceInteractionSessionListener(Lcom/android/internal/app/IVoiceInteractionSessionListener;)V
+
+    return-void
+.end method
+
+.method public replaceDrawable(Landroid/widget/ImageView;Landroid/content/ComponentName;Ljava/lang/String;Z)V
+    .locals 10
+
+    const/4 v7, 0x0
+
+    const/4 v9, 0x0
 
     if-eqz p2, :cond_1
 
     :try_start_0
-    iget-object v7, p0, Lcom/android/systemui/assist/AssistManager;->mContext:Landroid/content/Context;
+    iget-object v6, p0, Lcom/android/systemui/assist/AssistManager;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v7}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v6}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v5
+    move-result-object v4
 
     if-eqz p4, :cond_0
 
-    const/16 v7, 0x80
+    const/16 v6, 0x80
 
-    invoke-virtual {v5, p2, v7}, Landroid/content/pm/PackageManager;->getServiceInfo(Landroid/content/ComponentName;I)Landroid/content/pm/ServiceInfo;
+    invoke-virtual {v4, p2, v6}, Landroid/content/pm/PackageManager;->getServiceInfo(Landroid/content/ComponentName;I)Landroid/content/pm/ServiceInfo;
 
-    move-result-object v7
+    move-result-object v6
 
-    iget-object v2, v7, Landroid/content/pm/ServiceInfo;->metaData:Landroid/os/Bundle;
+    iget-object v2, v6, Landroid/content/pm/ServiceInfo;->metaData:Landroid/os/Bundle;
 
     :goto_0
     if-eqz v2, :cond_1
@@ -1630,137 +1756,120 @@
 
     invoke-virtual {p2}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-virtual {v5, v7}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Ljava/lang/String;)Landroid/content/res/Resources;
+    invoke-virtual {v4, v6}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Ljava/lang/String;)Landroid/content/res/Resources;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v6
 
-    invoke-virtual {v6, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v7
-
-    invoke-virtual {p1, v7}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p1, v6}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     return-void
 
     :cond_0
-    const/16 v7, 0x80
+    const/16 v6, 0x80
 
-    invoke-virtual {v5, p2, v7}, Landroid/content/pm/PackageManager;->getActivityInfo(Landroid/content/ComponentName;I)Landroid/content/pm/ActivityInfo;
+    invoke-virtual {v4, p2, v6}, Landroid/content/pm/PackageManager;->getActivityInfo(Landroid/content/ComponentName;I)Landroid/content/pm/ActivityInfo;
 
-    move-result-object v7
+    move-result-object v6
 
-    iget-object v2, v7, Landroid/content/pm/ActivityInfo;->metaData:Landroid/os/Bundle;
+    iget-object v2, v6, Landroid/content/pm/ActivityInfo;->metaData:Landroid/os/Bundle;
     :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v4
+    move-exception v3
 
-    const-string/jumbo v7, "AssistManager"
+    const-string/jumbo v6, "AssistManager"
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v9, "Failed to swap drawable from "
+    const-string/jumbo v8, "Failed to swap drawable from "
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v7
 
     invoke-virtual {p2}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
 
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     move-result-object v8
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v7
 
-    invoke-static {v7, v8, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :cond_1
     :goto_1
-    invoke-virtual {p1, v10}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p1, v9}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     return-void
 
     :catch_1
-    move-exception v3
-
-    const-string/jumbo v7, "AssistManager"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "Failed to swap drawable from "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {p2}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_1
-
-    :catch_2
     move-exception v0
 
-    const-string/jumbo v7, "AssistManager"
+    sget-boolean v6, Lcom/android/systemui/Rune;->ASSIST_SUPPORT_ASSISTANCE_APP_SETTING_POPUP:Z
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    if-eqz v6, :cond_2
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    iput-boolean v7, p0, Lcom/android/systemui/assist/AssistManager;->mIsAssistAppAvailable:Z
 
-    const-string/jumbo v9, "Assistant component "
+    :cond_2
+    const-string/jumbo v6, "AssistManager"
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "Assistant component "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
 
     invoke-virtual {p2}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
 
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     move-result-object v8
 
-    const-string/jumbo v9, " not found"
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v7
 
-    move-result-object v8
+    const-string/jumbo v8, " not found"
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v7
 
-    invoke-static {v7, v8}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1
+.end method
+
+.method protected shouldShowOrb()Z
+    .locals 1
+
+    const/4 v0, 0x1
+
+    return v0
 .end method
 
 .method public showDisclosure()V
@@ -1776,9 +1885,7 @@
 .method public startAssist(Landroid/os/Bundle;)V
     .locals 6
 
-    const/4 v5, 0x0
-
-    sget-boolean v2, Lcom/android/systemui/SystemUIRune;->SUPPORT_ASSISTANCE_APP_SETTING_POPUP:Z
+    sget-boolean v2, Lcom/android/systemui/Rune;->ASSIST_SUPPORT_ASSISTANCE_APP_SETTING_POPUP:Z
 
     if-eqz v2, :cond_0
 
@@ -1808,27 +1915,6 @@
     return-void
 
     :cond_1
-    iget-object v2, p0, Lcom/android/systemui/assist/AssistManager;->mView:Lcom/android/systemui/assist/AssistOrbContainer;
-
-    if-nez v2, :cond_2
-
-    iget-object v2, p0, Lcom/android/systemui/assist/AssistManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v2}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
-
-    move-result-object v2
-
-    const v3, 0x7f04001a
-
-    invoke-virtual {v2, v3, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/systemui/assist/AssistOrbContainer;
-
-    iput-object v2, p0, Lcom/android/systemui/assist/AssistManager;->mView:Lcom/android/systemui/assist/AssistOrbContainer;
-
-    :cond_2
     invoke-virtual {p0}, Lcom/android/systemui/assist/AssistManager;->getVoiceInteractorComponentName()Landroid/content/ComponentName;
 
     move-result-object v2
@@ -1837,20 +1923,21 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2
 
     invoke-direct {p0}, Lcom/android/systemui/assist/AssistManager;->isVoiceSessionRunning()Z
 
     move-result v2
 
+    if-nez v2, :cond_3
+
+    invoke-virtual {p0}, Lcom/android/systemui/assist/AssistManager;->shouldShowOrb()Z
+
+    move-result v2
+
     if-eqz v2, :cond_3
 
-    :goto_0
-    invoke-direct {p0, p1, v0, v1}, Lcom/android/systemui/assist/AssistManager;->startAssistInternal(Landroid/os/Bundle;Landroid/content/ComponentName;Z)V
-
-    return-void
-
-    :cond_3
+    :cond_2
     invoke-direct {p0, v0, v1}, Lcom/android/systemui/assist/AssistManager;->showOrb(Landroid/content/ComponentName;Z)V
 
     iget-object v4, p0, Lcom/android/systemui/assist/AssistManager;->mView:Lcom/android/systemui/assist/AssistOrbContainer;
@@ -1861,13 +1948,16 @@
 
     const-wide/16 v2, 0x9c4
 
-    :goto_1
+    :goto_0
     invoke-virtual {v4, v5, v2, v3}, Lcom/android/systemui/assist/AssistOrbContainer;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    goto :goto_0
+    :cond_3
+    invoke-direct {p0, p1, v0, v1}, Lcom/android/systemui/assist/AssistManager;->startAssistInternal(Landroid/os/Bundle;Landroid/content/ComponentName;Z)V
+
+    return-void
 
     :cond_4
     const-wide/16 v2, 0x3e8
 
-    goto :goto_1
+    goto :goto_0
 .end method

@@ -6,7 +6,9 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/support/v7/widget/LinearLayoutCompat$LayoutParams;
+        Landroid/support/v7/widget/LinearLayoutCompat$DividerMode;,
+        Landroid/support/v7/widget/LinearLayoutCompat$LayoutParams;,
+        Landroid/support/v7/widget/LinearLayoutCompat$OrientationMode;
     }
 .end annotation
 
@@ -947,10 +949,31 @@
     return v0
 .end method
 
-.method public getDividerWidth()I
+.method public getDividerDrawable()Landroid/graphics/drawable/Drawable;
     .locals 1
 
+    iget-object v0, p0, Landroid/support/v7/widget/LinearLayoutCompat;->mDivider:Landroid/graphics/drawable/Drawable;
+
+    return-object v0
+.end method
+
+.method public getDividerWidth()I
+    .locals 1
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
+
     iget v0, p0, Landroid/support/v7/widget/LinearLayoutCompat;->mDividerWidth:I
+
+    return v0
+.end method
+
+.method public getGravity()I
+    .locals 1
+
+    iget v0, p0, Landroid/support/v7/widget/LinearLayoutCompat;->mGravity:I
 
     return v0
 .end method
@@ -2066,7 +2089,7 @@
 
     add-int v16, v3, v30
 
-    invoke-static {v4}, Landroid/support/v4/view/ViewCompat;->getMeasuredState(Landroid/view/View;)I
+    invoke-virtual {v4}, Landroid/view/View;->getMeasuredState()I
 
     move-result v3
 
@@ -2735,7 +2758,7 @@
 
     move/from16 v1, p1
 
-    invoke-static {v0, v1, v3}, Landroid/support/v4/view/ViewCompat;->resolveSizeAndState(III)I
+    invoke-static {v0, v1, v3}, Landroid/view/View;->resolveSizeAndState(III)I
 
     move-result v46
 
@@ -2969,7 +2992,7 @@
     invoke-virtual {v4, v3, v0}, Landroid/view/View;->measure(II)V
 
     :goto_12
-    invoke-static {v4}, Landroid/support/v4/view/ViewCompat;->getMeasuredState(Landroid/view/View;)I
+    invoke-virtual {v4}, Landroid/view/View;->getMeasuredState()I
 
     move-result v3
 
@@ -2979,7 +3002,7 @@
 
     move/from16 v0, v18
 
-    invoke-static {v0, v3}, Landroid/support/v7/widget/ViewUtils;->combineMeasuredStates(II)I
+    invoke-static {v0, v3}, Landroid/view/View;->combineMeasuredStates(II)I
 
     move-result v18
 
@@ -3377,7 +3400,7 @@
 
     move/from16 v1, p2
 
-    invoke-static {v0, v1, v6}, Landroid/support/v4/view/ViewCompat;->resolveSizeAndState(III)I
+    invoke-static {v0, v1, v6}, Landroid/view/View;->resolveSizeAndState(III)I
 
     move-result v6
 
@@ -3899,11 +3922,11 @@
 
     move-result v27
 
-    invoke-static {v4}, Landroid/support/v4/view/ViewCompat;->getMeasuredState(Landroid/view/View;)I
+    invoke-virtual {v4}, Landroid/view/View;->getMeasuredState()I
 
     move-result v3
 
-    invoke-static {v15, v3}, Landroid/support/v7/widget/ViewUtils;->combineMeasuredStates(II)I
+    invoke-static {v15, v3}, Landroid/view/View;->combineMeasuredStates(II)I
 
     move-result v15
 
@@ -4173,7 +4196,7 @@
 
     move/from16 v1, p2
 
-    invoke-static {v0, v1, v3}, Landroid/support/v4/view/ViewCompat;->resolveSizeAndState(III)I
+    invoke-static {v0, v1, v3}, Landroid/view/View;->resolveSizeAndState(III)I
 
     move-result v21
 
@@ -4352,13 +4375,13 @@
     invoke-virtual {v4, v0, v3}, Landroid/view/View;->measure(II)V
 
     :goto_d
-    invoke-static {v4}, Landroid/support/v4/view/ViewCompat;->getMeasuredState(Landroid/view/View;)I
+    invoke-virtual {v4}, Landroid/view/View;->getMeasuredState()I
 
     move-result v3
 
     and-int/lit16 v3, v3, -0x100
 
-    invoke-static {v15, v3}, Landroid/support/v7/widget/ViewUtils;->combineMeasuredStates(II)I
+    invoke-static {v15, v3}, Landroid/view/View;->combineMeasuredStates(II)I
 
     move-result v15
 
@@ -4568,7 +4591,7 @@
 
     move/from16 v1, p1
 
-    invoke-static {v0, v1, v15}, Landroid/support/v4/view/ViewCompat;->resolveSizeAndState(III)I
+    invoke-static {v0, v1, v15}, Landroid/view/View;->resolveSizeAndState(III)I
 
     move-result v3
 

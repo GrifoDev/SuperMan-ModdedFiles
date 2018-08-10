@@ -61,13 +61,9 @@
 
     move-result v1
 
-    iget v2, v0, Lcom/android/systemui/classifier/AccelerationClassifier$Data;->maxDistanceRatio:F
+    const/high16 v2, 0x40000000    # 2.0f
 
-    invoke-static {v2}, Lcom/android/systemui/classifier/DistanceRatioEvaluator;->evaluate(F)F
-
-    move-result v2
-
-    add-float/2addr v1, v2
+    mul-float/2addr v1, v2
 
     return v1
 .end method

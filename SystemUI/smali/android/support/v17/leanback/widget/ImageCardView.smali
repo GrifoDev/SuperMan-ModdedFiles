@@ -330,10 +330,48 @@
     :cond_b
     if-eqz v10, :cond_c
 
-    if-eqz v6, :cond_14
+    xor-int/lit8 v14, v6, 0x1
+
+    if-eqz v14, :cond_c
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Landroid/support/v17/leanback/widget/ImageCardView;->mBadgeImage:Landroid/widget/ImageView;
+
+    if-eqz v14, :cond_c
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Landroid/support/v17/leanback/widget/ImageCardView;->mTitleView:Landroid/widget/TextView;
+
+    invoke-virtual {v14}, Landroid/widget/TextView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v13
+
+    check-cast v13, Landroid/widget/RelativeLayout$LayoutParams;
+
+    if-eqz v7, :cond_14
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Landroid/support/v17/leanback/widget/ImageCardView;->mBadgeImage:Landroid/widget/ImageView;
+
+    invoke-virtual {v14}, Landroid/widget/ImageView;->getId()I
+
+    move-result v14
+
+    const/16 v15, 0x11
+
+    invoke-virtual {v13, v15, v14}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(II)V
+
+    :goto_5
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Landroid/support/v17/leanback/widget/ImageCardView;->mTitleView:Landroid/widget/TextView;
+
+    invoke-virtual {v14, v13}, Landroid/widget/TextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     :cond_c
-    :goto_5
     if-eqz v6, :cond_f
 
     move-object/from16 v0, p0
@@ -399,7 +437,7 @@
 
     check-cast v13, Landroid/widget/RelativeLayout$LayoutParams;
 
-    if-eqz v6, :cond_16
+    if-eqz v6, :cond_15
 
     move-object/from16 v0, p0
 
@@ -469,46 +507,6 @@
 
     iget-object v14, v0, Landroid/support/v17/leanback/widget/ImageCardView;->mBadgeImage:Landroid/widget/ImageView;
 
-    if-eqz v14, :cond_c
-
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Landroid/support/v17/leanback/widget/ImageCardView;->mTitleView:Landroid/widget/TextView;
-
-    invoke-virtual {v14}, Landroid/widget/TextView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v13
-
-    check-cast v13, Landroid/widget/RelativeLayout$LayoutParams;
-
-    if-eqz v7, :cond_15
-
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Landroid/support/v17/leanback/widget/ImageCardView;->mBadgeImage:Landroid/widget/ImageView;
-
-    invoke-virtual {v14}, Landroid/widget/ImageView;->getId()I
-
-    move-result v14
-
-    const/16 v15, 0x11
-
-    invoke-virtual {v13, v15, v14}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(II)V
-
-    :goto_7
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Landroid/support/v17/leanback/widget/ImageCardView;->mTitleView:Landroid/widget/TextView;
-
-    invoke-virtual {v14, v13}, Landroid/widget/TextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    goto/16 :goto_5
-
-    :cond_15
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Landroid/support/v17/leanback/widget/ImageCardView;->mBadgeImage:Landroid/widget/ImageView;
-
     invoke-virtual {v14}, Landroid/widget/ImageView;->getId()I
 
     move-result v14
@@ -517,9 +515,9 @@
 
     invoke-virtual {v13, v15, v14}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(II)V
 
-    goto :goto_7
+    goto/16 :goto_5
 
-    :cond_16
+    :cond_15
     if-eqz v10, :cond_10
 
     move-object/from16 v0, p0

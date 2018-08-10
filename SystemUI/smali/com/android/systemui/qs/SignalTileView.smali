@@ -1,5 +1,5 @@
-.class public final Lcom/android/systemui/qs/SignalTileView;
-.super Lcom/android/systemui/qs/QSIconView;
+.class public Lcom/android/systemui/qs/SignalTileView;
+.super Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;
 .source "SignalTileView.java"
 
 
@@ -10,7 +10,7 @@
 
 
 # instance fields
-.field private mIconFrame:Landroid/widget/FrameLayout;
+.field protected mIconFrame:Landroid/widget/FrameLayout;
 
 .field private mIn:Landroid/widget/ImageView;
 
@@ -18,7 +18,7 @@
 
 .field private mOverlay:Landroid/widget/ImageView;
 
-.field private mSignal:Landroid/widget/ImageView;
+.field protected mSignal:Landroid/widget/ImageView;
 
 .field private mWideOverlayIconStartPadding:I
 
@@ -51,9 +51,9 @@
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/QSIconView;-><init>(Landroid/content/Context;)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f0201da
+    const v0, 0x7f0802b9
 
     invoke-direct {p0, v0}, Lcom/android/systemui/qs/SignalTileView;->addTrafficView(I)Landroid/widget/ImageView;
 
@@ -61,7 +61,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/SignalTileView;->mIn:Landroid/widget/ImageView;
 
-    const v0, 0x7f0201dd
+    const v0, 0x7f0802bd
 
     invoke-direct {p0, v0}, Lcom/android/systemui/qs/SignalTileView;->addTrafficView(I)Landroid/widget/ImageView;
 
@@ -73,7 +73,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d02c2
+    const v1, 0x7f070716
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -107,13 +107,15 @@
 .method private layoutIndicator(Landroid/view/View;)V
     .locals 5
 
-    const/4 v0, 0x1
-
     invoke-virtual {p0}, Lcom/android/systemui/qs/SignalTileView;->getLayoutDirection()I
 
     move-result v3
 
-    if-ne v3, v0, :cond_0
+    const/4 v4, 0x1
+
+    if-ne v3, v4, :cond_0
+
+    const/4 v0, 0x1
 
     :goto_0
     if-eqz v0, :cond_1
@@ -296,7 +298,7 @@
 .method protected onLayout(ZIIII)V
     .locals 1
 
-    invoke-super/range {p0 .. p5}, Lcom/android/systemui/qs/QSIconView;->onLayout(ZIIII)V
+    invoke-super/range {p0 .. p5}, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;->onLayout(ZIIII)V
 
     iget-object v0, p0, Lcom/android/systemui/qs/SignalTileView;->mIn:Landroid/widget/ImageView;
 
@@ -312,7 +314,7 @@
 .method protected onMeasure(II)V
     .locals 4
 
-    invoke-super {p0, p1, p2}, Lcom/android/systemui/qs/QSIconView;->onMeasure(II)V
+    invoke-super {p0, p1, p2}, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;->onMeasure(II)V
 
     iget-object v2, p0, Lcom/android/systemui/qs/SignalTileView;->mIconFrame:Landroid/widget/FrameLayout;
 
@@ -349,97 +351,80 @@
     return-void
 .end method
 
-.method public setIcon(Lcom/android/systemui/qs/QSTile$State;)V
-    .locals 6
+.method public setIcon(Lcom/android/systemui/plugins/qs/QSTile$State;)V
+    .locals 5
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
-    move-object v1, p1
+    move-object v0, p1
 
-    check-cast v1, Lcom/android/systemui/qs/QSTile$SignalState;
+    check-cast v0, Lcom/android/systemui/plugins/qs/QSTile$SignalState;
 
-    iget-object v3, p0, Lcom/android/systemui/qs/SignalTileView;->mSignal:Landroid/widget/ImageView;
+    iget-object v2, p0, Lcom/android/systemui/qs/SignalTileView;->mSignal:Landroid/widget/ImageView;
 
-    invoke-virtual {p0, v3, v1}, Lcom/android/systemui/qs/SignalTileView;->setIcon(Landroid/widget/ImageView;Lcom/android/systemui/qs/QSTile$State;)V
+    invoke-virtual {p0, v2, v0}, Lcom/android/systemui/qs/SignalTileView;->setIcon(Landroid/widget/ImageView;Lcom/android/systemui/plugins/qs/QSTile$State;)V
 
-    iget v3, v1, Lcom/android/systemui/qs/QSTile$SignalState;->overlayIconId:I
+    iget v2, v0, Lcom/android/systemui/plugins/qs/QSTile$SignalState;->overlayIconId:I
 
-    if-lez v3, :cond_1
+    if-lez v2, :cond_0
 
-    iget-object v3, p0, Lcom/android/systemui/qs/SignalTileView;->mOverlay:Landroid/widget/ImageView;
+    iget-object v2, p0, Lcom/android/systemui/qs/SignalTileView;->mOverlay:Landroid/widget/ImageView;
 
-    invoke-virtual {v3, v5}, Landroid/widget/ImageView;->setVisibility(I)V
+    invoke-virtual {v2, v4}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    iget-object v3, p0, Lcom/android/systemui/qs/SignalTileView;->mOverlay:Landroid/widget/ImageView;
+    iget-object v2, p0, Lcom/android/systemui/qs/SignalTileView;->mOverlay:Landroid/widget/ImageView;
 
-    iget v4, v1, Lcom/android/systemui/qs/QSTile$SignalState;->overlayIconId:I
+    iget v3, v0, Lcom/android/systemui/plugins/qs/QSTile$SignalState;->overlayIconId:I
 
-    invoke-virtual {v3, v4}, Landroid/widget/ImageView;->setImageResource(I)V
+    invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setImageResource(I)V
 
     :goto_0
-    iget v3, v1, Lcom/android/systemui/qs/QSTile$SignalState;->overlayIconId:I
+    iget v2, v0, Lcom/android/systemui/plugins/qs/QSTile$SignalState;->overlayIconId:I
 
-    if-lez v3, :cond_2
+    if-lez v2, :cond_1
 
-    iget-boolean v3, v1, Lcom/android/systemui/qs/QSTile$SignalState;->isOverlayIconWide:Z
+    iget-boolean v2, v0, Lcom/android/systemui/plugins/qs/QSTile$SignalState;->isOverlayIconWide:Z
 
-    if-eqz v3, :cond_2
+    if-eqz v2, :cond_1
 
-    iget-object v3, p0, Lcom/android/systemui/qs/SignalTileView;->mSignal:Landroid/widget/ImageView;
+    iget-object v2, p0, Lcom/android/systemui/qs/SignalTileView;->mSignal:Landroid/widget/ImageView;
 
-    iget v4, p0, Lcom/android/systemui/qs/SignalTileView;->mWideOverlayIconStartPadding:I
+    iget v3, p0, Lcom/android/systemui/qs/SignalTileView;->mWideOverlayIconStartPadding:I
 
-    invoke-virtual {v3, v4, v5, v5, v5}, Landroid/widget/ImageView;->setPaddingRelative(IIII)V
+    invoke-virtual {v2, v3, v4, v4, v4}, Landroid/widget/ImageView;->setPaddingRelative(IIII)V
 
     :goto_1
-    iget-object v3, p0, Lcom/android/systemui/qs/SignalTileView;->mSignal:Landroid/widget/ImageView;
-
-    invoke-virtual {v3}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    iget-boolean v3, p1, Lcom/android/systemui/qs/QSTile$State;->autoMirrorDrawable:Z
-
-    if-eqz v3, :cond_0
-
-    if-eqz v0, :cond_0
-
-    const/4 v3, 0x1
-
-    invoke-virtual {v0, v3}, Landroid/graphics/drawable/Drawable;->setAutoMirrored(Z)V
-
-    :cond_0
     invoke-virtual {p0}, Lcom/android/systemui/qs/SignalTileView;->isShown()Z
 
-    move-result v2
+    move-result v1
 
-    iget-object v3, p0, Lcom/android/systemui/qs/SignalTileView;->mIn:Landroid/widget/ImageView;
+    iget-object v2, p0, Lcom/android/systemui/qs/SignalTileView;->mIn:Landroid/widget/ImageView;
 
-    iget-boolean v4, v1, Lcom/android/systemui/qs/QSTile$SignalState;->activityIn:Z
+    iget-boolean v3, v0, Lcom/android/systemui/plugins/qs/QSTile$SignalState;->activityIn:Z
 
-    invoke-direct {p0, v3, v2, v4}, Lcom/android/systemui/qs/SignalTileView;->setVisibility(Landroid/view/View;ZZ)V
+    invoke-direct {p0, v2, v1, v3}, Lcom/android/systemui/qs/SignalTileView;->setVisibility(Landroid/view/View;ZZ)V
 
-    iget-object v3, p0, Lcom/android/systemui/qs/SignalTileView;->mOut:Landroid/widget/ImageView;
+    iget-object v2, p0, Lcom/android/systemui/qs/SignalTileView;->mOut:Landroid/widget/ImageView;
 
-    iget-boolean v4, v1, Lcom/android/systemui/qs/QSTile$SignalState;->activityOut:Z
+    iget-boolean v3, v0, Lcom/android/systemui/plugins/qs/QSTile$SignalState;->activityOut:Z
 
-    invoke-direct {p0, v3, v2, v4}, Lcom/android/systemui/qs/SignalTileView;->setVisibility(Landroid/view/View;ZZ)V
+    invoke-direct {p0, v2, v1, v3}, Lcom/android/systemui/qs/SignalTileView;->setVisibility(Landroid/view/View;ZZ)V
 
     return-void
 
-    :cond_1
-    iget-object v3, p0, Lcom/android/systemui/qs/SignalTileView;->mOverlay:Landroid/widget/ImageView;
+    :cond_0
+    iget-object v2, p0, Lcom/android/systemui/qs/SignalTileView;->mOverlay:Landroid/widget/ImageView;
 
-    const/16 v4, 0x8
+    const/16 v3, 0x8
 
-    invoke-virtual {v3, v4}, Landroid/widget/ImageView;->setVisibility(I)V
+    invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setVisibility(I)V
 
     goto :goto_0
 
-    :cond_2
-    iget-object v3, p0, Lcom/android/systemui/qs/SignalTileView;->mSignal:Landroid/widget/ImageView;
+    :cond_1
+    iget-object v2, p0, Lcom/android/systemui/qs/SignalTileView;->mSignal:Landroid/widget/ImageView;
 
-    invoke-virtual {v3, v5, v5, v5, v5}, Landroid/widget/ImageView;->setPaddingRelative(IIII)V
+    invoke-virtual {v2, v4, v4, v4, v4}, Landroid/widget/ImageView;->setPaddingRelative(IIII)V
 
     goto :goto_1
 .end method

@@ -3,7 +3,7 @@
 .source "UsbDebuggingActivity.java"
 
 # interfaces
-.implements Landroid/view/View$OnTouchListener;
+.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
@@ -34,51 +34,48 @@
 
 
 # virtual methods
-.method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 4
+.method public onClick(Landroid/view/View;)V
+    .locals 3
 
-    const/4 v3, 0x1
+    iget-object v0, p0, Lcom/android/systemui/usb/UsbDebuggingActivity$1;->this$0:Lcom/android/systemui/usb/UsbDebuggingActivity;
 
-    const/4 v2, 0x0
-
-    invoke-virtual {p2}, Landroid/view/MotionEvent;->getFlags()I
-
-    move-result v0
-
-    and-int/lit8 v0, v0, 0x1
-
-    if-nez v0, :cond_0
-
-    invoke-virtual {p2}, Landroid/view/MotionEvent;->getFlags()I
-
-    move-result v0
-
-    and-int/lit8 v0, v0, 0x2
-
-    if-eqz v0, :cond_2
-
-    :cond_0
-    invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
-
-    move-result v0
-
-    if-ne v0, v3, :cond_1
-
-    invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/systemui/usb/UsbDebuggingActivity;->-get0(Lcom/android/systemui/usb/UsbDebuggingActivity;)Landroid/widget/CheckBox;
 
     move-result-object v0
 
-    const v1, 0x7f0f05c6
+    invoke-virtual {v0}, Landroid/widget/CheckBox;->toggle()V
 
-    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+    const-string/jumbo v0, "UsbDebuggingActivity"
 
-    move-result-object v0
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    :cond_1
-    return v3
+    const-string/jumbo v2, "mAlwaysAllow "
 
-    :cond_2
-    return v2
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/systemui/usb/UsbDebuggingActivity$1;->this$0:Lcom/android/systemui/usb/UsbDebuggingActivity;
+
+    invoke-static {v2}, Lcom/android/systemui/usb/UsbDebuggingActivity;->-get0(Lcom/android/systemui/usb/UsbDebuggingActivity;)Landroid/widget/CheckBox;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/widget/CheckBox;->isChecked()Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
 .end method

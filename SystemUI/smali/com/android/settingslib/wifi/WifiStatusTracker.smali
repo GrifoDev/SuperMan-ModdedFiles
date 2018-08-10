@@ -4,86 +4,80 @@
 
 
 # static fields
-.field private static final CSC_SUPPORT_WIFI_AGGREGATION:Z
+.field private static final CSC_VENDOR_NOTI_STYLE:Ljava/lang/String;
 
-.field private static DBG:Z
-
-.field private static TAG:Ljava/lang/String;
+.field private static final countryCode:Ljava/lang/String;
 
 
 # instance fields
 .field public connected:Z
 
+.field public connecting:Z
+
 .field public enabled:Z
 
 .field public level:I
 
-.field private mConnectivityManager:Landroid/net/ConnectivityManager;
-
 .field private mContext:Landroid/content/Context;
 
-.field private mIgnoreFirstStickyBroadcastForNetworkStateChanged:Z
+.field private mRegisterBySysUI:Z
 
-.field private mShowConnectedToast:Z
-
-.field private mSystemManager:Lcom/samsung/android/knox/custom/SystemManager;
+.field private mShownDataWarningDialog:Z
 
 .field private final mWifiManager:Landroid/net/wifi/WifiManager;
 
-.field private prevConnected:Z
+.field public networkKey:Landroid/net/NetworkKey;
 
 .field public rssi:I
 
-.field private setWifiActiveNetwork:Z
-
 .field public ssid:Ljava/lang/String;
+
+.field public state:I
 
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 2
 
-    const-string/jumbo v0, "WifiStatusTracker"
+    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
-    sput-object v0, Lcom/android/settingslib/wifi/WifiStatusTracker;->TAG:Ljava/lang/String;
+    move-result-object v0
 
-    invoke-static {}, Landroid/os/Debug;->semIsProductDev()Z
+    const-string/jumbo v1, "Country"
 
-    move-result v0
+    invoke-virtual {v0, v1}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    sput-boolean v0, Lcom/android/settingslib/wifi/WifiStatusTracker;->DBG:Z
+    move-result-object v0
+
+    sput-object v0, Lcom/android/settingslib/wifi/WifiStatusTracker;->countryCode:Ljava/lang/String;
 
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
     move-result-object v0
 
-    const-string/jumbo v1, "CscFeature_Wifi_SupportWifiAggregation"
+    const-string/jumbo v1, "CscFeature_Wifi_ConfigWifiNotificationStyle"
 
-    invoke-virtual {v0, v1}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
+    invoke-virtual {v0, v1}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result v0
+    move-result-object v0
 
-    sput-boolean v0, Lcom/android/settingslib/wifi/WifiStatusTracker;->CSC_SUPPORT_WIFI_AGGREGATION:Z
+    sput-object v0, Lcom/android/settingslib/wifi/WifiStatusTracker;->CSC_VENDOR_NOTI_STYLE:Ljava/lang/String;
 
     return-void
 .end method
 
-.method public constructor <init>(Landroid/net/wifi/WifiManager;)V
+.method public constructor <init>(Landroid/net/wifi/WifiManager;Landroid/content/Context;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mWifiManager:Landroid/net/wifi/WifiManager;
 
-    const/4 v0, 0x1
+    iput-object p2, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mContext:Landroid/content/Context;
 
-    iput-boolean v0, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mIgnoreFirstStickyBroadcastForNetworkStateChanged:Z
+    const/4 v0, 0x0
 
-    invoke-static {}, Lcom/samsung/android/knox/custom/SystemManager;->getInstance()Lcom/samsung/android/knox/custom/SystemManager;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mSystemManager:Lcom/samsung/android/knox/custom/SystemManager;
+    iput-boolean v0, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mRegisterBySysUI:Z
 
     return-void
 .end method
@@ -150,256 +144,397 @@
     return-object v6
 .end method
 
-.method private showConnectedToast(Ljava/lang/String;)V
-    .locals 11
+.method private isSIMCardReady()Z
+    .locals 8
 
-    const/4 v10, 0x1
+    const/4 v7, 0x1
 
-    const/4 v9, 0x0
+    const/4 v1, 0x0
 
-    if-nez p1, :cond_0
+    iget-object v5, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mContext:Landroid/content/Context;
 
-    sget-object v6, Lcom/android/settingslib/wifi/WifiStatusTracker;->TAG:Ljava/lang/String;
+    const-string/jumbo v6, "phone"
 
-    const-string/jumbo v7, "Failed to show Wi-Fi connected toast. Ssid is null"
+    invoke-virtual {v5, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/telephony/TelephonyManager;
+
+    if-eqz v4, :cond_1
+
+    invoke-virtual {v4}, Landroid/telephony/TelephonyManager;->getPhoneCount()I
+
+    move-result v5
+
+    if-le v5, v7, :cond_2
+
+    const/4 v0, 0x1
+
+    :goto_0
+    if-eqz v0, :cond_3
+
+    const-string/jumbo v5, "gsm.sim.state"
+
+    const-string/jumbo v6, "-1,-1"
+
+    invoke-static {v5, v6}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string/jumbo v5, ","
+
+    invoke-virtual {v2, v5}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string/jumbo v5, "READY"
+
+    const/4 v6, 0x0
+
+    aget-object v6, v3, v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_0
+
+    array-length v5, v3
+
+    if-le v5, v7, :cond_1
+
+    const-string/jumbo v5, "READY"
+
+    aget-object v6, v3, v7
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    :cond_0
+    const/4 v1, 0x1
+
+    :cond_1
+    :goto_1
+    return v1
+
+    :cond_2
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    :cond_3
+    invoke-virtual {v4}, Landroid/telephony/TelephonyManager;->getSimState()I
+
+    move-result v5
+
+    const/4 v6, 0x5
+
+    if-ne v6, v5, :cond_4
+
+    const/4 v1, 0x1
+
+    goto :goto_1
+
+    :cond_4
+    const/4 v1, 0x0
+
+    goto :goto_1
+.end method
+
+.method private showCHNDataChargeWarning()V
+    .locals 9
+
+    const/4 v8, 0x0
+
+    const/4 v2, 0x0
+
+    iget-object v6, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mContext:Landroid/content/Context;
+
+    if-eqz v6, :cond_0
+
+    iget-object v6, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v6}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v6
+
+    const-string/jumbo v7, "airplane_mode_on"
+
+    invoke-static {v6, v7, v8}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v6
+
+    const/4 v7, 0x1
+
+    if-ne v6, v7, :cond_1
+
+    const/4 v2, 0x1
+
+    :goto_0
+    iget-object v6, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v7, "phone"
+
+    invoke-virtual {v6, v7}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/telephony/TelephonyManager;
+
+    if-nez v2, :cond_0
+
+    invoke-direct {p0}, Lcom/android/settingslib/wifi/WifiStatusTracker;->isSIMCardReady()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_0
+
+    if-eqz v4, :cond_0
+
+    invoke-virtual {v4}, Landroid/telephony/TelephonyManager;->semGetDataEnabled()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_0
+
+    const-string/jumbo v6, "CMCC"
+
+    sget-object v7, Lcom/android/settingslib/wifi/WifiStatusTracker;->CSC_VENDOR_NOTI_STYLE:Ljava/lang/String;
+
+    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_2
+
+    :try_start_0
+    new-instance v0, Landroid/content/Intent;
+
+    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
+
+    const-string/jumbo v6, "com.android.settings"
+
+    const-string/jumbo v7, "com.samsung.android.settings.wifi.WifiConnectionHandlerActivity"
+
+    invoke-virtual {v0, v6, v7}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const/high16 v6, 0x10000000
+
+    invoke-virtual {v0, v6}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
+    const/high16 v6, 0x2000000
+
+    invoke-virtual {v0, v6}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
+    iget-object v6, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v6, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+    :try_end_0
+    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_0
+    :goto_1
+    return-void
+
+    :cond_1
+    const/4 v2, 0x0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v1
+
+    const-string/jumbo v6, "WifiStatusTracker"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "can\'t start picker activity:"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v1}, Ljava/lang/IllegalStateException;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
 
     invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    return-void
-
-    :cond_0
-    sget-boolean v6, Lcom/android/settingslib/wifi/WifiStatusTracker;->CSC_SUPPORT_WIFI_AGGREGATION:Z
-
-    if-eqz v6, :cond_2
-
-    const-string/jumbo v6, "VerizonWiFi"
-
-    invoke-virtual {v6, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_2
-
-    sget-boolean v6, Lcom/android/settingslib/wifi/WifiStatusTracker;->DBG:Z
-
-    if-eqz v6, :cond_1
-
-    sget-object v6, Lcom/android/settingslib/wifi/WifiStatusTracker;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v7, "Failed to show Wi-Fi connected toast. It\'s aggregation ap"
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1
-    return-void
+    goto :goto_1
 
     :cond_2
-    iget-object v6, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mSystemManager:Lcom/samsung/android/knox/custom/SystemManager;
-
-    if-eqz v6, :cond_3
-
-    iget-object v6, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mSystemManager:Lcom/samsung/android/knox/custom/SystemManager;
-
-    invoke-virtual {v6}, Lcom/samsung/android/knox/custom/SystemManager;->getWifiConnectedMessageState()Z
-
-    move-result v6
-
-    if-nez v6, :cond_3
-
-    sget-object v6, Lcom/android/settingslib/wifi/WifiStatusTracker;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v7, "Knox Customization: suppressing Wifi connected toast"
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_3
     iget-object v6, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mContext:Landroid/content/Context;
 
     invoke-virtual {v6}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
+    move-result-object v6
+
+    sget v7, Lcom/android/settingslib/R$string;->noti_toast_wifi_is_not_available:I
+
+    invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
     move-result-object v3
 
-    sget v6, Lcom/android/settingslib/R$color;->wifi_connected_toast:I
+    const-string/jumbo v6, "ro.build.scafe.cream"
 
-    invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-static {v6}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v6
 
-    const-string/jumbo v7, "#ff"
+    const-string/jumbo v7, "white"
 
-    const-string/jumbo v8, "#"
-
-    invoke-virtual {v6, v7, v8}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string/jumbo v6, "#DEAD00"
-
-    invoke-virtual {v6, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v7}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_3
 
-    sget v6, Lcom/android/settingslib/R$string;->wifi_setup_title_connected_network:I
-
-    new-array v7, v10, [Ljava/lang/Object;
-
-    aput-object p1, v7, v9
-
-    invoke-virtual {v3, v6, v7}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
+    new-instance v5, Landroid/view/ContextThemeWrapper;
 
     iget-object v6, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mContext:Landroid/content/Context;
 
-    invoke-static {v6, v1, v9}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    invoke-virtual {v6}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v6
+
+    const v7, 0x103012b
+
+    invoke-direct {v5, v6, v7}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
+
+    invoke-static {v5, v3, v8}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
     move-result-object v6
 
     invoke-virtual {v6}, Landroid/widget/Toast;->show()V
 
-    :goto_0
-    return-void
+    goto :goto_1
 
-    :cond_4
-    :try_start_0
-    sget v6, Lcom/android/settingslib/R$string;->wifi_setup_title_connected_network:I
-
-    const/4 v7, 0x1
-
-    new-array v7, v7, [Ljava/lang/Object;
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "<font color="
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string/jumbo v9, ">"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-static {p1}, Landroid/text/Html;->escapeHtml(Ljava/lang/CharSequence;)Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string/jumbo v9, "</font>"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    const/4 v9, 0x0
-
-    aput-object v8, v7, v9
-
-    invoke-virtual {v3, v6, v7}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
+    :cond_3
+    new-instance v5, Landroid/view/ContextThemeWrapper;
 
     iget-object v6, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mContext:Landroid/content/Context;
 
-    invoke-static {v1}, Landroid/text/Html;->fromHtml(Ljava/lang/String;)Landroid/text/Spanned;
-
-    move-result-object v7
-
-    const/4 v8, 0x0
-
-    invoke-static {v6, v7, v8}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Landroid/widget/Toast;->getView()Landroid/view/View;
+    invoke-virtual {v6}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v6
 
-    const v7, 0x102000b
+    const v7, 0x1030128
 
-    invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-direct {v5, v6, v7}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
-    move-result-object v5
+    invoke-static {v5, v3, v8}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
-    check-cast v5, Landroid/widget/TextView;
+    move-result-object v6
 
-    const/16 v6, 0x11
+    invoke-virtual {v6}, Landroid/widget/Toast;->show()V
 
-    invoke-virtual {v5, v6}, Landroid/widget/TextView;->setGravity(I)V
+    goto :goto_1
+.end method
 
-    invoke-virtual {v4}, Landroid/widget/Toast;->show()V
+.method private showCMCCChargeWarningDialog()V
+    .locals 5
+
+    const-string/jumbo v2, "WifiStatusTracker"
+
+    const-string/jumbo v3, "CMCC are included at the name of AP "
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v1, Landroid/content/Intent;
+
+    invoke-direct {v1}, Landroid/content/Intent;-><init>()V
+
+    const-string/jumbo v2, "com.android.settings"
+
+    const-string/jumbo v3, "com.samsung.android.settings.wifi.CMCCChargeWarningDialog"
+
+    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const/high16 v2, 0x14800000
+
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+
+    const-string/jumbo v2, "dialog_type"
+
+    const-string/jumbo v3, "cmcc_ap_enable_warning"
+
+    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mContext:Landroid/content/Context;
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
     :try_end_0
-    .catch Ljava/util/UnknownFormatConversionException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    :cond_0
+    :goto_0
+    return-void
 
     :catch_0
-    move-exception v2
+    move-exception v0
 
-    sget-object v6, Lcom/android/settingslib/wifi/WifiStatusTracker;->TAG:Ljava/lang/String;
+    const-string/jumbo v2, "WifiStatusTracker"
 
-    invoke-virtual {v2}, Ljava/util/UnknownFormatConversionException;->toString()Ljava/lang/String;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v4, "can\'t start picker activity:"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v0}, Ljava/lang/IllegalStateException;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method
 
 
 # virtual methods
-.method public enableToShowConnectedToast(Landroid/content/Context;)V
-    .locals 2
-
-    iput-object p1, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mContext:Landroid/content/Context;
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mShowConnectedToast:Z
-
-    iget-object v0, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v1, "connectivity"
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/net/ConnectivityManager;
-
-    iput-object v0, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mConnectivityManager:Landroid/net/ConnectivityManager;
-
-    return-void
-.end method
-
 .method public handleBroadcast(Landroid/content/Intent;)V
-    .locals 7
+    .locals 11
 
-    const/4 v3, 0x1
+    const/4 v10, 0x4
 
-    const/4 v4, 0x0
+    const/4 v9, 0x3
 
-    const/4 v6, 0x0
+    const/4 v6, 0x1
+
+    const/4 v7, 0x0
+
+    const/4 v8, 0x0
 
     invoke-virtual {p1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -411,292 +546,320 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_3
 
     const-string/jumbo v5, "wifi_state"
 
-    const/4 v6, 0x4
-
-    invoke-virtual {p1, v5, v6}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p1, v5, v10}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v5
 
-    const/4 v6, 0x3
+    iput v5, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->state:I
 
-    if-ne v5, v6, :cond_1
+    iget v5, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->state:I
+
+    if-ne v5, v9, :cond_1
+
+    move v5, v6
 
     :goto_0
-    iput-boolean v3, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->enabled:Z
+    iput-boolean v5, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->enabled:Z
+
+    const-string/jumbo v5, "wifi_state"
+
+    invoke-virtual {p1, v5, v10}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v5
+
+    if-ne v5, v9, :cond_2
+
+    :goto_1
+    iput-boolean v6, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->enabled:Z
 
     :cond_0
-    :goto_1
+    :goto_2
     return-void
 
     :cond_1
-    move v3, v4
+    move v5, v7
 
     goto :goto_0
 
     :cond_2
+    move v6, v7
+
+    goto :goto_1
+
+    :cond_3
     const-string/jumbo v5, "android.net.wifi.STATE_CHANGE"
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_b
 
-    const-string/jumbo v3, "networkInfo"
+    iget-boolean v5, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mRegisterBySysUI:Z
 
-    invoke-virtual {p1, v3}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+    if-eqz v5, :cond_0
 
-    move-result-object v2
+    const-string/jumbo v5, "networkInfo"
 
-    check-cast v2, Landroid/net/NetworkInfo;
+    invoke-virtual {p1, v5}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
 
-    if-eqz v2, :cond_3
+    move-result-object v4
 
-    invoke-virtual {v2}, Landroid/net/NetworkInfo;->isConnected()Z
+    check-cast v4, Landroid/net/NetworkInfo;
 
-    move-result v4
+    if-eqz v4, :cond_6
 
-    :cond_3
-    iput-boolean v4, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->connected:Z
+    invoke-virtual {v4}, Landroid/net/NetworkInfo;->isConnected()Z
 
-    iget-boolean v3, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->connected:Z
+    move-result v5
 
-    if-eqz v3, :cond_6
+    xor-int/lit8 v5, v5, 0x1
 
-    const-string/jumbo v3, "wifiInfo"
+    if-eqz v5, :cond_6
 
-    invoke-virtual {p1, v3}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+    invoke-virtual {v4}, Landroid/net/NetworkInfo;->isConnectedOrConnecting()Z
 
-    move-result-object v3
+    move-result v5
 
-    if-eqz v3, :cond_4
+    :goto_3
+    iput-boolean v5, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->connecting:Z
 
-    const-string/jumbo v3, "wifiInfo"
+    if-eqz v4, :cond_7
 
-    invoke-virtual {p1, v3}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+    invoke-virtual {v4}, Landroid/net/NetworkInfo;->isConnected()Z
+
+    move-result v5
+
+    :goto_4
+    iput-boolean v5, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->connected:Z
+
+    const-string/jumbo v5, "wifiInfo"
+
+    invoke-virtual {p1, v5}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+
+    move-result-object v5
+
+    if-eqz v5, :cond_8
+
+    const-string/jumbo v5, "wifiInfo"
+
+    invoke-virtual {p1, v5}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
 
     move-result-object v3
 
     check-cast v3, Landroid/net/wifi/WifiInfo;
 
-    move-object v1, v3
+    :goto_5
+    iget-boolean v5, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->connected:Z
 
-    :goto_2
-    if-eqz v1, :cond_5
+    if-eqz v5, :cond_a
 
-    invoke-direct {p0, v1}, Lcom/android/settingslib/wifi/WifiStatusTracker;->getSsid(Landroid/net/wifi/WifiInfo;)Ljava/lang/String;
+    if-eqz v3, :cond_a
 
-    move-result-object v3
+    invoke-direct {p0, v3}, Lcom/android/settingslib/wifi/WifiStatusTracker;->getSsid(Landroid/net/wifi/WifiInfo;)Ljava/lang/String;
 
-    iput-object v3, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->ssid:Ljava/lang/String;
+    move-result-object v5
 
-    goto :goto_1
+    iput-object v5, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->ssid:Ljava/lang/String;
 
-    :cond_4
-    iget-object v3, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    invoke-virtual {v3}, Landroid/net/wifi/WifiManager;->getConnectionInfo()Landroid/net/wifi/WifiInfo;
+    invoke-virtual {v3}, Landroid/net/wifi/WifiInfo;->getBSSID()Ljava/lang/String;
 
     move-result-object v1
 
-    goto :goto_2
+    iput-boolean v7, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mShownDataWarningDialog:Z
+
+    iget-object v5, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->ssid:Ljava/lang/String;
+
+    if-eqz v5, :cond_9
+
+    if-eqz v1, :cond_9
+
+    iget-object v5, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->networkKey:Landroid/net/NetworkKey;
+
+    if-eqz v5, :cond_4
+
+    iget-object v5, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->networkKey:Landroid/net/NetworkKey;
+
+    iget-object v5, v5, Landroid/net/NetworkKey;->wifiKey:Landroid/net/WifiKey;
+
+    iget-object v5, v5, Landroid/net/WifiKey;->ssid:Ljava/lang/String;
+
+    iget-object v6, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->ssid:Ljava/lang/String;
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    xor-int/lit8 v5, v5, 0x1
+
+    if-nez v5, :cond_4
+
+    iget-object v5, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->networkKey:Landroid/net/NetworkKey;
+
+    iget-object v5, v5, Landroid/net/NetworkKey;->wifiKey:Landroid/net/WifiKey;
+
+    iget-object v5, v5, Landroid/net/WifiKey;->bssid:Ljava/lang/String;
+
+    invoke-virtual {v5, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    xor-int/lit8 v5, v5, 0x1
+
+    if-eqz v5, :cond_5
+
+    :cond_4
+    :try_start_0
+    new-instance v5, Landroid/net/NetworkKey;
+
+    new-instance v6, Landroid/net/WifiKey;
+
+    iget-object v7, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->ssid:Ljava/lang/String;
+
+    invoke-direct {v6, v7, v1}, Landroid/net/WifiKey;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-direct {v5, v6}, Landroid/net/NetworkKey;-><init>(Landroid/net/WifiKey;)V
+
+    iput-object v5, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->networkKey:Landroid/net/NetworkKey;
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_5
-    iput-object v6, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->ssid:Ljava/lang/String;
+    :goto_6
+    iget-object v5, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->ssid:Ljava/lang/String;
 
-    goto :goto_1
+    if-eqz v5, :cond_0
+
+    iget-object v5, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->ssid:Ljava/lang/String;
+
+    const-string/jumbo v6, "CMCC"
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    const-string/jumbo v5, "CMCC"
+
+    sget-object v6, Lcom/android/settingslib/wifi/WifiStatusTracker;->CSC_VENDOR_NOTI_STYLE:Ljava/lang/String;
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    invoke-direct {p0}, Lcom/android/settingslib/wifi/WifiStatusTracker;->showCMCCChargeWarningDialog()V
+
+    goto/16 :goto_2
 
     :cond_6
-    iget-boolean v3, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->connected:Z
+    move v5, v7
 
-    if-nez v3, :cond_0
-
-    iput-object v6, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->ssid:Ljava/lang/String;
-
-    goto :goto_1
+    goto/16 :goto_3
 
     :cond_7
-    const-string/jumbo v5, "android.net.conn.CONNECTIVITY_CHANGE"
+    move v5, v7
+
+    goto :goto_4
+
+    :cond_8
+    iget-object v5, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mWifiManager:Landroid/net/wifi/WifiManager;
+
+    invoke-virtual {v5}, Landroid/net/wifi/WifiManager;->getConnectionInfo()Landroid/net/wifi/WifiInfo;
+
+    move-result-object v3
+
+    goto :goto_5
+
+    :catch_0
+    move-exception v2
+
+    const-string/jumbo v5, "WifiStatusTracker"
+
+    const-string/jumbo v6, "Cannot create NetworkKey"
+
+    invoke-static {v5, v6, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_6
+
+    :cond_9
+    iput-object v8, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->networkKey:Landroid/net/NetworkKey;
+
+    goto :goto_6
+
+    :cond_a
+    iput-object v8, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->ssid:Ljava/lang/String;
+
+    iput-object v8, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->networkKey:Landroid/net/NetworkKey;
+
+    iget-boolean v5, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->connecting:Z
+
+    if-nez v5, :cond_0
+
+    const-string/jumbo v5, "CHINA"
+
+    sget-object v7, Lcom/android/settingslib/wifi/WifiStatusTracker;->countryCode:Ljava/lang/String;
+
+    invoke-virtual {v5, v7}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    iget-boolean v5, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mShownDataWarningDialog:Z
+
+    xor-int/lit8 v5, v5, 0x1
+
+    if-eqz v5, :cond_0
+
+    invoke-direct {p0}, Lcom/android/settingslib/wifi/WifiStatusTracker;->showCHNDataChargeWarning()V
+
+    iput-boolean v6, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mShownDataWarningDialog:Z
+
+    goto/16 :goto_2
+
+    :cond_b
+    const-string/jumbo v5, "android.net.wifi.RSSI_CHANGED"
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_12
+    if-eqz v5, :cond_0
 
-    iget-object v5, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mConnectivityManager:Landroid/net/ConnectivityManager;
+    const-string/jumbo v5, "newRssi"
 
-    if-nez v5, :cond_8
+    const/16 v6, -0xc8
 
-    return-void
-
-    :cond_8
-    iget-object v5, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mConnectivityManager:Landroid/net/ConnectivityManager;
-
-    invoke-virtual {v5}, Landroid/net/ConnectivityManager;->getActiveNetworkInfo()Landroid/net/NetworkInfo;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_d
-
-    invoke-virtual {v2}, Landroid/net/NetworkInfo;->getType()I
+    invoke-virtual {p1, v5, v6}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v5
 
-    if-ne v5, v3, :cond_d
+    iput v5, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->rssi:I
 
-    iput-boolean v3, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->setWifiActiveNetwork:Z
+    iget v5, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->rssi:I
 
-    :goto_3
-    iget-boolean v3, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->setWifiActiveNetwork:Z
+    const/4 v6, 0x5
 
-    if-eqz v3, :cond_f
+    invoke-static {v5, v6}, Landroid/net/wifi/WifiManager;->calculateSignalLevel(II)I
 
-    iget-object v3, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mWifiManager:Landroid/net/wifi/WifiManager;
+    move-result v5
 
-    invoke-virtual {v3}, Landroid/net/wifi/WifiManager;->getConnectionInfo()Landroid/net/wifi/WifiInfo;
+    iput v5, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->level:I
 
-    move-result-object v1
+    goto/16 :goto_2
+.end method
 
-    if-eqz v1, :cond_e
+.method public registerbySystemUI(Z)V
+    .locals 0
 
-    invoke-direct {p0, v1}, Lcom/android/settingslib/wifi/WifiStatusTracker;->getSsid(Landroid/net/wifi/WifiInfo;)Ljava/lang/String;
+    iput-boolean p1, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mRegisterBySysUI:Z
 
-    move-result-object v3
-
-    iput-object v3, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->ssid:Ljava/lang/String;
-
-    iget-object v3, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->ssid:Ljava/lang/String;
-
-    if-eqz v3, :cond_9
-
-    const-string/jumbo v3, "<unknown ssid>"
-
-    iget-object v5, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->ssid:Ljava/lang/String;
-
-    invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_a
-
-    :cond_9
-    iput-boolean v4, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->setWifiActiveNetwork:Z
-
-    :cond_a
-    :goto_4
-    iget-boolean v3, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mIgnoreFirstStickyBroadcastForNetworkStateChanged:Z
-
-    if-eqz v3, :cond_10
-
-    iget-boolean v3, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->setWifiActiveNetwork:Z
-
-    if-eqz v3, :cond_b
-
-    sget-object v3, Lcom/android/settingslib/wifi/WifiStatusTracker;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v5, "Current process is restarted. Ignore to show Wi-Fi connected toast"
-
-    invoke-static {v3, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_b
-    iput-boolean v4, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mIgnoreFirstStickyBroadcastForNetworkStateChanged:Z
-
-    :cond_c
-    :goto_5
-    iget-boolean v3, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->setWifiActiveNetwork:Z
-
-    iput-boolean v3, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->prevConnected:Z
-
-    goto/16 :goto_1
-
-    :cond_d
-    iput-boolean v4, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->setWifiActiveNetwork:Z
-
-    goto :goto_3
-
-    :cond_e
-    iput-object v6, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->ssid:Ljava/lang/String;
-
-    goto :goto_4
-
-    :cond_f
-    iget-boolean v3, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->setWifiActiveNetwork:Z
-
-    if-nez v3, :cond_a
-
-    iput-object v6, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->ssid:Ljava/lang/String;
-
-    goto :goto_4
-
-    :cond_10
-    iget-boolean v3, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->prevConnected:Z
-
-    if-eqz v3, :cond_11
-
-    iget-boolean v3, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->setWifiActiveNetwork:Z
-
-    if-eqz v3, :cond_11
-
-    sget-boolean v3, Lcom/android/settingslib/wifi/WifiStatusTracker;->DBG:Z
-
-    if-eqz v3, :cond_c
-
-    sget-object v3, Lcom/android/settingslib/wifi/WifiStatusTracker;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v4, "already to show connected toast"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_5
-
-    :cond_11
-    iget-boolean v3, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->setWifiActiveNetwork:Z
-
-    if-eqz v3, :cond_c
-
-    iget-boolean v3, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mShowConnectedToast:Z
-
-    if-eqz v3, :cond_c
-
-    iget-object v3, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->ssid:Ljava/lang/String;
-
-    invoke-direct {p0, v3}, Lcom/android/settingslib/wifi/WifiStatusTracker;->showConnectedToast(Ljava/lang/String;)V
-
-    goto :goto_5
-
-    :cond_12
-    const-string/jumbo v3, "android.net.wifi.RSSI_CHANGED"
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const-string/jumbo v3, "newRssi"
-
-    const/16 v4, -0xc8
-
-    invoke-virtual {p1, v3, v4}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
-
-    move-result v3
-
-    iput v3, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->rssi:I
-
-    iget v3, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->rssi:I
-
-    const/4 v4, 0x5
-
-    invoke-static {v3, v4}, Landroid/net/wifi/WifiManager;->calculateSignalLevel(II)I
-
-    move-result v3
-
-    iput v3, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->level:I
-
-    goto/16 :goto_1
+    return-void
 .end method

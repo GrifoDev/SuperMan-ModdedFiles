@@ -1,5 +1,5 @@
 .class public Lcom/android/keyguard/KeyguardMessageArea;
-.super Lcom/android/keyguard/KeyguardTextView;
+.super Lcom/android/systemui/widget/SystemUITextView;
 .source "KeyguardMessageArea.java"
 
 # interfaces
@@ -11,7 +11,8 @@
     value = {
         Lcom/android/keyguard/KeyguardMessageArea$1;,
         Lcom/android/keyguard/KeyguardMessageArea$2;,
-        Lcom/android/keyguard/KeyguardMessageArea$AnnounceRunnable;
+        Lcom/android/keyguard/KeyguardMessageArea$AnnounceRunnable;,
+        Lcom/android/keyguard/KeyguardMessageArea$BounceInterpolator;
     }
 .end annotation
 
@@ -21,9 +22,13 @@
 
 
 # instance fields
-.field private mBounceInterpolator:Landroid/view/animation/Interpolator;
+.field private mBounceInterpolator:Lcom/android/keyguard/KeyguardMessageArea$BounceInterpolator;
+
+.field private mBouncerShowing:Z
 
 .field private final mClearMessageRunnable:Ljava/lang/Runnable;
+
+.field private mCurrentOrientation:I
 
 .field private final mDefaultColor:I
 
@@ -33,25 +38,71 @@
 
 .field private mInfoCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 
-.field mMessage:Ljava/lang/CharSequence;
+.field private mMessage:Ljava/lang/CharSequence;
 
 .field private mNextMessageColor:I
 
-.field mTimeout:J
-
-.field private final mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+.field private mTimeout:J
 
 
 # direct methods
-.method static synthetic -get0(Lcom/android/keyguard/KeyguardMessageArea;)Landroid/view/animation/Interpolator;
+.method static synthetic -get0(Lcom/android/keyguard/KeyguardMessageArea;)Lcom/android/keyguard/KeyguardMessageArea$BounceInterpolator;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardMessageArea;->mBounceInterpolator:Landroid/view/animation/Interpolator;
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardMessageArea;->mBounceInterpolator:Lcom/android/keyguard/KeyguardMessageArea$BounceInterpolator;
 
     return-object v0
 .end method
 
+.method static synthetic -get1(Lcom/android/keyguard/KeyguardMessageArea;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/keyguard/KeyguardMessageArea;->mBouncerShowing:Z
+
+    return v0
+.end method
+
+.method static synthetic -get2(Lcom/android/keyguard/KeyguardMessageArea;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/keyguard/KeyguardMessageArea;->mCurrentOrientation:I
+
+    return v0
+.end method
+
+.method static synthetic -set0(Lcom/android/keyguard/KeyguardMessageArea;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/keyguard/KeyguardMessageArea;->mBouncerShowing:Z
+
+    return p1
+.end method
+
+.method static synthetic -set1(Lcom/android/keyguard/KeyguardMessageArea;I)I
+    .locals 0
+
+    iput p1, p0, Lcom/android/keyguard/KeyguardMessageArea;->mCurrentOrientation:I
+
+    return p1
+.end method
+
+.method static synthetic -set2(Lcom/android/keyguard/KeyguardMessageArea;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/keyguard/KeyguardMessageArea;->mMessage:Ljava/lang/CharSequence;
+
+    return-object p1
+.end method
+
 .method static synthetic -wrap0(Lcom/android/keyguard/KeyguardMessageArea;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/keyguard/KeyguardMessageArea;->updateLayout()V
+
+    return-void
+.end method
+
+.method static synthetic -wrap1(Lcom/android/keyguard/KeyguardMessageArea;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/keyguard/KeyguardMessageArea;->update()V
@@ -82,23 +133,41 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 2
+    .locals 1
 
-    invoke-direct {p0, p1, p2}, Lcom/android/keyguard/KeyguardTextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+    invoke-static {p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    move-result-object v0
+
+    invoke-direct {p0, p1, p2, v0}, Lcom/android/keyguard/KeyguardMessageArea;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+    .locals 3
+
+    const/4 v2, -0x1
+
+    invoke-direct {p0, p1, p2}, Lcom/android/systemui/widget/SystemUITextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+
+    iput v2, p0, Lcom/android/keyguard/KeyguardMessageArea;->mNextMessageColor:I
 
     const-wide/16 v0, 0x1388
 
     iput-wide v0, p0, Lcom/android/keyguard/KeyguardMessageArea;->mTimeout:J
-
-    const/4 v0, -0x1
-
-    iput v0, p0, Lcom/android/keyguard/KeyguardMessageArea;->mNextMessageColor:I
 
     new-instance v0, Lcom/android/keyguard/KeyguardMessageArea$1;
 
     invoke-direct {v0, p0}, Lcom/android/keyguard/KeyguardMessageArea$1;-><init>(Lcom/android/keyguard/KeyguardMessageArea;)V
 
     iput-object v0, p0, Lcom/android/keyguard/KeyguardMessageArea;->mClearMessageRunnable:Ljava/lang/Runnable;
+
+    iput v2, p0, Lcom/android/keyguard/KeyguardMessageArea;->mCurrentOrientation:I
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/keyguard/KeyguardMessageArea;->mBouncerShowing:Z
 
     new-instance v0, Lcom/android/keyguard/KeyguardMessageArea$2;
 
@@ -112,21 +181,9 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/android/keyguard/KeyguardMessageArea;->setLayerType(ILandroid/graphics/Paint;)V
 
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardMessageArea;->getContext()Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardMessageArea;->mInfoCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/keyguard/KeyguardMessageArea;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardMessageArea;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardMessageArea;->mInfoCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
-
-    invoke-virtual {v0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->registerCallback(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;)V
+    invoke-virtual {p3, v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->registerCallback(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;)V
 
     new-instance v0, Landroid/os/Handler;
 
@@ -156,11 +213,11 @@
 
     iput-object v0, p0, Lcom/android/keyguard/KeyguardMessageArea;->mFastOutSlowInInterpolator:Landroid/view/animation/Interpolator;
 
-    new-instance v0, Lcom/android/keyguard/swipe/BounceInterpolator;
+    new-instance v0, Lcom/android/keyguard/KeyguardMessageArea$BounceInterpolator;
 
-    invoke-direct {v0}, Lcom/android/keyguard/swipe/BounceInterpolator;-><init>()V
+    invoke-direct {v0}, Lcom/android/keyguard/KeyguardMessageArea$BounceInterpolator;-><init>()V
 
-    iput-object v0, p0, Lcom/android/keyguard/KeyguardMessageArea;->mBounceInterpolator:Landroid/view/animation/Interpolator;
+    iput-object v0, p0, Lcom/android/keyguard/KeyguardMessageArea;->mBounceInterpolator:Lcom/android/keyguard/KeyguardMessageArea$BounceInterpolator;
 
     invoke-direct {p0}, Lcom/android/keyguard/KeyguardMessageArea;->update()V
 
@@ -168,19 +225,13 @@
 .end method
 
 .method private clearMessage()V
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardMessageArea;->mHandler:Landroid/os/Handler;
+    const/4 v0, 0x0
 
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardMessageArea;->mClearMessageRunnable:Ljava/lang/Runnable;
+    iput-object v0, p0, Lcom/android/keyguard/KeyguardMessageArea;->mMessage:Ljava/lang/CharSequence;
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardMessageArea;->mHandler:Landroid/os/Handler;
-
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardMessageArea;->mClearMessageRunnable:Ljava/lang/Runnable;
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-direct {p0}, Lcom/android/keyguard/KeyguardMessageArea;->update()V
 
     return-void
 .end method
@@ -188,7 +239,7 @@
 .method public static findSecurityMessageDisplay(Landroid/view/View;)Lcom/android/keyguard/SecurityMessageDisplay;
     .locals 4
 
-    sget v1, Lcom/android/keyguard/R$id;->keyguard_message_area:I
+    const v1, 0x7f0a0285
 
     invoke-virtual {p0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -266,6 +317,10 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
 
+    iget-boolean v0, p0, Lcom/android/keyguard/KeyguardMessageArea;->mBouncerShowing:Z
+
+    if-eqz v0, :cond_1
+
     iget-object v0, p0, Lcom/android/keyguard/KeyguardMessageArea;->mHandler:Landroid/os/Handler;
 
     new-instance v1, Lcom/android/keyguard/KeyguardMessageArea$AnnounceRunnable;
@@ -288,41 +343,41 @@
 
     invoke-virtual {v0, v1, v2, v4, v5}, Landroid/os/Handler;->postAtTime(Ljava/lang/Runnable;Ljava/lang/Object;J)Z
 
+    :cond_1
     return-void
 .end method
 
 .method private update()V
-    .locals 4
-
-    const/4 v2, 0x0
+    .locals 3
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardMessageArea;->mMessage:Ljava/lang/CharSequence;
 
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_0
+    xor-int/lit8 v0, v2, 0x1
 
-    move v0, v2
+    if-eqz v0, :cond_0
+
+    const-class v2, Lcom/android/systemui/KnoxStateMonitor;
+
+    invoke-static {v2}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/KnoxStateMonitor;
+
+    invoke-virtual {v2}, Lcom/android/systemui/KnoxStateMonitor;->isLockscreenHelpTextEnabled()Z
+
+    move-result v0
 
     :goto_0
     if-eqz v0, :cond_1
 
-    sget-object v3, Lcom/android/keyguard/KeyguardMessageArea;->mContext:Landroid/content/Context;
-
-    invoke-static {v3}, Lcom/android/keyguard/KnoxStateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KnoxStateMonitor;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/android/keyguard/KnoxStateMonitor;->isLockscreenHelpTextEnabled()Z
-
-    move-result v0
+    const/4 v2, 0x0
 
     :goto_1
-    if-eqz v0, :cond_2
-
-    :goto_2
     invoke-virtual {p0, v2}, Lcom/android/keyguard/KeyguardMessageArea;->setVisibility(I)V
 
     invoke-virtual {p0, v1}, Lcom/android/keyguard/KeyguardMessageArea;->setText(Ljava/lang/CharSequence;)V
@@ -330,19 +385,86 @@
     return-void
 
     :cond_0
-    const/4 v0, 0x1
+    const/4 v0, 0x0
 
     goto :goto_0
 
     :cond_1
-    const/4 v0, 0x0
-
-    goto :goto_1
-
-    :cond_2
     const/4 v2, 0x4
 
-    goto :goto_2
+    goto :goto_1
+.end method
+
+.method private updateLayout()V
+    .locals 5
+
+    const v4, 0x7f070263
+
+    const v3, 0x7f07023a
+
+    const/4 v2, 0x0
+
+    sget-object v0, Lcom/android/keyguard/KeyguardMessageArea;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isDexMode()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    sget-object v0, Lcom/android/keyguard/KeyguardMessageArea;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    sget-object v1, Lcom/android/keyguard/KeyguardMessageArea;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
+
+    invoke-virtual {p0, v0, v2, v1, v2}, Lcom/android/keyguard/KeyguardMessageArea;->setPadding(IIII)V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    sget-object v0, Lcom/android/keyguard/KeyguardMessageArea;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    sget-object v1, Lcom/android/keyguard/KeyguardMessageArea;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
+
+    invoke-virtual {p0, v0, v2, v1, v2}, Lcom/android/keyguard/KeyguardMessageArea;->setPadding(IIII)V
+
+    goto :goto_0
 .end method
 
 
@@ -416,12 +538,52 @@
     return-void
 .end method
 
+.method public varargs formatMessage(I[Ljava/lang/Object;)V
+    .locals 2
+
+    const/4 v0, 0x0
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardMessageArea;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1, p2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    :cond_0
+    invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardMessageArea;->setMessage(Ljava/lang/CharSequence;)V
+
+    return-void
+.end method
+
+.method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
+    .locals 2
+
+    invoke-super {p0, p1}, Lcom/android/systemui/widget/SystemUITextView;->onConfigurationChanged(Landroid/content/res/Configuration;)V
+
+    iget v0, p0, Lcom/android/keyguard/KeyguardMessageArea;->mCurrentOrientation:I
+
+    iget v1, p1, Landroid/content/res/Configuration;->orientation:I
+
+    if-eq v0, v1, :cond_0
+
+    invoke-direct {p0}, Lcom/android/keyguard/KeyguardMessageArea;->updateLayout()V
+
+    iget v0, p1, Landroid/content/res/Configuration;->orientation:I
+
+    iput v0, p0, Lcom/android/keyguard/KeyguardMessageArea;->mCurrentOrientation:I
+
+    :cond_0
+    return-void
+.end method
+
 .method protected onFinishInflate()V
-    .locals 5
+    .locals 2
 
-    const/4 v4, 0x0
-
-    invoke-super {p0}, Lcom/android/keyguard/KeyguardTextView;->onFinishInflate()V
+    invoke-super {p0}, Lcom/android/systemui/widget/SystemUITextView;->onFinishInflate()V
 
     sget-object v1, Lcom/android/keyguard/KeyguardMessageArea;->mContext:Landroid/content/Context;
 
@@ -441,35 +603,25 @@
 
     move-result-object v1
 
-    sget v2, Lcom/android/keyguard/R$dimen;->kg_message_area_padding_side:I
+    invoke-virtual {v1}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    move-result-object v1
 
-    move-result v1
+    iget v1, v1, Landroid/content/res/Configuration;->orientation:I
 
-    sget-object v2, Lcom/android/keyguard/KeyguardMessageArea;->mContext:Landroid/content/Context;
+    iput v1, p0, Lcom/android/keyguard/KeyguardMessageArea;->mCurrentOrientation:I
 
-    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    sget v3, Lcom/android/keyguard/R$dimen;->kg_message_area_padding_side:I
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v2
-
-    invoke-virtual {p0, v1, v4, v2, v4}, Lcom/android/keyguard/KeyguardMessageArea;->setPadding(IIII)V
+    invoke-direct {p0}, Lcom/android/keyguard/KeyguardMessageArea;->updateLayout()V
 
     return-void
 .end method
 
-.method public setMessage(IZ)V
+.method public setMessage(I)V
     .locals 2
 
-    if-eqz p1, :cond_0
+    const/4 v0, 0x0
 
-    if-eqz p2, :cond_0
+    if-eqz p1, :cond_0
 
     invoke-virtual {p0}, Lcom/android/keyguard/KeyguardMessageArea;->getContext()Landroid/content/Context;
 
@@ -483,44 +635,13 @@
 
     move-result-object v0
 
-    invoke-direct {p0, v0}, Lcom/android/keyguard/KeyguardMessageArea;->securityMessageChanged(Ljava/lang/CharSequence;)V
-
-    :goto_0
-    return-void
-
     :cond_0
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardMessageArea;->clearMessage()V
+    invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardMessageArea;->setMessage(Ljava/lang/CharSequence;)V
 
-    goto :goto_0
+    return-void
 .end method
 
-.method public varargs setMessage(IZ[Ljava/lang/Object;)V
-    .locals 2
-
-    if-eqz p1, :cond_0
-
-    if-eqz p2, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardMessageArea;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1, p3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {p0, v0}, Lcom/android/keyguard/KeyguardMessageArea;->securityMessageChanged(Ljava/lang/CharSequence;)V
-
-    :goto_0
-    return-void
-
-    :cond_0
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardMessageArea;->clearMessage()V
-
-    goto :goto_0
-.end method
-
-.method public setMessage(Ljava/lang/CharSequence;Z)V
+.method public setMessage(Ljava/lang/CharSequence;)V
     .locals 1
 
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -528,8 +649,6 @@
     move-result v0
 
     if-nez v0, :cond_0
-
-    if-eqz p2, :cond_0
 
     invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardMessageArea;->securityMessageChanged(Ljava/lang/CharSequence;)V
 
@@ -556,22 +675,6 @@
     int-to-long v0, p1
 
     iput-wide v0, p0, Lcom/android/keyguard/KeyguardMessageArea;->mTimeout:J
-
-    return-void
-.end method
-
-.method public updateMessageColor()V
-    .locals 2
-
-    sget-object v0, Lcom/android/keyguard/KeyguardMessageArea;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/keyguard/util/ViewStyleUtils;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/ViewStyleUtils;
-
-    move-result-object v0
-
-    const/4 v1, 0x2
-
-    invoke-virtual {v0, p0, v1}, Lcom/android/keyguard/util/ViewStyleUtils;->updateViewStyle(Landroid/widget/TextView;I)V
 
     return-void
 .end method

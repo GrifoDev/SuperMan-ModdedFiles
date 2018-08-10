@@ -26,6 +26,8 @@
     .end annotation
 .end field
 
+.field private mDark:Z
+
 .field private mDrawingHardwareGlow:Z
 
 .field private mGlowAlpha:F
@@ -33,6 +35,8 @@
 .field private mGlowScale:F
 
 .field private final mInterpolator:Landroid/view/animation/Interpolator;
+
+.field private mLastDark:Z
 
 .field private mLeftProp:Landroid/graphics/CanvasProperty;
     .annotation system Ldalvik/annotation/Signature;
@@ -201,7 +205,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d02c3
+    const v1, 0x7f0701c6
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -210,52 +214,6 @@
     iput v0, p0, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->mMaxWidth:I
 
     iput-object p2, p0, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->mTargetView:Landroid/view/View;
-
-    return-void
-.end method
-
-.method private cancelAnimations()V
-    .locals 5
-
-    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->mTmpArray:Ljava/util/ArrayList;
-
-    iget-object v4, p0, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->mRunningAnimations:Ljava/util/HashSet;
-
-    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
-
-    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->mTmpArray:Ljava/util/ArrayList;
-
-    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
-
-    move-result v2
-
-    const/4 v1, 0x0
-
-    :goto_0
-    if-ge v1, v2, :cond_0
-
-    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->mTmpArray:Ljava/util/ArrayList;
-
-    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/animation/Animator;
-
-    invoke-virtual {v0}, Landroid/animation/Animator;->cancel()V
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->mTmpArray:Ljava/util/ArrayList;
-
-    invoke-virtual {v3}, Ljava/util/ArrayList;->clear()V
-
-    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->mRunningAnimations:Ljava/util/HashSet;
-
-    invoke-virtual {v3}, Ljava/util/HashSet;->clear()V
 
     return-void
 .end method
@@ -435,7 +393,7 @@
 
     const v5, 0x3faccccd    # 1.35f
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->cancelAnimations()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->cancelAnimations()V
 
     const/4 v2, 0x1
 
@@ -620,7 +578,9 @@
     :goto_0
     iput v5, p0, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->mGlowScale:F
 
-    const v2, 0x3e4ccccd    # 0.2f
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->getMaxGlowAlpha()F
+
+    move-result v2
 
     iput v2, p0, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->mGlowAlpha:F
 
@@ -731,9 +691,11 @@
 .method private enterSoftware()V
     .locals 4
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->cancelAnimations()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->cancelAnimations()V
 
-    const v1, 0x3e4ccccd    # 0.2f
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->getMaxGlowAlpha()F
+
+    move-result v1
 
     iput v1, p0, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->mGlowAlpha:F
 
@@ -768,8 +730,6 @@
     invoke-virtual {v1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
     return-void
-
-    nop
 
     :array_0
     .array-data 4
@@ -964,6 +924,24 @@
     goto :goto_0
 .end method
 
+.method private getMaxGlowAlpha()F
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->mLastDark:Z
+
+    if-eqz v0, :cond_0
+
+    const v0, 0x3dcccccd    # 0.1f
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const v0, 0x3e4ccccd    # 0.2f
+
+    goto :goto_0
+.end method
+
 .method private getRipplePaint()Landroid/graphics/Paint;
     .locals 2
 
@@ -983,16 +961,26 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->mRipplePaint:Landroid/graphics/Paint;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->mRipplePaint:Landroid/graphics/Paint;
 
-    const/4 v1, -0x1
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->mLastDark:Z
 
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
+    if-eqz v0, :cond_1
+
+    const/high16 v0, -0x1000000
+
+    :goto_0
+    invoke-virtual {v1, v0}, Landroid/graphics/Paint;->setColor(I)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->mRipplePaint:Landroid/graphics/Paint;
 
     return-object v0
+
+    :cond_1
+    const/4 v0, -0x1
+
+    goto :goto_0
 .end method
 
 .method private getRippleSize()I
@@ -1157,6 +1145,52 @@
 
 
 # virtual methods
+.method public cancelAnimations()V
+    .locals 5
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->mTmpArray:Ljava/util/ArrayList;
+
+    iget-object v4, p0, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->mRunningAnimations:Ljava/util/HashSet;
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->mTmpArray:Ljava/util/ArrayList;
+
+    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    const/4 v1, 0x0
+
+    :goto_0
+    if-ge v1, v2, :cond_0
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->mTmpArray:Ljava/util/ArrayList;
+
+    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/animation/Animator;
+
+    invoke-virtual {v0}, Landroid/animation/Animator;->cancel()V
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->mTmpArray:Ljava/util/ArrayList;
+
+    invoke-virtual {v3}, Ljava/util/ArrayList;->clear()V
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->mRunningAnimations:Ljava/util/HashSet;
+
+    invoke-virtual {v3}, Ljava/util/HashSet;->clear()V
+
+    return-void
+.end method
+
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 1
 
@@ -1207,6 +1241,33 @@
     return v0
 .end method
 
+.method public hasFocusStateSpecified()Z
+    .locals 1
+
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
+.method public isRunningAnimations()Z
+    .locals 2
+
+    const/4 v0, 0x0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->mRunningAnimations:Ljava/util/HashSet;
+
+    invoke-virtual {v1}, Ljava/util/HashSet;->size()I
+
+    move-result v1
+
+    if-lez v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    return v0
+.end method
+
 .method public isStateful()Z
     .locals 1
 
@@ -1218,7 +1279,7 @@
 .method public jumpToCurrentState()V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->cancelAnimations()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->cancelAnimations()V
 
     return-void
 .end method
@@ -1279,6 +1340,28 @@
     return-void
 .end method
 
+.method public setDarkIntensity(F)V
+    .locals 1
+
+    const/high16 v0, 0x3f000000    # 0.5f
+
+    cmpl-float v0, p1, v0
+
+    if-ltz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->mDark:Z
+
+    return-void
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
 .method public setGlowAlpha(F)V
     .locals 0
 
@@ -1300,38 +1383,36 @@
 .end method
 
 .method public setPressed(Z)V
-    .locals 1
+    .locals 2
 
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->mDark:Z
+
+    iget-boolean v1, p0, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->mLastDark:Z
+
+    if-eq v0, v1, :cond_0
+
+    if-eqz p1, :cond_0
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->mRipplePaint:Landroid/graphics/Paint;
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->mDark:Z
+
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->mLastDark:Z
+
+    :cond_0
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->mSupportHardware:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->setPressedHardware(Z)V
 
     :goto_0
     return-void
 
-    :cond_0
+    :cond_1
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->setPressedSoftware(Z)V
 
     goto :goto_0
-.end method
-
-.method public setRippleColor(I)V
-    .locals 1
-
-    sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_LIGHT_NAVIGATIONBAR:Z
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->mRipplePaint:Landroid/graphics/Paint;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->mRipplePaint:Landroid/graphics/Paint;
-
-    invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setColor(I)V
-
-    :cond_0
-    return-void
 .end method

@@ -433,6 +433,14 @@
 .method public abstract runPendingAnimations()V
 .end method
 
+.method public setAddDuration(J)V
+    .locals 1
+
+    iput-wide p1, p0, Landroid/support/v7/widget/RecyclerView$ItemAnimator;->mAddDuration:J
+
+    return-void
+.end method
+
 .method setListener(Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemAnimatorListener;)V
     .locals 0
 

@@ -4,6 +4,16 @@
 
 
 # annotations
+.annotation build Landroid/support/annotation/RequiresApi;
+    value = 0x15
+.end annotation
+
+.annotation build Landroid/support/annotation/RestrictTo;
+    value = {
+        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/support/v17/leanback/transition/TranslationAnimationCreator$TransitionPositionListener;
@@ -21,7 +31,7 @@
 .end method
 
 .method static createAnimation(Landroid/view/View;Landroid/transition/TransitionValues;IIFFFFLandroid/animation/TimeInterpolator;Landroid/transition/Transition;)Landroid/animation/Animator;
-    .locals 13
+    .locals 12
 
     invoke-virtual {p0}, Landroid/view/View;->getTranslationX()F
 
@@ -37,15 +47,15 @@
 
     invoke-virtual {v3, v4}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
 
-    move-result-object v12
+    move-result-object v11
 
-    check-cast v12, [I
+    check-cast v11, [I
 
-    if-eqz v12, :cond_0
+    if-eqz v11, :cond_0
 
     const/4 v3, 0x0
 
-    aget v3, v12, v3
+    aget v3, v11, v3
 
     sub-int/2addr v3, p2
 
@@ -55,9 +65,9 @@
 
     const/4 v3, 0x1
 
-    aget v3, v12, v3
+    aget v3, v11, v3
 
-    sub-int v3, v3, p3
+    sub-int/2addr v3, p3
 
     int-to-float v3, v3
 
@@ -101,51 +111,49 @@
     return-object v3
 
     :cond_1
-    new-instance v11, Landroid/graphics/Path;
+    new-instance v10, Landroid/graphics/Path;
 
-    invoke-direct {v11}, Landroid/graphics/Path;-><init>()V
+    invoke-direct {v10}, Landroid/graphics/Path;-><init>()V
 
     move/from16 v0, p4
 
     move/from16 v1, p5
 
-    invoke-virtual {v11, v0, v1}, Landroid/graphics/Path;->moveTo(FF)V
+    invoke-virtual {v10, v0, v1}, Landroid/graphics/Path;->moveTo(FF)V
 
     move/from16 v0, p6
 
     move/from16 v1, p7
 
-    invoke-virtual {v11, v0, v1}, Landroid/graphics/Path;->lineTo(FF)V
+    invoke-virtual {v10, v0, v1}, Landroid/graphics/Path;->lineTo(FF)V
 
     sget-object v3, Landroid/view/View;->TRANSLATION_X:Landroid/util/Property;
 
     sget-object v4, Landroid/view/View;->TRANSLATION_Y:Landroid/util/Property;
 
-    invoke-static {p0, v3, v4, v11}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;Landroid/util/Property;Landroid/graphics/Path;)Landroid/animation/ObjectAnimator;
+    invoke-static {p0, v3, v4, v10}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;Landroid/util/Property;Landroid/graphics/Path;)Landroid/animation/ObjectAnimator;
 
-    move-result-object v10
+    move-result-object v9
 
     new-instance v2, Landroid/support/v17/leanback/transition/TranslationAnimationCreator$TransitionPositionListener;
 
     iget-object v4, p1, Landroid/transition/TransitionValues;->view:Landroid/view/View;
 
-    const/4 v9, 0x0
-
     move-object v3, p0
 
-    invoke-direct/range {v2 .. v9}, Landroid/support/v17/leanback/transition/TranslationAnimationCreator$TransitionPositionListener;-><init>(Landroid/view/View;Landroid/view/View;IIFFLandroid/support/v17/leanback/transition/TranslationAnimationCreator$TransitionPositionListener;)V
+    invoke-direct/range {v2 .. v8}, Landroid/support/v17/leanback/transition/TranslationAnimationCreator$TransitionPositionListener;-><init>(Landroid/view/View;Landroid/view/View;IIFF)V
 
     move-object/from16 v0, p9
 
     invoke-virtual {v0, v2}, Landroid/transition/Transition;->addListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/Transition;
 
-    invoke-virtual {v10, v2}, Landroid/animation/ObjectAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+    invoke-virtual {v9, v2}, Landroid/animation/ObjectAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
-    invoke-virtual {v10, v2}, Landroid/animation/ObjectAnimator;->addPauseListener(Landroid/animation/Animator$AnimatorPauseListener;)V
+    invoke-virtual {v9, v2}, Landroid/animation/ObjectAnimator;->addPauseListener(Landroid/animation/Animator$AnimatorPauseListener;)V
 
     move-object/from16 v0, p8
 
-    invoke-virtual {v10, v0}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+    invoke-virtual {v9, v0}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
-    return-object v10
+    return-object v9
 .end method

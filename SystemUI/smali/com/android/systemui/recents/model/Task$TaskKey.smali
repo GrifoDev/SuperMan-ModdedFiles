@@ -2,6 +2,9 @@
 .super Ljava/lang/Object;
 .source "Task.java"
 
+# interfaces
+.implements Lcom/samsung/systemui/splugins/recents/model/PluginTask$PluginTaskKey;
+
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
@@ -21,13 +24,37 @@
     .end annotation
 .end field
 
+.field public baseIntent_pairedtask:Landroid/content/Intent;
+    .annotation runtime Landroid/view/ViewDebug$ExportedProperty;
+        category = "recents"
+    .end annotation
+.end field
+
+.field public docked_taskkey:Lcom/android/systemui/recents/model/Task$TaskKey;
+    .annotation runtime Landroid/view/ViewDebug$ExportedProperty;
+        category = "recents"
+    .end annotation
+.end field
+
 .field public firstActiveTime:J
     .annotation runtime Landroid/view/ViewDebug$ExportedProperty;
         category = "recents"
     .end annotation
 .end field
 
+.field public full_taskkey:Lcom/android/systemui/recents/model/Task$TaskKey;
+    .annotation runtime Landroid/view/ViewDebug$ExportedProperty;
+        category = "recents"
+    .end annotation
+.end field
+
 .field public final id:I
+    .annotation runtime Landroid/view/ViewDebug$ExportedProperty;
+        category = "recents"
+    .end annotation
+.end field
+
+.field public lastActiveElapsedTime:J
     .annotation runtime Landroid/view/ViewDebug$ExportedProperty;
         category = "recents"
     .end annotation
@@ -40,6 +67,12 @@
 .end field
 
 .field private mHashCode:I
+
+.field public origActivity:Landroid/content/ComponentName;
+    .annotation runtime Landroid/view/ViewDebug$ExportedProperty;
+        category = "recents"
+    .end annotation
+.end field
 
 .field public stackId:I
     .annotation runtime Landroid/view/ViewDebug$ExportedProperty;
@@ -58,6 +91,8 @@
 .method public constructor <init>(IILandroid/content/Intent;IJJ)V
     .locals 1
 
+    const/4 v0, 0x0
+
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput p1, p0, Lcom/android/systemui/recents/model/Task$TaskKey;->id:I
@@ -71,6 +106,12 @@
     iput-wide p5, p0, Lcom/android/systemui/recents/model/Task$TaskKey;->firstActiveTime:J
 
     iput-wide p7, p0, Lcom/android/systemui/recents/model/Task$TaskKey;->lastActiveTime:J
+
+    iput-object v0, p0, Lcom/android/systemui/recents/model/Task$TaskKey;->baseIntent_pairedtask:Landroid/content/Intent;
+
+    iput-object v0, p0, Lcom/android/systemui/recents/model/Task$TaskKey;->docked_taskkey:Lcom/android/systemui/recents/model/Task$TaskKey;
+
+    iput-object v0, p0, Lcom/android/systemui/recents/model/Task$TaskKey;->full_taskkey:Lcom/android/systemui/recents/model/Task$TaskKey;
 
     invoke-direct {p0}, Lcom/android/systemui/recents/model/Task$TaskKey;->updateHashCode()V
 
@@ -177,12 +218,68 @@
     return-object v0
 .end method
 
+.method public getId()I
+    .locals 1
+
+    iget v0, p0, Lcom/android/systemui/recents/model/Task$TaskKey;->id:I
+
+    return v0
+.end method
+
+.method public getOrigActivity()Landroid/content/ComponentName;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/recents/model/Task$TaskKey;->origActivity:Landroid/content/ComponentName;
+
+    return-object v0
+.end method
+
 .method public hashCode()I
     .locals 1
 
     iget v0, p0, Lcom/android/systemui/recents/model/Task$TaskKey;->mHashCode:I
 
     return v0
+.end method
+
+.method public setBaseIntentOfFullTask(Landroid/content/Intent;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/systemui/recents/model/Task$TaskKey;->baseIntent_pairedtask:Landroid/content/Intent;
+
+    return-void
+.end method
+
+.method public setDockedTaskkey(Lcom/android/systemui/recents/model/Task$TaskKey;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/systemui/recents/model/Task$TaskKey;->docked_taskkey:Lcom/android/systemui/recents/model/Task$TaskKey;
+
+    return-void
+.end method
+
+.method public setFullTaskkey(Lcom/android/systemui/recents/model/Task$TaskKey;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/systemui/recents/model/Task$TaskKey;->full_taskkey:Lcom/android/systemui/recents/model/Task$TaskKey;
+
+    return-void
+.end method
+
+.method public setLastActiveElapsedTime(J)V
+    .locals 1
+
+    iput-wide p1, p0, Lcom/android/systemui/recents/model/Task$TaskKey;->lastActiveElapsedTime:J
+
+    return-void
+.end method
+
+.method public setOrigActivity(Landroid/content/ComponentName;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/systemui/recents/model/Task$TaskKey;->origActivity:Landroid/content/ComponentName;
+
+    return-void
 .end method
 
 .method public setStackId(I)V

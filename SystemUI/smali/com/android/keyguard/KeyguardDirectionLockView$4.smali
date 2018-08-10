@@ -41,7 +41,7 @@
 
     iget-object v2, p0, Lcom/android/keyguard/KeyguardDirectionLockView$4;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    invoke-static {v2}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get2(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/keyguard/KeyguardSecurityCallback;
+    invoke-static {v2}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get3(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/keyguard/KeyguardSecurityCallback;
 
     move-result-object v2
 
@@ -59,7 +59,7 @@
 
     iget-object v2, p0, Lcom/android/keyguard/KeyguardDirectionLockView$4;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    invoke-static {v2}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get4(Lcom/android/keyguard/KeyguardDirectionLockView;)Landroid/widget/ImageView;
+    invoke-static {v2}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get6(Lcom/android/keyguard/KeyguardDirectionLockView;)Landroid/widget/ImageView;
 
     move-result-object v2
 
@@ -67,13 +67,13 @@
 
     iget-object v2, p0, Lcom/android/keyguard/KeyguardDirectionLockView$4;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    invoke-static {v2}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get4(Lcom/android/keyguard/KeyguardDirectionLockView;)Landroid/widget/ImageView;
+    invoke-static {v2}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get6(Lcom/android/keyguard/KeyguardDirectionLockView;)Landroid/widget/ImageView;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/android/keyguard/KeyguardDirectionLockView$4;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    invoke-static {v3}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get21(Lcom/android/keyguard/KeyguardDirectionLockView;)Landroid/view/animation/AlphaAnimation;
+    invoke-static {v3}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get25(Lcom/android/keyguard/KeyguardDirectionLockView;)Landroid/view/animation/AlphaAnimation;
 
     move-result-object v3
 
@@ -87,7 +87,7 @@
 
     iget-object v4, p0, Lcom/android/keyguard/KeyguardDirectionLockView$4;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    invoke-static {v4}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get19(Lcom/android/keyguard/KeyguardDirectionLockView;)J
+    invoke-static {v4}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get23(Lcom/android/keyguard/KeyguardDirectionLockView;)J
 
     move-result-wide v4
 
@@ -105,7 +105,7 @@
 
     move-result-wide v4
 
-    invoke-static {v2, v4, v5}, Lcom/android/keyguard/KeyguardDirectionLockView;->-set5(Lcom/android/keyguard/KeyguardDirectionLockView;J)J
+    invoke-static {v2, v4, v5}, Lcom/android/keyguard/KeyguardDirectionLockView;->-set7(Lcom/android/keyguard/KeyguardDirectionLockView;J)J
 
     :cond_1
     iget-object v2, p0, Lcom/android/keyguard/KeyguardDirectionLockView$4;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
@@ -114,19 +114,25 @@
 
     iget-object v2, p0, Lcom/android/keyguard/KeyguardDirectionLockView$4;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    invoke-static {v2}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get23(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/keyguard/KeyguardMessageArea;
+    invoke-static {v2}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get28(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/keyguard/KeyguardMessageArea;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/keyguard/KeyguardMessageArea;->clearAnimation()V
+
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardDirectionLockView$4;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
+
+    invoke-static {v2}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get28(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/keyguard/KeyguardMessageArea;
 
     move-result-object v2
 
     const-string/jumbo v3, ""
 
-    const/4 v4, 0x1
-
-    invoke-virtual {v2, v3, v4}, Lcom/android/keyguard/KeyguardMessageArea;->setMessage(Ljava/lang/CharSequence;Z)V
+    invoke-virtual {v2, v3}, Lcom/android/keyguard/KeyguardMessageArea;->setMessage(Ljava/lang/CharSequence;)V
 
     iget-object v2, p0, Lcom/android/keyguard/KeyguardDirectionLockView$4;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    invoke-static {v2}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get23(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/keyguard/KeyguardMessageArea;
+    invoke-static {v2}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get28(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/keyguard/KeyguardMessageArea;
 
     move-result-object v2
 
@@ -144,17 +150,17 @@
 
     iget-object v2, p0, Lcom/android/keyguard/KeyguardDirectionLockView$4;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    new-instance v3, Lcom/android/keyguard/KeyguardDirectionLockView$DirectionStichingTimer;
+    new-instance v3, Lcom/android/keyguard/KeyguardDirectionLockView$DirectionStitchingTimer;
 
     iget-object v4, p0, Lcom/android/keyguard/KeyguardDirectionLockView$4;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    invoke-direct {v3, v4, v6}, Lcom/android/keyguard/KeyguardDirectionLockView$DirectionStichingTimer;-><init>(Lcom/android/keyguard/KeyguardDirectionLockView;Lcom/android/keyguard/KeyguardDirectionLockView$DirectionStichingTimer;)V
+    invoke-direct {v3, v4, v6}, Lcom/android/keyguard/KeyguardDirectionLockView$DirectionStitchingTimer;-><init>(Lcom/android/keyguard/KeyguardDirectionLockView;Lcom/android/keyguard/KeyguardDirectionLockView$DirectionStitchingTimer;)V
 
-    invoke-static {v2, v3}, Lcom/android/keyguard/KeyguardDirectionLockView;->-set6(Lcom/android/keyguard/KeyguardDirectionLockView;Lcom/android/keyguard/KeyguardDirectionLockView$DirectionStichingTimer;)Lcom/android/keyguard/KeyguardDirectionLockView$DirectionStichingTimer;
+    invoke-static {v2, v3}, Lcom/android/keyguard/KeyguardDirectionLockView;->-set8(Lcom/android/keyguard/KeyguardDirectionLockView;Lcom/android/keyguard/KeyguardDirectionLockView$DirectionStitchingTimer;)Lcom/android/keyguard/KeyguardDirectionLockView$DirectionStitchingTimer;
 
     iget-object v2, p0, Lcom/android/keyguard/KeyguardDirectionLockView$4;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    invoke-static {v2}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get25(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/keyguard/KeyguardDirectionLockView$DirectionStichingTimer;
+    invoke-static {v2}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get30(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/keyguard/KeyguardDirectionLockView$DirectionStitchingTimer;
 
     move-result-object v2
 
@@ -162,11 +168,11 @@
 
     iget-object v2, p0, Lcom/android/keyguard/KeyguardDirectionLockView$4;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    invoke-static {v2}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get25(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/keyguard/KeyguardDirectionLockView$DirectionStichingTimer;
+    invoke-static {v2}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get30(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/keyguard/KeyguardDirectionLockView$DirectionStitchingTimer;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/android/keyguard/KeyguardDirectionLockView$DirectionStichingTimer;->start()V
+    invoke-virtual {v2}, Lcom/android/keyguard/KeyguardDirectionLockView$DirectionStitchingTimer;->start()V
 
     :cond_2
     if-eqz p2, :cond_3
@@ -177,43 +183,13 @@
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    xor-int/lit8 v2, v2, 0x1
 
-    :cond_3
-    :goto_1
-    return-void
-
-    :cond_4
-    if-eqz p2, :cond_0
+    if-eqz v2, :cond_3
 
     iget-object v2, p0, Lcom/android/keyguard/KeyguardDirectionLockView$4;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    invoke-static {v2}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get4(Lcom/android/keyguard/KeyguardDirectionLockView;)Landroid/widget/ImageView;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_0
-
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardDirectionLockView$4;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
-
-    invoke-static {v2}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get4(Lcom/android/keyguard/KeyguardDirectionLockView;)Landroid/widget/ImageView;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/android/keyguard/KeyguardDirectionLockView$4;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
-
-    invoke-static {v3}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get14(Lcom/android/keyguard/KeyguardDirectionLockView;)Landroid/view/animation/AlphaAnimation;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Landroid/widget/ImageView;->startAnimation(Landroid/view/animation/Animation;)V
-
-    goto/16 :goto_0
-
-    :cond_5
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardDirectionLockView$4;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
-
-    invoke-static {v2}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get6(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/internal/widget/DirectionLockView;
+    invoke-static {v2}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get8(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/internal/widget/DirectionLockView;
 
     move-result-object v2
 
@@ -231,9 +207,37 @@
 
     iget-object v2, p0, Lcom/android/keyguard/KeyguardDirectionLockView$4;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    invoke-static {v2}, Lcom/android/keyguard/KeyguardDirectionLockView;->-wrap6(Lcom/android/keyguard/KeyguardDirectionLockView;)V
+    invoke-static {v2}, Lcom/android/keyguard/KeyguardDirectionLockView;->-wrap5(Lcom/android/keyguard/KeyguardDirectionLockView;)V
 
-    goto :goto_1
+    :cond_3
+    return-void
+
+    :cond_4
+    if-eqz p2, :cond_0
+
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardDirectionLockView$4;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
+
+    invoke-static {v2}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get6(Lcom/android/keyguard/KeyguardDirectionLockView;)Landroid/widget/ImageView;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardDirectionLockView$4;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
+
+    invoke-static {v2}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get6(Lcom/android/keyguard/KeyguardDirectionLockView;)Landroid/widget/ImageView;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/keyguard/KeyguardDirectionLockView$4;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
+
+    invoke-static {v3}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get15(Lcom/android/keyguard/KeyguardDirectionLockView;)Landroid/view/animation/AlphaAnimation;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Landroid/widget/ImageView;->startAnimation(Landroid/view/animation/Animation;)V
+
+    goto/16 :goto_0
 .end method
 
 .method public onDirectionStarted()V
@@ -243,7 +247,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardDirectionLockView$4;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get16(Lcom/android/keyguard/KeyguardDirectionLockView;)Z
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get17(Lcom/android/keyguard/KeyguardDirectionLockView;)Z
 
     move-result v0
 
@@ -251,7 +255,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardDirectionLockView$4;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get6(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/internal/widget/DirectionLockView;
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get8(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/internal/widget/DirectionLockView;
 
     move-result-object v0
 
@@ -265,7 +269,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/keyguard/KeyguardDirectionLockView$4;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get17(Lcom/android/keyguard/KeyguardDirectionLockView;)Z
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get19(Lcom/android/keyguard/KeyguardDirectionLockView;)Z
 
     move-result v0
 
@@ -273,7 +277,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardDirectionLockView$4;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get25(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/keyguard/KeyguardDirectionLockView$DirectionStichingTimer;
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get30(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/keyguard/KeyguardDirectionLockView$DirectionStitchingTimer;
 
     move-result-object v0
 
@@ -281,20 +285,20 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardDirectionLockView$4;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get25(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/keyguard/KeyguardDirectionLockView$DirectionStichingTimer;
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get30(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/keyguard/KeyguardDirectionLockView$DirectionStitchingTimer;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardDirectionLockView$DirectionStichingTimer;->interrupt()V
+    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardDirectionLockView$DirectionStitchingTimer;->interrupt()V
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardDirectionLockView$4;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    invoke-static {v0, v1}, Lcom/android/keyguard/KeyguardDirectionLockView;->-set6(Lcom/android/keyguard/KeyguardDirectionLockView;Lcom/android/keyguard/KeyguardDirectionLockView$DirectionStichingTimer;)Lcom/android/keyguard/KeyguardDirectionLockView$DirectionStichingTimer;
+    invoke-static {v0, v1}, Lcom/android/keyguard/KeyguardDirectionLockView;->-set8(Lcom/android/keyguard/KeyguardDirectionLockView;Lcom/android/keyguard/KeyguardDirectionLockView$DirectionStitchingTimer;)Lcom/android/keyguard/KeyguardDirectionLockView$DirectionStitchingTimer;
 
     :cond_1
     iget-object v0, p0, Lcom/android/keyguard/KeyguardDirectionLockView$4;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get6(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/internal/widget/DirectionLockView;
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get8(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/internal/widget/DirectionLockView;
 
     move-result-object v0
 

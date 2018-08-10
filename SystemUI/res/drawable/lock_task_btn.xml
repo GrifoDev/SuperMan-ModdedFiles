@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<level-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:maxLevel="0">
+        <bitmap android:src="@drawable/taskmanager_h_ic_lock_mtrl" />
+    </item>
+    <item android:maxLevel="1">
+        <bitmap android:src="@drawable/taskmanager_h_ic_unlock_mtrl" />
+    </item>
+</level-list>

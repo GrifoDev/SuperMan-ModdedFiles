@@ -1,11 +1,11 @@
 .class Lcom/android/systemui/recents/model/RecentsSettingHelper$1;
-.super Landroid/database/ContentObserver;
+.super Lcom/samsung/android/vr/IGearVrStateCallbacks$Stub;
 .source "RecentsSettingHelper.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/recents/model/RecentsSettingHelper;->register()V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/systemui/recents/model/RecentsSettingHelper;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -19,57 +19,69 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/recents/model/RecentsSettingHelper;Landroid/os/Handler;)V
+.method constructor <init>(Lcom/android/systemui/recents/model/RecentsSettingHelper;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/recents/model/RecentsSettingHelper$1;->this$0:Lcom/android/systemui/recents/model/RecentsSettingHelper;
 
-    invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
+    invoke-direct {p0}, Lcom/samsung/android/vr/IGearVrStateCallbacks$Stub;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onChange(Z)V
-    .locals 5
+.method public onGearVrStateChanged(I)V
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
 
-    const/4 v0, 0x0
+    const/4 v2, 0x1
 
-    iget-object v1, p0, Lcom/android/systemui/recents/model/RecentsSettingHelper$1;->this$0:Lcom/android/systemui/recents/model/RecentsSettingHelper;
+    const/4 v1, 0x0
 
-    invoke-static {}, Lcom/android/systemui/recents/Recents;->getSystemServices()Lcom/android/systemui/recents/misc/SystemServicesProxy;
+    sparse-switch p1, :sswitch_data_0
 
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/android/systemui/recents/model/RecentsSettingHelper$1;->this$0:Lcom/android/systemui/recents/model/RecentsSettingHelper;
-
-    invoke-static {v3}, Lcom/android/systemui/recents/model/RecentsSettingHelper;->-get0(Lcom/android/systemui/recents/model/RecentsSettingHelper;)Landroid/content/Context;
-
-    move-result-object v3
-
-    const-string/jumbo v4, "personal_mode_enabled"
-
-    invoke-virtual {v2, v3, v4}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->getSystemSetting(Landroid/content/Context;Ljava/lang/String;)I
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    const/4 v0, 0x1
-
-    :cond_0
-    invoke-static {v1, v0}, Lcom/android/systemui/recents/model/RecentsSettingHelper;->-set5(Lcom/android/systemui/recents/model/RecentsSettingHelper;Z)Z
-
-    invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/android/systemui/recents/events/activity/PrivateModeChangedEvent;
-
-    invoke-direct {v1}, Lcom/android/systemui/recents/events/activity/PrivateModeChangedEvent;-><init>()V
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
-
+    :goto_0
     return-void
+
+    :sswitch_0
+    iget-object v0, p0, Lcom/android/systemui/recents/model/RecentsSettingHelper$1;->this$0:Lcom/android/systemui/recents/model/RecentsSettingHelper;
+
+    invoke-static {v0, v2}, Lcom/android/systemui/recents/model/RecentsSettingHelper;->-set6(Lcom/android/systemui/recents/model/RecentsSettingHelper;Z)Z
+
+    goto :goto_0
+
+    :sswitch_1
+    iget-object v0, p0, Lcom/android/systemui/recents/model/RecentsSettingHelper$1;->this$0:Lcom/android/systemui/recents/model/RecentsSettingHelper;
+
+    invoke-static {v0, v1}, Lcom/android/systemui/recents/model/RecentsSettingHelper;->-set6(Lcom/android/systemui/recents/model/RecentsSettingHelper;Z)Z
+
+    goto :goto_0
+
+    :sswitch_2
+    iget-object v0, p0, Lcom/android/systemui/recents/model/RecentsSettingHelper$1;->this$0:Lcom/android/systemui/recents/model/RecentsSettingHelper;
+
+    invoke-static {v0, v2}, Lcom/android/systemui/recents/model/RecentsSettingHelper;->-set7(Lcom/android/systemui/recents/model/RecentsSettingHelper;Z)Z
+
+    goto :goto_0
+
+    :sswitch_3
+    iget-object v0, p0, Lcom/android/systemui/recents/model/RecentsSettingHelper$1;->this$0:Lcom/android/systemui/recents/model/RecentsSettingHelper;
+
+    invoke-static {v0, v1}, Lcom/android/systemui/recents/model/RecentsSettingHelper;->-set7(Lcom/android/systemui/recents/model/RecentsSettingHelper;Z)Z
+
+    goto :goto_0
+
+    :sswitch_data_0
+    .sparse-switch
+        0x1 -> :sswitch_0
+        0x2 -> :sswitch_1
+        0x4 -> :sswitch_1
+        0x40 -> :sswitch_2
+        0x80 -> :sswitch_3
+    .end sparse-switch
 .end method

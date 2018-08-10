@@ -84,43 +84,71 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 1
+    .locals 3
 
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/view/View;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
-    new-instance v0, Landroid/graphics/Paint;
+    new-instance v1, Landroid/graphics/Paint;
 
-    invoke-direct {v0}, Landroid/graphics/Paint;-><init>()V
+    invoke-direct {v1}, Landroid/graphics/Paint;-><init>()V
 
-    iput-object v0, p0, Lcom/android/systemui/statusbar/ScrimView;->mPaint:Landroid/graphics/Paint;
+    iput-object v1, p0, Lcom/android/systemui/statusbar/ScrimView;->mPaint:Landroid/graphics/Paint;
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    iput-boolean v0, p0, Lcom/android/systemui/statusbar/ScrimView;->mIsEmpty:Z
+    iput-boolean v1, p0, Lcom/android/systemui/statusbar/ScrimView;->mIsEmpty:Z
 
-    const/high16 v0, 0x3f800000    # 1.0f
+    const/high16 v1, 0x3f800000    # 1.0f
 
-    iput v0, p0, Lcom/android/systemui/statusbar/ScrimView;->mViewAlpha:F
+    iput v1, p0, Lcom/android/systemui/statusbar/ScrimView;->mViewAlpha:F
 
-    new-instance v0, Landroid/graphics/Rect;
+    new-instance v1, Landroid/graphics/Rect;
 
-    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
+    invoke-direct {v1}, Landroid/graphics/Rect;-><init>()V
 
-    iput-object v0, p0, Lcom/android/systemui/statusbar/ScrimView;->mExcludedRect:Landroid/graphics/Rect;
+    iput-object v1, p0, Lcom/android/systemui/statusbar/ScrimView;->mExcludedRect:Landroid/graphics/Rect;
 
-    new-instance v0, Lcom/android/systemui/statusbar/ScrimView$1;
+    new-instance v1, Lcom/android/systemui/statusbar/ScrimView$1;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/ScrimView$1;-><init>(Lcom/android/systemui/statusbar/ScrimView;)V
+    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/ScrimView$1;-><init>(Lcom/android/systemui/statusbar/ScrimView;)V
 
-    iput-object v0, p0, Lcom/android/systemui/statusbar/ScrimView;->mAlphaUpdateListener:Landroid/animation/ValueAnimator$AnimatorUpdateListener;
+    iput-object v1, p0, Lcom/android/systemui/statusbar/ScrimView;->mAlphaUpdateListener:Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
-    new-instance v0, Lcom/android/systemui/statusbar/ScrimView$2;
+    new-instance v1, Lcom/android/systemui/statusbar/ScrimView$2;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/ScrimView$2;-><init>(Lcom/android/systemui/statusbar/ScrimView;)V
+    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/ScrimView$2;-><init>(Lcom/android/systemui/statusbar/ScrimView;)V
 
-    iput-object v0, p0, Lcom/android/systemui/statusbar/ScrimView;->mClearAnimatorListener:Landroid/animation/AnimatorListenerAdapter;
+    iput-object v1, p0, Lcom/android/systemui/statusbar/ScrimView;->mClearAnimatorListener:Landroid/animation/AnimatorListenerAdapter;
+
+    sget-object v1, Lcom/android/systemui/R$styleable;->ScrimView:[I
+
+    invoke-virtual {p1, p2, v1}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    const/high16 v2, -0x1000000
+
+    :try_start_0
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getColor(II)I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/systemui/statusbar/ScrimView;->mScrimColor:I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
+
+    throw v1
 .end method
 
 
@@ -182,6 +210,14 @@
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->start()V
 
     return-void
+.end method
+
+.method public getScrimColor()I
+    .locals 1
+
+    iget v0, p0, Lcom/android/systemui/statusbar/ScrimView;->mScrimColor:I
+
+    return v0
 .end method
 
 .method public getScrimColorWithAlpha()I

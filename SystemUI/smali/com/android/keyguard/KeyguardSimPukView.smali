@@ -26,7 +26,7 @@
 
 .field private mShowDefaultMessage:Z
 
-.field private mSimImageView:Landroid/widget/ImageView;
+.field private mSimImageView:Lcom/android/systemui/widget/SystemUIImageView;
 
 .field private mSimUnlockProgressDialog:Landroid/app/ProgressDialog;
 
@@ -293,11 +293,13 @@
 .method private getPukPasswordErrorMessage(IZ)Ljava/lang/String;
     .locals 7
 
-    const/4 v3, 0x2
+    const v6, 0x7f120573
 
-    const/4 v6, 0x0
+    const/4 v2, 0x2
 
-    const/4 v5, 0x1
+    const/4 v5, 0x0
+
+    const/4 v4, 0x1
 
     if-nez p1, :cond_0
 
@@ -305,7 +307,7 @@
 
     move-result-object v1
 
-    sget v2, Lcom/android/keyguard/R$string;->kg_password_wrong_puk_code_dead:I
+    const v2, 0x7f120610
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -347,9 +349,9 @@
     return-object v0
 
     :cond_0
-    if-le p1, v5, :cond_3
+    if-le p1, v4, :cond_3
 
-    sget-boolean v1, Lcom/android/keyguard/KeyguardRune;->SUPPORT_KOR_USIM_TEXT:Z
+    sget-boolean v1, Lcom/android/systemui/Rune;->KEYGUARD_SUPPORT_KOR_USIM_TEXT:Z
 
     if-eqz v1, :cond_1
 
@@ -357,32 +359,30 @@
 
     move-result-object v1
 
-    sget v2, Lcom/android/keyguard/R$string;->kg_kor_sim_puk_remaining_attempts:I
+    new-array v2, v2, [Ljava/lang/Object;
 
-    new-array v3, v3, [Ljava/lang/Object;
+    rsub-int/lit8 v3, p1, 0xa
 
-    rsub-int/lit8 v4, p1, 0xa
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v3
 
-    move-result-object v4
-
-    aput-object v4, v3, v6
+    aput-object v3, v2, v5
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object v3
 
-    aput-object v4, v3, v5
+    aput-object v3, v2, v4
 
-    invoke-virtual {v1, v2, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v1, v6, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
     goto :goto_0
 
     :cond_1
-    sget-boolean v1, Lcom/android/keyguard/KeyguardRune;->SUPPORT_USE_CDMA_CARD_TEXT:Z
+    sget-boolean v1, Lcom/android/systemui/Rune;->KEYGUARD_SUPPORT_USE_CDMA_CARD_TEXT:Z
 
     if-eqz v1, :cond_2
 
@@ -390,17 +390,17 @@
 
     move-result-object v1
 
-    sget v2, Lcom/android/keyguard/R$string;->kg_ctc_sim_puk_remaining_attempts:I
-
-    new-array v3, v5, [Ljava/lang/Object;
+    new-array v2, v4, [Ljava/lang/Object;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object v3
 
-    aput-object v4, v3, v6
+    aput-object v3, v2, v5
 
-    invoke-virtual {v1, v2, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    const v3, 0x7f1204c1
+
+    invoke-virtual {v1, v3, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -411,26 +411,26 @@
 
     move-result-object v1
 
-    sget v2, Lcom/android/keyguard/R$string;->kg_sim_puk_remaining_attempts:I
-
-    new-array v3, v5, [Ljava/lang/Object;
+    new-array v2, v4, [Ljava/lang/Object;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object v3
 
-    aput-object v4, v3, v6
+    aput-object v3, v2, v5
 
-    invoke-virtual {v1, v2, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    const v3, 0x7f120654
+
+    invoke-virtual {v1, v3, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
     goto :goto_0
 
     :cond_3
-    if-ne p1, v5, :cond_6
+    if-ne p1, v4, :cond_6
 
-    sget-boolean v1, Lcom/android/keyguard/KeyguardRune;->SUPPORT_KOR_USIM_TEXT:Z
+    sget-boolean v1, Lcom/android/systemui/Rune;->KEYGUARD_SUPPORT_KOR_USIM_TEXT:Z
 
     if-eqz v1, :cond_4
 
@@ -438,32 +438,30 @@
 
     move-result-object v1
 
-    sget v2, Lcom/android/keyguard/R$string;->kg_kor_sim_puk_remaining_attempts:I
+    new-array v2, v2, [Ljava/lang/Object;
 
-    new-array v3, v3, [Ljava/lang/Object;
+    rsub-int/lit8 v3, p1, 0xa
 
-    rsub-int/lit8 v4, p1, 0xa
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v3
 
-    move-result-object v4
-
-    aput-object v4, v3, v6
+    aput-object v3, v2, v5
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object v3
 
-    aput-object v4, v3, v5
+    aput-object v3, v2, v4
 
-    invoke-virtual {v1, v2, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v1, v6, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
     goto/16 :goto_0
 
     :cond_4
-    sget-boolean v1, Lcom/android/keyguard/KeyguardRune;->SUPPORT_USE_CDMA_CARD_TEXT:Z
+    sget-boolean v1, Lcom/android/systemui/Rune;->KEYGUARD_SUPPORT_USE_CDMA_CARD_TEXT:Z
 
     if-eqz v1, :cond_5
 
@@ -471,7 +469,7 @@
 
     move-result-object v1
 
-    sget v2, Lcom/android/keyguard/R$string;->kg_ctc_sim_puk_remaining_1_attempt:I
+    const v2, 0x7f1204c0
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -484,7 +482,7 @@
 
     move-result-object v1
 
-    sget v2, Lcom/android/keyguard/R$string;->kg_sim_puk_remaining_1_attempt:I
+    const v2, 0x7f120653
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -493,7 +491,7 @@
     goto/16 :goto_0
 
     :cond_6
-    sget-boolean v1, Lcom/android/keyguard/KeyguardRune;->SUPPORT_RIL_TALLRAT:Z
+    sget-boolean v1, Lcom/android/systemui/Rune;->SECURITY_SUPPORT_ALL_RAT:Z
 
     if-eqz v1, :cond_7
 
@@ -501,7 +499,7 @@
 
     move-result-object v1
 
-    sget v2, Lcom/android/keyguard/R$string;->card_crash:I
+    const v2, 0x7f1201ea
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -514,7 +512,7 @@
 
     move-result-object v1
 
-    sget v2, Lcom/android/keyguard/R$string;->kg_password_puk_failed:I
+    const v2, 0x7f12060a
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -523,239 +521,80 @@
     goto/16 :goto_0
 .end method
 
-.method private getSimIconImage()Landroid/graphics/drawable/Drawable;
-    .locals 7
-
-    const/4 v5, 0x1
-
-    const/4 v6, 0x3
-
-    invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->getSimCount()I
-
-    move-result v3
-
-    if-le v3, v5, :cond_3
+.method private getSimPukRetry(I)I
+    .locals 6
 
     const/4 v2, 0x0
 
-    const-string/jumbo v3, "ril.MSIMM"
+    :try_start_0
+    const-string/jumbo v3, "phone"
 
-    const-string/jumbo v4, "0"
-
-    invoke-static {v3, v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    iget v3, p0, Lcom/android/keyguard/KeyguardSimPukView;->mSubId:I
-
-    invoke-static {v3}, Landroid/telephony/SubscriptionManager;->isValidSubscriptionId(I)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_3
-
-    iget-object v3, p0, Lcom/android/keyguard/KeyguardSimPukView;->mContext:Landroid/content/Context;
-
-    invoke-static {v3}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+    invoke-static {v3}, Landroid/os/ServiceManager;->checkService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v3
 
-    iget v4, p0, Lcom/android/keyguard/KeyguardSimPukView;->mSubId:I
+    invoke-static {v3}, Lcom/android/internal/telephony/ITelephony$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/telephony/ITelephony;
 
-    invoke-virtual {v3, v4}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getSubscriptionInfoForSubId(I)Landroid/telephony/SubscriptionInfo;
+    move-result-object v1
 
-    move-result-object v0
+    if-eqz v1, :cond_0
 
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0}, Landroid/telephony/SubscriptionInfo;->getSimSlotIndex()I
+    invoke-interface {v1, p1}, Lcom/android/internal/telephony/ITelephony;->getSimPukRetryForSubscriber(I)I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v2
 
     :cond_0
-    const-string/jumbo v3, "1"
-
-    invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    iget-object v3, p0, Lcom/android/keyguard/KeyguardSimPukView;->mContext:Landroid/content/Context;
-
-    invoke-static {v3}, Landroid/telephony/SubscriptionManager;->from(Landroid/content/Context;)Landroid/telephony/SubscriptionManager;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/telephony/SubscriptionManager;->getActiveSubscriptionInfoList()Ljava/util/List;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_1
-
-    iget-object v3, p0, Lcom/android/keyguard/KeyguardSimPukView;->mContext:Landroid/content/Context;
-
-    invoke-static {v3}, Landroid/telephony/SubscriptionManager;->from(Landroid/content/Context;)Landroid/telephony/SubscriptionManager;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/telephony/SubscriptionManager;->getActiveSubscriptionInfoList()Ljava/util/List;
-
-    move-result-object v3
-
-    invoke-interface {v3}, Ljava/util/List;->size()I
-
-    move-result v3
-
-    if-ne v3, v5, :cond_1
-
-    iget-object v3, p0, Lcom/android/keyguard/KeyguardSimPukView;->mContext:Landroid/content/Context;
-
-    invoke-static {v3}, Lcom/android/keyguard/util/ViewStyleUtils;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/ViewStyleUtils;
-
-    move-result-object v3
-
-    sget v4, Lcom/android/keyguard/R$drawable;->lock_ic_pin_attempt_sim_02:I
-
-    sget v5, Lcom/android/keyguard/R$drawable;->lock_ic_pin_attempt_sim_02_whitebg:I
-
-    invoke-virtual {v3, v4, v5, v6}, Lcom/android/keyguard/util/ViewStyleUtils;->updateImageStyle(III)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v3
-
-    return-object v3
-
-    :cond_1
-    if-nez v2, :cond_2
-
-    iget-object v3, p0, Lcom/android/keyguard/KeyguardSimPukView;->mContext:Landroid/content/Context;
-
-    invoke-static {v3}, Lcom/android/keyguard/util/ViewStyleUtils;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/ViewStyleUtils;
-
-    move-result-object v3
-
-    sget v4, Lcom/android/keyguard/R$drawable;->lock_ic_pin_attempt_sim_01:I
-
-    sget v5, Lcom/android/keyguard/R$drawable;->lock_ic_pin_attempt_sim_01_whitebg:I
-
-    invoke-virtual {v3, v4, v5, v6}, Lcom/android/keyguard/util/ViewStyleUtils;->updateImageStyle(III)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v3
-
-    return-object v3
-
-    :cond_2
-    if-ne v2, v5, :cond_3
-
-    iget-object v3, p0, Lcom/android/keyguard/KeyguardSimPukView;->mContext:Landroid/content/Context;
-
-    invoke-static {v3}, Lcom/android/keyguard/util/ViewStyleUtils;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/ViewStyleUtils;
-
-    move-result-object v3
-
-    sget v4, Lcom/android/keyguard/R$drawable;->lock_ic_pin_attempt_sim_02:I
-
-    sget v5, Lcom/android/keyguard/R$drawable;->lock_ic_pin_attempt_sim_02_whitebg:I
-
-    invoke-virtual {v3, v4, v5, v6}, Lcom/android/keyguard/util/ViewStyleUtils;->updateImageStyle(III)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v3
-
-    return-object v3
-
-    :cond_3
-    iget-object v3, p0, Lcom/android/keyguard/KeyguardSimPukView;->mContext:Landroid/content/Context;
-
-    invoke-static {v3}, Lcom/android/keyguard/util/ViewStyleUtils;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/ViewStyleUtils;
-
-    move-result-object v3
-
-    sget v4, Lcom/android/keyguard/R$drawable;->lock_ic_pin_attempt_sim:I
-
-    sget v5, Lcom/android/keyguard/R$drawable;->lock_ic_pin_attempt_sim_whitebg:I
-
-    invoke-virtual {v3, v4, v5, v6}, Lcom/android/keyguard/util/ViewStyleUtils;->updateImageStyle(III)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v3
-
-    return-object v3
-.end method
-
-.method private getSimPukRetry(I)I
-    .locals 5
-
-    const/4 v1, 0x0
-
-    :try_start_0
-    const-string/jumbo v2, "phone"
-
-    invoke-static {v2}, Landroid/os/ServiceManager;->checkService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v2
-
-    invoke-static {v2}, Lcom/android/internal/telephony/ITelephony$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/telephony/ITelephony;
-
-    move-result-object v2
-
-    invoke-interface {v2, p1}, Lcom/android/internal/telephony/ITelephony;->getSimPukRetryForSubscriber(I)I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v1
-
     :goto_0
-    const-string/jumbo v2, "KeyguardSimPukView"
+    const-string/jumbo v3, "KeyguardSimPukView"
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "getSimPukLockInfoResult(): num_of_retry is "
+    const-string/jumbo v5, "getSimPukLockInfoResult(): num_of_retry is "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v1
+    return v2
 
     :catch_0
     move-exception v0
 
-    const-string/jumbo v2, "KeyguardSimPukView"
+    const-string/jumbo v3, "KeyguardSimPukView"
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "Exception: "
+    const-string/jumbo v5, "Exception: "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method
@@ -771,11 +610,13 @@
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSimPukView;->mContext:Landroid/content/Context;
 
-    invoke-direct {v0, v1}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;)V
+    const v2, 0x10302d2
+
+    invoke-direct {v0, v1, v2}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;I)V
 
     iput-object v0, p0, Lcom/android/keyguard/KeyguardSimPukView;->mSimUnlockProgressDialog:Landroid/app/ProgressDialog;
 
-    sget-boolean v0, Lcom/android/keyguard/KeyguardRune;->SUPPORT_KOR_USIM_TEXT:Z
+    sget-boolean v0, Lcom/android/systemui/Rune;->KEYGUARD_SUPPORT_KOR_USIM_TEXT:Z
 
     if-eqz v0, :cond_1
 
@@ -783,7 +624,7 @@
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSimPukView;->mContext:Landroid/content/Context;
 
-    sget v2, Lcom/android/keyguard/R$string;->kg_kor_sim_unlock_progress_dialog_message:I
+    const v2, 0x7f120574
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -826,7 +667,7 @@
     return-object v0
 
     :cond_1
-    sget-boolean v0, Lcom/android/keyguard/KeyguardRune;->SUPPORT_USE_CDMA_CARD_TEXT:Z
+    sget-boolean v0, Lcom/android/systemui/Rune;->KEYGUARD_SUPPORT_USE_CDMA_CARD_TEXT:Z
 
     if-eqz v0, :cond_2
 
@@ -834,7 +675,7 @@
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSimPukView;->mContext:Landroid/content/Context;
 
-    sget v2, Lcom/android/keyguard/R$string;->kg_ctc_sim_unlock_progress_dialog_message:I
+    const v2, 0x7f1204c2
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -849,7 +690,7 @@
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSimPukView;->mContext:Landroid/content/Context;
 
-    sget v2, Lcom/android/keyguard/R$string;->kg_sec_sim_unlock_progress_dialog_message:I
+    const v2, 0x7f120645
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -900,9 +741,9 @@
 .end method
 
 .method private showCarrierDialog(Ljava/lang/String;)V
-    .locals 3
+    .locals 4
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSimPukView;->mCarrierDialog:Landroid/app/AlertDialog;
 
@@ -912,7 +753,9 @@
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSimPukView;->mContext:Landroid/content/Context;
 
-    invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    const v2, 0x10302d2
+
+    invoke-direct {v0, v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
 
     invoke-virtual {v0, p1}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
@@ -920,9 +763,9 @@
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
 
-    sget v1, Lcom/android/keyguard/R$string;->ok:I
+    const v1, 0x7f120826
 
-    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNeutralButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v1, v3}, Landroid/app/AlertDialog$Builder;->setNeutralButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
@@ -958,9 +801,11 @@
 .method private showDefaultMessage()V
     .locals 9
 
-    const/4 v8, 0x0
+    const v8, 0x7f120572
 
-    const/4 v7, 0x1
+    const/4 v7, 0x0
+
+    const/4 v6, 0x1
 
     const-string/jumbo v3, "KeyguardSimPukView"
 
@@ -1013,11 +858,11 @@
     if-ne v1, v3, :cond_4
 
     :cond_0
-    sget-boolean v3, Lcom/android/keyguard/KeyguardRune;->SUPPORT_DCM_USIM_TEXT:Z
+    sget-boolean v3, Lcom/android/systemui/Rune;->KEYGUARD_SUPPORT_DCM_USIM_TEXT:Z
 
     if-eqz v3, :cond_1
 
-    sget v3, Lcom/android/keyguard/R$string;->kg_dcm_sim_puk_instructions:I
+    const v3, 0x7f1204c4
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1026,7 +871,7 @@
     :goto_0
     iget-object v3, p0, Lcom/android/keyguard/KeyguardSimPukView;->mSecurityMessageDisplay:Lcom/android/keyguard/SecurityMessageDisplay;
 
-    invoke-interface {v3, v0, v7}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(Ljava/lang/CharSequence;Z)V
+    invoke-interface {v3, v0}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(Ljava/lang/CharSequence;)V
 
     :goto_1
     iget-object v3, p0, Lcom/android/keyguard/KeyguardSimPukView;->mPasswordEntry:Lcom/android/keyguard/PasswordTextView;
@@ -1036,24 +881,22 @@
     return-void
 
     :cond_1
-    sget-boolean v3, Lcom/android/keyguard/KeyguardRune;->SUPPORT_KOR_USIM_TEXT:Z
+    sget-boolean v3, Lcom/android/systemui/Rune;->KEYGUARD_SUPPORT_KOR_USIM_TEXT:Z
 
     if-eqz v3, :cond_2
 
-    sget v3, Lcom/android/keyguard/R$string;->kg_kor_sim_puk_instructions:I
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {v2, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
     goto :goto_0
 
     :cond_2
-    sget-boolean v3, Lcom/android/keyguard/KeyguardRune;->SUPPORT_USE_CDMA_CARD_TEXT:Z
+    sget-boolean v3, Lcom/android/systemui/Rune;->KEYGUARD_SUPPORT_USE_CDMA_CARD_TEXT:Z
 
     if-eqz v3, :cond_3
 
-    sget v3, Lcom/android/keyguard/R$string;->kg_ctc_sim_puk_instructions:I
+    const v3, 0x7f1204bf
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1062,7 +905,7 @@
     goto :goto_0
 
     :cond_3
-    sget v3, Lcom/android/keyguard/R$string;->kg_sim_puk_instructions:I
+    const v3, 0x7f120652
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1071,9 +914,9 @@
     goto :goto_0
 
     :cond_4
-    if-ne v1, v7, :cond_7
+    if-ne v1, v6, :cond_7
 
-    sget-boolean v3, Lcom/android/keyguard/KeyguardRune;->SUPPORT_KOR_USIM_TEXT:Z
+    sget-boolean v3, Lcom/android/systemui/Rune;->KEYGUARD_SUPPORT_KOR_USIM_TEXT:Z
 
     if-eqz v3, :cond_5
 
@@ -1081,9 +924,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget v4, Lcom/android/keyguard/R$string;->kg_kor_sim_puk_instructions:I
-
-    invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {v2, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
@@ -1097,7 +938,7 @@
 
     move-result-object v3
 
-    sget v4, Lcom/android/keyguard/R$string;->kg_sim_pin_remaining_1_attempt:I
+    const v4, 0x7f120650
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1114,11 +955,11 @@
     goto :goto_0
 
     :cond_5
-    sget-boolean v3, Lcom/android/keyguard/KeyguardRune;->SUPPORT_USE_CDMA_CARD_TEXT:Z
+    sget-boolean v3, Lcom/android/systemui/Rune;->KEYGUARD_SUPPORT_USE_CDMA_CARD_TEXT:Z
 
     if-eqz v3, :cond_6
 
-    sget v3, Lcom/android/keyguard/R$string;->kg_ctc_sim_puk_remaining_1_attempt:I
+    const v3, 0x7f1204c0
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1127,7 +968,7 @@
     goto :goto_0
 
     :cond_6
-    sget v3, Lcom/android/keyguard/R$string;->kg_sim_puk_remaining_1_attempt:I
+    const v3, 0x7f120653
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1136,7 +977,7 @@
     goto :goto_0
 
     :cond_7
-    sget-boolean v3, Lcom/android/keyguard/KeyguardRune;->SUPPORT_KOR_USIM_TEXT:Z
+    sget-boolean v3, Lcom/android/systemui/Rune;->KEYGUARD_SUPPORT_KOR_USIM_TEXT:Z
 
     if-eqz v3, :cond_8
 
@@ -1144,9 +985,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget v4, Lcom/android/keyguard/R$string;->kg_kor_sim_puk_instructions:I
-
-    invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {v2, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
@@ -1160,17 +999,17 @@
 
     move-result-object v3
 
-    sget v4, Lcom/android/keyguard/R$string;->kg_sim_pin_remaining_attempts:I
-
-    new-array v5, v7, [Ljava/lang/Object;
+    new-array v4, v6, [Ljava/lang/Object;
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v6
+    move-result-object v5
 
-    aput-object v6, v5, v8
+    aput-object v5, v4, v7
 
-    invoke-virtual {v2, v4, v5}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    const v5, 0x7f120651
+
+    invoke-virtual {v2, v5, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v4
 
@@ -1185,38 +1024,38 @@
     goto/16 :goto_0
 
     :cond_8
-    sget-boolean v3, Lcom/android/keyguard/KeyguardRune;->SUPPORT_USE_CDMA_CARD_TEXT:Z
+    sget-boolean v3, Lcom/android/systemui/Rune;->KEYGUARD_SUPPORT_USE_CDMA_CARD_TEXT:Z
 
     if-eqz v3, :cond_9
 
-    sget v3, Lcom/android/keyguard/R$string;->kg_ctc_sim_puk_remaining_attempts:I
-
-    new-array v4, v7, [Ljava/lang/Object;
+    new-array v3, v6, [Ljava/lang/Object;
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v5
+    move-result-object v4
 
-    aput-object v5, v4, v8
+    aput-object v4, v3, v7
 
-    invoke-virtual {v2, v3, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    const v4, 0x7f1204c1
+
+    invoke-virtual {v2, v4, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
     goto/16 :goto_0
 
     :cond_9
-    sget v3, Lcom/android/keyguard/R$string;->kg_sim_puk_remaining_attempts:I
-
-    new-array v4, v7, [Ljava/lang/Object;
+    new-array v3, v6, [Ljava/lang/Object;
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v5
+    move-result-object v4
 
-    aput-object v5, v4, v8
+    aput-object v4, v3, v7
 
-    invoke-virtual {v2, v3, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    const v4, 0x7f120654
+
+    invoke-virtual {v2, v4, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -1287,6 +1126,158 @@
     return-void
 .end method
 
+.method private updateSimIconImage()V
+    .locals 7
+
+    const/4 v6, 0x1
+
+    invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/telephony/TelephonyManager;->getSimCount()I
+
+    move-result v4
+
+    if-le v4, v6, :cond_2
+
+    iget v4, p0, Lcom/android/keyguard/KeyguardSimPukView;->mSubId:I
+
+    invoke-static {v4}, Landroid/telephony/SubscriptionManager;->isValidSubscriptionId(I)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    const/4 v3, 0x0
+
+    const-string/jumbo v4, "ril.MSIMM"
+
+    const-string/jumbo v5, "0"
+
+    invoke-static {v4, v5}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    iget-object v4, p0, Lcom/android/keyguard/KeyguardSimPukView;->mContext:Landroid/content/Context;
+
+    invoke-static {v4}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    move-result-object v4
+
+    iget v5, p0, Lcom/android/keyguard/KeyguardSimPukView;->mSubId:I
+
+    invoke-virtual {v4, v5}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getSubscriptionInfoForSubId(I)Landroid/telephony/SubscriptionInfo;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Landroid/telephony/SubscriptionInfo;->getSimSlotIndex()I
+
+    move-result v3
+
+    :cond_0
+    iget-object v4, p0, Lcom/android/keyguard/KeyguardSimPukView;->mContext:Landroid/content/Context;
+
+    invoke-static {v4}, Landroid/telephony/SubscriptionManager;->from(Landroid/content/Context;)Landroid/telephony/SubscriptionManager;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_1
+
+    iget-object v4, p0, Lcom/android/keyguard/KeyguardSimPukView;->mContext:Landroid/content/Context;
+
+    invoke-static {v4}, Landroid/telephony/SubscriptionManager;->from(Landroid/content/Context;)Landroid/telephony/SubscriptionManager;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/telephony/SubscriptionManager;->getActiveSubscriptionInfoList()Ljava/util/List;
+
+    move-result-object v1
+
+    :cond_1
+    const-string/jumbo v4, "1"
+
+    invoke-virtual {v4, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_3
+
+    if-eqz v1, :cond_3
+
+    invoke-interface {v1}, Ljava/util/List;->size()I
+
+    move-result v4
+
+    if-ne v4, v6, :cond_3
+
+    iget-object v4, p0, Lcom/android/keyguard/KeyguardSimPukView;->mSimImageView:Lcom/android/systemui/widget/SystemUIImageView;
+
+    const-string/jumbo v5, "lock_ic_pin_attempt_sim_02"
+
+    invoke-virtual {v4, v5}, Lcom/android/systemui/widget/SystemUIImageView;->setOriginImage(Ljava/lang/String;)V
+
+    iget-object v4, p0, Lcom/android/keyguard/KeyguardSimPukView;->mSimImageView:Lcom/android/systemui/widget/SystemUIImageView;
+
+    const-string/jumbo v5, "lock_ic_pin_attempt_sim_02_whitebg"
+
+    invoke-virtual {v4, v5}, Lcom/android/systemui/widget/SystemUIImageView;->setWhiteBgImage(Ljava/lang/String;)V
+
+    iget-object v4, p0, Lcom/android/keyguard/KeyguardSimPukView;->mSimImageView:Lcom/android/systemui/widget/SystemUIImageView;
+
+    invoke-virtual {v4}, Lcom/android/systemui/widget/SystemUIImageView;->invalidateImage()V
+
+    :cond_2
+    :goto_0
+    return-void
+
+    :cond_3
+    if-nez v3, :cond_4
+
+    iget-object v4, p0, Lcom/android/keyguard/KeyguardSimPukView;->mSimImageView:Lcom/android/systemui/widget/SystemUIImageView;
+
+    const-string/jumbo v5, "lock_ic_pin_attempt_sim_01"
+
+    invoke-virtual {v4, v5}, Lcom/android/systemui/widget/SystemUIImageView;->setOriginImage(Ljava/lang/String;)V
+
+    iget-object v4, p0, Lcom/android/keyguard/KeyguardSimPukView;->mSimImageView:Lcom/android/systemui/widget/SystemUIImageView;
+
+    const-string/jumbo v5, "lock_ic_pin_attempt_sim_01_whitebg"
+
+    invoke-virtual {v4, v5}, Lcom/android/systemui/widget/SystemUIImageView;->setWhiteBgImage(Ljava/lang/String;)V
+
+    iget-object v4, p0, Lcom/android/keyguard/KeyguardSimPukView;->mSimImageView:Lcom/android/systemui/widget/SystemUIImageView;
+
+    invoke-virtual {v4}, Lcom/android/systemui/widget/SystemUIImageView;->invalidateImage()V
+
+    goto :goto_0
+
+    :cond_4
+    if-ne v3, v6, :cond_2
+
+    iget-object v4, p0, Lcom/android/keyguard/KeyguardSimPukView;->mSimImageView:Lcom/android/systemui/widget/SystemUIImageView;
+
+    const-string/jumbo v5, "lock_ic_pin_attempt_sim_02"
+
+    invoke-virtual {v4, v5}, Lcom/android/systemui/widget/SystemUIImageView;->setOriginImage(Ljava/lang/String;)V
+
+    iget-object v4, p0, Lcom/android/keyguard/KeyguardSimPukView;->mSimImageView:Lcom/android/systemui/widget/SystemUIImageView;
+
+    const-string/jumbo v5, "lock_ic_pin_attempt_sim_02_whitebg"
+
+    invoke-virtual {v4, v5}, Lcom/android/systemui/widget/SystemUIImageView;->setWhiteBgImage(Ljava/lang/String;)V
+
+    iget-object v4, p0, Lcom/android/keyguard/KeyguardSimPukView;->mSimImageView:Lcom/android/systemui/widget/SystemUIImageView;
+
+    invoke-virtual {v4}, Lcom/android/systemui/widget/SystemUIImageView;->invalidateImage()V
+
+    goto :goto_0
+.end method
+
 
 # virtual methods
 .method public confirmPin()Z
@@ -1310,7 +1301,7 @@
 .method protected getPasswordTextViewId()I
     .locals 1
 
-    sget v0, Lcom/android/keyguard/R$id;->pukEntry:I
+    const v0, 0x7f0a03f0
 
     return v0
 .end method
@@ -1319,6 +1310,14 @@
     .locals 1
 
     const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method protected getSecurityViewId()I
+    .locals 1
+
+    const v0, 0x7f0a02a9
 
     return v0
 .end method
@@ -1383,15 +1382,15 @@
 
     invoke-interface {v0, v1}, Lcom/android/keyguard/SecurityMessageDisplay;->setTimeout(I)V
 
-    sget v0, Lcom/android/keyguard/R$id;->keyguard_sim_icon:I
+    const v0, 0x7f0a02a7
 
     invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardSimPukView;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    check-cast v0, Landroid/widget/ImageView;
+    check-cast v0, Lcom/android/systemui/widget/SystemUIImageView;
 
-    iput-object v0, p0, Lcom/android/keyguard/KeyguardSimPukView;->mSimImageView:Landroid/widget/ImageView;
+    iput-object v0, p0, Lcom/android/keyguard/KeyguardSimPukView;->mSimImageView:Lcom/android/systemui/widget/SystemUIImageView;
 
     return-void
 .end method
@@ -1416,7 +1415,7 @@
 .end method
 
 .method public resetState()V
-    .locals 2
+    .locals 1
 
     invoke-super {p0}, Lcom/android/keyguard/KeyguardPinBasedInputView;->resetState()V
 
@@ -1426,17 +1425,11 @@
 
     invoke-direct {p0}, Lcom/android/keyguard/KeyguardSimPukView;->showDefaultMessage()V
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardSimPukView;->mSimImageView:Landroid/widget/ImageView;
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardSimPukView;->mSimImageView:Lcom/android/systemui/widget/SystemUIImageView;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardSimPukView;->mSimImageView:Landroid/widget/ImageView;
-
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardSimPukView;->getSimIconImage()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-direct {p0}, Lcom/android/keyguard/KeyguardSimPukView;->updateSimIconImage()V
 
     :cond_0
     return-void

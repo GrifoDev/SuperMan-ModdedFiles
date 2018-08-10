@@ -32,6 +32,24 @@
 
 
 # virtual methods
+.method protected initiallizeCaptureType()V
+    .locals 1
+
+    const/4 v0, 0x2
+
+    iput v0, p0, Lcom/android/systemui/screenshot/ScreenCaptureHelperForPartial;->mCaptureType:I
+
+    return-void
+.end method
+
+.method public isShowScreenshotAnimation()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
 .method public onPostScreenshot(Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
     .locals 5
 

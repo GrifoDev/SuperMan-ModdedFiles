@@ -31,14 +31,14 @@
 
 
 # virtual methods
-.method onVerifyPinResponse(III)V
+.method onVerifyPinResponse(IIILandroid/os/Bundle;)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUCMPinView$1;->this$0:Lcom/android/keyguard/KeyguardUCMPinView;
 
     new-instance v1, Lcom/android/keyguard/KeyguardUCMPinView$1$1;
 
-    invoke-direct {v1, p0, p1, p3}, Lcom/android/keyguard/KeyguardUCMPinView$1$1;-><init>(Lcom/android/keyguard/KeyguardUCMPinView$1;II)V
+    invoke-direct {v1, p0, p1, p3, p4}, Lcom/android/keyguard/KeyguardUCMPinView$1$1;-><init>(Lcom/android/keyguard/KeyguardUCMPinView$1;IILandroid/os/Bundle;)V
 
     invoke-virtual {v0, v1}, Lcom/android/keyguard/KeyguardUCMPinView;->post(Ljava/lang/Runnable;)Z
 

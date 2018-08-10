@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/recents_button_shape_ripple" android:top="12.0dip" android:bottom="12.0dip" android:start="5.0dip" android:end="20.0dip" />
+    <item android:top="12.0dip" android:bottom="12.0dip" android:start="5.0dip" android:end="20.0dip">
+        <shape android:shape="rectangle">
+            <stroke android:width="0.5dip" android:color="@color/recents_button_shape_bg_outline" />
+            <corners android:radius="2.0dip" />
+        </shape>
+    </item>
+</layer-list>

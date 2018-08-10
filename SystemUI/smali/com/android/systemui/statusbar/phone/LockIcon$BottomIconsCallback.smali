@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/systemui/statusbar/phone/LockIcon$BottomIconsCallback;
+.class public interface abstract Lcom/android/systemui/statusbar/phone/LockIcon$BottomIconsCallback;
 .super Ljava/lang/Object;
 .source "LockIcon.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "BottomIconsCallback"
 .end annotation
 

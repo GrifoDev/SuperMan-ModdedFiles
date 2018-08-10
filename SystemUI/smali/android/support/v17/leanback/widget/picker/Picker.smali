@@ -21,7 +21,7 @@
 
 .field private final mColumnChangeListener:Landroid/support/v17/leanback/widget/OnChildViewHolderSelectedListener;
 
-.field private final mColumnViews:Ljava/util/List;
+.field final mColumnViews:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List",
@@ -32,7 +32,7 @@
     .end annotation
 .end field
 
-.field private mColumns:Ljava/util/ArrayList;
+.field mColumns:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList",
@@ -82,38 +82,6 @@
 
 
 # direct methods
-.method static synthetic -get0(Landroid/support/v17/leanback/widget/picker/Picker;)Ljava/util/List;
-    .locals 1
-
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/picker/Picker;->mColumnViews:Ljava/util/List;
-
-    return-object v0
-.end method
-
-.method static synthetic -get1(Landroid/support/v17/leanback/widget/picker/Picker;)Ljava/util/ArrayList;
-    .locals 1
-
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/picker/Picker;->mColumns:Ljava/util/ArrayList;
-
-    return-object v0
-.end method
-
-.method static synthetic -wrap0(Landroid/support/v17/leanback/widget/picker/Picker;Landroid/view/View;ZIZ)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3, p4}, Landroid/support/v17/leanback/widget/picker/Picker;->setOrAnimateAlpha(Landroid/view/View;ZIZ)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap1(Landroid/support/v17/leanback/widget/picker/Picker;IZ)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Landroid/support/v17/leanback/widget/picker/Picker;->updateColumnAlpha(IZ)V
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 6
 
@@ -154,6 +122,10 @@
     iput-object v1, p0, Landroid/support/v17/leanback/widget/picker/Picker;->mColumnChangeListener:Landroid/support/v17/leanback/widget/OnChildViewHolderSelectedListener;
 
     invoke-virtual {p0, v5}, Landroid/support/v17/leanback/widget/picker/Picker;->setEnabled(Z)V
+
+    const/high16 v1, 0x40000
+
+    invoke-virtual {p0, v1}, Landroid/support/v17/leanback/widget/picker/Picker;->setDescendantFocusability(I)V
 
     iput v2, p0, Landroid/support/v17/leanback/widget/picker/Picker;->mFocusedAlpha:F
 
@@ -303,155 +275,6 @@
     goto :goto_0
 .end method
 
-.method private setOrAnimateAlpha(Landroid/view/View;ZIZ)V
-    .locals 7
-
-    const/high16 v4, -0x40800000    # -1.0f
-
-    iget v0, p0, Landroid/support/v17/leanback/widget/picker/Picker;->mSelectedColumn:I
-
-    if-eq p3, v0, :cond_0
-
-    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/picker/Picker;->hasFocus()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const/4 v6, 0x0
-
-    :goto_0
-    if-eqz p2, :cond_2
-
-    if-eqz v6, :cond_1
-
-    iget v3, p0, Landroid/support/v17/leanback/widget/picker/Picker;->mFocusedAlpha:F
-
-    iget-object v5, p0, Landroid/support/v17/leanback/widget/picker/Picker;->mDecelerateInterpolator:Landroid/view/animation/Interpolator;
-
-    move-object v0, p0
-
-    move-object v1, p1
-
-    move v2, p4
-
-    invoke-direct/range {v0 .. v5}, Landroid/support/v17/leanback/widget/picker/Picker;->setOrAnimateAlpha(Landroid/view/View;ZFFLandroid/view/animation/Interpolator;)V
-
-    :goto_1
-    return-void
-
-    :cond_0
-    const/4 v6, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    iget v3, p0, Landroid/support/v17/leanback/widget/picker/Picker;->mUnfocusedAlpha:F
-
-    iget-object v5, p0, Landroid/support/v17/leanback/widget/picker/Picker;->mDecelerateInterpolator:Landroid/view/animation/Interpolator;
-
-    move-object v0, p0
-
-    move-object v1, p1
-
-    move v2, p4
-
-    invoke-direct/range {v0 .. v5}, Landroid/support/v17/leanback/widget/picker/Picker;->setOrAnimateAlpha(Landroid/view/View;ZFFLandroid/view/animation/Interpolator;)V
-
-    goto :goto_1
-
-    :cond_2
-    if-eqz v6, :cond_3
-
-    iget v3, p0, Landroid/support/v17/leanback/widget/picker/Picker;->mVisibleColumnAlpha:F
-
-    iget-object v5, p0, Landroid/support/v17/leanback/widget/picker/Picker;->mDecelerateInterpolator:Landroid/view/animation/Interpolator;
-
-    move-object v0, p0
-
-    move-object v1, p1
-
-    move v2, p4
-
-    invoke-direct/range {v0 .. v5}, Landroid/support/v17/leanback/widget/picker/Picker;->setOrAnimateAlpha(Landroid/view/View;ZFFLandroid/view/animation/Interpolator;)V
-
-    goto :goto_1
-
-    :cond_3
-    iget v3, p0, Landroid/support/v17/leanback/widget/picker/Picker;->mInvisibleColumnAlpha:F
-
-    iget-object v5, p0, Landroid/support/v17/leanback/widget/picker/Picker;->mDecelerateInterpolator:Landroid/view/animation/Interpolator;
-
-    move-object v0, p0
-
-    move-object v1, p1
-
-    move v2, p4
-
-    invoke-direct/range {v0 .. v5}, Landroid/support/v17/leanback/widget/picker/Picker;->setOrAnimateAlpha(Landroid/view/View;ZFFLandroid/view/animation/Interpolator;)V
-
-    goto :goto_1
-.end method
-
-.method private updateColumnAlpha(IZ)V
-    .locals 5
-
-    iget-object v4, p0, Landroid/support/v17/leanback/widget/picker/Picker;->mColumnViews:Ljava/util/List;
-
-    invoke-interface {v4, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/support/v17/leanback/widget/VerticalGridView;
-
-    invoke-virtual {v0}, Landroid/support/v17/leanback/widget/VerticalGridView;->getSelectedPosition()I
-
-    move-result v3
-
-    const/4 v1, 0x0
-
-    :goto_0
-    invoke-virtual {v0}, Landroid/support/v17/leanback/widget/VerticalGridView;->getAdapter()Landroid/support/v7/widget/RecyclerView$Adapter;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Landroid/support/v7/widget/RecyclerView$Adapter;->getItemCount()I
-
-    move-result v4
-
-    if-ge v1, v4, :cond_2
-
-    invoke-virtual {v0}, Landroid/support/v17/leanback/widget/VerticalGridView;->getLayoutManager()Landroid/support/v7/widget/RecyclerView$LayoutManager;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v1}, Landroid/support/v7/widget/RecyclerView$LayoutManager;->findViewByPosition(I)Landroid/view/View;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_0
-
-    if-ne v3, v1, :cond_1
-
-    const/4 v4, 0x1
-
-    :goto_1
-    invoke-direct {p0, v2, v4, p1, p2}, Landroid/support/v17/leanback/widget/picker/Picker;->setOrAnimateAlpha(Landroid/view/View;ZIZ)V
-
-    :cond_0
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    const/4 v4, 0x0
-
-    goto :goto_1
-
-    :cond_2
-    return-void
-.end method
-
 .method private updateColumnSize()V
     .locals 2
 
@@ -483,43 +306,57 @@
 .end method
 
 .method private updateColumnSize(Landroid/support/v17/leanback/widget/VerticalGridView;)V
-    .locals 3
+    .locals 5
 
     invoke-virtual {p1}, Landroid/support/v17/leanback/widget/VerticalGridView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    move-result-object v0
-
-    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/picker/Picker;->getPickerItemHeightPixels()I
-
-    move-result v1
-
-    int-to-float v2, v1
+    move-result-object v1
 
     invoke-virtual {p0}, Landroid/support/v17/leanback/widget/picker/Picker;->isActivated()Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
     invoke-virtual {p0}, Landroid/support/v17/leanback/widget/picker/Picker;->getActivatedVisibleItemCount()F
 
-    move-result v1
+    move-result v0
 
     :goto_0
-    mul-float/2addr v1, v2
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/picker/Picker;->getPickerItemHeightPixels()I
 
-    float-to-int v1, v1
+    move-result v2
 
-    iput v1, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
+    int-to-float v2, v2
 
-    invoke-virtual {p1, v0}, Landroid/support/v17/leanback/widget/VerticalGridView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    mul-float/2addr v2, v0
+
+    invoke-virtual {p1}, Landroid/support/v17/leanback/widget/VerticalGridView;->getVerticalSpacing()I
+
+    move-result v3
+
+    int-to-float v3, v3
+
+    const/high16 v4, 0x3f800000    # 1.0f
+
+    sub-float v4, v0, v4
+
+    mul-float/2addr v3, v4
+
+    add-float/2addr v2, v3
+
+    float-to-int v2, v2
+
+    iput v2, v1, Landroid/view/ViewGroup$LayoutParams;->height:I
+
+    invoke-virtual {p1, v1}, Landroid/support/v17/leanback/widget/VerticalGridView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     return-void
 
     :cond_0
     invoke-virtual {p0}, Landroid/support/v17/leanback/widget/picker/Picker;->getVisibleItemCount()F
 
-    move-result v1
+    move-result v0
 
     goto :goto_0
 .end method
@@ -841,27 +678,96 @@
 .end method
 
 .method public setActivated(Z)V
-    .locals 1
+    .locals 4
 
     invoke-virtual {p0}, Landroid/support/v17/leanback/widget/picker/Picker;->isActivated()Z
 
-    move-result v0
+    move-result v3
 
-    if-eq p1, v0, :cond_0
+    if-ne p1, v3, :cond_0
 
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->setActivated(Z)V
 
-    invoke-direct {p0}, Landroid/support/v17/leanback/widget/picker/Picker;->updateColumnSize()V
-
-    invoke-direct {p0}, Landroid/support/v17/leanback/widget/picker/Picker;->updateItemFocusable()V
-
-    :goto_0
     return-void
 
     :cond_0
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->setActivated(Z)V
 
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/picker/Picker;->hasFocus()Z
+
+    move-result v1
+
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/picker/Picker;->getSelectedColumn()I
+
+    move-result v0
+
+    const/high16 v3, 0x20000
+
+    invoke-virtual {p0, v3}, Landroid/support/v17/leanback/widget/picker/Picker;->setDescendantFocusability(I)V
+
+    if-nez p1, :cond_1
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/picker/Picker;->isFocusable()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/picker/Picker;->requestFocus()Z
+
+    :cond_1
+    const/4 v2, 0x0
+
+    :goto_0
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/picker/Picker;->getColumnsCount()I
+
+    move-result v3
+
+    if-ge v2, v3, :cond_2
+
+    iget-object v3, p0, Landroid/support/v17/leanback/widget/picker/Picker;->mColumnViews:Ljava/util/List;
+
+    invoke-interface {v3, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/support/v17/leanback/widget/VerticalGridView;
+
+    invoke-virtual {v3, p1}, Landroid/support/v17/leanback/widget/VerticalGridView;->setFocusable(Z)V
+
+    add-int/lit8 v2, v2, 0x1
+
     goto :goto_0
+
+    :cond_2
+    invoke-direct {p0}, Landroid/support/v17/leanback/widget/picker/Picker;->updateColumnSize()V
+
+    invoke-direct {p0}, Landroid/support/v17/leanback/widget/picker/Picker;->updateItemFocusable()V
+
+    if-eqz p1, :cond_3
+
+    if-eqz v1, :cond_3
+
+    if-ltz v0, :cond_3
+
+    iget-object v3, p0, Landroid/support/v17/leanback/widget/picker/Picker;->mColumnViews:Ljava/util/List;
+
+    invoke-interface {v3, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/support/v17/leanback/widget/VerticalGridView;
+
+    invoke-virtual {v3}, Landroid/support/v17/leanback/widget/VerticalGridView;->requestFocus()Z
+
+    :cond_3
+    const/high16 v3, 0x40000
+
+    invoke-virtual {p0, v3}, Landroid/support/v17/leanback/widget/picker/Picker;->setDescendantFocusability(I)V
+
+    return-void
 .end method
 
 .method public setColumnAt(ILandroid/support/v17/leanback/widget/picker/PickerColumn;)V
@@ -1050,6 +956,14 @@
 
     invoke-virtual {v6, v11}, Landroid/support/v17/leanback/widget/VerticalGridView;->setHasFixedSize(Z)V
 
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/picker/Picker;->isActivated()Z
+
+    move-result v0
+
+    invoke-virtual {v6, v0}, Landroid/support/v17/leanback/widget/VerticalGridView;->setFocusable(Z)V
+
+    invoke-virtual {v6, v11}, Landroid/support/v17/leanback/widget/VerticalGridView;->setItemViewCacheSize(I)V
+
     iget-object v0, p0, Landroid/support/v17/leanback/widget/picker/Picker;->mColumnViews:Ljava/util/List;
 
     invoke-interface {v0, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -1121,6 +1035,94 @@
     return-void
 .end method
 
+.method setOrAnimateAlpha(Landroid/view/View;ZIZ)V
+    .locals 7
+
+    const/high16 v4, -0x40800000    # -1.0f
+
+    iget v0, p0, Landroid/support/v17/leanback/widget/picker/Picker;->mSelectedColumn:I
+
+    if-eq p3, v0, :cond_0
+
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/picker/Picker;->hasFocus()Z
+
+    move-result v0
+
+    xor-int/lit8 v6, v0, 0x1
+
+    :goto_0
+    if-eqz p2, :cond_2
+
+    if-eqz v6, :cond_1
+
+    iget v3, p0, Landroid/support/v17/leanback/widget/picker/Picker;->mFocusedAlpha:F
+
+    iget-object v5, p0, Landroid/support/v17/leanback/widget/picker/Picker;->mDecelerateInterpolator:Landroid/view/animation/Interpolator;
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move v2, p4
+
+    invoke-direct/range {v0 .. v5}, Landroid/support/v17/leanback/widget/picker/Picker;->setOrAnimateAlpha(Landroid/view/View;ZFFLandroid/view/animation/Interpolator;)V
+
+    :goto_1
+    return-void
+
+    :cond_0
+    const/4 v6, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    iget v3, p0, Landroid/support/v17/leanback/widget/picker/Picker;->mUnfocusedAlpha:F
+
+    iget-object v5, p0, Landroid/support/v17/leanback/widget/picker/Picker;->mDecelerateInterpolator:Landroid/view/animation/Interpolator;
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move v2, p4
+
+    invoke-direct/range {v0 .. v5}, Landroid/support/v17/leanback/widget/picker/Picker;->setOrAnimateAlpha(Landroid/view/View;ZFFLandroid/view/animation/Interpolator;)V
+
+    goto :goto_1
+
+    :cond_2
+    if-eqz v6, :cond_3
+
+    iget v3, p0, Landroid/support/v17/leanback/widget/picker/Picker;->mVisibleColumnAlpha:F
+
+    iget-object v5, p0, Landroid/support/v17/leanback/widget/picker/Picker;->mDecelerateInterpolator:Landroid/view/animation/Interpolator;
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move v2, p4
+
+    invoke-direct/range {v0 .. v5}, Landroid/support/v17/leanback/widget/picker/Picker;->setOrAnimateAlpha(Landroid/view/View;ZFFLandroid/view/animation/Interpolator;)V
+
+    goto :goto_1
+
+    :cond_3
+    iget v3, p0, Landroid/support/v17/leanback/widget/picker/Picker;->mInvisibleColumnAlpha:F
+
+    iget-object v5, p0, Landroid/support/v17/leanback/widget/picker/Picker;->mDecelerateInterpolator:Landroid/view/animation/Interpolator;
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move v2, p4
+
+    invoke-direct/range {v0 .. v5}, Landroid/support/v17/leanback/widget/picker/Picker;->setOrAnimateAlpha(Landroid/view/View;ZFFLandroid/view/animation/Interpolator;)V
+
+    goto :goto_1
+.end method
+
 .method public setSelectedColumn(I)V
     .locals 2
 
@@ -1143,7 +1145,7 @@
 
     const/4 v1, 0x1
 
-    invoke-direct {p0, v0, v1}, Landroid/support/v17/leanback/widget/picker/Picker;->updateColumnAlpha(IZ)V
+    invoke-virtual {p0, v0, v1}, Landroid/support/v17/leanback/widget/picker/Picker;->updateColumnAlpha(IZ)V
 
     add-int/lit8 v0, v0, 0x1
 
@@ -1158,5 +1160,64 @@
 
     iput-object p1, p0, Landroid/support/v17/leanback/widget/picker/Picker;->mSeparator:Ljava/lang/CharSequence;
 
+    return-void
+.end method
+
+.method updateColumnAlpha(IZ)V
+    .locals 5
+
+    iget-object v4, p0, Landroid/support/v17/leanback/widget/picker/Picker;->mColumnViews:Ljava/util/List;
+
+    invoke-interface {v4, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/support/v17/leanback/widget/VerticalGridView;
+
+    invoke-virtual {v0}, Landroid/support/v17/leanback/widget/VerticalGridView;->getSelectedPosition()I
+
+    move-result v3
+
+    const/4 v1, 0x0
+
+    :goto_0
+    invoke-virtual {v0}, Landroid/support/v17/leanback/widget/VerticalGridView;->getAdapter()Landroid/support/v7/widget/RecyclerView$Adapter;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/support/v7/widget/RecyclerView$Adapter;->getItemCount()I
+
+    move-result v4
+
+    if-ge v1, v4, :cond_2
+
+    invoke-virtual {v0}, Landroid/support/v17/leanback/widget/VerticalGridView;->getLayoutManager()Landroid/support/v7/widget/RecyclerView$LayoutManager;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v1}, Landroid/support/v7/widget/RecyclerView$LayoutManager;->findViewByPosition(I)Landroid/view/View;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_0
+
+    if-ne v3, v1, :cond_1
+
+    const/4 v4, 0x1
+
+    :goto_1
+    invoke-virtual {p0, v2, v4, p1, p2}, Landroid/support/v17/leanback/widget/picker/Picker;->setOrAnimateAlpha(Landroid/view/View;ZIZ)V
+
+    :cond_0
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v4, 0x0
+
+    goto :goto_1
+
+    :cond_2
     return-void
 .end method

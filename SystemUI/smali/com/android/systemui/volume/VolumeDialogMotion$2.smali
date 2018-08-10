@@ -50,7 +50,9 @@
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    sget-boolean v1, Lcom/android/systemui/volume/SecVolumeDialog;->mIsKnoxDesktopMode:Z
+    invoke-static {}, Lcom/android/systemui/volume/SecVolumeDialogImpl;->isDexMode()Z
+
+    move-result v1
 
     if-nez v1, :cond_1
 
@@ -80,6 +82,13 @@
 
     invoke-static {v1}, Lcom/android/systemui/volume/VolumeDialogMotion;->-wrap3(Lcom/android/systemui/volume/VolumeDialogMotion;)V
 
-    :cond_1
+    :goto_0
     return-void
+
+    :cond_1
+    iget-object v1, p0, Lcom/android/systemui/volume/VolumeDialogMotion$2;->this$0:Lcom/android/systemui/volume/VolumeDialogMotion;
+
+    invoke-virtual {v1}, Lcom/android/systemui/volume/VolumeDialogMotion;->startShowDexAnimation()V
+
+    goto :goto_0
 .end method

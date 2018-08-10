@@ -59,30 +59,6 @@
 
     const/4 v3, 0x0
 
-    const-string/jumbo v0, "CSTMPagedTileLayout"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "onLayoutChange + cur = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget v2, p0, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout$4;->val$cur:I
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
-
     iget-object v0, p0, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout$4;->this$0:Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;
 
     iget v1, p0, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout$4;->val$cur:I

@@ -4,6 +4,10 @@
 
 
 # annotations
+.annotation build Landroid/support/annotation/RequiresApi;
+    value = 0x13
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/support/v17/leanback/transition/SlideKitkat$1;,
@@ -294,7 +298,7 @@
     return-object v0
 
     :cond_0
-    move-object v1, v0
+    const/4 v1, 0x0
 
     goto :goto_0
 
@@ -347,7 +351,7 @@
     return-object v0
 
     :cond_0
-    move-object v1, v0
+    const/4 v1, 0x0
 
     goto :goto_0
 

@@ -41,7 +41,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/systemui/recents/Recents;->-set0(Lcom/android/systemui/recents/Recents;Lcom/android/systemui/recents/IRecentsSystemUserCallbacks;)Lcom/android/systemui/recents/IRecentsSystemUserCallbacks;
+    invoke-static {v0, v1}, Lcom/android/systemui/recents/Recents;->-set1(Lcom/android/systemui/recents/Recents;Lcom/android/systemui/recents/IRecentsSystemUserCallbacks;)Lcom/android/systemui/recents/IRecentsSystemUserCallbacks;
 
     const/4 v0, 0x2
 
@@ -57,7 +57,7 @@
 
     aput-object v1, v0, v2
 
-    invoke-static {}, Lcom/android/systemui/recents/Recents;->-get4()Lcom/android/systemui/recents/misc/SystemServicesProxy;
+    invoke-static {}, Lcom/android/systemui/recents/Recents;->-get5()Lcom/android/systemui/recents/misc/SystemServicesProxy;
 
     move-result-object v1
 

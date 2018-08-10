@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:androidprv="http://schemas.android.com/apk/prv/res/android" android:sharedUserId="android.uid.systemui" coreApp="true" package="com.android.systemui" platformBuildVersionCode="24" platformBuildVersionName="7.0">
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:androidprv="http://schemas.android.com/apk/prv/res/android" android:sharedUserId="android.uid.systemui" coreApp="true" package="com.android.systemui">
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -12,8 +12,6 @@
     <uses-permission android:name="android.permission.EXPAND_STATUS_BAR"/>
     <uses-permission android:name="android.permission.REMOTE_AUDIO_PLAYBACK"/>
     <uses-permission android:name="android.permission.MANAGE_USERS"/>
-    <uses-permission android:name="com.sec.android.daemonapp.ap.accuweather.ACCUWEATHER_DAEMON_ACCESS_PROVIDER"/>
-    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
     <uses-permission android:name="android.permission.READ_PROFILE"/>
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
     <uses-permission android:name="android.permission.CONFIGURE_WIFI_DISPLAY"/>
@@ -29,13 +27,16 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
     <uses-permission android:name="android.permission.OVERRIDE_WIFI_CONFIG"/>
+    <uses-permission android:name="android.permission.NETWORK_STACK"/>
     <uses-permission android:name="android.permission.MANAGE_NETWORK_POLICY"/>
     <uses-permission android:name="android.permission.CONNECTIVITY_INTERNAL"/>
+    <uses-permission android:name="android.permission.NETWORK_SETTINGS"/>
     <uses-permission android:name="android.permission.TETHER_PRIVILEGED"/>
     <uses-permission android:name="android.permission.READ_NETWORK_USAGE_HISTORY"/>
+    <uses-permission android:name="android.permission.REQUEST_NETWORK_SCORES"/>
     <uses-permission android:name="android.permission.CONTROL_VPN"/>
     <uses-permission android:name="android.permission.PEERS_MAC_ADDRESS"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS"/>
     <uses-permission android:name="android.permission.MANAGE_USB"/>
     <uses-permission android:name="android.permission.DEVICE_POWER"/>
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
@@ -75,32 +76,36 @@
     <uses-permission android:name="android.permission.TRUST_LISTENER"/>
     <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
     <uses-permission android:name="android.permission.RESET_FINGERPRINT_LOCKOUT"/>
-    <uses-permission android:name="android.permission.SEND_SMS"/>
-    <uses-permission android:name="com.samsung.android.bio.face.permission.USE_FACE"/>
-    <uses-permission android:name="com.samsung.android.bio.face.permission.MANAGE_FACE"/>
-    <uses-permission android:name="com.wssnps.permission.COM_WSSNPS"/>
+    <uses-permission android:name="android.permission.MANAGE_FINGERPRINT"/>
+    <uses-permission android:name="android.permission.CRYPT_KEEPER"/>
+    <permission android:name="com.samsung.systemui.POPUP_UI_PERMISSION" android:protectionLevel="signatureOrSystem"/>
+    <uses-permission android:name="com.samsung.systemui.POPUP_UI_PERMISSION"/>
+    <permission android:name="com.samsung.systemui.permission.FLASHLIGHT_CONTROL" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.samsung.systemui.permission.FLASHLIGHT_CONTROL"/>
     <uses-permission android:name="android.permission.SET_WALLPAPER"/>
+    <uses-permission android:name="android.permission.SET_WALLPAPER_COMPONENT"/>
+    <uses-permission android:name="com.samsung.android.launcher.permission.READ_ZEROPAGE"/>
     <uses-permission android:name="android.permission.BIND_APPWIDGET"/>
-    <uses-permission android:name="android.permission.SET_ANIMATION_SCALE"/>
+    <uses-permission android:name="com.samsung.android.permission.MANAGE_MAXASPECT"/>
+    <uses-permission android:name="android.permission.SET_ACTIVITY_WATCHER"/>
     <uses-permission android:name="android.permission.CONFIGURE_WIFI_DISPLAY"/>
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.MANAGE_MEDIA_PROJECTION"/>
-    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS"/>
-    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_VOICE_INTERACTION_SERVICE"/>
+    <uses-permission android:name="android.permission.CHANGE_DEVICE_IDLE_TEMP_WHITELIST"/>
     <uses-permission android:name="android.permission.TABLET_MODE"/>
     <permission android:name="com.android.systemui.permission.SELF" android:protectionLevel="signature"/>
     <uses-permission android:name="com.android.systemui.permission.SELF"/>
-    <uses-permission android:name="com.samsung.permission.SIMHOTSWAP"/>
+    <permission android:name="com.android.systemui.permission.PLUGIN" android:protectionLevel="signature"/>
+    <permission android:name="com.samsung.systemui.permission.SPLUGIN" android:protectionLevel="signature"/>
     <uses-permission android:name="android.permission.BIND_QUICK_SETTINGS_TILE"/>
     <uses-permission android:name="android.permission.UPDATE_APP_OPS_STATS"/>
     <uses-permission android:name="android.permission.BATTERY_STATS"/>
     <uses-permission android:name="android.permission.MANAGE_PROFILE_AND_DEVICE_OWNERS"/>
-    <uses-permission android:name="android.permission.MANAGE_DEVICE_ADMINS"/>
     <uses-permission android:name="android.permission.RECEIVE_MEDIA_RESOURCE_USAGE"/>
     <uses-permission android:name="android.permission.MANAGE_NOTIFICATIONS"/>
     <uses-permission android:name="android.permission.ACCESS_VR_MANAGER"/>
+    <uses-permission android:name="android.car.permission.CAR_CONTROL_AUDIO_VOLUME"/>
     <uses-permission android:name="android.permission.SUBSTITUTE_NOTIFICATION_APP_NAME"/>
     <uses-permission android:name="com.sec.android.provider.badge.permission.READ"/>
     <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE"/>
@@ -108,62 +113,88 @@
     <uses-permission android:name="com.sec.android.app.desktoplauncher.permission.READ_SETTINGS"/>
     <uses-permission android:name="com.sec.android.app.desktoplauncher.permission.WRITE_SETTINGS"/>
     <uses-permission android:name="com.samsung.permission.CAPTURE"/>
+    <uses-permission android:name="com.samsung.android.app.galaxyfinder.permission.ACCESS_FINDER_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.permission.TASK_WATCHER"/>
+    <uses-permission android:name="com.samsung.android.app.galaxyfinder.permission.ACCESS_APPLICATION_PROVIDER"/>
+    <uses-permission android:name="com.samsung.android.bixby.agent.permission.LAUNCH_BIXBY_VOICE"/>
+    <uses-permission android:name="com.samsung.android.app.spage.service.permission.START_SPAGE_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.app.spage.permission.READ_DEX_STATUS"/>
+    <uses-permission android:name="com.sec.android.inputmethod.permission.KEYBOARD_SETTING"/>
     <uses-permission android:name="com.sec.knox.APK_INSTALL_LWC"/>
-    <protected-broadcast android:name="com.sec.knox.action.INSTALL_APK"/>
-    <uses-permission android:name="com.samsung.container.OBSERVER"/>
-    <uses-permission android:name="com.samsung.container.LAUNCH_INFO"/>
-    <uses-permission android:name="com.sec.android.permission.LAUNCH_PERSONAL_PAGE_SERVICE"/>
+    <uses-permission android:name="com.sec.android.mimage.photoretouching"/>
+    <uses-permission android:name="com.samsung.clipboardsaveservice.CLIPBOARDSAVESERVICE_PERMISSION"/>
+    <uses-permission android:name="com.samsung.android.app.scrollcapture.permission.ACCESS_REMOTE_SVC"/>
+    <uses-permission android:name="com.samsung.android.permission.EXTRACT_SMARTCLIP_DATA"/>
     <uses-permission android:name="com.sec.android.emergencymode.permission.LAUNCH_EMERGENCYMODE_SERVICE"/>
-    <uses-permission android:name="com.sec.android.settings.permission.SOFT_RESET"/>
-    <uses-permission android:name="android.permission.SET_PROCESS_LIMIT"/>
-    <uses-permission android:name="android.permission.UPDATE_DEVICE_STATS"/>
-    <uses-permission android:name="com.samsung.android.sdk.smartassistant.permission.READ_CARD_PROVIDER"/>
-    <uses-permission android:name="com.samsung.android.sdk.smartassistant.permission.WRITE_CARD_PROVIDER"/>
-    <permission android:description="@string/permission_sviewcover_access_description" android:name="com.sec.android.sviewcover.ACCESS"/>
-    <uses-permission android:name="com.sec.android.sviewcover.ACCESS"/>
+    <uses-permission android:name="android.permission.RESET_SHORTCUT_MANAGER_THROTTLING"/>
+    <uses-permission android:name="android.permission.MODIFY_THEME_OVERLAY"/>
+    <uses-permission android:name="android.permission.MODIFY_ACCESSIBILITY_DATA"/>
+    <uses-permission android:name="android.permission.CHANGE_ACCESSIBILITY_VOLUME"/>
+    <uses-permission android:name="android.permission.BIND_RESOLVER_RANKER_SERVICE"/>
+    <uses-permission android:name="android.permission.ACCESS_INSTANT_APPS"/>
+    <uses-permission android:name="android.permission.READ_CALENDAR"/>
+    <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+    <uses-permission android:name="com.sec.android.app.calendar.permission.READ_CALENDAR_SETTINGS"/>
     <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+    <uses-permission android:name="com.nttdocomo.android.screenlockservice.DCM_SCREEN"/>
+    <uses-permission android:name="com.sec.android.systemui.SEND_WALLPAPER_COMMAND"/>
+    <permission android:name="com.sec.android.systemui.SEND_WALLPAPER_COMMAND" android:protectionLevel="signatureOrSystem"/>
+    <supports-gl-texture android:name="GL_OES_compressed_ETC1_RGB8_texture"/>
+    <supports-gl-texture android:name="GL_OES_compressed_paletted_texture"/>
+    <uses-permission android:name="com.samsung.intent.action.WALLPAPER_UPDATOR_SCREEN_TURNED_OFF"/>
+    <permission android:name="com.samsung.intent.action.WALLPAPER_UPDATOR_SCREEN_TURNED_OFF" android:protectionLevel="signatureOrSystem"/>
+    <uses-permission android:name="com.samsung.intent.action.WALLPAPER_UPDATOR_SCREEN_TURNNING_ON"/>
+    <permission android:name="com.samsung.intent.action.WALLPAPER_UPDATOR_SCREEN_TURNNING_ON" android:protectionLevel="signatureOrSystem"/>
+    <uses-permission android:name="com.samsung.android.permission.SSRM_NOTIFICATION_PERMISSION"/>
+    <uses-permission android:name="com.sec.android.app.servicemodeapp.permission.KEYSTRING"/>
+    <uses-permission android:name="com.samsung.applock.permission.STATUSCHANGED"/>
+    <uses-permission android:name="com.samsung.android.bixby.agent.permission.RECEIVE_BIXBY_VIEW_STATE"/>
+    <uses-permission android:name="com.samsung.android.bixby.agent.permission.READ_LANGUAGE"/>
+    <uses-permission android:name="com.samsung.android.bixby.agent.permission.WRITE_LANGUAGE"/>
+    <uses-permission android:name="com.samsung.android.bio.face.permission.USE_FACE"/>
+    <uses-permission android:name="com.samsung.android.bio.face.permission.MANAGE_FACE"/>
+    <uses-permission android:name="com.samsung.android.camera.iris.permission.USE_IRIS"/>
+    <uses-permission android:name="com.samsung.android.camera.iris.permission.MANAGE_IRIS"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="com.sec.imsservice.PERMISSION"/>
+    <uses-permission android:name="com.sec.imsservice.READ_IMS_PERMISSION"/>
+    <uses-permission android:name="com.sec.imsservice.WRITE_IMS_PERMISSION"/>
+    <uses-permission android:name="com.sec.epdg.PERMISSION"/>
+    <uses-permission android:name="com.samsung.tmowfc.wfcprovider.permission.READ_WFCPROVIDER"/>
+    <uses-permission android:name="com.samsung.tmowfc.wfcprovider.permission.WRITE_REGISTER"/>
+    <uses-permission android:name="com.samsung.android.knox.permission.KNOX_SECURITY"/>
+    <uses-permission android:name="com.sec.android.providers.iwlansettings.permission.WRITE_IWLANSETTINGS"/>
+    <uses-permission android:name="com.sec.android.providers.iwlansettings.permission.READ_IWLANSETTINGS"/>
+    <uses-permission android:name="com.samsung.android.unifiedwfc.VOWIFI_PROVISIONING_PERMISSION"/>
+    <uses-permission android:name="com.samsung.tmowfc.wfcprovider.permission.READ_WFCPROVIDER"/>
+    <uses-permission android:name="com.samsung.tmowfc.wfcprovider.permission.WRITE_REGISTER"/>
+    <uses-permission android:name="com.sec.android.permission.SMART_UNLOCK" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.sec.spp.permission.TOKEN_adabdbd5e40d6ae776b80d466045661229b148e72964670c76f1492cf9dcf36dff4fe3495a16c27651a50b6d8f2b98abfe7d06041b9a809b2f0652bcbb8a9734b1b70bbd65bec987bba8fe204f78aea800143c758da522d99475fb4ee8bd38fb18f0cca3cb05bebcefcce37e63306b4a5ab862bc9fdb54a0052c6a314a07414c"/>
+    <uses-permission android:name="android.permission.READ_PRECISE_PHONE_STATE"/>
+    <uses-permission android:name="com.sec.android.app.desktoplauncher.permission.READ_PREFFERENCE"/>
+    <permission android:name="com.sec.android.systemui.UPDATE_REMOTE_VIEWS" android:protectionLevel="signatureOrSystem"/>
+    <uses-permission android:name="com.samsung.android.app.clockpack.LOCK_PROVIDER"/>
+    <uses-permission android:name="com.sec.knox.permission.KEYGUARD_SERVICE"/>
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATIONS"/>
+    <uses-permission android:name="com.wssnps.permission.COM_WSSNPS"/>
     <uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
     <uses-permission android:name="android.permission.READ_SMS"/>
     <uses-permission android:name="android.permission.WRITE_SMS"/>
     <uses-permission android:name="sec.android.permission.READ_MSG_PREF"/>
     <uses-permission android:name="sec.android.permission.WRITE_MSG_PREF"/>
     <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
-    <uses-permission android:name="com.sec.android.provider.logsprovider.permission.WRITE_LOGS"/>
-    <uses-permission android:name="com.sec.android.provider.logsprovider.permission.READ_LOGS"/>
-    <uses-permission android:name="com.sec.permission.AssistiveLight_ONOFF"/>
-    <uses-permission android:name="com.samsung.contacts.permission.SVIEW_COVER_MANAGE"/>
-    <uses-permission android:name="com.samsung.android.app.ledcovergrace.cp.LCoverContentProvider.READ_DATABASE"/>
-    <uses-permission android:name="com.sec.android.app.applinker.permission.RECEIVE"/>
-    <uses-permission android:name="com.samsung.android.thememanager.wallpaper.permission.WRITE"/>
-    <uses-permission android:name="com.sec.android.mimage.photoretouching"/>
-    <uses-permission android:name="com.samsung.android.app.scrollcapture.permission.ACCESS_REMOTE_SVC"/>
-    <permission android:name="com.samsung.systemui.POPUP_UI_PERMISSION" android:protectionLevel="signatureOrSystem"/>
-    <uses-permission android:name="com.samsung.systemui.POPUP_UI_PERMISSION"/>
-    <uses-permission android:name="com.samsung.android.permission.SSRM_NOTIFICATION_PERMISSION"/>
-    <uses-permission android:name="com.sec.imsservice.PERMISSION"/>
-    <uses-permission android:name="com.sec.imsservice.READ_IMS_PERMISSION"/>
-    <uses-permission android:name="com.sec.imsservice.WRITE_IMS_PERMISSION"/>
-    <uses-permission android:name="com.sec.android.providers.iwlansettings.permission.WRITE_IWLANSETTINGS"/>
-    <uses-permission android:name="com.sec.android.providers.iwlansettings.permission.READ_IWLANSETTINGS"/>
-    <uses-permission android:name="com.samsung.clipboardsaveservice.CLIPBOARDSAVESERVICE_PERMISSION"/>
-    <uses-permission android:name="android.permission.READ_PRECISE_PHONE_STATE"/>
-    <uses-permission android:name="com.sec.permission.UPLUS_SETTINGS"/>
-    <uses-permission android:name="android.permission.MANAGE_FINGERPRINT"/>
-    <uses-permission android:name="com.samsung.android.camera.iris.permission.USE_IRIS"/>
-    <uses-permission android:name="com.samsung.tmowfc.wfcprovider.permission.READ_WFCPROVIDER"/>
-    <uses-permission android:name="com.samsung.tmowfc.wfcprovider.permission.WRITE_REGISTER"/>
-    <uses-permission android:name="com.samsung.android.knox.permission.KNOX_SECURITY"/>
-    <permission android:name="com.sec.android.systemui.UPDATE_REMOTE_VIEWS" android:protectionLevel="signatureOrSystem"/>
-    <uses-permission android:name="com.sec.android.permission.SMART_UNLOCK" android:protectionLevel="signature"/>
-    <uses-permission android:name="android.permission.READ_CALENDAR"/>
-    <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
-    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
-    <uses-permission android:name="com.nttdocomo.android.screenlockservice.DCM_SCREEN"/>
-    <application android:allowBackup="false" android:allowClearUserData="false" android:defaultToDeviceProtectedStorage="true" android:directBootAware="true" android:hardwareAccelerated="true" android:icon="@drawable/icon" android:label="@string/app_label" android:largeHeap="true" android:name=".SystemUIApplication" android:persistent="true" android:process="com.android.systemui" android:supportsRtl="true" android:theme="@style/systemui_theme_light">
+    <application android:allowBackup="false" android:allowClearUserData="false" android:defaultToDeviceProtectedStorage="true" android:directBootAware="true" android:hardwareAccelerated="true" android:icon="@drawable/icon" android:label="@string/app_label" android:name=".SystemUIApplication" android:persistent="true" android:process="com.android.systemui" android:supportsRtl="true" android:theme="@style/systemui_theme_light">
         <meta-data android:name="com.samsung.android.persistent.downloadable" android:value="true"/>
+        <meta-data android:name="com.samsung.android.bixby.pathRuleAppName" android:value="SystemUI,Notification,Recents,MultiWindow,DexTaskbar"/>
+        <service android:enabled="false" android:exported="true" android:name="com.samsung.android.sdk.bixby.BixbyAppService" android:permission="com.samsung.android.bixby.agent.permission.APP_SERVICE">
+            <intent-filter>
+                <action android:name="com.samsung.android.sdk.bixby.APP_SERVICE"/>
+            </intent-filter>
+        </service>
         <service android:exported="true" android:name="SystemUIService"/>
         <service android:exported="true" android:name="SystemUISecondaryUserService" android:permission="com.android.systemui.permission.SELF"/>
         <uses-library android:name="imsmanager" android:required="false"/>
+        <uses-library android:name="EpdgManager" android:required="false"/>
         <uses-library android:name="TmoWfcUtils" android:required="false"/>
         <service android:exported="false" android:name=".screenshot.TakeScreenshotService" android:process=":screenshot"/>
         <receiver android:exported="false" android:name=".screenshot.ScreenshotServiceErrorReceiver" android:process=":screenshot">
@@ -171,25 +202,29 @@
                 <action android:name="com.android.systemui.screenshot.SHOW_ERROR"/>
             </intent-filter>
         </receiver>
-        <activity android:excludeFromRecents="true" android:name=".screenshot.ScreenshotDeleteActivity" android:theme="@style/ScreenshotDeleteActivityTheme">
+        <activity android:excludeFromRecents="true" android:exported="false" android:name=".screenshot.ScreenshotHelpGuideActivity" android:process=":screenshot" android:theme="@style/ScreenshotDeleteActivityTheme">
             <meta-data android:name="com.sec.android.multiwindow.activity.STYLE" android:value="fullscreenOnly"/>
         </activity>
-        <activity android:excludeFromRecents="true" android:name=".screenshot.ScreenshotShareActivity" android:theme="@style/ScreenshotDeleteActivityTheme">
+        <activity android:configChanges="orientation|screenSize" android:excludeFromRecents="true" android:exported="false" android:name=".screenshot.ScreenshotDeleteActivity" android:process=":screenshot" android:theme="@style/ScreenshotDeleteActivityTheme">
             <meta-data android:name="com.sec.android.multiwindow.activity.STYLE" android:value="fullscreenOnly"/>
         </activity>
-        <activity android:configChanges="orientation|screenSize" android:excludeFromRecents="true" android:name=".screenshot.ScreenshotEditResolveActivity" android:theme="@style/ScreenshotEditActivityTheme">
+        <activity android:excludeFromRecents="true" android:exported="false" android:name=".screenshot.ScreenshotShareActivity" android:process=":screenshot" android:theme="@style/ScreenshotDeleteActivityTheme">
             <meta-data android:name="com.sec.android.multiwindow.activity.STYLE" android:value="fullscreenOnly"/>
         </activity>
-        <activity android:excludeFromRecents="true" android:name=".screenshot.ScreenshotViewActivity" android:theme="@style/ScreenshotDeleteActivityTheme">
+        <activity android:configChanges="orientation|screenSize" android:excludeFromRecents="true" android:exported="false" android:name=".screenshot.ScreenshotEditResolveActivity" android:process=":screenshot" android:theme="@style/ScreenshotEditActivityTheme">
             <meta-data android:name="com.sec.android.multiwindow.activity.STYLE" android:value="fullscreenOnly"/>
         </activity>
-        <service android:exported="true" android:name=".LoadAverageService"/>
-        <service android:exported="true" android:name=".ImageWallpaper" android:permission="android.permission.BIND_WALLPAPER"/>
-        <receiver android:name=".BootReceiver" androidprv:systemUserOnly="true">
-            <intent-filter android:priority="1000">
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name=".screenshot.ScreenshotViewActivity" android:process=":screenshot" android:theme="@style/ScreenshotDeleteActivityTheme">
+            <meta-data android:name="com.sec.android.multiwindow.activity.STYLE" android:value="fullscreenOnly"/>
+        </activity>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name=".screenshot.ScreenshotNotificationEditorDownloadActivity" android:process=":screenshot" android:theme="@style/ScreenshotDeleteActivityTheme"/>
+        <receiver android:exported="false" android:name=".SysuiRestartReceiver">
+            <intent-filter>
+                <action android:name="com.android.systemui.action.RESTART"/>
+                <data android:scheme="package"/>
             </intent-filter>
         </receiver>
+        <service android:exported="true" android:name=".ImageWallpaper" android:permission="android.permission.BIND_WALLPAPER"/>
         <activity android:enabled="false" android:exported="true" android:icon="@drawable/tuner" android:label="@string/system_ui_tuner" android:name=".tuner.TunerActivity" android:process=":tuner" android:theme="@style/TunerSettings">
             <intent-filter>
                 <action android:name="com.android.settings.action.EXTRA_SETTINGS"/>
@@ -197,6 +232,13 @@
             </intent-filter>
             <meta-data android:name="com.android.settings.category" android:value="com.android.settings.category.system"/>
         </activity>
+        <activity-alias android:enabled="false" android:name=".tuner.TunerSettingLink" android:process=":tuner" android:targetActivity=".tuner.TunerActivity">
+            <intent-filter android:priority="1">
+                <action android:name="com.android.settings.action.EXTRA_SETTINGS"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="com.android.settings.category" android:value="com.android.settings.category.ia.system"/>
+        </activity-alias>
         <activity-alias android:exported="true" android:icon="@drawable/tuner" android:label="@string/demo_mode" android:name=".DemoMode" android:process=":tuner" android:targetActivity=".tuner.TunerActivity" android:theme="@style/TunerSettings">
             <intent-filter>
                 <action android:name="com.android.settings.action.DEMO_MODE"/>
@@ -204,72 +246,48 @@
             </intent-filter>
         </activity-alias>
         <service android:exported="false" android:name=".recents.RecentsSystemUserService" android:permission="com.android.systemui.permission.SELF"/>
-        <activity android:configChanges="orientation|screenLayout|screenSize|smallestScreenSize" android:excludeFromRecents="true" android:exported="false" android:label="@string/accessibility_desc_recent_apps" android:launchMode="singleInstance" android:name=".recents.RecentsActivity" android:resizeableActivity="true" android:resumeWhilePausing="true" android:screenOrientation="behind" android:stateNotNeeded="true" android:theme="@style/RecentsTheme.Wallpaper">
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:excludeFromRecents="true" android:exported="false" android:label="@string/sec_accessibility_desc_recent_apps" android:launchMode="singleInstance" android:name=".recents.RecentsActivity" android:resizeableActivity="true" android:resumeWhilePausing="true" android:stateNotNeeded="true" android:theme="@style/RecentsTheme.Wallpaper">
             <intent-filter>
                 <action android:name="com.android.systemui.recents.TOGGLE_RECENTS"/>
             </intent-filter>
+            <meta-data android:name="com.samsung.android.non_immersive" android:value="true"/>
         </activity>
-        <activity android:excludeFromRecents="true" android:exported="false" android:label="@string/accessibility_desc_recent_apps" android:launchMode="singleInstance" android:name=".recents.tv.RecentsTvActivity" android:resumeWhilePausing="true" android:screenOrientation="behind" android:stateNotNeeded="true" android:theme="@style/RecentsTvTheme.Wallpaper">
+        <service android:name=".droplaunch.DropLaunchService">
             <intent-filter>
-                <action android:name="com.android.systemui.recents.TOGGLE_RECENTS"/>
+                <action android:name="com.samsung.intent.action.SHOW_DROP_LAUNCH_GUIDE"/>
             </intent-filter>
-        </activity>
-        <activity android:exported="false" android:label="@string/recents_debug_title" android:launchMode="singleInstance" android:name=".recents.DebugPageActivity" android:theme="@android:style/Theme.Material.Settings"/>
+        </service>
         <activity android:configChanges="orientation|screenLayout|screenSize|smallestScreenSize" android:excludeFromRecents="true" android:exported="false" android:name=".stackdivider.ForcedResizableInfoActivity" android:stateNotNeeded="true" android:theme="@style/ForcedResizableTheme"/>
-        <receiver android:name=".usb.UsbToastReceiver">
-            <intent-filter>
-                <action android:name="com.samsung.intent.action.SDCARD_ITPOLICY_TOAST_EVENT"/>
-            </intent-filter>
-        </receiver>
+        <receiver android:exported="false" android:name=".screenshot.GlobalScreenshot$TargetChosenReceiver" android:process=":screenshot"/>
+        <receiver android:exported="false" android:name=".screenshot.GlobalScreenshot$DeleteScreenshotReceiver" android:process=":screenshot"/>
         <activity android:excludeFromRecents="true" android:exported="true" android:finishOnCloseSystemDialogs="true" android:name=".usb.UsbConfirmActivity" android:permission="android.permission.MANAGE_USB" android:theme="@style/Theme.SystemUI.Dialog.Alert"/>
         <activity android:excludeFromRecents="true" android:exported="true" android:finishOnCloseSystemDialogs="true" android:name=".usb.UsbPermissionActivity" android:permission="android.permission.MANAGE_USB" android:theme="@style/Theme.SystemUI.Dialog.Alert"/>
         <activity android:excludeFromRecents="true" android:exported="true" android:finishOnCloseSystemDialogs="true" android:name=".usb.UsbResolverActivity" android:permission="android.permission.MANAGE_USB" android:theme="@style/Theme.SystemUI.Dialog.Alert"/>
         <activity android:excludeFromRecents="true" android:exported="true" android:finishOnCloseSystemDialogs="true" android:name=".usb.UsbAccessoryUriActivity" android:permission="android.permission.MANAGE_USB" android:theme="@style/Theme.SystemUI.Dialog.Alert"/>
         <receiver android:name=".wifi.WifiStatusReceiver">
             <intent-filter>
-                <action android:name="android.net.wifi.SCAN_RESULTS"/>
-                <action android:name="com.sec.android.wifi.scan.result"/>
                 <action android:name="com.samsung.android.net.wifi.SHOW_INFO_MESSAGE"/>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
                 <action android:name="com.kt.wifiapi.OEMExtension.NOTIFICATION"/>
-                <action android:name="com.samsung.intent.action.BCS_REQUEST"/>
-                <action android:name="com.samsung.android.net.wifi.SHOW_AP_LIST_DIALOG"/>
-                <action android:name="ACTION_AGGREGATION_DELAY"/>
-                <action android:name="ACTION_AGGREGATION_DISCONNECT"/>
                 <action android:name="com.samsung.android.net.wifi.SHOW_SCC_DIALOG"/>
             </intent-filter>
         </receiver>
         <receiver android:name=".wifi.mobileap.WifiApBroadcastReceiver" android:permission="android.permission.WRITE_SECURE_SETTINGS">
             <intent-filter>
-                <action android:name="com.samsung.android.net.wifi.WIFI_AP_STA_ASSOCIATED_ACTION"/>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <action android:name="com.samsung.android.net.wifi.WIFI_AP_STA_STATUS_CHANGED"/>
-                <action android:name="android.net.wifi.WIFI_AP_STATE_CHANGED"/>
-                <action android:name="com.samsung.settings.WIFI_AP_SEC_SETTINGS"/>
-                <action android:name="com.samsung.intent.action.MIP_ERROR"/>
-                <action android:name="com.samsung.android.intent.action.TETHERING_DENIED"/>
-                <action android:name="com.samsung.android.intent.action.TETHERING_FAILED"/>
-                <action android:name="com.samsung.android.intent.action.WIFI_ENABLE_WARNING"/>
-                <action android:name="com.samsung.android.intent.action.WIFI_AP_ENABLE_WARNING"/>
-                <action android:name="android.intent.action.RADIO_TECHNOLOGY"/>
-                <action android:name="android.intent.action.SIM_STATE_CHANGED"/>
-                <action android:name="com.nttdocomo.intent.action.SHOW_WPSDIALOG"/>
                 <action android:name="com.samsung.android.intent.action.WIFI_P2P_ENABLE_WARNING"/>
-                <action android:name="com.samsung.intent.action.PROVISION_DIALOG_DISMISSED"/>
             </intent-filter>
         </receiver>
-        <receiver android:name=".wifi.mobileap.WifiApWrapperBR" android:permission="android.permission.CONNECTIVITY_INTERNAL">
+        <activity android:name="com.android.systemui.wifi.WifiConnectionHandlerActivity" android:theme="@style/Theme.SystemUI.Dialog.Alert">
             <intent-filter>
-                <action android:name="com.samsung.android.intent.action.WIFI_AP_ENABLE"/>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
-        </receiver>
+        </activity>
         <activity android:excludeFromRecents="true" android:finishOnCloseSystemDialogs="true" android:name=".usb.UsbDebuggingActivity" android:permission="android.permission.MANAGE_USB" android:theme="@style/Theme.SystemUI.Dialog.Alert"/>
         <activity android:excludeFromRecents="true" android:finishOnCloseSystemDialogs="true" android:name=".usb.UsbDebuggingSecondaryUserActivity" android:theme="@style/Theme.SystemUI.Dialog.Alert"/>
         <activity android:excludeFromRecents="true" android:exported="true" android:finishOnCloseSystemDialogs="true" android:launchMode="singleTop" android:name=".net.NetworkOverLimitActivity" android:permission="android.permission.MANAGE_NETWORK_POLICY" android:taskAffinity="com.android.systemui.net" android:theme="@android:style/Theme.DeviceDefault.Light.Panel"/>
         <activity android:excludeFromRecents="true" android:exported="true" android:finishOnCloseSystemDialogs="true" android:launchMode="singleTop" android:name=".media.MediaProjectionPermissionActivity" android:theme="@style/Theme.AlertDialogHost"/>
-        <activity android:configChanges="orientation|screenLayout|screenSize|smallestScreenSize" android:excludeFromRecents="true" android:exported="true" android:launchMode="singleTop" android:name="com.android.systemui.tv.pip.PipMenuActivity" android:resizeableActivity="true" android:supportsPictureInPicture="true" android:taskAffinity="" android:theme="@style/PipTheme" androidprv:alwaysFocusable="true"/>
-        <activity android:configChanges="orientation|screenLayout|screenSize|smallestScreenSize" android:excludeFromRecents="true" android:exported="true" android:name="com.android.systemui.tv.pip.PipOverlayActivity" android:resizeableActivity="true" android:supportsPictureInPicture="true" android:taskAffinity="" android:theme="@style/PipTheme"/>
-        <activity android:excludeFromRecents="true" android:exported="true" android:launchMode="singleTop" android:name="com.android.systemui.tv.pip.PipOnboardingActivity" android:theme="@style/PipTheme"/>
+        <activity android:configChanges="layoutDirection|locale|orientation|screenLayout|screenSize|smallestScreenSize" android:excludeFromRecents="true" android:exported="true" android:launchMode="singleTop" android:name=".pip.tv.PipMenuActivity" android:resizeableActivity="true" android:supportsPictureInPicture="true" android:taskAffinity="" android:theme="@style/PipTheme" androidprv:alwaysFocusable="true"/>
+        <activity android:configChanges="orientation|screenLayout|screenSize|smallestScreenSize" android:excludeFromRecents="true" android:exported="false" android:launchMode="singleTop" android:name=".pip.phone.PipMenuActivity" android:resizeableActivity="true" android:stateNotNeeded="true" android:supportsPictureInPicture="true" android:taskAffinity="" android:theme="@style/PipPhoneOverlayControlTheme" androidprv:alwaysFocusable="true"/>
         <activity android:excludeFromRecents="true" android:exported="true" android:hardwareAccelerated="true" android:label="@string/dessert_case" android:launchMode="singleInstance" android:name=".DessertCase" android:process=":sweetsweetdesserts" android:screenOrientation="locked" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -289,7 +307,12 @@
             </intent-filter>
         </service>
         <service android:enabled="@bool/config_enableKeyguardService" android:exported="true" android:name=".keyguard.KeyguardService"/>
-        <service android:enabled="true" android:exported="true" android:name=".cover.SViewCoverService"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:label="@string/accessibility_desc_work_lock" android:name=".keyguard.WorkLockActivity" android:permission="android.permission.MANAGE_USERS" android:resumeWhilePausing="true" android:stateNotNeeded="true" android:theme="@android:style/Theme.Black.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.app.action.CONFIRM_DEVICE_CREDENTIAL_WITH_USER"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
         <activity android:excludeFromRecents="true" android:exported="true" android:icon="@mipmap/ic_launcher_dreams" android:label="@string/start_dreams" android:name=".Somnambulator" android:theme="@android:style/Theme.Wallpaper.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -297,38 +320,91 @@
                 <category android:name="android.intent.category.DESK_DOCK"/>
             </intent-filter>
         </activity>
-        <activity android:excludeFromRecents="true" android:exported="true" android:finishOnCloseSystemDialogs="true" android:label="@string/quick_settings_brightness_dialog_title" android:launchMode="singleInstance" android:name=".settings.BrightnessDialog" android:theme="@android:style/Theme.DeviceDefault.Dialog">
+        <activity android:excludeFromRecents="true" android:exported="true" android:finishOnCloseSystemDialogs="true" android:label="@string/quick_settings_brightness_dialog_title" android:launchMode="singleInstance" android:name=".settings.BrightnessDialog" android:theme="@android:style/Theme.DeviceDefault.QuickSettings.Dialog">
             <intent-filter>
-                <action android:name="android.intent.action.SHOW_BRIGHTNESS_DIALOG"/>
+                <action android:name="com.android.intent.action.SHOW_BRIGHTNESS_DIALOG"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:exported="true" android:name="com.android.keyguard.wallpaper.KeyguardWallpaperPreviewActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.DeviceDefault.NoActionBar.Fullscreen">
+        <activity android:excludeFromRecents="true" android:launchMode="singleTop" android:name=".ForegroundServicesDialog" android:process=":fgservices" android:theme="@style/Theme.SystemUI.Dialog.Alert">
+            <intent-filter android:priority="1">
+                <action android:name="android.settings.FOREGROUND_SERVICES_SETTINGS"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <service android:exported="true" android:name=".infinity.InfinityWallpaperBlack" android:permission="android.permission.BIND_WALLPAPER" android:process=":InfinityWallpaper">
+            <intent-filter>
+                <action android:name="com.android.systemui.infinity.GalaxyWallpaperService"/>
+            </intent-filter>
+            <meta-data android:name="android.service.wallpaper" android:resource="@xml/infinity_wallpaper"/>
+        </service>
+        <service android:exported="true" android:name=".infinity.InfinityWallpaperOrchid" android:permission="android.permission.BIND_WALLPAPER" android:process=":InfinityWallpaper">
+            <intent-filter>
+                <action android:name="com.android.systemui.infinity.GalaxyWallpaperService"/>
+            </intent-filter>
+            <meta-data android:name="android.service.wallpaper" android:resource="@xml/infinity_wallpaper_orchid"/>
+        </service>
+        <service android:exported="true" android:name=".infinity.InfinityWallpaperPink" android:permission="android.permission.BIND_WALLPAPER" android:process=":InfinityWallpaper">
+            <intent-filter>
+                <action android:name="com.android.systemui.infinity.GalaxyWallpaperService"/>
+            </intent-filter>
+            <meta-data android:name="android.service.wallpaper" android:resource="@xml/infinity_wallpaper_pink"/>
+        </service>
+        <service android:exported="true" android:name=".infinity.InfinityWallpaperBlue" android:permission="android.permission.BIND_WALLPAPER" android:process=":InfinityWallpaper">
+            <intent-filter>
+                <action android:name="com.android.systemui.infinity.GalaxyWallpaperService"/>
+            </intent-filter>
+            <meta-data android:name="android.service.wallpaper" android:resource="@xml/infinity_wallpaper_blue"/>
+        </service>
+        <service android:exported="true" android:name=".infinity.InfinityWallpaperGold" android:permission="android.permission.BIND_WALLPAPER" android:process=":InfinityWallpaper">
+            <intent-filter>
+                <action android:name="com.android.systemui.infinity.GalaxyWallpaperService"/>
+            </intent-filter>
+            <meta-data android:name="android.service.wallpaper" android:resource="@xml/infinity_wallpaper_gold"/>
+        </service>
+        <service android:exported="true" android:name=".infinity.InfinityWallpaperSilver" android:permission="android.permission.BIND_WALLPAPER" android:process=":InfinityWallpaper">
+            <intent-filter>
+                <action android:name="com.android.systemui.infinity.GalaxyWallpaperService"/>
+            </intent-filter>
+            <meta-data android:name="android.service.wallpaper" android:resource="@xml/infinity_wallpaper_silver"/>
+        </service>
+        <service android:exported="true" android:name=".infinity.InfinityWallpaperPurple" android:permission="android.permission.BIND_WALLPAPER" android:process=":InfinityWallpaper">
+            <intent-filter>
+                <action android:name="com.android.systemui.infinity.GalaxyWallpaperService"/>
+            </intent-filter>
+            <meta-data android:name="android.service.wallpaper" android:resource="@xml/infinity_wallpaper_purple"/>
+        </service>
+        <activity android:excludeFromRecents="true" android:exported="true" android:name="com.android.systemui.wallpaper.KeyguardWallpaperPreviewActivity" android:process=":WallpaperPreview" android:resizeableActivity="true" android:screenOrientation="portrait" android:theme="@style/Theme.KeyguardWallpaperPreviewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <service android:exported="true" android:name=".doze.DozeService" android:permission="android.permission.BIND_DREAM_SERVICE" android:singleUser="true"/>
-        <service android:enabled="@bool/config_support_bixby" android:name="com.samsung.android.app.executor.ExecutorService" android:permission="com.samsung.android.app.executor.permission.EXECUTOR_SERVICE">
+        <activity android:excludeFromRecents="true" android:exported="true" android:launchMode="singleInstance" android:name="com.android.systemui.wallpaper.KeyguardVideoWallpaperPreviewActivity" android:process=":WallpaperPreview" android:resizeableActivity="false" android:screenOrientation="portrait" android:theme="@style/Theme.KeyguardWallpaperPreviewActivity">
             <intent-filter>
-                <action android:name="com.samsung.android.app.executor.EXECUTOR_SERVICE"/>
+                <action android:name="com.samsung.intent.action.SHOW_VIDEO_WALLPAPER_PREVIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
-        </service>
+        </activity>
+        <service android:exported="true" android:name="com.android.systemui.wallpaper.video.VideoFileSaveService"/>
+        <service android:exported="true" android:name=".doze.DozeService" android:permission="android.permission.BIND_DREAM_SERVICE" android:singleUser="true"/>
         <receiver android:exported="false" android:name=".tuner.TunerService$ClearReceiver">
             <intent-filter>
                 <action android:name="com.android.systemui.action.CLEAR_TUNER"/>
             </intent-filter>
         </receiver>
+        <provider android:authorities="com.android.systemui.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/fileprovider"/>
+        </provider>
         <receiver android:name=".statusbar.KeyboardShortcutsReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.DISMISS_KEYBOARD_SHORTCUTS"/>
-                <action android:name="android.intent.action.SHOW_KEYBOARD_SHORTCUTS"/>
+                <action android:name="com.android.intent.action.DISMISS_KEYBOARD_SHORTCUTS"/>
+                <action android:name="com.android.intent.action.SHOW_KEYBOARD_SHORTCUTS"/>
             </intent-filter>
         </receiver>
-        <provider android:authorities="com.android.systemui.cover.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
-            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/sviewcover_wallpaper_file_provider"/>
-        </provider>
-        <activity android:name=".servicebox.PermissionsRequestActivity" android:theme="@android:style/Theme.DeviceDefault.Light"/>
+        <service android:enabled="true" android:exported="true" android:name=".cover.SViewCoverService"/>
+        <service android:exported="true" android:name=".servicebox.pages.calendar.CalendarDataService"/>
+        <meta-data android:name="resource-map" android:resource="@xml/resource_map"/>
+        <service android:exported="true" android:name=".splugins.SPluginService" android:permission="com.samsung.systemui.permission.SPLUGIN"/>
     </application>
 </manifest>

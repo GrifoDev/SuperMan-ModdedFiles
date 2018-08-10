@@ -62,5 +62,9 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
+    iget-object v0, p0, Lcom/android/systemui/recents/views/TaskView$6;->this$0:Lcom/android/systemui/recents/views/TaskView;
+
+    invoke-virtual {v0}, Lcom/android/systemui/recents/views/TaskView;->updateFloatingActionButtonPosition()V
+
     return-void
 .end method

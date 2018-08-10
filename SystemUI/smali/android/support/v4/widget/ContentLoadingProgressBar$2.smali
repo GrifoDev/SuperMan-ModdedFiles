@@ -41,13 +41,11 @@
 
     iget-object v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar$2;->this$0:Landroid/support/v4/widget/ContentLoadingProgressBar;
 
-    invoke-static {v0, v1}, Landroid/support/v4/widget/ContentLoadingProgressBar;->-set1(Landroid/support/v4/widget/ContentLoadingProgressBar;Z)Z
+    iput-boolean v1, v0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mPostedShow:Z
 
     iget-object v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar$2;->this$0:Landroid/support/v4/widget/ContentLoadingProgressBar;
 
-    invoke-static {v0}, Landroid/support/v4/widget/ContentLoadingProgressBar;->-get0(Landroid/support/v4/widget/ContentLoadingProgressBar;)Z
-
-    move-result v0
+    iget-boolean v0, v0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDismissed:Z
 
     if-nez v0, :cond_0
 
@@ -57,7 +55,7 @@
 
     move-result-wide v2
 
-    invoke-static {v0, v2, v3}, Landroid/support/v4/widget/ContentLoadingProgressBar;->-set2(Landroid/support/v4/widget/ContentLoadingProgressBar;J)J
+    iput-wide v2, v0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mStartTime:J
 
     iget-object v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar$2;->this$0:Landroid/support/v4/widget/ContentLoadingProgressBar;
 

@@ -17,7 +17,7 @@
 # instance fields
 .field mData:J
 
-.field next:Landroid/support/v7/widget/ChildHelper$Bucket;
+.field mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
 
 
 # direct methods
@@ -36,7 +36,7 @@
 .method private ensureNext()V
     .locals 1
 
-    iget-object v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->next:Landroid/support/v7/widget/ChildHelper$Bucket;
+    iget-object v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
 
     if-nez v0, :cond_0
 
@@ -44,7 +44,7 @@
 
     invoke-direct {v0}, Landroid/support/v7/widget/ChildHelper$Bucket;-><init>()V
 
-    iput-object v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->next:Landroid/support/v7/widget/ChildHelper$Bucket;
+    iput-object v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
 
     :cond_0
     return-void
@@ -59,11 +59,11 @@
 
     if-lt p1, v0, :cond_1
 
-    iget-object v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->next:Landroid/support/v7/widget/ChildHelper$Bucket;
+    iget-object v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->next:Landroid/support/v7/widget/ChildHelper$Bucket;
+    iget-object v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
 
     add-int/lit8 v1, p1, -0x40
 
@@ -96,7 +96,7 @@
 
     const-wide/16 v4, 0x1
 
-    iget-object v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->next:Landroid/support/v7/widget/ChildHelper$Bucket;
+    iget-object v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
 
     if-nez v0, :cond_1
 
@@ -143,7 +143,7 @@
     return v0
 
     :cond_2
-    iget-object v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->next:Landroid/support/v7/widget/ChildHelper$Bucket;
+    iget-object v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
 
     add-int/lit8 v1, p1, -0x40
 
@@ -171,7 +171,7 @@
 
     invoke-direct {p0}, Landroid/support/v7/widget/ChildHelper$Bucket;->ensureNext()V
 
-    iget-object v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->next:Landroid/support/v7/widget/ChildHelper$Bucket;
+    iget-object v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
 
     add-int/lit8 v1, p1, -0x40
 
@@ -216,7 +216,7 @@
 
     invoke-direct {p0}, Landroid/support/v7/widget/ChildHelper$Bucket;->ensureNext()V
 
-    iget-object v5, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->next:Landroid/support/v7/widget/ChildHelper$Bucket;
+    iget-object v5, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
 
     add-int/lit8 v8, p1, -0x40
 
@@ -275,14 +275,14 @@
     :goto_2
     if-nez v4, :cond_2
 
-    iget-object v5, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->next:Landroid/support/v7/widget/ChildHelper$Bucket;
+    iget-object v5, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
 
     if-eqz v5, :cond_0
 
     :cond_2
     invoke-direct {p0}, Landroid/support/v7/widget/ChildHelper$Bucket;->ensureNext()V
 
-    iget-object v5, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->next:Landroid/support/v7/widget/ChildHelper$Bucket;
+    iget-object v5, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
 
     const/4 v8, 0x0
 
@@ -310,7 +310,7 @@
 
     invoke-direct {p0}, Landroid/support/v7/widget/ChildHelper$Bucket;->ensureNext()V
 
-    iget-object v7, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->next:Landroid/support/v7/widget/ChildHelper$Bucket;
+    iget-object v7, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
 
     add-int/lit8 v8, p1, -0x40
 
@@ -370,11 +370,11 @@
 
     iput-wide v8, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mData:J
 
-    iget-object v7, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->next:Landroid/support/v7/widget/ChildHelper$Bucket;
+    iget-object v7, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
 
     if-eqz v7, :cond_2
 
-    iget-object v7, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->next:Landroid/support/v7/widget/ChildHelper$Bucket;
+    iget-object v7, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
 
     const/4 v8, 0x0
 
@@ -389,7 +389,7 @@
     invoke-virtual {p0, v7}, Landroid/support/v7/widget/ChildHelper$Bucket;->set(I)V
 
     :cond_1
-    iget-object v7, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->next:Landroid/support/v7/widget/ChildHelper$Bucket;
+    iget-object v7, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
 
     const/4 v8, 0x0
 
@@ -411,11 +411,11 @@
 
     iput-wide v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mData:J
 
-    iget-object v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->next:Landroid/support/v7/widget/ChildHelper$Bucket;
+    iget-object v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->next:Landroid/support/v7/widget/ChildHelper$Bucket;
+    iget-object v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
 
     invoke-virtual {v0}, Landroid/support/v7/widget/ChildHelper$Bucket;->reset()V
 
@@ -432,7 +432,7 @@
 
     invoke-direct {p0}, Landroid/support/v7/widget/ChildHelper$Bucket;->ensureNext()V
 
-    iget-object v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->next:Landroid/support/v7/widget/ChildHelper$Bucket;
+    iget-object v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
 
     add-int/lit8 v1, p1, -0x40
 
@@ -458,7 +458,7 @@
 .method public toString()Ljava/lang/String;
     .locals 4
 
-    iget-object v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->next:Landroid/support/v7/widget/ChildHelper$Bucket;
+    iget-object v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
 
     if-nez v0, :cond_0
 
@@ -476,7 +476,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v1, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->next:Landroid/support/v7/widget/ChildHelper$Bucket;
+    iget-object v1, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
 
     invoke-virtual {v1}, Landroid/support/v7/widget/ChildHelper$Bucket;->toString()Ljava/lang/String;
 

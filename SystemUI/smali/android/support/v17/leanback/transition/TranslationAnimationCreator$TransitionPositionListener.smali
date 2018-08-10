@@ -38,7 +38,7 @@
 
 
 # direct methods
-.method private constructor <init>(Landroid/view/View;Landroid/view/View;IIFF)V
+.method constructor <init>(Landroid/view/View;Landroid/view/View;IIFF)V
     .locals 3
 
     const/4 v2, 0x0
@@ -104,14 +104,6 @@
     invoke-virtual {v0, v1, v2}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
     :cond_0
-    return-void
-.end method
-
-.method synthetic constructor <init>(Landroid/view/View;Landroid/view/View;IIFFLandroid/support/v17/leanback/transition/TranslationAnimationCreator$TransitionPositionListener;)V
-    .locals 0
-
-    invoke-direct/range {p0 .. p6}, Landroid/support/v17/leanback/transition/TranslationAnimationCreator$TransitionPositionListener;-><init>(Landroid/view/View;Landroid/view/View;IIFF)V
-
     return-void
 .end method
 

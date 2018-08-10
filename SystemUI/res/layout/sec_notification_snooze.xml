@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.systemui.statusbar.SecNotificationSnooze android:theme="@android:style/Theme.DeviceDefault.Light" android:orientation="vertical" android:id="@id/notification_snooze" android:background="@color/notification_guts_bg_color" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@android:dimen/notification_content_margin_start"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:clipChildren="false" android:layout_width="fill_parent" android:layout_height="@android:dimen/notification_header_height" android:layout_marginTop="8.0dip">
+        <ImageView android:id="@id/snooze_header_icon" android:layout_width="@android:dimen/notification_header_icon_size" android:layout_height="@android:dimen/notification_header_icon_size" android:src="@drawable/notification_ic_snooze" android:tint="@color/notification_gut_gear_color" android:layout_marginEnd="6.0dip" />
+        <TextView android:textAppearance="@style/TextAppearance.NotificationInfo.Header" android:id="@id/snooze_header_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/snooze_title" android:singleLine="true" />
+    </LinearLayout>
+    <TextView android:textAppearance="@style/TextAppearance.NotificationSnooze.Guide" android:id="@id/snooze_guide_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:layout_marginBottom="5.0dip" android:text="@string/snooze_notification_guide_text" android:includeFontPadding="false" android:layout_marginEnd="@android:dimen/notification_content_margin_start" />
+    <RadioGroup android:orientation="vertical" android:id="@id/snooze_options" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <LinearLayout android:gravity="end" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="18.0dip">
+        <TextView android:id="@id/snooze_cancel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cancel" android:layout_marginEnd="@dimen/notification_guts_bottom_button_end_margin" style="@style/TextAppearance.NotificationInfo.Button" />
+        <TextView android:id="@id/snooze_done" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/notification_done" android:layout_marginEnd="@dimen/notification_guts_bottom_button_end_margin" style="@style/TextAppearance.NotificationInfo.Button" />
+    </LinearLayout>
+</com.android.systemui.statusbar.SecNotificationSnooze>

@@ -66,9 +66,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/model/TaskKeyLruCache$1;->this$0:Lcom/android/systemui/recents/model/TaskKeyLruCache;
 
-    invoke-static {v0}, Lcom/android/systemui/recents/model/TaskKeyLruCache;->-get1(Lcom/android/systemui/recents/model/TaskKeyLruCache;)Landroid/util/SparseArray;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/recents/model/TaskKeyLruCache;->mKeys:Landroid/util/SparseArray;
 
     invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
 
@@ -85,9 +83,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/recents/model/TaskKeyLruCache$1;->this$0:Lcom/android/systemui/recents/model/TaskKeyLruCache;
 
-    invoke-static {v0}, Lcom/android/systemui/recents/model/TaskKeyLruCache;->-get1(Lcom/android/systemui/recents/model/TaskKeyLruCache;)Landroid/util/SparseArray;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/recents/model/TaskKeyLruCache;->mKeys:Landroid/util/SparseArray;
 
     invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
 

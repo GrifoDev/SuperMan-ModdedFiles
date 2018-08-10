@@ -91,32 +91,16 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_4
 
     invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    xor-int/lit8 v4, v4, 0x1
 
-    :cond_2
-    iget-object v4, p0, Lcom/android/settingslib/bluetooth/HeadsetProfile$HeadsetServiceListener;->this$0:Lcom/android/settingslib/bluetooth/HeadsetProfile;
+    if-eqz v4, :cond_4
 
-    invoke-static {v4}, Lcom/android/settingslib/bluetooth/HeadsetProfile;->-get3(Lcom/android/settingslib/bluetooth/HeadsetProfile;)Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;->callServiceConnectedListeners()V
-
-    iget-object v4, p0, Lcom/android/settingslib/bluetooth/HeadsetProfile$HeadsetServiceListener;->this$0:Lcom/android/settingslib/bluetooth/HeadsetProfile;
-
-    const/4 v5, 0x1
-
-    invoke-static {v4, v5}, Lcom/android/settingslib/bluetooth/HeadsetProfile;->-set0(Lcom/android/settingslib/bluetooth/HeadsetProfile;Z)Z
-
-    return-void
-
-    :cond_3
     invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
@@ -126,7 +110,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_4
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -144,7 +128,7 @@
 
     move-result-object v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_2
 
     const-string/jumbo v4, "HeadsetProfile"
 
@@ -194,8 +178,8 @@
 
     move-result-object v3
 
-    :cond_4
-    if-eqz v3, :cond_5
+    :cond_2
+    if-eqz v3, :cond_3
 
     const-string/jumbo v4, "HeadsetProfile"
 
@@ -233,7 +217,7 @@
 
     goto :goto_0
 
-    :cond_5
+    :cond_3
     const-string/jumbo v4, "HeadsetProfile"
 
     const-string/jumbo v5, "Bluetooth device is null"
@@ -241,6 +225,23 @@
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
+
+    :cond_4
+    iget-object v4, p0, Lcom/android/settingslib/bluetooth/HeadsetProfile$HeadsetServiceListener;->this$0:Lcom/android/settingslib/bluetooth/HeadsetProfile;
+
+    const/4 v5, 0x1
+
+    invoke-static {v4, v5}, Lcom/android/settingslib/bluetooth/HeadsetProfile;->-set0(Lcom/android/settingslib/bluetooth/HeadsetProfile;Z)Z
+
+    iget-object v4, p0, Lcom/android/settingslib/bluetooth/HeadsetProfile$HeadsetServiceListener;->this$0:Lcom/android/settingslib/bluetooth/HeadsetProfile;
+
+    invoke-static {v4}, Lcom/android/settingslib/bluetooth/HeadsetProfile;->-get3(Lcom/android/settingslib/bluetooth/HeadsetProfile;)Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;->callServiceConnectedListeners()V
+
+    return-void
 .end method
 
 .method public onServiceDisconnected(I)V
@@ -261,17 +262,17 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/HeadsetProfile$HeadsetServiceListener;->this$0:Lcom/android/settingslib/bluetooth/HeadsetProfile;
 
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/settingslib/bluetooth/HeadsetProfile;->-set0(Lcom/android/settingslib/bluetooth/HeadsetProfile;Z)Z
+
+    iget-object v0, p0, Lcom/android/settingslib/bluetooth/HeadsetProfile$HeadsetServiceListener;->this$0:Lcom/android/settingslib/bluetooth/HeadsetProfile;
+
     invoke-static {v0}, Lcom/android/settingslib/bluetooth/HeadsetProfile;->-get3(Lcom/android/settingslib/bluetooth/HeadsetProfile;)Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;->callServiceDisconnectedListeners()V
-
-    iget-object v0, p0, Lcom/android/settingslib/bluetooth/HeadsetProfile$HeadsetServiceListener;->this$0:Lcom/android/settingslib/bluetooth/HeadsetProfile;
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/android/settingslib/bluetooth/HeadsetProfile;->-set0(Lcom/android/settingslib/bluetooth/HeadsetProfile;Z)Z
 
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/HeadsetProfile$HeadsetServiceListener;->this$0:Lcom/android/settingslib/bluetooth/HeadsetProfile;
 

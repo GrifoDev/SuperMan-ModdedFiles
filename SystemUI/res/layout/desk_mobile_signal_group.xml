@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/mobile_combo" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:systemui="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:layout_width="wrap_content" android:layout_height="17.0dip">
+        <ImageView android:id="@id/mobile_in" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_activity_down" android:paddingEnd="2.0dip" />
+        <ImageView android:id="@id/mobile_out" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_activity_up" android:paddingEnd="2.0dip" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/data_combo" android:background="@drawable/taskbar_keybutton_ripple_effect" android:layout_width="wrap_content" android:layout_height="@dimen/desk_status_bar_icon_size" android:minWidth="@dimen/desk_status_bar_icon_size">
+        <ImageView android:layout_gravity="center" android:id="@id/mobile_type" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <com.android.systemui.statusbar.AnimatedImageView android:layout_gravity="center" android:id="@id/mobile_activity" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/signal_combo" android:background="@drawable/taskbar_keybutton_ripple_effect" android:layout_width="wrap_content" android:layout_height="@dimen/desk_status_bar_icon_size" android:minWidth="@dimen/desk_status_bar_icon_size">
+        <com.android.systemui.statusbar.AnimatedImageView android:theme="@style/DualToneLightTheme" android:layout_gravity="center" android:id="@id/mobile_signal" android:layout_width="wrap_content" android:layout_height="wrap_content" systemui:hasOverlappingRendering="false" />
+        <com.android.systemui.statusbar.AnimatedImageView android:theme="@style/DualToneDarkTheme" android:layout_gravity="center" android:id="@id/mobile_signal_dark" android:layout_width="wrap_content" android:layout_height="wrap_content" android:alpha="0.0" systemui:hasOverlappingRendering="false" />
+        <com.android.systemui.statusbar.AnimatedImageView android:layout_gravity="center" android:id="@id/mobile_roaming" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <ImageView android:layout_gravity="center" android:id="@id/slot_focus" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/stat_sys_signal_focus_bg" />
+        <ImageView android:layout_gravity="center" android:id="@id/rssi_type" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </FrameLayout>
+</LinearLayout>

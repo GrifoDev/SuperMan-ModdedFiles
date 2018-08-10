@@ -216,33 +216,21 @@
 
     invoke-static {v0}, Lcom/android/systemui/recents/RecentsImplProxy;->-get0(Lcom/android/systemui/recents/RecentsImplProxy;)Lcom/android/systemui/recents/RecentsImpl;
 
-    move-result-object v0
+    move-result-object v1
 
-    iget v1, v7, Lcom/android/internal/os/SomeArgs;->argi1:I
+    iget v2, v7, Lcom/android/internal/os/SomeArgs;->argi1:I
 
-    iget v2, v7, Lcom/android/internal/os/SomeArgs;->argi2:I
+    iget v3, v7, Lcom/android/internal/os/SomeArgs;->argi2:I
 
     iput v6, v7, Lcom/android/internal/os/SomeArgs;->argi3:I
 
-    iget-object v4, v7, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+    iget-object v0, v7, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
-    check-cast v4, Landroid/graphics/Rect;
+    check-cast v0, Landroid/graphics/Rect;
 
-    iget v3, v7, Lcom/android/internal/os/SomeArgs;->argi4:I
-
-    if-ne v3, v5, :cond_7
-
-    :goto_8
-    move v3, v6
-
-    invoke-virtual/range {v0 .. v5}, Lcom/android/systemui/recents/RecentsImpl;->dockTopTask(IIILandroid/graphics/Rect;Z)V
+    invoke-virtual {v1, v2, v3, v6, v0}, Lcom/android/systemui/recents/RecentsImpl;->dockTopTask(IIILandroid/graphics/Rect;)V
 
     goto/16 :goto_0
-
-    :cond_7
-    move v5, v6
-
-    goto :goto_8
 
     :pswitch_7
     iget-object v0, p0, Lcom/android/systemui/recents/RecentsImplProxy$1;->this$0:Lcom/android/systemui/recents/RecentsImplProxy;
@@ -282,6 +270,21 @@
 
     goto/16 :goto_0
 
+    :pswitch_9
+    iget-object v0, p0, Lcom/android/systemui/recents/RecentsImplProxy$1;->this$0:Lcom/android/systemui/recents/RecentsImplProxy;
+
+    invoke-static {v0}, Lcom/android/systemui/recents/RecentsImplProxy;->-get0(Lcom/android/systemui/recents/RecentsImplProxy;)Lcom/android/systemui/recents/RecentsImpl;
+
+    move-result-object v0
+
+    iget v1, p1, Landroid/os/Message;->arg1:I
+
+    iget v2, p1, Landroid/os/Message;->arg2:I
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/recents/RecentsImpl;->onShowCurrentUserToast(II)V
+
+    goto/16 :goto_0
+
     nop
 
     :pswitch_data_0
@@ -295,5 +298,6 @@
         :pswitch_6
         :pswitch_7
         :pswitch_8
+        :pswitch_9
     .end packed-switch
 .end method

@@ -1,5 +1,5 @@
 .class public Lcom/android/systemui/qs/tiles/IntentTile;
-.super Lcom/android/systemui/qs/QSTile;
+.super Lcom/android/systemui/qs/tileimpl/QSTileImpl;
 .source "IntentTile.java"
 
 
@@ -14,9 +14,9 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lcom/android/systemui/qs/QSTile",
+        "Lcom/android/systemui/qs/tileimpl/QSTileImpl",
         "<",
-        "Lcom/android/systemui/qs/QSTile$State;",
+        "Lcom/android/systemui/plugins/qs/QSTile$State;",
         ">;"
     }
 .end annotation
@@ -61,10 +61,10 @@
     return-void
 .end method
 
-.method private constructor <init>(Lcom/android/systemui/qs/QSTile$Host;Ljava/lang/String;)V
+.method private constructor <init>(Lcom/android/systemui/qs/QSHost;Ljava/lang/String;)V
     .locals 3
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/QSTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;-><init>(Lcom/android/systemui/qs/QSHost;)V
 
     new-instance v0, Lcom/android/systemui/qs/tiles/IntentTile$1;
 
@@ -85,18 +85,8 @@
     return-void
 .end method
 
-.method public static create(Lcom/android/systemui/qs/QSTile$Host;Ljava/lang/String;)Lcom/android/systemui/qs/QSTile;
+.method public static create(Lcom/android/systemui/qs/QSHost;Ljava/lang/String;)Lcom/android/systemui/plugins/qs/QSTile;
     .locals 4
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/android/systemui/qs/QSTile$Host;",
-            "Ljava/lang/String;",
-            ")",
-            "Lcom/android/systemui/qs/QSTile",
-            "<*>;"
-        }
-    .end annotation
 
     if-eqz p1, :cond_0
 
@@ -106,7 +96,9 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    xor-int/lit8 v1, v1, 0x1
+
+    if-nez v1, :cond_0
 
     const-string/jumbo v1, ")"
 
@@ -114,37 +106,9 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
-
-    const-string/jumbo v1, "intent("
-
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
-
-    move-result v1
-
-    invoke-virtual {p1}, Ljava/lang/String;->length()I
-
-    move-result v2
-
-    add-int/lit8 v2, v2, -0x1
-
-    invoke-virtual {p1, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v1
+    xor-int/lit8 v1, v1, 0x1
 
     if-eqz v1, :cond_1
-
-    new-instance v1, Ljava/lang/IllegalArgumentException;
-
-    const-string/jumbo v2, "Empty intent tile spec action"
-
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v1
 
     :cond_0
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -172,9 +136,40 @@
     throw v1
 
     :cond_1
+    const-string/jumbo v1, "intent("
+
+    invoke-virtual {v1}, Ljava/lang/String;->length()I
+
+    move-result v1
+
+    invoke-virtual {p1}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    add-int/lit8 v2, v2, -0x1
+
+    invoke-virtual {p1, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    new-instance v1, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v2, "Empty intent tile spec action"
+
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    :cond_2
     new-instance v1, Lcom/android/systemui/qs/tiles/IntentTile;
 
-    invoke-direct {v1, p0, v0}, Lcom/android/systemui/qs/tiles/IntentTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;Ljava/lang/String;)V
+    invoke-direct {v1, p0, v0}, Lcom/android/systemui/qs/tiles/IntentTile;-><init>(Lcom/android/systemui/qs/QSHost;Ljava/lang/String;)V
 
     return-object v1
 .end method
@@ -191,11 +186,15 @@
 
     if-eqz v2, :cond_1
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/IntentTile;->getHost()Lcom/android/systemui/qs/QSTile$Host;
+    const-class v2, Lcom/android/systemui/plugins/ActivityStarter;
+
+    invoke-static {v2}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
-    invoke-interface {v2, p2}, Lcom/android/systemui/qs/QSTile$Host;->startActivityDismissingKeyguard(Landroid/app/PendingIntent;)V
+    check-cast v2, Lcom/android/systemui/plugins/ActivityStarter;
+
+    invoke-interface {v2, p2}, Lcom/android/systemui/plugins/ActivityStarter;->postStartActivityDismissingKeyguard(Landroid/app/PendingIntent;)V
 
     :cond_0
     :goto_0
@@ -287,27 +286,17 @@
 .method public getTileLabel()Ljava/lang/CharSequence;
     .locals 1
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/IntentTile;->getState()Lcom/android/systemui/qs/QSTile$State;
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/IntentTile;->getState()Lcom/android/systemui/plugins/qs/QSTile$State;
 
     move-result-object v0
 
-    iget-object v0, v0, Lcom/android/systemui/qs/QSTile$State;->label:Ljava/lang/CharSequence;
+    iget-object v0, v0, Lcom/android/systemui/plugins/qs/QSTile$State;->label:Ljava/lang/CharSequence;
 
     return-object v0
 .end method
 
 .method protected handleClick()V
     .locals 3
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/IntentTile;->mContext:Landroid/content/Context;
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/IntentTile;->getMetricsCategory()I
-
-    move-result v1
-
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/IntentTile;->mIntentPackage:Ljava/lang/String;
-
-    invoke-static {v0, v1, v2}, Lcom/android/internal/logging/MetricsLogger;->action(Landroid/content/Context;ILjava/lang/String;)V
 
     const-string/jumbo v0, "click"
 
@@ -323,7 +312,7 @@
 .method protected handleDestroy()V
     .locals 2
 
-    invoke-super {p0}, Lcom/android/systemui/qs/QSTile;->handleDestroy()V
+    invoke-super {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->handleDestroy()V
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/IntentTile;->mContext:Landroid/content/Context;
 
@@ -348,7 +337,7 @@
     return-void
 .end method
 
-.method protected handleUpdateState(Lcom/android/systemui/qs/QSTile$State;Ljava/lang/Object;)V
+.method protected handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$State;Ljava/lang/Object;)V
     .locals 8
 
     const/4 v7, 0x0
@@ -379,7 +368,7 @@
 
     move-result-object v5
 
-    iput-object v5, p1, Lcom/android/systemui/qs/QSTile$State;->contentDescription:Ljava/lang/CharSequence;
+    iput-object v5, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->contentDescription:Ljava/lang/CharSequence;
 
     const-string/jumbo v5, "label"
 
@@ -387,9 +376,9 @@
 
     move-result-object v5
 
-    iput-object v5, p1, Lcom/android/systemui/qs/QSTile$State;->label:Ljava/lang/CharSequence;
+    iput-object v5, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->label:Ljava/lang/CharSequence;
 
-    iput-object v6, p1, Lcom/android/systemui/qs/QSTile$State;->icon:Lcom/android/systemui/qs/QSTile$Icon;
+    iput-object v6, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->icon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
     const-string/jumbo v5, "iconBitmap"
 
@@ -404,7 +393,7 @@
 
     invoke-direct {v5, v0}, Lcom/android/systemui/qs/tiles/IntentTile$BytesIcon;-><init>([B)V
 
-    iput-object v5, p1, Lcom/android/systemui/qs/QSTile$State;->icon:Lcom/android/systemui/qs/QSTile$Icon;
+    iput-object v5, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->icon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -519,16 +508,16 @@
 
     invoke-direct {v5, p0, v2, v1}, Lcom/android/systemui/qs/tiles/IntentTile$PackageDrawableIcon;-><init>(Lcom/android/systemui/qs/tiles/IntentTile;Ljava/lang/String;I)V
 
-    iput-object v5, p1, Lcom/android/systemui/qs/QSTile$State;->icon:Lcom/android/systemui/qs/QSTile$Icon;
+    iput-object v5, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->icon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
     goto :goto_0
 
     :cond_4
-    invoke-static {v1}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
+    invoke-static {v1}, Lcom/android/systemui/qs/tileimpl/QSTileImpl$ResourceIcon;->get(I)Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
     move-result-object v5
 
-    iput-object v5, p1, Lcom/android/systemui/qs/QSTile$State;->icon:Lcom/android/systemui/qs/QSTile$Icon;
+    iput-object v5, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->icon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
     goto :goto_0
 
@@ -541,19 +530,19 @@
 .method protected handleUserSwitch(I)V
     .locals 0
 
-    invoke-super {p0, p1}, Lcom/android/systemui/qs/QSTile;->handleUserSwitch(I)V
+    invoke-super {p0, p1}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->handleUserSwitch(I)V
 
     iput p1, p0, Lcom/android/systemui/qs/tiles/IntentTile;->mCurrentUserId:I
 
     return-void
 .end method
 
-.method public newTileState()Lcom/android/systemui/qs/QSTile$State;
+.method public newTileState()Lcom/android/systemui/plugins/qs/QSTile$State;
     .locals 1
 
-    new-instance v0, Lcom/android/systemui/qs/QSTile$State;
+    new-instance v0, Lcom/android/systemui/plugins/qs/QSTile$State;
 
-    invoke-direct {v0}, Lcom/android/systemui/qs/QSTile$State;-><init>()V
+    invoke-direct {v0}, Lcom/android/systemui/plugins/qs/QSTile$State;-><init>()V
 
     return-object v0
 .end method

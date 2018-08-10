@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="battery_labels">
+        <item>၀%</item>
+        <item>၅၀ %</item>
+        <item>100%</item>
+    </string-array>
+    <string-array name="bluetooth_ss_a2dp_codec_summaries">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>ကုဒ္အားလံုး</item>
+        <item>မူရင္းကုဒ္</item>
+    </string-array>
+    <string-array name="bluetooth_ss_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>ကုဒ္အားလံုး</item>
+        <item>မူရင္းကုဒ္</item>
+    </string-array>
+    <string-array name="bluetooth_ss_japan_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>ကုဒ္အားလံုး</item>
+        <item>မူရင္းကုဒ္</item>
+    </string-array>
+    <string-array name="wifi_ap_wifi_sharing">
+        <item>Wi-Fi မွ်ေဝနည္း ဖြင့္ရန္</item>
+        <item>Wi-Fi မွ်ေဝနည္း ပိတ္ရန္</item>
+    </string-array>
+    <string-array name="wifi_status">
+        <item></item>
+        <item>ရွာေဖြေနပါသည္…</item>
+        <item>ဆက္သြယ္ေနပါသည္……</item>
+        <item>စစ္မွန္ေၾကာင္းအေထာက္အထားစစ္ေဆးေနျခင္း..</item>
+        <item>IP လိပ္စာ ရယူေနပါသည္…</item>
+        <item>ခ်ိတ္ဆက္ထားေသာ</item>
+        <item>ဆုိင္းငံ့ထားၿပီး</item>
+        <item>ဆက္သြယ္ထားမႈကုိ ျဖတ္ေတာက္ေနပါသည္..</item>
+        <item>ဆက္သြယ္ထားမႈကို ျဖတ္ေတာက္ၿပီးပါၿပီ</item>
+        <item>မေအာင္ျမင္ပါ</item>
+        <item>ပိတ္ဆီးထားပါသည္</item>
+        <item>သင့္ အင္တာနက္ ခ်ိတ္ဆက္မႈ အရည္အေသြး စစ္ေဆးေနသည္…</item>
+    </string-array>
+</resources>

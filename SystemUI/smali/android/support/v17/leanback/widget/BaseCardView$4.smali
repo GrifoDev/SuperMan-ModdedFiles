@@ -39,9 +39,7 @@
 
     iget-object v1, p0, Landroid/support/v17/leanback/widget/BaseCardView$4;->this$0:Landroid/support/v17/leanback/widget/BaseCardView;
 
-    invoke-static {v1}, Landroid/support/v17/leanback/widget/BaseCardView;->-get1(Landroid/support/v17/leanback/widget/BaseCardView;)F
-
-    move-result v1
+    iget v1, v1, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoAlpha:F
 
     float-to-double v2, v1
 
@@ -56,9 +54,7 @@
     :goto_0
     iget-object v1, p0, Landroid/support/v17/leanback/widget/BaseCardView$4;->this$0:Landroid/support/v17/leanback/widget/BaseCardView;
 
-    invoke-static {v1}, Landroid/support/v17/leanback/widget/BaseCardView;->-get3(Landroid/support/v17/leanback/widget/BaseCardView;)Ljava/util/ArrayList;
-
-    move-result-object v1
+    iget-object v1, v1, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoViewList:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
@@ -68,9 +64,7 @@
 
     iget-object v1, p0, Landroid/support/v17/leanback/widget/BaseCardView$4;->this$0:Landroid/support/v17/leanback/widget/BaseCardView;
 
-    invoke-static {v1}, Landroid/support/v17/leanback/widget/BaseCardView;->-get3(Landroid/support/v17/leanback/widget/BaseCardView;)Ljava/util/ArrayList;
-
-    move-result-object v1
+    iget-object v1, v1, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoViewList:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 

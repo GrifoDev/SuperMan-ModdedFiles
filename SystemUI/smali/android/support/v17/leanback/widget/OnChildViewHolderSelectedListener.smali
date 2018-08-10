@@ -19,3 +19,9 @@
 
     return-void
 .end method
+
+.method public onChildViewHolderSelectedAndPositioned(Landroid/support/v7/widget/RecyclerView;Landroid/support/v7/widget/RecyclerView$ViewHolder;II)V
+    .locals 0
+
+    return-void
+.end method

@@ -24,6 +24,8 @@
 .method protected onReceiveResult(ILandroid/os/Bundle;)V
     .locals 3
 
+    if-eqz p2, :cond_0
+
     const-class v1, Landroid/support/v4/media/MediaBrowserCompat;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -32,11 +34,12 @@
 
     invoke-virtual {p2, v1}, Landroid/os/Bundle;->setClassLoader(Ljava/lang/ClassLoader;)V
 
-    if-nez p1, :cond_0
-
-    if-nez p2, :cond_1
-
     :cond_0
+    if-nez p1, :cond_1
+
+    if-nez p2, :cond_2
+
+    :cond_1
     iget-object v1, p0, Landroid/support/v4/media/MediaBrowserCompat$ItemReceiver;->mCallback:Landroid/support/v4/media/MediaBrowserCompat$ItemCallback;
 
     iget-object v2, p0, Landroid/support/v4/media/MediaBrowserCompat$ItemReceiver;->mMediaId:Ljava/lang/String;
@@ -45,14 +48,16 @@
 
     return-void
 
-    :cond_1
+    :cond_2
     const-string/jumbo v1, "media_item"
 
     invoke-virtual {p2, v1}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    xor-int/lit8 v1, v1, 0x1
+
+    if-nez v1, :cond_1
 
     const-string/jumbo v1, "media_item"
 
@@ -60,10 +65,13 @@
 
     move-result-object v0
 
+    if-eqz v0, :cond_3
+
     instance-of v1, v0, Landroid/support/v4/media/MediaBrowserCompat$MediaItem;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_4
 
+    :cond_3
     iget-object v1, p0, Landroid/support/v4/media/MediaBrowserCompat$ItemReceiver;->mCallback:Landroid/support/v4/media/MediaBrowserCompat$ItemCallback;
 
     check-cast v0, Landroid/support/v4/media/MediaBrowserCompat$MediaItem;
@@ -73,7 +81,7 @@
     :goto_0
     return-void
 
-    :cond_2
+    :cond_4
     iget-object v1, p0, Landroid/support/v4/media/MediaBrowserCompat$ItemReceiver;->mCallback:Landroid/support/v4/media/MediaBrowserCompat$ItemCallback;
 
     iget-object v2, p0, Landroid/support/v4/media/MediaBrowserCompat$ItemReceiver;->mMediaId:Ljava/lang/String;

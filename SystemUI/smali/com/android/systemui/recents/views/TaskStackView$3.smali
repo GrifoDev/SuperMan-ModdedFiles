@@ -34,10 +34,10 @@
 
 
 # virtual methods
-.method public acceptsDrop(IIIIZ)Z
+.method public acceptsDrop(IIIILandroid/graphics/Rect;Z)Z
     .locals 1
 
-    if-nez p5, :cond_0
+    if-nez p6, :cond_0
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/TaskStackView$3;->this$0:Lcom/android/systemui/recents/views/TaskStackView;
 

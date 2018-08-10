@@ -39,7 +39,7 @@
 
     const-string/jumbo v2, "ScreenshotServiceErrorReceiver called"
 
-    invoke-static {v1, v2}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     const-string/jumbo v1, "notification"
 

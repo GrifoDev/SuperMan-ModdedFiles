@@ -21,7 +21,7 @@
 
 .field public spec:Ljava/lang/String;
 
-.field public state:Lcom/android/systemui/qs/QSTile$State;
+.field public state:Lcom/android/systemui/plugins/qs/QSTile$State;
 
 
 # direct methods

@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView$3;->this$0:Lcom/android/systemui/statusbar/ActivatableNotificationView;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->-wrap4(Lcom/android/systemui/statusbar/ActivatableNotificationView;)V
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->updateOutlineAlpha()V
 
     return-void
 .end method

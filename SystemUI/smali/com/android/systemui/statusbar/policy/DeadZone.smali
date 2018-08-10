@@ -16,6 +16,8 @@
 
 .field private mDecay:I
 
+.field private mDisplayRotation:I
+
 .field private mFlashFrac:F
 
 .field private mHold:I
@@ -67,29 +69,29 @@
 
     move-result-object v0
 
-    const/4 v4, 0x2
-
-    invoke-virtual {v0, v4, v3}, Landroid/content/res/TypedArray;->getInteger(II)I
+    invoke-virtual {v0, v2, v3}, Landroid/content/res/TypedArray;->getInteger(II)I
 
     move-result v4
 
     iput v4, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mHold:I
 
-    const/4 v4, 0x3
-
-    invoke-virtual {v0, v4, v3}, Landroid/content/res/TypedArray;->getInteger(II)I
+    invoke-virtual {v0, v3, v3}, Landroid/content/res/TypedArray;->getInteger(II)I
 
     move-result v4
 
     iput v4, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mDecay:I
 
-    invoke-virtual {v0, v3, v3}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
+    const/4 v4, 0x3
+
+    invoke-virtual {v0, v4, v3}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
     move-result v4
 
     iput v4, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mSizeMin:I
 
-    invoke-virtual {v0, v2, v3}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
+    const/4 v4, 0x2
+
+    invoke-virtual {v0, v4, v3}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
     move-result v4
 
@@ -112,7 +114,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f120011
+    const v3, 0x7f050006
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -223,12 +225,31 @@
     return v0
 .end method
 
+.method private poke(Landroid/view/MotionEvent;)V
+    .locals 2
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getEventTime()J
+
+    move-result-wide v0
+
+    iput-wide v0, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mLastPokeTime:J
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mShouldFlash:Z
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/DeadZone;->postInvalidate()V
+
+    :cond_0
+    return-void
+.end method
+
 
 # virtual methods
 .method public onDraw(Landroid/graphics/Canvas;)V
     .locals 6
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
     iget-boolean v2, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mShouldFlash:Z
 
@@ -260,20 +281,29 @@
 
     if-eqz v2, :cond_3
 
-    move v2, v1
+    iget v2, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mDisplayRotation:I
 
-    :goto_0
-    iget-boolean v3, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mVertical:Z
+    const/4 v3, 0x3
 
-    if-eqz v3, :cond_2
+    if-ne v2, v3, :cond_2
+
+    invoke-virtual {p1}, Landroid/graphics/Canvas;->getWidth()I
+
+    move-result v2
+
+    sub-int/2addr v2, v1
+
+    invoke-virtual {p1}, Landroid/graphics/Canvas;->getWidth()I
+
+    move-result v3
 
     invoke-virtual {p1}, Landroid/graphics/Canvas;->getHeight()I
 
-    move-result v1
+    move-result v4
 
-    :cond_2
-    invoke-virtual {p1, v4, v4, v2, v1}, Landroid/graphics/Canvas;->clipRect(IIII)Z
+    invoke-virtual {p1, v2, v5, v3, v4}, Landroid/graphics/Canvas;->clipRect(IIII)Z
 
+    :goto_0
     iget v0, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mFlashFrac:F
 
     const/high16 v2, 0x437f0000    # 255.0f
@@ -292,183 +322,221 @@
 
     return-void
 
+    :cond_2
+    invoke-virtual {p1}, Landroid/graphics/Canvas;->getHeight()I
+
+    move-result v2
+
+    invoke-virtual {p1, v5, v5, v1, v2}, Landroid/graphics/Canvas;->clipRect(IIII)Z
+
+    goto :goto_0
+
     :cond_3
     invoke-virtual {p1}, Landroid/graphics/Canvas;->getWidth()I
 
     move-result v2
 
+    invoke-virtual {p1, v5, v5, v2, v1}, Landroid/graphics/Canvas;->clipRect(IIII)Z
+
     goto :goto_0
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 8
+    .locals 9
 
-    const/4 v3, 0x1
+    const/4 v8, 0x3
 
-    const/4 v4, 0x0
+    const/4 v7, 0x1
 
-    invoke-virtual {p1, v4}, Landroid/view/MotionEvent;->getToolType(I)I
+    const/4 v6, 0x0
 
-    move-result v5
+    invoke-virtual {p1, v6}, Landroid/view/MotionEvent;->getToolType(I)I
 
-    const/4 v6, 0x3
+    move-result v3
 
-    if-ne v5, v6, :cond_0
+    if-ne v3, v8, :cond_0
 
-    return v4
+    return v6
 
     :cond_0
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
-    const/4 v5, 0x4
+    const/4 v3, 0x4
 
-    if-ne v0, v5, :cond_2
+    if-ne v0, v3, :cond_1
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/policy/DeadZone;->poke(Landroid/view/MotionEvent;)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/policy/DeadZone;->poke(Landroid/view/MotionEvent;)V
+
+    return v7
 
     :cond_1
-    return v4
-
-    :cond_2
-    if-nez v0, :cond_1
+    if-nez v0, :cond_9
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getEventTime()J
 
-    move-result-wide v6
+    move-result-wide v4
 
-    invoke-direct {p0, v6, v7}, Lcom/android/systemui/statusbar/policy/DeadZone;->getSize(J)F
+    invoke-direct {p0, v4, v5}, Lcom/android/systemui/statusbar/policy/DeadZone;->getSize(J)F
 
-    move-result v5
+    move-result v3
 
-    float-to-int v2, v5
+    float-to-int v2, v3
 
-    iget-boolean v5, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mVertical:Z
+    iget-boolean v3, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mVertical:Z
 
-    if-eqz v5, :cond_4
+    if-eqz v3, :cond_5
+
+    iget v3, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mDisplayRotation:I
+
+    if-ne v3, v8, :cond_3
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
-    move-result v5
+    move-result v3
 
-    int-to-float v6, v2
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/DeadZone;->getWidth()I
 
-    cmpg-float v5, v5, v6
+    move-result v4
 
-    if-gez v5, :cond_3
+    sub-int/2addr v4, v2
+
+    int-to-float v4, v4
+
+    cmpl-float v3, v3, v4
+
+    if-lez v3, :cond_2
+
+    const/4 v1, 0x1
 
     :goto_0
-    move v1, v3
+    if-eqz v1, :cond_9
 
-    :goto_1
-    if-eqz v1, :cond_1
+    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mContext:Landroid/content/Context;
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mContext:Landroid/content/Context;
+    invoke-static {v3}, Lcom/android/systemui/statusbar/DeviceState;->isMobileKeyboardConnected(Landroid/content/Context;)Z
 
-    invoke-static {v5}, Lcom/android/systemui/statusbar/DeviceState;->isMobileKeyboardConnected(Landroid/content/Context;)Z
+    move-result v3
 
-    move-result v5
+    if-eqz v3, :cond_7
 
-    if-eqz v5, :cond_5
+    return v6
 
-    return v4
+    :cond_2
+    const/4 v1, 0x0
+
+    goto :goto_0
 
     :cond_3
-    move v1, v4
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
-    goto :goto_1
+    move-result v3
+
+    int-to-float v4, v2
+
+    cmpg-float v3, v3, v4
+
+    if-gez v3, :cond_4
+
+    const/4 v1, 0x1
+
+    goto :goto_0
 
     :cond_4
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
-
-    move-result v5
-
-    int-to-float v6, v2
-
-    cmpg-float v5, v5, v6
-
-    if-gez v5, :cond_3
+    const/4 v1, 0x0
 
     goto :goto_0
 
     :cond_5
-    const-string/jumbo v4, "DeadZone"
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    move-result v3
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    int-to-float v4, v2
 
-    const-string/jumbo v6, "consuming errant click: ("
+    cmpg-float v3, v3, v4
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-gez v3, :cond_6
 
-    move-result-object v5
+    const/4 v1, 0x1
+
+    goto :goto_0
+
+    :cond_6
+    const/4 v1, 0x0
+
+    goto :goto_0
+
+    :cond_7
+    const-string/jumbo v3, "DeadZone"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "consuming errant click: ("
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
-    move-result v6
+    move-result v5
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v4
 
-    const-string/jumbo v6, ","
+    const-string/jumbo v5, ","
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v4
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
-    move-result v6
+    move-result v5
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v4
 
-    const-string/jumbo v6, ")"
+    const-string/jumbo v5, ")"
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-static {v4, v5}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-boolean v4, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mShouldFlash:Z
+    iget-boolean v3, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mShouldFlash:Z
 
-    if-eqz v4, :cond_6
+    if-eqz v3, :cond_8
 
-    iget-object v4, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mDebugFlash:Ljava/lang/Runnable;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mDebugFlash:Ljava/lang/Runnable;
 
-    invoke-virtual {p0, v4}, Lcom/android/systemui/statusbar/policy/DeadZone;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {p0, v3}, Lcom/android/systemui/statusbar/policy/DeadZone;->post(Ljava/lang/Runnable;)Z
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/DeadZone;->postInvalidate()V
 
-    :cond_6
-    return v3
+    :cond_8
+    return v7
+
+    :cond_9
+    return v6
 .end method
 
-.method public poke(Landroid/view/MotionEvent;)V
-    .locals 2
+.method public setDisplayRotation(I)V
+    .locals 0
 
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getEventTime()J
+    iput p1, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mDisplayRotation:I
 
-    move-result-wide v0
-
-    iput-wide v0, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mLastPokeTime:J
-
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mShouldFlash:Z
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/DeadZone;->postInvalidate()V
-
-    :cond_0
     return-void
 .end method
 

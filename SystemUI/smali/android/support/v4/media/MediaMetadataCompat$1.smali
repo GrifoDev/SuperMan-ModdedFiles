@@ -39,13 +39,11 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/support/v4/media/MediaMetadataCompat;
-    .locals 2
+    .locals 1
 
     new-instance v0, Landroid/support/v4/media/MediaMetadataCompat;
 
-    const/4 v1, 0x0
-
-    invoke-direct {v0, p1, v1}, Landroid/support/v4/media/MediaMetadataCompat;-><init>(Landroid/os/Parcel;Landroid/support/v4/media/MediaMetadataCompat;)V
+    invoke-direct {v0, p1}, Landroid/support/v4/media/MediaMetadataCompat;-><init>(Landroid/os/Parcel;)V
 
     return-object v0
 .end method

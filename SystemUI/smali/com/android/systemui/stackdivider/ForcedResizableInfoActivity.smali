@@ -35,72 +35,150 @@
 
 
 # virtual methods
+.method public finish()V
+    .locals 2
+
+    invoke-super {p0}, Landroid/app/Activity;->finish()V
+
+    const/4 v0, 0x0
+
+    const v1, 0x7f01001e
+
+    invoke-virtual {p0, v0, v1}, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivity;->overridePendingTransition(II)V
+
+    return-void
+.end method
+
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 4
+    .locals 6
 
-    const v3, 0x7f0f05ba
-
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    const v1, 0x103013b
+    invoke-virtual {p0}, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivity;->isTaskRoot()Z
 
-    invoke-virtual {p0, v1}, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivity;->setTheme(I)V
+    move-result v3
 
-    invoke-virtual {p0, v2, v2}, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivity;->overridePendingTransition(II)V
+    if-eqz v3, :cond_0
 
-    const v1, 0x7f04003b
+    invoke-virtual {p0}, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivity;->finish()V
 
-    invoke-virtual {p0, v1}, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivity;->setContentView(I)V
+    :cond_0
+    const v3, 0x103013b
 
-    const v1, 0x102000b
+    invoke-virtual {p0, v3}, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivity;->setTheme(I)V
 
-    invoke-virtual {p0, v1}, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v4, v4}, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivity;->overridePendingTransition(II)V
 
-    move-result-object v0
+    const v3, 0x7f0d0049
 
-    check-cast v0, Landroid/widget/TextView;
+    invoke-virtual {p0, v3}, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivity;->setContentView(I)V
 
-    sget-boolean v1, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SAMSUNG_MULTIWINDOW_DYNAMIC_ENABLED:Z
+    const v3, 0x102000b
 
-    if-eqz v1, :cond_0
-
-    const v1, 0x7f100004
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextAppearance(I)V
-
-    const v1, 0x7f0f05bc
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
-
-    :goto_0
-    invoke-virtual {p0}, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivity;->getWindow()Landroid/view/Window;
-
-    move-result-object v1
-
-    invoke-virtual {p0, v3}, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivity;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v3}, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivity;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Landroid/view/Window;->setTitle(Ljava/lang/CharSequence;)V
+    check-cast v2, Landroid/widget/TextView;
+
+    invoke-virtual {p0}, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivity;->getIntent()Landroid/content/Intent;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "extra_forced_resizeable_reason"
+
+    const/4 v5, -0x1
+
+    invoke-virtual {v3, v4, v5}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v0
+
+    const-string/jumbo v1, ""
+
+    packed-switch v0, :pswitch_data_0
+
+    new-instance v3, Ljava/lang/IllegalArgumentException;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "Unexpected forced resizeable reason: "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-direct {v3, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v3
+
+    :pswitch_0
+    const v3, 0x7f1202d0
+
+    invoke-virtual {p0, v3}, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivity;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    :goto_0
+    const v3, 0x7f1301b7
+
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setTextAppearance(I)V
+
+    invoke-virtual {v2, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     invoke-virtual {p0}, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivity;->getWindow()Landroid/view/Window;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v1}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+    invoke-virtual {v3, v1}, Landroid/view/Window;->setTitle(Ljava/lang/CharSequence;)V
 
-    move-result-object v1
+    invoke-virtual {p0}, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivity;->getWindow()Landroid/view/Window;
 
-    invoke-virtual {v1, p0}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p0}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
     return-void
 
-    :cond_0
-    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setText(I)V
+    :pswitch_1
+    const v3, 0x7f1203cb
+
+    invoke-virtual {p0, v3}, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivity;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
 
     goto :goto_0
+
+    :pswitch_2
+    const v3, 0x7f1203cc
+
+    invoke-virtual {p0, v3}, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivity;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    goto :goto_0
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+    .end packed-switch
 .end method
 
 .method public onKeyDown(ILandroid/view/KeyEvent;)Z

@@ -29,32 +29,32 @@
 
     packed-switch v0, :pswitch_data_0
 
-    const v0, 0x7f0f0334
+    const v0, 0x7f120240
 
     return v0
 
     :pswitch_0
-    const v0, 0x7f0f0331
+    const v0, 0x7f12023c
 
     return v0
 
     :pswitch_1
-    const v0, 0x7f0f0332
+    const v0, 0x7f12023d
 
     return v0
 
     :pswitch_2
-    sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_VZW_POPUP:Z
+    sget-boolean v0, Lcom/android/systemui/Rune;->QPANEL_IS_VZW_POPUP:Z
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0f0680
+    const v0, 0x7f120a31
 
     :goto_0
     return v0
 
     :cond_0
-    const v0, 0x7f0f067f
+    const v0, 0x7f120a30
 
     goto :goto_0
 
@@ -120,49 +120,50 @@
 
     check-cast v5, Landroid/net/NetworkTemplate;
 
-    new-instance v1, Landroid/app/AlertDialog$Builder;
+    new-instance v1, Lcom/android/systemui/statusbar/phone/SystemUIDialog;
 
-    invoke-direct {v1, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;-><init>(Landroid/content/Context;)V
 
     invoke-static {v5}, Lcom/android/systemui/net/NetworkOverLimitActivity;->getLimitedDialogTitleForTemplate(Landroid/net/NetworkTemplate;)I
 
     move-result v6
 
-    sget-boolean v7, Lcom/android/systemui/SystemUIRune;->IS_VZW_POPUP:Z
+    sget-boolean v7, Lcom/android/systemui/Rune;->QPANEL_IS_VZW_POPUP:Z
 
     if-eqz v7, :cond_0
 
-    const v0, 0x7f0f0682
+    const v0, 0x7f120a2c
 
     :goto_0
-    invoke-virtual {v1, v6}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v1, v6}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setTitle(I)V
 
-    invoke-virtual {v1, v0}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v1, v0}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setMessage(I)V
 
-    sget-boolean v7, Lcom/android/systemui/SystemUIRune;->IS_VZW_POPUP:Z
+    sget-boolean v7, Lcom/android/systemui/Rune;->QPANEL_IS_VZW_POPUP:Z
 
     if-eqz v7, :cond_1
 
-    const v4, 0x7f0f0684
+    const v4, 0x104000a
 
     :goto_1
-    const v7, 0x104000a
+    sget-boolean v7, Lcom/android/systemui/Rune;->QPANEL_IS_VZW_POPUP:Z
 
-    const/4 v8, 0x0
+    if-eqz v7, :cond_2
 
-    invoke-virtual {v1, v7, v8}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    const v3, 0x7f120a2e
+
+    :goto_2
+    const/4 v7, 0x0
+
+    invoke-virtual {v1, v4, v7}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)V
 
     new-instance v7, Lcom/android/systemui/net/NetworkOverLimitActivity$1;
 
     invoke-direct {v7, p0, v5}, Lcom/android/systemui/net/NetworkOverLimitActivity$1;-><init>(Lcom/android/systemui/net/NetworkOverLimitActivity;Landroid/net/NetworkTemplate;)V
 
-    invoke-virtual {v1, v4, v7}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v1, v3, v7}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)V
 
-    invoke-virtual {v1}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->getWindow()Landroid/view/Window;
 
     move-result-object v7
 
@@ -174,7 +175,7 @@
 
     invoke-direct {v7, p0}, Lcom/android/systemui/net/NetworkOverLimitActivity$2;-><init>(Lcom/android/systemui/net/NetworkOverLimitActivity;)V
 
-    invoke-virtual {v2, v7}, Landroid/app/Dialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
+    invoke-virtual {v1, v7}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
     invoke-virtual {p0}, Lcom/android/systemui/net/NetworkOverLimitActivity;->getWindow()Landroid/view/Window;
 
@@ -182,35 +183,40 @@
 
     invoke-virtual {v7}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
 
-    move-result-object v3
+    move-result-object v2
 
-    iget v7, v3, Landroid/view/WindowManager$LayoutParams;->flags:I
+    iget v7, v2, Landroid/view/WindowManager$LayoutParams;->flags:I
 
     or-int/lit8 v7, v7, 0x2
 
-    iput v7, v3, Landroid/view/WindowManager$LayoutParams;->flags:I
+    iput v7, v2, Landroid/view/WindowManager$LayoutParams;->flags:I
 
     const v7, 0x3e99999a    # 0.3f
 
-    iput v7, v3, Landroid/view/WindowManager$LayoutParams;->dimAmount:F
+    iput v7, v2, Landroid/view/WindowManager$LayoutParams;->dimAmount:F
 
-    invoke-virtual {v2}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->getWindow()Landroid/view/Window;
 
     move-result-object v7
 
-    invoke-virtual {v7, v3}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager$LayoutParams;)V
+    invoke-virtual {v7, v2}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager$LayoutParams;)V
 
-    invoke-virtual {v2}, Landroid/app/Dialog;->show()V
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->show()V
 
     return-void
 
     :cond_0
-    const v0, 0x7f0f0681
+    const v0, 0x7f120a2b
 
     goto :goto_0
 
     :cond_1
-    const v4, 0x7f0f0683
+    const v4, 0x7f120a2f
 
     goto :goto_1
+
+    :cond_2
+    const v3, 0x7f120a2d
+
+    goto :goto_2
 .end method

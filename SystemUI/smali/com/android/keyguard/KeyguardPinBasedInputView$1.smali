@@ -31,10 +31,20 @@
 
 
 # virtual methods
+.method public onDexModeChanged(Z)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView$1;->this$0:Lcom/android/keyguard/KeyguardPinBasedInputView;
+
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardPinBasedInputView;->-wrap1(Lcom/android/keyguard/KeyguardPinBasedInputView;)V
+
+    return-void
+.end method
+
 .method public onKeyguardBouncerChanged(Z)V
     .locals 2
 
-    sget-boolean v1, Lcom/android/keyguard/KeyguardRune;->SUPPORT_MOBILE_KEYBOARD:Z
+    sget-boolean v1, Lcom/android/systemui/Rune;->SYSUI_SUPPORT_MOBILE_KEYBOARD:Z
 
     if-eqz v1, :cond_0
 

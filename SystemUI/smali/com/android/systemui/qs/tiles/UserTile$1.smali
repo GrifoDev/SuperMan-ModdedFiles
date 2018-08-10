@@ -1,11 +1,11 @@
 .class Lcom/android/systemui/qs/tiles/UserTile$1;
-.super Lcom/android/systemui/qs/QSTile$Icon;
+.super Lcom/android/systemui/plugins/qs/QSTile$Icon;
 .source "UserTile.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/qs/tiles/UserTile;->handleUpdateState(Lcom/android/systemui/qs/QSTile$State;Ljava/lang/Object;)V
+    value = Lcom/android/systemui/qs/tiles/UserTile;->handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$State;Ljava/lang/Object;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -28,7 +28,7 @@
 
     iput-object p2, p0, Lcom/android/systemui/qs/tiles/UserTile$1;->val$p:Landroid/util/Pair;
 
-    invoke-direct {p0}, Lcom/android/systemui/qs/QSTile$Icon;-><init>()V
+    invoke-direct {p0}, Lcom/android/systemui/plugins/qs/QSTile$Icon;-><init>()V
 
     return-void
 .end method

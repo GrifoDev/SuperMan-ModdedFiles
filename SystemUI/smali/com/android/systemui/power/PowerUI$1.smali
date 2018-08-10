@@ -37,25 +37,27 @@
 .method public run()V
     .locals 2
 
+    const-string/jumbo v0, "PowerUI"
+
+    const-string/jumbo v1, "mLowBatteryWarningTask"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     iget-object v0, p0, Lcom/android/systemui/power/PowerUI$1;->this$0:Lcom/android/systemui/power/PowerUI;
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerUI;->-set11(Lcom/android/systemui/power/PowerUI;Z)Z
+    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerUI;->-set14(Lcom/android/systemui/power/PowerUI;Z)Z
 
     iget-object v0, p0, Lcom/android/systemui/power/PowerUI$1;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v0}, Lcom/android/systemui/power/PowerUI;->-get21(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
+    invoke-static {v0}, Lcom/android/systemui/power/PowerUI;->-get24(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/systemui/power/PowerUI$1;->this$0:Lcom/android/systemui/power/PowerUI;
+    const/4 v1, 0x1
 
-    invoke-static {v1}, Lcom/android/systemui/power/PowerUI;->-get19(Lcom/android/systemui/power/PowerUI;)I
-
-    move-result v1
-
-    invoke-interface {v0, v1}, Lcom/android/systemui/power/PowerUI$WarningsUI;->showOverheatWarning(I)V
+    invoke-interface {v0, v1}, Lcom/android/systemui/power/PowerUI$WarningsUI;->showLowBatteryWarning(Z)V
 
     return-void
 .end method

@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/stack/NotificationChildrenContainer;->updateGroupOverflow()V
+    value = Lcom/android/systemui/statusbar/stack/NotificationChildrenContainer;->removeNotification(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,7 +20,7 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/systemui/statusbar/stack/NotificationChildrenContainer;
 
-.field final synthetic val$removedOverflowNumber:Landroid/view/View;
+.field final synthetic val$divider:Landroid/view/View;
 
 
 # direct methods
@@ -29,7 +29,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/stack/NotificationChildrenContainer$2;->this$0:Lcom/android/systemui/statusbar/stack/NotificationChildrenContainer;
 
-    iput-object p2, p0, Lcom/android/systemui/statusbar/stack/NotificationChildrenContainer$2;->val$removedOverflowNumber:Landroid/view/View;
+    iput-object p2, p0, Lcom/android/systemui/statusbar/stack/NotificationChildrenContainer$2;->val$divider:Landroid/view/View;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,9 +43,13 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/stack/NotificationChildrenContainer$2;->this$0:Lcom/android/systemui/statusbar/stack/NotificationChildrenContainer;
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/stack/NotificationChildrenContainer$2;->val$removedOverflowNumber:Landroid/view/View;
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/stack/NotificationChildrenContainer;->getOverlay()Landroid/view/ViewGroupOverlay;
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/stack/NotificationChildrenContainer;->removeTransientView(Landroid/view/View;)V
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/stack/NotificationChildrenContainer$2;->val$divider:Landroid/view/View;
+
+    invoke-virtual {v0, v1}, Landroid/view/ViewGroupOverlay;->remove(Landroid/view/View;)V
 
     return-void
 .end method

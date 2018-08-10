@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/context_for_notification_icons_area" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:id="@id/context_menu_notification_icons_area_open_desk_notification_view" android:focusable="true" android:clickable="true" android:text="@string/taskbar_context_menu_open_desk_notification_view" style="@style/ContextMenuText" />
+        <TextView android:id="@id/context_menu_notification_icons_area_close_desk_notification_view" android:focusable="true" android:visibility="gone" android:clickable="true" android:text="@string/taskbar_context_menu_close_desk_notification_view" style="@style/ContextMenuText" />
+        <TextView android:id="@id/context_menu_notification_icons_area_app_notification_settings" android:focusable="true" android:clickable="true" android:text="@string/taskbar_context_menu_app_notification_settings" style="@style/ContextMenuText" />
+        <TextView android:id="@id/context_menu_notification_icons_area_app_info" android:focusable="true" android:visibility="gone" android:clickable="true" android:text="@string/taskbar_context_menu_app_info" style="@style/ContextMenuText" />
+        <TextView android:id="@id/context_menu_notification_icons_area_block_notification" android:focusable="true" android:visibility="gone" android:clickable="true" android:text="@string/taskbar_context_menu_block_notification" style="@style/ContextMenuText" />
+        <TextView android:id="@id/context_menu_notification_icons_area_clear_notification" android:focusable="true" android:clickable="true" android:text="@string/taskbar_context_menu_clear_notification" style="@style/ContextMenuText" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/context_for_notification_icons_area_more_icon" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:id="@id/context_menu_notification_icons_area_more_icon_open_desk_notification_view" android:focusable="true" android:clickable="true" android:text="@string/taskbar_context_menu_open_desk_notification_view" style="@style/ContextMenuText" />
+        <TextView android:id="@id/context_menu_notification_icons_area_more_icon_close_desk_notification_view" android:focusable="true" android:visibility="gone" android:clickable="true" android:text="@string/taskbar_context_menu_close_desk_notification_view" style="@style/ContextMenuText" />
+        <TextView android:id="@id/context_menu_notification_icons_area_more_icon_notification_settings" android:focusable="true" android:clickable="true" android:text="@string/status_bar_notification_inspect_item_title" style="@style/ContextMenuText" />
+        <TextView android:id="@id/context_menu_notification_icons_area_more_icon_clear_all" android:focusable="true" android:clickable="true" android:text="@string/status_bar_clear_all_button" style="@style/ContextMenuText" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/context_for_notification" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:id="@id/context_menu_notification_app_notification_settings" android:focusable="true" android:clickable="true" android:text="@string/taskbar_context_menu_app_notification_settings" style="@style/ContextMenuText" />
+        <TextView android:id="@id/context_menu_notification_app_notification_snooze" android:focusable="true" android:clickable="true" android:text="@string/snooze_title" style="@style/ContextMenuText" />
+        <TextView android:id="@id/context_menu_notification_app_info" android:focusable="true" android:visibility="gone" android:clickable="true" android:text="@string/taskbar_context_menu_app_info" style="@style/ContextMenuText" />
+        <TextView android:id="@id/context_menu_notification_block_notification" android:focusable="true" android:visibility="gone" android:clickable="true" android:text="@string/taskbar_context_menu_block_notification" style="@style/ContextMenuText" />
+        <TextView android:id="@id/context_menu_notification_clear_notification" android:focusable="true" android:clickable="true" android:text="@string/taskbar_context_menu_clear_notification" style="@style/ContextMenuText" />
+    </LinearLayout>
+</LinearLayout>

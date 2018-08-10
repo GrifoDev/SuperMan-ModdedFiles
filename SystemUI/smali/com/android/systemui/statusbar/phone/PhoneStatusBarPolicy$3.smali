@@ -3,7 +3,7 @@
 .source "PhoneStatusBarPolicy.java"
 
 # interfaces
-.implements Lcom/android/systemui/statusbar/policy/CastController$Callback;
+.implements Lcom/android/systemui/statusbar/policy/HotspotController$Callback;
 
 
 # annotations
@@ -34,12 +34,34 @@
 
 
 # virtual methods
-.method public onCastDevicesChanged()V
-    .locals 1
+.method public onHotspotChanged(Z)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy$3;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->-wrap2(Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;)V
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->-get3(Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;)Lcom/android/systemui/statusbar/phone/StatusBarIconController;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy$3;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;
+
+    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->-get7(Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-interface {v0, v1, p1}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->setIconVisibility(Ljava/lang/String;Z)V
+
+    return-void
+.end method
+
+.method public onHotspotPrepared()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onUpdateConnectedDevices(Z)V
+    .locals 0
 
     return-void
 .end method

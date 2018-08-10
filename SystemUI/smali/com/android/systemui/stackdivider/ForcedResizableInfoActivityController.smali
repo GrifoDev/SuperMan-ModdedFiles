@@ -6,7 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController$1;
+        Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController$1;,
+        Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController$PendingTaskRecord;
     }
 .end annotation
 
@@ -29,12 +30,12 @@
     .end annotation
 .end field
 
-.field private final mPendingTaskIds:Landroid/util/ArraySet;
+.field private final mPendingTasks:Landroid/util/ArraySet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArraySet",
             "<",
-            "Ljava/lang/Integer;",
+            "Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController$PendingTaskRecord;",
             ">;"
         }
     .end annotation
@@ -52,15 +53,23 @@
     return-void
 .end method
 
-.method static synthetic -wrap1(Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;Ljava/lang/String;I)V
+.method static synthetic -wrap1(Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;Ljava/lang/String;II)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;->activityForcedResizable(Ljava/lang/String;I)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;->activityForcedResizable(Ljava/lang/String;II)V
 
     return-void
 .end method
 
 .method static synthetic -wrap2(Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;->activityLaunchOnSecondaryDisplayFailed()V
+
+    return-void
+.end method
+
+.method static synthetic -wrap3(Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;->showPending()V
@@ -83,7 +92,7 @@
 
     invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
 
-    iput-object v0, p0, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;->mPendingTaskIds:Landroid/util/ArraySet;
+    iput-object v0, p0, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;->mPendingTasks:Landroid/util/ArraySet;
 
     new-instance v0, Landroid/util/ArraySet;
 
@@ -121,61 +130,94 @@
 .method private activityDismissingDockedStack()V
     .locals 4
 
-    const/4 v3, 0x0
-
-    const/4 v0, 0x0
-
-    iget-object v1, p0, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v2, "activity"
-
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/app/ActivityManager;
-
-    invoke-virtual {v1}, Landroid/app/ActivityManager;->getLockTaskModeState()I
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;->mContext:Landroid/content/Context;
-
-    sget v2, Lcom/samsung/android/framework/res/R$string;->dream_cant_use_this_app_in_multi_window_view_tpop:I
-
-    invoke-static {v1, v2, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+    invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
 
     move-result-object v0
 
-    :cond_0
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+    new-instance v1, Lcom/android/systemui/recents/events/component/ShowUserToastEvent;
+
+    const v2, 0x7f120a33
+
+    const/4 v3, 0x0
+
+    invoke-direct {v1, v2, v3}, Lcom/android/systemui/recents/events/component/ShowUserToastEvent;-><init>(II)V
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
 
     return-void
 .end method
 
-.method private activityForcedResizable(Ljava/lang/String;I)V
-    .locals 2
+.method private activityForcedResizable(Ljava/lang/String;II)V
+    .locals 3
+
+    const v1, 0x186a0
+
+    div-int v0, p2, v1
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "@"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {v0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
 
     invoke-direct {p0, p1}, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;->debounce(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;->mPendingTaskIds:Landroid/util/ArraySet;
+    iget-object v1, p0, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;->mPendingTasks:Landroid/util/ArraySet;
 
-    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    new-instance v2, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController$PendingTaskRecord;
 
-    move-result-object v1
+    invoke-direct {v2, p0, p2, p3}, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController$PendingTaskRecord;-><init>(Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;II)V
 
-    invoke-virtual {v0, v1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
     invoke-direct {p0}, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;->postTimeout()V
+
+    return-void
+.end method
+
+.method private activityLaunchOnSecondaryDisplayFailed()V
+    .locals 4
+
+    invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/systemui/recents/events/component/ShowUserToastEvent;
+
+    const v2, 0x7f120103
+
+    const/4 v3, 0x0
+
+    invoke-direct {v1, v2, v3}, Lcom/android/systemui/recents/events/component/ShowUserToastEvent;-><init>(II)V
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
 
     return-void
 .end method
@@ -237,71 +279,88 @@
 .end method
 
 .method private showPending()V
-    .locals 5
+    .locals 8
 
-    iget-object v3, p0, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;->mHandler:Landroid/os/Handler;
+    const/4 v7, 0x1
 
-    iget-object v4, p0, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;->mTimeoutRunnable:Ljava/lang/Runnable;
+    iget-object v4, p0, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;->mHandler:Landroid/os/Handler;
 
-    invoke-virtual {v3, v4}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+    iget-object v5, p0, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;->mTimeoutRunnable:Ljava/lang/Runnable;
 
-    iget-object v3, p0, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;->mPendingTaskIds:Landroid/util/ArraySet;
+    invoke-virtual {v4, v5}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    invoke-virtual {v3}, Landroid/util/ArraySet;->size()I
+    iget-object v4, p0, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;->mPendingTasks:Landroid/util/ArraySet;
 
-    move-result v3
+    invoke-virtual {v4}, Landroid/util/ArraySet;->size()I
 
-    add-int/lit8 v0, v3, -0x1
+    move-result v4
+
+    add-int/lit8 v0, v4, -0x1
 
     :goto_0
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_1
+
+    iget-object v4, p0, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;->mPendingTasks:Landroid/util/ArraySet;
+
+    invoke-virtual {v4, v0}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController$PendingTaskRecord;
 
     new-instance v1, Landroid/content/Intent;
 
-    iget-object v3, p0, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;->mContext:Landroid/content/Context;
 
-    const-class v4, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivity;
+    const-class v5, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivity;
 
-    invoke-direct {v1, v3, v4}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+    invoke-direct {v1, v4, v5}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
     invoke-static {}, Landroid/app/ActivityOptions;->makeBasic()Landroid/app/ActivityOptions;
 
     move-result-object v2
 
-    iget-object v3, p0, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;->mPendingTaskIds:Landroid/util/ArraySet;
+    iget v4, v3, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController$PendingTaskRecord;->taskId:I
 
-    invoke-virtual {v3, v0}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v2, v4}, Landroid/app/ActivityOptions;->setLaunchTaskId(I)V
 
-    move-result-object v3
+    invoke-virtual {v2, v7, v7}, Landroid/app/ActivityOptions;->setTaskOverlay(ZZ)V
 
-    check-cast v3, Ljava/lang/Integer;
+    const-string/jumbo v4, "extra_forced_resizeable_reason"
 
-    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
+    iget v5, v3, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController$PendingTaskRecord;->reason:I
 
-    move-result v3
+    invoke-virtual {v1, v4, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    invoke-virtual {v2, v3}, Landroid/app/ActivityOptions;->setLaunchTaskId(I)V
+    iget v4, v3, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController$PendingTaskRecord;->reason:I
 
-    const/4 v3, 0x1
+    const/4 v5, 0x3
 
-    invoke-virtual {v2, v3}, Landroid/app/ActivityOptions;->setTaskOverlay(Z)V
+    if-ne v4, v5, :cond_0
 
-    iget-object v3, p0, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;->mContext:Landroid/content/Context;
+    const/high16 v4, 0x40000
+
+    invoke-virtual {v1, v4}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
+    :cond_0
+    iget-object v4, p0, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/app/ActivityOptions;->toBundle()Landroid/os/Bundle;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v3, v1, v4}, Landroid/content/Context;->startActivity(Landroid/content/Intent;Landroid/os/Bundle;)V
+    sget-object v6, Landroid/os/UserHandle;->CURRENT:Landroid/os/UserHandle;
+
+    invoke-virtual {v4, v1, v5, v6}, Landroid/content/Context;->startActivityAsUser(Landroid/content/Intent;Landroid/os/Bundle;Landroid/os/UserHandle;)V
 
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
-    :cond_0
-    iget-object v3, p0, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;->mPendingTaskIds:Landroid/util/ArraySet;
+    :cond_1
+    iget-object v4, p0, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;->mPendingTasks:Landroid/util/ArraySet;
 
-    invoke-virtual {v3}, Landroid/util/ArraySet;->clear()V
+    invoke-virtual {v4}, Landroid/util/ArraySet;->clear()V
 
     return-void
 .end method

@@ -35,21 +35,11 @@
 .end method
 
 .method private doFinish()V
-    .locals 4
+    .locals 2
 
-    invoke-virtual {p0}, Lcom/android/systemui/screenshot/ScreenshotViewActivity;->getBaseContext()Landroid/content/Context;
+    const v1, 0x7f1207ff
 
-    move-result-object v1
-
-    const v2, 0x7f0f0285
-
-    const/4 v3, 0x0
-
-    invoke-static {v1, v2, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/widget/Toast;->show()V
+    invoke-static {p0, v1}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;I)V
 
     const-string/jumbo v1, "notification"
 
@@ -134,11 +124,11 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 12
-
-    const/4 v8, 0x1
+    .locals 11
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
+
+    const/4 v8, 0x1
 
     invoke-virtual {p0, v8}, Lcom/android/systemui/screenshot/ScreenshotViewActivity;->requestWindowFeature(I)Z
 
@@ -168,30 +158,20 @@
 
     const-string/jumbo v9, "onCreate : imageUri is null."
 
-    invoke-static {v8, v9}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-direct {p0}, Lcom/android/systemui/screenshot/ScreenshotViewActivity;->doFinish()V
 
     return-void
 
     :cond_0
-    invoke-static {v3}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v7
-
-    invoke-virtual {p0, v7}, Lcom/android/systemui/screenshot/ScreenshotViewActivity;->getPathFromUri(Landroid/net/Uri;)Ljava/lang/String;
-
-    move-result-object v6
-
-    if-nez v6, :cond_1
-
     sget-object v8, Lcom/android/systemui/screenshot/ScreenshotViewActivity;->TAG:Ljava/lang/String;
 
     new-instance v9, Ljava/lang/StringBuilder;
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v10, "onCreate : Item is not exist in media provider : "
+    const-string/jumbo v10, "imageUri : "
 
     invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -205,30 +185,36 @@
 
     move-result-object v9
 
-    invoke-static {v8, v9}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {v3}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v7
+
+    invoke-virtual {p0, v7}, Lcom/android/systemui/screenshot/ScreenshotViewActivity;->getPathFromUri(Landroid/net/Uri;)Ljava/lang/String;
+
+    move-result-object v6
+
+    if-nez v6, :cond_1
+
+    sget-object v8, Lcom/android/systemui/screenshot/ScreenshotViewActivity;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v9, "onCreate : Item is not exist in media provider."
+
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-direct {p0}, Lcom/android/systemui/screenshot/ScreenshotViewActivity;->doFinish()V
 
     return-void
 
     :cond_1
-    new-instance v2, Ljava/io/File;
-
-    invoke-direct {v2, v6}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v2}, Ljava/io/File;->exists()Z
-
-    move-result v8
-
-    if-nez v8, :cond_2
-
     sget-object v8, Lcom/android/systemui/screenshot/ScreenshotViewActivity;->TAG:Ljava/lang/String;
 
     new-instance v9, Ljava/lang/StringBuilder;
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v10, "onCreate : Item is not exist : "
+    const-string/jumbo v10, "path : "
 
     invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -242,7 +228,23 @@
 
     move-result-object v9
 
-    invoke-static {v8, v9}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v2, Ljava/io/File;
+
+    invoke-direct {v2, v6}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v2}, Ljava/io/File;->exists()Z
+
+    move-result v8
+
+    if-nez v8, :cond_2
+
+    sget-object v8, Lcom/android/systemui/screenshot/ScreenshotViewActivity;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v9, "onCreate : Item is not exist."
+
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-direct {p0}, Lcom/android/systemui/screenshot/ScreenshotViewActivity;->doFinish()V
 
@@ -256,7 +258,7 @@
 
     invoke-direct {v5, v8}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v8, "image/png"
+    const-string/jumbo v8, "image/jpeg"
 
     invoke-virtual {v5, v7, v8}, Landroid/content/Intent;->setDataAndType(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/Intent;
 
@@ -298,7 +300,7 @@
 
     move-result-object v9
 
-    invoke-static {v8, v9}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {p0}, Lcom/android/systemui/screenshot/ScreenshotViewActivity;->getBaseContext()Landroid/content/Context;
 
@@ -316,43 +318,17 @@
 
     if-eqz v8, :cond_4
 
-    invoke-static {}, Lcom/android/systemui/screenshot/ScreenshotUtils;->isDisplayAsMPSM()Z
+    invoke-static {v0}, Lcom/android/systemui/screenshot/ScreenshotUtils;->isReserveBatteryForCallMode(Landroid/content/Context;)Z
 
     move-result v8
 
     if-eqz v8, :cond_3
 
-    invoke-virtual {p0}, Lcom/android/systemui/screenshot/ScreenshotViewActivity;->getBaseContext()Landroid/content/Context;
+    const v8, 0x7f1201e4
 
-    move-result-object v8
+    const v9, 0x7f120999
 
-    const/4 v9, 0x1
-
-    new-array v9, v9, [Ljava/lang/Object;
-
-    const v10, 0x7f0f0292
-
-    invoke-virtual {v0, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v10
-
-    const/4 v11, 0x0
-
-    aput-object v10, v9, v11
-
-    const v10, 0x7f0f0291
-
-    invoke-virtual {v0, v10, v9}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v9
-
-    const/4 v10, 0x0
-
-    invoke-static {v8, v9, v10}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Landroid/widget/Toast;->show()V
+    invoke-static {p0, v8, v9}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;II)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -362,38 +338,10 @@
     goto :goto_0
 
     :cond_3
+    const v8, 0x7f1201e3
+
     :try_start_2
-    invoke-virtual {p0}, Lcom/android/systemui/screenshot/ScreenshotViewActivity;->getBaseContext()Landroid/content/Context;
-
-    move-result-object v8
-
-    const/4 v9, 0x1
-
-    new-array v9, v9, [Ljava/lang/Object;
-
-    const v10, 0x7f0f0292
-
-    invoke-virtual {v0, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v10
-
-    const/4 v11, 0x0
-
-    aput-object v10, v9, v11
-
-    const v10, 0x7f0f0290
-
-    invoke-virtual {v0, v10, v9}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v9
-
-    const/4 v10, 0x0
-
-    invoke-static {v8, v9, v10}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Landroid/widget/Toast;->show()V
+    invoke-static {p0, v8}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;I)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
@@ -407,57 +355,31 @@
     throw v8
 
     :cond_4
+    const v8, 0x7f1201e2
+
     :try_start_3
-    invoke-virtual {p0}, Lcom/android/systemui/screenshot/ScreenshotViewActivity;->getBaseContext()Landroid/content/Context;
-
-    move-result-object v8
-
-    const/4 v9, 0x1
-
-    new-array v9, v9, [Ljava/lang/Object;
-
-    const v10, 0x7f0f0292
-
-    invoke-virtual {v0, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v10
-
-    const/4 v11, 0x0
-
-    aput-object v10, v9, v11
-
-    const v10, 0x7f0f028f
-
-    invoke-virtual {v0, v10, v9}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v9
-
-    const/4 v10, 0x0
-
-    invoke-static {v8, v9, v10}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Landroid/widget/Toast;->show()V
+    invoke-static {p0, v8}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;I)V
 
     goto :goto_1
 
     :cond_5
-    invoke-virtual {p0}, Lcom/android/systemui/screenshot/ScreenshotViewActivity;->getApplicationContext()Landroid/content/Context;
+    const v8, 0x7f1201e1
 
-    move-result-object v8
-
-    const v9, 0x7f0f027f
-
-    const/4 v10, 0x0
-
-    invoke-static {v8, v9, v10}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Landroid/widget/Toast;->show()V
+    invoke-static {p0, v8}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;I)V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     goto :goto_1
+.end method
+
+.method protected onStart()V
+    .locals 1
+
+    invoke-super {p0}, Landroid/app/Activity;->onStart()V
+
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/screenshot/ScreenshotViewActivity;->setVisible(Z)V
+
+    return-void
 .end method

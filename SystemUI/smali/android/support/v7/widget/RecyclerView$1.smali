@@ -57,9 +57,7 @@
     :cond_1
     iget-object v0, p0, Landroid/support/v7/widget/RecyclerView$1;->this$0:Landroid/support/v7/widget/RecyclerView;
 
-    invoke-static {v0}, Landroid/support/v7/widget/RecyclerView;->-get6(Landroid/support/v7/widget/RecyclerView;)Z
-
-    move-result v0
+    iget-boolean v0, v0, Landroid/support/v7/widget/RecyclerView;->mIsAttached:Z
 
     if-nez v0, :cond_2
 
@@ -72,9 +70,7 @@
     :cond_2
     iget-object v0, p0, Landroid/support/v7/widget/RecyclerView$1;->this$0:Landroid/support/v7/widget/RecyclerView;
 
-    invoke-static {v0}, Landroid/support/v7/widget/RecyclerView;->-get8(Landroid/support/v7/widget/RecyclerView;)Z
-
-    move-result v0
+    iget-boolean v0, v0, Landroid/support/v7/widget/RecyclerView;->mLayoutFrozen:Z
 
     if-eqz v0, :cond_3
 
@@ -82,14 +78,14 @@
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Landroid/support/v7/widget/RecyclerView;->-set1(Landroid/support/v7/widget/RecyclerView;Z)Z
+    iput-boolean v1, v0, Landroid/support/v7/widget/RecyclerView;->mLayoutRequestEaten:Z
 
     return-void
 
     :cond_3
     iget-object v0, p0, Landroid/support/v7/widget/RecyclerView$1;->this$0:Landroid/support/v7/widget/RecyclerView;
 
-    invoke-static {v0}, Landroid/support/v7/widget/RecyclerView;->-wrap8(Landroid/support/v7/widget/RecyclerView;)V
+    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView;->consumePendingUpdateOperations()V
 
     return-void
 .end method

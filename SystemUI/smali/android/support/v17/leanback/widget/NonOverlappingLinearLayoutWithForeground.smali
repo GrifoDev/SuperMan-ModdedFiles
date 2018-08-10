@@ -53,17 +53,16 @@
 
     iget v2, v2, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
 
-    if-lt v2, v3, :cond_1
+    if-lt v2, v3, :cond_0
 
     sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    if-lt v2, v3, :cond_1
+    if-lt v2, v3, :cond_0
 
-    :cond_0
     :goto_0
     return-void
 
-    :cond_1
+    :cond_0
     const/4 v2, 0x1
 
     new-array v2, v2, [I
@@ -80,9 +79,12 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     invoke-virtual {p0, v1}, Landroid/support/v17/leanback/widget/NonOverlappingLinearLayoutWithForeground;->setForegroundCompat(Landroid/graphics/drawable/Drawable;)V
+
+    :cond_1
+    invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     goto :goto_0
 .end method

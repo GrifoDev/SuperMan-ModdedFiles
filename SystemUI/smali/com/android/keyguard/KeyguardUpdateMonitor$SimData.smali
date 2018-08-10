@@ -173,7 +173,7 @@
     goto :goto_0
 
     :cond_5
-    sget-boolean v6, Lcom/android/keyguard/KeyguardRune;->SUPPORT_SIM_PERSO_LOCK:Z
+    sget-boolean v6, Lcom/android/systemui/Rune;->SECURITY_SUPPORT_SIM_PERSO_LOCK:Z
 
     if-eqz v6, :cond_6
 
@@ -221,26 +221,13 @@
     goto :goto_0
 
     :cond_9
-    const-string/jumbo v6, "CARD_IO_ERROR"
-
-    invoke-virtual {v6, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_a
-
-    sget-object v3, Lcom/android/internal/telephony/IccCardConstants$State;->CARD_IO_ERROR:Lcom/android/internal/telephony/IccCardConstants$State;
-
-    goto :goto_0
-
-    :cond_a
     const-string/jumbo v6, "LOADED"
 
     invoke-virtual {v6, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
-    if-nez v6, :cond_b
+    if-nez v6, :cond_a
 
     const-string/jumbo v6, "IMSI"
 
@@ -248,17 +235,17 @@
 
     move-result v6
 
-    if-eqz v6, :cond_c
+    if-eqz v6, :cond_b
 
-    :cond_b
+    :cond_a
     sget-object v3, Lcom/android/internal/telephony/IccCardConstants$State;->READY:Lcom/android/internal/telephony/IccCardConstants$State;
 
-    goto/16 :goto_0
+    goto :goto_0
 
-    :cond_c
+    :cond_b
     sget-object v3, Lcom/android/internal/telephony/IccCardConstants$State;->UNKNOWN:Lcom/android/internal/telephony/IccCardConstants$State;
 
-    goto/16 :goto_0
+    goto :goto_0
 .end method
 
 

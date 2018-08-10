@@ -3,14 +3,25 @@
 .source "R.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/support/v17/leanback/R;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "raw"
+.end annotation
+
+
 # static fields
-.field public static final lb_voice_failure:I = 0x7f0a0000
+.field public static final lb_voice_failure:I = 0x7f110001
 
-.field public static final lb_voice_no_input:I = 0x7f0a0001
+.field public static final lb_voice_no_input:I = 0x7f110002
 
-.field public static final lb_voice_open:I = 0x7f0a0002
+.field public static final lb_voice_open:I = 0x7f110003
 
-.field public static final lb_voice_success:I = 0x7f0a0003
+.field public static final lb_voice_success:I = 0x7f110004
 
 
 # direct methods

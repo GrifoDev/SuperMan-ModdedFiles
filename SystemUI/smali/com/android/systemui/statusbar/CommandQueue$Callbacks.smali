@@ -15,137 +15,254 @@
 
 
 # virtual methods
-.method public abstract addQsTile(Landroid/content/ComponentName;)V
+.method public addQsTile(Landroid/content/ComponentName;)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract animateCollapsePanels(I)V
+.method public animateCollapsePanels(I)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract animateExpandLockedShadePanel(Landroid/service/notification/StatusBarNotification;)V
+.method public animateExpandLockedShadePanel(Landroid/service/notification/StatusBarNotification;)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract animateExpandNotificationsPanel()V
+.method public animateExpandNotificationsPanel()V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract animateExpandSettingsPanel(Ljava/lang/String;)V
+.method public animateExpandSettingsPanel(Ljava/lang/String;)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract appTransitionCancelled()V
+.method public appTransitionCancelled()V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract appTransitionFinished()V
+.method public appTransitionFinished()V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract appTransitionPending()V
+.method public appTransitionPending(Z)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract appTransitionStarting(JJ)V
+.method public appTransitionStarting(JJZ)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract buzzBeepBlinked()V
+.method public cancelPreloadRecentApps()V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract cancelPreloadRecentApps()V
+.method public clickTile(Landroid/content/ComponentName;)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract clickTile(Landroid/content/ComponentName;)V
+.method public disable(IIZ)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract disable(IIZ)V
+.method public dismissKeyboardShortcutsMenu()V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract dismissKeyboardShortcutsMenu()V
+.method public handleShowGlobalActionsMenu()V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract hideNaviBarRemoteView(Ljava/lang/String;I)V
+.method public handleSystemNavigationKey(I)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract hideRecentApps(ZZ)V
+.method public hideRecentApps(ZZ)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract notificationLightOff()V
+.method public onCameraLaunchGestureDetected(I)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract notificationLightPulse(III)V
+.method public preloadRecentApps()V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract onCameraLaunchGestureDetected(I)V
+.method public prepareKnoxDesktopTaskBar(Z)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract onNavigationBarForceClicked(III)V
+.method public remQsTile(Landroid/content/ComponentName;)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract preloadRecentApps()V
+.method public removeIcon(Ljava/lang/String;)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract remQsTile(Landroid/content/ComponentName;)V
+.method public sendKeyEventToKnoxDesktopTaskbar(Landroid/view/KeyEvent;)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract removeIcon(Ljava/lang/String;)V
+.method public setForceImmersiveBtnVisibility(Z)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract sendKeyEventToKnoxDesktopTaskbar(Landroid/view/KeyEvent;)V
+.method public setIcon(Ljava/lang/String;Lcom/android/internal/statusbar/StatusBarIcon;)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract setIcon(Ljava/lang/String;Lcom/android/internal/statusbar/StatusBarIcon;)V
+.method public setImeWindowStatus(Landroid/os/IBinder;IIZ)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract setImeWindowStatus(Landroid/os/IBinder;IIZ)V
+.method public setIndicatorBgColor(I)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract setIndicatorBgColor(I)V
+.method public setKnoxDesktopTaskBar(ZZ)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract setKnoxDesktopTaskBar(ZZ)V
+.method public setNavigationBarShortcut(Ljava/lang/String;Landroid/widget/RemoteViews;I)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract setNavigationBarIconColor(I)V
+.method public setSystemUiVisibility(IIIILandroid/graphics/Rect;Landroid/graphics/Rect;)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract setSystemUiVisibility(IIIILandroid/graphics/Rect;Landroid/graphics/Rect;)V
+.method public setWindowState(II)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract setWindowState(II)V
+.method public showAssistDisclosure()V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract showAssistDisclosure()V
+.method public showPictureInPictureMenu()V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract showNaviBarRemoteView(Ljava/lang/String;Landroid/widget/RemoteViews;I)V
+.method public showRecentApps(ZZ)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract showNavigationBarInFullscreen()V
+.method public showScreenPinningRequest(I)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract showRecentApps(ZZ)V
+.method public showServiceBox(Ljava/lang/String;Z)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract showScreenPinningRequest(I)V
+.method public showSnapWindowGuideView(ILjava/lang/String;)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract showServiceBox(Ljava/lang/String;)V
+.method public startAssist(Landroid/os/Bundle;)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract showTvPictureInPictureMenu()V
+.method public toggleKeyboardShortcutsMenu(I)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract startAssist(Landroid/os/Bundle;)V
+.method public toggleNotificationPanel()V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract toggleKeyboardShortcutsMenu(I)V
+.method public toggleRecentApps()V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract toggleNotificationPanel()V
+.method public toggleSplitScreen()V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract toggleRecentApps()V
-.end method
+.method public topAppWindowChanged(Z)V
+    .locals 0
 
-.method public abstract toggleSplitScreen(Z)V
-.end method
-
-.method public abstract topAppWindowChanged(Z)V
-.end method
-
-.method public abstract updateKnoxDesktopTaskBar(IIIILandroid/content/ComponentName;Ljava/lang/String;)V
+    return-void
 .end method

@@ -104,9 +104,9 @@
 
     :cond_0
     :goto_0
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
     iget-object v5, p0, Landroid/support/v7/widget/SearchView$UpdatableTouchDelegate;->mActualBounds:Landroid/graphics/Rect;
 
@@ -114,22 +114,27 @@
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    xor-int/lit8 v5, v5, 0x1
 
-    :cond_1
-    iget-object v5, p0, Landroid/support/v7/widget/SearchView$UpdatableTouchDelegate;->mActualBounds:Landroid/graphics/Rect;
+    if-eqz v5, :cond_2
 
-    iget v5, v5, Landroid/graphics/Rect;->left:I
+    iget-object v5, p0, Landroid/support/v7/widget/SearchView$UpdatableTouchDelegate;->mDelegateView:Landroid/view/View;
 
-    sub-int v5, v3, v5
+    invoke-virtual {v5}, Landroid/view/View;->getWidth()I
+
+    move-result v5
+
+    div-int/lit8 v5, v5, 0x2
 
     int-to-float v5, v5
 
-    iget-object v6, p0, Landroid/support/v7/widget/SearchView$UpdatableTouchDelegate;->mActualBounds:Landroid/graphics/Rect;
+    iget-object v6, p0, Landroid/support/v7/widget/SearchView$UpdatableTouchDelegate;->mDelegateView:Landroid/view/View;
 
-    iget v6, v6, Landroid/graphics/Rect;->top:I
+    invoke-virtual {v6}, Landroid/view/View;->getHeight()I
 
-    sub-int v6, v4, v6
+    move-result v6
+
+    div-int/lit8 v6, v6, 0x2
 
     int-to-float v6, v6
 
@@ -142,7 +147,7 @@
 
     move-result v0
 
-    :cond_2
+    :cond_1
     return v0
 
     :pswitch_0
@@ -188,24 +193,20 @@
 
     goto :goto_0
 
-    :cond_3
-    iget-object v5, p0, Landroid/support/v7/widget/SearchView$UpdatableTouchDelegate;->mDelegateView:Landroid/view/View;
+    :cond_2
+    iget-object v5, p0, Landroid/support/v7/widget/SearchView$UpdatableTouchDelegate;->mActualBounds:Landroid/graphics/Rect;
 
-    invoke-virtual {v5}, Landroid/view/View;->getWidth()I
+    iget v5, v5, Landroid/graphics/Rect;->left:I
 
-    move-result v5
-
-    div-int/lit8 v5, v5, 0x2
+    sub-int v5, v3, v5
 
     int-to-float v5, v5
 
-    iget-object v6, p0, Landroid/support/v7/widget/SearchView$UpdatableTouchDelegate;->mDelegateView:Landroid/view/View;
+    iget-object v6, p0, Landroid/support/v7/widget/SearchView$UpdatableTouchDelegate;->mActualBounds:Landroid/graphics/Rect;
 
-    invoke-virtual {v6}, Landroid/view/View;->getHeight()I
+    iget v6, v6, Landroid/graphics/Rect;->top:I
 
-    move-result v6
-
-    div-int/lit8 v6, v6, 0x2
+    sub-int v6, v4, v6
 
     int-to-float v6, v6
 

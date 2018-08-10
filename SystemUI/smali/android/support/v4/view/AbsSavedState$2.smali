@@ -3,7 +3,7 @@
 .source "AbsSavedState.java"
 
 # interfaces
-.implements Landroid/support/v4/os/ParcelableCompatCreatorCallbacks;
+.implements Landroid/os/Parcelable$ClassLoaderCreator;
 
 
 # annotations
@@ -19,7 +19,7 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Landroid/support/v4/os/ParcelableCompatCreatorCallbacks",
+        "Landroid/os/Parcelable$ClassLoaderCreator",
         "<",
         "Landroid/support/v4/view/AbsSavedState;",
         ">;"
@@ -38,6 +38,18 @@
 
 
 # virtual methods
+.method public createFromParcel(Landroid/os/Parcel;)Landroid/support/v4/view/AbsSavedState;
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, p1, v0}, Landroid/support/v4/view/AbsSavedState$2;->createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Landroid/support/v4/view/AbsSavedState;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Landroid/support/v4/view/AbsSavedState;
     .locals 3
 
@@ -59,6 +71,16 @@
     sget-object v1, Landroid/support/v4/view/AbsSavedState;->EMPTY_STATE:Landroid/support/v4/view/AbsSavedState;
 
     return-object v1
+.end method
+
+.method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    .locals 1
+
+    invoke-virtual {p0, p1}, Landroid/support/v4/view/AbsSavedState$2;->createFromParcel(Landroid/os/Parcel;)Landroid/support/v4/view/AbsSavedState;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Ljava/lang/Object;

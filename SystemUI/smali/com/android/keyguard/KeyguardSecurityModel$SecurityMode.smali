@@ -46,6 +46,8 @@
 
 .field public static final enum Pattern:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
+.field public static final enum RMM:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+
 .field public static final enum Recovery:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
 .field public static final enum SimPerso:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
@@ -165,9 +167,19 @@
 
     new-instance v0, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
-    const-string/jumbo v1, "CarrierLock"
+    const-string/jumbo v1, "RMM"
 
     const/16 v2, 0xa
+
+    invoke-direct {v0, v1, v2}, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;-><init>(Ljava/lang/String;I)V
+
+    sput-object v0, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->RMM:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+
+    new-instance v0, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+
+    const-string/jumbo v1, "CarrierLock"
+
+    const/16 v2, 0xb
 
     invoke-direct {v0, v1, v2}, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;-><init>(Ljava/lang/String;I)V
 
@@ -177,7 +189,7 @@
 
     const-string/jumbo v1, "CarrierPassword"
 
-    const/16 v2, 0xb
+    const/16 v2, 0xc
 
     invoke-direct {v0, v1, v2}, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;-><init>(Ljava/lang/String;I)V
 
@@ -187,21 +199,11 @@
 
     const-string/jumbo v1, "Recovery"
 
-    const/16 v2, 0xc
-
-    invoke-direct {v0, v1, v2}, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;-><init>(Ljava/lang/String;I)V
-
-    sput-object v0, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->Recovery:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
-
-    new-instance v0, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
-
-    const-string/jumbo v1, "SmartcardPIN"
-
     const/16 v2, 0xd
 
     invoke-direct {v0, v1, v2}, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->SmartcardPIN:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+    sput-object v0, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->Recovery:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
     new-instance v0, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
@@ -223,7 +225,17 @@
 
     sput-object v0, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->Swipe:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
-    const/16 v0, 0x10
+    new-instance v0, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+
+    const-string/jumbo v1, "SmartcardPIN"
+
+    const/16 v2, 0x10
+
+    invoke-direct {v0, v1, v2}, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;-><init>(Ljava/lang/String;I)V
+
+    sput-object v0, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->SmartcardPIN:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+
+    const/16 v0, 0x11
 
     new-array v0, v0, [Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
@@ -277,25 +289,25 @@
 
     aput-object v1, v0, v2
 
-    sget-object v1, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->CarrierLock:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+    sget-object v1, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->RMM:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
     const/16 v2, 0xa
 
     aput-object v1, v0, v2
 
-    sget-object v1, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->CarrierPassword:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+    sget-object v1, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->CarrierLock:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
     const/16 v2, 0xb
 
     aput-object v1, v0, v2
 
-    sget-object v1, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->Recovery:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+    sget-object v1, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->CarrierPassword:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
     const/16 v2, 0xc
 
     aput-object v1, v0, v2
 
-    sget-object v1, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->SmartcardPIN:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+    sget-object v1, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->Recovery:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
     const/16 v2, 0xd
 
@@ -310,6 +322,12 @@
     sget-object v1, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->Swipe:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
     const/16 v2, 0xf
+
+    aput-object v1, v0, v2
+
+    sget-object v1, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->SmartcardPIN:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+
+    const/16 v2, 0x10
 
     aput-object v1, v0, v2
 

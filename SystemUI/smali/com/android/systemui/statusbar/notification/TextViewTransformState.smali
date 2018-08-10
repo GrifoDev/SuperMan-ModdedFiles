@@ -72,6 +72,28 @@
     return v3
 .end method
 
+.method private getInnerHeight(Landroid/widget/TextView;)I
+    .locals 2
+
+    invoke-virtual {p1}, Landroid/widget/TextView;->getHeight()I
+
+    move-result v0
+
+    invoke-virtual {p1}, Landroid/widget/TextView;->getPaddingTop()I
+
+    move-result v1
+
+    sub-int/2addr v0, v1
+
+    invoke-virtual {p1}, Landroid/widget/TextView;->getPaddingBottom()I
+
+    move-result v1
+
+    sub-int/2addr v0, v1
+
+    return v0
+.end method
+
 .method public static obtain()Lcom/android/systemui/statusbar/notification/TextViewTransformState;
     .locals 2
 
@@ -181,13 +203,13 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/notification/TextViewTransformState;->mText:Landroid/widget/TextView;
 
-    invoke-virtual {v4}, Landroid/widget/TextView;->getHeight()I
+    invoke-direct {p0, v4}, Lcom/android/systemui/statusbar/notification/TextViewTransformState;->getInnerHeight(Landroid/widget/TextView;)I
 
     move-result v4
 
     iget-object v5, v1, Lcom/android/systemui/statusbar/notification/TextViewTransformState;->mText:Landroid/widget/TextView;
 
-    invoke-virtual {v5}, Landroid/widget/TextView;->getHeight()I
+    invoke-direct {p0, v5}, Lcom/android/systemui/statusbar/notification/TextViewTransformState;->getInnerHeight(Landroid/widget/TextView;)I
 
     move-result v5
 

@@ -713,7 +713,7 @@
     .end packed-switch
 .end method
 
-.method public static writeState(JLcom/android/systemui/volume/VolumeDialogController$State;)V
+.method public static writeState(JLcom/android/systemui/plugins/VolumeDialogController$State;)V
     .locals 2
 
     sget-object v0, Lcom/android/systemui/volume/Events;->sCallback:Lcom/android/systemui/volume/Events$Callback;
@@ -722,7 +722,7 @@
 
     sget-object v0, Lcom/android/systemui/volume/Events;->sCallback:Lcom/android/systemui/volume/Events$Callback;
 
-    invoke-interface {v0, p0, p1, p2}, Lcom/android/systemui/volume/Events$Callback;->writeState(JLcom/android/systemui/volume/VolumeDialogController$State;)V
+    invoke-interface {v0, p0, p1, p2}, Lcom/android/systemui/volume/Events$Callback;->writeState(JLcom/android/systemui/plugins/VolumeDialogController$State;)V
 
     :cond_0
     return-void

@@ -37,9 +37,7 @@
 
     iget-object v1, p0, Landroid/support/v7/widget/ToolbarWidgetWrapper$1;->this$0:Landroid/support/v7/widget/ToolbarWidgetWrapper;
 
-    invoke-static {v1}, Landroid/support/v7/widget/ToolbarWidgetWrapper;->-get2(Landroid/support/v7/widget/ToolbarWidgetWrapper;)Landroid/support/v7/widget/Toolbar;
-
-    move-result-object v1
+    iget-object v1, v1, Landroid/support/v7/widget/ToolbarWidgetWrapper;->mToolbar:Landroid/support/v7/widget/Toolbar;
 
     invoke-virtual {v1}, Landroid/support/v7/widget/Toolbar;->getContext()Landroid/content/Context;
 
@@ -47,9 +45,7 @@
 
     iget-object v3, p0, Landroid/support/v7/widget/ToolbarWidgetWrapper$1;->this$0:Landroid/support/v7/widget/ToolbarWidgetWrapper;
 
-    invoke-static {v3}, Landroid/support/v7/widget/ToolbarWidgetWrapper;->-get1(Landroid/support/v7/widget/ToolbarWidgetWrapper;)Ljava/lang/CharSequence;
-
-    move-result-object v6
+    iget-object v6, v3, Landroid/support/v7/widget/ToolbarWidgetWrapper;->mTitle:Ljava/lang/CharSequence;
 
     const v3, 0x102002c
 
@@ -71,25 +67,19 @@
 
     iget-object v0, p0, Landroid/support/v7/widget/ToolbarWidgetWrapper$1;->this$0:Landroid/support/v7/widget/ToolbarWidgetWrapper;
 
-    invoke-static {v0}, Landroid/support/v7/widget/ToolbarWidgetWrapper;->-get3(Landroid/support/v7/widget/ToolbarWidgetWrapper;)Landroid/view/Window$Callback;
-
-    move-result-object v0
+    iget-object v0, v0, Landroid/support/v7/widget/ToolbarWidgetWrapper;->mWindowCallback:Landroid/view/Window$Callback;
 
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/support/v7/widget/ToolbarWidgetWrapper$1;->this$0:Landroid/support/v7/widget/ToolbarWidgetWrapper;
 
-    invoke-static {v0}, Landroid/support/v7/widget/ToolbarWidgetWrapper;->-get0(Landroid/support/v7/widget/ToolbarWidgetWrapper;)Z
-
-    move-result v0
+    iget-boolean v0, v0, Landroid/support/v7/widget/ToolbarWidgetWrapper;->mMenuPrepared:Z
 
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/support/v7/widget/ToolbarWidgetWrapper$1;->this$0:Landroid/support/v7/widget/ToolbarWidgetWrapper;
 
-    invoke-static {v0}, Landroid/support/v7/widget/ToolbarWidgetWrapper;->-get3(Landroid/support/v7/widget/ToolbarWidgetWrapper;)Landroid/view/Window$Callback;
-
-    move-result-object v0
+    iget-object v0, v0, Landroid/support/v7/widget/ToolbarWidgetWrapper;->mWindowCallback:Landroid/view/Window$Callback;
 
     iget-object v1, p0, Landroid/support/v7/widget/ToolbarWidgetWrapper$1;->mNavItem:Landroid/support/v7/view/menu/ActionMenuItem;
 

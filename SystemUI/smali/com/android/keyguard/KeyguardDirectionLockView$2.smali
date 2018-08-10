@@ -44,7 +44,7 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/keyguard/KeyguardDirectionLockView$2;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get5(Lcom/android/keyguard/KeyguardDirectionLockView;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get7(Lcom/android/keyguard/KeyguardDirectionLockView;)Landroid/os/Handler;
 
     move-result-object v0
 

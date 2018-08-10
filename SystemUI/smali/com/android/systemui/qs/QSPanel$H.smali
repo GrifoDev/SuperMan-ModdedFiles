@@ -40,42 +40,71 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 5
+    .locals 6
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     iget v0, p1, Landroid/os/Message;->what:I
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v2, :cond_3
 
-    iget-object v3, p0, Lcom/android/systemui/qs/QSPanel$H;->this$0:Lcom/android/systemui/qs/QSPanel;
+    iget-object v4, p0, Lcom/android/systemui/qs/QSPanel$H;->this$0:Lcom/android/systemui/qs/QSPanel;
 
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Lcom/android/systemui/qs/QSPanel$Record;
 
-    iget v4, p1, Landroid/os/Message;->arg1:I
+    iget v1, p1, Landroid/os/Message;->arg1:I
 
-    if-eqz v4, :cond_1
+    if-eqz v1, :cond_1
+
+    move v1, v2
 
     :goto_0
-    invoke-virtual {v3, v0, v1}, Lcom/android/systemui/qs/QSPanel;->handleShowDetail(Lcom/android/systemui/qs/QSPanel$Record;Z)V
+    iget v5, p1, Landroid/os/Message;->arg2:I
+
+    if-eqz v5, :cond_2
+
+    :goto_1
+    invoke-virtual {v4, v0, v1, v2}, Lcom/android/systemui/qs/QSPanel;->handleShowDetail(Lcom/android/systemui/qs/QSPanel$Record;ZZ)V
 
     :cond_0
-    :goto_1
+    :goto_2
     return-void
 
     :cond_1
-    move v1, v2
+    move v1, v3
 
     goto :goto_0
 
     :cond_2
+    move v2, v3
+
+    goto :goto_1
+
+    :cond_3
     iget v0, p1, Landroid/os/Message;->what:I
 
     const/4 v1, 0x3
+
+    if-ne v0, v1, :cond_4
+
+    iget-object v1, p0, Lcom/android/systemui/qs/QSPanel$H;->this$0:Lcom/android/systemui/qs/QSPanel;
+
+    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v0, Ljava/lang/CharSequence;
+
+    invoke-virtual {v1, v0}, Lcom/android/systemui/qs/QSPanel;->announceForAccessibility(Ljava/lang/CharSequence;)V
+
+    goto :goto_2
+
+    :cond_4
+    iget v0, p1, Landroid/os/Message;->what:I
+
+    const/4 v1, 0x4
 
     if-ne v0, v1, :cond_0
 
@@ -87,5 +116,5 @@
 
     invoke-virtual {v1, v0}, Lcom/android/systemui/qs/QSPanel;->handleUpdateDetail(Lcom/android/systemui/qs/QSPanel$Record;)V
 
-    goto :goto_1
+    goto :goto_2
 .end method

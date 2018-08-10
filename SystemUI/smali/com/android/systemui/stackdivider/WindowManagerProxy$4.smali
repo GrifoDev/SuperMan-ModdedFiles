@@ -44,19 +44,19 @@
 
     iget-object v2, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy$4;->this$0:Lcom/android/systemui/stackdivider/WindowManagerProxy;
 
-    invoke-static {v2}, Lcom/android/systemui/stackdivider/WindowManagerProxy;->-get6(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Z
+    invoke-static {v2}, Lcom/android/systemui/stackdivider/WindowManagerProxy;->-get2(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Z
 
     move-result v2
 
     iget-object v3, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy$4;->this$0:Lcom/android/systemui/stackdivider/WindowManagerProxy;
 
-    invoke-static {v3}, Lcom/android/systemui/stackdivider/WindowManagerProxy;->-get5(Lcom/android/systemui/stackdivider/WindowManagerProxy;)I
+    invoke-static {v3}, Lcom/android/systemui/stackdivider/WindowManagerProxy;->-get1(Lcom/android/systemui/stackdivider/WindowManagerProxy;)I
 
     move-result v3
 
     iget-object v4, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy$4;->this$0:Lcom/android/systemui/stackdivider/WindowManagerProxy;
 
-    invoke-static {v4}, Lcom/android/systemui/stackdivider/WindowManagerProxy;->-get4(Lcom/android/systemui/stackdivider/WindowManagerProxy;)F
+    invoke-static {v4}, Lcom/android/systemui/stackdivider/WindowManagerProxy;->-get0(Lcom/android/systemui/stackdivider/WindowManagerProxy;)F
 
     move-result v4
 

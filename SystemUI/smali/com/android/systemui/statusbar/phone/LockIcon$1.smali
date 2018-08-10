@@ -31,17 +31,62 @@
 
 
 # virtual methods
+.method public onBiometricLockoutChanged(Z)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/LockIcon$1;->this$0:Lcom/android/systemui/statusbar/phone/LockIcon;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/LockIcon;->update(Z)V
+
+    return-void
+.end method
+
+.method public onFaceRecognitionAuthFailed()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/LockIcon$1;->this$0:Lcom/android/systemui/statusbar/phone/LockIcon;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/LockIcon;->update(Z)V
+
+    return-void
+.end method
+
+.method public onFaceRecognitionError(ILjava/lang/CharSequence;)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/LockIcon$1;->this$0:Lcom/android/systemui/statusbar/phone/LockIcon;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/LockIcon;->update(Z)V
+
+    return-void
+.end method
+
 .method public onFaceRecognitionStateChanged(Z)V
-    .locals 1
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/LockIcon$1;->this$0:Lcom/android/systemui/statusbar/phone/LockIcon;
 
-    invoke-static {v0, p1}, Lcom/android/systemui/statusbar/phone/LockIcon;->-set0(Lcom/android/systemui/statusbar/phone/LockIcon;Z)Z
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/LockIcon;->getVisibility()I
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    if-eqz p1, :cond_0
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/LockIcon$1;->this$0:Lcom/android/systemui/statusbar/phone/LockIcon;
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/LockIcon;->update()V
+    const/4 v1, 0x1
 
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/LockIcon;->update(Z)V
+
+    :cond_0
     return-void
 .end method
 
@@ -54,6 +99,44 @@
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/LockIcon;->setDeviceInteractive(Z)V
 
+    return-void
+.end method
+
+.method public onKeyguardBouncerChanged(Z)V
+    .locals 1
+
+    invoke-static {}, Lcom/android/systemui/statusbar/phone/LockIcon;->-get0()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isUnlockCompleted()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    if-nez p1, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/LockIcon$1;->this$0:Lcom/android/systemui/statusbar/phone/LockIcon;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/LockIcon;->getVisibility()I
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/LockIcon$1;->this$0:Lcom/android/systemui/statusbar/phone/LockIcon;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/LockIcon;->update()V
+
+    :cond_1
     return-void
 .end method
 

@@ -3,7 +3,7 @@
 .source "NotificationPanelView.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Lcom/samsung/systemui/splugins/noticenter/PluginNotiCenter$Callback;
 
 
 # annotations
@@ -34,34 +34,46 @@
 
 
 # virtual methods
-.method public run()V
+.method public onNotiCenterPanelUpdate(Landroid/widget/RemoteViews;)V
     .locals 3
 
-    const/16 v2, 0x8
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView$3;->this$0:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView$3;->this$0:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
+    iget-object v1, v1, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mNCP:Landroid/view/View;
 
-    const/4 v1, 0x0
+    if-nez v1, :cond_0
 
-    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->-set5(Lcom/android/systemui/statusbar/phone/NotificationPanelView;Z)Z
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView$3;->this$0:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView$3;->this$0:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->getContext()Landroid/content/Context;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->-get7(Lcom/android/systemui/statusbar/phone/NotificationPanelView;)Landroid/view/View;
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView$3;->this$0:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
+
+    invoke-virtual {p1, v1, v2}, Landroid/widget/RemoteViews;->apply(Landroid/content/Context;Landroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView$3;->this$0:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
 
-    invoke-static {}, Lcom/android/keyguard/KeyguardRune;->canSetDcmLauncher()Z
+    iput-object v0, v1, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mNCP:Landroid/view/View;
 
-    move-result v0
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView$3;->this$0:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
 
-    if-eqz v0, :cond_0
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView$3;->this$0:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView$3;->this$0:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
+    iget-object v2, v2, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mNCP:Landroid/view/View;
 
-    invoke-static {v0, v2}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->-wrap2(Lcom/android/systemui/statusbar/phone/NotificationPanelView;I)V
+    invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->addView(Landroid/view/View;)V
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView$3;->this$0:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
+
+    iget-object v1, v1, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mNCP:Landroid/view/View;
+
+    const/16 v2, 0x8
+
+    invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V
 
     :cond_0
     return-void

@@ -4,7 +4,7 @@
     <item>
         <shape android:shape="rectangle">
             <corners android:radius="2.0dip" />
-            <stroke android:width="2.0px" android:color="#1a000000" />
+            <stroke android:width="2.0px" android:color="#4d000000" />
         </shape>
     </item>
     <item android:id="@android:id/mask">

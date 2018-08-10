@@ -62,7 +62,7 @@
 
     iget-object v2, p0, Landroid/support/v7/widget/DefaultItemAnimator$3;->this$0:Landroid/support/v7/widget/DefaultItemAnimator;
 
-    invoke-static {v2, v0}, Landroid/support/v7/widget/DefaultItemAnimator;->-wrap0(Landroid/support/v7/widget/DefaultItemAnimator;Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
+    invoke-virtual {v2, v0}, Landroid/support/v7/widget/DefaultItemAnimator;->animateAddImpl(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
 
     goto :goto_0
 
@@ -73,9 +73,7 @@
 
     iget-object v2, p0, Landroid/support/v7/widget/DefaultItemAnimator$3;->this$0:Landroid/support/v7/widget/DefaultItemAnimator;
 
-    invoke-static {v2}, Landroid/support/v7/widget/DefaultItemAnimator;->-get1(Landroid/support/v7/widget/DefaultItemAnimator;)Ljava/util/ArrayList;
-
-    move-result-object v2
+    iget-object v2, v2, Landroid/support/v7/widget/DefaultItemAnimator;->mAdditionsList:Ljava/util/ArrayList;
 
     iget-object v3, p0, Landroid/support/v7/widget/DefaultItemAnimator$3;->val$additions:Ljava/util/ArrayList;
 

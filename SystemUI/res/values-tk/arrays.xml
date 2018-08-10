@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="bluetooth_ss_a2dp_codec_summaries">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Ähli kodekler</item>
+        <item>Standart kodek</item>
+    </string-array>
+    <string-array name="bluetooth_ss_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Ähli kodekler</item>
+        <item>Standart kodek</item>
+    </string-array>
+    <string-array name="bluetooth_ss_japan_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Ähli kodekler</item>
+        <item>Standart kodek</item>
+    </string-array>
+    <string-array name="wifi_ap_wifi_sharing">
+        <item>Wi-Fi paýlaşygy açyň</item>
+        <item>Wi-Fi paýlaşygy ýapyň</item>
+    </string-array>
+    <string-array name="wifi_status">
+        <item></item>
+        <item>Skanirlenýär…</item>
+        <item>Birikdirilýär…</item>
+        <item>Şahsyýeti barlanylýar…</item>
+        <item>IP salgy alynýar…</item>
+        <item>Baglanan</item>
+        <item>Asylgy</item>
+        <item>Baglanyşyk kesilýär…</item>
+        <item>Aragatnaşyk kesildi</item>
+        <item>Şowsuz</item>
+        <item>Beklenildi</item>
+        <item>Internet baglanyşygyňyzyň hili barlanýar…</item>
+    </string-array>
+</resources>

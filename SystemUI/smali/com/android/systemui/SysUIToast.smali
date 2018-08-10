@@ -12,6 +12,30 @@
     return-void
 .end method
 
+.method public static makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+    .locals 3
+
+    invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {p0, v1, p2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/widget/Toast;->getWindowParams()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v1
+
+    iget v2, v1, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
+
+    or-int/lit8 v2, v2, 0x10
+
+    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
+
+    return-object v0
+.end method
+
 .method public static makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
     .locals 3
 

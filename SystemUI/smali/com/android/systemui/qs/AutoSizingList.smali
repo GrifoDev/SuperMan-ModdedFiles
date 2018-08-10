@@ -21,20 +21,14 @@
 
 .field private final mDataObserver:Landroid/database/DataSetObserver;
 
+.field private mEnableAutoSizing:Z
+
 .field private final mHandler:Landroid/os/Handler;
 
 .field private final mItemSize:I
 
 
 # direct methods
-.method static synthetic -get0(Lcom/android/systemui/qs/AutoSizingList;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/systemui/qs/AutoSizingList;->mCount:I
-
-    return v0
-.end method
-
 .method static synthetic -set0(Lcom/android/systemui/qs/AutoSizingList;I)I
     .locals 0
 
@@ -70,7 +64,9 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 3
+    .locals 4
+
+    const/4 v3, 0x1
 
     const/4 v2, 0x0
 
@@ -100,11 +96,19 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v2, v2}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
+    invoke-virtual {v0, v3, v2}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
     move-result v1
 
     iput v1, p0, Lcom/android/systemui/qs/AutoSizingList;->mItemSize:I
+
+    invoke-virtual {v0, v2, v3}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
+
+    move-result v1
+
+    iput-boolean v1, p0, Lcom/android/systemui/qs/AutoSizingList;->mEnableAutoSizing:Z
+
+    invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     return-void
 .end method
@@ -129,6 +133,29 @@
     const/4 v0, 0x0
 
     goto :goto_0
+.end method
+
+.method private getItemCount(I)I
+    .locals 2
+
+    invoke-direct {p0}, Lcom/android/systemui/qs/AutoSizingList;->getDesiredCount()I
+
+    move-result v0
+
+    iget-boolean v1, p0, Lcom/android/systemui/qs/AutoSizingList;->mEnableAutoSizing:Z
+
+    if-eqz v1, :cond_0
+
+    iget v1, p0, Lcom/android/systemui/qs/AutoSizingList;->mItemSize:I
+
+    div-int v1, p1, v1
+
+    invoke-static {v1, v0}, Ljava/lang/Math;->min(II)I
+
+    move-result v0
+
+    :cond_0
+    return v0
 .end method
 
 .method private postRebindChildren()V
@@ -223,7 +250,7 @@
 
 # virtual methods
 .method protected onMeasure(II)V
-    .locals 4
+    .locals 3
 
     invoke-static {p2}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
@@ -231,15 +258,7 @@
 
     if-eqz v1, :cond_0
 
-    iget v2, p0, Lcom/android/systemui/qs/AutoSizingList;->mItemSize:I
-
-    div-int v2, v1, v2
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/AutoSizingList;->getDesiredCount()I
-
-    move-result v3
-
-    invoke-static {v2, v3}, Ljava/lang/Math;->min(II)I
+    invoke-direct {p0, v1}, Lcom/android/systemui/qs/AutoSizingList;->getItemCount(I)I
 
     move-result v0
 
@@ -254,5 +273,31 @@
     :cond_0
     invoke-super {p0, p1, p2}, Landroid/widget/LinearLayout;->onMeasure(II)V
 
+    return-void
+.end method
+
+.method public setAdapter(Landroid/widget/ListAdapter;)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/qs/AutoSizingList;->mAdapter:Landroid/widget/ListAdapter;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/qs/AutoSizingList;->mAdapter:Landroid/widget/ListAdapter;
+
+    iget-object v1, p0, Lcom/android/systemui/qs/AutoSizingList;->mDataObserver:Landroid/database/DataSetObserver;
+
+    invoke-interface {v0, v1}, Landroid/widget/ListAdapter;->unregisterDataSetObserver(Landroid/database/DataSetObserver;)V
+
+    :cond_0
+    iput-object p1, p0, Lcom/android/systemui/qs/AutoSizingList;->mAdapter:Landroid/widget/ListAdapter;
+
+    if-eqz p1, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/AutoSizingList;->mDataObserver:Landroid/database/DataSetObserver;
+
+    invoke-interface {p1, v0}, Landroid/widget/ListAdapter;->registerDataSetObserver(Landroid/database/DataSetObserver;)V
+
+    :cond_1
     return-void
 .end method

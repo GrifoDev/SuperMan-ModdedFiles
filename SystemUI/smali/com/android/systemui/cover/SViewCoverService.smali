@@ -13,8 +13,6 @@
 
 
 # instance fields
-.field private mBaseStatusBar:Lcom/android/systemui/statusbar/BaseStatusBar;
-
 .field private final mBinder:Lcom/samsung/android/cover/ISViewCoverBaseService$Stub;
 
 .field private mCoverState:Lcom/samsung/android/cover/CoverState;
@@ -23,17 +21,13 @@
 
 .field private final mLock:Ljava/lang/Object;
 
+.field private mPendingCoverState:Lcom/samsung/android/cover/CoverState;
+
+.field private mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+
 
 # direct methods
-.method static synthetic -get0(Lcom/android/systemui/cover/SViewCoverService;)Lcom/android/systemui/statusbar/BaseStatusBar;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/cover/SViewCoverService;->mBaseStatusBar:Lcom/android/systemui/statusbar/BaseStatusBar;
-
-    return-object v0
-.end method
-
-.method static synthetic -get1(Lcom/android/systemui/cover/SViewCoverService;)Lcom/android/systemui/cover/SViewCoverService$LocalCoverReceiver;
+.method static synthetic -get0(Lcom/android/systemui/cover/SViewCoverService;)Lcom/android/systemui/cover/SViewCoverService$LocalCoverReceiver;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/cover/SViewCoverService;->mLocalCoverReceiver:Lcom/android/systemui/cover/SViewCoverService$LocalCoverReceiver;
@@ -41,10 +35,18 @@
     return-object v0
 .end method
 
-.method static synthetic -get2(Lcom/android/systemui/cover/SViewCoverService;)Ljava/lang/Object;
+.method static synthetic -get1(Lcom/android/systemui/cover/SViewCoverService;)Ljava/lang/Object;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/cover/SViewCoverService;->mLock:Ljava/lang/Object;
+
+    return-object v0
+.end method
+
+.method static synthetic -get2(Lcom/android/systemui/cover/SViewCoverService;)Lcom/android/systemui/statusbar/phone/StatusBar;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/cover/SViewCoverService;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
 
     return-object v0
 .end method
@@ -53,6 +55,14 @@
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/cover/SViewCoverService;->mCoverState:Lcom/samsung/android/cover/CoverState;
+
+    return-object p1
+.end method
+
+.method static synthetic -set1(Lcom/android/systemui/cover/SViewCoverService;Lcom/samsung/android/cover/CoverState;)Lcom/samsung/android/cover/CoverState;
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/systemui/cover/SViewCoverService;->mPendingCoverState:Lcom/samsung/android/cover/CoverState;
 
     return-object p1
 .end method
@@ -96,59 +106,36 @@
 .end method
 
 .method private getStatusBar()Z
-    .locals 4
+    .locals 2
 
-    const/4 v3, 0x0
+    const-class v0, Lcom/android/systemui/statusbar/phone/StatusBar;
 
-    invoke-virtual {p0}, Lcom/android/systemui/cover/SViewCoverService;->getApplication()Landroid/app/Application;
+    invoke-static {p0, v0}, Lcom/android/systemui/SysUiServiceProvider;->getComponent(Landroid/content/Context;Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/systemui/SystemUIApplication;
+    check-cast v0, Lcom/android/systemui/statusbar/phone/StatusBar;
+
+    iput-object v0, p0, Lcom/android/systemui/cover/SViewCoverService;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+
+    iget-object v0, p0, Lcom/android/systemui/cover/SViewCoverService;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
 
     if-nez v0, :cond_0
 
-    const-string/jumbo v1, "CoverUI"
+    const-string/jumbo v0, "CoverUI"
 
-    const-string/jumbo v2, "app==null"
+    const-string/jumbo v1, "onCreate() - mStatusBar is null"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v1, "CoverUI"
+    const/4 v0, 0x0
 
-    const-string/jumbo v2, "onCreate() - app is null"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v3
+    return v0
 
     :cond_0
-    const-class v1, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    const/4 v0, 0x1
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/SystemUIApplication;->getComponent(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/systemui/statusbar/BaseStatusBar;
-
-    iput-object v1, p0, Lcom/android/systemui/cover/SViewCoverService;->mBaseStatusBar:Lcom/android/systemui/statusbar/BaseStatusBar;
-
-    iget-object v1, p0, Lcom/android/systemui/cover/SViewCoverService;->mBaseStatusBar:Lcom/android/systemui/statusbar/BaseStatusBar;
-
-    if-nez v1, :cond_1
-
-    const-string/jumbo v1, "CoverUI"
-
-    const-string/jumbo v2, "onCreate() - mBaseStatusBar is null"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v3
-
-    :cond_1
-    const/4 v1, 0x1
-
-    return v1
+    return v0
 .end method
 
 .method private registerLocalBroadcastReceiver()V
@@ -198,7 +185,7 @@
     monitor-enter v1
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/systemui/cover/SViewCoverService;->mBaseStatusBar:Lcom/android/systemui/statusbar/BaseStatusBar;
+    iget-object v0, p0, Lcom/android/systemui/cover/SViewCoverService;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
 
     if-nez v0, :cond_0
 
@@ -211,11 +198,11 @@
     invoke-direct {p0}, Lcom/android/systemui/cover/SViewCoverService;->getStatusBar()Z
 
     :cond_0
-    iget-object v0, p0, Lcom/android/systemui/cover/SViewCoverService;->mBaseStatusBar:Lcom/android/systemui/statusbar/BaseStatusBar;
+    iget-object v0, p0, Lcom/android/systemui/cover/SViewCoverService;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/systemui/cover/SViewCoverService;->mCoverState:Lcom/samsung/android/cover/CoverState;
+    iget-object v0, p0, Lcom/android/systemui/cover/SViewCoverService;->mPendingCoverState:Lcom/samsung/android/cover/CoverState;
 
     if-eqz v0, :cond_1
 
@@ -225,15 +212,15 @@
 
     invoke-static {v0, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/android/systemui/cover/SViewCoverService;->mBaseStatusBar:Lcom/android/systemui/statusbar/BaseStatusBar;
+    iget-object v0, p0, Lcom/android/systemui/cover/SViewCoverService;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
 
-    iget-object v2, p0, Lcom/android/systemui/cover/SViewCoverService;->mCoverState:Lcom/samsung/android/cover/CoverState;
+    iget-object v2, p0, Lcom/android/systemui/cover/SViewCoverService;->mPendingCoverState:Lcom/samsung/android/cover/CoverState;
 
-    invoke-virtual {v0, v2}, Lcom/android/systemui/statusbar/BaseStatusBar;->updateCoverState(Lcom/samsung/android/cover/CoverState;)V
+    invoke-virtual {v0, v2}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateCoverState(Lcom/samsung/android/cover/CoverState;)V
 
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/android/systemui/cover/SViewCoverService;->mCoverState:Lcom/samsung/android/cover/CoverState;
+    iput-object v0, p0, Lcom/android/systemui/cover/SViewCoverService;->mPendingCoverState:Lcom/samsung/android/cover/CoverState;
 
     :goto_0
     invoke-direct {p0}, Lcom/android/systemui/cover/SViewCoverService;->unregisterLocalBroadcastReceiver()V
@@ -258,7 +245,7 @@
 
     move-result-object v3
 
-    iget-object v0, p0, Lcom/android/systemui/cover/SViewCoverService;->mBaseStatusBar:Lcom/android/systemui/statusbar/BaseStatusBar;
+    iget-object v0, p0, Lcom/android/systemui/cover/SViewCoverService;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
 
     if-nez v0, :cond_2
 
@@ -275,7 +262,7 @@
 
     move-result-object v3
 
-    iget-object v0, p0, Lcom/android/systemui/cover/SViewCoverService;->mCoverState:Lcom/samsung/android/cover/CoverState;
+    iget-object v0, p0, Lcom/android/systemui/cover/SViewCoverService;->mPendingCoverState:Lcom/samsung/android/cover/CoverState;
 
     if-nez v0, :cond_3
 
@@ -409,6 +396,10 @@
     monitor-enter v4
 
     :try_start_0
+    iget-object v3, p0, Lcom/android/systemui/cover/SViewCoverService;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+
+    if-eqz v3, :cond_0
+
     const-string/jumbo v3, "cover"
 
     invoke-static {v3}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -416,16 +407,12 @@
     move-result-object v3
 
     invoke-static {v3}, Lcom/samsung/android/cover/ICoverManager$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/cover/ICoverManager;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v0
 
     if-eqz v0, :cond_0
-
-    iget-object v3, p0, Lcom/android/systemui/cover/SViewCoverService;->mBaseStatusBar:Lcom/android/systemui/statusbar/BaseStatusBar;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    if-eqz v3, :cond_0
 
     :try_start_1
     invoke-interface {v0}, Lcom/samsung/android/cover/ICoverManager;->getCoverState()Lcom/samsung/android/cover/CoverState;
@@ -435,14 +422,27 @@
     if-eqz v1, :cond_0
 
     iget-boolean v3, v1, Lcom/samsung/android/cover/CoverState;->attached:Z
+
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_0
+
+    iget-object v3, p0, Lcom/android/systemui/cover/SViewCoverService;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+
+    invoke-virtual {v3, v1}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateCoverState(Lcom/samsung/android/cover/CoverState;)V
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    if-eqz v3, :cond_1
-
     :cond_0
     :goto_0
+    const/4 v3, 0x0
+
+    :try_start_2
+    iput-object v3, p0, Lcom/android/systemui/cover/SViewCoverService;->mCoverState:Lcom/samsung/android/cover/CoverState;
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
     monitor-exit v4
 
     invoke-super {p0, p1}, Landroid/app/Service;->onUnbind(Landroid/content/Intent;)Z
@@ -450,17 +450,6 @@
     move-result v3
 
     return v3
-
-    :cond_1
-    :try_start_2
-    iget-object v3, p0, Lcom/android/systemui/cover/SViewCoverService;->mBaseStatusBar:Lcom/android/systemui/statusbar/BaseStatusBar;
-
-    invoke-virtual {v3, v1}, Lcom/android/systemui/statusbar/BaseStatusBar;->updateCoverState(Lcom/samsung/android/cover/CoverState;)V
-    :try_end_2
-    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    goto :goto_0
 
     :catch_0
     move-exception v2

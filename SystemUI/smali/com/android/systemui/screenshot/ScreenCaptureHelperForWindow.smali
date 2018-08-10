@@ -33,9 +33,70 @@
 
 # virtual methods
 .method public getScreenshotMaxLayer()I
-    .locals 5
+    .locals 6
 
-    const/4 v4, 0x5
+    const/4 v5, 0x5
+
+    const/4 v0, -0x1
+
+    iget-object v3, p0, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->mBundle:Landroid/os/Bundle;
+
+    const-string/jumbo v4, "windowCapture"
+
+    invoke-virtual {v3, v4}, Landroid/os/Bundle;->getIntegerArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_0
+
+    iget-object v3, p0, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->mHelperContext:Landroid/content/Context;
+
+    invoke-static {v3}, Lcom/android/systemui/screenshot/ScreenshotUtils;->isDesktopMode(Landroid/content/Context;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->getScreenshotMaxLayerInKnoxDesktop()I
+
+    move-result v1
+
+    invoke-virtual {v2, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/lang/Integer;
+
+    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
+
+    move-result v3
+
+    invoke-static {v3, v1}, Ljava/lang/Math;->min(II)I
+
+    move-result v0
+
+    :cond_0
+    :goto_0
+    return v0
+
+    :cond_1
+    invoke-virtual {v2, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/lang/Integer;
+
+    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    goto :goto_0
+.end method
+
+.method public getScreenshotMinLayer()I
+    .locals 4
+
+    const/4 v0, -0x1
 
     iget-object v2, p0, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->mBundle:Landroid/os/Bundle;
 
@@ -45,78 +106,46 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->mHelperContext:Landroid/content/Context;
+    if-eqz v1, :cond_0
 
-    invoke-static {v2}, Lcom/android/systemui/screenshot/ScreenshotUtils;->isDesktopMode(Landroid/content/Context;)Z
+    const/4 v2, 0x4
 
-    move-result v2
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    if-eqz v2, :cond_0
+    move-result-object v2
 
-    invoke-virtual {p0}, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->getScreenshotMaxLayerInKnoxDesktop()I
+    check-cast v2, Ljava/lang/Integer;
+
+    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
 
-    invoke-virtual {v1, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/Integer;
-
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
-
-    move-result v2
-
-    invoke-static {v2, v0}, Ljava/lang/Math;->min(II)I
-
-    move-result v2
-
-    return v2
-
     :cond_0
-    invoke-virtual {v1, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/Integer;
-
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
-
-    move-result v2
-
-    return v2
+    return v0
 .end method
 
-.method public getScreenshotMinLayer()I
-    .locals 3
+.method protected initiallizeCaptureType()V
+    .locals 1
 
-    iget-object v1, p0, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->mBundle:Landroid/os/Bundle;
+    const/16 v0, 0x64
 
-    const-string/jumbo v2, "windowCapture"
+    iput v0, p0, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->mCaptureType:I
 
-    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getIntegerArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
-
-    move-result-object v0
-
-    const/4 v1, 0x4
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/Integer;
-
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
-
-    move-result v1
-
-    return v1
+    return-void
 .end method
 
-.method protected initiallizeScreenshotVariable(Landroid/view/Display;)V
+.method protected initiallizeScreenshotVariable()V
     .locals 12
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->getDisplayMetrics(Landroid/view/Display;)Landroid/util/DisplayMetrics;
+    invoke-virtual {p0}, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->getCurrentDisplay()Landroid/view/Display;
+
+    move-result-object v10
+
+    iput-object v10, p0, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->mDisplay:Landroid/view/Display;
+
+    iget-object v10, p0, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->mDisplay:Landroid/view/Display;
+
+    invoke-virtual {p0, v10}, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->getDisplayMetrics(Landroid/view/Display;)Landroid/util/DisplayMetrics;
 
     move-result-object v1
 
@@ -128,7 +157,9 @@
 
     iput v10, p0, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->mDisplayHeight:I
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->getDegrees(Landroid/view/Display;)F
+    iget-object v10, p0, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->mDisplay:Landroid/view/Display;
+
+    invoke-virtual {p0, v10}, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->getDegrees(Landroid/view/Display;)F
 
     move-result v10
 
@@ -141,6 +172,16 @@
     invoke-virtual {v10, v11}, Landroid/os/Bundle;->getIntegerArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
 
     move-result-object v9
+
+    const/4 v2, -0x1
+
+    const/4 v8, -0x1
+
+    const/4 v3, -0x1
+
+    const/4 v0, -0x1
+
+    if-eqz v9, :cond_0
 
     const/4 v10, 0x0
 
@@ -190,6 +231,7 @@
 
     move-result v0
 
+    :cond_0
     new-instance v10, Landroid/graphics/Rect;
 
     invoke-direct {v10, v2, v8, v3, v0}, Landroid/graphics/Rect;-><init>(IIII)V
@@ -218,7 +260,7 @@
 
     cmpl-float v10, v10, v11
 
-    if-lez v10, :cond_0
+    if-lez v10, :cond_1
 
     const/4 v5, 0x0
 
@@ -234,7 +276,7 @@
 
     cmpl-float v10, v10, v11
 
-    if-nez v10, :cond_1
+    if-nez v10, :cond_2
 
     move v5, v8
 
@@ -250,9 +292,9 @@
 
     iget-object v10, p0, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->mRectToCapture:Landroid/graphics/Rect;
 
-    invoke-virtual {v10, v8, v7, v0, v4}, Landroid/graphics/Rect;->set(IIII)V
+    invoke-virtual {v10, v5, v7, v6, v4}, Landroid/graphics/Rect;->set(IIII)V
 
-    :cond_0
+    :cond_1
     :goto_0
     iget-object v10, p0, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->mRectToCapture:Landroid/graphics/Rect;
 
@@ -274,16 +316,22 @@
 
     iput v10, p0, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->mScreenNativeHeight:F
 
+    invoke-virtual {p0}, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->getBuiltInDisplayId()I
+
+    move-result v10
+
+    iput v10, p0, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->mBuiltInDisplayId:I
+
     return-void
 
-    :cond_1
+    :cond_2
     iget v10, p0, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->mDegrees:F
 
     const/high16 v11, 0x43870000    # 270.0f
 
     cmpl-float v10, v10, v11
 
-    if-nez v10, :cond_0
+    if-nez v10, :cond_1
 
     iget v10, p0, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->mDisplayHeight:I
 
@@ -299,7 +347,15 @@
 
     iget-object v10, p0, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->mRectToCapture:Landroid/graphics/Rect;
 
-    invoke-virtual {v10, v5, v2, v6, v3}, Landroid/graphics/Rect;->set(IIII)V
+    invoke-virtual {v10, v5, v7, v6, v4}, Landroid/graphics/Rect;->set(IIII)V
 
     goto :goto_0
+.end method
+
+.method public isShowScreenshotAnimation()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
 .end method

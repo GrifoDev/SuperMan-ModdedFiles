@@ -60,9 +60,7 @@
 
     iget-object v15, v0, Landroid/support/v17/leanback/widget/StreamingTextView$DottySpan;->this$0:Landroid/support/v17/leanback/widget/StreamingTextView;
 
-    invoke-static {v15}, Landroid/support/v17/leanback/widget/StreamingTextView;->-get0(Landroid/support/v17/leanback/widget/StreamingTextView;)Landroid/graphics/Bitmap;
-
-    move-result-object v15
+    iget-object v15, v15, Landroid/support/v17/leanback/widget/StreamingTextView;->mOneDot:Landroid/graphics/Bitmap;
 
     invoke-virtual {v15}, Landroid/graphics/Bitmap;->getWidth()I
 
@@ -88,9 +86,7 @@
 
     iget-object v15, v0, Landroid/support/v17/leanback/widget/StreamingTextView$DottySpan;->this$0:Landroid/support/v17/leanback/widget/StreamingTextView;
 
-    invoke-static {v15}, Landroid/support/v17/leanback/widget/StreamingTextView;->-get1(Landroid/support/v17/leanback/widget/StreamingTextView;)Ljava/util/Random;
-
-    move-result-object v15
+    iget-object v15, v15, Landroid/support/v17/leanback/widget/StreamingTextView;->mRandom:Ljava/util/Random;
 
     move-object/from16 v0, p0
 
@@ -127,9 +123,11 @@
 
     move-object/from16 v16, v0
 
-    invoke-static/range {v16 .. v16}, Landroid/support/v17/leanback/widget/StreamingTextView;->-get2(Landroid/support/v17/leanback/widget/StreamingTextView;)I
+    move-object/from16 v0, v16
 
-    move-result v16
+    iget v0, v0, Landroid/support/v17/leanback/widget/StreamingTextView;->mStreamPosition:I
+
+    move/from16 v16, v0
 
     move/from16 v0, v16
 
@@ -172,9 +170,7 @@
 
     iget-object v15, v0, Landroid/support/v17/leanback/widget/StreamingTextView$DottySpan;->this$0:Landroid/support/v17/leanback/widget/StreamingTextView;
 
-    invoke-static {v15}, Landroid/support/v17/leanback/widget/StreamingTextView;->-get1(Landroid/support/v17/leanback/widget/StreamingTextView;)Ljava/util/Random;
-
-    move-result-object v15
+    iget-object v15, v15, Landroid/support/v17/leanback/widget/StreamingTextView;->mRandom:Ljava/util/Random;
 
     const/16 v16, 0x4
 
@@ -194,9 +190,7 @@
 
     iget-object v15, v0, Landroid/support/v17/leanback/widget/StreamingTextView$DottySpan;->this$0:Landroid/support/v17/leanback/widget/StreamingTextView;
 
-    invoke-static {v15}, Landroid/support/v17/leanback/widget/StreamingTextView;->-get1(Landroid/support/v17/leanback/widget/StreamingTextView;)Ljava/util/Random;
-
-    move-result-object v15
+    iget-object v15, v15, Landroid/support/v17/leanback/widget/StreamingTextView;->mRandom:Ljava/util/Random;
 
     invoke-virtual {v15}, Ljava/util/Random;->nextBoolean()Z
 
@@ -208,9 +202,7 @@
 
     iget-object v15, v0, Landroid/support/v17/leanback/widget/StreamingTextView$DottySpan;->this$0:Landroid/support/v17/leanback/widget/StreamingTextView;
 
-    invoke-static {v15}, Landroid/support/v17/leanback/widget/StreamingTextView;->-get3(Landroid/support/v17/leanback/widget/StreamingTextView;)Landroid/graphics/Bitmap;
-
-    move-result-object v15
+    iget-object v15, v15, Landroid/support/v17/leanback/widget/StreamingTextView;->mTwoDot:Landroid/graphics/Bitmap;
 
     move-object/from16 v0, p0
 
@@ -218,9 +210,11 @@
 
     move-object/from16 v16, v0
 
-    invoke-static/range {v16 .. v16}, Landroid/support/v17/leanback/widget/StreamingTextView;->-get3(Landroid/support/v17/leanback/widget/StreamingTextView;)Landroid/graphics/Bitmap;
+    move-object/from16 v0, v16
 
-    move-result-object v16
+    iget-object v0, v0, Landroid/support/v17/leanback/widget/StreamingTextView;->mTwoDot:Landroid/graphics/Bitmap;
+
+    move-object/from16 v16, v0
 
     invoke-virtual/range {v16 .. v16}, Landroid/graphics/Bitmap;->getHeight()I
 
@@ -257,9 +251,7 @@
 
     iget-object v15, v0, Landroid/support/v17/leanback/widget/StreamingTextView$DottySpan;->this$0:Landroid/support/v17/leanback/widget/StreamingTextView;
 
-    invoke-static {v15}, Landroid/support/v17/leanback/widget/StreamingTextView;->-get0(Landroid/support/v17/leanback/widget/StreamingTextView;)Landroid/graphics/Bitmap;
-
-    move-result-object v15
+    iget-object v15, v15, Landroid/support/v17/leanback/widget/StreamingTextView;->mOneDot:Landroid/graphics/Bitmap;
 
     move-object/from16 v0, p0
 
@@ -267,9 +259,11 @@
 
     move-object/from16 v16, v0
 
-    invoke-static/range {v16 .. v16}, Landroid/support/v17/leanback/widget/StreamingTextView;->-get0(Landroid/support/v17/leanback/widget/StreamingTextView;)Landroid/graphics/Bitmap;
+    move-object/from16 v0, v16
 
-    move-result-object v16
+    iget-object v0, v0, Landroid/support/v17/leanback/widget/StreamingTextView;->mOneDot:Landroid/graphics/Bitmap;
+
+    move-object/from16 v16, v0
 
     invoke-virtual/range {v16 .. v16}, Landroid/graphics/Bitmap;->getHeight()I
 

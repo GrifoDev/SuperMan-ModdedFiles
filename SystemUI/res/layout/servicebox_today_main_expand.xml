@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:paddingBottom="@dimen/servicebox_expand_page_bottom_padding" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:sysui="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="horizontal" android:id="@id/servicebox_event_information_area" android:layout_width="fill_parent" android:layout_height="@dimen/servicebox_today_event_height" android:layout_marginStart="@dimen/servicebox_page_margin_side" android:layout_marginEnd="@dimen/servicebox_page_margin_side">
+        <LinearLayout android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="@dimen/servicebox_today_date_padding_end">
+            <include layout="@layout/servicebox_today_date" />
+        </LinearLayout>
+        <include android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" layout="@layout/servicebox_today_no_event" />
+        <LinearLayout android:layout_gravity="top" android:orientation="vertical" android:id="@id/servicebox_event_list_root" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <com.android.systemui.servicebox.pages.calendar.CalendarEventListView android:orientation="vertical" android:id="@id/servicebox_event_list" android:layout_width="fill_parent" android:layout_height="wrap_content" sysui:maxEventCnt="@dimen/servicebox_max_event_cnt" sysui:pageType="small" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

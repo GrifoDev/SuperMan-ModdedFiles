@@ -3,12 +3,12 @@
 .source "RecentsActivity.java"
 
 # interfaces
-.implements Landroid/view/ViewTreeObserver$OnDrawListener;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/systemui/recents/RecentsActivity;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/systemui/recents/RecentsActivity;->onCreate(Landroid/os/Bundle;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,34 +34,14 @@
 
 
 # virtual methods
-.method public onDraw()V
-    .locals 4
+.method public run()V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/recents/RecentsActivity$3;->this$0:Lcom/android/systemui/recents/RecentsActivity;
 
-    invoke-static {v0}, Lcom/android/systemui/recents/RecentsActivity;->-get0(Lcom/android/systemui/recents/RecentsActivity;)Landroid/os/Handler;
+    const/16 v1, 0x120
 
-    move-result-object v0
-
-    new-instance v1, Lcom/android/systemui/recents/RecentsActivity$3$1;
-
-    invoke-direct {v1, p0}, Lcom/android/systemui/recents/RecentsActivity$3$1;-><init>(Lcom/android/systemui/recents/RecentsActivity$3;)V
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    iget-object v0, p0, Lcom/android/systemui/recents/RecentsActivity$3;->this$0:Lcom/android/systemui/recents/RecentsActivity;
-
-    invoke-static {v0}, Lcom/android/systemui/recents/RecentsActivity;->-get0(Lcom/android/systemui/recents/RecentsActivity;)Landroid/os/Handler;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/android/systemui/recents/RecentsActivity$3$2;
-
-    invoke-direct {v1, p0}, Lcom/android/systemui/recents/RecentsActivity$3$2;-><init>(Lcom/android/systemui/recents/RecentsActivity$3;)V
-
-    const-wide/16 v2, 0x64
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/RecentsActivity;->dismissRecentsToFocusedTask(I)Z
 
     return-void
 .end method

@@ -17,6 +17,8 @@
 # instance fields
 .field private mButtons:Landroid/view/View;
 
+.field private mCallback:Lcom/android/systemui/volume/ZenModePanel$Callback;
+
 .field private mController:Lcom/android/systemui/statusbar/policy/ZenModeController;
 
 .field private mDone:Landroid/view/View;
@@ -137,6 +139,120 @@
 
 
 # virtual methods
+.method public init(Lcom/android/systemui/statusbar/policy/ZenModeController;)V
+    .locals 2
+
+    iput-object p1, p0, Lcom/android/systemui/tuner/TunerZenModePanel;->mController:Lcom/android/systemui/statusbar/policy/ZenModeController;
+
+    const v0, 0x7f0a0556
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/tuner/TunerZenModePanel;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/tuner/TunerZenModePanel;->mHeaderSwitch:Landroid/view/View;
+
+    iget-object v0, p0, Lcom/android/systemui/tuner/TunerZenModePanel;->mHeaderSwitch:Landroid/view/View;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+
+    iget-object v0, p0, Lcom/android/systemui/tuner/TunerZenModePanel;->mHeaderSwitch:Landroid/view/View;
+
+    invoke-virtual {v0, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    iget-object v0, p0, Lcom/android/systemui/tuner/TunerZenModePanel;->mHeaderSwitch:Landroid/view/View;
+
+    const v1, 0x1020016
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    const v1, 0x7f1208e7
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
+
+    const v0, 0x7f0a05aa
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/tuner/TunerZenModePanel;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/volume/ZenModePanel;
+
+    iput-object v0, p0, Lcom/android/systemui/tuner/TunerZenModePanel;->mZenModePanel:Lcom/android/systemui/volume/ZenModePanel;
+
+    iget-object v0, p0, Lcom/android/systemui/tuner/TunerZenModePanel;->mZenModePanel:Lcom/android/systemui/volume/ZenModePanel;
+
+    invoke-virtual {v0, p1}, Lcom/android/systemui/volume/ZenModePanel;->init(Lcom/android/systemui/statusbar/policy/ZenModeController;)V
+
+    const v0, 0x7f0a0554
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/tuner/TunerZenModePanel;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/tuner/TunerZenModePanel;->mButtons:Landroid/view/View;
+
+    iget-object v0, p0, Lcom/android/systemui/tuner/TunerZenModePanel;->mButtons:Landroid/view/View;
+
+    const v1, 0x102001a
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/tuner/TunerZenModePanel;->mMoreSettings:Landroid/view/View;
+
+    iget-object v0, p0, Lcom/android/systemui/tuner/TunerZenModePanel;->mMoreSettings:Landroid/view/View;
+
+    invoke-virtual {v0, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    iget-object v0, p0, Lcom/android/systemui/tuner/TunerZenModePanel;->mMoreSettings:Landroid/view/View;
+
+    check-cast v0, Landroid/widget/TextView;
+
+    const v1, 0x7f120904
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
+
+    iget-object v0, p0, Lcom/android/systemui/tuner/TunerZenModePanel;->mButtons:Landroid/view/View;
+
+    const v1, 0x1020019
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/tuner/TunerZenModePanel;->mDone:Landroid/view/View;
+
+    iget-object v0, p0, Lcom/android/systemui/tuner/TunerZenModePanel;->mDone:Landroid/view/View;
+
+    invoke-virtual {v0, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    iget-object v0, p0, Lcom/android/systemui/tuner/TunerZenModePanel;->mDone:Landroid/view/View;
+
+    check-cast v0, Landroid/widget/TextView;
+
+    const v1, 0x7f1208eb
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
+
+    return-void
+.end method
+
+.method public isEditing()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/tuner/TunerZenModePanel;->mEditing:Z
+
+    return v0
+.end method
+
 .method public onClick(Landroid/view/View;)V
     .locals 5
 
@@ -244,6 +360,36 @@
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/systemui/tuner/TunerZenModePanel;->mEditing:Z
+
+    return-void
+.end method
+
+.method public setCallback(Lcom/android/systemui/volume/ZenModePanel$Callback;)V
+    .locals 1
+
+    iput-object p1, p0, Lcom/android/systemui/tuner/TunerZenModePanel;->mCallback:Lcom/android/systemui/volume/ZenModePanel$Callback;
+
+    iget-object v0, p0, Lcom/android/systemui/tuner/TunerZenModePanel;->mZenModePanel:Lcom/android/systemui/volume/ZenModePanel;
+
+    invoke-virtual {v0, p1}, Lcom/android/systemui/volume/ZenModePanel;->setCallback(Lcom/android/systemui/volume/ZenModePanel$Callback;)V
+
+    return-void
+.end method
+
+.method public setDoneListener(Landroid/view/View$OnClickListener;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/systemui/tuner/TunerZenModePanel;->mDoneListener:Landroid/view/View$OnClickListener;
+
+    return-void
+.end method
+
+.method public setZenState(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/tuner/TunerZenModePanel;->mZenMode:I
+
+    invoke-direct {p0}, Lcom/android/systemui/tuner/TunerZenModePanel;->postUpdatePanel()V
 
     return-void
 .end method

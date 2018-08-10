@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/volume/VolumeDialogMotion;->startDismiss(Ljava/lang/Runnable;)V
+    value = Lcom/android/systemui/volume/VolumeDialogMotion;->makeDexStartAnimation()Landroid/animation/AnimatorSet;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -19,16 +19,12 @@
 
 .field final synthetic this$0:Lcom/android/systemui/volume/VolumeDialogMotion;
 
-.field final synthetic val$onComplete:Ljava/lang/Runnable;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/volume/VolumeDialogMotion;Ljava/lang/Runnable;)V
+.method constructor <init>(Lcom/android/systemui/volume/VolumeDialogMotion;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/volume/VolumeDialogMotion$7;->this$0:Lcom/android/systemui/volume/VolumeDialogMotion;
-
-    iput-object p2, p0, Lcom/android/systemui/volume/VolumeDialogMotion$7;->val$onComplete:Ljava/lang/Runnable;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
 
@@ -48,7 +44,7 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "dismiss.onAnimationCancel"
+    const-string/jumbo v1, "show.onDexAnimationCancel"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -61,7 +57,7 @@
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 4
+    .locals 2
 
     iget-boolean v0, p0, Lcom/android/systemui/volume/VolumeDialogMotion$7;->mCancelled:Z
 
@@ -78,26 +74,16 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "dismiss.onAnimationEnd"
+    const-string/jumbo v1, "show.onDexAnimationEnd"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
     iget-object v0, p0, Lcom/android/systemui/volume/VolumeDialogMotion$7;->this$0:Lcom/android/systemui/volume/VolumeDialogMotion;
 
-    invoke-static {v0}, Lcom/android/systemui/volume/VolumeDialogMotion;->-get6(Lcom/android/systemui/volume/VolumeDialogMotion;)Landroid/os/Handler;
+    const/4 v1, 0x0
 
-    move-result-object v0
-
-    new-instance v1, Lcom/android/systemui/volume/VolumeDialogMotion$7$1;
-
-    iget-object v2, p0, Lcom/android/systemui/volume/VolumeDialogMotion$7;->val$onComplete:Ljava/lang/Runnable;
-
-    invoke-direct {v1, p0, v2}, Lcom/android/systemui/volume/VolumeDialogMotion$7$1;-><init>(Lcom/android/systemui/volume/VolumeDialogMotion$7;Ljava/lang/Runnable;)V
-
-    const-wide/16 v2, 0x32
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-static {v0, v1}, Lcom/android/systemui/volume/VolumeDialogMotion;->-wrap2(Lcom/android/systemui/volume/VolumeDialogMotion;Z)V
 
     return-void
 .end method

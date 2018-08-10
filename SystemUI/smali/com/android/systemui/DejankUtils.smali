@@ -88,7 +88,7 @@
 .method public static postAfterTraversal(Ljava/lang/Runnable;)V
     .locals 1
 
-    invoke-static {}, Lcom/android/systemui/DejankUtils;->throwIfNotCalledOnMainThread()V
+    invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
 
     sget-object v0, Lcom/android/systemui/DejankUtils;->sPendingRunnables:Ljava/util/ArrayList;
 
@@ -118,7 +118,7 @@
 .method public static removeCallbacks(Ljava/lang/Runnable;)V
     .locals 1
 
-    invoke-static {}, Lcom/android/systemui/DejankUtils;->throwIfNotCalledOnMainThread()V
+    invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
 
     sget-object v0, Lcom/android/systemui/DejankUtils;->sPendingRunnables:Ljava/util/ArrayList;
 
@@ -128,30 +128,5 @@
 
     invoke-virtual {v0, p0}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    return-void
-.end method
-
-.method private static throwIfNotCalledOnMainThread()V
-    .locals 2
-
-    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/os/Looper;->isCurrentThread()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    const-string/jumbo v1, "should be called from the main thread."
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_0
     return-void
 .end method

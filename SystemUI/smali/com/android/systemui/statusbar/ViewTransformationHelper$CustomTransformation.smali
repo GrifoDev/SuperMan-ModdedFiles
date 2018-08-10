@@ -33,6 +33,14 @@
     return v0
 .end method
 
+.method public getCustomInterpolator(IZ)Landroid/view/animation/Interpolator;
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
 .method public initTransformation(Lcom/android/systemui/statusbar/notification/TransformState;Lcom/android/systemui/statusbar/notification/TransformState;)Z
     .locals 1
 

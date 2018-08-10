@@ -2,6 +2,10 @@
 .super Ljava/lang/Object;
 .source "BluetoothController.java"
 
+# interfaces
+.implements Lcom/android/systemui/statusbar/policy/CallbackController;
+.implements Lcom/android/systemui/Dumpable;
+
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
@@ -10,11 +14,19 @@
     }
 .end annotation
 
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Lcom/android/systemui/statusbar/policy/CallbackController",
+        "<",
+        "Lcom/android/systemui/statusbar/policy/BluetoothController$Callback;",
+        ">;",
+        "Lcom/android/systemui/Dumpable;"
+    }
+.end annotation
+
 
 # virtual methods
-.method public abstract addStateChangedCallback(Lcom/android/systemui/statusbar/policy/BluetoothController$Callback;)V
-.end method
-
 .method public abstract canConfigBluetooth()Z
 .end method
 
@@ -22,6 +34,21 @@
 .end method
 
 .method public abstract disconnect(Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;)V
+.end method
+
+.method public abstract getBluetoothState()I
+.end method
+
+.method public abstract getConnectedDevices()Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List",
+            "<",
+            "Landroid/bluetooth/BluetoothDevice;",
+            ">;"
+        }
+    .end annotation
 .end method
 
 .method public abstract getDevices()Ljava/util/Collection;
@@ -51,11 +78,11 @@
 .method public abstract isBluetoothSupported()Z
 .end method
 
-.method public abstract removeStateChangedCallback(Lcom/android/systemui/statusbar/policy/BluetoothController$Callback;)V
-.end method
-
 .method public abstract scan(Z)V
 .end method
 
 .method public abstract setBluetoothEnabled(ZZ)V
+.end method
+
+.method public abstract updateListDevices()V
 .end method

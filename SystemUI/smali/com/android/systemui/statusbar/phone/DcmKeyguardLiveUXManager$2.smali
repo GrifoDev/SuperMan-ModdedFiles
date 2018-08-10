@@ -48,11 +48,11 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager$2;->this$0:Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;->-get1(Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;->-get0(Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;)Landroid/content/Context;
 
     move-result-object v2
 
-    invoke-static {v2}, Lcom/android/keyguard/KeyguardRune;->isDcmLauncher(Landroid/content/Context;)Z
+    invoke-static {v2}, Lcom/android/systemui/Rune;->isDcmLauncher(Landroid/content/Context;)Z
 
     move-result v1
 

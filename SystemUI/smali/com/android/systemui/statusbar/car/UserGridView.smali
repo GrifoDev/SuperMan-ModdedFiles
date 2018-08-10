@@ -16,7 +16,7 @@
 
 .field private mPendingUserId:I
 
-.field private mStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+.field private mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
 
 .field private mUserSwitcherController:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
@@ -73,7 +73,7 @@
 
     const/4 v3, 0x1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/car/UserGridView;->mStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/car/UserGridView;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
 
     move-object v2, v1
 
@@ -81,17 +81,17 @@
 
     move v5, v3
 
-    invoke-virtual/range {v0 .. v5}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->executeRunnableDismissingKeyguard(Ljava/lang/Runnable;Ljava/lang/Runnable;ZZZ)V
+    invoke-virtual/range {v0 .. v5}, Lcom/android/systemui/statusbar/phone/StatusBar;->executeRunnableDismissingKeyguard(Ljava/lang/Runnable;Ljava/lang/Runnable;ZZZ)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public init(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Lcom/android/systemui/statusbar/policy/UserSwitcherController;)V
+.method public init(Lcom/android/systemui/statusbar/phone/StatusBar;Lcom/android/systemui/statusbar/policy/UserSwitcherController;)V
     .locals 2
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/car/UserGridView;->mStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/car/UserGridView;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
 
     iput-object p2, p0, Lcom/android/systemui/statusbar/car/UserGridView;->mUserSwitcherController:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 

@@ -6,7 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate$1;
+        Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate$ItemDelegate;
     }
 .end annotation
 
@@ -18,42 +18,20 @@
 
 
 # direct methods
-.method static synthetic -wrap0(Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate;)Z
-    .locals 1
-
-    invoke-direct {p0}, Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate;->shouldIgnore()Z
-
-    move-result v0
-
-    return v0
-.end method
-
 .method public constructor <init>(Landroid/support/v7/widget/RecyclerView;)V
     .locals 1
 
     invoke-direct {p0}, Landroid/support/v4/view/AccessibilityDelegateCompat;-><init>()V
 
-    new-instance v0, Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate$1;
+    iput-object p1, p0, Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
 
-    invoke-direct {v0, p0}, Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate$1;-><init>(Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate;)V
+    new-instance v0, Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate$ItemDelegate;
+
+    invoke-direct {v0, p0}, Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate$ItemDelegate;-><init>(Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate;)V
 
     iput-object v0, p0, Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate;->mItemDelegate:Landroid/support/v4/view/AccessibilityDelegateCompat;
 
-    iput-object p1, p0, Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
-
     return-void
-.end method
-
-.method private shouldIgnore()Z
-    .locals 1
-
-    iget-object v0, p0, Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
-
-    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView;->hasPendingAdapterUpdates()Z
-
-    move-result v0
-
-    return v0
 .end method
 
 
@@ -83,17 +61,14 @@
 
     if-eqz v1, :cond_0
 
-    invoke-direct {p0}, Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate;->shouldIgnore()Z
+    invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate;->shouldIgnore()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v1, :cond_0
 
-    :cond_1
     move-object v0, p1
 
     check-cast v0, Landroid/support/v7/widget/RecyclerView;
@@ -110,7 +85,8 @@
 
     invoke-virtual {v1, p2}, Landroid/support/v7/widget/RecyclerView$LayoutManager;->onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;)V
@@ -126,7 +102,7 @@
 
     invoke-virtual {p2, v0}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->setClassName(Ljava/lang/CharSequence;)V
 
-    invoke-direct {p0}, Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate;->shouldIgnore()Z
+    invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate;->shouldIgnore()Z
 
     move-result v0
 
@@ -166,7 +142,7 @@
     return v0
 
     :cond_0
-    invoke-direct {p0}, Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate;->shouldIgnore()Z
+    invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate;->shouldIgnore()Z
 
     move-result v0
 
@@ -194,6 +170,18 @@
 
     :cond_1
     const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method shouldIgnore()Z
+    .locals 1
+
+    iget-object v0, p0, Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
+
+    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView;->hasPendingAdapterUpdates()Z
+
+    move-result v0
 
     return v0
 .end method

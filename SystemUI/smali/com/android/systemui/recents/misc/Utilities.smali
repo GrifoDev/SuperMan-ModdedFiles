@@ -581,7 +581,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, p1}, Ljava/lang/Class;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
     move-result v1
 
@@ -722,39 +722,58 @@
     return v0
 .end method
 
-.method public static hasSamsungMembers(Lcom/android/systemui/recents/misc/SystemServicesProxy;)Z
-    .locals 1
+.method public static isDescendentAccessibilityFocused(Landroid/view/View;)Z
+    .locals 5
 
-    const-string/jumbo v0, "com.samsung.android.voc"
+    const/4 v4, 0x1
 
-    invoke-virtual {p0, v0}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->isPackageInstalled(Ljava/lang/String;)Z
+    invoke-virtual {p0}, Landroid/view/View;->isAccessibilityFocused()Z
 
-    move-result v0
+    move-result v3
 
-    if-eqz v0, :cond_0
+    if-eqz v3, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->resolveActivityForVoc()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const-string/jumbo v0, "com.samsung.android.voc"
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->isSupportedVersion(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
-
-    return v0
+    return v4
 
     :cond_0
-    const/4 v0, 0x0
+    instance-of v3, p0, Landroid/view/ViewGroup;
 
-    return v0
+    if-eqz v3, :cond_2
+
+    move-object v2, p0
+
+    check-cast v2, Landroid/view/ViewGroup;
+
+    invoke-virtual {v2}, Landroid/view/ViewGroup;->getChildCount()I
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    :goto_0
+    if-ge v1, v0, :cond_2
+
+    invoke-virtual {v2, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/android/systemui/recents/misc/Utilities;->isDescendentAccessibilityFocused(Landroid/view/View;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    return v4
+
+    :cond_1
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    const/4 v3, 0x0
+
+    return v3
 .end method
 
 .method public static mapRange(FFF)F
@@ -913,6 +932,55 @@
     iput v2, p0, Landroid/graphics/RectF;->bottom:F
 
     invoke-virtual {p0, v0, v1}, Landroid/graphics/RectF;->offset(FF)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public static scaleRectAboutTopCenter(Landroid/graphics/RectF;F)V
+    .locals 4
+
+    const/4 v3, 0x0
+
+    const/high16 v1, 0x3f800000    # 1.0f
+
+    cmpl-float v1, p1, v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {p0}, Landroid/graphics/RectF;->centerX()F
+
+    move-result v0
+
+    neg-float v1, v0
+
+    invoke-virtual {p0, v1, v3}, Landroid/graphics/RectF;->offset(FF)V
+
+    iget v1, p0, Landroid/graphics/RectF;->left:F
+
+    mul-float/2addr v1, p1
+
+    iput v1, p0, Landroid/graphics/RectF;->left:F
+
+    iget v1, p0, Landroid/graphics/RectF;->right:F
+
+    mul-float/2addr v1, p1
+
+    iput v1, p0, Landroid/graphics/RectF;->right:F
+
+    iget v1, p0, Landroid/graphics/RectF;->top:F
+
+    invoke-virtual {p0}, Landroid/graphics/RectF;->height()F
+
+    move-result v2
+
+    mul-float/2addr v2, p1
+
+    add-float/2addr v1, v2
+
+    iput v1, p0, Landroid/graphics/RectF;->bottom:F
+
+    invoke-virtual {p0, v0, v3}, Landroid/graphics/RectF;->offset(FF)V
 
     :cond_0
     return-void

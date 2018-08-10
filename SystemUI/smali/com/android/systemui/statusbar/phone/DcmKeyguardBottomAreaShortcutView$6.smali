@@ -38,97 +38,160 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 15
+.method synthetic lambda$-com_android_systemui_statusbar_phone_DcmKeyguardBottomAreaShortcutView$6_20399(Z)V
+    .locals 1
 
-    const/4 v14, -0x6
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView$6;->this$0:Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;
+
+    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->unbindCameraPrewarmService(Z)V
+
+    return-void
+.end method
+
+.method public run()V
+    .locals 17
+
+    const/16 v16, -0x60
+
+    invoke-static {}, Landroid/app/ActivityOptions;->makeBasic()Landroid/app/ActivityOptions;
+
+    move-result-object v15
+
+    const/4 v1, 0x3
+
+    invoke-virtual {v15, v1}, Landroid/app/ActivityOptions;->setRotationAnimationHint(I)V
 
     :try_start_0
-    const-string/jumbo v0, "DcmKeyguardBottomAreaShortcutView"
+    const-string/jumbo v1, "SEP"
 
-    const-string/jumbo v1, "launch secure Camera - "
+    sget-object v2, Lcom/android/systemui/Rune;->KEYWI_VALUE_SHORTCUT_STYLE:Ljava/lang/String;
 
-    invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView$6;->val$intent:Landroid/content/Intent;
+    move-result v1
 
-    const-string/jumbo v1, "android.intent.action.MAIN"
+    if-eqz v1, :cond_0
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+    const-string/jumbo v1, "DcmKeyguardBottomAreaShortcutView"
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView$6;->val$intent:Landroid/content/Intent;
+    const-string/jumbo v2, "launch secure Camera - "
 
-    const-string/jumbo v1, "isSecure"
+    invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v2, 0x1
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView$6;->val$intent:Landroid/content/Intent;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView$6;->val$intent:Landroid/content/Intent;
+    const-string/jumbo v2, "android.intent.action.MAIN"
 
-    const-string/jumbo v1, "android.intent.category.LAUNCHER"
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
+    move-object/from16 v0, p0
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView$6;->val$intent:Landroid/content/Intent;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView$6;->val$intent:Landroid/content/Intent;
 
-    const/high16 v1, 0x34010000
+    const-string/jumbo v2, "isSecure"
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+    const/4 v3, 0x1
 
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    move-result-object v0
+    move-object/from16 v0, p0
 
-    invoke-interface {v0}, Landroid/app/IActivityManager;->keyguardWaitingForActivityDrawn()V
+    iget-object v1, v0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView$6;->val$intent:Landroid/content/Intent;
 
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    const-string/jumbo v2, "android.intent.category.LAUNCHER"
 
-    move-result-object v0
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
-    invoke-interface {v0}, Landroid/app/IActivityManager;->resumeAppSwitches()V
+    move-object/from16 v0, p0
 
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView$6;->val$intent:Landroid/content/Intent;
 
-    move-result-object v0
+    const/high16 v2, 0x34010000
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView$6;->this$0:Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->getContext()Landroid/content/Context;
+    const-string/jumbo v1, "DcmKeyguardBottomAreaShortcutView"
+
+    const-string/jumbo v2, "ActivityManager.getService().requestWaitingForOccluding();"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v1, "DcmKeyguardBottomAreaShortcutView"
+
+    const-string/jumbo v2, "ActivityManager.getService().resumeAppSwitches();"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/content/Context;->getBasePackageName()Ljava/lang/String;
+    invoke-interface {v1}, Landroid/app/IActivityManager;->requestWaitingForOccluding()V
+
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Landroid/app/IActivityManager;->resumeAppSwitches()V
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v15, v1}, Landroid/app/ActivityOptions;->setLaunchStackId(I)V
+
+    :cond_0
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
+
+    move-result-object v1
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView$6;->this$0:Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;
+
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->getContext()Landroid/content/Context;
 
     move-result-object v2
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView$6;->val$intent:Landroid/content/Intent;
+    invoke-virtual {v2}, Landroid/content/Context;->getBasePackageName()Ljava/lang/String;
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView$6;->val$intent:Landroid/content/Intent;
+    move-result-object v3
 
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView$6;->this$0:Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v4}, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->getContext()Landroid/content/Context;
+    iget-object v4, v0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView$6;->val$intent:Landroid/content/Intent;
 
-    move-result-object v4
+    move-object/from16 v0, p0
 
-    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    iget-object v2, v0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView$6;->val$intent:Landroid/content/Intent;
 
-    move-result-object v4
+    move-object/from16 v0, p0
 
-    invoke-virtual {v1, v4}, Landroid/content/Intent;->resolveTypeIfNeeded(Landroid/content/ContentResolver;)Ljava/lang/String;
+    iget-object v5, v0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView$6;->this$0:Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;
 
-    move-result-object v4
+    invoke-virtual {v5}, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->getContext()Landroid/content/Context;
 
-    sget-object v1, Landroid/os/UserHandle;->CURRENT:Landroid/os/UserHandle;
+    move-result-object v5
 
-    invoke-virtual {v1}, Landroid/os/UserHandle;->getIdentifier()I
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result v11
+    move-result-object v5
 
-    const/4 v1, 0x0
+    invoke-virtual {v2, v5}, Landroid/content/Intent;->resolveTypeIfNeeded(Landroid/content/ContentResolver;)Ljava/lang/String;
 
-    const/4 v5, 0x0
+    move-result-object v5
+
+    invoke-virtual {v15}, Landroid/app/ActivityOptions;->toBundle()Landroid/os/Bundle;
+
+    move-result-object v11
+
+    sget-object v2, Landroid/os/UserHandle;->CURRENT:Landroid/os/UserHandle;
+
+    invoke-virtual {v2}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v12
+
+    const/4 v2, 0x0
 
     const/4 v6, 0x0
 
@@ -136,53 +199,49 @@
 
     const/4 v8, 0x0
 
-    const/4 v9, 0x0
+    const/high16 v9, 0x10000000
 
     const/4 v10, 0x0
 
-    invoke-interface/range {v0 .. v11}, Landroid/app/IActivityManager;->startActivityAsUser(Landroid/app/IApplicationThread;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/os/IBinder;Ljava/lang/String;IILandroid/app/ProfilerInfo;Landroid/os/Bundle;I)I
+    invoke-interface/range {v1 .. v12}, Landroid/app/IActivityManager;->startActivityAsUser(Landroid/app/IApplicationThread;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/os/IBinder;Ljava/lang/String;IILandroid/app/ProfilerInfo;Landroid/os/Bundle;I)I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v14
+    move-result v16
 
     :goto_0
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView$6;->this$0:Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;
+    move-object/from16 v0, p0
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->-get4(Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;)Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView$6;->this$0:Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;
 
-    move-result-object v0
+    move/from16 v0, v16
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/DcmKeyguardLiveUXManager;->getActivityStarter()Lcom/android/systemui/statusbar/phone/ActivityStarter;
+    invoke-static {v1, v0}, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->-wrap0(Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;I)Z
 
-    move-result-object v0
+    move-result v14
 
-    invoke-interface {v0}, Lcom/android/systemui/statusbar/phone/ActivityStarter;->preventNextAnimation()V
+    move-object/from16 v0, p0
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView$6;->this$0:Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView$6;->this$0:Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;
 
-    invoke-static {v0, v14}, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->-wrap0(Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;I)Z
+    new-instance v2, Lcom/android/systemui/statusbar/phone/-$Lambda$HTuUTYI68XyFw3jDClvMngzl544$2;
 
-    move-result v13
+    move-object/from16 v0, p0
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView$6;->this$0:Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;
+    invoke-direct {v2, v14, v0}, Lcom/android/systemui/statusbar/phone/-$Lambda$HTuUTYI68XyFw3jDClvMngzl544$2;-><init>(ZLjava/lang/Object;)V
 
-    new-instance v1, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView$6$1;
-
-    invoke-direct {v1, p0, v13}, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView$6$1;-><init>(Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView$6;Z)V
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/phone/DcmKeyguardBottomAreaShortcutView;->post(Ljava/lang/Runnable;)Z
 
     return-void
 
     :catch_0
-    move-exception v12
+    move-exception v13
 
-    const-string/jumbo v0, "DcmKeyguardBottomAreaShortcutView"
+    const-string/jumbo v1, "DcmKeyguardBottomAreaShortcutView"
 
-    const-string/jumbo v1, "Unable to start camera activity"
+    const-string/jumbo v2, "Unable to start camera activity"
 
-    invoke-static {v0, v1, v12}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v1, v2, v13}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 .end method

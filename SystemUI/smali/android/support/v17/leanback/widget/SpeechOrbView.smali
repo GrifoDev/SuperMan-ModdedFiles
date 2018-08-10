@@ -8,9 +8,9 @@
 
 .field private mListening:Z
 
-.field private final mListeningOrbColors:Landroid/support/v17/leanback/widget/SearchOrbView$Colors;
+.field private mListeningOrbColors:Landroid/support/v17/leanback/widget/SearchOrbView$Colors;
 
-.field private final mNotListeningOrbColors:Landroid/support/v17/leanback/widget/SearchOrbView$Colors;
+.field private mNotListeningOrbColors:Landroid/support/v17/leanback/widget/SearchOrbView$Colors;
 
 .field private final mSoundLevelMaxZoom:F
 

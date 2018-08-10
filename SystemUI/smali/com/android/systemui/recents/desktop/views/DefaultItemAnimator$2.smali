@@ -62,7 +62,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator$2;->this$0:Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator;
 
-    invoke-static {v2, v0}, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator;->-wrap1(Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator;Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator$ChangeInfo;)V
+    invoke-virtual {v2, v0}, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator;->animateChangeImpl(Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator$ChangeInfo;)V
 
     goto :goto_0
 
@@ -73,9 +73,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator$2;->this$0:Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator;
 
-    invoke-static {v2}, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator;->-get3(Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator;)Ljava/util/ArrayList;
-
-    move-result-object v2
+    iget-object v2, v2, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator;->mChangesList:Ljava/util/ArrayList;
 
     iget-object v3, p0, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator$2;->val$changes:Ljava/util/ArrayList;
 

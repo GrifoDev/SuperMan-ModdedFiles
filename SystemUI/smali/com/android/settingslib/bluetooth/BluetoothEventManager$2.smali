@@ -62,7 +62,7 @@
 
     iget-object v3, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager$2;->this$0:Lcom/android/settingslib/bluetooth/BluetoothEventManager;
 
-    invoke-static {v3}, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->-get3(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;
+    invoke-static {v3}, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->-get4(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;
 
     move-result-object v3
 
@@ -70,7 +70,7 @@
 
     iget-object v3, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager$2;->this$0:Lcom/android/settingslib/bluetooth/BluetoothEventManager;
 
-    invoke-static {v3}, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->-get1(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
+    invoke-static {v3}, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->-get2(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
 
     move-result-object v3
 
@@ -88,12 +88,52 @@
     :cond_1
     iget-object v3, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager$2;->this$0:Lcom/android/settingslib/bluetooth/BluetoothEventManager;
 
-    invoke-static {v3}, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->-get4(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
+    invoke-static {v3}, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->-get5(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
 
     move-result-object v3
 
     if-eqz v3, :cond_0
 
+    const-string/jumbo v3, "android.bluetooth.a2dp-sink.profile.action.CONNECTION_STATE_CHANGED"
+
+    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_2
+
+    const-string/jumbo v3, "android.bluetooth.headsetclient.profile.action.CONNECTION_STATE_CHANGED"
+
+    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
+    :cond_2
+    iget-object v3, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager$2;->this$0:Lcom/android/settingslib/bluetooth/BluetoothEventManager;
+
+    invoke-static {v3}, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->-get4(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->isClientModeSupported()Z
+
+    move-result v3
+
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_3
+
+    const-string/jumbo v3, "BluetoothEventManager"
+
+    const-string/jumbo v4, "ConnectionStateChangedHandler :: Client role is not supported"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_3
     const-string/jumbo v3, "android.bluetooth.device.extra.DEVICE"
 
     invoke-virtual {p2, v3}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -104,7 +144,7 @@
 
     iget-object v3, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager$2;->this$0:Lcom/android/settingslib/bluetooth/BluetoothEventManager;
 
-    invoke-static {v3}, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->-get2(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)Ljava/util/Map;
+    invoke-static {v3}, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->-get3(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)Ljava/util/Map;
 
     move-result-object v3
 
@@ -114,10 +154,10 @@
 
     check-cast v2, Lcom/android/settingslib/bluetooth/BluetoothEventManager$Handler;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_4
 
     invoke-interface {v2, p1, p2, v1}, Lcom/android/settingslib/bluetooth/BluetoothEventManager$Handler;->onReceive(Landroid/content/Context;Landroid/content/Intent;Landroid/bluetooth/BluetoothDevice;)V
 
-    :cond_2
+    :cond_4
     return-void
 .end method

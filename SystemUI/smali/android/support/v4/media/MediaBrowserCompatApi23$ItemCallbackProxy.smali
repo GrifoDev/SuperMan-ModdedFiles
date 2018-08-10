@@ -66,8 +66,20 @@
 .end method
 
 .method public onItemLoaded(Landroid/media/browse/MediaBrowser$MediaItem;)V
-    .locals 2
+    .locals 3
 
+    const/4 v2, 0x0
+
+    if-nez p1, :cond_0
+
+    iget-object v1, p0, Landroid/support/v4/media/MediaBrowserCompatApi23$ItemCallbackProxy;->mItemCallback:Landroid/support/v4/media/MediaBrowserCompatApi23$ItemCallback;
+
+    invoke-interface {v1, v2}, Landroid/support/v4/media/MediaBrowserCompatApi23$ItemCallback;->onItemLoaded(Landroid/os/Parcel;)V
+
+    :goto_0
+    return-void
+
+    :cond_0
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
@@ -80,5 +92,5 @@
 
     invoke-interface {v1, v0}, Landroid/support/v4/media/MediaBrowserCompatApi23$ItemCallback;->onItemLoaded(Landroid/os/Parcel;)V
 
-    return-void
+    goto :goto_0
 .end method

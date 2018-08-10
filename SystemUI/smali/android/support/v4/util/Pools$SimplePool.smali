@@ -7,6 +7,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/support/v4/util/Pools;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "SimplePool"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<T:",

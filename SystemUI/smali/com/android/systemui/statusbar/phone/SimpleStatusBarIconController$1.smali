@@ -3,7 +3,7 @@
 .source "SimpleStatusBarIconController.java"
 
 # interfaces
-.implements Lcom/android/keyguard/util/SettingsHelper$OnChangedCallback;
+.implements Lcom/android/systemui/util/SettingsHelper$OnChangedCallback;
 
 
 # annotations
@@ -61,17 +61,11 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController$1;->this$0:Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController;
-
-    invoke-static {v2}, Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController;->-get0(Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController;)Landroid/content/Context;
+    invoke-static {}, Lcom/android/systemui/util/SettingsHelper;->getInstance()Lcom/android/systemui/util/SettingsHelper;
 
     move-result-object v2
 
-    invoke-static {v2}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/keyguard/util/SettingsHelper;->isSimpleStatusBarEnabled()Z
+    invoke-virtual {v2}, Lcom/android/systemui/util/SettingsHelper;->isSimpleStatusBarEnabled()Z
 
     move-result v2
 
@@ -89,11 +83,11 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController$1;->this$0:Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController;
 
-    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController;->-get3(Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController;)Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController;->-get2(Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController;)Lcom/android/systemui/statusbar/phone/StatusBar;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->getNotificationData()Lcom/android/systemui/statusbar/NotificationData;
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/StatusBar;->getNotificationData()Lcom/android/systemui/statusbar/NotificationData;
 
     move-result-object v1
 
@@ -101,7 +95,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController$1;->this$0:Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController;->-get2(Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController;)Lcom/android/systemui/statusbar/NotificationData;
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController;->-get1(Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController;)Lcom/android/systemui/statusbar/NotificationData;
 
     move-result-object v0
 
@@ -109,17 +103,33 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController$1;->this$0:Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController;->-get1(Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController;)Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController;->-get0(Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController;)Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController$1;->this$0:Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController;
+
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController;->-get0(Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController;)Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController$1;->this$0:Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController;
 
-    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController;->-get2(Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController;)Lcom/android/systemui/statusbar/NotificationData;
+    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController;->-get1(Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController;)Lcom/android/systemui/statusbar/NotificationData;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->updateNotificationIcons(Lcom/android/systemui/statusbar/NotificationData;)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController$1;->this$0:Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController;
+
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController;->-get0(Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController;)Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->updateAppearance()V
 
     :cond_0
     return-void

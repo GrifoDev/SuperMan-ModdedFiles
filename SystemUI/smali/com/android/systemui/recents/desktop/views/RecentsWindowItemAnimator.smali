@@ -46,28 +46,16 @@
     return v0
 .end method
 
-.method public animateRemove(Landroid/support/v7/widget/RecyclerView$ViewHolder;)Z
+.method public final onBusEvent(Lcom/android/systemui/recents/events/activity/UpdateLayoutEvent;)V
     .locals 1
 
-    invoke-super {p0, p1}, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator;->animateRemove(Landroid/support/v7/widget/RecyclerView$ViewHolder;)Z
+    iget v0, p1, Lcom/android/systemui/recents/events/activity/UpdateLayoutEvent;->removeViewOrigX:I
 
-    move-result v0
+    iput v0, p0, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator;->removeViewOrigX:I
 
-    return v0
-.end method
+    iget v0, p1, Lcom/android/systemui/recents/events/activity/UpdateLayoutEvent;->removeViewOrigY:I
 
-.method public onRemoveFinished(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
-    .locals 0
-
-    invoke-super {p0, p1}, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator;->onRemoveFinished(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
-
-    return-void
-.end method
-
-.method public onRemoveStarting(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
-    .locals 0
-
-    invoke-super {p0, p1}, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator;->onRemoveStarting(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
+    iput v0, p0, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator;->removeViewOrigY:I
 
     return-void
 .end method

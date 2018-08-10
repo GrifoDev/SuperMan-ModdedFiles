@@ -1,9 +1,6 @@
 .class Lcom/android/systemui/BatteryMeterDrawable$1;
-.super Ljava/lang/Object;
+.super Landroid/os/Handler;
 .source "BatteryMeterDrawable.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
@@ -27,19 +24,55 @@
 
     iput-object p1, p0, Lcom/android/systemui/BatteryMeterDrawable$1;->this$0:Lcom/android/systemui/BatteryMeterDrawable;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 1
+.method public handleMessage(Landroid/os/Message;)V
+    .locals 2
+
+    iget v0, p1, Landroid/os/Message;->what:I
+
+    packed-switch v0, :pswitch_data_0
+
+    :goto_0
+    return-void
+
+    :pswitch_0
+    iget-object v0, p0, Lcom/android/systemui/BatteryMeterDrawable$1;->this$0:Lcom/android/systemui/BatteryMeterDrawable;
+
+    invoke-static {v0}, Lcom/android/systemui/BatteryMeterDrawable;->-get0(Lcom/android/systemui/BatteryMeterDrawable;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/systemui/BatteryMeterDrawable$1;->this$0:Lcom/android/systemui/BatteryMeterDrawable;
 
-    invoke-virtual {v0}, Lcom/android/systemui/BatteryMeterDrawable;->invalidateSelf()V
+    iget-object v1, p0, Lcom/android/systemui/BatteryMeterDrawable$1;->this$0:Lcom/android/systemui/BatteryMeterDrawable;
 
-    return-void
+    invoke-static {v1}, Lcom/android/systemui/BatteryMeterDrawable;->-get1(Lcom/android/systemui/BatteryMeterDrawable;)Z
+
+    move-result v1
+
+    xor-int/lit8 v1, v1, 0x1
+
+    invoke-static {v0, v1}, Lcom/android/systemui/BatteryMeterDrawable;->-set0(Lcom/android/systemui/BatteryMeterDrawable;Z)Z
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/BatteryMeterDrawable$1;->this$0:Lcom/android/systemui/BatteryMeterDrawable;
+
+    invoke-virtual {v0}, Lcom/android/systemui/BatteryMeterDrawable;->postInvalidate()V
+
+    goto :goto_0
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_0
+    .end packed-switch
 .end method

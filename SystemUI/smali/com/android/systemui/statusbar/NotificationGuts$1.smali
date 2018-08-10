@@ -37,11 +37,13 @@
 .method public run()V
     .locals 3
 
-    const/4 v2, -0x1
+    const/4 v2, 0x0
+
+    const/4 v1, -0x1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationGuts$1;->this$0:Lcom/android/systemui/statusbar/NotificationGuts;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/NotificationGuts;->-get3(Lcom/android/systemui/statusbar/NotificationGuts;)Z
+    invoke-static {v0}, Lcom/android/systemui/statusbar/NotificationGuts;->-get1(Lcom/android/systemui/statusbar/NotificationGuts;)Z
 
     move-result v0
 
@@ -49,7 +51,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationGuts$1;->this$0:Lcom/android/systemui/statusbar/NotificationGuts;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/NotificationGuts;->-get2(Lcom/android/systemui/statusbar/NotificationGuts;)Z
+    invoke-static {v0}, Lcom/android/systemui/statusbar/NotificationGuts;->-get0(Lcom/android/systemui/statusbar/NotificationGuts;)Z
 
     move-result v0
 
@@ -57,9 +59,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationGuts$1;->this$0:Lcom/android/systemui/statusbar/NotificationGuts;
 
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v2, v2, v1}, Lcom/android/systemui/statusbar/NotificationGuts;->closeControls(IIZ)V
+    invoke-virtual {v0, v1, v1, v2, v2}, Lcom/android/systemui/statusbar/NotificationGuts;->closeControls(IIZZ)V
 
     :cond_0
     return-void

@@ -40,7 +40,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy$6;->this$0:Lcom/android/systemui/stackdivider/WindowManagerProxy;
 
-    invoke-static {v1}, Lcom/android/systemui/stackdivider/WindowManagerProxy;->-get7(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Landroid/graphics/Rect;
+    invoke-static {v1}, Lcom/android/systemui/stackdivider/WindowManagerProxy;->-get3(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Landroid/graphics/Rect;
 
     move-result-object v2
 
@@ -51,13 +51,13 @@
     :try_start_1
     iget-object v1, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy$6;->this$0:Lcom/android/systemui/stackdivider/WindowManagerProxy;
 
-    invoke-static {v1}, Lcom/android/systemui/stackdivider/WindowManagerProxy;->-get18(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Landroid/graphics/Rect;
+    invoke-static {v1}, Lcom/android/systemui/stackdivider/WindowManagerProxy;->-get14(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Landroid/graphics/Rect;
 
     move-result-object v1
 
     iget-object v3, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy$6;->this$0:Lcom/android/systemui/stackdivider/WindowManagerProxy;
 
-    invoke-static {v3}, Lcom/android/systemui/stackdivider/WindowManagerProxy;->-get23(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Landroid/graphics/Rect;
+    invoke-static {v3}, Lcom/android/systemui/stackdivider/WindowManagerProxy;->-get19(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Landroid/graphics/Rect;
 
     move-result-object v3
 
@@ -74,7 +74,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy$6;->this$0:Lcom/android/systemui/stackdivider/WindowManagerProxy;
 
-    invoke-static {v2}, Lcom/android/systemui/stackdivider/WindowManagerProxy;->-get18(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Landroid/graphics/Rect;
+    invoke-static {v2}, Lcom/android/systemui/stackdivider/WindowManagerProxy;->-get14(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Landroid/graphics/Rect;
 
     move-result-object v2
 

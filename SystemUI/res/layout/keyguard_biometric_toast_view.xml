@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.keyguard.biometric.KeyguardBiometricToastView android:padding="2.0dip" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:gravity="center" android:id="@id/toast_root" android:background="@drawable/biometric_toast_progress_bg" android:layout_width="wrap_content" android:layout_height="@dimen/biometric_toast_root_view_height" android:layout_marginTop="@dimen/biometric_toast_margin_top" android:paddingStart="@dimen/biometric_toast_inner_padding" android:paddingEnd="@dimen/biometric_toast_inner_padding" android:layout_marginStart="@dimen/biometric_toast_margin_start" android:layout_marginEnd="@dimen/biometric_toast_margin_start" android:elevation="1.0dip">
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/toast_body_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="@dimen/biometric_toast_view_height">
+            <ImageView android:id="@id/biometric_toast_icon" android:visibility="gone" android:layout_width="@dimen/biometric_toast_image_width" android:layout_height="@dimen/biometric_toast_image_width" android:src="@drawable/lock_ic_biometrics_lock_mtrl" android:scaleType="fitXY" />
+            <ProgressBar android:layout_gravity="center_vertical" android:id="@id/biometric_progress" android:layout_width="wrap_content" android:layout_height="wrap_content" style="?android:progressBarStyleSmallTitle" />
+            <TextView android:textSize="@dimen/biometric_toast_text_size" android:textColor="@color/biometric_toast_text_color" android:ellipsize="end" android:gravity="center" android:id="@id/biometric_toast_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="@dimen/biometric_toast_text_max_width" android:maxLines="1" android:paddingStart="@dimen/biometric_toast_text_padding_start" />
+        </LinearLayout>
+    </FrameLayout>
+</com.android.keyguard.biometric.KeyguardBiometricToastView>

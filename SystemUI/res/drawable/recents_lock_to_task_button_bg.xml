@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ripple android:color="#ff9cdfd9"
+<ripple android:color="@color/recents_button_ripple_color"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <item>
+    <item android:id="@id/item_oval">
         <shape android:shape="oval">
-            <solid android:color="#ff9cc8c4" />
+            <solid android:color="#fff5f5f5" />
             <size android:height="@dimen/recents_lock_to_app_size" android:width="@dimen/recents_lock_to_app_size" />
         </shape>
     </item>

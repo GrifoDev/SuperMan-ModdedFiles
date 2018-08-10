@@ -1,43 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <plurals name="status_bar_accessibility_recent_apps">
-        <item quantity="other">%d na screen sa Pangkalahatang-ideya</item>
-        <item quantity="one">%d screen sa Pangkalahatang-ideya</item>
-    </plurals>
-    <plurals name="kg_password_wrong_pin_code">
-        <item quantity="other">Maling PIN code ng SIM, mayroon kang %d na natitirang pagsubok.</item>
-        <item quantity="one">Maling PIN code ng SIM, mayroon kang %d natitirang pagsubok.</item>
-    </plurals>
-    <plurals name="kg_password_wrong_puk_code">
-        <item quantity="other">Maling PUK code ng SIM, mayroon kang %d na natitirang pagsubok bago tuluyang hindi magamit ang SIM.</item>
-        <item quantity="one">Maling PUK code ng SIM, mayroon kang %d natitirang pagsubok bago tuluyang hindi magamit ang SIM.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">Hindi na-unlock ang device sa loob ng %d na oras. Kumpirmahin ang pattern.</item>
-        <item quantity="one">Hindi na-unlock ang device sa loob ng %d oras.. Kumpirmahin ang pattern.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">Hindi na-unlock ang device sa loob ng %d na oras. Kumpirmahin ang PIN.</item>
-        <item quantity="one">Hindi na-unlock ang device sa loob ng %d oras. Kumpirmahin ang PIN.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">Hindi na-unlock ang device sa loob ng %d na oras. Kumpirmahin ang password.</item>
-        <item quantity="one">Hindi na-unlock ang device sa loob ng %d oras. Kumpirmahin ang password.</item>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">%d tangka ang nalalabi</item>
+        <item quantity="one">%d tangka ang nalalabi</item>
     </plurals>
     <plurals name="kg_attempt_remaining">
         <item quantity="other">(%d tangka ang nalalabi)</item>
         <item quantity="one">(1 tangka ang nalalabi)</item>
     </plurals>
-    <plurals name="kg_attempt_left">
-        <item quantity="other">%d tangka ang nalalabi</item>
-        <item quantity="one">%d tangka ang nalalabi</item>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">Mali ang PIN code ng SIM, mayroon kang %d na natitirang pagsubok.</item>
+        <item quantity="one">Mali ang PIN code ng SIM, mayroon kang %d natitirang pagsubok.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">Mali ang PUK code ng SIM, mayroon kang %d na natitirang pagsubok bago tuluyang hindi magamit ang SIM.</item>
+        <item quantity="one">Mali ang PUK code ng SIM, mayroon kang %d natitirang pagsubok bago tuluyang hindi magamit ang SIM.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">Hindi na-unlock ang device sa loob ng %d na oras. Kumpirmahin ang password.</item>
+        <item quantity="one">Hindi na-unlock ang device sa loob ng %d oras. Kumpirmahin ang password.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">Hindi na-unlock ang device sa loob ng %d na oras. Kumpirmahin ang pattern.</item>
+        <item quantity="one">Hindi na-unlock ang device sa loob ng %d oras. Kumpirmahin ang pattern.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">Hindi na-unlock ang device sa loob ng %d na oras. Kumpirmahin ang PIN.</item>
+        <item quantity="one">Hindi na-unlock ang device sa loob ng %d oras. Kumpirmahin ang PIN.</item>
     </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown_min">
-        <item quantity="other">Subukang muli sa loob ng %d minuto</item>
+        <item quantity="other">Subukan muli sa loob ng %d minuto</item>
         <item quantity="one">Subukan muli sa loob ng %d minuto</item>
     </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown_sec">
-        <item quantity="other">Subukang muli sa loob ng %d segundo</item>
+        <item quantity="other">Subukan muli sa loob ng %d segundo</item>
         <item quantity="one">Subukan muli sa loob ng %d segundo</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_countdown_by_biometrics">
+        <item quantity="other">%1$d maling tangka na i-verify ang biometrics. Subukang muli sa loob ng %2$d segundo.</item>
+        <item quantity="one">%1$d maling tangka na i-verify ang biometrics. Subukang muli sa loob ng %2$d segundo.</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_countdown_by_fingerprint">
+        <item quantity="other">%1$d maling tangka na i-verify ang mga fingerprint. Subukang muli sa loob ng %2$d segundo.</item>
+        <item quantity="one">%1$d maling tangka na i-verify ang mga fingerprint. Subukang muli sa loob ng %2$d segundo.</item>
+    </plurals>
+    <plurals name="notification_channels_list_desc_2_and_others">
+        <item quantity="other">%1$s, %2$s, at %3$d pang iba</item>
+        <item quantity="one">%1$s, %2$s, at %3$d pang iba</item>
+    </plurals>
+    <plurals name="notification_num_channels_desc">
+        <item quantity="other">1 sa %d na kategorya ng notification mula sa app na ito</item>
+        <item quantity="one">1 sa %d kategorya ng notification mula sa app na ito</item>
+    </plurals>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">%d na screen sa Pangkalahatang-ideya</item>
+        <item quantity="one">%d screen sa Pangkalahatang-ideya</item>
+    </plurals>
+    <plurals name="notification_group_overflow_description">
+        <item quantity="other">May %s pang notification sa loob.</item>
+        <item quantity="one">May %s pang notification sa loob.</item>
     </plurals>
 </resources>

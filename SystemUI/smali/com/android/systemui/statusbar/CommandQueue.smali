@@ -7,30 +7,48 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/systemui/statusbar/CommandQueue$Callbacks;,
+        Lcom/android/systemui/statusbar/CommandQueue$CommandQueueStart;,
         Lcom/android/systemui/statusbar/CommandQueue$H;
     }
 .end annotation
 
 
 # instance fields
-.field private mCallbacks:Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+.field private mCallbacks:Ljava/util/ArrayList;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/ArrayList",
+            "<",
+            "Lcom/android/systemui/statusbar/CommandQueue$Callbacks;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private mDisable1:I
+
+.field private mDisable2:I
 
 .field private mHandler:Landroid/os/Handler;
 
 .field private final mLock:Ljava/lang/Object;
 
+.field private mNavBarDisable1:I
+
 
 # direct methods
-.method static synthetic -get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+.method static synthetic -get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mCallbacks:Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mCallbacks:Ljava/util/ArrayList;
 
     return-object v0
 .end method
 
-.method public constructor <init>(Lcom/android/systemui/statusbar/CommandQueue$Callbacks;)V
-    .locals 2
+.method protected constructor <init>()V
+    .locals 3
+    .annotation build Landroid/support/annotation/VisibleForTesting;
+    .end annotation
 
     invoke-direct {p0}, Lcom/android/internal/statusbar/IStatusBar$Stub;-><init>()V
 
@@ -40,21 +58,47 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mLock:Ljava/lang/Object;
 
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mCallbacks:Ljava/util/ArrayList;
+
     new-instance v0, Lcom/android/systemui/statusbar/CommandQueue$H;
 
-    const/4 v1, 0x0
+    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
 
-    invoke-direct {v0, p0, v1}, Lcom/android/systemui/statusbar/CommandQueue$H;-><init>(Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/statusbar/CommandQueue$H;)V
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    invoke-direct {v0, p0, v1, v2}, Lcom/android/systemui/statusbar/CommandQueue$H;-><init>(Lcom/android/systemui/statusbar/CommandQueue;Landroid/os/Looper;Lcom/android/systemui/statusbar/CommandQueue$H;)V
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mCallbacks:Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
 
     return-void
 .end method
 
 
 # virtual methods
+.method public addCallbacks(Lcom/android/systemui/statusbar/CommandQueue$Callbacks;)V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mCallbacks:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    iget v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mDisable1:I
+
+    iget v1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mDisable2:I
+
+    const/4 v2, 0x0
+
+    invoke-interface {p1, v0, v1, v2}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->disable(IIZ)V
+
+    return-void
+.end method
+
 .method public addQsTile(Landroid/content/ComponentName;)V
     .locals 3
 
@@ -88,7 +132,7 @@
 .end method
 
 .method public animateCollapsePanels()V
-    .locals 3
+    .locals 5
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mLock:Ljava/lang/Object;
 
@@ -105,7 +149,55 @@
 
     const/high16 v2, 0x40000
 
-    invoke-virtual {v0, v2}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+    const/4 v3, 0x0
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v0, v2, v3, v4}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
+.end method
+
+.method public animateCollapsePanels(I)V
+    .locals 4
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
+
+    const/high16 v2, 0x40000
+
+    invoke-virtual {v0, v2}, Landroid/os/Handler;->removeMessages(I)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
+
+    const/high16 v2, 0x40000
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v0, v2, p1, v3}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -131,13 +223,13 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
 
-    const/high16 v2, 0x2c0000
+    const/high16 v2, 0x2e0000
 
     invoke-virtual {v0, v2}, Landroid/os/Handler;->removeMessages(I)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
 
-    const/high16 v2, 0x2c0000
+    const/high16 v2, 0x2e0000
 
     const/4 v3, 0x0
 
@@ -245,13 +337,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
 
-    const/high16 v2, 0x130000
-
-    invoke-virtual {v0, v2}, Landroid/os/Handler;->removeMessages(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
-
-    const/high16 v2, 0x130000
+    const/high16 v2, 0x140000
 
     invoke-virtual {v0, v2}, Landroid/os/Handler;->sendEmptyMessage(I)Z
     :try_end_0
@@ -281,12 +367,6 @@
 
     const/high16 v2, 0x1f0000
 
-    invoke-virtual {v0, v2}, Landroid/os/Handler;->removeMessages(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
-
-    const/high16 v2, 0x1f0000
-
     invoke-virtual {v0, v2}, Landroid/os/Handler;->sendEmptyMessage(I)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -304,70 +384,37 @@
 .end method
 
 .method public appTransitionPending()V
-    .locals 3
+    .locals 1
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mLock:Ljava/lang/Object;
+    const/4 v0, 0x0
 
-    monitor-enter v1
-
-    :try_start_0
-    iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
-
-    const/high16 v2, 0x130000
-
-    invoke-virtual {v0, v2}, Landroid/os/Handler;->removeMessages(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
-
-    const/high16 v2, 0x130000
-
-    invoke-virtual {v0, v2}, Landroid/os/Handler;->sendEmptyMessage(I)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit v1
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/CommandQueue;->appTransitionPending(Z)V
 
     return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-
-    throw v0
 .end method
 
-.method public appTransitionStarting(JJ)V
+.method public appTransitionPending(Z)V
     .locals 5
+
+    const/4 v0, 0x0
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
 
-    const/high16 v2, 0x150000
+    if-eqz p1, :cond_0
 
-    invoke-virtual {v0, v2}, Landroid/os/Handler;->removeMessages(I)V
+    const/4 v0, 0x1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
+    :cond_0
+    const/high16 v3, 0x130000
 
-    invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    const/4 v4, 0x0
 
-    move-result-object v2
-
-    invoke-static {p3, p4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
-
-    move-result-object v2
-
-    const/high16 v3, 0x150000
-
-    invoke-virtual {v0, v3, v2}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {v2, v3, v0, v4}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
 
     move-result-object v0
 
@@ -387,25 +434,60 @@
     throw v0
 .end method
 
-.method public buzzBeepBlinked()V
-    .locals 3
+.method public appTransitionStarting(JJ)V
+    .locals 7
+
+    const/4 v6, 0x0
+
+    move-object v1, p0
+
+    move-wide v2, p1
+
+    move-wide v4, p3
+
+    invoke-virtual/range {v1 .. v6}, Lcom/android/systemui/statusbar/CommandQueue;->appTransitionStarting(JJZ)V
+
+    return-void
+.end method
+
+.method public appTransitionStarting(JJZ)V
+    .locals 7
+
+    const/4 v0, 0x0
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
 
-    const/high16 v2, 0xf0000
+    if-eqz p5, :cond_0
 
-    invoke-virtual {v0, v2}, Landroid/os/Handler;->removeMessages(I)V
+    const/4 v0, 0x1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
+    :cond_0
+    invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    const/high16 v2, 0xf0000
+    move-result-object v3
 
-    invoke-virtual {v0, v2}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+    invoke-static {p3, p4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
+
+    move-result-object v3
+
+    const/high16 v4, 0x150000
+
+    const/4 v5, 0x0
+
+    invoke-virtual {v2, v4, v0, v5, v3}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -498,43 +580,91 @@
 .end method
 
 .method public disable(II)V
-    .locals 4
+    .locals 1
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mLock:Ljava/lang/Object;
+    sget-boolean v0, Lcom/android/systemui/Rune;->NAVBAR_SUPPORT_LIGHT_NAVIGATIONBAR:Z
 
-    monitor-enter v1
+    if-eqz v0, :cond_0
+
+    iput p1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mNavBarDisable1:I
+
+    :cond_0
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, p1, p2, v0}, Lcom/android/systemui/statusbar/CommandQueue;->disable(IIZ)V
+
+    return-void
+.end method
+
+.method public disable(IIZ)V
+    .locals 5
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/CommandQueue;->mLock:Ljava/lang/Object;
+
+    monitor-enter v2
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
+    iput p1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mDisable1:I
 
-    const/high16 v2, 0x20000
+    iput p2, p0, Lcom/android/systemui/statusbar/CommandQueue;->mDisable2:I
 
-    invoke-virtual {v0, v2}, Landroid/os/Handler;->removeMessages(I)V
+    iget-object v1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
+    const/high16 v3, 0x20000
 
-    const/high16 v2, 0x20000
+    invoke-virtual {v1, v3}, Landroid/os/Handler;->removeMessages(I)V
 
-    const/4 v3, 0x0
+    iget-object v1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
 
-    invoke-virtual {v0, v2, p1, p2, v3}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+    invoke-static {p3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v3
+
+    const/high16 v4, 0x20000
+
+    invoke-virtual {v1, v4, p1, p2, v3}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+    invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
+
+    move-result-object v1
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
+
+    invoke-virtual {v3}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
+
+    move-result-object v3
+
+    if-ne v1, v3, :cond_0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
+
+    invoke-virtual {v1, v0}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
+
+    invoke-virtual {v0}, Landroid/os/Message;->recycle()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit v1
+    :goto_0
+    monitor-exit v2
 
     return-void
 
+    :cond_0
+    :try_start_1
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
+
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v2
 
-    throw v0
+    throw v1
 .end method
 
 .method public dismissKeyboardShortcutsMenu()V
@@ -575,44 +705,46 @@
     throw v0
 .end method
 
-.method public hideNaviBarRemoteView(Ljava/lang/String;I)V
+.method public getNavBarDisable1()I
+    .locals 1
+
+    iget v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mNavBarDisable1:I
+
+    return v0
+.end method
+
+.method public handleSystemNavigationKey(I)V
     .locals 4
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/CommandQueue;->mLock:Ljava/lang/Object;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mLock:Ljava/lang/Object;
 
-    monitor-enter v2
+    monitor-enter v1
 
     :try_start_0
-    invoke-static {}, Lcom/android/internal/os/SomeArgs;->obtain()Lcom/android/internal/os/SomeArgs;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
+
+    const/high16 v2, 0x210000
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v0, v2, p1, v3}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
 
     move-result-object v0
 
-    iput-object p1, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
-
-    iput p2, v0, Lcom/android/internal/os/SomeArgs;->argi1:I
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
-
-    const/high16 v3, 0x420000
-
-    invoke-virtual {v1, v3, v0}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit v2
+    monitor-exit v1
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception v0
 
-    monitor-exit v2
+    monitor-exit v1
 
-    throw v1
+    throw v0
 .end method
 
 .method public hideRecentApps(ZZ)V
@@ -677,70 +809,6 @@
     throw v0
 .end method
 
-.method public notificationLightOff()V
-    .locals 3
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mLock:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    :try_start_0
-    iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
-
-    const/high16 v2, 0x100000
-
-    invoke-virtual {v0, v2}, Landroid/os/Handler;->sendEmptyMessage(I)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit v1
-
-    return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-
-    throw v0
-.end method
-
-.method public notificationLightPulse(III)V
-    .locals 4
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mLock:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    :try_start_0
-    iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    const/high16 v3, 0x110000
-
-    invoke-virtual {v0, v3, p2, p3, v2}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit v1
-
-    return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-
-    throw v0
-.end method
-
 .method public onCameraLaunchGestureDetected(I)V
     .locals 4
 
@@ -779,48 +847,6 @@
     monitor-exit v1
 
     throw v0
-.end method
-
-.method public onNavigationBarForceClicked(III)V
-    .locals 4
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/CommandQueue;->mLock:Ljava/lang/Object;
-
-    monitor-enter v2
-
-    :try_start_0
-    invoke-static {}, Lcom/android/internal/os/SomeArgs;->obtain()Lcom/android/internal/os/SomeArgs;
-
-    move-result-object v0
-
-    iput p1, v0, Lcom/android/internal/os/SomeArgs;->argi1:I
-
-    iput p2, v0, Lcom/android/internal/os/SomeArgs;->argi2:I
-
-    iput p3, v0, Lcom/android/internal/os/SomeArgs;->argi3:I
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
-
-    const/high16 v3, 0x3e0000
-
-    invoke-virtual {v1, v3, v0}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit v2
-
-    return-void
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v2
-
-    throw v1
 .end method
 
 .method public preloadRecentApps()V
@@ -867,6 +893,54 @@
     throw v0
 .end method
 
+.method public prepareKnoxDesktopTaskBar(Z)V
+    .locals 4
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
+
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    const/high16 v3, 0x270000
+
+    invoke-virtual {v0, v3, v2}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
+.end method
+
+.method public recomputeDisableFlags(Z)V
+    .locals 2
+
+    iget v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mDisable1:I
+
+    iget v1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mDisable2:I
+
+    invoke-virtual {p0, v0, v1, p1}, Lcom/android/systemui/statusbar/CommandQueue;->disable(IIZ)V
+
+    return-void
+.end method
+
 .method public remQsTile(Landroid/content/ComponentName;)V
     .locals 3
 
@@ -897,6 +971,16 @@
     monitor-exit v1
 
     throw v0
+.end method
+
+.method public removeCallbacks(Lcom/android/systemui/statusbar/CommandQueue$Callbacks;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mCallbacks:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
+
+    return-void
 .end method
 
 .method public removeIcon(Ljava/lang/String;)V
@@ -945,13 +1029,49 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
 
-    const/high16 v2, 0x2b0000
+    const/high16 v2, 0x2d0000
 
     const/4 v3, 0x0
 
     const/4 v4, 0x0
 
     invoke-virtual {v0, v2, v3, v4, p1}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
+.end method
+
+.method public setForceImmersiveBtnVisibility(Z)V
+    .locals 4
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
+
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    const/high16 v3, 0x410000
+
+    invoke-virtual {v0, v3, v2}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v0
 
@@ -1067,13 +1187,13 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
 
-    const/high16 v2, 0x230000
+    const/high16 v2, 0x250000
 
     invoke-virtual {v0, v2}, Landroid/os/Handler;->removeMessages(I)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
 
-    const/high16 v2, 0x230000
+    const/high16 v2, 0x250000
 
     const/4 v3, 0x0
 
@@ -1121,7 +1241,7 @@
     if-eqz p2, :cond_1
 
     :goto_1
-    const/high16 v1, 0x260000
+    const/high16 v1, 0x280000
 
     invoke-virtual {v4, v1, v2, v0}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
 
@@ -1153,44 +1273,54 @@
     throw v0
 .end method
 
-.method public setNavigationBarIconColor(I)V
+.method public setNavBarDisable1(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mNavBarDisable1:I
+
+    return-void
+.end method
+
+.method public setNavigationBarShortcut(Ljava/lang/String;Landroid/widget/RemoteViews;I)V
     .locals 4
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mLock:Ljava/lang/Object;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/CommandQueue;->mLock:Ljava/lang/Object;
 
-    monitor-enter v1
+    monitor-enter v2
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
-
-    const/high16 v2, 0x3f0000
-
-    invoke-virtual {v0, v2}, Landroid/os/Handler;->removeMessages(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
-
-    const/high16 v2, 0x3f0000
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v0, v2, p1, v3}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
+    invoke-static {}, Lcom/android/internal/os/SomeArgs;->obtain()Lcom/android/internal/os/SomeArgs;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+    iput-object p1, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+
+    iput-object p2, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+
+    iput p3, v0, Lcom/android/internal/os/SomeArgs;->argi1:I
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
+
+    const/high16 v3, 0x400000
+
+    invoke-virtual {v1, v3, v0}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit v1
+    monitor-exit v2
 
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v2
 
-    throw v0
+    throw v1
 .end method
 
 .method public setSystemUiVisibility(IIIILandroid/graphics/Rect;Landroid/graphics/Rect;)V
@@ -1313,49 +1443,7 @@
     throw v0
 .end method
 
-.method public showNaviBarRemoteView(Ljava/lang/String;Landroid/widget/RemoteViews;I)V
-    .locals 4
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/CommandQueue;->mLock:Ljava/lang/Object;
-
-    monitor-enter v2
-
-    :try_start_0
-    invoke-static {}, Lcom/android/internal/os/SomeArgs;->obtain()Lcom/android/internal/os/SomeArgs;
-
-    move-result-object v0
-
-    iput-object p1, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
-
-    iput-object p2, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
-
-    iput p3, v0, Lcom/android/internal/os/SomeArgs;->argi1:I
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
-
-    const/high16 v3, 0x410000
-
-    invoke-virtual {v1, v3, v0}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit v2
-
-    return-void
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v2
-
-    throw v1
-.end method
-
-.method public showNavigationBarInFullscreen()V
+.method public showGlobalActionsMenu()V
     .locals 3
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mLock:Ljava/lang/Object;
@@ -1365,15 +1453,57 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
 
-    const/high16 v2, 0x400000
+    const/high16 v2, 0x220000
 
     invoke-virtual {v0, v2}, Landroid/os/Handler;->removeMessages(I)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
 
-    const/high16 v2, 0x400000
+    const/high16 v2, 0x220000
 
-    invoke-virtual {v0, v2}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+    invoke-virtual {v0, v2}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
+.end method
+
+.method public showPictureInPictureMenu()V
+    .locals 3
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
+
+    const/high16 v2, 0x1a0000
+
+    invoke-virtual {v0, v2}, Landroid/os/Handler;->removeMessages(I)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
+
+    const/high16 v2, 0x1a0000
+
+    invoke-virtual {v0, v2}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -1497,13 +1627,13 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
 
-    const/high16 v2, 0x2d0000
+    const/high16 v2, 0x2f0000
 
     invoke-virtual {v0, v2}, Landroid/os/Handler;->removeMessages(I)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
 
-    const/high16 v2, 0x2d0000
+    const/high16 v2, 0x2f0000
 
     const/4 v3, 0x0
 
@@ -1529,42 +1659,57 @@
     throw v0
 .end method
 
-.method public showTvPictureInPictureMenu()V
-    .locals 3
+.method public showSnapWindowGuideView(ILjava/lang/String;)V
+    .locals 5
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mLock:Ljava/lang/Object;
+    sget-boolean v1, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SNAP_WINDOW_SUPPORT:Z
 
-    monitor-enter v1
+    if-eqz v1, :cond_0
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/CommandQueue;->mLock:Ljava/lang/Object;
+
+    monitor-enter v2
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
+    new-instance v0, Landroid/os/Bundle;
 
-    const/high16 v2, 0x1a0000
+    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    invoke-virtual {v0, v2}, Landroid/os/Handler;->removeMessages(I)V
+    const-string/jumbo v1, "snapCaller"
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
+    invoke-virtual {v0, v1, p2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/high16 v2, 0x1a0000
+    iget-object v1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
 
-    invoke-virtual {v0, v2}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+    const/high16 v3, 0x320000
 
-    move-result-object v0
+    invoke-virtual {v1, v3}, Landroid/os/Handler;->removeMessages(I)V
 
-    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+    iget-object v1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
+
+    const/high16 v3, 0x320000
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v1, v3, p1, v4, v0}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit v1
+    monitor-exit v2
 
+    :cond_0
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v2
 
-    throw v0
+    throw v1
 .end method
 
 .method public startAssist(Landroid/os/Bundle;)V
@@ -1655,13 +1800,13 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
 
-    const/high16 v2, 0x220000
+    const/high16 v2, 0x240000
 
     invoke-virtual {v0, v2}, Landroid/os/Handler;->removeMessages(I)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
 
-    const/high16 v2, 0x220000
+    const/high16 v2, 0x240000
 
     const/4 v3, 0x0
 
@@ -1690,47 +1835,51 @@
 .end method
 
 .method public toggleRecentApps()V
-    .locals 6
+    .locals 7
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mLock:Ljava/lang/Object;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/CommandQueue;->mLock:Ljava/lang/Object;
 
-    monitor-enter v1
+    monitor-enter v2
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
 
-    const/high16 v2, 0x90000
+    const/high16 v3, 0x90000
 
-    invoke-virtual {v0, v2}, Landroid/os/Handler;->removeMessages(I)V
+    invoke-virtual {v1, v3}, Landroid/os/Handler;->removeMessages(I)V
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
 
-    const/high16 v2, 0x90000
-
-    const/4 v3, 0x0
+    const/high16 v3, 0x90000
 
     const/4 v4, 0x0
 
     const/4 v5, 0x0
 
-    invoke-virtual {v0, v2, v3, v4, v5}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+    const/4 v6, 0x0
+
+    invoke-virtual {v1, v3, v4, v5, v6}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v0
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Landroid/os/Message;->setAsynchronous(Z)V
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit v1
+    monitor-exit v2
 
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v2
 
-    throw v0
+    throw v1
 .end method
 
 .method public toggleSplitScreen()V
@@ -1752,50 +1901,6 @@
     const/high16 v2, 0x1e0000
 
     const/4 v3, 0x0
-
-    const/4 v4, 0x0
-
-    const/4 v5, 0x0
-
-    invoke-virtual {v0, v2, v3, v4, v5}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit v1
-
-    return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-
-    throw v0
-.end method
-
-.method public toggleSplitScreenByKey()V
-    .locals 6
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mLock:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    :try_start_0
-    iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
-
-    const/high16 v2, 0x1e0000
-
-    invoke-virtual {v0, v2}, Landroid/os/Handler;->removeMessages(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
-
-    const/high16 v2, 0x1e0000
-
-    const/4 v3, 0x1
 
     const/4 v4, 0x0
 
@@ -1868,121 +1973,4 @@
     monitor-exit v1
 
     throw v0
-.end method
-
-.method public updateKnoxDesktopTaskBar(IIIILandroid/content/ComponentName;Ljava/lang/String;)V
-    .locals 4
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/CommandQueue;->mLock:Ljava/lang/Object;
-
-    monitor-enter v2
-
-    :try_start_0
-    new-instance v0, Landroid/os/Bundle;
-
-    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    packed-switch p1, :pswitch_data_0
-
-    :goto_0
-    monitor-exit v2
-
-    return-void
-
-    :pswitch_0
-    :try_start_1
-    const-string/jumbo v1, "StackId"
-
-    invoke-virtual {v0, v1, p4}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-
-    const-string/jumbo v1, "ComponentName"
-
-    invoke-virtual {v0, v1, p5}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
-
-    const-string/jumbo v1, "CallingPkg"
-
-    invoke-virtual {v0, v1, p6}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
-
-    const/high16 v3, 0x270000
-
-    invoke-virtual {v1, v3, p2, p3, v0}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v2
-
-    throw v1
-
-    :pswitch_1
-    :try_start_2
-    const-string/jumbo v1, "StackId"
-
-    invoke-virtual {v0, v1, p4}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-
-    const-string/jumbo v1, "ComponentName"
-
-    invoke-virtual {v0, v1, p5}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
-
-    const-string/jumbo v1, "CallingPkg"
-
-    invoke-virtual {v0, v1, p6}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
-
-    const/high16 v3, 0x280000
-
-    invoke-virtual {v1, v3, p2, p3, v0}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
-
-    goto :goto_0
-
-    :pswitch_2
-    const-string/jumbo v1, "StackId"
-
-    invoke-virtual {v0, v1, p4}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-
-    const-string/jumbo v1, "ComponentName"
-
-    invoke-virtual {v0, v1, p5}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
-
-    const-string/jumbo v1, "CallingPkg"
-
-    invoke-virtual {v0, v1, p6}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
-
-    const/high16 v3, 0x290000
-
-    invoke-virtual {v1, v3, p2, p3, v0}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    goto :goto_0
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_0
-        :pswitch_1
-        :pswitch_2
-    .end packed-switch
 .end method

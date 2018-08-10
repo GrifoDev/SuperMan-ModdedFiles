@@ -1,11 +1,14 @@
 .class Lcom/android/systemui/statusbar/stack/StackStateAnimator$4;
-.super Landroid/animation/AnimatorListenerAdapter;
+.super Ljava/lang/Object;
 .source "StackStateAnimator.java"
+
+# interfaces
+.implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/stack/StackStateAnimator;->startHeightAnimation(Lcom/android/systemui/statusbar/ExpandableView;Lcom/android/systemui/statusbar/stack/StackViewState;JJ)V
+    value = Lcom/android/systemui/statusbar/stack/StackStateAnimator;->animateOverScrollToAmount(FZZ)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,46 +20,54 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/systemui/statusbar/stack/StackStateAnimator;
 
-.field final synthetic val$child:Lcom/android/systemui/statusbar/ExpandableView;
+.field final synthetic val$isRubberbanded:Z
+
+.field final synthetic val$onTop:Z
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/stack/StackStateAnimator;Lcom/android/systemui/statusbar/ExpandableView;)V
+.method constructor <init>(Lcom/android/systemui/statusbar/stack/StackStateAnimator;ZZ)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/stack/StackStateAnimator$4;->this$0:Lcom/android/systemui/statusbar/stack/StackStateAnimator;
 
-    iput-object p2, p0, Lcom/android/systemui/statusbar/stack/StackStateAnimator$4;->val$child:Lcom/android/systemui/statusbar/ExpandableView;
+    iput-boolean p2, p0, Lcom/android/systemui/statusbar/stack/StackStateAnimator$4;->val$onTop:Z
 
-    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
+    iput-boolean p3, p0, Lcom/android/systemui/statusbar/stack/StackStateAnimator$4;->val$isRubberbanded:Z
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 3
+.method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
+    .locals 6
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/stack/StackStateAnimator$4;->val$child:Lcom/android/systemui/statusbar/ExpandableView;
+    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
 
-    const v1, 0x7f130025
+    move-result-object v0
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/statusbar/ExpandableView;->setTag(ILjava/lang/Object;)V
+    check-cast v0, Ljava/lang/Float;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/stack/StackStateAnimator$4;->val$child:Lcom/android/systemui/statusbar/ExpandableView;
+    invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
 
-    const v1, 0x7f130031
+    move-result v1
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/statusbar/ExpandableView;->setTag(ILjava/lang/Object;)V
+    iget-object v0, p0, Lcom/android/systemui/statusbar/stack/StackStateAnimator$4;->this$0:Lcom/android/systemui/statusbar/stack/StackStateAnimator;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/stack/StackStateAnimator$4;->val$child:Lcom/android/systemui/statusbar/ExpandableView;
+    iget-object v0, v0, Lcom/android/systemui/statusbar/stack/StackStateAnimator;->mHostLayout:Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;
 
-    const v1, 0x7f13002b
+    iget-boolean v2, p0, Lcom/android/systemui/statusbar/stack/StackStateAnimator$4;->val$onTop:Z
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/statusbar/ExpandableView;->setTag(ILjava/lang/Object;)V
+    iget-boolean v5, p0, Lcom/android/systemui/statusbar/stack/StackStateAnimator$4;->val$isRubberbanded:Z
+
+    move v4, v3
+
+    invoke-virtual/range {v0 .. v5}, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->setOverScrollAmount(FZZZZ)V
 
     return-void
 .end method

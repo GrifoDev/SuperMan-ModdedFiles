@@ -39,11 +39,11 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardMascotUtils$4;->this$0:Lcom/android/systemui/statusbar/phone/DcmKeyguardMascotUtils;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/DcmKeyguardMascotUtils;->-get2(Lcom/android/systemui/statusbar/phone/DcmKeyguardMascotUtils;)Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/DcmKeyguardMascotUtils;->-get3(Lcom/android/systemui/statusbar/phone/DcmKeyguardMascotUtils;)Lcom/android/systemui/statusbar/phone/StatusBar;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->getNotificationPanelView()Lcom/android/systemui/statusbar/phone/NotificationPanelView;
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->getNotificationPanelView()Lcom/android/systemui/statusbar/phone/NotificationPanelView;
 
     move-result-object v0
 

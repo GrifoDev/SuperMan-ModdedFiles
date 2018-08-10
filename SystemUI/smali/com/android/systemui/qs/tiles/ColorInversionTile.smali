@@ -1,37 +1,37 @@
 .class public Lcom/android/systemui/qs/tiles/ColorInversionTile;
-.super Lcom/android/systemui/qs/QSTile;
+.super Lcom/android/systemui/qs/tileimpl/QSTileImpl;
 .source "ColorInversionTile.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lcom/android/systemui/qs/QSTile",
+        "Lcom/android/systemui/qs/tileimpl/QSTileImpl",
         "<",
-        "Lcom/android/systemui/qs/QSTile$BooleanState;",
+        "Lcom/android/systemui/plugins/qs/QSTile$BooleanState;",
         ">;"
     }
 .end annotation
 
 
 # instance fields
-.field private final mDisable:Lcom/android/systemui/qs/QSTile$AnimationIcon;
+.field private final mDisable:Lcom/android/systemui/qs/tileimpl/QSTileImpl$AnimationIcon;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/android/systemui/qs/QSTile",
+            "Lcom/android/systemui/qs/tileimpl/QSTileImpl",
             "<",
-            "Lcom/android/systemui/qs/QSTile$BooleanState;",
+            "Lcom/android/systemui/plugins/qs/QSTile$BooleanState;",
             ">.AnimationIcon;"
         }
     .end annotation
 .end field
 
-.field private final mEnable:Lcom/android/systemui/qs/QSTile$AnimationIcon;
+.field private final mEnable:Lcom/android/systemui/qs/tileimpl/QSTileImpl$AnimationIcon;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/android/systemui/qs/QSTile",
+            "Lcom/android/systemui/qs/tileimpl/QSTileImpl",
             "<",
-            "Lcom/android/systemui/qs/QSTile$BooleanState;",
+            "Lcom/android/systemui/plugins/qs/QSTile$BooleanState;",
             ">.AnimationIcon;"
         }
     .end annotation
@@ -51,36 +51,36 @@
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/systemui/qs/QSTile$Host;)V
+.method public constructor <init>(Lcom/android/systemui/qs/QSHost;)V
     .locals 4
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/QSTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;-><init>(Lcom/android/systemui/qs/QSHost;)V
 
-    new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
+    new-instance v0, Lcom/android/systemui/qs/tileimpl/QSTileImpl$AnimationIcon;
 
-    const v1, 0x7f02017e
+    const v1, 0x7f0801fa
 
-    const v2, 0x7f02017b
+    const v2, 0x7f0801f7
 
-    invoke-direct {v0, p0, v1, v2}, Lcom/android/systemui/qs/QSTile$AnimationIcon;-><init>(Lcom/android/systemui/qs/QSTile;II)V
+    invoke-direct {v0, p0, v1, v2}, Lcom/android/systemui/qs/tileimpl/QSTileImpl$AnimationIcon;-><init>(Lcom/android/systemui/qs/tileimpl/QSTileImpl;II)V
 
-    iput-object v0, p0, Lcom/android/systemui/qs/tiles/ColorInversionTile;->mEnable:Lcom/android/systemui/qs/QSTile$AnimationIcon;
+    iput-object v0, p0, Lcom/android/systemui/qs/tiles/ColorInversionTile;->mEnable:Lcom/android/systemui/qs/tileimpl/QSTileImpl$AnimationIcon;
 
-    new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
+    new-instance v0, Lcom/android/systemui/qs/tileimpl/QSTileImpl$AnimationIcon;
 
-    const v1, 0x7f02017c
+    const v1, 0x7f0801f8
 
-    const v2, 0x7f02017d
+    const v2, 0x7f0801f9
 
-    invoke-direct {v0, p0, v1, v2}, Lcom/android/systemui/qs/QSTile$AnimationIcon;-><init>(Lcom/android/systemui/qs/QSTile;II)V
+    invoke-direct {v0, p0, v1, v2}, Lcom/android/systemui/qs/tileimpl/QSTileImpl$AnimationIcon;-><init>(Lcom/android/systemui/qs/tileimpl/QSTileImpl;II)V
 
-    iput-object v0, p0, Lcom/android/systemui/qs/tiles/ColorInversionTile;->mDisable:Lcom/android/systemui/qs/QSTile$AnimationIcon;
+    iput-object v0, p0, Lcom/android/systemui/qs/tiles/ColorInversionTile;->mDisable:Lcom/android/systemui/qs/tileimpl/QSTileImpl$AnimationIcon;
 
     new-instance v0, Lcom/android/systemui/qs/tiles/ColorInversionTile$1;
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/ColorInversionTile;->mContext:Landroid/content/Context;
 
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/ColorInversionTile;->mHandler:Lcom/android/systemui/qs/QSTile$H;
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/ColorInversionTile;->mHandler:Lcom/android/systemui/qs/tileimpl/QSTileImpl$H;
 
     const-string/jumbo v3, "accessibility_display_inversion_enabled"
 
@@ -96,17 +96,17 @@
 .method protected composeChangeAnnouncement()Ljava/lang/String;
     .locals 2
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/ColorInversionTile;->mState:Lcom/android/systemui/qs/QSTile$State;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/ColorInversionTile;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
 
-    check-cast v0, Lcom/android/systemui/qs/QSTile$BooleanState;
+    check-cast v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
-    iget-boolean v0, v0, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
+    iget-boolean v0, v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
 
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/ColorInversionTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0325
+    const v1, 0x7f1200a9
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -117,7 +117,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/ColorInversionTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0324
+    const v1, 0x7f1200a8
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -151,7 +151,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/ColorInversionTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0397
+    const v1, 0x7f1208fa
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -161,61 +161,35 @@
 .end method
 
 .method protected handleClick()V
-    .locals 5
+    .locals 2
 
-    const/4 v2, 0x1
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/ColorInversionTile;->mSetting:Lcom/android/systemui/qs/SecureSetting;
 
-    const/4 v1, 0x0
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/ColorInversionTile;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
 
-    iget-object v3, p0, Lcom/android/systemui/qs/tiles/ColorInversionTile;->mContext:Landroid/content/Context;
+    check-cast v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/ColorInversionTile;->getMetricsCategory()I
-
-    move-result v4
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/ColorInversionTile;->mState:Lcom/android/systemui/qs/QSTile$State;
-
-    check-cast v0, Lcom/android/systemui/qs/QSTile$BooleanState;
-
-    iget-boolean v0, v0, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
+    iget-boolean v0, v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
 
     if-eqz v0, :cond_0
 
-    move v0, v1
+    const/4 v0, 0x0
 
     :goto_0
-    invoke-static {v3, v4, v0}, Lcom/android/internal/logging/MetricsLogger;->action(Landroid/content/Context;IZ)V
-
-    iget-object v3, p0, Lcom/android/systemui/qs/tiles/ColorInversionTile;->mSetting:Lcom/android/systemui/qs/SecureSetting;
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/ColorInversionTile;->mState:Lcom/android/systemui/qs/QSTile$State;
-
-    check-cast v0, Lcom/android/systemui/qs/QSTile$BooleanState;
-
-    iget-boolean v0, v0, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
-
-    if-eqz v0, :cond_1
-
-    :goto_1
-    invoke-virtual {v3, v1}, Lcom/android/systemui/qs/SecureSetting;->setValue(I)V
+    invoke-virtual {v1, v0}, Lcom/android/systemui/qs/SecureSetting;->setValue(I)V
 
     return-void
 
     :cond_0
-    move v0, v2
+    const/4 v0, 0x1
 
     goto :goto_0
-
-    :cond_1
-    move v1, v2
-
-    goto :goto_1
 .end method
 
 .method protected handleDestroy()V
     .locals 2
 
-    invoke-super {p0}, Lcom/android/systemui/qs/QSTile;->handleDestroy()V
+    invoke-super {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->handleDestroy()V
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/ColorInversionTile;->mSetting:Lcom/android/systemui/qs/SecureSetting;
 
@@ -226,14 +200,12 @@
     return-void
 .end method
 
-.method protected handleUpdateState(Lcom/android/systemui/qs/QSTile$BooleanState;Ljava/lang/Object;)V
+.method protected handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$BooleanState;Ljava/lang/Object;)V
     .locals 4
-
-    const/4 v0, 0x0
 
     instance-of v2, p2, Ljava/lang/Integer;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_0
 
     check-cast p2, Ljava/lang/Integer;
 
@@ -242,29 +214,38 @@
     move-result v1
 
     :goto_0
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     const/4 v0, 0x1
 
-    :cond_0
-    iput-boolean v0, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
+    :goto_1
+    iput-boolean v0, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
+
+    iget-boolean v2, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
+
+    if-eqz v2, :cond_2
+
+    const/4 v2, 0x2
+
+    :goto_2
+    iput v2, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->state:I
 
     iget-object v2, p0, Lcom/android/systemui/qs/tiles/ColorInversionTile;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0f0397
+    const v3, 0x7f1208fa
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    iput-object v2, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->label:Ljava/lang/CharSequence;
+    iput-object v2, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->label:Ljava/lang/CharSequence;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/ColorInversionTile;->mEnable:Lcom/android/systemui/qs/QSTile$AnimationIcon;
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/ColorInversionTile;->mEnable:Lcom/android/systemui/qs/tileimpl/QSTileImpl$AnimationIcon;
 
-    :goto_1
-    iput-object v2, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->icon:Lcom/android/systemui/qs/QSTile$Icon;
+    :goto_3
+    iput-object v2, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->icon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
     const-class v2, Landroid/widget/Switch;
 
@@ -272,17 +253,15 @@
 
     move-result-object v2
 
-    iput-object v2, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->expandedAccessibilityClassName:Ljava/lang/String;
+    iput-object v2, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->expandedAccessibilityClassName:Ljava/lang/String;
 
-    iput-object v2, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->minimalAccessibilityClassName:Ljava/lang/String;
+    iget-object v2, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->label:Ljava/lang/CharSequence;
 
-    iget-object v2, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->label:Ljava/lang/CharSequence;
-
-    iput-object v2, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->contentDescription:Ljava/lang/CharSequence;
+    iput-object v2, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->contentDescription:Ljava/lang/CharSequence;
 
     return-void
 
-    :cond_1
+    :cond_0
     iget-object v2, p0, Lcom/android/systemui/qs/tiles/ColorInversionTile;->mSetting:Lcom/android/systemui/qs/SecureSetting;
 
     invoke-virtual {v2}, Lcom/android/systemui/qs/SecureSetting;->getValue()I
@@ -291,18 +270,28 @@
 
     goto :goto_0
 
-    :cond_2
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/ColorInversionTile;->mDisable:Lcom/android/systemui/qs/QSTile$AnimationIcon;
+    :cond_1
+    const/4 v0, 0x0
 
     goto :goto_1
+
+    :cond_2
+    const/4 v2, 0x1
+
+    goto :goto_2
+
+    :cond_3
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/ColorInversionTile;->mDisable:Lcom/android/systemui/qs/tileimpl/QSTileImpl$AnimationIcon;
+
+    goto :goto_3
 .end method
 
-.method protected bridge synthetic handleUpdateState(Lcom/android/systemui/qs/QSTile$State;Ljava/lang/Object;)V
+.method protected bridge synthetic handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$State;Ljava/lang/Object;)V
     .locals 0
 
-    check-cast p1, Lcom/android/systemui/qs/QSTile$BooleanState;
+    check-cast p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/qs/tiles/ColorInversionTile;->handleUpdateState(Lcom/android/systemui/qs/QSTile$BooleanState;Ljava/lang/Object;)V
+    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/qs/tiles/ColorInversionTile;->handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$BooleanState;Ljava/lang/Object;)V
 
     return-void
 .end method
@@ -329,28 +318,20 @@
     return-void
 .end method
 
-.method public isAvailable()Z
+.method public newTileState()Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
     .locals 1
 
-    const/4 v0, 0x0
+    new-instance v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
-    return v0
-.end method
-
-.method public newTileState()Lcom/android/systemui/qs/QSTile$BooleanState;
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/qs/QSTile$BooleanState;
-
-    invoke-direct {v0}, Lcom/android/systemui/qs/QSTile$BooleanState;-><init>()V
+    invoke-direct {v0}, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;-><init>()V
 
     return-object v0
 .end method
 
-.method public bridge synthetic newTileState()Lcom/android/systemui/qs/QSTile$State;
+.method public bridge synthetic newTileState()Lcom/android/systemui/plugins/qs/QSTile$State;
     .locals 1
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/ColorInversionTile;->newTileState()Lcom/android/systemui/qs/QSTile$BooleanState;
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/ColorInversionTile;->newTileState()Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
     move-result-object v0
 

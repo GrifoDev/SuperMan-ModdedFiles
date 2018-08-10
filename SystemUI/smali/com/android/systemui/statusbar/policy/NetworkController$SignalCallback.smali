@@ -15,43 +15,86 @@
 
 
 # virtual methods
-.method public abstract setBtTetherVisible(Z)V
+.method public setBtTetherVisible(Z)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract setEthernetIndicators(Lcom/android/systemui/statusbar/policy/NetworkController$IconState;)V
+.method public setEthernetIndicators(Lcom/android/systemui/statusbar/policy/NetworkController$IconState;)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract setEthernetIndicators(Lcom/android/systemui/statusbar/policy/NetworkController$IconState;I)V
+.method public setEthernetIndicators(Lcom/android/systemui/statusbar/policy/NetworkController$IconState;I)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract setIsAirplaneMode(Lcom/android/systemui/statusbar/policy/NetworkController$IconState;)V
+.method public setIsAirplaneMode(Lcom/android/systemui/statusbar/policy/NetworkController$IconState;)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract setMPTCPIndicators(ZIII)V
+.method public setMPTCPIndicators(ZIII)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract setMobileDataEnabled(Z)V
+.method public setMobileDataEnabled(Z)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract setMobileDataIndicators(Lcom/android/systemui/statusbar/policy/NetworkController$IconState;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;IIZZIILjava/lang/String;Ljava/lang/String;ZI)V
+.method public setMobileDataIndicators(Lcom/android/systemui/statusbar/policy/NetworkController$IconState;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;IIZZIILjava/lang/String;Ljava/lang/String;ZIZ)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract setNWBoosterIndicators(ZZIII)V
+.method public setMobileDataIndicators(Lcom/android/systemui/statusbar/policy/NetworkController$IconState;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;IIZZLjava/lang/String;Ljava/lang/String;ZIZ)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract setNoSims(Z)V
+.method public setNWBoosterIndicators(ZZIII)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract setRssiTypeIcon(II)V
+.method public setNoSims(Z)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract setSimIcon(ZI)V
+.method public setSimIcon(ZI)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract setSlotFocusVisible(ZII)V
+.method public setSlotFocusVisible(ZI)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract setSubs(Ljava/util/List;)V
+.method public setSlotFocusVisible(ZII)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public setSubs(Ljava/util/List;)V
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -61,7 +104,18 @@
             ">;)V"
         }
     .end annotation
+
+    return-void
 .end method
 
-.method public abstract setWifiIndicators(ZLcom/android/systemui/statusbar/policy/NetworkController$IconState;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;ZZILjava/lang/String;)V
+.method public setWifiIndicators(ZLcom/android/systemui/statusbar/policy/NetworkController$IconState;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;ZZILjava/lang/String;Z)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public setWifiIndicators(ZLcom/android/systemui/statusbar/policy/NetworkController$IconState;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;ZZLjava/lang/String;Z)V
+    .locals 0
+
+    return-void
 .end method

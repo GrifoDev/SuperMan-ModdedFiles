@@ -1,5 +1,5 @@
 .class Landroid/support/v7/widget/ActivityChooserView$4;
-.super Landroid/database/DataSetObserver;
+.super Landroid/support/v7/widget/ForwardingListener;
 .source "ActivityChooserView.java"
 
 
@@ -19,26 +19,50 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/support/v7/widget/ActivityChooserView;)V
+.method constructor <init>(Landroid/support/v7/widget/ActivityChooserView;Landroid/view/View;)V
     .locals 0
 
     iput-object p1, p0, Landroid/support/v7/widget/ActivityChooserView$4;->this$0:Landroid/support/v7/widget/ActivityChooserView;
 
-    invoke-direct {p0}, Landroid/database/DataSetObserver;-><init>()V
+    invoke-direct {p0, p2}, Landroid/support/v7/widget/ForwardingListener;-><init>(Landroid/view/View;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onChanged()V
+.method public getPopup()Landroid/support/v7/view/menu/ShowableListMenu;
     .locals 1
-
-    invoke-super {p0}, Landroid/database/DataSetObserver;->onChanged()V
 
     iget-object v0, p0, Landroid/support/v7/widget/ActivityChooserView$4;->this$0:Landroid/support/v7/widget/ActivityChooserView;
 
-    invoke-static {v0}, Landroid/support/v7/widget/ActivityChooserView;->-wrap2(Landroid/support/v7/widget/ActivityChooserView;)V
+    invoke-virtual {v0}, Landroid/support/v7/widget/ActivityChooserView;->getListPopupWindow()Landroid/support/v7/widget/ListPopupWindow;
 
-    return-void
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method protected onForwardingStarted()Z
+    .locals 1
+
+    iget-object v0, p0, Landroid/support/v7/widget/ActivityChooserView$4;->this$0:Landroid/support/v7/widget/ActivityChooserView;
+
+    invoke-virtual {v0}, Landroid/support/v7/widget/ActivityChooserView;->showPopup()Z
+
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
+.method protected onForwardingStopped()Z
+    .locals 1
+
+    iget-object v0, p0, Landroid/support/v7/widget/ActivityChooserView$4;->this$0:Landroid/support/v7/widget/ActivityChooserView;
+
+    invoke-virtual {v0}, Landroid/support/v7/widget/ActivityChooserView;->dismissPopup()Z
+
+    const/4 v0, 0x1
+
+    return v0
 .end method

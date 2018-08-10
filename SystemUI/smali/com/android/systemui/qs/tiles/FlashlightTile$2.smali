@@ -1,5 +1,5 @@
 .class Lcom/android/systemui/qs/tiles/FlashlightTile$2;
-.super Landroid/database/ContentObserver;
+.super Landroid/content/BroadcastReceiver;
 .source "FlashlightTile.java"
 
 
@@ -19,137 +19,101 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/tiles/FlashlightTile;Landroid/os/Handler;)V
+.method constructor <init>(Lcom/android/systemui/qs/tiles/FlashlightTile;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/FlashlightTile$2;->this$0:Lcom/android/systemui/qs/tiles/FlashlightTile;
 
-    invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onChange(Z)V
-    .locals 8
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 5
 
-    const/4 v5, 0x1
-
-    const/4 v4, 0x0
-
-    iget-object v3, p0, Lcom/android/systemui/qs/tiles/FlashlightTile$2;->this$0:Lcom/android/systemui/qs/tiles/FlashlightTile;
-
-    invoke-static {v3}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-get3(Lcom/android/systemui/qs/tiles/FlashlightTile;)Ljava/util/HashMap;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
-
-    move-result-object v3
-
-    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    :cond_0
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_3
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    check-cast v0, Ljava/lang/String;
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/FlashlightTile$2;->this$0:Lcom/android/systemui/qs/tiles/FlashlightTile;
 
-    iget-object v3, p0, Lcom/android/systemui/qs/tiles/FlashlightTile$2;->this$0:Lcom/android/systemui/qs/tiles/FlashlightTile;
+    invoke-static {v2}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-get0(Lcom/android/systemui/qs/tiles/FlashlightTile;)Ljava/lang/String;
 
-    invoke-static {v3}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-get1(Lcom/android/systemui/qs/tiles/FlashlightTile;)Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v3
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v4, "onReceive : "
 
-    const-string/jumbo v7, "Feature onChange "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v0}, Ljava/lang/String;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v3, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v3, p0, Lcom/android/systemui/qs/tiles/FlashlightTile$2;->this$0:Lcom/android/systemui/qs/tiles/FlashlightTile;
-
-    invoke-static {v3}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-get2(Lcom/android/systemui/qs/tiles/FlashlightTile;)Landroid/content/Context;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    const/4 v6, -0x2
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v3, v0, v4, v6}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+    move-result-object v3
 
-    move-result v3
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-ne v3, v5, :cond_1
+    const-string/jumbo v2, "com.samsung.intent.action.BGA_FLASHLIGHT"
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "actionType"
+
+    invoke-virtual {v2, v3}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/FlashlightTile$2;->this$0:Lcom/android/systemui/qs/tiles/FlashlightTile;
+
+    invoke-static {v2}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-get3(Lcom/android/systemui/qs/tiles/FlashlightTile;)Lcom/android/systemui/statusbar/policy/FlashlightController;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/FlashlightTile$2;->this$0:Lcom/android/systemui/qs/tiles/FlashlightTile;
+
+    invoke-static {v2}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-get3(Lcom/android/systemui/qs/tiles/FlashlightTile;)Lcom/android/systemui/statusbar/policy/FlashlightController;
+
+    move-result-object v3
+
+    const-string/jumbo v2, "on"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
 
     const/4 v2, 0x1
 
-    :goto_1
-    iget-object v3, p0, Lcom/android/systemui/qs/tiles/FlashlightTile$2;->this$0:Lcom/android/systemui/qs/tiles/FlashlightTile;
+    :goto_0
+    invoke-interface {v3, v2}, Lcom/android/systemui/statusbar/policy/FlashlightController;->setFlashlight(Z)V
 
-    invoke-static {v3}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-get5(Lcom/android/systemui/qs/tiles/FlashlightTile;)Lcom/android/systemui/qs/QSTile$State;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/android/systemui/qs/QSTile$BooleanState;
-
-    iget-boolean v3, v3, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
-
-    if-eqz v3, :cond_0
-
-    iget-object v6, p0, Lcom/android/systemui/qs/tiles/FlashlightTile$2;->this$0:Lcom/android/systemui/qs/tiles/FlashlightTile;
-
-    if-eqz v2, :cond_2
-
-    move v3, v4
-
-    :goto_2
-    invoke-static {v6, v3}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-wrap1(Lcom/android/systemui/qs/tiles/FlashlightTile;Z)V
-
-    goto :goto_0
+    :cond_0
+    return-void
 
     :cond_1
     const/4 v2, 0x0
 
-    goto :goto_1
-
-    :cond_2
-    move v3, v5
-
-    goto :goto_2
-
-    :cond_3
-    return-void
+    goto :goto_0
 .end method

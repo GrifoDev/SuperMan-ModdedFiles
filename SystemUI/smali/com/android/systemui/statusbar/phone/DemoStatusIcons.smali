@@ -182,7 +182,7 @@
 
     move-result-object v1
 
-    invoke-direct {v9, v1, v10, v10}, Lcom/android/systemui/statusbar/StatusBarIconView;-><init>(Landroid/content/Context;Ljava/lang/String;Landroid/app/Notification;)V
+    invoke-direct {v9, v1, v10, v10}, Lcom/android/systemui/statusbar/StatusBarIconView;-><init>(Landroid/content/Context;Ljava/lang/String;Landroid/service/notification/StatusBarNotification;)V
 
     invoke-virtual {v9, p1}, Lcom/android/systemui/statusbar/StatusBarIconView;->setTag(Ljava/lang/Object;)V
 
@@ -294,7 +294,7 @@
 
     if-eqz v11, :cond_c
 
-    const v4, 0x7f02060d
+    const v4, 0x7f080693
 
     :goto_1
     const-string/jumbo v11, "volume"
@@ -320,7 +320,7 @@
 
     if-eqz v11, :cond_d
 
-    const v4, 0x7f0206f8
+    const v4, 0x7f080754
 
     :goto_2
     const-string/jumbo v11, "zen"
@@ -346,7 +346,7 @@
 
     if-eqz v11, :cond_f
 
-    const v4, 0x7f020583
+    const v4, 0x7f0805e9
 
     :goto_3
     const-string/jumbo v11, "bluetooth"
@@ -372,7 +372,7 @@
 
     if-eqz v11, :cond_11
 
-    const v4, 0x7f0205cc
+    const v4, 0x7f08064a
 
     :goto_4
     const-string/jumbo v11, "location"
@@ -398,7 +398,7 @@
 
     if-eqz v11, :cond_12
 
-    const v4, 0x7f02057d
+    const v4, 0x7f0805e0
 
     :goto_5
     const-string/jumbo v11, "alarm_clock"
@@ -424,7 +424,7 @@
 
     if-eqz v11, :cond_13
 
-    const v4, 0x7f0206c7
+    const v4, 0x7f08070d
 
     :goto_6
     const-string/jumbo v11, "tty"
@@ -502,7 +502,7 @@
 
     if-eqz v11, :cond_16
 
-    const v4, 0x7f020582
+    const v4, 0x7f0805e8
 
     :goto_9
     const-string/jumbo v11, "cast"
@@ -528,7 +528,7 @@
 
     if-eqz v11, :cond_17
 
-    const v4, 0x7f0205cb
+    const v4, 0x7f080649
 
     :goto_a
     const-string/jumbo v11, "hotspot"
@@ -553,7 +553,7 @@
 
     if-eqz v11, :cond_e
 
-    const v4, 0x7f0206f9
+    const v4, 0x7f080755
 
     goto/16 :goto_2
 
@@ -571,7 +571,7 @@
 
     if-eqz v11, :cond_10
 
-    const v4, 0x7f020584
+    const v4, 0x7f0805ea
 
     goto/16 :goto_3
 

@@ -25,11 +25,11 @@
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/settingslib/widget/AnimatedImageView;->isShown()Z
+    invoke-virtual {p0}, Lcom/android/settingslib/widget/AnimatedImageView;->getVisibility()I
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-nez v0, :cond_1
 
     iget-boolean v0, p0, Lcom/android/settingslib/widget/AnimatedImageView;->mAnimating:Z
 
@@ -135,16 +135,6 @@
     .locals 0
 
     invoke-super {p0}, Landroid/widget/ImageView;->onDetachedFromWindow()V
-
-    invoke-direct {p0}, Lcom/android/settingslib/widget/AnimatedImageView;->updateAnimating()V
-
-    return-void
-.end method
-
-.method public onVisibilityAggregated(Z)V
-    .locals 0
-
-    invoke-super {p0, p1}, Landroid/widget/ImageView;->onVisibilityAggregated(Z)V
 
     invoke-direct {p0}, Lcom/android/settingslib/widget/AnimatedImageView;->updateAnimating()V
 

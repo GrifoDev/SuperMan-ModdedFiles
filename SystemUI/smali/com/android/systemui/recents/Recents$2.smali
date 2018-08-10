@@ -49,7 +49,7 @@
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Lcom/android/systemui/recents/Recents;->-set0(Lcom/android/systemui/recents/Recents;Lcom/android/systemui/recents/IRecentsSystemUserCallbacks;)Lcom/android/systemui/recents/IRecentsSystemUserCallbacks;
+    invoke-static {v1, v2}, Lcom/android/systemui/recents/Recents;->-set1(Lcom/android/systemui/recents/Recents;Lcom/android/systemui/recents/IRecentsSystemUserCallbacks;)Lcom/android/systemui/recents/IRecentsSystemUserCallbacks;
 
     new-array v1, v4, [Ljava/lang/Object;
 
@@ -59,7 +59,7 @@
 
     aput-object v2, v1, v3
 
-    invoke-static {}, Lcom/android/systemui/recents/Recents;->-get4()Lcom/android/systemui/recents/misc/SystemServicesProxy;
+    invoke-static {}, Lcom/android/systemui/recents/Recents;->-get5()Lcom/android/systemui/recents/misc/SystemServicesProxy;
 
     move-result-object v2
 
@@ -82,7 +82,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/systemui/recents/Recents$2;->this$0:Lcom/android/systemui/recents/Recents;
 
-    invoke-static {v1}, Lcom/android/systemui/recents/Recents;->-get3(Lcom/android/systemui/recents/Recents;)Landroid/os/IBinder$DeathRecipient;
+    invoke-static {v1}, Lcom/android/systemui/recents/Recents;->-get4(Lcom/android/systemui/recents/Recents;)Landroid/os/IBinder$DeathRecipient;
 
     move-result-object v1
 

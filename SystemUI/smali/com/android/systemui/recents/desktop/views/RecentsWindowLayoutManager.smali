@@ -6,6 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$Attributes;,
         Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$RecentsItemDecoration;,
         Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$RecentsSmoothScroller;
     }
@@ -18,6 +19,8 @@
 .field public static GRID_SPANS:I
 
 .field public static REVERSE_MODE:Z
+
+.field private static sAttr:Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$Attributes;
 
 
 # instance fields
@@ -69,8 +72,20 @@
     return-void
 .end method
 
+.method public static getAttr()Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$Attributes;
+    .locals 1
+
+    sget-object v0, Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager;->sAttr:Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$Attributes;
+
+    return-object v0
+.end method
+
 .method private init()V
     .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager;->initAttr(Landroid/content/Context;)Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$Attributes;
 
     new-instance v0, Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$RecentsSmoothScroller;
 
@@ -93,6 +108,20 @@
     invoke-virtual {v0, v1}, Lcom/android/systemui/recents/desktop/views/RecentsWindowView;->addItemDecoration(Landroid/support/v7/widget/RecyclerView$ItemDecoration;)V
 
     return-void
+.end method
+
+.method public static initAttr(Landroid/content/Context;)Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$Attributes;
+    .locals 1
+
+    new-instance v0, Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$Attributes;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$Attributes;-><init>(Landroid/content/Context;)V
+
+    sput-object v0, Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager;->sAttr:Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$Attributes;
+
+    sget-object v0, Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager;->sAttr:Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$Attributes;
+
+    return-object v0
 .end method
 
 

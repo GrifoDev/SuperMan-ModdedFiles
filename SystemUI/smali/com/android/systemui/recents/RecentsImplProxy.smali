@@ -61,7 +61,7 @@
     return-void
 .end method
 
-.method public dockTopTask(IIILandroid/graphics/Rect;Z)V
+.method public dockTopTask(IIILandroid/graphics/Rect;)V
     .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -79,13 +79,6 @@
 
     iput p3, v0, Lcom/android/internal/os/SomeArgs;->argi3:I
 
-    if-eqz p5, :cond_0
-
-    const/4 v1, 0x1
-
-    :goto_0
-    iput v1, v0, Lcom/android/internal/os/SomeArgs;->argi4:I
-
     iput-object p4, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
     iget-object v1, p0, Lcom/android/systemui/recents/RecentsImplProxy;->mHandler:Landroid/os/Handler;
@@ -101,11 +94,6 @@
     invoke-virtual {v1, v2}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
     return-void
-
-    :cond_0
-    const/4 v1, 0x0
-
-    goto :goto_0
 .end method
 
 .method public hideRecents(ZZ)V
@@ -237,6 +225,24 @@
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+
+    return-void
+.end method
+
+.method public showCurrentUserToast(II)V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/systemui/recents/RecentsImplProxy;->mHandler:Landroid/os/Handler;
+
+    iget-object v1, p0, Lcom/android/systemui/recents/RecentsImplProxy;->mHandler:Landroid/os/Handler;
+
+    const/16 v2, 0xa
+
+    invoke-virtual {v1, v2, p1, p2}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
     return-void
 .end method

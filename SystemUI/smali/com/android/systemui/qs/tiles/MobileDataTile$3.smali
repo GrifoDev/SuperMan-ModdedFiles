@@ -34,11 +34,19 @@
 .method public onPreciseCallStateChanged(Landroid/telephony/PreciseCallState;)V
     .locals 3
 
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/MobileDataTile$3;->this$0:Lcom/android/systemui/qs/tiles/MobileDataTile;
+
+    invoke-static {v0}, Lcom/android/systemui/qs/tiles/MobileDataTile;->-get10(Lcom/android/systemui/qs/tiles/MobileDataTile;)Landroid/telephony/TelephonyManager;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/MobileDataTile$3;->this$0:Lcom/android/systemui/qs/tiles/MobileDataTile;
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/MobileDataTile$3;->this$0:Lcom/android/systemui/qs/tiles/MobileDataTile;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/MobileDataTile;->-get7(Lcom/android/systemui/qs/tiles/MobileDataTile;)Landroid/telephony/TelephonyManager;
+    invoke-static {v0}, Lcom/android/systemui/qs/tiles/MobileDataTile;->-get10(Lcom/android/systemui/qs/tiles/MobileDataTile;)Landroid/telephony/TelephonyManager;
 
     move-result-object v0
 
@@ -48,11 +56,11 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/MobileDataTile$3;->this$0:Lcom/android/systemui/qs/tiles/MobileDataTile;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/MobileDataTile;->-get7(Lcom/android/systemui/qs/tiles/MobileDataTile;)Landroid/telephony/TelephonyManager;
+    invoke-static {v0}, Lcom/android/systemui/qs/tiles/MobileDataTile;->-get10(Lcom/android/systemui/qs/tiles/MobileDataTile;)Landroid/telephony/TelephonyManager;
 
     move-result-object v0
 
@@ -75,7 +83,17 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "registerPhoneStateListener "
+    const-string/jumbo v2, "preciseCall state changed : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, " isVOLteCall : "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -83,7 +101,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/qs/tiles/MobileDataTile$3;->this$0:Lcom/android/systemui/qs/tiles/MobileDataTile;
 
-    invoke-static {v2}, Lcom/android/systemui/qs/tiles/MobileDataTile;->-get5(Lcom/android/systemui/qs/tiles/MobileDataTile;)Z
+    invoke-static {v2}, Lcom/android/systemui/qs/tiles/MobileDataTile;->-get6(Lcom/android/systemui/qs/tiles/MobileDataTile;)Z
 
     move-result v2
 
@@ -101,16 +119,43 @@
 
     invoke-virtual {v0}, Lcom/android/systemui/qs/tiles/MobileDataTile;->refreshState()V
 
+    :cond_0
     return-void
 
-    :cond_0
+    :cond_1
     const/4 v0, 0x1
 
     goto :goto_0
 .end method
 
 .method public onServiceStateChanged(Landroid/telephony/ServiceState;)V
-    .locals 1
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/MobileDataTile$3;->this$0:Lcom/android/systemui/qs/tiles/MobileDataTile;
+
+    invoke-static {v0}, Lcom/android/systemui/qs/tiles/MobileDataTile;->-get0(Lcom/android/systemui/qs/tiles/MobileDataTile;)Ljava/lang/String;
+
+    move-result-object v0
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "service state changed : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/MobileDataTile$3;->this$0:Lcom/android/systemui/qs/tiles/MobileDataTile;
 

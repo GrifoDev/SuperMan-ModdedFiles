@@ -39,23 +39,17 @@
 
     iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar$5;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v0}, Landroid/support/v17/leanback/widget/SearchBar;->-get4(Landroid/support/v17/leanback/widget/SearchBar;)Landroid/support/v17/leanback/widget/SearchBar$SearchBarListener;
-
-    move-result-object v0
+    iget-object v0, v0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchBarListener:Landroid/support/v17/leanback/widget/SearchBar$SearchBarListener;
 
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar$5;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v0}, Landroid/support/v17/leanback/widget/SearchBar;->-get4(Landroid/support/v17/leanback/widget/SearchBar;)Landroid/support/v17/leanback/widget/SearchBar$SearchBarListener;
-
-    move-result-object v0
+    iget-object v0, v0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchBarListener:Landroid/support/v17/leanback/widget/SearchBar$SearchBarListener;
 
     iget-object v1, p0, Landroid/support/v17/leanback/widget/SearchBar$5;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v1}, Landroid/support/v17/leanback/widget/SearchBar;->-get5(Landroid/support/v17/leanback/widget/SearchBar;)Ljava/lang/String;
-
-    move-result-object v1
+    iget-object v1, v1, Landroid/support/v17/leanback/widget/SearchBar;->mSearchQuery:Ljava/lang/String;
 
     invoke-interface {v0, v1}, Landroid/support/v17/leanback/widget/SearchBar$SearchBarListener;->onKeyboardDismiss(Ljava/lang/String;)V
 

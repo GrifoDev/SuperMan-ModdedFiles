@@ -63,7 +63,9 @@
 .end method
 
 .method protected varargs doInBackground([Ljava/lang/Boolean;)Ljava/lang/Void;
-    .locals 5
+    .locals 6
+
+    const/4 v5, 0x0
 
     const/4 v4, 0x0
 
@@ -71,15 +73,15 @@
 
     iget-object v2, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile$WfcProvisionedTask;->this$0:Lcom/android/systemui/qs/tiles/WifiCallingSprTile;
 
-    invoke-static {v2}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->-wrap1(Lcom/android/systemui/qs/tiles/WifiCallingSprTile;)Z
+    invoke-static {v2}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->-wrap3(Lcom/android/systemui/qs/tiles/WifiCallingSprTile;)Z
 
     move-result v2
 
-    invoke-static {v1, v2}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->-set1(Lcom/android/systemui/qs/tiles/WifiCallingSprTile;Z)Z
+    invoke-static {v1, v2}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->-set0(Lcom/android/systemui/qs/tiles/WifiCallingSprTile;Z)Z
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile$WfcProvisionedTask;->this$0:Lcom/android/systemui/qs/tiles/WifiCallingSprTile;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->-get4(Lcom/android/systemui/qs/tiles/WifiCallingSprTile;)Z
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->-get3(Lcom/android/systemui/qs/tiles/WifiCallingSprTile;)Z
 
     move-result v1
 
@@ -87,28 +89,32 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile$WfcProvisionedTask;->this$0:Lcom/android/systemui/qs/tiles/WifiCallingSprTile;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->-wrap0(Lcom/android/systemui/qs/tiles/WifiCallingSprTile;)Z
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->-wrap1(Lcom/android/systemui/qs/tiles/WifiCallingSprTile;)Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile$WfcProvisionedTask;->this$0:Lcom/android/systemui/qs/tiles/WifiCallingSprTile;
+    const-class v1, Lcom/android/systemui/plugins/ActivityStarter;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->-get3(Lcom/android/systemui/qs/tiles/WifiCallingSprTile;)Lcom/android/systemui/qs/QSTile$Host;
+    invoke-static {v1}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v1
 
-    invoke-static {}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->-get2()Landroid/content/Intent;
+    check-cast v1, Lcom/android/systemui/plugins/ActivityStarter;
+
+    invoke-static {}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->-get1()Landroid/content/Intent;
 
     move-result-object v2
 
-    invoke-interface {v1, v2}, Lcom/android/systemui/qs/QSTile$Host;->startActivityDismissingKeyguard(Landroid/content/Intent;)V
+    const/4 v3, 0x0
+
+    invoke-interface {v1, v2, v3}, Lcom/android/systemui/plugins/ActivityStarter;->postStartActivityDismissingKeyguard(Landroid/content/Intent;I)V
     :try_end_0
     .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v4
+    return-object v5
 
     :catch_0
     move-exception v0
@@ -142,32 +148,36 @@
     :cond_0
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile$WfcProvisionedTask;->this$0:Lcom/android/systemui/qs/tiles/WifiCallingSprTile;
 
-    const/4 v2, 0x0
-
-    aget-object v2, p1, v2
+    aget-object v2, p1, v4
 
     invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v2
 
-    invoke-static {v1, v2}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->-wrap4(Lcom/android/systemui/qs/tiles/WifiCallingSprTile;Z)V
+    invoke-static {v1, v2}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->-wrap7(Lcom/android/systemui/qs/tiles/WifiCallingSprTile;Z)V
 
     :goto_0
-    return-object v4
+    return-object v5
 
     :cond_1
     :try_start_1
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile$WfcProvisionedTask;->this$0:Lcom/android/systemui/qs/tiles/WifiCallingSprTile;
+    const-class v1, Lcom/android/systemui/plugins/ActivityStarter;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->-get3(Lcom/android/systemui/qs/tiles/WifiCallingSprTile;)Lcom/android/systemui/qs/QSTile$Host;
+    invoke-static {v1}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v1
 
-    invoke-static {}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->-get1()Landroid/content/Intent;
+    check-cast v1, Lcom/android/systemui/plugins/ActivityStarter;
+
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile$WfcProvisionedTask;->this$0:Lcom/android/systemui/qs/tiles/WifiCallingSprTile;
+
+    invoke-static {v2}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->-wrap0(Lcom/android/systemui/qs/tiles/WifiCallingSprTile;)Landroid/content/Intent;
 
     move-result-object v2
 
-    invoke-interface {v1, v2}, Lcom/android/systemui/qs/QSTile$Host;->startActivityDismissingKeyguard(Landroid/content/Intent;)V
+    const/4 v3, 0x0
+
+    invoke-interface {v1, v2, v3}, Lcom/android/systemui/plugins/ActivityStarter;->postStartActivityDismissingKeyguard(Landroid/content/Intent;I)V
     :try_end_1
     .catch Landroid/content/ActivityNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
 

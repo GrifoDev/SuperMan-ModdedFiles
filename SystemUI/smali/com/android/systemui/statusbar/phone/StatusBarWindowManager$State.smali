@@ -19,9 +19,15 @@
 
 .field bouncerShowing:Z
 
+.field coverAppShowing:Z
+
+.field dozing:Z
+
 .field forceCollapsed:Z
 
 .field forceDozeBrightness:Z
+
+.field forcePluginOpen:Z
 
 .field forceStatusBarVisible:Z
 
@@ -49,13 +55,11 @@
 
 .field remoteInputActive:Z
 
-.field sAppCoverShowing:Z
-
-.field sViewCoverShowing:Z
-
 .field statusBarFocusable:Z
 
 .field statusBarState:I
+
+.field viewCoverShowing:Z
 
 
 # direct methods
@@ -86,24 +90,21 @@
 .end method
 
 .method private isKeyguardShowingAndNotOccluded()Z
-    .locals 2
+    .locals 1
 
-    const/4 v0, 0x0
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->keyguardShowing:Z
 
-    iget-boolean v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->keyguardShowing:Z
+    if-eqz v0, :cond_0
 
-    if-eqz v1, :cond_0
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->keyguardOccluded:Z
 
-    iget-boolean v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->keyguardOccluded:Z
+    xor-int/lit8 v0, v0, 0x1
 
-    if-eqz v1, :cond_1
-
-    :cond_0
     :goto_0
     return v0
 
-    :cond_1
-    const/4 v0, 0x1
+    :cond_0
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method

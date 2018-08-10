@@ -4,16 +4,16 @@
 
 
 # instance fields
-.field private mService:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+.field private mService:Lcom/android/systemui/statusbar/phone/StatusBar;
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/statusbar/phone/PhoneStatusBar;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/statusbar/phone/StatusBar;)V
     .locals 0
 
     invoke-direct {p0, p1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
-    iput-object p2, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncerContainer;->mService:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    iput-object p2, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncerContainer;->mService:Lcom/android/systemui/statusbar/phone/StatusBar;
 
     return-void
 .end method
@@ -41,9 +41,9 @@
     sparse-switch v1, :sswitch_data_0
 
     :cond_0
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncerContainer;->mService:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncerContainer;->mService:Lcom/android/systemui/statusbar/phone/StatusBar;
 
-    invoke-virtual {v1, p1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->interceptMediaKey(Landroid/view/KeyEvent;)Z
+    invoke-virtual {v1, p1}, Lcom/android/systemui/statusbar/phone/StatusBar;->interceptMediaKey(Landroid/view/KeyEvent;)Z
 
     move-result v1
 
@@ -59,9 +59,9 @@
     :sswitch_0
     if-nez v0, :cond_2
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncerContainer;->mService:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncerContainer;->mService:Lcom/android/systemui/statusbar/phone/StatusBar;
 
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->onBackPressed()Z
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/StatusBar;->onBackPressed()Z
 
     :cond_2
     return v2
@@ -69,9 +69,9 @@
     :sswitch_1
     if-nez v0, :cond_3
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncerContainer;->mService:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncerContainer;->mService:Lcom/android/systemui/statusbar/phone/StatusBar;
 
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->onMenuPressed()Z
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/StatusBar;->onMenuPressed()Z
 
     move-result v1
 
@@ -81,30 +81,22 @@
     :sswitch_2
     if-nez v0, :cond_0
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncerContainer;->mService:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncerContainer;->mService:Lcom/android/systemui/statusbar/phone/StatusBar;
 
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->onSpacePressed()Z
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/StatusBar;->onSpacePressed()Z
 
     move-result v1
 
     return v1
 
     :sswitch_3
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncerContainer;->mService:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncerContainer;->mService:Lcom/android/systemui/statusbar/phone/StatusBar;
 
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->isDozing()Z
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/StatusBar;->isDozing()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncerContainer;->mContext:Landroid/content/Context;
-
-    invoke-static {v1}, Landroid/media/session/MediaSessionLegacyHelper;->getHelper(Landroid/content/Context;)Landroid/media/session/MediaSessionLegacyHelper;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1, v2}, Landroid/media/session/MediaSessionLegacyHelper;->sendVolumeKeyEvent(Landroid/view/KeyEvent;Z)V
 
     return v2
 
@@ -114,8 +106,6 @@
     move-result v1
 
     return v1
-
-    nop
 
     :sswitch_data_0
     .sparse-switch

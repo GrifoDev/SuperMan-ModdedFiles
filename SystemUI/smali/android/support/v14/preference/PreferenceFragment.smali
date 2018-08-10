@@ -14,10 +14,12 @@
     value = {
         Landroid/support/v14/preference/PreferenceFragment$1;,
         Landroid/support/v14/preference/PreferenceFragment$2;,
+        Landroid/support/v14/preference/PreferenceFragment$3;,
         Landroid/support/v14/preference/PreferenceFragment$DividerDecoration;,
         Landroid/support/v14/preference/PreferenceFragment$OnPreferenceDisplayDialogCallback;,
         Landroid/support/v14/preference/PreferenceFragment$OnPreferenceStartFragmentCallback;,
-        Landroid/support/v14/preference/PreferenceFragment$OnPreferenceStartScreenCallback;
+        Landroid/support/v14/preference/PreferenceFragment$OnPreferenceStartScreenCallback;,
+        Landroid/support/v14/preference/PreferenceFragment$ScrollToPreferenceObserver;
     }
 .end annotation
 
@@ -234,6 +236,11 @@
 
 .method public getCallbackFragment()Landroid/app/Fragment;
     .locals 1
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     const/4 v0, 0x0
 
@@ -297,6 +304,11 @@
 
 .method protected onBindPreferences()V
     .locals 0
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     return-void
 .end method
@@ -326,7 +338,7 @@
 
     iget v2, v3, Landroid/util/TypedValue;->resourceId:I
 
-    if-gtz v2, :cond_0
+    if-nez v2, :cond_0
 
     new-instance v4, Ljava/lang/IllegalStateException;
 
@@ -442,196 +454,272 @@
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 18
+    .locals 22
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Landroid/support/v14/preference/PreferenceFragment;->mStyledContext:Landroid/content/Context;
+    iget-object v0, v0, Landroid/support/v14/preference/PreferenceFragment;->mStyledContext:Landroid/content/Context;
 
-    sget-object v14, Landroid/support/v14/preference/R$styleable;->PreferenceFragment:[I
+    move-object/from16 v17, v0
 
-    move-object/from16 v0, p0
-
-    iget-object v15, v0, Landroid/support/v14/preference/PreferenceFragment;->mStyledContext:Landroid/content/Context;
-
-    sget v16, Landroid/support/v7/preference/R$attr;->preferenceFragmentStyle:I
-
-    const v17, 0x1010506
-
-    invoke-static/range {v15 .. v17}, Landroid/support/v4/content/res/TypedArrayUtils;->getAttr(Landroid/content/Context;II)I
-
-    move-result v15
-
-    const/16 v16, 0x0
-
-    const/16 v17, 0x0
-
-    move-object/from16 v0, v16
-
-    move/from16 v1, v17
-
-    invoke-virtual {v13, v0, v14, v15, v1}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
-
-    move-result-object v2
-
-    sget v13, Landroid/support/v14/preference/R$styleable;->PreferenceFragment_android_layout:I
+    sget-object v18, Landroid/support/v14/preference/R$styleable;->PreferenceFragment:[I
 
     move-object/from16 v0, p0
 
-    iget v14, v0, Landroid/support/v14/preference/PreferenceFragment;->mLayoutResId:I
+    iget-object v0, v0, Landroid/support/v14/preference/PreferenceFragment;->mStyledContext:Landroid/content/Context;
 
-    invoke-virtual {v2, v13, v14}, Landroid/content/res/TypedArray;->getResourceId(II)I
+    move-object/from16 v19, v0
 
-    move-result v13
+    sget v20, Landroid/support/v7/preference/R$attr;->preferenceFragmentStyle:I
 
-    move-object/from16 v0, p0
+    const v21, 0x1010506
 
-    iput v13, v0, Landroid/support/v14/preference/PreferenceFragment;->mLayoutResId:I
+    invoke-static/range {v19 .. v21}, Landroid/support/v4/content/res/TypedArrayUtils;->getAttr(Landroid/content/Context;II)I
 
-    sget v13, Landroid/support/v14/preference/R$styleable;->PreferenceFragment_android_divider:I
+    move-result v19
 
-    invoke-virtual {v2, v13}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    const/16 v20, 0x0
 
-    move-result-object v3
+    const/16 v21, 0x0
 
-    sget v13, Landroid/support/v14/preference/R$styleable;->PreferenceFragment_android_dividerHeight:I
+    move-object/from16 v0, v17
 
-    const/4 v14, -0x1
+    move-object/from16 v1, v20
 
-    invoke-virtual {v2, v13, v14}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
+    move-object/from16 v2, v18
 
-    move-result v4
+    move/from16 v3, v19
 
-    invoke-virtual {v2}, Landroid/content/res/TypedArray;->recycle()V
+    move/from16 v4, v21
 
-    new-instance v11, Landroid/util/TypedValue;
+    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
-    invoke-direct {v11}, Landroid/util/TypedValue;-><init>()V
+    move-result-object v5
 
-    invoke-virtual/range {p0 .. p0}, Landroid/support/v14/preference/PreferenceFragment;->getActivity()Landroid/app/Activity;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Landroid/app/Activity;->getTheme()Landroid/content/res/Resources$Theme;
-
-    move-result-object v13
-
-    sget v14, Landroid/support/v7/preference/R$attr;->preferenceTheme:I
-
-    const/4 v15, 0x1
-
-    invoke-virtual {v13, v14, v11, v15}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
-
-    iget v8, v11, Landroid/util/TypedValue;->resourceId:I
-
-    new-instance v9, Landroid/view/ContextThemeWrapper;
-
-    invoke-virtual/range {p1 .. p1}, Landroid/view/LayoutInflater;->getContext()Landroid/content/Context;
-
-    move-result-object v13
-
-    invoke-direct {v9, v13, v8}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v9}, Landroid/view/LayoutInflater;->cloneInContext(Landroid/content/Context;)Landroid/view/LayoutInflater;
-
-    move-result-object v10
+    sget v17, Landroid/support/v14/preference/R$styleable;->PreferenceFragment_android_layout:I
 
     move-object/from16 v0, p0
 
-    iget v13, v0, Landroid/support/v14/preference/PreferenceFragment;->mLayoutResId:I
+    iget v0, v0, Landroid/support/v14/preference/PreferenceFragment;->mLayoutResId:I
 
-    const/4 v14, 0x0
+    move/from16 v18, v0
 
-    move-object/from16 v0, p2
+    move/from16 v0, v17
 
-    invoke-virtual {v10, v13, v0, v14}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    move/from16 v1, v18
 
-    move-result-object v12
+    invoke-virtual {v5, v0, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
-    const v13, 0x102003f
+    move-result v17
 
-    invoke-virtual {v12, v13}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    move/from16 v0, v17
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Landroid/support/v14/preference/PreferenceFragment;->mLayoutResId:I
+
+    sget v17, Landroid/support/v14/preference/R$styleable;->PreferenceFragment_android_divider:I
+
+    move/from16 v0, v17
+
+    invoke-virtual {v5, v0}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v7
 
-    instance-of v13, v7, Landroid/view/ViewGroup;
+    sget v17, Landroid/support/v14/preference/R$styleable;->PreferenceFragment_android_dividerHeight:I
 
-    if-nez v13, :cond_0
+    const/16 v18, -0x1
 
-    new-instance v13, Ljava/lang/RuntimeException;
+    move/from16 v0, v17
 
-    const-string/jumbo v14, "Content has view with id attribute \'android.R.id.list_container\' that is not a ViewGroup class"
+    move/from16 v1, v18
 
-    invoke-direct {v13, v14}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v5, v0, v1}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
-    throw v13
+    move-result v8
+
+    sget v17, Landroid/support/v14/preference/R$styleable;->PreferenceFragment_allowDividerAfterLastItem:I
+
+    const/16 v18, 0x1
+
+    move/from16 v0, v17
+
+    move/from16 v1, v18
+
+    invoke-virtual {v5, v0, v1}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
+
+    move-result v6
+
+    invoke-virtual {v5}, Landroid/content/res/TypedArray;->recycle()V
+
+    new-instance v15, Landroid/util/TypedValue;
+
+    invoke-direct {v15}, Landroid/util/TypedValue;-><init>()V
+
+    invoke-virtual/range {p0 .. p0}, Landroid/support/v14/preference/PreferenceFragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v17
+
+    invoke-virtual/range {v17 .. v17}, Landroid/app/Activity;->getTheme()Landroid/content/res/Resources$Theme;
+
+    move-result-object v17
+
+    sget v18, Landroid/support/v7/preference/R$attr;->preferenceTheme:I
+
+    const/16 v19, 0x1
+
+    move-object/from16 v0, v17
+
+    move/from16 v1, v18
+
+    move/from16 v2, v19
+
+    invoke-virtual {v0, v1, v15, v2}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
+
+    iget v12, v15, Landroid/util/TypedValue;->resourceId:I
+
+    new-instance v13, Landroid/view/ContextThemeWrapper;
+
+    invoke-virtual/range {p1 .. p1}, Landroid/view/LayoutInflater;->getContext()Landroid/content/Context;
+
+    move-result-object v17
+
+    move-object/from16 v0, v17
+
+    invoke-direct {v13, v0, v12}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v13}, Landroid/view/LayoutInflater;->cloneInContext(Landroid/content/Context;)Landroid/view/LayoutInflater;
+
+    move-result-object v14
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/support/v14/preference/PreferenceFragment;->mLayoutResId:I
+
+    move/from16 v17, v0
+
+    const/16 v18, 0x0
+
+    move/from16 v0, v17
+
+    move-object/from16 v1, p2
+
+    move/from16 v2, v18
+
+    invoke-virtual {v14, v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+
+    move-result-object v16
+
+    const v17, 0x102003f
+
+    invoke-virtual/range {v16 .. v17}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v11
+
+    instance-of v0, v11, Landroid/view/ViewGroup;
+
+    move/from16 v17, v0
+
+    if-nez v17, :cond_0
+
+    new-instance v17, Ljava/lang/RuntimeException;
+
+    const-string/jumbo v18, "Content has view with id attribute \'android.R.id.list_container\' that is not a ViewGroup class"
+
+    invoke-direct/range {v17 .. v18}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v17
 
     :cond_0
-    move-object v5, v7
+    move-object v9, v11
 
-    check-cast v5, Landroid/view/ViewGroup;
+    check-cast v9, Landroid/view/ViewGroup;
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p3
 
-    invoke-virtual {v0, v10, v5, v1}, Landroid/support/v14/preference/PreferenceFragment;->onCreateRecyclerView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/support/v7/widget/RecyclerView;
+    invoke-virtual {v0, v14, v9, v1}, Landroid/support/v14/preference/PreferenceFragment;->onCreateRecyclerView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/support/v7/widget/RecyclerView;
 
-    move-result-object v6
+    move-result-object v10
 
-    if-nez v6, :cond_1
+    if-nez v10, :cond_1
 
-    new-instance v13, Ljava/lang/RuntimeException;
+    new-instance v17, Ljava/lang/RuntimeException;
 
-    const-string/jumbo v14, "Could not create RecyclerView"
+    const-string/jumbo v18, "Could not create RecyclerView"
 
-    invoke-direct {v13, v14}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct/range {v17 .. v18}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v13
+    throw v17
 
     :cond_1
     move-object/from16 v0, p0
 
-    iput-object v6, v0, Landroid/support/v14/preference/PreferenceFragment;->mList:Landroid/support/v7/widget/RecyclerView;
+    iput-object v10, v0, Landroid/support/v14/preference/PreferenceFragment;->mList:Landroid/support/v7/widget/RecyclerView;
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Landroid/support/v14/preference/PreferenceFragment;->mDividerDecoration:Landroid/support/v14/preference/PreferenceFragment$DividerDecoration;
+    iget-object v0, v0, Landroid/support/v14/preference/PreferenceFragment;->mDividerDecoration:Landroid/support/v14/preference/PreferenceFragment$DividerDecoration;
 
-    invoke-virtual {v6, v13}, Landroid/support/v7/widget/RecyclerView;->addItemDecoration(Landroid/support/v7/widget/RecyclerView$ItemDecoration;)V
+    move-object/from16 v17, v0
 
-    move-object/from16 v0, p0
+    move-object/from16 v0, v17
 
-    invoke-virtual {v0, v3}, Landroid/support/v14/preference/PreferenceFragment;->setDivider(Landroid/graphics/drawable/Drawable;)V
-
-    const/4 v13, -0x1
-
-    if-eq v4, v13, :cond_2
+    invoke-virtual {v10, v0}, Landroid/support/v7/widget/RecyclerView;->addItemDecoration(Landroid/support/v7/widget/RecyclerView$ItemDecoration;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Landroid/support/v14/preference/PreferenceFragment;->setDividerHeight(I)V
+    invoke-virtual {v0, v7}, Landroid/support/v14/preference/PreferenceFragment;->setDivider(Landroid/graphics/drawable/Drawable;)V
+
+    const/16 v17, -0x1
+
+    move/from16 v0, v17
+
+    if-eq v8, v0, :cond_2
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v8}, Landroid/support/v14/preference/PreferenceFragment;->setDividerHeight(I)V
 
     :cond_2
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Landroid/support/v14/preference/PreferenceFragment;->mList:Landroid/support/v7/widget/RecyclerView;
+    iget-object v0, v0, Landroid/support/v14/preference/PreferenceFragment;->mDividerDecoration:Landroid/support/v14/preference/PreferenceFragment$DividerDecoration;
 
-    invoke-virtual {v5, v13}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
+    move-object/from16 v17, v0
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v0, v6}, Landroid/support/v14/preference/PreferenceFragment$DividerDecoration;->setAllowDividerAfterLastItem(Z)V
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Landroid/support/v14/preference/PreferenceFragment;->mHandler:Landroid/os/Handler;
+    iget-object v0, v0, Landroid/support/v14/preference/PreferenceFragment;->mList:Landroid/support/v7/widget/RecyclerView;
+
+    move-object/from16 v17, v0
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v9, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     move-object/from16 v0, p0
 
-    iget-object v14, v0, Landroid/support/v14/preference/PreferenceFragment;->mRequestFocus:Ljava/lang/Runnable;
+    iget-object v0, v0, Landroid/support/v14/preference/PreferenceFragment;->mHandler:Landroid/os/Handler;
 
-    invoke-virtual {v13, v14}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    move-object/from16 v17, v0
 
-    return-object v12
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/support/v14/preference/PreferenceFragment;->mRequestFocus:Ljava/lang/Runnable;
+
+    move-object/from16 v18, v0
+
+    invoke-virtual/range {v17 .. v18}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    return-object v16
 .end method
 
 .method public onDestroyView()V
@@ -963,6 +1051,11 @@
 
 .method protected onUnbindPreferences()V
     .locals 0
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     return-void
 .end method

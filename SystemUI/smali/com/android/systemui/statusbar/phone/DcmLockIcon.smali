@@ -24,7 +24,7 @@
 
 .field private mScreenOn:Z
 
-.field private final mTrustDrawable:Lcom/android/systemui/statusbar/phone/DcmTrustDrawable;
+.field private mTrustDrawable:Lcom/android/systemui/statusbar/phone/DcmTrustDrawable;
 
 .field private final mUnlockMethodCache:Lcom/android/systemui/statusbar/phone/UnlockMethodCache;
 
@@ -112,17 +112,17 @@
     throw v0
 
     :pswitch_0
-    const v0, 0x7f02018b
+    const v0, 0x7f080209
 
     return v0
 
     :pswitch_1
-    const v0, 0x7f020211
+    const v0, 0x7f080329
 
     return v0
 
     :pswitch_2
-    const v0, 0x7f020201
+    const v0, 0x7f0802ec
 
     return v0
 
@@ -169,9 +169,11 @@
 .end method
 
 .method private handleUpdate()V
-    .locals 10
+    .locals 11
 
-    iget-object v8, p0, Lcom/android/systemui/statusbar/phone/DcmLockIcon;->mContext:Landroid/content/Context;
+    const/4 v10, 0x1
+
+    sget-object v8, Lcom/android/systemui/statusbar/phone/DcmLockIcon;->mContext:Landroid/content/Context;
 
     invoke-static {v8}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
 
@@ -185,12 +187,12 @@
 
     move-result v8
 
-    if-eqz v8, :cond_4
+    if-eqz v8, :cond_3
 
     move v7, v4
 
     :goto_0
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_4
 
     iget-object v8, p0, Lcom/android/systemui/statusbar/phone/DcmLockIcon;->mTrustDrawable:Lcom/android/systemui/statusbar/phone/DcmTrustDrawable;
 
@@ -207,7 +209,7 @@
 
     iget-boolean v8, p0, Lcom/android/systemui/statusbar/phone/DcmLockIcon;->mLastDeviceInteractive:Z
 
-    if-eq v4, v8, :cond_6
+    if-eq v4, v8, :cond_5
 
     :cond_0
     :goto_2
@@ -215,7 +217,7 @@
 
     move-result v3
 
-    iget-object v8, p0, Lcom/android/systemui/statusbar/phone/DcmLockIcon;->mContext:Landroid/content/Context;
+    sget-object v8, Lcom/android/systemui/statusbar/phone/DcmLockIcon;->mContext:Landroid/content/Context;
 
     invoke-virtual {v8, v3}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -223,7 +225,7 @@
 
     instance-of v8, v2, Landroid/graphics/drawable/AnimatedVectorDrawable;
 
-    if-eqz v8, :cond_7
+    if-eqz v8, :cond_6
 
     move-object v0, v2
 
@@ -240,7 +242,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0f02a1
+    const v9, 0x7f1200ed
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -258,7 +260,7 @@
 
     iget-boolean v8, p0, Lcom/android/systemui/statusbar/phone/DcmLockIcon;->mScreenOn:Z
 
-    if-eqz v8, :cond_8
+    if-eqz v8, :cond_7
 
     invoke-virtual {v0}, Landroid/graphics/drawable/AnimatedVectorDrawable;->start()V
 
@@ -279,41 +281,46 @@
 
     move-result v8
 
-    if-eqz v8, :cond_3
+    if-eqz v8, :cond_8
 
     iget-boolean v8, p0, Lcom/android/systemui/statusbar/phone/DcmLockIcon;->mForceExitCircleAnimation:Z
 
-    if-eqz v8, :cond_9
+    xor-int/lit8 v8, v8, 0x1
 
-    :cond_3
-    const/4 v6, 0x0
+    if-eqz v8, :cond_8
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/DcmLockIcon;->getState()I
+
+    move-result v8
+
+    if-ne v8, v10, :cond_8
+
+    const/4 v6, 0x1
 
     :goto_5
     iget-object v8, p0, Lcom/android/systemui/statusbar/phone/DcmLockIcon;->mTrustDrawable:Lcom/android/systemui/statusbar/phone/DcmTrustDrawable;
 
     invoke-virtual {v8, v6}, Lcom/android/systemui/statusbar/phone/DcmTrustDrawable;->setTrustManaged(Z)V
 
-    const/4 v8, 0x1
-
-    invoke-virtual {p0, v8}, Lcom/android/systemui/statusbar/phone/DcmLockIcon;->setClickable(Z)V
+    invoke-virtual {p0, v10}, Lcom/android/systemui/statusbar/phone/DcmLockIcon;->setClickable(Z)V
 
     invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/phone/DcmLockIcon;->setLongClickable(Z)V
 
     return-void
 
-    :cond_4
+    :cond_3
     const/4 v7, 0x0
 
     goto :goto_0
 
-    :cond_5
+    :cond_4
     iget-object v8, p0, Lcom/android/systemui/statusbar/phone/DcmLockIcon;->mTrustDrawable:Lcom/android/systemui/statusbar/phone/DcmTrustDrawable;
 
     invoke-virtual {v8}, Lcom/android/systemui/statusbar/phone/DcmTrustDrawable;->stop()V
 
     goto :goto_1
 
-    :cond_6
+    :cond_5
     iget-boolean v8, p0, Lcom/android/systemui/statusbar/phone/DcmLockIcon;->mScreenOn:Z
 
     iget-boolean v9, p0, Lcom/android/systemui/statusbar/phone/DcmLockIcon;->mLastScreenOn:Z
@@ -322,18 +329,18 @@
 
     goto :goto_2
 
-    :cond_7
+    :cond_6
     const/4 v0, 0x0
 
     goto :goto_3
 
-    :cond_8
+    :cond_7
     invoke-virtual {v0}, Landroid/graphics/drawable/AnimatedVectorDrawable;->stop()V
 
     goto :goto_4
 
-    :cond_9
-    const/4 v6, 0x1
+    :cond_8
+    const/4 v6, 0x0
 
     goto :goto_5
 .end method
@@ -437,4 +444,14 @@
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
     goto :goto_0
+.end method
+
+.method public updateLayout()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DcmLockIcon;->mTrustDrawable:Lcom/android/systemui/statusbar/phone/DcmTrustDrawable;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/DcmTrustDrawable;->updateLayout()V
+
+    return-void
 .end method

@@ -3,12 +3,22 @@
 .source "ExpandableOutlineView.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/android/systemui/statusbar/ExpandableOutlineView$1;
+    }
+.end annotation
+
+
 # instance fields
 .field private mCustomOutline:Z
 
 .field private mOutlineAlpha:F
 
 .field private final mOutlineRect:Landroid/graphics/Rect;
+
+.field mProvider:Landroid/view/ViewOutlineProvider;
 
 
 # direct methods
@@ -55,6 +65,10 @@
 
     invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/ExpandableOutlineView$1;-><init>(Lcom/android/systemui/statusbar/ExpandableOutlineView;)V
 
+    iput-object v0, p0, Lcom/android/systemui/statusbar/ExpandableOutlineView;->mProvider:Landroid/view/ViewOutlineProvider;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ExpandableOutlineView;->mProvider:Landroid/view/ViewOutlineProvider;
+
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/ExpandableOutlineView;->setOutlineProvider(Landroid/view/ViewOutlineProvider;)V
 
     return-void
@@ -85,15 +99,84 @@
     return v0
 
     :cond_0
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ExpandableOutlineView;->getTranslation()F
+
+    move-result v0
+
+    float-to-int v0, v0
+
+    goto :goto_0
+.end method
+
+.method protected needsOutline()Z
+    .locals 2
+
+    const/4 v0, 0x1
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ExpandableOutlineView;->isChildInGroup()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ExpandableOutlineView;->isGroupExpanded()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ExpandableOutlineView;->isGroupExpansionChanging()Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
     const/4 v0, 0x0
 
     goto :goto_0
+
+    :cond_1
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ExpandableOutlineView;->isSummaryWithChildren()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ExpandableOutlineView;->isGroupExpanded()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ExpandableOutlineView;->isGroupExpansionChanging()Z
+
+    move-result v0
+
+    :cond_2
+    return v0
+
+    :cond_3
+    return v0
 .end method
 
 .method public setActualHeight(IZ)V
     .locals 0
 
     invoke-super {p0, p1, p2}, Lcom/android/systemui/statusbar/ExpandableView;->setActualHeight(IZ)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ExpandableOutlineView;->invalidateOutline()V
+
+    return-void
+.end method
+
+.method public setClipBottomAmount(I)V
+    .locals 0
+
+    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/ExpandableView;->setClipBottomAmount(I)V
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/ExpandableOutlineView;->invalidateOutline()V
 
@@ -128,21 +211,59 @@
 .end method
 
 .method protected setOutlineRect(FFFF)V
-    .locals 6
+    .locals 5
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    move-object v0, p0
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/ExpandableOutlineView;->mCustomOutline:Z
 
-    move v2, p1
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/ExpandableOutlineView;->setClipToOutline(Z)V
 
-    move v3, p2
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ExpandableOutlineView;->mOutlineRect:Landroid/graphics/Rect;
 
-    move v4, p3
+    float-to-int v1, p1
 
-    move v5, p4
+    float-to-int v2, p2
 
-    invoke-virtual/range {v0 .. v5}, Lcom/android/systemui/statusbar/ExpandableOutlineView;->setOutlineRect(ZFFFF)V
+    float-to-int v3, p3
+
+    float-to-int v4, p4
+
+    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/Rect;->set(IIII)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ExpandableOutlineView;->mOutlineRect:Landroid/graphics/Rect;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/ExpandableOutlineView;->mOutlineRect:Landroid/graphics/Rect;
+
+    iget v1, v1, Landroid/graphics/Rect;->bottom:I
+
+    int-to-float v1, v1
+
+    invoke-static {p2, v1}, Ljava/lang/Math;->max(FF)F
+
+    move-result v1
+
+    float-to-int v1, v1
+
+    iput v1, v0, Landroid/graphics/Rect;->bottom:I
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ExpandableOutlineView;->mOutlineRect:Landroid/graphics/Rect;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/ExpandableOutlineView;->mOutlineRect:Landroid/graphics/Rect;
+
+    iget v1, v1, Landroid/graphics/Rect;->right:I
+
+    int-to-float v1, v1
+
+    invoke-static {p1, v1}, Ljava/lang/Math;->max(FF)F
+
+    move-result v1
+
+    float-to-int v1, v1
+
+    iput v1, v0, Landroid/graphics/Rect;->right:I
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ExpandableOutlineView;->invalidateOutline()V
 
     return-void
 .end method
@@ -177,60 +298,31 @@
     goto :goto_0
 .end method
 
-.method protected setOutlineRect(ZFFFF)V
-    .locals 5
+.method public updateOutline()V
+    .locals 2
 
-    const/4 v0, 0x1
+    iget-boolean v1, p0, Lcom/android/systemui/statusbar/ExpandableOutlineView;->mCustomOutline:Z
 
-    iput-boolean v0, p0, Lcom/android/systemui/statusbar/ExpandableOutlineView;->mCustomOutline:Z
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/ExpandableOutlineView;->setClipToOutline(Z)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/ExpandableOutlineView;->mOutlineRect:Landroid/graphics/Rect;
-
-    float-to-int v1, p2
-
-    float-to-int v2, p3
-
-    float-to-int v3, p4
-
-    float-to-int v4, p5
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/Rect;->set(IIII)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/ExpandableOutlineView;->mOutlineRect:Landroid/graphics/Rect;
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/ExpandableOutlineView;->mOutlineRect:Landroid/graphics/Rect;
-
-    iget v1, v1, Landroid/graphics/Rect;->bottom:I
-
-    int-to-float v1, v1
-
-    invoke-static {p3, v1}, Ljava/lang/Math;->max(FF)F
-
-    move-result v1
-
-    float-to-int v1, v1
-
-    iput v1, v0, Landroid/graphics/Rect;->bottom:I
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/ExpandableOutlineView;->mOutlineRect:Landroid/graphics/Rect;
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/ExpandableOutlineView;->mOutlineRect:Landroid/graphics/Rect;
-
-    iget v1, v1, Landroid/graphics/Rect;->right:I
-
-    int-to-float v1, v1
-
-    invoke-static {p2, v1}, Ljava/lang/Math;->max(FF)F
-
-    move-result v1
-
-    float-to-int v1, v1
-
-    iput v1, v0, Landroid/graphics/Rect;->right:I
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ExpandableOutlineView;->invalidateOutline()V
+    if-eqz v1, :cond_0
 
     return-void
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ExpandableOutlineView;->needsOutline()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/ExpandableOutlineView;->mProvider:Landroid/view/ViewOutlineProvider;
+
+    :goto_0
+    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/ExpandableOutlineView;->setOutlineProvider(Landroid/view/ViewOutlineProvider;)V
+
+    return-void
+
+    :cond_1
+    const/4 v1, 0x0
+
+    goto :goto_0
 .end method

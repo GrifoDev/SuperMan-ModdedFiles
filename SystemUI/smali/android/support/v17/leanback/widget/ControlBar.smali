@@ -14,28 +14,140 @@
 # instance fields
 .field private mChildMarginFromCenter:I
 
+.field mDefaultFocusToMiddle:Z
+
+.field mLastFocusIndex:I
+
 .field private mOnChildFocusedListener:Landroid/support/v17/leanback/widget/ControlBar$OnChildFocusedListener;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .locals 1
 
     invoke-direct {p0, p1, p2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+
+    const/4 v0, -0x1
+
+    iput v0, p0, Landroid/support/v17/leanback/widget/ControlBar;->mLastFocusIndex:I
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Landroid/support/v17/leanback/widget/ControlBar;->mDefaultFocusToMiddle:Z
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 0
+    .locals 1
 
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
+
+    const/4 v0, -0x1
+
+    iput v0, p0, Landroid/support/v17/leanback/widget/ControlBar;->mLastFocusIndex:I
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Landroid/support/v17/leanback/widget/ControlBar;->mDefaultFocusToMiddle:Z
 
     return-void
 .end method
 
 
 # virtual methods
+.method public addFocusables(Ljava/util/ArrayList;II)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/ArrayList",
+            "<",
+            "Landroid/view/View;",
+            ">;II)V"
+        }
+    .end annotation
+
+    const/16 v0, 0x21
+
+    if-eq p2, v0, :cond_0
+
+    const/16 v0, 0x82
+
+    if-ne p2, v0, :cond_3
+
+    :cond_0
+    iget v0, p0, Landroid/support/v17/leanback/widget/ControlBar;->mLastFocusIndex:I
+
+    if-ltz v0, :cond_2
+
+    iget v0, p0, Landroid/support/v17/leanback/widget/ControlBar;->mLastFocusIndex:I
+
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/ControlBar;->getChildCount()I
+
+    move-result v1
+
+    if-ge v0, v1, :cond_2
+
+    iget v0, p0, Landroid/support/v17/leanback/widget/ControlBar;->mLastFocusIndex:I
+
+    invoke-virtual {p0, v0}, Landroid/support/v17/leanback/widget/ControlBar;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :cond_1
+    :goto_0
+    return-void
+
+    :cond_2
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/ControlBar;->getChildCount()I
+
+    move-result v0
+
+    if-lez v0, :cond_1
+
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/ControlBar;->getDefaultFocusIndex()I
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Landroid/support/v17/leanback/widget/ControlBar;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_0
+
+    :cond_3
+    invoke-super {p0, p1, p2, p3}, Landroid/widget/LinearLayout;->addFocusables(Ljava/util/ArrayList;II)V
+
+    goto :goto_0
+.end method
+
+.method getDefaultFocusIndex()I
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/support/v17/leanback/widget/ControlBar;->mDefaultFocusToMiddle:Z
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/ControlBar;->getChildCount()I
+
+    move-result v0
+
+    div-int/lit8 v0, v0, 0x2
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
 .method protected onMeasure(II)V
     .locals 10
 
@@ -125,10 +237,69 @@
     return-void
 .end method
 
+.method protected onRequestFocusInDescendants(ILandroid/graphics/Rect;)Z
+    .locals 3
+
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/ControlBar;->getChildCount()I
+
+    move-result v1
+
+    if-lez v1, :cond_1
+
+    iget v1, p0, Landroid/support/v17/leanback/widget/ControlBar;->mLastFocusIndex:I
+
+    if-ltz v1, :cond_0
+
+    iget v1, p0, Landroid/support/v17/leanback/widget/ControlBar;->mLastFocusIndex:I
+
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/ControlBar;->getChildCount()I
+
+    move-result v2
+
+    if-ge v1, v2, :cond_0
+
+    iget v0, p0, Landroid/support/v17/leanback/widget/ControlBar;->mLastFocusIndex:I
+
+    :goto_0
+    invoke-virtual {p0, v0}, Landroid/support/v17/leanback/widget/ControlBar;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1, p2}, Landroid/view/View;->requestFocus(ILandroid/graphics/Rect;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    const/4 v1, 0x1
+
+    return v1
+
+    :cond_0
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/ControlBar;->getDefaultFocusIndex()I
+
+    move-result v0
+
+    goto :goto_0
+
+    :cond_1
+    invoke-super {p0, p1, p2}, Landroid/widget/LinearLayout;->onRequestFocusInDescendants(ILandroid/graphics/Rect;)Z
+
+    move-result v1
+
+    return v1
+.end method
+
 .method public requestChildFocus(Landroid/view/View;Landroid/view/View;)V
     .locals 1
 
     invoke-super {p0, p1, p2}, Landroid/widget/LinearLayout;->requestChildFocus(Landroid/view/View;Landroid/view/View;)V
+
+    invoke-virtual {p0, p1}, Landroid/support/v17/leanback/widget/ControlBar;->indexOfChild(Landroid/view/View;)I
+
+    move-result v0
+
+    iput v0, p0, Landroid/support/v17/leanback/widget/ControlBar;->mLastFocusIndex:I
 
     iget-object v0, p0, Landroid/support/v17/leanback/widget/ControlBar;->mOnChildFocusedListener:Landroid/support/v17/leanback/widget/ControlBar$OnChildFocusedListener;
 
@@ -142,39 +313,26 @@
     return-void
 .end method
 
-.method public requestFocus(ILandroid/graphics/Rect;)Z
-    .locals 1
+.method public setChildMarginFromCenter(I)V
+    .locals 0
 
-    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/ControlBar;->getChildCount()I
+    iput p1, p0, Landroid/support/v17/leanback/widget/ControlBar;->mChildMarginFromCenter:I
 
-    move-result v0
+    return-void
+.end method
 
-    if-lez v0, :cond_0
+.method setDefaultFocusToMiddle(Z)V
+    .locals 0
 
-    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/ControlBar;->getChildCount()I
+    iput-boolean p1, p0, Landroid/support/v17/leanback/widget/ControlBar;->mDefaultFocusToMiddle:Z
 
-    move-result v0
+    return-void
+.end method
 
-    div-int/lit8 v0, v0, 0x2
+.method public setOnChildFocusedListener(Landroid/support/v17/leanback/widget/ControlBar$OnChildFocusedListener;)V
+    .locals 0
 
-    invoke-virtual {p0, v0}, Landroid/support/v17/leanback/widget/ControlBar;->getChildAt(I)Landroid/view/View;
+    iput-object p1, p0, Landroid/support/v17/leanback/widget/ControlBar;->mOnChildFocusedListener:Landroid/support/v17/leanback/widget/ControlBar$OnChildFocusedListener;
 
-    move-result-object v0
-
-    invoke-virtual {v0, p1, p2}, Landroid/view/View;->requestFocus(ILandroid/graphics/Rect;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
-
-    return v0
-
-    :cond_0
-    invoke-super {p0, p1, p2}, Landroid/widget/LinearLayout;->requestFocus(ILandroid/graphics/Rect;)Z
-
-    move-result v0
-
-    return v0
+    return-void
 .end method

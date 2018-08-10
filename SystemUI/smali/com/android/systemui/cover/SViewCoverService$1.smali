@@ -36,7 +36,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/cover/SViewCoverService$1;->this$0:Lcom/android/systemui/cover/SViewCoverService;
 
-    invoke-static {v0}, Lcom/android/systemui/cover/SViewCoverService;->-get0(Lcom/android/systemui/cover/SViewCoverService;)Lcom/android/systemui/statusbar/BaseStatusBar;
+    invoke-static {v0}, Lcom/android/systemui/cover/SViewCoverService;->-get2(Lcom/android/systemui/cover/SViewCoverService;)Lcom/android/systemui/statusbar/phone/StatusBar;
 
     move-result-object v0
 
@@ -49,7 +49,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/cover/SViewCoverService$1;->this$0:Lcom/android/systemui/cover/SViewCoverService;
 
-    invoke-static {v0}, Lcom/android/systemui/cover/SViewCoverService;->-get0(Lcom/android/systemui/cover/SViewCoverService;)Lcom/android/systemui/statusbar/BaseStatusBar;
+    invoke-static {v0}, Lcom/android/systemui/cover/SViewCoverService;->-get2(Lcom/android/systemui/cover/SViewCoverService;)Lcom/android/systemui/statusbar/phone/StatusBar;
 
     move-result-object v0
 
@@ -57,11 +57,11 @@
 
     iget-object v0, p0, Lcom/android/systemui/cover/SViewCoverService$1;->this$0:Lcom/android/systemui/cover/SViewCoverService;
 
-    invoke-static {v0}, Lcom/android/systemui/cover/SViewCoverService;->-get0(Lcom/android/systemui/cover/SViewCoverService;)Lcom/android/systemui/statusbar/BaseStatusBar;
+    invoke-static {v0}, Lcom/android/systemui/cover/SViewCoverService;->-get2(Lcom/android/systemui/cover/SViewCoverService;)Lcom/android/systemui/statusbar/phone/StatusBar;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/BaseStatusBar;->isCoverViewShowing()Z
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->isCoverViewShowing()Z
 
     move-result v0
 
@@ -70,7 +70,7 @@
     :cond_1
     const-string/jumbo v0, "CoverUI"
 
-    const-string/jumbo v1, "isCoverViewShowing() - cannot find mBaseStatusBar"
+    const-string/jumbo v1, "isCoverViewShowing() - cannot find mStatusBar"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -84,7 +84,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/cover/SViewCoverService$1;->this$0:Lcom/android/systemui/cover/SViewCoverService;
 
-    invoke-static {v0}, Lcom/android/systemui/cover/SViewCoverService;->-get0(Lcom/android/systemui/cover/SViewCoverService;)Lcom/android/systemui/statusbar/BaseStatusBar;
+    invoke-static {v0}, Lcom/android/systemui/cover/SViewCoverService;->-get2(Lcom/android/systemui/cover/SViewCoverService;)Lcom/android/systemui/statusbar/phone/StatusBar;
 
     move-result-object v0
 
@@ -97,7 +97,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/cover/SViewCoverService$1;->this$0:Lcom/android/systemui/cover/SViewCoverService;
 
-    invoke-static {v0}, Lcom/android/systemui/cover/SViewCoverService;->-get0(Lcom/android/systemui/cover/SViewCoverService;)Lcom/android/systemui/statusbar/BaseStatusBar;
+    invoke-static {v0}, Lcom/android/systemui/cover/SViewCoverService;->-get2(Lcom/android/systemui/cover/SViewCoverService;)Lcom/android/systemui/statusbar/phone/StatusBar;
 
     move-result-object v0
 
@@ -105,11 +105,11 @@
 
     iget-object v0, p0, Lcom/android/systemui/cover/SViewCoverService$1;->this$0:Lcom/android/systemui/cover/SViewCoverService;
 
-    invoke-static {v0}, Lcom/android/systemui/cover/SViewCoverService;->-get0(Lcom/android/systemui/cover/SViewCoverService;)Lcom/android/systemui/statusbar/BaseStatusBar;
+    invoke-static {v0}, Lcom/android/systemui/cover/SViewCoverService;->-get2(Lcom/android/systemui/cover/SViewCoverService;)Lcom/android/systemui/statusbar/phone/StatusBar;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/BaseStatusBar;->onCoverAppCovered(Z)I
+    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/phone/StatusBar;->onCoverAppCovered(Z)I
 
     move-result v0
 
@@ -118,7 +118,7 @@
     :cond_1
     const-string/jumbo v0, "CoverUI"
 
-    const-string/jumbo v1, "onCoverAppCovered() - cannot find mBaseStatusBar"
+    const-string/jumbo v1, "onCoverAppCovered() - cannot find mStatusBar"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -150,7 +150,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/cover/SViewCoverService$1;->this$0:Lcom/android/systemui/cover/SViewCoverService;
 
-    invoke-static {v0}, Lcom/android/systemui/cover/SViewCoverService;->-get2(Lcom/android/systemui/cover/SViewCoverService;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/systemui/cover/SViewCoverService;->-get1(Lcom/android/systemui/cover/SViewCoverService;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -159,7 +159,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/systemui/cover/SViewCoverService$1;->this$0:Lcom/android/systemui/cover/SViewCoverService;
 
-    invoke-static {v0}, Lcom/android/systemui/cover/SViewCoverService;->-get0(Lcom/android/systemui/cover/SViewCoverService;)Lcom/android/systemui/statusbar/BaseStatusBar;
+    invoke-static {v0}, Lcom/android/systemui/cover/SViewCoverService;->-get2(Lcom/android/systemui/cover/SViewCoverService;)Lcom/android/systemui/statusbar/phone/StatusBar;
 
     move-result-object v0
 
@@ -172,7 +172,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/cover/SViewCoverService$1;->this$0:Lcom/android/systemui/cover/SViewCoverService;
 
-    invoke-static {v0}, Lcom/android/systemui/cover/SViewCoverService;->-get0(Lcom/android/systemui/cover/SViewCoverService;)Lcom/android/systemui/statusbar/BaseStatusBar;
+    invoke-static {v0}, Lcom/android/systemui/cover/SViewCoverService;->-get2(Lcom/android/systemui/cover/SViewCoverService;)Lcom/android/systemui/statusbar/phone/StatusBar;
 
     move-result-object v0
 
@@ -180,21 +180,25 @@
 
     iget-object v0, p0, Lcom/android/systemui/cover/SViewCoverService$1;->this$0:Lcom/android/systemui/cover/SViewCoverService;
 
-    invoke-static {v0}, Lcom/android/systemui/cover/SViewCoverService;->-get0(Lcom/android/systemui/cover/SViewCoverService;)Lcom/android/systemui/statusbar/BaseStatusBar;
+    invoke-static {v0}, Lcom/android/systemui/cover/SViewCoverService;->-get2(Lcom/android/systemui/cover/SViewCoverService;)Lcom/android/systemui/statusbar/phone/StatusBar;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/BaseStatusBar;->updateCoverState(Lcom/samsung/android/cover/CoverState;)V
+    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateCoverState(Lcom/samsung/android/cover/CoverState;)V
 
     iget-object v0, p0, Lcom/android/systemui/cover/SViewCoverService$1;->this$0:Lcom/android/systemui/cover/SViewCoverService;
 
     const/4 v2, 0x0
 
-    invoke-static {v0, v2}, Lcom/android/systemui/cover/SViewCoverService;->-set0(Lcom/android/systemui/cover/SViewCoverService;Lcom/samsung/android/cover/CoverState;)Lcom/samsung/android/cover/CoverState;
+    invoke-static {v0, v2}, Lcom/android/systemui/cover/SViewCoverService;->-set1(Lcom/android/systemui/cover/SViewCoverService;Lcom/samsung/android/cover/CoverState;)Lcom/samsung/android/cover/CoverState;
+
+    :goto_0
+    iget-object v0, p0, Lcom/android/systemui/cover/SViewCoverService$1;->this$0:Lcom/android/systemui/cover/SViewCoverService;
+
+    invoke-static {v0, p1}, Lcom/android/systemui/cover/SViewCoverService;->-set0(Lcom/android/systemui/cover/SViewCoverService;Lcom/samsung/android/cover/CoverState;)Lcom/samsung/android/cover/CoverState;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :goto_0
     monitor-exit v1
 
     return-void
@@ -203,13 +207,13 @@
     :try_start_1
     const-string/jumbo v0, "CoverUI"
 
-    const-string/jumbo v2, "updateCoverState() - cannot find mBaseStatusBar"
+    const-string/jumbo v2, "updateCoverState() - cannot find mStatusBar"
 
     invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v0, p0, Lcom/android/systemui/cover/SViewCoverService$1;->this$0:Lcom/android/systemui/cover/SViewCoverService;
 
-    invoke-static {v0, p1}, Lcom/android/systemui/cover/SViewCoverService;->-set0(Lcom/android/systemui/cover/SViewCoverService;Lcom/samsung/android/cover/CoverState;)Lcom/samsung/android/cover/CoverState;
+    invoke-static {v0, p1}, Lcom/android/systemui/cover/SViewCoverService;->-set1(Lcom/android/systemui/cover/SViewCoverService;Lcom/samsung/android/cover/CoverState;)Lcom/samsung/android/cover/CoverState;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 

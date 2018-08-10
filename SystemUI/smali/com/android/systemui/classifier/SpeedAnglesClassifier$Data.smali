@@ -148,7 +148,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_1
 
     iget-object v3, p0, Lcom/android/systemui/classifier/SpeedAnglesClassifier$Data;->mLastThreePoints:Ljava/util/List;
 
@@ -170,13 +170,11 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_3
 
     :cond_1
-    :goto_0
-    return-void
-
-    :cond_2
     iget-object v3, p0, Lcom/android/systemui/classifier/SpeedAnglesClassifier$Data;->mLastThreePoints:Ljava/util/List;
 
     invoke-interface {v3, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -189,7 +187,7 @@
 
     const/4 v4, 0x4
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_3
 
     iget-object v3, p0, Lcom/android/systemui/classifier/SpeedAnglesClassifier$Data;->mLastThreePoints:Ljava/util/List;
 
@@ -237,7 +235,7 @@
 
     cmpl-float v3, v0, v3
 
-    if-ltz v3, :cond_3
+    if-ltz v3, :cond_2
 
     iget v3, p0, Lcom/android/systemui/classifier/SpeedAnglesClassifier$Data;->mAcceleratingAngles:F
 
@@ -245,7 +243,7 @@
 
     iput v3, p0, Lcom/android/systemui/classifier/SpeedAnglesClassifier$Data;->mAcceleratingAngles:F
 
-    :cond_3
+    :cond_2
     iget v3, p0, Lcom/android/systemui/classifier/SpeedAnglesClassifier$Data;->mPreviousAngle:F
 
     sub-float v1, v0, v3
@@ -278,7 +276,8 @@
 
     iput v0, p0, Lcom/android/systemui/classifier/SpeedAnglesClassifier$Data;->mPreviousAngle:F
 
-    goto :goto_0
+    :cond_3
+    return-void
 .end method
 
 .method public getAnglesPercentage()F

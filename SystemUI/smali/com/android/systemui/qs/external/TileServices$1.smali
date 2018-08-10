@@ -48,7 +48,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/external/TileServices$1;->this$0:Lcom/android/systemui/qs/external/TileServices;
 
-    const-string/jumbo v0, "android.service.quicksettings.extra.COMPONENT"
+    const-string/jumbo v0, "android.intent.extra.COMPONENT_NAME"
 
     invoke-virtual {p2, v0}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
 

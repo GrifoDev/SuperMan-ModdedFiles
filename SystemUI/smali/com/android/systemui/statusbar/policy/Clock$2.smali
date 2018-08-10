@@ -50,7 +50,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/Clock$2;->this$0:Lcom/android/systemui/statusbar/policy/Clock;
 
-    invoke-static {v1}, Lcom/android/systemui/statusbar/policy/Clock;->-get4(Lcom/android/systemui/statusbar/policy/Clock;)Landroid/os/Handler;
+    invoke-static {v1}, Lcom/android/systemui/statusbar/policy/Clock;->-get5(Lcom/android/systemui/statusbar/policy/Clock;)Landroid/os/Handler;
 
     move-result-object v1
 
@@ -58,13 +58,13 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/Clock$2;->this$0:Lcom/android/systemui/statusbar/policy/Clock;
 
-    invoke-static {v1}, Lcom/android/systemui/statusbar/policy/Clock;->-get4(Lcom/android/systemui/statusbar/policy/Clock;)Landroid/os/Handler;
+    invoke-static {v1}, Lcom/android/systemui/statusbar/policy/Clock;->-get5(Lcom/android/systemui/statusbar/policy/Clock;)Landroid/os/Handler;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/policy/Clock$2;->this$0:Lcom/android/systemui/statusbar/policy/Clock;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/policy/Clock;->-get3(Lcom/android/systemui/statusbar/policy/Clock;)Ljava/lang/Runnable;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/policy/Clock;->-get4(Lcom/android/systemui/statusbar/policy/Clock;)Ljava/lang/Runnable;
 
     move-result-object v2
 
@@ -85,7 +85,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/Clock$2;->this$0:Lcom/android/systemui/statusbar/policy/Clock;
 
-    invoke-static {v1}, Lcom/android/systemui/statusbar/policy/Clock;->-get4(Lcom/android/systemui/statusbar/policy/Clock;)Landroid/os/Handler;
+    invoke-static {v1}, Lcom/android/systemui/statusbar/policy/Clock;->-get5(Lcom/android/systemui/statusbar/policy/Clock;)Landroid/os/Handler;
 
     move-result-object v1
 
@@ -93,13 +93,13 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/Clock$2;->this$0:Lcom/android/systemui/statusbar/policy/Clock;
 
-    invoke-static {v1}, Lcom/android/systemui/statusbar/policy/Clock;->-get4(Lcom/android/systemui/statusbar/policy/Clock;)Landroid/os/Handler;
+    invoke-static {v1}, Lcom/android/systemui/statusbar/policy/Clock;->-get5(Lcom/android/systemui/statusbar/policy/Clock;)Landroid/os/Handler;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/policy/Clock$2;->this$0:Lcom/android/systemui/statusbar/policy/Clock;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/policy/Clock;->-get3(Lcom/android/systemui/statusbar/policy/Clock;)Ljava/lang/Runnable;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/policy/Clock;->-get4(Lcom/android/systemui/statusbar/policy/Clock;)Ljava/lang/Runnable;
 
     move-result-object v2
 

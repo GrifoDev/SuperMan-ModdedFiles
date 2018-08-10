@@ -18,6 +18,10 @@
 .field private static final DEVICE_ROOT:Ljava/io/File;
 
 .field private static sCache:Ljava/util/HashMap;
+    .annotation build Landroid/support/annotation/GuardedBy;
+        value = "sCache"
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashMap",
@@ -220,6 +224,20 @@
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 .end method
 
+.method public static getUriForFile(Landroid/content/Context;Ljava/lang/String;Ljava/io/File;)Landroid/net/Uri;
+    .locals 2
+
+    invoke-static {p0, p1}, Landroid/support/v4/content/FileProvider;->getPathStrategy(Landroid/content/Context;Ljava/lang/String;)Landroid/support/v4/content/FileProvider$PathStrategy;
+
+    move-result-object v0
+
+    invoke-interface {v0, p2}, Landroid/support/v4/content/FileProvider$PathStrategy;->getUriForFile(Ljava/io/File;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    return-object v1
+.end method
+
 .method private static modeToMode(Ljava/lang/String;)I
     .locals 4
 
@@ -324,7 +342,7 @@
 .end method
 
 .method private static parsePathStrategy(Landroid/content/Context;Ljava/lang/String;)Landroid/support/v4/content/FileProvider$PathStrategy;
-    .locals 13
+    .locals 12
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -332,173 +350,201 @@
         }
     .end annotation
 
-    const/4 v12, 0x0
+    new-instance v6, Landroid/support/v4/content/FileProvider$SimplePathStrategy;
 
-    const/4 v11, 0x0
-
-    const/4 v10, 0x1
-
-    new-instance v4, Landroid/support/v4/content/FileProvider$SimplePathStrategy;
-
-    invoke-direct {v4, p1}, Landroid/support/v4/content/FileProvider$SimplePathStrategy;-><init>(Ljava/lang/String;)V
+    invoke-direct {v6, p1}, Landroid/support/v4/content/FileProvider$SimplePathStrategy;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v8
+    move-result-object v10
 
-    const/16 v9, 0x80
+    const/16 v11, 0x80
 
-    invoke-virtual {v8, p1, v9}, Landroid/content/pm/PackageManager;->resolveContentProvider(Ljava/lang/String;I)Landroid/content/pm/ProviderInfo;
-
-    move-result-object v1
-
-    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v8
-
-    const-string/jumbo v9, "android.support.FILE_PROVIDER_PATHS"
-
-    invoke-virtual {v1, v8, v9}, Landroid/content/pm/ProviderInfo;->loadXmlMetaData(Landroid/content/pm/PackageManager;Ljava/lang/String;)Landroid/content/res/XmlResourceParser;
-
-    move-result-object v0
-
-    if-nez v0, :cond_0
-
-    new-instance v8, Ljava/lang/IllegalArgumentException;
-
-    const-string/jumbo v9, "Missing android.support.FILE_PROVIDER_PATHS meta-data"
-
-    invoke-direct {v8, v9}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v8
-
-    :cond_0
-    :goto_0
-    invoke-interface {v0}, Landroid/content/res/XmlResourceParser;->next()I
-
-    move-result v7
-
-    if-eq v7, v10, :cond_5
-
-    const/4 v8, 0x2
-
-    if-ne v7, v8, :cond_0
-
-    invoke-interface {v0}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
-
-    move-result-object v5
-
-    const-string/jumbo v8, "name"
-
-    invoke-interface {v0, v12, v8}, Landroid/content/res/XmlResourceParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    const-string/jumbo v8, "path"
-
-    invoke-interface {v0, v12, v8}, Landroid/content/res/XmlResourceParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v10, p1, v11}, Landroid/content/pm/PackageManager;->resolveContentProvider(Ljava/lang/String;I)Landroid/content/pm/ProviderInfo;
 
     move-result-object v3
 
-    const/4 v6, 0x0
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    const-string/jumbo v8, "root-path"
+    move-result-object v10
 
-    invoke-virtual {v8, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string/jumbo v11, "android.support.FILE_PROVIDER_PATHS"
 
-    move-result v8
+    invoke-virtual {v3, v10, v11}, Landroid/content/pm/ProviderInfo;->loadXmlMetaData(Landroid/content/pm/PackageManager;Ljava/lang/String;)Landroid/content/res/XmlResourceParser;
 
-    if-eqz v8, :cond_2
+    move-result-object v2
+
+    if-nez v2, :cond_0
+
+    new-instance v10, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v11, "Missing android.support.FILE_PROVIDER_PATHS meta-data"
+
+    invoke-direct {v10, v11}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v10
+
+    :cond_0
+    :goto_0
+    invoke-interface {v2}, Landroid/content/res/XmlResourceParser;->next()I
+
+    move-result v9
+
+    const/4 v10, 0x1
+
+    if-eq v9, v10, :cond_7
+
+    const/4 v10, 0x2
+
+    if-ne v9, v10, :cond_0
+
+    invoke-interface {v2}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
+
+    move-result-object v7
+
+    const-string/jumbo v10, "name"
+
+    const/4 v11, 0x0
+
+    invoke-interface {v2, v11, v10}, Landroid/content/res/XmlResourceParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    const-string/jumbo v10, "path"
+
+    const/4 v11, 0x0
+
+    invoke-interface {v2, v11, v10}, Landroid/content/res/XmlResourceParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    const/4 v8, 0x0
+
+    const-string/jumbo v10, "root-path"
+
+    invoke-virtual {v10, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_2
 
     sget-object v8, Landroid/support/v4/content/FileProvider;->DEVICE_ROOT:Ljava/io/File;
 
-    new-array v9, v10, [Ljava/lang/String;
-
-    aput-object v3, v9, v11
-
-    invoke-static {v8, v9}, Landroid/support/v4/content/FileProvider;->buildPath(Ljava/io/File;[Ljava/lang/String;)Ljava/io/File;
-
-    move-result-object v6
-
     :cond_1
     :goto_1
-    if-eqz v6, :cond_0
+    if-eqz v8, :cond_0
 
-    invoke-virtual {v4, v2, v6}, Landroid/support/v4/content/FileProvider$SimplePathStrategy;->addRoot(Ljava/lang/String;Ljava/io/File;)V
+    const/4 v10, 0x1
+
+    new-array v10, v10, [Ljava/lang/String;
+
+    const/4 v11, 0x0
+
+    aput-object v5, v10, v11
+
+    invoke-static {v8, v10}, Landroid/support/v4/content/FileProvider;->buildPath(Ljava/io/File;[Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object v10
+
+    invoke-virtual {v6, v4, v10}, Landroid/support/v4/content/FileProvider$SimplePathStrategy;->addRoot(Ljava/lang/String;Ljava/io/File;)V
 
     goto :goto_0
 
     :cond_2
-    const-string/jumbo v8, "files-path"
+    const-string/jumbo v10, "files-path"
 
-    invoke-virtual {v8, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v10, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v10
 
-    if-eqz v8, :cond_3
+    if-eqz v10, :cond_3
 
     invoke-virtual {p0}, Landroid/content/Context;->getFilesDir()Ljava/io/File;
 
     move-result-object v8
 
-    new-array v9, v10, [Ljava/lang/String;
-
-    aput-object v3, v9, v11
-
-    invoke-static {v8, v9}, Landroid/support/v4/content/FileProvider;->buildPath(Ljava/io/File;[Ljava/lang/String;)Ljava/io/File;
-
-    move-result-object v6
-
     goto :goto_1
 
     :cond_3
-    const-string/jumbo v8, "cache-path"
+    const-string/jumbo v10, "cache-path"
 
-    invoke-virtual {v8, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v10, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v10
 
-    if-eqz v8, :cond_4
+    if-eqz v10, :cond_4
 
     invoke-virtual {p0}, Landroid/content/Context;->getCacheDir()Ljava/io/File;
 
     move-result-object v8
 
-    new-array v9, v10, [Ljava/lang/String;
-
-    aput-object v3, v9, v11
-
-    invoke-static {v8, v9}, Landroid/support/v4/content/FileProvider;->buildPath(Ljava/io/File;[Ljava/lang/String;)Ljava/io/File;
-
-    move-result-object v6
-
     goto :goto_1
 
     :cond_4
-    const-string/jumbo v8, "external-path"
+    const-string/jumbo v10, "external-path"
 
-    invoke-virtual {v8, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v10, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v10
 
-    if-eqz v8, :cond_1
+    if-eqz v10, :cond_5
 
     invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;
 
     move-result-object v8
 
-    new-array v9, v10, [Ljava/lang/String;
-
-    aput-object v3, v9, v11
-
-    invoke-static {v8, v9}, Landroid/support/v4/content/FileProvider;->buildPath(Ljava/io/File;[Ljava/lang/String;)Ljava/io/File;
-
-    move-result-object v6
-
     goto :goto_1
 
     :cond_5
-    return-object v4
+    const-string/jumbo v10, "external-files-path"
+
+    invoke-virtual {v10, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_6
+
+    const/4 v10, 0x0
+
+    invoke-static {p0, v10}, Landroid/support/v4/content/ContextCompat;->getExternalFilesDirs(Landroid/content/Context;Ljava/lang/String;)[Ljava/io/File;
+
+    move-result-object v1
+
+    array-length v10, v1
+
+    if-lez v10, :cond_1
+
+    const/4 v10, 0x0
+
+    aget-object v8, v1, v10
+
+    goto :goto_1
+
+    :cond_6
+    const-string/jumbo v10, "external-cache-path"
+
+    invoke-virtual {v10, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_1
+
+    invoke-static {p0}, Landroid/support/v4/content/ContextCompat;->getExternalCacheDirs(Landroid/content/Context;)[Ljava/io/File;
+
+    move-result-object v0
+
+    array-length v10, v0
+
+    if-lez v10, :cond_1
+
+    const/4 v10, 0x0
+
+    aget-object v8, v0, v10
+
+    goto :goto_1
+
+    :cond_7
+    return-object v6
 .end method
 
 

@@ -44,12 +44,20 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController$SignalUpdateHandler;->this$0:Lcom/android/systemui/statusbar/policy/MobileSignalController;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->-wrap4(Lcom/android/systemui/statusbar/policy/MobileSignalController;)V
+    invoke-static {v0}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->-wrap5(Lcom/android/systemui/statusbar/policy/MobileSignalController;)V
+
+    goto :goto_0
+
+    :pswitch_1
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController$SignalUpdateHandler;->this$0:Lcom/android/systemui/statusbar/policy/MobileSignalController;
+
+    invoke-static {v0}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->-wrap6(Lcom/android/systemui/statusbar/policy/MobileSignalController;)V
 
     goto :goto_0
 
     :pswitch_data_0
     .packed-switch 0x46
         :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method

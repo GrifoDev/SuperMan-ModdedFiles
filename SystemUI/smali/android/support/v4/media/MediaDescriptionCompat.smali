@@ -61,7 +61,7 @@
     return-void
 .end method
 
-.method private constructor <init>(Landroid/os/Parcel;)V
+.method constructor <init>(Landroid/os/Parcel;)V
     .locals 2
 
     const/4 v1, 0x0
@@ -137,15 +137,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Landroid/os/Parcel;Landroid/support/v4/media/MediaDescriptionCompat;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Landroid/support/v4/media/MediaDescriptionCompat;-><init>(Landroid/os/Parcel;)V
-
-    return-void
-.end method
-
-.method private constructor <init>(Ljava/lang/String;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/Bitmap;Landroid/net/Uri;Landroid/os/Bundle;Landroid/net/Uri;)V
+.method constructor <init>(Ljava/lang/String;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/Bitmap;Landroid/net/Uri;Landroid/os/Bundle;Landroid/net/Uri;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -169,31 +161,19 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Ljava/lang/String;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/Bitmap;Landroid/net/Uri;Landroid/os/Bundle;Landroid/net/Uri;Landroid/support/v4/media/MediaDescriptionCompat;)V
-    .locals 0
-
-    invoke-direct/range {p0 .. p8}, Landroid/support/v4/media/MediaDescriptionCompat;-><init>(Ljava/lang/String;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/Bitmap;Landroid/net/Uri;Landroid/os/Bundle;Landroid/net/Uri;)V
-
-    return-void
-.end method
-
 .method public static fromMediaDescription(Ljava/lang/Object;)Landroid/support/v4/media/MediaDescriptionCompat;
-    .locals 6
+    .locals 7
 
-    const/4 v3, 0x0
+    const/4 v6, 0x0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_5
 
     sget v4, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v5, 0x15
 
-    if-ge v4, v5, :cond_1
+    if-lt v4, v5, :cond_5
 
-    :cond_0
-    return-object v3
-
-    :cond_1
     new-instance v0, Landroid/support/v4/media/MediaDescriptionCompat$Builder;
 
     invoke-direct {v0}, Landroid/support/v4/media/MediaDescriptionCompat$Builder;-><init>()V
@@ -238,10 +218,12 @@
 
     move-result-object v2
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_2
+
+    const/4 v3, 0x0
 
     :goto_0
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_0
 
     const-string/jumbo v4, "android.support.v4.media.description.NULL_BUNDLE_FLAG"
 
@@ -249,7 +231,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_3
 
     invoke-virtual {v2}, Landroid/os/Bundle;->size()I
 
@@ -257,19 +239,19 @@
 
     const/4 v5, 0x2
 
-    if-ne v4, v5, :cond_5
+    if-ne v4, v5, :cond_3
 
     const/4 v2, 0x0
 
-    :cond_2
+    :cond_0
     :goto_1
     invoke-virtual {v0, v2}, Landroid/support/v4/media/MediaDescriptionCompat$Builder;->setExtras(Landroid/os/Bundle;)Landroid/support/v4/media/MediaDescriptionCompat$Builder;
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_4
 
     invoke-virtual {v0, v3}, Landroid/support/v4/media/MediaDescriptionCompat$Builder;->setMediaUri(Landroid/net/Uri;)Landroid/support/v4/media/MediaDescriptionCompat$Builder;
 
-    :cond_3
+    :cond_1
     :goto_2
     invoke-virtual {v0}, Landroid/support/v4/media/MediaDescriptionCompat$Builder;->build()Landroid/support/v4/media/MediaDescriptionCompat;
 
@@ -279,20 +261,18 @@
 
     return-object v1
 
-    :cond_4
+    :cond_2
     const-string/jumbo v4, "android.support.v4.media.description.MEDIA_URI"
 
     invoke-virtual {v2, v4}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
 
-    move-result-object v4
+    move-result-object v3
 
-    check-cast v4, Landroid/net/Uri;
-
-    move-object v3, v4
+    check-cast v3, Landroid/net/Uri;
 
     goto :goto_0
 
-    :cond_5
+    :cond_3
     const-string/jumbo v4, "android.support.v4.media.description.MEDIA_URI"
 
     invoke-virtual {v2, v4}, Landroid/os/Bundle;->remove(Ljava/lang/String;)V
@@ -303,12 +283,12 @@
 
     goto :goto_1
 
-    :cond_6
+    :cond_4
     sget v4, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v5, 0x17
 
-    if-lt v4, v5, :cond_3
+    if-lt v4, v5, :cond_1
 
     invoke-static {p0}, Landroid/support/v4/media/MediaDescriptionCompatApi23;->getMediaUri(Ljava/lang/Object;)Landroid/net/Uri;
 
@@ -317,6 +297,9 @@
     invoke-virtual {v0, v4}, Landroid/support/v4/media/MediaDescriptionCompat$Builder;->setMediaUri(Landroid/net/Uri;)Landroid/support/v4/media/MediaDescriptionCompat$Builder;
 
     goto :goto_2
+
+    :cond_5
+    return-object v6
 .end method
 
 
@@ -327,6 +310,26 @@
     const/4 v0, 0x0
 
     return v0
+.end method
+
+.method public getIconBitmap()Landroid/graphics/Bitmap;
+    .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
+    iget-object v0, p0, Landroid/support/v4/media/MediaDescriptionCompat;->mIcon:Landroid/graphics/Bitmap;
+
+    return-object v0
+.end method
+
+.method public getIconUri()Landroid/net/Uri;
+    .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
+    iget-object v0, p0, Landroid/support/v4/media/MediaDescriptionCompat;->mIconUri:Landroid/net/Uri;
+
+    return-object v0
 .end method
 
 .method public getMediaDescription()Ljava/lang/Object;
@@ -428,6 +431,36 @@
     iget-object v2, p0, Landroid/support/v4/media/MediaDescriptionCompat;->mDescriptionObj:Ljava/lang/Object;
 
     return-object v2
+.end method
+
+.method public getMediaId()Ljava/lang/String;
+    .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
+    iget-object v0, p0, Landroid/support/v4/media/MediaDescriptionCompat;->mMediaId:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public getSubtitle()Ljava/lang/CharSequence;
+    .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
+    iget-object v0, p0, Landroid/support/v4/media/MediaDescriptionCompat;->mSubtitle:Ljava/lang/CharSequence;
+
+    return-object v0
+.end method
+
+.method public getTitle()Ljava/lang/CharSequence;
+    .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
+    iget-object v0, p0, Landroid/support/v4/media/MediaDescriptionCompat;->mTitle:Ljava/lang/CharSequence;
+
+    return-object v0
 .end method
 
 .method public toString()Ljava/lang/String;

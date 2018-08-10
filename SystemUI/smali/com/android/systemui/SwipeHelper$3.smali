@@ -70,7 +70,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/SwipeHelper$3;->this$0:Lcom/android/systemui/SwipeHelper;
 
-    invoke-static {v0}, Lcom/android/systemui/SwipeHelper;->-get3(Lcom/android/systemui/SwipeHelper;)Ljava/util/HashMap;
+    invoke-static {v0}, Lcom/android/systemui/SwipeHelper;->-get4(Lcom/android/systemui/SwipeHelper;)Ljava/util/HashMap;
 
     move-result-object v0
 
@@ -104,7 +104,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/systemui/SwipeHelper$3;->this$0:Lcom/android/systemui/SwipeHelper;
 
-    invoke-static {v0}, Lcom/android/systemui/SwipeHelper;->-get2(Lcom/android/systemui/SwipeHelper;)Z
+    invoke-static {v0}, Lcom/android/systemui/SwipeHelper;->-get3(Lcom/android/systemui/SwipeHelper;)Z
 
     move-result v0
 

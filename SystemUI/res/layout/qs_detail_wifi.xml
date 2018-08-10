@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.keyguard.AlphaOptimizedLinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ViewStub android:id="@id/secure_wifi_group_stub" android:layout="@layout/qs_detail_wifi_secure_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <LinearLayout android:orientation="vertical" android:id="@id/current_network" android:paddingBottom="16.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textAppearance="@style/TextAppearance.QS.DetailContentPrimary" android:gravity="center_vertical" android:id="@id/connected_networks_title" android:paddingBottom="15.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/quick_settings_wifi_detail_current_network_title" android:paddingStart="@dimen/qs_detail_items_side_padding" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/available_networks" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textAppearance="@style/TextAppearance.QS.DetailContentPrimary" android:gravity="center_vertical" android:id="@id/available_networks_title" android:paddingBottom="15.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/quick_settings_wifi_detail_available_networks_title" android:paddingStart="@dimen/qs_detail_items_side_padding" />/></LinearLayout>
+</com.android.keyguard.AlphaOptimizedLinearLayout>

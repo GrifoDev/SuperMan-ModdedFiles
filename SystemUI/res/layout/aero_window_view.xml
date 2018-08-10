@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/aero_window_bg" android:paddingBottom="@dimen/aero_window_padding" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="@dimen/aero_window_padding" android:paddingEnd="@dimen/aero_window_padding" android:elevation="2.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="16.0sp" android:textColor="#ffffffff" android:gravity="center_vertical" android:layout_gravity="start|center|top" android:id="@id/title" android:layout_width="fill_parent" android:layout_height="fill_parent" android:singleLine="true" android:layout_weight="1.0" android:fontFamily="sec-roboto-condensed" android:layout_marginStart="@dimen/aero_window_title_margin_left_right" android:layout_marginEnd="@dimen/aero_window_title_margin_left_right" />
+        <ImageView android:layout_gravity="end|center|top" android:id="@id/close" android:background="@drawable/allapps_button_ripple_effect" android:layout_width="@dimen/aero_window_cancelbtn_size" android:layout_height="@dimen/aero_window_cancelbtn_size" android:layout_marginTop="@dimen/aero_window_cancelbtn_margin_top" android:layout_marginBottom="@dimen/aero_window_cancelbtn_margin_bottom" android:src="@drawable/tw_tb_ic_cancel_mtrl" android:tint="#fffafafa" android:contentDescription="@string/tooltip_close" android:layout_marginStart="@dimen/aero_window_title_margin_left_right" android:layout_marginEnd="@dimen/aero_window_title_margin_left_right" />
+    </LinearLayout>
+    <ImageView android:layout_gravity="bottom" android:id="@id/thumbnail" android:background="#ffebebeb" android:layout_width="@dimen/aero_window_preview_width" android:layout_height="@dimen/aero_window_preview_height" />
+</LinearLayout>

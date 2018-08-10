@@ -3,12 +3,18 @@
 .source "AppCompatCompoundButtonHelper.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/support/v7/widget/AppCompatCompoundButtonHelper$DirectSetButtonDrawableInterface;
+    }
+.end annotation
+
+
 # instance fields
 .field private mButtonTintList:Landroid/content/res/ColorStateList;
 
 .field private mButtonTintMode:Landroid/graphics/PorterDuff$Mode;
-
-.field private final mDrawableManager:Landroid/support/v7/widget/AppCompatDrawableManager;
 
 .field private mHasButtonTint:Z
 
@@ -20,7 +26,7 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/widget/CompoundButton;Landroid/support/v7/widget/AppCompatDrawableManager;)V
+.method constructor <init>(Landroid/widget/CompoundButton;)V
     .locals 2
 
     const/4 v1, 0x0
@@ -38,8 +44,6 @@
     iput-boolean v0, p0, Landroid/support/v7/widget/AppCompatCompoundButtonHelper;->mHasButtonTintMode:Z
 
     iput-object p1, p0, Landroid/support/v7/widget/AppCompatCompoundButtonHelper;->mView:Landroid/widget/CompoundButton;
-
-    iput-object p2, p0, Landroid/support/v7/widget/AppCompatCompoundButtonHelper;->mDrawableManager:Landroid/support/v7/widget/AppCompatDrawableManager;
 
     return-void
 .end method
@@ -180,15 +184,13 @@
 
     iget-object v2, p0, Landroid/support/v7/widget/AppCompatCompoundButtonHelper;->mView:Landroid/widget/CompoundButton;
 
-    iget-object v3, p0, Landroid/support/v7/widget/AppCompatCompoundButtonHelper;->mDrawableManager:Landroid/support/v7/widget/AppCompatDrawableManager;
+    iget-object v3, p0, Landroid/support/v7/widget/AppCompatCompoundButtonHelper;->mView:Landroid/widget/CompoundButton;
 
-    iget-object v4, p0, Landroid/support/v7/widget/AppCompatCompoundButtonHelper;->mView:Landroid/widget/CompoundButton;
+    invoke-virtual {v3}, Landroid/widget/CompoundButton;->getContext()Landroid/content/Context;
 
-    invoke-virtual {v4}, Landroid/widget/CompoundButton;->getContext()Landroid/content/Context;
+    move-result-object v3
 
-    move-result-object v4
-
-    invoke-virtual {v3, v4, v1}, Landroid/support/v7/widget/AppCompatDrawableManager;->getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
+    invoke-static {v3, v1}, Landroid/support/v7/content/res/AppCompatResources;->getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v3
 

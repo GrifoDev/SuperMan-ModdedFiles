@@ -39,7 +39,7 @@
 
 
 # direct methods
-.method public constructor <init>()V
+.method constructor <init>()V
     .locals 3
 
     const/4 v2, 0x0
@@ -108,7 +108,7 @@
 
     div-float/2addr v4, v5
 
-    invoke-static {v4, v8, v9}, Landroid/support/v4/widget/AutoScrollHelper;->-wrap1(FFF)F
+    invoke-static {v4, v8, v9}, Landroid/support/v4/widget/AutoScrollHelper;->constrain(FFF)F
 
     move-result v4
 
@@ -137,7 +137,7 @@
 
     div-float/2addr v6, v7
 
-    invoke-static {v6, v8, v9}, Landroid/support/v4/widget/AutoScrollHelper;->-wrap1(FFF)F
+    invoke-static {v6, v8, v9}, Landroid/support/v4/widget/AutoScrollHelper;->constrain(FFF)F
 
     move-result v6
 
@@ -337,7 +337,7 @@
 
     const/4 v4, 0x0
 
-    invoke-static {v2, v4, v3}, Landroid/support/v4/widget/AutoScrollHelper;->-wrap2(III)I
+    invoke-static {v2, v4, v3}, Landroid/support/v4/widget/AutoScrollHelper;->constrain(III)I
 
     move-result v2
 

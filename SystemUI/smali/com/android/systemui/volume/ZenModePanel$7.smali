@@ -20,24 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/systemui/volume/ZenModePanel;
 
-.field final synthetic val$row:Landroid/view/View;
-
-.field final synthetic val$rowId:I
-
 .field final synthetic val$tag:Lcom/android/systemui/volume/ZenModePanel$ConditionTag;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/volume/ZenModePanel;Landroid/view/View;Lcom/android/systemui/volume/ZenModePanel$ConditionTag;I)V
+.method constructor <init>(Lcom/android/systemui/volume/ZenModePanel;Lcom/android/systemui/volume/ZenModePanel$ConditionTag;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/volume/ZenModePanel$7;->this$0:Lcom/android/systemui/volume/ZenModePanel;
 
-    iput-object p2, p0, Lcom/android/systemui/volume/ZenModePanel$7;->val$row:Landroid/view/View;
-
-    iput-object p3, p0, Lcom/android/systemui/volume/ZenModePanel$7;->val$tag:Lcom/android/systemui/volume/ZenModePanel$ConditionTag;
-
-    iput p4, p0, Lcom/android/systemui/volume/ZenModePanel$7;->val$rowId:I
+    iput-object p2, p0, Lcom/android/systemui/volume/ZenModePanel$7;->val$tag:Lcom/android/systemui/volume/ZenModePanel$ConditionTag;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -47,19 +39,15 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 5
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/systemui/volume/ZenModePanel$7;->this$0:Lcom/android/systemui/volume/ZenModePanel;
+    iget-object v0, p0, Lcom/android/systemui/volume/ZenModePanel$7;->val$tag:Lcom/android/systemui/volume/ZenModePanel$ConditionTag;
 
-    iget-object v1, p0, Lcom/android/systemui/volume/ZenModePanel$7;->val$row:Landroid/view/View;
+    iget-object v0, v0, Lcom/android/systemui/volume/ZenModePanel$ConditionTag;->rb:Landroid/widget/RadioButton;
 
-    iget-object v2, p0, Lcom/android/systemui/volume/ZenModePanel$7;->val$tag:Lcom/android/systemui/volume/ZenModePanel$ConditionTag;
+    const/4 v1, 0x1
 
-    iget v3, p0, Lcom/android/systemui/volume/ZenModePanel$7;->val$rowId:I
-
-    const/4 v4, 0x0
-
-    invoke-static {v0, v1, v2, v4, v3}, Lcom/android/systemui/volume/ZenModePanel;->-wrap5(Lcom/android/systemui/volume/ZenModePanel;Landroid/view/View;Lcom/android/systemui/volume/ZenModePanel$ConditionTag;ZI)V
+    invoke-virtual {v0, v1}, Landroid/widget/RadioButton;->setChecked(Z)V
 
     return-void
 .end method

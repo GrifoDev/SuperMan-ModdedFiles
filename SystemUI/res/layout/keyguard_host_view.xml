@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.android.keyguard.KeyguardHostView android:id="@id/keyguard_host_view" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:importantForAccessibility="yes"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:androidprv="http://schemas.android.com/apk/res-auto">
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:androidprv="http://schemas.android.com/apk/res-auto" xmlns:sysui="http://schemas.android.com/apk/res-auto">
     <com.android.keyguard.KeyguardSecurityContainer android:layout_gravity="center" android:id="@id/keyguard_security_container" android:padding="0.0dip" android:clipChildren="false" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="wrap_content">
         <com.android.keyguard.KeyguardSecurityViewFlipper android:gravity="center" android:id="@id/view_flipper" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" />
     </com.android.keyguard.KeyguardSecurityContainer>
+    <com.android.systemui.widget.SystemUITextView android:gravity="center" android:layout_gravity="bottom|center" android:id="@id/keyguard_dex_emergency_text_view" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginBottom="@dimen/kg_dex_emergency_text_bottom_margin" android:text="@string/kg_dex_emergency_text" sysui:originColor="theme_keyguard_dex_emergency_text_color" sysui:originShadowColor="keyguard_text_shadow_color" sysui:whitebgColor="whitebg_keyguard_text_color" sysui:whitebgShadowColor="whitebg_keyguard_shadow_color" style="@style/keyguard_dex_emergency_text_style" />
 </com.android.keyguard.KeyguardHostView>

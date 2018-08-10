@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
   xmlns:android="http://schemas.android.com/apk/res/android" xmlns:systemui="http://schemas.android.com/apk/res-auto">
-    <TextView android:textAppearance="?android:textAppearanceSmall" android:textColor="?android:colorAccent" android:id="@id/charge_and_estimation" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="72.0dip" />
+    <TextView android:textAppearance="?android:textAppearanceSmall" android:textColor="?android:colorAccent" android:id="@id/charge_and_estimation" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="16.0dip" />
     <com.android.systemui.ResizingSpace android:layout_width="fill_parent" android:layout_height="@dimen/battery_detail_graph_space_top" />
-    <com.android.settingslib.graph.UsageView android:id="@id/battery_usage" android:layout_width="fill_parent" android:layout_height="141.0dip" android:layout_marginStart="16.0dip" android:layout_marginEnd="24.0dip" android:colorAccent="?android:colorAccent" systemui:sideLabels="@array/battery_labels" systemui:textColor="#66ffffff" />
+    <com.android.settingslib.graph.UsageView android:id="@id/battery_usage" android:layout_width="fill_parent" android:layout_height="141.0dip" android:layout_marginStart="16.0dip" android:layout_marginEnd="24.0dip" android:colorAccent="?android:colorAccent" systemui:sideLabels="@array/battery_labels" systemui:textColor="?android:textColorSecondary" />
     <com.android.systemui.ResizingSpace android:layout_width="fill_parent" android:layout_height="@dimen/battery_detail_graph_space_bottom" />
     <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_marginBottom="8.0dip" />
     <RelativeLayout android:id="@id/switch_container" android:background="?android:selectableItemBackground" android:paddingTop="16.0dip" android:paddingBottom="16.0dip" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content">

@@ -34,7 +34,7 @@
 
     move-result-object v0
 
-    invoke-static {p1}, Lcom/android/systemui/media/NotificationPlayer;->-get5(Lcom/android/systemui/media/NotificationPlayer;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/android/systemui/media/NotificationPlayer;->-get9(Lcom/android/systemui/media/NotificationPlayer;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -63,7 +63,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/media/NotificationPlayer$CmdThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
 
-    invoke-static {v1}, Lcom/android/systemui/media/NotificationPlayer;->-get1(Lcom/android/systemui/media/NotificationPlayer;)Ljava/util/LinkedList;
+    invoke-static {v1}, Lcom/android/systemui/media/NotificationPlayer;->-get2(Lcom/android/systemui/media/NotificationPlayer;)Ljava/util/LinkedList;
 
     move-result-object v4
 
@@ -72,7 +72,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/systemui/media/NotificationPlayer$CmdThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
 
-    invoke-static {v1}, Lcom/android/systemui/media/NotificationPlayer;->-get1(Lcom/android/systemui/media/NotificationPlayer;)Ljava/util/LinkedList;
+    invoke-static {v1}, Lcom/android/systemui/media/NotificationPlayer;->-get2(Lcom/android/systemui/media/NotificationPlayer;)Ljava/util/LinkedList;
 
     move-result-object v1
 
@@ -90,11 +90,10 @@
 
     packed-switch v1, :pswitch_data_0
 
-    :cond_0
     :goto_1
     iget-object v1, p0, Lcom/android/systemui/media/NotificationPlayer$CmdThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
 
-    invoke-static {v1}, Lcom/android/systemui/media/NotificationPlayer;->-get1(Lcom/android/systemui/media/NotificationPlayer;)Ljava/util/LinkedList;
+    invoke-static {v1}, Lcom/android/systemui/media/NotificationPlayer;->-get2(Lcom/android/systemui/media/NotificationPlayer;)Ljava/util/LinkedList;
 
     move-result-object v4
 
@@ -103,7 +102,7 @@
     :try_start_1
     iget-object v1, p0, Lcom/android/systemui/media/NotificationPlayer$CmdThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
 
-    invoke-static {v1}, Lcom/android/systemui/media/NotificationPlayer;->-get1(Lcom/android/systemui/media/NotificationPlayer;)Ljava/util/LinkedList;
+    invoke-static {v1}, Lcom/android/systemui/media/NotificationPlayer;->-get2(Lcom/android/systemui/media/NotificationPlayer;)Ljava/util/LinkedList;
 
     move-result-object v1
 
@@ -117,13 +116,13 @@
 
     const/4 v5, 0x0
 
-    invoke-static {v1, v5}, Lcom/android/systemui/media/NotificationPlayer;->-set3(Lcom/android/systemui/media/NotificationPlayer;Lcom/android/systemui/media/NotificationPlayer$CmdThread;)Lcom/android/systemui/media/NotificationPlayer$CmdThread;
+    invoke-static {v1, v5}, Lcom/android/systemui/media/NotificationPlayer;->-set4(Lcom/android/systemui/media/NotificationPlayer;Lcom/android/systemui/media/NotificationPlayer$CmdThread;)Lcom/android/systemui/media/NotificationPlayer$CmdThread;
 
     iget-object v1, p0, Lcom/android/systemui/media/NotificationPlayer$CmdThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
 
     invoke-static {v1}, Lcom/android/systemui/media/NotificationPlayer;->-wrap0(Lcom/android/systemui/media/NotificationPlayer;)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_2
+    .catchall {:try_start_1 .. :try_end_1} :catchall_3
 
     monitor-exit v4
 
@@ -146,7 +145,7 @@
     :pswitch_1
     iget-object v1, p0, Lcom/android/systemui/media/NotificationPlayer$CmdThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
 
-    invoke-static {v1}, Lcom/android/systemui/media/NotificationPlayer;->-get3(Lcom/android/systemui/media/NotificationPlayer;)Landroid/media/MediaPlayer;
+    invoke-static {v1}, Lcom/android/systemui/media/NotificationPlayer;->-get7(Lcom/android/systemui/media/NotificationPlayer;)Landroid/media/MediaPlayer;
 
     move-result-object v1
 
@@ -164,11 +163,11 @@
 
     cmp-long v1, v2, v4
 
-    if-lez v1, :cond_1
+    if-lez v1, :cond_0
 
     iget-object v1, p0, Lcom/android/systemui/media/NotificationPlayer$CmdThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
 
-    invoke-static {v1}, Lcom/android/systemui/media/NotificationPlayer;->-get5(Lcom/android/systemui/media/NotificationPlayer;)Ljava/lang/String;
+    invoke-static {v1}, Lcom/android/systemui/media/NotificationPlayer;->-get9(Lcom/android/systemui/media/NotificationPlayer;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -198,10 +197,10 @@
 
     invoke-static {v1, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_1
+    :cond_0
     iget-object v1, p0, Lcom/android/systemui/media/NotificationPlayer$CmdThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
 
-    invoke-static {v1}, Lcom/android/systemui/media/NotificationPlayer;->-get3(Lcom/android/systemui/media/NotificationPlayer;)Landroid/media/MediaPlayer;
+    invoke-static {v1}, Lcom/android/systemui/media/NotificationPlayer;->-get7(Lcom/android/systemui/media/NotificationPlayer;)Landroid/media/MediaPlayer;
 
     move-result-object v1
 
@@ -209,7 +208,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/media/NotificationPlayer$CmdThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
 
-    invoke-static {v1}, Lcom/android/systemui/media/NotificationPlayer;->-get3(Lcom/android/systemui/media/NotificationPlayer;)Landroid/media/MediaPlayer;
+    invoke-static {v1}, Lcom/android/systemui/media/NotificationPlayer;->-get7(Lcom/android/systemui/media/NotificationPlayer;)Landroid/media/MediaPlayer;
 
     move-result-object v1
 
@@ -217,11 +216,11 @@
 
     iget-object v1, p0, Lcom/android/systemui/media/NotificationPlayer$CmdThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
 
-    invoke-static {v1, v8}, Lcom/android/systemui/media/NotificationPlayer;->-set2(Lcom/android/systemui/media/NotificationPlayer;Landroid/media/MediaPlayer;)Landroid/media/MediaPlayer;
+    invoke-static {v1, v8}, Lcom/android/systemui/media/NotificationPlayer;->-set3(Lcom/android/systemui/media/NotificationPlayer;Landroid/media/MediaPlayer;)Landroid/media/MediaPlayer;
 
     iget-object v1, p0, Lcom/android/systemui/media/NotificationPlayer$CmdThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
 
-    invoke-static {v1}, Lcom/android/systemui/media/NotificationPlayer;->-get4(Lcom/android/systemui/media/NotificationPlayer;)Ljava/lang/Object;
+    invoke-static {v1}, Lcom/android/systemui/media/NotificationPlayer;->-get8(Lcom/android/systemui/media/NotificationPlayer;)Ljava/lang/Object;
 
     move-result-object v4
 
@@ -234,7 +233,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1
 
     iget-object v1, p0, Lcom/android/systemui/media/NotificationPlayer$CmdThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
 
@@ -254,20 +253,29 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    :cond_2
+    :cond_1
     monitor-exit v4
 
     iget-object v1, p0, Lcom/android/systemui/media/NotificationPlayer$CmdThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
 
-    invoke-static {v1}, Lcom/android/systemui/media/NotificationPlayer;->-get2(Lcom/android/systemui/media/NotificationPlayer;)Landroid/os/Looper;
+    invoke-static {v1}, Lcom/android/systemui/media/NotificationPlayer;->-get3(Lcom/android/systemui/media/NotificationPlayer;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    monitor-enter v4
+
+    :try_start_3
+    iget-object v1, p0, Lcom/android/systemui/media/NotificationPlayer$CmdThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
+
+    invoke-static {v1}, Lcom/android/systemui/media/NotificationPlayer;->-get4(Lcom/android/systemui/media/NotificationPlayer;)Landroid/os/Looper;
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2
 
     iget-object v1, p0, Lcom/android/systemui/media/NotificationPlayer$CmdThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
 
-    invoke-static {v1}, Lcom/android/systemui/media/NotificationPlayer;->-get2(Lcom/android/systemui/media/NotificationPlayer;)Landroid/os/Looper;
+    invoke-static {v1}, Lcom/android/systemui/media/NotificationPlayer;->-get4(Lcom/android/systemui/media/NotificationPlayer;)Landroid/os/Looper;
 
     move-result-object v1
 
@@ -279,17 +287,22 @@
 
     move-result-object v1
 
-    sget-object v4, Ljava/lang/Thread$State;->TERMINATED:Ljava/lang/Thread$State;
+    sget-object v5, Ljava/lang/Thread$State;->TERMINATED:Ljava/lang/Thread$State;
 
-    if-eq v1, v4, :cond_0
+    if-eq v1, v5, :cond_2
 
     iget-object v1, p0, Lcom/android/systemui/media/NotificationPlayer$CmdThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
 
-    invoke-static {v1}, Lcom/android/systemui/media/NotificationPlayer;->-get2(Lcom/android/systemui/media/NotificationPlayer;)Landroid/os/Looper;
+    invoke-static {v1}, Lcom/android/systemui/media/NotificationPlayer;->-get4(Lcom/android/systemui/media/NotificationPlayer;)Landroid/os/Looper;
 
     move-result-object v1
 
     invoke-virtual {v1}, Landroid/os/Looper;->quit()V
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_2
+
+    :cond_2
+    monitor-exit v4
 
     goto/16 :goto_1
 
@@ -300,10 +313,17 @@
 
     throw v1
 
+    :catchall_2
+    move-exception v1
+
+    monitor-exit v4
+
+    throw v1
+
     :cond_3
     iget-object v1, p0, Lcom/android/systemui/media/NotificationPlayer$CmdThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
 
-    invoke-static {v1}, Lcom/android/systemui/media/NotificationPlayer;->-get5(Lcom/android/systemui/media/NotificationPlayer;)Ljava/lang/String;
+    invoke-static {v1}, Lcom/android/systemui/media/NotificationPlayer;->-get9(Lcom/android/systemui/media/NotificationPlayer;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -318,14 +338,12 @@
 
     goto/16 :goto_0
 
-    :catchall_2
+    :catchall_3
     move-exception v1
 
     monitor-exit v4
 
     throw v1
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x1

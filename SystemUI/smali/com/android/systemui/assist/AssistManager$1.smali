@@ -41,13 +41,13 @@
 
     iget-object v0, p0, Lcom/android/systemui/assist/AssistManager$1;->this$0:Lcom/android/systemui/assist/AssistManager;
 
-    invoke-static {v0}, Lcom/android/systemui/assist/AssistManager;->-get3(Lcom/android/systemui/assist/AssistManager;)Lcom/android/systemui/assist/AssistOrbContainer;
+    invoke-static {v0}, Lcom/android/systemui/assist/AssistManager;->-get2(Lcom/android/systemui/assist/AssistManager;)Lcom/android/systemui/assist/AssistOrbContainer;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/systemui/assist/AssistManager$1;->this$0:Lcom/android/systemui/assist/AssistManager;
 
-    invoke-static {v1}, Lcom/android/systemui/assist/AssistManager;->-get1(Lcom/android/systemui/assist/AssistManager;)Ljava/lang/Runnable;
+    invoke-static {v1}, Lcom/android/systemui/assist/AssistManager;->-get0(Lcom/android/systemui/assist/AssistManager;)Ljava/lang/Runnable;
 
     move-result-object v1
 
@@ -66,13 +66,13 @@
 
     iget-object v0, p0, Lcom/android/systemui/assist/AssistManager$1;->this$0:Lcom/android/systemui/assist/AssistManager;
 
-    invoke-static {v0}, Lcom/android/systemui/assist/AssistManager;->-get3(Lcom/android/systemui/assist/AssistManager;)Lcom/android/systemui/assist/AssistOrbContainer;
+    invoke-static {v0}, Lcom/android/systemui/assist/AssistManager;->-get2(Lcom/android/systemui/assist/AssistManager;)Lcom/android/systemui/assist/AssistOrbContainer;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/systemui/assist/AssistManager$1;->this$0:Lcom/android/systemui/assist/AssistManager;
 
-    invoke-static {v1}, Lcom/android/systemui/assist/AssistManager;->-get1(Lcom/android/systemui/assist/AssistManager;)Ljava/lang/Runnable;
+    invoke-static {v1}, Lcom/android/systemui/assist/AssistManager;->-get0(Lcom/android/systemui/assist/AssistManager;)Ljava/lang/Runnable;
 
     move-result-object v1
 

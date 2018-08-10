@@ -1,10 +1,10 @@
 .class public Lcom/android/settingslib/SecRestrictedSwitchPreference;
-.super Landroid/preference/SwitchPreference;
+.super Landroid/support/v14/preference/SwitchPreference;
 .source "SecRestrictedSwitchPreference.java"
 
 
 # instance fields
-.field mHelper:Lcom/samsung/android/settingslib/RestrictedPreferenceHelper;
+.field mHelper:Lcom/android/settingslib/RestrictedPreferenceHelper;
 
 .field mRestrictedSwitchSummary:Ljava/lang/String;
 
@@ -41,17 +41,17 @@
 
     sget v4, Lcom/android/settingslib/R$style;->SecRestrictedSwitchPreference:I
 
-    invoke-direct {p0, p1, p2, v5, v4}, Landroid/preference/SwitchPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
+    invoke-direct {p0, p1, p2, v5, v4}, Landroid/support/v14/preference/SwitchPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
     iput-boolean v5, p0, Lcom/android/settingslib/SecRestrictedSwitchPreference;->mUseAdditionalSummary:Z
 
     iput-object v6, p0, Lcom/android/settingslib/SecRestrictedSwitchPreference;->mRestrictedSwitchSummary:Ljava/lang/String;
 
-    new-instance v4, Lcom/samsung/android/settingslib/RestrictedPreferenceHelper;
+    new-instance v4, Lcom/android/settingslib/RestrictedPreferenceHelper;
 
-    invoke-direct {v4, p1, p0, p2}, Lcom/samsung/android/settingslib/RestrictedPreferenceHelper;-><init>(Landroid/content/Context;Landroid/preference/Preference;Landroid/util/AttributeSet;)V
+    invoke-direct {v4, p1, p0, p2}, Lcom/android/settingslib/RestrictedPreferenceHelper;-><init>(Landroid/content/Context;Landroid/support/v7/preference/Preference;Landroid/util/AttributeSet;)V
 
-    iput-object v4, p0, Lcom/android/settingslib/SecRestrictedSwitchPreference;->mHelper:Lcom/samsung/android/settingslib/RestrictedPreferenceHelper;
+    iput-object v4, p0, Lcom/android/settingslib/SecRestrictedSwitchPreference;->mHelper:Lcom/android/settingslib/RestrictedPreferenceHelper;
 
     if-eqz p2, :cond_2
 
@@ -173,49 +173,49 @@
 .method public isDisabledByAdmin()Z
     .locals 1
 
-    iget-object v0, p0, Lcom/android/settingslib/SecRestrictedSwitchPreference;->mHelper:Lcom/samsung/android/settingslib/RestrictedPreferenceHelper;
+    iget-object v0, p0, Lcom/android/settingslib/SecRestrictedSwitchPreference;->mHelper:Lcom/android/settingslib/RestrictedPreferenceHelper;
 
-    invoke-virtual {v0}, Lcom/samsung/android/settingslib/RestrictedPreferenceHelper;->isDisabledByAdmin()Z
+    invoke-virtual {v0}, Lcom/android/settingslib/RestrictedPreferenceHelper;->isDisabledByAdmin()Z
 
     move-result v0
 
     return v0
 .end method
 
-.method protected onAttachedToHierarchy(Landroid/preference/PreferenceManager;)V
+.method protected onAttachedToHierarchy(Landroid/support/v7/preference/PreferenceManager;)V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/settingslib/SecRestrictedSwitchPreference;->mHelper:Lcom/samsung/android/settingslib/RestrictedPreferenceHelper;
+    iget-object v0, p0, Lcom/android/settingslib/SecRestrictedSwitchPreference;->mHelper:Lcom/android/settingslib/RestrictedPreferenceHelper;
 
-    invoke-virtual {v0}, Lcom/samsung/android/settingslib/RestrictedPreferenceHelper;->onAttachedToHierarchy()V
+    invoke-virtual {v0}, Lcom/android/settingslib/RestrictedPreferenceHelper;->onAttachedToHierarchy()V
 
-    invoke-super {p0, p1}, Landroid/preference/SwitchPreference;->onAttachedToHierarchy(Landroid/preference/PreferenceManager;)V
+    invoke-super {p0, p1}, Landroid/support/v14/preference/SwitchPreference;->onAttachedToHierarchy(Landroid/support/v7/preference/PreferenceManager;)V
 
     return-void
 .end method
 
-.method public onBindView(Landroid/view/View;)V
+.method public onBindViewHolder(Landroid/support/v7/preference/PreferenceViewHolder;)V
     .locals 7
 
     const/16 v6, 0x8
 
     const/4 v5, 0x0
 
-    invoke-super {p0, p1}, Landroid/preference/SwitchPreference;->onBindView(Landroid/view/View;)V
+    invoke-super {p0, p1}, Landroid/support/v14/preference/SwitchPreference;->onBindViewHolder(Landroid/support/v7/preference/PreferenceViewHolder;)V
 
-    iget-object v4, p0, Lcom/android/settingslib/SecRestrictedSwitchPreference;->mHelper:Lcom/samsung/android/settingslib/RestrictedPreferenceHelper;
+    iget-object v4, p0, Lcom/android/settingslib/SecRestrictedSwitchPreference;->mHelper:Lcom/android/settingslib/RestrictedPreferenceHelper;
 
-    invoke-virtual {v4, p1}, Lcom/samsung/android/settingslib/RestrictedPreferenceHelper;->onBindView(Landroid/view/View;)V
+    invoke-virtual {v4, p1}, Lcom/android/settingslib/RestrictedPreferenceHelper;->onBindViewHolder(Landroid/support/v7/preference/PreferenceViewHolder;)V
 
     sget v4, Lcom/android/settingslib/R$id;->restricted_icon:I
 
-    invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p1, v4}, Landroid/support/v7/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
     const v4, 0x1020040
 
-    invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p1, v4}, Landroid/support/v7/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
@@ -253,7 +253,7 @@
 
     sget v4, Lcom/android/settingslib/R$id;->additional_summary:I
 
-    invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p1, v4}, Landroid/support/v7/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -295,7 +295,7 @@
     :cond_6
     const v4, 0x1020010
 
-    invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p1, v4}, Landroid/support/v7/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -318,18 +318,18 @@
     goto :goto_2
 .end method
 
-.method public performClick(Landroid/preference/PreferenceScreen;)V
+.method public performClick()V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/settingslib/SecRestrictedSwitchPreference;->mHelper:Lcom/samsung/android/settingslib/RestrictedPreferenceHelper;
+    iget-object v0, p0, Lcom/android/settingslib/SecRestrictedSwitchPreference;->mHelper:Lcom/android/settingslib/RestrictedPreferenceHelper;
 
-    invoke-virtual {v0}, Lcom/samsung/android/settingslib/RestrictedPreferenceHelper;->performClick()Z
+    invoke-virtual {v0}, Lcom/android/settingslib/RestrictedPreferenceHelper;->performClick()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    invoke-super {p0, p1}, Landroid/preference/SwitchPreference;->performClick(Landroid/preference/PreferenceScreen;)V
+    invoke-super {p0}, Landroid/support/v14/preference/SwitchPreference;->performClick()V
 
     :cond_0
     return-void
@@ -346,16 +346,16 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/settingslib/SecRestrictedSwitchPreference;->mHelper:Lcom/samsung/android/settingslib/RestrictedPreferenceHelper;
+    iget-object v0, p0, Lcom/android/settingslib/SecRestrictedSwitchPreference;->mHelper:Lcom/android/settingslib/RestrictedPreferenceHelper;
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/samsung/android/settingslib/RestrictedPreferenceHelper;->setDisabledByAdmin(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)Z
+    invoke-virtual {v0, v1}, Lcom/android/settingslib/RestrictedPreferenceHelper;->setDisabledByAdmin(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)Z
 
     return-void
 
     :cond_0
-    invoke-super {p0, p1}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+    invoke-super {p0, p1}, Landroid/support/v14/preference/SwitchPreference;->setEnabled(Z)V
 
     return-void
 .end method
@@ -363,9 +363,9 @@
 .method public useAdminDisabledSummary(Z)V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/settingslib/SecRestrictedSwitchPreference;->mHelper:Lcom/samsung/android/settingslib/RestrictedPreferenceHelper;
+    iget-object v0, p0, Lcom/android/settingslib/SecRestrictedSwitchPreference;->mHelper:Lcom/android/settingslib/RestrictedPreferenceHelper;
 
-    invoke-virtual {v0, p1}, Lcom/samsung/android/settingslib/RestrictedPreferenceHelper;->useAdminDisabledSummary(Z)V
+    invoke-virtual {v0, p1}, Lcom/android/settingslib/RestrictedPreferenceHelper;->useAdminDisabledSummary(Z)V
 
     return-void
 .end method

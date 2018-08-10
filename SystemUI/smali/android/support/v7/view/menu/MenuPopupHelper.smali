@@ -2,8 +2,17 @@
 .super Ljava/lang/Object;
 .source "MenuPopupHelper.java"
 
+# interfaces
+.implements Landroid/support/v7/view/menu/MenuHelper;
+
 
 # annotations
+.annotation build Landroid/support/annotation/RestrictTo;
+    value = {
+        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/support/v7/view/menu/MenuPopupHelper$1;
@@ -178,12 +187,12 @@
 
     move-result v10
 
-    if-lt v11, v10, :cond_2
+    if-lt v11, v10, :cond_1
 
     const/4 v9, 0x1
 
     :goto_1
-    if-eqz v9, :cond_3
+    if-eqz v9, :cond_2
 
     new-instance v0, Landroid/support/v7/view/menu/CascadingMenuPopup;
 
@@ -227,35 +236,16 @@
     return-object v0
 
     :cond_0
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0xd
-
-    if-lt v1, v2, :cond_1
-
     invoke-virtual {v7, v8}, Landroid/view/Display;->getSize(Landroid/graphics/Point;)V
 
     goto :goto_0
 
     :cond_1
-    invoke-virtual {v7}, Landroid/view/Display;->getWidth()I
-
-    move-result v1
-
-    invoke-virtual {v7}, Landroid/view/Display;->getHeight()I
-
-    move-result v2
-
-    invoke-virtual {v8, v1, v2}, Landroid/graphics/Point;->set(II)V
-
-    goto :goto_0
-
-    :cond_2
     const/4 v9, 0x0
 
     goto :goto_1
 
-    :cond_3
+    :cond_2
     new-instance v0, Landroid/support/v7/view/menu/StandardMenuPopup;
 
     iget-object v1, p0, Landroid/support/v7/view/menu/MenuPopupHelper;->mContext:Landroid/content/Context;
@@ -310,7 +300,7 @@
 
     move-result v5
 
-    sub-int/2addr p1, v5
+    add-int/2addr p1, v5
 
     :cond_0
     invoke-virtual {v4, p1}, Landroid/support/v7/view/menu/MenuPopup;->setHorizontalOffset(I)V

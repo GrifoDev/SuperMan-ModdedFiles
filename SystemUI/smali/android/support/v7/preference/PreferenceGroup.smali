@@ -6,7 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/support/v7/preference/PreferenceGroup$1;
+        Landroid/support/v7/preference/PreferenceGroup$1;,
+        Landroid/support/v7/preference/PreferenceGroup$PreferencePositionCallback;
     }
 .end annotation
 
@@ -133,6 +134,85 @@
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     return-void
+.end method
+
+.method private removePreferenceInt(Landroid/support/v7/preference/Preference;)Z
+    .locals 6
+
+    monitor-enter p0
+
+    :try_start_0
+    invoke-virtual {p1}, Landroid/support/v7/preference/Preference;->onPrepareForRemoval()V
+
+    invoke-virtual {p1}, Landroid/support/v7/preference/Preference;->getParent()Landroid/support/v7/preference/PreferenceGroup;
+
+    move-result-object v2
+
+    if-ne v2, p0, :cond_0
+
+    const/4 v2, 0x0
+
+    invoke-virtual {p1, v2}, Landroid/support/v7/preference/Preference;->assignParent(Landroid/support/v7/preference/PreferenceGroup;)V
+
+    :cond_0
+    iget-object v2, p0, Landroid/support/v7/preference/PreferenceGroup;->mPreferenceList:Ljava/util/List;
+
+    invoke-interface {v2, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    invoke-virtual {p1}, Landroid/support/v7/preference/Preference;->getKey()Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v2, p0, Landroid/support/v7/preference/PreferenceGroup;->mIdRecycleCache:Landroid/support/v4/util/SimpleArrayMap;
+
+    invoke-virtual {p1}, Landroid/support/v7/preference/Preference;->getId()J
+
+    move-result-wide v4
+
+    invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v0, v3}, Landroid/support/v4/util/SimpleArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v2, p0, Landroid/support/v7/preference/PreferenceGroup;->mHandler:Landroid/os/Handler;
+
+    iget-object v3, p0, Landroid/support/v7/preference/PreferenceGroup;->mClearRecycleCacheRunnable:Ljava/lang/Runnable;
+
+    invoke-virtual {v2, v3}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+
+    iget-object v2, p0, Landroid/support/v7/preference/PreferenceGroup;->mHandler:Landroid/os/Handler;
+
+    iget-object v3, p0, Landroid/support/v7/preference/PreferenceGroup;->mClearRecycleCacheRunnable:Ljava/lang/Runnable;
+
+    invoke-virtual {v2, v3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    :cond_1
+    iget-boolean v2, p0, Landroid/support/v7/preference/PreferenceGroup;->mAttachedToHierarchy:Z
+
+    if-eqz v2, :cond_2
+
+    invoke-virtual {p1}, Landroid/support/v7/preference/Preference;->onDetached()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_2
+    monitor-exit p0
+
+    return v1
+
+    :catchall_0
+    move-exception v2
+
+    monitor-exit p0
+
+    throw v2
 .end method
 
 
@@ -266,6 +346,8 @@
 
     :goto_0
     invoke-virtual {p1, v4, v0, v1}, Landroid/support/v7/preference/Preference;->onAttachedToHierarchy(Landroid/support/v7/preference/PreferenceManager;J)V
+
+    invoke-virtual {p1, p0}, Landroid/support/v7/preference/Preference;->assignParent(Landroid/support/v7/preference/PreferenceGroup;)V
 
     iget-boolean v5, p0, Landroid/support/v7/preference/PreferenceGroup;->mAttachedToHierarchy:Z
 
@@ -554,6 +636,18 @@
     invoke-virtual {p1, p0, v0}, Landroid/support/v7/preference/Preference;->onParentChanged(Landroid/support/v7/preference/Preference;Z)V
 
     const/4 v0, 0x1
+
+    return v0
+.end method
+
+.method public removePreference(Landroid/support/v7/preference/Preference;)Z
+    .locals 1
+
+    invoke-direct {p0, p1}, Landroid/support/v7/preference/PreferenceGroup;->removePreferenceInt(Landroid/support/v7/preference/Preference;)Z
+
+    move-result v0
+
+    invoke-virtual {p0}, Landroid/support/v7/preference/PreferenceGroup;->notifyHierarchyChanged()V
 
     return v0
 .end method

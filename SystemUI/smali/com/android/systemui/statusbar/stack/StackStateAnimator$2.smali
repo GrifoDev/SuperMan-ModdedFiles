@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/stack/StackStateAnimator;->startShadowAlphaAnimation(Lcom/android/systemui/statusbar/ExpandableView;Lcom/android/systemui/statusbar/stack/StackViewState;JJ)V
+    value = Lcom/android/systemui/statusbar/stack/StackStateAnimator;->getGlobalAnimationFinishedListener()Landroid/animation/AnimatorListenerAdapter;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -15,18 +15,16 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/stack/StackStateAnimator;
+.field private mWasCancelled:Z
 
-.field final synthetic val$child:Lcom/android/systemui/statusbar/ExpandableView;
+.field final synthetic this$0:Lcom/android/systemui/statusbar/stack/StackStateAnimator;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/stack/StackStateAnimator;Lcom/android/systemui/statusbar/ExpandableView;)V
+.method constructor <init>(Lcom/android/systemui/statusbar/stack/StackStateAnimator;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/stack/StackStateAnimator$2;->this$0:Lcom/android/systemui/statusbar/stack/StackStateAnimator;
-
-    iput-object p2, p0, Lcom/android/systemui/statusbar/stack/StackStateAnimator$2;->val$child:Lcom/android/systemui/statusbar/ExpandableView;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
 
@@ -35,28 +33,75 @@
 
 
 # virtual methods
+.method public onAnimationCancel(Landroid/animation/Animator;)V
+    .locals 1
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/stack/StackStateAnimator$2;->mWasCancelled:Z
+
+    return-void
+.end method
+
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 3
+    .locals 1
 
-    const/4 v2, 0x0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/stack/StackStateAnimator$2;->this$0:Lcom/android/systemui/statusbar/stack/StackStateAnimator;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/stack/StackStateAnimator$2;->val$child:Lcom/android/systemui/statusbar/ExpandableView;
+    invoke-static {v0}, Lcom/android/systemui/statusbar/stack/StackStateAnimator;->-get2(Lcom/android/systemui/statusbar/stack/StackStateAnimator;)Ljava/util/HashSet;
 
-    const v1, 0x7f130026
+    move-result-object v0
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/statusbar/ExpandableView;->setTag(ILjava/lang/Object;)V
+    invoke-virtual {v0, p1}, Ljava/util/HashSet;->remove(Ljava/lang/Object;)Z
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/stack/StackStateAnimator$2;->val$child:Lcom/android/systemui/statusbar/ExpandableView;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/stack/StackStateAnimator$2;->this$0:Lcom/android/systemui/statusbar/stack/StackStateAnimator;
 
-    const v1, 0x7f130032
+    invoke-static {v0}, Lcom/android/systemui/statusbar/stack/StackStateAnimator;->-get2(Lcom/android/systemui/statusbar/stack/StackStateAnimator;)Ljava/util/HashSet;
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/statusbar/ExpandableView;->setTag(ILjava/lang/Object;)V
+    move-result-object v0
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/stack/StackStateAnimator$2;->val$child:Lcom/android/systemui/statusbar/ExpandableView;
+    invoke-virtual {v0}, Ljava/util/HashSet;->isEmpty()Z
 
-    const v1, 0x7f13002c
+    move-result v0
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/statusbar/ExpandableView;->setTag(ILjava/lang/Object;)V
+    if-eqz v0, :cond_0
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/stack/StackStateAnimator$2;->mWasCancelled:Z
+
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/stack/StackStateAnimator$2;->this$0:Lcom/android/systemui/statusbar/stack/StackStateAnimator;
+
+    invoke-static {v0}, Lcom/android/systemui/statusbar/stack/StackStateAnimator;->-wrap1(Lcom/android/systemui/statusbar/stack/StackStateAnimator;)V
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/stack/StackStateAnimator$2;->this$0:Lcom/android/systemui/statusbar/stack/StackStateAnimator;
+
+    invoke-static {v0}, Lcom/android/systemui/statusbar/stack/StackStateAnimator;->-get1(Lcom/android/systemui/statusbar/stack/StackStateAnimator;)Ljava/util/Stack;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
+
+    return-void
+.end method
+
+.method public onAnimationStart(Landroid/animation/Animator;)V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/stack/StackStateAnimator$2;->mWasCancelled:Z
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/stack/StackStateAnimator$2;->this$0:Lcom/android/systemui/statusbar/stack/StackStateAnimator;
+
+    invoke-static {v0}, Lcom/android/systemui/statusbar/stack/StackStateAnimator;->-get2(Lcom/android/systemui/statusbar/stack/StackStateAnimator;)Ljava/util/HashSet;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method

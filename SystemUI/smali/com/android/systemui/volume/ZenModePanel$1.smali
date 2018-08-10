@@ -1,6 +1,9 @@
 .class Lcom/android/systemui/volume/ZenModePanel$1;
-.super Lcom/android/systemui/statusbar/policy/ZenModeController$Callback;
+.super Ljava/lang/Object;
 .source "ZenModePanel.java"
+
+# interfaces
+.implements Lcom/android/systemui/statusbar/policy/ZenModeController$Callback;
 
 
 # annotations
@@ -24,7 +27,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/volume/ZenModePanel$1;->this$0:Lcom/android/systemui/volume/ZenModePanel;
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/ZenModeController$Callback;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -36,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/volume/ZenModePanel$1;->this$0:Lcom/android/systemui/volume/ZenModePanel;
 
-    invoke-static {v0}, Lcom/android/systemui/volume/ZenModePanel;->-get7(Lcom/android/systemui/volume/ZenModePanel;)Lcom/android/systemui/volume/ZenModePanel$H;
+    invoke-static {v0}, Lcom/android/systemui/volume/ZenModePanel;->-get6(Lcom/android/systemui/volume/ZenModePanel;)Lcom/android/systemui/volume/ZenModePanel$H;
 
     move-result-object v0
 

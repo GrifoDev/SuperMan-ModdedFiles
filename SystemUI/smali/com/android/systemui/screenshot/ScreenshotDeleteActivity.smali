@@ -39,21 +39,11 @@
 .end method
 
 .method private doFinish()V
-    .locals 4
+    .locals 2
 
-    invoke-virtual {p0}, Lcom/android/systemui/screenshot/ScreenshotDeleteActivity;->getBaseContext()Landroid/content/Context;
+    const v1, 0x7f1207ff
 
-    move-result-object v1
-
-    const v2, 0x7f0f0285
-
-    const/4 v3, 0x0
-
-    invoke-static {v1, v2, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/widget/Toast;->show()V
+    invoke-static {p0, v1}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;I)V
 
     const-string/jumbo v1, "notification"
 
@@ -110,12 +100,10 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    xor-int/lit8 v2, v2, 0x1
 
-    :cond_1
-    return v4
+    if-eqz v2, :cond_1
 
-    :cond_2
     const/4 v2, 0x4
 
     invoke-virtual {v1, v4, v2}, Ljava/lang/String;->subSequence(II)Ljava/lang/CharSequence;
@@ -139,6 +127,9 @@
     if-lt v2, v3, :cond_1
 
     return v5
+
+    :cond_1
+    return v4
 .end method
 
 
@@ -153,6 +144,12 @@
     const/4 v4, 0x1
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/screenshot/ScreenshotDeleteActivity;->requestWindowFeature(I)Z
+
+    const-string/jumbo v4, "ScreenshotDeleteActivity"
+
+    const-string/jumbo v5, "onCreate()"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {p0}, Lcom/android/systemui/screenshot/ScreenshotDeleteActivity;->getIntent()Landroid/content/Intent;
 
@@ -174,7 +171,7 @@
 
     const-string/jumbo v5, "onCreate : mImageFilePath is null."
 
-    invoke-static {v4, v5}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-direct {p0}, Lcom/android/systemui/screenshot/ScreenshotDeleteActivity;->doFinish()V
 
@@ -197,7 +194,7 @@
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "onCreate : "
+    const-string/jumbo v6, "mImageFilePath : "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -213,7 +210,7 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     const-string/jumbo v4, "currentUserHandle"
 
@@ -243,7 +240,7 @@
 
     const-string/jumbo v5, "onCreate : Item is not exist."
 
-    invoke-static {v4, v5}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-direct {p0}, Lcom/android/systemui/screenshot/ScreenshotDeleteActivity;->doFinish()V
 
@@ -273,7 +270,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0f0286
+    const v5, 0x7f120827
 
     invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -283,7 +280,7 @@
 
     move-result-object v4
 
-    const v5, 0x1040370
+    const v5, 0x1040289
 
     invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -297,7 +294,7 @@
 
     move-result-object v4
 
-    const v5, 0x1040009
+    const v5, 0x7f120a0d
 
     invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -361,7 +358,7 @@
 
     const-string/jumbo v5, "Fail : Invaild intent action"
 
-    invoke-static {v4, v5}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {p0}, Lcom/android/systemui/screenshot/ScreenshotDeleteActivity;->finish()V
 
@@ -372,7 +369,7 @@
 
     const-string/jumbo v5, "Fail : mAlertDialog is null"
 
-    invoke-static {v4, v5}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {p0}, Lcom/android/systemui/screenshot/ScreenshotDeleteActivity;->finish()V
 
@@ -380,20 +377,9 @@
 .end method
 
 .method protected onPause()V
-    .locals 1
+    .locals 0
 
     invoke-super {p0}, Landroid/app/Activity;->onPause()V
-
-    iget-object v0, p0, Lcom/android/systemui/screenshot/ScreenshotDeleteActivity;->mAlertDialog:Landroid/app/AlertDialog;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/screenshot/ScreenshotDeleteActivity;->mAlertDialog:Landroid/app/AlertDialog;
-
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
-
-    :cond_0
-    invoke-virtual {p0}, Lcom/android/systemui/screenshot/ScreenshotDeleteActivity;->finish()V
 
     return-void
 .end method

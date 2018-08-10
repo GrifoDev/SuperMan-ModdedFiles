@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <plurals name="status_bar_accessibility_recent_apps">
-        <item quantity="other">1 pantalla en la visió general</item>
-        <item quantity="one">%d pantalles en la visió general</item>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">Queden %d intents</item>
+        <item quantity="one">Queden %d intents</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(%d intents restants)</item>
+        <item quantity="one">(1 intent restant)</item>
     </plurals>
     <plurals name="kg_password_wrong_pin_code">
         <item quantity="other">El codi PIN de la SIM no és correcte. Et queden %d intents.</item>
         <item quantity="one">"El codi PIN de la SIM no és correcte. Et queda %d intent; si no l'encertes, contacta amb l'operador de telefonia mòbil per desbloquejar el dispositiu."</item>
     </plurals>
     <plurals name="kg_password_wrong_puk_code">
-        <item quantity="other">"El codi PUK de la SIM no és correcte. Et queden %d intents; si no l'encertes, la SIM no es podrà tornar a fer servir."</item>
+        <item quantity="other">El codi PUK de la SIM no és correcte. Et queden %d intents; si els esgotes tots, la SIM no es podrà tornar a fer servir.</item>
         <item quantity="one">"El codi PUK de la SIM no és correcte. Et queda %d intent; si no l'encertes, la SIM no es podrà tornar a fer servir."</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">Fa %d hores que no es desbloqueja el dispositiu. Confirma la contrasenya.</item>
+        <item quantity="one">Fa %d hora que no es desbloqueja el dispositiu. Confirma la contrasenya.</item>
     </plurals>
     <plurals name="kg_prompt_reason_time_pattern">
         <item quantity="other">Fa %d hores que no es desbloqueja el dispositiu. Confirma el patró.</item>
@@ -20,24 +28,36 @@
         <item quantity="other">Fa %d hores que no es desbloqueja el dispositiu. Confirma el PIN.</item>
         <item quantity="one">Fa %d hora que no es desbloqueja el dispositiu. Confirma el PIN.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">Fa %d hores que no es desbloqueja el dispositiu. Confirma la contrasenya.</item>
-        <item quantity="one">Fa %d hora que no es desbloqueja el dispositiu. Confirma la contrasenya.</item>
-    </plurals>
-    <plurals name="kg_attempt_remaining">
-        <item quantity="other">(%d intents restants)</item>
-        <item quantity="one">(1 intent restant)</item>
-    </plurals>
-    <plurals name="kg_attempt_left">
-        <item quantity="other">Queden %d intents</item>
-        <item quantity="one">Queden %d intents</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown_min">
         <item quantity="other">Torni-ho a intentar en %d minuts</item>
-        <item quantity="one">Torni-ho a intentar en %d minut</item>
+        <item quantity="one">Torna-ho a intentar en %d minut</item>
     </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown_sec">
         <item quantity="other">Torni-ho a intentar en %d segons</item>
-        <item quantity="one">Torni-ho a intentar en %d segon</item>
+        <item quantity="one">Torna-ho a intentar en %d segon</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_countdown_by_biometrics">
+        <item quantity="other">"%1$d intents incorrectes de verificar la biometria. Torna-ho a intentar d'aquí a %2$d segons."</item>
+        <item quantity="one">"%1$d intents incorrectes de verificar la biometria. Torna-ho a intentar d'aquí a %2$d segon."</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_countdown_by_fingerprint">
+        <item quantity="other">"%1$d intents incorrectes de verificar les empremtes. Torna-ho a intentar d'aquí a %2$d segons."</item>
+        <item quantity="one">"%1$d intents incorrectes de verificar les empremtes. Torna-ho a intentar d'aquí a %2$d segon."</item>
+    </plurals>
+    <plurals name="notification_channels_list_desc_2_and_others">
+        <item quantity="other">%1$s, %2$s i %3$d més</item>
+        <item quantity="one">%1$s, %2$s i %3$d més</item>
+    </plurals>
+    <plurals name="notification_num_channels_desc">
+        <item quantity="other">"1 de %d categories de notificació d'aquesta aplicació"</item>
+        <item quantity="one">"1 de %d categoria de notificació d'aquesta aplicació"</item>
+    </plurals>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">%d pantalles en la visió general</item>
+        <item quantity="one">1 pantalla en la visió general</item>
+    </plurals>
+    <plurals name="notification_group_overflow_description">
+        <item quantity="other">"%s notificacions més a l'interior."</item>
+        <item quantity="one">"%s notificació més a l'interior."</item>
     </plurals>
 </resources>

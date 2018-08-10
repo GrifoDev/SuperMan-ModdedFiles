@@ -9,6 +9,7 @@
         Lcom/android/systemui/qs/TouchAnimator$1;,
         Lcom/android/systemui/qs/TouchAnimator$Builder;,
         Lcom/android/systemui/qs/TouchAnimator$FloatKeyframeSet;,
+        Lcom/android/systemui/qs/TouchAnimator$IntKeyframeSet;,
         Lcom/android/systemui/qs/TouchAnimator$KeyframeSet;,
         Lcom/android/systemui/qs/TouchAnimator$Listener;,
         Lcom/android/systemui/qs/TouchAnimator$ListenerAdapter;

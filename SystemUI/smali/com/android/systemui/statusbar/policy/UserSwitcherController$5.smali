@@ -3,7 +3,7 @@
 .source "UserSwitcherController.java"
 
 # interfaces
-.implements Lcom/android/systemui/qs/QSTile$DetailAdapter;
+.implements Lcom/android/systemui/plugins/qs/DetailAdapter;
 
 
 # annotations
@@ -95,18 +95,19 @@
 .method public getSettingsIntent()Landroid/content/Intent;
     .locals 1
 
-    sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_TWO_PHONE:Z
+    sget-boolean v0, Lcom/android/systemui/Rune;->QPANEL_SUPPORT_TWO_PHONE:Z
 
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController$5;->KT_TWOPHONE_SETTINGS_INTENT:Landroid/content/Intent;
 
+    :goto_0
     return-object v0
 
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController$5;->USER_SETTINGS_INTENT:Landroid/content/Intent;
 
-    return-object v0
+    goto :goto_0
 .end method
 
 .method public getTitle()Ljava/lang/CharSequence;
@@ -114,11 +115,9 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController$5;->this$0:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->-get1(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)Landroid/content/Context;
+    iget-object v0, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mContext:Landroid/content/Context;
 
-    move-result-object v0
-
-    const v1, 0x7f0f0385
+    const v1, 0x7f120936
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

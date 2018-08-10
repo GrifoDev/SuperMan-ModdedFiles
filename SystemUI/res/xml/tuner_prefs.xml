@@ -22,6 +22,11 @@
         <com.android.systemui.tuner.TunerSwitch android:title="@string/tuner_full_zen_title" android:key="sysui_show_full_zen" sysui:metricsAction="314" />
         <com.android.systemui.tuner.TunerSwitch android:title="@string/volume_dnd_silent" android:key="sysui_volume_down_silent,sysui_volume_up_silent" sysui:defValue="true" sysui:metricsAction="315" />
     </PreferenceScreen>
-    <Preference android:title="@string/other" android:key="other" android:fragment="com.android.systemui.tuner.OtherPrefs" />
+    <PreferenceScreen android:title="@string/tuner_doze" android:key="doze">
+        <com.android.systemui.tuner.TunerSwitch android:title="@string/tuner_doze_always_on" android:key="doze_always_on" sysui:defValue="false" />
+    </PreferenceScreen>
+    <Preference android:title="@string/nav_bar" android:key="nav_bar" android:fragment="com.android.systemui.tuner.NavBarTuner" />
+    <Preference android:title="@string/tuner_lock_screen" android:key="lockscreen" android:fragment="com.android.systemui.tuner.LockscreenFragment" />
+    <Preference android:title="@string/plugins" android:key="plugins" android:fragment="com.android.systemui.tuner.PluginFragment" />
     <Preference android:selectable="false" android:summary="@string/tuner_persistent_warning" />
 </PreferenceScreen>

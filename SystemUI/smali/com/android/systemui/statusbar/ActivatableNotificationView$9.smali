@@ -38,17 +38,9 @@
 .method public onAnimationCancel(Landroid/animation/Animator;)V
     .locals 2
 
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView$9;->val$background:Landroid/view/View;
+
     const/high16 v1, 0x3f800000    # 1.0f
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView$9;->val$background:Landroid/view/View;
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setScaleX(F)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView$9;->val$background:Landroid/view/View;
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setScaleY(F)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView$9;->val$background:Landroid/view/View;
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
 

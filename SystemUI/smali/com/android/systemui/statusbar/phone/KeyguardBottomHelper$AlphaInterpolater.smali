@@ -55,7 +55,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBottomHelper$AlphaInterpolater;->this$0:Lcom/android/systemui/statusbar/phone/KeyguardBottomHelper;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/KeyguardBottomHelper;->-get1(Lcom/android/systemui/statusbar/phone/KeyguardBottomHelper;)Landroid/view/animation/Interpolator;
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/KeyguardBottomHelper;->-get2(Lcom/android/systemui/statusbar/phone/KeyguardBottomHelper;)Landroid/view/animation/Interpolator;
 
     move-result-object v0
 

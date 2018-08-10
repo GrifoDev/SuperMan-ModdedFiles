@@ -2,6 +2,9 @@
 .super Landroid/database/ContentObserver;
 .source "SecureSetting.java"
 
+# interfaces
+.implements Lcom/android/systemui/statusbar/policy/Listenable;
+
 
 # static fields
 .field private static final DEFAULT:I

@@ -43,7 +43,16 @@
 
     move-result-object v0
 
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/tuner/TunerFragment$1;->this$0:Lcom/android/systemui/tuner/TunerFragment;
+
+    invoke-virtual {v0}, Lcom/android/systemui/tuner/TunerFragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v0
+
     invoke-virtual {v0}, Landroid/app/Activity;->finish()V
 
+    :cond_0
     return-void
 .end method

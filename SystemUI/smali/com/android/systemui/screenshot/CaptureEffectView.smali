@@ -3,6 +3,14 @@
 .source "CaptureEffectView.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/android/systemui/screenshot/CaptureEffectView$OnCaptureAnimationListener;
+    }
+.end annotation
+
+
 # instance fields
 .field final TAG:Ljava/lang/String;
 
@@ -51,5 +59,5 @@
 
     invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    return-void
+    throw v0
 .end method

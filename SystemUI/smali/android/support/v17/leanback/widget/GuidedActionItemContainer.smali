@@ -53,19 +53,9 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
-
-    invoke-super {p0, p1, p2}, Landroid/support/v17/leanback/widget/NonOverlappingLinearLayoutWithForeground;->focusSearch(Landroid/view/View;I)Landroid/view/View;
-
-    move-result-object v0
-
-    invoke-static {p0, v0}, Landroid/support/v17/leanback/widget/Util;->isDescendant(Landroid/view/ViewGroup;Landroid/view/View;)Z
-
-    move-result v1
+    xor-int/lit8 v1, v1, 0x1
 
     if-eqz v1, :cond_1
-
-    return-object v0
 
     :cond_0
     invoke-super {p0, p1, p2}, Landroid/support/v17/leanback/widget/NonOverlappingLinearLayoutWithForeground;->focusSearch(Landroid/view/View;I)Landroid/view/View;
@@ -75,7 +65,28 @@
     return-object v1
 
     :cond_1
+    invoke-super {p0, p1, p2}, Landroid/support/v17/leanback/widget/NonOverlappingLinearLayoutWithForeground;->focusSearch(Landroid/view/View;I)Landroid/view/View;
+
+    move-result-object v0
+
+    invoke-static {p0, v0}, Landroid/support/v17/leanback/widget/Util;->isDescendant(Landroid/view/ViewGroup;Landroid/view/View;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    return-object v0
+
+    :cond_2
     const/4 v1, 0x0
 
     return-object v1
+.end method
+
+.method public setFocusOutAllowed(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Landroid/support/v17/leanback/widget/GuidedActionItemContainer;->mFocusOutAllowed:Z
+
+    return-void
 .end method

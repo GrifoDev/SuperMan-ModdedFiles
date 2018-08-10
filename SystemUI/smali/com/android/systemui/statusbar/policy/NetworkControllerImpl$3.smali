@@ -3,12 +3,12 @@
 .source "NetworkControllerImpl.java"
 
 # interfaces
-.implements Lcom/android/settingslib/net/DataUsageController$Callback;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;-><init>(Landroid/content/Context;Landroid/net/ConnectivityManager;Landroid/telephony/TelephonyManager;Landroid/net/wifi/WifiManager;Landroid/telephony/SubscriptionManager;Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$Config;Landroid/os/Looper;Lcom/android/systemui/statusbar/policy/CallbackHandler;Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;Lcom/android/settingslib/net/DataUsageController;Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$SubscriptionDefaults;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,16 +34,12 @@
 
 
 # virtual methods
-.method public onMobileDataEnabled(Z)V
+.method public run()V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$3;->this$0:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->-get0(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)Lcom/android/systemui/statusbar/policy/CallbackHandler;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/policy/CallbackHandler;->setMobileDataEnabled(Z)V
+    invoke-static {v0}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->-wrap2(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)V
 
     return-void
 .end method

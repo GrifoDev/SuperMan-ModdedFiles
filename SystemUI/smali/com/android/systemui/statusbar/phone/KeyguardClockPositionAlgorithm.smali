@@ -20,6 +20,8 @@
 
 .field protected mAccessoryBottomMarginOffset:I
 
+.field private mClockBottom:I
+
 .field private mClockNotificationsMarginMax:I
 
 .field private mClockNotificationsMarginMin:I
@@ -27,6 +29,8 @@
 .field private mClockYFractionMax:F
 
 .field protected mClockYFractionMin:F
+
+.field private mDarkAmount:F
 
 .field private mDensity:F
 
@@ -259,21 +263,51 @@
 .end method
 
 .method private getClockY()I
-    .locals 2
+    .locals 5
+
+    iget v2, p0, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->mHeight:I
+
+    int-to-float v2, v2
+
+    const v3, 0x3ea8f5c3    # 0.33f
+
+    mul-float/2addr v2, v3
+
+    iget v3, p0, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->mKeyguardStatusHeight:I
+
+    int-to-float v3, v3
+
+    const/high16 v4, 0x40000000    # 2.0f
+
+    div-float/2addr v3, v4
+
+    add-float/2addr v2, v3
+
+    iget v3, p0, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->mClockBottom:I
+
+    int-to-float v3, v3
+
+    sub-float v0, v2, v3
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->getClockYFraction()F
 
-    move-result v0
+    move-result v2
 
-    iget v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->mHeight:I
+    iget v3, p0, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->mHeight:I
 
-    int-to-float v1, v1
+    int-to-float v3, v3
 
-    mul-float/2addr v0, v1
+    mul-float v1, v2, v3
 
-    float-to-int v0, v0
+    iget v2, p0, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->mDarkAmount:F
 
-    return v0
+    invoke-static {v1, v0, v2}, Lcom/android/systemui/statusbar/notification/NotificationUtils;->interpolate(FFF)F
+
+    move-result v2
+
+    float-to-int v2, v2
+
+    return v2
 .end method
 
 .method private getClockYExpansionAdjustment()F
@@ -458,7 +492,7 @@
 
     const/4 v1, 0x1
 
-    const v0, 0x7f0d0278
+    const v0, 0x7f0701d8
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -466,7 +500,7 @@
 
     iput v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->mClockNotificationsMarginMin:I
 
-    const v0, 0x7f0d0279
+    const v0, 0x7f0701d7
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -474,7 +508,7 @@
 
     iput v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->mClockNotificationsMarginMax:I
 
-    const v0, 0x7f0e000c
+    const v0, 0x7f090005
 
     invoke-virtual {p1, v0, v1, v1}, Landroid/content/res/Resources;->getFraction(III)F
 
@@ -482,7 +516,7 @@
 
     iput v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->mClockYFractionMin:F
 
-    const v0, 0x7f0e000b
+    const v0, 0x7f090004
 
     invoke-virtual {p1, v0, v1, v1}, Landroid/content/res/Resources;->getFraction(III)F
 
@@ -490,7 +524,7 @@
 
     iput v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->mClockYFractionMax:F
 
-    const v0, 0x7f0d01c8
+    const v0, 0x7f07045c
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -498,7 +532,7 @@
 
     int-to-float v0, v0
 
-    const v1, 0x7f0d01c2
+    const v1, 0x7f070443
 
     invoke-virtual {p1, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -518,7 +552,7 @@
 
     iput v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->mDensity:F
 
-    const v0, 0x7f0d0446
+    const v0, 0x7f0701ed
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -602,10 +636,30 @@
 
     iput v5, p1, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm$Result;->clockAlpha:F
 
+    iget v5, p1, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm$Result;->stackScrollerPadding:I
+
+    int-to-float v5, v5
+
+    iget v6, p0, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->mClockBottom:I
+
+    add-int/2addr v6, v4
+
+    int-to-float v6, v6
+
+    iget v7, p0, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->mDarkAmount:F
+
+    invoke-static {v5, v6, v7}, Lcom/android/systemui/statusbar/notification/NotificationUtils;->interpolate(FFF)F
+
+    move-result v5
+
+    float-to-int v5, v5
+
+    iput v5, p1, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm$Result;->stackScrollerPadding:I
+
     return-void
 .end method
 
-.method public setup(IIFIIIF)V
+.method public setup(IIFIIIFIF)V
     .locals 0
 
     iput p1, p0, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->mMaxKeyguardNotifications:I
@@ -621,6 +675,10 @@
     iput p6, p0, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->mKeyguardStatusHeight:I
 
     iput p7, p0, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->mEmptyDragAmount:F
+
+    iput p8, p0, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->mClockBottom:I
+
+    iput p9, p0, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->mDarkAmount:F
 
     return-void
 .end method

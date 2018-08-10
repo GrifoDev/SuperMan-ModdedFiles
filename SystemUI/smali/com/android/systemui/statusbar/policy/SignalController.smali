@@ -407,60 +407,6 @@
     return-object v0
 .end method
 
-.method public getQsCurrentIconId()I
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/policy/SignalController$State;
-
-    iget-boolean v0, v0, Lcom/android/systemui/statusbar/policy/SignalController$State;->connected:Z
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/SignalController;->getIcons()Lcom/android/systemui/statusbar/policy/SignalController$IconGroup;
-
-    move-result-object v0
-
-    iget-object v0, v0, Lcom/android/systemui/statusbar/policy/SignalController$IconGroup;->mQsIcons:[[I
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/policy/SignalController$State;
-
-    iget v1, v1, Lcom/android/systemui/statusbar/policy/SignalController$State;->inetCondition:I
-
-    aget-object v0, v0, v1
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/policy/SignalController$State;
-
-    iget v1, v1, Lcom/android/systemui/statusbar/policy/SignalController$State;->level:I
-
-    aget v0, v0, v1
-
-    return v0
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/policy/SignalController$State;
-
-    iget-boolean v0, v0, Lcom/android/systemui/statusbar/policy/SignalController$State;->enabled:Z
-
-    if-eqz v0, :cond_1
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/SignalController;->getIcons()Lcom/android/systemui/statusbar/policy/SignalController$IconGroup;
-
-    move-result-object v0
-
-    iget v0, v0, Lcom/android/systemui/statusbar/policy/SignalController$IconGroup;->mQsDiscState:I
-
-    return v0
-
-    :cond_1
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/SignalController;->getIcons()Lcom/android/systemui/statusbar/policy/SignalController$IconGroup;
-
-    move-result-object v0
-
-    iget v0, v0, Lcom/android/systemui/statusbar/policy/SignalController$IconGroup;->mQsNullState:I
-
-    return v0
-.end method
-
 .method public getState()Lcom/android/systemui/statusbar/policy/SignalController$State;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;

@@ -15,5 +15,5 @@
 
 
 # virtual methods
-.method public abstract onLongPress(Landroid/view/View;II)Z
+.method public abstract onLongPress(Landroid/view/View;IILcom/android/systemui/plugins/statusbar/NotificationMenuRowPlugin$MenuItem;)Z
 .end method

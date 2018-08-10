@@ -417,19 +417,9 @@
 .end method
 
 .method private init(Landroid/support/v7/preference/PreferenceManager;)V
-    .locals 4
-
-    const/4 v3, 0x1
-
-    const/4 v2, 0x0
+    .locals 3
 
     iput-object p1, p0, Landroid/support/v7/preference/PreferenceInflater;->mPreferenceManager:Landroid/support/v7/preference/PreferenceManager;
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0xe
-
-    if-lt v0, v1, :cond_0
 
     const/4 v0, 0x2
 
@@ -437,27 +427,19 @@
 
     const-string/jumbo v1, "android.support.v14.preference."
 
+    const/4 v2, 0x0
+
     aput-object v1, v0, v2
 
     const-string/jumbo v1, "android.support.v7.preference."
 
-    aput-object v1, v0, v3
+    const/4 v2, 0x1
+
+    aput-object v1, v0, v2
 
     invoke-virtual {p0, v0}, Landroid/support/v7/preference/PreferenceInflater;->setDefaultPackages([Ljava/lang/String;)V
 
-    :goto_0
     return-void
-
-    :cond_0
-    new-array v0, v3, [Ljava/lang/String;
-
-    const-string/jumbo v1, "android.support.v7.preference."
-
-    aput-object v1, v0, v2
-
-    invoke-virtual {p0, v0}, Landroid/support/v7/preference/PreferenceInflater;->setDefaultPackages([Ljava/lang/String;)V
-
-    goto :goto_0
 .end method
 
 .method private onMergeRoots(Landroid/support/v7/preference/PreferenceGroup;Landroid/support/v7/preference/PreferenceGroup;)Landroid/support/v7/preference/PreferenceGroup;

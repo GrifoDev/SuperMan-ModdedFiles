@@ -24,7 +24,7 @@
 
 .field private mAlreadyDelayed:Z
 
-.field private mAnimating:Z
+.field mAnimating:Z
 
 .field private final mEdgeInterpolator:Landroid/view/animation/Interpolator;
 
@@ -40,9 +40,9 @@
 
 .field private mMinimumVelocity:[F
 
-.field private mNeedsCancel:Z
+.field mNeedsCancel:Z
 
-.field private mNeedsReset:Z
+.field mNeedsReset:Z
 
 .field private mRelativeEdges:[F
 
@@ -50,114 +50,12 @@
 
 .field private mRunnable:Ljava/lang/Runnable;
 
-.field private final mScroller:Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;
+.field final mScroller:Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;
 
-.field private final mTarget:Landroid/view/View;
+.field final mTarget:Landroid/view/View;
 
 
 # direct methods
-.method static synthetic -get0(Landroid/support/v4/widget/AutoScrollHelper;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Landroid/support/v4/widget/AutoScrollHelper;->mAnimating:Z
-
-    return v0
-.end method
-
-.method static synthetic -get1(Landroid/support/v4/widget/AutoScrollHelper;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Landroid/support/v4/widget/AutoScrollHelper;->mNeedsCancel:Z
-
-    return v0
-.end method
-
-.method static synthetic -get2(Landroid/support/v4/widget/AutoScrollHelper;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Landroid/support/v4/widget/AutoScrollHelper;->mNeedsReset:Z
-
-    return v0
-.end method
-
-.method static synthetic -get3(Landroid/support/v4/widget/AutoScrollHelper;)Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;
-    .locals 1
-
-    iget-object v0, p0, Landroid/support/v4/widget/AutoScrollHelper;->mScroller:Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;
-
-    return-object v0
-.end method
-
-.method static synthetic -get4(Landroid/support/v4/widget/AutoScrollHelper;)Landroid/view/View;
-    .locals 1
-
-    iget-object v0, p0, Landroid/support/v4/widget/AutoScrollHelper;->mTarget:Landroid/view/View;
-
-    return-object v0
-.end method
-
-.method static synthetic -set0(Landroid/support/v4/widget/AutoScrollHelper;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Landroid/support/v4/widget/AutoScrollHelper;->mAnimating:Z
-
-    return p1
-.end method
-
-.method static synthetic -set1(Landroid/support/v4/widget/AutoScrollHelper;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Landroid/support/v4/widget/AutoScrollHelper;->mNeedsCancel:Z
-
-    return p1
-.end method
-
-.method static synthetic -set2(Landroid/support/v4/widget/AutoScrollHelper;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Landroid/support/v4/widget/AutoScrollHelper;->mNeedsReset:Z
-
-    return p1
-.end method
-
-.method static synthetic -wrap0(Landroid/support/v4/widget/AutoScrollHelper;)Z
-    .locals 1
-
-    invoke-direct {p0}, Landroid/support/v4/widget/AutoScrollHelper;->shouldAnimate()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic -wrap1(FFF)F
-    .locals 1
-
-    invoke-static {p0, p1, p2}, Landroid/support/v4/widget/AutoScrollHelper;->constrain(FFF)F
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic -wrap2(III)I
-    .locals 1
-
-    invoke-static {p0, p1, p2}, Landroid/support/v4/widget/AutoScrollHelper;->constrain(III)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic -wrap3(Landroid/support/v4/widget/AutoScrollHelper;)V
-    .locals 0
-
-    invoke-direct {p0}, Landroid/support/v4/widget/AutoScrollHelper;->cancelTargetTouch()V
-
-    return-void
-.end method
-
 .method static constructor <clinit>()V
     .locals 1
 
@@ -324,36 +222,6 @@
     .end array-data
 .end method
 
-.method private cancelTargetTouch()V
-    .locals 9
-
-    const/4 v5, 0x0
-
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
-
-    move-result-wide v0
-
-    const/4 v4, 0x3
-
-    const/4 v7, 0x0
-
-    move-wide v2, v0
-
-    move v6, v5
-
-    invoke-static/range {v0 .. v7}, Landroid/view/MotionEvent;->obtain(JJIFFI)Landroid/view/MotionEvent;
-
-    move-result-object v8
-
-    iget-object v2, p0, Landroid/support/v4/widget/AutoScrollHelper;->mTarget:Landroid/view/View;
-
-    invoke-virtual {v2, v8}, Landroid/view/View;->onTouchEvent(Landroid/view/MotionEvent;)Z
-
-    invoke-virtual {v8}, Landroid/view/MotionEvent;->recycle()V
-
-    return-void
-.end method
-
 .method private computeTargetVelocity(IFFF)F
     .locals 9
 
@@ -418,7 +286,7 @@
     return v7
 .end method
 
-.method private static constrain(FFF)F
+.method static constrain(FFF)F
     .locals 1
 
     cmpl-float v0, p0, p2
@@ -438,7 +306,7 @@
     return p0
 .end method
 
-.method private static constrain(III)I
+.method static constrain(III)I
     .locals 0
 
     if-le p0, p2, :cond_0
@@ -611,50 +479,8 @@
     goto :goto_0
 .end method
 
-.method private shouldAnimate()Z
-    .locals 5
-
-    const/4 v3, 0x0
-
-    iget-object v1, p0, Landroid/support/v4/widget/AutoScrollHelper;->mScroller:Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;
-
-    invoke-virtual {v1}, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->getVerticalDirection()I
-
-    move-result v2
-
-    invoke-virtual {v1}, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->getHorizontalDirection()I
-
-    move-result v0
-
-    if-eqz v2, :cond_0
-
-    invoke-virtual {p0, v2}, Landroid/support/v4/widget/AutoScrollHelper;->canTargetScrollVertically(I)Z
-
-    move-result v4
-
-    if-nez v4, :cond_2
-
-    :cond_0
-    if-eqz v0, :cond_1
-
-    invoke-virtual {p0, v0}, Landroid/support/v4/widget/AutoScrollHelper;->canTargetScrollHorizontally(I)Z
-
-    move-result v3
-
-    :cond_1
-    :goto_0
-    return v3
-
-    :cond_2
-    const/4 v3, 0x1
-
-    goto :goto_0
-.end method
-
 .method private startAnimating()V
     .locals 5
-
-    const/4 v1, 0x0
 
     const/4 v4, 0x1
 
@@ -664,7 +490,7 @@
 
     new-instance v0, Landroid/support/v4/widget/AutoScrollHelper$ScrollAnimationRunnable;
 
-    invoke-direct {v0, p0, v1}, Landroid/support/v4/widget/AutoScrollHelper$ScrollAnimationRunnable;-><init>(Landroid/support/v4/widget/AutoScrollHelper;Landroid/support/v4/widget/AutoScrollHelper$ScrollAnimationRunnable;)V
+    invoke-direct {v0, p0}, Landroid/support/v4/widget/AutoScrollHelper$ScrollAnimationRunnable;-><init>(Landroid/support/v4/widget/AutoScrollHelper;)V
 
     iput-object v0, p0, Landroid/support/v4/widget/AutoScrollHelper;->mRunnable:Ljava/lang/Runnable;
 
@@ -712,6 +538,36 @@
 .method public abstract canTargetScrollVertically(I)Z
 .end method
 
+.method cancelTargetTouch()V
+    .locals 9
+
+    const/4 v5, 0x0
+
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v0
+
+    const/4 v4, 0x3
+
+    const/4 v7, 0x0
+
+    move-wide v2, v0
+
+    move v6, v5
+
+    invoke-static/range {v0 .. v7}, Landroid/view/MotionEvent;->obtain(JJIFFI)Landroid/view/MotionEvent;
+
+    move-result-object v8
+
+    iget-object v2, p0, Landroid/support/v4/widget/AutoScrollHelper;->mTarget:Landroid/view/View;
+
+    invoke-virtual {v2, v8}, Landroid/view/View;->onTouchEvent(Landroid/view/MotionEvent;)Z
+
+    invoke-virtual {v8}, Landroid/view/MotionEvent;->recycle()V
+
+    return-void
+.end method
+
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 8
 
@@ -726,7 +582,7 @@
     return v3
 
     :cond_0
-    invoke-static {p2}, Landroid/support/v4/view/MotionEventCompat;->getActionMasked(Landroid/view/MotionEvent;)I
+    invoke-virtual {p2}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v0
 
@@ -801,7 +657,7 @@
 
     if-nez v4, :cond_1
 
-    invoke-direct {p0}, Landroid/support/v4/widget/AutoScrollHelper;->shouldAnimate()Z
+    invoke-virtual {p0}, Landroid/support/v4/widget/AutoScrollHelper;->shouldAnimate()Z
 
     move-result v4
 
@@ -851,18 +707,16 @@
 
     if-eqz v0, :cond_0
 
-    if-eqz p1, :cond_1
+    xor-int/lit8 v0, p1, 0x1
+
+    if-eqz v0, :cond_0
+
+    invoke-direct {p0}, Landroid/support/v4/widget/AutoScrollHelper;->requestStop()V
 
     :cond_0
-    :goto_0
     iput-boolean p1, p0, Landroid/support/v4/widget/AutoScrollHelper;->mEnabled:Z
 
     return-object p0
-
-    :cond_1
-    invoke-direct {p0}, Landroid/support/v4/widget/AutoScrollHelper;->requestStop()V
-
-    goto :goto_0
 .end method
 
 .method public setMaximumEdges(FF)Landroid/support/v4/widget/AutoScrollHelper;
@@ -991,4 +845,44 @@
     aput v1, v0, v2
 
     return-object p0
+.end method
+
+.method shouldAnimate()Z
+    .locals 5
+
+    const/4 v3, 0x0
+
+    iget-object v1, p0, Landroid/support/v4/widget/AutoScrollHelper;->mScroller:Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;
+
+    invoke-virtual {v1}, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->getVerticalDirection()I
+
+    move-result v2
+
+    invoke-virtual {v1}, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->getHorizontalDirection()I
+
+    move-result v0
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {p0, v2}, Landroid/support/v4/widget/AutoScrollHelper;->canTargetScrollVertically(I)Z
+
+    move-result v4
+
+    if-nez v4, :cond_2
+
+    :cond_0
+    if-eqz v0, :cond_1
+
+    invoke-virtual {p0, v0}, Landroid/support/v4/widget/AutoScrollHelper;->canTargetScrollHorizontally(I)Z
+
+    move-result v3
+
+    :cond_1
+    :goto_0
+    return v3
+
+    :cond_2
+    const/4 v3, 0x1
+
+    goto :goto_0
 .end method

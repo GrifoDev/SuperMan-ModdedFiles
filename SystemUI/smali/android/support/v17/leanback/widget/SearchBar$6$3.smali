@@ -43,15 +43,13 @@
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Landroid/support/v17/leanback/widget/SearchBar;->-set0(Landroid/support/v17/leanback/widget/SearchBar;Z)Z
+    iput-boolean v1, v0, Landroid/support/v17/leanback/widget/SearchBar;->mAutoStartRecognition:Z
 
     iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar$6$3;->this$1:Landroid/support/v17/leanback/widget/SearchBar$6;
 
     iget-object v0, v0, Landroid/support/v17/leanback/widget/SearchBar$6;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v0}, Landroid/support/v17/leanback/widget/SearchBar;->-get9(Landroid/support/v17/leanback/widget/SearchBar;)Landroid/support/v17/leanback/widget/SpeechOrbView;
-
-    move-result-object v0
+    iget-object v0, v0, Landroid/support/v17/leanback/widget/SearchBar;->mSpeechOrbView:Landroid/support/v17/leanback/widget/SpeechOrbView;
 
     invoke-virtual {v0}, Landroid/support/v17/leanback/widget/SpeechOrbView;->requestFocus()Z
 

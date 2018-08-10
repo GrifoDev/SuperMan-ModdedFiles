@@ -16,11 +16,9 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
-
-    invoke-direct {p0, v0}, Landroid/support/v17/leanback/transition/SlideKitkat$CalculateSlideVertical;-><init>(Landroid/support/v17/leanback/transition/SlideKitkat$CalculateSlideVertical;)V
+    invoke-direct {p0}, Landroid/support/v17/leanback/transition/SlideKitkat$CalculateSlideVertical;-><init>()V
 
     return-void
 .end method

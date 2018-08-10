@@ -2,6 +2,9 @@
 .super Ljava/lang/Object;
 .source "ZenModeController.java"
 
+# interfaces
+.implements Lcom/android/systemui/statusbar/policy/CallbackController;
+
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
@@ -10,15 +13,28 @@
     }
 .end annotation
 
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Lcom/android/systemui/statusbar/policy/CallbackController",
+        "<",
+        "Lcom/android/systemui/statusbar/policy/ZenModeController$Callback;",
+        ">;"
+    }
+.end annotation
+
 
 # virtual methods
-.method public abstract addCallback(Lcom/android/systemui/statusbar/policy/ZenModeController$Callback;)V
-.end method
-
 .method public abstract getAutomaticRule()Landroid/service/notification/ZenModeConfig$ZenRule;
 .end method
 
+.method public abstract getConfig()Landroid/service/notification/ZenModeConfig;
+.end method
+
 .method public abstract getCurrentUser()I
+.end method
+
+.method public abstract getManualRule()Landroid/service/notification/ZenModeConfig$ZenRule;
 .end method
 
 .method public abstract getNextAlarm()J
@@ -27,13 +43,10 @@
 .method public abstract getZen()I
 .end method
 
+.method public abstract isCountdownConditionSupported()Z
+.end method
+
 .method public abstract isVolumeRestricted()Z
-.end method
-
-.method public abstract removeCallback(Lcom/android/systemui/statusbar/policy/ZenModeController$Callback;)V
-.end method
-
-.method public abstract setUserId(I)V
 .end method
 
 .method public abstract setZen(ILandroid/net/Uri;Ljava/lang/String;)V

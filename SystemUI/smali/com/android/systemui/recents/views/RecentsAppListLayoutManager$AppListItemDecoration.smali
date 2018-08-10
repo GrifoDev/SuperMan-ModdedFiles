@@ -44,34 +44,20 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
-    sget v0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->INDEX_HEADER_RECOMMENDATION_APPS:I
-
-    if-ne p2, v0, :cond_0
-
-    invoke-static {}, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->-get0()Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;
-
-    move-result-object v0
-
-    iget v0, v0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;->mOffsetTop:I
-
-    iput v0, p1, Landroid/graphics/Rect;->top:I
-
-    :goto_0
     iput v1, p1, Landroid/graphics/Rect;->left:I
+
+    iput v1, p1, Landroid/graphics/Rect;->top:I
 
     iput v1, p1, Landroid/graphics/Rect;->right:I
 
-    :goto_1
+    iput v1, p1, Landroid/graphics/Rect;->bottom:I
+
+    :goto_0
     return-void
 
     :cond_0
-    iput v1, p1, Landroid/graphics/Rect;->top:I
-
-    goto :goto_0
-
-    :cond_1
     iput v1, p1, Landroid/graphics/Rect;->left:I
 
     iput v1, p1, Landroid/graphics/Rect;->top:I
@@ -88,5 +74,5 @@
 
     iput v0, p1, Landroid/graphics/Rect;->bottom:I
 
-    goto :goto_1
+    goto :goto_0
 .end method

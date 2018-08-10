@@ -20,6 +20,8 @@
 
 .field private mPopupUIReceiver:Landroid/content/BroadcastReceiver;
 
+.field private mShouldShowDialogAfterBoot:Z
+
 
 # direct methods
 .method static synthetic -get0(Lcom/android/systemui/popup/PopupUI;)Z
@@ -46,6 +48,22 @@
     return-object v0
 .end method
 
+.method static synthetic -get3(Lcom/android/systemui/popup/PopupUI;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/popup/PopupUI;->mShouldShowDialogAfterBoot:Z
+
+    return v0
+.end method
+
+.method static synthetic -set0(Lcom/android/systemui/popup/PopupUI;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/systemui/popup/PopupUI;->mShouldShowDialogAfterBoot:Z
+
+    return p1
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -63,84 +81,90 @@
 
 # virtual methods
 .method public start()V
-    .locals 7
+    .locals 9
 
-    const/4 v3, 0x0
+    const/4 v8, 0x1
 
-    new-instance v4, Lcom/android/systemui/popup/PopupUINotificationsImpl;
+    const/4 v0, 0x0
 
-    iget-object v5, p0, Lcom/android/systemui/popup/PopupUI;->mContext:Landroid/content/Context;
+    new-instance v1, Lcom/android/systemui/popup/PopupUINotificationsImpl;
 
-    invoke-direct {v4, v5}, Lcom/android/systemui/popup/PopupUINotificationsImpl;-><init>(Landroid/content/Context;)V
+    iget-object v2, p0, Lcom/android/systemui/popup/PopupUI;->mContext:Landroid/content/Context;
 
-    iput-object v4, p0, Lcom/android/systemui/popup/PopupUI;->mPopupUINotificationsImpl:Lcom/android/systemui/popup/PopupUINotificationsImpl;
+    invoke-direct {v1, v2}, Lcom/android/systemui/popup/PopupUINotificationsImpl;-><init>(Landroid/content/Context;)V
 
-    iget-object v4, p0, Lcom/android/systemui/popup/PopupUI;->mContext:Landroid/content/Context;
+    iput-object v1, p0, Lcom/android/systemui/popup/PopupUI;->mPopupUINotificationsImpl:Lcom/android/systemui/popup/PopupUINotificationsImpl;
 
-    const-string/jumbo v5, "connectivity"
+    iget-object v1, p0, Lcom/android/systemui/popup/PopupUI;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v4, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    const-string/jumbo v2, "connectivity"
 
-    move-result-object v0
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    check-cast v0, Landroid/net/ConnectivityManager;
+    move-result-object v6
 
-    invoke-virtual {v0, v3}, Landroid/net/ConnectivityManager;->isNetworkSupported(I)Z
+    check-cast v6, Landroid/net/ConnectivityManager;
 
-    move-result v4
+    invoke-virtual {v6, v0}, Landroid/net/ConnectivityManager;->isNetworkSupported(I)Z
 
-    iput-boolean v4, p0, Lcom/android/systemui/popup/PopupUI;->mHasMobileDataFeature:Z
+    move-result v1
 
-    iget-object v4, p0, Lcom/android/systemui/popup/PopupUI;->mContext:Landroid/content/Context;
+    iput-boolean v1, p0, Lcom/android/systemui/popup/PopupUI;->mHasMobileDataFeature:Z
 
-    const-string/jumbo v5, "phone"
+    iget-object v1, p0, Lcom/android/systemui/popup/PopupUI;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v4, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    const-string/jumbo v2, "phone"
 
-    move-result-object v2
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    check-cast v2, Landroid/telephony/TelephonyManager;
+    move-result-object v7
 
-    invoke-virtual {v2}, Landroid/telephony/TelephonyManager;->getPhoneType()I
+    check-cast v7, Landroid/telephony/TelephonyManager;
 
-    move-result v4
+    invoke-virtual {v7}, Landroid/telephony/TelephonyManager;->getPhoneType()I
 
-    if-eqz v4, :cond_0
+    move-result v1
 
-    const/4 v3, 0x1
+    if-eqz v1, :cond_0
+
+    move v0, v8
 
     :cond_0
-    iput-boolean v3, p0, Lcom/android/systemui/popup/PopupUI;->mHasVoiceCallingFeature:Z
+    iput-boolean v0, p0, Lcom/android/systemui/popup/PopupUI;->mHasVoiceCallingFeature:Z
 
-    new-instance v1, Landroid/content/IntentFilter;
+    new-instance v3, Landroid/content/IntentFilter;
 
-    invoke-direct {v1}, Landroid/content/IntentFilter;-><init>()V
+    invoke-direct {v3}, Landroid/content/IntentFilter;-><init>()V
 
-    const-string/jumbo v3, "com.samsung.systemui.popup.intent.DATA_CONNECTION_ERROR"
+    const-string/jumbo v0, "com.samsung.systemui.popup.intent.DATA_CONNECTION_ERROR"
 
-    invoke-virtual {v1, v3}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    const-string/jumbo v3, "android.intent.action.BOOT_COMPLETED"
+    const-string/jumbo v0, "android.intent.action.BOOT_COMPLETED"
 
-    invoke-virtual {v1, v3}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    const-string/jumbo v3, "com.samsung.intent.action.MCC_SET_TIME"
+    const-string/jumbo v0, "com.samsung.systemui.popup.intent.SIM_CARD_TRAY_WATER_PROTECTION_POPUP"
 
-    invoke-virtual {v1, v3}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    const-string/jumbo v3, "com.samsung.systemui.popup.intent.SIM_CARD_TRAY_WATER_PROTECTION_POPUP"
+    const-string/jumbo v0, "android.intent.action.CLOSE_SYSTEM_DIALOGS"
 
-    invoke-virtual {v1, v3}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    iget-object v3, p0, Lcom/android/systemui/popup/PopupUI;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/systemui/popup/PopupUI;->mContext:Landroid/content/Context;
 
-    iget-object v4, p0, Lcom/android/systemui/popup/PopupUI;->mPopupUIReceiver:Landroid/content/BroadcastReceiver;
+    iget-object v1, p0, Lcom/android/systemui/popup/PopupUI;->mPopupUIReceiver:Landroid/content/BroadcastReceiver;
 
-    const-string/jumbo v5, "com.samsung.systemui.POPUP_UI_PERMISSION"
+    sget-object v2, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
-    const/4 v6, 0x0
+    const-string/jumbo v4, "com.samsung.systemui.POPUP_UI_PERMISSION"
 
-    invoke-virtual {v3, v4, v1, v5, v6}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
+    const/4 v5, 0x0
+
+    invoke-virtual/range {v0 .. v5}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
+
+    iput-boolean v8, p0, Lcom/android/systemui/popup/PopupUI;->mShouldShowDialogAfterBoot:Z
 
     return-void
 .end method

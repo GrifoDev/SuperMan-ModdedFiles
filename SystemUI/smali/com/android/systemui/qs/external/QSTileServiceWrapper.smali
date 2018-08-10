@@ -228,6 +228,34 @@
     return-object v1
 .end method
 
+.method public semGetDetailViewSettingButtonName()Ljava/lang/CharSequence;
+    .locals 3
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/systemui/qs/external/QSTileServiceWrapper;->mService:Landroid/service/quicksettings/IQSTileService;
+
+    invoke-interface {v1}, Landroid/service/quicksettings/IQSTileService;->semGetDetailViewSettingButtonName()Ljava/lang/CharSequence;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    return-object v1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "IQSTileServiceWrapper"
+
+    const-string/jumbo v2, "Caught exception from TileService"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    const/4 v1, 0x0
+
+    return-object v1
+.end method
+
 .method public semGetDetailViewTitle()Ljava/lang/CharSequence;
     .locals 3
 
@@ -338,31 +366,6 @@
     const/4 v1, 0x0
 
     return v1
-.end method
-
-.method public semRefreshConnection(Landroid/content/Intent;)V
-    .locals 3
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/systemui/qs/external/QSTileServiceWrapper;->mService:Landroid/service/quicksettings/IQSTileService;
-
-    invoke-interface {v1, p1}, Landroid/service/quicksettings/IQSTileService;->semRefreshConnection(Landroid/content/Intent;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
-    return-void
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v1, "IQSTileServiceWrapper"
-
-    const-string/jumbo v2, "Caught exception from TileService"
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_0
 .end method
 
 .method public semSetToggleButtonChecked(Z)Z

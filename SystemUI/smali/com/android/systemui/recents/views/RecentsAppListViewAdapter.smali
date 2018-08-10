@@ -23,6 +23,8 @@
 # instance fields
 .field mContext:Landroid/content/Context;
 
+.field mCurrentUser:I
+
 .field mInflater:Landroid/view/LayoutInflater;
 
 .field mLayoutManager:Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;
@@ -47,6 +49,8 @@
 .field mTopRunningTaskAffinity:Ljava/lang/String;
 
 .field mTopRunningTaskPackageName:Ljava/lang/String;
+
+.field mTopRunningTaskUser:I
 
 .field mView:Lcom/android/systemui/recents/views/RecentsAppListView;
 
@@ -94,6 +98,12 @@
     iget-object v0, p2, Lcom/android/systemui/recents/views/RecentsAppListView;->mLayoutManager:Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;
 
     iput-object v0, p0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->mLayoutManager:Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;
+
+    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->mCurrentUser:I
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->mContext:Landroid/content/Context;
 
@@ -151,14 +161,56 @@
     goto :goto_0
 .end method
 
-.method private updateList()V
+.method private isFirstRow(I)Z
     .locals 2
+
+    const/4 v1, 0x0
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->mLayoutManager:Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;
+
+    invoke-virtual {v0}, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->getSpanCount()I
+
+    move-result v0
+
+    div-int v0, p1, v0
+
+    if-nez v0, :cond_1
+
+    iget v0, p0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->mRecommendationAppCount:I
+
+    if-lez v0, :cond_0
+
+    iget v0, p0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->mRecommendationAppCount:I
+
+    if-lt p1, v0, :cond_0
+
+    return v1
+
+    :cond_0
+    const/4 v0, 0x1
+
+    return v0
+
+    :cond_1
+    return v1
+.end method
+
+.method private updateList()V
+    .locals 5
+
+    invoke-direct {p0}, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->updateTopRunningDockedTaskInfo()V
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->mLoader:Lcom/android/systemui/recents/model/RecentsAppListLoader;
 
     iget-object v1, p0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->mList:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/model/RecentsAppListLoader;->getAppInfos(Ljava/util/ArrayList;)V
+    iget-object v2, p0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->mTopRunningTaskPackageName:Ljava/lang/String;
+
+    iget-object v3, p0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->mTopRunningTaskAffinity:Ljava/lang/String;
+
+    iget v4, p0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->mTopRunningTaskUser:I
+
+    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/systemui/recents/model/RecentsAppListLoader;->getAppInfos(Ljava/util/ArrayList;Ljava/lang/String;Ljava/lang/String;I)V
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->mLoader:Lcom/android/systemui/recents/model/RecentsAppListLoader;
 
@@ -209,6 +261,10 @@
     move-result-object v2
 
     iput-object v2, p0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->mTopRunningTaskPackageName:Ljava/lang/String;
+
+    iget v2, v0, Landroid/app/ActivityManager$RunningTaskInfo;->userId:I
+
+    iput v2, p0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->mTopRunningTaskUser:I
 
     :cond_0
     return-void
@@ -313,6 +369,35 @@
     return-void
 .end method
 
+.method public final onBusEvent(Lcom/android/systemui/recents/events/activity/LaunchTaskPostEvent;)V
+    .locals 3
+
+    iget v0, p1, Lcom/android/systemui/recents/events/activity/LaunchTaskPostEvent;->position:I
+
+    const/4 v1, -0x1
+
+    if-le v0, v1, :cond_0
+
+    invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/systemui/recents/events/activity/AppListLaunchTaskInformationEvent;
+
+    iget v2, p1, Lcom/android/systemui/recents/events/activity/LaunchTaskPostEvent;->position:I
+
+    invoke-virtual {p0, v2}, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->isRecommendationAppPosition(I)Z
+
+    move-result v2
+
+    invoke-direct {v1, v2}, Lcom/android/systemui/recents/events/activity/AppListLaunchTaskInformationEvent;-><init>(Z)V
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/events/EventBus;->post(Lcom/android/systemui/recents/events/EventBus$Event;)V
+
+    :cond_0
+    return-void
+.end method
+
 .method public final onBusEvent(Lcom/android/systemui/recents/events/activity/NotifyDataLoadEvent;)V
     .locals 0
 
@@ -342,7 +427,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v3, 0x7f040117
+    const v3, 0x7f0d016b
 
     invoke-virtual {v2, v3, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -358,7 +443,7 @@
     :pswitch_0
     iget-object v2, p0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v3, 0x7f040119
+    const v3, 0x7f0d016d
 
     invoke-virtual {v2, v3, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -385,101 +470,71 @@
 
     move-result v3
 
-    const/4 v5, -0x1
+    const/4 v4, -0x1
 
-    if-ne v3, v5, :cond_0
+    if-ne v3, v4, :cond_0
 
     return-void
 
     :cond_0
     invoke-virtual {p1}, Landroid/support/v7/widget/RecyclerView$ViewHolder;->getItemViewType()I
 
-    move-result v5
+    move-result v4
 
-    packed-switch v5, :pswitch_data_0
-
-    iget-object v5, p0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->mList:Ljava/util/ArrayList;
+    packed-switch v4, :pswitch_data_0
 
     invoke-direct {p0, v3}, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->adjustPosition(I)I
 
-    move-result v6
+    move-result v0
 
-    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    iget-object v4, p0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->mList:Ljava/util/ArrayList;
 
-    move-result-object v0
+    invoke-virtual {v4, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    check-cast v0, Lcom/android/systemui/recents/model/AppInfo;
+    move-result-object v1
 
-    iget-object v5, v0, Lcom/android/systemui/recents/model/AppInfo;->resolveInfo:Landroid/content/pm/ResolveInfo;
+    check-cast v1, Lcom/android/systemui/recents/model/AppInfo;
 
-    iget-object v5, v5, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
-
-    iget-object v2, v5, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
-
-    iget-object v5, v0, Lcom/android/systemui/recents/model/AppInfo;->resolveInfo:Landroid/content/pm/ResolveInfo;
-
-    iget-object v5, v5, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
-
-    iget-object v4, v5, Landroid/content/pm/ActivityInfo;->taskAffinity:Ljava/lang/String;
-
-    iget-boolean v5, v0, Lcom/android/systemui/recents/model/AppInfo;->supportMultiInstance:Z
-
-    if-nez v5, :cond_2
-
-    iget-object v5, p0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->mTopRunningTaskPackageName:Ljava/lang/String;
-
-    if-eqz v5, :cond_2
+    iget-object v4, p0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->mTopRunningTaskPackageName:Ljava/lang/String;
 
     iget-object v5, p0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->mTopRunningTaskAffinity:Ljava/lang/String;
 
-    if-eqz v5, :cond_2
+    iget v6, p0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->mTopRunningTaskUser:I
 
-    iget-object v5, p0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->mTopRunningTaskPackageName:Ljava/lang/String;
+    invoke-virtual {v1, v4, v5, v6}, Lcom/android/systemui/recents/model/AppInfo;->isDisabled(Ljava/lang/String;Ljava/lang/String;I)Z
 
-    invoke-virtual {v5, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v2
 
-    move-result v5
+    instance-of v4, p1, Lcom/android/systemui/recents/views/AppInfoViewHolder;
 
-    if-eqz v5, :cond_2
-
-    iget-object v5, p0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->mTopRunningTaskAffinity:Ljava/lang/String;
-
-    invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    :goto_0
-    instance-of v5, p1, Lcom/android/systemui/recents/views/AppInfoViewHolder;
-
-    if-eqz v5, :cond_1
+    if-eqz v4, :cond_1
 
     check-cast p1, Lcom/android/systemui/recents/views/AppInfoViewHolder;
 
-    iget-boolean v5, p0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->mNeedDarkFont:Z
+    iget-boolean v4, p0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->mNeedDarkFont:Z
 
-    invoke-virtual {p1, v0, v5, v1}, Lcom/android/systemui/recents/views/AppInfoViewHolder;->onBind(Lcom/android/systemui/recents/model/AppInfo;ZZ)V
+    invoke-direct {p0, v0}, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->isFirstRow(I)Z
+
+    move-result v5
+
+    invoke-virtual {p1, v1, v4, v2, v5}, Lcom/android/systemui/recents/views/AppInfoViewHolder;->onBind(Lcom/android/systemui/recents/model/AppInfo;ZZZ)V
 
     :cond_1
-    :goto_1
+    :goto_0
     return-void
 
     :pswitch_0
-    instance-of v5, p1, Lcom/android/systemui/recents/views/HeaderViewHolder;
+    instance-of v4, p1, Lcom/android/systemui/recents/views/HeaderViewHolder;
 
-    if-eqz v5, :cond_1
+    if-eqz v4, :cond_1
 
     check-cast p1, Lcom/android/systemui/recents/views/HeaderViewHolder;
 
-    iget-boolean v5, p0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->mNeedDarkFont:Z
+    iget-boolean v4, p0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->mNeedDarkFont:Z
 
-    iget v6, p0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->mRecommendationAppCount:I
+    iget v5, p0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->mRecommendationAppCount:I
 
-    invoke-virtual {p1, v3, v5, v6}, Lcom/android/systemui/recents/views/HeaderViewHolder;->onBind(IZI)V
-
-    goto :goto_1
-
-    :cond_2
-    const/4 v1, 0x0
+    invoke-virtual {p1, v3, v4, v5}, Lcom/android/systemui/recents/views/HeaderViewHolder;->onBind(IZI)V
 
     goto :goto_0
 
@@ -534,35 +589,30 @@
 .end method
 
 .method public reload()V
-    .locals 2
-
-    const/4 v0, 0x0
-
-    invoke-direct {p0}, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->updateTopRunningDockedTaskInfo()V
+    .locals 1
 
     invoke-direct {p0}, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->updateList()V
 
     invoke-static {}, Lcom/android/systemui/recents/Recents;->getSettingHelper()Lcom/android/systemui/recents/model/RecentsSettingHelper;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Lcom/android/systemui/recents/model/RecentsSettingHelper;->needDarkFont()Z
+    invoke-virtual {v0}, Lcom/android/systemui/recents/model/RecentsSettingHelper;->isDarkFontEnabled()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     invoke-static {}, Lcom/android/systemui/recents/Recents;->getSettingHelper()Lcom/android/systemui/recents/model/RecentsSettingHelper;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Lcom/android/systemui/recents/model/RecentsSettingHelper;->isUPSModeEnabled()Z
+    invoke-virtual {v0}, Lcom/android/systemui/recents/model/RecentsSettingHelper;->isUPSModeEnabled()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
     :goto_0
     iput-boolean v0, p0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->mNeedDarkFont:Z
 
@@ -570,8 +620,8 @@
 
     return-void
 
-    :cond_1
-    const/4 v0, 0x1
+    :cond_0
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method

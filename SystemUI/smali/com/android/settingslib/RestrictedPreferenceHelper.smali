@@ -190,53 +190,67 @@
 .end method
 
 .method public onBindViewHolder(Landroid/support/v7/preference/PreferenceViewHolder;)V
-    .locals 3
+    .locals 5
 
-    iget-boolean v1, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mDisabledByAdmin:Z
+    const/4 v4, 0x0
 
-    if-eqz v1, :cond_0
+    iget-boolean v2, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mDisabledByAdmin:Z
 
-    iget-object v1, p1, Landroid/support/v7/preference/PreferenceViewHolder;->itemView:Landroid/view/View;
+    if-eqz v2, :cond_0
 
-    const/4 v2, 0x1
+    iget-object v2, p1, Landroid/support/v7/preference/PreferenceViewHolder;->itemView:Landroid/view/View;
 
-    invoke-virtual {v1, v2}, Landroid/view/View;->setEnabled(Z)V
+    const/4 v3, 0x1
+
+    invoke-virtual {v2, v3}, Landroid/view/View;->setEnabled(Z)V
 
     :cond_0
-    iget-boolean v1, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mUseAdminDisabledSummary:Z
+    iget-boolean v2, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mUseAdminDisabledSummary:Z
+
+    if-eqz v2, :cond_1
+
+    const v2, 0x1020010
+
+    invoke-virtual {p1, v2}, Landroid/support/v7/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/widget/TextView;
 
     if-eqz v1, :cond_1
 
-    const v1, 0x1020010
+    invoke-virtual {v1}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
 
-    invoke-virtual {p1, v1}, Landroid/support/v7/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
+    move-result-object v2
+
+    sget v3, Lcom/android/settingslib/R$string;->disabled_by_admin_summary_text:I
+
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    check-cast v0, Landroid/widget/TextView;
+    iget-boolean v2, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mDisabledByAdmin:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v2, :cond_2
 
-    iget-boolean v1, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mDisabledByAdmin:Z
-
-    if-eqz v1, :cond_2
-
-    sget v1, Lcom/android/settingslib/R$string;->disabled_by_admin_summary_text:I
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     :cond_1
     :goto_0
     return-void
 
     :cond_2
-    const/16 v1, 0x8
+    invoke-virtual {v1}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
+    move-result-object v2
+
+    invoke-static {v0, v2}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-virtual {v1, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     goto :goto_0
 .end method
@@ -285,14 +299,11 @@
     const/4 v0, 0x1
 
     :cond_0
-    iget-object v3, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mPreference:Landroid/support/v7/preference/Preference;
+    iget-object v2, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mPreference:Landroid/support/v7/preference/Preference;
 
-    if-eqz v1, :cond_2
+    xor-int/lit8 v3, v1, 0x1
 
-    const/4 v2, 0x0
-
-    :goto_1
-    invoke-virtual {v3, v2}, Landroid/support/v7/preference/Preference;->setEnabled(Z)V
+    invoke-virtual {v2, v3}, Landroid/support/v7/preference/Preference;->setEnabled(Z)V
 
     return v0
 
@@ -300,11 +311,6 @@
     const/4 v1, 0x0
 
     goto :goto_0
-
-    :cond_2
-    const/4 v2, 0x1
-
-    goto :goto_1
 .end method
 
 .method public useAdminDisabledSummary(Z)V

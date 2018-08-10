@@ -32,59 +32,19 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .locals 5
+    .locals 1
 
-    :try_start_0
-    iget-object v2, p0, Lcom/android/systemui/recents/model/RecentsSettingHelper$5;->this$0:Lcom/android/systemui/recents/model/RecentsSettingHelper;
+    iget-object v0, p0, Lcom/android/systemui/recents/model/RecentsSettingHelper$5;->this$0:Lcom/android/systemui/recents/model/RecentsSettingHelper;
 
-    invoke-static {v2}, Lcom/android/systemui/recents/model/RecentsSettingHelper;->-get0(Lcom/android/systemui/recents/model/RecentsSettingHelper;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/systemui/recents/model/RecentsSettingHelper;->-get0(Lcom/android/systemui/recents/model/RecentsSettingHelper;)Landroid/content/Context;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-static {v0}, Lcom/android/systemui/recents/model/RecentsAppListLoader;->getInstance(Landroid/content/Context;)Lcom/android/systemui/recents/model/RecentsAppListLoader;
 
-    move-result-object v2
+    move-result-object v0
 
-    const-string/jumbo v3, "tap_to_icon"
+    invoke-virtual {v0}, Lcom/android/systemui/recents/model/RecentsAppListLoader;->clearDrawableCache()V
 
-    const/4 v4, -0x1
-
-    invoke-static {v2, v3, v4}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v1
-
-    iget-object v2, p0, Lcom/android/systemui/recents/model/RecentsSettingHelper$5;->this$0:Lcom/android/systemui/recents/model/RecentsSettingHelper;
-
-    invoke-static {v2}, Lcom/android/systemui/recents/model/RecentsSettingHelper;->-get1(Lcom/android/systemui/recents/model/RecentsSettingHelper;)I
-
-    move-result v2
-
-    if-eq v2, v1, :cond_0
-
-    iget-object v2, p0, Lcom/android/systemui/recents/model/RecentsSettingHelper$5;->this$0:Lcom/android/systemui/recents/model/RecentsSettingHelper;
-
-    invoke-static {v2, v1}, Lcom/android/systemui/recents/model/RecentsSettingHelper;->-set0(Lcom/android/systemui/recents/model/RecentsSettingHelper;I)I
-
-    invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
-
-    move-result-object v2
-
-    new-instance v3, Lcom/android/systemui/recents/events/activity/IconTraySettingChangedEvent;
-
-    invoke-direct {v3}, Lcom/android/systemui/recents/events/activity/IconTraySettingChangedEvent;-><init>()V
-
-    invoke-virtual {v2, v3}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    :cond_0
-    :goto_0
     return-void
-
-    :catch_0
-    move-exception v0
-
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
-
-    goto :goto_0
 .end method

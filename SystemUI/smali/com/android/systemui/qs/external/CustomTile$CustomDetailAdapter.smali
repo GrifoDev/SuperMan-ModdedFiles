@@ -3,7 +3,7 @@
 .source "CustomTile.java"
 
 # interfaces
-.implements Lcom/android/systemui/qs/QSTile$DetailAdapter;
+.implements Lcom/android/systemui/plugins/qs/DetailAdapter;
 
 
 # annotations
@@ -51,30 +51,70 @@
 .end method
 
 .method private shouldBeUnlock(Z)Z
-    .locals 2
+    .locals 3
 
-    iget-object v1, p0, Lcom/android/systemui/qs/external/CustomTile$CustomDetailAdapter;->this$0:Lcom/android/systemui/qs/external/CustomTile;
+    const/4 v2, 0x1
 
-    invoke-virtual {v1}, Lcom/android/systemui/qs/external/CustomTile;->getTileSpec()Ljava/lang/String;
+    iget-object v0, p0, Lcom/android/systemui/qs/external/CustomTile$CustomDetailAdapter;->this$0:Lcom/android/systemui/qs/external/CustomTile;
+
+    invoke-static {v0}, Lcom/android/systemui/qs/external/CustomTile;->-get8(Lcom/android/systemui/qs/external/CustomTile;)Ljava/lang/String;
 
     move-result-object v0
 
-    const-string/jumbo v1, "AODTileService"
+    const-string/jumbo v1, "ALL"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    const/4 v1, 0x0
-
-    return v1
+    return v2
 
     :cond_0
-    const/4 v1, 0x1
+    iget-object v0, p0, Lcom/android/systemui/qs/external/CustomTile$CustomDetailAdapter;->this$0:Lcom/android/systemui/qs/external/CustomTile;
 
-    return v1
+    invoke-static {v0}, Lcom/android/systemui/qs/external/CustomTile;->-get8(Lcom/android/systemui/qs/external/CustomTile;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "ON"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    if-eqz p1, :cond_1
+
+    return v2
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/systemui/qs/external/CustomTile$CustomDetailAdapter;->this$0:Lcom/android/systemui/qs/external/CustomTile;
+
+    invoke-static {v0}, Lcom/android/systemui/qs/external/CustomTile;->-get8(Lcom/android/systemui/qs/external/CustomTile;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "OFF"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    xor-int/lit8 v0, p1, 0x1
+
+    if-eqz v0, :cond_2
+
+    return v2
+
+    :cond_2
+    const/4 v0, 0x0
+
+    return v0
 .end method
 
 
@@ -188,6 +228,18 @@
     return-object v2
 .end method
 
+.method public getTileString()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/external/CustomTile$CustomDetailAdapter;->this$0:Lcom/android/systemui/qs/external/CustomTile;
+
+    invoke-static {v0}, Lcom/android/systemui/qs/external/CustomTile;->-get6(Lcom/android/systemui/qs/external/CustomTile;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public getTitle()Ljava/lang/CharSequence;
     .locals 3
 
@@ -215,6 +267,18 @@
     move-exception v0
 
     return-object v2
+.end method
+
+.method public getToggleEnabled()Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/external/CustomTile$CustomDetailAdapter;->this$0:Lcom/android/systemui/qs/external/CustomTile;
+
+    invoke-static {v0}, Lcom/android/systemui/qs/external/CustomTile;->-get7(Lcom/android/systemui/qs/external/CustomTile;)Z
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public getToggleState()Ljava/lang/Boolean;
@@ -259,10 +323,26 @@
     return-object v2
 .end method
 
+.method synthetic lambda$-com_android_systemui_qs_external_CustomTile$CustomDetailAdapter_28850()V
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/external/CustomTile$CustomDetailAdapter;->getToggleState()Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/external/CustomTile$CustomDetailAdapter;->setToggleState(Z)Z
+
+    return-void
+.end method
+
 .method public setToggleState(Z)Z
     .locals 4
-
-    const/4 v3, 0x1
 
     iget-object v1, p0, Lcom/android/systemui/qs/external/CustomTile$CustomDetailAdapter;->mService:Landroid/service/quicksettings/IQSTileService;
 
@@ -273,7 +353,15 @@
     return v1
 
     :cond_0
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/external/CustomTile$CustomDetailAdapter;->shouldBeUnlock(Z)Z
+    const-class v1, Lcom/android/systemui/KnoxStateMonitor;
+
+    invoke-static {v1}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/KnoxStateMonitor;
+
+    invoke-virtual {v1}, Lcom/android/systemui/KnoxStateMonitor;->isBlockedEdmSettingsChange()Z
 
     move-result v1
 
@@ -281,21 +369,17 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/external/CustomTile$CustomDetailAdapter;->this$0:Lcom/android/systemui/qs/external/CustomTile;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/external/CustomTile;->-get1(Lcom/android/systemui/qs/external/CustomTile;)Lcom/android/systemui/qs/QSTile$Host;
+    invoke-static {v1}, Lcom/android/systemui/qs/external/CustomTile;->-wrap0(Lcom/android/systemui/qs/external/CustomTile;)V
+
+    iget-object v1, p0, Lcom/android/systemui/qs/external/CustomTile$CustomDetailAdapter;->this$0:Lcom/android/systemui/qs/external/CustomTile;
+
+    invoke-static {v1}, Lcom/android/systemui/qs/external/CustomTile;->-get0(Lcom/android/systemui/qs/external/CustomTile;)Ljava/lang/String;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/systemui/qs/external/CustomTile$CustomDetailAdapter;->this$0:Lcom/android/systemui/qs/external/CustomTile;
+    const-string/jumbo v2, "setToggleState blocked"
 
-    invoke-virtual {v2}, Lcom/android/systemui/qs/external/CustomTile;->getTile()Lcom/android/systemui/qs/QSTile;
-
-    move-result-object v2
-
-    invoke-interface {v1, v2, v3}, Lcom/android/systemui/qs/QSTile$Host;->onClickQSTileOnKeyguard(Lcom/android/systemui/qs/QSTile;Z)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/external/CustomTile$CustomDetailAdapter;->getToggleState()Ljava/lang/Boolean;
 
@@ -308,14 +392,7 @@
     return v1
 
     :cond_1
-    :try_start_0
-    iget-object v1, p0, Lcom/android/systemui/qs/external/CustomTile$CustomDetailAdapter;->this$0:Lcom/android/systemui/qs/external/CustomTile;
-
-    invoke-static {v1}, Lcom/android/systemui/qs/external/CustomTile;->-get3(Lcom/android/systemui/qs/external/CustomTile;)Lcom/android/systemui/qs/external/TileServiceManager;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/systemui/qs/external/TileServiceManager;->isActiveTile()Z
+    invoke-direct {p0, p1}, Lcom/android/systemui/qs/external/CustomTile$CustomDetailAdapter;->shouldBeUnlock(Z)Z
 
     move-result v1
 
@@ -323,7 +400,101 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/external/CustomTile$CustomDetailAdapter;->this$0:Lcom/android/systemui/qs/external/CustomTile;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/external/CustomTile;->-get3(Lcom/android/systemui/qs/external/CustomTile;)Lcom/android/systemui/qs/external/TileServiceManager;
+    invoke-static {v1}, Lcom/android/systemui/qs/external/CustomTile;->-get3(Lcom/android/systemui/qs/external/CustomTile;)Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Lcom/android/systemui/statusbar/policy/KeyguardMonitor;->isShowing()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    iget-object v1, p0, Lcom/android/systemui/qs/external/CustomTile$CustomDetailAdapter;->this$0:Lcom/android/systemui/qs/external/CustomTile;
+
+    invoke-static {v1}, Lcom/android/systemui/qs/external/CustomTile;->-get3(Lcom/android/systemui/qs/external/CustomTile;)Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Lcom/android/systemui/statusbar/policy/KeyguardMonitor;->isSecure()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    iget-object v1, p0, Lcom/android/systemui/qs/external/CustomTile$CustomDetailAdapter;->this$0:Lcom/android/systemui/qs/external/CustomTile;
+
+    invoke-static {v1}, Lcom/android/systemui/qs/external/CustomTile;->-get3(Lcom/android/systemui/qs/external/CustomTile;)Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Lcom/android/systemui/statusbar/policy/KeyguardMonitor;->canSkipBouncer()Z
+
+    move-result v1
+
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_2
+
+    iget-object v1, p0, Lcom/android/systemui/qs/external/CustomTile$CustomDetailAdapter;->this$0:Lcom/android/systemui/qs/external/CustomTile;
+
+    invoke-static {v1}, Lcom/android/systemui/qs/external/CustomTile;->-get5(Lcom/android/systemui/qs/external/CustomTile;)Lcom/android/systemui/util/SettingsHelper;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/systemui/util/SettingsHelper;->isLockFunctionsEnabled()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    iget-object v1, p0, Lcom/android/systemui/qs/external/CustomTile$CustomDetailAdapter;->this$0:Lcom/android/systemui/qs/external/CustomTile;
+
+    invoke-static {v1}, Lcom/android/systemui/qs/external/CustomTile;->-get2(Lcom/android/systemui/qs/external/CustomTile;)Lcom/android/systemui/qs/QSHost;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Lcom/android/systemui/qs/QSHost;->forceCollapsePanels()V
+
+    iget-object v1, p0, Lcom/android/systemui/qs/external/CustomTile$CustomDetailAdapter;->this$0:Lcom/android/systemui/qs/external/CustomTile;
+
+    invoke-static {v1}, Lcom/android/systemui/qs/external/CustomTile;->-get1(Lcom/android/systemui/qs/external/CustomTile;)Lcom/android/systemui/plugins/ActivityStarter;
+
+    move-result-object v1
+
+    new-instance v2, Lcom/android/systemui/qs/external/-$Lambda$CA4QlgMyuUuRvIn6temzm1LPs5M;
+
+    invoke-direct {v2, p0}, Lcom/android/systemui/qs/external/-$Lambda$CA4QlgMyuUuRvIn6temzm1LPs5M;-><init>(Ljava/lang/Object;)V
+
+    invoke-interface {v1, v2}, Lcom/android/systemui/plugins/ActivityStarter;->postQSRunnableDismissingKeyguard(Ljava/lang/Runnable;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/external/CustomTile$CustomDetailAdapter;->getToggleState()Ljava/lang/Boolean;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v1
+
+    return v1
+
+    :cond_2
+    :try_start_0
+    iget-object v1, p0, Lcom/android/systemui/qs/external/CustomTile$CustomDetailAdapter;->this$0:Lcom/android/systemui/qs/external/CustomTile;
+
+    invoke-static {v1}, Lcom/android/systemui/qs/external/CustomTile;->-get4(Lcom/android/systemui/qs/external/CustomTile;)Lcom/android/systemui/qs/external/TileServiceManager;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/systemui/qs/external/TileServiceManager;->isActiveTile()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    iget-object v1, p0, Lcom/android/systemui/qs/external/CustomTile$CustomDetailAdapter;->this$0:Lcom/android/systemui/qs/external/CustomTile;
+
+    invoke-static {v1}, Lcom/android/systemui/qs/external/CustomTile;->-get4(Lcom/android/systemui/qs/external/CustomTile;)Lcom/android/systemui/qs/external/TileServiceManager;
 
     move-result-object v1
 
@@ -335,7 +506,7 @@
 
     invoke-interface {v1}, Landroid/service/quicksettings/IQSTileService;->onStartListening()V
 
-    :cond_2
+    :cond_3
     iget-object v1, p0, Lcom/android/systemui/qs/external/CustomTile$CustomDetailAdapter;->this$0:Lcom/android/systemui/qs/external/CustomTile;
 
     invoke-static {v1}, Lcom/android/systemui/qs/external/CustomTile;->-get0(Lcom/android/systemui/qs/external/CustomTile;)Ljava/lang/String;

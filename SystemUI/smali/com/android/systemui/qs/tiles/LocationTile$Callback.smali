@@ -3,7 +3,7 @@
 .source "LocationTile.java"
 
 # interfaces
-.implements Lcom/android/systemui/statusbar/policy/LocationController$LocationSettingsChangeCallback;
+.implements Lcom/android/systemui/statusbar/policy/LocationController$LocationChangeCallback;
 .implements Lcom/android/systemui/statusbar/policy/KeyguardMonitor$Callback;
 
 
@@ -43,7 +43,7 @@
 
 
 # virtual methods
-.method public onKeyguardChanged()V
+.method public onKeyguardShowingChanged()V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/LocationTile$Callback;->this$0:Lcom/android/systemui/qs/tiles/LocationTile;
@@ -60,5 +60,18 @@
 
     invoke-virtual {v0}, Lcom/android/systemui/qs/tiles/LocationTile;->refreshState()V
 
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/LocationTile$Callback;->this$0:Lcom/android/systemui/qs/tiles/LocationTile;
+
+    invoke-static {v0}, Lcom/android/systemui/qs/tiles/LocationTile;->-get3(Lcom/android/systemui/qs/tiles/LocationTile;)Lcom/android/systemui/qs/tiles/LocationTile$LocationDetailAdapter;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/LocationTile$Callback;->this$0:Lcom/android/systemui/qs/tiles/LocationTile;
+
+    invoke-virtual {v0, p1}, Lcom/android/systemui/qs/tiles/LocationTile;->fireToggleStateChanged(Z)V
+
+    :cond_0
     return-void
 .end method

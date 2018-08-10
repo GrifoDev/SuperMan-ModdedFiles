@@ -73,12 +73,11 @@
     packed-switch v2, :pswitch_data_0
 
     :goto_1
-    :pswitch_0
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    :pswitch_1
+    :pswitch_0
     invoke-virtual {v1, v2, v5}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
     move-result v4
@@ -87,7 +86,7 @@
 
     goto :goto_1
 
-    :pswitch_2
+    :pswitch_1
     invoke-virtual {v1, v2, v5}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
     move-result v4
@@ -96,7 +95,7 @@
 
     goto :goto_1
 
-    :pswitch_3
+    :pswitch_2
     invoke-virtual {v1, v2, v5}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
     move-result v4
@@ -105,7 +104,7 @@
 
     goto :goto_1
 
-    :pswitch_4
+    :pswitch_3
     invoke-virtual {v1, v2}, Landroid/content/res/TypedArray;->getColorStateList(I)Landroid/content/res/ColorStateList;
 
     move-result-object v4
@@ -114,7 +113,7 @@
 
     goto :goto_1
 
-    :pswitch_5
+    :pswitch_4
     invoke-virtual {v1, v2, v5}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
     move-result v4
@@ -123,7 +122,7 @@
 
     goto :goto_1
 
-    :pswitch_6
+    :pswitch_5
     invoke-virtual {v1, v2, v5}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
     move-result v4
@@ -144,14 +143,13 @@
     nop
 
     :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_4
-        :pswitch_1
-        :pswitch_2
-        :pswitch_3
+    .packed-switch 0x1
         :pswitch_0
+        :pswitch_4
         :pswitch_5
-        :pswitch_6
+        :pswitch_3
+        :pswitch_2
+        :pswitch_1
     .end packed-switch
 .end method
 

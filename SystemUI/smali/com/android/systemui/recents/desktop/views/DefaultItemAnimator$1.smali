@@ -72,7 +72,7 @@
 
     iget v5, v6, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator$MoveInfo;->toY:I
 
-    invoke-static/range {v0 .. v5}, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator;->-wrap2(Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator;Landroid/support/v7/widget/RecyclerView$ViewHolder;IIII)V
+    invoke-virtual/range {v0 .. v5}, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator;->animateMoveImpl(Landroid/support/v7/widget/RecyclerView$ViewHolder;IIII)V
 
     goto :goto_0
 
@@ -83,9 +83,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator$1;->this$0:Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator;
 
-    invoke-static {v0}, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator;->-get5(Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator;)Ljava/util/ArrayList;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator;->mMovesList:Ljava/util/ArrayList;
 
     iget-object v1, p0, Lcom/android/systemui/recents/desktop/views/DefaultItemAnimator$1;->val$moves:Ljava/util/ArrayList;
 

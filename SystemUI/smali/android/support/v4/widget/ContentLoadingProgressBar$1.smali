@@ -41,13 +41,13 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Landroid/support/v4/widget/ContentLoadingProgressBar;->-set0(Landroid/support/v4/widget/ContentLoadingProgressBar;Z)Z
+    iput-boolean v1, v0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mPostedHide:Z
 
     iget-object v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar$1;->this$0:Landroid/support/v4/widget/ContentLoadingProgressBar;
 
     const-wide/16 v2, -0x1
 
-    invoke-static {v0, v2, v3}, Landroid/support/v4/widget/ContentLoadingProgressBar;->-set2(Landroid/support/v4/widget/ContentLoadingProgressBar;J)J
+    iput-wide v2, v0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mStartTime:J
 
     iget-object v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar$1;->this$0:Landroid/support/v4/widget/ContentLoadingProgressBar;
 

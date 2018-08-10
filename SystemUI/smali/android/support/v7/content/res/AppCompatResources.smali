@@ -280,6 +280,30 @@
     return-object v1
 .end method
 
+.method public static getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
+    .locals 1
+    .param p0    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # I
+        .annotation build Landroid/support/annotation/DrawableRes;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
+    invoke-static {}, Landroid/support/v7/widget/AppCompatDrawableManager;->get()Landroid/support/v7/widget/AppCompatDrawableManager;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0, p1}, Landroid/support/v7/widget/AppCompatDrawableManager;->getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method private static getTypedValue()Landroid/util/TypedValue;
     .locals 2
     .annotation build Landroid/support/annotation/NonNull;

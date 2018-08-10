@@ -88,7 +88,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/assist/AssistManager$AssistanceAppItemListAdapter;->this$0:Lcom/android/systemui/assist/AssistManager;
 
-    invoke-static {v5}, Lcom/android/systemui/assist/AssistManager;->-get2(Lcom/android/systemui/assist/AssistManager;)Landroid/view/LayoutInflater;
+    invoke-static {v5}, Lcom/android/systemui/assist/AssistManager;->-get1(Lcom/android/systemui/assist/AssistManager;)Landroid/view/LayoutInflater;
 
     move-result-object v5
 
@@ -109,7 +109,7 @@
 
     if-eqz v2, :cond_3
 
-    const v5, 0x7f1300bf
+    const v5, 0x7f0a00da
 
     invoke-virtual {v3, v5}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -117,7 +117,7 @@
 
     check-cast v0, Landroid/widget/CheckedTextView;
 
-    const v5, 0x7f1300c0
+    const v5, 0x7f0a004a
 
     invoke-virtual {v3, v5}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -125,7 +125,7 @@
 
     check-cast v1, Landroid/widget/ImageView;
 
-    const v5, 0x7f1300c1
+    const v5, 0x7f0a004d
 
     invoke-virtual {v3, v5}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 

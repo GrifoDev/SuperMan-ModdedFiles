@@ -48,10 +48,30 @@
     return v0
 .end method
 
+.method public bridge synthetic getCenterIcon()Lcom/android/systemui/statusbar/KeyguardAffordanceView;
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/KeyguardBottomHelper$3;->getCenterIcon()Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public getCenterIcon()Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
     .locals 1
 
     const/4 v0, 0x0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic getLeftIcon()Lcom/android/systemui/statusbar/KeyguardAffordanceView;
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/KeyguardBottomHelper$3;->getLeftIcon()Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+
+    move-result-object v0
 
     return-object v0
 .end method
@@ -78,6 +98,16 @@
     const/4 v0, 0x0
 
     return v0
+.end method
+
+.method public bridge synthetic getRightIcon()Lcom/android/systemui/statusbar/KeyguardAffordanceView;
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/KeyguardBottomHelper$3;->getRightIcon()Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public getRightIcon()Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;

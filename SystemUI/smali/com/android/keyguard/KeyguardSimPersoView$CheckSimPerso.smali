@@ -39,80 +39,83 @@
 .end method
 
 .method public run()V
-    .locals 8
+    .locals 10
 
-    const-wide/16 v6, 0x32
+    const-wide/16 v8, 0x32
 
     :try_start_0
-    const-string/jumbo v2, "phone"
+    const-string/jumbo v3, "phone"
 
-    invoke-static {v2}, Landroid/os/ServiceManager;->checkService(Ljava/lang/String;)Landroid/os/IBinder;
+    invoke-static {v3}, Landroid/os/ServiceManager;->checkService(Ljava/lang/String;)Landroid/os/IBinder;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-static {v2}, Lcom/android/internal/telephony/ITelephony$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/telephony/ITelephony;
+    invoke-static {v3}, Lcom/android/internal/telephony/ITelephony$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/telephony/ITelephony;
 
-    move-result-object v2
+    move-result-object v1
+
+    if-eqz v1, :cond_0
 
     iget-object v3, p0, Lcom/android/keyguard/KeyguardSimPersoView$CheckSimPerso;->mPin:Ljava/lang/String;
 
-    invoke-interface {v2, v3}, Lcom/android/internal/telephony/ITelephony;->supplyPerso(Ljava/lang/String;)Z
+    invoke-interface {v1, v3}, Lcom/android/internal/telephony/ITelephony;->supplyPerso(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v2
 
-    const-string/jumbo v2, "KeyguardSimPersoView"
+    const-string/jumbo v3, "KeyguardSimPersoView"
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "CheckSimPerso supplyPerso returned : "
+    const-string/jumbo v5, "CheckSimPerso supplyPerso returned : "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardSimPersoView$CheckSimPerso;->this$0:Lcom/android/keyguard/KeyguardSimPersoView;
+    iget-object v3, p0, Lcom/android/keyguard/KeyguardSimPersoView$CheckSimPerso;->this$0:Lcom/android/keyguard/KeyguardSimPersoView;
 
-    new-instance v3, Lcom/android/keyguard/KeyguardSimPersoView$CheckSimPerso$1;
+    new-instance v4, Lcom/android/keyguard/KeyguardSimPersoView$CheckSimPerso$1;
 
-    invoke-direct {v3, p0, v1}, Lcom/android/keyguard/KeyguardSimPersoView$CheckSimPerso$1;-><init>(Lcom/android/keyguard/KeyguardSimPersoView$CheckSimPerso;Z)V
+    invoke-direct {v4, p0, v2}, Lcom/android/keyguard/KeyguardSimPersoView$CheckSimPerso$1;-><init>(Lcom/android/keyguard/KeyguardSimPersoView$CheckSimPerso;Z)V
 
-    const-wide/16 v4, 0x32
+    const-wide/16 v6, 0x32
 
-    invoke-virtual {v2, v3, v4, v5}, Lcom/android/keyguard/KeyguardSimPersoView;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v3, v4, v6, v7}, Lcom/android/keyguard/KeyguardSimPersoView;->postDelayed(Ljava/lang/Runnable;J)Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    :cond_0
     :goto_0
     return-void
 
     :catch_0
     move-exception v0
 
-    const-string/jumbo v2, "KeyguardSimPersoView"
+    const-string/jumbo v3, "KeyguardSimPersoView"
 
-    const-string/jumbo v3, "RemoteException for supplyPerso:"
+    const-string/jumbo v4, "RemoteException for supplyPerso:"
 
-    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v3, v4, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardSimPersoView$CheckSimPerso;->this$0:Lcom/android/keyguard/KeyguardSimPersoView;
+    iget-object v3, p0, Lcom/android/keyguard/KeyguardSimPersoView$CheckSimPerso;->this$0:Lcom/android/keyguard/KeyguardSimPersoView;
 
-    new-instance v3, Lcom/android/keyguard/KeyguardSimPersoView$CheckSimPerso$2;
+    new-instance v4, Lcom/android/keyguard/KeyguardSimPersoView$CheckSimPerso$2;
 
-    invoke-direct {v3, p0}, Lcom/android/keyguard/KeyguardSimPersoView$CheckSimPerso$2;-><init>(Lcom/android/keyguard/KeyguardSimPersoView$CheckSimPerso;)V
+    invoke-direct {v4, p0}, Lcom/android/keyguard/KeyguardSimPersoView$CheckSimPerso$2;-><init>(Lcom/android/keyguard/KeyguardSimPersoView$CheckSimPerso;)V
 
-    invoke-virtual {v2, v3, v6, v7}, Lcom/android/keyguard/KeyguardSimPersoView;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v3, v4, v8, v9}, Lcom/android/keyguard/KeyguardSimPersoView;->postDelayed(Ljava/lang/Runnable;J)Z
 
     goto :goto_0
 .end method

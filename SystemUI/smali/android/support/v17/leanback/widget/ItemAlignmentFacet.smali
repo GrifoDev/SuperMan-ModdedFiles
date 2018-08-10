@@ -47,3 +47,27 @@
 
     return-object v0
 .end method
+
+.method public setAlignmentDefs([Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;)V
+    .locals 2
+
+    if-eqz p1, :cond_0
+
+    array-length v0, p1
+
+    const/4 v1, 0x1
+
+    if-ge v0, v1, :cond_1
+
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
+
+    throw v0
+
+    :cond_1
+    iput-object p1, p0, Landroid/support/v17/leanback/widget/ItemAlignmentFacet;->mAlignmentDefs:[Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;
+
+    return-void
+.end method

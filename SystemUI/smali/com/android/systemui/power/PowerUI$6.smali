@@ -1,6 +1,9 @@
 .class Lcom/android/systemui/power/PowerUI$6;
-.super Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
+.super Ljava/lang/Object;
 .source "PowerUI.java"
+
+# interfaces
+.implements Landroid/hardware/scontext/SContextListener;
 
 
 # annotations
@@ -24,73 +27,127 @@
 
     iput-object p1, p0, Lcom/android/systemui/power/PowerUI$6;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onFinishedGoingToSleep(I)V
-    .locals 4
+.method public onSContextChanged(Landroid/hardware/scontext/SContextEvent;)V
+    .locals 7
 
-    iget-object v0, p0, Lcom/android/systemui/power/PowerUI$6;->this$0:Lcom/android/systemui/power/PowerUI;
+    const/16 v6, 0x2e
 
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+    const/4 v5, 0x0
 
-    move-result-wide v2
+    iget-object v1, p1, Landroid/hardware/scontext/SContextEvent;->scontext:Landroid/hardware/scontext/SContext;
 
-    invoke-static {v0, v2, v3}, Lcom/android/systemui/power/PowerUI;->-set17(Lcom/android/systemui/power/PowerUI;J)J
+    invoke-virtual {v1}, Landroid/hardware/scontext/SContext;->getType()I
 
-    iget-object v0, p0, Lcom/android/systemui/power/PowerUI$6;->this$0:Lcom/android/systemui/power/PowerUI;
+    move-result v3
 
-    const/4 v1, 0x0
+    if-ne v3, v6, :cond_0
 
-    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerUI;->-set13(Lcom/android/systemui/power/PowerUI;Z)Z
+    invoke-virtual {p1}, Landroid/hardware/scontext/SContextEvent;->getWirelessChargingDetectionContext()Landroid/hardware/scontext/SContextWirelessChargingDetection;
 
-    iget-object v0, p0, Lcom/android/systemui/power/PowerUI$6;->this$0:Lcom/android/systemui/power/PowerUI;
+    move-result-object v2
 
-    invoke-static {v0}, Lcom/android/systemui/power/PowerUI;->-get21(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
+    invoke-virtual {v2}, Landroid/hardware/scontext/SContextWirelessChargingDetection;->getAction()I
 
-    move-result-object v0
+    move-result v0
 
-    invoke-interface {v0}, Lcom/android/systemui/power/PowerUI$WarningsUI;->dismissUnintentionalLcdOnNotice()V
+    packed-switch v0, :pswitch_data_0
 
+    :cond_0
+    :goto_0
     return-void
-.end method
 
-.method public onStartedWakingUp()V
-    .locals 4
+    :pswitch_0
+    const-string/jumbo v3, "PowerUI"
 
-    iget-object v0, p0, Lcom/android/systemui/power/PowerUI$6;->this$0:Lcom/android/systemui/power/PowerUI;
+    const-string/jumbo v4, "SContextListener - No Move"
 
-    const-wide/16 v2, -0x1
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v0, v2, v3}, Lcom/android/systemui/power/PowerUI;->-set17(Lcom/android/systemui/power/PowerUI;J)J
+    iget-object v3, p0, Lcom/android/systemui/power/PowerUI$6;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    iget-object v0, p0, Lcom/android/systemui/power/PowerUI$6;->this$0:Lcom/android/systemui/power/PowerUI;
+    invoke-static {v3, v5}, Lcom/android/systemui/power/PowerUI;->-set11(Lcom/android/systemui/power/PowerUI;Z)Z
 
-    const/4 v1, 0x1
+    goto :goto_0
 
-    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerUI;->-set13(Lcom/android/systemui/power/PowerUI;Z)Z
+    :pswitch_1
+    const-string/jumbo v3, "PowerUI"
 
-    return-void
-.end method
+    const-string/jumbo v4, "SContextListener - Move"
 
-.method public onStartedWakingUp(I)V
-    .locals 4
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/android/systemui/power/PowerUI$6;->this$0:Lcom/android/systemui/power/PowerUI;
+    iget-object v3, p0, Lcom/android/systemui/power/PowerUI$6;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    const-wide/16 v2, -0x1
+    const/4 v4, 0x1
 
-    invoke-static {v0, v2, v3}, Lcom/android/systemui/power/PowerUI;->-set17(Lcom/android/systemui/power/PowerUI;J)J
+    invoke-static {v3, v4}, Lcom/android/systemui/power/PowerUI;->-set11(Lcom/android/systemui/power/PowerUI;Z)Z
 
-    iget-object v0, p0, Lcom/android/systemui/power/PowerUI$6;->this$0:Lcom/android/systemui/power/PowerUI;
+    iget-object v3, p0, Lcom/android/systemui/power/PowerUI$6;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    const/4 v1, 0x1
+    invoke-static {v3}, Lcom/android/systemui/power/PowerUI;->-get14(Lcom/android/systemui/power/PowerUI;)Z
 
-    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerUI;->-set13(Lcom/android/systemui/power/PowerUI;Z)Z
+    move-result v3
 
-    return-void
+    if-eqz v3, :cond_0
+
+    iget-object v3, p0, Lcom/android/systemui/power/PowerUI$6;->this$0:Lcom/android/systemui/power/PowerUI;
+
+    invoke-static {v3}, Lcom/android/systemui/power/PowerUI;->-get0(Lcom/android/systemui/power/PowerUI;)I
+
+    move-result v3
+
+    const/4 v4, 0x3
+
+    if-eq v3, v4, :cond_0
+
+    iget-object v3, p0, Lcom/android/systemui/power/PowerUI$6;->this$0:Lcom/android/systemui/power/PowerUI;
+
+    invoke-static {v3}, Lcom/android/systemui/power/PowerUI;->-get0(Lcom/android/systemui/power/PowerUI;)I
+
+    move-result v3
+
+    const/4 v4, 0x4
+
+    if-eq v3, v4, :cond_0
+
+    const-string/jumbo v3, "PowerUI"
+
+    const-string/jumbo v4, "Unregister SContextListener - From Listener"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v3, p0, Lcom/android/systemui/power/PowerUI$6;->this$0:Lcom/android/systemui/power/PowerUI;
+
+    invoke-static {v3}, Lcom/android/systemui/power/PowerUI;->-get21(Lcom/android/systemui/power/PowerUI;)Landroid/hardware/scontext/SContextManager;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/android/systemui/power/PowerUI$6;->this$0:Lcom/android/systemui/power/PowerUI;
+
+    invoke-static {v4}, Lcom/android/systemui/power/PowerUI;->-get20(Lcom/android/systemui/power/PowerUI;)Landroid/hardware/scontext/SContextListener;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4, v6}, Landroid/hardware/scontext/SContextManager;->unregisterListener(Landroid/hardware/scontext/SContextListener;I)V
+
+    iget-object v3, p0, Lcom/android/systemui/power/PowerUI$6;->this$0:Lcom/android/systemui/power/PowerUI;
+
+    invoke-static {v3, v5}, Lcom/android/systemui/power/PowerUI;->-set16(Lcom/android/systemui/power/PowerUI;Z)Z
+
+    goto :goto_0
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+        :pswitch_1
+    .end packed-switch
 .end method

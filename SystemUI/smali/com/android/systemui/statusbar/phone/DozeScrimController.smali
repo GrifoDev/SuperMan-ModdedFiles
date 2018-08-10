@@ -9,7 +9,8 @@
         Lcom/android/systemui/statusbar/phone/DozeScrimController$1;,
         Lcom/android/systemui/statusbar/phone/DozeScrimController$2;,
         Lcom/android/systemui/statusbar/phone/DozeScrimController$3;,
-        Lcom/android/systemui/statusbar/phone/DozeScrimController$4;
+        Lcom/android/systemui/statusbar/phone/DozeScrimController$4;,
+        Lcom/android/systemui/statusbar/phone/DozeScrimController$5;
     }
 .end annotation
 
@@ -23,9 +24,13 @@
 
 .field private mBehindTarget:F
 
+.field private final mContext:Landroid/content/Context;
+
 .field private final mDozeParameters:Lcom/android/systemui/statusbar/phone/DozeParameters;
 
 .field private mDozing:Z
+
+.field private mDozingAborted:Z
 
 .field private final mHandler:Landroid/os/Handler;
 
@@ -41,11 +46,15 @@
 
 .field private final mPulseOut:Ljava/lang/Runnable;
 
+.field private final mPulseOutExtended:Ljava/lang/Runnable;
+
 .field private final mPulseOutFinished:Ljava/lang/Runnable;
 
 .field private mPulseReason:I
 
 .field private final mScrimController:Lcom/android/systemui/statusbar/phone/ScrimController;
+
+.field private mWakeAndUnlocking:Z
 
 
 # direct methods
@@ -92,12 +101,20 @@
 .method static synthetic -get5(Lcom/android/systemui/statusbar/phone/DozeScrimController;)Ljava/lang/Runnable;
     .locals 1
 
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mPulseOutExtended:Ljava/lang/Runnable;
+
+    return-object v0
+.end method
+
+.method static synthetic -get6(Lcom/android/systemui/statusbar/phone/DozeScrimController;)Ljava/lang/Runnable;
+    .locals 1
+
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mPulseOutFinished:Ljava/lang/Runnable;
 
     return-object v0
 .end method
 
-.method static synthetic -get6(Lcom/android/systemui/statusbar/phone/DozeScrimController;)I
+.method static synthetic -get7(Lcom/android/systemui/statusbar/phone/DozeScrimController;)I
     .locals 1
 
     iget v0, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mPulseReason:I
@@ -188,13 +205,21 @@
 
     invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/phone/DozeScrimController$3;-><init>(Lcom/android/systemui/statusbar/phone/DozeScrimController;)V
 
-    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mPulseOut:Ljava/lang/Runnable;
+    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mPulseOutExtended:Ljava/lang/Runnable;
 
     new-instance v0, Lcom/android/systemui/statusbar/phone/DozeScrimController$4;
 
     invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/phone/DozeScrimController$4;-><init>(Lcom/android/systemui/statusbar/phone/DozeScrimController;)V
 
+    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mPulseOut:Ljava/lang/Runnable;
+
+    new-instance v0, Lcom/android/systemui/statusbar/phone/DozeScrimController$5;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/phone/DozeScrimController$5;-><init>(Lcom/android/systemui/statusbar/phone/DozeScrimController;)V
+
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mPulseOutFinished:Ljava/lang/Runnable;
+
+    iput-object p2, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mContext:Landroid/content/Context;
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mScrimController:Lcom/android/systemui/statusbar/phone/ScrimController;
 
@@ -258,6 +283,12 @@
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mHandler:Landroid/os/Handler;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mPulseOut:Ljava/lang/Runnable;
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mHandler:Landroid/os/Handler;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mPulseOutExtended:Ljava/lang/Runnable;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
@@ -392,7 +423,14 @@
 .method private setDozeAlpha(ZF)V
     .locals 1
 
-    if-eqz p1, :cond_0
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mWakeAndUnlocking:Z
+
+    if-eqz v0, :cond_0
+
+    return-void
+
+    :cond_0
+    if-eqz p1, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mScrimController:Lcom/android/systemui/statusbar/phone/ScrimController;
 
@@ -401,7 +439,7 @@
     :goto_0
     return-void
 
-    :cond_0
+    :cond_1
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mScrimController:Lcom/android/systemui/statusbar/phone/ScrimController;
 
     invoke-virtual {v0, p2}, Lcom/android/systemui/statusbar/phone/ScrimController;->setDozeBehindAlpha(F)V
@@ -472,9 +510,9 @@
 
     move-result-object v0
 
-    new-instance v3, Lcom/android/systemui/statusbar/phone/DozeScrimController$5;
+    new-instance v3, Lcom/android/systemui/statusbar/phone/DozeScrimController$6;
 
-    invoke-direct {v3, p0, p1}, Lcom/android/systemui/statusbar/phone/DozeScrimController$5;-><init>(Lcom/android/systemui/statusbar/phone/DozeScrimController;Z)V
+    invoke-direct {v3, p0, p1}, Lcom/android/systemui/statusbar/phone/DozeScrimController$6;-><init>(Lcom/android/systemui/statusbar/phone/DozeScrimController;Z)V
 
     invoke-virtual {v0, v3}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
@@ -482,9 +520,9 @@
 
     invoke-virtual {v0, p3, p4}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
-    new-instance v3, Lcom/android/systemui/statusbar/phone/DozeScrimController$6;
+    new-instance v3, Lcom/android/systemui/statusbar/phone/DozeScrimController$7;
 
-    invoke-direct {v3, p0, p1, p6}, Lcom/android/systemui/statusbar/phone/DozeScrimController$6;-><init>(Lcom/android/systemui/statusbar/phone/DozeScrimController;ZLjava/lang/Runnable;)V
+    invoke-direct {v3, p0, p1, p6}, Lcom/android/systemui/statusbar/phone/DozeScrimController$7;-><init>(Lcom/android/systemui/statusbar/phone/DozeScrimController;ZLjava/lang/Runnable;)V
 
     invoke-virtual {v0, v3}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
@@ -499,26 +537,73 @@
 
 
 # virtual methods
-.method public abortPulsing()V
-    .locals 2
+.method public abortDoze()V
+    .locals 1
 
-    const/high16 v1, 0x3f800000    # 1.0f
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mDozingAborted:Z
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/DozeScrimController;->abortPulsing()V
+
+    return-void
+.end method
+
+.method public abortPulsing()V
+    .locals 3
+
+    const/high16 v0, 0x3f800000    # 1.0f
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/DozeScrimController;->cancelPulsing()V
 
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mDozing:Z
+    iget-boolean v1, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mDozing:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mScrimController:Lcom/android/systemui/statusbar/phone/ScrimController;
+    iget-boolean v1, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mWakeAndUnlocking:Z
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/ScrimController;->setDozeBehindAlpha(F)V
+    xor-int/lit8 v1, v1, 0x1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mScrimController:Lcom/android/systemui/statusbar/phone/ScrimController;
+    if-eqz v1, :cond_1
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/ScrimController;->setDozeInFrontAlpha(F)V
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mScrimController:Lcom/android/systemui/statusbar/phone/ScrimController;
+
+    invoke-virtual {v1, v0}, Lcom/android/systemui/statusbar/phone/ScrimController;->setDozeBehindAlpha(F)V
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mScrimController:Lcom/android/systemui/statusbar/phone/ScrimController;
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mDozeParameters:Lcom/android/systemui/statusbar/phone/DozeParameters;
+
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getAlwaysOn()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    iget-boolean v2, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mDozingAborted:Z
+
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_0
+
+    const/4 v0, 0x0
 
     :cond_0
+    invoke-virtual {v1, v0}, Lcom/android/systemui/statusbar/phone/ScrimController;->setDozeInFrontAlpha(F)V
+
+    :cond_1
+    return-void
+.end method
+
+.method public extendPulse()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mHandler:Landroid/os/Handler;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mPulseOut:Ljava/lang/Runnable;
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+
     return-void
 .end method
 
@@ -553,7 +638,13 @@
 
     const/4 v2, 0x3
 
-    if-ne v1, v2, :cond_1
+    if-eq v1, v2, :cond_1
+
+    iget v1, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mPulseReason:I
+
+    const/4 v2, 0x4
+
+    if-ne v1, v2, :cond_2
 
     const/4 v0, 0x1
 
@@ -566,7 +657,7 @@
 
     int-to-long v4, v1
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     sget-object v6, Lcom/android/systemui/Interpolators;->LINEAR_OUT_SLOW_IN:Landroid/view/animation/Interpolator;
 
@@ -585,11 +676,16 @@
     return-void
 
     :cond_1
-    const/4 v0, 0x0
+    const/4 v0, 0x1
 
     goto :goto_0
 
     :cond_2
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    :cond_3
     sget-object v6, Lcom/android/systemui/Interpolators;->ALPHA_OUT:Landroid/view/animation/Interpolator;
 
     goto :goto_1
@@ -641,44 +737,62 @@
 
     const-wide/16 v4, 0x2bc
 
-    const/high16 v1, 0x3f800000    # 1.0f
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    const/4 v2, 0x0
 
     const/4 v3, 0x0
 
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mDozing:Z
+    iget-boolean v1, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mDozing:Z
 
-    if-ne v0, p1, :cond_0
+    if-ne v1, p1, :cond_0
 
     return-void
 
     :cond_0
     iput-boolean p1, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mDozing:Z
 
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mDozing:Z
+    iput-boolean v2, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mWakeAndUnlocking:Z
 
-    if-eqz v0, :cond_1
+    iget-boolean v1, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mDozing:Z
+
+    if-eqz v1, :cond_2
+
+    iput-boolean v2, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mDozingAborted:Z
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/DozeScrimController;->abortAnimations()V
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mScrimController:Lcom/android/systemui/statusbar/phone/ScrimController;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mScrimController:Lcom/android/systemui/statusbar/phone/ScrimController;
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/ScrimController;->setDozeBehindAlpha(F)V
+    invoke-virtual {v1, v0}, Lcom/android/systemui/statusbar/phone/ScrimController;->setDozeBehindAlpha(F)V
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mScrimController:Lcom/android/systemui/statusbar/phone/ScrimController;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mScrimController:Lcom/android/systemui/statusbar/phone/ScrimController;
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/ScrimController;->setDozeInFrontAlpha(F)V
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mDozeParameters:Lcom/android/systemui/statusbar/phone/DozeParameters;
+
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getAlwaysOn()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
 
     :goto_0
+    invoke-virtual {v1, v3}, Lcom/android/systemui/statusbar/phone/ScrimController;->setDozeInFrontAlpha(F)V
+
+    :goto_1
     return-void
 
     :cond_1
+    move v3, v0
+
+    goto :goto_0
+
+    :cond_2
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/DozeScrimController;->cancelPulsing()V
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_3
 
     sget-object v6, Lcom/android/systemui/Interpolators;->LINEAR_OUT_SLOW_IN:Landroid/view/animation/Interpolator;
-
-    const/4 v2, 0x0
 
     move-object v1, p0
 
@@ -692,9 +806,9 @@
 
     invoke-direct/range {v1 .. v6}, Lcom/android/systemui/statusbar/phone/DozeScrimController;->startScrimAnimation(ZFJLandroid/view/animation/Interpolator;)V
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_2
+    :cond_3
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/DozeScrimController;->abortAnimations()V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mScrimController:Lcom/android/systemui/statusbar/phone/ScrimController;
@@ -705,5 +819,30 @@
 
     invoke-virtual {v0, v3}, Lcom/android/systemui/statusbar/phone/ScrimController;->setDozeInFrontAlpha(F)V
 
-    goto :goto_0
+    goto :goto_1
+.end method
+
+.method public setWakeAndUnlocking()V
+    .locals 2
+
+    const/4 v1, 0x0
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mWakeAndUnlocking:Z
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mWakeAndUnlocking:Z
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mScrimController:Lcom/android/systemui/statusbar/phone/ScrimController;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/ScrimController;->setDozeBehindAlpha(F)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DozeScrimController;->mScrimController:Lcom/android/systemui/statusbar/phone/ScrimController;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/ScrimController;->setDozeInFrontAlpha(F)V
+
+    :cond_0
+    return-void
 .end method

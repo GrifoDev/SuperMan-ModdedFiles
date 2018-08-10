@@ -22,7 +22,7 @@
 
 .field protected mCallback:Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$Callback;
 
-.field protected mCenterIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+.field protected mCenterIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
 .field protected mContext:Landroid/content/Context;
 
@@ -38,7 +38,7 @@
 
 .field private mInitialTouchY:F
 
-.field protected mLeftIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+.field protected mLeftIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
 .field private mMinBackgroundRadius:I
 
@@ -48,17 +48,17 @@
 
 .field protected mMotionCancelled:Z
 
-.field protected mRightIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+.field protected mRightIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
 .field private mSwipeAnimator:Landroid/animation/Animator;
 
 .field private mSwipingInProgress:Z
 
-.field protected mTargetedView:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+.field protected mTargetedView:Landroid/view/View;
 
 .field private mTouchSlop:I
 
-.field private mTouchSlopExeeded:Z
+.field protected mTouchSlopExeeded:Z
 
 .field protected mTouchTargetSize:I
 
@@ -112,10 +112,10 @@
     return-void
 .end method
 
-.method static synthetic -wrap2(Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)V
+.method static synthetic -wrap2(Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;Lcom/android/systemui/statusbar/KeyguardAffordanceView;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->updateIconsFromTranslation(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->updateIconsFromTranslation(Lcom/android/systemui/statusbar/KeyguardAffordanceView;)V
 
     return-void
 .end method
@@ -156,6 +156,88 @@
     iput-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mContext:Landroid/content/Context;
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mCallback:Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$Callback;
+
+    return-void
+.end method
+
+.method constructor <init>(Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$Callback;Landroid/content/Context;)V
+    .locals 8
+
+    const/4 v6, 0x1
+
+    const/4 v2, 0x0
+
+    const/4 v4, 0x0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    new-instance v0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$1;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$1;-><init>(Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;)V
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mFlingEndListener:Landroid/animation/AnimatorListenerAdapter;
+
+    new-instance v0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$2;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$2;-><init>(Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;)V
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mAnimationEndRunnable:Ljava/lang/Runnable;
+
+    iput-object p2, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mContext:Landroid/content/Context;
+
+    iput-object p1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mCallback:Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$Callback;
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->initIcons()V
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mLeftIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mLeftIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->getRestingAlpha()F
+
+    move-result v3
+
+    move-object v0, p0
+
+    move v5, v4
+
+    move v7, v4
+
+    invoke-virtual/range {v0 .. v7}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->updateIcon(Lcom/android/systemui/statusbar/KeyguardAffordanceView;FFZZZZ)V
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mCenterIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mCenterIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->getRestingAlpha()F
+
+    move-result v3
+
+    move-object v0, p0
+
+    move v5, v4
+
+    move v7, v4
+
+    invoke-virtual/range {v0 .. v7}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->updateIcon(Lcom/android/systemui/statusbar/KeyguardAffordanceView;FFZZZZ)V
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->getRestingAlpha()F
+
+    move-result v3
+
+    move-object v0, p0
+
+    move v5, v4
+
+    move v7, v4
+
+    invoke-virtual/range {v0 .. v7}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->updateIcon(Lcom/android/systemui/statusbar/KeyguardAffordanceView;FFZZZZ)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->initDimens()V
 
     return-void
 .end method
@@ -201,7 +283,7 @@
     return-void
 
     :cond_1
-    iput-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mTargetedView:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iput-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mTargetedView:Landroid/view/View;
 
     goto :goto_0
 .end method
@@ -429,14 +511,14 @@
 
     if-eqz p1, :cond_0
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     :goto_0
     const/4 v2, 0x2
 
     new-array v2, v2, [F
 
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->getCircleRadius()F
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->getCircleRadius()F
 
     move-result v3
 
@@ -456,14 +538,14 @@
 
     new-instance v2, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$5;
 
-    invoke-direct {v2, p0, v1, p1}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$5;-><init>(Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)V
+    invoke-direct {v2, p0, v1, p1}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$5;-><init>(Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;Lcom/android/systemui/statusbar/KeyguardAffordanceView;Z)V
 
     invoke-virtual {v0, v2}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
     return-object v0
 
     :cond_0
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mLeftIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mLeftIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     goto :goto_0
 .end method
@@ -524,9 +606,9 @@
 
     div-float v5, v6, v2
 
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mTargetedView:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mTargetedView:Landroid/view/View;
 
-    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     if-ne v6, v7, :cond_1
 
@@ -679,21 +761,21 @@
     goto :goto_0
 .end method
 
-.method private setTranslation(FZZ)V
+.method private setTranslation(FZZZ)V
     .locals 18
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->rightSwipePossible()Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_2
 
     :goto_0
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->leftSwipePossible()Z
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_3
 
     :goto_1
     invoke-static/range {p1 .. p1}, Ljava/lang/Math;->abs(F)F
@@ -708,9 +790,22 @@
 
     if-nez v2, :cond_0
 
-    if-eqz p2, :cond_2
+    if-nez p2, :cond_0
+
+    if-eqz p4, :cond_1
 
     :cond_0
+    const/4 v2, 0x0
+
+    cmpl-float v2, p1, v2
+
+    if-lez v2, :cond_4
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mLeftIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
+
+    :goto_2
     const/4 v2, 0x0
 
     cmpl-float v2, p1, v2
@@ -719,18 +814,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mLeftIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
-
-    :goto_2
-    const/4 v2, 0x0
-
-    cmpl-float v2, p1, v2
-
-    if-lez v2, :cond_6
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v0, v0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     move-object/from16 v17, v0
 
@@ -755,17 +839,14 @@
 
     move-result v16
 
-    if-eqz p2, :cond_7
+    if-eqz p2, :cond_6
 
     move/from16 v15, p3
 
     :goto_4
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_7
 
-    if-eqz p3, :cond_8
-
-    :cond_1
-    const/4 v12, 0x0
+    xor-int/lit8 v12, p3, 0x1
 
     :goto_5
     move-object/from16 v0, p0
@@ -774,16 +855,16 @@
 
     move-result v4
 
-    if-eqz p2, :cond_9
+    if-eqz p2, :cond_8
 
     invoke-direct/range {p0 .. p0}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->isBelowFalsingThreshold()Z
 
     move-result v10
 
     :goto_6
-    if-nez p2, :cond_a
+    if-nez p2, :cond_9
 
-    invoke-virtual {v3}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->getRestingAlpha()F
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->getRestingAlpha()F
 
     move-result v2
 
@@ -795,24 +876,22 @@
 
     const/4 v7, 0x0
 
-    const/4 v8, 0x0
-
     const/4 v9, 0x0
 
     move-object/from16 v2, p0
 
-    invoke-virtual/range {v2 .. v9}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->updateIcon(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;FFZZZZ)V
+    move/from16 v8, p4
+
+    invoke-virtual/range {v2 .. v9}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->updateIcon(Lcom/android/systemui/statusbar/KeyguardAffordanceView;FFZZZZ)V
 
     :goto_7
-    invoke-virtual/range {v17 .. v17}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->getRestingAlpha()F
+    invoke-virtual/range {v17 .. v17}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->getRestingAlpha()F
 
     move-result v2
 
     mul-float v8, v16, v2
 
     const/4 v7, 0x0
-
-    const/4 v11, 0x0
 
     move-object/from16 v5, p0
 
@@ -820,17 +899,19 @@
 
     move v9, v15
 
-    invoke-virtual/range {v5 .. v12}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->updateIcon(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;FFZZZZ)V
+    move/from16 v11, p4
+
+    invoke-virtual/range {v5 .. v12}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->updateIcon(Lcom/android/systemui/statusbar/KeyguardAffordanceView;FFZZZZ)V
 
     move-object/from16 v0, p0
 
-    iget-object v6, v0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mCenterIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v6, v0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mCenterIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mCenterIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v2, v0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mCenterIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->getRestingAlpha()F
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->getRestingAlpha()F
 
     move-result v2
 
@@ -838,13 +919,13 @@
 
     const/4 v7, 0x0
 
-    const/4 v11, 0x0
-
     move-object/from16 v5, p0
 
     move v9, v15
 
-    invoke-virtual/range {v5 .. v12}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->updateIcon(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;FFZZZZ)V
+    move/from16 v11, p4
+
+    invoke-virtual/range {v5 .. v12}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->updateIcon(Lcom/android/systemui/statusbar/KeyguardAffordanceView;FFZZZZ)V
 
     move/from16 v0, p1
 
@@ -852,10 +933,10 @@
 
     iput v0, v1, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mTranslation:F
 
-    :cond_2
+    :cond_1
     return-void
 
-    :cond_3
+    :cond_2
     const/4 v2, 0x0
 
     move/from16 v0, p1
@@ -866,7 +947,7 @@
 
     goto/16 :goto_0
 
-    :cond_4
+    :cond_3
     const/4 v2, 0x0
 
     move/from16 v0, p1
@@ -877,39 +958,39 @@
 
     goto/16 :goto_1
 
-    :cond_5
+    :cond_4
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v3, v0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     goto/16 :goto_2
 
-    :cond_6
+    :cond_5
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mLeftIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v0, v0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mLeftIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     move-object/from16 v17, v0
 
     goto/16 :goto_3
 
-    :cond_7
+    :cond_6
     const/4 v15, 0x0
 
     goto :goto_4
 
-    :cond_8
-    const/4 v12, 0x1
+    :cond_7
+    const/4 v12, 0x0
 
     goto :goto_5
 
-    :cond_9
+    :cond_8
     const/4 v10, 0x0
 
     goto :goto_6
 
-    :cond_a
-    invoke-virtual {v3}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->getRestingAlpha()F
+    :cond_9
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->getRestingAlpha()F
 
     move-result v2
 
@@ -917,15 +998,15 @@
 
     const/4 v7, 0x0
 
-    const/4 v11, 0x0
-
     move-object/from16 v5, p0
 
     move-object v6, v3
 
     move v9, v15
 
-    invoke-virtual/range {v5 .. v12}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->updateIcon(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;FFZZZZ)V
+    move/from16 v11, p4
+
+    invoke-virtual/range {v5 .. v12}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->updateIcon(Lcom/android/systemui/statusbar/KeyguardAffordanceView;FFZZZZ)V
 
     goto :goto_7
 .end method
@@ -935,15 +1016,15 @@
 
     if-eqz p3, :cond_0
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     :goto_0
-    invoke-virtual {v0, p1, p2}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->finishAnimation(FLjava/lang/Runnable;)V
+    invoke-virtual {v0, p1, p2}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->finishAnimation(FLjava/lang/Runnable;)V
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mLeftIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mLeftIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     goto :goto_0
 .end method
@@ -953,7 +1034,7 @@
 
     if-eqz p1, :cond_0
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     :goto_0
     iget v2, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mHintGrowAmount:I
@@ -980,12 +1061,12 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mSwipeAnimator:Landroid/animation/Animator;
 
-    iput-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mTargetedView:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iput-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mTargetedView:Landroid/view/View;
 
     return-void
 
     :cond_0
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mLeftIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mLeftIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     goto :goto_0
 .end method
@@ -1039,7 +1120,7 @@
     return-void
 .end method
 
-.method private updateIconsFromTranslation(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)V
+.method private updateIconsFromTranslation(Lcom/android/systemui/statusbar/KeyguardAffordanceView;)V
     .locals 7
 
     const/4 v6, 0x0
@@ -1068,14 +1149,14 @@
 
     move-result v2
 
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     if-ne p1, v4, :cond_0
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mLeftIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mLeftIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     :goto_0
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->getRestingAlpha()F
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->getRestingAlpha()F
 
     move-result v4
 
@@ -1083,32 +1164,32 @@
 
     add-float/2addr v4, v1
 
-    invoke-virtual {p0, p1, v4, v6}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->updateIconAlpha(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;FZ)V
+    invoke-virtual {p0, p1, v4, v6}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->updateIconAlpha(Lcom/android/systemui/statusbar/KeyguardAffordanceView;FZ)V
 
-    invoke-virtual {v3}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->getRestingAlpha()F
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->getRestingAlpha()F
 
     move-result v4
 
     mul-float/2addr v4, v2
 
-    invoke-virtual {p0, v3, v4, v6}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->updateIconAlpha(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;FZ)V
+    invoke-virtual {p0, v3, v4, v6}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->updateIconAlpha(Lcom/android/systemui/statusbar/KeyguardAffordanceView;FZ)V
 
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mCenterIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mCenterIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mCenterIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mCenterIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
-    invoke-virtual {v5}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->getRestingAlpha()F
+    invoke-virtual {v5}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->getRestingAlpha()F
 
     move-result v5
 
     mul-float/2addr v5, v2
 
-    invoke-virtual {p0, v4, v5, v6}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->updateIconAlpha(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;FZ)V
+    invoke-virtual {p0, v4, v5, v6}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->updateIconAlpha(Lcom/android/systemui/statusbar/KeyguardAffordanceView;FZ)V
 
     return-void
 
     :cond_0
-    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     goto :goto_0
 .end method
@@ -1126,7 +1207,7 @@
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->cancelAnimation()V
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     move-object v0, p0
 
@@ -1136,9 +1217,9 @@
 
     move v7, v5
 
-    invoke-virtual/range {v0 .. v7}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->updateIcon(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;FFZZZZ)V
+    invoke-virtual/range {v0 .. v7}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->updateIcon(Lcom/android/systemui/statusbar/KeyguardAffordanceView;FFZZZZ)V
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mLeftIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mLeftIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     move-object v0, p0
 
@@ -1148,7 +1229,7 @@
 
     move v7, v5
 
-    invoke-virtual/range {v0 .. v7}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->updateIcon(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;FFZZZZ)V
+    invoke-virtual/range {v0 .. v7}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->updateIcon(Lcom/android/systemui/statusbar/KeyguardAffordanceView;FFZZZZ)V
 
     return-void
 .end method
@@ -1168,7 +1249,7 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mLeftIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mLeftIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     invoke-virtual {p0, v0, p1, p2}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->isOnIcon(Landroid/view/View;FF)Z
 
@@ -1176,7 +1257,7 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mLeftIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mLeftIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     return-object v0
 
@@ -1187,7 +1268,7 @@
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     invoke-virtual {p0, v0, p1, p2}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->isOnIcon(Landroid/view/View;FF)Z
 
@@ -1195,7 +1276,7 @@
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     return-object v0
 
@@ -1205,10 +1286,10 @@
     return-object v0
 .end method
 
-.method protected getScale(FLcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)F
+.method protected getScale(FLcom/android/systemui/statusbar/KeyguardAffordanceView;)F
     .locals 3
 
-    invoke-virtual {p2}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->getRestingAlpha()F
+    invoke-virtual {p2}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->getRestingAlpha()F
 
     move-result v1
 
@@ -1222,13 +1303,29 @@
 
     add-float v0, v1, v2
 
+    const-string/jumbo v1, "SEP"
+
+    sget-object v2, Lcom/android/systemui/Rune;->KEYWI_VALUE_SHORTCUT_STYLE:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const/high16 v1, 0x3f800000    # 1.0f
+
+    :goto_0
+    return v1
+
+    :cond_0
     const/high16 v1, 0x3fc00000    # 1.5f
 
     invoke-static {v0, v1}, Ljava/lang/Math;->min(FF)F
 
     move-result v1
 
-    return v1
+    goto :goto_0
 .end method
 
 .method protected initDimens()V
@@ -1258,7 +1355,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d027b
+    const v2, 0x7f0701fa
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1272,7 +1369,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d027c
+    const v2, 0x7f0701cb
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1286,7 +1383,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d027d
+    const v2, 0x7f0701cc
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1300,7 +1397,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d027e
+    const v2, 0x7f0701ac
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1334,27 +1431,27 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mCallback:Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$Callback;
 
-    invoke-interface {v0}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$Callback;->getLeftIcon()Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    invoke-interface {v0}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$Callback;->getLeftIcon()Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mLeftIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mLeftIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mCallback:Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$Callback;
 
-    invoke-interface {v0}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$Callback;->getCenterIcon()Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    invoke-interface {v0}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$Callback;->getCenterIcon()Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mCenterIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mCenterIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mCallback:Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$Callback;
 
-    invoke-interface {v0}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$Callback;->getRightIcon()Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    invoke-interface {v0}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$Callback;->getRightIcon()Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->updatePreviews()V
 
@@ -1364,7 +1461,7 @@
 .method public isOnAffordanceIcon(FF)Z
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mLeftIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mLeftIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     invoke-virtual {p0, v0, p1, p2}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->isOnIcon(Landroid/view/View;FF)Z
 
@@ -1372,7 +1469,7 @@
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     invoke-virtual {p0, v0, p1, p2}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->isOnIcon(Landroid/view/View;FF)Z
 
@@ -1481,28 +1578,25 @@
     :cond_0
     if-eqz p2, :cond_1
 
-    iget-object v10, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mLeftIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v10, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mLeftIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     :goto_0
     if-eqz p2, :cond_2
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     :goto_1
     invoke-virtual {p0, v10}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->startSwiping(Landroid/view/View;)V
 
-    if-eqz p1, :cond_4
-
-    const/4 v2, 0x0
-
-    if-eqz p2, :cond_3
+    if-eqz p1, :cond_3
 
     const/4 v0, 0x0
 
-    :goto_2
+    xor-int/lit8 v2, p2, 0x1
+
     const/4 v3, 0x0
 
-    invoke-direct {p0, v2, v3, v0}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->fling(FZZ)V
+    invoke-direct {p0, v0, v3, v2}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->fling(FZZ)V
 
     const/4 v3, 0x0
 
@@ -1518,9 +1612,9 @@
 
     move-object v0, p0
 
-    invoke-virtual/range {v0 .. v7}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->updateIcon(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;FFZZZZ)V
+    invoke-virtual/range {v0 .. v7}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->updateIcon(Lcom/android/systemui/statusbar/KeyguardAffordanceView;FFZZZZ)V
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mCenterIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mCenterIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     const/4 v5, 0x0
 
@@ -1536,41 +1630,31 @@
 
     move-object v2, p0
 
-    invoke-virtual/range {v2 .. v9}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->updateIcon(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;FFZZZZ)V
+    invoke-virtual/range {v2 .. v9}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->updateIcon(Lcom/android/systemui/statusbar/KeyguardAffordanceView;FFZZZZ)V
 
-    :goto_3
+    :goto_2
     return-void
 
     :cond_1
-    iget-object v10, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v10, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     goto :goto_0
 
     :cond_2
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mLeftIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mLeftIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     goto :goto_1
 
     :cond_3
-    const/4 v0, 0x1
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mCallback:Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$Callback;
 
-    goto :goto_2
+    xor-int/lit8 v2, p2, 0x1
 
-    :cond_4
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mCallback:Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$Callback;
-
-    if-eqz p2, :cond_5
-
-    const/4 v0, 0x0
-
-    :goto_4
     iget v3, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mTranslation:F
 
     const/4 v4, 0x0
 
-    invoke-interface {v2, v0, v3, v4}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$Callback;->onAnimationToSideStarted(ZFF)V
-
-    if-eqz p2, :cond_6
+    invoke-interface {v0, v2, v3, v4}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$Callback;->onAnimationToSideStarted(ZFF)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mCallback:Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$Callback;
 
@@ -1578,10 +1662,9 @@
 
     move-result v0
 
-    :goto_5
     iput v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mTranslation:F
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mCenterIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mCenterIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     const/4 v4, 0x0
 
@@ -1597,7 +1680,7 @@
 
     move-object v2, p0
 
-    invoke-virtual/range {v2 .. v9}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->updateIcon(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;FFZZZZ)V
+    invoke-virtual/range {v2 .. v9}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->updateIcon(Lcom/android/systemui/statusbar/KeyguardAffordanceView;FFZZZZ)V
 
     const/4 v2, 0x0
 
@@ -1613,9 +1696,9 @@
 
     move-object v0, p0
 
-    invoke-virtual/range {v0 .. v7}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->updateIcon(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;FFZZZZ)V
+    invoke-virtual/range {v0 .. v7}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->updateIcon(Lcom/android/systemui/statusbar/KeyguardAffordanceView;FFZZZZ)V
 
-    invoke-virtual {v10}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->instantFinishAnimation()V
+    invoke-virtual {v10}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->instantFinishAnimation()V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mFlingEndListener:Landroid/animation/AnimatorListenerAdapter;
 
@@ -1627,21 +1710,7 @@
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
-    goto :goto_3
-
-    :cond_5
-    const/4 v0, 0x1
-
-    goto :goto_4
-
-    :cond_6
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mCallback:Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$Callback;
-
-    invoke-interface {v0}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$Callback;->getMaxTranslationDistance()F
-
-    move-result v0
-
-    goto :goto_5
+    goto :goto_2
 .end method
 
 .method protected leftSwipePossible()Z
@@ -1649,9 +1718,9 @@
 
     const/4 v0, 0x0
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mLeftIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mLeftIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->getVisibility()I
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->getVisibility()I
 
     move-result v1
 
@@ -1725,11 +1794,11 @@
 
     if-eqz v4, :cond_2
 
-    iget-object v9, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mTargetedView:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v9, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mTargetedView:Landroid/view/View;
 
     if-eqz v9, :cond_3
 
-    iget-object v9, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mTargetedView:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v9, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mTargetedView:Landroid/view/View;
 
     if-eq v9, v4, :cond_3
 
@@ -1743,7 +1812,7 @@
     return v9
 
     :cond_3
-    iget-object v9, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mTargetedView:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v9, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mTargetedView:Landroid/view/View;
 
     if-eqz v9, :cond_4
 
@@ -1830,9 +1899,9 @@
 
     if-eqz v9, :cond_1
 
-    iget-object v9, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mTargetedView:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v9, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mTargetedView:Landroid/view/View;
 
-    iget-object v10, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v10, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     if-ne v9, v10, :cond_6
 
@@ -1851,7 +1920,9 @@
 
     const/4 v10, 0x0
 
-    invoke-direct {p0, v1, v9, v10}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->setTranslation(FZZ)V
+    const/4 v11, 0x0
+
+    invoke-direct {p0, v1, v9, v10, v11}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->setTranslation(FZZZ)V
 
     goto :goto_0
 
@@ -1872,9 +1943,9 @@
     const/4 v3, 0x1
 
     :pswitch_5
-    iget-object v9, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mTargetedView:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v9, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mTargetedView:Landroid/view/View;
 
-    iget-object v10, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v10, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     if-ne v9, v10, :cond_7
 
@@ -1883,11 +1954,8 @@
     :goto_3
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->trackMovement(Landroid/view/MotionEvent;)V
 
-    if-eqz v3, :cond_8
+    xor-int/lit8 v9, v3, 0x1
 
-    const/4 v9, 0x0
-
-    :goto_4
     invoke-direct {p0, v9, v5, v7}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->endMotion(ZFF)V
 
     iget-boolean v9, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mTouchSlopExeeded:Z
@@ -1906,11 +1974,6 @@
     const/4 v2, 0x0
 
     goto :goto_3
-
-    :cond_8
-    const/4 v9, 0x1
-
-    goto :goto_4
 
     nop
 
@@ -1932,6 +1995,16 @@
 .end method
 
 .method public reset(Z)V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->reset(ZZ)V
+
+    return-void
+.end method
+
+.method public reset(ZZ)V
     .locals 2
 
     const/4 v1, 0x1
@@ -1940,7 +2013,7 @@
 
     const/4 v0, 0x0
 
-    invoke-direct {p0, v0, v1, p1}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->setTranslation(FZZ)V
+    invoke-direct {p0, v0, v1, p1, p2}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->setTranslation(FZZZ)V
 
     iput-boolean v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mMotionCancelled:Z
 
@@ -1960,14 +2033,26 @@
     return-void
 .end method
 
+.method public resetImmediately()V
+    .locals 2
+
+    const/4 v0, 0x0
+
+    const/4 v1, 0x1
+
+    invoke-virtual {p0, v0, v1}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->reset(ZZ)V
+
+    return-void
+.end method
+
 .method protected rightSwipePossible()Z
     .locals 2
 
     const/4 v0, 0x0
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->getVisibility()I
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->getVisibility()I
 
     move-result v1
 
@@ -1977,12 +2062,6 @@
 
     :cond_0
     return v0
-.end method
-
-.method public setBottomArea(Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;)V
-    .locals 0
-
-    return-void
 .end method
 
 .method public startHintAnimation(ZLjava/lang/Runnable;)V
@@ -2002,7 +2081,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mCallback:Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$Callback;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     if-ne p1, v0, :cond_0
 
@@ -2013,9 +2092,7 @@
 
     iput-boolean v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mSwipingInProgress:Z
 
-    check-cast p1, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mTargetedView:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mTargetedView:Landroid/view/View;
 
     return-void
 
@@ -2025,40 +2102,41 @@
     goto :goto_0
 .end method
 
-.method protected updateIcon(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;FFZZZZ)V
+.method protected updateIcon(Lcom/android/systemui/statusbar/KeyguardAffordanceView;FFZZZZ)V
     .locals 1
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->getVisibility()I
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->getVisibility()I
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    if-eqz p6, :cond_1
+    xor-int/lit8 v0, p6, 0x1
+
+    if-eqz v0, :cond_0
+
+    return-void
 
     :cond_0
-    if-eqz p7, :cond_2
+    if-eqz p7, :cond_1
 
-    invoke-virtual {p1, p2}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->setCircleRadiusWithoutAnimation(F)V
+    invoke-virtual {p1, p2}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->setCircleRadiusWithoutAnimation(F)V
 
     :goto_0
-    invoke-virtual {p0, p1, p3, p4}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->updateIconAlpha(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;FZ)V
+    invoke-virtual {p0, p1, p3, p4}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->updateIconAlpha(Lcom/android/systemui/statusbar/KeyguardAffordanceView;FZ)V
 
     return-void
 
     :cond_1
-    return-void
-
-    :cond_2
-    invoke-virtual {p1, p2, p5}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->setCircleRadius(FZ)V
+    invoke-virtual {p1, p2, p5}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->setCircleRadius(FZ)V
 
     goto :goto_0
 .end method
 
-.method protected updateIconAlpha(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;FZ)V
+.method protected updateIconAlpha(Lcom/android/systemui/statusbar/KeyguardAffordanceView;FZ)V
     .locals 2
 
-    invoke-virtual {p0, p2, p1}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->getScale(FLcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)F
+    invoke-virtual {p0, p2, p1}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->getScale(FLcom/android/systemui/statusbar/KeyguardAffordanceView;)F
 
     move-result v0
 
@@ -2068,9 +2146,9 @@
 
     move-result p2
 
-    invoke-virtual {p1, p2, p3}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->setImageAlpha(FZ)V
+    invoke-virtual {p1, p2, p3}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->setImageAlpha(FZ)V
 
-    invoke-virtual {p1, v0, p3}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->setImageScale(FZ)V
+    invoke-virtual {p1, v0, p3}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->setImageScale(FZ)V
 
     return-void
 .end method
@@ -2078,7 +2156,7 @@
 .method public updatePreviews()V
     .locals 2
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mLeftIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mLeftIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mCallback:Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$Callback;
 
@@ -2086,9 +2164,9 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->setPreviewView(Landroid/view/View;)V
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->setPreviewView(Landroid/view/View;)V
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mRightIcon:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->mCallback:Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$Callback;
 
@@ -2096,7 +2174,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->setPreviewView(Landroid/view/View;)V
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->setPreviewView(Landroid/view/View;)V
 
     return-void
 .end method

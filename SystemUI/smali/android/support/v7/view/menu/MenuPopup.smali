@@ -164,6 +164,14 @@
 .method public abstract addMenu(Landroid/support/v7/view/menu/MenuBuilder;)V
 .end method
 
+.method protected closeMenuOnSubMenuOpened()Z
+    .locals 1
+
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
 .method public collapseItemActionView(Landroid/support/v7/view/menu/MenuBuilder;Landroid/support/v7/view/menu/MenuItemImpl;)Z
     .locals 1
 
@@ -224,7 +232,7 @@
 
     move-result-object v1
 
-    iget-object v3, v1, Landroid/support/v7/view/menu/MenuAdapter;->mAdapterMenu:Landroid/support/v7/view/menu/MenuBuilder;
+    iget-object v4, v1, Landroid/support/v7/view/menu/MenuAdapter;->mAdapterMenu:Landroid/support/v7/view/menu/MenuBuilder;
 
     invoke-interface {v0, p3}, Landroid/widget/ListAdapter;->getItem(I)Ljava/lang/Object;
 
@@ -232,11 +240,23 @@
 
     check-cast v2, Landroid/view/MenuItem;
 
-    const/4 v4, 0x0
+    invoke-virtual {p0}, Landroid/support/v7/view/menu/MenuPopup;->closeMenuOnSubMenuOpened()Z
 
-    invoke-virtual {v3, v2, v4}, Landroid/support/v7/view/menu/MenuBuilder;->performItemAction(Landroid/view/MenuItem;I)Z
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v3, 0x0
+
+    :goto_0
+    invoke-virtual {v4, v2, p0, v3}, Landroid/support/v7/view/menu/MenuBuilder;->performItemAction(Landroid/view/MenuItem;Landroid/support/v7/view/menu/MenuPresenter;I)Z
 
     return-void
+
+    :cond_0
+    const/4 v3, 0x4
+
+    goto :goto_0
 .end method
 
 .method public abstract setAnchorView(Landroid/view/View;)V

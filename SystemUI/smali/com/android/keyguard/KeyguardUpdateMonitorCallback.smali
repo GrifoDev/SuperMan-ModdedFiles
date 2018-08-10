@@ -20,6 +20,12 @@
 
 
 # virtual methods
+.method public onBiometricLockoutChanged(Z)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public onBootCompleted()V
     .locals 0
 
@@ -27,12 +33,6 @@
 .end method
 
 .method public onClockVisibilityChanged()V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onDesktopModeChanged(Z)V
     .locals 0
 
     return-void
@@ -50,7 +50,49 @@
     return-void
 .end method
 
+.method public onDexModeChanged(Z)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onDreamingStateChanged(Z)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public onEmergencyCallAction()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onFaceRecognitionAcquired(I)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onFaceRecognitionAuthFailed()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onFaceRecognitionAuthSucceeded(I)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onFaceRecognitionError(ILjava/lang/CharSequence;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onFaceRecognitionHelp(ILjava/lang/CharSequence;)V
     .locals 0
 
     return-void
@@ -63,6 +105,12 @@
 .end method
 
 .method public onFaceUnlockStateChanged(ZI)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onFailedUnlockAttemptChanged()V
     .locals 0
 
     return-void
@@ -116,6 +164,42 @@
     return-void
 .end method
 
+.method public onHasLockscreenWallpaperChanged(Z)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onIBAuthFailed()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onIBAuthenticated(I)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onIBError(ILjava/lang/CharSequence;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onIBHelp(ILjava/lang/CharSequence;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onIBRunningStateChanged(Z)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public onICCCardStateChanged(Ljava/lang/String;)V
     .locals 0
 
@@ -128,7 +212,7 @@
     return-void
 .end method
 
-.method public onIrisAuthenticated(I)V
+.method public onIrisAuthenticated(IJ)V
     .locals 0
 
     return-void
@@ -153,6 +237,12 @@
 .end method
 
 .method public onKeyguardBouncerChanged(Z)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onKeyguardConfigurationChanged(Landroid/content/res/Configuration;)V
     .locals 0
 
     return-void
@@ -197,7 +287,43 @@
     return-void
 .end method
 
+.method public onLockModeChanged()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onOpenThemeChangeStarted()V
+    .locals 0
+
+    return-void
+.end method
+
 .method public onOpenThemeChanged()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onOpenThemeReApply()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onPackageAdded(Ljava/lang/String;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onPackageChanged(Ljava/lang/String;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onPackageRemoved(Ljava/lang/String;Z)V
     .locals 0
 
     return-void
@@ -216,6 +342,12 @@
 .end method
 
 .method public onRefreshCarrierInfo()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onRemoteLockInfoChanged()V
     .locals 0
 
     return-void
@@ -240,6 +372,12 @@
 .end method
 
 .method public onSecurityModeChanged(Z)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onSecurityViewChanged(Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;)V
     .locals 0
 
     return-void
@@ -275,6 +413,12 @@
     return-void
 .end method
 
+.method public onSystemDialogsShowing()V
+    .locals 0
+
+    return-void
+.end method
+
 .method public onTimeChanged()V
     .locals 0
 
@@ -299,7 +443,19 @@
     return-void
 .end method
 
+.method public onUpdateAdaptiveColor(Lcom/android/systemui/wallpaper/WallpaperAdaptiveColor$AdaptiveColorResult;)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public onUpdateCoverState(Lcom/samsung/android/cover/CoverState;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onUpdateServiceBoxRemoteViews(Lcom/android/systemui/servicebox/pages/remoteviews/ServiceBoxRemoteViewsItem;)V
     .locals 0
 
     return-void
@@ -318,6 +474,24 @@
 .end method
 
 .method public onUserSwitching(I)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onUserUnlocked()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public showBackgroundAuthToast(I)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public updateBackgroundAuthToast(ZI)V
     .locals 0
 
     return-void

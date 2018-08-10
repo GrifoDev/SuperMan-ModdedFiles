@@ -3,6 +3,10 @@
 .source "UserDetailItemView.java"
 
 
+# static fields
+.field protected static layoutResId:I
+
+
 # instance fields
 .field private mActivatedTypeface:Landroid/graphics/Typeface;
 
@@ -16,6 +20,16 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    const v0, 0x7f0d0162
+
+    sput v0, Lcom/android/systemui/qs/tiles/UserDetailItemView;->layoutResId:I
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
@@ -114,8 +128,8 @@
 
     :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_0
         :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method
 
@@ -130,7 +144,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04010f
+    sget v1, Lcom/android/systemui/qs/tiles/UserDetailItemView;->layoutResId:I
 
     const/4 v2, 0x0
 
@@ -229,7 +243,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/UserDetailItemView;->mName:Landroid/widget/TextView;
 
-    const v1, 0x7f0d021b
+    const v1, 0x7f0704b4
 
     invoke-static {v0, v1}, Lcom/android/systemui/FontSizeUtils;->updateFontSize(Landroid/widget/TextView;I)V
 
@@ -239,7 +253,7 @@
 .method protected onFinishInflate()V
     .locals 1
 
-    const v0, 0x7f1301dc
+    const v0, 0x7f0a0568
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tiles/UserDetailItemView;->findViewById(I)Landroid/view/View;
 
@@ -249,7 +263,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/tiles/UserDetailItemView;->mAvatar:Lcom/android/systemui/statusbar/phone/UserAvatarView;
 
-    const v0, 0x7f1300d4
+    const v0, 0x7f0a0567
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tiles/UserDetailItemView;->findViewById(I)Landroid/view/View;
 
@@ -287,7 +301,7 @@
     :cond_1
     invoke-direct {p0}, Lcom/android/systemui/qs/tiles/UserDetailItemView;->updateTypeface()V
 
-    const v0, 0x7f1302fb
+    const v0, 0x7f0a042c
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tiles/UserDetailItemView;->findViewById(I)Landroid/view/View;
 
@@ -309,35 +323,27 @@
 .end method
 
 .method public setDisabledByAdmin(Z)V
-    .locals 4
+    .locals 2
 
-    const/4 v2, 0x1
-
-    const/4 v1, 0x0
-
-    iget-object v3, p0, Lcom/android/systemui/qs/tiles/UserDetailItemView;->mRestrictedPadlock:Landroid/view/View;
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/UserDetailItemView;->mRestrictedPadlock:Landroid/view/View;
 
     if-eqz p1, :cond_0
 
-    move v0, v1
+    const/4 v0, 0x0
 
     :goto_0
-    invoke-virtual {v3, v0}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v1, v0}, Landroid/view/View;->setVisibility(I)V
 
-    iget-object v3, p0, Lcom/android/systemui/qs/tiles/UserDetailItemView;->mName:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/UserDetailItemView;->mName:Landroid/widget/TextView;
 
-    if-eqz p1, :cond_1
+    xor-int/lit8 v1, p1, 0x1
 
-    move v0, v1
-
-    :goto_1
-    invoke-virtual {v3, v0}, Landroid/widget/TextView;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setEnabled(Z)V
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/UserDetailItemView;->mAvatar:Lcom/android/systemui/statusbar/phone/UserAvatarView;
 
-    if-eqz p1, :cond_2
+    xor-int/lit8 v1, p1, 0x1
 
-    :goto_2
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/UserAvatarView;->setEnabled(Z)V
 
     return-void
@@ -346,16 +352,6 @@
     const/16 v0, 0x8
 
     goto :goto_0
-
-    :cond_1
-    move v0, v2
-
-    goto :goto_1
-
-    :cond_2
-    move v1, v2
-
-    goto :goto_2
 .end method
 
 .method public setEnabled(Z)V

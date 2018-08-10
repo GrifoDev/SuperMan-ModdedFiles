@@ -15,15 +15,11 @@
 
 
 # instance fields
-.field public maxDistanceRatio:F
+.field maxSpeedRatio:F
 
-.field public maxSpeedRatio:F
+.field previousPoint:Lcom/android/systemui/classifier/Point;
 
-.field public previousDistance:F
-
-.field public previousPoint:Lcom/android/systemui/classifier/Point;
-
-.field public previousSpeed:F
+.field previousSpeed:F
 
 
 # direct methods
@@ -34,15 +30,11 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/classifier/AccelerationClassifier$Data;->previousPoint:Lcom/android/systemui/classifier/Point;
-
-    iput v0, p0, Lcom/android/systemui/classifier/AccelerationClassifier$Data;->previousDistance:F
-
     iput v0, p0, Lcom/android/systemui/classifier/AccelerationClassifier$Data;->previousSpeed:F
 
     iput v0, p0, Lcom/android/systemui/classifier/AccelerationClassifier$Data;->maxSpeedRatio:F
 
-    iput v0, p0, Lcom/android/systemui/classifier/AccelerationClassifier$Data;->maxDistanceRatio:F
+    iput-object p1, p0, Lcom/android/systemui/classifier/AccelerationClassifier$Data;->previousPoint:Lcom/android/systemui/classifier/Point;
 
     return-void
 .end method
@@ -76,30 +68,31 @@
 
     div-float v2, v0, v1
 
-    iget v3, p0, Lcom/android/systemui/classifier/AccelerationClassifier$Data;->previousDistance:F
+    const v3, 0x4b989680    # 2.0E7f
 
-    cmpl-float v3, v3, v8
+    cmpl-float v3, v1, v3
 
-    if-eqz v3, :cond_0
+    if-gtz v3, :cond_0
 
-    iget v3, p0, Lcom/android/systemui/classifier/AccelerationClassifier$Data;->maxDistanceRatio:F
+    const v3, 0x4a989680    # 5000000.0f
 
-    iget v4, p0, Lcom/android/systemui/classifier/AccelerationClassifier$Data;->previousDistance:F
+    cmpg-float v3, v1, v3
 
-    div-float v4, v0, v4
-
-    invoke-static {v3, v4}, Ljava/lang/Math;->max(FF)F
-
-    move-result v3
-
-    iput v3, p0, Lcom/android/systemui/classifier/AccelerationClassifier$Data;->maxDistanceRatio:F
+    if-gez v3, :cond_1
 
     :cond_0
+    iput v8, p0, Lcom/android/systemui/classifier/AccelerationClassifier$Data;->previousSpeed:F
+
+    iput-object p1, p0, Lcom/android/systemui/classifier/AccelerationClassifier$Data;->previousPoint:Lcom/android/systemui/classifier/Point;
+
+    return-void
+
+    :cond_1
     iget v3, p0, Lcom/android/systemui/classifier/AccelerationClassifier$Data;->previousSpeed:F
 
     cmpl-float v3, v3, v8
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2
 
     iget v3, p0, Lcom/android/systemui/classifier/AccelerationClassifier$Data;->maxSpeedRatio:F
 
@@ -113,9 +106,7 @@
 
     iput v3, p0, Lcom/android/systemui/classifier/AccelerationClassifier$Data;->maxSpeedRatio:F
 
-    :cond_1
-    iput v0, p0, Lcom/android/systemui/classifier/AccelerationClassifier$Data;->previousDistance:F
-
+    :cond_2
     iput v2, p0, Lcom/android/systemui/classifier/AccelerationClassifier$Data;->previousSpeed:F
 
     iput-object p1, p0, Lcom/android/systemui/classifier/AccelerationClassifier$Data;->previousPoint:Lcom/android/systemui/classifier/Point;

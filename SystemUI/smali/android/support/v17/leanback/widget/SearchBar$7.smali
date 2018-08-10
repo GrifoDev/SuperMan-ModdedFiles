@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar$7;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v0}, Landroid/support/v17/leanback/widget/SearchBar;->-wrap7(Landroid/support/v17/leanback/widget/SearchBar;)V
+    invoke-virtual {v0}, Landroid/support/v17/leanback/widget/SearchBar;->toggleRecognition()V
 
     return-void
 .end method

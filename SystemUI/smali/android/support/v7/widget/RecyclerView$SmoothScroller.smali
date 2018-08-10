@@ -15,7 +15,8 @@
 
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/support/v7/widget/RecyclerView$SmoothScroller$Action;
+        Landroid/support/v7/widget/RecyclerView$SmoothScroller$Action;,
+        Landroid/support/v7/widget/RecyclerView$SmoothScroller$ScrollVectorProvider;
     }
 .end annotation
 
@@ -115,7 +116,7 @@
 
     iget-object v2, p0, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->mRecyclingAction:Landroid/support/v7/widget/RecyclerView$SmoothScroller$Action;
 
-    invoke-static {v2, v1}, Landroid/support/v7/widget/RecyclerView$SmoothScroller$Action;->-wrap0(Landroid/support/v7/widget/RecyclerView$SmoothScroller$Action;Landroid/support/v7/widget/RecyclerView;)V
+    invoke-virtual {v2, v1}, Landroid/support/v7/widget/RecyclerView$SmoothScroller$Action;->runIfNecessary(Landroid/support/v7/widget/RecyclerView;)V
 
     invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->stop()V
 
@@ -139,7 +140,7 @@
 
     iget-object v2, p0, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->mRecyclingAction:Landroid/support/v7/widget/RecyclerView$SmoothScroller$Action;
 
-    invoke-static {v2, v1}, Landroid/support/v7/widget/RecyclerView$SmoothScroller$Action;->-wrap0(Landroid/support/v7/widget/RecyclerView$SmoothScroller$Action;Landroid/support/v7/widget/RecyclerView;)V
+    invoke-virtual {v2, v1}, Landroid/support/v7/widget/RecyclerView$SmoothScroller$Action;->runIfNecessary(Landroid/support/v7/widget/RecyclerView;)V
 
     if-eqz v0, :cond_3
 
@@ -151,9 +152,7 @@
 
     iput-boolean v2, p0, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->mPendingInitialRun:Z
 
-    invoke-static {v1}, Landroid/support/v7/widget/RecyclerView;->-get14(Landroid/support/v7/widget/RecyclerView;)Landroid/support/v7/widget/RecyclerView$ViewFlinger;
-
-    move-result-object v2
+    iget-object v2, v1, Landroid/support/v7/widget/RecyclerView;->mViewFlinger:Landroid/support/v7/widget/RecyclerView$ViewFlinger;
 
     invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->postOnAnimation()V
 
@@ -260,47 +259,41 @@
 .end method
 
 .method protected normalize(Landroid/graphics/PointF;)V
-    .locals 5
+    .locals 4
+
+    iget v1, p1, Landroid/graphics/PointF;->x:F
 
     iget v2, p1, Landroid/graphics/PointF;->x:F
 
-    iget v3, p1, Landroid/graphics/PointF;->x:F
-
-    mul-float/2addr v2, v3
-
-    iget v3, p1, Landroid/graphics/PointF;->y:F
-
-    iget v4, p1, Landroid/graphics/PointF;->y:F
-
-    mul-float/2addr v3, v4
-
-    add-float/2addr v2, v3
-
-    float-to-double v2, v2
-
-    invoke-static {v2, v3}, Ljava/lang/Math;->sqrt(D)D
-
-    move-result-wide v0
-
-    iget v2, p1, Landroid/graphics/PointF;->x:F
-
-    float-to-double v2, v2
-
-    div-double/2addr v2, v0
-
-    double-to-float v2, v2
-
-    iput v2, p1, Landroid/graphics/PointF;->x:F
+    mul-float/2addr v1, v2
 
     iget v2, p1, Landroid/graphics/PointF;->y:F
 
-    float-to-double v2, v2
+    iget v3, p1, Landroid/graphics/PointF;->y:F
 
-    div-double/2addr v2, v0
+    mul-float/2addr v2, v3
 
-    double-to-float v2, v2
+    add-float/2addr v1, v2
 
-    iput v2, p1, Landroid/graphics/PointF;->y:F
+    float-to-double v2, v1
+
+    invoke-static {v2, v3}, Ljava/lang/Math;->sqrt(D)D
+
+    move-result-wide v2
+
+    double-to-float v0, v2
+
+    iget v1, p1, Landroid/graphics/PointF;->x:F
+
+    div-float/2addr v1, v0
+
+    iput v1, p1, Landroid/graphics/PointF;->x:F
+
+    iget v1, p1, Landroid/graphics/PointF;->y:F
+
+    div-float/2addr v1, v0
+
+    iput v1, p1, Landroid/graphics/PointF;->y:F
 
     return-void
 .end method
@@ -374,7 +367,7 @@
 
     iget v1, p0, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->mTargetPosition:I
 
-    invoke-static {v0, v1}, Landroid/support/v7/widget/RecyclerView$State;->-set8(Landroid/support/v7/widget/RecyclerView$State;I)I
+    invoke-static {v0, v1}, Landroid/support/v7/widget/RecyclerView$State;->-set0(Landroid/support/v7/widget/RecyclerView$State;I)I
 
     iput-boolean v2, p0, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->mRunning:Z
 
@@ -394,9 +387,7 @@
 
     iget-object v0, p0, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
 
-    invoke-static {v0}, Landroid/support/v7/widget/RecyclerView;->-get14(Landroid/support/v7/widget/RecyclerView;)Landroid/support/v7/widget/RecyclerView$ViewFlinger;
-
-    move-result-object v0
+    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView;->mViewFlinger:Landroid/support/v7/widget/RecyclerView$ViewFlinger;
 
     invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->postOnAnimation()V
 
@@ -425,7 +416,7 @@
 
     iget-object v0, v0, Landroid/support/v7/widget/RecyclerView;->mState:Landroid/support/v7/widget/RecyclerView$State;
 
-    invoke-static {v0, v2}, Landroid/support/v7/widget/RecyclerView$State;->-set8(Landroid/support/v7/widget/RecyclerView$State;I)I
+    invoke-static {v0, v2}, Landroid/support/v7/widget/RecyclerView$State;->-set0(Landroid/support/v7/widget/RecyclerView$State;I)I
 
     iput-object v1, p0, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->mTargetView:Landroid/view/View;
 

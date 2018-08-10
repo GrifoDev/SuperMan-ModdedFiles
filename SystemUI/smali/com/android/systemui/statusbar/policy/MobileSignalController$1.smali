@@ -42,7 +42,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController$1;->this$0:Lcom/android/systemui/statusbar/policy/MobileSignalController;
 
-    invoke-static {v1}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->-wrap2(Lcom/android/systemui/statusbar/policy/MobileSignalController;)Z
+    invoke-static {v1}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->-wrap3(Lcom/android/systemui/statusbar/policy/MobileSignalController;)Z
 
     move-result v1
 
@@ -50,7 +50,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController$1;->this$0:Lcom/android/systemui/statusbar/policy/MobileSignalController;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->-wrap5(Lcom/android/systemui/statusbar/policy/MobileSignalController;)V
+    invoke-static {v0}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->-wrap6(Lcom/android/systemui/statusbar/policy/MobileSignalController;)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController$1;->this$0:Lcom/android/systemui/statusbar/policy/MobileSignalController;
 

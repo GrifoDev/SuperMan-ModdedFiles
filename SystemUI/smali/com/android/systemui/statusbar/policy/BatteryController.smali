@@ -4,6 +4,8 @@
 
 # interfaces
 .implements Lcom/android/systemui/DemoMode;
+.implements Lcom/android/systemui/Dumpable;
+.implements Lcom/android/systemui/statusbar/policy/CallbackController;
 
 
 # annotations
@@ -13,18 +15,21 @@
     }
 .end annotation
 
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Lcom/android/systemui/DemoMode;",
+        "Lcom/android/systemui/Dumpable;",
+        "Lcom/android/systemui/statusbar/policy/CallbackController",
+        "<",
+        "Lcom/android/systemui/statusbar/policy/BatteryController$BatteryStateChangeCallback;",
+        ">;"
+    }
+.end annotation
+
 
 # virtual methods
-.method public abstract addStateChangedCallback(Lcom/android/systemui/statusbar/policy/BatteryController$BatteryStateChangeCallback;)V
-.end method
-
-.method public abstract dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-.end method
-
 .method public abstract isPowerSave()Z
-.end method
-
-.method public abstract removeStateChangedCallback(Lcom/android/systemui/statusbar/policy/BatteryController$BatteryStateChangeCallback;)V
 .end method
 
 .method public abstract setPowerSaveMode(Z)V

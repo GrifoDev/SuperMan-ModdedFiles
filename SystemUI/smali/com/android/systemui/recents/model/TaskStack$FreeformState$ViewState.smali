@@ -40,8 +40,6 @@
 
 .field public final hintTextAlpha:I
 
-.field public final hintTextOrientation:I
-
 .field private mFreeformAreaOverlayAnimator:Landroid/animation/AnimatorSet;
 
 .field private mHintAreaPaint:Landroid/graphics/Paint;
@@ -56,11 +54,17 @@
 
 .field private mHintTextBounds:Landroid/graphics/Point;
 
+.field private mHintTextLine1:Ljava/lang/String;
+
+.field private mHintTextLine2:Ljava/lang/String;
+
 .field private mHintTextPaint:Landroid/graphics/Paint;
 
 .field private final mHintTextResId:I
 
-.field private mTextFont:Landroid/graphics/Typeface;
+.field private mIsOneLine:Z
+
+.field private mShadowColor:I
 
 .field private mTextPadding:I
 
@@ -98,8 +102,10 @@
     return-void
 .end method
 
-.method private constructor <init>(IIII)V
+.method private constructor <init>(III)V
     .locals 5
+
+    const/4 v3, 0x0
 
     const/4 v2, 0x1
 
@@ -121,6 +127,8 @@
 
     iput-object v0, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mTmpRect:Landroid/graphics/Rect;
 
+    iput-boolean v3, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mIsOneLine:Z
+
     iput p1, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->freeformAreaAlpha:I
 
     new-instance v0, Landroid/graphics/drawable/ColorDrawable;
@@ -133,15 +141,11 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->freeformAreaOverlay:Landroid/graphics/drawable/ColorDrawable;
 
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/graphics/drawable/ColorDrawable;->setAlpha(I)V
+    invoke-virtual {v0, v3}, Landroid/graphics/drawable/ColorDrawable;->setAlpha(I)V
 
     iput p2, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->hintTextAlpha:I
 
-    iput p3, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->hintTextOrientation:I
-
-    iput p4, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintTextResId:I
+    iput p3, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintTextResId:I
 
     new-instance v0, Landroid/graphics/Paint;
 
@@ -185,17 +189,13 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
-    const-string/jumbo v0, "sec-roboto-condensed"
-
-    invoke-static {v0, v2}, Landroid/graphics/Typeface;->create(Ljava/lang/String;I)Landroid/graphics/Typeface;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mTextFont:Landroid/graphics/Typeface;
-
     iget-object v0, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintTextPaint:Landroid/graphics/Paint;
 
-    iget-object v1, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mTextFont:Landroid/graphics/Typeface;
+    const-string/jumbo v1, "sec-roboto-condensed"
+
+    invoke-static {v1, v2}, Landroid/graphics/Typeface;->create(Ljava/lang/String;I)Landroid/graphics/Typeface;
+
+    move-result-object v1
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setTypeface(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
 
@@ -214,10 +214,10 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(IIIILcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;)V
+.method synthetic constructor <init>(IIILcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;-><init>(IIII)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;-><init>(III)V
 
     return-void
 .end method
@@ -265,8 +265,6 @@
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 12
-
-    const/4 v11, 0x1
 
     iget-object v0, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->freeformAreaOverlay:Landroid/graphics/drawable/ColorDrawable;
 
@@ -385,11 +383,11 @@
 
     invoke-virtual {v0}, Landroid/graphics/drawable/ColorDrawable;->getBounds()Landroid/graphics/Rect;
 
-    move-result-object v8
+    move-result-object v9
 
-    iget v0, v8, Landroid/graphics/Rect;->left:I
+    iget v0, v9, Landroid/graphics/Rect;->left:I
 
-    invoke-virtual {v8}, Landroid/graphics/Rect;->width()I
+    invoke-virtual {v9}, Landroid/graphics/Rect;->width()I
 
     move-result v1
 
@@ -401,11 +399,11 @@
 
     div-int/lit8 v1, v1, 0x2
 
-    add-int v9, v0, v1
+    add-int v10, v0, v1
 
-    iget v0, v8, Landroid/graphics/Rect;->top:I
+    iget v0, v9, Landroid/graphics/Rect;->top:I
 
-    invoke-virtual {v8}, Landroid/graphics/Rect;->height()I
+    invoke-virtual {v9}, Landroid/graphics/Rect;->height()I
 
     move-result v1
 
@@ -417,7 +415,7 @@
 
     div-int/lit8 v1, v1, 0x2
 
-    add-int v10, v0, v1
+    add-int v11, v0, v1
 
     iget-object v0, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintTextPaint:Landroid/graphics/Paint;
 
@@ -425,31 +423,113 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setAlpha(I)V
 
-    iget v0, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->hintTextOrientation:I
+    iget v0, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintTextAlpha:I
 
-    if-ne v0, v11, :cond_1
+    const/16 v1, 0xff
 
-    invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
+    if-ge v0, v1, :cond_1
+
+    iget v0, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mShadowColor:I
+
+    invoke-static {v0}, Landroid/graphics/Color;->alpha(I)I
+
+    move-result v0
+
+    iget v1, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintTextAlpha:I
+
+    mul-int/2addr v0, v1
+
+    div-int/lit16 v0, v0, 0xff
+
+    iget v1, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mShadowColor:I
+
+    invoke-static {v1}, Landroid/graphics/Color;->red(I)I
+
+    move-result v1
+
+    iget v2, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mShadowColor:I
+
+    invoke-static {v2}, Landroid/graphics/Color;->green(I)I
+
+    move-result v2
+
+    iget v3, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mShadowColor:I
+
+    invoke-static {v3}, Landroid/graphics/Color;->blue(I)I
+
+    move-result v3
+
+    invoke-static {v0, v1, v2, v3}, Landroid/graphics/Color;->argb(IIII)I
+
+    move-result v8
+
+    iget-object v0, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintTextPaint:Landroid/graphics/Paint;
+
+    const/high16 v1, 0x40400000    # 3.0f
+
+    const/4 v2, 0x0
+
+    const/high16 v3, 0x3f800000    # 1.0f
+
+    invoke-virtual {v0, v1, v2, v3, v8}, Landroid/graphics/Paint;->setShadowLayer(FFFI)V
 
     :cond_1
+    iget-boolean v0, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mIsOneLine:Z
+
+    if-eqz v0, :cond_3
+
     iget-object v0, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintText:Ljava/lang/String;
 
-    int-to-float v1, v9
+    int-to-float v1, v10
 
-    int-to-float v2, v10
+    int-to-float v2, v11
 
     iget-object v3, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintTextPaint:Landroid/graphics/Paint;
 
     invoke-virtual {p1, v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
 
-    iget v0, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->hintTextOrientation:I
-
-    if-ne v0, v11, :cond_2
-
-    invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
-
     :cond_2
+    :goto_0
     return-void
+
+    :cond_3
+    iget v0, v9, Landroid/graphics/Rect;->top:I
+
+    invoke-virtual {v9}, Landroid/graphics/Rect;->height()I
+
+    move-result v1
+
+    div-int/lit8 v1, v1, 0x2
+
+    add-int v11, v0, v1
+
+    iget-object v0, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintTextLine1:Ljava/lang/String;
+
+    int-to-float v1, v10
+
+    int-to-float v2, v11
+
+    iget-object v3, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintTextPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {p1, v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
+
+    iget-object v0, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintTextLine2:Ljava/lang/String;
+
+    int-to-float v1, v10
+
+    iget-object v2, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintTextBounds:Landroid/graphics/Point;
+
+    iget v2, v2, Landroid/graphics/Point;->y:I
+
+    add-int/2addr v2, v11
+
+    int-to-float v2, v2
+
+    iget-object v3, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintTextPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {p1, v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
+
+    goto :goto_0
 .end method
 
 .method public startAnimation(Landroid/graphics/Rect;IIILandroid/view/animation/Interpolator;ZZ)V
@@ -540,7 +620,7 @@
 
     move-result-object v0
 
-    const-wide/16 v4, 0x96
+    int-to-long v4, p4
 
     invoke-virtual {v0, v4, v5}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
 
@@ -682,131 +762,347 @@
 .end method
 
 .method public update(Landroid/content/Context;)V
-    .locals 6
+    .locals 17
 
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v0
+    move-result-object v7
 
-    iget v1, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintTextResId:I
+    move-object/from16 v0, p0
 
-    invoke-virtual {p1, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    iget v11, v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintTextResId:I
 
-    move-result-object v1
+    move-object/from16 v0, p1
 
-    iput-object v1, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintText:Ljava/lang/String;
+    invoke-virtual {v0, v11}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    iget-object v1, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintTextPaint:Landroid/graphics/Paint;
+    move-result-object v11
 
-    const v2, 0x7f0d031e
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    iput-object v11, v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintText:Ljava/lang/String;
 
-    move-result v2
+    const v11, 0x7f07055b
 
-    int-to-float v2, v2
-
-    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setTextSize(F)V
-
-    iget-object v1, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintTextPaint:Landroid/graphics/Paint;
-
-    iget-object v2, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintText:Ljava/lang/String;
-
-    iget-object v3, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintText:Ljava/lang/String;
-
-    invoke-virtual {v3}, Ljava/lang/String;->length()I
-
-    move-result v3
-
-    iget-object v4, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mTmpRect:Landroid/graphics/Rect;
-
-    const/4 v5, 0x0
-
-    invoke-virtual {v1, v2, v5, v3, v4}, Landroid/graphics/Paint;->getTextBounds(Ljava/lang/String;IILandroid/graphics/Rect;)V
-
-    iget-object v1, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintTextBounds:Landroid/graphics/Point;
-
-    iget-object v2, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintTextPaint:Landroid/graphics/Paint;
-
-    iget-object v3, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintText:Ljava/lang/String;
-
-    invoke-virtual {v2, v3}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
-
-    move-result v2
-
-    float-to-int v2, v2
-
-    iget-object v3, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mTmpRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v3}, Landroid/graphics/Rect;->height()I
-
-    move-result v3
-
-    invoke-virtual {v1, v2, v3}, Landroid/graphics/Point;->set(II)V
-
-    iget-object v1, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintTextPaint:Landroid/graphics/Paint;
-
-    const v2, 0x7f0b0109
-
-    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getColor(I)I
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setColor(I)V
-
-    iget-object v1, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintTextPaint:Landroid/graphics/Paint;
-
-    const/high16 v2, 0x40400000    # 3.0f
-
-    const/4 v3, 0x0
-
-    const/high16 v4, 0x3f800000    # 1.0f
-
-    const v5, 0x7f0b010b
-
-    invoke-virtual {v0, v5}, Landroid/content/res/Resources;->getColor(I)I
+    invoke-virtual {v7, v11}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v5
 
-    invoke-virtual {v1, v2, v3, v4, v5}, Landroid/graphics/Paint;->setShadowLayer(FFFI)V
+    invoke-virtual {v7}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
-    iget-object v1, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintStrokePaint:Landroid/graphics/Paint;
+    move-result-object v11
 
-    const v2, 0x7f0d0305
+    iget v11, v11, Landroid/content/res/Configuration;->fontScale:F
 
-    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    const v12, 0x3f8ccccd    # 1.1f
 
-    move-result v2
+    cmpl-float v11, v11, v12
 
-    int-to-float v2, v2
+    if-lez v11, :cond_0
 
-    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setStrokeWidth(F)V
+    const v4, 0x3f8ccccd    # 1.1f
 
-    const v1, 0x7f0d0306
+    :goto_0
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    iget-object v11, v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintTextPaint:Landroid/graphics/Paint;
 
-    move-result v1
+    int-to-float v12, v5
 
-    int-to-float v1, v1
+    mul-float/2addr v12, v4
 
-    iput v1, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintAreaRadius:F
+    invoke-virtual {v11, v12}, Landroid/graphics/Paint;->setTextSize(F)V
 
-    const v1, 0x7f0d0302
+    const v11, 0x7f07055a
 
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
+    invoke-virtual {v7, v11}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result v1
+    move-result v6
 
-    iput v1, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mTextPadding:I
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    iget-object v1, p0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->freeformAreaOverlay:Landroid/graphics/drawable/ColorDrawable;
+    move-result-object v11
 
-    invoke-virtual {v1}, Landroid/graphics/drawable/ColorDrawable;->getBounds()Landroid/graphics/Rect;
+    invoke-virtual {v11}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
-    move-result-object v1
+    move-result-object v11
 
-    invoke-direct {p0, v1}, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->calculateBound(Landroid/graphics/Rect;)V
+    iget v8, v11, Landroid/util/DisplayMetrics;->widthPixels:I
+
+    mul-int/lit8 v11, v6, 0x2
+
+    sub-int v9, v8, v11
+
+    move-object/from16 v0, p0
+
+    iget-object v11, v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintTextPaint:Landroid/graphics/Paint;
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintText:Ljava/lang/String;
+
+    invoke-virtual {v11, v12}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+
+    move-result v11
+
+    float-to-int v10, v11
+
+    if-gt v10, v9, :cond_1
+
+    const/4 v11, 0x1
+
+    :goto_1
+    move-object/from16 v0, p0
+
+    iput-boolean v11, v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mIsOneLine:Z
+
+    move-object/from16 v0, p0
+
+    iget-boolean v11, v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mIsOneLine:Z
+
+    if-eqz v11, :cond_2
+
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintText:Ljava/lang/String;
+
+    :goto_2
+    move-object/from16 v0, p0
+
+    iget-object v11, v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintTextPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {v1}, Ljava/lang/String;->length()I
+
+    move-result v12
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mTmpRect:Landroid/graphics/Rect;
+
+    const/4 v14, 0x0
+
+    invoke-virtual {v11, v1, v14, v12, v13}, Landroid/graphics/Paint;->getTextBounds(Ljava/lang/String;IILandroid/graphics/Rect;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v11, v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintTextBounds:Landroid/graphics/Point;
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintTextPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {v12, v1}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+
+    move-result v12
+
+    float-to-int v12, v12
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mTmpRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v13}, Landroid/graphics/Rect;->height()I
+
+    move-result v13
+
+    invoke-virtual {v11, v12, v13}, Landroid/graphics/Point;->set(II)V
+
+    move-object/from16 v0, p0
+
+    iget-object v11, v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintTextPaint:Landroid/graphics/Paint;
+
+    const v12, 0x7f06019d
+
+    invoke-virtual {v7, v12}, Landroid/content/res/Resources;->getColor(I)I
+
+    move-result v12
+
+    invoke-virtual {v11, v12}, Landroid/graphics/Paint;->setColor(I)V
+
+    const v11, 0x7f06019f
+
+    invoke-virtual {v7, v11}, Landroid/content/res/Resources;->getColor(I)I
+
+    move-result v11
+
+    move-object/from16 v0, p0
+
+    iput v11, v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mShadowColor:I
+
+    move-object/from16 v0, p0
+
+    iget-object v11, v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintTextPaint:Landroid/graphics/Paint;
+
+    const/high16 v12, 0x40400000    # 3.0f
+
+    const/4 v13, 0x0
+
+    const/high16 v14, 0x3f800000    # 1.0f
+
+    move-object/from16 v0, p0
+
+    iget v15, v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mShadowColor:I
+
+    invoke-virtual {v11, v12, v13, v14, v15}, Landroid/graphics/Paint;->setShadowLayer(FFFI)V
+
+    move-object/from16 v0, p0
+
+    iget-object v11, v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintStrokePaint:Landroid/graphics/Paint;
+
+    const v12, 0x7f070557
+
+    invoke-virtual {v7, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v12
+
+    int-to-float v12, v12
+
+    invoke-virtual {v11, v12}, Landroid/graphics/Paint;->setStrokeWidth(F)V
+
+    const v11, 0x7f070556
+
+    invoke-virtual {v7, v11}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v11
+
+    int-to-float v11, v11
+
+    move-object/from16 v0, p0
+
+    iput v11, v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintAreaRadius:F
+
+    const v11, 0x7f070558
+
+    invoke-virtual {v7, v11}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
+
+    move-result v11
+
+    move-object/from16 v0, p0
+
+    iput v11, v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mTextPadding:I
+
+    move-object/from16 v0, p0
+
+    iget-object v11, v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->freeformAreaOverlay:Landroid/graphics/drawable/ColorDrawable;
+
+    invoke-virtual {v11}, Landroid/graphics/drawable/ColorDrawable;->getBounds()Landroid/graphics/Rect;
+
+    move-result-object v11
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v11}, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->calculateBound(Landroid/graphics/Rect;)V
 
     return-void
+
+    :cond_0
+    invoke-virtual {v7}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v11
+
+    iget v4, v11, Landroid/content/res/Configuration;->fontScale:F
+
+    goto/16 :goto_0
+
+    :cond_1
+    const/4 v11, 0x0
+
+    goto/16 :goto_1
+
+    :cond_2
+    move-object/from16 v0, p0
+
+    iget-object v11, v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintTextPaint:Landroid/graphics/Paint;
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintText:Ljava/lang/String;
+
+    int-to-float v13, v9
+
+    const/4 v14, 0x2
+
+    new-array v14, v14, [F
+
+    int-to-float v15, v9
+
+    const/16 v16, 0x0
+
+    aput v15, v14, v16
+
+    int-to-float v15, v9
+
+    const/16 v16, 0x1
+
+    aput v15, v14, v16
+
+    const/4 v15, 0x1
+
+    invoke-virtual {v11, v12, v15, v13, v14}, Landroid/graphics/Paint;->breakText(Ljava/lang/String;ZF[F)I
+
+    move-result v3
+
+    add-int/lit8 v2, v3, -0x1
+
+    :goto_3
+    if-lez v2, :cond_3
+
+    move-object/from16 v0, p0
+
+    iget-object v11, v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintText:Ljava/lang/String;
+
+    invoke-virtual {v11, v2}, Ljava/lang/String;->charAt(I)C
+
+    move-result v11
+
+    const/16 v12, 0x20
+
+    if-ne v11, v12, :cond_5
+
+    :cond_3
+    if-nez v2, :cond_4
+
+    add-int/lit8 v2, v3, -0x1
+
+    :cond_4
+    move-object/from16 v0, p0
+
+    iget-object v11, v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintText:Ljava/lang/String;
+
+    add-int/lit8 v12, v2, 0x1
+
+    const/4 v13, 0x0
+
+    invoke-virtual {v11, v13, v12}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v11
+
+    move-object/from16 v0, p0
+
+    iput-object v11, v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintTextLine1:Ljava/lang/String;
+
+    move-object/from16 v0, p0
+
+    iget-object v11, v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintText:Ljava/lang/String;
+
+    add-int/lit8 v12, v2, 0x1
+
+    invoke-virtual {v11, v12}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v11
+
+    move-object/from16 v0, p0
+
+    iput-object v11, v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintTextLine2:Ljava/lang/String;
+
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintTextLine1:Ljava/lang/String;
+
+    goto/16 :goto_2
+
+    :cond_5
+    add-int/lit8 v2, v2, -0x1
+
+    goto :goto_3
 .end method

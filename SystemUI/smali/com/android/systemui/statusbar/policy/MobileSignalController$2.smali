@@ -54,7 +54,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController$2;->this$0:Lcom/android/systemui/statusbar/policy/MobileSignalController;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->-wrap3(Lcom/android/systemui/statusbar/policy/MobileSignalController;)Z
+    invoke-static {v2}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->-wrap4(Lcom/android/systemui/statusbar/policy/MobileSignalController;)Z
 
     move-result v2
 

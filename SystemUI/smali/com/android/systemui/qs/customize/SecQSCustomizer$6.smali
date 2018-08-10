@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 4
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$6;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
 
@@ -47,35 +47,13 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$6;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
 
-    invoke-virtual {p1}, Landroid/view/View;->getX()F
+    invoke-static {v0}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-wrap5(Lcom/android/systemui/qs/customize/SecQSCustomizer;)V
 
-    move-result v1
+    sget-object v0, Lcom/android/systemui/SystemUIAnalytics;->mCurrentScreenID:Ljava/lang/String;
 
-    float-to-int v1, v1
+    const-string/jumbo v1, "3001"
 
-    invoke-virtual {p1}, Landroid/view/View;->getWidth()I
-
-    move-result v2
-
-    div-int/lit8 v2, v2, 0x2
-
-    add-int/2addr v1, v2
-
-    invoke-virtual {p1}, Landroid/view/View;->getY()F
-
-    move-result v2
-
-    float-to-int v2, v2
-
-    invoke-virtual {p1}, Landroid/view/View;->getHeight()I
-
-    move-result v3
-
-    div-int/lit8 v3, v3, 0x2
-
-    add-int/2addr v2, v3
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->hide(II)V
+    invoke-static {v0, v1}, Lcom/android/systemui/SystemUIAnalytics;->sendEventLog(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     return-void

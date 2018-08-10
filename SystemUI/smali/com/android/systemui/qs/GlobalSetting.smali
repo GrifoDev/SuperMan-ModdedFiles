@@ -2,6 +2,9 @@
 .super Landroid/database/ContentObserver;
 .source "GlobalSetting.java"
 
+# interfaces
+.implements Lcom/android/systemui/statusbar/policy/Listenable;
+
 
 # instance fields
 .field private final mContext:Landroid/content/Context;

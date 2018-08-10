@@ -1,14 +1,10 @@
 .class public Lcom/android/systemui/recents/views/RecentsSlidingView;
-.super Landroid/view/ViewGroup;
+.super Landroid/widget/FrameLayout;
 .source "RecentsSlidingView.java"
 
 
 # static fields
-.field public static mCurPage:I
-
-.field public static mLastScrollY:I
-
-.field public static mTargetPage:I
+.field private static mToggleAnimationTranslationY:I
 
 
 # instance fields
@@ -22,15 +18,13 @@
 
 .field mDecorView:Landroid/view/View;
 
-.field mIsInMultiWindowMode:Z
-
-.field mIsScrollAnimating:Z
-
-.field private mMeasuredHeight:I
+.field mHideAnimator:Landroid/animation/ObjectAnimator;
 
 .field mPendingLaunchTaskEvent:Lcom/android/systemui/recents/events/EventBus$Event;
 
-.field public mScroller:Landroid/widget/Scroller;
+.field mRecentsView:Lcom/android/systemui/recents/views/RecentsView;
+
+.field mShowAnimator:Landroid/animation/ObjectAnimator;
 
 .field mStrMoreApps:Ljava/lang/String;
 
@@ -41,17 +35,9 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .locals 0
 
-    invoke-direct {p0, p1}, Landroid/view/ViewGroup;-><init>(Landroid/content/Context;)V
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mScroller:Landroid/widget/Scroller;
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mIsScrollAnimating:Z
+    invoke-direct {p0, p1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
     invoke-direct {p0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->init()V
 
@@ -59,17 +45,9 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .locals 0
 
-    invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mScroller:Landroid/widget/Scroller;
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mIsScrollAnimating:Z
+    invoke-direct {p0, p1, p2}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     invoke-direct {p0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->init()V
 
@@ -77,29 +55,31 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .locals 0
 
-    invoke-direct {p0, p1, p2, p3}, Landroid/view/ViewGroup;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mScroller:Landroid/widget/Scroller;
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mIsScrollAnimating:Z
+    invoke-direct {p0, p1, p2, p3}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     invoke-direct {p0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->init()V
 
     return-void
 .end method
 
-.method private handleAppListViewAttach(Z)V
-    .locals 4
+.method private handleAppListView(Z)V
+    .locals 3
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    const/4 v2, -0x1
+    const/4 v1, -0x1
+
+    if-eqz p1, :cond_3
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mAppListViewContainer:Landroid/view/View;
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->indexOfChild(Landroid/view/View;)I
+
+    move-result v0
+
+    if-ne v0, v1, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mAppListViewContainer:Landroid/view/View;
 
@@ -107,9 +87,9 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f04011a
+    const v1, 0x7f0d016e
 
-    invoke-static {v0, v1, v3}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-static {v0, v1, v2}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v0
 
@@ -117,7 +97,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mAppListViewContainer:Landroid/view/View;
 
-    const v1, 0x7f13031d
+    const v1, 0x7f0a0422
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -134,36 +114,37 @@
     invoke-virtual {v0, v1}, Lcom/android/systemui/recents/views/RecentsAppListView;->bindViews(Landroid/view/View;)V
 
     :cond_0
-    if-eqz p1, :cond_2
-
-    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mAppListViewContainer:Landroid/view/View;
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->indexOfChild(Landroid/view/View;)I
-
-    move-result v0
-
-    if-ne v0, v2, :cond_1
-
     iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mAppListViewContainer:Landroid/view/View;
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->addView(Landroid/view/View;)V
 
     :cond_1
+    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mAppListView:Lcom/android/systemui/recents/views/RecentsAppListView;
+
+    invoke-virtual {v0}, Lcom/android/systemui/recents/views/RecentsAppListView;->reload()V
+
+    :cond_2
     :goto_0
     return-void
 
-    :cond_2
+    :cond_3
     iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mAppListViewContainer:Landroid/view/View;
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->indexOfChild(Landroid/view/View;)I
 
     move-result v0
 
-    if-eq v0, v2, :cond_1
+    if-eq v0, v1, :cond_2
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mAppListViewContainer:Landroid/view/View;
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->removeView(Landroid/view/View;)V
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mAppListView:Lcom/android/systemui/recents/views/RecentsAppListView;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/views/RecentsAppListView;->unload(Z)V
 
     goto :goto_0
 .end method
@@ -193,7 +174,7 @@
 .end method
 
 .method private init()V
-    .locals 4
+    .locals 2
 
     invoke-virtual {p0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->getContext()Landroid/content/Context;
 
@@ -205,21 +186,13 @@
 
     iput-object v1, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mContext:Landroid/content/Context;
 
-    invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
-
-    move-result-object v1
-
-    const/4 v2, 0x1
-
-    invoke-virtual {v1, p0, v2}, Lcom/android/systemui/recents/events/EventBus;->register(Ljava/lang/Object;I)V
-
     iget-object v1, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f0f02fd
+    const v1, 0x7f120951
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -227,7 +200,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mStrRecents:Ljava/lang/String;
 
-    const v1, 0x7f0f05e3
+    const v1, 0x7f120956
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -235,52 +208,121 @@
 
     iput-object v1, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mStrMoreApps:Ljava/lang/String;
 
-    new-instance v1, Landroid/widget/Scroller;
+    const v1, 0x7f07054b
 
-    iget-object v2, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mContext:Landroid/content/Context;
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    sget-object v3, Lcom/android/systemui/Interpolators;->SINE_IN_OUT80:Landroid/view/animation/Interpolator;
+    move-result v1
 
-    invoke-direct {v1, v2, v3}, Landroid/widget/Scroller;-><init>(Landroid/content/Context;Landroid/view/animation/Interpolator;)V
-
-    iput-object v1, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mScroller:Landroid/widget/Scroller;
+    sput v1, Lcom/android/systemui/recents/views/RecentsSlidingView;->mToggleAnimationTranslationY:I
 
     return-void
 .end method
 
-.method private isRecentsPage(I)Z
-    .locals 1
+.method private initAppListView()V
+    .locals 2
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    if-nez p1, :cond_0
+    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mAppListViewContainer:Landroid/view/View;
 
-    const/4 v0, 0x1
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mAppListViewContainer:Landroid/view/View;
+
+    invoke-virtual {v0}, Landroid/view/View;->getAlpha()F
+
+    move-result v0
+
+    cmpl-float v0, v0, v1
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mAppListViewContainer:Landroid/view/View;
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setElevation(F)V
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mAppListViewContainer:Landroid/view/View;
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mAppListViewContainer:Landroid/view/View;
+
+    sget v1, Lcom/android/systemui/recents/views/RecentsSlidingView;->mToggleAnimationTranslationY:I
+
+    int-to-float v1, v1
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setTranslationY(F)V
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mAppListViewContainer:Landroid/view/View;
+
+    const/16 v1, 0x8
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     :cond_0
-    return v0
+    return-void
 .end method
 
-.method private onPageChanged(I)V
+.method private initRecentsView()V
+    .locals 2
+
+    const/high16 v1, 0x3f800000    # 1.0f
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mRecentsView:Lcom/android/systemui/recents/views/RecentsView;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mRecentsView:Lcom/android/systemui/recents/views/RecentsView;
+
+    invoke-virtual {v0}, Lcom/android/systemui/recents/views/RecentsView;->getAlpha()F
+
+    move-result v0
+
+    cmpl-float v0, v0, v1
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mRecentsView:Lcom/android/systemui/recents/views/RecentsView;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/views/RecentsView;->setElevation(F)V
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mRecentsView:Lcom/android/systemui/recents/views/RecentsView;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/views/RecentsView;->setAlpha(F)V
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mRecentsView:Lcom/android/systemui/recents/views/RecentsView;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/views/RecentsView;->setTranslationY(F)V
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mRecentsView:Lcom/android/systemui/recents/views/RecentsView;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/views/RecentsView;->setVisibility(I)V
+
+    :cond_0
+    return-void
+.end method
+
+.method private onPageChanged(Z)V
     .locals 4
 
     const/4 v3, 0x1
 
     const/4 v2, 0x0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/recents/views/RecentsSlidingView;->isRecentsPage(I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/systemui/recents/events/ui/ToggleRecentsButtonsContainerEvent;
+    new-instance v1, Lcom/android/systemui/recents/events/ui/ToggleButtonsContainerEvent;
 
-    invoke-direct {v1, v3}, Lcom/android/systemui/recents/events/ui/ToggleRecentsButtonsContainerEvent;-><init>(Z)V
+    invoke-direct {v1, v3}, Lcom/android/systemui/recents/events/ui/ToggleButtonsContainerEvent;-><init>(Z)V
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
 
@@ -288,9 +330,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/systemui/recents/events/ui/ToggleRecentsCloseAllButtonEvent;
+    new-instance v1, Lcom/android/systemui/recents/events/ui/ToggleCloseAllButtonEvent;
 
-    invoke-direct {v1, v3}, Lcom/android/systemui/recents/events/ui/ToggleRecentsCloseAllButtonEvent;-><init>(Z)V
+    invoke-direct {v1, v3}, Lcom/android/systemui/recents/events/ui/ToggleCloseAllButtonEvent;-><init>(Z)V
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
 
@@ -312,9 +354,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/systemui/recents/events/ui/ToggleRecentsCloseAllButtonEvent;
+    new-instance v1, Lcom/android/systemui/recents/events/ui/ToggleCloseAllButtonEvent;
 
-    invoke-direct {v1, v2}, Lcom/android/systemui/recents/events/ui/ToggleRecentsCloseAllButtonEvent;-><init>(Z)V
+    invoke-direct {v1, v2}, Lcom/android/systemui/recents/events/ui/ToggleCloseAllButtonEvent;-><init>(Z)V
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
 
@@ -349,7 +391,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mDecorView:Landroid/view/View;
 
-    const v0, 0x7f130319
+    const v0, 0x7f0a0412
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -359,7 +401,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mCloseAllButton:Landroid/widget/Button;
 
-    const v0, 0x7f13031b
+    const v0, 0x7f0a00bb
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -371,126 +413,72 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mToggleButton:Landroid/widget/Button;
 
-    new-instance v1, Lcom/android/systemui/recents/views/RecentsSlidingView$1;
+    new-instance v1, Lcom/android/systemui/recents/views/-$Lambda$tDRCPvqzSFeRzQVE1q7aDktliAc;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/recents/views/RecentsSlidingView$1;-><init>(Lcom/android/systemui/recents/views/RecentsSlidingView;)V
+    invoke-direct {v1, p0}, Lcom/android/systemui/recents/views/-$Lambda$tDRCPvqzSFeRzQVE1q7aDktliAc;-><init>(Ljava/lang/Object;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mToggleButton:Landroid/widget/Button;
+
+    new-instance v1, Lcom/android/systemui/recents/views/-$Lambda$tDRCPvqzSFeRzQVE1q7aDktliAc$1;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/recents/views/-$Lambda$tDRCPvqzSFeRzQVE1q7aDktliAc$1;-><init>(Ljava/lang/Object;)V
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
     return-void
 .end method
 
-.method public computeScroll()V
-    .locals 3
+.method synthetic lambda$-com_android_systemui_recents_views_RecentsSlidingView_4444(Landroid/view/View;)V
+    .locals 0
 
-    const/4 v2, 0x0
+    invoke-virtual {p0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->toggle()V
 
-    invoke-super {p0}, Landroid/view/ViewGroup;->computeScroll()V
+    return-void
+.end method
 
-    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mScroller:Landroid/widget/Scroller;
+.method synthetic lambda$-com_android_systemui_recents_views_RecentsSlidingView_4507(Landroid/view/View;Z)V
+    .locals 2
 
-    invoke-virtual {v0}, Landroid/widget/Scroller;->computeScrollOffset()Z
+    const/4 v1, 0x0
 
-    move-result v0
+    if-eqz p2, :cond_0
 
-    if-eqz v0, :cond_1
+    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mAppListView:Lcom/android/systemui/recents/views/RecentsAppListView;
 
-    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mScroller:Landroid/widget/Scroller;
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v0}, Landroid/widget/Scroller;->getCurrX()I
+    invoke-static {}, Lcom/android/systemui/recents/Recents;->getConfiguration()Lcom/android/systemui/recents/RecentsConfiguration;
 
-    move-result v0
+    move-result-object v0
 
-    iget-object v1, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mScroller:Landroid/widget/Scroller;
+    iget-object v0, v0, Lcom/android/systemui/recents/RecentsConfiguration;->currentState:Lcom/android/systemui/recents/RecentsConfiguration$RecentsActivityCurrentState;
 
-    invoke-virtual {v1}, Landroid/widget/Scroller;->getCurrY()I
+    iget v0, v0, Lcom/android/systemui/recents/RecentsConfiguration$RecentsActivityCurrentState;->visible:I
 
-    move-result v1
+    if-eqz v0, :cond_0
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/systemui/recents/views/RecentsSlidingView;->scrollTo(II)V
+    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mAppListView:Lcom/android/systemui/recents/views/RecentsAppListView;
 
-    invoke-virtual {p0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->invalidate()V
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mIsScrollAnimating:Z
+    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/views/RecentsAppListView;->smoothScrollToPosition(I)V
 
     :cond_0
-    :goto_0
     return-void
+.end method
 
-    :cond_1
-    iget-boolean v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mIsScrollAnimating:Z
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mScroller:Landroid/widget/Scroller;
-
-    invoke-virtual {v0}, Landroid/widget/Scroller;->getCurrY()I
-
-    move-result v0
-
-    sput v0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mLastScrollY:I
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mIsScrollAnimating:Z
-
-    sget v0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mTargetPage:I
-
-    sput v0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mCurPage:I
-
-    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mPendingLaunchTaskEvent:Lcom/android/systemui/recents/events/EventBus$Event;
-
-    if-eqz v0, :cond_0
+.method protected onAttachedToWindow()V
+    .locals 2
 
     invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mPendingLaunchTaskEvent:Lcom/android/systemui/recents/events/EventBus$Event;
+    const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
+    invoke-virtual {v0, p0, v1}, Lcom/android/systemui/recents/events/EventBus;->register(Ljava/lang/Object;I)V
 
-    iput-object v2, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mPendingLaunchTaskEvent:Lcom/android/systemui/recents/events/EventBus$Event;
-
-    goto :goto_0
-.end method
-
-.method protected dispatchDraw(Landroid/graphics/Canvas;)V
-    .locals 4
-
-    const/4 v0, 0x0
-
-    :goto_0
-    invoke-virtual {p0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->getChildCount()I
-
-    move-result v1
-
-    if-ge v0, v1, :cond_0
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v1
-
-    const-wide/16 v2, 0x0
-
-    invoke-virtual {p0, p1, v1, v2, v3}, Lcom/android/systemui/recents/views/RecentsSlidingView;->drawChild(Landroid/graphics/Canvas;Landroid/view/View;J)Z
-
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    invoke-super {p0, p1}, Landroid/view/ViewGroup;->dispatchDraw(Landroid/graphics/Canvas;)V
-
-    return-void
-.end method
-
-.method protected onAttachedToWindow()V
-    .locals 0
-
-    invoke-super {p0}, Landroid/view/ViewGroup;->onAttachedToWindow()V
+    invoke-super {p0}, Landroid/widget/FrameLayout;->onAttachedToWindow()V
 
     return-void
 .end method
@@ -498,6 +486,21 @@
 .method public final onBusEvent(Lcom/android/systemui/recents/events/activity/LaunchTaskPostEvent;)V
     .locals 8
 
+    invoke-static {}, Lcom/android/systemui/recents/Recents;->getConfiguration()Lcom/android/systemui/recents/RecentsConfiguration;
+
+    move-result-object v0
+
+    iget-object v0, v0, Lcom/android/systemui/recents/RecentsConfiguration;->currentState:Lcom/android/systemui/recents/RecentsConfiguration$RecentsActivityCurrentState;
+
+    iget v0, v0, Lcom/android/systemui/recents/RecentsConfiguration$RecentsActivityCurrentState;->visible:I
+
+    const/4 v1, 0x1
+
+    if-eq v0, v1, :cond_0
+
+    const/4 v6, 0x1
+
+    :goto_0
     iget v0, p1, Lcom/android/systemui/recents/events/activity/LaunchTaskPostEvent;->target:I
 
     packed-switch v0, :pswitch_data_0
@@ -531,17 +534,16 @@
 
     invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->start()V
 
-    :goto_0
+    :goto_1
     return-void
 
+    :cond_0
+    const/4 v6, 0x0
+
+    goto :goto_0
+
     :pswitch_1
-    sget v0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mCurPage:I
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->isRecentsPage(I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
+    if-eqz v6, :cond_1
 
     invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
 
@@ -559,15 +561,13 @@
 
     iget-boolean v5, p1, Lcom/android/systemui/recents/events/activity/LaunchTaskPostEvent;->screenPinningRequested:Z
 
-    iget-boolean v6, p1, Lcom/android/systemui/recents/events/activity/LaunchTaskPostEvent;->isFreeformDragging:Z
-
-    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/recents/events/activity/LaunchTaskEvent;-><init>(Lcom/android/systemui/recents/views/TaskView;Lcom/android/systemui/recents/model/Task;Landroid/graphics/Rect;IZZ)V
+    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/recents/events/activity/LaunchTaskEvent;-><init>(Lcom/android/systemui/recents/views/TaskView;Lcom/android/systemui/recents/model/Task;Landroid/graphics/Rect;IZ)V
 
     invoke-virtual {v7, v0}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_0
+    :cond_1
     new-instance v0, Lcom/android/systemui/recents/events/activity/LaunchTaskEvent;
 
     iget-object v1, p1, Lcom/android/systemui/recents/events/activity/LaunchTaskPostEvent;->taskView:Lcom/android/systemui/recents/views/TaskView;
@@ -580,24 +580,16 @@
 
     iget-boolean v5, p1, Lcom/android/systemui/recents/events/activity/LaunchTaskPostEvent;->screenPinningRequested:Z
 
-    iget-boolean v6, p1, Lcom/android/systemui/recents/events/activity/LaunchTaskPostEvent;->isFreeformDragging:Z
-
-    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/recents/events/activity/LaunchTaskEvent;-><init>(Lcom/android/systemui/recents/views/TaskView;Lcom/android/systemui/recents/model/Task;Landroid/graphics/Rect;IZZ)V
+    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/recents/events/activity/LaunchTaskEvent;-><init>(Lcom/android/systemui/recents/views/TaskView;Lcom/android/systemui/recents/model/Task;Landroid/graphics/Rect;IZ)V
 
     iput-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mPendingLaunchTaskEvent:Lcom/android/systemui/recents/events/EventBus$Event;
 
-    invoke-virtual {p0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->scrollVerticalFirstPage()V
+    invoke-virtual {p0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->toggle()V
 
-    goto :goto_0
+    goto :goto_1
 
     :pswitch_2
-    sget v0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mCurPage:I
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->isRecentsPage(I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
+    if-eqz v6, :cond_2
 
     invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
 
@@ -609,18 +601,18 @@
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/recents/events/EventBus;->post(Lcom/android/systemui/recents/events/EventBus$Event;)V
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_1
+    :cond_2
     new-instance v0, Lcom/android/systemui/recents/events/activity/LaunchNextTaskRequestEvent;
 
     invoke-direct {v0}, Lcom/android/systemui/recents/events/activity/LaunchNextTaskRequestEvent;-><init>()V
 
     iput-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mPendingLaunchTaskEvent:Lcom/android/systemui/recents/events/EventBus$Event;
 
-    invoke-virtual {p0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->scrollVerticalFirstPage()V
+    invoke-virtual {p0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->toggle()V
 
-    goto :goto_0
+    goto :goto_1
 
     nop
 
@@ -632,184 +624,46 @@
     .end packed-switch
 .end method
 
-.method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 0
+.method protected onDetachedFromWindow()V
+    .locals 1
 
-    invoke-super {p0, p1}, Landroid/view/ViewGroup;->onDraw(Landroid/graphics/Canvas;)V
+    invoke-super {p0}, Landroid/widget/FrameLayout;->onDetachedFromWindow()V
+
+    invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Lcom/android/systemui/recents/events/EventBus;->unregister(Ljava/lang/Object;)V
 
     return-void
 .end method
 
 .method protected onFinishInflate()V
-    .locals 0
-
-    invoke-super {p0}, Landroid/view/ViewGroup;->onFinishInflate()V
-
-    return-void
-.end method
-
-.method public onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mPendingLaunchTaskEvent:Lcom/android/systemui/recents/events/EventBus$Event;
+    invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    if-eqz v0, :cond_0
+    const v0, 0x7f0a041b
 
-    const/4 v0, 0x1
+    invoke-virtual {p0, v0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->findViewById(I)Landroid/view/View;
 
-    return v0
+    move-result-object v0
 
-    :cond_0
-    invoke-super {p0, p1}, Landroid/view/ViewGroup;->onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
+    check-cast v0, Lcom/android/systemui/recents/views/RecentsView;
 
-    move-result v0
+    iput-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mRecentsView:Lcom/android/systemui/recents/views/RecentsView;
 
-    return v0
-.end method
+    invoke-direct {p0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->initRecentsView()V
 
-.method protected onLayout(ZIIII)V
-    .locals 4
-
-    const/4 v1, 0x0
-
-    :goto_0
-    invoke-virtual {p0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->getChildCount()I
-
-    move-result v2
-
-    if-ge v1, v2, :cond_0
-
-    invoke-virtual {p0, v1}, Lcom/android/systemui/recents/views/RecentsSlidingView;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/view/View;->getMeasuredHeight()I
-
-    move-result v2
-
-    mul-int v0, v2, v1
-
-    invoke-virtual {p0, v1}, Lcom/android/systemui/recents/views/RecentsSlidingView;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v2
-
-    invoke-virtual {p0, v1}, Lcom/android/systemui/recents/views/RecentsSlidingView;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/view/View;->getMeasuredHeight()I
-
-    move-result v3
-
-    add-int/2addr v3, v0
-
-    invoke-virtual {v2, p2, v0, p4, v3}, Landroid/view/View;->layout(IIII)V
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    return-void
-.end method
-
-.method protected onMeasure(II)V
-    .locals 2
-
-    invoke-super {p0, p1, p2}, Landroid/view/ViewGroup;->onMeasure(II)V
-
-    const/4 v0, 0x0
-
-    :goto_0
-    invoke-virtual {p0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->getChildCount()I
-
-    move-result v1
-
-    if-ge v0, v1, :cond_0
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1, p2}, Landroid/view/View;->measure(II)V
-
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    :cond_0
     return-void
 .end method
 
 .method public onMultiWindowModeChanged(Z)V
-    .locals 1
+    .locals 0
 
-    iput-boolean p1, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mIsInMultiWindowMode:Z
-
-    iget-boolean v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mIsInMultiWindowMode:Z
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->reload(Z)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/recents/views/RecentsSlidingView;->reload(Z)V
 
     return-void
-.end method
-
-.method protected onSizeChanged(IIII)V
-    .locals 2
-
-    const/4 v1, 0x0
-
-    invoke-super {p0, p1, p2, p3, p4}, Landroid/view/ViewGroup;->onSizeChanged(IIII)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->getMeasuredHeight()I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mMeasuredHeight:I
-
-    sget v0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mCurPage:I
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->isRecentsPage(I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->resetScroll()V
-
-    :goto_0
-    return-void
-
-    :cond_0
-    invoke-virtual {p0, v1}, Lcom/android/systemui/recents/views/RecentsSlidingView;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/view/View;->getMeasuredHeight()I
-
-    move-result v0
-
-    invoke-virtual {p0, v1, v0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->scrollTo(II)V
-
-    goto :goto_0
-.end method
-
-.method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mPendingLaunchTaskEvent:Lcom/android/systemui/recents/events/EventBus$Event;
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
-
-    return v0
-
-    :cond_0
-    invoke-super {p0, p1}, Landroid/view/ViewGroup;->onTouchEvent(Landroid/view/MotionEvent;)Z
-
-    move-result v0
-
-    return v0
 .end method
 
 .method protected onVisibilityChanged(Landroid/view/View;I)V
@@ -838,7 +692,7 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
 
     :cond_0
-    invoke-super {p0, p1, p2}, Landroid/view/ViewGroup;->onVisibilityChanged(Landroid/view/View;I)V
+    invoke-super {p0, p1, p2}, Landroid/widget/FrameLayout;->onVisibilityChanged(Landroid/view/View;I)V
 
     return-void
 .end method
@@ -847,8 +701,6 @@
     .locals 3
 
     const/high16 v2, 0x3f800000    # 1.0f
-
-    iput-boolean p1, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mIsInMultiWindowMode:Z
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mToggleButton:Landroid/widget/Button;
 
@@ -871,157 +723,273 @@
     invoke-virtual {v0, v2}, Landroid/view/View;->setAlpha(F)V
 
     :cond_0
-    iget-boolean v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mIsInMultiWindowMode:Z
+    invoke-direct {p0, p1}, Lcom/android/systemui/recents/views/RecentsSlidingView;->handleAppListView(Z)V
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->handleAppListViewAttach(Z)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/recents/views/RecentsSlidingView;->handleToggleButton(Z)V
 
-    iget-boolean v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mIsInMultiWindowMode:Z
+    invoke-virtual {p0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->resetViews()V
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->handleToggleButton(Z)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->resetScroll()V
-
-    iget-boolean v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mIsInMultiWindowMode:Z
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mAppListView:Lcom/android/systemui/recents/views/RecentsAppListView;
-
-    invoke-virtual {v0}, Lcom/android/systemui/recents/views/RecentsAppListView;->reload()V
-
-    :goto_0
     return-void
-
-    :cond_1
-    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mAppListView:Lcom/android/systemui/recents/views/RecentsAppListView;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/views/RecentsAppListView;->unload(Z)V
-
-    goto :goto_0
 .end method
 
-.method public resetScroll()V
+.method public resetViews()V
     .locals 2
 
+    invoke-static {}, Lcom/android/systemui/recents/Recents;->getConfiguration()Lcom/android/systemui/recents/RecentsConfiguration;
+
+    move-result-object v0
+
+    iget-object v0, v0, Lcom/android/systemui/recents/RecentsConfiguration;->currentState:Lcom/android/systemui/recents/RecentsConfiguration$RecentsActivityCurrentState;
+
     const/4 v1, 0x0
 
-    sput v1, Lcom/android/systemui/recents/views/RecentsSlidingView;->mLastScrollY:I
+    iput v1, v0, Lcom/android/systemui/recents/RecentsConfiguration$RecentsActivityCurrentState;->visible:I
 
-    sput v1, Lcom/android/systemui/recents/views/RecentsSlidingView;->mCurPage:I
+    invoke-direct {p0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->initRecentsView()V
 
-    sput v1, Lcom/android/systemui/recents/views/RecentsSlidingView;->mTargetPage:I
+    invoke-direct {p0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->initAppListView()V
 
-    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mCloseAllButton:Landroid/widget/Button;
+    const/4 v0, 0x1
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setVisibility(I)V
-
-    invoke-virtual {p0, v1, v1}, Lcom/android/systemui/recents/views/RecentsSlidingView;->scrollTo(II)V
+    invoke-direct {p0, v0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->onPageChanged(Z)V
 
     return-void
 .end method
 
-.method public scrollVerticalFirstPage()V
-    .locals 6
+.method public toggle()V
+    .locals 12
 
-    const/4 v1, 0x0
+    const/high16 v11, 0x3f800000    # 1.0f
 
-    iget-boolean v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mIsScrollAnimating:Z
+    const/4 v10, 0x0
 
-    if-eqz v0, :cond_0
+    const/4 v9, 0x2
 
-    return-void
+    const/4 v4, 0x1
 
-    :cond_0
-    sget v0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mLastScrollY:I
+    const/4 v5, 0x0
 
-    if-eqz v0, :cond_1
+    invoke-static {}, Lcom/android/systemui/recents/Recents;->getConfiguration()Lcom/android/systemui/recents/RecentsConfiguration;
 
-    invoke-direct {p0, v1}, Lcom/android/systemui/recents/views/RecentsSlidingView;->onPageChanged(I)V
+    move-result-object v3
 
-    :cond_1
-    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mScroller:Landroid/widget/Scroller;
+    iget-object v3, v3, Lcom/android/systemui/recents/RecentsConfiguration;->currentState:Lcom/android/systemui/recents/RecentsConfiguration$RecentsActivityCurrentState;
 
-    sget v2, Lcom/android/systemui/recents/views/RecentsSlidingView;->mLastScrollY:I
+    iget v3, v3, Lcom/android/systemui/recents/RecentsConfiguration$RecentsActivityCurrentState;->visible:I
 
-    sget v3, Lcom/android/systemui/recents/views/RecentsSlidingView;->mLastScrollY:I
+    if-nez v3, :cond_2
 
-    neg-int v4, v3
-
-    const/16 v5, 0x64
-
-    move v3, v1
-
-    invoke-virtual/range {v0 .. v5}, Landroid/widget/Scroller;->startScroll(IIIII)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->invalidate()V
-
-    return-void
-.end method
-
-.method public toggleScrollVertical()V
-    .locals 6
-
-    const/4 v1, 0x0
-
-    iget-boolean v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mIsScrollAnimating:Z
-
-    if-eqz v0, :cond_0
-
-    return-void
-
-    :cond_0
-    sget v0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mLastScrollY:I
-
-    if-lez v0, :cond_2
-
-    sget v0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mLastScrollY:I
-
-    neg-int v4, v0
+    const/4 v2, 0x1
 
     :goto_0
-    sget v0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mLastScrollY:I
+    if-eqz v2, :cond_3
 
-    if-lez v0, :cond_3
-
-    move v0, v1
+    iget-object v1, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mAppListViewContainer:Landroid/view/View;
 
     :goto_1
-    sput v0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mTargetPage:I
+    if-eqz v2, :cond_4
 
-    sget v0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mCurPage:I
+    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mRecentsView:Lcom/android/systemui/recents/views/RecentsView;
 
-    sget v2, Lcom/android/systemui/recents/views/RecentsSlidingView;->mTargetPage:I
+    :goto_2
+    invoke-static {}, Lcom/android/systemui/recents/Recents;->getConfiguration()Lcom/android/systemui/recents/RecentsConfiguration;
 
-    if-eq v0, v2, :cond_1
+    move-result-object v3
 
-    sget v0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mTargetPage:I
+    iget-object v6, v3, Lcom/android/systemui/recents/RecentsConfiguration;->currentState:Lcom/android/systemui/recents/RecentsConfiguration$RecentsActivityCurrentState;
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->onPageChanged(I)V
+    if-eqz v2, :cond_5
+
+    move v3, v4
+
+    :goto_3
+    iput v3, v6, Lcom/android/systemui/recents/RecentsConfiguration$RecentsActivityCurrentState;->visible:I
+
+    xor-int/lit8 v2, v2, 0x1
+
+    invoke-virtual {v1, v11}, Landroid/view/View;->setElevation(F)V
+
+    invoke-virtual {v1, v5}, Landroid/view/View;->setVisibility(I)V
+
+    new-array v3, v9, [Landroid/animation/PropertyValuesHolder;
+
+    sget-object v6, Landroid/view/View;->TRANSLATION_Y:Landroid/util/Property;
+
+    new-array v7, v9, [F
+
+    invoke-virtual {v1}, Landroid/view/View;->getTranslationY()F
+
+    move-result v8
+
+    aput v8, v7, v5
+
+    aput v10, v7, v4
+
+    invoke-static {v6, v7}, Landroid/animation/PropertyValuesHolder;->ofFloat(Landroid/util/Property;[F)Landroid/animation/PropertyValuesHolder;
+
+    move-result-object v6
+
+    aput-object v6, v3, v5
+
+    sget-object v6, Landroid/view/View;->ALPHA:Landroid/util/Property;
+
+    new-array v7, v9, [F
+
+    invoke-virtual {v1}, Landroid/view/View;->getAlpha()F
+
+    move-result v8
+
+    aput v8, v7, v5
+
+    aput v11, v7, v4
+
+    invoke-static {v6, v7}, Landroid/animation/PropertyValuesHolder;->ofFloat(Landroid/util/Property;[F)Landroid/animation/PropertyValuesHolder;
+
+    move-result-object v6
+
+    aput-object v6, v3, v4
+
+    invoke-static {v1, v3}, Landroid/animation/ObjectAnimator;->ofPropertyValuesHolder(Ljava/lang/Object;[Landroid/animation/PropertyValuesHolder;)Landroid/animation/ObjectAnimator;
+
+    move-result-object v3
+
+    iput-object v3, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mShowAnimator:Landroid/animation/ObjectAnimator;
+
+    iget-object v3, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mShowAnimator:Landroid/animation/ObjectAnimator;
+
+    sget-object v6, Lcom/android/systemui/Interpolators;->SINE_IN_OUT70:Landroid/view/animation/Interpolator;
+
+    invoke-virtual {v3, v6}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+
+    iget-object v3, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mShowAnimator:Landroid/animation/ObjectAnimator;
+
+    invoke-virtual {v3}, Landroid/animation/ObjectAnimator;->start()V
+
+    invoke-virtual {v0, v10}, Landroid/view/View;->setElevation(F)V
+
+    iget-object v3, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mHideAnimator:Landroid/animation/ObjectAnimator;
+
+    if-eqz v3, :cond_1
+
+    iget-object v3, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mHideAnimator:Landroid/animation/ObjectAnimator;
+
+    invoke-virtual {v3}, Landroid/animation/ObjectAnimator;->isRunning()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v3, 0x0
+
+    iput-object v3, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mPendingLaunchTaskEvent:Lcom/android/systemui/recents/events/EventBus$Event;
+
+    :cond_0
+    iget-object v3, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mHideAnimator:Landroid/animation/ObjectAnimator;
+
+    invoke-virtual {v3}, Landroid/animation/ObjectAnimator;->removeAllListeners()V
+
+    iget-object v3, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mHideAnimator:Landroid/animation/ObjectAnimator;
+
+    invoke-virtual {v3}, Landroid/animation/ObjectAnimator;->cancel()V
 
     :cond_1
-    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mScroller:Landroid/widget/Scroller;
+    new-array v3, v9, [Landroid/animation/PropertyValuesHolder;
 
-    sget v2, Lcom/android/systemui/recents/views/RecentsSlidingView;->mLastScrollY:I
+    sget-object v6, Landroid/view/View;->TRANSLATION_Y:Landroid/util/Property;
 
-    const/16 v5, 0x12c
+    new-array v7, v9, [F
 
-    move v3, v1
+    invoke-virtual {v0}, Landroid/view/View;->getTranslationY()F
 
-    invoke-virtual/range {v0 .. v5}, Landroid/widget/Scroller;->startScroll(IIIII)V
+    move-result v8
 
-    invoke-virtual {p0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->invalidate()V
+    aput v8, v7, v5
+
+    sget v8, Lcom/android/systemui/recents/views/RecentsSlidingView;->mToggleAnimationTranslationY:I
+
+    int-to-float v8, v8
+
+    aput v8, v7, v4
+
+    invoke-static {v6, v7}, Landroid/animation/PropertyValuesHolder;->ofFloat(Landroid/util/Property;[F)Landroid/animation/PropertyValuesHolder;
+
+    move-result-object v6
+
+    aput-object v6, v3, v5
+
+    sget-object v6, Landroid/view/View;->ALPHA:Landroid/util/Property;
+
+    new-array v7, v9, [F
+
+    invoke-virtual {v0}, Landroid/view/View;->getAlpha()F
+
+    move-result v8
+
+    aput v8, v7, v5
+
+    aput v10, v7, v4
+
+    invoke-static {v6, v7}, Landroid/animation/PropertyValuesHolder;->ofFloat(Landroid/util/Property;[F)Landroid/animation/PropertyValuesHolder;
+
+    move-result-object v5
+
+    aput-object v5, v3, v4
+
+    invoke-static {v0, v3}, Landroid/animation/ObjectAnimator;->ofPropertyValuesHolder(Ljava/lang/Object;[Landroid/animation/PropertyValuesHolder;)Landroid/animation/ObjectAnimator;
+
+    move-result-object v3
+
+    iput-object v3, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mHideAnimator:Landroid/animation/ObjectAnimator;
+
+    iget-object v3, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mHideAnimator:Landroid/animation/ObjectAnimator;
+
+    sget-object v4, Lcom/android/systemui/Interpolators;->SINE_IN_OUT70:Landroid/view/animation/Interpolator;
+
+    invoke-virtual {v3, v4}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+
+    iget-object v3, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mHideAnimator:Landroid/animation/ObjectAnimator;
+
+    new-instance v4, Lcom/android/systemui/recents/views/RecentsSlidingView$1;
+
+    invoke-direct {v4, p0, v0}, Lcom/android/systemui/recents/views/RecentsSlidingView$1;-><init>(Lcom/android/systemui/recents/views/RecentsSlidingView;Landroid/view/View;)V
+
+    invoke-virtual {v3, v4}, Landroid/animation/ObjectAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+
+    iget-object v3, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mHideAnimator:Landroid/animation/ObjectAnimator;
+
+    invoke-virtual {v3}, Landroid/animation/ObjectAnimator;->start()V
+
+    invoke-direct {p0, v2}, Lcom/android/systemui/recents/views/RecentsSlidingView;->onPageChanged(Z)V
+
+    invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
+
+    move-result-object v3
+
+    new-instance v4, Lcom/android/systemui/recents/events/ui/SlidingViewToggleEvent;
+
+    invoke-direct {v4, v2}, Lcom/android/systemui/recents/events/ui/SlidingViewToggleEvent;-><init>(Z)V
+
+    invoke-virtual {v3, v4}, Lcom/android/systemui/recents/events/EventBus;->post(Lcom/android/systemui/recents/events/EventBus$Event;)V
 
     return-void
 
     :cond_2
-    iget v4, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mMeasuredHeight:I
+    const/4 v2, 0x0
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_3
-    const/4 v0, 0x1
+    iget-object v1, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mRecentsView:Lcom/android/systemui/recents/views/RecentsView;
 
-    goto :goto_1
+    goto/16 :goto_1
+
+    :cond_4
+    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mAppListViewContainer:Landroid/view/View;
+
+    goto/16 :goto_2
+
+    :cond_5
+    move v3, v5
+
+    goto/16 :goto_3
 .end method

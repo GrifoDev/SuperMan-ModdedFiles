@@ -1,36 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <plurals name="status_bar_accessibility_recent_apps">
-        <item quantity="other">1 οθόνη στην Επισκόπηση</item>
-        <item quantity="one">%d οθόνες στην Επισκόπηση</item>
-    </plurals>
-    <plurals name="kg_password_wrong_pin_code">
-        <item quantity="other">Λανθασμένος κωδικός PIN κάρτας SIM. Απομένουν άλλες %d προσπάθειες.</item>
-        <item quantity="one">Λανθασμένος κωδικός PIN κάρτας SIM. Απομένει άλλη %d προσπάθεια. Στη συνέχεια, θα πρέπει να επικοινωνήσετε με τον πάροχο κινητής τηλεφωνίας σας για να ξεκλειδώσετε τη συσκευή σας.</item>
-    </plurals>
-    <plurals name="kg_password_wrong_puk_code">
-        <item quantity="other">Λανθασμένος κωδικός PUK κάρτας SIM. Απομένουν άλλες %d προσπάθειες προτού να μην είναι πλέον δυνατή η χρήση της κάρτας SIM.</item>
-        <item quantity="one">Λανθασμένος κωδικός PUK κάρτας SIM. Απομένει άλλη %d προσπάθεια προτού να μην είναι πλέον δυνατή η χρήση της κάρτας SIM.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">Η συσκευή δεν έχει ξεκλειδωθεί για %d ώρες. Επιβεβαιώστε το μοτίβο.</item>
-        <item quantity="one">Η συσκευή δεν έχει ξεκλειδωθεί για %d ώρα. Επιβεβαιώστε το μοτίβο.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">Η συσκευή δεν έχει ξεκλειδωθεί για %d ώρες. Επιβεβαιώστε τον αριθμό PIN.</item>
-        <item quantity="one">Η συσκευή δεν έχει ξεκλειδωθεί για %d ώρα. Επιβεβαιώστε τον αριθμό PIN.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">Η συσκευή δεν έχει ξεκλειδωθεί για %d ώρες. Επιβεβαίωση κωδικού πρόσβασης.</item>
-        <item quantity="one">Η συσκευή δεν έχει ξεκλειδωθεί για %d ώρα. Επιβεβαίωση κωδικού πρόσβασης.</item>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">Απομένουν %d προσπάθειες</item>
+        <item quantity="one">Απομένει %d προσπάθεια</item>
     </plurals>
     <plurals name="kg_attempt_remaining">
         <item quantity="other">(Απομένουν %d προσπάθειες)</item>
         <item quantity="one">(Απομένει 1 προσπάθεια)</item>
     </plurals>
-    <plurals name="kg_attempt_left">
-        <item quantity="other">Απομένουν %d προσπάθειες</item>
-        <item quantity="one">Απομένει %d προσπάθεια</item>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">Λανθασμένος κωδικός PIN κάρτας SIM. Απομένουν άλλες %d προσπάθειες.</item>
+        <item quantity="one">Λανθασμένος κωδικός PIN κάρτας SIM. Απομένει άλλη %d προσπάθεια. Στη συνέχεια, θα πρέπει να επικοινωνήσετε με την εταιρεία κινητής τηλεφωνίας σας για να ξεκλειδώσετε τη συσκευή σας.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">Λανθασμένος κωδικός PUK κάρτας SIM. Απομένουν άλλες %d προσπάθειες προτού να μην είναι πλέον δυνατή η χρήση της κάρτας SIM.</item>
+        <item quantity="one">Λανθασμένος κωδικός PUK κάρτας SIM. Απομένει άλλη %d προσπάθεια προτού να μην είναι πλέον δυνατή η χρήση της κάρτας SIM.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">Η συσκευή δεν έχει ξεκλειδωθεί εδώ και %d ώρες. Επιβεβαιώστε τον κωδικό πρόσβασης.</item>
+        <item quantity="one">Η συσκευή δεν έχει ξεκλειδωθεί εδώ και %d ώρα. Επιβεβαιώστε τον κωδικό πρόσβασης.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">Η συσκευή δεν έχει ξεκλειδωθεί εδώ και %d ώρες. Επιβεβαιώστε το μοτίβο.</item>
+        <item quantity="one">Η συσκευή δεν έχει ξεκλειδωθεί εδώ και %d ώρα. Επιβεβαιώστε το μοτίβο.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">Η συσκευή δεν έχει ξεκλειδωθεί εδώ και %d ώρες. Επιβεβαιώστε τον αριθμό PIN.</item>
+        <item quantity="one">Η συσκευή δεν έχει ξεκλειδωθεί εδώ και %d ώρα. Επιβεβαιώστε τον αριθμό PIN.</item>
     </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown_min">
         <item quantity="other">Δοκιμάστε ξανά σε %d λεπτά</item>
@@ -39,5 +35,29 @@
     <plurals name="kg_too_many_failed_attempts_countdown_sec">
         <item quantity="other">Δοκιμάστε ξανά σε %d δευτερόλεπτα</item>
         <item quantity="one">Δοκιμάστε ξανά σε %d δευτερόλεπτο</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_countdown_by_biometrics">
+        <item quantity="other">Έγιναν %1$d εσφαλμένες προσπάθειες για την επαλήθευση των βιομετρικών δεδομένων σας. Δοκιμάστε ξανά σε %2$d δευτερόλεπτα.</item>
+        <item quantity="one">Έγιναν %1$d εσφαλμένες προσπάθειες για την επαλήθευση των βιομετρικών δεδομένων σας. Δοκιμάστε ξανά σε %2$d δευτερόλεπτο.</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_countdown_by_fingerprint">
+        <item quantity="other">Έγιναν %1$d εσφαλμένες προσπάθειες για την επαλήθευση των δαχτυλικών αποτυπωμάτων. Δοκιμάστε ξανά σε %2$d δευτερόλεπτα.</item>
+        <item quantity="one">Έγιναν %1$d εσφαλμένες προσπάθειες για την επαλήθευση των δαχτυλικών αποτυπωμάτων. Δοκιμάστε ξανά σε %2$d δευτερόλεπτο.</item>
+    </plurals>
+    <plurals name="notification_channels_list_desc_2_and_others">
+        <item quantity="other">%1$s, %2$s και %3$d ακόμη</item>
+        <item quantity="one">%1$s, %2$s και %3$d ακόμη</item>
+    </plurals>
+    <plurals name="notification_num_channels_desc">
+        <item quantity="other">1 από %d κατηγορίες ειδοποιήσεων από αυτή την εφαρμογή</item>
+        <item quantity="one">1 από %d κατηγορία ειδοποιήσεων από αυτή την εφαρμογή</item>
+    </plurals>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">%d οθόνες στην Επισκόπηση</item>
+        <item quantity="one">1 οθόνη στην Επισκόπηση</item>
+    </plurals>
+    <plurals name="notification_group_overflow_description">
+        <item quantity="other">%s επιπλέον ειδοποιήσεις εντός της ομάδας.</item>
+        <item quantity="one">%s επιπλέον ειδοποίηση εντός της ομάδας.</item>
     </plurals>
 </resources>

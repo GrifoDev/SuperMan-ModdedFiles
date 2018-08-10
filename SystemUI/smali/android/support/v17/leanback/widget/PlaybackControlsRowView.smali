@@ -35,9 +35,7 @@
 
 # virtual methods
 .method public dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-    .locals 2
-
-    const/4 v1, 0x1
+    .locals 1
 
     invoke-super {p0, p1}, Landroid/widget/LinearLayout;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
 
@@ -45,7 +43,9 @@
 
     if-eqz v0, :cond_0
 
-    return v1
+    const/4 v0, 0x1
+
+    return v0
 
     :cond_0
     iget-object v0, p0, Landroid/support/v17/leanback/widget/PlaybackControlsRowView;->mOnUnhandledKeyListener:Landroid/support/v17/leanback/widget/PlaybackControlsRowView$OnUnhandledKeyListener;
@@ -58,11 +58,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
-
-    return v1
+    :goto_0
+    return v0
 
     :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public hasOverlappingRendering()Z
+    .locals 1
+
     const/4 v0, 0x0
 
     return v0
@@ -93,4 +100,12 @@
     move-result v1
 
     return v1
+.end method
+
+.method public setOnUnhandledKeyListener(Landroid/support/v17/leanback/widget/PlaybackControlsRowView$OnUnhandledKeyListener;)V
+    .locals 0
+
+    iput-object p1, p0, Landroid/support/v17/leanback/widget/PlaybackControlsRowView;->mOnUnhandledKeyListener:Landroid/support/v17/leanback/widget/PlaybackControlsRowView$OnUnhandledKeyListener;
+
+    return-void
 .end method

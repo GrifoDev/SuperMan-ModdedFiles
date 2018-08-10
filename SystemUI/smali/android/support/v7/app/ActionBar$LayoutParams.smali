@@ -3,6 +3,17 @@
 .source "ActionBar.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/support/v7/app/ActionBar;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "LayoutParams"
+.end annotation
+
+
 # instance fields
 .field public gravity:I
 

@@ -127,9 +127,5 @@
 
     invoke-virtual {v1}, Lcom/android/keyguard/NumPadKey;->userActivity()V
 
-    iget-object v1, p0, Lcom/android/keyguard/NumPadKey$1;->this$0:Lcom/android/keyguard/NumPadKey;
-
-    invoke-virtual {v1}, Lcom/android/keyguard/NumPadKey;->doHapticKeyClick()V
-
     return-void
 .end method

@@ -3,12 +3,12 @@
 .source "KeyguardDirectionLockView.java"
 
 # interfaces
-.implements Lcom/android/internal/widget/LockPatternChecker$OnCheckCallback;
+.implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/keyguard/KeyguardDirectionLockView;->checkPasswordAndHandle()V
+    value = Lcom/android/keyguard/KeyguardDirectionLockView;->onFinishInflate()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,58 +34,43 @@
 
 
 # virtual methods
-.method public onChecked(ZI)V
-    .locals 4
+.method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
+    .locals 2
 
-    const-string/jumbo v1, "KeyguardDirectionLockView"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "onChecked matched = "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
-
-    move-result-object v0
-
-    iput p2, v0, Landroid/os/Message;->arg1:I
-
-    if-eqz p1, :cond_0
-
-    const/16 v1, 0x25
-
-    iput v1, v0, Landroid/os/Message;->what:I
-
-    :goto_0
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardDirectionLockView$9;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
-
-    invoke-static {v1}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get5(Lcom/android/keyguard/KeyguardDirectionLockView;)Landroid/os/Handler;
+    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Landroid/os/Handler;->dispatchMessage(Landroid/os/Message;)V
+    check-cast v1, Ljava/lang/Float;
 
-    return-void
+    invoke-virtual {v1}, Ljava/lang/Float;->floatValue()F
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardDirectionLockView$9;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
+
+    invoke-static {v1}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get9(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/systemui/widget/SystemUIImageView;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardDirectionLockView$9;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
+
+    invoke-static {v1}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get9(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/systemui/widget/SystemUIImageView;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Lcom/android/systemui/widget/SystemUIImageView;->setScaleX(F)V
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardDirectionLockView$9;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
+
+    invoke-static {v1}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get9(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/systemui/widget/SystemUIImageView;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Lcom/android/systemui/widget/SystemUIImageView;->setScaleY(F)V
 
     :cond_0
-    const/16 v1, 0x23
-
-    iput v1, v0, Landroid/os/Message;->what:I
-
-    goto :goto_0
+    return-void
 .end method

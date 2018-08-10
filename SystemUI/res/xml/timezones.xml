@@ -22,7 +22,7 @@
     <timezone id="America/St_Johns" />
     <timezone id="America/Recife" />
     <timezone id="America/Sao_Paulo" />
-    <timezone id="America/Buenos_Aires" />
+    <timezone id="America/Argentina/Buenos_Aires" />
     <timezone id="America/Godthab" />
     <timezone id="America/Montevideo" />
     <timezone id="Atlantic/South_Georgia" />
@@ -59,11 +59,11 @@
     <timezone id="Asia/Karachi" />
     <timezone id="Asia/Oral" />
     <timezone id="Asia/Yekaterinburg" />
-    <timezone id="Asia/Calcutta" />
+    <timezone id="Asia/Kolkata" />
     <timezone id="Asia/Colombo" />
-    <timezone id="Asia/Katmandu" />
+    <timezone id="Asia/Kathmandu" />
     <timezone id="Asia/Almaty" />
-    <timezone id="Asia/Rangoon" />
+    <timezone id="Asia/Yangon" />
     <timezone id="Asia/Krasnoyarsk" />
     <timezone id="Asia/Bangkok" />
     <timezone id="Asia/Jakarta" />

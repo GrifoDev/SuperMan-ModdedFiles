@@ -10,17 +10,13 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/support/v4/view/PagerTitleStrip$PageListener;,
-        Landroid/support/v4/view/PagerTitleStrip$PagerTitleStripImpl;,
-        Landroid/support/v4/view/PagerTitleStrip$PagerTitleStripImplBase;,
-        Landroid/support/v4/view/PagerTitleStrip$PagerTitleStripImplIcs;
+        Landroid/support/v4/view/PagerTitleStrip$SingleLineAllCapsTransform;
     }
 .end annotation
 
 
 # static fields
 .field private static final ATTRS:[I
-
-.field private static final IMPL:Landroid/support/v4/view/PagerTitleStrip$PagerTitleStripImpl;
 
 .field private static final TEXT_ATTRS:[I
 
@@ -32,7 +28,7 @@
 
 .field private mLastKnownCurrentPage:I
 
-.field private mLastKnownPositionOffset:F
+.field mLastKnownPositionOffset:F
 
 .field mNextText:Landroid/widget/TextView;
 
@@ -65,14 +61,6 @@
 
 
 # direct methods
-.method static synthetic -get0(Landroid/support/v4/view/PagerTitleStrip;)F
-    .locals 1
-
-    iget v0, p0, Landroid/support/v4/view/PagerTitleStrip;->mLastKnownPositionOffset:F
-
-    return v0
-.end method
-
 .method static constructor <clinit>()V
     .locals 4
 
@@ -102,35 +90,13 @@
 
     sput-object v0, Landroid/support/v4/view/PagerTitleStrip;->TEXT_ATTRS:[I
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0xe
-
-    if-lt v0, v1, :cond_0
-
-    new-instance v0, Landroid/support/v4/view/PagerTitleStrip$PagerTitleStripImplIcs;
-
-    invoke-direct {v0}, Landroid/support/v4/view/PagerTitleStrip$PagerTitleStripImplIcs;-><init>()V
-
-    sput-object v0, Landroid/support/v4/view/PagerTitleStrip;->IMPL:Landroid/support/v4/view/PagerTitleStrip$PagerTitleStripImpl;
-
-    :goto_0
     return-void
-
-    :cond_0
-    new-instance v0, Landroid/support/v4/view/PagerTitleStrip$PagerTitleStripImplBase;
-
-    invoke-direct {v0}, Landroid/support/v4/view/PagerTitleStrip$PagerTitleStripImplBase;-><init>()V
-
-    sput-object v0, Landroid/support/v4/view/PagerTitleStrip;->IMPL:Landroid/support/v4/view/PagerTitleStrip$PagerTitleStripImpl;
-
-    goto :goto_0
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 11
+    .locals 10
 
-    const/4 v10, 0x2
+    const/4 v8, 0x2
 
     const/4 v9, 0x0
 
@@ -146,9 +112,7 @@
 
     new-instance v7, Landroid/support/v4/view/PagerTitleStrip$PageListener;
 
-    const/4 v8, 0x0
-
-    invoke-direct {v7, p0, v8}, Landroid/support/v4/view/PagerTitleStrip$PageListener;-><init>(Landroid/support/v4/view/PagerTitleStrip;Landroid/support/v4/view/PagerTitleStrip$PageListener;)V
+    invoke-direct {v7, p0}, Landroid/support/v4/view/PagerTitleStrip$PageListener;-><init>(Landroid/support/v4/view/PagerTitleStrip;)V
 
     iput-object v7, p0, Landroid/support/v4/view/PagerTitleStrip;->mPageListener:Landroid/support/v4/view/PagerTitleStrip$PageListener;
 
@@ -190,15 +154,15 @@
 
     iget-object v7, p0, Landroid/support/v4/view/PagerTitleStrip;->mPrevText:Landroid/widget/TextView;
 
-    invoke-virtual {v7, p1, v4}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
+    invoke-static {v7, v4}, Landroid/support/v4/widget/TextViewCompat;->setTextAppearance(Landroid/widget/TextView;I)V
 
     iget-object v7, p0, Landroid/support/v4/view/PagerTitleStrip;->mCurrText:Landroid/widget/TextView;
 
-    invoke-virtual {v7, p1, v4}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
+    invoke-static {v7, v4}, Landroid/support/v4/widget/TextViewCompat;->setTextAppearance(Landroid/widget/TextView;I)V
 
     iget-object v7, p0, Landroid/support/v4/view/PagerTitleStrip;->mNextText:Landroid/widget/TextView;
 
-    invoke-virtual {v7, p1, v4}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
+    invoke-static {v7, v4}, Landroid/support/v4/widget/TextViewCompat;->setTextAppearance(Landroid/widget/TextView;I)V
 
     :cond_0
     const/4 v7, 0x1
@@ -214,13 +178,13 @@
     invoke-virtual {p0, v9, v7}, Landroid/support/v4/view/PagerTitleStrip;->setTextSize(IF)V
 
     :cond_1
-    invoke-virtual {v0, v10}, Landroid/content/res/TypedArray;->hasValue(I)Z
+    invoke-virtual {v0, v8}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
     move-result v7
 
     if-eqz v7, :cond_2
 
-    invoke-virtual {v0, v10, v9}, Landroid/content/res/TypedArray;->getColor(II)I
+    invoke-virtual {v0, v8, v9}, Landroid/content/res/TypedArray;->getColor(II)I
 
     move-result v5
 
@@ -352,11 +316,17 @@
 .end method
 
 .method private static setSingleLineAllCaps(Landroid/widget/TextView;)V
-    .locals 1
+    .locals 2
 
-    sget-object v0, Landroid/support/v4/view/PagerTitleStrip;->IMPL:Landroid/support/v4/view/PagerTitleStrip$PagerTitleStripImpl;
+    new-instance v0, Landroid/support/v4/view/PagerTitleStrip$SingleLineAllCapsTransform;
 
-    invoke-interface {v0, p0}, Landroid/support/v4/view/PagerTitleStrip$PagerTitleStripImpl;->setSingleLineAllCaps(Landroid/widget/TextView;)V
+    invoke-virtual {p0}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Landroid/support/v4/view/PagerTitleStrip$SingleLineAllCapsTransform;-><init>(Landroid/content/Context;)V
+
+    invoke-virtual {p0, v0}, Landroid/widget/TextView;->setTransformationMethod(Landroid/text/method/TransformationMethod;)V
 
     return-void
 .end method
@@ -603,7 +573,7 @@
     :goto_0
     iget-object v13, p0, Landroid/support/v4/view/PagerTitleStrip;->mCurrText:Landroid/widget/TextView;
 
-    invoke-static {v13}, Landroid/support/v4/view/ViewCompat;->getMeasuredState(Landroid/view/View;)I
+    invoke-virtual {v13}, Landroid/widget/TextView;->getMeasuredState()I
 
     move-result v2
 
@@ -611,7 +581,7 @@
 
     move/from16 v0, p2
 
-    invoke-static {v4, v0, v13}, Landroid/support/v4/view/ViewCompat;->resolveSizeAndState(III)I
+    invoke-static {v4, v0, v13}, Landroid/view/View;->resolveSizeAndState(III)I
 
     move-result v7
 

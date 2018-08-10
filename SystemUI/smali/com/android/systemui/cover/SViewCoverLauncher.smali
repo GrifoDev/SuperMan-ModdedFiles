@@ -6,7 +6,6 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/systemui/cover/SViewCoverLauncher$1;,
         Lcom/android/systemui/cover/SViewCoverLauncher$StatusBarCoverShortcutOpen;
     }
 .end annotation
@@ -17,13 +16,19 @@
 
 .field private static sCoverBaseClassConstructor:Ljava/lang/reflect/Constructor;
 
+.field private static sGetSViewCoverHeightMethod:Ljava/lang/reflect/Method;
+
+.field private static sGetSViewCoverMarginMethod:Ljava/lang/reflect/Method;
+
+.field private static sGetSViewCoverShortcutContainerHeightMethod:Ljava/lang/reflect/Method;
+
+.field private static sGetSViewCoverWidthMethod:Ljava/lang/reflect/Method;
+
 .field private static sOnCoverAppCoveredMethod:Ljava/lang/reflect/Method;
 
 .field private static sOnStatusBarStateChangedMethod:Ljava/lang/reflect/Method;
 
 .field private static sSetCoverUiAlphaMethod:Ljava/lang/reflect/Method;
-
-.field private static sSetShortcutAppOpenCallback:Ljava/lang/reflect/Method;
 
 .field private static sShowCoverOpenPopupMethod:Ljava/lang/reflect/Method;
 
@@ -35,22 +40,10 @@
 
 
 # instance fields
-.field private mCoverShortcutOpen:Lcom/sec/android/cover/sviewcover/SViewCoverShortcutManager$CoverShortcutOpen;
-
 .field private mSViewCoverBase:Ljava/lang/Object;
-
-.field private mStatusBarCoverShortcutOpen:Lcom/android/systemui/cover/SViewCoverLauncher$StatusBarCoverShortcutOpen;
 
 
 # direct methods
-.method static synthetic -get0(Lcom/android/systemui/cover/SViewCoverLauncher;)Lcom/android/systemui/cover/SViewCoverLauncher$StatusBarCoverShortcutOpen;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/cover/SViewCoverLauncher;->mStatusBarCoverShortcutOpen:Lcom/android/systemui/cover/SViewCoverLauncher$StatusBarCoverShortcutOpen;
-
-    return-object v0
-.end method
-
 .method static constructor <clinit>()V
     .locals 1
 
@@ -74,7 +67,13 @@
 
     sput-object v0, Lcom/android/systemui/cover/SViewCoverLauncher;->sOnCoverAppCoveredMethod:Ljava/lang/reflect/Method;
 
-    sput-object v0, Lcom/android/systemui/cover/SViewCoverLauncher;->sSetShortcutAppOpenCallback:Ljava/lang/reflect/Method;
+    sput-object v0, Lcom/android/systemui/cover/SViewCoverLauncher;->sGetSViewCoverWidthMethod:Ljava/lang/reflect/Method;
+
+    sput-object v0, Lcom/android/systemui/cover/SViewCoverLauncher;->sGetSViewCoverHeightMethod:Ljava/lang/reflect/Method;
+
+    sput-object v0, Lcom/android/systemui/cover/SViewCoverLauncher;->sGetSViewCoverMarginMethod:Ljava/lang/reflect/Method;
+
+    sput-object v0, Lcom/android/systemui/cover/SViewCoverLauncher;->sGetSViewCoverShortcutContainerHeightMethod:Ljava/lang/reflect/Method;
 
     return-void
 .end method
@@ -88,19 +87,13 @@
 
     iput-object v4, p0, Lcom/android/systemui/cover/SViewCoverLauncher;->mSViewCoverBase:Ljava/lang/Object;
 
-    new-instance v4, Lcom/android/systemui/cover/SViewCoverLauncher$1;
-
-    invoke-direct {v4, p0}, Lcom/android/systemui/cover/SViewCoverLauncher$1;-><init>(Lcom/android/systemui/cover/SViewCoverLauncher;)V
-
-    iput-object v4, p0, Lcom/android/systemui/cover/SViewCoverLauncher;->mCoverShortcutOpen:Lcom/sec/android/cover/sviewcover/SViewCoverShortcutManager$CoverShortcutOpen;
-
-    invoke-direct {p0}, Lcom/android/systemui/cover/SViewCoverLauncher;->isAnyEmptyReflection()Z
+    invoke-static {}, Lcom/android/systemui/cover/SViewCoverLauncher;->isAnyEmptyReflection()Z
 
     move-result v4
 
     if-eqz v4, :cond_0
 
-    invoke-direct {p0}, Lcom/android/systemui/cover/SViewCoverLauncher;->loadReflections()V
+    invoke-static {}, Lcom/android/systemui/cover/SViewCoverLauncher;->loadReflections()V
 
     :cond_0
     iget-object v4, p0, Lcom/android/systemui/cover/SViewCoverLauncher;->mSViewCoverBase:Ljava/lang/Object;
@@ -228,135 +221,255 @@
     goto :goto_0
 .end method
 
-.method public static getSViewCoverHeight(Landroid/content/Context;)F
-    .locals 2
-
-    if-nez p0, :cond_0
-
-    const-string/jumbo v0, "SViewCoverLauncher"
-
-    const-string/jumbo v1, "getSViewCoverHeight, context null"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/high16 v0, -0x40800000    # -1.0f
-
-    return v0
-
-    :cond_0
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x7f0d0036
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v0
-
-    return v0
-.end method
-
 .method public static getSViewCoverMargin(Landroid/content/Context;)F
-    .locals 2
+    .locals 8
+
+    const/high16 v4, -0x40800000    # -1.0f
 
     if-nez p0, :cond_0
 
-    const-string/jumbo v0, "SViewCoverLauncher"
+    const-string/jumbo v5, "SViewCoverLauncher"
 
-    const-string/jumbo v1, "getSViewCoverMargin, context null"
+    const-string/jumbo v6, "getSViewCoverMargin, context null"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/high16 v0, -0x40800000    # -1.0f
-
-    return v0
+    return v4
 
     :cond_0
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-static {}, Lcom/android/systemui/cover/SViewCoverLauncher;->isAnyEmptyReflection()Z
 
-    move-result-object v0
+    move-result v5
 
-    const v1, 0x7f0d0044
+    if-eqz v5, :cond_1
 
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
+    invoke-static {}, Lcom/android/systemui/cover/SViewCoverLauncher;->loadReflections()V
 
-    move-result v0
+    :cond_1
+    sget-object v5, Lcom/android/systemui/cover/SViewCoverLauncher;->sGetSViewCoverMarginMethod:Ljava/lang/reflect/Method;
 
-    return v0
-.end method
+    if-nez v5, :cond_2
 
-.method public static getSViewCoverShortcutContainerHeight(Landroid/content/Context;)F
-    .locals 4
+    const/4 v4, 0x0
 
-    if-nez p0, :cond_0
+    return v4
 
-    const-string/jumbo v2, "SViewCoverLauncher"
+    :cond_2
+    const/4 v5, 0x1
 
-    const-string/jumbo v3, "getSViewCoverShortcutContainerHeight, context null"
+    :try_start_0
+    new-array v3, v5, [Ljava/lang/Object;
 
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    const/4 v5, 0x0
 
-    const/high16 v2, -0x40800000    # -1.0f
+    aput-object p0, v3, v5
 
-    return v2
+    sget-object v5, Lcom/android/systemui/cover/SViewCoverLauncher;->sGetSViewCoverMarginMethod:Ljava/lang/reflect/Method;
 
-    :cond_0
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    const/4 v6, 0x0
+
+    invoke-virtual {v5, v6, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
 
-    const v3, 0x7f0d0043
+    if-nez v2, :cond_3
 
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
+    :goto_0
+    return v4
 
-    move-result v1
+    :cond_3
+    check-cast v2, Ljava/lang/Float;
 
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v2}, Ljava/lang/Float;->floatValue()F
+    :try_end_0
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v2
+    move-result v4
 
-    const v3, 0x7f0d0040
+    goto :goto_0
 
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
+    :catch_0
+    move-exception v1
 
-    move-result v0
+    sget-object v5, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
-    add-float v2, v1, v0
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    return v2
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "SViewCoverLauncher InvocationTargetException encountered invoking getSViewCoverWidth "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+
+    :goto_1
+    return v4
+
+    :catch_1
+    move-exception v0
+
+    sget-object v5, Ljava/lang/System;->err:Ljava/io/PrintStream;
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "SViewCoverLauncher IllegalAccessException encountered invoking getSViewCoverWidth"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+
+    goto :goto_1
 .end method
 
 .method public static getSViewCoverWidth(Landroid/content/Context;)F
-    .locals 2
+    .locals 8
+
+    const/high16 v4, -0x40800000    # -1.0f
 
     if-nez p0, :cond_0
 
-    const-string/jumbo v0, "SViewCoverLauncher"
+    const-string/jumbo v5, "SViewCoverLauncher"
 
-    const-string/jumbo v1, "getSViewCoverWidht, context null"
+    const-string/jumbo v6, "getSViewCoverWidth, context null"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/high16 v0, -0x40800000    # -1.0f
-
-    return v0
+    return v4
 
     :cond_0
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-static {}, Lcom/android/systemui/cover/SViewCoverLauncher;->isAnyEmptyReflection()Z
 
-    move-result-object v0
+    move-result v5
 
-    const v1, 0x7f0d0038
+    if-eqz v5, :cond_1
 
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
+    invoke-static {}, Lcom/android/systemui/cover/SViewCoverLauncher;->loadReflections()V
 
-    move-result v0
+    :cond_1
+    sget-object v5, Lcom/android/systemui/cover/SViewCoverLauncher;->sGetSViewCoverWidthMethod:Ljava/lang/reflect/Method;
 
-    return v0
+    if-nez v5, :cond_2
+
+    const/4 v4, 0x0
+
+    return v4
+
+    :cond_2
+    const/4 v5, 0x1
+
+    :try_start_0
+    new-array v3, v5, [Ljava/lang/Object;
+
+    const/4 v5, 0x0
+
+    aput-object p0, v3, v5
+
+    sget-object v5, Lcom/android/systemui/cover/SViewCoverLauncher;->sGetSViewCoverWidthMethod:Ljava/lang/reflect/Method;
+
+    const/4 v6, 0x0
+
+    invoke-virtual {v5, v6, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    if-nez v2, :cond_3
+
+    :goto_0
+    return v4
+
+    :cond_3
+    check-cast v2, Ljava/lang/Float;
+
+    invoke-virtual {v2}, Ljava/lang/Float;->floatValue()F
+    :try_end_0
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v4
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v1
+
+    sget-object v5, Ljava/lang/System;->err:Ljava/io/PrintStream;
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "SViewCoverLauncher InvocationTargetException encountered invoking getSViewCoverWidth "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+
+    :goto_1
+    return v4
+
+    :catch_1
+    move-exception v0
+
+    sget-object v5, Ljava/lang/System;->err:Ljava/io/PrintStream;
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "SViewCoverLauncher IllegalAccessException encountered invoking getSViewCoverWidth"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+
+    goto :goto_1
 .end method
 
-.method private isAnyEmptyReflection()Z
+.method private static isAnyEmptyReflection()Z
     .locals 1
 
     sget-object v0, Lcom/android/systemui/cover/SViewCoverLauncher;->sCoverBaseClass:Ljava/lang/Class;
@@ -401,12 +514,28 @@
 
     if-eqz v0, :cond_0
 
+    sget-object v0, Lcom/android/systemui/cover/SViewCoverLauncher;->sGetSViewCoverWidthMethod:Ljava/lang/reflect/Method;
+
+    if-eqz v0, :cond_0
+
+    sget-object v0, Lcom/android/systemui/cover/SViewCoverLauncher;->sGetSViewCoverHeightMethod:Ljava/lang/reflect/Method;
+
+    if-eqz v0, :cond_0
+
+    sget-object v0, Lcom/android/systemui/cover/SViewCoverLauncher;->sGetSViewCoverMarginMethod:Ljava/lang/reflect/Method;
+
+    if-eqz v0, :cond_0
+
+    sget-object v0, Lcom/android/systemui/cover/SViewCoverLauncher;->sGetSViewCoverShortcutContainerHeightMethod:Ljava/lang/reflect/Method;
+
+    if-eqz v0, :cond_0
+
     const/4 v0, 0x0
 
     return v0
 .end method
 
-.method private loadReflections()V
+.method private static loadReflections()V
     .locals 6
 
     const-string/jumbo v3, "SViewCoverLauncher"
@@ -567,25 +696,29 @@
 
     sput-object v3, Lcom/android/systemui/cover/SViewCoverLauncher;->sSetCoverUiAlphaMethod:Ljava/lang/reflect/Method;
 
-    sget-object v3, Lcom/android/systemui/cover/SViewCoverLauncher;->sCoverBaseClass:Ljava/lang/Class;
+    sget-object v4, Lcom/android/systemui/cover/SViewCoverLauncher;->sCoverBaseClass:Ljava/lang/Class;
 
-    const-string/jumbo v4, "userActivity"
+    const-string/jumbo v5, "userActivity"
 
-    const/4 v5, 0x0
+    const/4 v3, 0x0
 
-    invoke-virtual {v3, v4, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    check-cast v3, [Ljava/lang/Class;
+
+    invoke-virtual {v4, v5, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v3
 
     sput-object v3, Lcom/android/systemui/cover/SViewCoverLauncher;->sUserActivityMethod:Ljava/lang/reflect/Method;
 
-    sget-object v3, Lcom/android/systemui/cover/SViewCoverLauncher;->sCoverBaseClass:Ljava/lang/Class;
+    sget-object v4, Lcom/android/systemui/cover/SViewCoverLauncher;->sCoverBaseClass:Ljava/lang/Class;
 
-    const-string/jumbo v4, "showCoverOpenPopup"
+    const-string/jumbo v5, "showCoverOpenPopup"
 
-    const/4 v5, 0x0
+    const/4 v3, 0x0
 
-    invoke-virtual {v3, v4, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    check-cast v3, [Ljava/lang/Class;
+
+    invoke-virtual {v4, v5, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v3
 
@@ -595,7 +728,7 @@
 
     new-array v2, v3, [Ljava/lang/Class;
 
-    const-class v3, Lcom/sec/android/cover/sviewcover/SViewCoverShortcutManager$CoverShortcutOpen;
+    const-class v3, Landroid/content/Context;
 
     const/4 v4, 0x0
 
@@ -603,13 +736,43 @@
 
     sget-object v3, Lcom/android/systemui/cover/SViewCoverLauncher;->sCoverBaseClass:Ljava/lang/Class;
 
-    const-string/jumbo v4, "setShortcutAppOpenCallback"
+    const-string/jumbo v4, "getSViewCoverWidth"
 
     invoke-virtual {v3, v4, v2}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v3
 
-    sput-object v3, Lcom/android/systemui/cover/SViewCoverLauncher;->sSetShortcutAppOpenCallback:Ljava/lang/reflect/Method;
+    sput-object v3, Lcom/android/systemui/cover/SViewCoverLauncher;->sGetSViewCoverWidthMethod:Ljava/lang/reflect/Method;
+
+    sget-object v3, Lcom/android/systemui/cover/SViewCoverLauncher;->sCoverBaseClass:Ljava/lang/Class;
+
+    const-string/jumbo v4, "getSViewCoverHeight"
+
+    invoke-virtual {v3, v4, v2}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+
+    move-result-object v3
+
+    sput-object v3, Lcom/android/systemui/cover/SViewCoverLauncher;->sGetSViewCoverHeightMethod:Ljava/lang/reflect/Method;
+
+    sget-object v3, Lcom/android/systemui/cover/SViewCoverLauncher;->sCoverBaseClass:Ljava/lang/Class;
+
+    const-string/jumbo v4, "getSViewCoverMargin"
+
+    invoke-virtual {v3, v4, v2}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+
+    move-result-object v3
+
+    sput-object v3, Lcom/android/systemui/cover/SViewCoverLauncher;->sGetSViewCoverMarginMethod:Ljava/lang/reflect/Method;
+
+    sget-object v3, Lcom/android/systemui/cover/SViewCoverLauncher;->sCoverBaseClass:Ljava/lang/Class;
+
+    const-string/jumbo v4, "getSViewCoverShortcutContainerHeight"
+
+    invoke-virtual {v3, v4, v2}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+
+    move-result-object v3
+
+    sput-object v3, Lcom/android/systemui/cover/SViewCoverLauncher;->sGetSViewCoverShortcutContainerHeightMethod:Ljava/lang/reflect/Method;
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
@@ -692,13 +855,7 @@
 
     check-cast v0, Landroid/widget/FrameLayout$LayoutParams;
 
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    const v3, 0x7f0d0044
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
+    invoke-static {p1}, Lcom/android/systemui/cover/SViewCoverLauncher;->getSViewCoverMargin(Landroid/content/Context;)F
 
     move-result v2
 
@@ -708,13 +865,7 @@
 
     iput v1, v0, Landroid/widget/FrameLayout$LayoutParams;->rightMargin:I
 
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    const v3, 0x7f0d0038
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
+    invoke-static {p1}, Lcom/android/systemui/cover/SViewCoverLauncher;->getSViewCoverWidth(Landroid/content/Context;)F
 
     move-result v2
 
@@ -830,297 +981,10 @@
     goto :goto_0
 .end method
 
-.method public onStatusBarStateChanged(I)V
-    .locals 6
-
-    iget-object v3, p0, Lcom/android/systemui/cover/SViewCoverLauncher;->mSViewCoverBase:Ljava/lang/Object;
-
-    if-eqz v3, :cond_0
-
-    sget-object v3, Lcom/android/systemui/cover/SViewCoverLauncher;->sOnStatusBarStateChangedMethod:Ljava/lang/reflect/Method;
-
-    if-nez v3, :cond_1
-
-    :cond_0
-    const-string/jumbo v3, "SViewCoverLauncher"
-
-    const-string/jumbo v4, "Cannot invoke onStatusBarStateChanged."
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_1
-    const/4 v3, 0x1
-
-    :try_start_0
-    new-array v2, v3, [Ljava/lang/Object;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    const/4 v4, 0x0
-
-    aput-object v3, v2, v4
-
-    sget-object v3, Lcom/android/systemui/cover/SViewCoverLauncher;->sOnStatusBarStateChangedMethod:Ljava/lang/reflect/Method;
-
-    iget-object v4, p0, Lcom/android/systemui/cover/SViewCoverLauncher;->mSViewCoverBase:Ljava/lang/Object;
-
-    invoke-virtual {v3, v4, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
-    return-void
-
-    :catch_0
-    move-exception v1
-
-    sget-object v3, Ljava/lang/System;->err:Ljava/io/PrintStream;
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "SViewCoverLauncher InvocationTargetException encountered invoking onStatusBarStateChanged "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
-
-    goto :goto_0
-
-    :catch_1
-    move-exception v0
-
-    sget-object v3, Ljava/lang/System;->err:Ljava/io/PrintStream;
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "SViewCoverLauncher IllegalAccessException encountered invoking onStatusBarStateChanged "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
-
-    goto :goto_0
-.end method
-
 .method public setShortcutAppOpenCallback(Lcom/android/systemui/cover/SViewCoverLauncher$StatusBarCoverShortcutOpen;)V
-    .locals 6
-
-    iput-object p1, p0, Lcom/android/systemui/cover/SViewCoverLauncher;->mStatusBarCoverShortcutOpen:Lcom/android/systemui/cover/SViewCoverLauncher$StatusBarCoverShortcutOpen;
-
-    iget-object v3, p0, Lcom/android/systemui/cover/SViewCoverLauncher;->mSViewCoverBase:Ljava/lang/Object;
-
-    if-eqz v3, :cond_0
-
-    sget-object v3, Lcom/android/systemui/cover/SViewCoverLauncher;->sSetShortcutAppOpenCallback:Ljava/lang/reflect/Method;
-
-    if-nez v3, :cond_1
-
-    :cond_0
-    const-string/jumbo v3, "SViewCoverLauncher"
-
-    const-string/jumbo v4, "Cannot invoke sSetShortcutAppOpenCallback."
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    .locals 0
 
     return-void
-
-    :cond_1
-    const/4 v3, 0x1
-
-    :try_start_0
-    new-array v2, v3, [Ljava/lang/Object;
-
-    iget-object v3, p0, Lcom/android/systemui/cover/SViewCoverLauncher;->mCoverShortcutOpen:Lcom/sec/android/cover/sviewcover/SViewCoverShortcutManager$CoverShortcutOpen;
-
-    const/4 v4, 0x0
-
-    aput-object v3, v2, v4
-
-    sget-object v3, Lcom/android/systemui/cover/SViewCoverLauncher;->sSetShortcutAppOpenCallback:Ljava/lang/reflect/Method;
-
-    iget-object v4, p0, Lcom/android/systemui/cover/SViewCoverLauncher;->mSViewCoverBase:Ljava/lang/Object;
-
-    invoke-virtual {v3, v4, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
-    return-void
-
-    :catch_0
-    move-exception v1
-
-    sget-object v3, Ljava/lang/System;->err:Ljava/io/PrintStream;
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "SViewCoverLauncher InvocationTargetException encountered invoking sSetShortcutAppOpenCallback "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
-
-    goto :goto_0
-
-    :catch_1
-    move-exception v0
-
-    sget-object v3, Ljava/lang/System;->err:Ljava/io/PrintStream;
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "SViewCoverLauncher IllegalAccessException encountered invoking sSetShortcutAppOpenCallback"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
-
-    goto :goto_0
-.end method
-
-.method public showCoverOpenPopup()V
-    .locals 5
-
-    iget-object v2, p0, Lcom/android/systemui/cover/SViewCoverLauncher;->mSViewCoverBase:Ljava/lang/Object;
-
-    if-eqz v2, :cond_0
-
-    sget-object v2, Lcom/android/systemui/cover/SViewCoverLauncher;->sShowCoverOpenPopupMethod:Ljava/lang/reflect/Method;
-
-    if-nez v2, :cond_1
-
-    :cond_0
-    const-string/jumbo v2, "SViewCoverLauncher"
-
-    const-string/jumbo v3, "Cannot invoke showCoverOpenPopup."
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_1
-    :try_start_0
-    sget-object v2, Lcom/android/systemui/cover/SViewCoverLauncher;->sShowCoverOpenPopupMethod:Ljava/lang/reflect/Method;
-
-    iget-object v3, p0, Lcom/android/systemui/cover/SViewCoverLauncher;->mSViewCoverBase:Ljava/lang/Object;
-
-    const/4 v4, 0x0
-
-    invoke-virtual {v2, v3, v4}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
-    return-void
-
-    :catch_0
-    move-exception v1
-
-    sget-object v2, Ljava/lang/System;->err:Ljava/io/PrintStream;
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "SViewCoverLauncher InvocationTargetException encountered invoking showCoverOpenPopup "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
-
-    goto :goto_0
-
-    :catch_1
-    move-exception v0
-
-    sget-object v2, Ljava/lang/System;->err:Ljava/io/PrintStream;
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "SViewCoverLauncher IllegalAccessException encountered invoking showCoverOpenPopup"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
-
-    goto :goto_0
 .end method
 
 .method public updateCoverState(Lcom/samsung/android/cover/CoverState;)V

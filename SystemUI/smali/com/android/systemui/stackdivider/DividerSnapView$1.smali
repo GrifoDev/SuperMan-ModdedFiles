@@ -35,68 +35,48 @@
 
 # virtual methods
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 5
-
-    const/4 v4, 0x1
-
-    invoke-virtual {p2}, Landroid/view/MotionEvent;->getRawX()F
-
-    move-result v2
-
-    float-to-int v0, v2
+    .locals 3
 
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getRawY()F
 
-    move-result v2
+    move-result v1
 
-    float-to-int v1, v2
+    float-to-int v0, v1
 
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
-    move-result v2
+    move-result v1
 
-    if-nez v2, :cond_1
+    if-nez v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/systemui/stackdivider/DividerSnapView$1;->this$0:Lcom/android/systemui/stackdivider/DividerSnapView;
 
     iget-object v2, p0, Lcom/android/systemui/stackdivider/DividerSnapView$1;->this$0:Lcom/android/systemui/stackdivider/DividerSnapView;
 
-    iget-object v3, p0, Lcom/android/systemui/stackdivider/DividerSnapView$1;->this$0:Lcom/android/systemui/stackdivider/DividerSnapView;
+    invoke-static {v2, p1, v0}, Lcom/android/systemui/stackdivider/DividerSnapView;->-wrap0(Lcom/android/systemui/stackdivider/DividerSnapView;Landroid/view/View;I)I
 
-    invoke-static {v3, p1, v1}, Lcom/android/systemui/stackdivider/DividerSnapView;->-wrap0(Lcom/android/systemui/stackdivider/DividerSnapView;Landroid/view/View;I)I
+    move-result v2
 
-    move-result v3
-
-    invoke-static {v2, v3}, Lcom/android/systemui/stackdivider/DividerSnapView;->-set0(Lcom/android/systemui/stackdivider/DividerSnapView;I)I
+    invoke-static {v1, v2}, Lcom/android/systemui/stackdivider/DividerSnapView;->-set0(Lcom/android/systemui/stackdivider/DividerSnapView;I)I
 
     :cond_0
     :goto_0
-    return v4
+    const/4 v1, 0x1
+
+    return v1
 
     :cond_1
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
-    move-result v2
+    move-result v1
 
-    if-eq v2, v4, :cond_0
+    const/4 v2, 0x2
 
-    invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
+    if-ne v1, v2, :cond_0
 
-    move-result v2
+    iget-object v1, p0, Lcom/android/systemui/stackdivider/DividerSnapView$1;->this$0:Lcom/android/systemui/stackdivider/DividerSnapView;
 
-    const/4 v3, 0x3
-
-    if-eq v2, v3, :cond_0
-
-    invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
-
-    move-result v2
-
-    const/4 v3, 0x2
-
-    if-ne v2, v3, :cond_0
-
-    iget-object v2, p0, Lcom/android/systemui/stackdivider/DividerSnapView$1;->this$0:Lcom/android/systemui/stackdivider/DividerSnapView;
-
-    invoke-static {v2, p1, v1}, Lcom/android/systemui/stackdivider/DividerSnapView;->-wrap1(Lcom/android/systemui/stackdivider/DividerSnapView;Landroid/view/View;I)V
+    invoke-static {v1, p1, v0}, Lcom/android/systemui/stackdivider/DividerSnapView;->-wrap2(Lcom/android/systemui/stackdivider/DividerSnapView;Landroid/view/View;I)V
 
     goto :goto_0
 .end method

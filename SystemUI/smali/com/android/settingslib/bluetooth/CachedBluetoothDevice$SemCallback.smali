@@ -17,3 +17,6 @@
 # virtual methods
 .method public abstract semOnDeviceAttributesChanged(Z)V
 .end method
+
+.method public abstract semOnDeviceBondStateChanged(II)V
+.end method

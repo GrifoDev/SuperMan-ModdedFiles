@@ -16,7 +16,7 @@
 
 
 # instance fields
-.field private mHost:Landroid/support/v4/app/FragmentHostCallback;
+.field mHost:Landroid/support/v4/app/FragmentHostCallback;
 
 .field final mInactiveLoaders:Landroid/support/v4/util/SparseArrayCompat;
     .annotation system Ldalvik/annotation/Signature;
@@ -48,14 +48,6 @@
 
 
 # direct methods
-.method static synthetic -get0(Landroid/support/v4/app/LoaderManagerImpl;)Landroid/support/v4/app/FragmentHostCallback;
-    .locals 1
-
-    iget-object v0, p0, Landroid/support/v4/app/LoaderManagerImpl;->mHost:Landroid/support/v4/app/FragmentHostCallback;
-
-    return-object v0
-.end method
-
 .method static constructor <clinit>()V
     .locals 1
 
@@ -215,6 +207,10 @@
     iget-object v1, p0, Landroid/support/v4/app/LoaderManagerImpl;->mInactiveLoaders:Landroid/support/v4/util/SparseArrayCompat;
 
     invoke-virtual {v1}, Landroid/support/v4/util/SparseArrayCompat;->clear()V
+
+    const/4 v1, 0x0
+
+    iput-object v1, p0, Landroid/support/v4/app/LoaderManagerImpl;->mHost:Landroid/support/v4/app/FragmentHostCallback;
 
     return-void
 .end method
@@ -827,9 +823,7 @@
 .end method
 
 .method public hasRunningLoaders()Z
-    .locals 6
-
-    const/4 v5, 0x0
+    .locals 5
 
     const/4 v3, 0x0
 
@@ -842,7 +836,7 @@
     const/4 v1, 0x0
 
     :goto_0
-    if-ge v1, v0, :cond_2
+    if-ge v1, v0, :cond_1
 
     iget-object v4, p0, Landroid/support/v4/app/LoaderManagerImpl;->mLoaders:Landroid/support/v4/util/SparseArrayCompat;
 
@@ -858,10 +852,7 @@
 
     iget-boolean v4, v2, Landroid/support/v4/app/LoaderManagerImpl$LoaderInfo;->mDeliveredData:Z
 
-    if-eqz v4, :cond_1
-
-    :cond_0
-    move v4, v5
+    xor-int/lit8 v4, v4, 0x1
 
     :goto_1
     or-int/2addr v3, v4
@@ -870,13 +861,32 @@
 
     goto :goto_0
 
-    :cond_1
-    const/4 v4, 0x1
+    :cond_0
+    const/4 v4, 0x0
 
     goto :goto_1
 
-    :cond_2
+    :cond_1
     return v3
+.end method
+
+.method installLoader(Landroid/support/v4/app/LoaderManagerImpl$LoaderInfo;)V
+    .locals 2
+
+    iget-object v0, p0, Landroid/support/v4/app/LoaderManagerImpl;->mLoaders:Landroid/support/v4/util/SparseArrayCompat;
+
+    iget v1, p1, Landroid/support/v4/app/LoaderManagerImpl$LoaderInfo;->mId:I
+
+    invoke-virtual {v0, v1, p1}, Landroid/support/v4/util/SparseArrayCompat;->put(ILjava/lang/Object;)V
+
+    iget-boolean v0, p0, Landroid/support/v4/app/LoaderManagerImpl;->mStarted:Z
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p1}, Landroid/support/v4/app/LoaderManagerImpl$LoaderInfo;->start()V
+
+    :cond_0
+    return-void
 .end method
 
 .method public toString()Ljava/lang/String;

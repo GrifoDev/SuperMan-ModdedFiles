@@ -45,7 +45,7 @@
 
     iget-boolean v1, p0, Landroid/support/v17/leanback/widget/picker/DatePicker$1;->val$animation:Z
 
-    invoke-static {v0, v1}, Landroid/support/v17/leanback/widget/picker/DatePicker;->-wrap0(Landroid/support/v17/leanback/widget/picker/DatePicker;Z)V
+    invoke-virtual {v0, v1}, Landroid/support/v17/leanback/widget/picker/DatePicker;->updateSpinnersImpl(Z)V
 
     return-void
 .end method

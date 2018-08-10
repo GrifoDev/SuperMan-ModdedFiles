@@ -35,9 +35,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 2
-
-    const/4 v1, 0x0
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -49,7 +47,7 @@
 
     new-instance v0, Landroid/support/v17/leanback/widget/ForegroundHelper$ForegroundHelperApi23Impl;
 
-    invoke-direct {v0, v1}, Landroid/support/v17/leanback/widget/ForegroundHelper$ForegroundHelperApi23Impl;-><init>(Landroid/support/v17/leanback/widget/ForegroundHelper$ForegroundHelperApi23Impl;)V
+    invoke-direct {v0}, Landroid/support/v17/leanback/widget/ForegroundHelper$ForegroundHelperApi23Impl;-><init>()V
 
     iput-object v0, p0, Landroid/support/v17/leanback/widget/ForegroundHelper;->mImpl:Landroid/support/v17/leanback/widget/ForegroundHelper$ForegroundHelperVersionImpl;
 
@@ -59,7 +57,7 @@
     :cond_0
     new-instance v0, Landroid/support/v17/leanback/widget/ForegroundHelper$ForegroundHelperStubImpl;
 
-    invoke-direct {v0, v1}, Landroid/support/v17/leanback/widget/ForegroundHelper$ForegroundHelperStubImpl;-><init>(Landroid/support/v17/leanback/widget/ForegroundHelper$ForegroundHelperStubImpl;)V
+    invoke-direct {v0}, Landroid/support/v17/leanback/widget/ForegroundHelper$ForegroundHelperStubImpl;-><init>()V
 
     iput-object v0, p0, Landroid/support/v17/leanback/widget/ForegroundHelper;->mImpl:Landroid/support/v17/leanback/widget/ForegroundHelper$ForegroundHelperVersionImpl;
 
@@ -96,6 +94,18 @@
 
 
 # virtual methods
+.method public getForeground(Landroid/view/View;)Landroid/graphics/drawable/Drawable;
+    .locals 1
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/ForegroundHelper;->mImpl:Landroid/support/v17/leanback/widget/ForegroundHelper$ForegroundHelperVersionImpl;
+
+    invoke-interface {v0, p1}, Landroid/support/v17/leanback/widget/ForegroundHelper$ForegroundHelperVersionImpl;->getForeground(Landroid/view/View;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public setForeground(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V
     .locals 1
 

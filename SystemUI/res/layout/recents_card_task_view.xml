@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.v7.widget.CardView android:layout_gravity="center" android:id="@id/card_view" android:focusable="true" android:clickable="true" android:layout_width="@dimen/tablet_recents_task_view_width" android:layout_height="@dimen/tablet_recents_task_view_height" app:cardBackgroundColor="@android:color/transparent" app:cardCornerRadius="@dimen/recents_task_view_more_rounded_corners_radius" app:cardElevation="5.0dip">
+        <include layout="@layout/recents_task_view" />
+    </android.support.v7.widget.CardView>
+</FrameLayout>

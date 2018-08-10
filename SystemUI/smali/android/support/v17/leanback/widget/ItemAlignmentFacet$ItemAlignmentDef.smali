@@ -82,3 +82,69 @@
 
     return v0
 .end method
+
+.method public final setAlignedToTextViewBaseline(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->mAlignToBaseline:Z
+
+    return-void
+.end method
+
+.method public final setItemAlignmentOffset(I)V
+    .locals 0
+
+    iput p1, p0, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->mOffset:I
+
+    return-void
+.end method
+
+.method public final setItemAlignmentOffsetPercent(F)V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    cmpg-float v0, p1, v0
+
+    if-ltz v0, :cond_0
+
+    const/high16 v0, 0x42c80000    # 100.0f
+
+    cmpl-float v0, p1, v0
+
+    if-lez v0, :cond_1
+
+    :cond_0
+    const/high16 v0, -0x40800000    # -1.0f
+
+    cmpl-float v0, p1, v0
+
+    if-eqz v0, :cond_1
+
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
+
+    throw v0
+
+    :cond_1
+    iput p1, p0, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->mOffsetPercent:F
+
+    return-void
+.end method
+
+.method public final setItemAlignmentOffsetWithPadding(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->mOffsetWithPadding:Z
+
+    return-void
+.end method
+
+.method public final setItemAlignmentViewId(I)V
+    .locals 0
+
+    iput p1, p0, Landroid/support/v17/leanback/widget/ItemAlignmentFacet$ItemAlignmentDef;->mViewId:I
+
+    return-void
+.end method

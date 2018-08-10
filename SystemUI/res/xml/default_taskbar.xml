@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<favorites xmlns:desktop="http://schemas.android.com/apk/res-auto">
+    <hotseat>
+        <favorite desktop:className="com.android.contacts.activities.PeopleActivity" desktop:packageName="com.android.contacts" desktop:screen="1" />
+        <favorite desktop:className="com.android.mms.ui.ConversationComposer" desktop:packageName="com.android.mms" desktop:screen="2" />
+        <favorite desktop:className="com.sec.android.app.sbrowser.SBrowserMainActivity" desktop:packageName="com.sec.android.app.sbrowser" desktop:screen="3" />
+    </hotseat>
+</favorites>

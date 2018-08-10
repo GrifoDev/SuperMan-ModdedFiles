@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/support/v17/leanback/widget/GridLayoutManager;->startPositionSmoothScroller(I)V
+    value = Landroid/support/v17/leanback/widget/GridLayoutManager;->startPositionSmoothScroller(I)I
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,46 +34,43 @@
 .method public computeScrollVectorForPosition(I)Landroid/graphics/PointF;
     .locals 7
 
-    const/4 v2, 0x1
-
     const/4 v6, 0x0
 
-    const/4 v3, 0x0
+    const/4 v5, 0x0
 
     invoke-virtual {p0}, Landroid/support/v17/leanback/widget/GridLayoutManager$4;->getChildCount()I
 
-    move-result v4
+    move-result v3
 
-    if-nez v4, :cond_0
+    if-nez v3, :cond_0
 
     const/4 v3, 0x0
 
     return-object v3
 
     :cond_0
+    iget-object v3, p0, Landroid/support/v17/leanback/widget/GridLayoutManager$4;->this$0:Landroid/support/v17/leanback/widget/GridLayoutManager;
+
     iget-object v4, p0, Landroid/support/v17/leanback/widget/GridLayoutManager$4;->this$0:Landroid/support/v17/leanback/widget/GridLayoutManager;
 
-    iget-object v5, p0, Landroid/support/v17/leanback/widget/GridLayoutManager$4;->this$0:Landroid/support/v17/leanback/widget/GridLayoutManager;
+    invoke-virtual {v4, v5}, Landroid/support/v17/leanback/widget/GridLayoutManager;->getChildAt(I)Landroid/view/View;
 
-    invoke-virtual {v5, v3}, Landroid/support/v17/leanback/widget/GridLayoutManager;->getChildAt(I)Landroid/view/View;
+    move-result-object v4
 
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Landroid/support/v17/leanback/widget/GridLayoutManager;->getPosition(Landroid/view/View;)I
+    invoke-virtual {v3, v4}, Landroid/support/v17/leanback/widget/GridLayoutManager;->getPosition(Landroid/view/View;)I
 
     move-result v1
 
-    iget-object v4, p0, Landroid/support/v17/leanback/widget/GridLayoutManager$4;->this$0:Landroid/support/v17/leanback/widget/GridLayoutManager;
+    iget-object v3, p0, Landroid/support/v17/leanback/widget/GridLayoutManager$4;->this$0:Landroid/support/v17/leanback/widget/GridLayoutManager;
 
-    invoke-static {v4}, Landroid/support/v17/leanback/widget/GridLayoutManager;->-get11(Landroid/support/v17/leanback/widget/GridLayoutManager;)Z
+    iget-boolean v3, v3, Landroid/support/v17/leanback/widget/GridLayoutManager;->mReverseFlowPrimary:Z
 
-    move-result v4
+    if-eqz v3, :cond_2
 
-    if-eqz v4, :cond_3
+    if-le p1, v1, :cond_1
 
-    if-le p1, v1, :cond_2
+    const/4 v2, 0x1
 
-    :cond_1
     :goto_0
     if-eqz v2, :cond_4
 
@@ -82,9 +79,7 @@
     :goto_1
     iget-object v3, p0, Landroid/support/v17/leanback/widget/GridLayoutManager$4;->this$0:Landroid/support/v17/leanback/widget/GridLayoutManager;
 
-    invoke-static {v3}, Landroid/support/v17/leanback/widget/GridLayoutManager;->-get8(Landroid/support/v17/leanback/widget/GridLayoutManager;)I
-
-    move-result v3
+    iget v3, v3, Landroid/support/v17/leanback/widget/GridLayoutManager;->mOrientation:I
 
     if-nez v3, :cond_5
 
@@ -96,15 +91,20 @@
 
     return-object v3
 
+    :cond_1
+    const/4 v2, 0x0
+
+    goto :goto_0
+
     :cond_2
-    move v2, v3
+    if-ge p1, v1, :cond_3
+
+    const/4 v2, 0x1
 
     goto :goto_0
 
     :cond_3
-    if-lt p1, v1, :cond_1
-
-    move v2, v3
+    const/4 v2, 0x0
 
     goto :goto_0
 

@@ -34,7 +34,7 @@
 
     invoke-direct {p0, v2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    invoke-static {p1}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->-get2(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)Landroid/content/Context;
+    invoke-static {p1}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->-get4(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)Landroid/content/Context;
 
     move-result-object v2
 
@@ -69,7 +69,7 @@
 
     move-result-object v1
 
-    invoke-static {p1}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->-get4(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)Z
+    invoke-static {p1}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->-get6(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)Z
 
     move-result v2
 
@@ -104,7 +104,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$MPTCPObserver;->this$0:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
-    invoke-static {v3}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->-get2(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)Landroid/content/Context;
+    invoke-static {v3}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->-get4(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)Landroid/content/Context;
 
     move-result-object v3
 
@@ -143,7 +143,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$MPTCPObserver;->this$0:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->-get4(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)Z
+    invoke-static {v2}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->-get6(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)Z
 
     move-result v2
 

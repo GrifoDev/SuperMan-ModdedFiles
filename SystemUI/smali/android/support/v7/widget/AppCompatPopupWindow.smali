@@ -34,30 +34,6 @@
     goto :goto_0
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
-    .param p1    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Landroid/util/AttributeSet;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
-    .param p3    # I
-        .annotation build Landroid/support/annotation/AttrRes;
-        .end annotation
-    .end param
-
-    invoke-direct {p0, p1, p2, p3}, Landroid/widget/PopupWindow;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-
-    const/4 v0, 0x0
-
-    invoke-direct {p0, p1, p2, p3, v0}, Landroid/support/v7/widget/AppCompatPopupWindow;->init(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
     .locals 0
     .param p1    # Landroid/content/Context;
@@ -76,9 +52,6 @@
         .annotation build Landroid/support/annotation/StyleRes;
         .end annotation
     .end param
-    .annotation build Landroid/annotation/TargetApi;
-        value = 0xb
-    .end annotation
 
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/widget/PopupWindow;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
@@ -130,10 +103,6 @@
     const/16 v2, 0xb
 
     if-ge v1, v2, :cond_1
-
-    const/16 v2, 0x9
-
-    if-lt v1, v2, :cond_1
 
     sget v2, Landroid/support/v7/appcompat/R$styleable;->PopupWindow_android_popupAnimationStyle:I
 
@@ -229,6 +198,11 @@
 # virtual methods
 .method public setSupportOverlapAnchor(Z)V
     .locals 1
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     sget-boolean v0, Landroid/support/v7/widget/AppCompatPopupWindow;->COMPAT_OVERLAP_ANCHOR:Z
 
@@ -270,9 +244,6 @@
 
 .method public showAsDropDown(Landroid/view/View;III)V
     .locals 1
-    .annotation build Landroid/annotation/TargetApi;
-        value = 0x13
-    .end annotation
 
     sget-boolean v0, Landroid/support/v7/widget/AppCompatPopupWindow;->COMPAT_OVERLAP_ANCHOR:Z
 

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingLeft="@dimen/screen_pinning_request_padding_dialog" android:paddingRight="@dimen/screen_pinning_request_padding_dialog" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/screen_pinning_request_padding_content">
+                <TextView android:textSize="16.0sp" android:id="@id/pinning_desc" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/lock_to_app_desc" android:lineSpacingExtra="4.0sp" android:fontFamily="sec-roboto-regurlar" style="?android:textAppearance" />
+                <TextView android:textSize="16.0sp" android:id="@id/pinning_desc_optional" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/lock_to_app_recent_and_back" android:lineSpacingExtra="4.0sp" android:fontFamily="sec-roboto-regurlar" style="?android:textAppearance" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:layout_marginBottom="@dimen/screen_pinning_request_padding_content">
+                <FrameLayout android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <ImageView android:layout_gravity="center" android:id="@id/device_image" android:layout_width="258.0dip" android:layout_height="75.0dip" android:src="@drawable/pin_windows_img_device_hw_delta" android:scaleType="center" />
+                    <ImageView android:layout_gravity="center|left|top" android:id="@id/left_gesture" android:layout_width="50.0dip" android:layout_height="50.0dip" android:layout_marginLeft="46.0dip" android:layout_marginTop="20.0dip" android:src="@drawable/pin_windows_img_gesture" />
+                    <ImageView android:layout_gravity="center|left|top" android:id="@id/left_key" android:layout_width="18.0dip" android:layout_height="18.0dip" android:layout_marginLeft="62.0dip" android:layout_marginTop="36.0dip" android:src="@drawable/pin_windows_ic_recent_hw_delta" />
+                    <ImageView android:layout_gravity="center|right|top" android:id="@id/right_gesture" android:layout_width="50.0dip" android:layout_height="50.0dip" android:layout_marginTop="20.0dip" android:layout_marginRight="46.0dip" android:src="@drawable/pin_windows_img_gesture" />
+                    <ImageView android:layout_gravity="center|right|top" android:id="@id/right_key" android:layout_width="18.0dip" android:layout_height="18.0dip" android:layout_marginTop="36.0dip" android:layout_marginRight="62.0dip" android:src="@drawable/pin_windows_ic_back_hw_delta" />
+                </FrameLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

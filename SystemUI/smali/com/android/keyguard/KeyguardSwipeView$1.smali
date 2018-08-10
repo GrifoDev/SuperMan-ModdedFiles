@@ -3,7 +3,7 @@
 .source "KeyguardSwipeView.java"
 
 # interfaces
-.implements Lcom/android/keyguard/swipe/SwipeDoorsillDetector$UnlockCallback;
+.implements Lcom/android/systemui/swipe/SwipeDoorsillDetector$UnlockCallback;
 
 
 # annotations
@@ -41,7 +41,7 @@
 .end method
 
 .method public onUnlockExecuted()V
-    .locals 2
+    .locals 3
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardSwipeView$1;->this$0:Lcom/android/keyguard/KeyguardSwipeView;
 
@@ -57,9 +57,13 @@
 
     move-result-object v0
 
-    const/4 v1, 0x0
+    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
 
-    invoke-interface {v0, v1}, Lcom/android/keyguard/KeyguardSecurityCallback;->dismiss(Z)V
+    move-result v1
+
+    const/4 v2, 0x0
+
+    invoke-interface {v0, v2, v1}, Lcom/android/keyguard/KeyguardSecurityCallback;->dismiss(ZI)V
 
     :cond_0
     return-void

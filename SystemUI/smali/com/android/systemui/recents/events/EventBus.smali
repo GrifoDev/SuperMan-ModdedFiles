@@ -27,7 +27,7 @@
     .end annotation
 .end field
 
-.field private static sDefaultBus:Lcom/android/systemui/recents/events/EventBus;
+.field private static volatile sDefaultBus:Lcom/android/systemui/recents/events/EventBus;
 
 .field private static final sLock:Ljava/lang/Object;
 
@@ -550,6 +550,10 @@
     check-cast v2, Ljava/util/ArrayList;
 
     if-nez v2, :cond_0
+
+    invoke-virtual {p1}, Lcom/android/systemui/recents/events/EventBus$Event;->onPreDispatch()V
+
+    invoke-virtual {p1}, Lcom/android/systemui/recents/events/EventBus$Event;->onPostDispatch()V
 
     return-void
 

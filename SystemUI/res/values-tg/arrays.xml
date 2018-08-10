@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="bluetooth_ss_a2dp_codec_summaries">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Ҳамаи кодекҳо</item>
+        <item>Кодеки пешфарз</item>
+    </string-array>
+    <string-array name="bluetooth_ss_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Ҳамаи кодекҳо</item>
+        <item>Кодеки пешфарз</item>
+    </string-array>
+    <string-array name="bluetooth_ss_japan_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Ҳамаи кодекҳо</item>
+        <item>Кодеки пешфарз</item>
+    </string-array>
+    <string-array name="wifi_ap_wifi_sharing">
+        <item>Мубодилаи Wi-Fi-ро фурӯзон кунед</item>
+        <item>Мубодилаи Wi-Fi-ро хомӯш кунед</item>
+    </string-array>
+    <string-array name="wifi_status">
+        <item></item>
+        <item>Хондагирӣ иҷро мешавад…</item>
+        <item>Пайвастшавӣ…</item>
+        <item>Санҷиши ҳаққоният…</item>
+        <item>Суроғаи IP гирифта мешавад…</item>
+        <item>Пайваст шудем</item>
+        <item>Қатъшуда</item>
+        <item>Пайваст пароканда карда мешавад…</item>
+        <item>Пайваст пароканда шуд</item>
+        <item>Номуваффақ</item>
+        <item>Манъшуда</item>
+        <item>Сифати пайвасти шумо ба Интернет тафтиш карда мешавад…</item>
+    </string-array>
+</resources>

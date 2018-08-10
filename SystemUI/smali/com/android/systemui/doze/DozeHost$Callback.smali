@@ -15,14 +15,14 @@
 
 
 # virtual methods
-.method public abstract onBuzzBeepBlinked()V
+.method public onNotificationHeadsUp()V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract onNewNotifications()V
-.end method
+.method public onPowerSaveChanged(Z)V
+    .locals 0
 
-.method public abstract onNotificationLight(Z)V
-.end method
-
-.method public abstract onPowerSaveChanged(Z)V
+    return-void
 .end method

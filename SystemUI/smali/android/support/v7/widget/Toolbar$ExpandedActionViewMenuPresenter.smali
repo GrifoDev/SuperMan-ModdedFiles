@@ -25,6 +25,18 @@
 .field final synthetic this$0:Landroid/support/v7/widget/Toolbar;
 
 
+# direct methods
+.method constructor <init>(Landroid/support/v7/widget/Toolbar;)V
+    .locals 0
+
+    iput-object p1, p0, Landroid/support/v7/widget/Toolbar$ExpandedActionViewMenuPresenter;->this$0:Landroid/support/v7/widget/Toolbar;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
 # virtual methods
 .method public collapseItemActionView(Landroid/support/v7/view/menu/MenuBuilder;Landroid/support/v7/view/menu/MenuItemImpl;)Z
     .locals 3
@@ -60,9 +72,7 @@
 
     iget-object v1, p0, Landroid/support/v7/widget/Toolbar$ExpandedActionViewMenuPresenter;->this$0:Landroid/support/v7/widget/Toolbar;
 
-    invoke-static {v1}, Landroid/support/v7/widget/Toolbar;->-get1(Landroid/support/v7/widget/Toolbar;)Landroid/widget/ImageButton;
-
-    move-result-object v1
+    iget-object v1, v1, Landroid/support/v7/widget/Toolbar;->mCollapseButtonView:Landroid/widget/ImageButton;
 
     invoke-virtual {v0, v1}, Landroid/support/v7/widget/Toolbar;->removeView(Landroid/view/View;)V
 
@@ -96,13 +106,11 @@
 
     iget-object v1, p0, Landroid/support/v7/widget/Toolbar$ExpandedActionViewMenuPresenter;->this$0:Landroid/support/v7/widget/Toolbar;
 
-    invoke-static {v1}, Landroid/support/v7/widget/Toolbar;->-wrap0(Landroid/support/v7/widget/Toolbar;)V
+    invoke-virtual {v1}, Landroid/support/v7/widget/Toolbar;->ensureCollapseButtonView()V
 
     iget-object v1, p0, Landroid/support/v7/widget/Toolbar$ExpandedActionViewMenuPresenter;->this$0:Landroid/support/v7/widget/Toolbar;
 
-    invoke-static {v1}, Landroid/support/v7/widget/Toolbar;->-get1(Landroid/support/v7/widget/Toolbar;)Landroid/widget/ImageButton;
-
-    move-result-object v1
+    iget-object v1, v1, Landroid/support/v7/widget/Toolbar;->mCollapseButtonView:Landroid/widget/ImageButton;
 
     invoke-virtual {v1}, Landroid/widget/ImageButton;->getParent()Landroid/view/ViewParent;
 
@@ -116,9 +124,7 @@
 
     iget-object v2, p0, Landroid/support/v7/widget/Toolbar$ExpandedActionViewMenuPresenter;->this$0:Landroid/support/v7/widget/Toolbar;
 
-    invoke-static {v2}, Landroid/support/v7/widget/Toolbar;->-get1(Landroid/support/v7/widget/Toolbar;)Landroid/widget/ImageButton;
-
-    move-result-object v2
+    iget-object v2, v2, Landroid/support/v7/widget/Toolbar;->mCollapseButtonView:Landroid/widget/ImageButton;
 
     invoke-virtual {v1, v2}, Landroid/support/v7/widget/Toolbar;->addView(Landroid/view/View;)V
 
@@ -153,9 +159,7 @@
 
     iget-object v1, p0, Landroid/support/v7/widget/Toolbar$ExpandedActionViewMenuPresenter;->this$0:Landroid/support/v7/widget/Toolbar;
 
-    invoke-static {v1}, Landroid/support/v7/widget/Toolbar;->-get0(Landroid/support/v7/widget/Toolbar;)I
-
-    move-result v1
+    iget v1, v1, Landroid/support/v7/widget/Toolbar;->mButtonGravity:I
 
     and-int/lit8 v1, v1, 0x70
 

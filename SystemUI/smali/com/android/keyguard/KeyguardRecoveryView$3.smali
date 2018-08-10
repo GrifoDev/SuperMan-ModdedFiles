@@ -35,21 +35,13 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardRecoveryView$3;->this$0:Lcom/android/keyguard/KeyguardRecoveryView;
 
     iget-object v0, v0, Lcom/android/keyguard/KeyguardRecoveryView;->mCallback:Lcom/android/keyguard/KeyguardSecurityCallback;
 
     invoke-interface {v0}, Lcom/android/keyguard/KeyguardSecurityCallback;->userActivity()V
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardRecoveryView$3;->this$0:Lcom/android/keyguard/KeyguardRecoveryView;
-
-    iget-object v0, v0, Lcom/android/keyguard/KeyguardRecoveryView;->mImm:Landroid/view/inputmethod/InputMethodManager;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/view/inputmethod/InputMethodManager;->showInputMethodPicker(Z)V
 
     return-void
 .end method

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.systemui.statusbar.phone.taskbar.desk.DeskStatusBarView android:orientation="horizontal" android:id="@id/desk_status_bar" android:layout_width="wrap_content" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:systemui="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="horizontal" android:id="@id/desk_status_bar_contents" android:layout_width="wrap_content" android:layout_height="fill_parent">
+        <com.android.keyguard.AlphaOptimizedLinearLayout android:orientation="horizontal" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="fill_parent">
+            <com.android.systemui.statusbar.policy.NetspeedView android:textSize="@dimen/desk_battery_text_size" android:textColor="@color/task_bar_clock_color" android:gravity="center|right" android:layout_gravity="center_vertical" android:id="@id/networkSpeed" android:background="@drawable/taskbar_keybutton_ripple_effect" android:layout_width="@dimen/desk_network_speed_width" android:layout_height="wrap_content" android:importantForAccessibility="no" android:fontFamily="sec-roboto-condensed" android:layout_marginEnd="@dimen/desk_status_bar_icon_padding" systemui:showDark="false" />
+            <View android:layout_gravity="center" android:background="#4dffffff" android:layout_width="@dimen/divider_width" android:layout_height="@dimen/hotseat_divider_height" android:layout_marginStart="6.0dip" android:layout_marginEnd="6.0dip" />
+        </com.android.keyguard.AlphaOptimizedLinearLayout>
+        <com.android.systemui.statusbar.AlphaOptimizedFrameLayout android:orientation="horizontal" android:id="@id/notification_icon_area" android:layout_width="wrap_content" android:layout_height="fill_parent" />
+        <View android:layout_gravity="center" android:id="@id/divider" android:background="#4dffffff" android:layout_width="@dimen/divider_width" android:layout_height="@dimen/hotseat_divider_height" android:layout_marginStart="6.0dip" android:layout_marginEnd="6.0dip" />
+        <com.android.keyguard.AlphaOptimizedLinearLayout android:orientation="horizontal" android:id="@id/system_icon_area" android:layout_width="wrap_content" android:layout_height="fill_parent">
+            <include layout="@layout/desk_system_icons" />
+        </com.android.keyguard.AlphaOptimizedLinearLayout>
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/toggle_desk_quick_setting_view" android:layout_width="@dimen/desk_status_bar_icon_size" android:layout_height="@dimen/desk_status_bar_icon_size" android:src="@drawable/quick_connect_hidden_icon" android:scaleType="centerInside" android:contentDescription="@string/tooltip_quicksettings" />
+    </LinearLayout>
+</com.android.systemui.statusbar.phone.taskbar.desk.DeskStatusBarView>

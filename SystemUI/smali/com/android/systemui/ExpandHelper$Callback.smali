@@ -30,6 +30,9 @@
 .method public abstract getMaxExpandHeight(Lcom/android/systemui/statusbar/ExpandableView;)I
 .end method
 
+.method public abstract setExpansionCancelled(Landroid/view/View;)V
+.end method
+
 .method public abstract setUserExpandedChild(Landroid/view/View;Z)V
 .end method
 

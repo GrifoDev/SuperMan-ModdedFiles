@@ -1,77 +1,91 @@
 .class public Lcom/android/systemui/qs/customize/CustomizeTileView;
-.super Lcom/android/systemui/qs/QSTileView;
+.super Lcom/android/systemui/qs/tileimpl/QSTileView;
 .source "CustomizeTileView.java"
 
 
 # instance fields
-.field private mAppLabel:Landroid/widget/TextView;
+.field mCustomizeIcon:Lcom/android/systemui/plugins/qs/QSIconView;
+
+.field private mLabelMinLines:I
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/qs/QSIconView;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/plugins/qs/QSIconView;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/qs/QSTileView;-><init>(Landroid/content/Context;Lcom/android/systemui/qs/QSIconView;)V
+    invoke-direct {p0, p1, p2}, Lcom/android/systemui/qs/tileimpl/QSTileView;-><init>(Landroid/content/Context;Lcom/android/systemui/plugins/qs/QSIconView;)V
+
+    iput-object p2, p0, Lcom/android/systemui/qs/customize/CustomizeTileView;->mCustomizeIcon:Lcom/android/systemui/plugins/qs/QSIconView;
 
     return-void
 .end method
 
 
 # virtual methods
-.method protected createDivider()V
-    .locals 0
-
-    return-void
-.end method
-
 .method protected createLabel()V
     .locals 2
 
+    invoke-super {p0}, Lcom/android/systemui/qs/tileimpl/QSTileView;->createLabel()V
+
+    iget-object v0, p0, Lcom/android/systemui/qs/customize/CustomizeTileView;->mLabel:Landroid/widget/TextView;
+
+    invoke-virtual {v0}, Landroid/widget/TextView;->getMinLines()I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/qs/customize/CustomizeTileView;->mLabelMinLines:I
+
+    iget-object v0, p0, Lcom/android/systemui/qs/customize/CustomizeTileView;->mDivider:Landroid/view/View;
+
+    const/4 v1, 0x4
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+
+    iget-object v0, p0, Lcom/android/systemui/qs/customize/CustomizeTileView;->mLabel:Landroid/widget/TextView;
+
     const/4 v1, 0x0
 
-    invoke-super {p0}, Lcom/android/systemui/qs/QSTileView;->createLabel()V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/customize/CustomizeTileView;->mLabel:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setClickable(Z)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/customize/CustomizeTileView;->mLabel:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setFocusable(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
     return-void
 .end method
 
-.method public customTileHandleStateChange(Lcom/android/systemui/qs/QSTile$State;)V
-    .locals 0
+.method public customTileHandleStateChange(Lcom/android/systemui/plugins/qs/QSTile$State;)V
+    .locals 2
 
-    invoke-super {p0, p1}, Lcom/android/systemui/qs/QSTileView;->handleStateChanged(Lcom/android/systemui/qs/QSTile$State;)V
+    const/4 v1, 0x2
+
+    invoke-super {p0, p1}, Lcom/android/systemui/qs/tileimpl/QSTileView;->handleStateChanged(Lcom/android/systemui/plugins/qs/QSTile$State;)V
+
+    iget-object v0, p0, Lcom/android/systemui/qs/customize/CustomizeTileView;->mIcon:Lcom/android/systemui/plugins/qs/QSIconView;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/plugins/qs/QSIconView;->setImportantForAccessibility(I)V
+
+    iget-object v0, p0, Lcom/android/systemui/qs/customize/CustomizeTileView;->mLabel:Landroid/widget/TextView;
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setImportantForAccessibility(I)V
 
     return-void
 .end method
 
-.method public getAppLabel()Landroid/widget/TextView;
+.method protected getIconView()Lcom/android/systemui/plugins/qs/QSIconView;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/qs/customize/CustomizeTileView;->mAppLabel:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/android/systemui/qs/customize/CustomizeTileView;->mCustomizeIcon:Lcom/android/systemui/plugins/qs/QSIconView;
 
     return-object v0
 .end method
 
-.method public setAppLabel(Ljava/lang/CharSequence;)V
-    .locals 0
+.method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
+    .locals 2
 
-    return-void
-.end method
+    invoke-super {p0, p1}, Lcom/android/systemui/qs/tileimpl/QSTileView;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-.method public setShowAppLabel(Z)V
-    .locals 0
+    iget-object v0, p0, Lcom/android/systemui/qs/customize/CustomizeTileView;->mLabel:Landroid/widget/TextView;
 
-    return-void
-.end method
+    const/4 v1, 0x0
 
-.method public updateShowButtonBackground()V
-    .locals 0
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
     return-void
 .end method

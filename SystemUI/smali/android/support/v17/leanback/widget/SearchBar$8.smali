@@ -41,13 +41,11 @@
 
     iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar$8;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v0}, Landroid/support/v17/leanback/widget/SearchBar;->-wrap0(Landroid/support/v17/leanback/widget/SearchBar;)V
+    invoke-virtual {v0}, Landroid/support/v17/leanback/widget/SearchBar;->hideNativeKeyboard()V
 
     iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar$8;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v0}, Landroid/support/v17/leanback/widget/SearchBar;->-get1(Landroid/support/v17/leanback/widget/SearchBar;)Z
-
-    move-result v0
+    iget-boolean v0, v0, Landroid/support/v17/leanback/widget/SearchBar;->mAutoStartRecognition:Z
 
     if-eqz v0, :cond_0
 
@@ -59,13 +57,13 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Landroid/support/v17/leanback/widget/SearchBar;->-set0(Landroid/support/v17/leanback/widget/SearchBar;Z)Z
+    iput-boolean v1, v0, Landroid/support/v17/leanback/widget/SearchBar;->mAutoStartRecognition:Z
 
     :cond_0
     :goto_0
     iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar$8;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v0, p2}, Landroid/support/v17/leanback/widget/SearchBar;->-wrap8(Landroid/support/v17/leanback/widget/SearchBar;Z)V
+    invoke-virtual {v0, p2}, Landroid/support/v17/leanback/widget/SearchBar;->updateUi(Z)V
 
     return-void
 

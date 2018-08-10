@@ -49,7 +49,7 @@
 
     move-result v0
 
-    invoke-static {v1, v0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set15(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
+    invoke-static {v1, v0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set18(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$24;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 

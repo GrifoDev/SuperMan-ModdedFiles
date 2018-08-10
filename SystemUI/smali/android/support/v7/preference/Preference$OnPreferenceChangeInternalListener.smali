@@ -20,3 +20,6 @@
 
 .method public abstract onPreferenceHierarchyChange(Landroid/support/v7/preference/Preference;)V
 .end method
+
+.method public abstract onPreferenceVisibilityChange(Landroid/support/v7/preference/Preference;)V
+.end method

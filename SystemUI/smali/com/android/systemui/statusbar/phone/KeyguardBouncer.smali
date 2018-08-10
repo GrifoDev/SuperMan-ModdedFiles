@@ -13,15 +13,21 @@
 
 
 # instance fields
+.field private mBiometricPreview:Landroid/view/ViewGroup;
+
 .field private mBouncerPromptReason:I
 
-.field protected mCallback:Lcom/android/keyguard/ViewMediatorCallback;
+.field protected final mCallback:Lcom/android/keyguard/ViewMediatorCallback;
 
 .field protected mContainer:Landroid/view/ViewGroup;
 
-.field protected mContext:Landroid/content/Context;
+.field protected final mContext:Landroid/content/Context;
 
-.field private mFalsingManager:Lcom/android/systemui/classifier/FalsingManager;
+.field private final mDismissCallbackRegistry:Lcom/android/systemui/keyguard/DismissCallbackRegistry;
+
+.field private final mFalsingManager:Lcom/android/systemui/classifier/FalsingManager;
+
+.field private final mHandler:Landroid/os/Handler;
 
 .field private mIrisPreview:Landroid/view/ViewGroup;
 
@@ -29,7 +35,9 @@
 
 .field protected mKeyguardView:Lcom/android/keyguard/KeyguardHostView;
 
-.field protected mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+.field protected final mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+.field private final mRemoveViewRunnable:Ljava/lang/Runnable;
 
 .field protected mRoot:Landroid/view/ViewGroup;
 
@@ -37,9 +45,7 @@
 
 .field private mShowingSoon:Z
 
-.field private mUpdateMonitorCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
-
-.field private mWindowManager:Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;
+.field private final mUpdateMonitorCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 
 
 # direct methods
@@ -67,10 +73,16 @@
     return p1
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Lcom/android/keyguard/ViewMediatorCallback;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;Landroid/view/ViewGroup;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/keyguard/ViewMediatorCallback;Lcom/android/internal/widget/LockPatternUtils;Landroid/view/ViewGroup;Lcom/android/systemui/keyguard/DismissCallbackRegistry;)V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    new-instance v0, Lcom/android/systemui/statusbar/phone/-$Lambda$4mE6q-g-9AghSEE8izztShNU7-Q;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/phone/-$Lambda$4mE6q-g-9AghSEE8izztShNU7-Q;-><init>(Ljava/lang/Object;)V
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mRemoveViewRunnable:Ljava/lang/Runnable;
 
     new-instance v0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer$1;
 
@@ -90,9 +102,7 @@
 
     iput-object p3, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    iput-object p5, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mContainer:Landroid/view/ViewGroup;
-
-    iput-object p4, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mWindowManager:Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;
+    iput-object p4, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mContainer:Landroid/view/ViewGroup;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mContext:Landroid/content/Context;
 
@@ -111,6 +121,26 @@
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mFalsingManager:Lcom/android/systemui/classifier/FalsingManager;
+
+    iput-object p5, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mDismissCallbackRegistry:Lcom/android/systemui/keyguard/DismissCallbackRegistry;
+
+    new-instance v0, Landroid/os/Handler;
+
+    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mHandler:Landroid/os/Handler;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isDexMode()Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mIsSinglePageLockscreen:Z
 
     return-void
 .end method
@@ -132,8 +162,6 @@
 .method private checkFullscreenBouncerMode(Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;)Z
     .locals 2
 
-    const/4 v0, 0x1
-
     sget-object v1, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->SimPin:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
     if-eq p1, v1, :cond_0
@@ -143,6 +171,8 @@
     if-ne p1, v1, :cond_5
 
     :cond_0
+    const/4 v0, 0x1
+
     :goto_0
     if-nez v0, :cond_1
 
@@ -154,7 +184,7 @@
     const/4 v0, 0x1
 
     :goto_1
-    sget-boolean v1, Lcom/android/keyguard/KeyguardRune;->SUPPORT_SIM_PERSO_LOCK:Z
+    sget-boolean v1, Lcom/android/systemui/Rune;->SECURITY_SUPPORT_SIM_PERSO_LOCK:Z
 
     if-eqz v1, :cond_3
 
@@ -193,6 +223,10 @@
 
     sget-object v1, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->CarrierPassword:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
+    if-eq p1, v1, :cond_1
+
+    sget-object v1, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->RMM:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+
     if-ne p1, v1, :cond_7
 
     const/4 v0, 0x1
@@ -217,8 +251,36 @@
 
 
 # virtual methods
+.method synthetic -com_android_systemui_statusbar_phone_KeyguardBouncer-mthref-0()V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->removeView()V
+
+    return-void
+.end method
+
+.method public changeBouncerContainer(Landroid/view/ViewGroup;)V
+    .locals 2
+
+    const-string/jumbo v0, "KeyguardBouncer"
+
+    const-string/jumbo v1, "changeBouncerContainer!!"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iput-object p1, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mContainer:Landroid/view/ViewGroup;
+
+    return-void
+.end method
+
 .method protected ensureView()V
-    .locals 1
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mHandler:Landroid/os/Handler;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mRemoveViewRunnable:Ljava/lang/Runnable;
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mRoot:Landroid/view/ViewGroup;
 
@@ -233,6 +295,21 @@
 .method public hide(Z)V
     .locals 2
 
+    const-string/jumbo v0, "KeyguardBouncer#hide"
+
+    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->isShowing()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mDismissCallbackRegistry:Lcom/android/systemui/keyguard/DismissCallbackRegistry;
+
+    invoke-virtual {v0}, Lcom/android/systemui/keyguard/DismissCallbackRegistry;->notifyDismissCancelled()V
+
+    :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mFalsingManager:Lcom/android/systemui/classifier/FalsingManager;
 
     invoke-virtual {v0}, Lcom/android/systemui/classifier/FalsingManager;->onBouncerHidden()V
@@ -241,7 +318,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mKeyguardView:Lcom/android/keyguard/KeyguardHostView;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mKeyguardView:Lcom/android/keyguard/KeyguardHostView;
 
@@ -251,23 +328,14 @@
 
     invoke-virtual {v0}, Lcom/android/keyguard/KeyguardHostView;->cleanUp()V
 
-    :cond_0
-    if-eqz p1, :cond_2
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->removeView()V
-
     :cond_1
-    :goto_0
-    return-void
-
-    :cond_2
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mRoot:Landroid/view/ViewGroup;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mIsSinglePageLockscreen:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mRoot:Landroid/view/ViewGroup;
 
@@ -275,7 +343,15 @@
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->setVisibility(I)V
 
-    goto :goto_0
+    :cond_2
+    if-eqz p1, :cond_3
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->removeView()V
+
+    :cond_3
+    invoke-static {}, Landroid/os/Trace;->endSection()V
+
+    return-void
 .end method
 
 .method protected inflateView()V
@@ -285,13 +361,19 @@
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->removeView()V
 
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mHandler:Landroid/os/Handler;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mRemoveViewRunnable:Ljava/lang/Runnable;
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v0
 
-    const v1, 0x7f04004c
+    const v1, 0x7f0d0067
 
     invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -303,9 +385,11 @@
 
     iput-object v2, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mIrisPreview:Landroid/view/ViewGroup;
 
+    iput-object v2, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mBiometricPreview:Landroid/view/ViewGroup;
+
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mRoot:Landroid/view/ViewGroup;
 
-    const v1, 0x7f130197
+    const v1, 0x7f0a027c
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -339,13 +423,13 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/view/ViewGroup;->addView(Landroid/view/View;I)V
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mIrisPreview:Landroid/view/ViewGroup;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mBiometricPreview:Landroid/view/ViewGroup;
 
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mContainer:Landroid/view/ViewGroup;
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mIrisPreview:Landroid/view/ViewGroup;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mBiometricPreview:Landroid/view/ViewGroup;
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mContainer:Landroid/view/ViewGroup;
 
@@ -355,36 +439,28 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/view/ViewGroup;->addView(Landroid/view/View;I)V
 
-    const-string/jumbo v0, "KeyguardIris"
-
-    const-string/jumbo v1, "add IrisPreview"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mIrisPreview:Landroid/view/ViewGroup;
-
-    invoke-virtual {v0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->deliverIrisRootView(Landroid/view/ViewGroup;)V
-
     :cond_0
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mIsSinglePageLockscreen:Z
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mRoot:Landroid/view/ViewGroup;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->setVisibility(I)V
+
+    :goto_0
+    return-void
+
+    :cond_1
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mRoot:Landroid/view/ViewGroup;
 
     const/4 v1, 0x4
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->setVisibility(I)V
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mRoot:Landroid/view/ViewGroup;
-
-    const/high16 v1, 0x200000
-
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->setSystemUiVisibility(I)V
-
-    return-void
+    goto :goto_0
 .end method
 
 .method public interceptMediaKey(Landroid/view/KeyEvent;)Z
@@ -398,31 +474,6 @@
 
     move-result v0
 
-    return v0
-.end method
-
-.method public isCarrierPasswordLockMode()Z
-    .locals 3
-
-    const/4 v0, 0x0
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mKeyguardView:Lcom/android/keyguard/KeyguardHostView;
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mKeyguardView:Lcom/android/keyguard/KeyguardHostView;
-
-    invoke-virtual {v1}, Lcom/android/keyguard/KeyguardHostView;->getCurrentSecurityMode()Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
-
-    move-result-object v1
-
-    sget-object v2, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->CarrierPassword:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
-
-    if-ne v1, v2, :cond_0
-
-    const/4 v0, 0x1
-
-    :cond_0
     return v0
 .end method
 
@@ -528,13 +579,17 @@
 .end method
 
 .method public notifyKeyguardAuthenticated(Z)V
-    .locals 1
+    .locals 2
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->ensureView()V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mKeyguardView:Lcom/android/keyguard/KeyguardHostView;
 
-    invoke-virtual {v0, p1}, Lcom/android/keyguard/KeyguardHostView;->finish(Z)V
+    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
+
+    move-result v1
+
+    invoke-virtual {v0, p1, v1}, Lcom/android/keyguard/KeyguardHostView;->finish(ZI)V
 
     return-void
 .end method
@@ -561,6 +616,29 @@
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mKeyguardView:Lcom/android/keyguard/KeyguardHostView;
 
     invoke-virtual {v0}, Lcom/android/keyguard/KeyguardHostView;->onPause()V
+
+    :cond_0
+    return-void
+.end method
+
+.method public onScreenTurnedOn()V
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mIsSinglePageLockscreen:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mKeyguardView:Lcom/android/keyguard/KeyguardHostView;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mKeyguardView:Lcom/android/keyguard/KeyguardHostView;
+
+    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardHostView;->onResume()V
+
+    iget v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mBouncerPromptReason:I
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->showPromptReason(I)V
 
     :cond_0
     return-void
@@ -629,11 +707,11 @@
     iput-object v2, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mRoot:Landroid/view/ViewGroup;
 
     :cond_0
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mIrisPreview:Landroid/view/ViewGroup;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mBiometricPreview:Landroid/view/ViewGroup;
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mIrisPreview:Landroid/view/ViewGroup;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mBiometricPreview:Landroid/view/ViewGroup;
 
     invoke-virtual {v0}, Landroid/view/ViewGroup;->getParent()Landroid/view/ViewParent;
 
@@ -645,11 +723,11 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mContainer:Landroid/view/ViewGroup;
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mIrisPreview:Landroid/view/ViewGroup;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mBiometricPreview:Landroid/view/ViewGroup;
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
-    iput-object v2, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mIrisPreview:Landroid/view/ViewGroup;
+    iput-object v2, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mBiometricPreview:Landroid/view/ViewGroup;
 
     :cond_1
     return-void
@@ -685,6 +763,16 @@
     return-void
 .end method
 
+.method public setLockscreenPage(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mIsSinglePageLockscreen:Z
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->removeView()V
+
+    return-void
+.end method
+
 .method public setNotiClickedOnShadeLocked(Z)V
     .locals 1
 
@@ -713,17 +801,15 @@
 .end method
 
 .method public show(Z)V
-    .locals 7
+    .locals 8
 
-    const/4 v4, 0x1
-
-    const/4 v3, 0x0
+    const/4 v6, 0x0
 
     invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
 
-    move-result v2
+    move-result v3
 
-    if-nez v2, :cond_0
+    if-nez v3, :cond_0
 
     invoke-static {}, Landroid/os/UserManager;->isSplitSystemUser()Z
 
@@ -748,135 +834,200 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_3
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_3
 
-    move v3, v4
+    const/4 v2, 0x1
 
-    :cond_1
-    if-nez v3, :cond_7
+    :goto_0
+    if-nez v2, :cond_4
 
-    if-ne v0, v2, :cond_6
+    if-ne v0, v3, :cond_4
 
     const/4 v1, 0x1
 
-    :goto_0
-    if-eqz p1, :cond_2
+    :goto_1
+    iget-boolean v5, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mIsSinglePageLockscreen:Z
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mKeyguardView:Lcom/android/keyguard/KeyguardHostView;
+    if-eqz v5, :cond_5
 
-    invoke-virtual {v3}, Lcom/android/keyguard/KeyguardHostView;->showPrimarySecurityScreen()V
+    if-eqz p1, :cond_1
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mKeyguardView:Lcom/android/keyguard/KeyguardHostView;
+
+    invoke-virtual {v5}, Lcom/android/keyguard/KeyguardHostView;->showPrimarySecurityScreen()V
+
+    :cond_1
+    if-eqz v1, :cond_e
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mKeyguardView:Lcom/android/keyguard/KeyguardHostView;
+
+    invoke-virtual {v5, v0}, Lcom/android/keyguard/KeyguardHostView;->dismiss(I)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_e
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mContext:Landroid/content/Context;
+
+    invoke-static {v5}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v6}, Lcom/android/keyguard/KeyguardUpdateMonitor;->setSwipedUnlockRunnable(Ljava/lang/Runnable;)Ljava/lang/Runnable;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_2
+
+    invoke-interface {v4}, Ljava/lang/Runnable;->run()V
 
     :cond_2
-    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mRoot:Landroid/view/ViewGroup;
-
-    invoke-virtual {v3}, Landroid/view/ViewGroup;->getVisibility()I
-
-    move-result v3
-
-    if-eqz v3, :cond_3
-
-    iget-boolean v3, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mShowingSoon:Z
-
-    if-eqz v3, :cond_8
+    return-void
 
     :cond_3
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->needsFullscreenBouncer()Z
+    const/4 v2, 0x0
 
-    move-result v3
-
-    if-nez v3, :cond_4
-
-    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mContext:Landroid/content/Context;
-
-    invoke-static {v3}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isDismissActionExist()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_5
+    goto :goto_0
 
     :cond_4
-    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mKeyguardView:Lcom/android/keyguard/KeyguardHostView;
+    const/4 v1, 0x0
 
-    invoke-virtual {v3}, Lcom/android/keyguard/KeyguardHostView;->onResume()V
-
-    iget v3, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mBouncerPromptReason:I
-
-    invoke-virtual {p0, v3}, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->showPromptReason(I)V
+    goto :goto_1
 
     :cond_5
-    return-void
+    if-eqz p1, :cond_6
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mKeyguardView:Lcom/android/keyguard/KeyguardHostView;
+
+    invoke-virtual {v5}, Lcom/android/keyguard/KeyguardHostView;->showPrimarySecurityScreen()V
 
     :cond_6
-    const/4 v1, 0x0
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mRoot:Landroid/view/ViewGroup;
 
-    goto :goto_0
+    invoke-virtual {v5}, Landroid/view/ViewGroup;->getVisibility()I
+
+    move-result v5
+
+    if-eqz v5, :cond_7
+
+    iget-boolean v5, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mShowingSoon:Z
+
+    if-eqz v5, :cond_a
 
     :cond_7
-    const/4 v1, 0x0
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->needsFullscreenBouncer()Z
 
-    goto :goto_0
+    move-result v5
+
+    if-nez v5, :cond_8
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mContext:Landroid/content/Context;
+
+    invoke-static {v5}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isDismissActionExist()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_9
 
     :cond_8
-    if-eqz v1, :cond_9
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mKeyguardView:Lcom/android/keyguard/KeyguardHostView;
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mKeyguardView:Lcom/android/keyguard/KeyguardHostView;
+    invoke-virtual {v5}, Lcom/android/keyguard/KeyguardHostView;->onResume()V
 
-    invoke-virtual {v3}, Lcom/android/keyguard/KeyguardHostView;->dismiss()Z
+    iget v5, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mBouncerPromptReason:I
 
-    move-result v3
-
-    if-eqz v3, :cond_9
-
-    return-void
+    invoke-virtual {p0, v5}, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->showPromptReason(I)V
 
     :cond_9
-    if-nez v1, :cond_a
-
-    const-string/jumbo v3, "KeyguardBouncer"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "User can\'t dismiss keyguard: "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v6, " != "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v3, v5}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    return-void
 
     :cond_a
-    iput-boolean v4, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mShowingSoon:Z
+    if-eqz v1, :cond_c
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mShowRunnable:Ljava/lang/Runnable;
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mKeyguardView:Lcom/android/keyguard/KeyguardHostView;
 
-    invoke-static {v3}, Lcom/android/systemui/DejankUtils;->postAfterTraversal(Ljava/lang/Runnable;)V
+    invoke-virtual {v5, v0}, Lcom/android/keyguard/KeyguardHostView;->dismiss(I)Z
 
+    move-result v5
+
+    if-eqz v5, :cond_c
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mContext:Landroid/content/Context;
+
+    invoke-static {v5}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v6}, Lcom/android/keyguard/KeyguardUpdateMonitor;->setSwipedUnlockRunnable(Ljava/lang/Runnable;)Ljava/lang/Runnable;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_b
+
+    invoke-interface {v4}, Ljava/lang/Runnable;->run()V
+
+    :cond_b
+    return-void
+
+    :cond_c
+    if-nez v1, :cond_d
+
+    const-string/jumbo v5, "KeyguardBouncer"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "User can\'t dismiss keyguard: "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, " != "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_d
+    const/4 v5, 0x1
+
+    iput-boolean v5, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mShowingSoon:Z
+
+    const-string/jumbo v5, "101"
+
+    const-string/jumbo v6, "1001"
+
+    const-string/jumbo v7, "1"
+
+    invoke-static {v5, v6, v7}, Lcom/android/systemui/util/AnalyticUtils;->sendEventLog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mShowRunnable:Ljava/lang/Runnable;
+
+    invoke-static {v5}, Lcom/android/systemui/DejankUtils;->postAfterTraversal(Ljava/lang/Runnable;)V
+
+    :cond_e
     return-void
 .end method
 
@@ -897,6 +1048,25 @@
 
     invoke-virtual {v0, p1}, Lcom/android/keyguard/KeyguardHostView;->showPromptReason(I)V
 
+    return-void
+.end method
+
+.method public showSinglePageBouncer()V
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mIsSinglePageLockscreen:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mKeyguardView:Lcom/android/keyguard/KeyguardHostView;
+
+    if-eqz v0, :cond_0
+
+    iget v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->mBouncerPromptReason:I
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/KeyguardBouncer;->showPromptReason(I)V
+
+    :cond_0
     return-void
 .end method
 

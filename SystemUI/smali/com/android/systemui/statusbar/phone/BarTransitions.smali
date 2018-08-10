@@ -18,9 +18,9 @@
 # instance fields
 .field private mAlwaysOpaque:Z
 
-.field private final mBarBackground:Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;
+.field protected mBarBackground:Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;
 
-.field private mMode:I
+.field protected mMode:I
 
 .field private final mTag:Ljava/lang/String;
 
@@ -108,67 +108,85 @@
 .method public static modeToString(I)Ljava/lang/String;
     .locals 3
 
-    if-nez p0, :cond_0
+    const/4 v0, -0x1
+
+    if-ne p0, v0, :cond_0
+
+    const-string/jumbo v0, "MODE_NONE"
+
+    return-object v0
+
+    :cond_0
+    if-nez p0, :cond_1
 
     const-string/jumbo v0, "MODE_OPAQUE"
 
     return-object v0
 
-    :cond_0
+    :cond_1
     const/4 v0, 0x1
 
-    if-ne p0, v0, :cond_1
+    if-ne p0, v0, :cond_2
 
     const-string/jumbo v0, "MODE_SEMI_TRANSPARENT"
 
     return-object v0
 
-    :cond_1
+    :cond_2
     const/4 v0, 0x2
 
-    if-ne p0, v0, :cond_2
+    if-ne p0, v0, :cond_3
 
     const-string/jumbo v0, "MODE_TRANSLUCENT"
 
     return-object v0
 
-    :cond_2
+    :cond_3
     const/4 v0, 0x3
 
-    if-ne p0, v0, :cond_3
+    if-ne p0, v0, :cond_4
 
     const-string/jumbo v0, "MODE_LIGHTS_OUT"
 
     return-object v0
 
-    :cond_3
+    :cond_4
     const/4 v0, 0x4
 
-    if-ne p0, v0, :cond_4
+    if-ne p0, v0, :cond_5
 
     const-string/jumbo v0, "MODE_TRANSPARENT"
 
     return-object v0
 
-    :cond_4
+    :cond_5
     const/4 v0, 0x5
 
-    if-ne p0, v0, :cond_5
+    if-ne p0, v0, :cond_6
 
     const-string/jumbo v0, "MODE_WARNING"
 
     return-object v0
 
-    :cond_5
+    :cond_6
     const/4 v0, 0x6
 
-    if-ne p0, v0, :cond_6
+    if-ne p0, v0, :cond_7
 
     const-string/jumbo v0, "MODE_LIGHTS_OUT_TRANSPARENT"
 
     return-object v0
 
-    :cond_6
+    :cond_7
+    const/4 v0, 0x7
+
+    if-ne p0, v0, :cond_8
+
+    const-string/jumbo v0, "MODE_BLACK_OPAQUE"
+
+    return-object v0
+
+    :cond_8
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -278,8 +296,20 @@
     return-void
 .end method
 
+.method public setAlwaysOpaque(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/phone/BarTransitions;->mAlwaysOpaque:Z
+
+    return-void
+.end method
+
 .method public transitionTo(IZ)V
-    .locals 2
+    .locals 8
+
+    const/4 v7, 0x2
+
+    const/4 v6, 0x1
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/BarTransitions;->isAlwaysOpaque()Z
 
@@ -287,13 +317,9 @@
 
     if-eqz v1, :cond_1
 
-    const/4 v1, 0x1
+    if-eq p1, v6, :cond_0
 
-    if-eq p1, v1, :cond_0
-
-    const/4 v1, 0x2
-
-    if-ne p1, v1, :cond_3
+    if-ne p1, v7, :cond_3
 
     :cond_0
     :goto_0
@@ -330,6 +356,40 @@
     iget v0, p0, Lcom/android/systemui/statusbar/phone/BarTransitions;->mMode:I
 
     iput p1, p0, Lcom/android/systemui/statusbar/phone/BarTransitions;->mMode:I
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/BarTransitions;->mTag:Ljava/lang/String;
+
+    const-string/jumbo v2, "%s -> %s animate=%s"
+
+    const/4 v3, 0x3
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/BarTransitions;->modeToString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    const/4 v5, 0x0
+
+    aput-object v4, v3, v5
+
+    invoke-static {p1}, Lcom/android/systemui/statusbar/phone/BarTransitions;->modeToString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    aput-object v4, v3, v6
+
+    invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v4
+
+    aput-object v4, v3, v7
+
+    invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget v1, p0, Lcom/android/systemui/statusbar/phone/BarTransitions;->mMode:I
 

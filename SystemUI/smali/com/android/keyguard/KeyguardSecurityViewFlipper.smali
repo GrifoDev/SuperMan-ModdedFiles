@@ -92,6 +92,16 @@
     return v0
 .end method
 
+.method public bridge synthetic generateLayoutParams(Landroid/util/AttributeSet;)Landroid/view/ViewGroup$LayoutParams;
+    .locals 1
+
+    invoke-virtual {p0, p1}, Lcom/android/keyguard/KeyguardSecurityViewFlipper;->generateLayoutParams(Landroid/util/AttributeSet;)Lcom/android/keyguard/KeyguardSecurityViewFlipper$LayoutParams;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method protected generateLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Landroid/view/ViewGroup$LayoutParams;
     .locals 1
 
@@ -749,10 +759,4 @@
     const/4 v1, 0x0
 
     return v1
-.end method
-
-.method public updateChildViewsLook()V
-    .locals 0
-
-    return-void
 .end method

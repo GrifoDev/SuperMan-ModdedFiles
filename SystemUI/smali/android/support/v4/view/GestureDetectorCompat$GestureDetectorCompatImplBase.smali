@@ -36,11 +36,11 @@
 
 .field private mAlwaysInTapRegion:Z
 
-.field private mCurrentDownEvent:Landroid/view/MotionEvent;
+.field mCurrentDownEvent:Landroid/view/MotionEvent;
 
-.field private mDeferConfirmSingleTap:Z
+.field mDeferConfirmSingleTap:Z
 
-.field private mDoubleTapListener:Landroid/view/GestureDetector$OnDoubleTapListener;
+.field mDoubleTapListener:Landroid/view/GestureDetector$OnDoubleTapListener;
 
 .field private mDoubleTapSlopSquare:I
 
@@ -60,7 +60,7 @@
 
 .field private mLastFocusY:F
 
-.field private final mListener:Landroid/view/GestureDetector$OnGestureListener;
+.field final mListener:Landroid/view/GestureDetector$OnGestureListener;
 
 .field private mMaximumFlingVelocity:I
 
@@ -68,7 +68,7 @@
 
 .field private mPreviousUpEvent:Landroid/view/MotionEvent;
 
-.field private mStillDown:Z
+.field mStillDown:Z
 
 .field private mTouchSlopSquare:I
 
@@ -76,54 +76,6 @@
 
 
 # direct methods
-.method static synthetic -get0(Landroid/support/v4/view/GestureDetectorCompat$GestureDetectorCompatImplBase;)Landroid/view/MotionEvent;
-    .locals 1
-
-    iget-object v0, p0, Landroid/support/v4/view/GestureDetectorCompat$GestureDetectorCompatImplBase;->mCurrentDownEvent:Landroid/view/MotionEvent;
-
-    return-object v0
-.end method
-
-.method static synthetic -get1(Landroid/support/v4/view/GestureDetectorCompat$GestureDetectorCompatImplBase;)Landroid/view/GestureDetector$OnDoubleTapListener;
-    .locals 1
-
-    iget-object v0, p0, Landroid/support/v4/view/GestureDetectorCompat$GestureDetectorCompatImplBase;->mDoubleTapListener:Landroid/view/GestureDetector$OnDoubleTapListener;
-
-    return-object v0
-.end method
-
-.method static synthetic -get2(Landroid/support/v4/view/GestureDetectorCompat$GestureDetectorCompatImplBase;)Landroid/view/GestureDetector$OnGestureListener;
-    .locals 1
-
-    iget-object v0, p0, Landroid/support/v4/view/GestureDetectorCompat$GestureDetectorCompatImplBase;->mListener:Landroid/view/GestureDetector$OnGestureListener;
-
-    return-object v0
-.end method
-
-.method static synthetic -get3(Landroid/support/v4/view/GestureDetectorCompat$GestureDetectorCompatImplBase;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Landroid/support/v4/view/GestureDetectorCompat$GestureDetectorCompatImplBase;->mStillDown:Z
-
-    return v0
-.end method
-
-.method static synthetic -set0(Landroid/support/v4/view/GestureDetectorCompat$GestureDetectorCompatImplBase;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Landroid/support/v4/view/GestureDetectorCompat$GestureDetectorCompatImplBase;->mDeferConfirmSingleTap:Z
-
-    return p1
-.end method
-
-.method static synthetic -wrap0(Landroid/support/v4/view/GestureDetectorCompat$GestureDetectorCompatImplBase;)V
-    .locals 0
-
-    invoke-direct {p0}, Landroid/support/v4/view/GestureDetectorCompat$GestureDetectorCompatImplBase;->dispatchLongPress()V
-
-    return-void
-.end method
-
 .method static constructor <clinit>()V
     .locals 1
 
@@ -279,32 +231,6 @@
     return-void
 .end method
 
-.method private dispatchLongPress()V
-    .locals 2
-
-    iget-object v0, p0, Landroid/support/v4/view/GestureDetectorCompat$GestureDetectorCompatImplBase;->mHandler:Landroid/os/Handler;
-
-    const/4 v1, 0x3
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Landroid/support/v4/view/GestureDetectorCompat$GestureDetectorCompatImplBase;->mDeferConfirmSingleTap:Z
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Landroid/support/v4/view/GestureDetectorCompat$GestureDetectorCompatImplBase;->mInLongPress:Z
-
-    iget-object v0, p0, Landroid/support/v4/view/GestureDetectorCompat$GestureDetectorCompatImplBase;->mListener:Landroid/view/GestureDetector$OnGestureListener;
-
-    iget-object v1, p0, Landroid/support/v4/view/GestureDetectorCompat$GestureDetectorCompatImplBase;->mCurrentDownEvent:Landroid/view/MotionEvent;
-
-    invoke-interface {v0, v1}, Landroid/view/GestureDetector$OnGestureListener;->onLongPress(Landroid/view/MotionEvent;)V
-
-    return-void
-.end method
-
 .method private init(Landroid/content/Context;)V
     .locals 5
 
@@ -450,6 +376,32 @@
 
 
 # virtual methods
+.method dispatchLongPress()V
+    .locals 2
+
+    iget-object v0, p0, Landroid/support/v4/view/GestureDetectorCompat$GestureDetectorCompatImplBase;->mHandler:Landroid/os/Handler;
+
+    const/4 v1, 0x3
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Landroid/support/v4/view/GestureDetectorCompat$GestureDetectorCompatImplBase;->mDeferConfirmSingleTap:Z
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Landroid/support/v4/view/GestureDetectorCompat$GestureDetectorCompatImplBase;->mInLongPress:Z
+
+    iget-object v0, p0, Landroid/support/v4/view/GestureDetectorCompat$GestureDetectorCompatImplBase;->mListener:Landroid/view/GestureDetector$OnGestureListener;
+
+    iget-object v1, p0, Landroid/support/v4/view/GestureDetectorCompat$GestureDetectorCompatImplBase;->mCurrentDownEvent:Landroid/view/MotionEvent;
+
+    invoke-interface {v0, v1}, Landroid/view/GestureDetector$OnGestureListener;->onLongPress(Landroid/view/MotionEvent;)V
+
+    return-void
+.end method
+
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 42
 
@@ -505,7 +457,7 @@
     :goto_0
     if-eqz v22, :cond_2
 
-    invoke-static/range {p1 .. p1}, Landroid/support/v4/view/MotionEventCompat;->getActionIndex(Landroid/view/MotionEvent;)I
+    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getActionIndex()I
 
     move-result v25
 
@@ -514,7 +466,7 @@
 
     const/16 v27, 0x0
 
-    invoke-static/range {p1 .. p1}, Landroid/support/v4/view/MotionEventCompat;->getPointerCount(Landroid/view/MotionEvent;)I
+    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getPointerCount()I
 
     move-result v7
 
@@ -551,7 +503,7 @@
 
     move/from16 v1, v18
 
-    invoke-static {v0, v1}, Landroid/support/v4/view/MotionEventCompat;->getX(Landroid/view/MotionEvent;I)F
+    invoke-virtual {v0, v1}, Landroid/view/MotionEvent;->getX(I)F
 
     move-result v36
 
@@ -561,7 +513,7 @@
 
     move/from16 v1, v18
 
-    invoke-static {v0, v1}, Landroid/support/v4/view/MotionEventCompat;->getY(Landroid/view/MotionEvent;I)F
+    invoke-virtual {v0, v1}, Landroid/view/MotionEvent;->getY(I)F
 
     move-result v36
 
@@ -671,7 +623,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/view/VelocityTracker;->computeCurrentVelocity(IF)V
 
-    invoke-static/range {p1 .. p1}, Landroid/support/v4/view/MotionEventCompat;->getActionIndex(Landroid/view/MotionEvent;)I
+    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getActionIndex()I
 
     move-result v28
 
@@ -679,7 +631,7 @@
 
     move/from16 v1, v28
 
-    invoke-static {v0, v1}, Landroid/support/v4/view/MotionEventCompat;->getPointerId(Landroid/view/MotionEvent;I)I
+    invoke-virtual {v0, v1}, Landroid/view/MotionEvent;->getPointerId(I)I
 
     move-result v19
 
@@ -693,7 +645,7 @@
 
     move/from16 v1, v19
 
-    invoke-static {v0, v1}, Landroid/support/v4/view/VelocityTrackerCompat;->getXVelocity(Landroid/view/VelocityTracker;I)F
+    invoke-virtual {v0, v1}, Landroid/view/VelocityTracker;->getXVelocity(I)F
 
     move-result v33
 
@@ -707,7 +659,7 @@
 
     move/from16 v1, v19
 
-    invoke-static {v0, v1}, Landroid/support/v4/view/VelocityTrackerCompat;->getYVelocity(Landroid/view/VelocityTracker;I)F
+    invoke-virtual {v0, v1}, Landroid/view/VelocityTracker;->getYVelocity(I)F
 
     move-result v35
 
@@ -734,7 +686,7 @@
 
     move/from16 v1, v18
 
-    invoke-static {v0, v1}, Landroid/support/v4/view/MotionEventCompat;->getPointerId(Landroid/view/MotionEvent;I)I
+    invoke-virtual {v0, v1}, Landroid/view/MotionEvent;->getPointerId(I)I
 
     move-result v20
 
@@ -748,7 +700,7 @@
 
     move/from16 v1, v20
 
-    invoke-static {v0, v1}, Landroid/support/v4/view/VelocityTrackerCompat;->getXVelocity(Landroid/view/VelocityTracker;I)F
+    invoke-virtual {v0, v1}, Landroid/view/VelocityTracker;->getXVelocity(I)F
 
     move-result v36
 
@@ -764,7 +716,7 @@
 
     move/from16 v1, v20
 
-    invoke-static {v0, v1}, Landroid/support/v4/view/VelocityTrackerCompat;->getYVelocity(Landroid/view/VelocityTracker;I)F
+    invoke-virtual {v0, v1}, Landroid/view/VelocityTracker;->getYVelocity(I)F
 
     move-result v36
 
@@ -1584,7 +1536,7 @@
 
     move/from16 v1, v36
 
-    invoke-static {v0, v1}, Landroid/support/v4/view/MotionEventCompat;->getPointerId(Landroid/view/MotionEvent;I)I
+    invoke-virtual {v0, v1}, Landroid/view/MotionEvent;->getPointerId(I)I
 
     move-result v21
 
@@ -1614,7 +1566,7 @@
 
     move/from16 v1, v21
 
-    invoke-static {v0, v1}, Landroid/support/v4/view/VelocityTrackerCompat;->getYVelocity(Landroid/view/VelocityTracker;I)F
+    invoke-virtual {v0, v1}, Landroid/view/VelocityTracker;->getYVelocity(I)F
 
     move-result v31
 
@@ -1622,7 +1574,7 @@
 
     move/from16 v1, v21
 
-    invoke-static {v0, v1}, Landroid/support/v4/view/VelocityTrackerCompat;->getXVelocity(Landroid/view/VelocityTracker;I)F
+    invoke-virtual {v0, v1}, Landroid/view/VelocityTracker;->getXVelocity(I)F
 
     move-result v30
 

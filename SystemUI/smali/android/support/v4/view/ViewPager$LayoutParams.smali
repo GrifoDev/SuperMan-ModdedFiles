@@ -52,9 +52,7 @@
 
     iput v1, p0, Landroid/support/v4/view/ViewPager$LayoutParams;->widthFactor:F
 
-    invoke-static {}, Landroid/support/v4/view/ViewPager;->-get0()[I
-
-    move-result-object v1
+    sget-object v1, Landroid/support/v4/view/ViewPager;->LAYOUT_ATTRS:[I
 
     invoke-virtual {p1, p2, v1}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 

@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/keyguard/KeyguardPinBasedInputView;->onFinishInflate()V
+    value = Lcom/android/keyguard/KeyguardPinBasedInputView;->initializeBottomContainerView()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -36,10 +36,6 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 1
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView$4;->this$0:Lcom/android/keyguard/KeyguardPinBasedInputView;
-
-    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardPinBasedInputView;->doHapticKeyClick()V
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView$4;->this$0:Lcom/android/keyguard/KeyguardPinBasedInputView;
 

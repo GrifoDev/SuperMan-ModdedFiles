@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu style="@style/Qspanel_more_option"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:icon="@android:drawable/ic_menu_preferences" android:id="@id/edit" android:title="@string/sec_reorder_buttons" />
+    <item android:icon="@android:drawable/ic_menu_preferences" android:id="@id/screen_grid" android:title="@string/screen_grid" />
+    <item android:icon="@android:drawable/ic_menu_preferences" android:id="@id/contact_us" android:title="@string/qs_contact_us" />
+</menu>

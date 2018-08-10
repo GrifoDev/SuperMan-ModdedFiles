@@ -11,7 +11,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/keyguard/KeyguardCarrierPasswordView$1;
+        Lcom/android/keyguard/KeyguardCarrierPasswordView$1;,
+        Lcom/android/keyguard/KeyguardCarrierPasswordView$2;
     }
 .end annotation
 
@@ -25,7 +26,7 @@
 
 .field private mContext:Landroid/content/Context;
 
-.field private mCountdownTimer:Landroid/os/CountDownTimer;
+.field private mCurrentOrientation:I
 
 .field private mFailedAttempts:I
 
@@ -34,6 +35,8 @@
 .field private mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
 .field private mPasswordEntry:Landroid/widget/EditText;
+
+.field private mPasswordEntryBoxLayout:Landroid/view/ViewGroup;
 
 .field private mPendingLockCheck:Landroid/os/AsyncTask;
     .annotation system Ldalvik/annotation/Signature;
@@ -49,6 +52,8 @@
 .field private final mShowImeAtScreenOn:Z
 
 .field private final mShowImeRunnable:Ljava/lang/Runnable;
+
+.field private mUpdateMonitorCallbacks:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 
 
 # direct methods
@@ -68,7 +73,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get2(Lcom/android/keyguard/KeyguardCarrierPasswordView;)Landroid/widget/EditText;
+.method static synthetic -get3(Lcom/android/keyguard/KeyguardCarrierPasswordView;)Landroid/widget/EditText;
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mPasswordEntry:Landroid/widget/EditText;
@@ -76,7 +81,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get3(Lcom/android/keyguard/KeyguardCarrierPasswordView;)Lcom/android/keyguard/SecurityMessageDisplay;
+.method static synthetic -get4(Lcom/android/keyguard/KeyguardCarrierPasswordView;)Lcom/android/keyguard/SecurityMessageDisplay;
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mSecurityMessageDisplay:Lcom/android/keyguard/SecurityMessageDisplay;
@@ -84,7 +89,7 @@
     return-object v0
 .end method
 
-.method static synthetic -set0(Lcom/android/keyguard/KeyguardCarrierPasswordView;I)I
+.method static synthetic -set1(Lcom/android/keyguard/KeyguardCarrierPasswordView;I)I
     .locals 0
 
     iput p1, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mFailedAttempts:I
@@ -92,23 +97,7 @@
     return p1
 .end method
 
-.method static synthetic -set1(Lcom/android/keyguard/KeyguardCarrierPasswordView;Landroid/os/AsyncTask;)Landroid/os/AsyncTask;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mPendingLockCheck:Landroid/os/AsyncTask;
-
-    return-object p1
-.end method
-
-.method static synthetic -wrap0(Lcom/android/keyguard/KeyguardCarrierPasswordView;ZIZ)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/keyguard/KeyguardCarrierPasswordView;->onPasswordChecked(ZIZ)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap1(Lcom/android/keyguard/KeyguardCarrierPasswordView;Z)V
+.method static synthetic -wrap0(Lcom/android/keyguard/KeyguardCarrierPasswordView;Z)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardCarrierPasswordView;->setPasswordEntryEnabled(Z)V
@@ -145,19 +134,29 @@
 
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mCountdownTimer:Landroid/os/CountDownTimer;
-
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->deadline:J
 
     iput v2, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mFailedAttempts:I
 
+    const/4 v0, -0x1
+
+    iput v0, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mCurrentOrientation:I
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mPasswordEntryBoxLayout:Landroid/view/ViewGroup;
+
     new-instance v0, Lcom/android/keyguard/KeyguardCarrierPasswordView$1;
 
     invoke-direct {v0, p0}, Lcom/android/keyguard/KeyguardCarrierPasswordView$1;-><init>(Lcom/android/keyguard/KeyguardCarrierPasswordView;)V
+
+    iput-object v0, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mUpdateMonitorCallbacks:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
+
+    new-instance v0, Lcom/android/keyguard/KeyguardCarrierPasswordView$2;
+
+    invoke-direct {v0, p0}, Lcom/android/keyguard/KeyguardCarrierPasswordView$2;-><init>(Lcom/android/keyguard/KeyguardCarrierPasswordView;)V
 
     iput-object v0, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mShowImeRunnable:Ljava/lang/Runnable;
 
@@ -172,6 +171,14 @@
     invoke-direct {v0, v1}, Lcom/android/internal/widget/LockPatternUtils;-><init>(Landroid/content/Context;)V
 
     iput-object v0, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    invoke-static {p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mUpdateMonitorCallbacks:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
+
+    invoke-virtual {v0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->registerCallback(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;)V
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mContext:Landroid/content/Context;
 
@@ -195,7 +202,7 @@
 
     move-result-object v0
 
-    sget v1, Lcom/android/keyguard/R$bool;->kg_show_ime_at_screen_on:I
+    const v1, 0x7f05002b
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -217,7 +224,7 @@
 
     move-result-wide v6
 
-    new-instance v0, Lcom/android/keyguard/KeyguardCarrierPasswordView$5;
+    new-instance v0, Lcom/android/keyguard/KeyguardCarrierPasswordView$4;
 
     sub-long v2, p1, v6
 
@@ -225,104 +232,102 @@
 
     move-object v1, p0
 
-    invoke-direct/range {v0 .. v5}, Lcom/android/keyguard/KeyguardCarrierPasswordView$5;-><init>(Lcom/android/keyguard/KeyguardCarrierPasswordView;JJ)V
+    invoke-direct/range {v0 .. v5}, Lcom/android/keyguard/KeyguardCarrierPasswordView$4;-><init>(Lcom/android/keyguard/KeyguardCarrierPasswordView;JJ)V
 
-    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardCarrierPasswordView$5;->start()Landroid/os/CountDownTimer;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mCountdownTimer:Landroid/os/CountDownTimer;
+    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardCarrierPasswordView$4;->start()Landroid/os/CountDownTimer;
 
     return-void
 .end method
 
 .method private onPasswordChecked(ZIZ)V
-    .locals 4
+    .locals 5
 
-    const-string/jumbo v1, "KeyguardCarrierPasswordView"
+    const-string/jumbo v2, "KeyguardCarrierPasswordView"
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "check result : "
+    const-string/jumbo v4, "check result : "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     if-eqz p1, :cond_1
 
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->imm:Landroid/view/inputmethod/InputMethodManager;
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->imm:Landroid/view/inputmethod/InputMethodManager;
 
     invoke-virtual {p0}, Lcom/android/keyguard/KeyguardCarrierPasswordView;->getWindowToken()Landroid/os/IBinder;
 
-    move-result-object v2
+    move-result-object v3
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    invoke-virtual {v1, v2, v3}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
+    invoke-virtual {v2, v3, v4}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
 
     new-instance v0, Landroid/content/Intent;
 
-    const-string/jumbo v1, "com.sec.android.FindingLostPhonePlus.RELEASE"
+    const-string/jumbo v2, "com.sec.android.FindingLostPhonePlus.RELEASE"
 
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mContext:Landroid/content/Context;
+    const v2, 0x1000020
 
-    const-string/jumbo v2, "android.permission.MASTER_CLEAR"
+    invoke-virtual {v0, v2}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    invoke-virtual {v1, v0, v2}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v3, "android.permission.MASTER_CLEAR"
+
+    invoke-virtual {v2, v0, v3}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
 
     :cond_0
     :goto_0
     return-void
 
     :cond_1
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mSecurityMessageDisplay:Lcom/android/keyguard/SecurityMessageDisplay;
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mSecurityMessageDisplay:Lcom/android/keyguard/SecurityMessageDisplay;
 
-    sget v2, Lcom/android/keyguard/R$string;->kg_carrier_lock_wrong_password:I
+    const v3, 0x7f1204ba
 
-    const/4 v3, 0x1
+    invoke-interface {v2, v3}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(I)V
 
-    invoke-interface {v1, v2, v3}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(IZ)V
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mPasswordEntry:Landroid/widget/EditText;
 
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mPasswordEntry:Landroid/widget/EditText;
+    const-string/jumbo v3, ""
 
-    const-string/jumbo v2, ""
+    invoke-virtual {v2, v3}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    invoke-virtual {v1, v2}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+    iget v2, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mFailedAttempts:I
 
-    iget v1, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mFailedAttempts:I
+    add-int/lit8 v2, v2, 0x1
 
-    add-int/lit8 v1, v1, 0x1
+    iput v2, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mFailedAttempts:I
 
-    iput v1, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mFailedAttempts:I
+    iget v2, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mFailedAttempts:I
 
-    iget v1, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mFailedAttempts:I
+    const/4 v3, 0x4
 
-    const/4 v2, 0x4
-
-    if-le v1, v2, :cond_0
-
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+    if-le v2, v3, :cond_0
 
     invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
 
-    move-result v2
+    move-result v1
 
-    invoke-virtual {v1, v2}, Lcom/android/internal/widget/LockPatternUtils;->setCarrierLockoutAttemptDeadline(I)J
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    invoke-virtual {v2, v1}, Lcom/android/internal/widget/LockPatternUtils;->setCarrierLockoutAttemptDeadline(I)J
 
     move-result-wide v2
 
@@ -338,30 +343,89 @@
 .method private setPasswordEntryEnabled(Z)V
     .locals 2
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mPasswordEntry:Landroid/widget/EditText;
+    const/4 v0, 0x0
 
-    invoke-virtual {v0, p1}, Landroid/widget/EditText;->setEnabled(Z)V
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mPasswordEntry:Landroid/widget/EditText;
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mInputContainer:Landroid/view/ViewGroup;
-
-    if-eqz v0, :cond_0
+    invoke-virtual {v1, p1}, Landroid/widget/EditText;->setEnabled(Z)V
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mInputContainer:Landroid/view/ViewGroup;
 
-    if-eqz p1, :cond_1
+    if-eqz v1, :cond_1
 
-    const/4 v0, 0x0
+    const/4 v1, 0x1
 
     :goto_0
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mInputContainer:Landroid/view/ViewGroup;
+
+    if-eqz p1, :cond_2
+
+    :goto_1
     invoke-virtual {v1, v0}, Landroid/view/ViewGroup;->setVisibility(I)V
 
     :cond_0
     return-void
 
     :cond_1
-    const/4 v0, 0x4
+    move v1, v0
 
     goto :goto_0
+
+    :cond_2
+    const/4 v0, 0x4
+
+    goto :goto_1
+.end method
+
+.method private updateLayout()V
+    .locals 3
+
+    const v2, 0x7f070291
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mPasswordEntryBoxLayout:Landroid/view/ViewGroup;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mPasswordEntryBoxLayout:Landroid/view/ViewGroup;
+
+    invoke-virtual {v1}, Landroid/view/ViewGroup;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/ViewGroup$MarginLayoutParams;
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
+
+    iput v1, v0, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
+
+    iput v1, v0, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mPasswordEntryBoxLayout:Landroid/view/ViewGroup;
+
+    invoke-virtual {v1, v0}, Landroid/view/ViewGroup;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    :cond_0
+    return-void
 .end method
 
 .method private verifyPasswordAndUnlock()V
@@ -398,9 +462,9 @@
 
     move-result v2
 
-    new-instance v3, Lcom/android/keyguard/KeyguardCarrierPasswordView$4;
+    new-instance v3, Lcom/android/keyguard/-$Lambda$SP19MIYm-IAS6pzq_wp3CgDOJNw$1;
 
-    invoke-direct {v3, p0}, Lcom/android/keyguard/KeyguardCarrierPasswordView$4;-><init>(Lcom/android/keyguard/KeyguardCarrierPasswordView;)V
+    invoke-direct {v3, p0}, Lcom/android/keyguard/-$Lambda$SP19MIYm-IAS6pzq_wp3CgDOJNw$1;-><init>(Ljava/lang/Object;)V
 
     const/4 v4, 0x1
 
@@ -427,12 +491,57 @@
     return-void
 .end method
 
+.method synthetic lambda$-com_android_keyguard_KeyguardCarrierPasswordView_4838(Landroid/view/View;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mCallback:Lcom/android/keyguard/KeyguardSecurityCallback;
+
+    invoke-interface {v0}, Lcom/android/keyguard/KeyguardSecurityCallback;->userActivity()V
+
+    return-void
+.end method
+
+.method synthetic lambda$-com_android_keyguard_KeyguardCarrierPasswordView_7603(ZI)V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mPendingLockCheck:Landroid/os/AsyncTask;
+
+    const/4 v0, 0x1
+
+    invoke-direct {p0, p1, p2, v0}, Lcom/android/keyguard/KeyguardCarrierPasswordView;->onPasswordChecked(ZIZ)V
+
+    return-void
+.end method
+
 .method public needsInput()Z
     .locals 1
 
     const/4 v0, 0x1
 
     return v0
+.end method
+
+.method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
+    .locals 2
+
+    invoke-super {p0, p1}, Landroid/widget/LinearLayout;->onConfigurationChanged(Landroid/content/res/Configuration;)V
+
+    iget v0, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mCurrentOrientation:I
+
+    iget v1, p1, Landroid/content/res/Configuration;->orientation:I
+
+    if-eq v0, v1, :cond_0
+
+    invoke-direct {p0}, Lcom/android/keyguard/KeyguardCarrierPasswordView;->updateLayout()V
+
+    iget v0, p1, Landroid/content/res/Configuration;->orientation:I
+
+    iput v0, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mCurrentOrientation:I
+
+    :cond_0
+    return-void
 .end method
 
 .method public onEditorAction(Landroid/widget/TextView;ILandroid/view/KeyEvent;)Z
@@ -522,7 +631,7 @@
 
     invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
 
-    sget v0, Lcom/android/keyguard/R$id;->passwordEntry:I
+    const v0, 0x7f0a03c5
 
     invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardCarrierPasswordView;->findViewById(I)Landroid/view/View;
 
@@ -564,7 +673,7 @@
 
     invoke-virtual {v0}, Landroid/widget/EditText;->requestFocus()Z
 
-    sget v0, Lcom/android/keyguard/R$id;->input_container:I
+    const v0, 0x7f0a0238
 
     invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardCarrierPasswordView;->findViewById(I)Landroid/view/View;
 
@@ -574,11 +683,37 @@
 
     iput-object v0, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mInputContainer:Landroid/view/ViewGroup;
 
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/content/res/Configuration;->orientation:I
+
+    iput v0, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mCurrentOrientation:I
+
+    const v0, 0x7f0a03c7
+
+    invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardCarrierPasswordView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/ViewGroup;
+
+    iput-object v0, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mPasswordEntryBoxLayout:Landroid/view/ViewGroup;
+
+    invoke-direct {p0}, Lcom/android/keyguard/KeyguardCarrierPasswordView;->updateLayout()V
+
     iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mPasswordEntry:Landroid/widget/EditText;
 
-    new-instance v1, Lcom/android/keyguard/KeyguardCarrierPasswordView$2;
+    new-instance v1, Lcom/android/keyguard/-$Lambda$SP19MIYm-IAS6pzq_wp3CgDOJNw;
 
-    invoke-direct {v1, p0}, Lcom/android/keyguard/KeyguardCarrierPasswordView$2;-><init>(Lcom/android/keyguard/KeyguardCarrierPasswordView;)V
+    invoke-direct {v1, p0}, Lcom/android/keyguard/-$Lambda$SP19MIYm-IAS6pzq_wp3CgDOJNw;-><init>(Ljava/lang/Object;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -687,10 +822,45 @@
     return-void
 .end method
 
-.method public reset()V
-    .locals 5
+.method protected onVisibilityChanged(Landroid/view/View;I)V
+    .locals 3
 
-    const/4 v4, 0x1
+    invoke-super {p0, p1, p2}, Landroid/widget/LinearLayout;->onVisibilityChanged(Landroid/view/View;I)V
+
+    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardCarrierPasswordView;->isShown()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    sget-boolean v1, Lcom/android/systemui/Rune;->NAVBAR_ENABLED:Z
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardCarrierPasswordView;->getRootView()Landroid/view/View;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/view/View;->getSystemUiVisibility()I
+
+    move-result v0
+
+    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardCarrierPasswordView;->getRootView()Landroid/view/View;
+
+    move-result-object v1
+
+    const v2, -0x400001
+
+    and-int/2addr v2, v0
+
+    invoke-virtual {v1, v2}, Landroid/view/View;->setSystemUiVisibility(I)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public reset()V
+    .locals 4
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView;->mPasswordEntry:Landroid/widget/EditText;
 
@@ -734,9 +904,11 @@
 
     const-string/jumbo v1, ""
 
-    invoke-interface {v0, v1, v4}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(Ljava/lang/CharSequence;Z)V
+    invoke-interface {v0, v1}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(Ljava/lang/CharSequence;)V
 
-    invoke-direct {p0, v4}, Lcom/android/keyguard/KeyguardCarrierPasswordView;->setPasswordEntryEnabled(Z)V
+    const/4 v0, 0x1
+
+    invoke-direct {p0, v0}, Lcom/android/keyguard/KeyguardCarrierPasswordView;->setPasswordEntryEnabled(Z)V
 
     goto :goto_0
 .end method
@@ -781,10 +953,4 @@
     const/4 v0, 0x0
 
     return v0
-.end method
-
-.method public updateChildViewsLook()V
-    .locals 0
-
-    return-void
 .end method

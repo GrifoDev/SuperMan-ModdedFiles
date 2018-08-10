@@ -6,6 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Landroid/support/v7/app/AppCompatDelegate$ApplyableNightMode;,
         Landroid/support/v7/app/AppCompatDelegate$NightMode;
     }
 .end annotation
@@ -40,10 +41,198 @@
     return-void
 .end method
 
+.method public static create(Landroid/app/Activity;Landroid/support/v7/app/AppCompatCallback;)Landroid/support/v7/app/AppCompatDelegate;
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+
+    move-result-object v0
+
+    invoke-static {p0, v0, p1}, Landroid/support/v7/app/AppCompatDelegate;->create(Landroid/content/Context;Landroid/view/Window;Landroid/support/v7/app/AppCompatCallback;)Landroid/support/v7/app/AppCompatDelegate;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static create(Landroid/app/Dialog;Landroid/support/v7/app/AppCompatCallback;)Landroid/support/v7/app/AppCompatDelegate;
+    .locals 2
+
+    invoke-virtual {p0}, Landroid/app/Dialog;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
+
+    move-result-object v1
+
+    invoke-static {v0, v1, p1}, Landroid/support/v7/app/AppCompatDelegate;->create(Landroid/content/Context;Landroid/view/Window;Landroid/support/v7/app/AppCompatCallback;)Landroid/support/v7/app/AppCompatDelegate;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method private static create(Landroid/content/Context;Landroid/view/Window;Landroid/support/v7/app/AppCompatCallback;)Landroid/support/v7/app/AppCompatDelegate;
+    .locals 2
+
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v1, 0x18
+
+    if-lt v0, v1, :cond_0
+
+    new-instance v0, Landroid/support/v7/app/AppCompatDelegateImplN;
+
+    invoke-direct {v0, p0, p1, p2}, Landroid/support/v7/app/AppCompatDelegateImplN;-><init>(Landroid/content/Context;Landroid/view/Window;Landroid/support/v7/app/AppCompatCallback;)V
+
+    return-object v0
+
+    :cond_0
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v1, 0x17
+
+    if-lt v0, v1, :cond_1
+
+    new-instance v0, Landroid/support/v7/app/AppCompatDelegateImplV23;
+
+    invoke-direct {v0, p0, p1, p2}, Landroid/support/v7/app/AppCompatDelegateImplV23;-><init>(Landroid/content/Context;Landroid/view/Window;Landroid/support/v7/app/AppCompatCallback;)V
+
+    return-object v0
+
+    :cond_1
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v1, 0xe
+
+    if-lt v0, v1, :cond_2
+
+    new-instance v0, Landroid/support/v7/app/AppCompatDelegateImplV14;
+
+    invoke-direct {v0, p0, p1, p2}, Landroid/support/v7/app/AppCompatDelegateImplV14;-><init>(Landroid/content/Context;Landroid/view/Window;Landroid/support/v7/app/AppCompatCallback;)V
+
+    return-object v0
+
+    :cond_2
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v1, 0xb
+
+    if-lt v0, v1, :cond_3
+
+    new-instance v0, Landroid/support/v7/app/AppCompatDelegateImplV11;
+
+    invoke-direct {v0, p0, p1, p2}, Landroid/support/v7/app/AppCompatDelegateImplV11;-><init>(Landroid/content/Context;Landroid/view/Window;Landroid/support/v7/app/AppCompatCallback;)V
+
+    return-object v0
+
+    :cond_3
+    new-instance v0, Landroid/support/v7/app/AppCompatDelegateImplV9;
+
+    invoke-direct {v0, p0, p1, p2}, Landroid/support/v7/app/AppCompatDelegateImplV9;-><init>(Landroid/content/Context;Landroid/view/Window;Landroid/support/v7/app/AppCompatCallback;)V
+
+    return-object v0
+.end method
+
+.method public static getDefaultNightMode()I
+    .locals 1
+
+    sget v0, Landroid/support/v7/app/AppCompatDelegate;->sDefaultNightMode:I
+
+    return v0
+.end method
+
 .method public static isCompatVectorFromResourcesEnabled()Z
     .locals 1
 
     sget-boolean v0, Landroid/support/v7/app/AppCompatDelegate;->sCompatVectorFromResourcesEnabled:Z
 
     return v0
+.end method
+
+
+# virtual methods
+.method public abstract addContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+.end method
+
+.method public abstract applyDayNight()Z
+.end method
+
+.method public abstract findViewById(I)Landroid/view/View;
+    .param p1    # I
+        .annotation build Landroid/support/annotation/IdRes;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "Landroid/view/View;",
+            ">(I)TT;"
+        }
+    .end annotation
+.end method
+
+.method public abstract getMenuInflater()Landroid/view/MenuInflater;
+.end method
+
+.method public abstract getSupportActionBar()Landroid/support/v7/app/ActionBar;
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+.end method
+
+.method public abstract installViewFactory()V
+.end method
+
+.method public abstract invalidateOptionsMenu()V
+.end method
+
+.method public abstract onConfigurationChanged(Landroid/content/res/Configuration;)V
+.end method
+
+.method public abstract onCreate(Landroid/os/Bundle;)V
+.end method
+
+.method public abstract onDestroy()V
+.end method
+
+.method public abstract onPostCreate(Landroid/os/Bundle;)V
+.end method
+
+.method public abstract onPostResume()V
+.end method
+
+.method public abstract onSaveInstanceState(Landroid/os/Bundle;)V
+.end method
+
+.method public abstract onStart()V
+.end method
+
+.method public abstract onStop()V
+.end method
+
+.method public abstract requestWindowFeature(I)Z
+.end method
+
+.method public abstract setContentView(I)V
+    .param p1    # I
+        .annotation build Landroid/support/annotation/LayoutRes;
+        .end annotation
+    .end param
+.end method
+
+.method public abstract setContentView(Landroid/view/View;)V
+.end method
+
+.method public abstract setContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+.end method
+
+.method public abstract setTitle(Ljava/lang/CharSequence;)V
+    .param p1    # Ljava/lang/CharSequence;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 .end method

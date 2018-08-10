@@ -2,6 +2,17 @@
 .super Landroid/widget/LinearLayout;
 .source "FitWindowsLinearLayout.java"
 
+# interfaces
+.implements Landroid/support/v7/widget/FitWindowsViewGroup;
+
+
+# annotations
+.annotation build Landroid/support/annotation/RestrictTo;
+    value = {
+        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
 
 # instance fields
 .field private mListener:Landroid/support/v7/widget/FitWindowsViewGroup$OnFitSystemWindowsListener;
@@ -43,4 +54,12 @@
     move-result v0
 
     return v0
+.end method
+
+.method public setOnFitSystemWindowsListener(Landroid/support/v7/widget/FitWindowsViewGroup$OnFitSystemWindowsListener;)V
+    .locals 0
+
+    iput-object p1, p0, Landroid/support/v7/widget/FitWindowsLinearLayout;->mListener:Landroid/support/v7/widget/FitWindowsViewGroup$OnFitSystemWindowsListener;
+
+    return-void
 .end method

@@ -21,10 +21,10 @@
 .method public abstract getAffordanceFalsingFactor()F
 .end method
 
-.method public abstract getCenterIcon()Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+.method public abstract getCenterIcon()Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 .end method
 
-.method public abstract getLeftIcon()Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+.method public abstract getLeftIcon()Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 .end method
 
 .method public abstract getLeftPreview()Landroid/view/View;
@@ -33,7 +33,7 @@
 .method public abstract getMaxTranslationDistance()F
 .end method
 
-.method public abstract getRightIcon()Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
+.method public abstract getRightIcon()Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 .end method
 
 .method public abstract getRightPreview()Landroid/view/View;

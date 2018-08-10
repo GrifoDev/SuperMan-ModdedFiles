@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/volume/ZenModePanel$3;->this$0:Lcom/android/systemui/volume/ZenModePanel;
 
-    invoke-static {v0}, Lcom/android/systemui/volume/ZenModePanel;->-wrap3(Lcom/android/systemui/volume/ZenModePanel;)V
+    invoke-static {v0}, Lcom/android/systemui/volume/ZenModePanel;->-wrap2(Lcom/android/systemui/volume/ZenModePanel;)V
 
     return-void
 .end method

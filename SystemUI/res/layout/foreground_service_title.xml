@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:paddingTop="?android:listPreferredItemPaddingStart" android:paddingBottom="8.0dip" android:paddingStart="?android:listPreferredItemPaddingStart" android:paddingEnd="?android:listPreferredItemPaddingEnd"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.internal.widget.DialogTitle android:textSize="18.0sp" android:textStyle="bold" android:textColor="#ff3b3b3b" android:ellipsize="end" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/sec_running_foreground_services_title" android:singleLine="true" android:fontFamily="sec-roboto-condensed" android:textAlignment="viewStart" style="?android:textAppearanceLarge" />
+    <TextView android:textSize="15.0sp" android:textColor="#ff505050" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dip" android:text="@string/sec_running_foreground_services_msg" android:fontFamily="Roboto Regular" android:textAlignment="viewStart" style="?android:textAppearanceSmall" />
+</LinearLayout>

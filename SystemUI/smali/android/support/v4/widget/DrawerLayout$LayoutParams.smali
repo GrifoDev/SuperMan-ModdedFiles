@@ -17,62 +17,14 @@
 # instance fields
 .field public gravity:I
 
-.field private isPeeking:Z
+.field isPeeking:Z
 
-.field private onScreen:F
+.field onScreen:F
 
-.field private openState:I
+.field openState:I
 
 
 # direct methods
-.method static synthetic -get0(Landroid/support/v4/widget/DrawerLayout$LayoutParams;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->isPeeking:Z
-
-    return v0
-.end method
-
-.method static synthetic -get1(Landroid/support/v4/widget/DrawerLayout$LayoutParams;)F
-    .locals 1
-
-    iget v0, p0, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->onScreen:F
-
-    return v0
-.end method
-
-.method static synthetic -get2(Landroid/support/v4/widget/DrawerLayout$LayoutParams;)I
-    .locals 1
-
-    iget v0, p0, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->openState:I
-
-    return v0
-.end method
-
-.method static synthetic -set0(Landroid/support/v4/widget/DrawerLayout$LayoutParams;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->isPeeking:Z
-
-    return p1
-.end method
-
-.method static synthetic -set1(Landroid/support/v4/widget/DrawerLayout$LayoutParams;F)F
-    .locals 0
-
-    iput p1, p0, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->onScreen:F
-
-    return p1
-.end method
-
-.method static synthetic -set2(Landroid/support/v4/widget/DrawerLayout$LayoutParams;I)I
-    .locals 0
-
-    iput p1, p0, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->openState:I
-
-    return p1
-.end method
-
 .method public constructor <init>(II)V
     .locals 1
 
@@ -94,9 +46,7 @@
 
     iput v2, p0, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->gravity:I
 
-    invoke-static {}, Landroid/support/v4/widget/DrawerLayout;->-get1()[I
-
-    move-result-object v1
+    sget-object v1, Landroid/support/v4/widget/DrawerLayout;->LAYOUT_ATTRS:[I
 
     invoke-virtual {p1, p2, v1}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 

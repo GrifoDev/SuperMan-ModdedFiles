@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.systemui.qs.QSContainerImpl android:id="@id/quick_settings_container" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:elevation="1.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.systemui.qs.QSPanel android:id="@id/quick_settings_panel" android:background="#00000000" android:paddingBottom="8.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <include android:id="@id/qs_detail" layout="@layout/qs_detail" />
+</com.android.systemui.qs.QSContainerImpl>

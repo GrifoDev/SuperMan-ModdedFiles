@@ -27,29 +27,13 @@
 
     iput v1, p1, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm$Result;->clockAlpha:F
 
-    if-eqz p2, :cond_0
-
-    iget v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardServiceBoxPositionAlgorithm;->mKeyguardStatusHeight:I
-
-    int-to-float v0, v0
-
-    const v1, 0x3f666666    # 0.9f
-
-    mul-float/2addr v0, v1
-
-    float-to-int v0, v0
-
-    :goto_0
-    iput v0, p1, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm$Result;->stackScrollerPadding:I
-
-    return-void
-
-    :cond_0
     iget v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardServiceBoxPositionAlgorithm;->mKeyguardStatusHeight:I
 
     iget v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardServiceBoxPositionAlgorithm;->mAccessoryBottomMarginOffset:I
 
     add-int/2addr v0, v1
 
-    goto :goto_0
+    iput v0, p1, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm$Result;->stackScrollerPadding:I
+
+    return-void
 .end method

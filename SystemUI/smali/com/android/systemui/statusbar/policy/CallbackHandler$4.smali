@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/policy/CallbackHandler;->setMobileDataIndicators(Lcom/android/systemui/statusbar/policy/NetworkController$IconState;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;IIZZIILjava/lang/String;Ljava/lang/String;ZI)V
+    value = Lcom/android/systemui/statusbar/policy/CallbackHandler;->setMobileDataIndicators(Lcom/android/systemui/statusbar/policy/NetworkController$IconState;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;IIZZIILjava/lang/String;Ljava/lang/String;ZIZ)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,6 +34,8 @@
 
 .field final synthetic val$qsType:I
 
+.field final synthetic val$roaming:Z
+
 .field final synthetic val$roamingIcon:I
 
 .field final synthetic val$statusIcon:Lcom/android/systemui/statusbar/policy/NetworkController$IconState;
@@ -46,7 +48,7 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/policy/CallbackHandler;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;IIZZIILjava/lang/String;Ljava/lang/String;ZI)V
+.method constructor <init>(Lcom/android/systemui/statusbar/policy/CallbackHandler;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;IIZZIILjava/lang/String;Ljava/lang/String;ZIZ)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$4;->this$0:Lcom/android/systemui/statusbar/policy/CallbackHandler;
@@ -75,6 +77,8 @@
 
     iput p13, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$4;->val$subId:I
 
+    iput-boolean p14, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$4;->val$roaming:Z
+
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -83,26 +87,26 @@
 
 # virtual methods
 .method public run()V
-    .locals 14
+    .locals 15
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$4;->this$0:Lcom/android/systemui/statusbar/policy/CallbackHandler;
 
-    invoke-static {v1}, Lcom/android/systemui/statusbar/policy/CallbackHandler;->-get0(Lcom/android/systemui/statusbar/policy/CallbackHandler;)Ljava/util/ArrayList;
+    invoke-static {v1}, Lcom/android/systemui/statusbar/policy/CallbackHandler;->-get1(Lcom/android/systemui/statusbar/policy/CallbackHandler;)Ljava/util/ArrayList;
 
     move-result-object v1
 
     invoke-interface {v1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v13
+    move-result-object v14
 
     :goto_0
-    invoke-interface {v13}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v14}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    invoke-interface {v13}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v14}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -132,7 +136,9 @@
 
     iget v12, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$4;->val$subId:I
 
-    invoke-interface/range {v0 .. v12}, Lcom/android/systemui/statusbar/policy/NetworkController$SignalCallback;->setMobileDataIndicators(Lcom/android/systemui/statusbar/policy/NetworkController$IconState;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;IIZZIILjava/lang/String;Ljava/lang/String;ZI)V
+    iget-boolean v13, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$4;->val$roaming:Z
+
+    invoke-interface/range {v0 .. v13}, Lcom/android/systemui/statusbar/policy/NetworkController$SignalCallback;->setMobileDataIndicators(Lcom/android/systemui/statusbar/policy/NetworkController$IconState;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;IIZZIILjava/lang/String;Ljava/lang/String;ZIZ)V
 
     goto :goto_0
 

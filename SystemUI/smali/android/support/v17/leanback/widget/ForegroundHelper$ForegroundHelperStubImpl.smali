@@ -18,7 +18,7 @@
 
 
 # direct methods
-.method private constructor <init>()V
+.method constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,16 +26,16 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Landroid/support/v17/leanback/widget/ForegroundHelper$ForegroundHelperStubImpl;)V
-    .locals 0
-
-    invoke-direct {p0}, Landroid/support/v17/leanback/widget/ForegroundHelper$ForegroundHelperStubImpl;-><init>()V
-
-    return-void
-.end method
-
 
 # virtual methods
+.method public getForeground(Landroid/view/View;)Landroid/graphics/drawable/Drawable;
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
 .method public setForeground(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V
     .locals 0
 

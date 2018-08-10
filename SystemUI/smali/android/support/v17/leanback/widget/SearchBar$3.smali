@@ -41,9 +41,7 @@
 
     iget-object v1, p0, Landroid/support/v17/leanback/widget/SearchBar$3;->this$0:Landroid/support/v17/leanback/widget/SearchBar;
 
-    invoke-static {v1}, Landroid/support/v17/leanback/widget/SearchBar;->-get6(Landroid/support/v17/leanback/widget/SearchBar;)Landroid/support/v17/leanback/widget/SearchEditText;
-
-    move-result-object v1
+    iget-object v1, v1, Landroid/support/v17/leanback/widget/SearchBar;->mSearchTextEditor:Landroid/support/v17/leanback/widget/SearchEditText;
 
     invoke-virtual {v1}, Landroid/support/v17/leanback/widget/SearchEditText;->getText()Landroid/text/Editable;
 
@@ -53,7 +51,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/support/v17/leanback/widget/SearchBar;->-wrap4(Landroid/support/v17/leanback/widget/SearchBar;Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Landroid/support/v17/leanback/widget/SearchBar;->setSearchQueryInternal(Ljava/lang/String;)V
 
     return-void
 .end method

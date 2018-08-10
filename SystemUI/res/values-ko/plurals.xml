@@ -1,43 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <plurals name="status_bar_accessibility_recent_apps">
-        <item quantity="other">최근 사용에 화면 1개 있음</item>
-        <item quantity="one">최근 사용에 화면 %d개 있음</item>
-    </plurals>
-    <plurals name="kg_password_wrong_pin_code">
-        <item quantity="other">SIM PIN 코드가 잘못되었습니다. %d번 더 시도할 수 있습니다.</item>
-        <item quantity="one">SIM PIN 코드가 잘못되었습니다. %d번 더 실패하면 이동통신사에 문의하여 기기를 잠금 해제해야 합니다.</item>
-    </plurals>
-    <plurals name="kg_password_wrong_puk_code">
-        <item quantity="other">SIM PUK 코드가 잘못되었습니다. %d번 더 실패하면 SIM을 완전히 사용할 수 없게 됩니다.</item>
-        <item quantity="one">SIM PUK 코드가 잘못되었습니다. %d번 더 실패하면 SIM을 완전히 사용할 수 없게 됩니다.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">%d시간 이상 기기가 잠금 해제되지 않았습니다. 패턴을 확인하세요.</item>
-        <item quantity="one">%d시간 이상 기기가 잠금 해제되지 않았습니다. 패턴을 확인하세요.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">%d시간 이상 기기가 잠금 해제되지 않았습니다. PIN을 확인하세요.</item>
-        <item quantity="one">%d시간 이상 기기가 잠금 해제되지 않았습니다. PIN을 확인하세요.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">%d시간 이상 기기가 잠금 해제되지 않았습니다. 비밀번호를 확인하세요.</item>
-        <item quantity="one">%d시간 이상 기기가 잠금 해제되지 않았습니다. 비밀번호를 확인하세요.</item>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">입력 기회가 %d회 남았습니다</item>
+        <item quantity="one">입력 기회가 %d회 남았습니다</item>
     </plurals>
     <plurals name="kg_attempt_remaining">
         <item quantity="other">(입력 기회 %d회 남음)</item>
         <item quantity="one">(입력 기회 1회 남음)</item>
     </plurals>
-    <plurals name="kg_attempt_left">
-        <item quantity="other">입력 기회가 %d회 남았습니다</item>
-        <item quantity="one">입력 기회가 %d회 남았습니다</item>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">잘못된 SIM PIN 코드입니다. 입력을 %d번 더 시도할 수 있습니다.</item>
+        <item quantity="one">잘못된 SIM PIN 코드입니다. 입력에 %d번 더 실패할 경우 이동통신사에 문의하여 기기를 잠금 해제해야 합니다.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">잘못된 SIM PUK 코드입니다. 입력에 %d번 더 실패할 경우 SIM이 영구적으로 사용 중지됩니다.</item>
+        <item quantity="one">잘못된 SIM PUK 코드입니다. 입력에 %d번 더 실패할 경우 SIM이 영구적으로 사용 중지됩니다.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">기기가 %d시간 동안 잠금 해제되지 않았습니다. 비밀번호를 입력하세요.</item>
+        <item quantity="one">기기가 %d시간 동안 잠금 해제되지 않았습니다. 비밀번호를 입력하세요.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">기기가 %d시간 동안 잠금 해제되지 않았습니다. 패턴을 입력하세요.</item>
+        <item quantity="one">기기가 %d시간 동안 잠금 해제되지 않았습니다. 패턴을 입력하세요.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">기기가 %d시간 동안 잠금 해제되지 않았습니다. PIN을 입력하세요.</item>
+        <item quantity="one">기기가 %d시간 동안 잠금 해제되지 않았습니다. PIN을 입력하세요.</item>
     </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown_min">
-        <item quantity="other">%d분 후에 다시 시도하세요</item>
+        <item quantity="other">%d분 후에 시도해 주세요</item>
         <item quantity="one">%d분 후 다시 시도하세요</item>
     </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown_sec">
-        <item quantity="other">%d초 후에 다시 시도하세요</item>
+        <item quantity="other">%d초 후에 시도해 주세요</item>
         <item quantity="one">%d초 후 다시 시도하세요</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_countdown_by_biometrics">
+        <item quantity="other">생체 데이터 인증을 %1$d회 시도했습니다. %2$d초 후 다시 시도하세요.</item>
+        <item quantity="one">생체 데이터 인증을 %1$d회 시도했습니다. %2$d초 후 다시 시도하세요.</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_countdown_by_fingerprint">
+        <item quantity="other">지문 인증을 %1$d회 시도했습니다. %2$d초 후 다시 시도하세요.</item>
+        <item quantity="one">지문 인증을 %1$d회 시도했습니다. %2$d초 후 다시 시도하세요.</item>
+    </plurals>
+    <plurals name="notification_channels_list_desc_2_and_others">
+        <item quantity="other">%1$s, %2$s 외 %3$d개</item>
+        <item quantity="one">%1$s, %2$s 외 %3$d개</item>
+    </plurals>
+    <plurals name="notification_num_channels_desc">
+        <item quantity="other">이 앱에서 %d개의 알림 카테고리 중 1개가 정의됨</item>
+        <item quantity="one">이 앱에서 %d개의 알림 카테고리 중 1개가 정의됨</item>
+    </plurals>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">최근 사용에 화면 %d개 있음</item>
+        <item quantity="one">최근 사용에 화면 1개 있음</item>
+    </plurals>
+    <plurals name="notification_group_overflow_description">
+        <item quantity="other">%s개 알림 더보기</item>
+        <item quantity="one">%s개 알림 더보기</item>
     </plurals>
 </resources>

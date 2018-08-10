@@ -289,9 +289,9 @@
 
     sput-object v0, Lcom/android/systemui/egg/MLand;->sTmpRect:Landroid/graphics/Rect;
 
-    const v0, 0x7f020317
+    const v0, 0x7f08043c
 
-    const v1, 0x7f020318
+    const v1, 0x7f08043d
 
     filled-new-array {v0, v1}, [I
 
@@ -299,9 +299,9 @@
 
     sput-object v0, Lcom/android/systemui/egg/MLand;->ANTENNAE:[I
 
-    const v0, 0x7f020319
+    const v0, 0x7f08043e
 
-    const v1, 0x7f02031a
+    const v1, 0x7f08043f
 
     filled-new-array {v0, v1}, [I
 
@@ -309,13 +309,13 @@
 
     sput-object v0, Lcom/android/systemui/egg/MLand;->EYES:[I
 
-    const v0, 0x7f02031c
+    const v0, 0x7f080441
 
-    const v1, 0x7f02031d
+    const v1, 0x7f080442
 
-    const v2, 0x7f02031e
+    const v2, 0x7f080443
 
-    const v3, 0x7f02031f
+    const v3, 0x7f080444
 
     filled-new-array {v0, v1, v2, v3}, [I
 
@@ -323,11 +323,11 @@
 
     sput-object v0, Lcom/android/systemui/egg/MLand;->MOUTHS:[I
 
-    const v0, 0x7f020056
+    const v0, 0x7f08008b
 
-    const v1, 0x7f020057
+    const v1, 0x7f08008c
 
-    const v2, 0x7f020058
+    const v2, 0x7f08008d
 
     filled-new-array {v0, v1, v2}, [I
 
@@ -335,11 +335,11 @@
 
     sput-object v0, Lcom/android/systemui/egg/MLand;->CACTI:[I
 
-    const v0, 0x7f020321
+    const v0, 0x7f080446
 
-    const v1, 0x7f020322
+    const v1, 0x7f080447
 
-    const v2, 0x7f020323
+    const v2, 0x7f080448
 
     filled-new-array {v0, v1, v2}, [I
 
@@ -579,7 +579,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0400b2
+    const v2, 0x7f0d00df
 
     invoke-virtual {v1, v2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -1123,7 +1123,7 @@
 
     iget-boolean v3, v0, Lcom/android/systemui/egg/MLand;->mPlaying:Z
 
-    if-eqz v3, :cond_c
+    if-eqz v3, :cond_b
 
     const/16 v17, 0x0
 
@@ -1138,7 +1138,7 @@
 
     move-result v3
 
-    if-ge v12, v3, :cond_b
+    if-ge v12, v3, :cond_a
 
     move-object/from16 v0, p0
 
@@ -1150,7 +1150,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_9
+    if-eqz v3, :cond_8
 
     move-object/from16 v0, p0
 
@@ -1166,7 +1166,7 @@
 
     sget-boolean v3, Lcom/android/systemui/egg/MLand;->DEBUG_IDDQD:Z
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_5
 
     move-object/from16 v0, p0
 
@@ -1193,7 +1193,7 @@
     :goto_3
     add-int/lit8 v15, v16, -0x1
 
-    if-lez v16, :cond_8
+    if-lez v16, :cond_7
 
     move-object/from16 v0, p0
 
@@ -1213,48 +1213,37 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_6
 
     sget-boolean v3, Lcom/android/systemui/egg/MLand;->DEBUG_IDDQD:Z
 
-    if-eqz v3, :cond_7
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_6
+
+    const-string/jumbo v3, "player hit an obstacle"
+
+    const/4 v4, 0x0
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    invoke-static {v3, v4}, Lcom/android/systemui/egg/MLand;->L(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    const-wide/16 v4, 0x50
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v12, v4, v5}, Lcom/android/systemui/egg/MLand;->thump(IJ)V
+
+    invoke-virtual/range {v21 .. v21}, Lcom/android/systemui/egg/MLand$Player;->die()V
 
     :cond_4
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, v21
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/egg/MLand$Obstacle;->cleared(Lcom/android/systemui/egg/MLand$Player;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_5
-
-    move-object/from16 v0, v19
-
-    instance-of v3, v0, Lcom/android/systemui/egg/MLand$Stem;
-
-    if-eqz v3, :cond_5
-
-    check-cast v19, Lcom/android/systemui/egg/MLand$Stem;
-
-    move-object/from16 v0, v19
-
-    iget v3, v0, Lcom/android/systemui/egg/MLand$Stem;->id:I
-
-    move/from16 v0, v18
-
-    invoke-static {v0, v3}, Ljava/lang/Math;->max(II)I
-
-    move-result v18
-
-    :cond_5
     :goto_4
     move/from16 v16, v15
 
     goto :goto_3
 
-    :cond_6
+    :cond_5
     const-string/jumbo v3, "player %d hit the floor"
 
     const/4 v4, 0x1
@@ -1281,33 +1270,45 @@
 
     goto :goto_2
 
-    :cond_7
-    const-string/jumbo v3, "player hit an obstacle"
+    :cond_6
+    move-object/from16 v0, v19
 
-    const/4 v4, 0x0
+    move-object/from16 v1, v21
 
-    new-array v4, v4, [Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Lcom/android/systemui/egg/MLand$Obstacle;->cleared(Lcom/android/systemui/egg/MLand$Player;)Z
 
-    invoke-static {v3, v4}, Lcom/android/systemui/egg/MLand;->L(Ljava/lang/String;[Ljava/lang/Object;)V
+    move-result v3
 
-    const-wide/16 v4, 0x50
+    if-eqz v3, :cond_4
 
-    move-object/from16 v0, p0
+    move-object/from16 v0, v19
 
-    invoke-direct {v0, v12, v4, v5}, Lcom/android/systemui/egg/MLand;->thump(IJ)V
+    instance-of v3, v0, Lcom/android/systemui/egg/MLand$Stem;
 
-    invoke-virtual/range {v21 .. v21}, Lcom/android/systemui/egg/MLand$Player;->die()V
+    if-eqz v3, :cond_4
+
+    check-cast v19, Lcom/android/systemui/egg/MLand$Stem;
+
+    move-object/from16 v0, v19
+
+    iget v3, v0, Lcom/android/systemui/egg/MLand$Stem;->id:I
+
+    move/from16 v0, v18
+
+    invoke-static {v0, v3}, Ljava/lang/Math;->max(II)I
+
+    move-result v18
 
     goto :goto_4
 
-    :cond_8
+    :cond_7
     invoke-static/range {v21 .. v21}, Lcom/android/systemui/egg/MLand$Player;->-get1(Lcom/android/systemui/egg/MLand$Player;)I
 
     move-result v3
 
     move/from16 v0, v18
 
-    if-le v0, v3, :cond_9
+    if-le v0, v3, :cond_8
 
     const/4 v3, 0x1
 
@@ -1315,22 +1316,22 @@
 
     invoke-static {v0, v3}, Lcom/android/systemui/egg/MLand$Player;->-wrap0(Lcom/android/systemui/egg/MLand$Player;I)V
 
-    :cond_9
+    :cond_8
     invoke-static/range {v21 .. v21}, Lcom/android/systemui/egg/MLand$Player;->-get0(Lcom/android/systemui/egg/MLand$Player;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_a
+    if-eqz v3, :cond_9
 
     add-int/lit8 v17, v17, 0x1
 
-    :cond_a
+    :cond_9
     add-int/lit8 v12, v12, 0x1
 
     goto/16 :goto_1
 
-    :cond_b
-    if-nez v17, :cond_c
+    :cond_a
+    if-nez v17, :cond_b
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/egg/MLand;->stop()V
 
@@ -1367,7 +1368,7 @@
 
     move/from16 v1, v25
 
-    if-ge v0, v1, :cond_c
+    if-ge v0, v1, :cond_b
 
     move-object/from16 v0, p0
 
@@ -1400,7 +1401,7 @@
     :goto_6
     add-int/lit8 v12, v13, -0x1
 
-    if-lez v13, :cond_e
+    if-lez v13, :cond_d
 
     move-object/from16 v0, p0
 
@@ -1412,7 +1413,7 @@
 
     instance-of v3, v0, Lcom/android/systemui/egg/MLand$Obstacle;
 
-    if-eqz v3, :cond_d
+    if-eqz v3, :cond_c
 
     invoke-virtual/range {v29 .. v29}, Landroid/view/View;->getTranslationX()F
 
@@ -1430,7 +1431,7 @@
 
     cmpg-float v3, v3, v4
 
-    if-gez v3, :cond_c
+    if-gez v3, :cond_b
 
     move-object/from16 v0, p0
 
@@ -1444,18 +1445,18 @@
 
     invoke-virtual {v3, v0}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    :cond_c
+    :cond_b
     :goto_7
     move v13, v12
 
     goto :goto_6
 
-    :cond_d
+    :cond_c
     move-object/from16 v0, v29
 
     instance-of v3, v0, Lcom/android/systemui/egg/MLand$Scenery;
 
-    if-eqz v3, :cond_c
+    if-eqz v3, :cond_b
 
     move-object/from16 v26, v29
 
@@ -1477,7 +1478,7 @@
 
     cmpg-float v3, v3, v4
 
-    if-gez v3, :cond_c
+    if-gez v3, :cond_b
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/egg/MLand;->getWidth()I
 
@@ -1491,12 +1492,12 @@
 
     goto :goto_7
 
-    :cond_e
+    :cond_d
     move-object/from16 v0, p0
 
     iget-boolean v3, v0, Lcom/android/systemui/egg/MLand;->mPlaying:Z
 
-    if-eqz v3, :cond_f
+    if-eqz v3, :cond_e
 
     move-object/from16 v0, p0
 
@@ -1516,7 +1517,7 @@
 
     cmpl-float v3, v3, v4
 
-    if-lez v3, :cond_f
+    if-lez v3, :cond_e
 
     move-object/from16 v0, p0
 
@@ -2098,7 +2099,7 @@
 
     invoke-virtual {v3, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_f
+    :cond_e
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/egg/MLand;->invalidate()V
 
     return-void
@@ -2207,24 +2208,29 @@
 
     iget-boolean v1, p0, Lcom/android/systemui/egg/MLand;->mAnimating:Z
 
-    if-eqz v1, :cond_0
+    xor-int/lit8 v1, v1, 0x1
+
+    if-nez v1, :cond_0
 
     iget-boolean v1, p0, Lcom/android/systemui/egg/MLand;->mPlaying:Z
 
-    if-eqz v1, :cond_0
+    xor-int/lit8 v1, v1, 0x1
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/egg/MLand;->getPlayer(I)Lcom/android/systemui/egg/MLand$Player;
-
-    move-result-object v0
-
-    if-nez v0, :cond_1
-
-    return-void
+    if-eqz v1, :cond_1
 
     :cond_0
     return-void
 
     :cond_1
+    invoke-virtual {p0, p1}, Lcom/android/systemui/egg/MLand;->getPlayer(I)Lcom/android/systemui/egg/MLand$Player;
+
+    move-result-object v0
+
+    if-nez v0, :cond_2
+
+    return-void
+
+    :cond_2
     invoke-virtual {v0}, Lcom/android/systemui/egg/MLand$Player;->unboost()V
 
     return-void
@@ -3132,7 +3138,7 @@
 
     move/from16 v1, v26
 
-    if-ne v0, v1, :cond_a
+    if-ne v0, v1, :cond_9
 
     :cond_4
     invoke-static {}, Lcom/android/systemui/egg/MLand;->frand()F
@@ -3151,12 +3157,9 @@
 
     if-lez v25, :cond_9
 
-    const/16 v25, 0x1
+    const/16 v20, 0x1
 
     :goto_3
-    move/from16 v20, v25
-
-    :goto_4
     if-eqz v20, :cond_5
 
     new-instance v22, Lcom/android/systemui/egg/MLand$Star;
@@ -3173,7 +3176,7 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/systemui/egg/MLand$Star;-><init>(Lcom/android/systemui/egg/MLand;Landroid/content/Context;)V
 
-    const v25, 0x7f0206fe
+    const v25, 0x7f080758
 
     move-object/from16 v0, v22
 
@@ -3185,7 +3188,7 @@
 
     move-result-object v25
 
-    const v26, 0x7f0d042a
+    const v26, 0x7f070688
 
     invoke-virtual/range {v25 .. v26}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3227,7 +3230,7 @@
 
     move/from16 v25, v0
 
-    if-nez v25, :cond_b
+    if-nez v25, :cond_a
 
     move/from16 v0, v24
 
@@ -3269,7 +3272,7 @@
 
     invoke-virtual/range {v25 .. v26}, Landroid/graphics/drawable/Drawable;->setTint(I)V
 
-    :goto_5
+    :goto_4
     new-instance v25, Landroid/widget/FrameLayout$LayoutParams;
 
     move-object/from16 v0, v25
@@ -3317,25 +3320,25 @@
 
     move/from16 v1, v26
 
-    if-ne v0, v1, :cond_c
+    if-ne v0, v1, :cond_b
 
     :cond_6
     const/4 v8, 0x1
 
-    :goto_6
+    :goto_5
     invoke-static {}, Lcom/android/systemui/egg/MLand;->frand()F
 
     move-result v9
 
-    if-eqz v8, :cond_d
+    if-eqz v8, :cond_c
 
     const/high16 v25, 0x3f400000    # 0.75f
 
     cmpg-float v25, v9, v25
 
-    if-gez v25, :cond_d
+    if-gez v25, :cond_c
 
-    :goto_7
+    :goto_6
     new-instance v14, Lcom/android/systemui/egg/MLand$Star;
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/egg/MLand;->getContext()Landroid/content/Context;
@@ -3348,7 +3351,7 @@
 
     invoke-direct {v14, v0, v1}, Lcom/android/systemui/egg/MLand$Star;-><init>(Lcom/android/systemui/egg/MLand;Landroid/content/Context;)V
 
-    const v25, 0x7f020320
+    const v25, 0x7f080445
 
     move/from16 v0, v25
 
@@ -3358,11 +3361,11 @@
 
     move-result-object v26
 
-    if-eqz v8, :cond_e
+    if-eqz v8, :cond_d
 
     const/16 v25, 0xff
 
-    :goto_8
+    :goto_7
     move-object/from16 v0, v26
 
     move/from16 v1, v25
@@ -3383,11 +3386,11 @@
 
     cmpl-double v25, v26, v28
 
-    if-lez v25, :cond_f
+    if-lez v25, :cond_e
 
     const/16 v25, -0x1
 
-    :goto_9
+    :goto_8
     move/from16 v0, v25
 
     int-to-float v0, v0
@@ -3420,7 +3423,7 @@
 
     move-result-object v25
 
-    const v26, 0x7f0d042a
+    const v26, 0x7f070688
 
     invoke-virtual/range {v25 .. v26}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3521,21 +3524,21 @@
 
     cmpg-double v25, v26, v28
 
-    if-gez v25, :cond_10
+    if-gez v25, :cond_f
 
     const/4 v7, 0x1
 
-    :goto_a
+    :goto_9
     const/16 v4, 0x14
 
     const/4 v10, 0x0
 
-    :goto_b
+    :goto_a
     const/16 v25, 0x14
 
     move/from16 v0, v25
 
-    if-ge v10, v0, :cond_17
+    if-ge v10, v0, :cond_15
 
     invoke-static {}, Lcom/android/systemui/egg/MLand;->frand()F
 
@@ -3551,7 +3554,7 @@
 
     cmpg-double v25, v26, v28
 
-    if-gez v25, :cond_11
+    if-gez v25, :cond_10
 
     move-object/from16 v0, p0
 
@@ -3559,7 +3562,7 @@
 
     move/from16 v25, v0
 
-    if-eqz v25, :cond_11
+    if-eqz v25, :cond_10
 
     new-instance v19, Lcom/android/systemui/egg/MLand$Star;
 
@@ -3576,7 +3579,7 @@
     invoke-direct {v0, v1, v2}, Lcom/android/systemui/egg/MLand$Star;-><init>(Lcom/android/systemui/egg/MLand;Landroid/content/Context;)V
 
     :cond_8
-    :goto_c
+    :goto_b
     new-instance v12, Landroid/widget/FrameLayout$LayoutParams;
 
     move-object/from16 v0, v19
@@ -3603,7 +3606,7 @@
 
     move/from16 v25, v0
 
-    if-eqz v25, :cond_15
+    if-eqz v25, :cond_13
 
     const/16 v25, 0x50
 
@@ -3611,7 +3614,7 @@
 
     iput v0, v12, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
 
-    :goto_d
+    :goto_c
     move-object/from16 v0, p0
 
     move-object/from16 v1, v19
@@ -3664,19 +3667,14 @@
 
     add-int/lit8 v10, v10, 0x1
 
-    goto/16 :goto_b
+    goto/16 :goto_a
 
     :cond_9
-    const/16 v25, 0x0
+    const/16 v20, 0x0
 
     goto/16 :goto_3
 
     :cond_a
-    const/16 v20, 0x0
-
-    goto/16 :goto_4
-
-    :cond_b
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/egg/MLand;->mHeight:I
@@ -3733,38 +3731,38 @@
 
     invoke-virtual/range {v25 .. v26}, Landroid/graphics/drawable/Drawable;->setTint(I)V
 
+    goto/16 :goto_4
+
+    :cond_b
+    const/4 v8, 0x0
+
     goto/16 :goto_5
 
     :cond_c
-    const/4 v8, 0x0
-
-    goto/16 :goto_6
-
-    :cond_d
     const/high16 v25, 0x3f000000    # 0.5f
 
     cmpg-float v25, v9, v25
 
     if-gez v25, :cond_7
 
+    goto/16 :goto_6
+
+    :cond_d
+    const/16 v25, 0x80
+
     goto/16 :goto_7
 
     :cond_e
-    const/16 v25, 0x80
+    const/16 v25, 0x1
 
     goto/16 :goto_8
 
     :cond_f
-    const/16 v25, 0x1
+    const/4 v7, 0x0
 
     goto/16 :goto_9
 
     :cond_10
-    const/4 v7, 0x0
-
-    goto/16 :goto_a
-
-    :cond_11
     move/from16 v0, v18
 
     float-to-double v0, v0
@@ -3775,11 +3773,29 @@
 
     cmpg-double v25, v26, v28
 
-    if-gez v25, :cond_12
+    if-gez v25, :cond_11
 
-    if-eqz v7, :cond_14
+    xor-int/lit8 v25, v7, 0x1
 
-    :cond_12
+    if-eqz v25, :cond_11
+
+    new-instance v19, Lcom/android/systemui/egg/MLand$Cloud;
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/egg/MLand;->getContext()Landroid/content/Context;
+
+    move-result-object v25
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    move-object/from16 v2, v25
+
+    invoke-direct {v0, v1, v2}, Lcom/android/systemui/egg/MLand$Cloud;-><init>(Lcom/android/systemui/egg/MLand;Landroid/content/Context;)V
+
+    goto/16 :goto_b
+
+    :cond_11
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/egg/MLand;->mScene:I
@@ -3802,7 +3818,7 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/systemui/egg/MLand$Building;-><init>(Lcom/android/systemui/egg/MLand;Landroid/content/Context;)V
 
-    :goto_e
+    :goto_d
     int-to-float v0, v10
 
     move/from16 v25, v0
@@ -3839,7 +3855,7 @@
 
     move/from16 v25, v0
 
-    if-nez v25, :cond_13
+    if-nez v25, :cond_12
 
     const v25, -0x777778
 
@@ -3869,7 +3885,7 @@
 
     iput v0, v1, Lcom/android/systemui/egg/MLand$Scenery;->h:I
 
-    :cond_13
+    :cond_12
     move-object/from16 v0, v19
 
     iget v0, v0, Lcom/android/systemui/egg/MLand$Scenery;->z:F
@@ -3902,24 +3918,7 @@
 
     invoke-virtual {v5, v0, v1}, Landroid/graphics/drawable/Drawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
-    goto/16 :goto_c
-
-    :cond_14
-    new-instance v19, Lcom/android/systemui/egg/MLand$Cloud;
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/egg/MLand;->getContext()Landroid/content/Context;
-
-    move-result-object v25
-
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, p0
-
-    move-object/from16 v2, v25
-
-    invoke-direct {v0, v1, v2}, Lcom/android/systemui/egg/MLand$Cloud;-><init>(Lcom/android/systemui/egg/MLand;Landroid/content/Context;)V
-
-    goto/16 :goto_c
+    goto/16 :goto_b
 
     :pswitch_0
     new-instance v19, Lcom/android/systemui/egg/MLand$Mountain;
@@ -3936,7 +3935,7 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/systemui/egg/MLand$Mountain;-><init>(Lcom/android/systemui/egg/MLand;Landroid/content/Context;)V
 
-    goto/16 :goto_e
+    goto :goto_d
 
     :pswitch_1
     new-instance v19, Lcom/android/systemui/egg/MLand$Cactus;
@@ -3953,9 +3952,9 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/systemui/egg/MLand$Cactus;-><init>(Lcom/android/systemui/egg/MLand;Landroid/content/Context;)V
 
-    goto/16 :goto_e
+    goto/16 :goto_d
 
-    :cond_15
+    :cond_13
     const/16 v25, 0x30
 
     move/from16 v0, v25
@@ -3972,7 +3971,7 @@
 
     move/from16 v25, v0
 
-    if-eqz v25, :cond_16
+    if-eqz v25, :cond_14
 
     mul-float v25, v17, v17
 
@@ -4000,9 +3999,9 @@
 
     iput v0, v12, Landroid/widget/FrameLayout$LayoutParams;->topMargin:I
 
-    goto/16 :goto_d
+    goto/16 :goto_c
 
-    :cond_16
+    :cond_14
     mul-float v25, v17, v17
 
     move-object/from16 v0, p0
@@ -4047,9 +4046,9 @@
 
     iput v0, v12, Landroid/widget/FrameLayout$LayoutParams;->topMargin:I
 
-    goto/16 :goto_d
+    goto/16 :goto_c
 
-    :cond_17
+    :cond_15
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/egg/MLand;->mPlayers:Ljava/util/ArrayList;
@@ -4060,12 +4059,12 @@
 
     move-result-object v16
 
-    :goto_f
+    :goto_e
     invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v25
 
-    if-eqz v25, :cond_18
+    if-eqz v25, :cond_16
 
     invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -4079,9 +4078,9 @@
 
     invoke-virtual {v15}, Lcom/android/systemui/egg/MLand$Player;->reset()V
 
-    goto :goto_f
+    goto :goto_e
 
-    :cond_18
+    :cond_16
     invoke-direct/range {p0 .. p0}, Lcom/android/systemui/egg/MLand;->realignPlayers()V
 
     move-object/from16 v0, p0
@@ -4090,7 +4089,7 @@
 
     move-object/from16 v25, v0
 
-    if-eqz v25, :cond_19
+    if-eqz v25, :cond_17
 
     move-object/from16 v0, p0
 
@@ -4100,7 +4099,7 @@
 
     invoke-virtual/range {v25 .. v25}, Landroid/animation/TimeAnimator;->cancel()V
 
-    :cond_19
+    :cond_17
     new-instance v25, Landroid/animation/TimeAnimator;
 
     invoke-direct/range {v25 .. v25}, Landroid/animation/TimeAnimator;-><init>()V
@@ -4128,6 +4127,8 @@
     invoke-virtual/range {v25 .. v26}, Landroid/animation/TimeAnimator;->setTimeListener(Landroid/animation/TimeAnimator$TimeListener;)V
 
     return-void
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -4232,7 +4233,7 @@
 .method public showSplash()V
     .locals 8
 
-    const v7, 0x7f130266
+    const v7, 0x7f0a03d5
 
     const/4 v6, 0x1
 
@@ -4282,7 +4283,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/egg/MLand;->mSplash:Landroid/view/View;
 
-    const v1, 0x7f130267
+    const v1, 0x7f0a03d6
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4292,7 +4293,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/egg/MLand;->mSplash:Landroid/view/View;
 
-    const v1, 0x7f130268
+    const v1, 0x7f0a03d7
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4350,7 +4351,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/egg/MLand;->mSplash:Landroid/view/View;
 
-    const v5, 0x7f130266
+    const v5, 0x7f0a03d5
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4360,7 +4361,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/egg/MLand;->mSplash:Landroid/view/View;
 
-    const v5, 0x7f130267
+    const v5, 0x7f0a03d6
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4368,7 +4369,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/egg/MLand;->mSplash:Landroid/view/View;
 
-    const v5, 0x7f130268
+    const v5, 0x7f0a03d7
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4614,15 +4615,7 @@
 
     sget-boolean v0, Lcom/android/systemui/egg/MLand;->DEBUG:Z
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     return v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method

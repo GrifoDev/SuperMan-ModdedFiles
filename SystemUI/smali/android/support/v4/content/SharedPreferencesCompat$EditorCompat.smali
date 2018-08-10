@@ -4,10 +4,17 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/support/v4/content/SharedPreferencesCompat;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "EditorCompat"
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat$EditorHelperApi9Impl;,
-        Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat$EditorHelperBaseImpl;,
         Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat$Helper;
     }
 .end annotation
@@ -23,35 +30,17 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 3
-
-    const/4 v2, 0x0
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+    new-instance v0, Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat$Helper;
 
-    const/16 v1, 0x9
-
-    if-lt v0, v1, :cond_0
-
-    new-instance v0, Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat$EditorHelperApi9Impl;
-
-    invoke-direct {v0, v2}, Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat$EditorHelperApi9Impl;-><init>(Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat$EditorHelperApi9Impl;)V
+    invoke-direct {v0}, Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat$Helper;-><init>()V
 
     iput-object v0, p0, Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat;->mHelper:Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat$Helper;
 
-    :goto_0
     return-void
-
-    :cond_0
-    new-instance v0, Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat$EditorHelperBaseImpl;
-
-    invoke-direct {v0, v2}, Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat$EditorHelperBaseImpl;-><init>(Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat$EditorHelperBaseImpl;)V
-
-    iput-object v0, p0, Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat;->mHelper:Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat$Helper;
-
-    goto :goto_0
 .end method
 
 .method public static getInstance()Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat;
@@ -84,7 +73,7 @@
 
     iget-object v0, p0, Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat;->mHelper:Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat$Helper;
 
-    invoke-interface {v0, p1}, Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat$Helper;->apply(Landroid/content/SharedPreferences$Editor;)V
+    invoke-virtual {v0, p1}, Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat$Helper;->apply(Landroid/content/SharedPreferences$Editor;)V
 
     return-void
 .end method

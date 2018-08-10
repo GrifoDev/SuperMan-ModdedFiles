@@ -13,7 +13,7 @@
 
 .field private mIndicationTextView:Landroid/widget/TextView;
 
-.field private mSwipeDoorsillDetector:Lcom/android/keyguard/swipe/SwipeDoorsillDetector;
+.field private mSwipeDoorsillDetector:Lcom/android/systemui/swipe/SwipeDoorsillDetector;
 
 
 # direct methods
@@ -44,7 +44,7 @@
 
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/android/keyguard/KeyguardSwipeView;->mSwipeDoorsillDetector:Lcom/android/keyguard/swipe/SwipeDoorsillDetector;
+    iput-object v0, p0, Lcom/android/keyguard/KeyguardSwipeView;->mSwipeDoorsillDetector:Lcom/android/systemui/swipe/SwipeDoorsillDetector;
 
     invoke-virtual {p0, v1}, Lcom/android/keyguard/KeyguardSwipeView;->setFocusable(Z)V
 
@@ -62,7 +62,7 @@
 
     iput-object v0, p0, Lcom/android/keyguard/KeyguardSwipeView;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
 
-    new-instance v0, Lcom/android/keyguard/swipe/SwipeDoorsillDetector;
+    new-instance v0, Lcom/android/systemui/swipe/SwipeDoorsillDetector;
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSwipeView;->mContext:Landroid/content/Context;
 
@@ -70,9 +70,9 @@
 
     invoke-direct {v2, p0}, Lcom/android/keyguard/KeyguardSwipeView$1;-><init>(Lcom/android/keyguard/KeyguardSwipeView;)V
 
-    invoke-direct {v0, v1, v2}, Lcom/android/keyguard/swipe/SwipeDoorsillDetector;-><init>(Landroid/content/Context;Lcom/android/keyguard/swipe/SwipeDoorsillDetector$UnlockCallback;)V
+    invoke-direct {v0, v1, v2}, Lcom/android/systemui/swipe/SwipeDoorsillDetector;-><init>(Landroid/content/Context;Lcom/android/systemui/swipe/SwipeDoorsillDetector$UnlockCallback;)V
 
-    iput-object v0, p0, Lcom/android/keyguard/KeyguardSwipeView;->mSwipeDoorsillDetector:Lcom/android/keyguard/swipe/SwipeDoorsillDetector;
+    iput-object v0, p0, Lcom/android/keyguard/KeyguardSwipeView;->mSwipeDoorsillDetector:Lcom/android/systemui/swipe/SwipeDoorsillDetector;
 
     return-void
 .end method
@@ -90,19 +90,19 @@
 .method protected onFinishInflate()V
     .locals 2
 
-    sget v0, Lcom/android/keyguard/R$id;->keyguard_indication_text:I
+    const v1, 0x7f120660
+
+    const v0, 0x7f0a027f
 
     invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardSwipeView;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    check-cast v0, Landroid/widget/TextView;
+    check-cast v0, Lcom/android/systemui/widget/SystemUITextView;
 
     iput-object v0, p0, Lcom/android/keyguard/KeyguardSwipeView;->mIndicationTextView:Landroid/widget/TextView;
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardSwipeView;->mIndicationTextView:Landroid/widget/TextView;
-
-    sget v1, Lcom/android/keyguard/R$string;->kg_swipe_active_instructions:I
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -116,7 +116,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardSwipeView;->mIndicationTextView:Landroid/widget/TextView;
 
-    sget v1, Lcom/android/keyguard/R$string;->kg_voice_assistant_active_instructions:I
+    const v1, 0x7f1206e7
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -125,8 +125,6 @@
 
     :cond_0
     iget-object v0, p0, Lcom/android/keyguard/KeyguardSwipeView;->mIndicationTextView:Landroid/widget/TextView;
-
-    sget v1, Lcom/android/keyguard/R$string;->kg_swipe_active_instructions:I
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -160,15 +158,15 @@
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 2
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardSwipeView;->mSwipeDoorsillDetector:Lcom/android/keyguard/swipe/SwipeDoorsillDetector;
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardSwipeView;->mSwipeDoorsillDetector:Lcom/android/systemui/swipe/SwipeDoorsillDetector;
 
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Lcom/android/keyguard/swipe/SwipeDoorsillDetector;->setIntercept(Z)V
+    invoke-virtual {v0, v1}, Lcom/android/systemui/swipe/SwipeDoorsillDetector;->setIntercept(Z)V
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardSwipeView;->mSwipeDoorsillDetector:Lcom/android/keyguard/swipe/SwipeDoorsillDetector;
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardSwipeView;->mSwipeDoorsillDetector:Lcom/android/systemui/swipe/SwipeDoorsillDetector;
 
-    invoke-virtual {v0, p1}, Lcom/android/keyguard/swipe/SwipeDoorsillDetector;->onTouchEvent(Landroid/view/MotionEvent;)Z
+    invoke-virtual {v0, p1}, Lcom/android/systemui/swipe/SwipeDoorsillDetector;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result v0
 
@@ -178,9 +176,9 @@
 .method public reset()V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardSwipeView;->mSwipeDoorsillDetector:Lcom/android/keyguard/swipe/SwipeDoorsillDetector;
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardSwipeView;->mSwipeDoorsillDetector:Lcom/android/systemui/swipe/SwipeDoorsillDetector;
 
-    invoke-virtual {v0}, Lcom/android/keyguard/swipe/SwipeDoorsillDetector;->reset()V
+    invoke-virtual {v0}, Lcom/android/systemui/swipe/SwipeDoorsillDetector;->reset()V
 
     return-void
 .end method
@@ -265,10 +263,4 @@
     const/4 v0, 0x1
 
     return v0
-.end method
-
-.method public updateChildViewsLook()V
-    .locals 0
-
-    return-void
 .end method

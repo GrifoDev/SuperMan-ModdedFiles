@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 6
+    .locals 3
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -53,7 +53,6 @@
     invoke-virtual {v1, v2}, Lcom/android/systemui/recents/RecentsActivity;->dismissRecentsToHomeIfVisible(Z)Z
 
     :cond_0
-    :goto_0
     return-void
 
     :cond_1
@@ -65,13 +64,5 @@
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Lcom/android/systemui/recents/RecentsActivity$1;->this$0:Lcom/android/systemui/recents/RecentsActivity;
-
-    const-string/jumbo v2, "OverviewLastStackTaskActiveTime"
-
-    const-wide/16 v4, 0x0
-
-    invoke-static {v1, v2, v4, v5}, Lcom/android/systemui/Prefs;->putLong(Landroid/content/Context;Ljava/lang/String;J)V
-
-    goto :goto_0
+    return-void
 .end method

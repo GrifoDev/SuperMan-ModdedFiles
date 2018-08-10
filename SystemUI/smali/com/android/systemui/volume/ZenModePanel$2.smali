@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/volume/ZenModePanel$2;->this$0:Lcom/android/systemui/volume/ZenModePanel;
 
-    invoke-static {v0}, Lcom/android/systemui/volume/ZenModePanel;->-wrap3(Lcom/android/systemui/volume/ZenModePanel;)V
+    invoke-static {v0}, Lcom/android/systemui/volume/ZenModePanel;->-wrap2(Lcom/android/systemui/volume/ZenModePanel;)V
 
     return-void
 .end method
@@ -77,7 +77,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/volume/ZenModePanel$2;->this$0:Lcom/android/systemui/volume/ZenModePanel;
 
-    invoke-static {v2}, Lcom/android/systemui/volume/ZenModePanel;->-get4(Lcom/android/systemui/volume/ZenModePanel;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/systemui/volume/ZenModePanel;->-get3(Lcom/android/systemui/volume/ZenModePanel;)Landroid/content/Context;
 
     move-result-object v2
 
@@ -94,7 +94,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/volume/ZenModePanel$2;->this$0:Lcom/android/systemui/volume/ZenModePanel;
 
-    invoke-static {v2}, Lcom/android/systemui/volume/ZenModePanel;->-get10(Lcom/android/systemui/volume/ZenModePanel;)Ljava/lang/String;
+    invoke-static {v2}, Lcom/android/systemui/volume/ZenModePanel;->-get9(Lcom/android/systemui/volume/ZenModePanel;)Ljava/lang/String;
 
     move-result-object v2
 
@@ -123,7 +123,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/volume/ZenModePanel$2;->this$0:Lcom/android/systemui/volume/ZenModePanel;
 
-    invoke-static {v3}, Lcom/android/systemui/volume/ZenModePanel;->-get8(Lcom/android/systemui/volume/ZenModePanel;)Landroid/service/notification/Condition;
+    invoke-static {v3}, Lcom/android/systemui/volume/ZenModePanel;->-get7(Lcom/android/systemui/volume/ZenModePanel;)Landroid/service/notification/Condition;
 
     move-result-object v3
 

@@ -334,7 +334,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/keyboard/KeyboardUI;->mContext:Landroid/content/Context;
 
-    const v3, 0x104006f
+    const v3, 0x1040224
 
     invoke-virtual {v1, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

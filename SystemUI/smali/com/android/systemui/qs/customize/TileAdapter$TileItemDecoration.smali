@@ -22,51 +22,37 @@
 
 # direct methods
 .method private constructor <init>(Lcom/android/systemui/qs/customize/TileAdapter;Landroid/content/Context;)V
-    .locals 3
+    .locals 4
+
+    const/4 v3, 0x0
 
     iput-object p1, p0, Lcom/android/systemui/qs/customize/TileAdapter$TileItemDecoration;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
 
     invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$ItemDecoration;-><init>()V
 
-    new-instance v0, Landroid/graphics/drawable/ColorDrawable;
+    const/4 v1, 0x1
 
-    invoke-static {p1}, Lcom/android/systemui/qs/customize/TileAdapter;->-get1(Lcom/android/systemui/qs/customize/TileAdapter;)Landroid/content/Context;
+    new-array v1, v1, [I
 
-    move-result-object v1
+    const v2, 0x1010530
 
-    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    aput v2, v1, v3
 
-    move-result-object v1
+    invoke-virtual {p2, v1}, Landroid/content/Context;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
 
-    const v2, 0x7f0b009c
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
+    new-instance v1, Landroid/graphics/drawable/ColorDrawable;
 
-    move-result v1
+    invoke-virtual {v0, v3, v3}, Landroid/content/res/TypedArray;->getColor(II)I
 
-    invoke-direct {v0, v1}, Landroid/graphics/drawable/ColorDrawable;-><init>(I)V
+    move-result v2
 
-    iput-object v0, p0, Lcom/android/systemui/qs/customize/TileAdapter$TileItemDecoration;->mDrawable:Landroid/graphics/drawable/ColorDrawable;
+    invoke-direct {v1, v2}, Landroid/graphics/drawable/ColorDrawable;-><init>(I)V
 
-    iget-object v0, p0, Lcom/android/systemui/qs/customize/TileAdapter$TileItemDecoration;->mDrawable:Landroid/graphics/drawable/ColorDrawable;
+    iput-object v1, p0, Lcom/android/systemui/qs/customize/TileAdapter$TileItemDecoration;->mDrawable:Landroid/graphics/drawable/ColorDrawable;
 
-    invoke-static {p1}, Lcom/android/systemui/qs/customize/TileAdapter;->-get1(Lcom/android/systemui/qs/customize/TileAdapter;)Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v2, 0x7f0b0138
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
-
-    move-result v1
-
-    sget-object v2, Landroid/graphics/PorterDuff$Mode;->MULTIPLY:Landroid/graphics/PorterDuff$Mode;
-
-    invoke-virtual {v0, v1, v2}, Landroid/graphics/drawable/ColorDrawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
+    invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     return-void
 .end method
@@ -117,7 +103,7 @@
 
     iget-object v9, p0, Lcom/android/systemui/qs/customize/TileAdapter$TileItemDecoration;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
 
-    invoke-static {v9}, Lcom/android/systemui/qs/customize/TileAdapter;->-get3(Lcom/android/systemui/qs/customize/TileAdapter;)I
+    invoke-static {v9}, Lcom/android/systemui/qs/customize/TileAdapter;->-get2(Lcom/android/systemui/qs/customize/TileAdapter;)I
 
     move-result v9
 
@@ -125,7 +111,13 @@
 
     instance-of v8, v1, Landroid/widget/TextView;
 
-    if-eqz v8, :cond_2
+    xor-int/lit8 v8, v8, 0x1
+
+    if-eqz v8, :cond_0
+
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_0
 
     :cond_0
     invoke-virtual {v1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -164,9 +156,4 @@
 
     :cond_1
     return-void
-
-    :cond_2
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_0
 .end method

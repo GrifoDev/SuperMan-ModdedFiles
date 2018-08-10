@@ -21,18 +21,6 @@
 .field final synthetic this$0:Lcom/android/systemui/qs/QSAnimator;
 
 
-# direct methods
-.method constructor <init>(Lcom/android/systemui/qs/QSAnimator;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/qs/QSAnimator$2;->this$0:Lcom/android/systemui/qs/QSAnimator;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
 # virtual methods
 .method public run()V
     .locals 2

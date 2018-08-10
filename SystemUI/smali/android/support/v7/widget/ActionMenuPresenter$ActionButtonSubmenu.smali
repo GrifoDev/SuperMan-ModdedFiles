@@ -50,13 +50,11 @@
 
     if-nez v0, :cond_0
 
-    invoke-static {p1}, Landroid/support/v7/widget/ActionMenuPresenter;->-get3(Landroid/support/v7/widget/ActionMenuPresenter;)Landroid/support/v7/widget/ActionMenuPresenter$OverflowMenuButton;
-
-    move-result-object v0
+    iget-object v0, p1, Landroid/support/v7/widget/ActionMenuPresenter;->mOverflowButton:Landroid/support/v7/widget/ActionMenuPresenter$OverflowMenuButton;
 
     if-nez v0, :cond_1
 
-    invoke-static {p1}, Landroid/support/v7/widget/ActionMenuPresenter;->-get2(Landroid/support/v7/widget/ActionMenuPresenter;)Landroid/support/v7/view/menu/MenuView;
+    invoke-static {p1}, Landroid/support/v7/widget/ActionMenuPresenter;->-get1(Landroid/support/v7/widget/ActionMenuPresenter;)Landroid/support/v7/view/menu/MenuView;
 
     move-result-object v0
 
@@ -73,9 +71,7 @@
     return-void
 
     :cond_1
-    invoke-static {p1}, Landroid/support/v7/widget/ActionMenuPresenter;->-get3(Landroid/support/v7/widget/ActionMenuPresenter;)Landroid/support/v7/widget/ActionMenuPresenter$OverflowMenuButton;
-
-    move-result-object v0
+    iget-object v0, p1, Landroid/support/v7/widget/ActionMenuPresenter;->mOverflowButton:Landroid/support/v7/widget/ActionMenuPresenter$OverflowMenuButton;
 
     goto :goto_0
 .end method
@@ -89,7 +85,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Landroid/support/v7/widget/ActionMenuPresenter;->-set0(Landroid/support/v7/widget/ActionMenuPresenter;Landroid/support/v7/widget/ActionMenuPresenter$ActionButtonSubmenu;)Landroid/support/v7/widget/ActionMenuPresenter$ActionButtonSubmenu;
+    iput-object v1, v0, Landroid/support/v7/widget/ActionMenuPresenter;->mActionButtonPopup:Landroid/support/v7/widget/ActionMenuPresenter$ActionButtonSubmenu;
 
     iget-object v0, p0, Landroid/support/v7/widget/ActionMenuPresenter$ActionButtonSubmenu;->this$0:Landroid/support/v7/widget/ActionMenuPresenter;
 

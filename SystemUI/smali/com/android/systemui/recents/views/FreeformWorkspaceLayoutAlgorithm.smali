@@ -146,7 +146,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0301
+    const v1, 0x7f070560
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -160,7 +160,7 @@
 .end method
 
 .method public update(Ljava/util/List;Lcom/android/systemui/recents/views/TaskStackLayoutAlgorithm;)V
-    .locals 23
+    .locals 24
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -179,100 +179,86 @@
 
     iget-object v0, v0, Lcom/android/systemui/recents/views/FreeformWorkspaceLayoutAlgorithm;->mTaskRectMap:Landroid/util/ArrayMap;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    invoke-virtual/range {v20 .. v20}, Landroid/util/ArrayMap;->clear()V
+    invoke-virtual/range {v21 .. v21}, Landroid/util/ArrayMap;->clear()V
 
     move-object/from16 v0, p2
 
-    iget v7, v0, Lcom/android/systemui/recents/views/TaskStackLayoutAlgorithm;->mNumFreeformTasks:I
+    iget v8, v0, Lcom/android/systemui/recents/views/TaskStackLayoutAlgorithm;->mNumFreeformTasks:I
 
     invoke-interface/range {p1 .. p1}, Ljava/util/List;->isEmpty()Z
 
-    move-result v20
+    move-result v21
 
-    if-nez v20, :cond_6
+    if-nez v21, :cond_6
 
     move-object/from16 v0, p2
 
     iget-object v0, v0, Lcom/android/systemui/recents/views/TaskStackLayoutAlgorithm;->mFreeformRect:Landroid/graphics/Rect;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    invoke-virtual/range {v20 .. v20}, Landroid/graphics/Rect;->width()I
+    invoke-virtual/range {v21 .. v21}, Landroid/graphics/Rect;->width()I
+
+    move-result v20
+
+    move-object/from16 v0, p2
+
+    iget-object v0, v0, Lcom/android/systemui/recents/views/TaskStackLayoutAlgorithm;->mFreeformRect:Landroid/graphics/Rect;
+
+    move-object/from16 v21, v0
+
+    invoke-virtual/range {v21 .. v21}, Landroid/graphics/Rect;->height()I
 
     move-result v19
-
-    move-object/from16 v0, p2
-
-    iget-object v0, v0, Lcom/android/systemui/recents/views/TaskStackLayoutAlgorithm;->mFreeformRect:Landroid/graphics/Rect;
-
-    move-object/from16 v20, v0
-
-    invoke-virtual/range {v20 .. v20}, Landroid/graphics/Rect;->height()I
-
-    move-result v18
-
-    move/from16 v0, v19
-
-    int-to-float v0, v0
-
-    move/from16 v20, v0
-
-    move/from16 v0, v18
-
-    int-to-float v0, v0
-
-    move/from16 v21, v0
-
-    div-float v6, v20, v21
-
-    new-array v5, v7, [F
-
-    const/4 v3, 0x0
-
-    :goto_0
-    if-ge v3, v7, :cond_1
-
-    move-object/from16 v0, p1
-
-    invoke-interface {v0, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v16
-
-    check-cast v16, Lcom/android/systemui/recents/model/Task;
-
-    move-object/from16 v0, v16
-
-    iget-object v0, v0, Lcom/android/systemui/recents/model/Task;->bounds:Landroid/graphics/Rect;
-
-    move-object/from16 v20, v0
-
-    if-eqz v20, :cond_0
-
-    move-object/from16 v0, v16
-
-    iget-object v0, v0, Lcom/android/systemui/recents/model/Task;->bounds:Landroid/graphics/Rect;
-
-    move-object/from16 v20, v0
-
-    invoke-virtual/range {v20 .. v20}, Landroid/graphics/Rect;->width()I
-
-    move-result v20
 
     move/from16 v0, v20
 
     int-to-float v0, v0
 
-    move/from16 v20, v0
+    move/from16 v21, v0
 
-    move-object/from16 v0, v16
+    move/from16 v0, v19
+
+    int-to-float v0, v0
+
+    move/from16 v22, v0
+
+    div-float v7, v21, v22
+
+    const/high16 v6, 0x3f800000    # 1.0f
+
+    new-array v5, v8, [F
+
+    const/4 v3, 0x0
+
+    :goto_0
+    if-ge v3, v8, :cond_1
+
+    move-object/from16 v0, p1
+
+    invoke-interface {v0, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v17
+
+    check-cast v17, Lcom/android/systemui/recents/model/Task;
+
+    move-object/from16 v0, v17
 
     iget-object v0, v0, Lcom/android/systemui/recents/model/Task;->bounds:Landroid/graphics/Rect;
 
     move-object/from16 v21, v0
 
-    invoke-virtual/range {v21 .. v21}, Landroid/graphics/Rect;->height()I
+    if-eqz v21, :cond_0
+
+    move-object/from16 v0, v17
+
+    iget-object v0, v0, Lcom/android/systemui/recents/model/Task;->bounds:Landroid/graphics/Rect;
+
+    move-object/from16 v21, v0
+
+    invoke-virtual/range {v21 .. v21}, Landroid/graphics/Rect;->width()I
 
     move-result v21
 
@@ -282,69 +268,65 @@
 
     move/from16 v21, v0
 
-    div-float v13, v20, v21
+    move-object/from16 v0, v17
+
+    iget-object v0, v0, Lcom/android/systemui/recents/model/Task;->bounds:Landroid/graphics/Rect;
+
+    move-object/from16 v22, v0
+
+    invoke-virtual/range {v22 .. v22}, Landroid/graphics/Rect;->height()I
+
+    move-result v22
+
+    move/from16 v0, v22
+
+    int-to-float v0, v0
+
+    move/from16 v22, v0
+
+    div-float v14, v21, v22
 
     :goto_1
-    invoke-static {v13, v6}, Ljava/lang/Math;->min(FF)F
+    invoke-static {v14, v7}, Ljava/lang/Math;->min(FF)F
 
-    move-result v20
+    move-result v21
 
-    aput v20, v5, v3
+    aput v21, v5, v3
 
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     :cond_0
-    move v13, v6
+    move v14, v7
 
     goto :goto_1
 
     :cond_1
-    const v12, 0x3f59999a    # 0.85f
+    const v13, 0x3f59999a    # 0.85f
 
-    const/4 v15, 0x0
+    const/16 v16, 0x0
 
     const/4 v4, 0x0
 
-    const/4 v9, 0x1
+    const/4 v10, 0x1
 
     const/4 v3, 0x0
 
     :goto_2
-    if-ge v3, v7, :cond_4
+    if-ge v3, v8, :cond_4
 
-    aget v20, v5, v3
+    aget v21, v5, v3
 
-    mul-float v17, v20, v12
+    mul-float v18, v21, v13
 
-    add-float v20, v15, v17
+    add-float v21, v16, v18
 
-    cmpl-float v20, v20, v6
+    cmpl-float v21, v21, v7
 
-    if-lez v20, :cond_3
+    if-lez v21, :cond_3
 
-    add-int/lit8 v20, v9, 0x1
-
-    move/from16 v0, v20
-
-    int-to-float v0, v0
-
-    move/from16 v20, v0
-
-    mul-float v20, v20, v12
-
-    const/high16 v21, 0x3f800000    # 1.0f
-
-    cmpl-float v20, v20, v21
-
-    if-lez v20, :cond_2
-
-    add-float v20, v15, v17
-
-    div-float v20, v6, v20
-
-    add-int/lit8 v21, v9, 0x1
+    add-int/lit8 v21, v10, 0x1
 
     move/from16 v0, v21
 
@@ -352,49 +334,107 @@
 
     move/from16 v21, v0
 
+    mul-float v21, v21, v13
+
     const/high16 v22, 0x3f800000    # 1.0f
 
-    div-float v21, v22, v21
+    cmpl-float v21, v21, v22
 
-    invoke-static/range {v20 .. v21}, Ljava/lang/Math;->min(FF)F
+    if-lez v21, :cond_2
 
-    move-result v12
+    add-float v21, v16, v18
 
-    const/4 v9, 0x1
+    div-float v21, v7, v21
 
-    const/4 v15, 0x0
+    add-int/lit8 v22, v10, 0x1
+
+    move/from16 v0, v22
+
+    int-to-float v0, v0
+
+    move/from16 v22, v0
+
+    const/high16 v23, 0x3f800000    # 1.0f
+
+    div-float v22, v23, v22
+
+    invoke-static/range {v21 .. v22}, Ljava/lang/Math;->min(FF)F
+
+    move-result v13
+
+    const/4 v10, 0x1
+
+    const/16 v16, 0x0
 
     const/4 v3, 0x0
 
     :goto_3
-    invoke-static {v15, v4}, Ljava/lang/Math;->max(FF)F
+    move/from16 v0, v16
+
+    invoke-static {v0, v4}, Ljava/lang/Math;->max(FF)F
 
     move-result v4
 
     goto :goto_2
 
     :cond_2
-    move/from16 v15, v17
+    move/from16 v16, v18
 
-    add-int/lit8 v9, v9, 0x1
+    add-int/lit8 v10, v10, 0x1
 
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_3
 
     :cond_3
-    add-float v15, v15, v17
+    add-float v16, v16, v18
 
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_3
 
     :cond_4
-    div-float v20, v4, v6
+    div-float v21, v4, v7
 
-    const/high16 v21, 0x3f800000    # 1.0f
+    const/high16 v22, 0x3f800000    # 1.0f
 
-    sub-float v20, v21, v20
+    sub-float v21, v22, v21
+
+    move/from16 v0, v20
+
+    int-to-float v0, v0
+
+    move/from16 v22, v0
+
+    mul-float v21, v21, v22
+
+    const/high16 v22, 0x40000000    # 2.0f
+
+    div-float v2, v21, v22
+
+    move v12, v2
+
+    int-to-float v0, v10
+
+    move/from16 v21, v0
+
+    mul-float v21, v21, v13
+
+    const/high16 v22, 0x3f800000    # 1.0f
+
+    sub-float v21, v22, v21
+
+    move/from16 v0, v19
+
+    int-to-float v0, v0
+
+    move/from16 v22, v0
+
+    mul-float v21, v21, v22
+
+    const/high16 v22, 0x40000000    # 2.0f
+
+    div-float v15, v21, v22
 
     move/from16 v0, v19
 
@@ -402,101 +442,53 @@
 
     move/from16 v21, v0
 
-    mul-float v20, v20, v21
-
-    const/high16 v21, 0x40000000    # 2.0f
-
-    div-float v2, v20, v21
-
-    move v11, v2
-
-    int-to-float v0, v9
-
-    move/from16 v20, v0
-
-    mul-float v20, v20, v12
-
-    const/high16 v21, 0x3f800000    # 1.0f
-
-    sub-float v20, v21, v20
-
-    move/from16 v0, v18
-
-    int-to-float v0, v0
-
-    move/from16 v21, v0
-
-    mul-float v20, v20, v21
-
-    const/high16 v21, 0x40000000    # 2.0f
-
-    div-float v14, v20, v21
-
-    move/from16 v0, v18
-
-    int-to-float v0, v0
-
-    move/from16 v20, v0
-
-    mul-float v10, v12, v20
+    mul-float v11, v13, v21
 
     const/4 v3, 0x0
 
     :goto_4
-    if-ge v3, v7, :cond_6
+    if-ge v3, v8, :cond_6
 
     move-object/from16 v0, p1
 
     invoke-interface {v0, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v16
+    move-result-object v17
 
-    check-cast v16, Lcom/android/systemui/recents/model/Task;
+    check-cast v17, Lcom/android/systemui/recents/model/Task;
 
-    aget v20, v5, v3
+    aget v21, v5, v3
 
-    mul-float v17, v10, v20
+    mul-float v18, v11, v21
 
-    add-float v20, v11, v17
+    add-float v21, v12, v18
 
-    move/from16 v0, v19
+    move/from16 v0, v20
 
     int-to-float v0, v0
 
-    move/from16 v21, v0
+    move/from16 v22, v0
 
-    cmpl-float v20, v20, v21
+    cmpl-float v21, v21, v22
 
-    if-lez v20, :cond_5
+    if-lez v21, :cond_5
 
-    add-float/2addr v14, v10
+    add-float/2addr v15, v11
 
-    move v11, v2
+    move v12, v2
 
     :cond_5
-    new-instance v8, Landroid/graphics/RectF;
+    new-instance v9, Landroid/graphics/RectF;
 
-    add-float v20, v11, v17
+    add-float v21, v12, v18
 
-    add-float v21, v14, v10
+    add-float v22, v15, v11
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
-    move/from16 v1, v21
+    move/from16 v1, v22
 
-    invoke-direct {v8, v11, v14, v0, v1}, Landroid/graphics/RectF;-><init>(FFFF)V
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/systemui/recents/views/FreeformWorkspaceLayoutAlgorithm;->mTaskPadding:I
-
-    move/from16 v20, v0
-
-    move/from16 v0, v20
-
-    int-to-float v0, v0
-
-    move/from16 v20, v0
+    invoke-direct {v9, v12, v15, v0, v1}, Landroid/graphics/RectF;-><init>(FFFF)V
 
     move-object/from16 v0, p0
 
@@ -510,31 +502,43 @@
 
     move/from16 v21, v0
 
-    move/from16 v0, v20
+    move-object/from16 v0, p0
 
-    move/from16 v1, v21
+    iget v0, v0, Lcom/android/systemui/recents/views/FreeformWorkspaceLayoutAlgorithm;->mTaskPadding:I
 
-    invoke-virtual {v8, v0, v1}, Landroid/graphics/RectF;->inset(FF)V
+    move/from16 v22, v0
 
-    add-float v11, v11, v17
+    move/from16 v0, v22
+
+    int-to-float v0, v0
+
+    move/from16 v22, v0
+
+    move/from16 v0, v21
+
+    move/from16 v1, v22
+
+    invoke-virtual {v9, v0, v1}, Landroid/graphics/RectF;->inset(FF)V
+
+    add-float v12, v12, v18
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/recents/views/FreeformWorkspaceLayoutAlgorithm;->mTaskRectMap:Landroid/util/ArrayMap;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
     iget-object v0, v0, Lcom/android/systemui/recents/model/Task;->key:Lcom/android/systemui/recents/model/Task$TaskKey;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v22
 
-    invoke-virtual {v0, v1, v8}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v1, v9}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     add-int/lit8 v3, v3, 0x1
 

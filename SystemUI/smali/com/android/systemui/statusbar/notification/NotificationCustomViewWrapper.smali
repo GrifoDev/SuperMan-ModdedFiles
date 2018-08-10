@@ -4,30 +4,20 @@
 
 
 # instance fields
-.field private mBackgroundColor:I
-
 .field private final mGreyPaint:Landroid/graphics/Paint;
 
 .field private final mInvertHelper:Lcom/android/systemui/ViewInvertHelper;
 
-.field private mShouldInvertDark:Z
+.field private mIsLegacy:Z
 
-.field private mShowingLegacyBackground:Z
+.field private mLegacyColor:I
 
 
 # direct methods
-.method static synthetic -get0(Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;)Landroid/graphics/Paint;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->mGreyPaint:Landroid/graphics/Paint;
-
-    return-object v0
-.end method
-
-.method protected constructor <init>(Landroid/view/View;Lcom/android/systemui/statusbar/ExpandableNotificationRow;)V
+.method protected constructor <init>(Landroid/content/Context;Landroid/view/View;Lcom/android/systemui/statusbar/ExpandableNotificationRow;)V
     .locals 4
 
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/notification/NotificationViewWrapper;-><init>(Landroid/view/View;Lcom/android/systemui/statusbar/ExpandableNotificationRow;)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/statusbar/notification/NotificationViewWrapper;-><init>(Landroid/content/Context;Landroid/view/View;Lcom/android/systemui/statusbar/ExpandableNotificationRow;)V
 
     new-instance v0, Landroid/graphics/Paint;
 
@@ -35,52 +25,27 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->mGreyPaint:Landroid/graphics/Paint;
 
-    const/4 v0, 0x0
-
-    iput v0, p0, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->mBackgroundColor:I
-
     new-instance v0, Lcom/android/systemui/ViewInvertHelper;
 
     const-wide/16 v2, 0x2bc
 
-    invoke-direct {v0, p1, v2, v3}, Lcom/android/systemui/ViewInvertHelper;-><init>(Landroid/view/View;J)V
+    invoke-direct {v0, p2, v2, v3}, Lcom/android/systemui/ViewInvertHelper;-><init>(Landroid/view/View;J)V
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->mInvertHelper:Lcom/android/systemui/ViewInvertHelper;
 
+    invoke-virtual {p3}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    const v1, 0x7f060123
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getColor(I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->mLegacyColor:I
+
     return-void
-.end method
-
-.method private isColorLight(I)Z
-    .locals 6
-
-    const/4 v0, 0x1
-
-    const/4 v1, 0x0
-
-    invoke-static {p1}, Landroid/graphics/Color;->alpha(I)I
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    invoke-static {p1}, Landroid/support/v4/graphics/ColorUtils;->calculateLuminance(I)D
-
-    move-result-wide v2
-
-    const-wide/high16 v4, 0x3fe0000000000000L    # 0.5
-
-    cmpl-double v2, v2, v4
-
-    if-lez v2, :cond_1
-
-    :cond_0
-    :goto_0
-    return v0
-
-    :cond_1
-    move v0, v1
-
-    goto :goto_0
 .end method
 
 
@@ -88,124 +53,90 @@
 .method protected fadeGrayscale(ZJ)V
     .locals 8
 
-    new-instance v2, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper$1;
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->getDozer()Lcom/android/systemui/statusbar/notification/NotificationDozeHelper;
 
-    invoke-direct {v2, p0}, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper$1;-><init>(Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;)V
+    move-result-object v1
 
-    new-instance v6, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper$2;
+    new-instance v2, Lcom/android/systemui/statusbar/notification/-$Lambda$m9YasUC3Uvn5M_hk62hUiOb5YBQ;
 
-    invoke-direct {v6, p0, p1}, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper$2;-><init>(Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;Z)V
+    invoke-direct {v2, p0}, Lcom/android/systemui/statusbar/notification/-$Lambda$m9YasUC3Uvn5M_hk62hUiOb5YBQ;-><init>(Ljava/lang/Object;)V
 
-    move-object v1, p0
+    new-instance v6, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper$1;
+
+    invoke-direct {v6, p0, p1}, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper$1;-><init>(Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;Z)V
 
     move v3, p1
 
     move-wide v4, p2
 
-    invoke-virtual/range {v1 .. v6}, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->startIntensityAnimation(Landroid/animation/ValueAnimator$AnimatorUpdateListener;ZJLandroid/animation/Animator$AnimatorListener;)V
+    invoke-virtual/range {v1 .. v6}, Lcom/android/systemui/statusbar/notification/NotificationDozeHelper;->startIntensityAnimation(Landroid/animation/ValueAnimator$AnimatorUpdateListener;ZJLandroid/animation/Animator$AnimatorListener;)V
 
     return-void
 .end method
 
 .method public getCustomBackgroundColor()I
-    .locals 1
+    .locals 2
 
-    iget v0, p0, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->mBackgroundColor:I
+    invoke-super {p0}, Lcom/android/systemui/statusbar/notification/NotificationViewWrapper;->getCustomBackgroundColor()I
 
-    return v0
-.end method
+    move-result v0
 
-.method public notifyContentUpdated(Landroid/service/notification/StatusBarNotification;)V
-    .locals 5
+    if-nez v0, :cond_0
 
-    const/4 v4, 0x0
-
-    const/4 v2, 0x0
-
-    const v3, 0x7f130041
-
-    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/notification/NotificationViewWrapper;->notifyContentUpdated(Landroid/service/notification/StatusBarNotification;)V
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->mView:Landroid/view/View;
-
-    invoke-virtual {v1}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    iput v2, p0, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->mBackgroundColor:I
-
-    instance-of v1, v0, Landroid/graphics/drawable/ColorDrawable;
-
-    if-eqz v1, :cond_1
-
-    check-cast v0, Landroid/graphics/drawable/ColorDrawable;
-
-    invoke-virtual {v0}, Landroid/graphics/drawable/ColorDrawable;->getColor()I
-
-    move-result v1
-
-    iput v1, p0, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->mBackgroundColor:I
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->mView:Landroid/view/View;
-
-    invoke-virtual {v1, v4}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->mView:Landroid/view/View;
-
-    iget v2, p0, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->mBackgroundColor:I
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v3, v2}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
-
-    :cond_0
-    :goto_0
-    iget v1, p0, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->mBackgroundColor:I
-
-    if-eqz v1, :cond_2
-
-    iget v1, p0, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->mBackgroundColor:I
-
-    invoke-direct {p0, v1}, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->isColorLight(I)Z
-
-    move-result v1
-
-    :goto_1
-    iput-boolean v1, p0, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->mShouldInvertDark:Z
-
-    return-void
-
-    :cond_1
-    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->mView:Landroid/view/View;
-
-    invoke-virtual {v1, v3}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
-
-    move-result-object v1
+    iget-boolean v1, p0, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->mIsLegacy:Z
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->mView:Landroid/view/View;
+    iget v1, p0, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->mLegacyColor:I
 
-    invoke-virtual {v1, v3}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
+    return v1
+
+    :cond_0
+    return v0
+.end method
+
+.method synthetic lambda$-com_android_systemui_statusbar_notification_NotificationCustomViewWrapper_2519(Landroid/animation/ValueAnimator;)V
+    .locals 3
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->getDozer()Lcom/android/systemui/statusbar/notification/NotificationDozeHelper;
 
     move-result-object v1
 
-    check-cast v1, Ljava/lang/Integer;
+    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
 
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+    move-result-object v0
 
-    move-result v1
+    check-cast v0, Ljava/lang/Float;
 
-    iput v1, p0, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->mBackgroundColor:I
+    invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
 
-    goto :goto_0
+    move-result v0
 
-    :cond_2
-    const/4 v1, 0x1
+    invoke-virtual {v1, v0}, Lcom/android/systemui/statusbar/notification/NotificationDozeHelper;->updateGrayscaleMatrix(F)V
 
-    goto :goto_1
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->mGreyPaint:Landroid/graphics/Paint;
+
+    new-instance v1, Landroid/graphics/ColorMatrixColorFilter;
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->getDozer()Lcom/android/systemui/statusbar/notification/NotificationDozeHelper;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/NotificationDozeHelper;->getGrayscaleColorMatrix()Landroid/graphics/ColorMatrix;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Landroid/graphics/ColorMatrixColorFilter;-><init>(Landroid/graphics/ColorMatrix;)V
+
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->mView:Landroid/view/View;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->mGreyPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setLayerPaint(Landroid/graphics/Paint;)V
+
+    return-void
 .end method
 
 .method public setDark(ZZJ)V
@@ -224,7 +155,7 @@
     :cond_0
     invoke-super {p0, p1, p2, p3, p4}, Lcom/android/systemui/statusbar/notification/NotificationViewWrapper;->setDark(ZZJ)V
 
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->mShowingLegacyBackground:Z
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->mIsLegacy:Z
 
     if-nez v0, :cond_2
 
@@ -277,12 +208,12 @@
     goto :goto_0
 .end method
 
-.method public setShowingLegacyBackground(Z)V
+.method public setLegacy(Z)V
     .locals 0
 
-    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/notification/NotificationViewWrapper;->setShowingLegacyBackground(Z)V
+    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/notification/NotificationViewWrapper;->setLegacy(Z)V
 
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->mShowingLegacyBackground:Z
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->mIsLegacy:Z
 
     return-void
 .end method
@@ -309,20 +240,38 @@
     goto :goto_0
 .end method
 
+.method protected shouldClearBackgroundOnReapply()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
 .method protected updateGrayscale(Z)V
     .locals 3
 
     if-eqz p1, :cond_0
 
-    const/high16 v0, 0x3f800000    # 1.0f
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->getDozer()Lcom/android/systemui/statusbar/notification/NotificationDozeHelper;
 
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->updateGrayscaleMatrix(F)V
+    move-result-object v0
+
+    const/high16 v1, 0x3f800000    # 1.0f
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/notification/NotificationDozeHelper;->updateGrayscaleMatrix(F)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->mGreyPaint:Landroid/graphics/Paint;
 
     new-instance v1, Landroid/graphics/ColorMatrixColorFilter;
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->mGrayscaleColorMatrix:Landroid/graphics/ColorMatrix;
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/NotificationCustomViewWrapper;->getDozer()Lcom/android/systemui/statusbar/notification/NotificationDozeHelper;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/NotificationDozeHelper;->getGrayscaleColorMatrix()Landroid/graphics/ColorMatrix;
+
+    move-result-object v2
 
     invoke-direct {v1, v2}, Landroid/graphics/ColorMatrixColorFilter;-><init>(Landroid/graphics/ColorMatrix;)V
 

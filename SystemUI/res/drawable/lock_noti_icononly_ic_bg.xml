@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple android:color="#34000000"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <inset android:insetTop="2.0px"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+            <shape android:shape="rectangle">
+                <stroke android:width="3.0px" android:color="#67000000" />
+                <corners android:radius="18.0dip" />
+            </shape>
+        </inset>
+    </item>
+    <item>
+        <inset android:insetBottom="2.0px"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+            <shape android:shape="rectangle">
+                <stroke android:width="3.0px" android:color="#fffafafa" />
+                <corners android:radius="18.0dip" />
+            </shape>
+        </inset>
+    </item>
+    <item android:id="@android:id/mask">
+        <inset android:insetTop="5.0px" android:insetBottom="5.0px"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+            <shape android:shape="rectangle">
+                <solid android:color="@android:color/white" />
+                <corners android:radius="18.0dip" />
+            </shape>
+        </inset>
+    </item>
+</ripple>

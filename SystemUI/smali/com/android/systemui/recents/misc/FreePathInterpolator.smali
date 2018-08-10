@@ -181,358 +181,98 @@
 .end method
 
 .method public getInterpolation(F)F
-    .locals 13
-
-    const/high16 v12, 0x3fc00000    # 1.5f
-
-    const/high16 v11, -0x40800000    # -1.0f
-
-    const/high16 v9, 0x3f800000    # 1.0f
-
-    const/4 v10, 0x0
-
-    const/4 v4, 0x0
-
-    iget-object v8, p0, Lcom/android/systemui/recents/misc/FreePathInterpolator;->mX:[F
-
-    array-length v8, v8
-
-    add-int/lit8 v0, v8, -0x1
-
-    sget-boolean v8, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableTransParentBehindTaskView:Z
-
-    if-eqz v8, :cond_3
-
-    cmpl-float v8, p1, v10
-
-    if-nez v8, :cond_0
-
-    iget-object v8, p0, Lcom/android/systemui/recents/misc/FreePathInterpolator;->mY:[F
-
-    aget v8, v8, v4
-
-    return v8
-
-    :cond_0
-    cmpg-float v8, p1, v11
-
-    if-gez v8, :cond_1
-
-    iget-object v8, p0, Lcom/android/systemui/recents/misc/FreePathInterpolator;->mY:[F
-
-    aget v8, v8, v4
-
-    const v9, 0x3db17e4b
-
-    add-float/2addr v8, v9
-
-    return v8
-
-    :cond_1
-    cmpg-float v8, p1, v10
-
-    if-gez v8, :cond_2
-
-    iget-object v8, p0, Lcom/android/systemui/recents/misc/FreePathInterpolator;->mY:[F
-
-    aget v8, v8, v4
-
-    const v9, 0x3e051eb8    # 0.13f
-
-    mul-float/2addr v9, p1
-
-    div-float/2addr v9, v12
-
-    sub-float/2addr v8, v9
-
-    return v8
-
-    :cond_2
-    cmpl-float v8, p1, v9
-
-    if-ltz v8, :cond_9
-
-    iget-object v8, p0, Lcom/android/systemui/recents/misc/FreePathInterpolator;->mY:[F
-
-    aget v8, v8, v0
-
-    return v8
-
-    :cond_3
-    sget-boolean v8, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableSecondViewExpanded:Z
-
-    if-eqz v8, :cond_7
-
-    cmpl-float v8, p1, v10
-
-    if-nez v8, :cond_4
-
-    iget-object v8, p0, Lcom/android/systemui/recents/misc/FreePathInterpolator;->mY:[F
-
-    aget v8, v8, v4
-
-    return v8
-
-    :cond_4
-    cmpg-float v8, p1, v11
-
-    if-gez v8, :cond_5
-
-    iget-object v8, p0, Lcom/android/systemui/recents/misc/FreePathInterpolator;->mY:[F
-
-    aget v8, v8, v4
-
-    const v9, 0x3dda740d
-
-    add-float/2addr v8, v9
-
-    return v8
-
-    :cond_5
-    cmpg-float v8, p1, v10
-
-    if-gez v8, :cond_6
-
-    iget-object v8, p0, Lcom/android/systemui/recents/misc/FreePathInterpolator;->mY:[F
-
-    aget v8, v8, v4
-
-    const v9, 0x3e23d70a    # 0.16f
-
-    mul-float/2addr v9, p1
-
-    div-float/2addr v9, v12
-
-    sub-float/2addr v8, v9
-
-    return v8
-
-    :cond_6
-    cmpl-float v8, p1, v9
-
-    if-ltz v8, :cond_9
-
-    iget-object v8, p0, Lcom/android/systemui/recents/misc/FreePathInterpolator;->mY:[F
-
-    aget v8, v8, v0
-
-    return v8
-
-    :cond_7
-    cmpg-float v8, p1, v10
-
-    if-gtz v8, :cond_8
-
-    iget-object v8, p0, Lcom/android/systemui/recents/misc/FreePathInterpolator;->mY:[F
-
-    aget v8, v8, v4
-
-    return v8
-
-    :cond_8
-    cmpl-float v8, p1, v9
-
-    if-ltz v8, :cond_9
-
-    iget-object v8, p0, Lcom/android/systemui/recents/misc/FreePathInterpolator;->mY:[F
-
-    aget v8, v8, v0
-
-    return v8
-
-    :cond_9
-    :goto_0
-    sub-int v8, v0, v4
-
-    const/4 v9, 0x1
-
-    if-le v8, v9, :cond_b
-
-    add-int v8, v4, v0
-
-    div-int/lit8 v3, v8, 0x2
-
-    iget-object v8, p0, Lcom/android/systemui/recents/misc/FreePathInterpolator;->mX:[F
-
-    aget v8, v8, v3
-
-    cmpg-float v8, p1, v8
-
-    if-gez v8, :cond_a
-
-    move v0, v3
-
-    goto :goto_0
-
-    :cond_a
-    move v4, v3
-
-    goto :goto_0
-
-    :cond_b
-    iget-object v8, p0, Lcom/android/systemui/recents/misc/FreePathInterpolator;->mX:[F
-
-    aget v8, v8, v0
-
-    iget-object v9, p0, Lcom/android/systemui/recents/misc/FreePathInterpolator;->mX:[F
-
-    aget v9, v9, v4
-
-    sub-float v7, v8, v9
-
-    cmpl-float v8, v7, v10
-
-    if-nez v8, :cond_c
-
-    iget-object v8, p0, Lcom/android/systemui/recents/misc/FreePathInterpolator;->mY:[F
-
-    aget v8, v8, v4
-
-    return v8
-
-    :cond_c
-    iget-object v8, p0, Lcom/android/systemui/recents/misc/FreePathInterpolator;->mX:[F
-
-    aget v8, v8, v4
-
-    sub-float v6, p1, v8
-
-    div-float v2, v6, v7
-
-    iget-object v8, p0, Lcom/android/systemui/recents/misc/FreePathInterpolator;->mY:[F
-
-    aget v5, v8, v4
-
-    iget-object v8, p0, Lcom/android/systemui/recents/misc/FreePathInterpolator;->mY:[F
-
-    aget v1, v8, v0
-
-    sub-float v8, v1, v5
-
-    mul-float/2addr v8, v2
-
-    add-float/2addr v8, v5
-
-    return v8
-.end method
-
-.method public getInterpolationOnLandscape(F)F
     .locals 11
 
-    const/4 v10, 0x0
+    const/4 v8, 0x0
 
     const/4 v4, 0x0
 
-    iget-object v8, p0, Lcom/android/systemui/recents/misc/FreePathInterpolator;->mX:[F
+    iget-object v9, p0, Lcom/android/systemui/recents/misc/FreePathInterpolator;->mX:[F
 
-    array-length v8, v8
+    array-length v9, v9
 
-    add-int/lit8 v0, v8, -0x1
+    add-int/lit8 v0, v9, -0x1
 
-    cmpl-float v8, p1, v10
+    cmpg-float v9, p1, v8
 
-    if-nez v8, :cond_0
+    if-gtz v9, :cond_1
 
-    iget-object v8, p0, Lcom/android/systemui/recents/misc/FreePathInterpolator;->mY:[F
+    iget-object v9, p0, Lcom/android/systemui/recents/misc/FreePathInterpolator;->mY:[F
 
-    aget v8, v8, v4
+    aget v9, v9, v4
+
+    invoke-static {}, Lcom/android/systemui/recents/RecentsDebugFlags;->useListLayout()Z
+
+    move-result v10
+
+    if-eqz v10, :cond_0
+
+    :goto_0
+    sub-float v8, v9, p1
 
     return v8
 
     :cond_0
-    const/high16 v8, -0x40800000    # -1.0f
+    move p1, v8
 
-    cmpg-float v8, p1, v8
-
-    if-gez v8, :cond_1
-
-    iget-object v8, p0, Lcom/android/systemui/recents/misc/FreePathInterpolator;->mY:[F
-
-    aget v8, v8, v4
-
-    const v9, 0x3dda740d
-
-    add-float/2addr v8, v9
-
-    return v8
+    goto :goto_0
 
     :cond_1
-    cmpg-float v8, p1, v10
+    const/high16 v9, 0x3f800000    # 1.0f
 
-    if-gez v8, :cond_2
+    cmpl-float v9, p1, v9
+
+    if-ltz v9, :cond_2
 
     iget-object v8, p0, Lcom/android/systemui/recents/misc/FreePathInterpolator;->mY:[F
 
-    aget v8, v8, v4
-
-    const v9, 0x3e23d70a    # 0.16f
-
-    mul-float/2addr v9, p1
-
-    const/high16 v10, 0x3fc00000    # 1.5f
-
-    div-float/2addr v9, v10
-
-    sub-float/2addr v8, v9
+    aget v8, v8, v0
 
     return v8
 
     :cond_2
-    const/high16 v8, 0x3f800000    # 1.0f
+    :goto_1
+    sub-int v9, v0, v4
 
-    cmpl-float v8, p1, v8
+    const/4 v10, 0x1
 
-    if-ltz v8, :cond_3
+    if-le v9, v10, :cond_4
 
-    iget-object v8, p0, Lcom/android/systemui/recents/misc/FreePathInterpolator;->mY:[F
+    add-int v9, v4, v0
 
-    aget v8, v8, v0
-
-    return v8
-
-    :cond_3
-    :goto_0
-    sub-int v8, v0, v4
-
-    const/4 v9, 0x1
-
-    if-le v8, v9, :cond_5
-
-    add-int v8, v4, v0
-
-    div-int/lit8 v3, v8, 0x2
-
-    iget-object v8, p0, Lcom/android/systemui/recents/misc/FreePathInterpolator;->mX:[F
-
-    aget v8, v8, v3
-
-    cmpg-float v8, p1, v8
-
-    if-gez v8, :cond_4
-
-    move v0, v3
-
-    goto :goto_0
-
-    :cond_4
-    move v4, v3
-
-    goto :goto_0
-
-    :cond_5
-    iget-object v8, p0, Lcom/android/systemui/recents/misc/FreePathInterpolator;->mX:[F
-
-    aget v8, v8, v0
+    div-int/lit8 v3, v9, 0x2
 
     iget-object v9, p0, Lcom/android/systemui/recents/misc/FreePathInterpolator;->mX:[F
 
-    aget v9, v9, v4
+    aget v9, v9, v3
 
-    sub-float v7, v8, v9
+    cmpg-float v9, p1, v9
 
-    cmpl-float v8, v7, v10
+    if-gez v9, :cond_3
 
-    if-nez v8, :cond_6
+    move v0, v3
+
+    goto :goto_1
+
+    :cond_3
+    move v4, v3
+
+    goto :goto_1
+
+    :cond_4
+    iget-object v9, p0, Lcom/android/systemui/recents/misc/FreePathInterpolator;->mX:[F
+
+    aget v9, v9, v0
+
+    iget-object v10, p0, Lcom/android/systemui/recents/misc/FreePathInterpolator;->mX:[F
+
+    aget v10, v10, v4
+
+    sub-float v7, v9, v10
+
+    cmpl-float v8, v7, v8
+
+    if-nez v8, :cond_5
 
     iget-object v8, p0, Lcom/android/systemui/recents/misc/FreePathInterpolator;->mY:[F
 
@@ -540,7 +280,7 @@
 
     return v8
 
-    :cond_6
+    :cond_5
     iget-object v8, p0, Lcom/android/systemui/recents/misc/FreePathInterpolator;->mX:[F
 
     aget v8, v8, v4

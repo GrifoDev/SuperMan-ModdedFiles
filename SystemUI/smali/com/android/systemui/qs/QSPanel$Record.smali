@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field detailAdapter:Lcom/android/systemui/qs/QSTile$DetailAdapter;
+.field detailAdapter:Lcom/android/systemui/plugins/qs/DetailAdapter;
 
 .field x:I
 

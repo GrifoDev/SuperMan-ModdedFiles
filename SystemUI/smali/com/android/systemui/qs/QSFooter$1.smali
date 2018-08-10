@@ -1,14 +1,11 @@
 .class Lcom/android/systemui/qs/QSFooter$1;
-.super Ljava/lang/Object;
+.super Lcom/android/systemui/qs/TouchAnimator$ListenerAdapter;
 .source "QSFooter.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/systemui/qs/QSFooter;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/systemui/qs/QSFooter;->updateAnimator(I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,29 +24,41 @@
 
     iput-object p1, p0, Lcom/android/systemui/qs/QSFooter$1;->this$0:Lcom/android/systemui/qs/QSFooter;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Lcom/android/systemui/qs/TouchAnimator$ListenerAdapter;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
+.method public onAnimationAtStart()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSFooter$1;->this$0:Lcom/android/systemui/qs/QSFooter;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/QSFooter;->-get0(Lcom/android/systemui/qs/QSFooter;)Landroid/widget/ImageView;
+    invoke-static {v0}, Lcom/android/systemui/qs/QSFooter;->-get0(Lcom/android/systemui/qs/QSFooter;)Landroid/widget/TextView;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/systemui/qs/QSFooter$1;->this$0:Lcom/android/systemui/qs/QSFooter;
+    const/16 v1, 0x8
 
-    invoke-static {v1}, Lcom/android/systemui/qs/QSFooter;->-get1(Lcom/android/systemui/qs/QSFooter;)I
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    move-result v1
+    return-void
+.end method
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
+.method public onAnimationStarted()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QSFooter$1;->this$0:Lcom/android/systemui/qs/QSFooter;
+
+    invoke-static {v0}, Lcom/android/systemui/qs/QSFooter;->-get0(Lcom/android/systemui/qs/QSFooter;)Landroid/widget/TextView;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
     return-void
 .end method

@@ -1,5 +1,5 @@
-.class Landroid/support/v17/leanback/widget/BaseCardView$InfoAlphaAnimation;
-.super Landroid/view/animation/Animation;
+.class final Landroid/support/v17/leanback/widget/BaseCardView$InfoAlphaAnimation;
+.super Landroid/support/v17/leanback/widget/BaseCardView$AnimationBase;
 .source "BaseCardView.java"
 
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x10
     name = "InfoAlphaAnimation"
 .end annotation
 
@@ -28,7 +28,7 @@
 
     iput-object p1, p0, Landroid/support/v17/leanback/widget/BaseCardView$InfoAlphaAnimation;->this$0:Landroid/support/v17/leanback/widget/BaseCardView;
 
-    invoke-direct {p0}, Landroid/view/animation/Animation;-><init>()V
+    invoke-direct {p0, p1}, Landroid/support/v17/leanback/widget/BaseCardView$AnimationBase;-><init>(Landroid/support/v17/leanback/widget/BaseCardView;)V
 
     iput p2, p0, Landroid/support/v17/leanback/widget/BaseCardView$InfoAlphaAnimation;->mStartValue:F
 
@@ -54,16 +54,14 @@
 
     add-float/2addr v2, v3
 
-    invoke-static {v1, v2}, Landroid/support/v17/leanback/widget/BaseCardView;->-set0(Landroid/support/v17/leanback/widget/BaseCardView;F)F
+    iput v2, v1, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoAlpha:F
 
     const/4 v0, 0x0
 
     :goto_0
     iget-object v1, p0, Landroid/support/v17/leanback/widget/BaseCardView$InfoAlphaAnimation;->this$0:Landroid/support/v17/leanback/widget/BaseCardView;
 
-    invoke-static {v1}, Landroid/support/v17/leanback/widget/BaseCardView;->-get3(Landroid/support/v17/leanback/widget/BaseCardView;)Ljava/util/ArrayList;
-
-    move-result-object v1
+    iget-object v1, v1, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoViewList:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
@@ -73,9 +71,7 @@
 
     iget-object v1, p0, Landroid/support/v17/leanback/widget/BaseCardView$InfoAlphaAnimation;->this$0:Landroid/support/v17/leanback/widget/BaseCardView;
 
-    invoke-static {v1}, Landroid/support/v17/leanback/widget/BaseCardView;->-get3(Landroid/support/v17/leanback/widget/BaseCardView;)Ljava/util/ArrayList;
-
-    move-result-object v1
+    iget-object v1, v1, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoViewList:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -85,9 +81,7 @@
 
     iget-object v2, p0, Landroid/support/v17/leanback/widget/BaseCardView$InfoAlphaAnimation;->this$0:Landroid/support/v17/leanback/widget/BaseCardView;
 
-    invoke-static {v2}, Landroid/support/v17/leanback/widget/BaseCardView;->-get1(Landroid/support/v17/leanback/widget/BaseCardView;)F
-
-    move-result v2
+    iget v2, v2, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoAlpha:F
 
     invoke-virtual {v1, v2}, Landroid/view/View;->setAlpha(F)V
 

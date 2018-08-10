@@ -31,10 +31,10 @@
     return-object p1
 .end method
 
-.method static synthetic -wrap0(Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;)V
+.method static synthetic -wrap0(Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;Z)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->defocusIfNeeded()V
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->defocusIfNeeded(Z)V
 
     return-void
 .end method
@@ -53,7 +53,7 @@
     return-void
 .end method
 
-.method private defocusIfNeeded()V
+.method private defocusIfNeeded(Z)V
     .locals 2
 
     const/4 v1, 0x0
@@ -74,37 +74,68 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
-
-    return-void
+    if-nez v0, :cond_1
 
     :cond_0
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->isFocusable()Z
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->isTemporarilyDetached()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    :cond_1
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->isTemporarilyDetached()Z
 
     move-result v0
 
     if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->mRemoteInputView:Lcom/android/systemui/statusbar/policy/RemoteInputView;
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->mRemoteInputView:Lcom/android/systemui/statusbar/policy/RemoteInputView;
+
+    invoke-static {v0}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->-get1(Lcom/android/systemui/statusbar/policy/RemoteInputView;)Lcom/android/systemui/statusbar/NotificationData$Entry;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->getText()Landroid/text/Editable;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/statusbar/NotificationData$Entry;->remoteInputText:Ljava/lang/CharSequence;
+
+    :cond_2
+    return-void
+
+    :cond_3
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->isFocusable()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->isEnabled()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_5
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->setInnerFocusable(Z)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->mRemoteInputView:Lcom/android/systemui/statusbar/policy/RemoteInputView;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_4
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->mRemoteInputView:Lcom/android/systemui/statusbar/policy/RemoteInputView;
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->onDefocus()V
+    invoke-static {v0, p1}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->-wrap0(Lcom/android/systemui/statusbar/policy/RemoteInputView;Z)V
 
-    :cond_1
+    :cond_4
     iput-boolean v1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->mShowImeOnInputConnection:Z
 
-    :cond_2
+    :cond_5
     return-void
 .end method
 
@@ -132,6 +163,40 @@
     iput v0, p1, Landroid/graphics/Rect;->bottom:I
 
     return-void
+.end method
+
+.method public onCheckIsTextEditor()Z
+    .locals 2
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->mRemoteInputView:Lcom/android/systemui/statusbar/policy/RemoteInputView;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->mRemoteInputView:Lcom/android/systemui/statusbar/policy/RemoteInputView;
+
+    invoke-static {v1}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->-get2(Lcom/android/systemui/statusbar/policy/RemoteInputView;)Z
+
+    move-result v0
+
+    :goto_0
+    if-nez v0, :cond_1
+
+    invoke-super {p0}, Landroid/widget/EditText;->onCheckIsTextEditor()Z
+
+    move-result v1
+
+    :goto_1
+    return v1
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v1, 0x0
+
+    goto :goto_1
 .end method
 
 .method public onCommitCompletion(Landroid/view/inputmethod/CompletionInfo;)V
@@ -188,55 +253,58 @@
 .end method
 
 .method protected onFocusChanged(ZILandroid/graphics/Rect;)V
-    .locals 0
+    .locals 1
 
     invoke-super {p0, p1, p2, p3}, Landroid/widget/EditText;->onFocusChanged(ZILandroid/graphics/Rect;)V
 
     if-nez p1, :cond_0
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->defocusIfNeeded()V
+    const/4 v0, 0x1
+
+    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->defocusIfNeeded(Z)V
 
     :cond_0
     return-void
 .end method
 
-.method public onKeyPreIme(ILandroid/view/KeyEvent;)Z
-    .locals 4
+.method public onKeyDown(ILandroid/view/KeyEvent;)Z
+    .locals 1
 
-    const/4 v3, 0x1
+    const/4 v0, 0x4
 
-    const/4 v1, 0x4
+    if-ne p1, v0, :cond_0
 
-    if-ne p1, v1, :cond_0
+    const/4 v0, 0x1
 
-    invoke-virtual {p2}, Landroid/view/KeyEvent;->getAction()I
-
-    move-result v1
-
-    if-ne v1, v3, :cond_0
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->defocusIfNeeded()V
-
-    invoke-static {}, Landroid/view/inputmethod/InputMethodManager;->getInstance()Landroid/view/inputmethod/InputMethodManager;
-
-    move-result-object v0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->getWindowToken()Landroid/os/IBinder;
-
-    move-result-object v1
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
-
-    return v3
+    return v0
 
     :cond_0
-    invoke-super {p0, p1, p2}, Landroid/widget/EditText;->onKeyPreIme(ILandroid/view/KeyEvent;)Z
+    invoke-super {p0, p1, p2}, Landroid/widget/EditText;->onKeyDown(ILandroid/view/KeyEvent;)Z
 
-    move-result v1
+    move-result v0
+
+    return v0
+.end method
+
+.method public onKeyUp(ILandroid/view/KeyEvent;)Z
+    .locals 2
+
+    const/4 v1, 0x1
+
+    const/4 v0, 0x4
+
+    if-ne p1, v0, :cond_0
+
+    invoke-direct {p0, v1}, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->defocusIfNeeded(Z)V
 
     return v1
+
+    :cond_0
+    invoke-super {p0, p1, p2}, Landroid/widget/EditText;->onKeyUp(ILandroid/view/KeyEvent;)Z
+
+    move-result v0
+
+    return v0
 .end method
 
 .method protected onVisibilityChanged(Landroid/view/View;I)V
@@ -250,7 +318,9 @@
 
     if-nez v0, :cond_0
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->defocusIfNeeded()V
+    const/4 v0, 0x0
+
+    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;->defocusIfNeeded(Z)V
 
     :cond_0
     return-void

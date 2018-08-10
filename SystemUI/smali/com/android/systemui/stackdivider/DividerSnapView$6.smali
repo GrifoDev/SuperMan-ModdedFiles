@@ -49,7 +49,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/stackdivider/DividerSnapView$6;->this$0:Lcom/android/systemui/stackdivider/DividerSnapView;
 
-    invoke-static {v1}, Lcom/android/systemui/stackdivider/DividerSnapView;->-get5(Lcom/android/systemui/stackdivider/DividerSnapView;)Lcom/android/systemui/stackdivider/DividerSnapHandleView;
+    invoke-static {v1}, Lcom/android/systemui/stackdivider/DividerSnapView;->-get8(Lcom/android/systemui/stackdivider/DividerSnapView;)Lcom/android/systemui/stackdivider/DividerSnapHandleView;
 
     move-result-object v1
 
@@ -57,7 +57,15 @@
 
     iget-object v1, p0, Lcom/android/systemui/stackdivider/DividerSnapView$6;->this$0:Lcom/android/systemui/stackdivider/DividerSnapView;
 
-    invoke-static {v1}, Lcom/android/systemui/stackdivider/DividerSnapView;->-get0(Lcom/android/systemui/stackdivider/DividerSnapView;)Lcom/android/systemui/stackdivider/DividerSnapHandleView;
+    invoke-static {v1}, Lcom/android/systemui/stackdivider/DividerSnapView;->-get1(Lcom/android/systemui/stackdivider/DividerSnapView;)Lcom/android/systemui/stackdivider/DividerSnapHandleView;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Lcom/android/systemui/stackdivider/DividerSnapHandleView;->setAlpha(F)V
+
+    iget-object v1, p0, Lcom/android/systemui/stackdivider/DividerSnapView$6;->this$0:Lcom/android/systemui/stackdivider/DividerSnapView;
+
+    invoke-static {v1}, Lcom/android/systemui/stackdivider/DividerSnapView;->-get9(Lcom/android/systemui/stackdivider/DividerSnapView;)Lcom/android/systemui/stackdivider/DividerSnapHandleView;
 
     move-result-object v1
 
@@ -73,15 +81,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/stackdivider/DividerSnapView$6;->this$0:Lcom/android/systemui/stackdivider/DividerSnapView;
 
-    invoke-static {v1}, Lcom/android/systemui/stackdivider/DividerSnapView;->-get3(Lcom/android/systemui/stackdivider/DividerSnapView;)Lcom/android/systemui/stackdivider/DividerSnapHandleView;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Lcom/android/systemui/stackdivider/DividerSnapHandleView;->setAlpha(F)V
-
-    iget-object v1, p0, Lcom/android/systemui/stackdivider/DividerSnapView$6;->this$0:Lcom/android/systemui/stackdivider/DividerSnapView;
-
-    invoke-static {v1}, Lcom/android/systemui/stackdivider/DividerSnapView;->-get1(Lcom/android/systemui/stackdivider/DividerSnapView;)Lcom/android/systemui/stackdivider/DividerSnapHandleView;
+    invoke-static {v1}, Lcom/android/systemui/stackdivider/DividerSnapView;->-get2(Lcom/android/systemui/stackdivider/DividerSnapView;)Lcom/android/systemui/stackdivider/DividerSnapHandleView;
 
     move-result-object v1
 

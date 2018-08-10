@@ -2,34 +2,46 @@
 .super Landroid/widget/FrameLayout;
 .source "BrightnessDetail.java"
 
-# interfaces
-.implements Landroid/view/View$OnClickListener;
-
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/systemui/settings/BrightnessDetail$1;
+        Lcom/android/systemui/settings/BrightnessDetail$1;,
+        Lcom/android/systemui/settings/BrightnessDetail$BrightnessDetailCallback;
     }
 .end annotation
 
 
 # instance fields
+.field private brightnessEditor:Landroid/content/SharedPreferences$Editor;
+
+.field private brightnessPref:Landroid/content/SharedPreferences;
+
 .field private mBrightnessController:Lcom/android/systemui/settings/BrightnessController;
 
-.field public final mBrightnessDetailAdapter:Lcom/android/systemui/qs/QSTile$DetailAdapter;
+.field protected mBrightnessDetailAdapter:Lcom/android/systemui/plugins/qs/DetailAdapter;
+
+.field private mBrightnessPrefInitialized:Z
 
 .field private mContext:Landroid/content/Context;
 
-.field private mConvertView:Landroid/view/View;
+.field private mDeatilCallback:Lcom/android/systemui/settings/BrightnessDetail$BrightnessDetailCallback;
 
-.field private mDeatailExpandButton:Landroid/widget/ImageView;
+.field private mDetailConvertView:Landroid/view/View;
 
-.field private mQsPanel:Lcom/android/systemui/qs/QSPanel;
+.field private mQSPanel:Lcom/android/systemui/qs/QSPanel;
 
 
 # direct methods
-.method static synthetic -get0(Lcom/android/systemui/settings/BrightnessDetail;)Lcom/android/systemui/settings/BrightnessController;
+.method static synthetic -get0(Lcom/android/systemui/settings/BrightnessDetail;)Landroid/content/SharedPreferences$Editor;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessDetail;->brightnessEditor:Landroid/content/SharedPreferences$Editor;
+
+    return-object v0
+.end method
+
+.method static synthetic -get1(Lcom/android/systemui/settings/BrightnessDetail;)Lcom/android/systemui/settings/BrightnessController;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/settings/BrightnessDetail;->mBrightnessController:Lcom/android/systemui/settings/BrightnessController;
@@ -37,7 +49,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get1(Lcom/android/systemui/settings/BrightnessDetail;)Landroid/content/Context;
+.method static synthetic -get2(Lcom/android/systemui/settings/BrightnessDetail;)Landroid/content/Context;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/settings/BrightnessDetail;->mContext:Landroid/content/Context;
@@ -45,10 +57,18 @@
     return-object v0
 .end method
 
-.method static synthetic -get2(Lcom/android/systemui/settings/BrightnessDetail;)Landroid/view/View;
+.method static synthetic -get3(Lcom/android/systemui/settings/BrightnessDetail;)Lcom/android/systemui/settings/BrightnessDetail$BrightnessDetailCallback;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessDetail;->mConvertView:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessDetail;->mDeatilCallback:Lcom/android/systemui/settings/BrightnessDetail$BrightnessDetailCallback;
+
+    return-object v0
+.end method
+
+.method static synthetic -get4(Lcom/android/systemui/settings/BrightnessDetail;)Landroid/view/View;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessDetail;->mDetailConvertView:Landroid/view/View;
 
     return-object v0
 .end method
@@ -64,109 +84,154 @@
 .method static synthetic -set1(Lcom/android/systemui/settings/BrightnessDetail;Landroid/view/View;)Landroid/view/View;
     .locals 0
 
-    iput-object p1, p0, Lcom/android/systemui/settings/BrightnessDetail;->mConvertView:Landroid/view/View;
+    iput-object p1, p0, Lcom/android/systemui/settings/BrightnessDetail;->mDetailConvertView:Landroid/view/View;
 
     return-object p1
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/qs/QSPanel;)V
+    .locals 6
 
-    invoke-direct {p0, p1, p2}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+    const/4 v2, 0x1
+
+    const/4 v5, 0x0
+
+    invoke-direct {p0, p1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
     new-instance v0, Lcom/android/systemui/settings/BrightnessDetail$1;
 
     invoke-direct {v0, p0}, Lcom/android/systemui/settings/BrightnessDetail$1;-><init>(Lcom/android/systemui/settings/BrightnessDetail;)V
 
-    iput-object v0, p0, Lcom/android/systemui/settings/BrightnessDetail;->mBrightnessDetailAdapter:Lcom/android/systemui/qs/QSTile$DetailAdapter;
+    iput-object v0, p0, Lcom/android/systemui/settings/BrightnessDetail;->mBrightnessDetailAdapter:Lcom/android/systemui/plugins/qs/DetailAdapter;
 
     iput-object p1, p0, Lcom/android/systemui/settings/BrightnessDetail;->mContext:Landroid/content/Context;
 
-    return-void
-.end method
+    iput-object p2, p0, Lcom/android/systemui/settings/BrightnessDetail;->mQSPanel:Lcom/android/systemui/qs/QSPanel;
 
+    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessDetail;->mContext:Landroid/content/Context;
 
-# virtual methods
-.method public onClick(Landroid/view/View;)V
-    .locals 5
+    const-string/jumbo v1, "brightness_pref"
 
-    const/4 v4, 0x0
+    invoke-virtual {v0, v1, v5}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    iget-object v1, p0, Lcom/android/systemui/settings/BrightnessDetail;->mQsPanel:Lcom/android/systemui/qs/QSPanel;
+    move-result-object v0
 
-    if-eqz v1, :cond_1
+    iput-object v0, p0, Lcom/android/systemui/settings/BrightnessDetail;->brightnessPref:Landroid/content/SharedPreferences;
 
-    const-string/jumbo v1, "BrightnessDetail"
+    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessDetail;->brightnessPref:Landroid/content/SharedPreferences;
 
-    const-string/jumbo v2, "showDetailAdapter"
+    if-eqz v0, :cond_0
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessDetail;->brightnessPref:Landroid/content/SharedPreferences;
 
-    const/4 v1, 0x2
+    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
-    new-array v0, v1, [I
+    move-result-object v0
 
-    sget-boolean v1, Lcom/android/systemui/SystemUIRune;->SUPPORT_GSIM_LOG:Z
+    iput-object v0, p0, Lcom/android/systemui/settings/BrightnessDetail;->brightnessEditor:Landroid/content/SharedPreferences$Editor;
 
-    if-eqz v1, :cond_0
+    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessDetail;->brightnessPref:Landroid/content/SharedPreferences;
 
-    iget-object v1, p0, Lcom/android/systemui/settings/BrightnessDetail;->mContext:Landroid/content/Context;
+    const-string/jumbo v1, "initialized"
 
-    const-string/jumbo v2, "com.android.systemui.statusbar.policy.quicksetting"
+    invoke-interface {v0, v1, v5}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 
-    const-string/jumbo v3, "QS24"
+    move-result v0
 
-    invoke-static {v1, v2, v3, v4, v4}, Lcom/android/keyguard/util/GsimLogManager;->sendLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;)V
+    iput-boolean v0, p0, Lcom/android/systemui/settings/BrightnessDetail;->mBrightnessPrefInitialized:Z
 
     :cond_0
-    iget-object v1, p0, Lcom/android/systemui/settings/BrightnessDetail;->mQsPanel:Lcom/android/systemui/qs/QSPanel;
+    iget-boolean v0, p0, Lcom/android/systemui/settings/BrightnessDetail;->mBrightnessPrefInitialized:Z
 
-    iget-object v2, p0, Lcom/android/systemui/settings/BrightnessDetail;->mBrightnessDetailAdapter:Lcom/android/systemui/qs/QSTile$DetailAdapter;
+    if-nez v0, :cond_1
 
-    const/4 v3, 0x1
+    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessDetail;->brightnessEditor:Landroid/content/SharedPreferences$Editor;
 
-    invoke-virtual {v1, v3, v2, v0}, Lcom/android/systemui/qs/QSPanel;->showDetailAdapter(ZLcom/android/systemui/qs/QSTile$DetailAdapter;[I)V
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessDetail;->brightnessEditor:Landroid/content/SharedPreferences$Editor;
+
+    const-string/jumbo v1, "initialized"
+
+    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
+
+    iput-boolean v2, p0, Lcom/android/systemui/settings/BrightnessDetail;->mBrightnessPrefInitialized:Z
+
+    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessDetail;->brightnessEditor:Landroid/content/SharedPreferences$Editor;
+
+    const-string/jumbo v1, "4006"
+
+    iget-object v2, p0, Lcom/android/systemui/settings/BrightnessDetail;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "screen_brightness_mode"
+
+    const/4 v4, -0x2
+
+    invoke-static {v2, v3, v5, v4}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+
+    move-result v2
+
+    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
+
+    iget-object v1, p0, Lcom/android/systemui/settings/BrightnessDetail;->brightnessEditor:Landroid/content/SharedPreferences$Editor;
+
+    const-string/jumbo v2, "4007"
+
+    const-class v0, Lcom/android/systemui/tuner/TunerService;
+
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/tuner/TunerService;
+
+    const-string/jumbo v3, "brightness_on_top"
+
+    invoke-virtual {v0, v3, v5}, Lcom/android/systemui/tuner/TunerService;->getValue(Ljava/lang/String;I)I
+
+    move-result v0
+
+    invoke-interface {v1, v2, v0}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
+
+    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessDetail;->brightnessEditor:Landroid/content/SharedPreferences$Editor;
+
+    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
     :cond_1
     return-void
 .end method
 
-.method protected onFinishInflate()V
-    .locals 2
 
-    invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
+# virtual methods
+.method public setBrightnessDetailCallback(Lcom/android/systemui/settings/BrightnessDetail$BrightnessDetailCallback;)V
+    .locals 0
 
-    const v0, 0x7f130378
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/settings/BrightnessDetail;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/ImageView;
-
-    iput-object v0, p0, Lcom/android/systemui/settings/BrightnessDetail;->mDeatailExpandButton:Landroid/widget/ImageView;
-
-    const-string/jumbo v0, "BrightnessDetail"
-
-    const-string/jumbo v1, "onFinishInflate"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v0, 0x1
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/settings/BrightnessDetail;->setFocusable(Z)V
-
-    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessDetail;->mDeatailExpandButton:Landroid/widget/ImageView;
-
-    invoke-virtual {v0, p0}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    iput-object p1, p0, Lcom/android/systemui/settings/BrightnessDetail;->mDeatilCallback:Lcom/android/systemui/settings/BrightnessDetail$BrightnessDetailCallback;
 
     return-void
 .end method
 
-.method public setQsPanel(Lcom/android/systemui/qs/QSPanel;)V
-    .locals 0
+.method public showDetail(Z)V
+    .locals 3
 
-    iput-object p1, p0, Lcom/android/systemui/settings/BrightnessDetail;->mQsPanel:Lcom/android/systemui/qs/QSPanel;
+    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessDetail;->mQSPanel:Lcom/android/systemui/qs/QSPanel;
 
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessDetail;->mQSPanel:Lcom/android/systemui/qs/QSPanel;
+
+    iget-object v1, p0, Lcom/android/systemui/settings/BrightnessDetail;->mBrightnessDetailAdapter:Lcom/android/systemui/plugins/qs/DetailAdapter;
+
+    const/4 v2, 0x2
+
+    new-array v2, v2, [I
+
+    invoke-virtual {v0, p1, v1, v2}, Lcom/android/systemui/qs/QSPanel;->showDetailAdapter(ZLcom/android/systemui/plugins/qs/DetailAdapter;[I)V
+
+    :cond_0
     return-void
 .end method

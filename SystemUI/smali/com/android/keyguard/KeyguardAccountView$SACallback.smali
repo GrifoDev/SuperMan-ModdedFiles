@@ -85,13 +85,35 @@
 
     const/4 v5, 0x0
 
+    const-string/jumbo v2, "KeyguardAccountView"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "onReceivePasswordConfirmation isSuccess "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
     if-eqz p2, :cond_0
 
     iget-object v2, p0, Lcom/android/keyguard/KeyguardAccountView$SACallback;->this$0:Lcom/android/keyguard/KeyguardAccountView;
 
     const/4 v3, 0x1
 
-    invoke-static {v2, v3}, Lcom/android/keyguard/KeyguardAccountView;->-wrap2(Lcom/android/keyguard/KeyguardAccountView;Z)V
+    invoke-static {v2, v3}, Lcom/android/keyguard/KeyguardAccountView;->-wrap1(Lcom/android/keyguard/KeyguardAccountView;Z)V
 
     :goto_0
     iget-object v2, p0, Lcom/android/keyguard/KeyguardAccountView$SACallback;->this$0:Lcom/android/keyguard/KeyguardAccountView;
@@ -169,7 +191,7 @@
     :cond_2
     iget-object v2, p0, Lcom/android/keyguard/KeyguardAccountView$SACallback;->this$0:Lcom/android/keyguard/KeyguardAccountView;
 
-    invoke-static {v2, v5}, Lcom/android/keyguard/KeyguardAccountView;->-wrap2(Lcom/android/keyguard/KeyguardAccountView;Z)V
+    invoke-static {v2, v5}, Lcom/android/keyguard/KeyguardAccountView;->-wrap1(Lcom/android/keyguard/KeyguardAccountView;Z)V
 
     goto :goto_0
 .end method

@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/policy/KeyButtonView;->loadAsync(Ljava/lang/String;)V
+    value = Lcom/android/systemui/statusbar/policy/KeyButtonView;->loadAsync(Landroid/graphics/drawable/Icon;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,7 +17,7 @@
     value = {
         "Landroid/os/AsyncTask",
         "<",
-        "Ljava/lang/String;",
+        "Landroid/graphics/drawable/Icon;",
         "Ljava/lang/Void;",
         "Landroid/graphics/drawable/Drawable;",
         ">;"
@@ -42,16 +42,12 @@
 
 
 # virtual methods
-.method protected varargs doInBackground([Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
+.method protected varargs doInBackground([Landroid/graphics/drawable/Icon;)Landroid/graphics/drawable/Drawable;
     .locals 2
 
     const/4 v0, 0x0
 
     aget-object v0, p1, v0
-
-    invoke-static {v0}, Landroid/graphics/drawable/Icon;->createWithContentUri(Ljava/lang/String;)Landroid/graphics/drawable/Icon;
-
-    move-result-object v0
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/KeyButtonView$2;->this$0:Lcom/android/systemui/statusbar/policy/KeyButtonView;
 
@@ -69,9 +65,9 @@
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
 
-    check-cast p1, [Ljava/lang/String;
+    check-cast p1, [Landroid/graphics/drawable/Icon;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/policy/KeyButtonView$2;->doInBackground([Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/policy/KeyButtonView$2;->doInBackground([Landroid/graphics/drawable/Icon;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 

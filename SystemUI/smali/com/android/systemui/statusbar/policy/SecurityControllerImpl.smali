@@ -1,5 +1,5 @@
 .class public Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;
-.super Ljava/lang/Object;
+.super Lcom/android/systemui/settings/CurrentUserTracker;
 .source "SecurityControllerImpl.java"
 
 # interfaces
@@ -9,7 +9,9 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/systemui/statusbar/policy/SecurityControllerImpl$1;
+        Lcom/android/systemui/statusbar/policy/SecurityControllerImpl$1;,
+        Lcom/android/systemui/statusbar/policy/SecurityControllerImpl$2;,
+        Lcom/android/systemui/statusbar/policy/SecurityControllerImpl$CACertLoader;
     }
 .end annotation
 
@@ -21,6 +23,8 @@
 
 
 # instance fields
+.field private final mBroadcastReceiver:Landroid/content/BroadcastReceiver;
+
 .field private final mCallbacks:Ljava/util/ArrayList;
     .annotation build Lcom/android/internal/annotations/GuardedBy;
         value = "mCallbacks"
@@ -57,6 +61,18 @@
 
 .field private final mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
 
+.field private mHasCACerts:Landroid/util/ArrayMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/ArrayMap",
+            "<",
+            "Ljava/lang/Integer;",
+            "Ljava/lang/Boolean;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final mNetworkCallback:Landroid/net/ConnectivityManager$NetworkCallback;
 
 .field private final mPackageManager:Landroid/content/pm/PackageManager;
@@ -75,6 +91,22 @@
     return v0
 .end method
 
+.method static synthetic -get1(Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;)Landroid/content/Context;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mContext:Landroid/content/Context;
+
+    return-object v0
+.end method
+
+.method static synthetic -get2(Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;)Landroid/util/ArrayMap;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mHasCACerts:Landroid/util/ArrayMap;
+
+    return-object v0
+.end method
+
 .method static synthetic -wrap0(Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;)V
     .locals 0
 
@@ -84,6 +116,14 @@
 .end method
 
 .method static synthetic -wrap1(Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->refreshCACerts()V
+
+    return-void
+.end method
+
+.method static synthetic -wrap2(Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->updateState()V
@@ -136,9 +176,9 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 3
+    .locals 6
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0, p1}, Lcom/android/systemui/settings/CurrentUserTracker;-><init>(Landroid/content/Context;)V
 
     new-instance v0, Ljava/util/ArrayList;
 
@@ -152,11 +192,23 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mCurrentVpns:Landroid/util/SparseArray;
 
+    new-instance v0, Landroid/util/ArrayMap;
+
+    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mHasCACerts:Landroid/util/ArrayMap;
+
     new-instance v0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl$1;
 
     invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl$1;-><init>(Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;)V
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mNetworkCallback:Landroid/net/ConnectivityManager$NetworkCallback;
+
+    new-instance v0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl$2;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl$2;-><init>(Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;)V
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mContext:Landroid/content/Context;
 
@@ -208,6 +260,36 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mUserManager:Landroid/os/UserManager;
 
+    new-instance v3, Landroid/content/IntentFilter;
+
+    invoke-direct {v3}, Landroid/content/IntentFilter;-><init>()V
+
+    const-string/jumbo v0, "android.security.action.TRUST_STORE_CHANGED"
+
+    invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
+
+    sget-object v2, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+
+    new-instance v5, Landroid/os/Handler;
+
+    sget-object v0, Lcom/android/systemui/Dependency;->BG_LOOPER:Lcom/android/systemui/Dependency$DependencyKey;
+
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Lcom/android/systemui/Dependency$DependencyKey;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/os/Looper;
+
+    invoke-direct {v5, v0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+
+    const/4 v4, 0x0
+
+    move-object v0, p1
+
+    invoke-virtual/range {v0 .. v5}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
+
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
     sget-object v1, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->REQUEST:Landroid/net/NetworkRequest;
@@ -221,6 +303,8 @@
     move-result v0
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->onUserSwitched(I)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->startTracking()V
 
     return-void
 .end method
@@ -280,7 +364,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0f04b5
+    const v4, 0x7f12073f
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -371,6 +455,76 @@
     return-object v0
 .end method
 
+.method private getWorkProfileUserId(I)I
+    .locals 3
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mUserManager:Landroid/os/UserManager;
+
+    invoke-virtual {v2, p1}, Landroid/os/UserManager;->getProfiles(I)Ljava/util/List;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :cond_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/content/pm/UserInfo;
+
+    invoke-virtual {v0}, Landroid/content/pm/UserInfo;->isManagedProfile()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    const-class v2, Lcom/android/systemui/KnoxStateMonitor;
+
+    invoke-static {v2}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/KnoxStateMonitor;
+
+    invoke-virtual {v2, v0}, Lcom/android/systemui/KnoxStateMonitor;->isLegacyContainer(Landroid/content/pm/UserInfo;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    invoke-virtual {v0}, Landroid/content/pm/UserInfo;->isDualAppProfile()Z
+
+    move-result v2
+
+    :goto_0
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_0
+
+    iget v2, v0, Landroid/content/pm/UserInfo;->id:I
+
+    return v2
+
+    :cond_1
+    const/4 v2, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    const/16 v2, -0x2710
+
+    return v2
+.end method
+
 .method private isVpnPackageBranded(Ljava/lang/String;)Z
     .locals 7
 
@@ -399,7 +553,9 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    xor-int/lit8 v3, v3, 0x1
+
+    if-nez v3, :cond_0
 
     iget-object v3, v1, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
 
@@ -419,6 +575,57 @@
     move-exception v0
 
     return v6
+.end method
+
+.method private refreshCACerts()V
+    .locals 6
+
+    const/4 v5, 0x1
+
+    const/4 v4, 0x0
+
+    new-instance v1, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl$CACertLoader;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl$CACertLoader;-><init>(Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;)V
+
+    new-array v2, v5, [Ljava/lang/Integer;
+
+    iget v3, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mCurrentUserId:I
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    aput-object v3, v2, v4
+
+    invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl$CACertLoader;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
+
+    iget v1, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mCurrentUserId:I
+
+    invoke-direct {p0, v1}, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->getWorkProfileUserId(I)I
+
+    move-result v0
+
+    const/16 v1, -0x2710
+
+    if-eq v0, v1, :cond_0
+
+    new-instance v1, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl$CACertLoader;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl$CACertLoader;-><init>(Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;)V
+
+    new-array v2, v5, [Ljava/lang/Integer;
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    aput-object v3, v2, v4
+
+    invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl$CACertLoader;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
+
+    :cond_0
+    return-void
 .end method
 
 .method private updateState()V
@@ -583,6 +790,16 @@
     throw v0
 .end method
 
+.method public bridge synthetic addCallback(Ljava/lang/Object;)V
+    .locals 0
+
+    check-cast p1, Lcom/android/systemui/statusbar/policy/SecurityController$SecurityControllerCallback;
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->addCallback(Lcom/android/systemui/statusbar/policy/SecurityController$SecurityControllerCallback;)V
+
+    return-void
+.end method
+
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 2
 
@@ -648,12 +865,12 @@
     return-void
 .end method
 
-.method public getDeviceOwnerName()Ljava/lang/String;
+.method public getDeviceOwnerOrganizationName()Ljava/lang/CharSequence;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
 
-    invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->getDeviceOwnerNameOnAnyUser()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->getDeviceOwnerOrganizationName()Ljava/lang/CharSequence;
 
     move-result-object v0
 
@@ -693,88 +910,60 @@
     return-object v3
 .end method
 
-.method public getProfileOwnerName()Ljava/lang/String;
-    .locals 7
+.method public getWorkProfileOrganizationName()Ljava/lang/CharSequence;
+    .locals 2
 
-    const/4 v6, 0x0
+    iget v1, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mCurrentUserId:I
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mUserManager:Landroid/os/UserManager;
+    invoke-direct {p0, v1}, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->getWorkProfileUserId(I)I
 
-    iget v3, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mCurrentUserId:I
+    move-result v0
 
-    invoke-virtual {v2, v3}, Landroid/os/UserManager;->getProfileIdsWithDisabled(I)[I
+    const/16 v1, -0x2710
 
-    move-result-object v3
+    if-ne v0, v1, :cond_0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    array-length v4, v3
-
-    :goto_0
-    if-ge v2, v4, :cond_1
-
-    aget v1, v3, v2
-
-    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
-
-    invoke-virtual {v5, v1}, Landroid/app/admin/DevicePolicyManager;->getProfileOwnerNameAsUser(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    return-object v0
+    return-object v1
 
     :cond_0
-    add-int/lit8 v2, v2, 0x1
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
 
-    goto :goto_0
+    invoke-virtual {v1, v0}, Landroid/app/admin/DevicePolicyManager;->getOrganizationNameForUser(I)Ljava/lang/CharSequence;
 
-    :cond_1
-    return-object v6
+    move-result-object v1
+
+    return-object v1
 .end method
 
-.method public getProfileVpnName()Ljava/lang/String;
-    .locals 7
+.method public getWorkProfileVpnName()Ljava/lang/String;
+    .locals 4
 
-    const/4 v6, 0x0
+    const/4 v3, 0x0
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mUserManager:Landroid/os/UserManager;
+    iget v2, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mVpnUserId:I
 
-    iget v3, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mVpnUserId:I
+    invoke-direct {p0, v2}, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->getWorkProfileUserId(I)I
 
-    invoke-virtual {v2, v3}, Landroid/os/UserManager;->getProfileIdsWithDisabled(I)[I
+    move-result v1
 
-    move-result-object v3
+    const/16 v2, -0x2710
 
-    const/4 v2, 0x0
+    if-ne v1, v2, :cond_0
 
-    array-length v4, v3
-
-    :goto_0
-    if-ge v2, v4, :cond_2
-
-    aget v1, v3, v2
-
-    iget v5, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mVpnUserId:I
-
-    if-ne v1, v5, :cond_1
+    return-object v3
 
     :cond_0
-    add-int/lit8 v2, v2, 0x1
+    iget-object v2, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mCurrentVpns:Landroid/util/SparseArray;
 
-    goto :goto_0
-
-    :cond_1
-    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mCurrentVpns:Landroid/util/SparseArray;
-
-    invoke-virtual {v5, v1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {v2, v1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/android/internal/net/VpnConfig;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     invoke-static {v1}, Landroid/os/UserHandle;->of(I)Landroid/os/UserHandle;
 
@@ -786,22 +975,94 @@
 
     return-object v2
 
-    :cond_2
-    return-object v6
+    :cond_1
+    return-object v3
 .end method
 
-.method public hasProfileOwner()Z
-    .locals 2
+.method public hasCACertInCurrentUser()Z
+    .locals 3
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mHasCACerts:Landroid/util/ArrayMap;
 
-    iget v1, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mCurrentUserId:I
+    iget v2, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mCurrentUserId:I
 
-    invoke-virtual {v0, v1}, Landroid/app/admin/DevicePolicyManager;->getProfileOwnerAsUser(I)Landroid/content/ComponentName;
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
+    check-cast v0, Ljava/lang/Boolean;
+
     if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v1
+
+    :goto_0
+    return v1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
+.end method
+
+.method public hasCACertInWorkProfile()Z
+    .locals 5
+
+    const/4 v2, 0x0
+
+    iget v3, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mCurrentUserId:I
+
+    invoke-direct {p0, v3}, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->getWorkProfileUserId(I)I
+
+    move-result v1
+
+    const/16 v3, -0x2710
+
+    if-ne v1, v3, :cond_0
+
+    return v2
+
+    :cond_0
+    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mHasCACerts:Landroid/util/ArrayMap;
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Boolean;
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v2
+
+    :cond_1
+    return v2
+.end method
+
+.method public hasWorkProfile()Z
+    .locals 2
+
+    iget v0, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mCurrentUserId:I
+
+    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->getWorkProfileUserId(I)I
+
+    move-result v0
+
+    const/16 v1, -0x2710
+
+    if-eq v0, v1, :cond_0
 
     const/4 v0, 0x1
 
@@ -820,6 +1081,20 @@
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
 
     invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->isDeviceManaged()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public isNetworkLoggingEnabled()Z
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/app/admin/DevicePolicyManager;->isNetworkLoggingEnabled(Landroid/content/ComponentName;)Z
 
     move-result v0
 
@@ -905,46 +1180,6 @@
     return v2
 .end method
 
-.method public isVpnRestricted()Z
-    .locals 3
-
-    new-instance v0, Landroid/os/UserHandle;
-
-    iget v1, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mCurrentUserId:I
-
-    invoke-direct {v0, v1}, Landroid/os/UserHandle;-><init>(I)V
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mUserManager:Landroid/os/UserManager;
-
-    iget v2, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mCurrentUserId:I
-
-    invoke-virtual {v1, v2}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/content/pm/UserInfo;->isRestricted()Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mUserManager:Landroid/os/UserManager;
-
-    const-string/jumbo v2, "no_config_vpn"
-
-    invoke-virtual {v1, v2, v0}, Landroid/os/UserManager;->hasUserRestriction(Ljava/lang/String;Landroid/os/UserHandle;)Z
-
-    move-result v1
-
-    :goto_0
-    return v1
-
-    :cond_0
-    const/4 v1, 0x1
-
-    goto :goto_0
-.end method
-
 .method public onUserSwitched(I)V
     .locals 2
 
@@ -967,6 +1202,8 @@
     iput v1, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mVpnUserId:I
 
     :goto_0
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->refreshCACerts()V
+
     invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->fireCallbacks()V
 
     return-void
@@ -1037,4 +1274,14 @@
     monitor-exit v1
 
     throw v0
+.end method
+
+.method public bridge synthetic removeCallback(Ljava/lang/Object;)V
+    .locals 0
+
+    check-cast p1, Lcom/android/systemui/statusbar/policy/SecurityController$SecurityControllerCallback;
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->removeCallback(Lcom/android/systemui/statusbar/policy/SecurityController$SecurityControllerCallback;)V
+
+    return-void
 .end method

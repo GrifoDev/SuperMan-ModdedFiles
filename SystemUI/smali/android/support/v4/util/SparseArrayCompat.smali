@@ -149,6 +149,104 @@
 
 
 # virtual methods
+.method public append(ILjava/lang/Object;)V
+    .locals 7
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(ITE;)V"
+        }
+    .end annotation
+
+    const/4 v6, 0x0
+
+    iget v4, p0, Landroid/support/v4/util/SparseArrayCompat;->mSize:I
+
+    if-eqz v4, :cond_0
+
+    iget-object v4, p0, Landroid/support/v4/util/SparseArrayCompat;->mKeys:[I
+
+    iget v5, p0, Landroid/support/v4/util/SparseArrayCompat;->mSize:I
+
+    add-int/lit8 v5, v5, -0x1
+
+    aget v4, v4, v5
+
+    if-gt p1, v4, :cond_0
+
+    invoke-virtual {p0, p1, p2}, Landroid/support/v4/util/SparseArrayCompat;->put(ILjava/lang/Object;)V
+
+    return-void
+
+    :cond_0
+    iget-boolean v4, p0, Landroid/support/v4/util/SparseArrayCompat;->mGarbage:Z
+
+    if-eqz v4, :cond_1
+
+    iget v4, p0, Landroid/support/v4/util/SparseArrayCompat;->mSize:I
+
+    iget-object v5, p0, Landroid/support/v4/util/SparseArrayCompat;->mKeys:[I
+
+    array-length v5, v5
+
+    if-lt v4, v5, :cond_1
+
+    invoke-direct {p0}, Landroid/support/v4/util/SparseArrayCompat;->gc()V
+
+    :cond_1
+    iget v3, p0, Landroid/support/v4/util/SparseArrayCompat;->mSize:I
+
+    iget-object v4, p0, Landroid/support/v4/util/SparseArrayCompat;->mKeys:[I
+
+    array-length v4, v4
+
+    if-lt v3, v4, :cond_2
+
+    add-int/lit8 v4, v3, 0x1
+
+    invoke-static {v4}, Landroid/support/v4/util/ContainerHelpers;->idealIntArraySize(I)I
+
+    move-result v0
+
+    new-array v1, v0, [I
+
+    new-array v2, v0, [Ljava/lang/Object;
+
+    iget-object v4, p0, Landroid/support/v4/util/SparseArrayCompat;->mKeys:[I
+
+    iget-object v5, p0, Landroid/support/v4/util/SparseArrayCompat;->mKeys:[I
+
+    array-length v5, v5
+
+    invoke-static {v4, v6, v1, v6, v5}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+
+    iget-object v4, p0, Landroid/support/v4/util/SparseArrayCompat;->mValues:[Ljava/lang/Object;
+
+    iget-object v5, p0, Landroid/support/v4/util/SparseArrayCompat;->mValues:[Ljava/lang/Object;
+
+    array-length v5, v5
+
+    invoke-static {v4, v6, v2, v6, v5}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+
+    iput-object v1, p0, Landroid/support/v4/util/SparseArrayCompat;->mKeys:[I
+
+    iput-object v2, p0, Landroid/support/v4/util/SparseArrayCompat;->mValues:[Ljava/lang/Object;
+
+    :cond_2
+    iget-object v4, p0, Landroid/support/v4/util/SparseArrayCompat;->mKeys:[I
+
+    aput p1, v4, v3
+
+    iget-object v4, p0, Landroid/support/v4/util/SparseArrayCompat;->mValues:[Ljava/lang/Object;
+
+    aput-object p2, v4, v3
+
+    add-int/lit8 v4, v3, 0x1
+
+    iput v4, p0, Landroid/support/v4/util/SparseArrayCompat;->mSize:I
+
+    return-void
+.end method
+
 .method public clear()V
     .locals 5
 
@@ -335,6 +433,27 @@
     aget-object v1, v1, v0
 
     return-object v1
+.end method
+
+.method public indexOfKey(I)I
+    .locals 2
+
+    iget-boolean v0, p0, Landroid/support/v4/util/SparseArrayCompat;->mGarbage:Z
+
+    if-eqz v0, :cond_0
+
+    invoke-direct {p0}, Landroid/support/v4/util/SparseArrayCompat;->gc()V
+
+    :cond_0
+    iget-object v0, p0, Landroid/support/v4/util/SparseArrayCompat;->mKeys:[I
+
+    iget v1, p0, Landroid/support/v4/util/SparseArrayCompat;->mSize:I
+
+    invoke-static {v0, v1, p1}, Landroid/support/v4/util/ContainerHelpers;->binarySearch([III)I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public keyAt(I)I

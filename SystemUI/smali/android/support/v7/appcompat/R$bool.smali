@@ -3,8 +3,21 @@
 .source "R.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/support/v7/appcompat/R;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "bool"
+.end annotation
+
+
 # static fields
-.field public static final abc_config_showMenuShortcutsWhenKeyboardPresent:I = 0x7f120003
+.field public static final abc_action_bar_embed_tabs:I = 0x7f050000
+
+.field public static final abc_config_showMenuShortcutsWhenKeyboardPresent:I = 0x7f050004
 
 
 # direct methods

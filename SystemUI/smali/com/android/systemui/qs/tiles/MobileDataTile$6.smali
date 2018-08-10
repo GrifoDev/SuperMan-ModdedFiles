@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/qs/tiles/MobileDataTile;->handleSecondaryClick()V
+    value = Lcom/android/systemui/qs/tiles/MobileDataTile;->getLongClickIntent()Landroid/content/Intent;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

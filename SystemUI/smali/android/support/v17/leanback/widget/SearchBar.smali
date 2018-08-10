@@ -14,7 +14,7 @@
 
 
 # static fields
-.field private static final TAG:Ljava/lang/String;
+.field static final TAG:Ljava/lang/String;
 
 
 # instance fields
@@ -22,7 +22,7 @@
 
 .field private mAudioManager:Landroid/media/AudioManager;
 
-.field private mAutoStartRecognition:Z
+.field mAutoStartRecognition:Z
 
 .field private mBackgroundAlpha:I
 
@@ -38,7 +38,7 @@
 
 .field private final mContext:Landroid/content/Context;
 
-.field private final mHandler:Landroid/os/Handler;
+.field final mHandler:Landroid/os/Handler;
 
 .field private mHint:Ljava/lang/String;
 
@@ -48,19 +48,19 @@
 
 .field private mPermissionListener:Landroid/support/v17/leanback/widget/SearchBar$SearchBarPermissionListener;
 
-.field private mRecognizing:Z
+.field mRecognizing:Z
 
-.field private mSearchBarListener:Landroid/support/v17/leanback/widget/SearchBar$SearchBarListener;
+.field mSearchBarListener:Landroid/support/v17/leanback/widget/SearchBar$SearchBarListener;
 
-.field private mSearchQuery:Ljava/lang/String;
+.field mSearchQuery:Ljava/lang/String;
 
-.field private mSearchTextEditor:Landroid/support/v17/leanback/widget/SearchEditText;
+.field mSearchTextEditor:Landroid/support/v17/leanback/widget/SearchEditText;
 
-.field private mSoundMap:Landroid/util/SparseIntArray;
+.field mSoundMap:Landroid/util/SparseIntArray;
 
-.field private mSoundPool:Landroid/media/SoundPool;
+.field mSoundPool:Landroid/media/SoundPool;
 
-.field private mSpeechOrbView:Landroid/support/v17/leanback/widget/SpeechOrbView;
+.field mSpeechOrbView:Landroid/support/v17/leanback/widget/SpeechOrbView;
 
 .field private mSpeechRecognitionCallback:Landroid/support/v17/leanback/widget/SpeechRecognitionCallback;
 
@@ -78,174 +78,6 @@
 
 
 # direct methods
-.method static synthetic -get0()Ljava/lang/String;
-    .locals 1
-
-    sget-object v0, Landroid/support/v17/leanback/widget/SearchBar;->TAG:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic -get1(Landroid/support/v17/leanback/widget/SearchBar;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mAutoStartRecognition:Z
-
-    return v0
-.end method
-
-.method static synthetic -get2(Landroid/support/v17/leanback/widget/SearchBar;)Landroid/os/Handler;
-    .locals 1
-
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mHandler:Landroid/os/Handler;
-
-    return-object v0
-.end method
-
-.method static synthetic -get3(Landroid/support/v17/leanback/widget/SearchBar;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mRecognizing:Z
-
-    return v0
-.end method
-
-.method static synthetic -get4(Landroid/support/v17/leanback/widget/SearchBar;)Landroid/support/v17/leanback/widget/SearchBar$SearchBarListener;
-    .locals 1
-
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchBarListener:Landroid/support/v17/leanback/widget/SearchBar$SearchBarListener;
-
-    return-object v0
-.end method
-
-.method static synthetic -get5(Landroid/support/v17/leanback/widget/SearchBar;)Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchQuery:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic -get6(Landroid/support/v17/leanback/widget/SearchBar;)Landroid/support/v17/leanback/widget/SearchEditText;
-    .locals 1
-
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchTextEditor:Landroid/support/v17/leanback/widget/SearchEditText;
-
-    return-object v0
-.end method
-
-.method static synthetic -get7(Landroid/support/v17/leanback/widget/SearchBar;)Landroid/util/SparseIntArray;
-    .locals 1
-
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSoundMap:Landroid/util/SparseIntArray;
-
-    return-object v0
-.end method
-
-.method static synthetic -get8(Landroid/support/v17/leanback/widget/SearchBar;)Landroid/media/SoundPool;
-    .locals 1
-
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSoundPool:Landroid/media/SoundPool;
-
-    return-object v0
-.end method
-
-.method static synthetic -get9(Landroid/support/v17/leanback/widget/SearchBar;)Landroid/support/v17/leanback/widget/SpeechOrbView;
-    .locals 1
-
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSpeechOrbView:Landroid/support/v17/leanback/widget/SpeechOrbView;
-
-    return-object v0
-.end method
-
-.method static synthetic -set0(Landroid/support/v17/leanback/widget/SearchBar;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Landroid/support/v17/leanback/widget/SearchBar;->mAutoStartRecognition:Z
-
-    return p1
-.end method
-
-.method static synthetic -set1(Landroid/support/v17/leanback/widget/SearchBar;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
-
-    iput-object p1, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchQuery:Ljava/lang/String;
-
-    return-object p1
-.end method
-
-.method static synthetic -wrap0(Landroid/support/v17/leanback/widget/SearchBar;)V
-    .locals 0
-
-    invoke-direct {p0}, Landroid/support/v17/leanback/widget/SearchBar;->hideNativeKeyboard()V
-
-    return-void
-.end method
-
-.method static synthetic -wrap1(Landroid/support/v17/leanback/widget/SearchBar;)V
-    .locals 0
-
-    invoke-direct {p0}, Landroid/support/v17/leanback/widget/SearchBar;->playSearchFailure()V
-
-    return-void
-.end method
-
-.method static synthetic -wrap2(Landroid/support/v17/leanback/widget/SearchBar;)V
-    .locals 0
-
-    invoke-direct {p0}, Landroid/support/v17/leanback/widget/SearchBar;->playSearchOpen()V
-
-    return-void
-.end method
-
-.method static synthetic -wrap3(Landroid/support/v17/leanback/widget/SearchBar;)V
-    .locals 0
-
-    invoke-direct {p0}, Landroid/support/v17/leanback/widget/SearchBar;->playSearchSuccess()V
-
-    return-void
-.end method
-
-.method static synthetic -wrap4(Landroid/support/v17/leanback/widget/SearchBar;Ljava/lang/String;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Landroid/support/v17/leanback/widget/SearchBar;->setSearchQueryInternal(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap5(Landroid/support/v17/leanback/widget/SearchBar;)V
-    .locals 0
-
-    invoke-direct {p0}, Landroid/support/v17/leanback/widget/SearchBar;->showNativeKeyboard()V
-
-    return-void
-.end method
-
-.method static synthetic -wrap6(Landroid/support/v17/leanback/widget/SearchBar;)V
-    .locals 0
-
-    invoke-direct {p0}, Landroid/support/v17/leanback/widget/SearchBar;->submitQuery()V
-
-    return-void
-.end method
-
-.method static synthetic -wrap7(Landroid/support/v17/leanback/widget/SearchBar;)V
-    .locals 0
-
-    invoke-direct {p0}, Landroid/support/v17/leanback/widget/SearchBar;->toggleRecognition()V
-
-    return-void
-.end method
-
-.method static synthetic -wrap8(Landroid/support/v17/leanback/widget/SearchBar;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Landroid/support/v17/leanback/widget/SearchBar;->updateUi(Z)V
-
-    return-void
-.end method
-
 .method static constructor <clinit>()V
     .locals 1
 
@@ -434,24 +266,6 @@
     return-void
 .end method
 
-.method private hideNativeKeyboard()V
-    .locals 3
-
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mInputMethodManager:Landroid/view/inputmethod/InputMethodManager;
-
-    iget-object v1, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchTextEditor:Landroid/support/v17/leanback/widget/SearchEditText;
-
-    invoke-virtual {v1}, Landroid/support/v17/leanback/widget/SearchEditText;->getWindowToken()Landroid/os/IBinder;
-
-    move-result-object v1
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
-
-    return-void
-.end method
-
 .method private isVoiceMode()Z
     .locals 1
 
@@ -532,123 +346,6 @@
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
-.end method
-
-.method private playSearchFailure()V
-    .locals 1
-
-    sget v0, Landroid/support/v17/leanback/R$raw;->lb_voice_failure:I
-
-    invoke-direct {p0, v0}, Landroid/support/v17/leanback/widget/SearchBar;->play(I)V
-
-    return-void
-.end method
-
-.method private playSearchOpen()V
-    .locals 1
-
-    sget v0, Landroid/support/v17/leanback/R$raw;->lb_voice_open:I
-
-    invoke-direct {p0, v0}, Landroid/support/v17/leanback/widget/SearchBar;->play(I)V
-
-    return-void
-.end method
-
-.method private playSearchSuccess()V
-    .locals 1
-
-    sget v0, Landroid/support/v17/leanback/R$raw;->lb_voice_success:I
-
-    invoke-direct {p0, v0}, Landroid/support/v17/leanback/widget/SearchBar;->play(I)V
-
-    return-void
-.end method
-
-.method private setSearchQueryInternal(Ljava/lang/String;)V
-    .locals 2
-
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchQuery:Ljava/lang/String;
-
-    invoke-static {v0, p1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    return-void
-
-    :cond_0
-    iput-object p1, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchQuery:Ljava/lang/String;
-
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchBarListener:Landroid/support/v17/leanback/widget/SearchBar$SearchBarListener;
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchBarListener:Landroid/support/v17/leanback/widget/SearchBar$SearchBarListener;
-
-    iget-object v1, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchQuery:Ljava/lang/String;
-
-    invoke-interface {v0, v1}, Landroid/support/v17/leanback/widget/SearchBar$SearchBarListener;->onSearchQueryChange(Ljava/lang/String;)V
-
-    :cond_1
-    return-void
-.end method
-
-.method private showNativeKeyboard()V
-    .locals 2
-
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mHandler:Landroid/os/Handler;
-
-    new-instance v1, Landroid/support/v17/leanback/widget/SearchBar$9;
-
-    invoke-direct {v1, p0}, Landroid/support/v17/leanback/widget/SearchBar$9;-><init>(Landroid/support/v17/leanback/widget/SearchBar;)V
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    return-void
-.end method
-
-.method private submitQuery()V
-    .locals 2
-
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchQuery:Ljava/lang/String;
-
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchBarListener:Landroid/support/v17/leanback/widget/SearchBar$SearchBarListener;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchBarListener:Landroid/support/v17/leanback/widget/SearchBar$SearchBarListener;
-
-    iget-object v1, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchQuery:Ljava/lang/String;
-
-    invoke-interface {v0, v1}, Landroid/support/v17/leanback/widget/SearchBar$SearchBarListener;->onSearchQuerySubmit(Ljava/lang/String;)V
-
-    :cond_0
-    return-void
-.end method
-
-.method private toggleRecognition()V
-    .locals 1
-
-    iget-boolean v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mRecognizing:Z
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/SearchBar;->stopRecognition()V
-
-    :goto_0
-    return-void
-
-    :cond_0
-    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/SearchBar;->startRecognition()V
-
-    goto :goto_0
 .end method
 
 .method private updateHint()V
@@ -754,79 +451,26 @@
     goto :goto_0
 .end method
 
-.method private updateUi(Z)V
-    .locals 2
-
-    if-eqz p1, :cond_1
-
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mBarBackground:Landroid/graphics/drawable/Drawable;
-
-    iget v1, p0, Landroid/support/v17/leanback/widget/SearchBar;->mBackgroundSpeechAlpha:I
-
-    invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
-
-    invoke-direct {p0}, Landroid/support/v17/leanback/widget/SearchBar;->isVoiceMode()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchTextEditor:Landroid/support/v17/leanback/widget/SearchEditText;
-
-    iget v1, p0, Landroid/support/v17/leanback/widget/SearchBar;->mTextHintColorSpeechMode:I
-
-    invoke-virtual {v0, v1}, Landroid/support/v17/leanback/widget/SearchEditText;->setTextColor(I)V
-
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchTextEditor:Landroid/support/v17/leanback/widget/SearchEditText;
-
-    iget v1, p0, Landroid/support/v17/leanback/widget/SearchBar;->mTextHintColorSpeechMode:I
-
-    invoke-virtual {v0, v1}, Landroid/support/v17/leanback/widget/SearchEditText;->setHintTextColor(I)V
-
-    :goto_0
-    invoke-direct {p0}, Landroid/support/v17/leanback/widget/SearchBar;->updateHint()V
-
-    return-void
-
-    :cond_0
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchTextEditor:Landroid/support/v17/leanback/widget/SearchEditText;
-
-    iget v1, p0, Landroid/support/v17/leanback/widget/SearchBar;->mTextColorSpeechMode:I
-
-    invoke-virtual {v0, v1}, Landroid/support/v17/leanback/widget/SearchEditText;->setTextColor(I)V
-
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchTextEditor:Landroid/support/v17/leanback/widget/SearchEditText;
-
-    iget v1, p0, Landroid/support/v17/leanback/widget/SearchBar;->mTextHintColorSpeechMode:I
-
-    invoke-virtual {v0, v1}, Landroid/support/v17/leanback/widget/SearchEditText;->setHintTextColor(I)V
-
-    goto :goto_0
-
-    :cond_1
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mBarBackground:Landroid/graphics/drawable/Drawable;
-
-    iget v1, p0, Landroid/support/v17/leanback/widget/SearchBar;->mBackgroundAlpha:I
-
-    invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
-
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchTextEditor:Landroid/support/v17/leanback/widget/SearchEditText;
-
-    iget v1, p0, Landroid/support/v17/leanback/widget/SearchBar;->mTextColor:I
-
-    invoke-virtual {v0, v1}, Landroid/support/v17/leanback/widget/SearchEditText;->setTextColor(I)V
-
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchTextEditor:Landroid/support/v17/leanback/widget/SearchEditText;
-
-    iget v1, p0, Landroid/support/v17/leanback/widget/SearchBar;->mTextHintColor:I
-
-    invoke-virtual {v0, v1}, Landroid/support/v17/leanback/widget/SearchEditText;->setHintTextColor(I)V
-
-    goto :goto_0
-.end method
-
 
 # virtual methods
+.method hideNativeKeyboard()V
+    .locals 3
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mInputMethodManager:Landroid/view/inputmethod/InputMethodManager;
+
+    iget-object v1, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchTextEditor:Landroid/support/v17/leanback/widget/SearchEditText;
+
+    invoke-virtual {v1}, Landroid/support/v17/leanback/widget/SearchEditText;->getWindowToken()Landroid/os/IBinder;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
+
+    return-void
+.end method
+
 .method protected onAttachedToWindow()V
     .locals 4
 
@@ -987,11 +631,76 @@
 
     move-result v2
 
-    invoke-direct {p0, v2}, Landroid/support/v17/leanback/widget/SearchBar;->updateUi(Z)V
+    invoke-virtual {p0, v2}, Landroid/support/v17/leanback/widget/SearchBar;->updateUi(Z)V
 
     invoke-direct {p0}, Landroid/support/v17/leanback/widget/SearchBar;->updateHint()V
 
     return-void
+.end method
+
+.method playSearchFailure()V
+    .locals 1
+
+    sget v0, Landroid/support/v17/leanback/R$raw;->lb_voice_failure:I
+
+    invoke-direct {p0, v0}, Landroid/support/v17/leanback/widget/SearchBar;->play(I)V
+
+    return-void
+.end method
+
+.method playSearchOpen()V
+    .locals 1
+
+    sget v0, Landroid/support/v17/leanback/R$raw;->lb_voice_open:I
+
+    invoke-direct {p0, v0}, Landroid/support/v17/leanback/widget/SearchBar;->play(I)V
+
+    return-void
+.end method
+
+.method playSearchSuccess()V
+    .locals 1
+
+    sget v0, Landroid/support/v17/leanback/R$raw;->lb_voice_success:I
+
+    invoke-direct {p0, v0}, Landroid/support/v17/leanback/widget/SearchBar;->play(I)V
+
+    return-void
+.end method
+
+.method public setBadgeDrawable(Landroid/graphics/drawable/Drawable;)V
+    .locals 2
+
+    iput-object p1, p0, Landroid/support/v17/leanback/widget/SearchBar;->mBadgeDrawable:Landroid/graphics/drawable/Drawable;
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mBadgeView:Landroid/widget/ImageView;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mBadgeView:Landroid/widget/ImageView;
+
+    invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    if-eqz p1, :cond_1
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mBadgeView:Landroid/widget/ImageView;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mBadgeView:Landroid/widget/ImageView;
+
+    const/16 v1, 0x8
+
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    goto :goto_0
 .end method
 
 .method public setNextFocusDownId(I)V
@@ -1004,6 +713,165 @@
     iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchTextEditor:Landroid/support/v17/leanback/widget/SearchEditText;
 
     invoke-virtual {v0, p1}, Landroid/support/v17/leanback/widget/SearchEditText;->setNextFocusDownId(I)V
+
+    return-void
+.end method
+
+.method public setPermissionListener(Landroid/support/v17/leanback/widget/SearchBar$SearchBarPermissionListener;)V
+    .locals 0
+
+    iput-object p1, p0, Landroid/support/v17/leanback/widget/SearchBar;->mPermissionListener:Landroid/support/v17/leanback/widget/SearchBar$SearchBarPermissionListener;
+
+    return-void
+.end method
+
+.method public setSearchBarListener(Landroid/support/v17/leanback/widget/SearchBar$SearchBarListener;)V
+    .locals 0
+
+    iput-object p1, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchBarListener:Landroid/support/v17/leanback/widget/SearchBar$SearchBarListener;
+
+    return-void
+.end method
+
+.method public setSearchQuery(Ljava/lang/String;)V
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/SearchBar;->stopRecognition()V
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchTextEditor:Landroid/support/v17/leanback/widget/SearchEditText;
+
+    invoke-virtual {v0, p1}, Landroid/support/v17/leanback/widget/SearchEditText;->setText(Ljava/lang/CharSequence;)V
+
+    invoke-virtual {p0, p1}, Landroid/support/v17/leanback/widget/SearchBar;->setSearchQueryInternal(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method setSearchQueryInternal(Ljava/lang/String;)V
+    .locals 2
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchQuery:Ljava/lang/String;
+
+    invoke-static {v0, p1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    return-void
+
+    :cond_0
+    iput-object p1, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchQuery:Ljava/lang/String;
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchBarListener:Landroid/support/v17/leanback/widget/SearchBar$SearchBarListener;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchBarListener:Landroid/support/v17/leanback/widget/SearchBar$SearchBarListener;
+
+    iget-object v1, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchQuery:Ljava/lang/String;
+
+    invoke-interface {v0, v1}, Landroid/support/v17/leanback/widget/SearchBar$SearchBarListener;->onSearchQueryChange(Ljava/lang/String;)V
+
+    :cond_1
+    return-void
+.end method
+
+.method public setSpeechRecognitionCallback(Landroid/support/v17/leanback/widget/SpeechRecognitionCallback;)V
+    .locals 2
+
+    iput-object p1, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSpeechRecognitionCallback:Landroid/support/v17/leanback/widget/SpeechRecognitionCallback;
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSpeechRecognitionCallback:Landroid/support/v17/leanback/widget/SpeechRecognitionCallback;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSpeechRecognizer:Landroid/speech/SpeechRecognizer;
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    const-string/jumbo v1, "Can\'t have speech recognizer and request"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_0
+    return-void
+.end method
+
+.method public setSpeechRecognizer(Landroid/speech/SpeechRecognizer;)V
+    .locals 2
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/SearchBar;->stopRecognition()V
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSpeechRecognizer:Landroid/speech/SpeechRecognizer;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSpeechRecognizer:Landroid/speech/SpeechRecognizer;
+
+    invoke-virtual {v0, v1}, Landroid/speech/SpeechRecognizer;->setRecognitionListener(Landroid/speech/RecognitionListener;)V
+
+    iget-boolean v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mListening:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSpeechRecognizer:Landroid/speech/SpeechRecognizer;
+
+    invoke-virtual {v0}, Landroid/speech/SpeechRecognizer;->cancel()V
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mListening:Z
+
+    :cond_0
+    iput-object p1, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSpeechRecognizer:Landroid/speech/SpeechRecognizer;
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSpeechRecognitionCallback:Landroid/support/v17/leanback/widget/SpeechRecognitionCallback;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSpeechRecognizer:Landroid/speech/SpeechRecognizer;
+
+    if-eqz v0, :cond_1
+
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    const-string/jumbo v1, "Can\'t have speech recognizer and request"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_1
+    return-void
+.end method
+
+.method public setTitle(Ljava/lang/String;)V
+    .locals 0
+
+    iput-object p1, p0, Landroid/support/v17/leanback/widget/SearchBar;->mTitle:Ljava/lang/String;
+
+    invoke-direct {p0}, Landroid/support/v17/leanback/widget/SearchBar;->updateHint()V
+
+    return-void
+.end method
+
+.method showNativeKeyboard()V
+    .locals 2
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mHandler:Landroid/os/Handler;
+
+    new-instance v1, Landroid/support/v17/leanback/widget/SearchBar$9;
+
+    invoke-direct {v1, p0}, Landroid/support/v17/leanback/widget/SearchBar$9;-><init>(Landroid/support/v17/leanback/widget/SearchBar;)V
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
@@ -1225,4 +1093,118 @@
     invoke-virtual {v0, v2}, Landroid/speech/SpeechRecognizer;->setRecognitionListener(Landroid/speech/RecognitionListener;)V
 
     return-void
+.end method
+
+.method submitQuery()V
+    .locals 2
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchQuery:Ljava/lang/String;
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchBarListener:Landroid/support/v17/leanback/widget/SearchBar$SearchBarListener;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchBarListener:Landroid/support/v17/leanback/widget/SearchBar$SearchBarListener;
+
+    iget-object v1, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchQuery:Ljava/lang/String;
+
+    invoke-interface {v0, v1}, Landroid/support/v17/leanback/widget/SearchBar$SearchBarListener;->onSearchQuerySubmit(Ljava/lang/String;)V
+
+    :cond_0
+    return-void
+.end method
+
+.method toggleRecognition()V
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mRecognizing:Z
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/SearchBar;->stopRecognition()V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/SearchBar;->startRecognition()V
+
+    goto :goto_0
+.end method
+
+.method updateUi(Z)V
+    .locals 2
+
+    if-eqz p1, :cond_1
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mBarBackground:Landroid/graphics/drawable/Drawable;
+
+    iget v1, p0, Landroid/support/v17/leanback/widget/SearchBar;->mBackgroundSpeechAlpha:I
+
+    invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
+
+    invoke-direct {p0}, Landroid/support/v17/leanback/widget/SearchBar;->isVoiceMode()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchTextEditor:Landroid/support/v17/leanback/widget/SearchEditText;
+
+    iget v1, p0, Landroid/support/v17/leanback/widget/SearchBar;->mTextHintColorSpeechMode:I
+
+    invoke-virtual {v0, v1}, Landroid/support/v17/leanback/widget/SearchEditText;->setTextColor(I)V
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchTextEditor:Landroid/support/v17/leanback/widget/SearchEditText;
+
+    iget v1, p0, Landroid/support/v17/leanback/widget/SearchBar;->mTextHintColorSpeechMode:I
+
+    invoke-virtual {v0, v1}, Landroid/support/v17/leanback/widget/SearchEditText;->setHintTextColor(I)V
+
+    :goto_0
+    invoke-direct {p0}, Landroid/support/v17/leanback/widget/SearchBar;->updateHint()V
+
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchTextEditor:Landroid/support/v17/leanback/widget/SearchEditText;
+
+    iget v1, p0, Landroid/support/v17/leanback/widget/SearchBar;->mTextColorSpeechMode:I
+
+    invoke-virtual {v0, v1}, Landroid/support/v17/leanback/widget/SearchEditText;->setTextColor(I)V
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchTextEditor:Landroid/support/v17/leanback/widget/SearchEditText;
+
+    iget v1, p0, Landroid/support/v17/leanback/widget/SearchBar;->mTextHintColorSpeechMode:I
+
+    invoke-virtual {v0, v1}, Landroid/support/v17/leanback/widget/SearchEditText;->setHintTextColor(I)V
+
+    goto :goto_0
+
+    :cond_1
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mBarBackground:Landroid/graphics/drawable/Drawable;
+
+    iget v1, p0, Landroid/support/v17/leanback/widget/SearchBar;->mBackgroundAlpha:I
+
+    invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchTextEditor:Landroid/support/v17/leanback/widget/SearchEditText;
+
+    iget v1, p0, Landroid/support/v17/leanback/widget/SearchBar;->mTextColor:I
+
+    invoke-virtual {v0, v1}, Landroid/support/v17/leanback/widget/SearchEditText;->setTextColor(I)V
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchBar;->mSearchTextEditor:Landroid/support/v17/leanback/widget/SearchEditText;
+
+    iget v1, p0, Landroid/support/v17/leanback/widget/SearchBar;->mTextHintColor:I
+
+    invoke-virtual {v0, v1}, Landroid/support/v17/leanback/widget/SearchEditText;->setHintTextColor(I)V
+
+    goto :goto_0
 .end method

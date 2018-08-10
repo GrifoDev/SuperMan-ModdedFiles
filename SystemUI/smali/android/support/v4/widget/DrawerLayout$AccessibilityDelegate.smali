@@ -53,7 +53,7 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Landroid/support/v4/widget/DrawerLayout;->-wrap1(Landroid/view/View;)Z
+    invoke-static {v0}, Landroid/support/v4/widget/DrawerLayout;->includeChildForAccessibility(Landroid/view/View;)Z
 
     move-result v3
 
@@ -177,7 +177,7 @@
 
     iget-object v4, p0, Landroid/support/v4/widget/DrawerLayout$AccessibilityDelegate;->this$0:Landroid/support/v4/widget/DrawerLayout;
 
-    invoke-static {v4}, Landroid/support/v4/widget/DrawerLayout;->-wrap0(Landroid/support/v4/widget/DrawerLayout;)Landroid/view/View;
+    invoke-virtual {v4}, Landroid/support/v4/widget/DrawerLayout;->findVisibleDrawer()Landroid/view/View;
 
     move-result-object v3
 
@@ -233,9 +233,7 @@
 
     const/4 v3, 0x0
 
-    invoke-static {}, Landroid/support/v4/widget/DrawerLayout;->-get0()Z
-
-    move-result v2
+    sget-boolean v2, Landroid/support/v4/widget/DrawerLayout;->CAN_HIDE_DESCENDANTS:Z
 
     if-eqz v2, :cond_0
 
@@ -300,13 +298,11 @@
 .method public onRequestSendAccessibilityEvent(Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
     .locals 1
 
-    invoke-static {}, Landroid/support/v4/widget/DrawerLayout;->-get0()Z
-
-    move-result v0
+    sget-boolean v0, Landroid/support/v4/widget/DrawerLayout;->CAN_HIDE_DESCENDANTS:Z
 
     if-nez v0, :cond_0
 
-    invoke-static {p2}, Landroid/support/v4/widget/DrawerLayout;->-wrap1(Landroid/view/View;)Z
+    invoke-static {p2}, Landroid/support/v4/widget/DrawerLayout;->includeChildForAccessibility(Landroid/view/View;)Z
 
     move-result v0
 

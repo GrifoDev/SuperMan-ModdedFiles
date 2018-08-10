@@ -31,7 +31,7 @@
 
 .field private final mHandler:Landroid/os/Handler;
 
-.field private final mHost:Lcom/android/systemui/statusbar/phone/QSTileHost;
+.field private final mHost:Lcom/android/systemui/qs/QSTileHost;
 
 .field private final mMainHandler:Landroid/os/Handler;
 
@@ -87,10 +87,10 @@
     return-object v0
 .end method
 
-.method static synthetic -get1(Lcom/android/systemui/qs/external/TileServices;)Lcom/android/systemui/statusbar/phone/QSTileHost;
+.method static synthetic -get1(Lcom/android/systemui/qs/external/TileServices;)Lcom/android/systemui/qs/QSTileHost;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/qs/external/TileServices;->mHost:Lcom/android/systemui/statusbar/phone/QSTileHost;
+    iget-object v0, p0, Lcom/android/systemui/qs/external/TileServices;->mHost:Lcom/android/systemui/qs/QSTileHost;
 
     return-object v0
 .end method
@@ -114,16 +114,16 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Lcom/android/systemui/qs/external/TileServices$3;
+    new-instance v0, Lcom/android/systemui/qs/external/TileServices$2;
 
-    invoke-direct {v0}, Lcom/android/systemui/qs/external/TileServices$3;-><init>()V
+    invoke-direct {v0}, Lcom/android/systemui/qs/external/TileServices$2;-><init>()V
 
     sput-object v0, Lcom/android/systemui/qs/external/TileServices;->SERVICE_SORT:Ljava/util/Comparator;
 
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/systemui/statusbar/phone/QSTileHost;Landroid/os/Looper;)V
+.method public constructor <init>(Lcom/android/systemui/qs/QSTileHost;Landroid/os/Looper;)V
     .locals 5
 
     invoke-direct {p0}, Landroid/service/quicksettings/IQSService$Stub;-><init>()V
@@ -146,7 +146,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/qs/external/TileServices;->mTokenMap:Landroid/util/ArrayMap;
 
-    const/16 v1, 0x9
+    const/4 v1, 0x5
 
     iput v1, p0, Lcom/android/systemui/qs/external/TileServices;->mMaxBound:I
 
@@ -156,17 +156,17 @@
 
     iput-object v1, p0, Lcom/android/systemui/qs/external/TileServices;->mRequestListeningReceiver:Landroid/content/BroadcastReceiver;
 
-    new-instance v1, Lcom/android/systemui/qs/external/TileServices$2;
+    new-instance v1, Lcom/android/systemui/qs/external/TileServices$3;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/qs/external/TileServices$2;-><init>(Lcom/android/systemui/qs/external/TileServices;)V
+    invoke-direct {v1, p0}, Lcom/android/systemui/qs/external/TileServices$3;-><init>(Lcom/android/systemui/qs/external/TileServices;)V
 
     iput-object v1, p0, Lcom/android/systemui/qs/external/TileServices;->mTileUpdateReceiver:Landroid/content/BroadcastReceiver;
 
-    iput-object p1, p0, Lcom/android/systemui/qs/external/TileServices;->mHost:Lcom/android/systemui/statusbar/phone/QSTileHost;
+    iput-object p1, p0, Lcom/android/systemui/qs/external/TileServices;->mHost:Lcom/android/systemui/qs/QSTileHost;
 
-    iget-object v1, p0, Lcom/android/systemui/qs/external/TileServices;->mHost:Lcom/android/systemui/statusbar/phone/QSTileHost;
+    iget-object v1, p0, Lcom/android/systemui/qs/external/TileServices;->mHost:Lcom/android/systemui/qs/QSTileHost;
 
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/QSTileHost;->getContext()Landroid/content/Context;
+    invoke-virtual {v1}, Lcom/android/systemui/qs/QSTileHost;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -438,6 +438,82 @@
 
 
 # virtual methods
+.method public dump(Ljava/io/PrintWriter;)V
+    .locals 2
+
+    const-string/jumbo v0, "TileServices state:"
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "  mServices : "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/systemui/qs/external/TileServices;->mServices:Landroid/util/ArrayMap;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "  mTiles : "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/systemui/qs/external/TileServices;->mTiles:Landroid/util/ArrayMap;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "  mTokenMap : "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/systemui/qs/external/TileServices;->mTokenMap:Landroid/util/ArrayMap;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    return-void
+.end method
+
 .method public freeService(Lcom/android/systemui/qs/external/CustomTile;Lcom/android/systemui/qs/external/TileServiceManager;)V
     .locals 4
 
@@ -482,9 +558,9 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/external/TileServices;->mMainHandler:Landroid/os/Handler;
 
-    new-instance v3, Lcom/android/systemui/qs/external/TileServices$4;
+    new-instance v3, Lcom/android/systemui/qs/external/-$Lambda$M-9wkumtBYjk9ehcB0Dp3L-O2lE;
 
-    invoke-direct {v3, p0, v0}, Lcom/android/systemui/qs/external/TileServices$4;-><init>(Lcom/android/systemui/qs/external/TileServices;Ljava/lang/String;)V
+    invoke-direct {v3, p0, v0}, Lcom/android/systemui/qs/external/-$Lambda$M-9wkumtBYjk9ehcB0Dp3L-O2lE;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
     invoke-virtual {v1, v3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
     :try_end_0
@@ -510,10 +586,10 @@
     return-object v0
 .end method
 
-.method public getHost()Lcom/android/systemui/statusbar/phone/QSTileHost;
+.method public getHost()Lcom/android/systemui/qs/QSTileHost;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/qs/external/TileServices;->mHost:Lcom/android/systemui/statusbar/phone/QSTileHost;
+    iget-object v0, p0, Lcom/android/systemui/qs/external/TileServices;->mHost:Lcom/android/systemui/qs/QSTileHost;
 
     return-object v0
 .end method
@@ -542,65 +618,106 @@
 .end method
 
 .method public getTileWrapper(Lcom/android/systemui/qs/external/CustomTile;)Lcom/android/systemui/qs/external/TileServiceManager;
-    .locals 5
+    .locals 7
 
     invoke-virtual {p1}, Lcom/android/systemui/qs/external/CustomTile;->getComponent()Landroid/content/ComponentName;
 
-    move-result-object v0
+    move-result-object v2
 
     invoke-virtual {p1}, Lcom/android/systemui/qs/external/CustomTile;->getQsTile()Landroid/service/quicksettings/Tile;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-virtual {p0, v0, v2}, Lcom/android/systemui/qs/external/TileServices;->onCreateTileService(Landroid/content/ComponentName;Landroid/service/quicksettings/Tile;)Lcom/android/systemui/qs/external/TileServiceManager;
+    invoke-virtual {p0, v2, v4}, Lcom/android/systemui/qs/external/TileServices;->onCreateTileService(Landroid/content/ComponentName;Landroid/service/quicksettings/Tile;)Lcom/android/systemui/qs/external/TileServiceManager;
+
+    move-result-object v3
+
+    iget-object v5, p0, Lcom/android/systemui/qs/external/TileServices;->mServices:Landroid/util/ArrayMap;
+
+    monitor-enter v5
+
+    :try_start_0
+    iget-object v4, p0, Lcom/android/systemui/qs/external/TileServices;->mTiles:Landroid/util/ArrayMap;
+
+    invoke-virtual {v4, v2}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
-    iget-object v3, p0, Lcom/android/systemui/qs/external/TileServices;->mServices:Landroid/util/ArrayMap;
+    check-cast v1, Lcom/android/systemui/qs/external/CustomTile;
 
-    monitor-enter v3
+    if-eqz v1, :cond_0
 
-    :try_start_0
-    iget-object v2, p0, Lcom/android/systemui/qs/external/TileServices;->mServices:Landroid/util/ArrayMap;
+    iget-object v4, p0, Lcom/android/systemui/qs/external/TileServices;->mServices:Landroid/util/ArrayMap;
 
-    invoke-virtual {v2, p1, v1}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, v1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v2, p0, Lcom/android/systemui/qs/external/TileServices;->mTiles:Landroid/util/ArrayMap;
+    move-result-object v0
 
-    invoke-virtual {v2, v0, p1}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    check-cast v0, Lcom/android/systemui/qs/external/TileServiceManager;
 
-    iget-object v2, p0, Lcom/android/systemui/qs/external/TileServices;->mTokenMap:Landroid/util/ArrayMap;
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v1}, Lcom/android/systemui/qs/external/TileServiceManager;->getToken()Landroid/os/IBinder;
+    const/4 v4, 0x0
 
-    move-result-object v4
+    invoke-virtual {v0, v4}, Lcom/android/systemui/qs/external/TileServiceManager;->setBindAllowed(Z)V
 
-    invoke-virtual {v2, v4, p1}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0}, Lcom/android/systemui/qs/external/TileServiceManager;->handleDestroy()V
+
+    iget-object v4, p0, Lcom/android/systemui/qs/external/TileServices;->mServices:Landroid/util/ArrayMap;
+
+    invoke-virtual {v4, v1}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/systemui/qs/external/TileServices;->mTokenMap:Landroid/util/ArrayMap;
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/external/TileServiceManager;->getToken()Landroid/os/IBinder;
+
+    move-result-object v6
+
+    invoke-virtual {v4, v6}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_0
+    iget-object v4, p0, Lcom/android/systemui/qs/external/TileServices;->mServices:Landroid/util/ArrayMap;
+
+    invoke-virtual {v4, p1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/systemui/qs/external/TileServices;->mTiles:Landroid/util/ArrayMap;
+
+    invoke-virtual {v4, v2, p1}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/systemui/qs/external/TileServices;->mTokenMap:Landroid/util/ArrayMap;
+
+    invoke-virtual {v3}, Lcom/android/systemui/qs/external/TileServiceManager;->getToken()Landroid/os/IBinder;
+
+    move-result-object v6
+
+    invoke-virtual {v4, v6, p1}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit v3
+    monitor-exit v5
 
-    return-object v1
+    return-object v3
 
     :catchall_0
-    move-exception v2
+    move-exception v4
 
-    monitor-exit v3
+    monitor-exit v5
 
-    throw v2
+    throw v4
 .end method
 
 .method public isLocked()Z
     .locals 2
 
-    iget-object v1, p0, Lcom/android/systemui/qs/external/TileServices;->mHost:Lcom/android/systemui/statusbar/phone/QSTileHost;
+    const-class v1, Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
 
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/QSTileHost;->getKeyguardMonitor()Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
+    invoke-static {v1}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/policy/KeyguardMonitor;->isShowing()Z
+    check-cast v0, Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
+
+    invoke-interface {v0}, Lcom/android/systemui/statusbar/policy/KeyguardMonitor;->isShowing()Z
 
     move-result v1
 
@@ -610,19 +727,21 @@
 .method public isSecure()Z
     .locals 2
 
-    iget-object v1, p0, Lcom/android/systemui/qs/external/TileServices;->mHost:Lcom/android/systemui/statusbar/phone/QSTileHost;
+    const-class v1, Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
 
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/QSTileHost;->getKeyguardMonitor()Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
+    invoke-static {v1}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/policy/KeyguardMonitor;->isSecure()Z
+    check-cast v0, Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
+
+    invoke-interface {v0}, Lcom/android/systemui/statusbar/policy/KeyguardMonitor;->isSecure()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/policy/KeyguardMonitor;->isShowing()Z
+    invoke-interface {v0}, Lcom/android/systemui/statusbar/policy/KeyguardMonitor;->isShowing()Z
 
     move-result v1
 
@@ -633,6 +752,20 @@
     const/4 v1, 0x0
 
     goto :goto_0
+.end method
+
+.method synthetic lambda$-com_android_systemui_qs_external_TileServices_4755(Ljava/lang/String;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/external/TileServices;->mHost:Lcom/android/systemui/qs/QSTileHost;
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/QSTileHost;->getIconController()Lcom/android/systemui/statusbar/phone/StatusBarIconController;
+
+    move-result-object v0
+
+    invoke-interface {v0, p1}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->removeIcon(Ljava/lang/String;)V
+
+    return-void
 .end method
 
 .method protected onCreateTileService(Landroid/content/ComponentName;Landroid/service/quicksettings/Tile;)Lcom/android/systemui/qs/external/TileServiceManager;
@@ -677,7 +810,7 @@
 .end method
 
 .method public onShowDialog(Landroid/os/IBinder;)V
-    .locals 6
+    .locals 3
 
     invoke-direct {p0, p1}, Lcom/android/systemui/qs/external/TileServices;->getTileForToken(Landroid/os/IBinder;)Lcom/android/systemui/qs/external/CustomTile;
 
@@ -689,15 +822,9 @@
 
     invoke-virtual {v0}, Lcom/android/systemui/qs/external/CustomTile;->onDialogShown()V
 
-    iget-object v1, p0, Lcom/android/systemui/qs/external/TileServices;->mHandler:Landroid/os/Handler;
+    iget-object v1, p0, Lcom/android/systemui/qs/external/TileServices;->mHost:Lcom/android/systemui/qs/QSTileHost;
 
-    new-instance v2, Lcom/android/systemui/qs/external/TileServices$5;
-
-    invoke-direct {v2, p0}, Lcom/android/systemui/qs/external/TileServices$5;-><init>(Lcom/android/systemui/qs/external/TileServices;)V
-
-    const-wide/16 v4, 0x1f4
-
-    invoke-virtual {v1, v2, v4, v5}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v1}, Lcom/android/systemui/qs/QSTileHost;->collapsePanels()V
 
     iget-object v1, p0, Lcom/android/systemui/qs/external/TileServices;->mServices:Landroid/util/ArrayMap;
 
@@ -716,7 +843,7 @@
 .end method
 
 .method public onStartActivity(Landroid/os/IBinder;)V
-    .locals 6
+    .locals 2
 
     invoke-direct {p0, p1}, Lcom/android/systemui/qs/external/TileServices;->getTileForToken(Landroid/os/IBinder;)Lcom/android/systemui/qs/external/CustomTile;
 
@@ -726,15 +853,9 @@
 
     invoke-direct {p0, v0}, Lcom/android/systemui/qs/external/TileServices;->verifyCaller(Lcom/android/systemui/qs/external/CustomTile;)V
 
-    iget-object v1, p0, Lcom/android/systemui/qs/external/TileServices;->mHandler:Landroid/os/Handler;
+    iget-object v1, p0, Lcom/android/systemui/qs/external/TileServices;->mHost:Lcom/android/systemui/qs/QSTileHost;
 
-    new-instance v2, Lcom/android/systemui/qs/external/TileServices$6;
-
-    invoke-direct {v2, p0}, Lcom/android/systemui/qs/external/TileServices$6;-><init>(Lcom/android/systemui/qs/external/TileServices;)V
-
-    const-wide/16 v4, 0x1f4
-
-    invoke-virtual {v1, v2, v4, v5}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v1}, Lcom/android/systemui/qs/QSTileHost;->forceCollapsePanels()V
 
     :cond_0
     return-void
@@ -787,34 +908,93 @@
 .end method
 
 .method public recalculateBindAllowance()V
-    .locals 7
+    .locals 11
 
-    iget-object v6, p0, Lcom/android/systemui/qs/external/TileServices;->mServices:Landroid/util/ArrayMap;
+    const/4 v10, 0x1
 
-    monitor-enter v6
+    iget-object v9, p0, Lcom/android/systemui/qs/external/TileServices;->mServices:Landroid/util/ArrayMap;
+
+    monitor-enter v9
 
     :try_start_0
-    new-instance v4, Ljava/util/ArrayList;
+    new-instance v7, Ljava/util/ArrayList;
 
-    iget-object v5, p0, Lcom/android/systemui/qs/external/TileServices;->mServices:Landroid/util/ArrayMap;
+    iget-object v8, p0, Lcom/android/systemui/qs/external/TileServices;->mServices:Landroid/util/ArrayMap;
 
-    invoke-virtual {v5}, Landroid/util/ArrayMap;->values()Ljava/util/Collection;
+    invoke-virtual {v8}, Landroid/util/ArrayMap;->values()Ljava/util/Collection;
 
-    move-result-object v5
+    move-result-object v8
 
-    invoke-direct {v4, v5}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+    invoke-direct {v7, v8}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit v6
+    monitor-exit v9
 
-    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
-    iget v5, p0, Lcom/android/systemui/qs/external/TileServices;->mMaxBound:I
+    new-instance v6, Ljava/util/ArrayList;
 
-    if-le v0, v5, :cond_1
+    invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
+
+    const/4 v1, 0x0
+
+    :goto_0
+    if-ge v1, v0, :cond_1
+
+    invoke-virtual {v7, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v8
+
+    check-cast v8, Lcom/android/systemui/qs/external/TileServiceManager;
+
+    invoke-virtual {v8}, Lcom/android/systemui/qs/external/TileServiceManager;->getIsDefaultTile()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_0
+
+    invoke-virtual {v7, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v8
+
+    check-cast v8, Lcom/android/systemui/qs/external/TileServiceManager;
+
+    invoke-virtual {v8, v10}, Lcom/android/systemui/qs/external/TileServiceManager;->setBindAllowed(Z)V
+
+    :goto_1
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v8
+
+    monitor-exit v9
+
+    throw v8
+
+    :cond_0
+    invoke-virtual {v7, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v8
+
+    check-cast v8, Lcom/android/systemui/qs/external/TileServiceManager;
+
+    invoke-virtual {v6, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_1
+
+    :cond_1
+    invoke-virtual {v6}, Ljava/util/ArrayList;->size()I
+
+    move-result v5
+
+    iget v8, p0, Lcom/android/systemui/qs/external/TileServices;->mMaxBound:I
+
+    if-le v5, v8, :cond_3
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
@@ -822,76 +1002,67 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_0
-
-    invoke-virtual {v4, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Lcom/android/systemui/qs/external/TileServiceManager;
-
-    invoke-virtual {v5, v2, v3}, Lcom/android/systemui/qs/external/TileServiceManager;->calculateBindPriority(J)V
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception v5
-
-    monitor-exit v6
-
-    throw v5
-
-    :cond_0
-    sget-object v5, Lcom/android/systemui/qs/external/TileServices;->SERVICE_SORT:Ljava/util/Comparator;
-
-    invoke-static {v4, v5}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
-
-    :cond_1
-    const/4 v1, 0x0
-
-    :goto_1
-    iget v5, p0, Lcom/android/systemui/qs/external/TileServices;->mMaxBound:I
-
+    :goto_2
     if-ge v1, v5, :cond_2
 
-    if-ge v1, v0, :cond_2
+    invoke-virtual {v6, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    invoke-virtual {v4, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    move-result-object v8
 
-    move-result-object v5
+    check-cast v8, Lcom/android/systemui/qs/external/TileServiceManager;
 
-    check-cast v5, Lcom/android/systemui/qs/external/TileServiceManager;
-
-    const/4 v6, 0x1
-
-    invoke-virtual {v5, v6}, Lcom/android/systemui/qs/external/TileServiceManager;->setBindAllowed(Z)V
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_1
-
-    :cond_2
-    :goto_2
-    if-ge v1, v0, :cond_3
-
-    invoke-virtual {v4, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Lcom/android/systemui/qs/external/TileServiceManager;
-
-    const/4 v6, 0x0
-
-    invoke-virtual {v5, v6}, Lcom/android/systemui/qs/external/TileServiceManager;->setBindAllowed(Z)V
+    invoke-virtual {v8, v2, v3}, Lcom/android/systemui/qs/external/TileServiceManager;->calculateBindPriority(J)V
 
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_2
 
+    :cond_2
+    sget-object v8, Lcom/android/systemui/qs/external/TileServices;->SERVICE_SORT:Ljava/util/Comparator;
+
+    invoke-static {v6, v8}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
+
     :cond_3
+    const/4 v4, 0x0
+
+    :goto_3
+    iget v8, p0, Lcom/android/systemui/qs/external/TileServices;->mMaxBound:I
+
+    if-ge v4, v8, :cond_4
+
+    if-ge v4, v5, :cond_4
+
+    invoke-virtual {v6, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v8
+
+    check-cast v8, Lcom/android/systemui/qs/external/TileServiceManager;
+
+    invoke-virtual {v8, v10}, Lcom/android/systemui/qs/external/TileServiceManager;->setBindAllowed(Z)V
+
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_3
+
+    :cond_4
+    :goto_4
+    if-ge v4, v5, :cond_5
+
+    invoke-virtual {v6, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v8
+
+    check-cast v8, Lcom/android/systemui/qs/external/TileServiceManager;
+
+    const/4 v9, 0x0
+
+    invoke-virtual {v8, v9}, Lcom/android/systemui/qs/external/TileServiceManager;->setBindAllowed(Z)V
+
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_4
+
+    :cond_5
     return-void
 .end method
 
@@ -960,22 +1131,12 @@
 
     invoke-direct {p0, v0}, Lcom/android/systemui/qs/external/TileServices;->verifyCaller(Lcom/android/systemui/qs/external/CustomTile;)V
 
+    invoke-virtual {v0, p3}, Lcom/android/systemui/qs/external/CustomTile;->setToggleEnabledState(Z)V
+
     invoke-virtual {v0, p2}, Lcom/android/systemui/qs/external/CustomTile;->fireToggleStateChanged(Z)V
-
-    if-eqz p3, :cond_1
-
-    const/4 v1, 0x0
-
-    :goto_0
-    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/external/CustomTile;->fireDisableStateChanged(Z)V
 
     :cond_0
     return-void
-
-    :cond_1
-    const/4 v1, 0x1
-
-    goto :goto_0
 .end method
 
 .method public semUpdateDetailView(Landroid/os/IBinder;)V
@@ -1018,7 +1179,7 @@
 .end method
 
 .method public startUnlockAndRun(Landroid/os/IBinder;)V
-    .locals 1
+    .locals 3
 
     invoke-direct {p0, p1}, Lcom/android/systemui/qs/external/TileServices;->getTileForToken(Landroid/os/IBinder;)Lcom/android/systemui/qs/external/CustomTile;
 
@@ -1029,6 +1190,18 @@
     invoke-direct {p0, v0}, Lcom/android/systemui/qs/external/TileServices;->verifyCaller(Lcom/android/systemui/qs/external/CustomTile;)V
 
     invoke-virtual {v0}, Lcom/android/systemui/qs/external/CustomTile;->startUnlockAndRun()V
+
+    iget-object v1, p0, Lcom/android/systemui/qs/external/TileServices;->mServices:Landroid/util/ArrayMap;
+
+    invoke-virtual {v1, v0}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/qs/external/TileServiceManager;
+
+    const/4 v2, 0x1
+
+    invoke-virtual {v1, v2}, Lcom/android/systemui/qs/external/TileServiceManager;->setWaitingUnlockState(Z)V
 
     :cond_0
     return-void
@@ -1153,9 +1326,9 @@
     :goto_0
     iget-object v3, p0, Lcom/android/systemui/qs/external/TileServices;->mMainHandler:Landroid/os/Handler;
 
-    new-instance v4, Lcom/android/systemui/qs/external/TileServices$7;
+    new-instance v4, Lcom/android/systemui/qs/external/TileServices$4;
 
-    invoke-direct {v4, p0, v7, v0}, Lcom/android/systemui/qs/external/TileServices$7;-><init>(Lcom/android/systemui/qs/external/TileServices;Landroid/content/ComponentName;Lcom/android/internal/statusbar/StatusBarIcon;)V
+    invoke-direct {v4, p0, v7, v0}, Lcom/android/systemui/qs/external/TileServices$4;-><init>(Lcom/android/systemui/qs/external/TileServices;Landroid/content/ComponentName;Lcom/android/internal/statusbar/StatusBarIcon;)V
 
     invoke-virtual {v3, v4}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
     :try_end_0

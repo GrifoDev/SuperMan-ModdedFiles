@@ -4,6 +4,12 @@
 
 
 # annotations
+.annotation build Landroid/support/annotation/RestrictTo;
+    value = {
+        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Landroid/support/v7/widget/RecyclerView;
 .end annotation
@@ -38,24 +44,12 @@
 
 
 # direct methods
-.method static synthetic -wrap0(Landroid/support/v7/widget/RecyclerView$SavedState;Landroid/support/v7/widget/RecyclerView$SavedState;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Landroid/support/v7/widget/RecyclerView$SavedState;->copyFrom(Landroid/support/v7/widget/RecyclerView$SavedState;)V
-
-    return-void
-.end method
-
 .method static constructor <clinit>()V
     .locals 1
 
     new-instance v0, Landroid/support/v7/widget/RecyclerView$SavedState$1;
 
     invoke-direct {v0}, Landroid/support/v7/widget/RecyclerView$SavedState$1;-><init>()V
-
-    invoke-static {v0}, Landroid/support/v4/os/ParcelableCompat;->newCreator(Landroid/support/v4/os/ParcelableCompatCreatorCallbacks;)Landroid/os/Parcelable$Creator;
-
-    move-result-object v0
 
     sput-object v0, Landroid/support/v7/widget/RecyclerView$SavedState;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -96,7 +90,9 @@
     return-void
 .end method
 
-.method private copyFrom(Landroid/support/v7/widget/RecyclerView$SavedState;)V
+
+# virtual methods
+.method copyFrom(Landroid/support/v7/widget/RecyclerView$SavedState;)V
     .locals 1
 
     iget-object v0, p1, Landroid/support/v7/widget/RecyclerView$SavedState;->mLayoutState:Landroid/os/Parcelable;
@@ -106,8 +102,6 @@
     return-void
 .end method
 
-
-# virtual methods
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
 

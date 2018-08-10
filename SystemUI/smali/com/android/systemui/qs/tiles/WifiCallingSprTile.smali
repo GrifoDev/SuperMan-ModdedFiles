@@ -1,5 +1,5 @@
 .class public Lcom/android/systemui/qs/tiles/WifiCallingSprTile;
-.super Lcom/android/systemui/qs/QSTile;
+.super Lcom/android/systemui/qs/tileimpl/QSTileImpl;
 .source "WifiCallingSprTile.java"
 
 
@@ -8,16 +8,16 @@
     value = {
         Lcom/android/systemui/qs/tiles/WifiCallingSprTile$1;,
         Lcom/android/systemui/qs/tiles/WifiCallingSprTile$2;,
-        Lcom/android/systemui/qs/tiles/WifiCallingSprTile$WfcEnableTask;,
-        Lcom/android/systemui/qs/tiles/WifiCallingSprTile$WfcProvisionedTask;
+        Lcom/android/systemui/qs/tiles/WifiCallingSprTile$WfcProvisionedTask;,
+        Lcom/android/systemui/qs/tiles/WifiCallingSprTile$WifiCallingDetailAdapter;
     }
 .end annotation
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lcom/android/systemui/qs/QSTile",
+        "Lcom/android/systemui/qs/tileimpl/QSTileImpl",
         "<",
-        "Lcom/android/systemui/qs/QSTile$BooleanState;",
+        "Lcom/android/systemui/plugins/qs/QSTile$BooleanState;",
         ">;"
     }
 .end annotation
@@ -38,7 +38,7 @@
 
 .field private static final TRANSITIONING_TO_ON:I = 0x3
 
-.field private static final WFC_APP_PACKAGE_NAME:Ljava/lang/String; = "com.oem.smartwifisupport"
+.field private static final WFC_APP_PACKAGE_NAME_UNIFIED:Ljava/lang/String; = "com.sec.unifiedwfc"
 
 .field public static final WFC_DISABLE:I = 0x0
 
@@ -50,18 +50,22 @@
 
 .field private static final WIFICALLING_SETTINGS_SPR:Landroid/content/Intent;
 
+.field private static final WIFICALLING_SETTINGS_SPR_UNIFIED:Landroid/content/Intent;
+
 .field private static final WIFI_CALLING_ACTION:Ljava/lang/String; = "com.sec.sprint.wfc.WIFI_CALLING"
 
 .field private static final WIFI_CALLING_AIR_PLANE_MODE_ACTION:Landroid/content/Intent;
 
 .field private static final WIFI_CALLING_SETTINGS_CLASS:Ljava/lang/String; = "com.sec.sprint.wfc.ui.WfcSettings"
 
-.field private static isButtonDim:Z
+.field private static final WIFI_CALLING_SETTINGS_CLASS_UNIFIED:Ljava/lang/String; = "com.sec.unifiedwfc.LaunchUnifiedActivity"
 
 .field private static mSprVowifiState:Z
 
 
 # instance fields
+.field private final mDetailAdapter:Lcom/android/systemui/qs/tiles/WifiCallingSprTile$WifiCallingDetailAdapter;
+
 .field private mIsWfcProvisioned:Z
 
 .field private mListening:Z
@@ -83,28 +87,20 @@
 .method static synthetic -get1()Landroid/content/Intent;
     .locals 1
 
-    sget-object v0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->WIFICALLING_SETTINGS_SPR:Landroid/content/Intent;
-
-    return-object v0
-.end method
-
-.method static synthetic -get2()Landroid/content/Intent;
-    .locals 1
-
     sget-object v0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->WIFI_CALLING_AIR_PLANE_MODE_ACTION:Landroid/content/Intent;
 
     return-object v0
 .end method
 
-.method static synthetic -get3(Lcom/android/systemui/qs/tiles/WifiCallingSprTile;)Lcom/android/systemui/qs/QSTile$Host;
+.method static synthetic -get2(Lcom/android/systemui/qs/tiles/WifiCallingSprTile;)Landroid/content/Context;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mHost:Lcom/android/systemui/qs/QSTile$Host;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mContext:Landroid/content/Context;
 
     return-object v0
 .end method
 
-.method static synthetic -get4(Lcom/android/systemui/qs/tiles/WifiCallingSprTile;)Z
+.method static synthetic -get3(Lcom/android/systemui/qs/tiles/WifiCallingSprTile;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mIsWfcProvisioned:Z
@@ -112,7 +108,7 @@
     return v0
 .end method
 
-.method static synthetic -get5()Z
+.method static synthetic -get4()Z
     .locals 1
 
     sget-boolean v0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mSprVowifiState:Z
@@ -120,15 +116,15 @@
     return v0
 .end method
 
-.method static synthetic -set0(Z)Z
-    .locals 0
+.method static synthetic -get5(Lcom/android/systemui/qs/tiles/WifiCallingSprTile;)Lcom/android/systemui/plugins/qs/QSTile$State;
+    .locals 1
 
-    sput-boolean p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->isButtonDim:Z
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
 
-    return p0
+    return-object v0
 .end method
 
-.method static synthetic -set1(Lcom/android/systemui/qs/tiles/WifiCallingSprTile;Z)Z
+.method static synthetic -set0(Lcom/android/systemui/qs/tiles/WifiCallingSprTile;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mIsWfcProvisioned:Z
@@ -136,7 +132,17 @@
     return p1
 .end method
 
-.method static synthetic -wrap0(Lcom/android/systemui/qs/tiles/WifiCallingSprTile;)Z
+.method static synthetic -wrap0(Lcom/android/systemui/qs/tiles/WifiCallingSprTile;)Landroid/content/Intent;
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->getWfcSettingsIntent()Landroid/content/Intent;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic -wrap1(Lcom/android/systemui/qs/tiles/WifiCallingSprTile;)Z
     .locals 1
 
     invoke-direct {p0}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->isAirplaneModeOn()Z
@@ -146,7 +152,17 @@
     return v0
 .end method
 
-.method static synthetic -wrap1(Lcom/android/systemui/qs/tiles/WifiCallingSprTile;)Z
+.method static synthetic -wrap2(Lcom/android/systemui/qs/tiles/WifiCallingSprTile;)Z
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->isWfcEnabled()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic -wrap3(Lcom/android/systemui/qs/tiles/WifiCallingSprTile;)Z
     .locals 1
 
     invoke-direct {p0}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->isWfcProvisioned()Z
@@ -156,7 +172,7 @@
     return v0
 .end method
 
-.method static synthetic -wrap2(Lcom/android/systemui/qs/tiles/WifiCallingSprTile;)I
+.method static synthetic -wrap4(Lcom/android/systemui/qs/tiles/WifiCallingSprTile;)I
     .locals 1
 
     invoke-direct {p0}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->queryWfcState()I
@@ -166,15 +182,23 @@
     return v0
 .end method
 
-.method static synthetic -wrap3(Lcom/android/systemui/qs/tiles/WifiCallingSprTile;Ljava/lang/Object;)V
+.method static synthetic -wrap5(Lcom/android/systemui/qs/tiles/WifiCallingSprTile;Ljava/lang/Object;)V
     .locals 0
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->refreshState(Ljava/lang/Object;)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->handleRefreshState(Ljava/lang/Object;)V
 
     return-void
 .end method
 
-.method static synthetic -wrap4(Lcom/android/systemui/qs/tiles/WifiCallingSprTile;Z)V
+.method static synthetic -wrap6(Lcom/android/systemui/qs/tiles/WifiCallingSprTile;Z)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->setMode(Z)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap7(Lcom/android/systemui/qs/tiles/WifiCallingSprTile;Z)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->updateWfcState(Z)V
@@ -184,8 +208,6 @@
 
 .method static constructor <clinit>()V
     .locals 4
-
-    const/4 v2, 0x0
 
     new-instance v0, Landroid/content/Intent;
 
@@ -211,9 +233,9 @@
 
     sput-object v0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->WFC_IS_PROVISIONED_CONTENT_URI:Landroid/net/Uri;
 
-    sput-boolean v2, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mSprVowifiState:Z
+    const/4 v0, 0x0
 
-    sput-boolean v2, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->isButtonDim:Z
+    sput-boolean v0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mSprVowifiState:Z
 
     new-instance v0, Landroid/content/Intent;
 
@@ -233,15 +255,33 @@
 
     sput-object v0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->WIFICALLING_SETTINGS_SPR:Landroid/content/Intent;
 
+    new-instance v0, Landroid/content/Intent;
+
+    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
+
+    new-instance v1, Landroid/content/ComponentName;
+
+    const-string/jumbo v2, "com.sec.unifiedwfc"
+
+    const-string/jumbo v3, "com.sec.unifiedwfc.LaunchUnifiedActivity"
+
+    invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->WIFICALLING_SETTINGS_SPR_UNIFIED:Landroid/content/Intent;
+
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/systemui/qs/QSTile$Host;)V
+.method public constructor <init>(Lcom/android/systemui/qs/QSHost;)V
     .locals 4
 
     const/4 v3, 0x0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/QSTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;-><init>(Lcom/android/systemui/qs/QSHost;)V
 
     const/4 v1, 0x0
 
@@ -263,21 +303,29 @@
 
     iput-object v1, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mWifiCallingObserver:Landroid/database/ContentObserver;
 
-    check-cast p1, Lcom/android/systemui/statusbar/phone/QSTileHost;
+    new-instance v1, Lcom/android/systemui/qs/tiles/WifiCallingSprTile$WifiCallingDetailAdapter;
 
-    invoke-static {p1}, Lcom/android/systemui/statusbar/phone/VoWiFiStatusController;->setHost(Lcom/android/systemui/statusbar/phone/QSTileHost;)V
+    invoke-direct {v1, p0, v3}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile$WifiCallingDetailAdapter;-><init>(Lcom/android/systemui/qs/tiles/WifiCallingSprTile;Lcom/android/systemui/qs/tiles/WifiCallingSprTile$WifiCallingDetailAdapter;)V
 
-    sget-boolean v1, Lcom/android/systemui/SystemUIRune;->SUPPORT_QS_SPRWFC:Z
+    iput-object v1, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mDetailAdapter:Lcom/android/systemui/qs/tiles/WifiCallingSprTile$WifiCallingDetailAdapter;
+
+    sget-boolean v1, Lcom/android/systemui/Rune;->QPANEL_SUPPORT_SPRWFC:Z
 
     if-eqz v1, :cond_0
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mContext:Landroid/content/Context;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->isSprVowifiExist(Landroid/content/Context;)Z
+    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/VoWiFiStatusController;->isSprVowifiExist(Landroid/content/Context;)Z
 
     move-result v1
 
     sput-boolean v1, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mSprVowifiState:Z
+
+    sget-boolean v1, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mSprVowifiState:Z
+
+    if-eqz v1, :cond_0
+
+    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->registerObserverForSprWfc()V
 
     :cond_0
     new-instance v0, Landroid/content/IntentFilter;
@@ -305,18 +353,65 @@
     return-void
 .end method
 
+.method private getWfcSettingsIntent()Landroid/content/Intent;
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "QPANEL_SUPPORT_UNIFIEDWFC is : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    sget-boolean v2, Lcom/android/systemui/Rune;->QPANEL_SUPPORT_UNIFIEDWFC:Z
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    sget-boolean v0, Lcom/android/systemui/Rune;->QPANEL_SUPPORT_UNIFIEDWFC:Z
+
+    if-eqz v0, :cond_0
+
+    sget-object v0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->WIFICALLING_SETTINGS_SPR_UNIFIED:Landroid/content/Intent;
+
+    return-object v0
+
+    :cond_0
+    sget-object v0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->WIFICALLING_SETTINGS_SPR:Landroid/content/Intent;
+
+    return-object v0
+.end method
+
 .method private handleSprVowifiClick(Z)V
     .locals 5
 
-    const/4 v4, 0x1
+    const/4 v4, 0x0
 
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mState:Lcom/android/systemui/qs/QSTile$State;
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
 
-    check-cast v1, Lcom/android/systemui/qs/QSTile$BooleanState;
+    check-cast v1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
-    iget-boolean v1, v1, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
+    iget-boolean v1, v1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
 
     if-nez v1, :cond_1
+
+    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->isWfcProvisioned()Z
+
+    move-result v1
+
+    iput-boolean v1, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mIsWfcProvisioned:Z
 
     iget-boolean v1, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mIsWfcProvisioned:Z
 
@@ -328,13 +423,13 @@
 
     invoke-direct {v1, p0, v2}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile$WfcProvisionedTask;-><init>(Lcom/android/systemui/qs/tiles/WifiCallingSprTile;Lcom/android/systemui/qs/tiles/WifiCallingSprTile$WfcProvisionedTask;)V
 
-    new-array v2, v4, [Ljava/lang/Boolean;
+    const/4 v2, 0x1
+
+    new-array v2, v2, [Ljava/lang/Boolean;
 
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v3
-
-    const/4 v4, 0x0
 
     aput-object v3, v2, v4
 
@@ -350,11 +445,19 @@
     if-eqz v1, :cond_1
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mHost:Lcom/android/systemui/qs/QSTile$Host;
+    const-class v1, Lcom/android/systemui/plugins/ActivityStarter;
+
+    invoke-static {v1}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/plugins/ActivityStarter;
 
     sget-object v2, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->WIFI_CALLING_AIR_PLANE_MODE_ACTION:Landroid/content/Intent;
 
-    invoke-interface {v1, v2}, Lcom/android/systemui/qs/QSTile$Host;->startActivityDismissingKeyguard(Landroid/content/Intent;)V
+    const/4 v3, 0x0
+
+    invoke-interface {v1, v2, v3}, Lcom/android/systemui/plugins/ActivityStarter;->postStartActivityDismissingKeyguard(Landroid/content/Intent;I)V
     :try_end_0
     .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -386,11 +489,7 @@
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
-    sput-boolean v4, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->isButtonDim:Z
-
     invoke-direct {p0, p1}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->updateWfcState(Z)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->refreshState()V
 
     return-void
 .end method
@@ -412,7 +511,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
     const/4 v0, 0x1
 
@@ -421,108 +520,42 @@
 
     iget-object v2, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mContext:Landroid/content/Context;
 
-    invoke-static {v1, v2}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->isPackageEnabled(Ljava/lang/String;Landroid/content/Context;)Z
+    invoke-static {v2, v3}, Lcom/android/systemui/statusbar/phone/VoWiFiStatusController;->getVowifiPackageName(Landroid/content/Context;Z)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-nez v1, :cond_0
 
-    const/4 v0, 0x0
+    const-string/jumbo v1, "com.sec.unifiedwfc"
+
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mContext:Landroid/content/Context;
+
+    const/4 v3, 0x1
+
+    invoke-static {v2, v3}, Lcom/android/systemui/statusbar/phone/VoWiFiStatusController;->getVowifiPackageName(Landroid/content/Context;Z)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
 
     :cond_0
-    return v0
+    const/4 v0, 0x0
 
     :cond_1
+    return v0
+
+    :cond_2
     const/4 v0, 0x0
 
     goto :goto_0
-.end method
-
-.method private static isPackageEnabled(Ljava/lang/String;Landroid/content/Context;)Z
-    .locals 5
-
-    const/4 v4, 0x0
-
-    const/4 v2, 0x0
-
-    invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_0
-
-    :try_start_0
-    invoke-virtual {v3, p0}, Landroid/content/pm/PackageManager;->getApplicationEnabledSetting(Ljava/lang/String;)I
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v0
-
-    const/4 v4, 0x2
-
-    if-eq v0, v4, :cond_1
-
-    const/4 v2, 0x1
-
-    :cond_0
-    :goto_0
-    invoke-static {v2}, Lcom/android/systemui/statusbar/phone/VoWiFiStatusController;->setVowifiState(Z)V
-
-    return v2
-
-    :cond_1
-    const/4 v2, 0x0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v1
-
-    invoke-static {v4}, Lcom/android/systemui/statusbar/phone/VoWiFiStatusController;->setVowifiState(Z)V
-
-    return v4
-.end method
-
-.method public static isSprVowifiExist(Landroid/content/Context;)Z
-    .locals 2
-
-    const-string/jumbo v0, "com.sec.sprint.wfc"
-
-    invoke-static {v0, p0}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->isPackageEnabled(Ljava/lang/String;Landroid/content/Context;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    const-string/jumbo v0, "com.oem.smartwifisupport"
-
-    invoke-static {v0, p0}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->isPackageEnabled(Ljava/lang/String;Landroid/content/Context;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    :cond_0
-    const-string/jumbo v0, "WifiCallingTile"
-
-    const-string/jumbo v1, "vowifi true"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v0, 0x1
-
-    return v0
-
-    :cond_1
-    const-string/jumbo v0, "WifiCallingTile"
-
-    const-string/jumbo v1, "vowifi false"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v0, 0x0
-
-    return v0
 .end method
 
 .method private isWfcEnabled()Z
@@ -550,12 +583,13 @@
 
     const/4 v0, 0x0
 
-    const/4 v2, 0x0
-
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v8
 
+    const/4 v6, 0x0
+
+    :try_start_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -564,19 +598,20 @@
 
     sget-object v1, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->WFC_IS_PROVISIONED_CONTENT_URI:Landroid/net/Uri;
 
-    move-object v3, v2
+    const/4 v2, 0x0
 
-    move-object v4, v2
+    const/4 v3, 0x0
 
-    move-object v5, v2
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
 
     invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_0
 
-    :try_start_0
     invoke-interface {v6}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v0
@@ -603,6 +638,8 @@
     move-result-object v8
 
     :cond_0
+    if-eqz v6, :cond_1
+
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     :cond_1
@@ -621,6 +658,8 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    if-eqz v6, :cond_1
+
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     goto :goto_0
@@ -628,18 +667,22 @@
     :catchall_0
     move-exception v0
 
+    if-eqz v6, :cond_2
+
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
+    :cond_2
     throw v0
 .end method
 
 .method private queryWfcState()I
     .locals 9
 
-    const/4 v2, 0x0
-
     const/4 v8, 0x0
 
+    const/4 v6, 0x0
+
+    :try_start_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -648,19 +691,20 @@
 
     sget-object v1, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->WFC_STATE_CONTENT_URI:Landroid/net/Uri;
 
-    move-object v3, v2
+    const/4 v2, 0x0
 
-    move-object v4, v2
+    const/4 v3, 0x0
 
-    move-object v5, v2
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
 
     invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_0
 
-    :try_start_0
     invoke-interface {v6}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v0
@@ -677,6 +721,8 @@
     move-result v8
 
     :cond_0
+    if-eqz v6, :cond_1
+
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     :cond_1
@@ -691,6 +737,8 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    if-eqz v6, :cond_1
+
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     goto :goto_0
@@ -698,8 +746,11 @@
     :catchall_0
     move-exception v0
 
+    if-eqz v6, :cond_2
+
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
+    :cond_2
     throw v0
 .end method
 
@@ -803,6 +854,24 @@
 
 
 # virtual methods
+.method public bridge synthetic getDetailAdapter()Lcom/android/systemui/plugins/qs/DetailAdapter;
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->getDetailAdapter()Lcom/android/systemui/qs/tiles/WifiCallingSprTile$WifiCallingDetailAdapter;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public getDetailAdapter()Lcom/android/systemui/qs/tiles/WifiCallingSprTile$WifiCallingDetailAdapter;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mDetailAdapter:Lcom/android/systemui/qs/tiles/WifiCallingSprTile$WifiCallingDetailAdapter;
+
+    return-object v0
+.end method
+
 .method public getLongClickIntent()Landroid/content/Intent;
     .locals 1
 
@@ -810,7 +879,9 @@
 
     if-eqz v0, :cond_0
 
-    sget-object v0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->WIFICALLING_SETTINGS_SPR:Landroid/content/Intent;
+    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->getWfcSettingsIntent()Landroid/content/Intent;
+
+    move-result-object v0
 
     return-object v0
 
@@ -823,7 +894,7 @@
 .method public getMetricsCategory()I
     .locals 1
 
-    const/16 v0, 0x1f4
+    const/16 v0, 0x1390
 
     return v0
 .end method
@@ -831,9 +902,26 @@
 .method public getTileLabel()Ljava/lang/CharSequence;
     .locals 2
 
+    invoke-static {}, Lcom/android/systemui/statusbar/phone/VoWiFiStatusController;->isCallingPlus()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f03bb
+    const v1, 0x7f1208c3
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mContext:Landroid/content/Context;
+
+    const v1, 0x7f120946
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -843,50 +931,43 @@
 .end method
 
 .method public handleClick()V
-    .locals 5
+    .locals 3
 
-    const/4 v2, 0x1
-
-    const/4 v1, 0x0
-
-    iget-object v3, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mContext:Landroid/content/Context;
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->getMetricsCategory()I
 
-    move-result v4
+    move-result v2
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mState:Lcom/android/systemui/qs/QSTile$State;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
 
-    check-cast v0, Lcom/android/systemui/qs/QSTile$BooleanState;
+    check-cast v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
-    iget-boolean v0, v0, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
+    iget-boolean v0, v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    move v0, v1
+    invoke-static {v1, v2, v0}, Lcom/android/internal/logging/MetricsLogger;->action(Landroid/content/Context;IZ)V
 
-    :goto_0
-    invoke-static {v3, v4, v0}, Lcom/android/internal/logging/MetricsLogger;->action(Landroid/content/Context;IZ)V
-
-    iget-object v3, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->TAG:Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->TAG:Ljava/lang/String;
 
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "handleClick : "
+    const-string/jumbo v2, "handleClick : "
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v2
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mState:Lcom/android/systemui/qs/QSTile$State;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
 
-    check-cast v0, Lcom/android/systemui/qs/QSTile$BooleanState;
+    check-cast v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
-    iget-boolean v0, v0, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
+    iget-boolean v0, v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
 
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
@@ -894,47 +975,44 @@
 
     move-result-object v0
 
-    invoke-static {v3, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mState:Lcom/android/systemui/qs/QSTile$State;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
 
-    check-cast v0, Lcom/android/systemui/qs/QSTile$BooleanState;
+    check-cast v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
-    iget-boolean v0, v0, Lcom/android/systemui/qs/QSTile$BooleanState;->dim:Z
+    iget v0, v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->state:I
 
-    if-eqz v0, :cond_1
+    if-nez v0, :cond_0
 
     return-void
 
     :cond_0
-    move v0, v2
+    const/4 v0, 0x1
 
-    goto :goto_0
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    :cond_1
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mState:Lcom/android/systemui/qs/QSTile$State;
+    move-result-object v0
 
-    check-cast v0, Lcom/android/systemui/qs/QSTile$BooleanState;
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->handleRefreshState(Ljava/lang/Object;)V
 
-    iget-boolean v0, v0, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
 
-    if-eqz v0, :cond_2
+    check-cast v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
-    :goto_1
-    invoke-direct {p0, v1}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->setMode(Z)V
+    iget-boolean v0, v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
+
+    xor-int/lit8 v0, v0, 0x1
+
+    invoke-direct {p0, v0}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->setMode(Z)V
 
     return-void
-
-    :cond_2
-    move v1, v2
-
-    goto :goto_1
 .end method
 
 .method protected handleDestroy()V
     .locals 2
 
-    invoke-super {p0}, Lcom/android/systemui/qs/QSTile;->handleDestroy()V
+    invoke-super {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->handleDestroy()V
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mContext:Landroid/content/Context;
 
@@ -942,207 +1020,9 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    return-void
-.end method
-
-.method protected handleUpdateState(Lcom/android/systemui/qs/QSTile$BooleanState;Ljava/lang/Object;)V
-    .locals 2
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->isWfcEnabled()Z
-
-    move-result v0
-
-    iput-boolean v0, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mContext:Landroid/content/Context;
-
-    const v1, 0x7f0f03bb
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->label:Ljava/lang/CharSequence;
-
     sget-boolean v0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mSprVowifiState:Z
 
     if-eqz v0, :cond_0
-
-    const v0, 0x7f0203f9
-
-    invoke-static {v0}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
-
-    move-result-object v0
-
-    iput-object v0, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->icon:Lcom/android/systemui/qs/QSTile$Icon;
-
-    :goto_0
-    sget-boolean v0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->isButtonDim:Z
-
-    iput-boolean v0, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->dim:Z
-
-    return-void
-
-    :cond_0
-    const v0, 0x7f020403
-
-    invoke-static {v0}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
-
-    move-result-object v0
-
-    iput-object v0, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->icon:Lcom/android/systemui/qs/QSTile$Icon;
-
-    goto :goto_0
-.end method
-
-.method protected bridge synthetic handleUpdateState(Lcom/android/systemui/qs/QSTile$State;Ljava/lang/Object;)V
-    .locals 0
-
-    check-cast p1, Lcom/android/systemui/qs/QSTile$BooleanState;
-
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->handleUpdateState(Lcom/android/systemui/qs/QSTile$BooleanState;Ljava/lang/Object;)V
-
-    return-void
-.end method
-
-.method public isAvailable()Z
-    .locals 7
-
-    const/4 v3, 0x0
-
-    invoke-static {}, Lcom/android/systemui/statusbar/phone/VoWiFiStatusController;->getVowifiState()Z
-
-    move-result v0
-
-    const-string/jumbo v4, "ro.csc.sales_code"
-
-    const-string/jumbo v5, "unknown"
-
-    invoke-static {v4, v5}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    const-string/jumbo v4, "ro.csc.omcnw_code"
-
-    const-string/jumbo v5, "unknown"
-
-    invoke-static {v4, v5}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string/jumbo v4, "unknown"
-
-    invoke-virtual {v4, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_0
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_2
-
-    :cond_0
-    :goto_0
-    iget-object v4, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->TAG:Ljava/lang/String;
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "isavailable is : "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-eqz v0, :cond_1
-
-    iget-object v4, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mHost:Lcom/android/systemui/qs/QSTile$Host;
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->getTileSpec()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-interface {v4, v5}, Lcom/android/systemui/qs/QSTile$Host;->shouldBeHiddenByKnox(Ljava/lang/String;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_3
-
-    :cond_1
-    :goto_1
-    return v3
-
-    :cond_2
-    const/4 v0, 0x0
-
-    goto :goto_0
-
-    :cond_3
-    const/4 v3, 0x1
-
-    goto :goto_1
-.end method
-
-.method public newTileState()Lcom/android/systemui/qs/QSTile$BooleanState;
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/qs/QSTile$BooleanState;
-
-    invoke-direct {v0}, Lcom/android/systemui/qs/QSTile$BooleanState;-><init>()V
-
-    return-object v0
-.end method
-
-.method public bridge synthetic newTileState()Lcom/android/systemui/qs/QSTile$State;
-    .locals 1
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->newTileState()Lcom/android/systemui/qs/QSTile$BooleanState;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public setListening(Z)V
-    .locals 2
-
-    iget-boolean v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mListening:Z
-
-    if-ne v0, p1, :cond_0
-
-    return-void
-
-    :cond_0
-    iput-boolean p1, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mListening:Z
-
-    if-eqz p1, :cond_1
-
-    sget-boolean v0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mSprVowifiState:Z
-
-    if-eqz v0, :cond_2
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->registerObserverForSprWfc()V
-
-    return-void
-
-    :cond_1
-    sget-boolean v0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mSprVowifiState:Z
-
-    if-eqz v0, :cond_2
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mContext:Landroid/content/Context;
 
@@ -1154,6 +1034,361 @@
 
     invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
+    :cond_0
+    return-void
+.end method
+
+.method protected handleSecondaryClick()V
+    .locals 1
+
+    sget-boolean v0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mSprVowifiState:Z
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->showDetail(Z)V
+
+    :cond_0
+    return-void
+.end method
+
+.method protected handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$BooleanState;Ljava/lang/Object;)V
+    .locals 3
+
+    const/4 v2, 0x0
+
+    const/4 v1, 0x1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
+
+    check-cast v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
+
+    iget-boolean v0, v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
+
+    iput-boolean v0, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
+
+    check-cast v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
+
+    iget v0, v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->state:I
+
+    iput v0, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->state:I
+
+    iput-boolean v1, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->dualTarget:Z
+
+    instance-of v0, p2, Ljava/lang/Boolean;
+
+    if-eqz v0, :cond_1
+
+    move-object v0, p2
+
+    check-cast v0, Ljava/lang/Boolean;
+
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iput v2, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->state:I
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, " handleUpdateState:  dim  "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_0
+    invoke-static {}, Lcom/android/systemui/statusbar/phone/VoWiFiStatusController;->isCallingPlus()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_6
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mContext:Landroid/content/Context;
+
+    const v1, 0x7f1208c3
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->label:Ljava/lang/CharSequence;
+
+    :goto_1
+    return-void
+
+    :cond_1
+    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->isWfcEnabled()Z
+
+    move-result v0
+
+    iput-boolean v0, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
+
+    iget-boolean v0, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mDetailAdapter:Lcom/android/systemui/qs/tiles/WifiCallingSprTile$WifiCallingDetailAdapter;
+
+    invoke-static {v0, v1}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile$WifiCallingDetailAdapter;->-wrap0(Lcom/android/systemui/qs/tiles/WifiCallingSprTile$WifiCallingDetailAdapter;Z)V
+
+    :goto_2
+    sget-boolean v0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mSprVowifiState:Z
+
+    if-eqz v0, :cond_4
+
+    invoke-static {}, Lcom/android/systemui/statusbar/phone/VoWiFiStatusController;->isCallingPlus()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    const v0, 0x7f08053b
+
+    invoke-static {v0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl$ResourceIcon;->get(I)Lcom/android/systemui/plugins/qs/QSTile$Icon;
+
+    move-result-object v0
+
+    iput-object v0, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->icon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
+
+    :goto_3
+    iget-boolean v0, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
+
+    if-eqz v0, :cond_5
+
+    const/4 v0, 0x2
+
+    :goto_4
+    iput v0, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->state:I
+
+    iget-boolean v0, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->fireToggleStateChanged(Z)V
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, " handleUpdateState:  update  "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-boolean v2, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
     :cond_2
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mDetailAdapter:Lcom/android/systemui/qs/tiles/WifiCallingSprTile$WifiCallingDetailAdapter;
+
+    invoke-static {v0, v2}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile$WifiCallingDetailAdapter;->-wrap0(Lcom/android/systemui/qs/tiles/WifiCallingSprTile$WifiCallingDetailAdapter;Z)V
+
+    goto :goto_2
+
+    :cond_3
+    const v0, 0x7f08053d
+
+    invoke-static {v0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl$ResourceIcon;->get(I)Lcom/android/systemui/plugins/qs/QSTile$Icon;
+
+    move-result-object v0
+
+    iput-object v0, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->icon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
+
+    goto :goto_3
+
+    :cond_4
+    const v0, 0x7f080545
+
+    invoke-static {v0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl$ResourceIcon;->get(I)Lcom/android/systemui/plugins/qs/QSTile$Icon;
+
+    move-result-object v0
+
+    iput-object v0, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->icon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
+
+    goto :goto_3
+
+    :cond_5
+    move v0, v1
+
+    goto :goto_4
+
+    :cond_6
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mContext:Landroid/content/Context;
+
+    const v1, 0x7f120946
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->label:Ljava/lang/CharSequence;
+
+    goto :goto_1
+.end method
+
+.method protected bridge synthetic handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$State;Ljava/lang/Object;)V
+    .locals 0
+
+    check-cast p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$BooleanState;Ljava/lang/Object;)V
+
+    return-void
+.end method
+
+.method public isAvailable()Z
+    .locals 6
+
+    invoke-static {}, Lcom/android/systemui/statusbar/phone/VoWiFiStatusController;->getVowifiState()Z
+
+    move-result v0
+
+    const-string/jumbo v3, "ro.csc.sales_code"
+
+    const-string/jumbo v4, "unknown"
+
+    invoke-static {v3, v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "ro.csc.omcnw_code"
+
+    const-string/jumbo v4, "unknown"
+
+    invoke-static {v3, v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string/jumbo v3, "unknown"
+
+    invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_0
+
+    const/4 v0, 0x0
+
+    :cond_0
+    sput-boolean v0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mSprVowifiState:Z
+
+    iget-object v3, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->TAG:Ljava/lang/String;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "isavailable is : "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-eqz v0, :cond_1
+
+    iget-object v3, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mHost:Lcom/android/systemui/qs/QSHost;
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->getTileSpec()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-interface {v3, v4}, Lcom/android/systemui/qs/QSHost;->shouldBeHiddenByKnox(Ljava/lang/String;)Z
+
+    move-result v3
+
+    xor-int/lit8 v3, v3, 0x1
+
+    :goto_0
+    return v3
+
+    :cond_1
+    const/4 v3, 0x0
+
+    goto :goto_0
+.end method
+
+.method public newTileState()Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
+    .locals 1
+
+    new-instance v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
+
+    invoke-direct {v0}, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;-><init>()V
+
+    return-object v0
+.end method
+
+.method public bridge synthetic newTileState()Lcom/android/systemui/plugins/qs/QSTile$State;
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->newTileState()Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public setListening(Z)V
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mListening:Z
+
+    if-ne v0, p1, :cond_0
+
+    return-void
+
+    :cond_0
+    iput-boolean p1, p0, Lcom/android/systemui/qs/tiles/WifiCallingSprTile;->mListening:Z
+
     return-void
 .end method

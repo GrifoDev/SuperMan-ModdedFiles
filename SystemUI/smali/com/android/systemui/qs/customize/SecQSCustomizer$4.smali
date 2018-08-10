@@ -3,7 +3,7 @@
 .source "SecQSCustomizer.java"
 
 # interfaces
-.implements Landroid/view/View$OnDragListener;
+.implements Landroid/view/View$OnLongClickListener;
 
 
 # annotations
@@ -34,302 +34,240 @@
 
 
 # virtual methods
-.method public onDrag(Landroid/view/View;Landroid/view/DragEvent;)Z
+.method public onLongClick(Landroid/view/View;)Z
     .locals 8
 
-    const/4 v7, 0x1
+    const/4 v6, 0x0
 
-    const/4 v3, 0x1
+    const/4 v7, 0x0
 
-    invoke-virtual {p2}, Landroid/view/DragEvent;->getAction()I
+    const/16 v4, 0x1388
 
-    move-result v0
+    invoke-virtual {p1, v6}, Landroid/view/View;->setBackgroundResource(I)V
+
+    iget-object v5, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$4;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
+
+    move-object v3, p1
+
+    check-cast v3, Lcom/android/systemui/qs/customize/CustomizeTileView;
+
+    invoke-static {v5, v3}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-set2(Lcom/android/systemui/qs/customize/SecQSCustomizer;Lcom/android/systemui/qs/customize/CustomizeTileView;)Lcom/android/systemui/qs/customize/CustomizeTileView;
+
+    iget-object v3, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$4;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
+
+    invoke-static {v3}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-get7(Lcom/android/systemui/qs/customize/SecQSCustomizer;)Lcom/android/systemui/qs/customize/CustomizeTileView;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v6}, Lcom/android/systemui/qs/customize/CustomizeTileView;->setHapticFeedbackEnabled(Z)V
+
+    iget-object v5, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$4;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
 
     invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    check-cast v4, Ljava/lang/Integer;
+    check-cast v3, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;
 
-    invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
+    invoke-static {v5, v3}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-set3(Lcom/android/systemui/qs/customize/SecQSCustomizer;Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;)Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;
 
-    move-result v2
+    iget-object v3, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$4;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
+
+    new-instance v5, Lcom/android/systemui/qs/customize/SecQSCustomizer$4$1;
+
+    invoke-direct {v5, p0, p1}, Lcom/android/systemui/qs/customize/SecQSCustomizer$4$1;-><init>(Lcom/android/systemui/qs/customize/SecQSCustomizer$4;Landroid/view/View;)V
+
+    invoke-static {v3, v5}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-set4(Lcom/android/systemui/qs/customize/SecQSCustomizer;Landroid/view/View$DragShadowBuilder;)Landroid/view/View$DragShadowBuilder;
 
     invoke-virtual {p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-interface {v4}, Landroid/view/ViewParent;->getParent()Landroid/view/ViewParent;
+    invoke-interface {v3}, Landroid/view/ViewParent;->getParent()Landroid/view/ViewParent;
 
     move-result-object v1
 
     check-cast v1, Landroid/view/View;
 
-    packed-switch v0, :pswitch_data_0
+    iget-object v5, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$4;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
+
+    invoke-virtual {v1}, Landroid/view/View;->getId()I
+
+    move-result v3
+
+    const v6, 0x7f0a03f2
+
+    if-ne v3, v6, :cond_2
+
+    move v3, v4
+
+    :goto_0
+    invoke-static {v5, v3}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-set5(Lcom/android/systemui/qs/customize/SecQSCustomizer;I)I
+
+    iget-object v3, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$4;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
+
+    invoke-static {v3}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-get11(Lcom/android/systemui/qs/customize/SecQSCustomizer;)I
+
+    move-result v3
+
+    if-ne v3, v4, :cond_3
+
+    iget-object v3, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$4;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
+
+    invoke-static {v3}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-get1(Lcom/android/systemui/qs/customize/SecQSCustomizer;)Lcom/android/systemui/qs/customize/SecQSCustomizer$QSCustomizerTileLayout;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;
+
+    :goto_1
+    iget-object v3, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$4;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
+
+    invoke-static {v3}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-get11(Lcom/android/systemui/qs/customize/SecQSCustomizer;)I
+
+    move-result v3
+
+    if-eq v3, v4, :cond_0
+
+    iget-object v3, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$4;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
+
+    invoke-static {v3}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-get8(Lcom/android/systemui/qs/customize/SecQSCustomizer;)Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v3}, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;->removeBadge(Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;)V
+
+    iget-object v3, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$4;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
+
+    invoke-static {v3}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-get8(Lcom/android/systemui/qs/customize/SecQSCustomizer;)Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;
+
+    move-result-object v3
+
+    iget-object v2, v3, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->spec:Ljava/lang/String;
+
+    if-eqz v2, :cond_0
+
+    const-string/jumbo v3, "custom("
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    iget-object v3, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$4;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
+
+    invoke-static {v3}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-get5(Lcom/android/systemui/qs/customize/SecQSCustomizer;)Lcom/android/systemui/qs/QSTileHost;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$4;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
+
+    invoke-static {v4}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-get8(Lcom/android/systemui/qs/customize/SecQSCustomizer;)Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;
+
+    move-result-object v4
+
+    iget-object v4, v4, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->spec:Ljava/lang/String;
+
+    invoke-static {v4}, Lcom/android/systemui/qs/external/CustomTile;->getComponentFromSpec(Ljava/lang/String;)Landroid/content/ComponentName;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Lcom/android/systemui/qs/QSTileHost;->removeCustomTileFromNewCustomTileList(Landroid/content/ComponentName;)V
 
     :cond_0
-    :goto_0
-    :pswitch_0
-    return v3
+    const-string/jumbo v3, "SecQSCustomizer"
 
-    :pswitch_1
-    const-string/jumbo v4, "SecQSCustomizer"
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v5, "onLongClick mWhereAmI = "
 
-    const-string/jumbo v6, "ACTION_DROP mWhereAmI = "
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v4
+
+    iget-object v5, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$4;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
+
+    invoke-static {v5}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-get11(Lcom/android/systemui/qs/customize/SecQSCustomizer;)I
+
+    move-result v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, "v = "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v5
 
-    iget-object v6, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$4;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-static {v6}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-get9(Lcom/android/systemui/qs/customize/SecQSCustomizer;)I
+    move-result-object v4
 
-    move-result v6
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v5
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    iget-object v3, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$4;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
 
-    move-result-object v5
+    invoke-static {v3}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-wrap4(Lcom/android/systemui/qs/customize/SecQSCustomizer;)V
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    iget-object v3, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$4;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
 
     iget-object v4, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$4;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
 
-    invoke-static {v4, v7}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-set1(Lcom/android/systemui/qs/customize/SecQSCustomizer;Z)Z
+    invoke-static {v4}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-get10(Lcom/android/systemui/qs/customize/SecQSCustomizer;)Landroid/view/View$DragShadowBuilder;
 
-    iget-object v4, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$4;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
+    move-result-object v4
 
-    invoke-static {v4}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-wrap3(Lcom/android/systemui/qs/customize/SecQSCustomizer;)V
+    const/high16 v5, 0x100000
 
-    goto :goto_0
-
-    :pswitch_2
-    invoke-virtual {v1}, Landroid/view/View;->getId()I
+    invoke-virtual {p1, v7, v4, v7, v5}, Landroid/view/View;->startDrag(Landroid/content/ClipData;Landroid/view/View$DragShadowBuilder;Ljava/lang/Object;I)Z
 
     move-result v4
 
-    const v5, 0x7f130375
+    invoke-static {v3, v4}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-set0(Lcom/android/systemui/qs/customize/SecQSCustomizer;Z)Z
 
-    if-ne v4, v5, :cond_1
+    iget-object v3, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$4;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
 
-    iget-object v4, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$4;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
+    invoke-static {v3}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-get4(Lcom/android/systemui/qs/customize/SecQSCustomizer;)Z
 
-    invoke-static {v4}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-get9(Lcom/android/systemui/qs/customize/SecQSCustomizer;)I
+    move-result v3
 
-    move-result v4
+    if-nez v3, :cond_1
 
-    const/16 v5, 0x1388
+    iget-object v3, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$4;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
 
-    if-ne v4, v5, :cond_1
-
-    const-string/jumbo v4, "SecQSCustomizer"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "ACTIVE TO AVAILABLE mWhereAmI = "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    iget-object v6, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$4;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
-
-    invoke-static {v6}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-get9(Lcom/android/systemui/qs/customize/SecQSCustomizer;)I
-
-    move-result v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v4, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$4;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
-
-    const/16 v5, 0x3e8
-
-    invoke-static {v4, v5, v2}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-wrap0(Lcom/android/systemui/qs/customize/SecQSCustomizer;II)V
-
-    goto :goto_0
+    invoke-virtual {v3}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->requestLayout()V
 
     :cond_1
-    invoke-virtual {v1}, Landroid/view/View;->getId()I
+    const/4 v3, 0x1
 
-    move-result v4
-
-    const v5, 0x7f130371
-
-    if-ne v4, v5, :cond_2
-
-    iget-object v4, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$4;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
-
-    invoke-static {v4}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-get9(Lcom/android/systemui/qs/customize/SecQSCustomizer;)I
-
-    move-result v4
-
-    const/16 v5, 0x1770
-
-    if-ne v4, v5, :cond_2
-
-    const-string/jumbo v4, "SecQSCustomizer"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "AVAILABLE TO ACTIVEmWhereAmI = "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    iget-object v6, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$4;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
-
-    invoke-static {v6}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-get9(Lcom/android/systemui/qs/customize/SecQSCustomizer;)I
-
-    move-result v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v4, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$4;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
-
-    const/16 v5, 0x7d0
-
-    invoke-static {v4, v5, v2}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-wrap0(Lcom/android/systemui/qs/customize/SecQSCustomizer;II)V
-
-    goto/16 :goto_0
+    return v3
 
     :cond_2
-    invoke-virtual {p1}, Landroid/view/View;->getId()I
-
-    move-result v4
-
-    const v5, 0x7f130372
-
-    if-ne v4, v5, :cond_3
-
-    iget-object v4, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$4;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
-
-    const/16 v5, 0xcc
-
-    invoke-static {v4, v5}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-wrap2(Lcom/android/systemui/qs/customize/SecQSCustomizer;I)V
+    const/16 v3, 0x1770
 
     goto/16 :goto_0
 
     :cond_3
-    invoke-virtual {p1}, Landroid/view/View;->getId()I
+    iget-object v3, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$4;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
 
-    move-result v4
+    invoke-static {v3}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-get2(Lcom/android/systemui/qs/customize/SecQSCustomizer;)Lcom/android/systemui/qs/customize/SecQSCustomizer$QSCustomizerTileLayout;
 
-    const v5, 0x7f130370
+    move-result-object v0
 
-    if-ne v4, v5, :cond_4
+    check-cast v0, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;
 
-    iget-object v4, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$4;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
-
-    const/16 v5, 0xcb
-
-    invoke-static {v4, v5}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-wrap2(Lcom/android/systemui/qs/customize/SecQSCustomizer;I)V
-
-    goto/16 :goto_0
-
-    :cond_4
-    iget-object v4, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$4;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
-
-    invoke-static {v4, v2}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-wrap1(Lcom/android/systemui/qs/customize/SecQSCustomizer;I)V
-
-    goto/16 :goto_0
-
-    :pswitch_3
-    iget-object v4, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$4;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
-
-    const/4 v5, 0x0
-
-    invoke-static {v4, v5}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-set1(Lcom/android/systemui/qs/customize/SecQSCustomizer;Z)Z
-
-    :pswitch_4
-    iget-object v4, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$4;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
-
-    invoke-static {v4}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-wrap6(Lcom/android/systemui/qs/customize/SecQSCustomizer;)V
-
-    goto/16 :goto_0
-
-    :pswitch_5
-    iget-object v4, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$4;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
-
-    invoke-static {v4}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-get5(Lcom/android/systemui/qs/customize/SecQSCustomizer;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_0
-
-    const-string/jumbo v4, "SecQSCustomizer"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "ACTION_DRAG_ENDED mWhereAmI = "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    iget-object v6, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$4;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
-
-    invoke-static {v6}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-get9(Lcom/android/systemui/qs/customize/SecQSCustomizer;)I
-
-    move-result v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v4, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$4;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
-
-    invoke-static {v4}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-wrap3(Lcom/android/systemui/qs/customize/SecQSCustomizer;)V
-
-    iget-object v4, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$4;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
-
-    invoke-static {v4, v7}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-set1(Lcom/android/systemui/qs/customize/SecQSCustomizer;Z)Z
-
-    goto/16 :goto_0
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_3
-        :pswitch_0
-        :pswitch_1
-        :pswitch_5
-        :pswitch_2
-        :pswitch_4
-    .end packed-switch
+    goto/16 :goto_1
 .end method

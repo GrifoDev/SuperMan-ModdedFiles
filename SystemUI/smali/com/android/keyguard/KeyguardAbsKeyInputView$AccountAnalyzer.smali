@@ -89,12 +89,12 @@
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Lcom/android/keyguard/KeyguardAbsKeyInputView;->-set0(Lcom/android/keyguard/KeyguardAbsKeyInputView;Z)Z
+    invoke-static {v0, v1}, Lcom/android/keyguard/KeyguardAbsKeyInputView;->-set2(Lcom/android/keyguard/KeyguardAbsKeyInputView;Z)Z
 
     :cond_0
     iget-object v0, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView$AccountAnalyzer;->this$0:Lcom/android/keyguard/KeyguardAbsKeyInputView;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardAbsKeyInputView;->-get1(Lcom/android/keyguard/KeyguardAbsKeyInputView;)Z
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardAbsKeyInputView;->-get5(Lcom/android/keyguard/KeyguardAbsKeyInputView;)Z
 
     move-result v0
 
@@ -178,7 +178,7 @@
 
     const/4 v3, 0x1
 
-    invoke-static {v2, v3}, Lcom/android/keyguard/KeyguardAbsKeyInputView;->-set0(Lcom/android/keyguard/KeyguardAbsKeyInputView;Z)Z
+    invoke-static {v2, v3}, Lcom/android/keyguard/KeyguardAbsKeyInputView;->-set2(Lcom/android/keyguard/KeyguardAbsKeyInputView;Z)Z
     :try_end_0
     .catch Landroid/accounts/OperationCanceledException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
@@ -231,7 +231,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView$AccountAnalyzer;->this$0:Lcom/android/keyguard/KeyguardAbsKeyInputView;
 
-    invoke-static {v0, v1}, Lcom/android/keyguard/KeyguardAbsKeyInputView;->-set0(Lcom/android/keyguard/KeyguardAbsKeyInputView;Z)Z
+    invoke-static {v0, v1}, Lcom/android/keyguard/KeyguardAbsKeyInputView;->-set2(Lcom/android/keyguard/KeyguardAbsKeyInputView;Z)Z
 
     iput v1, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView$AccountAnalyzer;->mAccountIndex:I
 

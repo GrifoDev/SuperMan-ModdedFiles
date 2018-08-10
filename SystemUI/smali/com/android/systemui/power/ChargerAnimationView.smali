@@ -24,7 +24,9 @@
 
 .field private mAnimationPlaying:Z
 
-.field private mBackGroundAnim:Landroid/animation/AnimatorSet;
+.field private mBackGroundAnim_Cable:Landroid/animation/AnimatorSet;
+
+.field private mBackGroundAnim_WireLess:Landroid/animation/AnimatorSet;
 
 .field private mBackGroundView:Landroid/widget/LinearLayout;
 
@@ -43,8 +45,6 @@
 .field private mCurrentChargerType:I
 
 .field private mCurrentOrientation:I
-
-.field private mDVFSHelper:Landroid/os/DVFSHelper;
 
 .field private mDisplay:Landroid/view/Display;
 
@@ -116,15 +116,7 @@
     return v0
 .end method
 
-.method static synthetic -get7(Lcom/android/systemui/power/ChargerAnimationView;)Landroid/os/DVFSHelper;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/power/ChargerAnimationView;->mDVFSHelper:Landroid/os/DVFSHelper;
-
-    return-object v0
-.end method
-
-.method static synthetic -get8(Lcom/android/systemui/power/ChargerAnimationView;)Landroid/graphics/drawable/AnimationDrawable;
+.method static synthetic -get7(Lcom/android/systemui/power/ChargerAnimationView;)Landroid/graphics/drawable/AnimationDrawable;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/power/ChargerAnimationView;->mFrameAnimation_Cable:Landroid/graphics/drawable/AnimationDrawable;
@@ -132,7 +124,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get9(Lcom/android/systemui/power/ChargerAnimationView;)Landroid/graphics/drawable/AnimationDrawable;
+.method static synthetic -get8(Lcom/android/systemui/power/ChargerAnimationView;)Landroid/graphics/drawable/AnimationDrawable;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/power/ChargerAnimationView;->mFrameAnimation_Wireless:Landroid/graphics/drawable/AnimationDrawable;
@@ -195,168 +187,168 @@
 
     :array_0
     .array-data 4
-        0x7f02005a
-        0x7f02005b
-        0x7f02005c
-        0x7f02005d
-        0x7f02005e
-        0x7f02005f
-        0x7f020060
-        0x7f020061
-        0x7f020062
-        0x7f020063
-        0x7f020064
-        0x7f020065
-        0x7f020066
-        0x7f020067
-        0x7f020068
-        0x7f020069
-        0x7f02006a
-        0x7f02006b
-        0x7f02006c
-        0x7f02006d
-        0x7f02006e
-        0x7f02006f
-        0x7f020070
-        0x7f020071
-        0x7f020072
-        0x7f020073
-        0x7f020074
-        0x7f020075
-        0x7f020076
-        0x7f020077
-        0x7f020078
-        0x7f020079
-        0x7f02007a
-        0x7f02007b
-        0x7f02007c
-        0x7f02007d
-        0x7f02007e
-        0x7f02007f
-        0x7f020080
-        0x7f020081
-        0x7f020082
-        0x7f020083
-        0x7f020084
-        0x7f020085
-        0x7f020086
-        0x7f020087
-        0x7f020088
-        0x7f020089
-        0x7f02008a
-        0x7f02008b
-        0x7f02008c
-        0x7f02008d
-        0x7f02008e
-        0x7f02008f
-        0x7f020090
-        0x7f020091
-        0x7f020092
-        0x7f020093
-        0x7f020094
-        0x7f020095
-        0x7f020096
-        0x7f020097
-        0x7f020098
-        0x7f020099
-        0x7f02009a
-        0x7f02009b
-        0x7f02009c
-        0x7f02009d
-        0x7f02009e
-        0x7f02009f
-        0x7f0200a0
-        0x7f0200a1
-        0x7f0200a2
-        0x7f0200a3
-        0x7f0200a4
-        0x7f0200a5
-        0x7f0200a6
-        0x7f0200a7
-        0x7f0200a8
+        0x7f080090
+        0x7f080091
+        0x7f080092
+        0x7f080093
+        0x7f080094
+        0x7f080095
+        0x7f080096
+        0x7f080097
+        0x7f080098
+        0x7f080099
+        0x7f08009a
+        0x7f08009b
+        0x7f08009c
+        0x7f08009d
+        0x7f08009e
+        0x7f08009f
+        0x7f0800a0
+        0x7f0800a1
+        0x7f0800a2
+        0x7f0800a3
+        0x7f0800a4
+        0x7f0800a5
+        0x7f0800a6
+        0x7f0800a7
+        0x7f0800a8
+        0x7f0800a9
+        0x7f0800aa
+        0x7f0800ab
+        0x7f0800ac
+        0x7f0800ad
+        0x7f0800ae
+        0x7f0800af
+        0x7f0800b0
+        0x7f0800b1
+        0x7f0800b2
+        0x7f0800b3
+        0x7f0800b4
+        0x7f0800b5
+        0x7f0800b6
+        0x7f0800b7
+        0x7f0800b8
+        0x7f0800b9
+        0x7f0800ba
+        0x7f0800bb
+        0x7f0800bc
+        0x7f0800bd
+        0x7f0800be
+        0x7f0800bf
+        0x7f0800c0
+        0x7f0800c1
+        0x7f0800c2
+        0x7f0800c3
+        0x7f0800c4
+        0x7f0800c5
+        0x7f0800c6
+        0x7f0800c7
+        0x7f0800c8
+        0x7f0800c9
+        0x7f0800ca
+        0x7f0800cb
+        0x7f0800cc
+        0x7f0800cd
+        0x7f0800ce
+        0x7f0800cf
+        0x7f0800d0
+        0x7f0800d1
+        0x7f0800d2
+        0x7f0800d3
+        0x7f0800d4
+        0x7f0800d5
+        0x7f0800d6
+        0x7f0800d7
+        0x7f0800d8
+        0x7f0800d9
+        0x7f0800da
+        0x7f0800db
+        0x7f0800dc
+        0x7f0800dd
+        0x7f0800de
     .end array-data
 
     :array_1
     .array-data 4
-        0x7f0200a9
-        0x7f0200aa
-        0x7f0200ab
-        0x7f0200ac
-        0x7f0200ad
-        0x7f0200ae
-        0x7f0200af
-        0x7f0200b0
-        0x7f0200b1
-        0x7f0200b2
-        0x7f0200b3
-        0x7f0200b4
-        0x7f0200b5
-        0x7f0200b6
-        0x7f0200b7
-        0x7f0200b8
-        0x7f0200b9
-        0x7f0200ba
-        0x7f0200bb
-        0x7f0200bc
-        0x7f0200bd
-        0x7f0200be
-        0x7f0200bf
-        0x7f0200c0
-        0x7f0200c1
-        0x7f0200c2
-        0x7f0200c3
-        0x7f0200c4
-        0x7f0200c5
-        0x7f0200c6
-        0x7f0200c7
-        0x7f0200c8
-        0x7f0200c9
-        0x7f0200ca
-        0x7f0200cb
-        0x7f0200cc
-        0x7f0200cd
-        0x7f0200ce
-        0x7f0200cf
-        0x7f0200d0
-        0x7f0200d1
-        0x7f0200d2
-        0x7f0200d3
-        0x7f0200d4
-        0x7f0200d5
-        0x7f0200d6
-        0x7f0200d7
-        0x7f0200d8
-        0x7f0200d9
-        0x7f0200da
-        0x7f0200db
-        0x7f0200dc
-        0x7f0200dd
-        0x7f0200de
-        0x7f0200df
-        0x7f0200e0
-        0x7f0200e1
-        0x7f0200e2
-        0x7f0200e3
-        0x7f0200e4
-        0x7f0200e5
-        0x7f0200e6
-        0x7f0200e7
-        0x7f0200e8
-        0x7f0200e9
-        0x7f0200ea
-        0x7f0200eb
-        0x7f0200ec
-        0x7f0200ed
-        0x7f0200ee
-        0x7f0200ef
-        0x7f0200f0
-        0x7f0200f1
-        0x7f0200f2
-        0x7f0200f3
-        0x7f0200f4
-        0x7f0200f5
-        0x7f0200f6
-        0x7f0200f7
+        0x7f0800df
+        0x7f0800e0
+        0x7f0800e1
+        0x7f0800e2
+        0x7f0800e3
+        0x7f0800e4
+        0x7f0800e5
+        0x7f0800e6
+        0x7f0800e7
+        0x7f0800e8
+        0x7f0800e9
+        0x7f0800ea
+        0x7f0800eb
+        0x7f0800ec
+        0x7f0800ed
+        0x7f0800ee
+        0x7f0800ef
+        0x7f0800f0
+        0x7f0800f1
+        0x7f0800f2
+        0x7f0800f3
+        0x7f0800f4
+        0x7f0800f5
+        0x7f0800f6
+        0x7f0800f7
+        0x7f0800f8
+        0x7f0800f9
+        0x7f0800fa
+        0x7f0800fb
+        0x7f0800fc
+        0x7f0800fd
+        0x7f0800fe
+        0x7f0800ff
+        0x7f080100
+        0x7f080101
+        0x7f080102
+        0x7f080103
+        0x7f080104
+        0x7f080105
+        0x7f080106
+        0x7f080107
+        0x7f080108
+        0x7f080109
+        0x7f08010a
+        0x7f08010b
+        0x7f08010c
+        0x7f08010d
+        0x7f08010e
+        0x7f08010f
+        0x7f080110
+        0x7f080111
+        0x7f080112
+        0x7f080113
+        0x7f080114
+        0x7f080115
+        0x7f080116
+        0x7f080117
+        0x7f080118
+        0x7f080119
+        0x7f08011a
+        0x7f08011b
+        0x7f08011c
+        0x7f08011d
+        0x7f08011e
+        0x7f08011f
+        0x7f080120
+        0x7f080121
+        0x7f080122
+        0x7f080123
+        0x7f080124
+        0x7f080125
+        0x7f080126
+        0x7f080127
+        0x7f080128
+        0x7f080129
+        0x7f08012a
+        0x7f08012b
+        0x7f08012c
+        0x7f08012d
     .end array-data
 .end method
 
@@ -415,13 +407,17 @@
 
     const/16 v2, 0x64
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_1
 
     iget v1, p0, Lcom/android/systemui/power/ChargerAnimationView;->mCurrentBatteryLevel:I
 
     iget v2, p0, Lcom/android/systemui/power/ChargerAnimationView;->mBatteryChangeLevel:I
 
-    sub-int v0, v1, v2
+    sub-int/2addr v1, v2
+
+    if-gez v1, :cond_0
+
+    const/4 v0, 0x0
 
     :goto_0
     iget v1, p0, Lcom/android/systemui/power/ChargerAnimationView;->mBatteryChangeLevel:I
@@ -443,6 +439,15 @@
     return-void
 
     :cond_0
+    iget v1, p0, Lcom/android/systemui/power/ChargerAnimationView;->mCurrentBatteryLevel:I
+
+    iget v2, p0, Lcom/android/systemui/power/ChargerAnimationView;->mBatteryChangeLevel:I
+
+    sub-int v0, v1, v2
+
+    goto :goto_0
+
+    :cond_1
     iget v0, p0, Lcom/android/systemui/power/ChargerAnimationView;->mCurrentBatteryLevel:I
 
     goto :goto_0
@@ -487,97 +492,98 @@
 
     const/4 v7, 0x3
 
-    if-ne p1, v7, :cond_0
-
-    const/16 v1, 0x4f
-
-    :goto_0
-    const/4 v2, 0x0
-
-    :goto_1
-    if-ge v2, v1, :cond_3
-
     if-ne p1, v7, :cond_1
 
-    :try_start_0
-    sget-object v4, Lcom/android/systemui/power/ChargerAnimationView;->RESOURCE_ID_ARRAY_WIRELESS:[I
+    const/16 v2, 0x4f
 
-    aget v3, v4, v2
+    :goto_0
+    const/4 v3, 0x0
 
-    :goto_2
+    :goto_1
+    if-ge v3, v2, :cond_4
+
     if-ne p1, v7, :cond_2
 
-    iget-object v4, p0, Lcom/android/systemui/power/ChargerAnimationView;->mFrameAnimation_Wireless:Landroid/graphics/drawable/AnimationDrawable;
+    :try_start_0
+    sget-object v5, Lcom/android/systemui/power/ChargerAnimationView;->RESOURCE_ID_ARRAY_WIRELESS:[I
 
+    aget v4, v5, v3
+
+    :goto_2
     invoke-virtual {p0}, Lcom/android/systemui/power/ChargerAnimationView;->getResources()Landroid/content/res/Resources;
 
     move-result-object v5
 
-    invoke-virtual {v5, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v5, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v5
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    if-ne p1, v7, :cond_3
+
+    iget-object v5, p0, Lcom/android/systemui/power/ChargerAnimationView;->mFrameAnimation_Wireless:Landroid/graphics/drawable/AnimationDrawable;
 
     const/16 v6, 0x11
 
-    invoke-virtual {v4, v5, v6}, Landroid/graphics/drawable/AnimationDrawable;->addFrame(Landroid/graphics/drawable/Drawable;I)V
+    invoke-virtual {v5, v0, v6}, Landroid/graphics/drawable/AnimationDrawable;->addFrame(Landroid/graphics/drawable/Drawable;I)V
 
+    :cond_0
     :goto_3
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
-    :cond_0
-    const/16 v1, 0x4f
+    :cond_1
+    const/16 v2, 0x4f
 
     goto :goto_0
 
-    :cond_1
-    sget-object v4, Lcom/android/systemui/power/ChargerAnimationView;->RESOURCE_ID_ARRAY_CABLE:[I
+    :cond_2
+    sget-object v5, Lcom/android/systemui/power/ChargerAnimationView;->RESOURCE_ID_ARRAY_CABLE:[I
 
-    aget v3, v4, v2
+    aget v4, v5, v3
 
     goto :goto_2
 
-    :cond_2
-    iget-object v4, p0, Lcom/android/systemui/power/ChargerAnimationView;->mFrameAnimation_Cable:Landroid/graphics/drawable/AnimationDrawable;
-
-    invoke-virtual {p0}, Lcom/android/systemui/power/ChargerAnimationView;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v5
+    :cond_3
+    iget-object v5, p0, Lcom/android/systemui/power/ChargerAnimationView;->mFrameAnimation_Cable:Landroid/graphics/drawable/AnimationDrawable;
 
     const/16 v6, 0x11
 
-    invoke-virtual {v4, v5, v6}, Landroid/graphics/drawable/AnimationDrawable;->addFrame(Landroid/graphics/drawable/Drawable;I)V
+    invoke-virtual {v5, v0, v6}, Landroid/graphics/drawable/AnimationDrawable;->addFrame(Landroid/graphics/drawable/Drawable;I)V
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_3
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    invoke-virtual {v0}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
 
     goto :goto_3
 
-    :cond_3
+    :cond_4
     return-void
 .end method
 
 .method private setBackGroundAnimation()V
-    .locals 4
+    .locals 10
+
+    const-wide/16 v8, 0x5dc
+
+    const/4 v6, 0x7
+
+    const/4 v5, 0x1
+
+    const/4 v4, 0x0
 
     iget-object v1, p0, Lcom/android/systemui/power/ChargerAnimationView;->mBackGroundView:Landroid/widget/LinearLayout;
 
     const-string/jumbo v2, "alpha"
 
-    const/4 v3, 0x7
-
-    new-array v3, v3, [F
+    new-array v3, v6, [F
 
     fill-array-data v3, :array_0
 
@@ -585,25 +591,52 @@
 
     move-result-object v0
 
-    const-wide/16 v2, 0x5dc
+    invoke-virtual {v0, v8, v9}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
 
-    invoke-virtual {v0, v2, v3}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
+    iget-object v1, p0, Lcom/android/systemui/power/ChargerAnimationView;->mBackGroundAnim_WireLess:Landroid/animation/AnimatorSet;
 
-    iget-object v1, p0, Lcom/android/systemui/power/ChargerAnimationView;->mBackGroundAnim:Landroid/animation/AnimatorSet;
+    new-array v2, v5, [Landroid/animation/Animator;
 
-    const/4 v2, 0x1
+    aput-object v0, v2, v4
 
-    new-array v2, v2, [Landroid/animation/Animator;
+    invoke-virtual {v1, v2}, Landroid/animation/AnimatorSet;->playTogether([Landroid/animation/Animator;)V
 
-    const/4 v3, 0x0
+    iget-object v1, p0, Lcom/android/systemui/power/ChargerAnimationView;->mBackGroundView:Landroid/widget/LinearLayout;
 
-    aput-object v0, v2, v3
+    const-string/jumbo v2, "alpha"
+
+    new-array v3, v6, [F
+
+    fill-array-data v3, :array_1
+
+    invoke-static {v1, v2, v3}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v8, v9}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
+
+    iget-object v1, p0, Lcom/android/systemui/power/ChargerAnimationView;->mBackGroundAnim_Cable:Landroid/animation/AnimatorSet;
+
+    new-array v2, v5, [Landroid/animation/Animator;
+
+    aput-object v0, v2, v4
 
     invoke-virtual {v1, v2}, Landroid/animation/AnimatorSet;->playTogether([Landroid/animation/Animator;)V
 
     return-void
 
     :array_0
+    .array-data 4
+        0x0
+        0x3ecccccd    # 0.4f
+        0x3ecccccd    # 0.4f
+        0x3ecccccd    # 0.4f
+        0x3ecccccd    # 0.4f
+        0x3ecccccd    # 0.4f
+        0x0
+    .end array-data
+
+    :array_1
     .array-data 4
         0x0
         0x3e4ccccd    # 0.2f
@@ -882,7 +915,7 @@
 
     const/4 v4, -0x2
 
-    const/high16 v3, 0x40600000    # 3.5f
+    const v3, 0x40333333    # 2.8f
 
     new-instance v1, Landroid/graphics/drawable/AnimationDrawable;
 
@@ -932,7 +965,7 @@
 
 # virtual methods
 .method protected onFinishInflate()V
-    .locals 6
+    .locals 1
 
     invoke-super {p0}, Landroid/widget/RelativeLayout;->onFinishInflate()V
 
@@ -954,7 +987,7 @@
 
     iput v0, p0, Lcom/android/systemui/power/ChargerAnimationView;->mDisplayDensity:F
 
-    const v0, 0x7f1300c4
+    const v0, 0x7f0a00d8
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/power/ChargerAnimationView;->findViewById(I)Landroid/view/View;
 
@@ -964,7 +997,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/power/ChargerAnimationView;->mChargerAnimationView:Landroid/widget/ImageView;
 
-    const v0, 0x7f1300c3
+    const v0, 0x7f0a006d
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/power/ChargerAnimationView;->findViewById(I)Landroid/view/View;
 
@@ -978,11 +1011,17 @@
 
     invoke-direct {v0}, Landroid/animation/AnimatorSet;-><init>()V
 
-    iput-object v0, p0, Lcom/android/systemui/power/ChargerAnimationView;->mBackGroundAnim:Landroid/animation/AnimatorSet;
+    iput-object v0, p0, Lcom/android/systemui/power/ChargerAnimationView;->mBackGroundAnim_WireLess:Landroid/animation/AnimatorSet;
+
+    new-instance v0, Landroid/animation/AnimatorSet;
+
+    invoke-direct {v0}, Landroid/animation/AnimatorSet;-><init>()V
+
+    iput-object v0, p0, Lcom/android/systemui/power/ChargerAnimationView;->mBackGroundAnim_Cable:Landroid/animation/AnimatorSet;
 
     invoke-direct {p0}, Lcom/android/systemui/power/ChargerAnimationView;->setBackGroundAnimation()V
 
-    const v0, 0x7f1300c5
+    const v0, 0x7f0a007d
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/power/ChargerAnimationView;->findViewById(I)Landroid/view/View;
 
@@ -999,36 +1038,6 @@
     iput-object v0, p0, Lcom/android/systemui/power/ChargerAnimationView;->mBatteryTextAnim:Landroid/animation/AnimatorSet;
 
     invoke-direct {p0}, Lcom/android/systemui/power/ChargerAnimationView;->setBatteryLevelTextAnimation()V
-
-    new-instance v0, Landroid/os/DVFSHelper;
-
-    iget-object v1, p0, Lcom/android/systemui/power/ChargerAnimationView;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v2, "CHARGER_ANIMATION_BOOSTER"
-
-    const-wide/16 v4, 0x0
-
-    const/16 v3, 0xc
-
-    invoke-direct/range {v0 .. v5}, Landroid/os/DVFSHelper;-><init>(Landroid/content/Context;Ljava/lang/String;IJ)V
-
-    iput-object v0, p0, Lcom/android/systemui/power/ChargerAnimationView;->mDVFSHelper:Landroid/os/DVFSHelper;
-
-    iget-object v0, p0, Lcom/android/systemui/power/ChargerAnimationView;->mDVFSHelper:Landroid/os/DVFSHelper;
-
-    const-string/jumbo v1, "CPU"
-
-    iget-object v2, p0, Lcom/android/systemui/power/ChargerAnimationView;->mDVFSHelper:Landroid/os/DVFSHelper;
-
-    const-wide/high16 v4, 0x3ff0000000000000L    # 1.0
-
-    invoke-virtual {v2, v4, v5}, Landroid/os/DVFSHelper;->getApproximateCPUFrequencyByPercentOfMaximum(D)I
-
-    move-result v2
-
-    int-to-long v2, v2
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/DVFSHelper;->addExtraOption(Ljava/lang/String;J)V
 
     return-void
 .end method
@@ -1084,10 +1093,6 @@
     return-void
 
     :cond_0
-    iget-object v1, p0, Lcom/android/systemui/power/ChargerAnimationView;->mDVFSHelper:Landroid/os/DVFSHelper;
-
-    invoke-virtual {v1}, Landroid/os/DVFSHelper;->acquire()V
-
     const/4 v1, 0x0
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/power/ChargerAnimationView;->setChargerAnimationViewVisibility(I)V
@@ -1102,7 +1107,7 @@
 
     if-eqz p3, :cond_1
 
-    iget-object v1, p0, Lcom/android/systemui/power/ChargerAnimationView;->mBackGroundAnim:Landroid/animation/AnimatorSet;
+    iget-object v1, p0, Lcom/android/systemui/power/ChargerAnimationView;->mBackGroundAnim_WireLess:Landroid/animation/AnimatorSet;
 
     invoke-virtual {v1}, Landroid/animation/AnimatorSet;->start()V
 
@@ -1135,6 +1140,13 @@
     return-void
 
     :cond_2
+    if-eqz p3, :cond_3
+
+    iget-object v1, p0, Lcom/android/systemui/power/ChargerAnimationView;->mBackGroundAnim_Cable:Landroid/animation/AnimatorSet;
+
+    invoke-virtual {v1}, Landroid/animation/AnimatorSet;->start()V
+
+    :cond_3
     const/16 v0, 0x53f
 
     invoke-direct {p0}, Lcom/android/systemui/power/ChargerAnimationView;->setCableChargerAnimation()V
@@ -1172,10 +1184,6 @@
     const/16 v0, 0x8
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/power/ChargerAnimationView;->setChargerAnimationViewVisibility(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/power/ChargerAnimationView;->mDVFSHelper:Landroid/os/DVFSHelper;
-
-    invoke-virtual {v0}, Landroid/os/DVFSHelper;->release()V
 
     const/16 v0, 0xa
 

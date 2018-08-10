@@ -37,15 +37,13 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 3
-
-    const/4 v2, 0x0
+    .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    const/16 v1, 0x12
+    const/16 v1, 0x15
 
     if-lt v0, v1, :cond_0
 
@@ -55,7 +53,7 @@
 
     new-instance v0, Landroid/support/v17/leanback/widget/StaticShadowHelper$ShadowHelperJbmr2Impl;
 
-    invoke-direct {v0, v2}, Landroid/support/v17/leanback/widget/StaticShadowHelper$ShadowHelperJbmr2Impl;-><init>(Landroid/support/v17/leanback/widget/StaticShadowHelper$ShadowHelperJbmr2Impl;)V
+    invoke-direct {v0}, Landroid/support/v17/leanback/widget/StaticShadowHelper$ShadowHelperJbmr2Impl;-><init>()V
 
     iput-object v0, p0, Landroid/support/v17/leanback/widget/StaticShadowHelper;->mImpl:Landroid/support/v17/leanback/widget/StaticShadowHelper$ShadowHelperVersionImpl;
 
@@ -69,7 +67,7 @@
 
     new-instance v0, Landroid/support/v17/leanback/widget/StaticShadowHelper$ShadowHelperStubImpl;
 
-    invoke-direct {v0, v2}, Landroid/support/v17/leanback/widget/StaticShadowHelper$ShadowHelperStubImpl;-><init>(Landroid/support/v17/leanback/widget/StaticShadowHelper$ShadowHelperStubImpl;)V
+    invoke-direct {v0}, Landroid/support/v17/leanback/widget/StaticShadowHelper$ShadowHelperStubImpl;-><init>()V
 
     iput-object v0, p0, Landroid/support/v17/leanback/widget/StaticShadowHelper;->mImpl:Landroid/support/v17/leanback/widget/StaticShadowHelper$ShadowHelperVersionImpl;
 
@@ -86,6 +84,38 @@
 
 
 # virtual methods
+.method public addStaticShadow(Landroid/view/ViewGroup;)Ljava/lang/Object;
+    .locals 1
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/StaticShadowHelper;->mImpl:Landroid/support/v17/leanback/widget/StaticShadowHelper$ShadowHelperVersionImpl;
+
+    invoke-interface {v0, p1}, Landroid/support/v17/leanback/widget/StaticShadowHelper$ShadowHelperVersionImpl;->addStaticShadow(Landroid/view/ViewGroup;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public prepareParent(Landroid/view/ViewGroup;)V
+    .locals 1
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/StaticShadowHelper;->mImpl:Landroid/support/v17/leanback/widget/StaticShadowHelper$ShadowHelperVersionImpl;
+
+    invoke-interface {v0, p1}, Landroid/support/v17/leanback/widget/StaticShadowHelper$ShadowHelperVersionImpl;->prepareParent(Landroid/view/ViewGroup;)V
+
+    return-void
+.end method
+
+.method public setShadowFocusLevel(Ljava/lang/Object;F)V
+    .locals 1
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/StaticShadowHelper;->mImpl:Landroid/support/v17/leanback/widget/StaticShadowHelper$ShadowHelperVersionImpl;
+
+    invoke-interface {v0, p1, p2}, Landroid/support/v17/leanback/widget/StaticShadowHelper$ShadowHelperVersionImpl;->setShadowFocusLevel(Ljava/lang/Object;F)V
+
+    return-void
+.end method
+
 .method public supportsShadow()Z
     .locals 1
 

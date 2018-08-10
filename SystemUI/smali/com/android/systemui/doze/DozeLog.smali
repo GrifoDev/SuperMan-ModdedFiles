@@ -15,7 +15,7 @@
 # static fields
 .field private static final DEBUG:Z
 
-.field private static final FORMAT:Ljava/text/SimpleDateFormat;
+.field static final FORMAT:Ljava/text/SimpleDateFormat;
 
 .field private static final SIZE:I
 
@@ -38,6 +38,8 @@
 .field private static sProxStats:[[Lcom/android/systemui/doze/DozeLog$SummaryStats;
 
 .field private static sPulsing:Z
+
+.field private static sRegisterKeyguardCallback:Z
 
 .field private static sScreenOnNotPulsingStats:Lcom/android/systemui/doze/DozeLog$SummaryStats;
 
@@ -86,6 +88,10 @@
     invoke-direct {v0, v1}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V
 
     sput-object v0, Lcom/android/systemui/doze/DozeLog;->FORMAT:Ljava/text/SimpleDateFormat;
+
+    const/4 v0, 0x1
+
+    sput-boolean v0, Lcom/android/systemui/doze/DozeLog;->sRegisterKeyguardCallback:Z
 
     new-instance v0, Lcom/android/systemui/doze/DozeLog$1;
 
@@ -252,7 +258,7 @@
     const/4 v0, 0x0
 
     :goto_1
-    const/4 v4, 0x4
+    const/4 v4, 0x5
 
     if-ge v0, v4, :cond_2
 
@@ -350,7 +356,7 @@
 .method private static init(Landroid/content/Context;)V
     .locals 7
 
-    const/4 v6, 0x4
+    const/4 v6, 0x5
 
     const-class v2, Lcom/android/systemui/doze/DozeLog;
 
@@ -429,7 +435,7 @@
 
     const-class v1, Lcom/android/systemui/doze/DozeLog$SummaryStats;
 
-    const/4 v3, 0x4
+    const/4 v3, 0x5
 
     const/4 v4, 0x2
 
@@ -486,6 +492,10 @@
     const-string/jumbo v1, "init"
 
     invoke-static {v1}, Lcom/android/systemui/doze/DozeLog;->log(Ljava/lang/String;)V
+
+    sget-boolean v1, Lcom/android/systemui/doze/DozeLog;->sRegisterKeyguardCallback:Z
+
+    if-eqz v1, :cond_1
 
     invoke-static {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
 
@@ -640,6 +650,11 @@
 
     return-object v0
 
+    :pswitch_4
+    const-string/jumbo v0, "doubletap"
+
+    return-object v0
+
     nop
 
     :pswitch_data_0
@@ -648,6 +663,7 @@
         :pswitch_1
         :pswitch_2
         :pswitch_3
+        :pswitch_4
     .end packed-switch
 .end method
 
@@ -812,26 +828,38 @@
     return-void
 .end method
 
-.method public static traceNotificationPulse(J)V
+.method public static traceMissedTick(Ljava/lang/String;)V
     .locals 2
 
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v1, "notificationPulse instance="
+    const-string/jumbo v1, "missedTick by="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    invoke-virtual {v0, p0, p1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
+
+    invoke-static {v0}, Lcom/android/systemui/doze/DozeLog;->log(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public static traceNotificationPulse(Landroid/content/Context;)V
+    .locals 1
+
+    invoke-static {p0}, Lcom/android/systemui/doze/DozeLog;->init(Landroid/content/Context;)V
+
+    const-string/jumbo v0, "notificationPulse"
 
     invoke-static {v0}, Lcom/android/systemui/doze/DozeLog;->log(Ljava/lang/String;)V
 
@@ -842,8 +870,10 @@
     return-void
 .end method
 
-.method public static tracePickupPulse(Z)V
+.method public static tracePickupPulse(Landroid/content/Context;Z)V
     .locals 2
+
+    invoke-static {p0}, Lcom/android/systemui/doze/DozeLog;->init(Landroid/content/Context;)V
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -855,7 +885,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
@@ -865,7 +895,7 @@
 
     invoke-static {v0}, Lcom/android/systemui/doze/DozeLog;->log(Ljava/lang/String;)V
 
-    if-eqz p0, :cond_0
+    if-eqz p1, :cond_0
 
     sget-object v0, Lcom/android/systemui/doze/DozeLog;->sPickupPulseNearVibrationStats:Lcom/android/systemui/doze/DozeLog$SummaryStats;
 
@@ -882,6 +912,8 @@
 
 .method public static traceProximityResult(Landroid/content/Context;ZJI)V
     .locals 2
+
+    invoke-static {p0}, Lcom/android/systemui/doze/DozeLog;->init(Landroid/content/Context;)V
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -927,8 +959,6 @@
 
     invoke-static {v0}, Lcom/android/systemui/doze/DozeLog;->log(Ljava/lang/String;)V
 
-    invoke-static {p0}, Lcom/android/systemui/doze/DozeLog;->init(Landroid/content/Context;)V
-
     sget-object v0, Lcom/android/systemui/doze/DozeLog;->sProxStats:[[Lcom/android/systemui/doze/DozeLog$SummaryStats;
 
     aget-object v1, v0, p4
@@ -948,6 +978,66 @@
     const/4 v0, 0x1
 
     goto :goto_0
+.end method
+
+.method public static tracePulseCanceledByProx(Landroid/content/Context;)V
+    .locals 1
+
+    invoke-static {p0}, Lcom/android/systemui/doze/DozeLog;->init(Landroid/content/Context;)V
+
+    const-string/jumbo v0, "pulseCanceledByProx"
+
+    invoke-static {v0}, Lcom/android/systemui/doze/DozeLog;->log(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public static tracePulseDropped(Landroid/content/Context;ZLcom/android/systemui/doze/DozeMachine$State;Z)V
+    .locals 2
+
+    invoke-static {p0}, Lcom/android/systemui/doze/DozeLog;->init(Landroid/content/Context;)V
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "pulseDropped pulsePending="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " state="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " blocked="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/systemui/doze/DozeLog;->log(Ljava/lang/String;)V
+
+    return-void
 .end method
 
 .method public static tracePulseFinish()V

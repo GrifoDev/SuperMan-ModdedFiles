@@ -68,11 +68,15 @@
 
 # virtual methods
 .method public next()V
-    .locals 4
+    .locals 8
+
+    const v7, 0x7f120542
 
     const/4 v3, 0x2
 
-    const/4 v2, 0x1
+    const/4 v6, 0x1
+
+    const/4 v5, 0x0
 
     const/4 v0, 0x0
 
@@ -88,47 +92,50 @@
 
     if-eqz v1, :cond_4
 
-    iput v2, p0, Lcom/android/keyguard/KeyguardSimPukView$StateMachine;->state:I
+    iput v6, p0, Lcom/android/keyguard/KeyguardSimPukView$StateMachine;->state:I
 
-    sget-boolean v1, Lcom/android/keyguard/KeyguardRune;->SUPPORT_KOR_USIM_TEXT:Z
+    sget-boolean v1, Lcom/android/systemui/Rune;->KEYGUARD_SUPPORT_KOR_USIM_TEXT:Z
 
     if-eqz v1, :cond_2
 
-    sget v0, Lcom/android/keyguard/R$string;->kg_kor_puk_enter_pin_hint:I
+    const v0, 0x7f120570
 
     :cond_0
     :goto_0
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSimPukView$StateMachine;->this$0:Lcom/android/keyguard/KeyguardSimPukView;
 
-    invoke-virtual {v1, v2, v2}, Lcom/android/keyguard/KeyguardSimPukView;->resetPasswordText(ZZ)V
+    invoke-virtual {v1, v6, v6}, Lcom/android/keyguard/KeyguardSimPukView;->resetPasswordText(ZZ)V
 
     if-eqz v0, :cond_1
+
+    if-eq v0, v7, :cond_11
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSimPukView$StateMachine;->this$0:Lcom/android/keyguard/KeyguardSimPukView;
 
     iget-object v1, v1, Lcom/android/keyguard/KeyguardSimPukView;->mSecurityMessageDisplay:Lcom/android/keyguard/SecurityMessageDisplay;
 
-    invoke-interface {v1, v0, v2}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(IZ)V
+    invoke-interface {v1, v0}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(I)V
 
     :cond_1
+    :goto_1
     return-void
 
     :cond_2
-    sget-boolean v1, Lcom/android/keyguard/KeyguardRune;->SUPPORT_USE_CDMA_CARD_TEXT:Z
+    sget-boolean v1, Lcom/android/systemui/Rune;->KEYGUARD_SUPPORT_USE_CDMA_CARD_TEXT:Z
 
     if-eqz v1, :cond_3
 
-    sget v0, Lcom/android/keyguard/R$string;->kg_ctc_puk_enter_pin_hint:I
+    const v0, 0x7f1204be
 
     goto :goto_0
 
     :cond_3
-    sget v0, Lcom/android/keyguard/R$string;->kg_puk_enter_pin_hint:I
+    const v0, 0x7f120644
 
     goto :goto_0
 
     :cond_4
-    sget-boolean v1, Lcom/android/keyguard/KeyguardRune;->SUPPORT_KOR_USIM_TEXT:Z
+    sget-boolean v1, Lcom/android/systemui/Rune;->KEYGUARD_SUPPORT_KOR_USIM_TEXT:Z
 
     if-eqz v1, :cond_6
 
@@ -144,24 +151,24 @@
 
     if-nez v1, :cond_5
 
-    sget v0, Lcom/android/keyguard/R$string;->kg_kor_empty_sim_puk_hint:I
+    const v0, 0x7f12056b
 
     goto :goto_0
 
     :cond_5
-    sget v0, Lcom/android/keyguard/R$string;->kg_kor_invalid_sim_puk_hint:I
+    const v0, 0x7f12056e
 
     goto :goto_0
 
     :cond_6
-    sget v0, Lcom/android/keyguard/R$string;->kg_invalid_sim_puk_hint:I
+    const v0, 0x7f120543
 
     goto :goto_0
 
     :cond_7
     iget v1, p0, Lcom/android/keyguard/KeyguardSimPukView$StateMachine;->state:I
 
-    if-ne v1, v2, :cond_d
+    if-ne v1, v6, :cond_d
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSimPukView$StateMachine;->this$0:Lcom/android/keyguard/KeyguardSimPukView;
 
@@ -173,30 +180,30 @@
 
     iput v3, p0, Lcom/android/keyguard/KeyguardSimPukView$StateMachine;->state:I
 
-    sget-boolean v1, Lcom/android/keyguard/KeyguardRune;->SUPPORT_KOR_USIM_TEXT:Z
+    sget-boolean v1, Lcom/android/systemui/Rune;->KEYGUARD_SUPPORT_KOR_USIM_TEXT:Z
 
     if-eqz v1, :cond_8
 
-    sget v0, Lcom/android/keyguard/R$string;->kg_kor_enter_confirm_pin_hint:I
+    const v0, 0x7f12056c
 
     goto :goto_0
 
     :cond_8
-    sget-boolean v1, Lcom/android/keyguard/KeyguardRune;->SUPPORT_USE_CDMA_CARD_TEXT:Z
+    sget-boolean v1, Lcom/android/systemui/Rune;->KEYGUARD_SUPPORT_USE_CDMA_CARD_TEXT:Z
 
     if-eqz v1, :cond_9
 
-    sget v0, Lcom/android/keyguard/R$string;->kg_ctc_enter_confirm_pin_hint:I
+    const v0, 0x7f1204bb
 
     goto :goto_0
 
     :cond_9
-    sget v0, Lcom/android/keyguard/R$string;->kg_enter_confirm_pin_hint:I
+    const v0, 0x7f120643
 
     goto :goto_0
 
     :cond_a
-    sget-boolean v1, Lcom/android/keyguard/KeyguardRune;->SUPPORT_KOR_USIM_TEXT:Z
+    sget-boolean v1, Lcom/android/systemui/Rune;->KEYGUARD_SUPPORT_KOR_USIM_TEXT:Z
 
     if-eqz v1, :cond_c
 
@@ -212,17 +219,17 @@
 
     if-nez v1, :cond_b
 
-    sget v0, Lcom/android/keyguard/R$string;->kg_empty_sim_perso_hint:I
+    const v0, 0x7f1204cc
 
     goto :goto_0
 
     :cond_b
-    sget v0, Lcom/android/keyguard/R$string;->kg_kor_sim_pin_instructions:I
+    const v0, 0x7f120571
 
     goto :goto_0
 
     :cond_c
-    sget v0, Lcom/android/keyguard/R$string;->kg_invalid_sim_pin_hint:I
+    const v0, 0x7f120542
 
     goto :goto_0
 
@@ -243,18 +250,18 @@
 
     iput v1, p0, Lcom/android/keyguard/KeyguardSimPukView$StateMachine;->state:I
 
-    sget v0, Lcom/android/keyguard/R$string;->keyguard_sim_unlock_progress_dialog_message:I
+    const v0, 0x7f12049d
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSimPukView$StateMachine;->this$0:Lcom/android/keyguard/KeyguardSimPukView;
 
     invoke-static {v1}, Lcom/android/keyguard/KeyguardSimPukView;->-wrap5(Lcom/android/keyguard/KeyguardSimPukView;)V
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_e
-    iput v2, p0, Lcom/android/keyguard/KeyguardSimPukView$StateMachine;->state:I
+    iput v6, p0, Lcom/android/keyguard/KeyguardSimPukView$StateMachine;->state:I
 
-    sget-boolean v1, Lcom/android/keyguard/KeyguardRune;->SUPPORT_KOR_USIM_TEXT:Z
+    sget-boolean v1, Lcom/android/systemui/Rune;->KEYGUARD_SUPPORT_KOR_USIM_TEXT:Z
 
     if-eqz v1, :cond_10
 
@@ -270,19 +277,56 @@
 
     if-nez v1, :cond_f
 
-    sget v0, Lcom/android/keyguard/R$string;->kg_empty_sim_perso_hint:I
+    const v0, 0x7f1204cc
 
     goto/16 :goto_0
 
     :cond_f
-    sget v0, Lcom/android/keyguard/R$string;->kg_kor_invalid_confirm_pin_hint:I
+    const v0, 0x7f12056d
 
     goto/16 :goto_0
 
     :cond_10
-    sget v0, Lcom/android/keyguard/R$string;->kg_invalid_confirm_pin_hint:I
+    const v0, 0x7f120540
 
     goto/16 :goto_0
+
+    :cond_11
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardSimPukView$StateMachine;->this$0:Lcom/android/keyguard/KeyguardSimPukView;
+
+    iget-object v1, v1, Lcom/android/keyguard/KeyguardSimPukView;->mSecurityMessageDisplay:Lcom/android/keyguard/SecurityMessageDisplay;
+
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardSimPukView$StateMachine;->this$0:Lcom/android/keyguard/KeyguardSimPukView;
+
+    invoke-static {v2}, Lcom/android/keyguard/KeyguardSimPukView;->-get0(Lcom/android/keyguard/KeyguardSimPukView;)Landroid/content/Context;
+
+    move-result-object v2
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    const/4 v4, 0x4
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    aput-object v4, v3, v5
+
+    const/16 v4, 0x8
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    aput-object v4, v3, v6
+
+    invoke-virtual {v2, v7, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v1, v2}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(Ljava/lang/CharSequence;)V
+
+    goto/16 :goto_1
 .end method
 
 .method reset()V

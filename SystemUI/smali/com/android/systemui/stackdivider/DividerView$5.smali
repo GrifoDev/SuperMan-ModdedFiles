@@ -1,9 +1,6 @@
 .class Lcom/android/systemui/stackdivider/DividerView$5;
-.super Ljava/lang/Object;
+.super Landroid/animation/AnimatorListenerAdapter;
 .source "DividerView.java"
-
-# interfaces
-.implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
 
 # annotations
@@ -18,116 +15,161 @@
 
 
 # instance fields
+.field private mCancelled:Z
+
 .field final synthetic this$0:Lcom/android/systemui/stackdivider/DividerView;
 
-.field final synthetic val$anim:Landroid/animation/ValueAnimator;
+.field final synthetic val$endAction:Ljava/lang/Runnable;
 
-.field final synthetic val$snapTarget:Lcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;
+.field final synthetic val$endDelay:J
 
-.field final synthetic val$taskPositionSameAtEnd:Z
+.field final synthetic val$notCancelledEndAction:Ljava/lang/Runnable;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/stackdivider/DividerView;Landroid/animation/ValueAnimator;ZLcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;)V
+.method constructor <init>(Lcom/android/systemui/stackdivider/DividerView;JLjava/lang/Runnable;Ljava/lang/Runnable;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/stackdivider/DividerView$5;->this$0:Lcom/android/systemui/stackdivider/DividerView;
 
-    iput-object p2, p0, Lcom/android/systemui/stackdivider/DividerView$5;->val$anim:Landroid/animation/ValueAnimator;
+    iput-wide p2, p0, Lcom/android/systemui/stackdivider/DividerView$5;->val$endDelay:J
 
-    iput-boolean p3, p0, Lcom/android/systemui/stackdivider/DividerView$5;->val$taskPositionSameAtEnd:Z
+    iput-object p4, p0, Lcom/android/systemui/stackdivider/DividerView$5;->val$endAction:Ljava/lang/Runnable;
 
-    iput-object p4, p0, Lcom/android/systemui/stackdivider/DividerView$5;->val$snapTarget:Lcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;
+    iput-object p5, p0, Lcom/android/systemui/stackdivider/DividerView$5;->val$notCancelledEndAction:Ljava/lang/Runnable;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 4
+.method public onAnimationCancel(Landroid/animation/Animator;)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/stackdivider/DividerView$5;->this$0:Lcom/android/systemui/stackdivider/DividerView;
 
-    invoke-virtual {v0}, Lcom/android/systemui/stackdivider/DividerView;->isHorizontalDivision()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/DividerView$5;->this$0:Lcom/android/systemui/stackdivider/DividerView;
-
-    invoke-static {v0}, Lcom/android/systemui/stackdivider/DividerView;->-get0(Lcom/android/systemui/stackdivider/DividerView;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/DividerView$5;->val$anim:Landroid/animation/ValueAnimator;
-
-    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->isRunning()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/DividerView$5;->val$anim:Landroid/animation/ValueAnimator;
-
-    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->cancel()V
-
-    return-void
-
-    :cond_0
-    iget-object v1, p0, Lcom/android/systemui/stackdivider/DividerView$5;->this$0:Lcom/android/systemui/stackdivider/DividerView;
-
-    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/systemui/stackdivider/DividerView;->-get4(Lcom/android/systemui/stackdivider/DividerView;)Landroid/os/Handler;
 
     move-result-object v0
 
-    check-cast v0, Ljava/lang/Integer;
+    const/4 v1, 0x0
 
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
-    move-result v2
+    const/4 v0, 0x1
 
-    iget-boolean v0, p0, Lcom/android/systemui/stackdivider/DividerView$5;->val$taskPositionSameAtEnd:Z
+    iput-boolean v0, p0, Lcom/android/systemui/stackdivider/DividerView$5;->mCancelled:Z
 
-    if-eqz v0, :cond_1
+    return-void
+.end method
 
-    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedFraction()F
+.method public onAnimationEnd(Landroid/animation/Animator;)V
+    .locals 6
 
-    move-result v0
+    const-wide/16 v4, 0x0
 
-    const/high16 v3, 0x3f800000    # 1.0f
+    const-wide/16 v0, 0x0
 
-    cmpl-float v0, v0, v3
+    iget-wide v2, p0, Lcom/android/systemui/stackdivider/DividerView$5;->val$endDelay:J
 
-    if-nez v0, :cond_1
+    cmp-long v2, v2, v4
 
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/DividerView$5;->this$0:Lcom/android/systemui/stackdivider/DividerView;
+    if-eqz v2, :cond_2
 
-    invoke-static {v0}, Lcom/android/systemui/stackdivider/DividerView;->-get2(Lcom/android/systemui/stackdivider/DividerView;)Z
+    iget-wide v0, p0, Lcom/android/systemui/stackdivider/DividerView$5;->val$endDelay:J
 
-    move-result v0
+    :cond_0
+    :goto_0
+    cmp-long v2, v0, v4
 
-    if-eqz v0, :cond_2
+    if-nez v2, :cond_4
+
+    iget-object v2, p0, Lcom/android/systemui/stackdivider/DividerView$5;->val$endAction:Ljava/lang/Runnable;
+
+    invoke-interface {v2}, Ljava/lang/Runnable;->run()V
+
+    iget-boolean v2, p0, Lcom/android/systemui/stackdivider/DividerView$5;->mCancelled:Z
+
+    if-nez v2, :cond_1
+
+    iget-object v2, p0, Lcom/android/systemui/stackdivider/DividerView$5;->val$notCancelledEndAction:Ljava/lang/Runnable;
+
+    invoke-interface {v2}, Ljava/lang/Runnable;->run()V
 
     :cond_1
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/DividerView$5;->val$snapTarget:Lcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;
+    :goto_1
+    invoke-static {}, Lcom/android/systemui/stackdivider/multiwindow/MultiWindowManagerProxy;->getInstance()Lcom/android/systemui/stackdivider/multiwindow/MultiWindowManagerProxy;
 
-    iget v0, v0, Lcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;->taskPosition:I
+    move-result-object v2
 
-    :goto_0
-    iget-object v3, p0, Lcom/android/systemui/stackdivider/DividerView$5;->val$snapTarget:Lcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;
+    const/4 v3, 0x0
 
-    invoke-virtual {v1, v2, v0, v3}, Lcom/android/systemui/stackdivider/DividerView;->resizeStack(IILcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;)V
+    invoke-virtual {v2, v3}, Lcom/android/systemui/stackdivider/multiwindow/MultiWindowManagerProxy;->animatingDockedStackForResizableHome(Z)V
 
     return-void
 
     :cond_2
-    const v0, 0x7fffffff
+    iget-boolean v2, p0, Lcom/android/systemui/stackdivider/DividerView$5;->mCancelled:Z
+
+    if-eqz v2, :cond_3
+
+    const-wide/16 v0, 0x0
 
     goto :goto_0
+
+    :cond_3
+    iget-object v2, p0, Lcom/android/systemui/stackdivider/DividerView$5;->this$0:Lcom/android/systemui/stackdivider/DividerView;
+
+    invoke-static {v2}, Lcom/android/systemui/stackdivider/DividerView;->-get5(Lcom/android/systemui/stackdivider/DividerView;)Lcom/android/internal/view/SurfaceFlingerVsyncChoreographer;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/internal/view/SurfaceFlingerVsyncChoreographer;->getSurfaceFlingerOffsetMs()J
+
+    move-result-wide v2
+
+    cmp-long v2, v2, v4
+
+    if-lez v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/systemui/stackdivider/DividerView$5;->this$0:Lcom/android/systemui/stackdivider/DividerView;
+
+    invoke-static {v2}, Lcom/android/systemui/stackdivider/DividerView;->-get5(Lcom/android/systemui/stackdivider/DividerView;)Lcom/android/internal/view/SurfaceFlingerVsyncChoreographer;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/internal/view/SurfaceFlingerVsyncChoreographer;->getSurfaceFlingerOffsetMs()J
+
+    move-result-wide v0
+
+    goto :goto_0
+
+    :cond_4
+    iget-object v2, p0, Lcom/android/systemui/stackdivider/DividerView$5;->this$0:Lcom/android/systemui/stackdivider/DividerView;
+
+    invoke-static {v2}, Lcom/android/systemui/stackdivider/DividerView;->-get4(Lcom/android/systemui/stackdivider/DividerView;)Landroid/os/Handler;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/systemui/stackdivider/DividerView$5;->val$endAction:Ljava/lang/Runnable;
+
+    invoke-virtual {v2, v3, v0, v1}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    iget-boolean v2, p0, Lcom/android/systemui/stackdivider/DividerView$5;->mCancelled:Z
+
+    if-nez v2, :cond_1
+
+    iget-object v2, p0, Lcom/android/systemui/stackdivider/DividerView$5;->this$0:Lcom/android/systemui/stackdivider/DividerView;
+
+    invoke-static {v2}, Lcom/android/systemui/stackdivider/DividerView;->-get4(Lcom/android/systemui/stackdivider/DividerView;)Landroid/os/Handler;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/systemui/stackdivider/DividerView$5;->val$notCancelledEndAction:Ljava/lang/Runnable;
+
+    invoke-virtual {v2, v3, v0, v1}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    goto :goto_1
 .end method

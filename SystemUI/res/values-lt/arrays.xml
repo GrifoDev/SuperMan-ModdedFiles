@@ -1,83 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="wifi_status">
-        <item></item>
-        <item>Nuskaitoma...</item>
-        <item>Prisijungiama...</item>
-        <item>Nustatoma tapatybė...</item>
-        <item>Gaunamas IP adresas...</item>
-        <item>Prisijungta</item>
-        <item>Pristabdyta</item>
-        <item>Atjungiama...</item>
-        <item>Atsijungęs (-usi)</item>
-        <item>Nesėkminga</item>
-        <item>Užblokuota</item>
-        <item>Laikinai vengiama prasto ryšio</item>
-    </string-array>
-    <string-array name="wifi_status_with_ssid">
-        <item></item>
-        <item>Nuskaitoma...</item>
-        <item>Prijungiama prie %1$s...</item>
-        <item>Nustatoma tapatybė su %1$s...</item>
-        <item>Gaunamas IP adresas iš %1$s...</item>
-        <item>Prijungta prie %1$s</item>
-        <item>Pristabdyta</item>
-        <item>Atjungiama nuo %1$s...</item>
-        <item>Atsijungęs (-usi)</item>
-        <item>Nesėkminga</item>
-        <item>Užblokuota</item>
-        <item>Laikinai vengiama prasto ryšio</item>
-    </string-array>
-    <string-array name="hdcp_checking_titles">
-        <item>Niekada netikrinti</item>
-        <item>Tikrinti tik DRM turinį</item>
-        <item>Visada tikrinti</item>
-    </string-array>
-    <string-array name="hdcp_checking_summaries">
-        <item>Niekada nenaudoti HDCP tikrinimo</item>
-        <item>Taikyti HDCP tikrinimą tik DRM turiniui</item>
-        <item>Visada naudoti HDCP tikrinimą</item>
-    </string-array>
-    <string-array name="select_logd_size_titles">
-        <item>Išjungta</item>
-        <item>64 KB</item>
-        <item>256 KB</item>
-        <item>1 MB</item>
-        <item>4 MB</item>
-        <item>16 MB</item>
-    </string-array>
-    <string-array name="select_logd_size_lowram_titles">
-        <item>Išjungta</item>
-        <item>64 KB</item>
-        <item>256 KB</item>
-        <item>1 MB</item>
-    </string-array>
-    <string-array name="select_logd_size_summaries">
-        <item>Išjungta</item>
-        <item>64 KB žurnalo buferis</item>
-        <item>256 KB žurnalo buferis</item>
-        <item>1 MB žurnalo buferis</item>
-        <item>4 MB žurnalo buferis</item>
-        <item>16 MB žurnalo buferis</item>
-    </string-array>
-    <string-array name="window_animation_scale_entries">
-        <item>Animacija išjungta</item>
-        <item>Animacijos mastelis 0,5x</item>
-        <item>Animacijos mastelis 1x</item>
-        <item>Animacijos mastelis 1,5x</item>
-        <item>Animacijos mastelis 2x</item>
-        <item>Animacijos mastelis 5x</item>
-        <item>Animacijos mastelis 10x</item>
-    </string-array>
-    <string-array name="transition_animation_scale_entries">
-        <item>Animacija išjungta</item>
-        <item>Animacijos mastelis 0,5x</item>
-        <item>Animacijos mastelis 1x</item>
-        <item>Animacijos mastelis 1,5x</item>
-        <item>Animacijos mastelis 2x</item>
-        <item>Animacijos mastelis 5x</item>
-        <item>Animacijos mastelis 10x</item>
-    </string-array>
     <string-array name="animator_duration_scale_entries">
         <item>Animacija išjungta</item>
         <item>Animacijos mastelis 0,5 x</item>
@@ -86,6 +8,173 @@
         <item>Animacijos mastelis 2 x</item>
         <item>Animacijos mastelis 5 x</item>
         <item>Animacijos mastelis 10 x</item>
+    </string-array>
+    <string-array name="app_process_limit_entries">
+        <item>Standartinis apribojimas</item>
+        <item>Nėra fono procesų</item>
+        <item>Daugiausia 1 procesas</item>
+        <item>Daugiausia 2 procesai</item>
+        <item>Daugiausia 3 procesai</item>
+        <item>Daugiausia 4 procesai</item>
+    </string-array>
+    <string-array name="battery_options">
+        <item>Visada rodyti procentus</item>
+        <item>Rodyti procentus kraunant (numatytasis nustatymas)</item>
+        <item>Nerodyti šios piktogramos</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_bits_per_sample_summaries">
+        <item>Naudoti sistemos pasirink. (numatytasis)</item>
+        <item>16 bitų pavyzdyje</item>
+        <item>24 bitai pavyzdyje</item>
+        <item>32 bitai pavyzdyje</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_bits_per_sample_titles">
+        <item>Naudoti sistemos pasirink. (numatytasis)</item>
+        <item>16 bitų pavyzdyje</item>
+        <item>24 bitai pavyzdyje</item>
+        <item>32 bitai pavyzdyje</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_channel_mode_summaries">
+        <item>Naudoti sistemos pasirink. (numatytasis)</item>
+        <item>Monofoninis garsas</item>
+        <item>Stereofoninis garsas</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_channel_mode_titles">
+        <item>Naudoti sistemos pasirink. (numatytasis)</item>
+        <item>Monofoninis garsas</item>
+        <item>Stereofoninis garsas</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_ldac_playback_quality_summaries">
+        <item>Optimizuota garso kokybė</item>
+        <item>Subalansuota garso ir ryšio kokybė</item>
+        <item>Optimizuota ryšio kokybė</item>
+        <item>Geriausias rezultatas (adaptyvusis pralaidumas)</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_ldac_playback_quality_titles">
+        <item>Optimizuota garso kokybė (990 Kb/s; 909 Kb/s)</item>
+        <item>Subalansuotą garso ir ryšio kokybė (660 kbps / 606 kbps)</item>
+        <item>Optimizuota ryšio kokybė (330 Kb/s; 303 Kb/s)</item>
+        <item>Geriausias rezultatas (adaptyvusis pralaidumas)</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_sample_rate_summaries">
+        <item>Naudoti sistemos pasirink. (numatytasis)</item>
+        <item>44,1 kHz</item>
+        <item>48,0 kHz</item>
+        <item>88,2 kHz</item>
+        <item>96,0 kHz</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_sample_rate_titles">
+        <item>Naudoti sistemos pasirink. (numatytasis)</item>
+        <item>44,1 kHz</item>
+        <item>48,0 kHz</item>
+        <item>88,2 kHz</item>
+        <item>96,0 kHz</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_summaries">
+        <item>Naudoti sistemos pasirink. (numatytasis)</item>
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>aptX HD</item>
+        <item>LDAC</item>
+        <item>Įgalinti nebūtinus kodekus</item>
+        <item>Išjungti nebūtinus kodekus</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_titles">
+        <item>Naudoti sistemos pasirink. (numatytasis)</item>
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>aptX HD</item>
+        <item>LDAC</item>
+        <item>Įgalinti nebūtinus kodekus</item>
+        <item>Išjungti nebūtinus kodekus</item>
+    </string-array>
+    <string-array name="bluetooth_avrcp_versions">
+        <item>AVRCP 1.4 (numatytoji)</item>
+        <item>AVRCP 1.5</item>
+        <item>AVRCP 1.6</item>
+    </string-array>
+    <string-array name="bluetooth_ss_a2dp_codec_summaries">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Visi kodekai</item>
+        <item>Numatytasis kodekas</item>
+    </string-array>
+    <string-array name="bluetooth_ss_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Visi kodekai</item>
+        <item>Numatytasis kodekas</item>
+    </string-array>
+    <string-array name="bluetooth_ss_japan_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Visi kodekai</item>
+        <item>Numatytasis kodekas</item>
+    </string-array>
+    <string-array name="clock_options">
+        <item>Rodyti valandas, minutes ir sekundes</item>
+        <item>Rodyti valandas ir minutes (numatytasis nustatymas)</item>
+        <item>Nerodyti šios piktogramos</item>
+    </string-array>
+    <string-array name="color_mode_descriptions">
+        <item>Patobulintos spalvos</item>
+        <item>Natūralios spalvos</item>
+        <item>Skaitmeniniam turiniui optimizuotos spalvos</item>
+    </string-array>
+    <string-array name="color_mode_names">
+        <item>Ryškus (numatytasis)</item>
+        <item>Natūralus</item>
+        <item>Standartinis</item>
+    </string-array>
+    <string-array name="debug_hw_overdraw_entries">
+        <item>Išjungta</item>
+        <item>Rodyti perdangos sritis</item>
+        <item>Rodyti deuteranomalijos sritis</item>
+    </string-array>
+    <string-array name="debug_hw_renderer_entries">
+        <item>„OpenGL“ (numatyt.)</item>
+        <item>„OpenGL“ („Skia“)</item>
+    </string-array>
+    <string-array name="enable_opengl_traces_entries">
+        <item>Nėra</item>
+        <item>Logcat</item>
+        <item>„Systrace“ (grafika)</item>
+        <item>Kreipinių dėklas „glGetError“</item>
+    </string-array>
+    <string-array name="hdcp_checking_summaries">
+        <item>Niekada nenaudoti HDCP tikrinimo</item>
+        <item>Taikyti HDCP tikrinimą tik DRM turiniui</item>
+        <item>Visada naudoti HDCP tikrinimą</item>
+    </string-array>
+    <string-array name="hdcp_checking_titles">
+        <item>Niekada netikrinti</item>
+        <item>Tikrinti tik DRM turinį</item>
+        <item>Visada tikrinti</item>
+    </string-array>
+    <string-array name="nav_bar_buttons">
+        <item>Iškarpinė</item>
+        <item>Klavišo kodas</item>
+        <item>Klaviatūros perjungiklis</item>
+        <item>Nėra</item>
+    </string-array>
+    <string-array name="nav_bar_layouts">
+        <item>Įprastas</item>
+        <item>Kompaktiškas</item>
+        <item>Kairėje</item>
+        <item>Dešinėje</item>
     </string-array>
     <string-array name="overlay_display_devices_entries">
         <item>Nėra</item>
@@ -101,11 +190,40 @@
         <item>4K (didesnio mastelio, saugus)</item>
         <item>720 piks., 1 080 piks. (dvig. ekr.)</item>
     </string-array>
-    <string-array name="enable_opengl_traces_entries">
-        <item>Nėra</item>
-        <item>Logcat</item>
-        <item>„Systrace“ (grafika)</item>
-        <item>Kreipinių dėklas „glGetError“</item>
+    <array name="recents_blacklist_array" />
+    <string-array name="select_logd_size_lowram_titles">
+        <item>Išjungta</item>
+        <item>64 KB</item>
+        <item>256 KB</item>
+        <item>1 MB</item>
+    </string-array>
+    <string-array name="select_logd_size_summaries">
+        <item>Išjungta</item>
+        <item>64 KB žurnalo buferis</item>
+        <item>256 KB žurnalo buferis</item>
+        <item>1 MB žurnalo buferis</item>
+        <item>4 MB žurnalo buferis</item>
+        <item>16 MB žurnalo buferis</item>
+    </string-array>
+    <string-array name="select_logd_size_titles">
+        <item>Išjungta</item>
+        <item>64 KB</item>
+        <item>256 KB</item>
+        <item>1 MB</item>
+        <item>4 MB</item>
+        <item>16 MB</item>
+    </string-array>
+    <string-array name="select_logpersist_summaries">
+        <item>Išjungta</item>
+        <item>Visi žurnalų buferiai</item>
+        <item>Visi, išskyrus radijo ryšio žurnalų buferius</item>
+        <item>tik branduolio žurnalo buferis</item>
+    </string-array>
+    <string-array name="select_logpersist_titles">
+        <item>Išjungta</item>
+        <item>Viskas</item>
+        <item>Viskas, išsk. rad. r.</item>
+        <item>tik branduolys</item>
     </string-array>
     <string-array name="show_non_rect_clip_entries">
         <item>Išjungta</item>
@@ -115,28 +233,16 @@
     <string-array name="track_frame_time_entries">
         <item>Išjungta</item>
         <item>Ekrane (stulpeliai)</item>
-        <item>In adb shell dumpsys gfxinfo</item>
+        <item>Po adb shell dumpsys gfxinfo</item>
     </string-array>
-    <string-array name="debug_hw_overdraw_entries">
-        <item>Išjungti</item>
-        <item>Rodyti perdangos sritis</item>
-        <item>Rodyti deuteranomalijos sritis</item>
-    </string-array>
-    <string-array name="app_process_limit_entries">
-        <item>Standartinis apribojimas</item>
-        <item>Nėra fono procesų</item>
-        <item>Daugiausia 1 procesas</item>
-        <item>Daugiausia 2 procesai</item>
-        <item>Daugiausia 3 procesai</item>
-        <item>Daugiausia 4 procesai</item>
-    </string-array>
-    <string-array name="usb_configuration_titles">
-        <item>Kraunama</item>
-        <item>MTP (medijos perdavimo protokolas)</item>
-        <item>PTP (nuotraukų perdavimo protokolas)</item>
-        <item>RNDIS (USB eternetas)</item>
-        <item>Garso šaltinis</item>
-        <item>MIDI</item>
+    <string-array name="transition_animation_scale_entries">
+        <item>Animacija išjungta</item>
+        <item>Animacijos mastelis 0,5x</item>
+        <item>Animacijos mastelis 1x</item>
+        <item>Animacijos mastelis 1,5x</item>
+        <item>Animacijos mastelis 2x</item>
+        <item>Animacijos mastelis 5x</item>
+        <item>Animacijos mastelis 10x</item>
     </string-array>
     <string-array name="tts_rate_entries">
         <item>Labai lėtas</item>
@@ -149,25 +255,53 @@
         <item>Labai spartus</item>
         <item>Greičiausias</item>
     </string-array>
-    <string-array name="color_mode_names">
-        <item>Ryškus (numatytasis)</item>
-        <item>Natūralus</item>
-        <item>Standartinis</item>
+    <string-array name="usb_configuration_titles">
+        <item>Kraunama</item>
+        <item>MTP (medijos perdavimo protokolas)</item>
+        <item>PTP (nuotraukų perdavimo protokolas)</item>
+        <item>RNDIS (USB eternetas)</item>
+        <item>Garso šaltinis</item>
+        <item>MIDI</item>
     </string-array>
-    <string-array name="color_mode_descriptions">
-        <item>Patobulintos spalvos</item>
-        <item>Natūralios spalvos</item>
-        <item>Skaitmeniniam turiniui optimizuotos spalvos</item>
+    <string-array name="wifi_ap_wifi_sharing">
+        <item>Įjungti „Wi-Fi“ bendrinimą</item>
+        <item>Išjungti „Wi-Fi“ bendrinimą</item>
     </string-array>
-    <string-array name="clock_options">
-        <item>Rodyti valandas, minutes ir sekundes</item>
-        <item>Rodyti valandas ir minutes (numatytasis nustatymas)</item>
-        <item>Nerodyti šios piktogramos</item>
+    <string-array name="wifi_status">
+        <item></item>
+        <item>Ieškoma…</item>
+        <item>Jungiamasi…</item>
+        <item>Autentifikuojama…</item>
+        <item>Gaunamas IP adresas…</item>
+        <item>Prisijungta</item>
+        <item>Sulaikyta</item>
+        <item>Atjungiama…</item>
+        <item>Atjungta</item>
+        <item>Nepavyko</item>
+        <item>Užblokuota</item>
+        <item>Tikrinama interneto ryšio kokybė…</item>
     </string-array>
-    <string-array name="battery_options">
-        <item>Visada rodyti procentus</item>
-        <item>Rodyti procentus kraunant (numatytasis nustatymas)</item>
-        <item>Nerodyti šios piktogramos</item>
+    <string-array name="wifi_status_with_ssid">
+        <item></item>
+        <item>Nuskaitoma...</item>
+        <item>Prijungiama prie %1$s...</item>
+        <item>Nustatoma tapatybė su %1$s...</item>
+        <item>Gaunamas IP adresas iš %1$s...</item>
+        <item>Prijungta prie %1$s</item>
+        <item>Pristabdyta</item>
+        <item>Atjungiama nuo %1$s...</item>
+        <item>Atsijungęs (-usi)</item>
+        <item>Nesėkminga</item>
+        <item>Užblokuota</item>
+        <item>Laikinai vengiama prasto ryšio</item>
     </string-array>
-    <array name="recents_tv_blacklist_array" />
+    <string-array name="window_animation_scale_entries">
+        <item>Animacija išjungta</item>
+        <item>Animacijos mastelis 0,5x</item>
+        <item>Animacijos mastelis 1x</item>
+        <item>Animacijos mastelis 1,5x</item>
+        <item>Animacijos mastelis 2x</item>
+        <item>Animacijos mastelis 5x</item>
+        <item>Animacijos mastelis 10x</item>
+    </string-array>
 </resources>

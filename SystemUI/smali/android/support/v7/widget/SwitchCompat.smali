@@ -4,9 +4,13 @@
 
 
 # annotations
+.annotation build Landroid/support/annotation/RequiresApi;
+    value = 0xe
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/support/v7/widget/SwitchCompat$ThumbAnimation;
+        Landroid/support/v7/widget/SwitchCompat$1;
     }
 .end annotation
 
@@ -14,10 +18,20 @@
 # static fields
 .field private static final CHECKED_STATE_SET:[I
 
+.field private static final THUMB_POS:Landroid/util/Property;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/Property",
+            "<",
+            "Landroid/support/v7/widget/SwitchCompat;",
+            "Ljava/lang/Float;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 
 # instance fields
-.field private final mDrawableManager:Landroid/support/v7/widget/AppCompatDrawableManager;
-
 .field private mHasThumbTint:Z
 
 .field private mHasThumbTintMode:Z
@@ -32,7 +46,7 @@
 
 .field private mOnLayout:Landroid/text/Layout;
 
-.field private mPositionAnimator:Landroid/support/v7/widget/SwitchCompat$ThumbAnimation;
+.field mPositionAnimator:Landroid/animation/ObjectAnimator;
 
 .field private mShowText:Z
 
@@ -64,7 +78,7 @@
 
 .field private mTextOn:Ljava/lang/CharSequence;
 
-.field private mTextPaint:Landroid/text/TextPaint;
+.field private final mTextPaint:Landroid/text/TextPaint;
 
 .field private mThumbDrawable:Landroid/graphics/drawable/Drawable;
 
@@ -96,32 +110,26 @@
 
 
 # direct methods
-.method static synthetic -get0(Landroid/support/v7/widget/SwitchCompat;)Landroid/support/v7/widget/SwitchCompat$ThumbAnimation;
+.method static synthetic -get0(Landroid/support/v7/widget/SwitchCompat;)F
     .locals 1
 
-    iget-object v0, p0, Landroid/support/v7/widget/SwitchCompat;->mPositionAnimator:Landroid/support/v7/widget/SwitchCompat$ThumbAnimation;
+    iget v0, p0, Landroid/support/v7/widget/SwitchCompat;->mThumbPosition:F
 
-    return-object v0
-.end method
-
-.method static synthetic -set0(Landroid/support/v7/widget/SwitchCompat;Landroid/support/v7/widget/SwitchCompat$ThumbAnimation;)Landroid/support/v7/widget/SwitchCompat$ThumbAnimation;
-    .locals 0
-
-    iput-object p1, p0, Landroid/support/v7/widget/SwitchCompat;->mPositionAnimator:Landroid/support/v7/widget/SwitchCompat$ThumbAnimation;
-
-    return-object p1
-.end method
-
-.method static synthetic -wrap0(Landroid/support/v7/widget/SwitchCompat;F)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Landroid/support/v7/widget/SwitchCompat;->setThumbPosition(F)V
-
-    return-void
+    return v0
 .end method
 
 .method static constructor <clinit>()V
     .locals 3
+
+    new-instance v0, Landroid/support/v7/widget/SwitchCompat$1;
+
+    const-class v1, Ljava/lang/Float;
+
+    const-string/jumbo v2, "thumbPos"
+
+    invoke-direct {v0, v1, v2}, Landroid/support/v7/widget/SwitchCompat$1;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
+
+    sput-object v0, Landroid/support/v7/widget/SwitchCompat;->THUMB_POS:Landroid/util/Property;
 
     const/4 v0, 0x1
 
@@ -454,12 +462,6 @@
     invoke-virtual {p0, p1, v1}, Landroid/support/v7/widget/SwitchCompat;->setSwitchTextAppearance(Landroid/content/Context;I)V
 
     :cond_a
-    invoke-static {}, Landroid/support/v7/widget/AppCompatDrawableManager;->get()Landroid/support/v7/widget/AppCompatDrawableManager;
-
-    move-result-object v8
-
-    iput-object v8, p0, Landroid/support/v7/widget/SwitchCompat;->mDrawableManager:Landroid/support/v7/widget/AppCompatDrawableManager;
-
     invoke-virtual {v0}, Landroid/support/v7/widget/TintTypedArray;->recycle()V
 
     invoke-static {p1}, Landroid/view/ViewConfiguration;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;
@@ -490,52 +492,56 @@
 .end method
 
 .method private animateThumbToCheckedState(Z)V
-    .locals 4
+    .locals 6
 
     const/4 v3, 0x0
 
-    iget-object v0, p0, Landroid/support/v7/widget/SwitchCompat;->mPositionAnimator:Landroid/support/v7/widget/SwitchCompat$ThumbAnimation;
-
-    if-eqz v0, :cond_0
-
-    invoke-direct {p0}, Landroid/support/v7/widget/SwitchCompat;->cancelPositionAnimator()V
-
-    :cond_0
-    new-instance v1, Landroid/support/v7/widget/SwitchCompat$ThumbAnimation;
-
-    iget v2, p0, Landroid/support/v7/widget/SwitchCompat;->mThumbPosition:F
+    const/4 v2, 0x1
 
     if-eqz p1, :cond_1
 
-    const/high16 v0, 0x3f800000    # 1.0f
+    move v1, v2
 
     :goto_0
-    invoke-direct {v1, p0, v2, v0, v3}, Landroid/support/v7/widget/SwitchCompat$ThumbAnimation;-><init>(Landroid/support/v7/widget/SwitchCompat;FFLandroid/support/v7/widget/SwitchCompat$ThumbAnimation;)V
+    int-to-float v0, v1
 
-    iput-object v1, p0, Landroid/support/v7/widget/SwitchCompat;->mPositionAnimator:Landroid/support/v7/widget/SwitchCompat$ThumbAnimation;
+    sget-object v1, Landroid/support/v7/widget/SwitchCompat;->THUMB_POS:Landroid/util/Property;
 
-    iget-object v0, p0, Landroid/support/v7/widget/SwitchCompat;->mPositionAnimator:Landroid/support/v7/widget/SwitchCompat$ThumbAnimation;
+    new-array v4, v2, [F
 
-    const-wide/16 v2, 0xfa
+    aput v0, v4, v3
 
-    invoke-virtual {v0, v2, v3}, Landroid/support/v7/widget/SwitchCompat$ThumbAnimation;->setDuration(J)V
+    invoke-static {p0, v1, v4}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
 
-    iget-object v0, p0, Landroid/support/v7/widget/SwitchCompat;->mPositionAnimator:Landroid/support/v7/widget/SwitchCompat$ThumbAnimation;
+    move-result-object v1
 
-    new-instance v1, Landroid/support/v7/widget/SwitchCompat$1;
+    iput-object v1, p0, Landroid/support/v7/widget/SwitchCompat;->mPositionAnimator:Landroid/animation/ObjectAnimator;
 
-    invoke-direct {v1, p0, p1}, Landroid/support/v7/widget/SwitchCompat$1;-><init>(Landroid/support/v7/widget/SwitchCompat;Z)V
+    iget-object v1, p0, Landroid/support/v7/widget/SwitchCompat;->mPositionAnimator:Landroid/animation/ObjectAnimator;
 
-    invoke-virtual {v0, v1}, Landroid/support/v7/widget/SwitchCompat$ThumbAnimation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
+    const-wide/16 v4, 0xfa
 
-    iget-object v0, p0, Landroid/support/v7/widget/SwitchCompat;->mPositionAnimator:Landroid/support/v7/widget/SwitchCompat$ThumbAnimation;
+    invoke-virtual {v1, v4, v5}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
 
-    invoke-virtual {p0, v0}, Landroid/support/v7/widget/SwitchCompat;->startAnimation(Landroid/view/animation/Animation;)V
+    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v3, 0x12
+
+    if-lt v1, v3, :cond_0
+
+    iget-object v1, p0, Landroid/support/v7/widget/SwitchCompat;->mPositionAnimator:Landroid/animation/ObjectAnimator;
+
+    invoke-virtual {v1, v2}, Landroid/animation/ObjectAnimator;->setAutoCancel(Z)V
+
+    :cond_0
+    iget-object v1, p0, Landroid/support/v7/widget/SwitchCompat;->mPositionAnimator:Landroid/animation/ObjectAnimator;
+
+    invoke-virtual {v1}, Landroid/animation/ObjectAnimator;->start()V
 
     return-void
 
     :cond_1
-    const/4 v0, 0x0
+    move v1, v3
 
     goto :goto_0
 .end method
@@ -673,17 +679,15 @@
 .end method
 
 .method private cancelPositionAnimator()V
-    .locals 2
+    .locals 1
 
-    const/4 v1, 0x0
-
-    iget-object v0, p0, Landroid/support/v7/widget/SwitchCompat;->mPositionAnimator:Landroid/support/v7/widget/SwitchCompat$ThumbAnimation;
+    iget-object v0, p0, Landroid/support/v7/widget/SwitchCompat;->mPositionAnimator:Landroid/animation/ObjectAnimator;
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p0}, Landroid/support/v7/widget/SwitchCompat;->clearAnimation()V
+    iget-object v0, p0, Landroid/support/v7/widget/SwitchCompat;->mPositionAnimator:Landroid/animation/ObjectAnimator;
 
-    iput-object v1, p0, Landroid/support/v7/widget/SwitchCompat;->mPositionAnimator:Landroid/support/v7/widget/SwitchCompat$ThumbAnimation;
+    invoke-virtual {v0}, Landroid/animation/ObjectAnimator;->cancel()V
 
     :cond_0
     return-void
@@ -1036,16 +1040,6 @@
         :pswitch_1
         :pswitch_2
     .end packed-switch
-.end method
-
-.method private setThumbPosition(F)V
-    .locals 0
-
-    iput p1, p0, Landroid/support/v7/widget/SwitchCompat;->mThumbPosition:F
-
-    invoke-virtual {p0}, Landroid/support/v7/widget/SwitchCompat;->invalidate()V
-
-    return-void
 .end method
 
 .method private stopDrag(Landroid/view/MotionEvent;)V
@@ -1540,11 +1534,13 @@
 .end method
 
 .method public jumpDrawablesToCurrentState()V
-    .locals 2
+    .locals 3
+
+    const/4 v2, 0x0
 
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    const/16 v1, 0xb
+    const/16 v1, 0xe
 
     if-lt v0, v1, :cond_2
 
@@ -1568,28 +1564,26 @@
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->jumpToCurrentState()V
 
     :cond_1
-    invoke-direct {p0}, Landroid/support/v7/widget/SwitchCompat;->cancelPositionAnimator()V
+    iget-object v0, p0, Landroid/support/v7/widget/SwitchCompat;->mPositionAnimator:Landroid/animation/ObjectAnimator;
 
-    invoke-virtual {p0}, Landroid/support/v7/widget/SwitchCompat;->isChecked()Z
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Landroid/support/v7/widget/SwitchCompat;->mPositionAnimator:Landroid/animation/ObjectAnimator;
+
+    invoke-virtual {v0}, Landroid/animation/ObjectAnimator;->isStarted()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2
 
-    const/4 v0, 0x1
+    iget-object v0, p0, Landroid/support/v7/widget/SwitchCompat;->mPositionAnimator:Landroid/animation/ObjectAnimator;
 
-    :goto_0
-    int-to-float v0, v0
+    invoke-virtual {v0}, Landroid/animation/ObjectAnimator;->end()V
 
-    invoke-direct {p0, v0}, Landroid/support/v7/widget/SwitchCompat;->setThumbPosition(F)V
+    iput-object v2, p0, Landroid/support/v7/widget/SwitchCompat;->mPositionAnimator:Landroid/animation/ObjectAnimator;
 
     :cond_2
     return-void
-
-    :cond_3
-    const/4 v0, 0x0
-
-    goto :goto_0
 .end method
 
 .method protected onCreateDrawableState(I)[I
@@ -1901,9 +1895,6 @@
 
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 1
-    .annotation build Landroid/annotation/TargetApi;
-        value = 0xe
-    .end annotation
 
     invoke-super {p0, p1}, Landroid/widget/CompoundButton;->onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
 
@@ -2346,7 +2337,7 @@
 
     if-ge v2, v6, :cond_3
 
-    invoke-static {p0}, Landroid/support/v4/view/ViewCompat;->getMeasuredWidthAndState(Landroid/view/View;)I
+    invoke-virtual {p0}, Landroid/support/v7/widget/SwitchCompat;->getMeasuredWidthAndState()I
 
     move-result v11
 
@@ -2377,9 +2368,6 @@
 
 .method public onPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 2
-    .annotation build Landroid/annotation/TargetApi;
-        value = 0xe
-    .end annotation
 
     invoke-super {p0, p1}, Landroid/widget/CompoundButton;->onPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
 
@@ -2424,7 +2412,7 @@
 
     invoke-virtual {v7, p1}, Landroid/view/VelocityTracker;->addMovement(Landroid/view/MotionEvent;)V
 
-    invoke-static {p1}, Landroid/support/v4/view/MotionEventCompat;->getActionMasked(Landroid/view/MotionEvent;)I
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v0
 
@@ -2578,7 +2566,7 @@
 
     iput v5, p0, Landroid/support/v7/widget/SwitchCompat;->mTouchX:F
 
-    invoke-direct {p0, v2}, Landroid/support/v7/widget/SwitchCompat;->setThumbPosition(F)V
+    invoke-virtual {p0, v2}, Landroid/support/v7/widget/SwitchCompat;->setThumbPosition(F)V
 
     :cond_3
     return v8
@@ -2657,12 +2645,6 @@
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p0}, Landroid/support/v7/widget/SwitchCompat;->isShown()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
     invoke-direct {p0, p1}, Landroid/support/v7/widget/SwitchCompat;->animateThumbToCheckedState(Z)V
 
     :goto_0
@@ -2678,7 +2660,7 @@
     :goto_1
     int-to-float v0, v0
 
-    invoke-direct {p0, v0}, Landroid/support/v7/widget/SwitchCompat;->setThumbPosition(F)V
+    invoke-virtual {p0, v0}, Landroid/support/v7/widget/SwitchCompat;->setThumbPosition(F)V
 
     goto :goto_0
 
@@ -2699,13 +2681,13 @@
 
     sget-object v6, Landroid/support/v7/appcompat/R$styleable;->TextAppearance:[I
 
-    invoke-virtual {p1, p2, v6}, Landroid/content/Context;->obtainStyledAttributes(I[I)Landroid/content/res/TypedArray;
+    invoke-static {p1, p2, v6}, Landroid/support/v7/widget/TintTypedArray;->obtainStyledAttributes(Landroid/content/Context;I[I)Landroid/support/v7/widget/TintTypedArray;
 
     move-result-object v1
 
     sget v6, Landroid/support/v7/appcompat/R$styleable;->TextAppearance_android_textColor:I
 
-    invoke-virtual {v1, v6}, Landroid/content/res/TypedArray;->getColorStateList(I)Landroid/content/res/ColorStateList;
+    invoke-virtual {v1, v6}, Landroid/support/v7/widget/TintTypedArray;->getColorStateList(I)Landroid/content/res/ColorStateList;
 
     move-result-object v2
 
@@ -2716,7 +2698,7 @@
     :goto_0
     sget v6, Landroid/support/v7/appcompat/R$styleable;->TextAppearance_android_textSize:I
 
-    invoke-virtual {v1, v6, v8}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
+    invoke-virtual {v1, v6, v8}, Landroid/support/v7/widget/TintTypedArray;->getDimensionPixelSize(II)I
 
     move-result v4
 
@@ -2745,13 +2727,13 @@
     :cond_0
     sget v6, Landroid/support/v7/appcompat/R$styleable;->TextAppearance_android_typeface:I
 
-    invoke-virtual {v1, v6, v9}, Landroid/content/res/TypedArray;->getInt(II)I
+    invoke-virtual {v1, v6, v9}, Landroid/support/v7/widget/TintTypedArray;->getInt(II)I
 
     move-result v5
 
     sget v6, Landroid/support/v7/appcompat/R$styleable;->TextAppearance_android_textStyle:I
 
-    invoke-virtual {v1, v6, v9}, Landroid/content/res/TypedArray;->getInt(II)I
+    invoke-virtual {v1, v6, v9}, Landroid/support/v7/widget/TintTypedArray;->getInt(II)I
 
     move-result v3
 
@@ -2759,7 +2741,7 @@
 
     sget v6, Landroid/support/v7/appcompat/R$styleable;->TextAppearance_textAllCaps:I
 
-    invoke-virtual {v1, v6, v8}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
+    invoke-virtual {v1, v6, v8}, Landroid/support/v7/widget/TintTypedArray;->getBoolean(IZ)Z
 
     move-result v0
 
@@ -2776,7 +2758,7 @@
     iput-object v6, p0, Landroid/support/v7/widget/SwitchCompat;->mSwitchTransformationMethod:Landroid/text/method/TransformationMethod;
 
     :goto_1
-    invoke-virtual {v1}, Landroid/content/res/TypedArray;->recycle()V
+    invoke-virtual {v1}, Landroid/support/v7/widget/TintTypedArray;->recycle()V
 
     return-void
 
@@ -2804,8 +2786,34 @@
 
     move-result-object v0
 
-    if-eq v0, p1, :cond_0
+    if-eqz v0, :cond_0
 
+    iget-object v0, p0, Landroid/support/v7/widget/SwitchCompat;->mTextPaint:Landroid/text/TextPaint;
+
+    invoke-virtual {v0}, Landroid/text/TextPaint;->getTypeface()Landroid/graphics/Typeface;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Landroid/graphics/Typeface;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
+
+    if-nez v0, :cond_1
+
+    :cond_0
+    iget-object v0, p0, Landroid/support/v7/widget/SwitchCompat;->mTextPaint:Landroid/text/TextPaint;
+
+    invoke-virtual {v0}, Landroid/text/TextPaint;->getTypeface()Landroid/graphics/Typeface;
+
+    move-result-object v0
+
+    if-nez v0, :cond_2
+
+    if-eqz p1, :cond_2
+
+    :cond_1
     iget-object v0, p0, Landroid/support/v7/widget/SwitchCompat;->mTextPaint:Landroid/text/TextPaint;
 
     invoke-virtual {v0, p1}, Landroid/text/TextPaint;->setTypeface(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
@@ -2814,7 +2822,7 @@
 
     invoke-virtual {p0}, Landroid/support/v7/widget/SwitchCompat;->invalidate()V
 
-    :cond_0
+    :cond_2
     return-void
 .end method
 
@@ -2880,7 +2888,7 @@
     goto :goto_0
 
     :cond_2
-    move v1, v2
+    const/4 v1, 0x0
 
     goto :goto_1
 
@@ -2923,6 +2931,16 @@
     return-void
 .end method
 
+.method setThumbPosition(F)V
+    .locals 0
+
+    iput p1, p0, Landroid/support/v7/widget/SwitchCompat;->mThumbPosition:F
+
+    invoke-virtual {p0}, Landroid/support/v7/widget/SwitchCompat;->invalidate()V
+
+    return-void
+.end method
+
 .method public toggle()V
     .locals 1
 
@@ -2930,19 +2948,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     invoke-virtual {p0, v0}, Landroid/support/v7/widget/SwitchCompat;->setChecked(Z)V
 
     return-void
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method protected verifyDrawable(Landroid/graphics/drawable/Drawable;)Z

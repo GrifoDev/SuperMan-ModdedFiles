@@ -86,6 +86,12 @@
 
     const/4 v1, 0x0
 
+    invoke-static {}, Lcom/android/systemui/recents/RecentsDebugFlags;->useExpandableHeaderLayout()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
     iget-object v0, p0, Lcom/android/systemui/recents/views/TaskViewHeader$HighlightColorDrawable;->this$0:Lcom/android/systemui/recents/views/TaskViewHeader;
 
     iget-object v0, v0, Lcom/android/systemui/recents/views/TaskViewHeader;->mTaskViewRect:Landroid/graphics/Rect;
@@ -132,10 +138,16 @@
 
     invoke-virtual/range {v0 .. v7}, Landroid/graphics/Canvas;->drawRoundRect(FFFFFFLandroid/graphics/Paint;)V
 
-    iget-object v0, p0, Lcom/android/systemui/recents/views/TaskViewHeader$HighlightColorDrawable;->this$0:Lcom/android/systemui/recents/views/TaskViewHeader;
+    :cond_0
+    invoke-static {}, Lcom/android/systemui/recents/RecentsDebugFlags;->useExpandableHeaderLayout()Z
 
-    iget v0, v0, Lcom/android/systemui/recents/views/TaskViewHeader;->mHighlightHeight:I
+    move-result v0
 
+    if-eqz v0, :cond_1
+
+    const/4 v0, 0x0
+
+    :goto_0
     int-to-float v2, v0
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/TaskViewHeader$HighlightColorDrawable;->this$0:Lcom/android/systemui/recents/views/TaskViewHeader;
@@ -148,18 +160,19 @@
 
     int-to-float v3, v0
 
+    invoke-static {}, Lcom/android/systemui/recents/RecentsDebugFlags;->useListLayout()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
     iget-object v0, p0, Lcom/android/systemui/recents/views/TaskViewHeader$HighlightColorDrawable;->this$0:Lcom/android/systemui/recents/views/TaskViewHeader;
 
     invoke-virtual {v0}, Lcom/android/systemui/recents/views/TaskViewHeader;->getHeight()I
 
     move-result v0
 
-    iget-object v4, p0, Lcom/android/systemui/recents/views/TaskViewHeader$HighlightColorDrawable;->this$0:Lcom/android/systemui/recents/views/TaskViewHeader;
-
-    iget v4, v4, Lcom/android/systemui/recents/views/TaskViewHeader;->mCornerRadius:I
-
-    add-int/2addr v0, v4
-
+    :goto_1
     int-to-float v4, v0
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/TaskViewHeader$HighlightColorDrawable;->this$0:Lcom/android/systemui/recents/views/TaskViewHeader;
@@ -181,6 +194,28 @@
     invoke-virtual/range {v0 .. v7}, Landroid/graphics/Canvas;->drawRoundRect(FFFFFFLandroid/graphics/Paint;)V
 
     return-void
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/systemui/recents/views/TaskViewHeader$HighlightColorDrawable;->this$0:Lcom/android/systemui/recents/views/TaskViewHeader;
+
+    iget v0, v0, Lcom/android/systemui/recents/views/TaskViewHeader;->mHighlightHeight:I
+
+    goto :goto_0
+
+    :cond_2
+    iget-object v0, p0, Lcom/android/systemui/recents/views/TaskViewHeader$HighlightColorDrawable;->this$0:Lcom/android/systemui/recents/views/TaskViewHeader;
+
+    invoke-virtual {v0}, Lcom/android/systemui/recents/views/TaskViewHeader;->getHeight()I
+
+    move-result v0
+
+    iget-object v4, p0, Lcom/android/systemui/recents/views/TaskViewHeader$HighlightColorDrawable;->this$0:Lcom/android/systemui/recents/views/TaskViewHeader;
+
+    iget v4, v4, Lcom/android/systemui/recents/views/TaskViewHeader;->mCornerRadius:I
+
+    add-int/2addr v0, v4
+
+    goto :goto_1
 .end method
 
 .method public getColor()I
@@ -210,6 +245,8 @@
 
     const/4 v5, 0x2
 
+    const/4 v1, 0x0
+
     const/high16 v4, 0x3f800000    # 1.0f
 
     iget v0, p0, Lcom/android/systemui/recents/views/TaskViewHeader$HighlightColorDrawable;->mColor:I
@@ -222,20 +259,35 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     :cond_0
     iput p1, p0, Lcom/android/systemui/recents/views/TaskViewHeader$HighlightColorDrawable;->mColor:I
 
     iput p2, p0, Lcom/android/systemui/recents/views/TaskViewHeader$HighlightColorDrawable;->mDimAlpha:F
 
+    iget-object v0, p0, Lcom/android/systemui/recents/views/TaskViewHeader$HighlightColorDrawable;->this$0:Lcom/android/systemui/recents/views/TaskViewHeader;
+
+    invoke-static {v0}, Lcom/android/systemui/recents/views/TaskViewHeader;->-get0(Lcom/android/systemui/recents/views/TaskViewHeader;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/TaskViewHeader$HighlightColorDrawable;->this$0:Lcom/android/systemui/recents/views/TaskViewHeader;
+
+    invoke-virtual {v0, p1, v1}, Lcom/android/systemui/recents/views/TaskViewHeader;->getSecondaryColor(IZ)I
+
+    move-result p1
+
+    :cond_1
     iget-object v0, p0, Lcom/android/systemui/recents/views/TaskViewHeader$HighlightColorDrawable;->mBackgroundPaint:Landroid/graphics/Paint;
 
     invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setColor(I)V
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/TaskViewHeader$HighlightColorDrawable;->this$0:Lcom/android/systemui/recents/views/TaskViewHeader;
 
-    invoke-static {v0}, Lcom/android/systemui/recents/views/TaskViewHeader;->-get0(Lcom/android/systemui/recents/views/TaskViewHeader;)[F
+    invoke-static {v0}, Lcom/android/systemui/recents/views/TaskViewHeader;->-get1(Lcom/android/systemui/recents/views/TaskViewHeader;)[F
 
     move-result-object v0
 
@@ -243,13 +295,13 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/TaskViewHeader$HighlightColorDrawable;->this$0:Lcom/android/systemui/recents/views/TaskViewHeader;
 
-    invoke-static {v0}, Lcom/android/systemui/recents/views/TaskViewHeader;->-get0(Lcom/android/systemui/recents/views/TaskViewHeader;)[F
+    invoke-static {v0}, Lcom/android/systemui/recents/views/TaskViewHeader;->-get1(Lcom/android/systemui/recents/views/TaskViewHeader;)[F
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewHeader$HighlightColorDrawable;->this$0:Lcom/android/systemui/recents/views/TaskViewHeader;
 
-    invoke-static {v1}, Lcom/android/systemui/recents/views/TaskViewHeader;->-get0(Lcom/android/systemui/recents/views/TaskViewHeader;)[F
+    invoke-static {v1}, Lcom/android/systemui/recents/views/TaskViewHeader;->-get1(Lcom/android/systemui/recents/views/TaskViewHeader;)[F
 
     move-result-object v1
 
@@ -273,7 +325,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewHeader$HighlightColorDrawable;->this$0:Lcom/android/systemui/recents/views/TaskViewHeader;
 
-    invoke-static {v1}, Lcom/android/systemui/recents/views/TaskViewHeader;->-get0(Lcom/android/systemui/recents/views/TaskViewHeader;)[F
+    invoke-static {v1}, Lcom/android/systemui/recents/views/TaskViewHeader;->-get1(Lcom/android/systemui/recents/views/TaskViewHeader;)[F
 
     move-result-object v1
 
@@ -285,7 +337,7 @@
 
     invoke-virtual {p0}, Lcom/android/systemui/recents/views/TaskViewHeader$HighlightColorDrawable;->invalidateSelf()V
 
-    :cond_1
+    :cond_2
     return-void
 .end method
 

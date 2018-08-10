@@ -3,10 +3,15 @@
 .source "R.java"
 
 
-# static fields
-.field public static final config_max_unlock_countdown_times:I = 0x7f0c0086
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/keyguard/R;
+.end annotation
 
-.field public static final shortcut_icon_utilization_ratio:I = 0x7f0c0087
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "integer"
+.end annotation
 
 
 # direct methods

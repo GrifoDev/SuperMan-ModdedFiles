@@ -30,3 +30,8 @@
 
     return-void
 .end method
+
+
+# virtual methods
+.method public abstract toJson()Ljava/lang/String;
+.end method

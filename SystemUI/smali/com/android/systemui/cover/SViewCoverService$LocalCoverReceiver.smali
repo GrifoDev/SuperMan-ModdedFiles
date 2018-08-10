@@ -82,7 +82,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/cover/SViewCoverService$LocalCoverReceiver;->this$0:Lcom/android/systemui/cover/SViewCoverService;
 
-    invoke-static {v1}, Lcom/android/systemui/cover/SViewCoverService;->-get1(Lcom/android/systemui/cover/SViewCoverService;)Lcom/android/systemui/cover/SViewCoverService$LocalCoverReceiver;
+    invoke-static {v1}, Lcom/android/systemui/cover/SViewCoverService;->-get0(Lcom/android/systemui/cover/SViewCoverService;)Lcom/android/systemui/cover/SViewCoverService$LocalCoverReceiver;
 
     move-result-object v1
 

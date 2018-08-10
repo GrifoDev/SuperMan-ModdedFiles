@@ -11,6 +11,10 @@
 
 .field protected mCellHorizontalMargin:I
 
+.field protected mCellMargin:I
+
+.field private mCellMarginBottom:I
+
 .field private mCellMarginTop:I
 
 .field protected mCellVerticalMargin:I
@@ -19,7 +23,7 @@
 
 .field protected mColumns:I
 
-.field private mListening:Z
+.field protected mListening:Z
 
 .field protected final mRecords:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
@@ -62,6 +66,8 @@
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/TileLayout;->setFocusableInTouchMode(Z)V
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/TileLayout;->updateResources()Z
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/TileLayout;->setFocusability()V
 
     return-void
 .end method
@@ -123,13 +129,13 @@
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    iget-object v0, p1, Lcom/android/systemui/qs/QSPanel$TileRecord;->tile:Lcom/android/systemui/qs/QSTile;
+    iget-object v0, p1, Lcom/android/systemui/qs/QSPanel$TileRecord;->tile:Lcom/android/systemui/plugins/qs/QSTile;
 
     iget-boolean v1, p0, Lcom/android/systemui/qs/TileLayout;->mListening:Z
 
-    invoke-virtual {v0, p0, v1}, Lcom/android/systemui/qs/QSTile;->setListening(Ljava/lang/Object;Z)V
+    invoke-interface {v0, p0, v1}, Lcom/android/systemui/plugins/qs/QSTile;->setListening(Ljava/lang/Object;Z)V
 
-    iget-object v0, p1, Lcom/android/systemui/qs/QSPanel$TileRecord;->tileView:Lcom/android/systemui/qs/QSTileBaseView;
+    iget-object v0, p1, Lcom/android/systemui/qs/QSPanel$TileRecord;->tileView:Lcom/android/systemui/plugins/qs/QSTileView;
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/TileLayout;->addView(Landroid/view/View;)V
 
@@ -215,17 +221,17 @@
     sub-int v3, v5, v9
 
     :goto_2
-    iget-object v9, v4, Lcom/android/systemui/qs/QSPanel$TileRecord;->tileView:Lcom/android/systemui/qs/QSTileBaseView;
+    iget-object v9, v4, Lcom/android/systemui/qs/QSPanel$TileRecord;->tileView:Lcom/android/systemui/plugins/qs/QSTileView;
 
-    iget-object v10, v4, Lcom/android/systemui/qs/QSPanel$TileRecord;->tileView:Lcom/android/systemui/qs/QSTileBaseView;
+    iget-object v10, v4, Lcom/android/systemui/qs/QSPanel$TileRecord;->tileView:Lcom/android/systemui/plugins/qs/QSTileView;
 
-    invoke-virtual {v10}, Lcom/android/systemui/qs/QSTileBaseView;->getMeasuredHeight()I
+    invoke-virtual {v10}, Lcom/android/systemui/plugins/qs/QSTileView;->getMeasuredHeight()I
 
     move-result v10
 
     add-int/2addr v10, v7
 
-    invoke-virtual {v9, v3, v7, v5, v10}, Lcom/android/systemui/qs/QSTileBaseView;->layout(IIII)V
+    invoke-virtual {v9, v3, v7, v5, v10}, Lcom/android/systemui/plugins/qs/QSTileView;->layout(IIII)V
 
     add-int/lit8 v1, v1, 0x1
 
@@ -250,124 +256,133 @@
 .end method
 
 .method protected onMeasure(II)V
-    .locals 9
+    .locals 10
 
-    iget-object v6, p0, Lcom/android/systemui/qs/TileLayout;->mRecords:Ljava/util/ArrayList;
+    iget-object v7, p0, Lcom/android/systemui/qs/TileLayout;->mRecords:Ljava/util/ArrayList;
 
-    invoke-virtual {v6}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
 
-    move-result v0
+    move-result v1
 
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
-    move-result v5
-
-    iget v6, p0, Lcom/android/systemui/qs/TileLayout;->mColumns:I
-
-    add-int/2addr v6, v0
-
-    add-int/lit8 v6, v6, -0x1
+    move-result v6
 
     iget v7, p0, Lcom/android/systemui/qs/TileLayout;->mColumns:I
 
-    div-int v4, v6, v7
-
-    iget v6, p0, Lcom/android/systemui/qs/TileLayout;->mSidePadding:I
-
-    mul-int/lit8 v6, v6, 0x2
-
-    sub-int v6, v5, v6
-
-    iget v7, p0, Lcom/android/systemui/qs/TileLayout;->mColumns:I
-
-    iget v8, p0, Lcom/android/systemui/qs/TileLayout;->mCellWidth:I
-
-    mul-int/2addr v7, v8
-
-    sub-int/2addr v6, v7
-
-    iget v7, p0, Lcom/android/systemui/qs/TileLayout;->mColumns:I
+    add-int/2addr v7, v1
 
     add-int/lit8 v7, v7, -0x1
 
-    div-int/2addr v6, v7
+    iget v8, p0, Lcom/android/systemui/qs/TileLayout;->mColumns:I
 
-    iput v6, p0, Lcom/android/systemui/qs/TileLayout;->mCellHorizontalMargin:I
+    div-int v5, v7, v8
 
-    move-object v1, p0
+    iget v7, p0, Lcom/android/systemui/qs/TileLayout;->mSidePadding:I
 
-    iget-object v6, p0, Lcom/android/systemui/qs/TileLayout;->mRecords:Ljava/util/ArrayList;
+    mul-int/lit8 v7, v7, 0x2
 
-    invoke-interface {v6}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    sub-int v7, v6, v7
 
-    move-result-object v3
+    iget v8, p0, Lcom/android/systemui/qs/TileLayout;->mColumns:I
+
+    iget v9, p0, Lcom/android/systemui/qs/TileLayout;->mCellWidth:I
+
+    mul-int/2addr v8, v9
+
+    sub-int/2addr v7, v8
+
+    iget v8, p0, Lcom/android/systemui/qs/TileLayout;->mColumns:I
+
+    add-int/lit8 v8, v8, -0x1
+
+    div-int/2addr v7, v8
+
+    iput v7, p0, Lcom/android/systemui/qs/TileLayout;->mCellHorizontalMargin:I
+
+    move-object v2, p0
+
+    iget-object v7, p0, Lcom/android/systemui/qs/TileLayout;->mRecords:Ljava/util/ArrayList;
+
+    invoke-interface {v7}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
 
     :cond_0
     :goto_0
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_1
-
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/systemui/qs/QSPanel$TileRecord;
-
-    iget-object v6, v2, Lcom/android/systemui/qs/QSPanel$TileRecord;->tileView:Lcom/android/systemui/qs/QSTileBaseView;
-
-    invoke-virtual {v6}, Lcom/android/systemui/qs/QSTileBaseView;->getVisibility()I
-
-    move-result v6
-
-    const/16 v7, 0x8
-
-    if-eq v6, v7, :cond_0
-
-    iget-object v6, v2, Lcom/android/systemui/qs/QSPanel$TileRecord;->tileView:Lcom/android/systemui/qs/QSTileBaseView;
-
-    iget v7, p0, Lcom/android/systemui/qs/TileLayout;->mCellWidth:I
-
-    invoke-static {v7}, Lcom/android/systemui/qs/TileLayout;->exactly(I)I
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    iget v8, p0, Lcom/android/systemui/qs/TileLayout;->mCellHeight:I
+    if-eqz v7, :cond_1
+
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/systemui/qs/QSPanel$TileRecord;
+
+    iget-object v7, v3, Lcom/android/systemui/qs/QSPanel$TileRecord;->tileView:Lcom/android/systemui/plugins/qs/QSTileView;
+
+    invoke-virtual {v7}, Lcom/android/systemui/plugins/qs/QSTileView;->getVisibility()I
+
+    move-result v7
+
+    const/16 v8, 0x8
+
+    if-eq v7, v8, :cond_0
+
+    iget-object v7, v3, Lcom/android/systemui/qs/QSPanel$TileRecord;->tileView:Lcom/android/systemui/plugins/qs/QSTileView;
+
+    iget v8, p0, Lcom/android/systemui/qs/TileLayout;->mCellWidth:I
 
     invoke-static {v8}, Lcom/android/systemui/qs/TileLayout;->exactly(I)I
 
     move-result v8
 
-    invoke-virtual {v6, v7, v8}, Lcom/android/systemui/qs/QSTileBaseView;->measure(II)V
+    iget v9, p0, Lcom/android/systemui/qs/TileLayout;->mCellHeight:I
 
-    iget-object v6, v2, Lcom/android/systemui/qs/QSPanel$TileRecord;->tileView:Lcom/android/systemui/qs/QSTileBaseView;
+    invoke-static {v9}, Lcom/android/systemui/qs/TileLayout;->exactly(I)I
 
-    invoke-virtual {v6, v1}, Lcom/android/systemui/qs/QSTileBaseView;->updateAccessibilityOrder(Landroid/view/View;)Landroid/view/View;
+    move-result v9
 
-    move-result-object v1
+    invoke-virtual {v7, v8, v9}, Lcom/android/systemui/plugins/qs/QSTileView;->measure(II)V
+
+    iget-object v7, v3, Lcom/android/systemui/qs/QSPanel$TileRecord;->tileView:Lcom/android/systemui/plugins/qs/QSTileView;
+
+    invoke-virtual {v7, v2}, Lcom/android/systemui/plugins/qs/QSTileView;->updateAccessibilityOrder(Landroid/view/View;)Landroid/view/View;
+
+    move-result-object v2
 
     goto :goto_0
 
     :cond_1
-    iget v6, p0, Lcom/android/systemui/qs/TileLayout;->mCellHeight:I
-
-    iget v7, p0, Lcom/android/systemui/qs/TileLayout;->mCellVerticalMargin:I
-
-    add-int/2addr v6, v7
-
-    mul-int/2addr v6, v4
-
-    iget v7, p0, Lcom/android/systemui/qs/TileLayout;->mCellMarginTop:I
+    iget v7, p0, Lcom/android/systemui/qs/TileLayout;->mCellHeight:I
 
     iget v8, p0, Lcom/android/systemui/qs/TileLayout;->mCellVerticalMargin:I
 
-    sub-int/2addr v7, v8
+    add-int/2addr v7, v8
 
-    add-int/2addr v6, v7
+    mul-int/2addr v7, v5
 
-    invoke-virtual {p0, v5, v6}, Lcom/android/systemui/qs/TileLayout;->setMeasuredDimension(II)V
+    iget v8, p0, Lcom/android/systemui/qs/TileLayout;->mCellMarginTop:I
+
+    iget v9, p0, Lcom/android/systemui/qs/TileLayout;->mCellVerticalMargin:I
+
+    sub-int/2addr v8, v9
+
+    add-int/2addr v7, v8
+
+    iget v8, p0, Lcom/android/systemui/qs/TileLayout;->mCellMarginBottom:I
+
+    add-int v0, v7, v8
+
+    if-gez v0, :cond_2
+
+    const/4 v0, 0x0
+
+    :cond_2
+    invoke-virtual {p0, v6, v0}, Lcom/android/systemui/qs/TileLayout;->setMeasuredDimension(II)V
 
     return-void
 .end method
@@ -394,11 +409,11 @@
 
     check-cast v0, Lcom/android/systemui/qs/QSPanel$TileRecord;
 
-    iget-object v2, v0, Lcom/android/systemui/qs/QSPanel$TileRecord;->tile:Lcom/android/systemui/qs/QSTile;
+    iget-object v2, v0, Lcom/android/systemui/qs/QSPanel$TileRecord;->tile:Lcom/android/systemui/plugins/qs/QSTile;
 
     const/4 v3, 0x0
 
-    invoke-virtual {v2, p0, v3}, Lcom/android/systemui/qs/QSTile;->setListening(Ljava/lang/Object;Z)V
+    invoke-interface {v2, p0, v3}, Lcom/android/systemui/plugins/qs/QSTile;->setListening(Ljava/lang/Object;Z)V
 
     goto :goto_0
 
@@ -419,17 +434,47 @@
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    iget-object v0, p1, Lcom/android/systemui/qs/QSPanel$TileRecord;->tile:Lcom/android/systemui/qs/QSTile;
+    iget-object v0, p1, Lcom/android/systemui/qs/QSPanel$TileRecord;->tile:Lcom/android/systemui/plugins/qs/QSTile;
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, p0, v1}, Lcom/android/systemui/qs/QSTile;->setListening(Ljava/lang/Object;Z)V
+    invoke-interface {v0, p0, v1}, Lcom/android/systemui/plugins/qs/QSTile;->setListening(Ljava/lang/Object;Z)V
 
-    iget-object v0, p1, Lcom/android/systemui/qs/QSPanel$TileRecord;->tileView:Lcom/android/systemui/qs/QSTileBaseView;
+    iget-object v0, p1, Lcom/android/systemui/qs/QSPanel$TileRecord;->tileView:Lcom/android/systemui/plugins/qs/QSTileView;
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/TileLayout;->removeView(Landroid/view/View;)V
 
     return-void
+.end method
+
+.method setFocusability()V
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/qs/TileLayout;->mListening:Z
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/TileLayout;->setFocusable(Z)V
+
+    const/high16 v0, 0x20000
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/TileLayout;->setDescendantFocusability(I)V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/TileLayout;->setFocusable(Z)V
+
+    const/high16 v0, 0x60000
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/TileLayout;->setDescendantFocusability(I)V
+
+    goto :goto_0
 .end method
 
 .method public setListening(Z)V
@@ -463,230 +508,266 @@
 
     check-cast v0, Lcom/android/systemui/qs/QSPanel$TileRecord;
 
-    iget-object v2, v0, Lcom/android/systemui/qs/QSPanel$TileRecord;->tile:Lcom/android/systemui/qs/QSTile;
+    iget-object v2, v0, Lcom/android/systemui/qs/QSPanel$TileRecord;->tile:Lcom/android/systemui/plugins/qs/QSTile;
 
     iget-boolean v3, p0, Lcom/android/systemui/qs/TileLayout;->mListening:Z
 
-    invoke-virtual {v2, p0, v3}, Lcom/android/systemui/qs/QSTile;->setListening(Ljava/lang/Object;Z)V
+    invoke-interface {v2, p0, v3}, Lcom/android/systemui/plugins/qs/QSTile;->setListening(Ljava/lang/Object;Z)V
 
     goto :goto_0
 
     :cond_1
+    invoke-virtual {p0}, Lcom/android/systemui/qs/TileLayout;->setFocusability()V
+
     return-void
 .end method
 
 .method public updateResources()Z
-    .locals 9
+    .locals 6
 
-    const/4 v4, 0x1
+    iget-object v2, p0, Lcom/android/systemui/qs/TileLayout;->mContext:Landroid/content/Context;
 
-    const/4 v5, 0x0
+    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    iget-object v6, p0, Lcom/android/systemui/qs/TileLayout;->mContext:Landroid/content/Context;
+    move-result-object v1
 
-    invoke-virtual {v6}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    const-class v2, Lcom/android/systemui/tuner/TunerService;
 
-    move-result-object v3
+    invoke-static {v2}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
-    invoke-virtual {v3}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+    move-result-object v2
 
-    move-result-object v6
+    check-cast v2, Lcom/android/systemui/tuner/TunerService;
 
-    iget v2, v6, Landroid/content/res/Configuration;->orientation:I
+    const-string/jumbo v3, "qs_tile_column"
 
-    const/4 v6, 0x2
+    iget-object v4, p0, Lcom/android/systemui/qs/TileLayout;->mContext:Landroid/content/Context;
 
-    if-ne v2, v6, :cond_0
+    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move v1, v4
+    move-result-object v4
 
-    :goto_0
-    if-eqz v1, :cond_1
+    const v5, 0x7f0b0060
 
-    iget-object v6, p0, Lcom/android/systemui/qs/TileLayout;->mContext:Landroid/content/Context;
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
-    invoke-static {v6}, Lcom/android/systemui/tuner/TunerService;->get(Landroid/content/Context;)Lcom/android/systemui/tuner/TunerService;
+    move-result v4
 
-    move-result-object v6
-
-    const-string/jumbo v7, "qs_tile_column_landscape"
-
-    const/4 v8, 0x6
-
-    invoke-virtual {v6, v7, v8}, Lcom/android/systemui/tuner/TunerService;->getValue(Ljava/lang/String;I)I
+    invoke-virtual {v2, v3, v4}, Lcom/android/systemui/tuner/TunerService;->getValue(Ljava/lang/String;I)I
 
     move-result v0
 
-    :goto_1
     packed-switch v0, :pswitch_data_0
 
-    :goto_2
+    :goto_0
     :pswitch_0
-    iget-object v6, p0, Lcom/android/systemui/qs/TileLayout;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/android/systemui/qs/TileLayout;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v6}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v6
+    move-result-object v2
 
-    const v7, 0x7f0d01f6
+    const v3, 0x7f070520
 
-    invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result v6
+    move-result v2
 
-    iput v6, p0, Lcom/android/systemui/qs/TileLayout;->mCellVerticalMargin:I
+    iput v2, p0, Lcom/android/systemui/qs/TileLayout;->mCellHeight:I
 
-    iget-object v6, p0, Lcom/android/systemui/qs/TileLayout;->mContext:Landroid/content/Context;
+    const v2, 0x7f070523
 
-    invoke-virtual {v6}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result-object v6
+    move-result v2
 
-    const v7, 0x7f0d01ea
+    iput v2, p0, Lcom/android/systemui/qs/TileLayout;->mCellMargin:I
 
-    invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    iget-object v2, p0, Lcom/android/systemui/qs/TileLayout;->mContext:Landroid/content/Context;
 
-    move-result v6
+    invoke-static {v2}, Lcom/android/systemui/statusbar/DeviceState;->isDesktopMode(Landroid/content/Context;)Z
 
-    iput v6, p0, Lcom/android/systemui/qs/TileLayout;->mCellHeight:I
+    move-result v2
 
-    const v6, 0x7f0d01f7
+    if-eqz v2, :cond_0
 
-    invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    const v2, 0x7f070527
 
-    move-result v6
+    :goto_1
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    iput v6, p0, Lcom/android/systemui/qs/TileLayout;->mCellMarginTop:I
+    move-result v2
 
-    iget v6, p0, Lcom/android/systemui/qs/TileLayout;->mColumns:I
+    iput v2, p0, Lcom/android/systemui/qs/TileLayout;->mCellMarginTop:I
 
-    if-eq v6, v0, :cond_2
+    invoke-virtual {p0}, Lcom/android/systemui/qs/TileLayout;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/DeviceState;->isDesktopMode(Landroid/content/Context;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    const v2, 0x7f070525
+
+    :goto_2
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v2
+
+    iput v2, p0, Lcom/android/systemui/qs/TileLayout;->mCellMarginBottom:I
+
+    iget-object v2, p0, Lcom/android/systemui/qs/TileLayout;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    iget-object v2, p0, Lcom/android/systemui/qs/TileLayout;->mContext:Landroid/content/Context;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/DeviceState;->isDesktopMode(Landroid/content/Context;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    const v2, 0x7f070534
+
+    :goto_3
+    invoke-virtual {v3, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v2
+
+    iput v2, p0, Lcom/android/systemui/qs/TileLayout;->mCellVerticalMargin:I
+
+    iget v2, p0, Lcom/android/systemui/qs/TileLayout;->mColumns:I
+
+    if-eq v2, v0, :cond_3
 
     iput v0, p0, Lcom/android/systemui/qs/TileLayout;->mColumns:I
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/TileLayout;->requestLayout()V
 
-    return v4
+    const/4 v2, 0x1
 
-    :cond_0
-    move v1, v5
+    return v2
+
+    :pswitch_1
+    const v2, 0x7f070535
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v2
+
+    iput v2, p0, Lcom/android/systemui/qs/TileLayout;->mCellWidth:I
+
+    const v2, 0x7f07052c
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v2
+
+    iput v2, p0, Lcom/android/systemui/qs/TileLayout;->mSidePadding:I
 
     goto :goto_0
 
-    :cond_1
-    iget-object v6, p0, Lcom/android/systemui/qs/TileLayout;->mContext:Landroid/content/Context;
-
-    invoke-static {v6}, Lcom/android/systemui/tuner/TunerService;->get(Landroid/content/Context;)Lcom/android/systemui/tuner/TunerService;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "qs_tile_column"
-
-    const/4 v8, 0x4
-
-    invoke-virtual {v6, v7, v8}, Lcom/android/systemui/tuner/TunerService;->getValue(Ljava/lang/String;I)I
-
-    move-result v0
-
-    goto :goto_1
-
-    :pswitch_1
-    const v6, 0x7f0d01ec
-
-    invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v6
-
-    iput v6, p0, Lcom/android/systemui/qs/TileLayout;->mCellWidth:I
-
-    const v6, 0x7f0d01f1
-
-    invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v6
-
-    iput v6, p0, Lcom/android/systemui/qs/TileLayout;->mSidePadding:I
-
-    goto :goto_2
-
     :pswitch_2
-    const v6, 0x7f0d01ed
+    const v2, 0x7f070536
 
-    invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result v6
+    move-result v2
 
-    iput v6, p0, Lcom/android/systemui/qs/TileLayout;->mCellWidth:I
+    iput v2, p0, Lcom/android/systemui/qs/TileLayout;->mCellWidth:I
 
-    const v6, 0x7f0d01f2
+    const v2, 0x7f07052d
 
-    invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result v6
+    move-result v2
 
-    iput v6, p0, Lcom/android/systemui/qs/TileLayout;->mSidePadding:I
+    iput v2, p0, Lcom/android/systemui/qs/TileLayout;->mSidePadding:I
 
-    goto :goto_2
+    goto/16 :goto_0
 
     :pswitch_3
-    const v6, 0x7f0d01ee
+    const v2, 0x7f070537
 
-    invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result v6
+    move-result v2
 
-    iput v6, p0, Lcom/android/systemui/qs/TileLayout;->mCellWidth:I
+    iput v2, p0, Lcom/android/systemui/qs/TileLayout;->mCellWidth:I
 
-    const v6, 0x7f0d01f3
+    const v2, 0x7f07052e
 
-    invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result v6
+    move-result v2
 
-    iput v6, p0, Lcom/android/systemui/qs/TileLayout;->mSidePadding:I
+    iput v2, p0, Lcom/android/systemui/qs/TileLayout;->mSidePadding:I
 
-    goto :goto_2
+    goto/16 :goto_0
 
     :pswitch_4
-    const v6, 0x7f0d01ef
+    const v2, 0x7f070538
 
-    invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result v6
+    move-result v2
 
-    iput v6, p0, Lcom/android/systemui/qs/TileLayout;->mCellWidth:I
+    iput v2, p0, Lcom/android/systemui/qs/TileLayout;->mCellWidth:I
 
-    const v6, 0x7f0d01f4
+    const v2, 0x7f07052f
 
-    invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result v6
+    move-result v2
 
-    iput v6, p0, Lcom/android/systemui/qs/TileLayout;->mSidePadding:I
+    iput v2, p0, Lcom/android/systemui/qs/TileLayout;->mSidePadding:I
 
-    goto/16 :goto_2
+    goto/16 :goto_0
 
     :pswitch_5
-    const v6, 0x7f0d01f0
+    const v2, 0x7f070539
 
-    invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result v6
+    move-result v2
 
-    iput v6, p0, Lcom/android/systemui/qs/TileLayout;->mCellWidth:I
+    iput v2, p0, Lcom/android/systemui/qs/TileLayout;->mCellWidth:I
 
-    const v6, 0x7f0d01f5
+    const v2, 0x7f070530
 
-    invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result v6
+    move-result v2
 
-    iput v6, p0, Lcom/android/systemui/qs/TileLayout;->mSidePadding:I
+    iput v2, p0, Lcom/android/systemui/qs/TileLayout;->mSidePadding:I
+
+    goto/16 :goto_0
+
+    :cond_0
+    const v2, 0x7f070526
+
+    goto/16 :goto_1
+
+    :cond_1
+    const v2, 0x7f070524
 
     goto/16 :goto_2
 
     :cond_2
-    return v5
+    const v2, 0x7f070533
+
+    goto/16 :goto_3
+
+    :cond_3
+    const/4 v2, 0x0
+
+    return v2
 
     nop
 

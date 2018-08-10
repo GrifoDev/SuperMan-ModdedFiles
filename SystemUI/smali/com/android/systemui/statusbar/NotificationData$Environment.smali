@@ -30,7 +30,7 @@
 .method public abstract isNotificationForCurrentProfiles(Landroid/service/notification/StatusBarNotification;)Z
 .end method
 
-.method public abstract onSecureLockScreen()Z
+.method public abstract isSecurelyLocked(I)Z
 .end method
 
 .method public abstract shouldHideNotifications(I)Z

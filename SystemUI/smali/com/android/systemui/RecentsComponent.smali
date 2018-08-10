@@ -4,13 +4,7 @@
 
 
 # virtual methods
-.method public abstract cancelPreloadingRecents()V
-.end method
-
-.method public abstract dockTopTask(IILandroid/graphics/Rect;IZ)Z
-.end method
-
-.method public abstract hideRecents(ZZ)V
+.method public abstract dockTopTask(IILandroid/graphics/Rect;I)Z
 .end method
 
 .method public abstract onDraggingInRecents(F)V
@@ -19,17 +13,11 @@
 .method public abstract onDraggingInRecentsEnded(F)V
 .end method
 
-.method public abstract preloadRecents()V
-.end method
-
 .method public abstract showNextAffiliatedTask()V
 .end method
 
 .method public abstract showPrevAffiliatedTask()V
 .end method
 
-.method public abstract showRecents(ZZ)V
-.end method
-
-.method public abstract toggleRecents(Landroid/view/Display;)V
+.method public abstract toggleRecentApps()V
 .end method

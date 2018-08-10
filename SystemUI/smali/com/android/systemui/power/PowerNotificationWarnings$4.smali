@@ -3,7 +3,7 @@
 .source "PowerNotificationWarnings.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
@@ -34,14 +34,18 @@
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 1
+.method public run()V
+    .locals 2
 
-    new-instance v0, Lcom/android/systemui/power/PowerNotificationWarnings$4$1;
+    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$4;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/power/PowerNotificationWarnings$4$1;-><init>(Lcom/android/systemui/power/PowerNotificationWarnings$4;)V
+    iget-object v1, p0, Lcom/android/systemui/power/PowerNotificationWarnings$4;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
-    invoke-static {v0}, Landroid/os/AsyncTask;->execute(Ljava/lang/Runnable;)V
+    invoke-static {v1}, Lcom/android/systemui/power/PowerNotificationWarnings;->-get7(Lcom/android/systemui/power/PowerNotificationWarnings;)Z
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/power/PowerNotificationWarnings;->showWaterProtectionAlertDialog(Z)V
 
     return-void
 .end method

@@ -3,12 +3,12 @@
 .source "HotspotTile.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnDismissListener;
+.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/qs/tiles/HotspotTile;->showWarningDialog(Z)V
+    value = Lcom/android/systemui/qs/tiles/HotspotTile;->showNoSIMDialog()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,28 +34,20 @@
 
 
 # virtual methods
-.method public onDismiss(Landroid/content/DialogInterface;)V
-    .locals 2
+.method public onClick(Landroid/content/DialogInterface;I)V
+    .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile$6;->this$0:Lcom/android/systemui/qs/tiles/HotspotTile;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/HotspotTile;->-get2(Lcom/android/systemui/qs/tiles/HotspotTile;)Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/android/systemui/qs/tiles/HotspotTile;->refreshState()V
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile$6;->this$0:Lcom/android/systemui/qs/tiles/HotspotTile;
+
+    invoke-static {v0}, Lcom/android/systemui/qs/tiles/HotspotTile;->-get4(Lcom/android/systemui/qs/tiles/HotspotTile;)Landroid/app/AlertDialog;
 
     move-result-object v0
 
-    const-string/jumbo v1, "showWarningDialog dismissed"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile$6;->this$0:Lcom/android/systemui/qs/tiles/HotspotTile;
-
-    const/4 v1, 0x0
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/android/systemui/qs/tiles/HotspotTile;->-wrap1(Lcom/android/systemui/qs/tiles/HotspotTile;Ljava/lang/Object;)V
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->cancel()V
 
     return-void
 .end method

@@ -47,7 +47,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager$HIDHostServiceStateChangedHandler;->this$0:Lcom/android/settingslib/bluetooth/BluetoothEventManager;
 
-    invoke-static {v0}, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->-get4(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
+    invoke-static {v0}, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->-get5(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
 
     move-result-object v0
 

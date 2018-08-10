@@ -81,11 +81,8 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v0, v1, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v1
@@ -100,11 +97,6 @@
 
     :cond_0
     return-void
-
-    :cond_1
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method protected onGetDefaultValue(Landroid/content/res/TypedArray;I)Ljava/lang/Object;
@@ -138,8 +130,16 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    xor-int/lit8 v1, v1, 0x1
 
+    if-eqz v1, :cond_1
+
+    :cond_0
+    invoke-super {p0, p1}, Landroid/support/v7/preference/Preference;->onRestoreInstanceState(Landroid/os/Parcelable;)V
+
+    return-void
+
+    :cond_1
     move-object v0, p1
 
     check-cast v0, Landroid/support/v7/preference/TwoStatePreference$SavedState;
@@ -153,11 +153,6 @@
     iget-boolean v1, v0, Landroid/support/v7/preference/TwoStatePreference$SavedState;->checked:Z
 
     invoke-virtual {p0, v1}, Landroid/support/v7/preference/TwoStatePreference;->setChecked(Z)V
-
-    return-void
-
-    :cond_0
-    invoke-super {p0, p1}, Landroid/support/v7/preference/Preference;->onRestoreInstanceState(Landroid/os/Parcelable;)V
 
     return-void
 .end method
@@ -218,40 +213,33 @@
 .end method
 
 .method public setChecked(Z)V
-    .locals 3
+    .locals 2
 
-    const/4 v1, 0x1
+    iget-boolean v1, p0, Landroid/support/v7/preference/TwoStatePreference;->mChecked:Z
 
-    iget-boolean v2, p0, Landroid/support/v7/preference/TwoStatePreference;->mChecked:Z
+    if-eq v1, p1, :cond_2
 
-    if-eq v2, p1, :cond_1
-
-    move v0, v1
+    const/4 v0, 0x1
 
     :goto_0
-    if-nez v0, :cond_2
+    if-nez v0, :cond_0
 
-    iget-boolean v2, p0, Landroid/support/v7/preference/TwoStatePreference;->mCheckedSet:Z
+    iget-boolean v1, p0, Landroid/support/v7/preference/TwoStatePreference;->mCheckedSet:Z
 
-    if-eqz v2, :cond_2
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_1
 
     :cond_0
-    :goto_1
-    return-void
-
-    :cond_1
-    const/4 v0, 0x0
-
-    goto :goto_0
-
-    :cond_2
     iput-boolean p1, p0, Landroid/support/v7/preference/TwoStatePreference;->mChecked:Z
+
+    const/4 v1, 0x1
 
     iput-boolean v1, p0, Landroid/support/v7/preference/TwoStatePreference;->mCheckedSet:Z
 
     invoke-virtual {p0, p1}, Landroid/support/v7/preference/TwoStatePreference;->persistBoolean(Z)Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     invoke-virtual {p0}, Landroid/support/v7/preference/TwoStatePreference;->shouldDisableDependents()Z
 
@@ -261,7 +249,13 @@
 
     invoke-virtual {p0}, Landroid/support/v7/preference/TwoStatePreference;->notifyChanged()V
 
-    goto :goto_1
+    :cond_1
+    return-void
+
+    :cond_2
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public setDisableDependentsState(Z)V
@@ -307,39 +301,35 @@
 .end method
 
 .method public shouldDisableDependents()Z
-    .locals 3
+    .locals 2
 
-    const/4 v1, 0x1
+    iget-boolean v1, p0, Landroid/support/v7/preference/TwoStatePreference;->mDisableDependentsState:Z
 
-    iget-boolean v2, p0, Landroid/support/v7/preference/TwoStatePreference;->mDisableDependentsState:Z
-
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_0
 
     iget-boolean v0, p0, Landroid/support/v7/preference/TwoStatePreference;->mChecked:Z
 
     :goto_0
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
     invoke-super {p0}, Landroid/support/v7/preference/Preference;->shouldDisableDependents()Z
 
     move-result v1
 
-    :cond_0
+    :goto_1
     return v1
 
+    :cond_0
+    iget-boolean v1, p0, Landroid/support/v7/preference/TwoStatePreference;->mChecked:Z
+
+    xor-int/lit8 v0, v1, 0x1
+
+    goto :goto_0
+
     :cond_1
-    iget-boolean v2, p0, Landroid/support/v7/preference/TwoStatePreference;->mChecked:Z
+    const/4 v1, 0x1
 
-    if-eqz v2, :cond_2
-
-    const/4 v0, 0x0
-
-    goto :goto_0
-
-    :cond_2
-    move v0, v1
-
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method protected syncSummaryView(Landroid/support/v7/preference/PreferenceViewHolder;)V
@@ -358,6 +348,11 @@
 
 .method protected syncSummaryView(Landroid/view/View;)V
     .locals 5
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     instance-of v4, p1, Landroid/widget/TextView;
 
@@ -374,7 +369,7 @@
 
     iget-boolean v4, p0, Landroid/support/v7/preference/TwoStatePreference;->mChecked:Z
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_5
 
     iget-object v4, p0, Landroid/support/v7/preference/TwoStatePreference;->mSummaryOn:Ljava/lang/CharSequence;
 
@@ -382,24 +377,19 @@
 
     move-result v4
 
-    if-eqz v4, :cond_6
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_5
+
+    iget-object v4, p0, Landroid/support/v7/preference/TwoStatePreference;->mSummaryOn:Ljava/lang/CharSequence;
+
+    invoke-virtual {v2, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    const/4 v3, 0x0
 
     :cond_1
-    iget-boolean v4, p0, Landroid/support/v7/preference/TwoStatePreference;->mChecked:Z
-
-    if-nez v4, :cond_2
-
-    iget-object v4, p0, Landroid/support/v7/preference/TwoStatePreference;->mSummaryOff:Ljava/lang/CharSequence;
-
-    invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_7
-
-    :cond_2
     :goto_0
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_2
 
     invoke-virtual {p0}, Landroid/support/v7/preference/TwoStatePreference;->getSummary()Ljava/lang/CharSequence;
 
@@ -409,41 +399,46 @@
 
     move-result v4
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_2
 
     invoke-virtual {v2, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     const/4 v3, 0x0
 
-    :cond_3
+    :cond_2
     const/16 v0, 0x8
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_3
 
     const/4 v0, 0x0
 
-    :cond_4
+    :cond_3
     invoke-virtual {v2}, Landroid/widget/TextView;->getVisibility()I
 
     move-result v4
 
-    if-eq v0, v4, :cond_5
+    if-eq v0, v4, :cond_4
 
     invoke-virtual {v2, v0}, Landroid/widget/TextView;->setVisibility(I)V
 
-    :cond_5
+    :cond_4
     return-void
 
-    :cond_6
-    iget-object v4, p0, Landroid/support/v7/preference/TwoStatePreference;->mSummaryOn:Ljava/lang/CharSequence;
+    :cond_5
+    iget-boolean v4, p0, Landroid/support/v7/preference/TwoStatePreference;->mChecked:Z
 
-    invoke-virtual {v2, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    if-nez v4, :cond_1
 
-    const/4 v3, 0x0
+    iget-object v4, p0, Landroid/support/v7/preference/TwoStatePreference;->mSummaryOff:Ljava/lang/CharSequence;
 
-    goto :goto_0
+    invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    :cond_7
+    move-result v4
+
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_1
+
     iget-object v4, p0, Landroid/support/v7/preference/TwoStatePreference;->mSummaryOff:Ljava/lang/CharSequence;
 
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V

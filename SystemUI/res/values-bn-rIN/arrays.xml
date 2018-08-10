@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="battery_labels">
+        <item>0%</item>
+        <item>50%</item>
+        <item>100%</item>
+    </string-array>
+    <string-array name="bluetooth_ss_a2dp_codec_summaries">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>সমস্ত কোডেক</item>
+        <item>ডিফল্ট কোডেক</item>
+    </string-array>
+    <string-array name="bluetooth_ss_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>সমস্ত কোডেক</item>
+        <item>ডিফল্ট কোডেক</item>
+    </string-array>
+    <string-array name="bluetooth_ss_japan_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>সমস্ত কোডেক</item>
+        <item>ডিফল্ট কোডেক</item>
+    </string-array>
+    <string-array name="wifi_ap_wifi_sharing">
+        <item>Wi-Fi শেয়ারিং চালু করুন</item>
+        <item>Wi-Fi শেয়ারিং বন্ধ করুন</item>
+    </string-array>
+    <string-array name="wifi_status">
+        <item></item>
+        <item>স্ক্যান হচ্ছে…</item>
+        <item>সংযোগ হচ্ছে…</item>
+        <item>প্রমাণীকরণ চলছে…</item>
+        <item>IP ঠিকানা প্রাপ্ত করা হচ্ছে…</item>
+        <item>সংযুক্ত</item>
+        <item>স্থগিত হয়েছে</item>
+        <item>সংযোগ বিচ্ছিন্ন হচ্ছে….</item>
+        <item>সংযোগ বিচ্ছিন্ন</item>
+        <item>অসফল</item>
+        <item>অবরুদ্ধ হয়েছে</item>
+        <item>আপনার ইন্টারনেট সংযোগের গুণমান পরীক্ষা করা হচ্ছে…</item>
+    </string-array>
+</resources>

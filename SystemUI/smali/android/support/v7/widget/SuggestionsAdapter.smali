@@ -894,15 +894,13 @@
 .method private updateSpinnerState(Landroid/database/Cursor;)V
     .locals 2
 
-    const/4 v0, 0x0
-
     if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/database/Cursor;->getExtras()Landroid/os/Bundle;
 
     move-result-object v0
 
-    :cond_0
+    :goto_0
     if-eqz v0, :cond_1
 
     const-string/jumbo v1, "in_progress"
@@ -914,6 +912,11 @@
     if-eqz v1, :cond_1
 
     return-void
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 
     :cond_1
     return-void
@@ -1505,6 +1508,55 @@
     move-result-object v7
 
     return-object v7
+.end method
+
+.method public getDropDownView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+    .locals 6
+
+    :try_start_0
+    invoke-super {p0, p1, p2, p3}, Landroid/support/v4/widget/ResourceCursorAdapter;->getDropDownView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+    :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v4
+
+    return-object v4
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v4, "SuggestionsAdapter"
+
+    const-string/jumbo v5, "Search suggestions cursor threw exception."
+
+    invoke-static {v4, v5, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    iget-object v4, p0, Landroid/support/v7/widget/SuggestionsAdapter;->mContext:Landroid/content/Context;
+
+    iget-object v5, p0, Landroid/support/v7/widget/SuggestionsAdapter;->mCursor:Landroid/database/Cursor;
+
+    invoke-virtual {p0, v4, v5, p3}, Landroid/support/v7/widget/SuggestionsAdapter;->newDropDownView(Landroid/content/Context;Landroid/database/Cursor;Landroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {v2}, Landroid/view/View;->getTag()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/support/v7/widget/SuggestionsAdapter$ChildViewCache;
+
+    iget-object v1, v3, Landroid/support/v7/widget/SuggestionsAdapter$ChildViewCache;->mText1:Landroid/widget/TextView;
+
+    invoke-virtual {v0}, Ljava/lang/RuntimeException;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v1, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    :cond_0
+    return-object v2
 .end method
 
 .method getSearchManagerSuggestions(Landroid/app/SearchableInfo;Ljava/lang/String;I)Landroid/database/Cursor;

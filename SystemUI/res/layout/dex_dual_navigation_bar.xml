@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.systemui.statusbar.phone.taskbar.desk.DexDualNavigationBarView android:background="@drawable/system_bar_background" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:systemui="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:orientation="vertical" android:id="@id/nav_buttons" android:background="#fff0f0f0" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <View android:id="@id/bottom_button_bar" android:background="#12000000" android:layout_width="fill_parent" android:layout_height="2.0px" />
+        <RelativeLayout android:gravity="end|center" android:layout_gravity="bottom" android:orientation="horizontal" android:id="@id/dual_navigation_bar_rot0" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="horizontal" android:id="@id/back_btn_area_rot0" android:background="@drawable/ripple_setupwizard_next_btn" android:focusable="true" android:layout_width="@dimen/navigation_key_width" android:layout_height="fill_parent" android:layout_marginEnd="@dimen/navigation_side_padding" android:layout_alignParentEnd="true">
+                <ImageView android:gravity="center" android:id="@id/back_btn_rot0" android:layout_width="22.0dip" android:layout_height="22.0dip" android:contentDescription="@string/sec_accessibility_back" />
+            </LinearLayout>
+        </RelativeLayout>
+        <RelativeLayout android:gravity="center|top" android:layout_gravity="bottom" android:orientation="vertical" android:id="@id/dual_navigation_bar_rot90" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="horizontal" android:id="@id/back_btn_area_rot90" android:background="@drawable/ripple_setupwizard_next_btn" android:focusable="true" android:layout_width="fill_parent" android:layout_height="@dimen/navigation_key_width" android:layout_marginTop="@dimen/navigation_side_padding" android:layout_alignParentTop="true">
+                <ImageView android:gravity="center" android:id="@id/back_btn_rot90" android:layout_width="22.0dip" android:layout_height="22.0dip" android:contentDescription="@string/sec_accessibility_back" />
+            </LinearLayout>
+        </RelativeLayout>
+        <RelativeLayout android:gravity="bottom|center" android:layout_gravity="bottom" android:orientation="vertical" android:id="@id/dual_navigation_bar_rot270" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="horizontal" android:id="@id/back_btn_area_rot270" android:background="@drawable/ripple_setupwizard_next_btn" android:focusable="true" android:layout_width="fill_parent" android:layout_height="@dimen/navigation_key_width" android:layout_marginBottom="@dimen/navigation_side_padding" android:layout_alignParentBottom="true">
+                <ImageView android:gravity="center" android:id="@id/back_btn_rot270" android:layout_width="22.0dip" android:layout_height="22.0dip" android:contentDescription="@string/sec_accessibility_back" />
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</com.android.systemui.statusbar.phone.taskbar.desk.DexDualNavigationBarView>

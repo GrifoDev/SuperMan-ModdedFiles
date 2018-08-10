@@ -20,16 +20,12 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/systemui/qs/QSScreenGridDialog;
 
-.field final synthetic val$context:Landroid/content/Context;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/QSScreenGridDialog;Landroid/content/Context;)V
+.method constructor <init>(Lcom/android/systemui/qs/QSScreenGridDialog;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/QSScreenGridDialog$1;->this$0:Lcom/android/systemui/qs/QSScreenGridDialog;
-
-    iput-object p2, p0, Lcom/android/systemui/qs/QSScreenGridDialog$1;->val$context:Landroid/content/Context;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -39,131 +35,171 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 9
+    .locals 6
 
-    const/4 v8, 0x0
+    const/4 v5, 0x1
 
-    iget-object v4, p0, Lcom/android/systemui/qs/QSScreenGridDialog$1;->this$0:Lcom/android/systemui/qs/QSScreenGridDialog;
+    const/4 v4, 0x0
 
-    invoke-static {v4}, Lcom/android/systemui/qs/QSScreenGridDialog;->-get1(Lcom/android/systemui/qs/QSScreenGridDialog;)Landroid/view/View;
+    iget-object v2, p0, Lcom/android/systemui/qs/QSScreenGridDialog$1;->this$0:Lcom/android/systemui/qs/QSScreenGridDialog;
 
-    move-result-object v4
+    invoke-static {v2}, Lcom/android/systemui/qs/QSScreenGridDialog;->-get1(Lcom/android/systemui/qs/QSScreenGridDialog;)Landroid/view/View;
 
-    if-eqz v4, :cond_0
+    move-result-object v2
 
-    iget-object v4, p0, Lcom/android/systemui/qs/QSScreenGridDialog$1;->this$0:Lcom/android/systemui/qs/QSScreenGridDialog;
+    if-eqz v2, :cond_0
 
-    invoke-static {v4}, Lcom/android/systemui/qs/QSScreenGridDialog;->-get1(Lcom/android/systemui/qs/QSScreenGridDialog;)Landroid/view/View;
+    iget-object v2, p0, Lcom/android/systemui/qs/QSScreenGridDialog$1;->this$0:Lcom/android/systemui/qs/QSScreenGridDialog;
 
-    move-result-object v4
+    invoke-static {v2}, Lcom/android/systemui/qs/QSScreenGridDialog;->-get1(Lcom/android/systemui/qs/QSScreenGridDialog;)Landroid/view/View;
 
-    const/4 v5, 0x0
+    move-result-object v2
 
-    invoke-virtual {v4, v5}, Landroid/view/View;->setSelected(Z)V
+    invoke-virtual {v2, v4}, Landroid/view/View;->setSelected(Z)V
 
-    iget-object v4, p0, Lcom/android/systemui/qs/QSScreenGridDialog$1;->this$0:Lcom/android/systemui/qs/QSScreenGridDialog;
+    iget-object v3, p0, Lcom/android/systemui/qs/QSScreenGridDialog$1;->this$0:Lcom/android/systemui/qs/QSScreenGridDialog;
 
-    invoke-static {v4, p1}, Lcom/android/systemui/qs/QSScreenGridDialog;->-set0(Lcom/android/systemui/qs/QSScreenGridDialog;Landroid/view/View;)Landroid/view/View;
+    iget-object v2, p0, Lcom/android/systemui/qs/QSScreenGridDialog$1;->this$0:Lcom/android/systemui/qs/QSScreenGridDialog;
+
+    invoke-static {v2}, Lcom/android/systemui/qs/QSScreenGridDialog;->-get1(Lcom/android/systemui/qs/QSScreenGridDialog;)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/view/ViewGroup;
+
+    invoke-static {v3, v2, v4}, Lcom/android/systemui/qs/QSScreenGridDialog;->-wrap0(Lcom/android/systemui/qs/QSScreenGridDialog;Landroid/view/ViewGroup;Z)V
+
+    iget-object v3, p0, Lcom/android/systemui/qs/QSScreenGridDialog$1;->this$0:Lcom/android/systemui/qs/QSScreenGridDialog;
+
+    invoke-virtual {p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/view/ViewGroup;
+
+    invoke-static {v3, v2}, Lcom/android/systemui/qs/QSScreenGridDialog;->-set0(Lcom/android/systemui/qs/QSScreenGridDialog;Landroid/view/View;)Landroid/view/View;
 
     :cond_0
-    const/4 v4, 0x1
+    invoke-virtual {p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
-    invoke-virtual {p1, v4}, Landroid/view/View;->setSelected(Z)V
+    move-result-object v2
 
-    const v4, 0x7f130052
+    check-cast v2, Landroid/view/ViewGroup;
 
-    invoke-virtual {p1, v4}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
+    invoke-virtual {v2, v5}, Landroid/view/ViewGroup;->setSelected(Z)V
+
+    iget-object v3, p0, Lcom/android/systemui/qs/QSScreenGridDialog$1;->this$0:Lcom/android/systemui/qs/QSScreenGridDialog;
+
+    invoke-virtual {p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/view/ViewGroup;
+
+    invoke-static {v3, v2, v5}, Lcom/android/systemui/qs/QSScreenGridDialog;->-wrap0(Lcom/android/systemui/qs/QSScreenGridDialog;Landroid/view/ViewGroup;Z)V
+
+    invoke-virtual {p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/view/ViewGroup;
+
+    const v3, 0x7f0a0405
+
+    invoke-virtual {v2, v3}, Landroid/view/ViewGroup;->getTag(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Ljava/lang/String;
 
-    const v4, 0x7f130053
+    const-class v2, Lcom/android/systemui/tuner/TunerService;
 
-    invoke-virtual {p1, v4}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
+    invoke-static {v2}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v2
 
-    check-cast v1, Ljava/lang/String;
+    check-cast v2, Lcom/android/systemui/tuner/TunerService;
 
-    const v4, 0x7f130051
-
-    invoke-virtual {p1, v4}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Ljava/lang/String;
-
-    iget-object v4, p0, Lcom/android/systemui/qs/QSScreenGridDialog$1;->val$context:Landroid/content/Context;
-
-    invoke-static {v4}, Lcom/android/systemui/tuner/TunerService;->get(Landroid/content/Context;)Lcom/android/systemui/tuner/TunerService;
-
-    move-result-object v4
-
-    const-string/jumbo v5, "qs_tile_column"
+    const-string/jumbo v3, "qs_tile_layout"
 
     invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v6
+    move-result v4
 
-    invoke-virtual {v4, v5, v6}, Lcom/android/systemui/tuner/TunerService;->setValue(Ljava/lang/String;I)V
+    invoke-virtual {v2, v3, v4}, Lcom/android/systemui/tuner/TunerService;->setValue(Ljava/lang/String;I)V
 
-    iget-object v4, p0, Lcom/android/systemui/qs/QSScreenGridDialog$1;->val$context:Landroid/content/Context;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-static {v4}, Lcom/android/systemui/tuner/TunerService;->get(Landroid/content/Context;)Lcom/android/systemui/tuner/TunerService;
+    invoke-direct {v1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    move-result-object v4
+    const-string/jumbo v2, " by "
 
-    const-string/jumbo v5, "qs_tile_column_landscape"
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    move-result-object v3
 
-    move-result v6
+    iget-object v2, p0, Lcom/android/systemui/qs/QSScreenGridDialog$1;->this$0:Lcom/android/systemui/qs/QSScreenGridDialog;
 
-    invoke-virtual {v4, v5, v6}, Lcom/android/systemui/tuner/TunerService;->setValue(Ljava/lang/String;I)V
+    invoke-static {v2}, Lcom/android/systemui/qs/QSScreenGridDialog;->-get0(Lcom/android/systemui/qs/QSScreenGridDialog;)Landroid/content/Context;
 
-    iget-object v4, p0, Lcom/android/systemui/qs/QSScreenGridDialog$1;->val$context:Landroid/content/Context;
+    move-result-object v2
 
-    invoke-static {v4}, Lcom/android/systemui/tuner/TunerService;->get(Landroid/content/Context;)Lcom/android/systemui/tuner/TunerService;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/DeviceState;->isMobileKeyboardConnected(Landroid/content/Context;)Z
 
-    move-result-object v4
+    move-result v2
 
-    const-string/jumbo v5, "qs_tile_row"
+    if-eqz v2, :cond_2
 
-    invoke-static {v3}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    const-string/jumbo v2, "2"
 
-    move-result v6
+    :goto_0
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v5, v6}, Lcom/android/systemui/tuner/TunerService;->setValue(Ljava/lang/String;I)V
+    sget-object v2, Lcom/android/systemui/SystemUIAnalytics;->mCurrentScreenID:Ljava/lang/String;
 
-    sget-boolean v4, Lcom/android/systemui/SystemUIRune;->SUPPORT_GSIM_LOG:Z
+    const-string/jumbo v3, "2098"
 
-    if-eqz v4, :cond_1
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    const-string/jumbo v4, "X3"
-
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v4, p0, Lcom/android/systemui/qs/QSScreenGridDialog$1;->this$0:Lcom/android/systemui/qs/QSScreenGridDialog;
-
-    invoke-static {v4}, Lcom/android/systemui/qs/QSScreenGridDialog;->-get0(Lcom/android/systemui/qs/QSScreenGridDialog;)Landroid/content/Context;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v4
 
-    const-string/jumbo v5, "com.android.systemui.statusbar.policy.quicksetting"
+    invoke-static {v2, v3, v4}, Lcom/android/systemui/SystemUIAnalytics;->sendEventLog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v6, "QS22"
+    iget-object v2, p0, Lcom/android/systemui/qs/QSScreenGridDialog$1;->this$0:Lcom/android/systemui/qs/QSScreenGridDialog;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v2}, Lcom/android/systemui/qs/QSScreenGridDialog;->-get2(Lcom/android/systemui/qs/QSScreenGridDialog;)Landroid/content/SharedPreferences$Editor;
 
-    move-result-object v7
+    move-result-object v2
 
-    invoke-static {v4, v5, v6, v7, v8}, Lcom/android/keyguard/util/GsimLogManager;->sendLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;)V
+    if-eqz v2, :cond_1
+
+    iget-object v2, p0, Lcom/android/systemui/qs/QSScreenGridDialog$1;->this$0:Lcom/android/systemui/qs/QSScreenGridDialog;
+
+    invoke-static {v2}, Lcom/android/systemui/qs/QSScreenGridDialog;->-get2(Lcom/android/systemui/qs/QSScreenGridDialog;)Landroid/content/SharedPreferences$Editor;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "2098"
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-interface {v2, v3, v4}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+
+    iget-object v2, p0, Lcom/android/systemui/qs/QSScreenGridDialog$1;->this$0:Lcom/android/systemui/qs/QSScreenGridDialog;
+
+    invoke-static {v2}, Lcom/android/systemui/qs/QSScreenGridDialog;->-get2(Lcom/android/systemui/qs/QSScreenGridDialog;)Landroid/content/SharedPreferences$Editor;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
     :cond_1
     return-void
+
+    :cond_2
+    const-string/jumbo v2, "3"
+
+    goto :goto_0
 .end method

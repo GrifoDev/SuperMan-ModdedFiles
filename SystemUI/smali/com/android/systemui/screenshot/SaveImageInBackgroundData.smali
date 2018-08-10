@@ -6,6 +6,8 @@
 # instance fields
 .field capturedOrigin:I
 
+.field capturedType:I
+
 .field context:Landroid/content/Context;
 
 .field finisher:Ljava/lang/Runnable;
@@ -16,6 +18,10 @@
 
 .field imageUri:Landroid/net/Uri;
 
+.field navigationBarHeight:I
+
+.field navigationBarVisible:Z
+
 .field previewWidth:I
 
 .field previewheight:I
@@ -23,6 +29,14 @@
 .field result:I
 
 .field rotation:I
+
+.field statusBarHeight:I
+
+.field statusBarVisible:Z
+
+.field topApplication:Ljava/lang/String;
+
+.field webData:Lcom/android/systemui/screenshot/SmartClipDataExtractor$WebData;
 
 
 # direct methods

@@ -39,7 +39,7 @@
 
     const/16 v3, 0x8fe
 
-    const/4 v4, 0x2
+    const v4, 0x40020
 
     const/4 v5, -0x3
 
@@ -50,12 +50,6 @@
     invoke-direct/range {v0 .. v5}, Landroid/view/WindowManager$LayoutParams;-><init>(IIIII)V
 
     iput-object v0, p0, Lcom/android/systemui/stackdivider/DividerButtonsWindowManager;->mLp:Landroid/view/WindowManager$LayoutParams;
-
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/DividerButtonsWindowManager;->mLp:Landroid/view/WindowManager$LayoutParams;
-
-    const v1, 0x3da3d70a    # 0.08f
-
-    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->dimAmount:F
 
     iget-object v0, p0, Lcom/android/systemui/stackdivider/DividerButtonsWindowManager;->mLp:Landroid/view/WindowManager$LayoutParams;
 
@@ -99,7 +93,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/stackdivider/DividerButtonsWindowManager;->mView:Landroid/view/View;
 
-    invoke-interface {v0, v1}, Landroid/view/WindowManager;->removeView(Landroid/view/View;)V
+    invoke-interface {v0, v1}, Landroid/view/WindowManager;->removeViewImmediate(Landroid/view/View;)V
 
     :cond_0
     iput-object v2, p0, Lcom/android/systemui/stackdivider/DividerButtonsWindowManager;->mView:Landroid/view/View;

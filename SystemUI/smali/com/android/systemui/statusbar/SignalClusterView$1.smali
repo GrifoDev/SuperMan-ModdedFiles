@@ -3,12 +3,12 @@
 .source "SignalClusterView.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Lcom/samsung/android/widget/SemHoverPopupWindow$HoverPopupPreShowListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/SignalClusterView;->onStateChanged()V
+    value = Lcom/android/systemui/statusbar/SignalClusterView;->getHoverPopupPreShowListener()Lcom/samsung/android/widget/SemHoverPopupWindow$HoverPopupPreShowListener;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,12 +34,10 @@
 
 
 # virtual methods
-.method public run()V
+.method public onHoverPopupPreShow()Z
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/SignalClusterView$1;->this$0:Lcom/android/systemui/statusbar/SignalClusterView;
+    const/4 v0, 0x1
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/SignalClusterView;->-wrap0(Lcom/android/systemui/statusbar/SignalClusterView;)V
-
-    return-void
+    return v0
 .end method

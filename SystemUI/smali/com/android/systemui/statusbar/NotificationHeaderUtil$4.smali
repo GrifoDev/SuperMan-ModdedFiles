@@ -29,7 +29,7 @@
 .method private applyToChild(Landroid/view/View;ZI)V
     .locals 4
 
-    const/4 v2, -0x1
+    const/4 v2, 0x1
 
     if-eq p3, v2, :cond_0
 
@@ -45,15 +45,9 @@
 
     if-eqz p2, :cond_1
 
-    invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
+    const/4 v0, 0x0
 
-    move-result-object v2
-
-    const v3, 0x1060052
-
-    invoke-virtual {v2, v3}, Landroid/content/Context;->getColor(I)I
-
-    move-result v0
+    move v0, p3
 
     invoke-virtual {v1}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
 
@@ -61,7 +55,7 @@
 
     sget-object v3, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
 
-    invoke-virtual {v2, v0, v3}, Landroid/graphics/drawable/Drawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
+    invoke-virtual {v2, p3, v3}, Landroid/graphics/drawable/Drawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
     :cond_0
     :goto_0
@@ -96,7 +90,7 @@
 
     check-cast v2, Landroid/widget/ImageView;
 
-    const v3, 0x1020433
+    const v3, 0x102028b
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

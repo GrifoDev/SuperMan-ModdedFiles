@@ -4,6 +4,12 @@
 
 
 # annotations
+.annotation build Landroid/support/annotation/RestrictTo;
+    value = {
+        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/support/v17/leanback/widget/PagingIndicator$1;,
@@ -57,34 +63,36 @@
 # instance fields
 .field private final mAnimator:Landroid/animation/AnimatorSet;
 
-.field private mArrow:Landroid/graphics/Bitmap;
+.field mArrow:Landroid/graphics/Bitmap;
 
-.field private final mArrowDiameter:I
+.field final mArrowDiameter:I
 
 .field private final mArrowGap:I
 
-.field private final mArrowRadius:I
+.field mArrowPaint:Landroid/graphics/Paint;
 
-.field private final mArrowRect:Landroid/graphics/Rect;
+.field final mArrowRadius:I
 
-.field private final mArrowToBgRatio:F
+.field final mArrowRect:Landroid/graphics/Rect;
 
-.field private final mBgPaint:Landroid/graphics/Paint;
+.field final mArrowToBgRatio:F
+
+.field final mBgPaint:Landroid/graphics/Paint;
 
 .field private mCurrentPage:I
 
-.field private mDotCenterY:I
+.field mDotCenterY:I
 
-.field private final mDotDiameter:I
+.field final mDotDiameter:I
 
-.field private final mDotFgSelectColor:I
+.field mDotFgSelectColor:I
     .annotation build Landroid/support/annotation/ColorInt;
     .end annotation
 .end field
 
 .field private final mDotGap:I
 
-.field private final mDotRadius:I
+.field final mDotRadius:I
 
 .field private mDotSelectedNextX:[I
 
@@ -94,11 +102,11 @@
 
 .field private mDots:[Landroid/support/v17/leanback/widget/PagingIndicator$Dot;
 
-.field private final mFgPaint:Landroid/graphics/Paint;
+.field final mFgPaint:Landroid/graphics/Paint;
 
 .field private final mHideAnimator:Landroid/animation/AnimatorSet;
 
-.field private mIsLtr:Z
+.field mIsLtr:Z
 
 .field private mPageCount:I
 
@@ -110,102 +118,6 @@
 
 
 # direct methods
-.method static synthetic -get0(Landroid/support/v17/leanback/widget/PagingIndicator;)Landroid/graphics/Bitmap;
-    .locals 1
-
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/PagingIndicator;->mArrow:Landroid/graphics/Bitmap;
-
-    return-object v0
-.end method
-
-.method static synthetic -get1(Landroid/support/v17/leanback/widget/PagingIndicator;)I
-    .locals 1
-
-    iget v0, p0, Landroid/support/v17/leanback/widget/PagingIndicator;->mArrowDiameter:I
-
-    return v0
-.end method
-
-.method static synthetic -get10(Landroid/support/v17/leanback/widget/PagingIndicator;)Landroid/graphics/Paint;
-    .locals 1
-
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/PagingIndicator;->mFgPaint:Landroid/graphics/Paint;
-
-    return-object v0
-.end method
-
-.method static synthetic -get11(Landroid/support/v17/leanback/widget/PagingIndicator;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Landroid/support/v17/leanback/widget/PagingIndicator;->mIsLtr:Z
-
-    return v0
-.end method
-
-.method static synthetic -get2(Landroid/support/v17/leanback/widget/PagingIndicator;)I
-    .locals 1
-
-    iget v0, p0, Landroid/support/v17/leanback/widget/PagingIndicator;->mArrowRadius:I
-
-    return v0
-.end method
-
-.method static synthetic -get3(Landroid/support/v17/leanback/widget/PagingIndicator;)Landroid/graphics/Rect;
-    .locals 1
-
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/PagingIndicator;->mArrowRect:Landroid/graphics/Rect;
-
-    return-object v0
-.end method
-
-.method static synthetic -get4(Landroid/support/v17/leanback/widget/PagingIndicator;)F
-    .locals 1
-
-    iget v0, p0, Landroid/support/v17/leanback/widget/PagingIndicator;->mArrowToBgRatio:F
-
-    return v0
-.end method
-
-.method static synthetic -get5(Landroid/support/v17/leanback/widget/PagingIndicator;)Landroid/graphics/Paint;
-    .locals 1
-
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/PagingIndicator;->mBgPaint:Landroid/graphics/Paint;
-
-    return-object v0
-.end method
-
-.method static synthetic -get6(Landroid/support/v17/leanback/widget/PagingIndicator;)I
-    .locals 1
-
-    iget v0, p0, Landroid/support/v17/leanback/widget/PagingIndicator;->mDotCenterY:I
-
-    return v0
-.end method
-
-.method static synthetic -get7(Landroid/support/v17/leanback/widget/PagingIndicator;)I
-    .locals 1
-
-    iget v0, p0, Landroid/support/v17/leanback/widget/PagingIndicator;->mDotDiameter:I
-
-    return v0
-.end method
-
-.method static synthetic -get8(Landroid/support/v17/leanback/widget/PagingIndicator;)I
-    .locals 1
-
-    iget v0, p0, Landroid/support/v17/leanback/widget/PagingIndicator;->mDotFgSelectColor:I
-
-    return v0
-.end method
-
-.method static synthetic -get9(Landroid/support/v17/leanback/widget/PagingIndicator;)I
-    .locals 1
-
-    iget v0, p0, Landroid/support/v17/leanback/widget/PagingIndicator;->mDotRadius:I
-
-    return v0
-.end method
-
 .method static constructor <clinit>()V
     .locals 3
 
@@ -293,7 +205,7 @@
 
     move-result-object v4
 
-    sget v5, Landroid/support/v17/leanback/R$styleable;->PagingIndicator_dotRadius:I
+    sget v5, Landroid/support/v17/leanback/R$styleable;->PagingIndicator_lbDotRadius:I
 
     sget v6, Landroid/support/v17/leanback/R$dimen;->lb_page_indicator_dot_radius:I
 
@@ -375,6 +287,29 @@
 
     iput v5, p0, Landroid/support/v17/leanback/widget/PagingIndicator;->mDotFgSelectColor:I
 
+    iget-object v5, p0, Landroid/support/v17/leanback/widget/PagingIndicator;->mArrowPaint:Landroid/graphics/Paint;
+
+    if-nez v5, :cond_0
+
+    sget v5, Landroid/support/v17/leanback/R$styleable;->PagingIndicator_arrowColor:I
+
+    invoke-virtual {v4, v5}, Landroid/content/res/TypedArray;->hasValue(I)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    sget v5, Landroid/support/v17/leanback/R$styleable;->PagingIndicator_arrowColor:I
+
+    const/4 v6, 0x0
+
+    invoke-virtual {v4, v5, v6}, Landroid/content/res/TypedArray;->getColor(II)I
+
+    move-result v5
+
+    invoke-virtual {p0, v5}, Landroid/support/v17/leanback/widget/PagingIndicator;->setArrowColor(I)V
+
+    :cond_0
     invoke-virtual {v4}, Landroid/content/res/TypedArray;->recycle()V
 
     invoke-virtual {v1}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
@@ -385,7 +320,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_1
 
     const/4 v5, 0x1
 
@@ -612,7 +547,7 @@
 
     return-void
 
-    :cond_0
+    :cond_1
     const/4 v5, 0x0
 
     goto/16 :goto_0
@@ -1299,6 +1234,23 @@
     return-object v1
 .end method
 
+.method private setSelectedPage(I)V
+    .locals 1
+
+    iget v0, p0, Landroid/support/v17/leanback/widget/PagingIndicator;->mCurrentPage:I
+
+    if-ne p1, v0, :cond_0
+
+    return-void
+
+    :cond_0
+    iput p1, p0, Landroid/support/v17/leanback/widget/PagingIndicator;->mCurrentPage:I
+
+    invoke-direct {p0}, Landroid/support/v17/leanback/widget/PagingIndicator;->adjustDotPosition()V
+
+    return-void
+.end method
+
 
 # virtual methods
 .method getDotSelectedLeftX()[I
@@ -1447,6 +1399,63 @@
     .end sparse-switch
 .end method
 
+.method public onPageSelected(IZ)V
+    .locals 3
+
+    iget v0, p0, Landroid/support/v17/leanback/widget/PagingIndicator;->mCurrentPage:I
+
+    if-ne v0, p1, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/PagingIndicator;->mAnimator:Landroid/animation/AnimatorSet;
+
+    invoke-virtual {v0}, Landroid/animation/AnimatorSet;->isStarted()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/PagingIndicator;->mAnimator:Landroid/animation/AnimatorSet;
+
+    invoke-virtual {v0}, Landroid/animation/AnimatorSet;->end()V
+
+    :cond_1
+    iget v0, p0, Landroid/support/v17/leanback/widget/PagingIndicator;->mCurrentPage:I
+
+    iput v0, p0, Landroid/support/v17/leanback/widget/PagingIndicator;->mPreviousPage:I
+
+    if-eqz p2, :cond_2
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/PagingIndicator;->mHideAnimator:Landroid/animation/AnimatorSet;
+
+    iget-object v1, p0, Landroid/support/v17/leanback/widget/PagingIndicator;->mDots:[Landroid/support/v17/leanback/widget/PagingIndicator$Dot;
+
+    iget v2, p0, Landroid/support/v17/leanback/widget/PagingIndicator;->mPreviousPage:I
+
+    aget-object v1, v1, v2
+
+    invoke-virtual {v0, v1}, Landroid/animation/AnimatorSet;->setTarget(Ljava/lang/Object;)V
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/PagingIndicator;->mShowAnimator:Landroid/animation/AnimatorSet;
+
+    iget-object v1, p0, Landroid/support/v17/leanback/widget/PagingIndicator;->mDots:[Landroid/support/v17/leanback/widget/PagingIndicator$Dot;
+
+    aget-object v1, v1, p1
+
+    invoke-virtual {v0, v1}, Landroid/animation/AnimatorSet;->setTarget(Ljava/lang/Object;)V
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/PagingIndicator;->mAnimator:Landroid/animation/AnimatorSet;
+
+    invoke-virtual {v0}, Landroid/animation/AnimatorSet;->start()V
+
+    :cond_2
+    invoke-direct {p0, p1}, Landroid/support/v17/leanback/widget/PagingIndicator;->setSelectedPage(I)V
+
+    return-void
+.end method
+
 .method public onRtlPropertiesChanged(I)V
     .locals 5
 
@@ -1510,6 +1519,102 @@
     invoke-virtual {p0, p1, p2}, Landroid/support/v17/leanback/widget/PagingIndicator;->setMeasuredDimension(II)V
 
     invoke-direct {p0}, Landroid/support/v17/leanback/widget/PagingIndicator;->calculateDotPositions()V
+
+    return-void
+.end method
+
+.method public setArrowColor(I)V
+    .locals 3
+    .param p1    # I
+        .annotation build Landroid/support/annotation/ColorInt;
+        .end annotation
+    .end param
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/PagingIndicator;->mArrowPaint:Landroid/graphics/Paint;
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Landroid/graphics/Paint;
+
+    invoke-direct {v0}, Landroid/graphics/Paint;-><init>()V
+
+    iput-object v0, p0, Landroid/support/v17/leanback/widget/PagingIndicator;->mArrowPaint:Landroid/graphics/Paint;
+
+    :cond_0
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/PagingIndicator;->mArrowPaint:Landroid/graphics/Paint;
+
+    new-instance v1, Landroid/graphics/PorterDuffColorFilter;
+
+    sget-object v2, Landroid/graphics/PorterDuff$Mode;->SRC_IN:Landroid/graphics/PorterDuff$Mode;
+
+    invoke-direct {v1, p1, v2}, Landroid/graphics/PorterDuffColorFilter;-><init>(ILandroid/graphics/PorterDuff$Mode;)V
+
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
+
+    return-void
+.end method
+
+.method public setDotBackgroundColor(I)V
+    .locals 1
+    .param p1    # I
+        .annotation build Landroid/support/annotation/ColorInt;
+        .end annotation
+    .end param
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/PagingIndicator;->mBgPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setColor(I)V
+
+    return-void
+.end method
+
+.method public setPageCount(I)V
+    .locals 4
+
+    const/4 v3, 0x0
+
+    if-gtz p1, :cond_0
+
+    new-instance v1, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v2, "The page count should be a positive integer"
+
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    :cond_0
+    iput p1, p0, Landroid/support/v17/leanback/widget/PagingIndicator;->mPageCount:I
+
+    iget v1, p0, Landroid/support/v17/leanback/widget/PagingIndicator;->mPageCount:I
+
+    new-array v1, v1, [Landroid/support/v17/leanback/widget/PagingIndicator$Dot;
+
+    iput-object v1, p0, Landroid/support/v17/leanback/widget/PagingIndicator;->mDots:[Landroid/support/v17/leanback/widget/PagingIndicator$Dot;
+
+    const/4 v0, 0x0
+
+    :goto_0
+    iget v1, p0, Landroid/support/v17/leanback/widget/PagingIndicator;->mPageCount:I
+
+    if-ge v0, v1, :cond_1
+
+    iget-object v1, p0, Landroid/support/v17/leanback/widget/PagingIndicator;->mDots:[Landroid/support/v17/leanback/widget/PagingIndicator$Dot;
+
+    new-instance v2, Landroid/support/v17/leanback/widget/PagingIndicator$Dot;
+
+    invoke-direct {v2, p0}, Landroid/support/v17/leanback/widget/PagingIndicator$Dot;-><init>(Landroid/support/v17/leanback/widget/PagingIndicator;)V
+
+    aput-object v2, v1, v0
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    invoke-direct {p0}, Landroid/support/v17/leanback/widget/PagingIndicator;->calculateDotPositions()V
+
+    invoke-direct {p0, v3}, Landroid/support/v17/leanback/widget/PagingIndicator;->setSelectedPage(I)V
 
     return-void
 .end method

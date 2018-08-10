@@ -2,6 +2,9 @@
 .super Ljava/lang/Object;
 .source "TaskStackViewScroller.java"
 
+# interfaces
+.implements Lcom/samsung/systemui/splugins/recents/views/PluginTaskStackViewScroller;
+
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
@@ -125,13 +128,33 @@
 .end method
 
 .method animateScroll(FILjava/lang/Runnable;)V
-    .locals 5
+    .locals 6
+
+    const-wide/16 v4, 0x0
+
+    move-object v0, p0
+
+    move v1, p1
+
+    move v2, p2
+
+    move-object v3, p3
+
+    invoke-virtual/range {v0 .. v5}, Lcom/android/systemui/recents/views/TaskStackViewScroller;->animateScroll(FILjava/lang/Runnable;J)V
+
+    return-void
+.end method
+
+.method animateScroll(FILjava/lang/Runnable;J)V
+    .locals 6
 
     const/4 v4, 0x1
 
     const/4 v3, 0x0
 
-    sget-boolean v0, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableSnapAction:Z
+    invoke-static {}, Lcom/android/systemui/recents/RecentsDebugFlags;->useCustomCurveLayout()Z
+
+    move-result v0
 
     if-eqz v0, :cond_0
 
@@ -210,17 +233,19 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
 
+    iget-object v0, p0, Lcom/android/systemui/recents/views/TaskStackViewScroller;->mScrollAnimator:Landroid/animation/ObjectAnimator;
+
+    invoke-virtual {v0, p4, p5}, Landroid/animation/ObjectAnimator;->setStartDelay(J)V
+
     iget-object v1, p0, Lcom/android/systemui/recents/views/TaskStackViewScroller;->mScrollAnimator:Landroid/animation/ObjectAnimator;
 
-    sget-boolean v0, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableSnapAction:Z
+    invoke-static {}, Lcom/android/systemui/recents/RecentsDebugFlags;->useCustomCurveLayout()Z
+
+    move-result v0
 
     if-eqz v0, :cond_4
 
-    invoke-static {}, Lcom/android/systemui/recents/Recents;->getConfiguration()Lcom/android/systemui/recents/RecentsConfiguration;
-
-    move-result-object v0
-
-    iget-object v0, v0, Lcom/android/systemui/recents/RecentsConfiguration;->scrollInterpolator:Landroid/view/animation/Interpolator;
+    sget-object v0, Lcom/android/systemui/Interpolators;->QUINT_OUT80:Landroid/view/animation/Interpolator;
 
     :goto_1
     invoke-virtual {v1, v0}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
@@ -278,7 +303,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0c003e
+    const v2, 0x7f0b0068
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -421,7 +446,7 @@
     return-void
 .end method
 
-.method public getBoundedStackScroll(F)F
+.method getBoundedStackScroll(F)F
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/TaskStackViewScroller;->mLayoutAlgorithm:Lcom/android/systemui/recents/views/TaskStackLayoutAlgorithm;
@@ -497,6 +522,18 @@
 
     :cond_1
     const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method getScrollVelocity()F
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/TaskStackViewScroller;->mScroller:Landroid/widget/OverScroller;
+
+    invoke-virtual {v0}, Landroid/widget/OverScroller;->getCurrVelocity()F
+
+    move-result v0
 
     return v0
 .end method
@@ -668,5 +705,15 @@
     invoke-virtual {v0}, Landroid/widget/OverScroller;->abortAnimation()V
 
     :cond_0
+    return-void
+.end method
+
+.method public stopScrolling()V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/systemui/recents/views/TaskStackViewScroller;->stopScroller()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/recents/views/TaskStackViewScroller;->stopBoundScrollAnimation()V
+
     return-void
 .end method

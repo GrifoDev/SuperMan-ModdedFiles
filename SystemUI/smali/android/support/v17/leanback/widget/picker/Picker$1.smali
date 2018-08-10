@@ -42,9 +42,7 @@
 
     iget-object v3, p0, Landroid/support/v17/leanback/widget/picker/Picker$1;->this$0:Landroid/support/v17/leanback/widget/picker/Picker;
 
-    invoke-static {v3}, Landroid/support/v17/leanback/widget/picker/Picker;->-get0(Landroid/support/v17/leanback/widget/picker/Picker;)Ljava/util/List;
-
-    move-result-object v3
+    iget-object v3, v3, Landroid/support/v17/leanback/widget/picker/Picker;->mColumnViews:Ljava/util/List;
 
     invoke-interface {v3, p1}, Ljava/util/List;->indexOf(Ljava/lang/Object;)I
 
@@ -54,15 +52,13 @@
 
     const/4 v4, 0x1
 
-    invoke-static {v3, v0, v4}, Landroid/support/v17/leanback/widget/picker/Picker;->-wrap1(Landroid/support/v17/leanback/widget/picker/Picker;IZ)V
+    invoke-virtual {v3, v0, v4}, Landroid/support/v17/leanback/widget/picker/Picker;->updateColumnAlpha(IZ)V
 
     if-eqz p2, :cond_0
 
     iget-object v3, p0, Landroid/support/v17/leanback/widget/picker/Picker$1;->this$0:Landroid/support/v17/leanback/widget/picker/Picker;
 
-    invoke-static {v3}, Landroid/support/v17/leanback/widget/picker/Picker;->-get1(Landroid/support/v17/leanback/widget/picker/Picker;)Ljava/util/ArrayList;
-
-    move-result-object v3
+    iget-object v3, v3, Landroid/support/v17/leanback/widget/picker/Picker;->mColumns:Ljava/util/ArrayList;
 
     invoke-virtual {v3, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 

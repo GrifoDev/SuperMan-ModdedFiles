@@ -3,7 +3,7 @@
 .source "BrightnessDetail.java"
 
 # interfaces
-.implements Lcom/android/systemui/qs/QSTile$DetailAdapter;
+.implements Lcom/android/systemui/plugins/qs/DetailAdapter;
 
 
 # annotations
@@ -18,13 +18,13 @@
 
 
 # instance fields
-.field private mAuto:Landroid/widget/Switch;
+.field private mAutoBrightnessContainer:Landroid/view/View;
 
-.field private mAutoContainer:Landroid/view/View;
+.field private mAutoBrightnessSwitch:Landroid/widget/Switch;
 
-.field private mQuickAccess:Landroid/widget/Switch;
+.field private mControlOnTopContainer:Landroid/view/View;
 
-.field private mQuickAccessContainer:Landroid/view/View;
+.field private mControlOnTopSwitch:Landroid/widget/Switch;
 
 .field final synthetic this$0:Lcom/android/systemui/settings/BrightnessDetail;
 
@@ -33,7 +33,7 @@
 .method static synthetic -get0(Lcom/android/systemui/settings/BrightnessDetail$1;)Landroid/widget/Switch;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->mAuto:Landroid/widget/Switch;
+    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->mAutoBrightnessSwitch:Landroid/widget/Switch;
 
     return-object v0
 .end method
@@ -41,7 +41,7 @@
 .method static synthetic -get1(Lcom/android/systemui/settings/BrightnessDetail$1;)Landroid/widget/Switch;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->mQuickAccess:Landroid/widget/Switch;
+    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->mControlOnTopSwitch:Landroid/widget/Switch;
 
     return-object v0
 .end method
@@ -63,7 +63,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->this$0:Lcom/android/systemui/settings/BrightnessDetail;
 
-    invoke-static {v6}, Lcom/android/systemui/settings/BrightnessDetail;->-get1(Lcom/android/systemui/settings/BrightnessDetail;)Landroid/content/Context;
+    invoke-static {v6}, Lcom/android/systemui/settings/BrightnessDetail;->-get2(Lcom/android/systemui/settings/BrightnessDetail;)Landroid/content/Context;
 
     move-result-object v6
 
@@ -71,7 +71,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f040110
+    const v7, 0x7f0d012f
 
     const/4 v8, 0x0
 
@@ -79,63 +79,94 @@
 
     move-result-object p2
 
-    const v6, 0x7f130302
-
-    invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/widget/ImageView;
-
-    const v6, 0x7f130376
-
-    invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/android/systemui/settings/BrightnessDetail;
-
-    const v6, 0x7f1302fd
+    const v6, 0x7f0a009e
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
-    check-cast v2, Landroid/widget/TextView;
+    const/4 v6, 0x0
 
-    const v6, 0x7f130303
+    const/4 v7, 0x0
+
+    const/4 v8, 0x0
+
+    const/4 v9, 0x0
+
+    invoke-virtual {v2, v6, v7, v8, v9}, Landroid/view/View;->setPadding(IIII)V
+
+    const v6, 0x7f0a009f
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v5
 
-    check-cast v5, Lcom/android/systemui/settings/ToggleSlider;
+    check-cast v5, Lcom/android/systemui/settings/ToggleSliderView;
 
-    const v6, 0x7f130377
+    iget-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->this$0:Lcom/android/systemui/settings/BrightnessDetail;
 
-    invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-static {v6}, Lcom/android/systemui/settings/BrightnessDetail;->-get2(Lcom/android/systemui/settings/BrightnessDetail;)Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object v6
 
-    check-cast v0, Landroid/widget/TextView;
+    invoke-virtual {v6}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    const v6, 0x7f1302fe
+    move-result-object v6
 
-    invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    const v7, 0x7f07048f
 
-    move-result-object v1
+    invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    check-cast v1, Landroid/widget/TextView;
+    move-result v6
 
-    const v6, 0x7f1302fc
+    iget-object v7, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->this$0:Lcom/android/systemui/settings/BrightnessDetail;
+
+    invoke-static {v7}, Lcom/android/systemui/settings/BrightnessDetail;->-get2(Lcom/android/systemui/settings/BrightnessDetail;)Landroid/content/Context;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v7
+
+    const v8, 0x7f070490
+
+    invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v7
+
+    const/4 v8, 0x0
+
+    const/4 v9, 0x0
+
+    invoke-virtual {v5, v6, v8, v7, v9}, Lcom/android/systemui/settings/ToggleSliderView;->setPadding(IIII)V
+
+    const-class v6, Lcom/android/systemui/coloring/QSColoringServiceManager;
+
+    invoke-static {v6}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Lcom/android/systemui/coloring/QSColoringServiceManager;
+
+    invoke-virtual {v6}, Lcom/android/systemui/coloring/QSColoringServiceManager;->isQSColoringEnabled()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_0
+
+    invoke-virtual {v5}, Lcom/android/systemui/settings/ToggleSliderView;->initResources()V
+
+    :cond_0
+    const v6, 0x7f0a0059
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v6
 
-    iput-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->mAutoContainer:Landroid/view/View;
+    iput-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->mAutoBrightnessContainer:Landroid/view/View;
 
-    const v6, 0x7f1302ff
+    const v6, 0x7f0a005b
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -143,62 +174,77 @@
 
     check-cast v6, Landroid/widget/Switch;
 
-    iput-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->mAuto:Landroid/widget/Switch;
+    iput-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->mAutoBrightnessSwitch:Landroid/widget/Switch;
 
-    invoke-static {p1}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+    const v6, 0x7f0a005c
+
+    invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/widget/TextView;
+
+    const v6, 0x7f0a005a
+
+    invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/widget/TextView;
+
+    invoke-static {}, Lcom/android/systemui/util/SettingsHelper;->getInstance()Lcom/android/systemui/util/SettingsHelper;
 
     move-result-object v6
 
-    invoke-virtual {v6}, Lcom/android/keyguard/util/SettingsHelper;->isUltraPowerSavingMode()Z
+    invoke-virtual {v6}, Lcom/android/systemui/util/SettingsHelper;->isUltraPowerSavingMode()Z
 
     move-result v6
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_1
 
-    invoke-static {p1}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+    invoke-static {}, Lcom/android/systemui/util/SettingsHelper;->getInstance()Lcom/android/systemui/util/SettingsHelper;
 
     move-result-object v6
 
-    invoke-virtual {v6}, Lcom/android/keyguard/util/SettingsHelper;->isEmergencyMode()Z
+    invoke-virtual {v6}, Lcom/android/systemui/util/SettingsHelper;->isEmergencyMode()Z
 
     move-result v6
 
     if-eqz v6, :cond_2
 
-    :cond_0
-    iget-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->mAutoContainer:Landroid/view/View;
+    :cond_1
+    iget-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->mAutoBrightnessContainer:Landroid/view/View;
 
     const/16 v7, 0x8
 
     invoke-virtual {v6, v7}, Landroid/view/View;->setVisibility(I)V
 
-    :cond_1
     :goto_0
-    iget-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->mAutoContainer:Landroid/view/View;
+    iget-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->mAutoBrightnessContainer:Landroid/view/View;
 
     new-instance v7, Lcom/android/systemui/settings/BrightnessDetail$1$1;
 
-    invoke-direct {v7, p0, v5}, Lcom/android/systemui/settings/BrightnessDetail$1$1;-><init>(Lcom/android/systemui/settings/BrightnessDetail$1;Lcom/android/systemui/settings/ToggleSlider;)V
+    invoke-direct {v7, p0}, Lcom/android/systemui/settings/BrightnessDetail$1$1;-><init>(Lcom/android/systemui/settings/BrightnessDetail$1;)V
 
     invoke-virtual {v6, v7}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    iget-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->mAuto:Landroid/widget/Switch;
+    iget-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->mAutoBrightnessSwitch:Landroid/widget/Switch;
 
     new-instance v7, Lcom/android/systemui/settings/BrightnessDetail$1$2;
 
-    invoke-direct {v7, p0, v5}, Lcom/android/systemui/settings/BrightnessDetail$1$2;-><init>(Lcom/android/systemui/settings/BrightnessDetail$1;Lcom/android/systemui/settings/ToggleSlider;)V
+    invoke-direct {v7, p0}, Lcom/android/systemui/settings/BrightnessDetail$1$2;-><init>(Lcom/android/systemui/settings/BrightnessDetail$1;)V
 
     invoke-virtual {v6, v7}, Landroid/widget/Switch;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v6, 0x7f130300
+    const v6, 0x7f0a0129
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v6
 
-    iput-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->mQuickAccessContainer:Landroid/view/View;
+    iput-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->mControlOnTopContainer:Landroid/view/View;
 
-    const v6, 0x7f130301
+    const v6, 0x7f0a012a
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -206,19 +252,17 @@
 
     check-cast v6, Landroid/widget/Switch;
 
-    iput-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->mQuickAccess:Landroid/widget/Switch;
+    iput-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->mControlOnTopSwitch:Landroid/widget/Switch;
 
-    iget-object v7, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->mQuickAccess:Landroid/widget/Switch;
+    iget-object v7, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->mControlOnTopSwitch:Landroid/widget/Switch;
 
-    iget-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->this$0:Lcom/android/systemui/settings/BrightnessDetail;
+    const-class v6, Lcom/android/systemui/tuner/TunerService;
 
-    invoke-static {v6}, Lcom/android/systemui/settings/BrightnessDetail;->-get1(Lcom/android/systemui/settings/BrightnessDetail;)Landroid/content/Context;
-
-    move-result-object v6
-
-    invoke-static {v6}, Lcom/android/systemui/tuner/TunerService;->get(Landroid/content/Context;)Lcom/android/systemui/tuner/TunerService;
+    invoke-static {v6}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v6
+
+    check-cast v6, Lcom/android/systemui/tuner/TunerService;
 
     const-string/jumbo v8, "brightness_on_top"
 
@@ -230,14 +274,14 @@
 
     const/4 v8, 0x1
 
-    if-ne v6, v8, :cond_a
+    if-ne v6, v8, :cond_7
 
     const/4 v6, 0x1
 
     :goto_1
     invoke-virtual {v7, v6}, Landroid/widget/Switch;->setChecked(Z)V
 
-    iget-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->mQuickAccessContainer:Landroid/view/View;
+    iget-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->mControlOnTopContainer:Landroid/view/View;
 
     new-instance v7, Lcom/android/systemui/settings/BrightnessDetail$1$3;
 
@@ -245,7 +289,7 @@
 
     invoke-virtual {v6, v7}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    iget-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->mQuickAccess:Landroid/widget/Switch;
+    iget-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->mControlOnTopSwitch:Landroid/widget/Switch;
 
     new-instance v7, Lcom/android/systemui/settings/BrightnessDetail$1$4;
 
@@ -253,17 +297,29 @@
 
     invoke-virtual {v6, v7}, Landroid/widget/Switch;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
+    const v6, 0x7f0a009c
+
+    invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/widget/ImageView;
+
+    const v6, 0x7f0a009b
+
+    invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/ImageView;
+
     const/16 v6, 0x8
 
-    invoke-virtual {v4, v6}, Landroid/widget/ImageView;->setVisibility(I)V
+    invoke-virtual {v1, v6}, Landroid/widget/ImageView;->setVisibility(I)V
 
     const/16 v6, 0x8
 
-    invoke-virtual {v3, v6}, Lcom/android/systemui/settings/BrightnessDetail;->setVisibility(I)V
-
-    const/16 v6, 0x8
-
-    invoke-virtual {v0, v6}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, v6}, Landroid/widget/ImageView;->setVisibility(I)V
 
     iget-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->this$0:Lcom/android/systemui/settings/BrightnessDetail;
 
@@ -271,13 +327,13 @@
 
     iget-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->this$0:Lcom/android/systemui/settings/BrightnessDetail;
 
-    invoke-static {v6}, Lcom/android/systemui/settings/BrightnessDetail;->-get2(Lcom/android/systemui/settings/BrightnessDetail;)Landroid/view/View;
+    invoke-static {v6}, Lcom/android/systemui/settings/BrightnessDetail;->-get4(Lcom/android/systemui/settings/BrightnessDetail;)Landroid/view/View;
 
     move-result-object v6
 
     new-instance v7, Lcom/android/systemui/settings/BrightnessDetail$1$5;
 
-    invoke-direct {v7, p0, v5, v4}, Lcom/android/systemui/settings/BrightnessDetail$1$5;-><init>(Lcom/android/systemui/settings/BrightnessDetail$1;Lcom/android/systemui/settings/ToggleSlider;Landroid/widget/ImageView;)V
+    invoke-direct {v7, p0, v5, v1}, Lcom/android/systemui/settings/BrightnessDetail$1$5;-><init>(Lcom/android/systemui/settings/BrightnessDetail$1;Lcom/android/systemui/settings/ToggleSliderView;Landroid/widget/ImageView;)V
 
     invoke-virtual {v6, v7}, Landroid/view/View;->addOnAttachStateChangeListener(Landroid/view/View$OnAttachStateChangeListener;)V
 
@@ -286,7 +342,7 @@
     :cond_2
     iget-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->this$0:Lcom/android/systemui/settings/BrightnessDetail;
 
-    invoke-static {v6}, Lcom/android/systemui/settings/BrightnessDetail;->-get1(Lcom/android/systemui/settings/BrightnessDetail;)Landroid/content/Context;
+    invoke-static {v6}, Lcom/android/systemui/settings/BrightnessDetail;->-get2(Lcom/android/systemui/settings/BrightnessDetail;)Landroid/content/Context;
 
     move-result-object v6
 
@@ -296,29 +352,48 @@
 
     if-eqz v6, :cond_5
 
-    const v6, 0x7f0f044e
-
-    invoke-virtual {v2, v6}, Landroid/widget/TextView;->setText(I)V
-
     iget-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->this$0:Lcom/android/systemui/settings/BrightnessDetail;
 
-    invoke-static {v6}, Lcom/android/systemui/settings/BrightnessDetail;->-get1(Lcom/android/systemui/settings/BrightnessDetail;)Landroid/content/Context;
+    invoke-static {v6}, Lcom/android/systemui/settings/BrightnessDetail;->-get2(Lcom/android/systemui/settings/BrightnessDetail;)Landroid/content/Context;
 
     move-result-object v6
 
-    const v7, 0x7f0f044f
+    invoke-virtual {v6}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v6
+
+    const v7, 0x7f120870
+
+    invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v4, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    sget-boolean v6, Lcom/android/systemui/Rune;->QPANEL_SUPPORT_PERSONAL_AUTO_BRIGHTNESS_CONTROL:Z
+
+    if-eqz v6, :cond_3
+
+    iget-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->this$0:Lcom/android/systemui/settings/BrightnessDetail;
+
+    invoke-static {v6}, Lcom/android/systemui/settings/BrightnessDetail;->-get2(Lcom/android/systemui/settings/BrightnessDetail;)Landroid/content/Context;
+
+    move-result-object v6
+
+    const v7, 0x7f12086e
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v6
 
-    invoke-virtual {v1, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    :goto_2
+    invoke-virtual {v3, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    iget-object v7, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->mAuto:Landroid/widget/Switch;
+    iget-object v7, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->mAutoBrightnessSwitch:Landroid/widget/Switch;
 
     iget-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->this$0:Lcom/android/systemui/settings/BrightnessDetail;
 
-    invoke-static {v6}, Lcom/android/systemui/settings/BrightnessDetail;->-get1(Lcom/android/systemui/settings/BrightnessDetail;)Landroid/content/Context;
+    invoke-static {v6}, Lcom/android/systemui/settings/BrightnessDetail;->-get2(Lcom/android/systemui/settings/BrightnessDetail;)Landroid/content/Context;
 
     move-result-object v6
 
@@ -338,50 +413,27 @@
 
     const/4 v8, 0x1
 
-    if-ne v6, v8, :cond_3
+    if-ne v6, v8, :cond_4
 
     const/4 v6, 0x1
 
-    :goto_2
-    invoke-virtual {v7, v6}, Landroid/widget/Switch;->setChecked(Z)V
-
-    sget-boolean v6, Lcom/android/systemui/SystemUIRune;->SUPPORT_GSIM_LOG:Z
-
-    if-eqz v6, :cond_1
-
-    iget-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->this$0:Lcom/android/systemui/settings/BrightnessDetail;
-
-    invoke-static {v6}, Lcom/android/systemui/settings/BrightnessDetail;->-get1(Lcom/android/systemui/settings/BrightnessDetail;)Landroid/content/Context;
-
-    move-result-object v7
-
-    const-string/jumbo v8, "com.android.systemui.statusbar.policy.quicksetting"
-
-    const-string/jumbo v9, "QS25"
-
-    iget-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->mAuto:Landroid/widget/Switch;
-
-    invoke-virtual {v6}, Landroid/widget/Switch;->isChecked()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_4
-
-    const/16 v6, 0x3e8
-
     :goto_3
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v6
-
-    const/4 v10, 0x0
-
-    invoke-static {v7, v8, v9, v10, v6}, Lcom/android/keyguard/util/GsimLogManager;->sendStatusLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;)V
+    invoke-virtual {v7, v6}, Landroid/widget/Switch;->setChecked(Z)V
 
     goto/16 :goto_0
 
     :cond_3
-    const/4 v6, 0x0
+    iget-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->this$0:Lcom/android/systemui/settings/BrightnessDetail;
+
+    invoke-static {v6}, Lcom/android/systemui/settings/BrightnessDetail;->-get2(Lcom/android/systemui/settings/BrightnessDetail;)Landroid/content/Context;
+
+    move-result-object v6
+
+    const v7, 0x7f12086f
+
+    invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v6
 
     goto :goto_2
 
@@ -393,68 +445,45 @@
     :cond_5
     iget-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->this$0:Lcom/android/systemui/settings/BrightnessDetail;
 
-    invoke-static {v6}, Lcom/android/systemui/settings/BrightnessDetail;->-get1(Lcom/android/systemui/settings/BrightnessDetail;)Landroid/content/Context;
+    invoke-static {v6}, Lcom/android/systemui/settings/BrightnessDetail;->-get2(Lcom/android/systemui/settings/BrightnessDetail;)Landroid/content/Context;
 
     move-result-object v6
 
-    invoke-static {v6}, Lcom/android/systemui/statusbar/DeviceState;->isLightSensorAvailable(Landroid/content/Context;)Z
+    invoke-virtual {v6}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result v6
+    move-result-object v6
 
-    if-nez v6, :cond_9
+    const v7, 0x7f120877
 
-    const v6, 0x7f0f0453
+    invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    invoke-virtual {v2, v6}, Landroid/widget/TextView;->setText(I)V
+    move-result-object v6
 
-    sget-boolean v6, Lcom/android/systemui/SystemUIRune;->IS_VZW_POPUP:Z
-
-    if-eqz v6, :cond_6
+    invoke-virtual {v4, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     iget-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->this$0:Lcom/android/systemui/settings/BrightnessDetail;
 
-    invoke-static {v6}, Lcom/android/systemui/settings/BrightnessDetail;->-get1(Lcom/android/systemui/settings/BrightnessDetail;)Landroid/content/Context;
+    invoke-static {v6}, Lcom/android/systemui/settings/BrightnessDetail;->-get2(Lcom/android/systemui/settings/BrightnessDetail;)Landroid/content/Context;
 
     move-result-object v6
 
-    const/4 v7, 0x2
-
-    new-array v7, v7, [Ljava/lang/Object;
-
-    const/16 v8, 0xf
-
-    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v8
-
-    const/4 v9, 0x0
-
-    aput-object v8, v7, v9
-
-    const/16 v8, 0xf
-
-    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v8
-
-    const/4 v9, 0x1
-
-    aput-object v8, v7, v9
-
-    const v8, 0x7f0f0454
-
-    invoke-virtual {v6, v8, v7}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v6}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v6
 
-    invoke-virtual {v1, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    const v7, 0x7f120876
 
-    :goto_4
-    iget-object v7, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->mAuto:Landroid/widget/Switch;
+    invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v3, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    iget-object v7, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->mAutoBrightnessSwitch:Landroid/widget/Switch;
 
     iget-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->this$0:Lcom/android/systemui/settings/BrightnessDetail;
 
-    invoke-static {v6}, Lcom/android/systemui/settings/BrightnessDetail;->-get1(Lcom/android/systemui/settings/BrightnessDetail;)Landroid/content/Context;
+    invoke-static {v6}, Lcom/android/systemui/settings/BrightnessDetail;->-get2(Lcom/android/systemui/settings/BrightnessDetail;)Landroid/content/Context;
 
     move-result-object v6
 
@@ -474,85 +503,21 @@
 
     const/4 v8, 0x1
 
-    if-ne v6, v8, :cond_7
+    if-ne v6, v8, :cond_6
 
     const/4 v6, 0x1
 
-    :goto_5
+    :goto_4
     invoke-virtual {v7, v6}, Landroid/widget/Switch;->setChecked(Z)V
-
-    sget-boolean v6, Lcom/android/systemui/SystemUIRune;->SUPPORT_GSIM_LOG:Z
-
-    if-eqz v6, :cond_1
-
-    iget-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->this$0:Lcom/android/systemui/settings/BrightnessDetail;
-
-    invoke-static {v6}, Lcom/android/systemui/settings/BrightnessDetail;->-get1(Lcom/android/systemui/settings/BrightnessDetail;)Landroid/content/Context;
-
-    move-result-object v7
-
-    const-string/jumbo v8, "com.android.systemui.statusbar.policy.quicksetting"
-
-    const-string/jumbo v9, "QS25"
-
-    const-string/jumbo v10, "outdoor"
-
-    iget-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->mAuto:Landroid/widget/Switch;
-
-    invoke-virtual {v6}, Landroid/widget/Switch;->isChecked()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_8
-
-    const/16 v6, 0x3e8
-
-    :goto_6
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v6
-
-    invoke-static {v7, v8, v9, v10, v6}, Lcom/android/keyguard/util/GsimLogManager;->sendStatusLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;)V
 
     goto/16 :goto_0
 
     :cond_6
-    iget-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->this$0:Lcom/android/systemui/settings/BrightnessDetail;
-
-    invoke-static {v6}, Lcom/android/systemui/settings/BrightnessDetail;->-get1(Lcom/android/systemui/settings/BrightnessDetail;)Landroid/content/Context;
-
-    move-result-object v6
-
-    const v7, 0x7f0f0455
-
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v1, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    const/4 v6, 0x0
 
     goto :goto_4
 
     :cond_7
-    const/4 v6, 0x0
-
-    goto :goto_5
-
-    :cond_8
-    const/4 v6, 0x0
-
-    goto :goto_6
-
-    :cond_9
-    iget-object v6, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->mAutoContainer:Landroid/view/View;
-
-    const/16 v7, 0x8
-
-    invoke-virtual {v6, v7}, Landroid/view/View;->setVisibility(I)V
-
-    goto/16 :goto_0
-
-    :cond_a
     const/4 v6, 0x0
 
     goto/16 :goto_1
@@ -561,15 +526,19 @@
 .method public getMetricsCategory()I
     .locals 1
 
-    const/16 v0, 0x259
+    const/16 v0, 0x1389
 
     return v0
 .end method
 
 .method public getSettingsIntent()Landroid/content/Intent;
-    .locals 1
+    .locals 2
 
-    const/4 v0, 0x0
+    new-instance v0, Landroid/content/Intent;
+
+    const-string/jumbo v1, "android.settings.DISPLAY_SETTINGS"
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     return-object v0
 .end method
@@ -579,13 +548,17 @@
 
     iget-object v0, p0, Lcom/android/systemui/settings/BrightnessDetail$1;->this$0:Lcom/android/systemui/settings/BrightnessDetail;
 
-    invoke-static {v0}, Lcom/android/systemui/settings/BrightnessDetail;->-get1(Lcom/android/systemui/settings/BrightnessDetail;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/systemui/settings/BrightnessDetail;->-get2(Lcom/android/systemui/settings/BrightnessDetail;)Landroid/content/Context;
 
     move-result-object v0
 
-    const v1, 0x7f0f0375
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    move-result-object v0
+
+    const v1, 0x7f120874
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 

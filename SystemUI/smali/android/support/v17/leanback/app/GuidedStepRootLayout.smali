@@ -93,3 +93,19 @@
     :cond_5
     return-object v0
 .end method
+
+.method public setFocusOutEnd(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Landroid/support/v17/leanback/app/GuidedStepRootLayout;->mFocusOutEnd:Z
+
+    return-void
+.end method
+
+.method public setFocusOutStart(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Landroid/support/v17/leanback/app/GuidedStepRootLayout;->mFocusOutStart:Z
+
+    return-void
+.end method

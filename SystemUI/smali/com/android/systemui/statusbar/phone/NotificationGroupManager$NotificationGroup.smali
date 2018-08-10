@@ -26,8 +26,6 @@
     .end annotation
 .end field
 
-.field public deskSummary:Lcom/android/systemui/statusbar/NotificationData$Entry;
-
 .field public expanded:Z
 
 .field public summary:Lcom/android/systemui/statusbar/NotificationData$Entry;

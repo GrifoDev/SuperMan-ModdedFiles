@@ -1,11 +1,11 @@
 .class Lcom/android/systemui/qs/tiles/UHQTile$2;
-.super Lcom/android/systemui/qs/SystemSetting;
+.super Lcom/android/systemui/qs/QSTileSystemSettingObserver;
 .source "UHQTile.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/qs/tiles/UHQTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
+    value = Lcom/android/systemui/qs/tiles/UHQTile;-><init>(Lcom/android/systemui/qs/QSHost;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,7 +24,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/UHQTile$2;->this$0:Lcom/android/systemui/qs/tiles/UHQTile;
 
-    invoke-direct {p0, p2, p3, p4}, Lcom/android/systemui/qs/SystemSetting;-><init>(Landroid/content/Context;Landroid/os/Handler;Ljava/lang/String;)V
+    invoke-direct {p0, p2, p3, p4}, Lcom/android/systemui/qs/QSTileSystemSettingObserver;-><init>(Landroid/content/Context;Landroid/os/Handler;Ljava/lang/String;)V
 
     return-void
 .end method

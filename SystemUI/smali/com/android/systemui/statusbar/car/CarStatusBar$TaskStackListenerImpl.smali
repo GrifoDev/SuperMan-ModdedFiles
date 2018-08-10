@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public onTaskStackChanged()V
-    .locals 4
+    .locals 5
 
     invoke-static {}, Lcom/android/systemui/recents/Recents;->getSystemServices()Lcom/android/systemui/recents/misc/SystemServicesProxy;
 
@@ -49,6 +49,12 @@
     invoke-virtual {v1}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->getRunningTask()Landroid/app/ActivityManager$RunningTaskInfo;
 
     move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v2, v0, Landroid/app/ActivityManager$RunningTaskInfo;->baseActivity:Landroid/content/ComponentName;
+
+    if-eqz v2, :cond_0
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/car/CarStatusBar$TaskStackListenerImpl;->this$0:Lcom/android/systemui/statusbar/car/CarStatusBar;
 
@@ -62,7 +68,10 @@
 
     move-result-object v3
 
-    invoke-virtual {v2, v3}, Lcom/android/systemui/statusbar/car/CarNavigationBarController;->taskChanged(Ljava/lang/String;)V
+    iget v4, v0, Landroid/app/ActivityManager$RunningTaskInfo;->stackId:I
 
+    invoke-virtual {v2, v3, v4}, Lcom/android/systemui/statusbar/car/CarNavigationBarController;->taskChanged(Ljava/lang/String;I)V
+
+    :cond_0
     return-void
 .end method

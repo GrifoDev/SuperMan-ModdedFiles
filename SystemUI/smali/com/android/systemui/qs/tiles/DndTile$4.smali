@@ -47,19 +47,23 @@
 .end method
 
 .method public onPrioritySettings()V
-    .locals 2
+    .locals 3
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/DndTile$4;->this$0:Lcom/android/systemui/qs/tiles/DndTile;
+    const-class v0, Lcom/android/systemui/plugins/ActivityStarter;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/DndTile;->-get3(Lcom/android/systemui/qs/tiles/DndTile;)Lcom/android/systemui/qs/QSTile$Host;
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/plugins/ActivityStarter;
 
     invoke-static {}, Lcom/android/systemui/qs/tiles/DndTile;->-get0()Landroid/content/Intent;
 
     move-result-object v1
 
-    invoke-interface {v0, v1}, Lcom/android/systemui/qs/QSTile$Host;->startActivityDismissingKeyguard(Landroid/content/Intent;)V
+    const/4 v2, 0x0
+
+    invoke-interface {v0, v1, v2}, Lcom/android/systemui/plugins/ActivityStarter;->postStartActivityDismissingKeyguard(Landroid/content/Intent;I)V
 
     return-void
 .end method

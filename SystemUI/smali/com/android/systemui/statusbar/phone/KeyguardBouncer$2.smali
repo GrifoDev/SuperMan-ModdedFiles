@@ -90,6 +90,10 @@
 
     invoke-virtual {v0, v1}, Lcom/android/keyguard/KeyguardHostView;->sendAccessibilityEvent(I)V
 
+    const-string/jumbo v0, "102"
+
+    invoke-static {v0}, Lcom/android/systemui/util/AnalyticUtils;->sendScreenViewLog(Ljava/lang/String;)V
+
     return-void
 
     :cond_0

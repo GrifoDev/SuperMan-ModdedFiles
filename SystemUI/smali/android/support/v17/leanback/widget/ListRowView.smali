@@ -8,6 +8,16 @@
 
 
 # direct methods
+.method public constructor <init>(Landroid/content/Context;)V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-direct {p0, p1, v0}, Landroid/support/v17/leanback/widget/ListRowView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
 
@@ -56,4 +66,14 @@
     invoke-virtual {p0, v1}, Landroid/support/v17/leanback/widget/ListRowView;->setDescendantFocusability(I)V
 
     return-void
+.end method
+
+
+# virtual methods
+.method public getGridView()Landroid/support/v17/leanback/widget/HorizontalGridView;
+    .locals 1
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/ListRowView;->mGridView:Landroid/support/v17/leanback/widget/HorizontalGridView;
+
+    return-object v0
 .end method

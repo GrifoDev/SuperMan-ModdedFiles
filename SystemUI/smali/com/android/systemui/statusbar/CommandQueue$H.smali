@@ -19,20 +19,20 @@
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/systemui/statusbar/CommandQueue;)V
+.method private constructor <init>(Lcom/android/systemui/statusbar/CommandQueue;Landroid/os/Looper;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-direct {p0}, Landroid/os/Handler;-><init>()V
+    invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/statusbar/CommandQueue$H;)V
+.method synthetic constructor <init>(Lcom/android/systemui/statusbar/CommandQueue;Landroid/os/Looper;Lcom/android/systemui/statusbar/CommandQueue$H;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/CommandQueue$H;-><init>(Lcom/android/systemui/statusbar/CommandQueue;)V
+    invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/CommandQueue$H;-><init>(Lcom/android/systemui/statusbar/CommandQueue;Landroid/os/Looper;)V
 
     return-void
 .end method
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 21
+    .locals 19
 
     move-object/from16 v0, p1
 
@@ -48,10 +48,11 @@
 
     const/high16 v3, -0x10000
 
-    and-int v20, v2, v3
+    and-int v18, v2, v3
 
-    sparse-switch v20, :sswitch_data_0
+    sparse-switch v18, :sswitch_data_0
 
+    :cond_0
     :goto_0
     return-void
 
@@ -67,124 +68,278 @@
     :pswitch_0
     move-object/from16 v0, p1
 
-    iget-object v0, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object v13, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    move-object/from16 v16, v0
+    check-cast v13, Landroid/util/Pair;
 
-    check-cast v16, Landroid/util/Pair;
+    const/4 v12, 0x0
+
+    :goto_1
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v12, v2, :cond_0
 
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
 
-    move-result-object v4
+    move-result-object v2
 
-    move-object/from16 v0, v16
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    iget-object v2, v0, Landroid/util/Pair;->first:Ljava/lang/Object;
+    move-result-object v2
 
-    check-cast v2, Ljava/lang/String;
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
 
-    move-object/from16 v0, v16
+    iget-object v3, v13, Landroid/util/Pair;->first:Ljava/lang/Object;
 
-    iget-object v3, v0, Landroid/util/Pair;->second:Ljava/lang/Object;
+    check-cast v3, Ljava/lang/String;
 
-    check-cast v3, Lcom/android/internal/statusbar/StatusBarIcon;
+    iget-object v4, v13, Landroid/util/Pair;->second:Ljava/lang/Object;
 
-    invoke-interface {v4, v2, v3}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->setIcon(Ljava/lang/String;Lcom/android/internal/statusbar/StatusBarIcon;)V
+    check-cast v4, Lcom/android/internal/statusbar/StatusBarIcon;
 
-    goto :goto_0
+    invoke-interface {v2, v3, v4}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->setIcon(Ljava/lang/String;Lcom/android/internal/statusbar/StatusBarIcon;)V
+
+    add-int/lit8 v12, v12, 0x1
+
+    goto :goto_1
 
     :pswitch_1
+    const/4 v12, 0x0
+
+    :goto_2
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
 
-    move-result-object v3
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v12, v2, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
 
     move-object/from16 v0, p1
 
-    iget-object v2, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object v3, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v2, Ljava/lang/String;
+    check-cast v3, Ljava/lang/String;
 
-    invoke-interface {v3, v2}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->removeIcon(Ljava/lang/String;)V
+    invoke-interface {v2, v3}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->removeIcon(Ljava/lang/String;)V
 
-    goto :goto_0
+    add-int/lit8 v12, v12, 0x1
+
+    goto :goto_2
 
     :sswitch_1
+    const/4 v12, 0x0
+
+    :goto_3
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
 
     move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v12, v2, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+
+    move-object/from16 v0, p1
+
+    iget v4, v0, Landroid/os/Message;->arg1:I
+
+    move-object/from16 v0, p1
+
+    iget v5, v0, Landroid/os/Message;->arg2:I
+
+    move-object/from16 v0, p1
+
+    iget-object v3, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v3, Ljava/lang/Boolean;
+
+    invoke-virtual {v3}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v3
+
+    invoke-interface {v2, v4, v5, v3}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->disable(IIZ)V
+
+    add-int/lit8 v12, v12, 0x1
+
+    goto :goto_3
+
+    :sswitch_2
+    const/4 v12, 0x0
+
+    :goto_4
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v12, v2, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+
+    invoke-interface {v2}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->animateExpandNotificationsPanel()V
+
+    add-int/lit8 v12, v12, 0x1
+
+    goto :goto_4
+
+    :sswitch_3
+    const/4 v12, 0x0
+
+    :goto_5
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v12, v2, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
 
     move-object/from16 v0, p1
 
     iget v3, v0, Landroid/os/Message;->arg1:I
 
-    move-object/from16 v0, p1
-
-    iget v4, v0, Landroid/os/Message;->arg2:I
-
-    const/4 v5, 0x1
-
-    invoke-interface {v2, v3, v4, v5}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->disable(IIZ)V
-
-    goto :goto_0
-
-    :sswitch_2
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
-
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->animateExpandNotificationsPanel()V
-
-    goto :goto_0
-
-    :sswitch_3
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
-
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
-
-    move-result-object v2
-
-    const/4 v3, 0x0
-
     invoke-interface {v2, v3}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->animateCollapsePanels(I)V
 
-    goto :goto_0
+    add-int/lit8 v12, v12, 0x1
+
+    goto :goto_5
 
     :sswitch_4
+    const/4 v12, 0x0
+
+    :goto_6
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
 
-    move-result-object v3
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v12, v2, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
 
     move-object/from16 v0, p1
 
-    iget-object v2, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object v3, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v2, Ljava/lang/String;
+    check-cast v3, Ljava/lang/String;
 
-    invoke-interface {v3, v2}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->animateExpandSettingsPanel(Ljava/lang/String;)V
+    invoke-interface {v2, v3}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->animateExpandSettingsPanel(Ljava/lang/String;)V
 
-    goto :goto_0
+    add-int/lit8 v12, v12, 0x1
+
+    goto :goto_6
 
     :sswitch_5
     move-object/from16 v0, p1
@@ -193,13 +348,36 @@
 
     check-cast v9, Lcom/android/internal/os/SomeArgs;
 
+    const/4 v12, 0x0
+
+    :goto_7
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
 
     move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v12, v2, :cond_1
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
 
     iget v3, v9, Lcom/android/internal/os/SomeArgs;->argi1:I
 
@@ -219,51 +397,104 @@
 
     invoke-interface/range {v2 .. v8}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->setSystemUiVisibility(IIIILandroid/graphics/Rect;Landroid/graphics/Rect;)V
 
+    add-int/lit8 v12, v12, 0x1
+
+    goto :goto_7
+
+    :cond_1
     invoke-virtual {v9}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
     goto/16 :goto_0
 
     :sswitch_6
+    const/4 v12, 0x0
+
+    :goto_8
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
 
-    move-result-object v3
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v12, v2, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
 
     move-object/from16 v0, p1
 
-    iget v2, v0, Landroid/os/Message;->arg1:I
+    iget v3, v0, Landroid/os/Message;->arg1:I
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_2
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    :goto_1
-    invoke-interface {v3, v2}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->topAppWindowChanged(Z)V
+    :goto_9
+    invoke-interface {v2, v3}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->topAppWindowChanged(Z)V
 
-    goto/16 :goto_0
+    add-int/lit8 v12, v12, 0x1
 
-    :cond_0
-    const/4 v2, 0x0
+    goto :goto_8
 
-    goto :goto_1
+    :cond_2
+    const/4 v3, 0x0
+
+    goto :goto_9
 
     :sswitch_7
+    const/4 v12, 0x0
+
+    :goto_a
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
 
-    move-result-object v3
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v12, v2, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
 
     move-object/from16 v0, p1
 
-    iget-object v2, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object v3, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v2, Landroid/os/IBinder;
+    check-cast v3, Landroid/os/IBinder;
 
     move-object/from16 v0, p1
 
@@ -285,152 +516,327 @@
 
     move-result v6
 
-    invoke-interface {v3, v2, v4, v5, v6}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->setImeWindowStatus(Landroid/os/IBinder;IIZ)V
+    invoke-interface {v2, v3, v4, v5, v6}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->setImeWindowStatus(Landroid/os/IBinder;IIZ)V
 
-    goto/16 :goto_0
+    add-int/lit8 v12, v12, 0x1
+
+    goto :goto_a
 
     :sswitch_8
+    const/4 v12, 0x0
+
+    :goto_b
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
-
-    move-result-object v4
-
-    move-object/from16 v0, p1
-
-    iget v2, v0, Landroid/os/Message;->arg1:I
-
-    if-eqz v2, :cond_1
-
-    const/4 v2, 0x1
-
-    :goto_2
-    move-object/from16 v0, p1
-
-    iget v3, v0, Landroid/os/Message;->arg2:I
-
-    if-eqz v3, :cond_2
-
-    const/4 v3, 0x1
-
-    :goto_3
-    invoke-interface {v4, v2, v3}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->showRecentApps(ZZ)V
-
-    goto/16 :goto_0
-
-    :cond_1
-    const/4 v2, 0x0
-
-    goto :goto_2
-
-    :cond_2
-    const/4 v3, 0x0
-
-    goto :goto_3
-
-    :sswitch_9
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
-
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
-
-    move-result-object v4
-
-    move-object/from16 v0, p1
-
-    iget v2, v0, Landroid/os/Message;->arg1:I
-
-    if-eqz v2, :cond_3
-
-    const/4 v2, 0x1
-
-    :goto_4
-    move-object/from16 v0, p1
-
-    iget v3, v0, Landroid/os/Message;->arg2:I
-
-    if-eqz v3, :cond_4
-
-    const/4 v3, 0x1
-
-    :goto_5
-    invoke-interface {v4, v2, v3}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->hideRecentApps(ZZ)V
-
-    goto/16 :goto_0
-
-    :cond_3
-    const/4 v2, 0x0
-
-    goto :goto_4
-
-    :cond_4
-    const/4 v3, 0x0
-
-    goto :goto_5
-
-    :sswitch_a
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
-
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
 
     move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v12, v2, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+
+    move-object/from16 v0, p1
+
+    iget v3, v0, Landroid/os/Message;->arg1:I
+
+    if-eqz v3, :cond_3
+
+    const/4 v3, 0x1
+
+    :goto_c
+    move-object/from16 v0, p1
+
+    iget v4, v0, Landroid/os/Message;->arg2:I
+
+    if-eqz v4, :cond_4
+
+    const/4 v4, 0x1
+
+    :goto_d
+    invoke-interface {v2, v3, v4}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->showRecentApps(ZZ)V
+
+    add-int/lit8 v12, v12, 0x1
+
+    goto :goto_b
+
+    :cond_3
+    const/4 v3, 0x0
+
+    goto :goto_c
+
+    :cond_4
+    const/4 v4, 0x0
+
+    goto :goto_d
+
+    :sswitch_9
+    const/4 v12, 0x0
+
+    :goto_e
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v12, v2, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+
+    move-object/from16 v0, p1
+
+    iget v3, v0, Landroid/os/Message;->arg1:I
+
+    if-eqz v3, :cond_5
+
+    const/4 v3, 0x1
+
+    :goto_f
+    move-object/from16 v0, p1
+
+    iget v4, v0, Landroid/os/Message;->arg2:I
+
+    if-eqz v4, :cond_6
+
+    const/4 v4, 0x1
+
+    :goto_10
+    invoke-interface {v2, v3, v4}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->hideRecentApps(ZZ)V
+
+    add-int/lit8 v12, v12, 0x1
+
+    goto :goto_e
+
+    :cond_5
+    const/4 v3, 0x0
+
+    goto :goto_f
+
+    :cond_6
+    const/4 v4, 0x0
+
+    goto :goto_10
+
+    :sswitch_a
+    const/4 v12, 0x0
+
+    :goto_11
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v12, v2, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
 
     invoke-interface {v2}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->toggleRecentApps()V
 
-    goto/16 :goto_0
+    add-int/lit8 v12, v12, 0x1
+
+    goto :goto_11
 
     :sswitch_b
+    const/4 v12, 0x0
+
+    :goto_12
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
 
     move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v12, v2, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
 
     invoke-interface {v2}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->preloadRecentApps()V
 
-    goto/16 :goto_0
+    add-int/lit8 v12, v12, 0x1
+
+    goto :goto_12
 
     :sswitch_c
+    const/4 v12, 0x0
+
+    :goto_13
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
 
     move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v12, v2, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
 
     invoke-interface {v2}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->cancelPreloadRecentApps()V
 
-    goto/16 :goto_0
+    add-int/lit8 v12, v12, 0x1
+
+    goto :goto_13
 
     :sswitch_d
+    const/4 v12, 0x0
+
+    :goto_14
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
 
     move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v12, v2, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
 
     invoke-interface {v2}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->dismissKeyboardShortcutsMenu()V
 
-    goto/16 :goto_0
+    add-int/lit8 v12, v12, 0x1
+
+    goto :goto_14
 
     :sswitch_e
+    const/4 v12, 0x0
+
+    :goto_15
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
 
     move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v12, v2, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
 
     move-object/from16 v0, p1
 
@@ -438,16 +844,41 @@
 
     invoke-interface {v2, v3}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->toggleKeyboardShortcutsMenu(I)V
 
-    goto/16 :goto_0
+    add-int/lit8 v12, v12, 0x1
+
+    goto :goto_15
 
     :sswitch_f
+    const/4 v12, 0x0
+
+    :goto_16
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
 
     move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v12, v2, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
 
     move-object/from16 v0, p1
 
@@ -459,73 +890,41 @@
 
     invoke-interface {v2, v3, v4}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->setWindowState(II)V
 
-    goto/16 :goto_0
+    add-int/lit8 v12, v12, 0x1
+
+    goto :goto_16
 
     :sswitch_10
+    const/4 v12, 0x0
+
+    :goto_17
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
 
     move-result-object v2
 
-    invoke-interface {v2}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->buzzBeepBlinked()V
-
-    goto/16 :goto_0
-
-    :sswitch_11
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
-
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->notificationLightOff()V
-
-    goto/16 :goto_0
-
-    :sswitch_12
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
-
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
-
-    move-result-object v3
-
-    move-object/from16 v0, p1
-
-    iget-object v2, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v2, Ljava/lang/Integer;
-
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
-    move-object/from16 v0, p1
+    if-ge v12, v2, :cond_0
 
-    iget v4, v0, Landroid/os/Message;->arg1:I
-
-    move-object/from16 v0, p1
-
-    iget v5, v0, Landroid/os/Message;->arg2:I
-
-    invoke-interface {v3, v2, v4, v5}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->notificationLightPulse(III)V
-
-    goto/16 :goto_0
-
-    :sswitch_13
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
 
     move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
 
     move-object/from16 v0, p1
 
@@ -533,50 +932,139 @@
 
     invoke-interface {v2, v3}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->showScreenPinningRequest(I)V
 
-    goto/16 :goto_0
+    add-int/lit8 v12, v12, 0x1
 
-    :sswitch_14
+    goto :goto_17
+
+    :sswitch_11
+    const/4 v12, 0x0
+
+    :goto_18
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
 
     move-result-object v2
 
-    invoke-interface {v2}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->appTransitionPending()V
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
-    goto/16 :goto_0
+    move-result v2
 
-    :sswitch_15
+    if-ge v12, v2, :cond_0
+
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
 
     move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+
+    move-object/from16 v0, p1
+
+    iget v3, v0, Landroid/os/Message;->arg1:I
+
+    if-eqz v3, :cond_7
+
+    const/4 v3, 0x1
+
+    :goto_19
+    invoke-interface {v2, v3}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->appTransitionPending(Z)V
+
+    add-int/lit8 v12, v12, 0x1
+
+    goto :goto_18
+
+    :cond_7
+    const/4 v3, 0x0
+
+    goto :goto_19
+
+    :sswitch_12
+    const/4 v12, 0x0
+
+    :goto_1a
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v12, v2, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
 
     invoke-interface {v2}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->appTransitionCancelled()V
 
-    goto/16 :goto_0
+    add-int/lit8 v12, v12, 0x1
 
-    :sswitch_16
+    goto :goto_1a
+
+    :sswitch_13
+    const/4 v12, 0x0
+
+    :goto_1b
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v12, v2, :cond_0
+
     move-object/from16 v0, p1
 
-    iget-object v13, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object v11, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v13, Landroid/util/Pair;
+    check-cast v11, Landroid/util/Pair;
 
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v3
 
-    iget-object v2, v13, Landroid/util/Pair;->first:Ljava/lang/Object;
+    check-cast v3, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+
+    iget-object v2, v11, Landroid/util/Pair;->first:Ljava/lang/Object;
 
     check-cast v2, Ljava/lang/Long;
 
@@ -584,7 +1072,7 @@
 
     move-result-wide v4
 
-    iget-object v2, v13, Landroid/util/Pair;->second:Ljava/lang/Object;
+    iget-object v2, v11, Landroid/util/Pair;->second:Ljava/lang/Object;
 
     check-cast v2, Ljava/lang/Long;
 
@@ -592,63 +1080,177 @@
 
     move-result-wide v6
 
-    invoke-interface {v3, v4, v5, v6, v7}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->appTransitionStarting(JJ)V
+    move-object/from16 v0, p1
 
-    goto/16 :goto_0
+    iget v2, v0, Landroid/os/Message;->arg1:I
 
-    :sswitch_17
+    if-eqz v2, :cond_8
+
+    const/4 v8, 0x1
+
+    :goto_1c
+    invoke-interface/range {v3 .. v8}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->appTransitionStarting(JJZ)V
+
+    add-int/lit8 v12, v12, 0x1
+
+    goto :goto_1b
+
+    :cond_8
+    const/4 v8, 0x0
+
+    goto :goto_1c
+
+    :sswitch_14
+    const/4 v12, 0x0
+
+    :goto_1d
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
 
     move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v12, v2, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
 
     invoke-interface {v2}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->appTransitionFinished()V
 
-    goto/16 :goto_0
+    add-int/lit8 v12, v12, 0x1
 
-    :sswitch_18
+    goto :goto_1d
+
+    :sswitch_15
+    const/4 v12, 0x0
+
+    :goto_1e
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
 
     move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v12, v2, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
 
     invoke-interface {v2}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->showAssistDisclosure()V
 
-    goto/16 :goto_0
+    add-int/lit8 v12, v12, 0x1
 
-    :sswitch_19
+    goto :goto_1e
+
+    :sswitch_16
+    const/4 v12, 0x0
+
+    :goto_1f
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
 
-    move-result-object v3
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v12, v2, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
 
     move-object/from16 v0, p1
 
-    iget-object v2, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object v3, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v2, Landroid/os/Bundle;
+    check-cast v3, Landroid/os/Bundle;
 
-    invoke-interface {v3, v2}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->startAssist(Landroid/os/Bundle;)V
+    invoke-interface {v2, v3}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->startAssist(Landroid/os/Bundle;)V
 
-    goto/16 :goto_0
+    add-int/lit8 v12, v12, 0x1
 
-    :sswitch_1a
+    goto :goto_1f
+
+    :sswitch_17
+    const/4 v12, 0x0
+
+    :goto_20
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
 
     move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v12, v2, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
 
     move-object/from16 v0, p1
 
@@ -656,462 +1258,750 @@
 
     invoke-interface {v2, v3}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->onCameraLaunchGestureDetected(I)V
 
-    goto/16 :goto_0
+    add-int/lit8 v12, v12, 0x1
 
-    :sswitch_1b
+    goto :goto_20
+
+    :sswitch_18
+    const/4 v12, 0x0
+
+    :goto_21
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
 
     move-result-object v2
 
-    invoke-interface {v2}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->showTvPictureInPictureMenu()V
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
-    goto/16 :goto_0
+    move-result v2
+
+    if-ge v12, v2, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+
+    invoke-interface {v2}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->showPictureInPictureMenu()V
+
+    add-int/lit8 v12, v12, 0x1
+
+    goto :goto_21
+
+    :sswitch_19
+    const/4 v12, 0x0
+
+    :goto_22
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v12, v2, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+
+    move-object/from16 v0, p1
+
+    iget-object v3, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v3, Landroid/content/ComponentName;
+
+    invoke-interface {v2, v3}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->addQsTile(Landroid/content/ComponentName;)V
+
+    add-int/lit8 v12, v12, 0x1
+
+    goto :goto_22
+
+    :sswitch_1a
+    const/4 v12, 0x0
+
+    :goto_23
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v12, v2, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+
+    move-object/from16 v0, p1
+
+    iget-object v3, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v3, Landroid/content/ComponentName;
+
+    invoke-interface {v2, v3}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->remQsTile(Landroid/content/ComponentName;)V
+
+    add-int/lit8 v12, v12, 0x1
+
+    goto :goto_23
+
+    :sswitch_1b
+    const/4 v12, 0x0
+
+    :goto_24
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v12, v2, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+
+    move-object/from16 v0, p1
+
+    iget-object v3, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v3, Landroid/content/ComponentName;
+
+    invoke-interface {v2, v3}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->clickTile(Landroid/content/ComponentName;)V
+
+    add-int/lit8 v12, v12, 0x1
+
+    goto :goto_24
 
     :sswitch_1c
+    const/4 v12, 0x0
+
+    :goto_25
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
 
-    move-result-object v3
+    move-result-object v2
 
-    move-object/from16 v0, p1
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
-    iget-object v2, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
+    move-result v2
 
-    check-cast v2, Landroid/content/ComponentName;
+    if-ge v12, v2, :cond_0
 
-    invoke-interface {v3, v2}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->addQsTile(Landroid/content/ComponentName;)V
+    move-object/from16 v0, p0
 
-    goto/16 :goto_0
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+
+    invoke-interface {v2}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->toggleSplitScreen()V
+
+    add-int/lit8 v12, v12, 0x1
+
+    goto :goto_25
 
     :sswitch_1d
+    const/4 v12, 0x0
+
+    :goto_26
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
 
-    move-result-object v3
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v12, v2, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
 
     move-object/from16 v0, p1
 
-    iget-object v2, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget v3, v0, Landroid/os/Message;->arg1:I
 
-    check-cast v2, Landroid/content/ComponentName;
+    invoke-interface {v2, v3}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->handleSystemNavigationKey(I)V
 
-    invoke-interface {v3, v2}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->remQsTile(Landroid/content/ComponentName;)V
+    add-int/lit8 v12, v12, 0x1
 
-    goto/16 :goto_0
+    goto :goto_26
 
     :sswitch_1e
+    const/4 v12, 0x0
+
+    :goto_27
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
 
-    move-result-object v3
+    move-result-object v2
 
-    move-object/from16 v0, p1
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
-    iget-object v2, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
+    move-result v2
 
-    check-cast v2, Landroid/content/ComponentName;
+    if-ge v12, v2, :cond_0
 
-    invoke-interface {v3, v2}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->clickTile(Landroid/content/ComponentName;)V
+    move-object/from16 v0, p0
 
-    goto/16 :goto_0
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+
+    invoke-interface {v2}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->handleShowGlobalActionsMenu()V
+
+    add-int/lit8 v12, v12, 0x1
+
+    goto :goto_27
 
     :sswitch_1f
+    const/4 v12, 0x0
+
+    :goto_28
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
 
-    move-result-object v3
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v12, v2, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
 
     move-object/from16 v0, p1
 
-    iget v2, v0, Landroid/os/Message;->arg1:I
+    iget-object v3, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v3, Ljava/lang/Boolean;
+
+    invoke-virtual {v3}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v3
+
+    invoke-interface {v2, v3}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->prepareKnoxDesktopTaskBar(Z)V
+
+    add-int/lit8 v12, v12, 0x1
+
+    goto :goto_28
+
+    :sswitch_20
+    const/4 v12, 0x0
+
+    :goto_29
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v12, v2, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+
+    move-object/from16 v0, p1
+
+    iget v3, v0, Landroid/os/Message;->arg1:I
 
     const/4 v4, 0x1
 
-    if-ne v2, v4, :cond_5
+    if-ne v3, v4, :cond_9
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    :goto_6
-    invoke-interface {v3, v2}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->toggleSplitScreen(Z)V
+    :goto_2a
+    move-object/from16 v0, p1
 
-    goto/16 :goto_0
+    iget v4, v0, Landroid/os/Message;->arg2:I
 
-    :cond_5
-    const/4 v2, 0x0
+    const/4 v5, 0x1
 
-    goto :goto_6
+    if-ne v4, v5, :cond_a
 
-    :sswitch_20
+    const/4 v4, 0x1
+
+    :goto_2b
+    invoke-interface {v2, v3, v4}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->setKnoxDesktopTaskBar(ZZ)V
+
+    add-int/lit8 v12, v12, 0x1
+
+    goto :goto_29
+
+    :cond_9
+    const/4 v3, 0x0
+
+    goto :goto_2a
+
+    :cond_a
+    const/4 v4, 0x0
+
+    goto :goto_2b
+
+    :sswitch_21
+    const/4 v12, 0x0
+
+    :goto_2c
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
 
-    move-result-object v4
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v12, v2, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
 
     move-object/from16 v0, p1
 
-    iget v2, v0, Landroid/os/Message;->arg1:I
+    iget-object v3, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    const/4 v3, 0x1
+    check-cast v3, Landroid/view/KeyEvent;
 
-    if-ne v2, v3, :cond_6
+    invoke-interface {v2, v3}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->sendKeyEventToKnoxDesktopTaskbar(Landroid/view/KeyEvent;)V
 
-    const/4 v2, 0x1
+    add-int/lit8 v12, v12, 0x1
 
-    :goto_7
+    goto :goto_2c
+
+    :sswitch_22
     move-object/from16 v0, p1
 
-    iget v3, v0, Landroid/os/Message;->arg2:I
+    iget-object v0, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    const/4 v5, 0x1
+    move-object/from16 v16, v0
 
-    if-ne v3, v5, :cond_7
+    check-cast v16, Lcom/android/internal/os/SomeArgs;
 
-    const/4 v3, 0x1
+    const/4 v12, 0x0
 
-    :goto_8
-    invoke-interface {v4, v2, v3}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->setKnoxDesktopTaskBar(ZZ)V
+    :goto_2d
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v12, v2, :cond_b
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+
+    move-object/from16 v0, v16
+
+    iget-object v3, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+
+    check-cast v3, Ljava/lang/String;
+
+    move-object/from16 v0, v16
+
+    iget-object v4, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+
+    check-cast v4, Landroid/widget/RemoteViews;
+
+    move-object/from16 v0, v16
+
+    iget v5, v0, Lcom/android/internal/os/SomeArgs;->argi1:I
+
+    invoke-interface {v2, v3, v4, v5}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->setNavigationBarShortcut(Ljava/lang/String;Landroid/widget/RemoteViews;I)V
+
+    add-int/lit8 v12, v12, 0x1
+
+    goto :goto_2d
+
+    :cond_b
+    invoke-virtual/range {v16 .. v16}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
     goto/16 :goto_0
 
-    :cond_6
-    const/4 v2, 0x0
+    :sswitch_23
+    const/4 v12, 0x0
 
-    goto :goto_7
+    :goto_2e
+    move-object/from16 v0, p0
 
-    :cond_7
-    const/4 v3, 0x0
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    goto :goto_8
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
 
-    :sswitch_21
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v12, v2, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+
+    move-object/from16 v0, p1
+
+    iget-object v3, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v3, Ljava/lang/Boolean;
+
+    invoke-virtual {v3}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v3
+
+    invoke-interface {v2, v3}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->setForceImmersiveBtnVisibility(Z)V
+
+    add-int/lit8 v12, v12, 0x1
+
+    goto :goto_2e
+
+    :sswitch_24
+    sget-boolean v2, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SNAP_WINDOW_SUPPORT:Z
+
+    if-eqz v2, :cond_0
+
     move-object/from16 v0, p1
 
     iget-object v10, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v10, Landroid/os/Bundle;
 
+    const-string/jumbo v2, "snapCaller"
+
+    invoke-virtual {v10, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v17
+
+    const/4 v12, 0x0
+
+    :goto_2f
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
 
     move-result-object v2
 
-    move-object/from16 v0, p1
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
-    iget v4, v0, Landroid/os/Message;->arg1:I
+    move-result v2
 
-    move-object/from16 v0, p1
-
-    iget v5, v0, Landroid/os/Message;->arg2:I
-
-    const-string/jumbo v3, "StackId"
-
-    invoke-virtual {v10, v3}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
-
-    move-result v6
-
-    const-string/jumbo v3, "ComponentName"
-
-    invoke-virtual {v10, v3}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
-
-    move-result-object v7
-
-    check-cast v7, Landroid/content/ComponentName;
-
-    const-string/jumbo v3, "CallingPkg"
-
-    invoke-virtual {v10, v3}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v8
-
-    const/4 v3, 0x0
-
-    invoke-interface/range {v2 .. v8}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->updateKnoxDesktopTaskBar(IIIILandroid/content/ComponentName;Ljava/lang/String;)V
-
-    goto/16 :goto_0
-
-    :sswitch_22
-    move-object/from16 v0, p1
-
-    iget-object v11, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v11, Landroid/os/Bundle;
+    if-ge v12, v2, :cond_0
 
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
 
     move-result-object v2
 
-    move-object/from16 v0, p1
-
-    iget v4, v0, Landroid/os/Message;->arg1:I
-
-    move-object/from16 v0, p1
-
-    iget v5, v0, Landroid/os/Message;->arg2:I
-
-    const-string/jumbo v3, "StackId"
-
-    invoke-virtual {v11, v3}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
-
-    move-result v6
-
-    const-string/jumbo v3, "ComponentName"
-
-    invoke-virtual {v11, v3}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
-
-    move-result-object v7
-
-    check-cast v7, Landroid/content/ComponentName;
-
-    const-string/jumbo v3, "CallingPkg"
-
-    invoke-virtual {v11, v3}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v8
-
-    const/4 v3, 0x1
-
-    invoke-interface/range {v2 .. v8}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->updateKnoxDesktopTaskBar(IIIILandroid/content/ComponentName;Ljava/lang/String;)V
-
-    goto/16 :goto_0
-
-    :sswitch_23
-    move-object/from16 v0, p1
-
-    iget-object v12, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v12, Landroid/os/Bundle;
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
-
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
-    move-object/from16 v0, p1
-
-    iget v4, v0, Landroid/os/Message;->arg1:I
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
 
     move-object/from16 v0, p1
 
-    iget v5, v0, Landroid/os/Message;->arg2:I
+    iget v3, v0, Landroid/os/Message;->arg1:I
 
-    const-string/jumbo v3, "StackId"
+    move-object/from16 v0, v17
 
-    invoke-virtual {v12, v3}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+    invoke-interface {v2, v3, v0}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->showSnapWindowGuideView(ILjava/lang/String;)V
 
-    move-result v6
+    add-int/lit8 v12, v12, 0x1
 
-    const-string/jumbo v3, "ComponentName"
-
-    invoke-virtual {v12, v3}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
-
-    move-result-object v7
-
-    check-cast v7, Landroid/content/ComponentName;
-
-    const-string/jumbo v3, "CallingPkg"
-
-    invoke-virtual {v12, v3}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v8
-
-    const/4 v3, 0x2
-
-    invoke-interface/range {v2 .. v8}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->updateKnoxDesktopTaskBar(IIIILandroid/content/ComponentName;Ljava/lang/String;)V
-
-    goto/16 :goto_0
-
-    :sswitch_24
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
-
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
-
-    move-result-object v3
-
-    move-object/from16 v0, p1
-
-    iget-object v2, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v2, Landroid/view/KeyEvent;
-
-    invoke-interface {v3, v2}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->sendKeyEventToKnoxDesktopTaskbar(Landroid/view/KeyEvent;)V
-
-    goto/16 :goto_0
+    goto :goto_2f
 
     :sswitch_25
     move-object/from16 v0, p1
 
     iget-object v14, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v14, Lcom/android/internal/os/SomeArgs;
+    check-cast v14, Ljava/lang/String;
+
+    const/4 v12, 0x0
+
+    :goto_30
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v12, v2, :cond_0
 
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
 
     move-result-object v2
 
-    iget v3, v14, Lcom/android/internal/os/SomeArgs;->argi1:I
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    iget v4, v14, Lcom/android/internal/os/SomeArgs;->argi2:I
+    move-result-object v2
 
-    iget v5, v14, Lcom/android/internal/os/SomeArgs;->argi3:I
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
 
-    invoke-interface {v2, v3, v4, v5}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->onNavigationBarForceClicked(III)V
+    const/4 v3, 0x1
 
-    invoke-virtual {v14}, Lcom/android/internal/os/SomeArgs;->recycle()V
+    invoke-interface {v2, v14, v3}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->showServiceBox(Ljava/lang/String;Z)V
 
-    goto/16 :goto_0
+    add-int/lit8 v12, v12, 0x1
+
+    goto :goto_30
 
     :sswitch_26
-    move-object/from16 v0, p1
+    const/4 v12, 0x0
 
-    iget-object v0, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    move-object/from16 v19, v0
-
-    check-cast v19, Lcom/android/internal/os/SomeArgs;
-
+    :goto_31
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
-
-    move-result-object v4
-
-    move-object/from16 v0, v19
-
-    iget-object v2, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
-
-    check-cast v2, Ljava/lang/String;
-
-    move-object/from16 v0, v19
-
-    iget-object v3, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
-
-    check-cast v3, Landroid/widget/RemoteViews;
-
-    move-object/from16 v0, v19
-
-    iget v5, v0, Lcom/android/internal/os/SomeArgs;->argi1:I
-
-    invoke-interface {v4, v2, v3, v5}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->showNaviBarRemoteView(Ljava/lang/String;Landroid/widget/RemoteViews;I)V
-
-    invoke-virtual/range {v19 .. v19}, Lcom/android/internal/os/SomeArgs;->recycle()V
-
-    goto/16 :goto_0
-
-    :sswitch_27
-    move-object/from16 v0, p1
-
-    iget-object v15, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v15, Lcom/android/internal/os/SomeArgs;
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
-
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
-
-    move-result-object v3
-
-    iget-object v2, v15, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
-
-    check-cast v2, Ljava/lang/String;
-
-    iget v4, v15, Lcom/android/internal/os/SomeArgs;->argi1:I
-
-    invoke-interface {v3, v2, v4}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->hideNaviBarRemoteView(Ljava/lang/String;I)V
-
-    invoke-virtual {v15}, Lcom/android/internal/os/SomeArgs;->recycle()V
-
-    goto/16 :goto_0
-
-    :sswitch_28
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
-
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
 
     move-result-object v2
 
-    move-object/from16 v0, p1
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
-    iget v3, v0, Landroid/os/Message;->arg1:I
+    move-result v2
 
-    invoke-interface {v2, v3}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->setNavigationBarIconColor(I)V
+    if-ge v12, v2, :cond_0
 
-    goto/16 :goto_0
-
-    :sswitch_29
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
 
     move-result-object v2
 
-    invoke-interface {v2}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->showNavigationBarInFullscreen()V
-
-    goto/16 :goto_0
-
-    :sswitch_2a
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
-
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
 
     invoke-interface {v2}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->toggleNotificationPanel()V
 
-    goto/16 :goto_0
+    add-int/lit8 v12, v12, 0x1
 
-    :sswitch_2b
+    goto :goto_31
+
+    :sswitch_27
+    const/4 v12, 0x0
+
+    :goto_32
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
 
     move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v12, v2, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
 
     move-object/from16 v0, p1
 
@@ -1119,53 +2009,55 @@
 
     invoke-interface {v2, v3}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->setIndicatorBgColor(I)V
 
-    goto/16 :goto_0
+    add-int/lit8 v12, v12, 0x1
 
-    :sswitch_2c
+    goto :goto_32
+
+    :sswitch_28
     move-object/from16 v0, p1
 
-    iget-object v0, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object v15, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    move-object/from16 v18, v0
+    check-cast v15, Landroid/service/notification/StatusBarNotification;
 
-    check-cast v18, Landroid/service/notification/StatusBarNotification;
+    const/4 v12, 0x0
+
+    :goto_33
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v12, v2, :cond_0
 
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Ljava/util/ArrayList;
 
     move-result-object v2
 
-    move-object/from16 v0, v18
-
-    invoke-interface {v2, v0}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->animateExpandLockedShadePanel(Landroid/service/notification/StatusBarNotification;)V
-
-    goto/16 :goto_0
-
-    :sswitch_2d
-    move-object/from16 v0, p1
-
-    iget-object v0, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    move-object/from16 v17, v0
-
-    check-cast v17, Ljava/lang/String;
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/systemui/statusbar/CommandQueue$H;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
-
-    invoke-static {v2}, Lcom/android/systemui/statusbar/CommandQueue;->-get0(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
-    move-object/from16 v0, v17
+    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
 
-    invoke-interface {v2, v0}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->showServiceBox(Ljava/lang/String;)V
+    invoke-interface {v2, v15}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->animateExpandLockedShadePanel(Landroid/service/notification/StatusBarNotification;)V
 
-    goto/16 :goto_0
+    add-int/lit8 v12, v12, 0x1
+
+    goto :goto_33
+
+    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -1183,38 +2075,33 @@
         0xc0000 -> :sswitch_f
         0xd0000 -> :sswitch_8
         0xe0000 -> :sswitch_9
-        0xf0000 -> :sswitch_10
-        0x100000 -> :sswitch_11
-        0x110000 -> :sswitch_12
-        0x120000 -> :sswitch_13
-        0x130000 -> :sswitch_14
-        0x140000 -> :sswitch_15
-        0x150000 -> :sswitch_16
-        0x160000 -> :sswitch_18
-        0x170000 -> :sswitch_19
-        0x180000 -> :sswitch_1a
+        0x120000 -> :sswitch_10
+        0x130000 -> :sswitch_11
+        0x140000 -> :sswitch_12
+        0x150000 -> :sswitch_13
+        0x160000 -> :sswitch_15
+        0x170000 -> :sswitch_16
+        0x180000 -> :sswitch_17
         0x190000 -> :sswitch_e
-        0x1a0000 -> :sswitch_1b
-        0x1b0000 -> :sswitch_1c
-        0x1c0000 -> :sswitch_1d
-        0x1d0000 -> :sswitch_1e
-        0x1e0000 -> :sswitch_1f
-        0x1f0000 -> :sswitch_17
+        0x1a0000 -> :sswitch_18
+        0x1b0000 -> :sswitch_19
+        0x1c0000 -> :sswitch_1a
+        0x1d0000 -> :sswitch_1b
+        0x1e0000 -> :sswitch_1c
+        0x1f0000 -> :sswitch_14
         0x200000 -> :sswitch_d
-        0x220000 -> :sswitch_2a
-        0x230000 -> :sswitch_2b
-        0x260000 -> :sswitch_20
-        0x270000 -> :sswitch_21
-        0x280000 -> :sswitch_22
-        0x290000 -> :sswitch_23
-        0x2b0000 -> :sswitch_24
-        0x2c0000 -> :sswitch_2c
-        0x2d0000 -> :sswitch_2d
-        0x3e0000 -> :sswitch_25
-        0x3f0000 -> :sswitch_28
-        0x400000 -> :sswitch_29
-        0x410000 -> :sswitch_26
-        0x420000 -> :sswitch_27
+        0x210000 -> :sswitch_1d
+        0x220000 -> :sswitch_1e
+        0x240000 -> :sswitch_26
+        0x250000 -> :sswitch_27
+        0x270000 -> :sswitch_1f
+        0x280000 -> :sswitch_20
+        0x2d0000 -> :sswitch_21
+        0x2e0000 -> :sswitch_28
+        0x2f0000 -> :sswitch_25
+        0x320000 -> :sswitch_24
+        0x400000 -> :sswitch_22
+        0x410000 -> :sswitch_23
     .end sparse-switch
 
     :pswitch_data_0

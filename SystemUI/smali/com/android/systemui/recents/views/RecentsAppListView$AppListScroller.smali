@@ -40,10 +40,6 @@
 
     invoke-virtual {v0, p1}, Lcom/android/systemui/recents/views/RecentsAppListView;->handleGoToTopButton(Z)V
 
-    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsAppListView$AppListScroller;->this$0:Lcom/android/systemui/recents/views/RecentsAppListView;
-
-    invoke-virtual {v0, p1}, Lcom/android/systemui/recents/views/RecentsAppListView;->handleButtonsContainer(Z)V
-
     return-void
 .end method
 

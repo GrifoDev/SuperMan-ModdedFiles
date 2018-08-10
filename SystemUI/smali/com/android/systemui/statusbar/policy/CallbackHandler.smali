@@ -5,6 +5,7 @@
 # interfaces
 .implements Lcom/android/systemui/statusbar/policy/NetworkController$EmergencyListener;
 .implements Lcom/android/systemui/statusbar/policy/NetworkController$SignalCallback;
+.implements Lcom/android/systemui/statusbar/policy/NetworkController$OperatorLogoIconListener;
 
 
 # instance fields
@@ -14,6 +15,17 @@
             "Ljava/util/ArrayList",
             "<",
             "Lcom/android/systemui/statusbar/policy/NetworkController$EmergencyListener;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final mOperatorLogoIconListeners:Ljava/util/ArrayList;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/ArrayList",
+            "<",
+            "Lcom/android/systemui/statusbar/policy/NetworkController$OperatorLogoIconListener;",
             ">;"
         }
     .end annotation
@@ -35,6 +47,14 @@
 .method static synthetic -get0(Lcom/android/systemui/statusbar/policy/CallbackHandler;)Ljava/util/ArrayList;
     .locals 1
 
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler;->mOperatorLogoIconListeners:Ljava/util/ArrayList;
+
+    return-object v0
+.end method
+
+.method static synthetic -get1(Lcom/android/systemui/statusbar/policy/CallbackHandler;)Ljava/util/ArrayList;
+    .locals 1
+
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler;->mSignalCallbacks:Ljava/util/ArrayList;
 
     return-object v0
@@ -43,7 +63,11 @@
 .method public constructor <init>()V
     .locals 1
 
-    invoke-direct {p0}, Landroid/os/Handler;-><init>()V
+    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
     new-instance v0, Ljava/util/ArrayList;
 
@@ -56,6 +80,12 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler;->mSignalCallbacks:Ljava/util/ArrayList;
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler;->mOperatorLogoIconListeners:Ljava/util/ArrayList;
 
     return-void
 .end method
@@ -76,6 +106,12 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler;->mSignalCallbacks:Ljava/util/ArrayList;
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler;->mOperatorLogoIconListeners:Ljava/util/ArrayList;
 
     return-void
 .end method
@@ -341,6 +377,32 @@
 
     goto/16 :goto_0
 
+    :pswitch_8
+    iget v4, p1, Landroid/os/Message;->arg1:I
+
+    if-eqz v4, :cond_6
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler;->mOperatorLogoIconListeners:Ljava/util/ArrayList;
+
+    iget-object v4, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v4, Lcom/android/systemui/statusbar/policy/NetworkController$OperatorLogoIconListener;
+
+    invoke-virtual {v5, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_0
+
+    :cond_6
+    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler;->mOperatorLogoIconListeners:Ljava/util/ArrayList;
+
+    iget-object v4, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v4, Lcom/android/systemui/statusbar/policy/NetworkController$OperatorLogoIconListener;
+
+    invoke-virtual {v5, v4}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
+
+    goto/16 :goto_0
+
     nop
 
     :pswitch_data_0
@@ -353,6 +415,7 @@
         :pswitch_5
         :pswitch_6
         :pswitch_7
+        :pswitch_8
     .end packed-switch
 .end method
 
@@ -409,9 +472,9 @@
 .method public setEthernetIndicators(Lcom/android/systemui/statusbar/policy/NetworkController$IconState;I)V
     .locals 1
 
-    new-instance v0, Lcom/android/systemui/statusbar/policy/CallbackHandler$12;
+    new-instance v0, Lcom/android/systemui/statusbar/policy/CallbackHandler$11;
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/statusbar/policy/CallbackHandler$12;-><init>(Lcom/android/systemui/statusbar/policy/CallbackHandler;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;I)V
+    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/statusbar/policy/CallbackHandler$11;-><init>(Lcom/android/systemui/statusbar/policy/CallbackHandler;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;I)V
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/policy/CallbackHandler;->post(Ljava/lang/Runnable;)Z
 
@@ -443,6 +506,32 @@
 
     :goto_0
     const/4 v2, 0x6
+
+    invoke-virtual {p0, v2, v0, v1, p1}, Lcom/android/systemui/statusbar/policy/CallbackHandler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+
+    return-void
+
+    :cond_0
+    move v0, v1
+
+    goto :goto_0
+.end method
+
+.method public setListening(Lcom/android/systemui/statusbar/policy/NetworkController$OperatorLogoIconListener;Z)V
+    .locals 3
+
+    const/4 v1, 0x0
+
+    if-eqz p2, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    const/16 v2, 0x8
 
     invoke-virtual {p0, v2, v0, v1, p1}, Lcom/android/systemui/statusbar/policy/CallbackHandler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
 
@@ -532,14 +621,14 @@
     goto :goto_0
 .end method
 
-.method public setMobileDataIndicators(Lcom/android/systemui/statusbar/policy/NetworkController$IconState;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;IIZZIILjava/lang/String;Ljava/lang/String;ZI)V
-    .locals 14
+.method public setMobileDataIndicators(Lcom/android/systemui/statusbar/policy/NetworkController$IconState;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;IIZZIILjava/lang/String;Ljava/lang/String;ZIZ)V
+    .locals 15
 
     new-instance v0, Lcom/android/systemui/statusbar/policy/CallbackHandler$4;
 
     move-object v1, p0
 
-    move-object v2, p1
+    move-object/from16 v2, p1
 
     move-object/from16 v3, p2
 
@@ -563,7 +652,45 @@
 
     move/from16 v13, p12
 
-    invoke-direct/range {v0 .. v13}, Lcom/android/systemui/statusbar/policy/CallbackHandler$4;-><init>(Lcom/android/systemui/statusbar/policy/CallbackHandler;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;IIZZIILjava/lang/String;Ljava/lang/String;ZI)V
+    move/from16 v14, p13
+
+    invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/policy/CallbackHandler$4;-><init>(Lcom/android/systemui/statusbar/policy/CallbackHandler;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;IIZZIILjava/lang/String;Ljava/lang/String;ZIZ)V
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/policy/CallbackHandler;->post(Ljava/lang/Runnable;)Z
+
+    return-void
+.end method
+
+.method public setMobileDataIndicators(Lcom/android/systemui/statusbar/policy/NetworkController$IconState;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;IIZZLjava/lang/String;Ljava/lang/String;ZIZ)V
+    .locals 13
+
+    new-instance v0, Lcom/android/systemui/statusbar/policy/CallbackHandler$2;
+
+    move-object v1, p0
+
+    move-object v2, p1
+
+    move-object v3, p2
+
+    move/from16 v4, p3
+
+    move/from16 v5, p4
+
+    move/from16 v6, p5
+
+    move/from16 v7, p6
+
+    move-object/from16 v8, p7
+
+    move-object/from16 v9, p8
+
+    move/from16 v10, p9
+
+    move/from16 v11, p10
+
+    move/from16 v12, p11
+
+    invoke-direct/range {v0 .. v12}, Lcom/android/systemui/statusbar/policy/CallbackHandler$2;-><init>(Lcom/android/systemui/statusbar/policy/CallbackHandler;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;IIZZLjava/lang/String;Ljava/lang/String;ZIZ)V
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/policy/CallbackHandler;->post(Ljava/lang/Runnable;)Z
 
@@ -620,12 +747,12 @@
     goto :goto_0
 .end method
 
-.method public setRssiTypeIcon(II)V
+.method public setOperatorLogoIconVisible(Z)V
     .locals 1
 
-    new-instance v0, Lcom/android/systemui/statusbar/policy/CallbackHandler$10;
+    new-instance v0, Lcom/android/systemui/statusbar/policy/CallbackHandler$12;
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/statusbar/policy/CallbackHandler$10;-><init>(Lcom/android/systemui/statusbar/policy/CallbackHandler;II)V
+    invoke-direct {v0, p0, p1}, Lcom/android/systemui/statusbar/policy/CallbackHandler$12;-><init>(Lcom/android/systemui/statusbar/policy/CallbackHandler;Z)V
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/policy/CallbackHandler;->post(Ljava/lang/Runnable;)Z
 
@@ -644,12 +771,24 @@
     return-void
 .end method
 
+.method public setSlotFocusVisible(ZI)V
+    .locals 1
+
+    new-instance v0, Lcom/android/systemui/statusbar/policy/CallbackHandler$9;
+
+    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/statusbar/policy/CallbackHandler$9;-><init>(Lcom/android/systemui/statusbar/policy/CallbackHandler;ZI)V
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/policy/CallbackHandler;->post(Ljava/lang/Runnable;)Z
+
+    return-void
+.end method
+
 .method public setSlotFocusVisible(ZII)V
     .locals 1
 
-    new-instance v0, Lcom/android/systemui/statusbar/policy/CallbackHandler$11;
+    new-instance v0, Lcom/android/systemui/statusbar/policy/CallbackHandler$10;
 
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/systemui/statusbar/policy/CallbackHandler$11;-><init>(Lcom/android/systemui/statusbar/policy/CallbackHandler;ZII)V
+    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/systemui/statusbar/policy/CallbackHandler$10;-><init>(Lcom/android/systemui/statusbar/policy/CallbackHandler;ZII)V
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/policy/CallbackHandler;->post(Ljava/lang/Runnable;)Z
 
@@ -679,8 +818,8 @@
     return-void
 .end method
 
-.method public setWifiIndicators(ZLcom/android/systemui/statusbar/policy/NetworkController$IconState;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;ZZILjava/lang/String;)V
-    .locals 9
+.method public setWifiIndicators(ZLcom/android/systemui/statusbar/policy/NetworkController$IconState;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;ZZILjava/lang/String;Z)V
+    .locals 10
 
     new-instance v0, Lcom/android/systemui/statusbar/policy/CallbackHandler$3;
 
@@ -696,11 +835,41 @@
 
     move v6, p5
 
-    move v7, p6
+    move/from16 v7, p6
 
     move-object/from16 v8, p7
 
-    invoke-direct/range {v0 .. v8}, Lcom/android/systemui/statusbar/policy/CallbackHandler$3;-><init>(Lcom/android/systemui/statusbar/policy/CallbackHandler;ZLcom/android/systemui/statusbar/policy/NetworkController$IconState;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;ZZILjava/lang/String;)V
+    move/from16 v9, p8
+
+    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/statusbar/policy/CallbackHandler$3;-><init>(Lcom/android/systemui/statusbar/policy/CallbackHandler;ZLcom/android/systemui/statusbar/policy/NetworkController$IconState;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;ZZILjava/lang/String;Z)V
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/policy/CallbackHandler;->post(Ljava/lang/Runnable;)Z
+
+    return-void
+.end method
+
+.method public setWifiIndicators(ZLcom/android/systemui/statusbar/policy/NetworkController$IconState;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;ZZLjava/lang/String;Z)V
+    .locals 9
+
+    new-instance v0, Lcom/android/systemui/statusbar/policy/CallbackHandler$1;
+
+    move-object v1, p0
+
+    move v2, p1
+
+    move-object v3, p2
+
+    move-object v4, p3
+
+    move v5, p4
+
+    move v6, p5
+
+    move-object v7, p6
+
+    move/from16 v8, p7
+
+    invoke-direct/range {v0 .. v8}, Lcom/android/systemui/statusbar/policy/CallbackHandler$1;-><init>(Lcom/android/systemui/statusbar/policy/CallbackHandler;ZLcom/android/systemui/statusbar/policy/NetworkController$IconState;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;ZZLjava/lang/String;Z)V
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/policy/CallbackHandler;->post(Ljava/lang/Runnable;)Z
 

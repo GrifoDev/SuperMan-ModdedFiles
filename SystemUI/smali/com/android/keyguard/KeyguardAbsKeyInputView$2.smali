@@ -1,5 +1,5 @@
 .class Lcom/android/keyguard/KeyguardAbsKeyInputView$2;
-.super Lcom/android/keyguard/KnoxStateMonitorCallback;
+.super Lcom/android/systemui/KnoxStateMonitorCallback;
 .source "KeyguardAbsKeyInputView.java"
 
 
@@ -24,7 +24,7 @@
 
     iput-object p1, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView$2;->this$0:Lcom/android/keyguard/KeyguardAbsKeyInputView;
 
-    invoke-direct {p0}, Lcom/android/keyguard/KnoxStateMonitorCallback;-><init>()V
+    invoke-direct {p0}, Lcom/android/systemui/KnoxStateMonitorCallback;-><init>()V
 
     return-void
 .end method

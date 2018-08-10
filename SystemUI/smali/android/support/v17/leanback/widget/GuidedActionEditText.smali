@@ -2,6 +2,9 @@
 .super Landroid/widget/EditText;
 .source "GuidedActionEditText.java"
 
+# interfaces
+.implements Landroid/support/v17/leanback/widget/ImeKeyMonitor;
+
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
@@ -151,4 +154,12 @@
 
     :cond_1
     return v0
+.end method
+
+.method public setImeKeyListener(Landroid/support/v17/leanback/widget/ImeKeyMonitor$ImeKeyListener;)V
+    .locals 0
+
+    iput-object p1, p0, Landroid/support/v17/leanback/widget/GuidedActionEditText;->mKeyListener:Landroid/support/v17/leanback/widget/ImeKeyMonitor$ImeKeyListener;
+
+    return-void
 .end method

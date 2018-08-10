@@ -15,5 +15,5 @@
 
 
 # virtual methods
-.method public abstract onUserInfoChanged(Ljava/lang/String;Landroid/graphics/drawable/Drawable;)V
+.method public abstract onUserInfoChanged(Ljava/lang/String;Landroid/graphics/drawable/Drawable;Ljava/lang/String;)V
 .end method

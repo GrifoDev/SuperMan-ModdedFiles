@@ -93,9 +93,7 @@
 
     iget-object v1, p0, Landroid/support/v4/widget/MaterialProgressDrawable$3;->this$0:Landroid/support/v4/widget/MaterialProgressDrawable;
 
-    invoke-static {v1}, Landroid/support/v4/widget/MaterialProgressDrawable;->-get1(Landroid/support/v4/widget/MaterialProgressDrawable;)F
-
-    move-result v1
+    iget v1, v1, Landroid/support/v4/widget/MaterialProgressDrawable;->mRotationCount:F
 
     const/high16 v2, 0x3f800000    # 1.0f
 
@@ -105,7 +103,7 @@
 
     rem-float/2addr v1, v2
 
-    invoke-static {v0, v1}, Landroid/support/v4/widget/MaterialProgressDrawable;->-set0(Landroid/support/v4/widget/MaterialProgressDrawable;F)F
+    iput v1, v0, Landroid/support/v4/widget/MaterialProgressDrawable;->mRotationCount:F
 
     goto :goto_0
 .end method
@@ -117,7 +115,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Landroid/support/v4/widget/MaterialProgressDrawable;->-set0(Landroid/support/v4/widget/MaterialProgressDrawable;F)F
+    iput v1, v0, Landroid/support/v4/widget/MaterialProgressDrawable;->mRotationCount:F
 
     return-void
 .end method

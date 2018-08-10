@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">Няправільны PIN-код SIM-карты, у вас засталіся %d спробы.</item>
+        <item quantity="one">Няправільны PIN-код SIM-карты, у вас засталася %d спроба.</item>
+        <item quantity="few">Няправільны PIN-код SIM-карты, у вас засталіся %d спробы.</item>
+        <item quantity="many">Няправільны PIN-код SIM-карты, у вас засталіся %d спроб.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">Няправільны PUK-код SIM-карты, у вас засталіся %d спробы перад тым, як SIM-карта перастане працаваць назаўжды.</item>
+        <item quantity="one">Няправільны PUK-код SIM-карты, у вас засталася %d спроба перад тым, як SIM-карта перастане працаваць назаўжды.</item>
+        <item quantity="few">Няправільны PUK-код SIM-карты, у вас засталіся %d спробы перад тым, як SIM-карта перастане працаваць назаўжды.</item>
+        <item quantity="many">Няправільны PUK-код SIM-карты, у вас засталіся %d спроб перад тым, як SIM-карта перастане працаваць назаўжды.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">Прылада не была разблакіравана на працягу %d гадзіны. Увядзіце пароль.</item>
+        <item quantity="one">Прылада не была разблакіравана на працягу %d гадзіны. Увядзіце пароль.</item>
+        <item quantity="few">Прылада не была разблакіравана на працягу %d гадзін. Увядзіце пароль.</item>
+        <item quantity="many">Прылада не была разблакіравана на працягу %d гадзін. Увядзіце пароль.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">Прылада не была разблакіравана на працягу %d гадзіны. Увядзіце ўзор.</item>
+        <item quantity="one">Прылада не была разблакіравана на працягу %d гадзіны. Увядзіце ўзор.</item>
+        <item quantity="few">Прылада не была разблакіравана на працягу %d гадзін. Увядзіце ўзор.</item>
+        <item quantity="many">Прылада не была разблакіравана на працягу %d гадзін. Увядзіце ўзор.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">Прылада не была разблакіравана на працягу %d гадзіны. Увядзіце PIN-код.</item>
+        <item quantity="one">Прылада не была разблакіравана на працягу %d гадзіны. Увядзіце PIN-код.</item>
+        <item quantity="few">Прылада не была разблакіравана на працягу %d гадзін. Увядзіце PIN-код.</item>
+        <item quantity="many">Прылада не была разблакіравана на працягу %d гадзін. Увядзіце PIN-код.</item>
+    </plurals>
+    <plurals name="notification_channels_list_desc_2_and_others">
+        <item quantity="other">%1$s, %2$s і яшчэ %3$d</item>
+        <item quantity="one">%1$s, %2$s і яшчэ %3$d</item>
+        <item quantity="few">%1$s, %2$s і яшчэ %3$d</item>
+        <item quantity="many">%1$s, %2$s і яшчэ %3$d</item>
+    </plurals>
+    <plurals name="notification_num_channels_desc">
+        <item quantity="other">1 з %d катэгорыі апавяшчэнняў у гэтай праграме</item>
+        <item quantity="one">1 з %d катэгорыі апавяшчэнняў у гэтай праграме</item>
+        <item quantity="few">1 з %d катэгорый апавяшчэнняў у гэтай праграме</item>
+        <item quantity="many">1 з %d катэгорый апавяшчэнняў у гэтай праграме</item>
+    </plurals>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">%d экрана ў Аглядзе</item>
+        <item quantity="one">%d экран у Аглядзе</item>
+        <item quantity="few">%d экраны ў Аглядзе</item>
+        <item quantity="many">%d экранаў у Аглядзе</item>
+    </plurals>
+    <plurals name="notification_group_overflow_description">
+        <item quantity="other">Яшчэ %s апавяшчэння ўнутры.</item>
+        <item quantity="one">Яшчэ %s апавяшчэнне ўнутры.</item>
+        <item quantity="few">Яшчэ %s апавяшчэнні ўнутры.</item>
+        <item quantity="many">Яшчэ %s апавяшчэнняў унутры.</item>
+    </plurals>
+</resources>

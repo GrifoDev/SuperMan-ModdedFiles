@@ -10,6 +10,8 @@
 # instance fields
 .field private mContext:Landroid/content/Context;
 
+.field private mCustomScale:F
+
 .field private mIconList:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -76,6 +78,10 @@
 
     iput v0, p0, Lcom/android/systemui/recents/misc/HelpHubTextView;->mInnerBitmapYDiff:I
 
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    iput v0, p0, Lcom/android/systemui/recents/misc/HelpHubTextView;->mCustomScale:F
+
     return-void
 .end method
 
@@ -90,68 +96,92 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 8
+    .locals 9
 
-    const/4 v7, 0x0
+    const/4 v8, 0x0
 
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/TextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    iput v7, p0, Lcom/android/systemui/recents/misc/HelpHubTextView;->mInnerBitmapYDiff:I
+    iput v8, p0, Lcom/android/systemui/recents/misc/HelpHubTextView;->mInnerBitmapYDiff:I
+
+    const/high16 v6, 0x3f800000    # 1.0f
+
+    iput v6, p0, Lcom/android/systemui/recents/misc/HelpHubTextView;->mCustomScale:F
 
     iput-object p1, p0, Lcom/android/systemui/recents/misc/HelpHubTextView;->mContext:Landroid/content/Context;
 
-    new-instance v5, Ljava/util/ArrayList;
+    new-instance v6, Ljava/util/ArrayList;
 
-    invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v5, p0, Lcom/android/systemui/recents/misc/HelpHubTextView;->mIconList:Ljava/util/ArrayList;
+    iput-object v6, p0, Lcom/android/systemui/recents/misc/HelpHubTextView;->mIconList:Ljava/util/ArrayList;
 
-    iget-object v5, p0, Lcom/android/systemui/recents/misc/HelpHubTextView;->mContext:Landroid/content/Context;
+    iget-object v6, p0, Lcom/android/systemui/recents/misc/HelpHubTextView;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v6}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v6
+
+    const v7, 0x7f0701a5
+
+    invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v6
+
+    iput v6, p0, Lcom/android/systemui/recents/misc/HelpHubTextView;->mInnerBitmapYDiff:I
+
+    iget-object v6, p0, Lcom/android/systemui/recents/misc/HelpHubTextView;->mContext:Landroid/content/Context;
+
+    sget-object v7, Lcom/android/systemui/R$styleable;->HelpHubTextView:[I
+
+    invoke-virtual {v6, p2, v7, v8, v8}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v5
 
-    const v6, 0x7f0d03a2
+    const/4 v6, 0x1
 
-    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v5
-
-    iput v5, p0, Lcom/android/systemui/recents/misc/HelpHubTextView;->mInnerBitmapYDiff:I
-
-    iget-object v5, p0, Lcom/android/systemui/recents/misc/HelpHubTextView;->mContext:Landroid/content/Context;
-
-    sget-object v6, Lcom/android/systemui/R$styleable;->HelpHubTextView:[I
-
-    invoke-virtual {v5, p2, v6, v7, v7}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
-
-    move-result-object v4
-
-    const/16 v5, 0xd
-
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
     :try_start_0
-    invoke-virtual {v4, v5, v6}, Landroid/content/res/TypedArray;->getResourceId(II)I
+    invoke-virtual {v5, v6, v7}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v2
 
-    const/16 v5, 0xe
-
     const/4 v6, 0x0
 
-    invoke-virtual {v4, v5, v6}, Landroid/content/res/TypedArray;->getResourceId(II)I
+    const/4 v7, 0x0
+
+    invoke-virtual {v5, v6, v7}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v1
+
+    const/16 v6, 0xa
+
+    const/4 v7, 0x0
+
+    invoke-virtual {v5, v6, v7}, Landroid/content/res/TypedArray;->getResourceId(II)I
+
+    move-result v4
+
+    iget-object v6, p0, Lcom/android/systemui/recents/misc/HelpHubTextView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v6}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v4}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
+
+    move-result v6
+
+    iput v6, p0, Lcom/android/systemui/recents/misc/HelpHubTextView;->mInnerBitmapYDiff:I
 
     if-lez v2, :cond_2
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v5, v2}, Landroid/content/res/Resources;->obtainTypedArray(I)Landroid/content/res/TypedArray;
+    invoke-virtual {v6, v2}, Landroid/content/res/Resources;->obtainTypedArray(I)Landroid/content/res/TypedArray;
 
     move-result-object v3
 
@@ -159,32 +189,32 @@
 
     invoke-virtual {v3}, Landroid/content/res/TypedArray;->length()I
 
-    move-result v5
+    move-result v6
 
-    if-lez v5, :cond_0
+    if-lez v6, :cond_0
 
     const/4 v0, 0x0
 
     :goto_0
     invoke-virtual {v3}, Landroid/content/res/TypedArray;->length()I
 
-    move-result v5
-
-    if-ge v0, v5, :cond_0
-
-    iget-object v5, p0, Lcom/android/systemui/recents/misc/HelpHubTextView;->mIconList:Ljava/util/ArrayList;
-
-    const/4 v6, 0x0
-
-    invoke-virtual {v3, v0, v6}, Landroid/content/res/TypedArray;->getResourceId(II)I
-
     move-result v6
 
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    if-ge v0, v6, :cond_0
 
-    move-result-object v6
+    iget-object v6, p0, Lcom/android/systemui/recents/misc/HelpHubTextView;->mIconList:Ljava/util/ArrayList;
 
-    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    const/4 v7, 0x0
+
+    invoke-virtual {v3, v0, v7}, Landroid/content/res/TypedArray;->getResourceId(II)I
+
+    move-result v7
+
+    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     add-int/lit8 v0, v0, 0x1
 
@@ -197,7 +227,7 @@
 
     :cond_1
     :goto_1
-    invoke-virtual {v4}, Landroid/content/res/TypedArray;->recycle()V
+    invoke-virtual {v5}, Landroid/content/res/TypedArray;->recycle()V
 
     invoke-direct {p0}, Lcom/android/systemui/recents/misc/HelpHubTextView;->applyStringWithIcon()V
 
@@ -207,24 +237,24 @@
     if-lez v1, :cond_1
 
     :try_start_1
-    iget-object v5, p0, Lcom/android/systemui/recents/misc/HelpHubTextView;->mIconList:Ljava/util/ArrayList;
+    iget-object v6, p0, Lcom/android/systemui/recents/misc/HelpHubTextView;->mIconList:Ljava/util/ArrayList;
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_1
 
     :catchall_0
-    move-exception v5
+    move-exception v6
 
-    invoke-virtual {v4}, Landroid/content/res/TypedArray;->recycle()V
+    invoke-virtual {v5}, Landroid/content/res/TypedArray;->recycle()V
 
-    throw v5
+    throw v6
 .end method
 
 .method private applyStringWithIcon()V
@@ -471,9 +501,13 @@
 
     iget v6, v6, Landroid/content/res/Configuration;->fontScale:F
 
+    iget v7, p0, Lcom/android/systemui/recents/misc/HelpHubTextView;->mCustomScale:F
+
+    mul-float/2addr v6, v7
+
     iput v6, v4, Lcom/android/systemui/recents/misc/HelpHubImageSpan;->fontScale:F
 
-    const v6, 0x7f0d03a3
+    const v6, 0x7f0701a6
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -507,5 +541,37 @@
 
     invoke-direct {p0}, Lcom/android/systemui/recents/misc/HelpHubTextView;->applyStringWithIcon()V
 
+    return-void
+.end method
+
+.method public varargs setIconList([I)V
+    .locals 5
+
+    iget-object v1, p0, Lcom/android/systemui/recents/misc/HelpHubTextView;->mIconList:Ljava/util/ArrayList;
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->clear()V
+
+    const/4 v1, 0x0
+
+    array-length v2, p1
+
+    :goto_0
+    if-ge v1, v2, :cond_0
+
+    aget v0, p1, v1
+
+    iget-object v3, p0, Lcom/android/systemui/recents/misc/HelpHubTextView;->mIconList:Ljava/util/ArrayList;
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_0
     return-void
 .end method

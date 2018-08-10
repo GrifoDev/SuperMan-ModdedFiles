@@ -15,5 +15,8 @@
 
 
 # virtual methods
+.method public abstract getForeground(Landroid/view/View;)Landroid/graphics/drawable/Drawable;
+.end method
+
 .method public abstract setForeground(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V
 .end method

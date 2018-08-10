@@ -27,16 +27,6 @@
 
 
 # direct methods
-.method static synthetic -wrap0(Landroid/support/v7/widget/LinearLayoutManager$AnchorInfo;Landroid/view/View;Landroid/support/v7/widget/RecyclerView$State;)Z
-    .locals 1
-
-    invoke-direct {p0, p1, p2}, Landroid/support/v7/widget/LinearLayoutManager$AnchorInfo;->isViewValidAsAnchor(Landroid/view/View;Landroid/support/v7/widget/RecyclerView$State;)Z
-
-    move-result v0
-
-    return v0
-.end method
-
 .method constructor <init>(Landroid/support/v7/widget/LinearLayoutManager;)V
     .locals 0
 
@@ -47,45 +37,6 @@
     invoke-virtual {p0}, Landroid/support/v7/widget/LinearLayoutManager$AnchorInfo;->reset()V
 
     return-void
-.end method
-
-.method private isViewValidAsAnchor(Landroid/view/View;Landroid/support/v7/widget/RecyclerView$State;)Z
-    .locals 4
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/support/v7/widget/RecyclerView$LayoutParams;
-
-    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$LayoutParams;->isItemRemoved()Z
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$LayoutParams;->getViewLayoutPosition()I
-
-    move-result v2
-
-    if-ltz v2, :cond_0
-
-    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$LayoutParams;->getViewLayoutPosition()I
-
-    move-result v2
-
-    invoke-virtual {p2}, Landroid/support/v7/widget/RecyclerView$State;->getItemCount()I
-
-    move-result v3
-
-    if-ge v2, v3, :cond_0
-
-    const/4 v1, 0x1
-
-    :cond_0
-    return v1
 .end method
 
 
@@ -564,6 +515,45 @@
     iput v0, v1, Landroid/support/v7/widget/LinearLayoutManager$AnchorInfo;->mCoordinate:I
 
     goto/16 :goto_0
+.end method
+
+.method isViewValidAsAnchor(Landroid/view/View;Landroid/support/v7/widget/RecyclerView$State;)Z
+    .locals 4
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/support/v7/widget/RecyclerView$LayoutParams;
+
+    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$LayoutParams;->isItemRemoved()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$LayoutParams;->getViewLayoutPosition()I
+
+    move-result v2
+
+    if-ltz v2, :cond_0
+
+    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$LayoutParams;->getViewLayoutPosition()I
+
+    move-result v2
+
+    invoke-virtual {p2}, Landroid/support/v7/widget/RecyclerView$State;->getItemCount()I
+
+    move-result v3
+
+    if-ge v2, v3, :cond_0
+
+    const/4 v1, 0x1
+
+    :cond_0
+    return v1
 .end method
 
 .method reset()V

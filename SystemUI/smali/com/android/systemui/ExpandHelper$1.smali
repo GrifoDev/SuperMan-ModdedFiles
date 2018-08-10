@@ -44,7 +44,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/ExpandHelper$1;->this$0:Lcom/android/systemui/ExpandHelper;
 
-    invoke-static {v0}, Lcom/android/systemui/ExpandHelper;->-get2(Lcom/android/systemui/ExpandHelper;)Z
+    invoke-static {v0}, Lcom/android/systemui/ExpandHelper;->-get3(Lcom/android/systemui/ExpandHelper;)Z
 
     move-result v0
 
@@ -54,13 +54,13 @@
 
     iget-object v1, p0, Lcom/android/systemui/ExpandHelper$1;->this$0:Lcom/android/systemui/ExpandHelper;
 
-    invoke-static {v1}, Lcom/android/systemui/ExpandHelper;->-get3(Lcom/android/systemui/ExpandHelper;)Lcom/android/systemui/statusbar/ExpandableView;
+    invoke-static {v1}, Lcom/android/systemui/ExpandHelper;->-get4(Lcom/android/systemui/ExpandHelper;)Lcom/android/systemui/statusbar/ExpandableView;
 
     move-result-object v1
 
     const/4 v2, 0x4
 
-    invoke-static {v0, v1, v2}, Lcom/android/systemui/ExpandHelper;->-wrap0(Lcom/android/systemui/ExpandHelper;Lcom/android/systemui/statusbar/ExpandableView;I)Z
+    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/ExpandHelper;->startExpanding(Lcom/android/systemui/statusbar/ExpandableView;I)Z
 
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/ExpandHelper$1;->this$0:Lcom/android/systemui/ExpandHelper;

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="keyguard_bottom_area_emergency_button_area_min_height">27.0dip</dimen>
+    <dimen name="kg_emergency_button_font_size">14.0dip</dimen>
+    <dimen name="kg_emergency_button_stroke">2.0px</dimen>
+    <dimen name="kg_iris_preview_height">369.0dip</dimen>
+    <dimen name="kg_message_area_font_size">15.0dip</dimen>
+    <dimen name="kg_pattern_eca_margin_bottom">18.0dip</dimen>
+    <dimen name="kg_pattern_lock_pattern_view_height">250.0dip</dimen>
+    <dimen name="kg_pattern_lock_pattern_view_margin_bottom">18.0dip</dimen>
+    <dimen name="kg_pattern_lock_pattern_view_width">250.0dip</dimen>
+    <dimen name="kg_pattern_message_area_margin_bottom">15.0dip</dimen>
+</resources>

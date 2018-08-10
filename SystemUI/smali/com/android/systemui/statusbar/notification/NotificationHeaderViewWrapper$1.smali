@@ -1,14 +1,11 @@
 .class Lcom/android/systemui/statusbar/notification/NotificationHeaderViewWrapper$1;
-.super Ljava/lang/Object;
+.super Lcom/android/systemui/statusbar/notification/CustomInterpolatorTransformation;
 .source "NotificationHeaderViewWrapper.java"
-
-# interfaces
-.implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/notification/NotificationHeaderViewWrapper;->fadeIconColorFilter(Landroid/widget/ImageView;ZJ)V
+    value = Lcom/android/systemui/statusbar/notification/NotificationHeaderViewWrapper;-><init>(Landroid/content/Context;Landroid/view/View;Lcom/android/systemui/statusbar/ExpandableNotificationRow;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,42 +17,84 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/systemui/statusbar/notification/NotificationHeaderViewWrapper;
 
-.field final synthetic val$target:Landroid/widget/ImageView;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/NotificationHeaderViewWrapper;Landroid/widget/ImageView;)V
+.method constructor <init>(Lcom/android/systemui/statusbar/notification/NotificationHeaderViewWrapper;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationHeaderViewWrapper$1;->this$0:Lcom/android/systemui/statusbar/notification/NotificationHeaderViewWrapper;
 
-    iput-object p2, p0, Lcom/android/systemui/statusbar/notification/NotificationHeaderViewWrapper$1;->val$target:Landroid/widget/ImageView;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0, p2}, Lcom/android/systemui/statusbar/notification/CustomInterpolatorTransformation;-><init>(I)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 3
+.method public getCustomInterpolator(IZ)Landroid/view/animation/Interpolator;
+    .locals 2
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/notification/NotificationHeaderViewWrapper$1;->this$0:Lcom/android/systemui/statusbar/notification/NotificationHeaderViewWrapper;
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/notification/NotificationHeaderViewWrapper$1;->val$target:Landroid/widget/ImageView;
+    iget-object v1, v1, Lcom/android/systemui/statusbar/notification/NotificationHeaderViewWrapper;->mView:Landroid/view/View;
 
-    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
+    instance-of v0, v1, Landroid/view/NotificationHeaderView;
 
-    move-result-object v0
+    const/16 v1, 0x10
 
-    check-cast v0, Ljava/lang/Float;
+    if-ne p1, v1, :cond_3
 
-    invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
+    if-eqz v0, :cond_0
+
+    xor-int/lit8 v1, p2, 0x1
+
+    if-nez v1, :cond_1
+
+    :cond_0
+    if-nez v0, :cond_2
+
+    if-eqz p2, :cond_2
+
+    :cond_1
+    sget-object v1, Lcom/android/systemui/Interpolators;->LINEAR_OUT_SLOW_IN:Landroid/view/animation/Interpolator;
+
+    return-object v1
+
+    :cond_2
+    invoke-static {}, Lcom/android/systemui/statusbar/notification/NotificationHeaderViewWrapper;->-get0()Landroid/view/animation/Interpolator;
+
+    move-result-object v1
+
+    return-object v1
+
+    :cond_3
+    const/4 v1, 0x0
+
+    return-object v1
+.end method
+
+.method protected hasCustomTransformation()Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationHeaderViewWrapper$1;->this$0:Lcom/android/systemui/statusbar/notification/NotificationHeaderViewWrapper;
+
+    invoke-static {v0}, Lcom/android/systemui/statusbar/notification/NotificationHeaderViewWrapper;->-get1(Lcom/android/systemui/statusbar/notification/NotificationHeaderViewWrapper;)Z
 
     move-result v0
 
-    invoke-static {v1, v2, v0}, Lcom/android/systemui/statusbar/notification/NotificationHeaderViewWrapper;->-wrap0(Lcom/android/systemui/statusbar/notification/NotificationHeaderViewWrapper;Landroid/widget/ImageView;F)V
+    if-eqz v0, :cond_0
 
-    return-void
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationHeaderViewWrapper$1;->this$0:Lcom/android/systemui/statusbar/notification/NotificationHeaderViewWrapper;
+
+    invoke-static {v0}, Lcom/android/systemui/statusbar/notification/NotificationHeaderViewWrapper;->-get2(Lcom/android/systemui/statusbar/notification/NotificationHeaderViewWrapper;)Z
+
+    move-result v0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method

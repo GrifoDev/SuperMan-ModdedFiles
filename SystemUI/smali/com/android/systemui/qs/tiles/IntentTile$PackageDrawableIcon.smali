@@ -1,5 +1,5 @@
 .class Lcom/android/systemui/qs/tiles/IntentTile$PackageDrawableIcon;
-.super Lcom/android/systemui/qs/QSTile$Icon;
+.super Lcom/android/systemui/plugins/qs/QSTile$Icon;
 .source "IntentTile.java"
 
 
@@ -28,7 +28,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/IntentTile$PackageDrawableIcon;->this$0:Lcom/android/systemui/qs/tiles/IntentTile;
 
-    invoke-direct {p0}, Lcom/android/systemui/qs/QSTile$Icon;-><init>()V
+    invoke-direct {p0}, Lcom/android/systemui/plugins/qs/QSTile$Icon;-><init>()V
 
     iput-object p2, p0, Lcom/android/systemui/qs/tiles/IntentTile$PackageDrawableIcon;->mPackage:Ljava/lang/String;
 

@@ -23,48 +23,16 @@
 
 .field private mAlignmentFacet:Landroid/support/v17/leanback/widget/ItemAlignmentFacet;
 
-.field private mBottomInset:I
+.field mBottomInset:I
 
-.field private mLeftInset:I
+.field mLeftInset:I
 
-.field private mRightInset:I
+.field mRightInset:I
 
-.field private mTopInset:I
+.field mTopInset:I
 
 
 # direct methods
-.method static synthetic -get0(Landroid/support/v17/leanback/widget/GridLayoutManager$LayoutParams;)I
-    .locals 1
-
-    iget v0, p0, Landroid/support/v17/leanback/widget/GridLayoutManager$LayoutParams;->mBottomInset:I
-
-    return v0
-.end method
-
-.method static synthetic -get1(Landroid/support/v17/leanback/widget/GridLayoutManager$LayoutParams;)I
-    .locals 1
-
-    iget v0, p0, Landroid/support/v17/leanback/widget/GridLayoutManager$LayoutParams;->mLeftInset:I
-
-    return v0
-.end method
-
-.method static synthetic -get2(Landroid/support/v17/leanback/widget/GridLayoutManager$LayoutParams;)I
-    .locals 1
-
-    iget v0, p0, Landroid/support/v17/leanback/widget/GridLayoutManager$LayoutParams;->mRightInset:I
-
-    return v0
-.end method
-
-.method static synthetic -get3(Landroid/support/v17/leanback/widget/GridLayoutManager$LayoutParams;)I
-    .locals 1
-
-    iget v0, p0, Landroid/support/v17/leanback/widget/GridLayoutManager$LayoutParams;->mTopInset:I
-
-    return v0
-.end method
-
 .method public constructor <init>(II)V
     .locals 0
 
@@ -271,6 +239,14 @@
     iget v1, p0, Landroid/support/v17/leanback/widget/GridLayoutManager$LayoutParams;->mRightInset:I
 
     sub-int/2addr v0, v1
+
+    return v0
+.end method
+
+.method getOpticalRightInset()I
+    .locals 1
+
+    iget v0, p0, Landroid/support/v17/leanback/widget/GridLayoutManager$LayoutParams;->mRightInset:I
 
     return v0
 .end method

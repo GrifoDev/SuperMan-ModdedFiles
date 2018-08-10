@@ -17,6 +17,8 @@
 # instance fields
 .field alwaysShowCdmaRssi:Z
 
+.field hideLtePlus:Z
+
 .field hspaDataDistinguishable:Z
 
 .field show4gForLte:Z
@@ -38,6 +40,8 @@
 
     iput-boolean v0, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$Config;->show4gForLte:Z
 
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$Config;->hideLtePlus:Z
+
     return-void
 .end method
 
@@ -52,7 +56,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f12000d
+    const v2, 0x7f05001a
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -60,7 +64,7 @@
 
     iput-boolean v2, v0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$Config;->showAtLeast3G:Z
 
-    const v2, 0x1120068
+    const v2, 0x112001d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -68,7 +72,7 @@
 
     iput-boolean v2, v0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$Config;->alwaysShowCdmaRssi:Z
 
-    const v2, 0x7f120014
+    const v2, 0x7f050018
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -76,13 +80,21 @@
 
     iput-boolean v2, v0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$Config;->show4gForLte:Z
 
-    const v2, 0x7f12000a
+    const v2, 0x7f050011
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v2
 
     iput-boolean v2, v0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$Config;->hspaDataDistinguishable:Z
+
+    const v2, 0x7f050010
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result v2
+
+    iput-boolean v2, v0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$Config;->hideLtePlus:Z
 
     return-object v0
 .end method

@@ -45,17 +45,13 @@
 
     iget-object v0, p0, Landroid/support/v17/leanback/widget/BaseGridView$1;->this$0:Landroid/support/v17/leanback/widget/BaseGridView;
 
-    invoke-static {v0}, Landroid/support/v17/leanback/widget/BaseGridView;->-get0(Landroid/support/v17/leanback/widget/BaseGridView;)Landroid/support/v7/widget/RecyclerView$RecyclerListener;
-
-    move-result-object v0
+    iget-object v0, v0, Landroid/support/v17/leanback/widget/BaseGridView;->mChainedRecyclerListener:Landroid/support/v7/widget/RecyclerView$RecyclerListener;
 
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/support/v17/leanback/widget/BaseGridView$1;->this$0:Landroid/support/v17/leanback/widget/BaseGridView;
 
-    invoke-static {v0}, Landroid/support/v17/leanback/widget/BaseGridView;->-get0(Landroid/support/v17/leanback/widget/BaseGridView;)Landroid/support/v7/widget/RecyclerView$RecyclerListener;
-
-    move-result-object v0
+    iget-object v0, v0, Landroid/support/v17/leanback/widget/BaseGridView;->mChainedRecyclerListener:Landroid/support/v7/widget/RecyclerView$RecyclerListener;
 
     invoke-interface {v0, p1}, Landroid/support/v7/widget/RecyclerView$RecyclerListener;->onViewRecycled(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
 

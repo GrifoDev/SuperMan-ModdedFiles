@@ -64,7 +64,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/policy/LocationControllerImpl$1;->this$0:Lcom/android/systemui/statusbar/policy/LocationControllerImpl;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/policy/LocationControllerImpl;->-get1(Lcom/android/systemui/statusbar/policy/LocationControllerImpl;)Lcom/android/systemui/statusbar/policy/LocationControllerImpl$H;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/policy/LocationControllerImpl;->-get2(Lcom/android/systemui/statusbar/policy/LocationControllerImpl;)Lcom/android/systemui/statusbar/policy/LocationControllerImpl$H;
 
     move-result-object v2
 
@@ -72,7 +72,7 @@
 
     invoke-virtual {v2, v3}, Lcom/android/systemui/statusbar/policy/LocationControllerImpl$H;->sendEmptyMessage(I)Z
 
-    sget-boolean v2, Lcom/android/systemui/SystemUIRune;->IS_VZW_POPUP:Z
+    sget-boolean v2, Lcom/android/systemui/Rune;->QPANEL_IS_VZW_POPUP:Z
 
     if-eqz v2, :cond_0
 
@@ -99,7 +99,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/policy/LocationControllerImpl$1;->this$0:Lcom/android/systemui/statusbar/policy/LocationControllerImpl;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/policy/LocationControllerImpl;->-get0(Lcom/android/systemui/statusbar/policy/LocationControllerImpl;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/policy/LocationControllerImpl;->-get1(Lcom/android/systemui/statusbar/policy/LocationControllerImpl;)Landroid/content/Context;
 
     move-result-object v2
 

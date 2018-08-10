@@ -108,7 +108,7 @@
     if-eq v4, v3, :cond_0
 
     :cond_1
-    const-string/jumbo v5, "PhoneStatusBar/NavigationBarView"
+    const-string/jumbo v5, "StatusBar/NavBarView"
 
     const-string/jumbo v6, "*** Invalid layout in navigation bar (%s this=%dx%d cur=%dx%d)"
 

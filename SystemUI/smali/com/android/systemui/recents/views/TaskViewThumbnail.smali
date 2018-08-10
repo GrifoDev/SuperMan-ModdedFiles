@@ -10,13 +10,13 @@
 
 
 # instance fields
-.field private mBgFillPaint:Landroid/graphics/Paint;
+.field protected mBgFillPaint:Landroid/graphics/Paint;
 
-.field private mBitmapShader:Landroid/graphics/BitmapShader;
+.field protected mBitmapShader:Landroid/graphics/BitmapShader;
 
-.field private mBlackBgFillPaint:Landroid/graphics/Paint;
+.field protected mCornerRadius:I
 
-.field private mCornerRadius:I
+.field private mDarkStrokePaint:Landroid/graphics/Paint;
 
 .field private mDimAlpha:F
     .annotation runtime Landroid/view/ViewDebug$ExportedProperty;
@@ -38,6 +38,8 @@
 
 .field private mFullscreenThumbnailScale:F
 
+.field private mInnerStrokePaint:Landroid/graphics/Paint;
+
 .field private mInvisible:Z
     .annotation runtime Landroid/view/ViewDebug$ExportedProperty;
         category = "recents"
@@ -46,31 +48,47 @@
 
 .field private mLightingColorFilter:Landroid/graphics/LightingColorFilter;
 
-.field private mScaleMatrix:Landroid/graphics/Matrix;
+.field protected mLockedPaint:Landroid/graphics/Paint;
+
+.field private mMatrix:Landroid/graphics/Matrix;
+
+.field private mOverlayHeaderOnThumbnailActionBar:Z
+
+.field private mPairedTaskThumbnailBorderSize:I
+
+.field private mSecuredPaint:Landroid/graphics/Paint;
+
+.field private mSizeToFit:Z
+
+.field protected mSolidPaint:Landroid/graphics/Paint;
 
 .field private mTask:Lcom/android/systemui/recents/model/Task;
 
 .field private mTaskBar:Landroid/view/View;
 
-.field private mTaskViewRect:Landroid/graphics/Rect;
+.field protected mTaskViewRect:Landroid/graphics/Rect;
     .annotation runtime Landroid/view/ViewDebug$ExportedProperty;
         category = "recents"
     .end annotation
 .end field
 
-.field private mThumbnailInfo:Landroid/app/ActivityManager$TaskThumbnailInfo;
+.field private mThumbnailData:Lcom/android/systemui/recents/model/ThumbnailData;
 
-.field private mThumbnailRect:Landroid/graphics/Rect;
+.field protected mThumbnailRect:Landroid/graphics/Rect;
     .annotation runtime Landroid/view/ViewDebug$ExportedProperty;
         category = "recents"
     .end annotation
 .end field
 
-.field private mThumbnailScale:F
+.field protected mThumbnailScale:F
     .annotation runtime Landroid/view/ViewDebug$ExportedProperty;
         category = "recents"
     .end annotation
 .end field
+
+.field private mTitleBarHeight:I
+
+.field protected mUserLocked:Z
 
 
 # direct methods
@@ -123,158 +141,277 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 4
+    .locals 7
 
-    const/4 v1, 0x0
+    const v6, -0xcccccd
 
-    const/4 v3, -0x1
+    const/high16 v5, 0x3f800000    # 1.0f
 
-    const/4 v2, 0x1
+    const/4 v4, -0x1
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x1
 
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/view/View;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
-    iput v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDisplayOrientation:I
+    iput v2, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDisplayOrientation:I
 
-    new-instance v0, Landroid/graphics/Rect;
+    new-instance v1, Landroid/graphics/Rect;
 
-    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
+    invoke-direct {v1}, Landroid/graphics/Rect;-><init>()V
 
-    iput-object v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDisplayRect:Landroid/graphics/Rect;
+    iput-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDisplayRect:Landroid/graphics/Rect;
 
-    new-instance v0, Landroid/graphics/Rect;
+    new-instance v1, Landroid/graphics/Rect;
 
-    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
+    invoke-direct {v1}, Landroid/graphics/Rect;-><init>()V
 
-    iput-object v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskViewRect:Landroid/graphics/Rect;
+    iput-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskViewRect:Landroid/graphics/Rect;
 
-    new-instance v0, Landroid/graphics/Rect;
+    new-instance v1, Landroid/graphics/Rect;
 
-    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
+    invoke-direct {v1}, Landroid/graphics/Rect;-><init>()V
 
-    iput-object v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailRect:Landroid/graphics/Rect;
+    iput-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailRect:Landroid/graphics/Rect;
 
-    new-instance v0, Landroid/graphics/Matrix;
+    iput v5, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mFullscreenThumbnailScale:F
 
-    invoke-direct {v0}, Landroid/graphics/Matrix;-><init>()V
+    iput-boolean v2, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mSizeToFit:Z
 
-    iput-object v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mScaleMatrix:Landroid/graphics/Matrix;
+    iput-boolean v3, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mOverlayHeaderOnThumbnailActionBar:Z
 
-    new-instance v0, Landroid/graphics/Paint;
+    new-instance v1, Landroid/graphics/Matrix;
 
-    invoke-direct {v0}, Landroid/graphics/Paint;-><init>()V
+    invoke-direct {v1}, Landroid/graphics/Matrix;-><init>()V
 
-    iput-object v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDrawPaint:Landroid/graphics/Paint;
+    iput-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mMatrix:Landroid/graphics/Matrix;
 
-    new-instance v0, Landroid/graphics/Paint;
+    new-instance v1, Landroid/graphics/Paint;
 
-    invoke-direct {v0}, Landroid/graphics/Paint;-><init>()V
+    invoke-direct {v1}, Landroid/graphics/Paint;-><init>()V
 
-    iput-object v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mBgFillPaint:Landroid/graphics/Paint;
+    iput-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDrawPaint:Landroid/graphics/Paint;
 
-    new-instance v0, Landroid/graphics/LightingColorFilter;
+    new-instance v1, Landroid/graphics/Paint;
 
-    invoke-direct {v0, v3, v1}, Landroid/graphics/LightingColorFilter;-><init>(II)V
+    invoke-direct {v1}, Landroid/graphics/Paint;-><init>()V
 
-    iput-object v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mLightingColorFilter:Landroid/graphics/LightingColorFilter;
+    iput-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mSolidPaint:Landroid/graphics/Paint;
 
-    new-instance v0, Landroid/graphics/Paint;
+    new-instance v1, Landroid/graphics/Paint;
 
-    invoke-direct {v0}, Landroid/graphics/Paint;-><init>()V
+    invoke-direct {v1}, Landroid/graphics/Paint;-><init>()V
 
-    iput-object v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mBlackBgFillPaint:Landroid/graphics/Paint;
+    iput-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mLockedPaint:Landroid/graphics/Paint;
 
-    iget-object v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDrawPaint:Landroid/graphics/Paint;
+    new-instance v1, Landroid/graphics/Paint;
 
-    iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mLightingColorFilter:Landroid/graphics/LightingColorFilter;
+    invoke-direct {v1}, Landroid/graphics/Paint;-><init>()V
 
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
+    iput-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mBgFillPaint:Landroid/graphics/Paint;
 
-    iget-object v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDrawPaint:Landroid/graphics/Paint;
+    iput-boolean v2, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mUserLocked:Z
 
-    invoke-virtual {v0, v2}, Landroid/graphics/Paint;->setFilterBitmap(Z)V
+    new-instance v1, Landroid/graphics/LightingColorFilter;
 
-    iget-object v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDrawPaint:Landroid/graphics/Paint;
+    invoke-direct {v1, v4, v2}, Landroid/graphics/LightingColorFilter;-><init>(II)V
 
-    invoke-virtual {v0, v2}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+    iput-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mLightingColorFilter:Landroid/graphics/LightingColorFilter;
 
-    sget-boolean v0, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableMoreRound:Z
+    new-instance v1, Landroid/graphics/Paint;
 
-    if-eqz v0, :cond_0
+    invoke-direct {v1}, Landroid/graphics/Paint;-><init>()V
+
+    iput-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mSecuredPaint:Landroid/graphics/Paint;
+
+    iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDrawPaint:Landroid/graphics/Paint;
+
+    iget-object v2, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mLightingColorFilter:Landroid/graphics/LightingColorFilter;
+
+    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
+
+    iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDrawPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {v1, v3}, Landroid/graphics/Paint;->setFilterBitmap(Z)V
+
+    iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDrawPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {v1, v3}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
     invoke-virtual {p0}, Lcom/android/systemui/recents/views/TaskViewThumbnail;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f0d0317
+    sget-boolean v1, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnablePairedTask:Z
+
+    if-eqz v1, :cond_0
+
+    new-instance v1, Landroid/graphics/Paint;
+
+    invoke-direct {v1}, Landroid/graphics/Paint;-><init>()V
+
+    iput-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mInnerStrokePaint:Landroid/graphics/Paint;
+
+    iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mInnerStrokePaint:Landroid/graphics/Paint;
+
+    const/high16 v2, 0x4c000000    # 3.3554432E7f
+
+    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setColor(I)V
+
+    iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mInnerStrokePaint:Landroid/graphics/Paint;
+
+    invoke-virtual {v1, v5}, Landroid/graphics/Paint;->setStrokeWidth(F)V
+
+    iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mInnerStrokePaint:Landroid/graphics/Paint;
+
+    sget-object v2, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
+
+    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+
+    iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mInnerStrokePaint:Landroid/graphics/Paint;
+
+    invoke-virtual {v1, v3}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/recents/views/TaskViewThumbnail;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f0705b0
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mPairedTaskThumbnailBorderSize:I
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mSecuredPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {v1, v6}, Landroid/graphics/Paint;->setColor(I)V
+
+    iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mSecuredPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {v1, v3}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+
+    new-instance v1, Landroid/graphics/Paint;
+
+    invoke-direct {v1}, Landroid/graphics/Paint;-><init>()V
+
+    iput-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDarkStrokePaint:Landroid/graphics/Paint;
+
+    iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDarkStrokePaint:Landroid/graphics/Paint;
+
+    const v2, -0xdadadb
+
+    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setColor(I)V
+
+    iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDarkStrokePaint:Landroid/graphics/Paint;
+
+    const v2, 0x7f0705b4
+
+    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setStrokeWidth(F)V
+
+    iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDarkStrokePaint:Landroid/graphics/Paint;
+
+    sget-object v2, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
+
+    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+
+    iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDarkStrokePaint:Landroid/graphics/Paint;
+
+    invoke-virtual {v1, v3}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+
+    invoke-static {}, Lcom/android/systemui/recents/Recents;->getSettingHelper()Lcom/android/systemui/recents/model/RecentsSettingHelper;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/systemui/recents/model/RecentsSettingHelper;->isDesktopMode()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/systemui/recents/views/TaskViewThumbnail;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f0705cc
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
+
+    :goto_0
+    iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mBgFillPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {v1, v3}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+
+    iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mLockedPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {v1, v3}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+
+    iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mBgFillPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {v1, v4}, Landroid/graphics/Paint;->setColor(I)V
+
+    iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mLockedPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {v1, v4}, Landroid/graphics/Paint;->setColor(I)V
+
+    iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mSolidPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {v1, v6}, Landroid/graphics/Paint;->setColor(I)V
+
+    const v1, 0x7f070567
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result v0
+    move-result v1
 
-    iput v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
-
-    :goto_0
-    iget-object v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mBgFillPaint:Landroid/graphics/Paint;
-
-    invoke-virtual {v0, v3}, Landroid/graphics/Paint;->setColor(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mBlackBgFillPaint:Landroid/graphics/Paint;
-
-    const v1, -0xcccccd
-
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
-
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x1130004
-
-    invoke-virtual {v0, v1, v2, v2}, Landroid/content/res/Resources;->getFraction(III)F
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mFullscreenThumbnailScale:F
+    iput v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTitleBarHeight:I
 
     return-void
 
-    :cond_0
-    invoke-static {}, Lcom/android/systemui/recents/Recents;->getSettingHelper()Lcom/android/systemui/recents/model/RecentsSettingHelper;
+    :cond_1
+    invoke-static {}, Lcom/android/systemui/recents/RecentsDebugFlags;->useListLayout()Z
 
-    move-result-object v0
+    move-result v1
 
-    invoke-virtual {v0}, Lcom/android/systemui/recents/model/RecentsSettingHelper;->isDesktopMode()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_2
 
     invoke-virtual {p0}, Lcom/android/systemui/recents/views/TaskViewThumbnail;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v0
+    move-result-object v1
 
-    const v1, 0x7f0d026a
+    const v2, 0x7f07039d
 
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result v0
+    move-result v1
 
-    iput v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
+    iput v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     invoke-virtual {p0}, Lcom/android/systemui/recents/views/TaskViewThumbnail;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v0
+    move-result-object v1
 
-    const v1, 0x7f0d0315
+    const v2, 0x7f0705af
 
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result v0
+    move-result v1
 
-    iput v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
+    iput v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
 
     goto :goto_0
 .end method
@@ -282,7 +419,7 @@
 
 # virtual methods
 .method public bindToTask(Lcom/android/systemui/recents/model/Task;ZILandroid/graphics/Rect;)V
-    .locals 2
+    .locals 4
 
     iput-object p1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTask:Lcom/android/systemui/recents/model/Task;
 
@@ -294,6 +431,56 @@
 
     invoke-virtual {v0, p4}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
+    sget-boolean v0, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnablePairedTask:Z
+
+    if-eqz v0, :cond_2
+
+    iget-boolean v0, p1, Lcom/android/systemui/recents/model/Task;->isPairedTask:Z
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mBgFillPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {p0}, Lcom/android/systemui/recents/views/TaskViewThumbnail;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f0601a0
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v1, v2, v3}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
+
+    :cond_0
+    :goto_0
+    iget v0, p1, Lcom/android/systemui/recents/model/Task;->colorPrimary:I
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mLockedPaint:Landroid/graphics/Paint;
+
+    iget v1, p1, Lcom/android/systemui/recents/model/Task;->colorPrimary:I
+
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
+
+    :cond_1
+    iget-boolean v0, p1, Lcom/android/systemui/recents/model/Task;->isLocked:Z
+
+    iput-boolean v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mUserLocked:Z
+
+    invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Lcom/android/systemui/recents/events/EventBus;->register(Ljava/lang/Object;)V
+
+    return-void
+
+    :cond_2
     iget v0, p1, Lcom/android/systemui/recents/model/Task;->colorBackground:I
 
     if-eqz v0, :cond_0
@@ -304,470 +491,935 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
 
+    goto :goto_0
+.end method
+
+.method public dump(Ljava/lang/String;Ljava/io/PrintWriter;)V
+    .locals 1
+
+    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string/jumbo v0, "TaskViewThumbnail"
+
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string/jumbo v0, " mTaskViewRect="
+
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskViewRect:Landroid/graphics/Rect;
+
+    invoke-static {v0}, Lcom/android/systemui/recents/misc/Utilities;->dumpRect(Landroid/graphics/Rect;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string/jumbo v0, " mThumbnailRect="
+
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailRect:Landroid/graphics/Rect;
+
+    invoke-static {v0}, Lcom/android/systemui/recents/misc/Utilities;->dumpRect(Landroid/graphics/Rect;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string/jumbo v0, " mThumbnailScale="
+
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailScale:F
+
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(F)V
+
+    const-string/jumbo v0, " mDimAlpha="
+
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDimAlpha:F
+
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(F)V
+
+    invoke-virtual {p2}, Ljava/io/PrintWriter;->println()V
+
+    return-void
+.end method
+
+.method protected getDrawPaint()Landroid/graphics/Paint;
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mUserLocked:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mLockedPaint:Landroid/graphics/Paint;
+
+    return-object v0
+
     :cond_0
+    iget-object v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDrawPaint:Landroid/graphics/Paint;
+
+    return-object v0
+.end method
+
+.method public final onBusEvent(Lcom/android/systemui/recents/events/ui/TaskSnapshotChangedEvent;)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTask:Lcom/android/systemui/recents/model/Task;
+
+    if-eqz v0, :cond_0
+
+    iget v0, p1, Lcom/android/systemui/recents/events/ui/TaskSnapshotChangedEvent;->taskId:I
+
+    iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTask:Lcom/android/systemui/recents/model/Task;
+
+    iget-object v1, v1, Lcom/android/systemui/recents/model/Task;->key:Lcom/android/systemui/recents/model/Task$TaskKey;
+
+    iget v1, v1, Lcom/android/systemui/recents/model/Task$TaskKey;->id:I
+
+    if-eq v0, v1, :cond_1
+
+    :cond_0
+    return-void
+
+    :cond_1
+    iget-object v0, p1, Lcom/android/systemui/recents/events/ui/TaskSnapshotChangedEvent;->thumbnailData:Lcom/android/systemui/recents/model/ThumbnailData;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p1, Lcom/android/systemui/recents/events/ui/TaskSnapshotChangedEvent;->thumbnailData:Lcom/android/systemui/recents/model/ThumbnailData;
+
+    iget-object v0, v0, Lcom/android/systemui/recents/model/ThumbnailData;->thumbnail:Landroid/graphics/Bitmap;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p1, Lcom/android/systemui/recents/events/ui/TaskSnapshotChangedEvent;->thumbnailData:Lcom/android/systemui/recents/model/ThumbnailData;
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/recents/views/TaskViewThumbnail;->setThumbnail(Lcom/android/systemui/recents/model/ThumbnailData;)V
+
     return-void
 .end method
 
 .method public onConfigurationChanged(ILandroid/graphics/Rect;)V
-    .locals 1
+    .locals 4
 
-    iget v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDisplayOrientation:I
+    sget-boolean v1, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnablePairedTask:Z
 
-    if-eq v0, p1, :cond_0
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTask:Lcom/android/systemui/recents/model/Task;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTask:Lcom/android/systemui/recents/model/Task;
+
+    iget-boolean v1, v1, Lcom/android/systemui/recents/model/Task;->isPairedTask:Z
+
+    if-eqz v1, :cond_0
+
+    invoke-static {}, Lcom/android/systemui/recents/Recents;->getPairedRecentTasksManager()Lcom/android/systemui/recents/model/PairedRecentTasksManager;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTask:Lcom/android/systemui/recents/model/Task;
+
+    iget-object v2, v2, Lcom/android/systemui/recents/model/Task;->key:Lcom/android/systemui/recents/model/Task$TaskKey;
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v1, v2, v3}, Lcom/android/systemui/recents/model/PairedRecentTasksManager;->getPairedRecentTasksThumbnail(Lcom/android/systemui/recents/model/Task$TaskKey;Z)Lcom/android/systemui/recents/model/ThumbnailData;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTask:Lcom/android/systemui/recents/model/Task;
+
+    iput-object v0, v1, Lcom/android/systemui/recents/model/Task;->thumbnail:Lcom/android/systemui/recents/model/ThumbnailData;
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/recents/views/TaskViewThumbnail;->setThumbnail(Lcom/android/systemui/recents/model/ThumbnailData;)V
+
+    :cond_0
+    iget v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDisplayOrientation:I
+
+    if-eq v1, p1, :cond_1
 
     iput p1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDisplayOrientation:I
 
-    iget-object v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDisplayRect:Landroid/graphics/Rect;
+    iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDisplayRect:Landroid/graphics/Rect;
 
-    invoke-virtual {v0, p2}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
+    invoke-virtual {v1, p2}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    invoke-virtual {p0}, Lcom/android/systemui/recents/views/TaskViewThumbnail;->updateThumbnailScale()V
+    invoke-virtual {p0}, Lcom/android/systemui/recents/views/TaskViewThumbnail;->updateThumbnailMatrix()V
 
-    :cond_0
+    :cond_1
     return-void
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 17
+    .locals 19
 
     move-object/from16 v0, p0
 
-    iget-boolean v1, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mInvisible:Z
+    iget-boolean v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mInvisible:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
     return-void
 
     :cond_0
     move-object/from16 v0, p0
 
-    iget-object v1, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskViewRect:Landroid/graphics/Rect;
+    iget-object v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskViewRect:Landroid/graphics/Rect;
 
-    invoke-virtual {v1}, Landroid/graphics/Rect;->width()I
+    invoke-virtual {v2}, Landroid/graphics/Rect;->width()I
 
-    move-result v16
+    move-result v18
 
     move-object/from16 v0, p0
 
-    iget-object v1, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskViewRect:Landroid/graphics/Rect;
+    iget-object v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskViewRect:Landroid/graphics/Rect;
 
-    invoke-virtual {v1}, Landroid/graphics/Rect;->height()I
+    invoke-virtual {v2}, Landroid/graphics/Rect;->height()I
+
+    move-result v17
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v2}, Landroid/graphics/Rect;->width()I
+
+    move-result v2
+
+    int-to-float v2, v2
+
+    move-object/from16 v0, p0
+
+    iget v3, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailScale:F
+
+    mul-float/2addr v2, v3
+
+    float-to-int v2, v2
+
+    move/from16 v0, v18
+
+    invoke-static {v0, v2}, Ljava/lang/Math;->min(II)I
 
     move-result v15
 
     move-object/from16 v0, p0
 
-    iget-object v1, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailRect:Landroid/graphics/Rect;
+    iget-object v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailRect:Landroid/graphics/Rect;
 
-    invoke-virtual {v1}, Landroid/graphics/Rect;->width()I
+    invoke-virtual {v2}, Landroid/graphics/Rect;->height()I
 
-    move-result v1
+    move-result v2
 
-    int-to-float v1, v1
-
-    move-object/from16 v0, p0
-
-    iget v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailScale:F
-
-    mul-float/2addr v1, v2
-
-    float-to-int v1, v1
-
-    move/from16 v0, v16
-
-    invoke-static {v0, v1}, Ljava/lang/Math;->min(II)I
-
-    move-result v13
+    int-to-float v2, v2
 
     move-object/from16 v0, p0
 
-    iget-object v1, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailRect:Landroid/graphics/Rect;
+    iget v3, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailScale:F
 
-    invoke-virtual {v1}, Landroid/graphics/Rect;->height()I
+    mul-float/2addr v2, v3
 
-    move-result v1
+    float-to-int v2, v2
 
-    int-to-float v1, v1
+    move/from16 v0, v17
 
-    move-object/from16 v0, p0
+    invoke-static {v0, v2}, Ljava/lang/Math;->min(II)I
 
-    iget v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailScale:F
-
-    mul-float/2addr v1, v2
-
-    float-to-int v1, v1
-
-    invoke-static {v15, v1}, Ljava/lang/Math;->min(II)I
-
-    move-result v12
+    move-result v14
 
     invoke-static {}, Lcom/android/systemui/recents/Recents;->getSystemServices()Lcom/android/systemui/recents/misc/SystemServicesProxy;
 
-    move-result-object v11
+    move-result-object v13
 
     move-object/from16 v0, p0
 
-    iget-object v1, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTask:Lcom/android/systemui/recents/model/Task;
+    iget-object v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTask:Lcom/android/systemui/recents/model/Task;
 
-    if-eqz v1, :cond_1
-
-    move-object/from16 v0, p0
-
-    iget-object v1, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTask:Lcom/android/systemui/recents/model/Task;
-
-    iget-boolean v1, v1, Lcom/android/systemui/recents/model/Task;->isKnoxTask:Z
-
-    if-nez v1, :cond_2
+    if-eqz v2, :cond_2
 
     move-object/from16 v0, p0
 
-    iget-object v1, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTask:Lcom/android/systemui/recents/model/Task;
+    iget-object v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTask:Lcom/android/systemui/recents/model/Task;
 
-    iget-boolean v1, v1, Lcom/android/systemui/recents/model/Task;->isPrivateMode:Z
+    iget-boolean v2, v2, Lcom/android/systemui/recents/model/Task;->isPrivateMode:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v2, :cond_2
 
     invoke-static {}, Lcom/android/systemui/recents/Recents;->getSettingHelper()Lcom/android/systemui/recents/model/RecentsSettingHelper;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Lcom/android/systemui/recents/model/RecentsSettingHelper;->isPrivateModeEnabled()Z
+    invoke-virtual {v2}, Lcom/android/systemui/recents/model/RecentsSettingHelper;->isPrivateModeEnabled()Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_2
+    xor-int/lit8 v2, v2, 0x1
 
-    :cond_1
-    invoke-static {}, Lcom/android/internal/app/AppLockPolicy;->isSupportAppLock()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_3
-
-    if-eqz v11, :cond_3
-
-    move-object/from16 v0, p0
-
-    iget-object v1, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTask:Lcom/android/systemui/recents/model/Task;
-
-    if-eqz v1, :cond_3
-
-    move-object/from16 v0, p0
-
-    iget-object v1, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTask:Lcom/android/systemui/recents/model/Task;
-
-    iget-object v1, v1, Lcom/android/systemui/recents/model/Task;->key:Lcom/android/systemui/recents/model/Task$TaskKey;
-
-    if-eqz v1, :cond_3
-
-    move-object/from16 v0, p0
-
-    iget-object v1, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTask:Lcom/android/systemui/recents/model/Task;
-
-    iget-object v1, v1, Lcom/android/systemui/recents/model/Task;->key:Lcom/android/systemui/recents/model/Task$TaskKey;
-
-    iget-object v1, v1, Lcom/android/systemui/recents/model/Task$TaskKey;->baseIntent:Landroid/content/Intent;
-
-    if-eqz v1, :cond_3
-
-    move-object/from16 v0, p0
-
-    iget-object v1, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTask:Lcom/android/systemui/recents/model/Task;
-
-    iget-object v1, v1, Lcom/android/systemui/recents/model/Task;->key:Lcom/android/systemui/recents/model/Task$TaskKey;
-
-    iget-object v1, v1, Lcom/android/systemui/recents/model/Task$TaskKey;->baseIntent:Landroid/content/Intent;
-
-    invoke-virtual {v1}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v11, v1}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->isAppLockedPackage(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_3
-
-    move/from16 v0, v16
-
-    invoke-virtual {v11, v0, v15}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->getAppLockedTaskThumbnail(II)Landroid/graphics/Bitmap;
-
-    move-result-object v9
-
-    new-instance v10, Landroid/graphics/BitmapShader;
-
-    sget-object v1, Landroid/graphics/Shader$TileMode;->CLAMP:Landroid/graphics/Shader$TileMode;
-
-    sget-object v2, Landroid/graphics/Shader$TileMode;->CLAMP:Landroid/graphics/Shader$TileMode;
-
-    invoke-direct {v10, v9, v1, v2}, Landroid/graphics/BitmapShader;-><init>(Landroid/graphics/Bitmap;Landroid/graphics/Shader$TileMode;Landroid/graphics/Shader$TileMode;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v1, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDrawPaint:Landroid/graphics/Paint;
-
-    invoke-virtual {v1, v10}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
-
-    const/4 v2, 0x0
+    if-eqz v2, :cond_2
 
     const/4 v3, 0x0
 
-    move/from16 v0, v16
+    const/4 v4, 0x0
 
-    int-to-float v4, v0
+    move/from16 v0, v18
 
-    int-to-float v5, v15
+    int-to-float v5, v0
 
-    move-object/from16 v0, p0
+    move/from16 v0, v17
 
-    iget v1, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
-
-    int-to-float v6, v1
-
-    move-object/from16 v0, p0
-
-    iget v1, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
-
-    int-to-float v7, v1
-
-    move-object/from16 v0, p0
-
-    iget-object v8, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDrawPaint:Landroid/graphics/Paint;
-
-    move-object/from16 v1, p1
-
-    invoke-virtual/range {v1 .. v8}, Landroid/graphics/Canvas;->drawRoundRect(FFFFFFLandroid/graphics/Paint;)V
-
-    invoke-virtual {v9}, Landroid/graphics/Bitmap;->recycle()V
-
-    const/4 v9, 0x0
-
-    const/4 v10, 0x0
-
-    :goto_0
-    return-void
-
-    :cond_2
-    const/4 v2, 0x0
-
-    const/4 v3, 0x0
-
-    move/from16 v0, v16
-
-    int-to-float v4, v0
-
-    int-to-float v5, v15
-
-    move-object/from16 v0, p0
-
-    iget v1, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
-
-    int-to-float v6, v1
-
-    move-object/from16 v0, p0
-
-    iget v1, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
-
-    int-to-float v7, v1
-
-    move-object/from16 v0, p0
-
-    iget-object v8, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mBlackBgFillPaint:Landroid/graphics/Paint;
-
-    move-object/from16 v1, p1
-
-    invoke-virtual/range {v1 .. v8}, Landroid/graphics/Canvas;->drawRoundRect(FFFFFFLandroid/graphics/Paint;)V
-
-    goto :goto_0
-
-    :cond_3
-    move-object/from16 v0, p0
-
-    iget-object v1, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mBitmapShader:Landroid/graphics/BitmapShader;
-
-    if-eqz v1, :cond_8
-
-    if-lez v13, :cond_8
-
-    if-lez v12, :cond_8
-
-    move-object/from16 v0, p0
-
-    iget-object v1, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskBar:Landroid/view/View;
-
-    if-eqz v1, :cond_6
-
-    move-object/from16 v0, p0
-
-    iget-object v1, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskBar:Landroid/view/View;
-
-    invoke-virtual {v1}, Landroid/view/View;->getHeight()I
-
-    move-result v1
+    int-to-float v6, v0
 
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
 
-    sub-int v14, v1, v2
-
-    :goto_1
-    move/from16 v0, v16
-
-    if-ge v13, v0, :cond_4
+    int-to-float v7, v2
 
     move-object/from16 v0, p0
 
-    iget v1, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
+    iget v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
 
-    sub-int v1, v13, v1
-
-    const/4 v2, 0x0
-
-    invoke-static {v2, v1}, Ljava/lang/Math;->max(II)I
-
-    move-result v1
-
-    int-to-float v2, v1
-
-    int-to-float v3, v14
-
-    move/from16 v0, v16
-
-    int-to-float v4, v0
-
-    int-to-float v5, v15
+    int-to-float v8, v2
 
     move-object/from16 v0, p0
 
-    iget v1, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
+    iget-object v9, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mSecuredPaint:Landroid/graphics/Paint;
 
-    int-to-float v6, v1
+    move-object/from16 v2, p1
+
+    invoke-virtual/range {v2 .. v9}, Landroid/graphics/Canvas;->drawRoundRect(FFFFFFLandroid/graphics/Paint;)V
+
+    :cond_1
+    :goto_0
+    return-void
+
+    :cond_2
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTask:Lcom/android/systemui/recents/model/Task;
+
+    if-eqz v2, :cond_5
 
     move-object/from16 v0, p0
 
-    iget v1, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
+    iget-object v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTask:Lcom/android/systemui/recents/model/Task;
 
-    int-to-float v7, v1
+    iget-boolean v2, v2, Lcom/android/systemui/recents/model/Task;->isKnoxTask:Z
+
+    if-eqz v2, :cond_4
 
     move-object/from16 v0, p0
 
-    iget-object v8, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mBgFillPaint:Landroid/graphics/Paint;
+    iget-object v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailData:Lcom/android/systemui/recents/model/ThumbnailData;
 
-    move-object/from16 v1, p1
+    if-nez v2, :cond_4
 
-    invoke-virtual/range {v1 .. v8}, Landroid/graphics/Canvas;->drawRoundRect(FFFFFFLandroid/graphics/Paint;)V
+    :cond_3
+    const/4 v3, 0x0
+
+    const/4 v4, 0x0
+
+    move/from16 v0, v18
+
+    int-to-float v5, v0
+
+    move/from16 v0, v17
+
+    int-to-float v6, v0
+
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
+
+    int-to-float v7, v2
+
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
+
+    int-to-float v8, v2
+
+    move-object/from16 v0, p0
+
+    iget-object v9, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mSolidPaint:Landroid/graphics/Paint;
+
+    move-object/from16 v2, p1
+
+    invoke-virtual/range {v2 .. v9}, Landroid/graphics/Canvas;->drawRoundRect(FFFFFFLandroid/graphics/Paint;)V
+
+    goto :goto_0
 
     :cond_4
-    if-ge v12, v15, :cond_5
+    move-object/from16 v0, p0
 
-    const/4 v2, 0x0
+    iget-object v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTask:Lcom/android/systemui/recents/model/Task;
+
+    iget-object v2, v2, Lcom/android/systemui/recents/model/Task;->key:Lcom/android/systemui/recents/model/Task$TaskKey;
+
+    iget v2, v2, Lcom/android/systemui/recents/model/Task$TaskKey;->userId:I
+
+    invoke-static {v2}, Lcom/samsung/android/knox/SemPersonaManager;->isBBCContainer(I)Z
+
+    move-result v2
+
+    if-nez v2, :cond_3
+
+    :cond_5
+    move-object/from16 v0, p0
+
+    iget-boolean v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mUserLocked:Z
+
+    if-eqz v2, :cond_6
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x0
+
+    move/from16 v0, v18
+
+    int-to-float v5, v0
+
+    move/from16 v0, v17
+
+    int-to-float v6, v0
 
     move-object/from16 v0, p0
 
-    iget v1, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
+    iget v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
 
-    sub-int v1, v12, v1
+    int-to-float v7, v2
 
-    invoke-static {v14, v1}, Ljava/lang/Math;->max(II)I
+    move-object/from16 v0, p0
 
-    move-result v1
+    iget v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
 
-    int-to-float v3, v1
+    int-to-float v8, v2
+
+    move-object/from16 v0, p0
+
+    iget-object v9, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mLockedPaint:Landroid/graphics/Paint;
+
+    move-object/from16 v2, p1
+
+    invoke-virtual/range {v2 .. v9}, Landroid/graphics/Canvas;->drawRoundRect(FFFFFFLandroid/graphics/Paint;)V
+
+    goto :goto_0
+
+    :cond_6
+    invoke-static {}, Lcom/android/internal/app/AppLockPolicy;->isSupportAppLock()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_7
+
+    if-eqz v13, :cond_7
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTask:Lcom/android/systemui/recents/model/Task;
+
+    if-eqz v2, :cond_7
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTask:Lcom/android/systemui/recents/model/Task;
+
+    iget-object v2, v2, Lcom/android/systemui/recents/model/Task;->key:Lcom/android/systemui/recents/model/Task$TaskKey;
+
+    if-eqz v2, :cond_7
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTask:Lcom/android/systemui/recents/model/Task;
+
+    iget-object v2, v2, Lcom/android/systemui/recents/model/Task;->key:Lcom/android/systemui/recents/model/Task$TaskKey;
+
+    iget-object v2, v2, Lcom/android/systemui/recents/model/Task$TaskKey;->baseIntent:Landroid/content/Intent;
+
+    if-eqz v2, :cond_7
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTask:Lcom/android/systemui/recents/model/Task;
+
+    iget-object v2, v2, Lcom/android/systemui/recents/model/Task;->key:Lcom/android/systemui/recents/model/Task$TaskKey;
+
+    iget-object v2, v2, Lcom/android/systemui/recents/model/Task$TaskKey;->baseIntent:Landroid/content/Intent;
+
+    invoke-virtual {v2}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v13, v2}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->isAppLockedPackage(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_7
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/recents/views/TaskViewThumbnail;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_7
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/recents/views/TaskViewThumbnail;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTask:Lcom/android/systemui/recents/model/Task;
+
+    iget-object v3, v3, Lcom/android/systemui/recents/model/Task;->key:Lcom/android/systemui/recents/model/Task$TaskKey;
+
+    iget v3, v3, Lcom/android/systemui/recents/model/Task$TaskKey;->userId:I
+
+    invoke-virtual {v13, v2, v3}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->isManagedProfileUserId(Landroid/content/Context;I)Z
+
+    move-result v2
+
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_7
+
+    move/from16 v0, v18
+
+    move/from16 v1, v17
+
+    invoke-virtual {v13, v0, v1}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->getAppLockedTaskThumbnail(II)Landroid/graphics/Bitmap;
+
+    move-result-object v10
+
+    new-instance v11, Landroid/graphics/BitmapShader;
+
+    sget-object v2, Landroid/graphics/Shader$TileMode;->CLAMP:Landroid/graphics/Shader$TileMode;
+
+    sget-object v3, Landroid/graphics/Shader$TileMode;->CLAMP:Landroid/graphics/Shader$TileMode;
+
+    invoke-direct {v11, v10, v2, v3}, Landroid/graphics/BitmapShader;-><init>(Landroid/graphics/Bitmap;Landroid/graphics/Shader$TileMode;Landroid/graphics/Shader$TileMode;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDrawPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {v2, v11}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x0
+
+    move/from16 v0, v18
+
+    int-to-float v5, v0
+
+    move/from16 v0, v17
+
+    int-to-float v6, v0
+
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
+
+    int-to-float v7, v2
+
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
+
+    int-to-float v8, v2
+
+    move-object/from16 v0, p0
+
+    iget-object v9, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDrawPaint:Landroid/graphics/Paint;
+
+    move-object/from16 v2, p1
+
+    invoke-virtual/range {v2 .. v9}, Landroid/graphics/Canvas;->drawRoundRect(FFFFFFLandroid/graphics/Paint;)V
+
+    invoke-virtual {v10}, Landroid/graphics/Bitmap;->recycle()V
+
+    const/4 v10, 0x0
+
+    const/4 v11, 0x0
+
+    goto/16 :goto_0
+
+    :cond_7
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mBitmapShader:Landroid/graphics/BitmapShader;
+
+    if-eqz v2, :cond_f
+
+    if-lez v15, :cond_f
+
+    if-lez v14, :cond_f
+
+    const/16 v16, 0x0
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskBar:Landroid/view/View;
+
+    if-eqz v2, :cond_8
+
+    move-object/from16 v0, p0
+
+    iget-boolean v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mOverlayHeaderOnThumbnailActionBar:Z
+
+    if-eqz v2, :cond_8
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskBar:Landroid/view/View;
+
+    invoke-virtual {v2}, Landroid/view/View;->getHeight()I
+
+    move-result v2
+
+    move-object/from16 v0, p0
+
+    iget v3, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
+
+    sub-int v16, v2, v3
+
+    :cond_8
+    move/from16 v0, v18
+
+    if-ge v15, v0, :cond_9
+
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
+
+    sub-int v2, v15, v2
+
+    const/4 v3, 0x0
+
+    invoke-static {v3, v2}, Ljava/lang/Math;->max(II)I
+
+    move-result v2
+
+    int-to-float v3, v2
 
     move/from16 v0, v16
 
     int-to-float v4, v0
 
+    move/from16 v0, v18
+
+    int-to-float v5, v0
+
+    move/from16 v0, v17
+
+    int-to-float v6, v0
+
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
+
+    int-to-float v7, v2
+
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
+
+    int-to-float v8, v2
+
+    move-object/from16 v0, p0
+
+    iget-object v9, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mBgFillPaint:Landroid/graphics/Paint;
+
+    move-object/from16 v2, p1
+
+    invoke-virtual/range {v2 .. v9}, Landroid/graphics/Canvas;->drawRoundRect(FFFFFFLandroid/graphics/Paint;)V
+
+    :cond_9
+    move/from16 v0, v17
+
+    if-ge v14, v0, :cond_a
+
+    const/4 v3, 0x0
+
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
+
+    sub-int v2, v14, v2
+
+    move/from16 v0, v16
+
+    invoke-static {v0, v2}, Ljava/lang/Math;->max(II)I
+
+    move-result v2
+
+    int-to-float v4, v2
+
+    move/from16 v0, v18
+
+    int-to-float v5, v0
+
+    move/from16 v0, v17
+
+    int-to-float v6, v0
+
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
+
+    int-to-float v7, v2
+
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
+
+    int-to-float v8, v2
+
+    move-object/from16 v0, p0
+
+    iget-object v9, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mBgFillPaint:Landroid/graphics/Paint;
+
+    move-object/from16 v2, p1
+
+    invoke-virtual/range {v2 .. v9}, Landroid/graphics/Canvas;->drawRoundRect(FFFFFFLandroid/graphics/Paint;)V
+
+    :cond_a
+    sget-boolean v2, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnablePairedTask:Z
+
+    if-eqz v2, :cond_d
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTask:Lcom/android/systemui/recents/model/Task;
+
+    if-eqz v2, :cond_d
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTask:Lcom/android/systemui/recents/model/Task;
+
+    iget-boolean v2, v2, Lcom/android/systemui/recents/model/Task;->isPairedTask:Z
+
+    if-eqz v2, :cond_d
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x0
+
+    move/from16 v0, v18
+
+    int-to-float v5, v0
+
+    move/from16 v0, v17
+
+    int-to-float v6, v0
+
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mPairedTaskThumbnailBorderSize:I
+
+    int-to-float v7, v2
+
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mPairedTaskThumbnailBorderSize:I
+
+    int-to-float v8, v2
+
+    move-object/from16 v0, p0
+
+    iget-object v9, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mBgFillPaint:Landroid/graphics/Paint;
+
+    move-object/from16 v2, p1
+
+    invoke-virtual/range {v2 .. v9}, Landroid/graphics/Canvas;->drawRoundRect(FFFFFFLandroid/graphics/Paint;)V
+
+    const/4 v12, 0x0
+
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDisplayOrientation:I
+
+    const/4 v3, 0x1
+
+    if-ne v2, v3, :cond_b
+
+    invoke-virtual/range {p1 .. p1}, Landroid/graphics/Canvas;->save()I
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v2}, Landroid/graphics/Rect;->height()I
+
+    move-result v2
+
+    int-to-float v2, v2
+
+    move-object/from16 v0, p0
+
+    iget v3, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailScale:F
+
+    mul-float/2addr v2, v3
+
+    const/high16 v3, 0x40000000    # 2.0f
+
+    div-float/2addr v2, v3
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskBar:Landroid/view/View;
+
+    invoke-virtual {v3}, Landroid/view/View;->getHeight()I
+
+    move-result v3
+
+    sub-int v3, v17, v3
+
+    int-to-float v3, v3
+
+    const/high16 v4, 0x40000000    # 2.0f
+
+    div-float/2addr v3, v4
+
+    sub-float/2addr v2, v3
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskBar:Landroid/view/View;
+
+    invoke-virtual {v3}, Landroid/view/View;->getHeight()I
+
+    move-result v3
+
+    int-to-float v3, v3
+
+    sub-float/2addr v2, v3
+
+    move-object/from16 v0, p0
+
+    iget v3, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
+
+    int-to-float v3, v3
+
+    const/high16 v4, 0x40000000    # 2.0f
+
+    div-float/2addr v3, v4
+
+    add-float/2addr v2, v3
+
+    neg-float v12, v2
+
+    const/4 v2, 0x0
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v2, v12}, Landroid/graphics/Canvas;->translate(FF)V
+
+    :cond_b
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
+
+    sub-int/2addr v15, v2
+
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
+
+    sub-int/2addr v14, v2
+
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
+
+    int-to-float v3, v2
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskBar:Landroid/view/View;
+
+    invoke-virtual {v2}, Landroid/view/View;->getHeight()I
+
+    move-result v2
+
+    int-to-float v2, v2
+
+    sub-float v4, v2, v12
+
     int-to-float v5, v15
 
-    move-object/from16 v0, p0
+    int-to-float v2, v14
 
-    iget v1, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
-
-    int-to-float v6, v1
+    sub-float v6, v2, v12
 
     move-object/from16 v0, p0
 
-    iget v1, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
+    iget-object v7, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDrawPaint:Landroid/graphics/Paint;
 
-    int-to-float v7, v1
+    move-object/from16 v2, p1
 
-    move-object/from16 v0, p0
-
-    iget-object v8, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mBgFillPaint:Landroid/graphics/Paint;
-
-    move-object/from16 v1, p1
-
-    invoke-virtual/range {v1 .. v8}, Landroid/graphics/Canvas;->drawRoundRect(FFFFFFLandroid/graphics/Paint;)V
-
-    :cond_5
-    if-ge v12, v15, :cond_7
-
-    const/4 v2, 0x0
-
-    int-to-float v3, v14
-
-    int-to-float v4, v13
-
-    int-to-float v5, v12
-
-    const/4 v6, 0x0
-
-    const/4 v7, 0x0
+    invoke-virtual/range {v2 .. v7}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
 
     move-object/from16 v0, p0
 
-    iget-object v8, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDrawPaint:Landroid/graphics/Paint;
+    iget v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDisplayOrientation:I
 
-    move-object/from16 v1, p1
+    const/4 v3, 0x1
 
-    invoke-virtual/range {v1 .. v8}, Landroid/graphics/Canvas;->drawRoundRect(FFFFFFLandroid/graphics/Paint;)V
+    if-ne v2, v3, :cond_c
+
+    invoke-virtual/range {p1 .. p1}, Landroid/graphics/Canvas;->restore()V
+
+    :cond_c
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
+
+    int-to-float v3, v2
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskBar:Landroid/view/View;
+
+    invoke-virtual {v2}, Landroid/view/View;->getHeight()I
+
+    move-result v2
+
+    int-to-float v2, v2
+
+    const/high16 v4, 0x3f800000    # 1.0f
+
+    add-float/2addr v4, v2
+
+    int-to-float v5, v15
+
+    int-to-float v6, v14
+
+    move-object/from16 v0, p0
+
+    iget-object v7, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mInnerStrokePaint:Landroid/graphics/Paint;
+
+    move-object/from16 v2, p1
+
+    invoke-virtual/range {v2 .. v7}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
 
     goto/16 :goto_0
 
-    :cond_6
-    const/4 v14, 0x0
+    :cond_d
+    move/from16 v0, v17
 
-    goto :goto_1
-
-    :cond_7
-    const/4 v2, 0x0
-
-    int-to-float v3, v14
-
-    int-to-float v4, v13
-
-    int-to-float v5, v12
-
-    move-object/from16 v0, p0
-
-    iget v1, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
-
-    int-to-float v6, v1
-
-    move-object/from16 v0, p0
-
-    iget v1, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
-
-    int-to-float v7, v1
-
-    move-object/from16 v0, p0
-
-    iget-object v8, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDrawPaint:Landroid/graphics/Paint;
-
-    move-object/from16 v1, p1
-
-    invoke-virtual/range {v1 .. v8}, Landroid/graphics/Canvas;->drawRoundRect(FFFFFFLandroid/graphics/Paint;)V
-
-    goto/16 :goto_0
-
-    :cond_8
-    const/4 v2, 0x0
+    if-ge v14, v0, :cond_e
 
     const/4 v3, 0x0
 
@@ -777,25 +1429,134 @@
 
     int-to-float v5, v15
 
-    move-object/from16 v0, p0
+    int-to-float v6, v14
 
-    iget v1, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
+    const/4 v7, 0x0
 
-    int-to-float v6, v1
-
-    move-object/from16 v0, p0
-
-    iget v1, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
-
-    int-to-float v7, v1
+    const/4 v8, 0x0
 
     move-object/from16 v0, p0
 
-    iget-object v8, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mBgFillPaint:Landroid/graphics/Paint;
+    iget-object v9, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDrawPaint:Landroid/graphics/Paint;
 
-    move-object/from16 v1, p1
+    move-object/from16 v2, p1
 
-    invoke-virtual/range {v1 .. v8}, Landroid/graphics/Canvas;->drawRoundRect(FFFFFFLandroid/graphics/Paint;)V
+    invoke-virtual/range {v2 .. v9}, Landroid/graphics/Canvas;->drawRoundRect(FFFFFFLandroid/graphics/Paint;)V
+
+    :goto_1
+    sget-boolean v2, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableTabletLayout:Z
+
+    if-nez v2, :cond_1
+
+    invoke-static {}, Lcom/android/systemui/recents/Recents;->getSettingHelper()Lcom/android/systemui/recents/model/RecentsSettingHelper;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/systemui/recents/model/RecentsSettingHelper;->isUPSModeEnabled()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x0
+
+    move/from16 v0, v18
+
+    int-to-float v5, v0
+
+    move/from16 v0, v17
+
+    int-to-float v6, v0
+
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
+
+    int-to-float v7, v2
+
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
+
+    int-to-float v8, v2
+
+    move-object/from16 v0, p0
+
+    iget-object v9, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDarkStrokePaint:Landroid/graphics/Paint;
+
+    move-object/from16 v2, p1
+
+    invoke-virtual/range {v2 .. v9}, Landroid/graphics/Canvas;->drawRoundRect(FFFFFFLandroid/graphics/Paint;)V
+
+    goto/16 :goto_0
+
+    :cond_e
+    const/4 v3, 0x0
+
+    move/from16 v0, v16
+
+    int-to-float v4, v0
+
+    int-to-float v5, v15
+
+    int-to-float v6, v14
+
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
+
+    int-to-float v7, v2
+
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
+
+    int-to-float v8, v2
+
+    move-object/from16 v0, p0
+
+    iget-object v9, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDrawPaint:Landroid/graphics/Paint;
+
+    move-object/from16 v2, p1
+
+    invoke-virtual/range {v2 .. v9}, Landroid/graphics/Canvas;->drawRoundRect(FFFFFFLandroid/graphics/Paint;)V
+
+    goto :goto_1
+
+    :cond_f
+    const/4 v3, 0x0
+
+    const/4 v4, 0x0
+
+    move/from16 v0, v18
+
+    int-to-float v5, v0
+
+    move/from16 v0, v17
+
+    int-to-float v6, v0
+
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
+
+    int-to-float v7, v2
+
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mCornerRadius:I
+
+    int-to-float v8, v2
+
+    move-object/from16 v0, p0
+
+    iget-object v9, v0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mBgFillPaint:Landroid/graphics/Paint;
+
+    move-object/from16 v2, p1
+
+    invoke-virtual/range {v2 .. v9}, Landroid/graphics/Canvas;->drawRoundRect(FFFFFFLandroid/graphics/Paint;)V
 
     goto/16 :goto_0
 .end method
@@ -805,6 +1566,12 @@
 
     invoke-super {p0, p1, p2, p3, p4}, Landroid/view/View;->onSizeChanged(IIII)V
 
+    invoke-static {}, Lcom/android/systemui/recents/RecentsDebugFlags;->useTabletLayout()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
     invoke-static {}, Lcom/android/systemui/recents/Recents;->getSettingHelper()Lcom/android/systemui/recents/model/RecentsSettingHelper;
 
     move-result-object v0
@@ -813,42 +1580,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
-
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/recents/views/TaskViewThumbnail;->onTaskViewSizeChanged(II)V
+    if-eqz v0, :cond_1
 
     :cond_0
+    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/recents/views/TaskViewThumbnail;->onTaskViewSizeChanged(II)V
+
+    :cond_1
     return-void
 .end method
 
-.method public onTaskDataLoaded(Landroid/app/ActivityManager$TaskThumbnailInfo;)V
-    .locals 2
+.method public onTaskDataLoaded(Lcom/android/systemui/recents/model/ThumbnailData;)V
+    .locals 0
 
-    const/4 v1, 0x0
+    invoke-virtual {p0, p1}, Lcom/android/systemui/recents/views/TaskViewThumbnail;->setThumbnail(Lcom/android/systemui/recents/model/ThumbnailData;)V
 
-    iget-object v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTask:Lcom/android/systemui/recents/model/Task;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTask:Lcom/android/systemui/recents/model/Task;
-
-    iget-object v0, v0, Lcom/android/systemui/recents/model/Task;->thumbnail:Landroid/graphics/Bitmap;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTask:Lcom/android/systemui/recents/model/Task;
-
-    iget-object v0, v0, Lcom/android/systemui/recents/model/Task;->thumbnail:Landroid/graphics/Bitmap;
-
-    invoke-virtual {p0, v0, p1}, Lcom/android/systemui/recents/views/TaskViewThumbnail;->setThumbnail(Landroid/graphics/Bitmap;Landroid/app/ActivityManager$TaskThumbnailInfo;)V
-
-    :goto_0
     return-void
-
-    :cond_0
-    invoke-virtual {p0, v1, v1}, Lcom/android/systemui/recents/views/TaskViewThumbnail;->setThumbnail(Landroid/graphics/Bitmap;Landroid/app/ActivityManager$TaskThumbnailInfo;)V
-
-    goto :goto_0
 .end method
 
 .method public onTaskViewSizeChanged(II)V
@@ -879,6 +1625,12 @@
 
     invoke-virtual {v0, v1, v1, p1, p2}, Landroid/graphics/Rect;->set(IIII)V
 
+    invoke-static {}, Lcom/android/systemui/recents/RecentsDebugFlags;->useTabletLayout()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
     invoke-static {}, Lcom/android/systemui/recents/Recents;->getSettingHelper()Lcom/android/systemui/recents/model/RecentsSettingHelper;
 
     move-result-object v0
@@ -887,12 +1639,15 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    invoke-virtual {p0, v1, v1, p1, p2}, Lcom/android/systemui/recents/views/TaskViewThumbnail;->setLeftTopRightBottom(IIII)V
+    if-eqz v0, :cond_2
 
     :cond_1
-    invoke-virtual {p0}, Lcom/android/systemui/recents/views/TaskViewThumbnail;->updateThumbnailScale()V
+    invoke-virtual {p0, v1, v1, p1, p2}, Lcom/android/systemui/recents/views/TaskViewThumbnail;->setLeftTopRightBottom(IIII)V
+
+    :cond_2
+    invoke-virtual {p0}, Lcom/android/systemui/recents/views/TaskViewThumbnail;->updateThumbnailMatrix()V
 
     return-void
 .end method
@@ -907,62 +1662,124 @@
     return-void
 .end method
 
-.method setThumbnail(Landroid/graphics/Bitmap;Landroid/app/ActivityManager$TaskThumbnailInfo;)V
-    .locals 4
+.method public setOverlayHeaderOnThumbnailActionBar(Z)V
+    .locals 0
 
-    const/4 v3, 0x0
+    iput-boolean p1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mOverlayHeaderOnThumbnailActionBar:Z
 
-    const/4 v1, 0x0
+    return-void
+.end method
+
+.method public setSizeToFit(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mSizeToFit:Z
+
+    return-void
+.end method
+
+.method setThumbnail(Lcom/android/systemui/recents/model/ThumbnailData;)V
+    .locals 6
+
+    const/4 v5, 0x0
+
+    const/4 v2, 0x0
 
     if-eqz p1, :cond_0
 
-    new-instance v0, Landroid/graphics/BitmapShader;
+    iget-object v1, p1, Lcom/android/systemui/recents/model/ThumbnailData;->thumbnail:Landroid/graphics/Bitmap;
 
-    sget-object v1, Landroid/graphics/Shader$TileMode;->CLAMP:Landroid/graphics/Shader$TileMode;
+    if-eqz v1, :cond_0
 
-    sget-object v2, Landroid/graphics/Shader$TileMode;->CLAMP:Landroid/graphics/Shader$TileMode;
-
-    invoke-direct {v0, p1, v1, v2}, Landroid/graphics/BitmapShader;-><init>(Landroid/graphics/Bitmap;Landroid/graphics/Shader$TileMode;Landroid/graphics/Shader$TileMode;)V
-
-    iput-object v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mBitmapShader:Landroid/graphics/BitmapShader;
-
-    iget-object v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDrawPaint:Landroid/graphics/Paint;
-
-    iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mBitmapShader:Landroid/graphics/BitmapShader;
-
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
-
-    iget-object v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailRect:Landroid/graphics/Rect;
-
-    invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
+    invoke-static {}, Lcom/android/systemui/recents/RecentsDebugFlags;->useListLayout()Z
 
     move-result v1
 
-    invoke-virtual {p1}, Landroid/graphics/Bitmap;->getHeight()I
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_0
+
+    iget-object v0, p1, Lcom/android/systemui/recents/model/ThumbnailData;->thumbnail:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v0}, Landroid/graphics/Bitmap;->prepareToDraw()V
+
+    iget v1, p1, Lcom/android/systemui/recents/model/ThumbnailData;->scale:F
+
+    iput v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mFullscreenThumbnailScale:F
+
+    new-instance v1, Landroid/graphics/BitmapShader;
+
+    sget-object v2, Landroid/graphics/Shader$TileMode;->CLAMP:Landroid/graphics/Shader$TileMode;
+
+    sget-object v3, Landroid/graphics/Shader$TileMode;->CLAMP:Landroid/graphics/Shader$TileMode;
+
+    invoke-direct {v1, v0, v2, v3}, Landroid/graphics/BitmapShader;-><init>(Landroid/graphics/Bitmap;Landroid/graphics/Shader$TileMode;Landroid/graphics/Shader$TileMode;)V
+
+    iput-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mBitmapShader:Landroid/graphics/BitmapShader;
+
+    iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDrawPaint:Landroid/graphics/Paint;
+
+    iget-object v2, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mBitmapShader:Landroid/graphics/BitmapShader;
+
+    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
+
+    iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v0}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v2
 
-    invoke-virtual {v0, v3, v3, v1, v2}, Landroid/graphics/Rect;->set(IIII)V
+    iget-object v3, p1, Lcom/android/systemui/recents/model/ThumbnailData;->insets:Landroid/graphics/Rect;
 
-    iput-object p2, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailInfo:Landroid/app/ActivityManager$TaskThumbnailInfo;
+    iget v3, v3, Landroid/graphics/Rect;->left:I
 
-    invoke-virtual {p0}, Lcom/android/systemui/recents/views/TaskViewThumbnail;->updateThumbnailScale()V
+    sub-int/2addr v2, v3
+
+    iget-object v3, p1, Lcom/android/systemui/recents/model/ThumbnailData;->insets:Landroid/graphics/Rect;
+
+    iget v3, v3, Landroid/graphics/Rect;->right:I
+
+    sub-int/2addr v2, v3
+
+    invoke-virtual {v0}, Landroid/graphics/Bitmap;->getHeight()I
+
+    move-result v3
+
+    iget-object v4, p1, Lcom/android/systemui/recents/model/ThumbnailData;->insets:Landroid/graphics/Rect;
+
+    iget v4, v4, Landroid/graphics/Rect;->top:I
+
+    sub-int/2addr v3, v4
+
+    iget-object v4, p1, Lcom/android/systemui/recents/model/ThumbnailData;->insets:Landroid/graphics/Rect;
+
+    iget v4, v4, Landroid/graphics/Rect;->bottom:I
+
+    sub-int/2addr v3, v4
+
+    invoke-virtual {v1, v5, v5, v2, v3}, Landroid/graphics/Rect;->set(IIII)V
+
+    iput-object p1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailData:Lcom/android/systemui/recents/model/ThumbnailData;
+
+    invoke-virtual {p0}, Lcom/android/systemui/recents/views/TaskViewThumbnail;->updateThumbnailMatrix()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/recents/views/TaskViewThumbnail;->updateThumbnailPaintFilter()V
 
     :goto_0
     return-void
 
     :cond_0
-    iput-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mBitmapShader:Landroid/graphics/BitmapShader;
+    iput-object v2, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mBitmapShader:Landroid/graphics/BitmapShader;
 
-    iget-object v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDrawPaint:Landroid/graphics/Paint;
+    iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDrawPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
+    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
 
-    iget-object v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailRect:Landroid/graphics/Rect;
+    iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailRect:Landroid/graphics/Rect;
 
-    invoke-virtual {v0}, Landroid/graphics/Rect;->setEmpty()V
+    invoke-virtual {v1}, Landroid/graphics/Rect;->setEmpty()V
 
-    iput-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailInfo:Landroid/app/ActivityManager$TaskThumbnailInfo;
+    iput-object v2, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailData:Lcom/android/systemui/recents/model/ThumbnailData;
 
     goto :goto_0
 .end method
@@ -974,7 +1791,13 @@
 
     iput-object v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTask:Lcom/android/systemui/recents/model/Task;
 
-    invoke-virtual {p0, v0, v0}, Lcom/android/systemui/recents/views/TaskViewThumbnail;->setThumbnail(Landroid/graphics/Bitmap;Landroid/app/ActivityManager$TaskThumbnailInfo;)V
+    invoke-virtual {p0, v0}, Lcom/android/systemui/recents/views/TaskViewThumbnail;->setThumbnail(Lcom/android/systemui/recents/model/ThumbnailData;)V
+
+    invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Lcom/android/systemui/recents/events/EventBus;->unregister(Ljava/lang/Object;)V
 
     return-void
 .end method
@@ -987,6 +1810,458 @@
     invoke-virtual {p0}, Lcom/android/systemui/recents/views/TaskViewThumbnail;->invalidate()V
 
     return-void
+.end method
+
+.method public updateThumbnailMatrix()V
+    .locals 11
+
+    const/4 v9, 0x1
+
+    const/high16 v8, 0x3f800000    # 1.0f
+
+    iput v8, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailScale:F
+
+    iget-object v7, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mBitmapShader:Landroid/graphics/BitmapShader;
+
+    if-eqz v7, :cond_1
+
+    iget-object v7, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailData:Lcom/android/systemui/recents/model/ThumbnailData;
+
+    if-eqz v7, :cond_1
+
+    sget-boolean v7, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableCombinedTaskStack:Z
+
+    if-nez v7, :cond_3
+
+    iget-object v7, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTask:Lcom/android/systemui/recents/model/Task;
+
+    invoke-virtual {v7}, Lcom/android/systemui/recents/model/Task;->isFreeformTask()Z
+
+    move-result v7
+
+    xor-int/lit8 v7, v7, 0x1
+
+    if-nez v7, :cond_3
+
+    iget-object v7, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTask:Lcom/android/systemui/recents/model/Task;
+
+    iget-object v7, v7, Lcom/android/systemui/recents/model/Task;->bounds:Landroid/graphics/Rect;
+
+    if-nez v7, :cond_4
+
+    const/4 v1, 0x1
+
+    :goto_0
+    const/4 v6, 0x0
+
+    iget-object v7, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskViewRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v7}, Landroid/graphics/Rect;->isEmpty()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_5
+
+    const/4 v7, 0x0
+
+    iput v7, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailScale:F
+
+    :cond_0
+    :goto_1
+    iget-object v7, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mMatrix:Landroid/graphics/Matrix;
+
+    iget-object v8, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailData:Lcom/android/systemui/recents/model/ThumbnailData;
+
+    iget-object v8, v8, Lcom/android/systemui/recents/model/ThumbnailData;->insets:Landroid/graphics/Rect;
+
+    iget v8, v8, Landroid/graphics/Rect;->left:I
+
+    neg-int v8, v8
+
+    int-to-float v8, v8
+
+    iget v9, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mFullscreenThumbnailScale:F
+
+    mul-float/2addr v8, v9
+
+    iget-object v9, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailData:Lcom/android/systemui/recents/model/ThumbnailData;
+
+    iget-object v9, v9, Lcom/android/systemui/recents/model/ThumbnailData;->insets:Landroid/graphics/Rect;
+
+    iget v9, v9, Landroid/graphics/Rect;->top:I
+
+    neg-int v9, v9
+
+    int-to-float v9, v9
+
+    iget v10, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mFullscreenThumbnailScale:F
+
+    mul-float/2addr v9, v10
+
+    invoke-virtual {v7, v8, v9}, Landroid/graphics/Matrix;->setTranslate(FF)V
+
+    iget-object v7, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mMatrix:Landroid/graphics/Matrix;
+
+    iget v8, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailScale:F
+
+    iget v9, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailScale:F
+
+    invoke-virtual {v7, v8, v9}, Landroid/graphics/Matrix;->postScale(FF)Z
+
+    iget-object v7, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mBitmapShader:Landroid/graphics/BitmapShader;
+
+    iget-object v8, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mMatrix:Landroid/graphics/Matrix;
+
+    invoke-virtual {v7, v8}, Landroid/graphics/BitmapShader;->setLocalMatrix(Landroid/graphics/Matrix;)V
+
+    :cond_1
+    iget-boolean v7, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mInvisible:Z
+
+    if-nez v7, :cond_2
+
+    invoke-virtual {p0}, Lcom/android/systemui/recents/views/TaskViewThumbnail;->invalidate()V
+
+    :cond_2
+    return-void
+
+    :cond_3
+    const/4 v1, 0x1
+
+    goto :goto_0
+
+    :cond_4
+    const/4 v1, 0x0
+
+    goto :goto_0
+
+    :cond_5
+    iget-boolean v7, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mSizeToFit:Z
+
+    if-eqz v7, :cond_7
+
+    iget-object v7, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskViewRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v7}, Landroid/graphics/Rect;->width()I
+
+    move-result v7
+
+    int-to-float v7, v7
+
+    iget-object v8, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskViewRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v8}, Landroid/graphics/Rect;->height()I
+
+    move-result v8
+
+    iget v9, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTitleBarHeight:I
+
+    sub-int/2addr v8, v9
+
+    int-to-float v8, v8
+
+    div-float v4, v7, v8
+
+    iget-object v7, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v7}, Landroid/graphics/Rect;->width()I
+
+    move-result v7
+
+    int-to-float v7, v7
+
+    iget-object v8, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v8}, Landroid/graphics/Rect;->height()I
+
+    move-result v8
+
+    int-to-float v8, v8
+
+    div-float v2, v7, v8
+
+    cmpl-float v7, v4, v2
+
+    if-lez v7, :cond_6
+
+    iget-object v7, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskViewRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v7}, Landroid/graphics/Rect;->width()I
+
+    move-result v7
+
+    int-to-float v7, v7
+
+    iget-object v8, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v8}, Landroid/graphics/Rect;->width()I
+
+    move-result v8
+
+    int-to-float v8, v8
+
+    div-float/2addr v7, v8
+
+    iput v7, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailScale:F
+
+    goto :goto_1
+
+    :cond_6
+    iget-object v7, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskViewRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v7}, Landroid/graphics/Rect;->height()I
+
+    move-result v7
+
+    iget v8, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTitleBarHeight:I
+
+    sub-int/2addr v7, v8
+
+    int-to-float v7, v7
+
+    iget-object v8, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v8}, Landroid/graphics/Rect;->height()I
+
+    move-result v8
+
+    int-to-float v8, v8
+
+    div-float/2addr v7, v8
+
+    iput v7, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailScale:F
+
+    goto/16 :goto_1
+
+    :cond_7
+    if-eqz v1, :cond_c
+
+    iget v7, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mFullscreenThumbnailScale:F
+
+    div-float v0, v8, v7
+
+    iget v7, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDisplayOrientation:I
+
+    if-ne v7, v9, :cond_9
+
+    iget-object v7, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailData:Lcom/android/systemui/recents/model/ThumbnailData;
+
+    iget v7, v7, Lcom/android/systemui/recents/model/ThumbnailData;->orientation:I
+
+    if-ne v7, v9, :cond_8
+
+    iget-object v7, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskViewRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v7}, Landroid/graphics/Rect;->width()I
+
+    move-result v7
+
+    int-to-float v7, v7
+
+    iget-object v8, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v8}, Landroid/graphics/Rect;->width()I
+
+    move-result v8
+
+    int-to-float v8, v8
+
+    div-float/2addr v7, v8
+
+    iput v7, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailScale:F
+
+    :goto_2
+    iget-object v7, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskViewRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v7}, Landroid/graphics/Rect;->width()I
+
+    move-result v5
+
+    iget-object v7, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v7}, Landroid/graphics/Rect;->width()I
+
+    move-result v7
+
+    int-to-float v7, v7
+
+    iget v8, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailScale:F
+
+    mul-float/2addr v7, v8
+
+    float-to-int v3, v7
+
+    if-le v5, v3, :cond_0
+
+    iget-object v7, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskViewRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v7}, Landroid/graphics/Rect;->width()I
+
+    move-result v7
+
+    int-to-float v7, v7
+
+    iget-object v8, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v8}, Landroid/graphics/Rect;->width()I
+
+    move-result v8
+
+    int-to-float v8, v8
+
+    div-float/2addr v7, v8
+
+    iput v7, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailScale:F
+
+    goto/16 :goto_1
+
+    :cond_8
+    iget-object v7, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskViewRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v7}, Landroid/graphics/Rect;->width()I
+
+    move-result v7
+
+    int-to-float v7, v7
+
+    iget-object v8, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDisplayRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v8}, Landroid/graphics/Rect;->width()I
+
+    move-result v8
+
+    int-to-float v8, v8
+
+    div-float/2addr v7, v8
+
+    mul-float/2addr v7, v0
+
+    iput v7, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailScale:F
+
+    goto :goto_2
+
+    :cond_9
+    invoke-static {}, Lcom/android/systemui/recents/Recents;->getSettingHelper()Lcom/android/systemui/recents/model/RecentsSettingHelper;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Lcom/android/systemui/recents/model/RecentsSettingHelper;->isDesktopMode()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_b
+
+    iget-object v7, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailData:Lcom/android/systemui/recents/model/ThumbnailData;
+
+    iget-object v7, v7, Lcom/android/systemui/recents/model/ThumbnailData;->thumbnail:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v7}, Landroid/graphics/Bitmap;->getWidth()I
+
+    move-result v7
+
+    iget-object v8, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailData:Lcom/android/systemui/recents/model/ThumbnailData;
+
+    iget-object v8, v8, Lcom/android/systemui/recents/model/ThumbnailData;->thumbnail:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v8}, Landroid/graphics/Bitmap;->getHeight()I
+
+    move-result v8
+
+    if-ge v7, v8, :cond_a
+
+    iget-object v7, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskViewRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v7}, Landroid/graphics/Rect;->width()I
+
+    move-result v7
+
+    int-to-float v7, v7
+
+    iget-object v8, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v8}, Landroid/graphics/Rect;->width()I
+
+    move-result v8
+
+    int-to-float v8, v8
+
+    div-float/2addr v7, v8
+
+    iput v7, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailScale:F
+
+    goto :goto_2
+
+    :cond_a
+    iget-object v7, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskViewRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v7}, Landroid/graphics/Rect;->height()I
+
+    move-result v7
+
+    int-to-float v7, v7
+
+    iget-object v8, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v8}, Landroid/graphics/Rect;->height()I
+
+    move-result v8
+
+    int-to-float v8, v8
+
+    div-float/2addr v7, v8
+
+    iput v7, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailScale:F
+
+    goto :goto_2
+
+    :cond_b
+    iput v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailScale:F
+
+    goto :goto_2
+
+    :cond_c
+    iget-object v7, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskViewRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v7}, Landroid/graphics/Rect;->width()I
+
+    move-result v7
+
+    int-to-float v7, v7
+
+    iget-object v8, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v8}, Landroid/graphics/Rect;->width()I
+
+    move-result v8
+
+    int-to-float v8, v8
+
+    div-float/2addr v7, v8
+
+    iget-object v8, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskViewRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v8}, Landroid/graphics/Rect;->height()I
+
+    move-result v8
+
+    int-to-float v8, v8
+
+    iget-object v9, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v9}, Landroid/graphics/Rect;->height()I
+
+    move-result v9
+
+    int-to-float v9, v9
+
+    div-float/2addr v8, v9
+
+    invoke-static {v7, v8}, Ljava/lang/Math;->min(FF)F
+
+    move-result v7
+
+    iput v7, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailScale:F
+
+    goto/16 :goto_1
 .end method
 
 .method updateThumbnailPaintFilter()V
@@ -1095,6 +2370,10 @@
 
     invoke-virtual {v5, v0}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
 
+    iget-object v5, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mLockedPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {v5, v0}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
+
     :goto_0
     iget-boolean v5, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mInvisible:Z
 
@@ -1132,6 +2411,12 @@
 
     invoke-virtual {v5, v6}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
 
+    iget-object v5, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mLockedPaint:Landroid/graphics/Paint;
+
+    iget-object v6, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mLightingColorFilter:Landroid/graphics/LightingColorFilter;
+
+    invoke-virtual {v5, v6}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
+
     goto :goto_0
 
     :cond_3
@@ -1152,329 +2437,6 @@
     goto :goto_0
 .end method
 
-.method public updateThumbnailScale()V
-    .locals 7
-
-    const/4 v6, 0x1
-
-    const/high16 v5, 0x3f800000    # 1.0f
-
-    iput v5, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailScale:F
-
-    iget-object v4, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mBitmapShader:Landroid/graphics/BitmapShader;
-
-    if-eqz v4, :cond_2
-
-    sget-boolean v4, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableFreeformInTaskStack:Z
-
-    if-nez v4, :cond_4
-
-    iget-object v4, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTask:Lcom/android/systemui/recents/model/Task;
-
-    invoke-virtual {v4}, Lcom/android/systemui/recents/model/Task;->isFreeformTask()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_4
-
-    iget-object v4, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTask:Lcom/android/systemui/recents/model/Task;
-
-    iget-object v4, v4, Lcom/android/systemui/recents/model/Task;->bounds:Landroid/graphics/Rect;
-
-    if-nez v4, :cond_5
-
-    const/4 v1, 0x1
-
-    :goto_0
-    iget-object v4, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskViewRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v4}, Landroid/graphics/Rect;->isEmpty()Z
-
-    move-result v4
-
-    if-nez v4, :cond_0
-
-    iget-object v4, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailInfo:Landroid/app/ActivityManager$TaskThumbnailInfo;
-
-    if-nez v4, :cond_6
-
-    :cond_0
-    const/4 v4, 0x0
-
-    iput v4, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailScale:F
-
-    :cond_1
-    :goto_1
-    iget-object v4, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mScaleMatrix:Landroid/graphics/Matrix;
-
-    iget v5, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailScale:F
-
-    iget v6, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailScale:F
-
-    invoke-virtual {v4, v5, v6}, Landroid/graphics/Matrix;->setScale(FF)V
-
-    iget-object v4, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mBitmapShader:Landroid/graphics/BitmapShader;
-
-    iget-object v5, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mScaleMatrix:Landroid/graphics/Matrix;
-
-    invoke-virtual {v4, v5}, Landroid/graphics/BitmapShader;->setLocalMatrix(Landroid/graphics/Matrix;)V
-
-    :cond_2
-    iget-boolean v4, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mInvisible:Z
-
-    if-nez v4, :cond_3
-
-    invoke-virtual {p0}, Lcom/android/systemui/recents/views/TaskViewThumbnail;->invalidate()V
-
-    :cond_3
-    return-void
-
-    :cond_4
-    const/4 v1, 0x1
-
-    goto :goto_0
-
-    :cond_5
-    const/4 v1, 0x0
-
-    goto :goto_0
-
-    :cond_6
-    iget-object v4, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailInfo:Landroid/app/ActivityManager$TaskThumbnailInfo;
-
-    iget v4, v4, Landroid/app/ActivityManager$TaskThumbnailInfo;->taskWidth:I
-
-    if-eqz v4, :cond_0
-
-    iget-object v4, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailInfo:Landroid/app/ActivityManager$TaskThumbnailInfo;
-
-    iget v4, v4, Landroid/app/ActivityManager$TaskThumbnailInfo;->taskHeight:I
-
-    if-eqz v4, :cond_0
-
-    if-eqz v1, :cond_b
-
-    iget v4, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mFullscreenThumbnailScale:F
-
-    div-float v0, v5, v4
-
-    iget v4, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDisplayOrientation:I
-
-    if-ne v4, v6, :cond_8
-
-    iget-object v4, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailInfo:Landroid/app/ActivityManager$TaskThumbnailInfo;
-
-    iget v4, v4, Landroid/app/ActivityManager$TaskThumbnailInfo;->screenOrientation:I
-
-    if-ne v4, v6, :cond_7
-
-    iget-object v4, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskViewRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v4}, Landroid/graphics/Rect;->width()I
-
-    move-result v4
-
-    int-to-float v4, v4
-
-    iget-object v5, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v5}, Landroid/graphics/Rect;->width()I
-
-    move-result v5
-
-    int-to-float v5, v5
-
-    div-float/2addr v4, v5
-
-    iput v4, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailScale:F
-
-    :goto_2
-    iget-object v4, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskViewRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v4}, Landroid/graphics/Rect;->width()I
-
-    move-result v3
-
-    iget-object v4, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v4}, Landroid/graphics/Rect;->width()I
-
-    move-result v4
-
-    int-to-float v4, v4
-
-    iget v5, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailScale:F
-
-    mul-float/2addr v4, v5
-
-    float-to-int v2, v4
-
-    if-le v3, v2, :cond_1
-
-    iget-object v4, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskViewRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v4}, Landroid/graphics/Rect;->width()I
-
-    move-result v4
-
-    int-to-float v4, v4
-
-    iget-object v5, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v5}, Landroid/graphics/Rect;->width()I
-
-    move-result v5
-
-    int-to-float v5, v5
-
-    div-float/2addr v4, v5
-
-    iput v4, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailScale:F
-
-    goto :goto_1
-
-    :cond_7
-    iget-object v4, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskViewRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v4}, Landroid/graphics/Rect;->width()I
-
-    move-result v4
-
-    int-to-float v4, v4
-
-    iget-object v5, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mDisplayRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v5}, Landroid/graphics/Rect;->width()I
-
-    move-result v5
-
-    int-to-float v5, v5
-
-    div-float/2addr v4, v5
-
-    mul-float/2addr v4, v0
-
-    iput v4, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailScale:F
-
-    goto :goto_2
-
-    :cond_8
-    invoke-static {}, Lcom/android/systemui/recents/Recents;->getSettingHelper()Lcom/android/systemui/recents/model/RecentsSettingHelper;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Lcom/android/systemui/recents/model/RecentsSettingHelper;->isDesktopMode()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_a
-
-    iget-object v4, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailInfo:Landroid/app/ActivityManager$TaskThumbnailInfo;
-
-    iget v4, v4, Landroid/app/ActivityManager$TaskThumbnailInfo;->taskWidth:I
-
-    iget-object v5, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailInfo:Landroid/app/ActivityManager$TaskThumbnailInfo;
-
-    iget v5, v5, Landroid/app/ActivityManager$TaskThumbnailInfo;->taskHeight:I
-
-    if-ge v4, v5, :cond_9
-
-    iget-object v4, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskViewRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v4}, Landroid/graphics/Rect;->width()I
-
-    move-result v4
-
-    int-to-float v4, v4
-
-    iget-object v5, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v5}, Landroid/graphics/Rect;->width()I
-
-    move-result v5
-
-    int-to-float v5, v5
-
-    div-float/2addr v4, v5
-
-    iput v4, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailScale:F
-
-    goto :goto_2
-
-    :cond_9
-    iget-object v4, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskViewRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v4}, Landroid/graphics/Rect;->height()I
-
-    move-result v4
-
-    int-to-float v4, v4
-
-    iget-object v5, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v5}, Landroid/graphics/Rect;->height()I
-
-    move-result v5
-
-    int-to-float v5, v5
-
-    div-float/2addr v4, v5
-
-    iput v4, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailScale:F
-
-    goto :goto_2
-
-    :cond_a
-    iput v0, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailScale:F
-
-    goto :goto_2
-
-    :cond_b
-    iget-object v4, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskViewRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v4}, Landroid/graphics/Rect;->width()I
-
-    move-result v4
-
-    int-to-float v4, v4
-
-    iget-object v5, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v5}, Landroid/graphics/Rect;->width()I
-
-    move-result v5
-
-    int-to-float v5, v5
-
-    div-float/2addr v4, v5
-
-    iget-object v5, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskViewRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v5}, Landroid/graphics/Rect;->height()I
-
-    move-result v5
-
-    int-to-float v5, v5
-
-    iget-object v6, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v6}, Landroid/graphics/Rect;->height()I
-
-    move-result v6
-
-    int-to-float v6, v6
-
-    div-float/2addr v5, v6
-
-    invoke-static {v4, v5}, Ljava/lang/Math;->min(FF)F
-
-    move-result v4
-
-    iput v4, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mThumbnailScale:F
-
-    goto/16 :goto_1
-.end method
-
 .method updateThumbnailVisibility(I)V
     .locals 3
 
@@ -1486,7 +2448,9 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_2
 
     iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewThumbnail;->mTaskBar:Landroid/view/View;
 

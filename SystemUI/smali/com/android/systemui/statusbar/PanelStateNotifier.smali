@@ -136,7 +136,7 @@
     :cond_1
     sput p1, Lcom/android/systemui/statusbar/PanelStateNotifier;->mState:I
 
-    if-ne p1, v5, :cond_6
+    if-ne p1, v5, :cond_7
 
     const-string/jumbo v0, "com.samsung.systemui.statusbar.ANIMATING"
 
@@ -145,15 +145,22 @@
 
     invoke-direct {v1, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    invoke-static {}, Lcom/android/systemui/Rune;->isTesting()Z
+
+    move-result v4
+
+    if-nez v4, :cond_2
+
     sget-object v4, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
     invoke-virtual {p0, v1, v4}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
-    if-eq p1, v5, :cond_5
+    :cond_2
+    if-eq p1, v5, :cond_6
 
-    sget-boolean v4, Lcom/android/systemui/SystemUIRune;->SUPPORT_PANEL_STATE_NOTIFIER_FOR_KDDI:Z
+    sget-boolean v4, Lcom/android/systemui/Rune;->NOTI_SUPPORT_PANEL_STATE_NOTIFIER_FOR_KDDI:Z
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_3
 
     sget v4, Lcom/android/systemui/statusbar/PanelStateNotifier;->mBarState:I
 
@@ -161,7 +168,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_3
 
     new-instance v2, Landroid/content/Intent;
 
@@ -173,14 +180,20 @@
 
     invoke-virtual {v2, v4, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
+    invoke-static {}, Lcom/android/systemui/Rune;->isTesting()Z
+
+    move-result v4
+
+    if-nez v4, :cond_3
+
     sget-object v4, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
     invoke-virtual {p0, v2, v4}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
-    :cond_2
+    :cond_3
     sget-object v4, Lcom/android/systemui/statusbar/PanelStateNotifier;->mStatusBarManager:Landroid/app/SemStatusBarManager;
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_4
 
     const-string/jumbo v4, "sem_statusbar"
 
@@ -192,25 +205,25 @@
 
     sput-object v4, Lcom/android/systemui/statusbar/PanelStateNotifier;->mStatusBarManager:Landroid/app/SemStatusBarManager;
 
-    :cond_3
+    :cond_4
     sget-object v4, Lcom/android/systemui/statusbar/PanelStateNotifier;->mStatusBarManager:Landroid/app/SemStatusBarManager;
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_5
 
     sget-object v4, Lcom/android/systemui/statusbar/PanelStateNotifier;->mStatusBarManager:Landroid/app/SemStatusBarManager;
 
     invoke-virtual {v4, v3}, Landroid/app/SemStatusBarManager;->setPanelExpandState(Z)V
 
-    :cond_4
+    :cond_5
     sput-boolean v3, Lcom/android/systemui/statusbar/PanelStateNotifier;->mPanelExpandState:Z
 
-    :cond_5
+    :cond_6
     return-void
 
-    :cond_6
+    :cond_7
     const/4 v4, 0x2
 
-    if-ne p1, v4, :cond_7
+    if-ne p1, v4, :cond_8
 
     const-string/jumbo v0, "com.samsung.systemui.statusbar.EXPANDED"
 
@@ -218,8 +231,8 @@
 
     goto :goto_0
 
-    :cond_7
-    if-nez p1, :cond_8
+    :cond_8
+    if-nez p1, :cond_9
 
     const-string/jumbo v0, "com.samsung.systemui.statusbar.COLLAPSED"
 
@@ -227,7 +240,7 @@
 
     goto :goto_0
 
-    :cond_8
+    :cond_9
     const-string/jumbo v4, "PanelStateNotifier"
 
     const-string/jumbo v5, "Invalid panel open state"

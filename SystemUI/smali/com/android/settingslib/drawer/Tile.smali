@@ -42,15 +42,21 @@
 
 .field public intent:Landroid/content/Intent;
 
+.field public key:Ljava/lang/String;
+
 .field public metaData:Landroid/os/Bundle;
 
 .field public priority:I
 
 .field public summary:Ljava/lang/CharSequence;
 
+.field public summarySecondary:Ljava/lang/CharSequence;
+
 .field public support:Ljava/lang/String;
 
 .field public title:Ljava/lang/CharSequence;
+
+.field public titleRes:I
 
 .field public type:Ljava/lang/String;
 
@@ -248,6 +254,12 @@
 
     move-result-object v2
 
+    iput-object v2, p0, Lcom/android/settingslib/drawer/Tile;->key:Ljava/lang/String;
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v2
+
     iput-object v2, p0, Lcom/android/settingslib/drawer/Tile;->fragment:Ljava/lang/String;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
@@ -255,6 +267,12 @@
     move-result v2
 
     iput v2, p0, Lcom/android/settingslib/drawer/Tile;->iconRes:I
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v2
+
+    iput v2, p0, Lcom/android/settingslib/drawer/Tile;->titleRes:I
 
     return-void
 .end method
@@ -362,11 +380,19 @@
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
 
+    iget-object v2, p0, Lcom/android/settingslib/drawer/Tile;->key:Ljava/lang/String;
+
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
     iget-object v2, p0, Lcom/android/settingslib/drawer/Tile;->fragment:Ljava/lang/String;
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     iget v2, p0, Lcom/android/settingslib/drawer/Tile;->iconRes:I
+
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget v2, p0, Lcom/android/settingslib/drawer/Tile;->titleRes:I
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 

@@ -1,9 +1,6 @@
 .class Lcom/android/systemui/statusbar/ExpandableNotificationRow$5;
-.super Ljava/lang/Object;
+.super Landroid/animation/AnimatorListenerAdapter;
 .source "ExpandableNotificationRow.java"
-
-# interfaces
-.implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
 
 # annotations
@@ -18,72 +15,74 @@
 
 
 # instance fields
+.field cancelled:Z
+
 .field final synthetic this$0:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
+
+.field final synthetic val$leftTarget:F
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)V
-    .locals 0
+.method constructor <init>(Lcom/android/systemui/statusbar/ExpandableNotificationRow;F)V
+    .locals 1
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow$5;->this$0:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    iput p2, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow$5;->val$leftTarget:F
+
+    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow$5;->cancelled:Z
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 3
+.method public onAnimationCancel(Landroid/animation/Animator;)V
+    .locals 1
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow$5;->this$0:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
+    const/4 v0, 0x1
 
-    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow$5;->cancelled:Z
 
-    move-result-object v0
+    return-void
+.end method
 
-    check-cast v0, Ljava/lang/Float;
+.method public onAnimationEnd(Landroid/animation/Animator;)V
+    .locals 2
 
-    invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow$5;->cancelled:Z
 
-    move-result v0
+    if-nez v0, :cond_0
 
-    invoke-static {v1, v0}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-wrap0(Lcom/android/systemui/statusbar/ExpandableNotificationRow;F)V
+    iget v0, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow$5;->val$leftTarget:F
+
+    const/4 v1, 0x0
+
+    cmpl-float v0, v0, v1
+
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow$5;->this$0:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-get7(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Lcom/android/systemui/statusbar/NotificationSettingsIconRow;
+    invoke-static {v0}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-get7(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Lcom/android/systemui/plugins/statusbar/NotificationMenuRowPlugin;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    invoke-interface {v0}, Lcom/android/systemui/plugins/statusbar/NotificationMenuRowPlugin;->resetMenu()V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow$5;->this$0:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-get7(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Lcom/android/systemui/statusbar/NotificationSettingsIconRow;
+    const/4 v1, 0x0
 
-    move-result-object v1
+    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-set5(Lcom/android/systemui/statusbar/ExpandableNotificationRow;Landroid/animation/Animator;)Landroid/animation/Animator;
 
-    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow$5;->this$0:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
 
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/Float;
-
-    invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
-
-    move-result v0
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow$5;->this$0:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->getMeasuredWidth()I
-
-    move-result v2
-
-    int-to-float v2, v2
-
-    invoke-virtual {v1, v0, v2}, Lcom/android/systemui/statusbar/NotificationSettingsIconRow;->updateSettingsIcons(FF)V
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->resetDimmedBGAlpha()V
 
     :cond_0
     return-void

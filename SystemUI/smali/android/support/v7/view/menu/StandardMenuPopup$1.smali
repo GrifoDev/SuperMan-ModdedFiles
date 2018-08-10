@@ -43,53 +43,49 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     iget-object v1, p0, Landroid/support/v7/view/menu/StandardMenuPopup$1;->this$0:Landroid/support/v7/view/menu/StandardMenuPopup;
 
-    invoke-static {v1}, Landroid/support/v7/view/menu/StandardMenuPopup;->-get0(Landroid/support/v7/view/menu/StandardMenuPopup;)Landroid/support/v7/widget/MenuPopupWindow;
-
-    move-result-object v1
+    iget-object v1, v1, Landroid/support/v7/view/menu/StandardMenuPopup;->mPopup:Landroid/support/v7/widget/MenuPopupWindow;
 
     invoke-virtual {v1}, Landroid/support/v7/widget/MenuPopupWindow;->isModal()Z
 
     move-result v1
 
+    xor-int/lit8 v1, v1, 0x1
+
     if-eqz v1, :cond_1
 
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
     iget-object v1, p0, Landroid/support/v7/view/menu/StandardMenuPopup$1;->this$0:Landroid/support/v7/view/menu/StandardMenuPopup;
 
-    invoke-static {v1}, Landroid/support/v7/view/menu/StandardMenuPopup;->-get1(Landroid/support/v7/view/menu/StandardMenuPopup;)Landroid/view/View;
+    iget-object v0, v1, Landroid/support/v7/view/menu/StandardMenuPopup;->mShownAnchorView:Landroid/view/View;
 
-    move-result-object v0
-
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Landroid/view/View;->isShown()Z
 
     move-result v1
 
+    xor-int/lit8 v1, v1, 0x1
+
     if-eqz v1, :cond_2
 
+    :cond_0
     iget-object v1, p0, Landroid/support/v7/view/menu/StandardMenuPopup$1;->this$0:Landroid/support/v7/view/menu/StandardMenuPopup;
 
-    invoke-static {v1}, Landroid/support/v7/view/menu/StandardMenuPopup;->-get0(Landroid/support/v7/view/menu/StandardMenuPopup;)Landroid/support/v7/widget/MenuPopupWindow;
+    invoke-virtual {v1}, Landroid/support/v7/view/menu/StandardMenuPopup;->dismiss()V
 
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/support/v7/widget/MenuPopupWindow;->show()V
-
-    goto :goto_0
+    :cond_1
+    :goto_0
+    return-void
 
     :cond_2
     iget-object v1, p0, Landroid/support/v7/view/menu/StandardMenuPopup$1;->this$0:Landroid/support/v7/view/menu/StandardMenuPopup;
 
-    invoke-virtual {v1}, Landroid/support/v7/view/menu/StandardMenuPopup;->dismiss()V
+    iget-object v1, v1, Landroid/support/v7/view/menu/StandardMenuPopup;->mPopup:Landroid/support/v7/widget/MenuPopupWindow;
+
+    invoke-virtual {v1}, Landroid/support/v7/widget/MenuPopupWindow;->show()V
 
     goto :goto_0
 .end method

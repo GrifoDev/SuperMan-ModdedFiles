@@ -49,7 +49,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/stackdivider/DividerSnapView$2;->this$0:Lcom/android/systemui/stackdivider/DividerSnapView;
 
-    invoke-static {v6}, Lcom/android/systemui/stackdivider/DividerSnapView;->-get4(Lcom/android/systemui/stackdivider/DividerSnapView;)Landroid/widget/FrameLayout;
+    invoke-static {v6}, Lcom/android/systemui/stackdivider/DividerSnapView;->-get7(Lcom/android/systemui/stackdivider/DividerSnapView;)Landroid/widget/FrameLayout;
 
     move-result-object v6
 
@@ -61,17 +61,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/stackdivider/DividerSnapView$2;->this$0:Lcom/android/systemui/stackdivider/DividerSnapView;
 
-    invoke-static {v6}, Lcom/android/systemui/stackdivider/DividerSnapView;->-get2(Lcom/android/systemui/stackdivider/DividerSnapView;)Landroid/content/Context;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v6
-
-    const v7, 0x7f0d0027
-
-    invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-static {v6}, Lcom/android/systemui/stackdivider/DividerSnapView;->-get0(Lcom/android/systemui/stackdivider/DividerSnapView;)I
 
     move-result v5
 
@@ -113,7 +103,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/stackdivider/DividerSnapView$2;->this$0:Lcom/android/systemui/stackdivider/DividerSnapView;
 
-    invoke-static {v6}, Lcom/android/systemui/stackdivider/DividerSnapView;->-get4(Lcom/android/systemui/stackdivider/DividerSnapView;)Landroid/widget/FrameLayout;
+    invoke-static {v6}, Lcom/android/systemui/stackdivider/DividerSnapView;->-get7(Lcom/android/systemui/stackdivider/DividerSnapView;)Landroid/widget/FrameLayout;
 
     move-result-object v6
 
@@ -141,7 +131,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/stackdivider/DividerSnapView$2;->this$0:Lcom/android/systemui/stackdivider/DividerSnapView;
 
-    invoke-static {v6}, Lcom/android/systemui/stackdivider/DividerSnapView;->-get4(Lcom/android/systemui/stackdivider/DividerSnapView;)Landroid/widget/FrameLayout;
+    invoke-static {v6}, Lcom/android/systemui/stackdivider/DividerSnapView;->-get7(Lcom/android/systemui/stackdivider/DividerSnapView;)Landroid/widget/FrameLayout;
 
     move-result-object v6
 
@@ -164,7 +154,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/stackdivider/DividerSnapView$2;->this$0:Lcom/android/systemui/stackdivider/DividerSnapView;
 
-    invoke-static {v6}, Lcom/android/systemui/stackdivider/DividerSnapView;->-get4(Lcom/android/systemui/stackdivider/DividerSnapView;)Landroid/widget/FrameLayout;
+    invoke-static {v6}, Lcom/android/systemui/stackdivider/DividerSnapView;->-get7(Lcom/android/systemui/stackdivider/DividerSnapView;)Landroid/widget/FrameLayout;
 
     move-result-object v6
 

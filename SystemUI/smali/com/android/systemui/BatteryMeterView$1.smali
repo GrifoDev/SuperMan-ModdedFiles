@@ -1,5 +1,5 @@
 .class Lcom/android/systemui/BatteryMeterView$1;
-.super Lcom/android/keyguard/KnoxStateMonitorCallback;
+.super Lcom/android/systemui/KnoxStateMonitorCallback;
 .source "BatteryMeterView.java"
 
 
@@ -24,7 +24,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/BatteryMeterView$1;->this$0:Lcom/android/systemui/BatteryMeterView;
 
-    invoke-direct {p0}, Lcom/android/keyguard/KnoxStateMonitorCallback;-><init>()V
+    invoke-direct {p0}, Lcom/android/systemui/KnoxStateMonitorCallback;-><init>()V
 
     return-void
 .end method
@@ -36,11 +36,11 @@
 
     iget-object v0, p0, Lcom/android/systemui/BatteryMeterView$1;->this$0:Lcom/android/systemui/BatteryMeterView;
 
-    invoke-static {v0}, Lcom/android/systemui/BatteryMeterView;->-get0(Lcom/android/systemui/BatteryMeterView;)Lcom/android/systemui/BatteryMeterDrawable;
+    invoke-static {v0}, Lcom/android/systemui/BatteryMeterView;->-get1(Lcom/android/systemui/BatteryMeterView;)Lcom/android/systemui/BatteryMeterDrawable;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/systemui/BatteryMeterDrawable;->updateBatteryColor()V
+    invoke-virtual {v0}, Lcom/android/systemui/BatteryMeterDrawable;->updateStatusBarBatteryColour()V
 
     return-void
 .end method

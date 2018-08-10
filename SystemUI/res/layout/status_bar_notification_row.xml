@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.android.systemui.statusbar.ExpandableNotificationRow android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <ViewStub android:id="@id/settings_icon_row_stub" android:layout="@layout/notification_settings_icon_row" android:inflatedId="@id/notification_settings_icon_row" android:layout_width="wrap_content" android:layout_height="fill_parent" />
     <com.android.systemui.statusbar.NotificationBackgroundView android:id="@id/backgroundNormal" android:layout_width="fill_parent" android:layout_height="fill_parent" />
     <com.android.systemui.statusbar.NotificationBackgroundView android:id="@id/backgroundDimmed" android:layout_width="fill_parent" android:layout_height="fill_parent" />
     <com.android.systemui.statusbar.NotificationContentView android:id="@id/expanded" android:layout_width="fill_parent" android:layout_height="wrap_content" />
@@ -12,4 +11,6 @@
     <ViewStub android:id="@id/notification_guts_stub" android:layout="@layout/notification_guts" android:inflatedId="@id/notification_guts" android:layout_width="fill_parent" android:layout_height="wrap_content" />
     <com.android.systemui.statusbar.notification.FakeShadowView android:id="@id/fake_shadow" android:layout_width="fill_parent" android:layout_height="fill_parent" />
     <ImageView android:layout_gravity="bottom|center|right" android:id="@id/notification_knox_badge" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="fitXY" />
+    <ImageView android:layout_gravity="center|right|top" android:id="@id/notification_pin_bg" android:visibility="invisible" android:layout_width="24.0dip" android:layout_height="24.0dip" android:src="@drawable/notification_pin_bg" android:scaleType="fitXY" />
+    <ImageView android:layout_gravity="center|right|top" android:id="@id/notification_pin" android:visibility="invisible" android:layout_width="12.0dip" android:layout_height="12.0dip" android:src="@drawable/notification_pin" android:scaleType="fitXY" />
 </com.android.systemui.statusbar.ExpandableNotificationRow>

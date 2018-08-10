@@ -17,17 +17,23 @@
 .method public onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 2
 
+    const/4 v1, 0x1
+
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
     if-nez v0, :cond_0
 
+    invoke-virtual {p0, v1}, Lcom/android/systemui/qs/NonInterceptingScrollView;->canScrollVertically(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
     invoke-virtual {p0}, Lcom/android/systemui/qs/NonInterceptingScrollView;->getParent()Landroid/view/ViewParent;
 
     move-result-object v0
-
-    const/4 v1, 0x1
 
     invoke-interface {v0, v1}, Landroid/view/ViewParent;->requestDisallowInterceptTouchEvent(Z)V
 

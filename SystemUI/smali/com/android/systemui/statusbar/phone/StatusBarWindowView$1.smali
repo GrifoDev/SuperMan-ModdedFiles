@@ -149,6 +149,12 @@
     return-void
 .end method
 
+.method public onPictureInPictureModeChanged(Z)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public openPanel(ILandroid/view/KeyEvent;)V
     .locals 0
 

@@ -10,11 +10,13 @@
 
 .field public final fromMultiWindow:Z
 
+.field public final fromScreenSizeChange:Z
+
 .field public final hasStackTasks:Z
 
 
 # direct methods
-.method public constructor <init>(ZZZZ)V
+.method public constructor <init>(ZZZZZ)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/systemui/recents/events/EventBus$AnimatedEvent;-><init>()V
@@ -26,6 +28,8 @@
     iput-boolean p3, p0, Lcom/android/systemui/recents/events/activity/ConfigurationChangedEvent;->fromDisplayDensityChange:Z
 
     iput-boolean p4, p0, Lcom/android/systemui/recents/events/activity/ConfigurationChangedEvent;->hasStackTasks:Z
+
+    iput-boolean p5, p0, Lcom/android/systemui/recents/events/activity/ConfigurationChangedEvent;->fromScreenSizeChange:Z
 
     return-void
 .end method

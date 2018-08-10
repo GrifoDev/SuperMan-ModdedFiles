@@ -32,7 +32,7 @@
     .end annotation
 .end field
 
-.field private mDeletedInvisibleItemCountSincePreviousLayout:I
+.field mDeletedInvisibleItemCountSincePreviousLayout:I
 
 .field mFocusedItemId:J
 
@@ -40,160 +40,36 @@
 
 .field mFocusedSubChildId:I
 
-.field private mInPreLayout:Z
+.field mInPreLayout:Z
 
-.field private mIsMeasuring:Z
+.field mIsMeasuring:Z
 
 .field mItemCount:I
 
-.field private mLayoutStep:I
+.field mLayoutStep:I
 
-.field private mPreviousLayoutItemCount:I
+.field mPreviousLayoutItemCount:I
 
-.field private mRunPredictiveAnimations:Z
+.field mRemainingScrollHorizontal:I
 
-.field private mRunSimpleAnimations:Z
+.field mRemainingScrollVertical:I
 
-.field private mStructureChanged:Z
+.field mRunPredictiveAnimations:Z
+
+.field mRunSimpleAnimations:Z
+
+.field mStructureChanged:Z
 
 .field private mTargetPosition:I
 
-.field private mTrackOldChangeHolders:Z
+.field mTrackOldChangeHolders:Z
 
 
 # direct methods
-.method static synthetic -get0(Landroid/support/v7/widget/RecyclerView$State;)I
-    .locals 1
-
-    iget v0, p0, Landroid/support/v7/widget/RecyclerView$State;->mDeletedInvisibleItemCountSincePreviousLayout:I
-
-    return v0
-.end method
-
-.method static synthetic -get1(Landroid/support/v7/widget/RecyclerView$State;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Landroid/support/v7/widget/RecyclerView$State;->mInPreLayout:Z
-
-    return v0
-.end method
-
-.method static synthetic -get2(Landroid/support/v7/widget/RecyclerView$State;)I
-    .locals 1
-
-    iget v0, p0, Landroid/support/v7/widget/RecyclerView$State;->mLayoutStep:I
-
-    return v0
-.end method
-
-.method static synthetic -get3(Landroid/support/v7/widget/RecyclerView$State;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Landroid/support/v7/widget/RecyclerView$State;->mRunPredictiveAnimations:Z
-
-    return v0
-.end method
-
-.method static synthetic -get4(Landroid/support/v7/widget/RecyclerView$State;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Landroid/support/v7/widget/RecyclerView$State;->mRunSimpleAnimations:Z
-
-    return v0
-.end method
-
-.method static synthetic -get5(Landroid/support/v7/widget/RecyclerView$State;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Landroid/support/v7/widget/RecyclerView$State;->mStructureChanged:Z
-
-    return v0
-.end method
-
-.method static synthetic -get6(Landroid/support/v7/widget/RecyclerView$State;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Landroid/support/v7/widget/RecyclerView$State;->mTrackOldChangeHolders:Z
-
-    return v0
-.end method
-
 .method static synthetic -set0(Landroid/support/v7/widget/RecyclerView$State;I)I
     .locals 0
 
-    iput p1, p0, Landroid/support/v7/widget/RecyclerView$State;->mDeletedInvisibleItemCountSincePreviousLayout:I
-
-    return p1
-.end method
-
-.method static synthetic -set1(Landroid/support/v7/widget/RecyclerView$State;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Landroid/support/v7/widget/RecyclerView$State;->mInPreLayout:Z
-
-    return p1
-.end method
-
-.method static synthetic -set2(Landroid/support/v7/widget/RecyclerView$State;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Landroid/support/v7/widget/RecyclerView$State;->mIsMeasuring:Z
-
-    return p1
-.end method
-
-.method static synthetic -set3(Landroid/support/v7/widget/RecyclerView$State;I)I
-    .locals 0
-
-    iput p1, p0, Landroid/support/v7/widget/RecyclerView$State;->mLayoutStep:I
-
-    return p1
-.end method
-
-.method static synthetic -set4(Landroid/support/v7/widget/RecyclerView$State;I)I
-    .locals 0
-
-    iput p1, p0, Landroid/support/v7/widget/RecyclerView$State;->mPreviousLayoutItemCount:I
-
-    return p1
-.end method
-
-.method static synthetic -set5(Landroid/support/v7/widget/RecyclerView$State;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Landroid/support/v7/widget/RecyclerView$State;->mRunPredictiveAnimations:Z
-
-    return p1
-.end method
-
-.method static synthetic -set6(Landroid/support/v7/widget/RecyclerView$State;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Landroid/support/v7/widget/RecyclerView$State;->mRunSimpleAnimations:Z
-
-    return p1
-.end method
-
-.method static synthetic -set7(Landroid/support/v7/widget/RecyclerView$State;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Landroid/support/v7/widget/RecyclerView$State;->mStructureChanged:Z
-
-    return p1
-.end method
-
-.method static synthetic -set8(Landroid/support/v7/widget/RecyclerView$State;I)I
-    .locals 0
-
     iput p1, p0, Landroid/support/v7/widget/RecyclerView$State;->mTargetPosition:I
-
-    return p1
-.end method
-
-.method static synthetic -set9(Landroid/support/v7/widget/RecyclerView$State;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Landroid/support/v7/widget/RecyclerView$State;->mTrackOldChangeHolders:Z
 
     return p1
 .end method
@@ -209,27 +85,27 @@
 
     iput v0, p0, Landroid/support/v7/widget/RecyclerView$State;->mTargetPosition:I
 
+    iput v1, p0, Landroid/support/v7/widget/RecyclerView$State;->mPreviousLayoutItemCount:I
+
+    iput v1, p0, Landroid/support/v7/widget/RecyclerView$State;->mDeletedInvisibleItemCountSincePreviousLayout:I
+
     const/4 v0, 0x1
 
     iput v0, p0, Landroid/support/v7/widget/RecyclerView$State;->mLayoutStep:I
 
     iput v1, p0, Landroid/support/v7/widget/RecyclerView$State;->mItemCount:I
 
-    iput v1, p0, Landroid/support/v7/widget/RecyclerView$State;->mPreviousLayoutItemCount:I
-
-    iput v1, p0, Landroid/support/v7/widget/RecyclerView$State;->mDeletedInvisibleItemCountSincePreviousLayout:I
-
     iput-boolean v1, p0, Landroid/support/v7/widget/RecyclerView$State;->mStructureChanged:Z
 
     iput-boolean v1, p0, Landroid/support/v7/widget/RecyclerView$State;->mInPreLayout:Z
 
-    iput-boolean v1, p0, Landroid/support/v7/widget/RecyclerView$State;->mRunSimpleAnimations:Z
-
-    iput-boolean v1, p0, Landroid/support/v7/widget/RecyclerView$State;->mRunPredictiveAnimations:Z
-
     iput-boolean v1, p0, Landroid/support/v7/widget/RecyclerView$State;->mTrackOldChangeHolders:Z
 
     iput-boolean v1, p0, Landroid/support/v7/widget/RecyclerView$State;->mIsMeasuring:Z
+
+    iput-boolean v1, p0, Landroid/support/v7/widget/RecyclerView$State;->mRunSimpleAnimations:Z
+
+    iput-boolean v1, p0, Landroid/support/v7/widget/RecyclerView$State;->mRunPredictiveAnimations:Z
 
     return-void
 .end method
@@ -323,6 +199,30 @@
     goto :goto_0
 .end method
 
+.method public getRemainingScrollHorizontal()I
+    .locals 1
+
+    iget v0, p0, Landroid/support/v7/widget/RecyclerView$State;->mRemainingScrollHorizontal:I
+
+    return v0
+.end method
+
+.method public getRemainingScrollVertical()I
+    .locals 1
+
+    iget v0, p0, Landroid/support/v7/widget/RecyclerView$State;->mRemainingScrollVertical:I
+
+    return v0
+.end method
+
+.method public getTargetScrollPosition()I
+    .locals 1
+
+    iget v0, p0, Landroid/support/v7/widget/RecyclerView$State;->mTargetPosition:I
+
+    return v0
+.end method
+
 .method public hasTargetScrollPosition()Z
     .locals 2
 
@@ -349,6 +249,30 @@
     iget-boolean v0, p0, Landroid/support/v7/widget/RecyclerView$State;->mInPreLayout:Z
 
     return v0
+.end method
+
+.method prepareForNestedPrefetch(Landroid/support/v7/widget/RecyclerView$Adapter;)V
+    .locals 2
+
+    const/4 v1, 0x0
+
+    const/4 v0, 0x1
+
+    iput v0, p0, Landroid/support/v7/widget/RecyclerView$State;->mLayoutStep:I
+
+    invoke-virtual {p1}, Landroid/support/v7/widget/RecyclerView$Adapter;->getItemCount()I
+
+    move-result v0
+
+    iput v0, p0, Landroid/support/v7/widget/RecyclerView$State;->mItemCount:I
+
+    iput-boolean v1, p0, Landroid/support/v7/widget/RecyclerView$State;->mInPreLayout:Z
+
+    iput-boolean v1, p0, Landroid/support/v7/widget/RecyclerView$State;->mTrackOldChangeHolders:Z
+
+    iput-boolean v1, p0, Landroid/support/v7/widget/RecyclerView$State;->mIsMeasuring:Z
+
+    return-void
 .end method
 
 .method public toString()Ljava/lang/String;

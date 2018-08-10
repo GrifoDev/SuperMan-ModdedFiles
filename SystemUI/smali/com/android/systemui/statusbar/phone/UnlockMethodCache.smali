@@ -26,7 +26,7 @@
 
 .field private final mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-.field private final mKnoxStateCallback:Lcom/android/keyguard/KnoxStateMonitorCallback;
+.field private final mKnoxStateCallback:Lcom/android/systemui/KnoxStateMonitorCallback;
 
 .field private final mListeners:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
@@ -86,7 +86,7 @@
 
     invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/phone/UnlockMethodCache$2;-><init>(Lcom/android/systemui/statusbar/phone/UnlockMethodCache;)V
 
-    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/UnlockMethodCache;->mKnoxStateCallback:Lcom/android/keyguard/KnoxStateMonitorCallback;
+    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/UnlockMethodCache;->mKnoxStateCallback:Lcom/android/systemui/KnoxStateMonitorCallback;
 
     new-instance v0, Lcom/android/internal/widget/LockPatternUtils;
 
@@ -108,13 +108,17 @@
 
     invoke-virtual {v0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->registerCallback(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;)V
 
-    invoke-static {p1}, Lcom/android/keyguard/KnoxStateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KnoxStateMonitor;
+    const-class v0, Lcom/android/systemui/KnoxStateMonitor;
+
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/UnlockMethodCache;->mKnoxStateCallback:Lcom/android/keyguard/KnoxStateMonitorCallback;
+    check-cast v0, Lcom/android/systemui/KnoxStateMonitor;
 
-    invoke-virtual {v0, v1}, Lcom/android/keyguard/KnoxStateMonitor;->registerCallback(Lcom/android/keyguard/KnoxStateMonitorCallback;)V
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/UnlockMethodCache;->mKnoxStateCallback:Lcom/android/systemui/KnoxStateMonitorCallback;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/KnoxStateMonitor;->registerCallback(Lcom/android/systemui/KnoxStateMonitorCallback;)V
 
     const/4 v0, 0x1
 
@@ -173,84 +177,80 @@
 .end method
 
 .method private update(Z)V
-    .locals 9
+    .locals 8
 
-    const/4 v7, 0x0
+    const-string/jumbo v7, "UnlockMethodCache#update"
 
-    const/4 v1, 0x1
-
-    const-string/jumbo v8, "UnlockMethodCache#update"
-
-    invoke-static {v8}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
+    invoke-static {v7}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
 
     invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
 
     move-result v6
 
-    iget-object v8, p0, Lcom/android/systemui/statusbar/phone/UnlockMethodCache;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/UnlockMethodCache;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    invoke-virtual {v8, v6}, Lcom/android/internal/widget/LockPatternUtils;->isSecure(I)Z
+    invoke-virtual {v7, v6}, Lcom/android/internal/widget/LockPatternUtils;->isSecure(I)Z
 
-    move-result v8
+    move-result v7
 
-    if-eqz v8, :cond_4
+    if-eqz v7, :cond_4
 
-    sget-boolean v8, Lcom/android/keyguard/KeyguardRune;->SUPPORT_ATT_LOCK_TIMEOUT:Z
+    sget-boolean v7, Lcom/android/systemui/Rune;->SECURITY_SUPPORT_ATT_LOCK_TIMEOUT:Z
 
-    if-eqz v8, :cond_3
+    if-eqz v7, :cond_3
 
-    iget-object v8, p0, Lcom/android/systemui/statusbar/phone/UnlockMethodCache;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/UnlockMethodCache;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-virtual {v8}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getSwipeLockBeforeTimeout()Z
+    invoke-virtual {v7}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getSwipeLockBeforeTimeout()Z
 
-    move-result v8
+    move-result v7
 
-    if-eqz v8, :cond_3
-
-    move v3, v7
+    xor-int/lit8 v3, v7, 0x1
 
     :goto_0
     if-eqz v3, :cond_5
 
-    iget-object v8, p0, Lcom/android/systemui/statusbar/phone/UnlockMethodCache;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/UnlockMethodCache;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-virtual {v8, v6}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getUserCanSkipBouncer(I)Z
+    invoke-virtual {v7, v6}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getUserCanSkipBouncer(I)Z
 
     move-result v0
 
     :goto_1
-    iget-object v8, p0, Lcom/android/systemui/statusbar/phone/UnlockMethodCache;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/UnlockMethodCache;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-virtual {v8, v6}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getUserTrustIsManaged(I)Z
+    invoke-virtual {v7, v6}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getUserTrustIsManaged(I)Z
 
     move-result v4
 
-    iget-object v8, p0, Lcom/android/systemui/statusbar/phone/UnlockMethodCache;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/UnlockMethodCache;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-virtual {v8, v6}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getUserHasTrust(I)Z
+    invoke-virtual {v7, v6}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getUserHasTrust(I)Z
 
     move-result v5
 
-    iget-object v8, p0, Lcom/android/systemui/statusbar/phone/UnlockMethodCache;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/UnlockMethodCache;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-virtual {v8, v6}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isFaceUnlockRunning(I)Z
+    invoke-virtual {v7, v6}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isFaceUnlockRunning(I)Z
 
-    move-result v8
+    move-result v7
 
-    if-eqz v8, :cond_6
+    if-eqz v7, :cond_6
 
     move v2, v4
 
     :goto_2
-    iget-boolean v8, p0, Lcom/android/systemui/statusbar/phone/UnlockMethodCache;->mSecure:Z
+    iget-boolean v7, p0, Lcom/android/systemui/statusbar/phone/UnlockMethodCache;->mSecure:Z
 
-    if-ne v3, v8, :cond_0
+    if-ne v3, v7, :cond_0
 
-    iget-boolean v8, p0, Lcom/android/systemui/statusbar/phone/UnlockMethodCache;->mCanSkipBouncer:Z
+    iget-boolean v7, p0, Lcom/android/systemui/statusbar/phone/UnlockMethodCache;->mCanSkipBouncer:Z
 
-    if-eq v0, v8, :cond_7
+    if-eq v0, v7, :cond_7
 
     :cond_0
+    const/4 v1, 0x1
+
     :goto_3
     if-nez v1, :cond_1
 
@@ -275,12 +275,12 @@
     return-void
 
     :cond_3
-    move v3, v1
+    const/4 v3, 0x1
 
     goto :goto_0
 
     :cond_4
-    move v3, v7
+    const/4 v3, 0x0
 
     goto :goto_0
 
@@ -295,15 +295,20 @@
     goto :goto_2
 
     :cond_7
-    iget-boolean v8, p0, Lcom/android/systemui/statusbar/phone/UnlockMethodCache;->mTrustManaged:Z
+    iget-boolean v7, p0, Lcom/android/systemui/statusbar/phone/UnlockMethodCache;->mTrustManaged:Z
 
-    if-ne v4, v8, :cond_0
+    if-ne v4, v7, :cond_0
 
-    iget-boolean v8, p0, Lcom/android/systemui/statusbar/phone/UnlockMethodCache;->mFaceUnlockRunning:Z
+    iget-boolean v7, p0, Lcom/android/systemui/statusbar/phone/UnlockMethodCache;->mFaceUnlockRunning:Z
 
-    if-ne v2, v8, :cond_0
+    if-eq v2, v7, :cond_8
 
-    move v1, v7
+    const/4 v1, 0x1
+
+    goto :goto_3
+
+    :cond_8
+    const/4 v1, 0x0
 
     goto :goto_3
 .end method

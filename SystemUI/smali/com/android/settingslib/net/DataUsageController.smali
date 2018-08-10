@@ -1015,7 +1015,9 @@
     goto :goto_2
 
     :cond_b
-    const-wide v10, 0x80000000L
+    invoke-virtual/range {p0 .. p0}, Lcom/android/settingslib/net/DataUsageController;->getDefaultWarningLevel()J
+
+    move-result-wide v10
 
     move-object/from16 v0, v29
 
@@ -1037,6 +1039,30 @@
     move-result-object v5
 
     return-object v5
+.end method
+
+.method public getDefaultWarningLevel()J
+    .locals 4
+
+    iget-object v0, p0, Lcom/android/settingslib/net/DataUsageController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x10e00ee
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v0
+
+    int-to-long v0, v0
+
+    const-wide/32 v2, 0x100000
+
+    mul-long/2addr v0, v2
+
+    return-wide v0
 .end method
 
 .method public isMobileDataEnabled()Z

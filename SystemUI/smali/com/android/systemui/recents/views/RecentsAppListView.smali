@@ -160,7 +160,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d03a8
+    const v1, 0x7f07053d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -237,77 +237,12 @@
     return-void
 .end method
 
-.method private updateGoToTopButtonLayout()V
-    .locals 4
-
-    iget-object v2, p0, Lcom/android/systemui/recents/views/RecentsAppListView;->mGoToTopButton:Landroid/widget/Button;
-
-    if-eqz v2, :cond_0
-
-    iget-object v2, p0, Lcom/android/systemui/recents/views/RecentsAppListView;->mContext:Landroid/content/Context;
-
-    invoke-static {v2}, Lcom/android/systemui/recents/misc/Utilities;->getAppConfiguration(Landroid/content/Context;)Landroid/content/res/Configuration;
-
-    move-result-object v2
-
-    iget v1, v2, Landroid/content/res/Configuration;->orientation:I
-
-    iget-object v2, p0, Lcom/android/systemui/recents/views/RecentsAppListView;->mGoToTopButton:Landroid/widget/Button;
-
-    invoke-virtual {v2}, Landroid/widget/Button;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/view/ViewGroup$MarginLayoutParams;
-
-    const/4 v2, 0x2
-
-    if-ne v1, v2, :cond_1
-
-    iget-object v2, p0, Lcom/android/systemui/recents/views/RecentsAppListView;->mSystemInsets:Landroid/graphics/Rect;
-
-    iget v2, v2, Landroid/graphics/Rect;->right:I
-
-    div-int/lit8 v2, v2, 0x2
-
-    iput v2, v0, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
-
-    iget v2, p0, Lcom/android/systemui/recents/views/RecentsAppListView;->mGoToTopBottomMargin:I
-
-    iput v2, v0, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
-
-    :goto_0
-    iget-object v2, p0, Lcom/android/systemui/recents/views/RecentsAppListView;->mGoToTopButton:Landroid/widget/Button;
-
-    invoke-virtual {v2, v0}, Landroid/widget/Button;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    :cond_0
-    return-void
-
-    :cond_1
-    const/4 v2, 0x0
-
-    iput v2, v0, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
-
-    iget-object v2, p0, Lcom/android/systemui/recents/views/RecentsAppListView;->mSystemInsets:Landroid/graphics/Rect;
-
-    iget v2, v2, Landroid/graphics/Rect;->bottom:I
-
-    iget v3, p0, Lcom/android/systemui/recents/views/RecentsAppListView;->mGoToTopBottomMargin:I
-
-    add-int/2addr v2, v3
-
-    iput v2, v0, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
-
-    goto :goto_0
-.end method
-
 
 # virtual methods
 .method public bindViews(Landroid/view/View;)V
     .locals 2
 
-    const v0, 0x7f130323
+    const v0, 0x7f0a00b4
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -410,15 +345,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_0
-    :goto_0
-    invoke-virtual {p0}, Lcom/android/systemui/recents/views/RecentsAppListView;->postInvalidateOnAnimation()V
+    if-eqz v1, :cond_0
 
-    return-void
-
-    :cond_1
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
     move-result v0
@@ -443,7 +373,10 @@
 
     invoke-virtual {p1, v0}, Landroid/graphics/Canvas;->restoreToCount(I)V
 
-    goto :goto_0
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/systemui/recents/views/RecentsAppListView;->postInvalidateOnAnimation()V
+
+    return-void
 .end method
 
 .method public fling(II)Z
@@ -460,20 +393,84 @@
     return v0
 .end method
 
-.method public handleButtonsContainer(Z)V
-    .locals 2
+.method public focusSearch(Landroid/view/View;I)Landroid/view/View;
+    .locals 4
+
+    const/4 v3, 0x1
+
+    const/4 v2, 0x0
+
+    invoke-virtual {p1}, Landroid/view/View;->getNextFocusUpId()I
+
+    move-result v0
+
+    const/4 v1, -0x1
+
+    if-eq v0, v1, :cond_0
+
+    const/16 v0, 0x21
+
+    if-ne p2, v0, :cond_0
+
+    invoke-virtual {p0, v2}, Lcom/android/systemui/recents/views/RecentsAppListView;->smoothScrollToPosition(I)V
 
     invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/systemui/recents/events/ui/ToggleRecentsButtonsContainerEvent;
+    new-instance v1, Lcom/android/systemui/recents/events/ui/ToggleButtonsContainerEvent;
 
-    invoke-direct {v1, p1}, Lcom/android/systemui/recents/events/ui/ToggleRecentsButtonsContainerEvent;-><init>(Z)V
+    invoke-direct {v1, v3, v3, v2}, Lcom/android/systemui/recents/events/ui/ToggleButtonsContainerEvent;-><init>(ZZZ)V
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
 
-    return-void
+    const/4 v0, 0x0
+
+    return-object v0
+
+    :cond_0
+    invoke-super {p0, p1, p2}, Landroid/support/v7/widget/RecyclerView;->focusSearch(Landroid/view/View;I)Landroid/view/View;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method protected getBottomFadingEdgeStrength()F
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method protected getTopFadingEdgeStrength()F
+    .locals 4
+
+    iget-object v2, p0, Lcom/android/systemui/recents/views/RecentsAppListView;->mScroller:Lcom/android/systemui/recents/views/RecentsAppListView$AppListScroller;
+
+    iget v1, v2, Lcom/android/systemui/recents/views/RecentsAppListView$AppListScroller;->mCurrentScrollY:I
+
+    invoke-static {}, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->getAttr()Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;
+
+    move-result-object v2
+
+    iget v0, v2, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;->mHeaderHeight:I
+
+    if-lt v1, v0, :cond_0
+
+    const/high16 v2, 0x3f800000    # 1.0f
+
+    return v2
+
+    :cond_0
+    int-to-float v2, v1
+
+    int-to-float v3, v0
+
+    div-float/2addr v2, v3
+
+    return v2
 .end method
 
 .method public handleGoToTopButton(Z)V
@@ -547,8 +544,6 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    invoke-direct {p0}, Lcom/android/systemui/recents/views/RecentsAppListView;->updateGoToTopButtonLayout()V
-
     return-object p1
 .end method
 
@@ -574,65 +569,37 @@
 .end method
 
 .method protected onSizeChanged(IIII)V
-    .locals 4
+    .locals 3
 
-    const/4 v3, 0x0
-
-    invoke-static {}, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->getAttr()Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1, p2}, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;->onSizeChanged(II)V
-
-    invoke-static {}, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->getAttr()Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;
-
-    move-result-object v2
-
-    iget v1, v2, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;->mOffsetEdge:I
-
-    iget-object v2, p0, Lcom/android/systemui/recents/views/RecentsAppListView;->mContext:Landroid/content/Context;
-
-    invoke-static {v2}, Lcom/android/systemui/recents/misc/Utilities;->getAppConfiguration(Landroid/content/Context;)Landroid/content/res/Configuration;
-
-    move-result-object v2
-
-    iget v0, v2, Landroid/content/res/Configuration;->orientation:I
-
-    const/4 v2, 0x2
-
-    if-ne v0, v2, :cond_0
-
-    iget-object v2, p0, Lcom/android/systemui/recents/views/RecentsAppListView;->mSystemInsets:Landroid/graphics/Rect;
-
-    iget v2, v2, Landroid/graphics/Rect;->right:I
-
-    add-int/2addr v2, v1
-
-    invoke-virtual {p0, v1, v3, v2, v3}, Lcom/android/systemui/recents/views/RecentsAppListView;->setPadding(IIII)V
-
-    :goto_0
-    invoke-direct {p0}, Lcom/android/systemui/recents/views/RecentsAppListView;->updateGoToTopButtonLayout()V
-
-    iget-object v2, p0, Lcom/android/systemui/recents/views/RecentsAppListView;->mAdapter:Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;
-
-    invoke-virtual {v2}, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->notifyDataSetChanged()V
-
-    iget-object v2, p0, Lcom/android/systemui/recents/views/RecentsAppListView;->mEdgeGlowTop:Landroid/widget/EdgeEffect;
-
-    invoke-virtual {v2, p1, p2}, Landroid/widget/EdgeEffect;->setSize(II)V
+    const/4 v2, 0x0
 
     invoke-super {p0, p1, p2, p3, p4}, Landroid/support/v7/widget/RecyclerView;->onSizeChanged(IIII)V
 
+    iget-object v1, p0, Lcom/android/systemui/recents/views/RecentsAppListView;->mSystemInsets:Landroid/graphics/Rect;
+
+    iget v1, v1, Landroid/graphics/Rect;->right:I
+
+    sub-int/2addr p1, v1
+
+    iget-object v1, p0, Lcom/android/systemui/recents/views/RecentsAppListView;->mSystemInsets:Landroid/graphics/Rect;
+
+    iget v1, v1, Landroid/graphics/Rect;->bottom:I
+
+    sub-int/2addr p2, v1
+
+    invoke-static {}, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->getAttr()Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;
+
+    move-result-object v1
+
+    iget v0, v1, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;->mOffsetEdge:I
+
+    invoke-virtual {p0, v0, v2, v0, v2}, Lcom/android/systemui/recents/views/RecentsAppListView;->setPadding(IIII)V
+
+    iget-object v1, p0, Lcom/android/systemui/recents/views/RecentsAppListView;->mEdgeGlowTop:Landroid/widget/EdgeEffect;
+
+    invoke-virtual {v1, p1, p2}, Landroid/widget/EdgeEffect;->setSize(II)V
+
     return-void
-
-    :cond_0
-    iget-object v2, p0, Lcom/android/systemui/recents/views/RecentsAppListView;->mSystemInsets:Landroid/graphics/Rect;
-
-    iget v2, v2, Landroid/graphics/Rect;->bottom:I
-
-    invoke-virtual {p0, v1, v3, v1, v2}, Lcom/android/systemui/recents/views/RecentsAppListView;->setPadding(IIII)V
-
-    goto :goto_0
 .end method
 
 .method protected onVisibilityChanged(Landroid/view/View;I)V

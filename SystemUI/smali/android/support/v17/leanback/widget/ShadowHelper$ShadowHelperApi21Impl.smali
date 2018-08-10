@@ -18,7 +18,7 @@
 
 
 # direct methods
-.method private constructor <init>()V
+.method constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,16 +26,26 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Landroid/support/v17/leanback/widget/ShadowHelper$ShadowHelperApi21Impl;)V
+
+# virtual methods
+.method public addDynamicShadow(Landroid/view/View;FFI)Ljava/lang/Object;
+    .locals 1
+
+    invoke-static {p1, p2, p3, p4}, Landroid/support/v17/leanback/widget/ShadowHelperApi21;->addDynamicShadow(Landroid/view/View;FFI)Ljava/lang/Object;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public setShadowFocusLevel(Ljava/lang/Object;F)V
     .locals 0
 
-    invoke-direct {p0}, Landroid/support/v17/leanback/widget/ShadowHelper$ShadowHelperApi21Impl;-><init>()V
+    invoke-static {p1, p2}, Landroid/support/v17/leanback/widget/ShadowHelperApi21;->setShadowFocusLevel(Ljava/lang/Object;F)V
 
     return-void
 .end method
 
-
-# virtual methods
 .method public setZ(Landroid/view/View;F)V
     .locals 0
 

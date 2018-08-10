@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.systemui.statusbar.phone.SecNavigationBarSetupWizardView android:background="@drawable/system_bar_background" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:systemui="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:orientation="vertical" android:id="@id/nav_buttons" android:background="#fff5f5f5" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <View android:id="@id/bottom_button_bar" android:background="#12000000" android:layout_width="fill_parent" android:layout_height="2.0px" />
+        <RelativeLayout android:gravity="end|center" android:layout_gravity="bottom" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="horizontal" android:id="@id/prev_btn_area" android:background="@drawable/ripple_setupwizard_next_btn" android:focusable="true" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginStart="24.0dip" android:layout_alignParentStart="true">
+                <ImageView android:gravity="center" android:id="@id/prev_btn_arrow" android:layout_width="22.0dip" android:layout_height="22.0dip" android:src="@drawable/navigationbar_setupwizard_prev_arrow_auto_mirrored" android:contentDescription="@string/sec_accessibility_back" />
+            </LinearLayout>
+            <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="horizontal" android:id="@id/prev_ime_area" android:background="@drawable/ripple_setupwizard_next_btn" android:focusable="true" android:visibility="invisible" android:layout_width="@dimen/navigation_key_width" android:layout_height="fill_parent" android:layout_marginEnd="@dimen/navigation_side_padding" android:layout_alignParentEnd="true">
+                <ImageView android:gravity="center" android:id="@id/ime_icon" android:layout_width="22.0dip" android:layout_height="22.0dip" android:src="@drawable/navigationbar_setupwizard_ime_icon_auto_mirrored" android:tint="#ff898989" android:contentDescription="@string/sec_accessibility_back" />
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</com.android.systemui.statusbar.phone.SecNavigationBarSetupWizardView>

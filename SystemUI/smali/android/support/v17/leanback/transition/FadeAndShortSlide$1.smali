@@ -16,11 +16,9 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
-
-    invoke-direct {p0, v0}, Landroid/support/v17/leanback/transition/FadeAndShortSlide$CalculateSlide;-><init>(Landroid/support/v17/leanback/transition/FadeAndShortSlide$CalculateSlide;)V
+    invoke-direct {p0}, Landroid/support/v17/leanback/transition/FadeAndShortSlide$CalculateSlide;-><init>()V
 
     return-void
 .end method
@@ -30,13 +28,15 @@
 .method public getGoneX(Landroid/support/v17/leanback/transition/FadeAndShortSlide;Landroid/view/ViewGroup;Landroid/view/View;[I)F
     .locals 4
 
-    const/4 v0, 0x1
-
     invoke-virtual {p2}, Landroid/view/ViewGroup;->getLayoutDirection()I
 
     move-result v2
 
-    if-ne v2, v0, :cond_0
+    const/4 v3, 0x1
+
+    if-ne v2, v3, :cond_0
+
+    const/4 v0, 0x1
 
     :goto_0
     if-eqz v0, :cond_1

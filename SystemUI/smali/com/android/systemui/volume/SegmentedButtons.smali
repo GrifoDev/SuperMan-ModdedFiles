@@ -23,13 +23,13 @@
 
 .field private final mClick:Landroid/view/View$OnClickListener;
 
+.field private final mConfigurableTexts:Lcom/android/systemui/volume/ConfigurableTexts;
+
 .field private final mContext:Landroid/content/Context;
 
 .field protected final mInflater:Landroid/view/LayoutInflater;
 
 .field protected mSelectedValue:Ljava/lang/Object;
-
-.field private final mSpTexts:Lcom/android/systemui/volume/SpTexts;
 
 
 # direct methods
@@ -90,13 +90,13 @@
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/volume/SegmentedButtons;->setOrientation(I)V
 
-    new-instance v0, Lcom/android/systemui/volume/SpTexts;
+    new-instance v0, Lcom/android/systemui/volume/ConfigurableTexts;
 
     iget-object v1, p0, Lcom/android/systemui/volume/SegmentedButtons;->mContext:Landroid/content/Context;
 
-    invoke-direct {v0, v1}, Lcom/android/systemui/volume/SpTexts;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, v1}, Lcom/android/systemui/volume/ConfigurableTexts;-><init>(Landroid/content/Context;)V
 
-    iput-object v0, p0, Lcom/android/systemui/volume/SegmentedButtons;->mSpTexts:Lcom/android/systemui/volume/SpTexts;
+    iput-object v0, p0, Lcom/android/systemui/volume/SegmentedButtons;->mConfigurableTexts:Lcom/android/systemui/volume/ConfigurableTexts;
 
     return-void
 .end method
@@ -148,7 +148,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f1301ef
+    const v3, 0x7f0a02cd
 
     invoke-virtual {v0, v3, v2}, Landroid/widget/Button;->setTag(ILjava/lang/Object;)V
 
@@ -197,9 +197,9 @@
 
     invoke-static {v0, v2}, Lcom/android/systemui/volume/Interaction;->register(Landroid/view/View;Lcom/android/systemui/volume/Interaction$Callback;)V
 
-    iget-object v2, p0, Lcom/android/systemui/volume/SegmentedButtons;->mSpTexts:Lcom/android/systemui/volume/SpTexts;
+    iget-object v2, p0, Lcom/android/systemui/volume/SegmentedButtons;->mConfigurableTexts:Lcom/android/systemui/volume/ConfigurableTexts;
 
-    invoke-virtual {v2, v0}, Lcom/android/systemui/volume/SpTexts;->add(Landroid/widget/TextView;)I
+    invoke-virtual {v2, v0, p1}, Lcom/android/systemui/volume/ConfigurableTexts;->add(Landroid/widget/TextView;I)I
 
     return-void
 .end method
@@ -217,7 +217,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/volume/SegmentedButtons;->mInflater:Landroid/view/LayoutInflater;
 
-    const v1, 0x7f040147
+    const v1, 0x7f0d019d
 
     const/4 v2, 0x0
 
@@ -311,42 +311,12 @@
     return-void
 .end method
 
-.method public updateLocale()V
-    .locals 4
+.method public update()V
+    .locals 1
 
-    const/4 v1, 0x0
+    iget-object v0, p0, Lcom/android/systemui/volume/SegmentedButtons;->mConfigurableTexts:Lcom/android/systemui/volume/ConfigurableTexts;
 
-    :goto_0
-    invoke-virtual {p0}, Lcom/android/systemui/volume/SegmentedButtons;->getChildCount()I
+    invoke-virtual {v0}, Lcom/android/systemui/volume/ConfigurableTexts;->update()V
 
-    move-result v3
-
-    if-ge v1, v3, :cond_0
-
-    invoke-virtual {p0, v1}, Lcom/android/systemui/volume/SegmentedButtons;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/Button;
-
-    const v3, 0x7f1301ef
-
-    invoke-virtual {v0, v3}, Landroid/widget/Button;->getTag(I)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Ljava/lang/Integer;
-
-    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
-
-    move-result v2
-
-    invoke-virtual {v0, v2}, Landroid/widget/Button;->setText(I)V
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :cond_0
     return-void
 .end method

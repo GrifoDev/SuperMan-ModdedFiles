@@ -3,6 +3,12 @@
 .source "ActionBarBackgroundDrawable.java"
 
 
+# annotations
+.annotation build Landroid/support/annotation/RequiresApi;
+    value = 0x9
+.end annotation
+
+
 # instance fields
 .field final mContainer:Landroid/support/v7/widget/ActionBarContainer;
 

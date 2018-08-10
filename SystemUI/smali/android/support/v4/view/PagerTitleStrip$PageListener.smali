@@ -25,20 +25,12 @@
 
 
 # direct methods
-.method private constructor <init>(Landroid/support/v4/view/PagerTitleStrip;)V
+.method constructor <init>(Landroid/support/v4/view/PagerTitleStrip;)V
     .locals 0
 
     iput-object p1, p0, Landroid/support/v4/view/PagerTitleStrip$PageListener;->this$0:Landroid/support/v4/view/PagerTitleStrip;
 
     invoke-direct {p0}, Landroid/database/DataSetObserver;-><init>()V
-
-    return-void
-.end method
-
-.method synthetic constructor <init>(Landroid/support/v4/view/PagerTitleStrip;Landroid/support/v4/view/PagerTitleStrip$PageListener;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Landroid/support/v4/view/PagerTitleStrip$PageListener;-><init>(Landroid/support/v4/view/PagerTitleStrip;)V
 
     return-void
 .end method
@@ -80,9 +72,7 @@
 
     iget-object v1, p0, Landroid/support/v4/view/PagerTitleStrip$PageListener;->this$0:Landroid/support/v4/view/PagerTitleStrip;
 
-    invoke-static {v1}, Landroid/support/v4/view/PagerTitleStrip;->-get0(Landroid/support/v4/view/PagerTitleStrip;)F
-
-    move-result v1
+    iget v1, v1, Landroid/support/v4/view/PagerTitleStrip;->mLastKnownPositionOffset:F
 
     const/4 v2, 0x0
 
@@ -92,9 +82,7 @@
 
     iget-object v1, p0, Landroid/support/v4/view/PagerTitleStrip$PageListener;->this$0:Landroid/support/v4/view/PagerTitleStrip;
 
-    invoke-static {v1}, Landroid/support/v4/view/PagerTitleStrip;->-get0(Landroid/support/v4/view/PagerTitleStrip;)F
-
-    move-result v0
+    iget v0, v1, Landroid/support/v4/view/PagerTitleStrip;->mLastKnownPositionOffset:F
 
     :goto_0
     iget-object v1, p0, Landroid/support/v4/view/PagerTitleStrip$PageListener;->this$0:Landroid/support/v4/view/PagerTitleStrip;
@@ -177,9 +165,7 @@
 
     iget-object v1, p0, Landroid/support/v4/view/PagerTitleStrip$PageListener;->this$0:Landroid/support/v4/view/PagerTitleStrip;
 
-    invoke-static {v1}, Landroid/support/v4/view/PagerTitleStrip;->-get0(Landroid/support/v4/view/PagerTitleStrip;)F
-
-    move-result v1
+    iget v1, v1, Landroid/support/v4/view/PagerTitleStrip;->mLastKnownPositionOffset:F
 
     const/4 v2, 0x0
 
@@ -189,9 +175,7 @@
 
     iget-object v1, p0, Landroid/support/v4/view/PagerTitleStrip$PageListener;->this$0:Landroid/support/v4/view/PagerTitleStrip;
 
-    invoke-static {v1}, Landroid/support/v4/view/PagerTitleStrip;->-get0(Landroid/support/v4/view/PagerTitleStrip;)F
-
-    move-result v0
+    iget v0, v1, Landroid/support/v4/view/PagerTitleStrip;->mLastKnownPositionOffset:F
 
     :goto_0
     iget-object v1, p0, Landroid/support/v4/view/PagerTitleStrip$PageListener;->this$0:Landroid/support/v4/view/PagerTitleStrip;

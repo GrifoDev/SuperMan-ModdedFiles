@@ -337,36 +337,6 @@
 
 
 # virtual methods
-.method public bridge synthetic dispatchGenericFocusedEvent(Landroid/view/MotionEvent;)Z
-    .locals 1
-
-    invoke-super {p0, p1}, Landroid/support/v17/leanback/widget/BaseGridView;->dispatchGenericFocusedEvent(Landroid/view/MotionEvent;)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-    .locals 1
-
-    invoke-super {p0, p1}, Landroid/support/v17/leanback/widget/BaseGridView;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic dispatchTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 1
-
-    invoke-super {p0, p1}, Landroid/support/v17/leanback/widget/BaseGridView;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z
-
-    move-result v0
-
-    return v0
-.end method
-
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 13
 
@@ -394,12 +364,18 @@
     :cond_1
     if-nez v9, :cond_2
 
-    if-eqz v8, :cond_5
+    xor-int/lit8 v1, v8, 0x1
+
+    if-eqz v1, :cond_2
+
+    invoke-super {p0, p1}, Landroid/support/v17/leanback/widget/BaseGridView;->draw(Landroid/graphics/Canvas;)V
+
+    return-void
 
     :cond_2
     iget-boolean v1, p0, Landroid/support/v17/leanback/widget/HorizontalGridView;->mFadingLowEdge:Z
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_5
 
     invoke-virtual {p0}, Landroid/support/v17/leanback/widget/HorizontalGridView;->getPaddingLeft()I
 
@@ -416,7 +392,7 @@
     :goto_0
     iget-boolean v1, p0, Landroid/support/v17/leanback/widget/HorizontalGridView;->mFadingHighEdge:Z
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_6
 
     invoke-virtual {p0}, Landroid/support/v17/leanback/widget/HorizontalGridView;->getWidth()I
 
@@ -443,7 +419,7 @@
 
     iget-boolean v1, p0, Landroid/support/v17/leanback/widget/HorizontalGridView;->mFadingLowEdge:Z
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_7
 
     iget v1, p0, Landroid/support/v17/leanback/widget/HorizontalGridView;->mLowFadeShaderLength:I
 
@@ -452,7 +428,7 @@
 
     iget-boolean v1, p0, Landroid/support/v17/leanback/widget/HorizontalGridView;->mFadingHighEdge:Z
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_8
 
     iget v1, p0, Landroid/support/v17/leanback/widget/HorizontalGridView;->mHighFadeShaderLength:I
 
@@ -710,71 +686,26 @@
     return-void
 
     :cond_5
-    invoke-super {p0, p1}, Landroid/support/v17/leanback/widget/BaseGridView;->draw(Landroid/graphics/Canvas;)V
-
-    return-void
-
-    :cond_6
     const/4 v7, 0x0
 
     goto/16 :goto_0
 
-    :cond_7
+    :cond_6
     invoke-virtual {p0}, Landroid/support/v17/leanback/widget/HorizontalGridView;->getWidth()I
 
     move-result v6
 
     goto/16 :goto_1
 
-    :cond_8
+    :cond_7
     const/4 v1, 0x0
 
     goto/16 :goto_2
 
-    :cond_9
+    :cond_8
     const/4 v1, 0x0
 
     goto/16 :goto_3
-.end method
-
-.method public bridge synthetic focusSearch(I)Landroid/view/View;
-    .locals 1
-
-    invoke-super {p0, p1}, Landroid/support/v17/leanback/widget/BaseGridView;->focusSearch(I)Landroid/view/View;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getChildDrawingOrder(II)I
-    .locals 1
-
-    invoke-super {p0, p1, p2}, Landroid/support/v17/leanback/widget/BaseGridView;->getChildDrawingOrder(II)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic getSelectedPosition()I
-    .locals 1
-
-    invoke-super {p0}, Landroid/support/v17/leanback/widget/BaseGridView;->getSelectedPosition()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic hasOverlappingRendering()Z
-    .locals 1
-
-    invoke-super {p0}, Landroid/support/v17/leanback/widget/BaseGridView;->hasOverlappingRendering()Z
-
-    move-result v0
-
-    return v0
 .end method
 
 .method protected initAttributes(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -823,30 +754,154 @@
     return-void
 .end method
 
-.method public bridge synthetic onRequestFocusInDescendants(ILandroid/graphics/Rect;)Z
+.method public final setFadingLeftEdge(Z)V
     .locals 1
 
-    invoke-super {p0, p1, p2}, Landroid/support/v17/leanback/widget/BaseGridView;->onRequestFocusInDescendants(ILandroid/graphics/Rect;)Z
+    iget-boolean v0, p0, Landroid/support/v17/leanback/widget/HorizontalGridView;->mFadingLowEdge:Z
 
-    move-result v0
+    if-eq v0, p1, :cond_1
 
-    return v0
-.end method
+    iput-boolean p1, p0, Landroid/support/v17/leanback/widget/HorizontalGridView;->mFadingLowEdge:Z
 
-.method public bridge synthetic onRtlPropertiesChanged(I)V
-    .locals 0
+    iget-boolean v0, p0, Landroid/support/v17/leanback/widget/HorizontalGridView;->mFadingLowEdge:Z
 
-    invoke-super {p0, p1}, Landroid/support/v17/leanback/widget/BaseGridView;->onRtlPropertiesChanged(I)V
+    if-nez v0, :cond_0
 
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Landroid/support/v17/leanback/widget/HorizontalGridView;->mTempBitmapLow:Landroid/graphics/Bitmap;
+
+    :cond_0
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/HorizontalGridView;->invalidate()V
+
+    invoke-direct {p0}, Landroid/support/v17/leanback/widget/HorizontalGridView;->updateLayerType()V
+
+    :cond_1
     return-void
 .end method
 
-.method public bridge synthetic setGravity(I)V
-    .locals 0
+.method public final setFadingLeftEdgeLength(I)V
+    .locals 8
 
-    invoke-super {p0, p1}, Landroid/support/v17/leanback/widget/BaseGridView;->setGravity(I)V
+    const/4 v5, 0x0
 
+    const/4 v1, 0x0
+
+    iget v0, p0, Landroid/support/v17/leanback/widget/HorizontalGridView;->mLowFadeShaderLength:I
+
+    if-eq v0, p1, :cond_0
+
+    iput p1, p0, Landroid/support/v17/leanback/widget/HorizontalGridView;->mLowFadeShaderLength:I
+
+    iget v0, p0, Landroid/support/v17/leanback/widget/HorizontalGridView;->mLowFadeShaderLength:I
+
+    if-eqz v0, :cond_1
+
+    new-instance v0, Landroid/graphics/LinearGradient;
+
+    iget v2, p0, Landroid/support/v17/leanback/widget/HorizontalGridView;->mLowFadeShaderLength:I
+
+    int-to-float v3, v2
+
+    sget-object v7, Landroid/graphics/Shader$TileMode;->CLAMP:Landroid/graphics/Shader$TileMode;
+
+    const/high16 v6, -0x1000000
+
+    move v2, v1
+
+    move v4, v1
+
+    invoke-direct/range {v0 .. v7}, Landroid/graphics/LinearGradient;-><init>(FFFFIILandroid/graphics/Shader$TileMode;)V
+
+    iput-object v0, p0, Landroid/support/v17/leanback/widget/HorizontalGridView;->mLowFadeShader:Landroid/graphics/LinearGradient;
+
+    :goto_0
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/HorizontalGridView;->invalidate()V
+
+    :cond_0
     return-void
+
+    :cond_1
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Landroid/support/v17/leanback/widget/HorizontalGridView;->mLowFadeShader:Landroid/graphics/LinearGradient;
+
+    goto :goto_0
+.end method
+
+.method public final setFadingRightEdge(Z)V
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/support/v17/leanback/widget/HorizontalGridView;->mFadingHighEdge:Z
+
+    if-eq v0, p1, :cond_1
+
+    iput-boolean p1, p0, Landroid/support/v17/leanback/widget/HorizontalGridView;->mFadingHighEdge:Z
+
+    iget-boolean v0, p0, Landroid/support/v17/leanback/widget/HorizontalGridView;->mFadingHighEdge:Z
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Landroid/support/v17/leanback/widget/HorizontalGridView;->mTempBitmapHigh:Landroid/graphics/Bitmap;
+
+    :cond_0
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/HorizontalGridView;->invalidate()V
+
+    invoke-direct {p0}, Landroid/support/v17/leanback/widget/HorizontalGridView;->updateLayerType()V
+
+    :cond_1
+    return-void
+.end method
+
+.method public final setFadingRightEdgeLength(I)V
+    .locals 8
+
+    const/4 v6, 0x0
+
+    const/4 v1, 0x0
+
+    iget v0, p0, Landroid/support/v17/leanback/widget/HorizontalGridView;->mHighFadeShaderLength:I
+
+    if-eq v0, p1, :cond_0
+
+    iput p1, p0, Landroid/support/v17/leanback/widget/HorizontalGridView;->mHighFadeShaderLength:I
+
+    iget v0, p0, Landroid/support/v17/leanback/widget/HorizontalGridView;->mHighFadeShaderLength:I
+
+    if-eqz v0, :cond_1
+
+    new-instance v0, Landroid/graphics/LinearGradient;
+
+    iget v2, p0, Landroid/support/v17/leanback/widget/HorizontalGridView;->mHighFadeShaderLength:I
+
+    int-to-float v3, v2
+
+    sget-object v7, Landroid/graphics/Shader$TileMode;->CLAMP:Landroid/graphics/Shader$TileMode;
+
+    const/high16 v5, -0x1000000
+
+    move v2, v1
+
+    move v4, v1
+
+    invoke-direct/range {v0 .. v7}, Landroid/graphics/LinearGradient;-><init>(FFFFIILandroid/graphics/Shader$TileMode;)V
+
+    iput-object v0, p0, Landroid/support/v17/leanback/widget/HorizontalGridView;->mHighFadeShader:Landroid/graphics/LinearGradient;
+
+    :goto_0
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/HorizontalGridView;->invalidate()V
+
+    :cond_0
+    return-void
+
+    :cond_1
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Landroid/support/v17/leanback/widget/HorizontalGridView;->mHighFadeShader:Landroid/graphics/LinearGradient;
+
+    goto :goto_0
 .end method
 
 .method public setNumRows(I)V
@@ -857,22 +912,6 @@
     invoke-virtual {v0, p1}, Landroid/support/v17/leanback/widget/GridLayoutManager;->setNumRows(I)V
 
     invoke-virtual {p0}, Landroid/support/v17/leanback/widget/HorizontalGridView;->requestLayout()V
-
-    return-void
-.end method
-
-.method public bridge synthetic setOnChildViewHolderSelectedListener(Landroid/support/v17/leanback/widget/OnChildViewHolderSelectedListener;)V
-    .locals 0
-
-    invoke-super {p0, p1}, Landroid/support/v17/leanback/widget/BaseGridView;->setOnChildViewHolderSelectedListener(Landroid/support/v17/leanback/widget/OnChildViewHolderSelectedListener;)V
-
-    return-void
-.end method
-
-.method public bridge synthetic setRecyclerListener(Landroid/support/v7/widget/RecyclerView$RecyclerListener;)V
-    .locals 0
-
-    invoke-super {p0, p1}, Landroid/support/v17/leanback/widget/BaseGridView;->setRecyclerListener(Landroid/support/v7/widget/RecyclerView$RecyclerListener;)V
 
     return-void
 .end method
@@ -911,29 +950,5 @@
     invoke-virtual {p0, v0}, Landroid/support/v17/leanback/widget/HorizontalGridView;->setRowHeight(I)V
 
     :cond_0
-    return-void
-.end method
-
-.method public bridge synthetic setSelectedPosition(I)V
-    .locals 0
-
-    invoke-super {p0, p1}, Landroid/support/v17/leanback/widget/BaseGridView;->setSelectedPosition(I)V
-
-    return-void
-.end method
-
-.method public bridge synthetic setSelectedPositionSmooth(I)V
-    .locals 0
-
-    invoke-super {p0, p1}, Landroid/support/v17/leanback/widget/BaseGridView;->setSelectedPositionSmooth(I)V
-
-    return-void
-.end method
-
-.method public bridge synthetic setWindowAlignment(I)V
-    .locals 0
-
-    invoke-super {p0, p1}, Landroid/support/v17/leanback/widget/BaseGridView;->setWindowAlignment(I)V
-
     return-void
 .end method

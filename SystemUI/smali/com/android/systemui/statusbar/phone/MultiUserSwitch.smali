@@ -11,7 +11,7 @@
 
 .field private mKeyguardUserSwitcher:Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcher;
 
-.field private mQsPanel:Lcom/android/systemui/qs/QSPanel;
+.field protected mQsPanel:Lcom/android/systemui/qs/QSPanel;
 
 .field private final mTmpInt2:[I
 
@@ -19,7 +19,7 @@
 
 .field final mUserManager:Landroid/os/UserManager;
 
-.field private mUserSwitcherController:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
+.field protected mUserSwitcherController:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
 
 # direct methods
@@ -99,7 +99,7 @@
 
     aput-object v0, v3, v4
 
-    const v4, 0x7f0f02ff
+    const v4, 0x7f1200cc
 
     invoke-virtual {v2, v4, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -133,11 +133,11 @@
 
     if-nez v1, :cond_0
 
-    sget-boolean v1, Lcom/android/systemui/SystemUIRune;->SUPPORT_DUAL_NUMBER:Z
+    sget-boolean v1, Lcom/android/systemui/Rune;->QPANEL_SUPPORT_DUAL_NUMBER:Z
 
     if-nez v1, :cond_0
 
-    sget-boolean v1, Lcom/android/systemui/SystemUIRune;->SUPPORT_TWO_PHONE:Z
+    sget-boolean v1, Lcom/android/systemui/Rune;->QPANEL_SUPPORT_TWO_PHONE:Z
 
     if-eqz v1, :cond_1
 
@@ -164,6 +164,16 @@
 
 
 # virtual methods
+.method protected getUserDetailAdapter()Lcom/android/systemui/plugins/qs/DetailAdapter;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->mUserSwitcherController:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
+
+    iget-object v0, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->userDetailAdapter:Lcom/android/systemui/plugins/qs/DetailAdapter;
+
+    return-object v0
+.end method
+
 .method public hasMultipleUsers()Z
     .locals 3
 
@@ -178,18 +188,18 @@
     return v1
 
     :cond_0
-    sget-boolean v2, Lcom/android/systemui/SystemUIRune;->SUPPORT_DUAL_NUMBER:Z
+    sget-boolean v2, Lcom/android/systemui/Rune;->QPANEL_SUPPORT_DUAL_NUMBER:Z
 
     if-nez v2, :cond_1
 
-    sget-boolean v2, Lcom/android/systemui/SystemUIRune;->SUPPORT_TWO_PHONE:Z
+    sget-boolean v2, Lcom/android/systemui/Rune;->QPANEL_SUPPORT_TWO_PHONE:Z
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_3
 
     :cond_1
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->mUserSwitcherController:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_2
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->mUserSwitcherController:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
@@ -208,21 +218,18 @@
     goto :goto_0
 
     :cond_3
-    return v1
-
-    :cond_4
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->mUserListener:Lcom/android/systemui/statusbar/policy/UserSwitcherController$BaseUserAdapter;
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/policy/UserSwitcherController$BaseUserAdapter;->getCount()I
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/policy/UserSwitcherController$BaseUserAdapter;->getUserCount()I
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_4
 
     :goto_1
     return v0
 
-    :cond_5
+    :cond_4
     move v0, v1
 
     goto :goto_1
@@ -245,46 +252,79 @@
 
     const/4 v5, 0x0
 
+    const-class v2, Lcom/android/systemui/KnoxStateMonitor;
+
+    invoke-static {v2}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/KnoxStateMonitor;
+
+    invoke-virtual {v2}, Lcom/android/systemui/KnoxStateMonitor;->isMultiUserSwitchBlocked()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->mContext:Landroid/content/Context;
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->mContext:Landroid/content/Context;
+
+    const v4, 0x10400b4
+
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3, v5}, Lcom/android/systemui/SysUIToast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/widget/Toast;->show()V
+
+    return-void
+
+    :cond_0
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->mUserManager:Landroid/os/UserManager;
 
     invoke-virtual {v2}, Landroid/os/UserManager;->isUserSwitcherEnabled()Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_4
 
     iget-boolean v2, p0, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->mKeyguardMode:Z
+
+    if-eqz v2, :cond_2
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->mKeyguardUserSwitcher:Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcher;
 
     if-eqz v2, :cond_1
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->mKeyguardUserSwitcher:Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcher;
 
-    if-eqz v2, :cond_0
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->mKeyguardUserSwitcher:Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcher;
-
     invoke-virtual {v2, v7}, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcher;->show(Z)V
 
-    :cond_0
+    :cond_1
     :goto_0
     return-void
 
-    :cond_1
+    :cond_2
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->mQsPanel:Lcom/android/systemui/qs/QSPanel;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->mUserSwitcherController:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->getChildCount()I
 
     move-result v2
 
-    if-lez v2, :cond_2
+    if-lez v2, :cond_3
 
-    invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v5}, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -295,7 +335,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->mTmpInt2:[I
 
-    aget v3, v2, v6
+    aget v3, v2, v5
 
     invoke-virtual {v0}, Landroid/view/View;->getWidth()I
 
@@ -305,7 +345,7 @@
 
     add-int/2addr v3, v4
 
-    aput v3, v2, v6
+    aput v3, v2, v5
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->mTmpInt2:[I
 
@@ -323,25 +363,25 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->mQsPanel:Lcom/android/systemui/qs/QSPanel;
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->mUserSwitcherController:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->getUserDetailAdapter()Lcom/android/systemui/plugins/qs/DetailAdapter;
 
-    iget-object v3, v3, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->userDetailAdapter:Lcom/android/systemui/qs/QSTile$DetailAdapter;
+    move-result-object v3
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->mTmpInt2:[I
 
-    invoke-virtual {v2, v7, v3, v4}, Lcom/android/systemui/qs/QSPanel;->showDetailAdapter(ZLcom/android/systemui/qs/QSTile$DetailAdapter;[I)V
+    invoke-virtual {v2, v7, v3, v4}, Lcom/android/systemui/qs/QSPanel;->showDetailAdapter(ZLcom/android/systemui/plugins/qs/DetailAdapter;[I)V
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     move-object v0, p0
 
     goto :goto_1
 
-    :cond_3
+    :cond_4
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->mQsPanel:Lcom/android/systemui/qs/QSPanel;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->getContext()Landroid/content/Context;
 
@@ -351,17 +391,19 @@
 
     const/4 v4, 0x3
 
-    invoke-static {v2, p1, v3, v4, v5}, Landroid/provider/ContactsContract$QuickContact;->composeQuickContactsIntent(Landroid/content/Context;Landroid/view/View;Landroid/net/Uri;I[Ljava/lang/String;)Landroid/content/Intent;
+    invoke-static {v2, p1, v3, v4, v6}, Landroid/provider/ContactsContract$QuickContact;->composeQuickContactsIntent(Landroid/content/Context;Landroid/view/View;Landroid/net/Uri;I[Ljava/lang/String;)Landroid/content/Intent;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->mQsPanel:Lcom/android/systemui/qs/QSPanel;
+    const-class v2, Lcom/android/systemui/plugins/ActivityStarter;
 
-    invoke-virtual {v2}, Lcom/android/systemui/qs/QSPanel;->getHost()Lcom/android/systemui/statusbar/phone/QSTileHost;
+    invoke-static {v2}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
-    invoke-virtual {v2, v1}, Lcom/android/systemui/statusbar/phone/QSTileHost;->startActivityDismissingKeyguard(Landroid/content/Intent;)V
+    check-cast v2, Lcom/android/systemui/plugins/ActivityStarter;
+
+    invoke-interface {v2, v1, v5}, Lcom/android/systemui/plugins/ActivityStarter;->postStartActivityDismissingKeyguard(Landroid/content/Intent;I)V
 
     goto :goto_0
 .end method
@@ -443,13 +485,13 @@
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->mQsPanel:Lcom/android/systemui/qs/QSPanel;
 
-    invoke-virtual {p1}, Lcom/android/systemui/qs/QSPanel;->getHost()Lcom/android/systemui/statusbar/phone/QSTileHost;
+    const-class v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;
+
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/QSTileHost;->getUserSwitcherController()Lcom/android/systemui/statusbar/policy/UserSwitcherController;
-
-    move-result-object v0
+    check-cast v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->setUserSwitcherController(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)V
 
@@ -457,13 +499,7 @@
 .end method
 
 .method public setUserSwitcherController(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)V
-    .locals 1
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->showMultiUser()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
+    .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->mUserSwitcherController:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
@@ -471,26 +507,5 @@
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->refreshContentDescription()V
 
-    :cond_0
     return-void
-.end method
-
-.method showMultiUser()Z
-    .locals 4
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/MultiUserSwitch;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v2
-
-    const-string v3, "show_multi_user"
-
-    const v1, 0x0
-
-    invoke-static {v2, v3, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v2
-
-    return v2
 .end method

@@ -47,7 +47,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$8;->this$0:Lcom/android/systemui/statusbar/policy/CallbackHandler;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/policy/CallbackHandler;->-get0(Lcom/android/systemui/statusbar/policy/CallbackHandler;)Ljava/util/ArrayList;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/policy/CallbackHandler;->-get1(Lcom/android/systemui/statusbar/policy/CallbackHandler;)Ljava/util/ArrayList;
 
     move-result-object v2
 

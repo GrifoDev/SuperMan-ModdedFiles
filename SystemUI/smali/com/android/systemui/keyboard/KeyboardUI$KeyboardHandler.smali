@@ -38,8 +38,6 @@
 .method public handleMessage(Landroid/os/Message;)V
     .locals 12
 
-    const/4 v5, 0x1
-
     iget v8, p1, Landroid/os/Message;->what:I
 
     packed-switch v8, :pswitch_data_0
@@ -72,7 +70,11 @@
     :pswitch_4
     iget v8, p1, Landroid/os/Message;->arg1:I
 
-    if-ne v8, v5, :cond_0
+    const/4 v9, 0x1
+
+    if-ne v8, v9, :cond_0
+
+    const/4 v5, 0x1
 
     :goto_1
     if-eqz v5, :cond_1
@@ -176,8 +178,6 @@
     invoke-static {v10, v8, v9, v11}, Lcom/android/systemui/keyboard/KeyboardUI;->-wrap7(Lcom/android/systemui/keyboard/KeyboardUI;Landroid/content/Context;Ljava/lang/String;I)V
 
     goto :goto_0
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x0

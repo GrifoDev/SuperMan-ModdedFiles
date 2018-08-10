@@ -61,7 +61,7 @@
 .method public constructor <init>(Landroid/content/res/Resources;Lcom/android/systemui/recents/RecentsConfiguration;)V
     .locals 3
 
-    const v1, 0x7f0d02c5
+    const v1, 0x7f070187
 
     const/4 v2, 0x1
 
@@ -75,7 +75,7 @@
 
     iput-boolean v0, p0, Lcom/android/systemui/recents/views/FakeShadowDrawable;->mPrintedShadowClipWarning:Z
 
-    const v0, 0x7f0b00da
+    const v0, 0x7f060079
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -83,7 +83,7 @@
 
     iput v0, p0, Lcom/android/systemui/recents/views/FakeShadowDrawable;->mShadowStartColor:I
 
-    const v0, 0x7f0b00db
+    const v0, 0x7f060078
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -91,7 +91,7 @@
 
     iput v0, p0, Lcom/android/systemui/recents/views/FakeShadowDrawable;->mShadowEndColor:I
 
-    const v0, 0x7f0d02c4
+    const v0, 0x7f070186
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -131,12 +131,21 @@
 
     invoke-virtual {v0, v2}, Landroid/graphics/Paint;->setDither(Z)V
 
-    const v0, 0x7f0d0315
+    invoke-static {}, Lcom/android/systemui/recents/Recents;->getConfiguration()Lcom/android/systemui/recents/RecentsConfiguration;
+
+    move-result-object v0
+
+    iget-boolean v0, v0, Lcom/android/systemui/recents/RecentsConfiguration;->isGridEnabled:Z
+
+    if-eqz v0, :cond_0
+
+    const v0, 0x7f070568
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v0
 
+    :goto_0
     int-to-float v0, v0
 
     iput v0, p0, Lcom/android/systemui/recents/views/FakeShadowDrawable;->mCornerRadius:F
@@ -156,6 +165,15 @@
     iput-object v0, p0, Lcom/android/systemui/recents/views/FakeShadowDrawable;->mEdgeShadowPaint:Landroid/graphics/Paint;
 
     return-void
+
+    :cond_0
+    const v0, 0x7f0705b2
+
+    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    goto :goto_0
 .end method
 
 .method private buildComponents(Landroid/graphics/Rect;)V

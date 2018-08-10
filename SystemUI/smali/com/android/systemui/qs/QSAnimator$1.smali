@@ -18,19 +18,23 @@
 .field final synthetic this$0:Lcom/android/systemui/qs/QSAnimator;
 
 
-# direct methods
-.method constructor <init>(Lcom/android/systemui/qs/QSAnimator;)V
-    .locals 0
+# virtual methods
+.method public onAnimationAtEnd()V
+    .locals 2
 
-    iput-object p1, p0, Lcom/android/systemui/qs/QSAnimator$1;->this$0:Lcom/android/systemui/qs/QSAnimator;
+    iget-object v0, p0, Lcom/android/systemui/qs/QSAnimator$1;->this$0:Lcom/android/systemui/qs/QSAnimator;
 
-    invoke-direct {p0}, Lcom/android/systemui/qs/TouchAnimator$ListenerAdapter;-><init>()V
+    invoke-static {v0}, Lcom/android/systemui/qs/QSAnimator;->-get1(Lcom/android/systemui/qs/QSAnimator;)Lcom/android/systemui/qs/QuickQSPanel;
+
+    move-result-object v0
+
+    const/4 v1, 0x4
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/QuickQSPanel;->setVisibility(I)V
 
     return-void
 .end method
 
-
-# virtual methods
 .method public onAnimationStarted()V
     .locals 2
 

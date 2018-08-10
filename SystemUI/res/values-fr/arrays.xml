@@ -1,83 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="wifi_status">
-        <item></item>
-        <item>Recherche…</item>
-        <item>Connexion…</item>
-        <item>Authentification...</item>
-        <item>"Récupération de l'adresse IP…"</item>
-        <item>Connecté</item>
-        <item>Interrompu</item>
-        <item>Déconnexion…</item>
-        <item>Déconnecté</item>
-        <item>Échec</item>
-        <item>Bloqué</item>
-        <item>Mauvaise connexion évitée momentanément</item>
-    </string-array>
-    <string-array name="wifi_status_with_ssid">
-        <item></item>
-        <item>Recherche…</item>
-        <item>Connexion à %1$s…</item>
-        <item>Authentification avec %1$s…</item>
-        <item>"Récupération de l'adresse IP à partir de %1$s…"</item>
-        <item>Connecté à %1$s</item>
-        <item>Interrompu</item>
-        <item>Déconnexion de %1$s…</item>
-        <item>Déconnecté</item>
-        <item>Échec</item>
-        <item>Bloqué</item>
-        <item>Mauvaise connexion évitée momentanément</item>
-    </string-array>
-    <string-array name="hdcp_checking_titles">
-        <item>Ne jamais vérifier</item>
-        <item>Vérifier le contenu DRM uniquement</item>
-        <item>Toujours vérifier</item>
-    </string-array>
-    <string-array name="hdcp_checking_summaries">
-        <item>Ne jamais utiliser la vérification HDCP</item>
-        <item>Utiliser la vérification HDCP uniquement pour le contenu DRM</item>
-        <item>Toujours utiliser la vérification HDCP</item>
-    </string-array>
-    <string-array name="select_logd_size_titles">
-        <item>Désactivé</item>
-        <item>64 Ko</item>
-        <item>256 Ko</item>
-        <item>1 Mo</item>
-        <item>4 Mo</item>
-        <item>16 Mo</item>
-    </string-array>
-    <string-array name="select_logd_size_lowram_titles">
-        <item>Désactivé</item>
-        <item>64 Ko</item>
-        <item>256 Ko</item>
-        <item>1 Mo</item>
-    </string-array>
-    <string-array name="select_logd_size_summaries">
-        <item>Désactivé</item>
-        <item>64 Ko par tampon journal</item>
-        <item>256 Ko par tampon journal</item>
-        <item>1 Mo par tampon journal</item>
-        <item>4 Mo par tampon journal</item>
-        <item>16 Mo par tampon journal</item>
-    </string-array>
-    <string-array name="window_animation_scale_entries">
-        <item>Animation désactivée</item>
-        <item>"Échelle d'animation x 0,5"</item>
-        <item>"Échelle d'animation x 1"</item>
-        <item>"Échelle d'animation x 1,5"</item>
-        <item>"Échelle d'animation x 2"</item>
-        <item>"Échelle d'animation x 5"</item>
-        <item>"Échelle d'animation x 10"</item>
-    </string-array>
-    <string-array name="transition_animation_scale_entries">
-        <item>Animation désactivée</item>
-        <item>"Échelle d'animation x 0,5"</item>
-        <item>"Échelle d'animation x 1"</item>
-        <item>"Échelle d'animation x 1,5"</item>
-        <item>"Échelle d'animation x 2"</item>
-        <item>"Échelle d'animation x 0,5"</item>
-        <item>"Échelle d'animation x 10"</item>
-    </string-array>
     <string-array name="animator_duration_scale_entries">
         <item>Animation désactivée</item>
         <item>"Échelle d'animation x 0,5"</item>
@@ -86,6 +8,178 @@
         <item>"Échelle d'animation x 2"</item>
         <item>"Échelle d'animation x 5"</item>
         <item>"Échelle d'animation x 10"</item>
+    </string-array>
+    <string-array name="app_process_limit_entries">
+        <item>Limite standard</item>
+        <item>Aucun processus en arrière-plan</item>
+        <item>Un processus maximum</item>
+        <item>Deux processus maximum</item>
+        <item>Trois processus maximum</item>
+        <item>Quatre processus maximum</item>
+    </string-array>
+    <string-array name="battery_labels">
+        <item>0</item>
+        <item>50%</item>
+        <item>100%</item>
+    </string-array>
+    <string-array name="battery_options">
+        <item>Toujours afficher le pourcentage</item>
+        <item>"Afficher le pourcentage lorsque l'appareil est en charge (option par défaut)"</item>
+        <item>Ne plus afficher cette icône</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_bits_per_sample_summaries">
+        <item>Utiliser sélection système (par défaut)</item>
+        <item>16 bits par échantillon</item>
+        <item>24 bits par échantillon</item>
+        <item>32 bits par échantillon</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_bits_per_sample_titles">
+        <item>Utiliser sélection système (par défaut)</item>
+        <item>16 bits par échantillon</item>
+        <item>24 bits par échantillon</item>
+        <item>32 bits par échantillon</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_channel_mode_summaries">
+        <item>Utiliser sélection système (par défaut)</item>
+        <item>Mono</item>
+        <item>Stéréo</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_channel_mode_titles">
+        <item>Utiliser sélection système (par défaut)</item>
+        <item>Mono</item>
+        <item>Stéréo</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_ldac_playback_quality_summaries">
+        <item>Optimisée pour la qualité audio</item>
+        <item>Qualité audio et de la connexion équilibrée</item>
+        <item>Optimisée pour la qualité de la connexion</item>
+        <item>Qualité de lecture optimale (débit adaptatif)</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_ldac_playback_quality_titles">
+        <item>Optimisée pour la qualité audio (990/909 kbit/s)</item>
+        <item>Qualité audio et de la connexion équilibrée (660/606 kbit/s)</item>
+        <item>Optimisée pour la qualité de la connexion (330/303 kbit/s)</item>
+        <item>Qualité de lecture optimale (débit adaptatif)</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_sample_rate_summaries">
+        <item>Utiliser sélection système (par défaut)</item>
+        <item>44,1 kHz</item>
+        <item>48 kHz</item>
+        <item>88,2 kHz</item>
+        <item>96 kHz</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_sample_rate_titles">
+        <item>Utiliser sélection système (par défaut)</item>
+        <item>44,1 kHz</item>
+        <item>48 kHz</item>
+        <item>88,2 kHz</item>
+        <item>96 kHz</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_summaries">
+        <item>Utiliser sélection système (par défaut)</item>
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>aptX HD</item>
+        <item>LDAC</item>
+        <item>Activer les codecs facultatifs</item>
+        <item>Désactiver les codecs facultatifs</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_titles">
+        <item>Utiliser sélection système (par défaut)</item>
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>aptX HD</item>
+        <item>LDAC</item>
+        <item>Activer les codecs facultatifs</item>
+        <item>Désactiver les codecs facultatifs</item>
+    </string-array>
+    <string-array name="bluetooth_avrcp_versions">
+        <item>AVRCP 1.4 (par défaut)</item>
+        <item>AVRCP 1.5</item>
+        <item>AVRCP 1.6</item>
+    </string-array>
+    <string-array name="bluetooth_ss_a2dp_codec_summaries">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Tous les codecs</item>
+        <item>Codec par défaut</item>
+    </string-array>
+    <string-array name="bluetooth_ss_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Tous les codecs</item>
+        <item>Codec par défaut</item>
+    </string-array>
+    <string-array name="bluetooth_ss_japan_a2dp_codec_titles">
+        <item>SBC</item>
+        <item>aptX</item>
+        <item>LDAC</item>
+        <item>Samsung HD</item>
+        <item>Scalable Codec</item>
+        <item>Tous les codecs</item>
+        <item>Codec par défaut</item>
+    </string-array>
+    <string-array name="clock_options">
+        <item>Afficher les heures, les minutes et les secondes</item>
+        <item>Afficher les heures et les minutes (option par défaut)</item>
+        <item>Ne plus afficher cette icône</item>
+    </string-array>
+    <string-array name="color_mode_descriptions">
+        <item>Couleurs améliorées</item>
+        <item>"Couleurs naturelles vues par l'œil"</item>
+        <item>Couleurs optimisées pour les contenus numériques</item>
+    </string-array>
+    <string-array name="color_mode_names">
+        <item>Couleurs éclatantes (par défaut)</item>
+        <item>Couleurs naturelles</item>
+        <item>Couleurs normales</item>
+    </string-array>
+    <string-array name="debug_hw_overdraw_entries">
+        <item>Désactivé</item>
+        <item>Afficher les zones de conflit</item>
+        <item>Afficher couleurs de zones adaptées à deutéranomalie</item>
+    </string-array>
+    <string-array name="debug_hw_renderer_entries">
+        <item>OpenGL (valeur par défaut)</item>
+        <item>OpenGL (Skia)</item>
+    </string-array>
+    <string-array name="enable_opengl_traces_entries">
+        <item>Aucun</item>
+        <item>Logcat</item>
+        <item>Systrace (graphismes)</item>
+        <item>Appeler une pile sur glGetError</item>
+    </string-array>
+    <string-array name="hdcp_checking_summaries">
+        <item>Ne jamais utiliser la vérification HDCP</item>
+        <item>Utiliser la vérification HDCP uniquement pour le contenu DRM</item>
+        <item>Toujours utiliser la vérification HDCP</item>
+    </string-array>
+    <string-array name="hdcp_checking_titles">
+        <item>Ne jamais vérifier</item>
+        <item>Vérifier le contenu DRM uniquement</item>
+        <item>Toujours vérifier</item>
+    </string-array>
+    <string-array name="nav_bar_buttons">
+        <item>Presse-papiers</item>
+        <item>Code de touche</item>
+        <item>Sélecteur clavier</item>
+        <item>Aucun</item>
+    </string-array>
+    <string-array name="nav_bar_layouts">
+        <item>Normale</item>
+        <item>Compacte</item>
+        <item>Alignée à gauche</item>
+        <item>Alignée à droite</item>
     </string-array>
     <string-array name="overlay_display_devices_entries">
         <item>Aucun</item>
@@ -101,11 +195,40 @@
         <item>4K (adapté haute résolution, sécu.)</item>
         <item>720p, 1080p (double écran)</item>
     </string-array>
-    <string-array name="enable_opengl_traces_entries">
-        <item>Aucun</item>
-        <item>Logcat</item>
-        <item>Systrace (graphismes)</item>
-        <item>Appeler une pile sur glGetError</item>
+    <array name="recents_blacklist_array" />
+    <string-array name="select_logd_size_lowram_titles">
+        <item>Désactivé</item>
+        <item>64 Ko</item>
+        <item>256 Ko</item>
+        <item>1 Mo</item>
+    </string-array>
+    <string-array name="select_logd_size_summaries">
+        <item>Désactivé</item>
+        <item>64 Ko par tampon journal</item>
+        <item>256 Ko par tampon journal</item>
+        <item>1 Mo par tampon journal</item>
+        <item>4 Mo par tampon journal</item>
+        <item>16 Mo par tampon journal</item>
+    </string-array>
+    <string-array name="select_logd_size_titles">
+        <item>Désactivé</item>
+        <item>64 Ko</item>
+        <item>256 Ko</item>
+        <item>1 Mo</item>
+        <item>4 Mo</item>
+        <item>16 Mo</item>
+    </string-array>
+    <string-array name="select_logpersist_summaries">
+        <item>Désactivé</item>
+        <item>Toutes les mémoires tampon journal</item>
+        <item>Toutes sauf les mémoires tampon journal radio</item>
+        <item>tampon journal du noyau uniquement</item>
+    </string-array>
+    <string-array name="select_logpersist_titles">
+        <item>Désactivé</item>
+        <item>Tous</item>
+        <item>Tous sauf radio</item>
+        <item>noyau uniquement</item>
     </string-array>
     <string-array name="show_non_rect_clip_entries">
         <item>Désactivé</item>
@@ -117,26 +240,14 @@
         <item>"À l'écran sous forme de barres"</item>
         <item>Dans adb shell dumpsys gfxinfo</item>
     </string-array>
-    <string-array name="debug_hw_overdraw_entries">
-        <item>Désactivé</item>
-        <item>Afficher les zones de conflit</item>
-        <item>Afficher couleurs de zones adaptées à deutéranomalie</item>
-    </string-array>
-    <string-array name="app_process_limit_entries">
-        <item>Limite standard</item>
-        <item>Aucun processus en arrière-plan</item>
-        <item>Un processus maximum</item>
-        <item>Deux processus maximum</item>
-        <item>Trois processus maximum</item>
-        <item>Quatre processus maximum</item>
-    </string-array>
-    <string-array name="usb_configuration_titles">
-        <item>En charge</item>
-        <item>MTP (Media Transfer Protocol)</item>
-        <item>PTP (Picture Transfer Protocol)</item>
-        <item>RNDIS (Ethernet USB)</item>
-        <item>Source audio</item>
-        <item>MIDI</item>
+    <string-array name="transition_animation_scale_entries">
+        <item>Animation désactivée</item>
+        <item>"Échelle d'animation x 0,5"</item>
+        <item>"Échelle d'animation x 1"</item>
+        <item>"Échelle d'animation x 1,5"</item>
+        <item>"Échelle d'animation x 2"</item>
+        <item>"Échelle d'animation x 0,5"</item>
+        <item>"Échelle d'animation x 10"</item>
     </string-array>
     <string-array name="tts_rate_entries">
         <item>Très lente</item>
@@ -149,25 +260,53 @@
         <item>Très rapide</item>
         <item>La plus rapide</item>
     </string-array>
-    <string-array name="color_mode_names">
-        <item>Couleurs éclatantes (par défaut)</item>
-        <item>Couleurs naturelles</item>
-        <item>Couleurs normales</item>
+    <string-array name="usb_configuration_titles">
+        <item>En charge</item>
+        <item>MTP (Media Transfer Protocol)</item>
+        <item>PTP (Picture Transfer Protocol)</item>
+        <item>RNDIS (Ethernet USB)</item>
+        <item>Source audio</item>
+        <item>MIDI</item>
     </string-array>
-    <string-array name="color_mode_descriptions">
-        <item>Couleurs améliorées</item>
-        <item>"Couleurs naturelles vues par l'œil"</item>
-        <item>Couleurs optimisées pour les contenus numériques</item>
+    <string-array name="wifi_ap_wifi_sharing">
+        <item>Activer Partage Wi-Fi</item>
+        <item>Désactiver Partage Wi-Fi</item>
     </string-array>
-    <string-array name="clock_options">
-        <item>Afficher les heures, les minutes et les secondes</item>
-        <item>Afficher les heures et les minutes (option par défaut)</item>
-        <item>Ne plus afficher cette icône</item>
+    <string-array name="wifi_status">
+        <item></item>
+        <item>Recherche…</item>
+        <item>Connexion …</item>
+        <item>Authentification en cours…</item>
+        <item>"Obtention de l'adresse IP…"</item>
+        <item>Connecté</item>
+        <item>Interrompu</item>
+        <item>Déconnexion…</item>
+        <item>Déconnecté</item>
+        <item>Échec</item>
+        <item>Bloqué</item>
+        <item>Vérification de la qualité de votre connexion Internet…</item>
     </string-array>
-    <string-array name="battery_options">
-        <item>Toujours afficher le pourcentage</item>
-        <item>"Afficher le pourcentage lorsque l'appareil est en charge (option par défaut)"</item>
-        <item>Ne plus afficher cette icône</item>
+    <string-array name="wifi_status_with_ssid">
+        <item></item>
+        <item>Recherche…</item>
+        <item>Connexion à %1$s…</item>
+        <item>Authentification avec %1$s…</item>
+        <item>"Récupération de l'adresse IP à partir de %1$s…"</item>
+        <item>Connecté à %1$s</item>
+        <item>Interrompu</item>
+        <item>Déconnexion de %1$s…</item>
+        <item>Déconnecté</item>
+        <item>Échec</item>
+        <item>Bloqué</item>
+        <item>Mauvaise connexion évitée momentanément</item>
     </string-array>
-    <array name="recents_tv_blacklist_array" />
+    <string-array name="window_animation_scale_entries">
+        <item>Animation désactivée</item>
+        <item>"Échelle d'animation x 0,5"</item>
+        <item>"Échelle d'animation x 1"</item>
+        <item>"Échelle d'animation x 1,5"</item>
+        <item>"Échelle d'animation x 2"</item>
+        <item>"Échelle d'animation x 5"</item>
+        <item>"Échelle d'animation x 10"</item>
+    </string-array>
 </resources>

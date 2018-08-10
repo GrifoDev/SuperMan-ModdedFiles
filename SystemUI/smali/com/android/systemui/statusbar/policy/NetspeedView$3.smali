@@ -44,7 +44,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/policy/NetspeedView;->-set1(Lcom/android/systemui/statusbar/policy/NetspeedView;Z)Z
+    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/policy/NetspeedView;->-set4(Lcom/android/systemui/statusbar/policy/NetspeedView;Z)Z
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/NetspeedView$3;->this$0:Lcom/android/systemui/statusbar/policy/NetspeedView;
 
@@ -66,7 +66,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/policy/NetspeedView;->-set1(Lcom/android/systemui/statusbar/policy/NetspeedView;Z)Z
+    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/policy/NetspeedView;->-set4(Lcom/android/systemui/statusbar/policy/NetspeedView;Z)Z
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/NetspeedView$3;->this$0:Lcom/android/systemui/statusbar/policy/NetspeedView;
 

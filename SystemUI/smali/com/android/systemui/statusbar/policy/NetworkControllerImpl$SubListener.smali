@@ -44,7 +44,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$SubListener;->this$0:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->-wrap2(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)V
+    invoke-static {v0}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->-wrap5(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)V
 
     return-void
 .end method

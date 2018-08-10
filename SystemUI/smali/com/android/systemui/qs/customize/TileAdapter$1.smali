@@ -32,9 +32,7 @@
 
 # virtual methods
 .method public getSpanSize(I)I
-    .locals 4
-
-    const/4 v3, 0x4
+    .locals 3
 
     const/4 v1, 0x1
 
@@ -46,24 +44,12 @@
 
     if-eq v0, v1, :cond_0
 
-    if-ne v0, v3, :cond_1
+    const/4 v2, 0x4
+
+    if-ne v0, v2, :cond_1
 
     :cond_0
-    iget-object v1, p0, Lcom/android/systemui/qs/customize/TileAdapter$1;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
-
-    invoke-static {v1}, Lcom/android/systemui/qs/customize/TileAdapter;->-get1(Lcom/android/systemui/qs/customize/TileAdapter;)Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/android/systemui/tuner/TunerService;->get(Landroid/content/Context;)Lcom/android/systemui/tuner/TunerService;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "qs_tile_column"
-
-    invoke-virtual {v1, v2, v3}, Lcom/android/systemui/tuner/TunerService;->getValue(Ljava/lang/String;I)I
-
-    move-result v1
+    const/4 v1, 0x3
 
     :cond_1
     return v1

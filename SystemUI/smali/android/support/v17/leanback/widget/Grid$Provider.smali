@@ -18,13 +18,16 @@
 .method public abstract addItem(Ljava/lang/Object;IIII)V
 .end method
 
-.method public abstract createItem(IZ[Ljava/lang/Object;)I
+.method public abstract createItem(IZ[Ljava/lang/Object;Z)I
 .end method
 
 .method public abstract getCount()I
 .end method
 
 .method public abstract getEdge(I)I
+.end method
+
+.method public abstract getMinIndex()I
 .end method
 
 .method public abstract getSize(I)I

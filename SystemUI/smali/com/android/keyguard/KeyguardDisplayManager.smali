@@ -116,9 +116,13 @@
 
 # virtual methods
 .method public hide()V
-    .locals 4
+    .locals 3
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
+
+    iget-boolean v0, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mShowing:Z
+
+    if-eqz v0, :cond_1
 
     sget-boolean v0, Lcom/android/keyguard/KeyguardDisplayManager;->DEBUG:Z
 
@@ -126,49 +130,21 @@
 
     const-string/jumbo v0, "KeyguardDisplayManager"
 
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "hide ("
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-boolean v2, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mShowing:Z
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, ")"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
+    const-string/jumbo v1, "hide"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    iget-boolean v0, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mShowing:Z
-
-    if-eqz v0, :cond_1
-
     iget-object v0, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mMediaRouter:Landroid/media/MediaRouter;
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mMediaRouterCallback:Landroid/media/MediaRouter$SimpleCallback;
 
     invoke-virtual {v0, v1}, Landroid/media/MediaRouter;->removeCallback(Landroid/media/MediaRouter$Callback;)V
 
-    invoke-virtual {p0, v3}, Lcom/android/keyguard/KeyguardDisplayManager;->updateDisplays(Z)V
+    invoke-virtual {p0, v2}, Lcom/android/keyguard/KeyguardDisplayManager;->updateDisplays(Z)V
 
     :cond_1
-    iput-boolean v3, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mShowing:Z
+    iput-boolean v2, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mShowing:Z
 
     return-void
 .end method
@@ -178,45 +154,21 @@
 
     const/4 v4, 0x1
 
+    iget-boolean v0, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mShowing:Z
+
+    if-nez v0, :cond_1
+
     sget-boolean v0, Lcom/android/keyguard/KeyguardDisplayManager;->DEBUG:Z
 
     if-eqz v0, :cond_0
 
     const-string/jumbo v0, "KeyguardDisplayManager"
 
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "show ("
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-boolean v2, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mShowing:Z
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, ")"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
+    const-string/jumbo v1, "show"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    iget-boolean v0, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mShowing:Z
-
-    if-nez v0, :cond_1
-
     iget-object v0, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mMediaRouter:Landroid/media/MediaRouter;
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mMediaRouterCallback:Landroid/media/MediaRouter$SimpleCallback;
@@ -238,207 +190,210 @@
 .method protected updateDisplays(Z)V
     .locals 9
 
-    const/4 v5, 0x1
-
-    const/4 v4, 0x0
-
     const/4 v8, 0x0
 
     if-eqz p1, :cond_7
 
-    iget-object v6, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mMediaRouter:Landroid/media/MediaRouter;
+    iget-object v5, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mMediaRouter:Landroid/media/MediaRouter;
 
-    const/4 v7, 0x4
+    const/4 v6, 0x4
 
-    invoke-virtual {v6, v7}, Landroid/media/MediaRouter;->getSelectedRoute(I)Landroid/media/MediaRouter$RouteInfo;
+    invoke-virtual {v5, v6}, Landroid/media/MediaRouter;->getSelectedRoute(I)Landroid/media/MediaRouter$RouteInfo;
 
-    move-result-object v2
+    move-result-object v3
 
-    if-eqz v2, :cond_5
+    if-eqz v3, :cond_5
 
-    invoke-virtual {v2}, Landroid/media/MediaRouter$RouteInfo;->getPlaybackType()I
+    invoke-virtual {v3}, Landroid/media/MediaRouter$RouteInfo;->getPlaybackType()I
 
-    move-result v6
+    move-result v5
 
-    if-ne v6, v5, :cond_5
+    const/4 v6, 0x1
 
-    iget-object v6, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mContext:Landroid/content/Context;
+    if-ne v5, v6, :cond_5
 
-    invoke-static {v6}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+    invoke-static {}, Lcom/android/systemui/util/SettingsHelper;->getInstance()Lcom/android/systemui/util/SettingsHelper;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {v6}, Lcom/android/keyguard/util/SettingsHelper;->isSideSyncEnabled()Z
+    invoke-virtual {v5}, Lcom/android/systemui/util/SettingsHelper;->isSideSyncEnabled()Z
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_4
+    xor-int/lit8 v4, v5, 0x1
 
     :goto_0
-    move v3, v4
+    if-eqz v4, :cond_6
 
-    :goto_1
-    if-eqz v3, :cond_6
-
-    invoke-virtual {v2}, Landroid/media/MediaRouter$RouteInfo;->getPresentationDisplay()Landroid/view/Display;
+    invoke-virtual {v3}, Landroid/media/MediaRouter$RouteInfo;->getPresentationDisplay()Landroid/view/Display;
 
     move-result-object v1
 
-    :goto_2
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mPresentation:Landroid/app/Presentation;
+    :goto_1
+    if-eqz v1, :cond_0
 
-    if-eqz v4, :cond_1
+    new-instance v2, Landroid/view/DisplayInfo;
 
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mPresentation:Landroid/app/Presentation;
+    invoke-direct {v2}, Landroid/view/DisplayInfo;-><init>()V
 
-    invoke-virtual {v4}, Landroid/app/Presentation;->getDisplay()Landroid/view/Display;
+    invoke-virtual {v1, v2}, Landroid/view/Display;->getDisplayInfo(Landroid/view/DisplayInfo;)Z
 
-    move-result-object v4
+    iget v5, v2, Landroid/view/DisplayInfo;->flags:I
 
-    if-eq v4, v1, :cond_1
+    const/high16 v6, 0x20000000
 
-    sget-boolean v4, Lcom/android/keyguard/KeyguardDisplayManager;->DEBUG:Z
+    and-int/2addr v5, v6
 
-    if-eqz v4, :cond_0
+    if-eqz v5, :cond_0
 
-    const-string/jumbo v4, "KeyguardDisplayManager"
+    const/4 v1, 0x0
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    :cond_0
+    iget-object v5, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mPresentation:Landroid/app/Presentation;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    if-eqz v5, :cond_2
 
-    const-string/jumbo v6, "Display gone: "
+    iget-object v5, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mPresentation:Landroid/app/Presentation;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5}, Landroid/app/Presentation;->getDisplay()Landroid/view/Display;
 
     move-result-object v5
 
-    iget-object v6, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mPresentation:Landroid/app/Presentation;
+    if-eq v5, v1, :cond_2
 
-    invoke-virtual {v6}, Landroid/app/Presentation;->getDisplay()Landroid/view/Display;
+    sget-boolean v5, Lcom/android/keyguard/KeyguardDisplayManager;->DEBUG:Z
+
+    if-eqz v5, :cond_1
+
+    const-string/jumbo v5, "KeyguardDisplayManager"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "Display gone: "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v6
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mPresentation:Landroid/app/Presentation;
 
-    move-result-object v5
+    invoke-virtual {v7}, Landroid/app/Presentation;->getDisplay()Landroid/view/Display;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v7
 
-    move-result-object v5
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-static {v4, v5}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v6
 
-    :cond_0
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mPresentation:Landroid/app/Presentation;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v4}, Landroid/app/Presentation;->dismiss()V
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    iget-object v5, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mPresentation:Landroid/app/Presentation;
+
+    invoke-virtual {v5}, Landroid/app/Presentation;->dismiss()V
 
     iput-object v8, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mPresentation:Landroid/app/Presentation;
 
-    :cond_1
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mPresentation:Landroid/app/Presentation;
-
-    if-nez v4, :cond_3
-
-    if-eqz v1, :cond_3
-
-    sget-boolean v4, Lcom/android/keyguard/KeyguardDisplayManager;->DEBUG:Z
-
-    if-eqz v4, :cond_2
-
-    const-string/jumbo v4, "KeyguardDisplayManager"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "Keyguard enabled on display: "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
     :cond_2
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mContext:Landroid/content/Context;
+    iget-object v5, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mPresentation:Landroid/app/Presentation;
 
-    sget v5, Lcom/android/keyguard/R$style;->keyguard_presentation_theme:I
+    if-nez v5, :cond_4
 
-    invoke-static {v4, v1, v5}, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->getInstance(Landroid/content/Context;Landroid/view/Display;I)Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;
+    if-eqz v1, :cond_4
 
-    move-result-object v4
+    sget-boolean v5, Lcom/android/keyguard/KeyguardDisplayManager;->DEBUG:Z
 
-    iput-object v4, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mPresentation:Landroid/app/Presentation;
+    if-eqz v5, :cond_3
 
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mPresentation:Landroid/app/Presentation;
+    const-string/jumbo v5, "KeyguardDisplayManager"
 
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mOnDismissListener:Landroid/content/DialogInterface$OnDismissListener;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v5}, Landroid/app/Presentation;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "Keyguard enabled on display: "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_3
+    iget-object v5, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mContext:Landroid/content/Context;
+
+    const v6, 0x7f13029e
+
+    invoke-static {v5, v1, v6}, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->getInstance(Landroid/content/Context;Landroid/view/Display;I)Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;
+
+    move-result-object v5
+
+    iput-object v5, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mPresentation:Landroid/app/Presentation;
+
+    iget-object v5, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mPresentation:Landroid/app/Presentation;
+
+    iget-object v6, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mOnDismissListener:Landroid/content/DialogInterface$OnDismissListener;
+
+    invoke-virtual {v5, v6}, Landroid/app/Presentation;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
     :try_start_0
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mPresentation:Landroid/app/Presentation;
+    iget-object v5, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mPresentation:Landroid/app/Presentation;
 
-    invoke-virtual {v4}, Landroid/app/Presentation;->show()V
+    invoke-virtual {v5}, Landroid/app/Presentation;->show()V
     :try_end_0
     .catch Landroid/view/WindowManager$InvalidDisplayException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_3
-    :goto_3
+    :cond_4
+    :goto_2
     return-void
 
-    :cond_4
-    move v4, v5
-
-    goto :goto_0
-
     :cond_5
-    move v3, v4
+    const/4 v4, 0x0
 
-    goto :goto_1
+    goto/16 :goto_0
 
     :cond_6
     const/4 v1, 0x0
 
-    goto :goto_2
+    goto/16 :goto_1
 
     :catch_0
     move-exception v0
 
-    const-string/jumbo v4, "KeyguardDisplayManager"
+    const-string/jumbo v5, "KeyguardDisplayManager"
 
-    const-string/jumbo v5, "Invalid display:"
+    const-string/jumbo v6, "Invalid display:"
 
-    invoke-static {v4, v5, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mPresentation:Landroid/app/Presentation;
-
-    invoke-virtual {v4}, Landroid/app/Presentation;->dismiss()V
+    invoke-static {v5, v6, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     iput-object v8, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mPresentation:Landroid/app/Presentation;
 
-    goto :goto_3
+    goto :goto_2
 
     :cond_7
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mPresentation:Landroid/app/Presentation;
+    iget-object v5, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mPresentation:Landroid/app/Presentation;
 
-    if-eqz v4, :cond_3
+    if-eqz v5, :cond_4
 
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mPresentation:Landroid/app/Presentation;
+    iget-object v5, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mPresentation:Landroid/app/Presentation;
 
-    invoke-virtual {v4}, Landroid/app/Presentation;->dismiss()V
+    invoke-virtual {v5}, Landroid/app/Presentation;->dismiss()V
 
     iput-object v8, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mPresentation:Landroid/app/Presentation;
 
-    goto :goto_3
+    goto :goto_2
 .end method

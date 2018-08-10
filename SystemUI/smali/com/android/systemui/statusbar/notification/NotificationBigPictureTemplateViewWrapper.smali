@@ -33,7 +33,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/notification/NotificationBigPictureTemplateViewWrapper;->mPicture:Landroid/widget/ImageView;
 
-    const v3, 0x7f130047
+    const v3, 0x7f0a0227
 
     invoke-virtual {v2, v3, v1}, Landroid/widget/ImageView;->setTag(ILjava/lang/Object;)V
 
@@ -43,12 +43,16 @@
 
 
 # virtual methods
-.method public notifyContentUpdated(Landroid/service/notification/StatusBarNotification;)V
-    .locals 0
+.method public onContentUpdated(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)V
+    .locals 1
 
-    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/notification/NotificationTemplateViewWrapper;->notifyContentUpdated(Landroid/service/notification/StatusBarNotification;)V
+    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/notification/NotificationTemplateViewWrapper;->onContentUpdated(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)V
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/NotificationBigPictureTemplateViewWrapper;->updateImageTag(Landroid/service/notification/StatusBarNotification;)V
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->getStatusBarNotification()Landroid/service/notification/StatusBarNotification;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/notification/NotificationBigPictureTemplateViewWrapper;->updateImageTag(Landroid/service/notification/StatusBarNotification;)V
 
     return-void
 .end method

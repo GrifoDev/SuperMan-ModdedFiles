@@ -55,22 +55,6 @@
 
 
 # direct methods
-.method static synthetic -wrap0(Landroid/support/v17/leanback/widget/SearchOrbView;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Landroid/support/v17/leanback/widget/SearchOrbView;->setOrbViewColor(I)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap1(Landroid/support/v17/leanback/widget/SearchOrbView;F)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Landroid/support/v17/leanback/widget/SearchOrbView;->setSearchOrbZ(F)V
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
@@ -291,7 +275,7 @@
 
     const/4 v8, 0x0
 
-    invoke-direct {p0, v8}, Landroid/support/v17/leanback/widget/SearchOrbView;->setSearchOrbZ(F)V
+    invoke-virtual {p0, v8}, Landroid/support/v17/leanback/widget/SearchOrbView;->setSearchOrbZ(F)V
 
     invoke-static {}, Landroid/support/v17/leanback/widget/ShadowHelper;->getInstance()Landroid/support/v17/leanback/widget/ShadowHelper;
 
@@ -302,59 +286,6 @@
     iget v10, p0, Landroid/support/v17/leanback/widget/SearchOrbView;->mFocusedZ:F
 
     invoke-virtual {v8, v9, v10}, Landroid/support/v17/leanback/widget/ShadowHelper;->setZ(Landroid/view/View;F)V
-
-    return-void
-.end method
-
-.method private setOrbViewColor(I)V
-    .locals 1
-
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchOrbView;->mSearchOrbView:Landroid/view/View;
-
-    invoke-virtual {v0}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    instance-of v0, v0, Landroid/graphics/drawable/GradientDrawable;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchOrbView;->mSearchOrbView:Landroid/view/View;
-
-    invoke-virtual {v0}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/graphics/drawable/GradientDrawable;
-
-    invoke-virtual {v0, p1}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
-
-    :cond_0
-    return-void
-.end method
-
-.method private setSearchOrbZ(F)V
-    .locals 5
-
-    invoke-static {}, Landroid/support/v17/leanback/widget/ShadowHelper;->getInstance()Landroid/support/v17/leanback/widget/ShadowHelper;
-
-    move-result-object v0
-
-    iget-object v1, p0, Landroid/support/v17/leanback/widget/SearchOrbView;->mSearchOrbView:Landroid/view/View;
-
-    iget v2, p0, Landroid/support/v17/leanback/widget/SearchOrbView;->mUnfocusedZ:F
-
-    iget v3, p0, Landroid/support/v17/leanback/widget/SearchOrbView;->mFocusedZ:F
-
-    iget v4, p0, Landroid/support/v17/leanback/widget/SearchOrbView;->mUnfocusedZ:F
-
-    sub-float/2addr v3, v4
-
-    mul-float/2addr v3, p1
-
-    add-float/2addr v2, v3
-
-    invoke-virtual {v0, v1, v2}, Landroid/support/v17/leanback/widget/ShadowHelper;->setZ(Landroid/view/View;F)V
 
     return-void
 .end method
@@ -688,7 +619,7 @@
 
     iget v0, v0, Landroid/support/v17/leanback/widget/SearchOrbView$Colors;->color:I
 
-    invoke-direct {p0, v0}, Landroid/support/v17/leanback/widget/SearchOrbView;->setOrbViewColor(I)V
+    invoke-virtual {p0, v0}, Landroid/support/v17/leanback/widget/SearchOrbView;->setOrbViewColor(I)V
 
     :goto_0
     return-void
@@ -711,6 +642,59 @@
     iget-object v1, p0, Landroid/support/v17/leanback/widget/SearchOrbView;->mIconDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    return-void
+.end method
+
+.method setOrbViewColor(I)V
+    .locals 1
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchOrbView;->mSearchOrbView:Landroid/view/View;
+
+    invoke-virtual {v0}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    instance-of v0, v0, Landroid/graphics/drawable/GradientDrawable;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/support/v17/leanback/widget/SearchOrbView;->mSearchOrbView:Landroid/view/View;
+
+    invoke-virtual {v0}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/graphics/drawable/GradientDrawable;
+
+    invoke-virtual {v0, p1}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
+
+    :cond_0
+    return-void
+.end method
+
+.method setSearchOrbZ(F)V
+    .locals 5
+
+    invoke-static {}, Landroid/support/v17/leanback/widget/ShadowHelper;->getInstance()Landroid/support/v17/leanback/widget/ShadowHelper;
+
+    move-result-object v0
+
+    iget-object v1, p0, Landroid/support/v17/leanback/widget/SearchOrbView;->mSearchOrbView:Landroid/view/View;
+
+    iget v2, p0, Landroid/support/v17/leanback/widget/SearchOrbView;->mUnfocusedZ:F
+
+    iget v3, p0, Landroid/support/v17/leanback/widget/SearchOrbView;->mFocusedZ:F
+
+    iget v4, p0, Landroid/support/v17/leanback/widget/SearchOrbView;->mUnfocusedZ:F
+
+    sub-float/2addr v3, v4
+
+    mul-float/2addr v3, p1
+
+    add-float/2addr v2, v3
+
+    invoke-virtual {v0, v1, v2}, Landroid/support/v17/leanback/widget/ShadowHelper;->setZ(Landroid/view/View;F)V
 
     return-void
 .end method

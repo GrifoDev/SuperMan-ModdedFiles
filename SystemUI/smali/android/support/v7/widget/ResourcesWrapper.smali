@@ -194,6 +194,10 @@
 
 .method public getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
     .locals 1
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0x15
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/res/Resources$NotFoundException;
@@ -211,6 +215,10 @@
 
 .method public getDrawableForDensity(II)Landroid/graphics/drawable/Drawable;
     .locals 1
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0xf
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/res/Resources$NotFoundException;
@@ -228,6 +236,9 @@
 
 .method public getDrawableForDensity(IILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
     .locals 1
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0x15
+    .end annotation
 
     iget-object v0, p0, Landroid/support/v7/widget/ResourcesWrapper;->mResources:Landroid/content/res/Resources;
 
@@ -578,6 +589,10 @@
 
 .method public getValueForDensity(IILandroid/util/TypedValue;Z)V
     .locals 1
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0xf
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/res/Resources$NotFoundException;

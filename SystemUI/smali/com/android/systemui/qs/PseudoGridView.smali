@@ -93,9 +93,9 @@
 
     :pswitch_data_0
     .packed-switch 0x0
+        :pswitch_2
         :pswitch_0
         :pswitch_1
-        :pswitch_2
     .end packed-switch
 .end method
 
@@ -132,20 +132,16 @@
 
     move-object/from16 v0, p0
 
-    iget v7, v0, Lcom/android/systemui/qs/PseudoGridView;->mNumColumns:I
-
-    move-object/from16 v0, p0
-
     iget v15, v0, Lcom/android/systemui/qs/PseudoGridView;->mNumColumns:I
 
-    if-le v15, v2, :cond_0
+    if-le v15, v2, :cond_1
 
     move v7, v2
 
-    :cond_0
+    :goto_0
     const/4 v9, 0x0
 
-    :goto_0
+    :goto_1
     if-ge v9, v10, :cond_6
 
     if-eqz v6, :cond_2
@@ -154,7 +150,7 @@
 
     move-result v13
 
-    :goto_1
+    :goto_2
     const/4 v8, 0x0
 
     mul-int v11, v9, v7
@@ -167,7 +163,7 @@
 
     move v5, v11
 
-    :goto_2
+    :goto_3
     if-ge v5, v3, :cond_4
 
     move-object/from16 v0, p0
@@ -184,11 +180,11 @@
 
     move-result v4
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_0
 
     sub-int/2addr v13, v12
 
-    :cond_1
+    :cond_0
     add-int v15, v13, v12
 
     add-int v16, v14, v4
@@ -209,15 +205,22 @@
 
     sub-int/2addr v13, v15
 
-    :goto_3
+    :goto_4
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_2
+    goto :goto_3
+
+    :cond_1
+    move-object/from16 v0, p0
+
+    iget v7, v0, Lcom/android/systemui/qs/PseudoGridView;->mNumColumns:I
+
+    goto :goto_0
 
     :cond_2
     const/4 v13, 0x0
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_3
     move-object/from16 v0, p0
@@ -228,7 +231,7 @@
 
     add-int/2addr v13, v15
 
-    goto :goto_3
+    goto :goto_4
 
     :cond_4
     add-int/2addr v14, v8
@@ -244,7 +247,7 @@
     :cond_5
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_6
     return-void
@@ -272,10 +275,6 @@
 
     move-result v17
 
-    move-object/from16 v0, p0
-
-    iget v10, v0, Lcom/android/systemui/qs/PseudoGridView;->mNumColumns:I
-
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/qs/PseudoGridView;->getChildCount()I
 
     move-result v7
@@ -292,7 +291,7 @@
 
     move v10, v7
 
-    :cond_1
+    :goto_0
     add-int/lit8 v18, v10, -0x1
 
     move-object/from16 v0, p0
@@ -319,15 +318,27 @@
 
     const/16 v16, 0x0
 
-    add-int v18, v7, v10
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/systemui/qs/PseudoGridView;->mNumColumns:I
+
+    move/from16 v18, v0
+
+    add-int v18, v18, v7
 
     add-int/lit8 v18, v18, -0x1
 
-    div-int v14, v18, v10
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/systemui/qs/PseudoGridView;->mNumColumns:I
+
+    move/from16 v19, v0
+
+    div-int v14, v18, v19
 
     const/4 v13, 0x0
 
-    :goto_0
+    :goto_1
     if-ge v13, v14, :cond_6
 
     mul-int v15, v13, v10
@@ -344,7 +355,7 @@
 
     move v9, v15
 
-    :goto_1
+    :goto_2
     if-ge v9, v8, :cond_2
 
     move-object/from16 v0, p0
@@ -367,7 +378,14 @@
 
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_1
+    goto :goto_2
+
+    :cond_1
+    move-object/from16 v0, p0
+
+    iget v10, v0, Lcom/android/systemui/qs/PseudoGridView;->mNumColumns:I
+
+    goto :goto_0
 
     :cond_2
     const/high16 v18, 0x40000000    # 2.0f
@@ -380,7 +398,7 @@
 
     move v9, v15
 
-    :goto_2
+    :goto_3
     if-ge v9, v8, :cond_4
 
     move-object/from16 v0, p0
@@ -402,7 +420,7 @@
     :cond_3
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_2
+    goto :goto_3
 
     :cond_4
     add-int v16, v16, v11
@@ -420,7 +438,7 @@
     :cond_5
     add-int/lit8 v13, v13, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_6
     const/16 v18, 0x0

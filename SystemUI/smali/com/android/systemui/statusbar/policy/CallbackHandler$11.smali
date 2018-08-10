@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/policy/CallbackHandler;->setSlotFocusVisible(ZII)V
+    value = Lcom/android/systemui/statusbar/policy/CallbackHandler;->setEthernetIndicators(Lcom/android/systemui/statusbar/policy/NetworkController$IconState;I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,24 +20,20 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/systemui/statusbar/policy/CallbackHandler;
 
-.field final synthetic val$slotFocusIconId:I
+.field final synthetic val$activityIcon:I
 
-.field final synthetic val$subId:I
-
-.field final synthetic val$visible:Z
+.field final synthetic val$icon:Lcom/android/systemui/statusbar/policy/NetworkController$IconState;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/policy/CallbackHandler;ZII)V
+.method constructor <init>(Lcom/android/systemui/statusbar/policy/CallbackHandler;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$11;->this$0:Lcom/android/systemui/statusbar/policy/CallbackHandler;
 
-    iput-boolean p2, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$11;->val$visible:Z
+    iput-object p2, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$11;->val$icon:Lcom/android/systemui/statusbar/policy/NetworkController$IconState;
 
-    iput p3, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$11;->val$slotFocusIconId:I
-
-    iput p4, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$11;->val$subId:I
+    iput p3, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$11;->val$activityIcon:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -47,11 +43,11 @@
 
 # virtual methods
 .method public run()V
-    .locals 5
+    .locals 4
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$11;->this$0:Lcom/android/systemui/statusbar/policy/CallbackHandler;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/policy/CallbackHandler;->-get0(Lcom/android/systemui/statusbar/policy/CallbackHandler;)Ljava/util/ArrayList;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/policy/CallbackHandler;->-get1(Lcom/android/systemui/statusbar/policy/CallbackHandler;)Ljava/util/ArrayList;
 
     move-result-object v2
 
@@ -72,13 +68,11 @@
 
     check-cast v0, Lcom/android/systemui/statusbar/policy/NetworkController$SignalCallback;
 
-    iget-boolean v2, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$11;->val$visible:Z
+    iget-object v2, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$11;->val$icon:Lcom/android/systemui/statusbar/policy/NetworkController$IconState;
 
-    iget v3, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$11;->val$slotFocusIconId:I
+    iget v3, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$11;->val$activityIcon:I
 
-    iget v4, p0, Lcom/android/systemui/statusbar/policy/CallbackHandler$11;->val$subId:I
-
-    invoke-interface {v0, v2, v3, v4}, Lcom/android/systemui/statusbar/policy/NetworkController$SignalCallback;->setSlotFocusVisible(ZII)V
+    invoke-interface {v0, v2, v3}, Lcom/android/systemui/statusbar/policy/NetworkController$SignalCallback;->setEthernetIndicators(Lcom/android/systemui/statusbar/policy/NetworkController$IconState;I)V
 
     goto :goto_0
 

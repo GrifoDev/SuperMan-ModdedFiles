@@ -17,48 +17,16 @@
 
 .field private final mDelayedShow:Ljava/lang/Runnable;
 
-.field private mDismissed:Z
+.field mDismissed:Z
 
-.field private mPostedHide:Z
+.field mPostedHide:Z
 
-.field private mPostedShow:Z
+.field mPostedShow:Z
 
-.field private mStartTime:J
+.field mStartTime:J
 
 
 # direct methods
-.method static synthetic -get0(Landroid/support/v4/widget/ContentLoadingProgressBar;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDismissed:Z
-
-    return v0
-.end method
-
-.method static synthetic -set0(Landroid/support/v4/widget/ContentLoadingProgressBar;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mPostedHide:Z
-
-    return p1
-.end method
-
-.method static synthetic -set1(Landroid/support/v4/widget/ContentLoadingProgressBar;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mPostedShow:Z
-
-    return p1
-.end method
-
-.method static synthetic -set2(Landroid/support/v4/widget/ContentLoadingProgressBar;J)J
-    .locals 1
-
-    iput-wide p1, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mStartTime:J
-
-    return-wide p1
-.end method
-
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 3
 

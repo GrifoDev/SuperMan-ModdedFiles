@@ -21,3 +21,15 @@
         "Ljava/lang/Object;"
     }
 .end annotation
+
+
+# virtual methods
+.method public abstract onLoadCanceled(Landroid/support/v4/content/Loader;)V
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/support/v4/content/Loader",
+            "<TD;>;)V"
+        }
+    .end annotation
+.end method

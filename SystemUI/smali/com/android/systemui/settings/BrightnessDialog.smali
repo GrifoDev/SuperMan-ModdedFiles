@@ -23,6 +23,12 @@
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
+    invoke-virtual {p0}, Lcom/android/systemui/settings/BrightnessDialog;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/android/systemui/Dependency;->initDependencies(Landroid/content/Context;)V
+
     invoke-virtual {p0}, Lcom/android/systemui/settings/BrightnessDialog;->getWindow()Landroid/view/Window;
 
     move-result-object v2
@@ -39,11 +45,11 @@
 
     invoke-virtual {v2, v3}, Landroid/view/Window;->requestFeature(I)Z
 
-    const v3, 0x7f040111
+    const v3, 0x7f0d0164
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/settings/BrightnessDialog;->setContentView(I)V
 
-    const v3, 0x7f130302
+    const v3, 0x7f0a009c
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/settings/BrightnessDialog;->findViewById(I)Landroid/view/View;
 
@@ -51,13 +57,13 @@
 
     check-cast v0, Landroid/widget/ImageView;
 
-    const v3, 0x7f130303
+    const v3, 0x7f0a009f
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/settings/BrightnessDialog;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
-    check-cast v1, Lcom/android/systemui/settings/ToggleSlider;
+    check-cast v1, Lcom/android/systemui/settings/ToggleSliderView;
 
     new-instance v3, Lcom/android/systemui/settings/BrightnessController;
 

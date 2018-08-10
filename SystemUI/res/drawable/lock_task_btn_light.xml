@@ -2,9 +2,9 @@
 <level-list
   xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:maxLevel="0">
-        <bitmap android:src="@drawable/taskmanager_ic_ab_unlock" android:tint="@color/recents_task_bar_light_text_color" />
+        <bitmap android:src="@drawable/taskmanager_h_ic_lock_mtrl" android:tint="@color/recents_task_bar_light_icon_color" />
     </item>
     <item android:maxLevel="1">
-        <bitmap android:src="@drawable/taskmanager_ic_ab_lock" android:tint="@color/recents_task_bar_light_text_color" />
+        <bitmap android:src="@drawable/taskmanager_h_ic_unlock_mtrl" android:tint="@color/recents_task_bar_light_icon_color" />
     </item>
 </level-list>

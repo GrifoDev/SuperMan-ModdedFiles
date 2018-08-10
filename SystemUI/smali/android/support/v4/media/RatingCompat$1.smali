@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/support/v4/media/RatingCompat;
-    .locals 4
+    .locals 3
 
     new-instance v0, Landroid/support/v4/media/RatingCompat;
 
@@ -51,9 +51,7 @@
 
     move-result v2
 
-    const/4 v3, 0x0
-
-    invoke-direct {v0, v1, v2, v3}, Landroid/support/v4/media/RatingCompat;-><init>(IFLandroid/support/v4/media/RatingCompat;)V
+    invoke-direct {v0, v1, v2}, Landroid/support/v4/media/RatingCompat;-><init>(IF)V
 
     return-object v0
 .end method

@@ -7,6 +7,7 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/support/v17/leanback/widget/BaseCardView$1;,
+        Landroid/support/v17/leanback/widget/BaseCardView$AnimationBase;,
         Landroid/support/v17/leanback/widget/BaseCardView$InfoAlphaAnimation;,
         Landroid/support/v17/leanback/widget/BaseCardView$InfoHeightAnimation;,
         Landroid/support/v17/leanback/widget/BaseCardView$InfoOffsetAnimation;,
@@ -30,7 +31,7 @@
 
 .field private mDelaySelectedAnim:Z
 
-.field private mExtraViewList:Ljava/util/ArrayList;
+.field mExtraViewList:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList",
@@ -43,11 +44,11 @@
 
 .field private mExtraVisibility:I
 
-.field private mInfoAlpha:F
+.field mInfoAlpha:F
 
-.field private mInfoOffset:F
+.field mInfoOffset:F
 
-.field private mInfoViewList:Ljava/util/ArrayList;
+.field mInfoViewList:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList",
@@ -58,7 +59,7 @@
     .end annotation
 .end field
 
-.field private mInfoVisFraction:F
+.field mInfoVisFraction:F
 
 .field private mInfoVisibility:I
 
@@ -83,66 +84,10 @@
 
 
 # direct methods
-.method static synthetic -get0(Landroid/support/v17/leanback/widget/BaseCardView;)Ljava/util/ArrayList;
-    .locals 1
-
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mExtraViewList:Ljava/util/ArrayList;
-
-    return-object v0
-.end method
-
-.method static synthetic -get1(Landroid/support/v17/leanback/widget/BaseCardView;)F
-    .locals 1
-
-    iget v0, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoAlpha:F
-
-    return v0
-.end method
-
-.method static synthetic -get2(Landroid/support/v17/leanback/widget/BaseCardView;)F
-    .locals 1
-
-    iget v0, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoOffset:F
-
-    return v0
-.end method
-
-.method static synthetic -get3(Landroid/support/v17/leanback/widget/BaseCardView;)Ljava/util/ArrayList;
-    .locals 1
-
-    iget-object v0, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoViewList:Ljava/util/ArrayList;
-
-    return-object v0
-.end method
-
-.method static synthetic -set0(Landroid/support/v17/leanback/widget/BaseCardView;F)F
+.method static synthetic -wrap0(Landroid/support/v17/leanback/widget/BaseCardView;)V
     .locals 0
 
-    iput p1, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoAlpha:F
-
-    return p1
-.end method
-
-.method static synthetic -set1(Landroid/support/v17/leanback/widget/BaseCardView;F)F
-    .locals 0
-
-    iput p1, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoOffset:F
-
-    return p1
-.end method
-
-.method static synthetic -set2(Landroid/support/v17/leanback/widget/BaseCardView;F)F
-    .locals 0
-
-    iput p1, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoVisFraction:F
-
-    return p1
-.end method
-
-.method static synthetic -wrap0(Landroid/support/v17/leanback/widget/BaseCardView;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Landroid/support/v17/leanback/widget/BaseCardView;->animateInfoOffset(Z)V
+    invoke-direct {p0}, Landroid/support/v17/leanback/widget/BaseCardView;->cancelAnimations()V
 
     return-void
 .end method
@@ -176,19 +121,13 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 8
+    .locals 7
 
-    const/4 v7, 0x1
+    const/4 v6, 0x1
 
     const/4 v4, 0x0
 
-    const/4 v6, 0x0
-
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-
-    const/high16 v3, 0x3f800000    # 1.0f
-
-    iput v3, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoAlpha:F
 
     new-instance v3, Landroid/support/v17/leanback/widget/BaseCardView$1;
 
@@ -324,7 +263,7 @@
 
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    iput-boolean v7, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mDelaySelectedAnim:Z
+    iput-boolean v6, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mDelaySelectedAnim:Z
 
     new-instance v3, Ljava/util/ArrayList;
 
@@ -344,9 +283,21 @@
 
     iput-object v3, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mExtraViewList:Ljava/util/ArrayList;
 
-    iput v6, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoOffset:F
+    const/4 v3, 0x0
 
-    iput v6, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoVisFraction:F
+    iput v3, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoOffset:F
+
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/BaseCardView;->getFinalInfoVisFraction()F
+
+    move-result v3
+
+    iput v3, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoVisFraction:F
+
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/BaseCardView;->getFinalInfoAlpha()F
+
+    move-result v3
+
+    iput v3, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoAlpha:F
 
     return-void
 
@@ -359,7 +310,7 @@
 .end method
 
 .method private animateInfoAlpha(Z)V
-    .locals 4
+    .locals 6
 
     invoke-direct {p0}, Landroid/support/v17/leanback/widget/BaseCardView;->cancelAnimations()V
 
@@ -368,71 +319,41 @@
     const/4 v0, 0x0
 
     :goto_0
-    iget-object v1, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoViewList:Ljava/util/ArrayList;
+    iget-object v2, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoViewList:Ljava/util/ArrayList;
 
-    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
-    move-result v1
+    move-result v2
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v2, :cond_0
 
-    iget-object v1, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoViewList:Ljava/util/ArrayList;
+    iget-object v2, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoViewList:Ljava/util/ArrayList;
 
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v2
 
-    check-cast v1, Landroid/view/View;
+    check-cast v2, Landroid/view/View;
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v2, v3}, Landroid/view/View;->setVisibility(I)V
 
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_0
-    new-instance v2, Landroid/support/v17/leanback/widget/BaseCardView$InfoAlphaAnimation;
-
-    iget v3, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoAlpha:F
-
     if-eqz p1, :cond_1
 
     const/high16 v1, 0x3f800000    # 1.0f
 
     :goto_1
-    invoke-direct {v2, p0, v3, v1}, Landroid/support/v17/leanback/widget/BaseCardView$InfoAlphaAnimation;-><init>(Landroid/support/v17/leanback/widget/BaseCardView;FF)V
+    iget v2, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoAlpha:F
 
-    iput-object v2, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mAnim:Landroid/view/animation/Animation;
+    cmpl-float v2, v1, v2
 
-    iget-object v1, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mAnim:Landroid/view/animation/Animation;
-
-    iget v2, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mActivatedAnimDuration:I
-
-    int-to-long v2, v2
-
-    invoke-virtual {v1, v2, v3}, Landroid/view/animation/Animation;->setDuration(J)V
-
-    iget-object v1, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mAnim:Landroid/view/animation/Animation;
-
-    new-instance v2, Landroid/view/animation/DecelerateInterpolator;
-
-    invoke-direct {v2}, Landroid/view/animation/DecelerateInterpolator;-><init>()V
-
-    invoke-virtual {v1, v2}, Landroid/view/animation/Animation;->setInterpolator(Landroid/view/animation/Interpolator;)V
-
-    iget-object v1, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mAnim:Landroid/view/animation/Animation;
-
-    new-instance v2, Landroid/support/v17/leanback/widget/BaseCardView$4;
-
-    invoke-direct {v2, p0}, Landroid/support/v17/leanback/widget/BaseCardView$4;-><init>(Landroid/support/v17/leanback/widget/BaseCardView;)V
-
-    invoke-virtual {v1, v2}, Landroid/view/animation/Animation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
-
-    iget-object v1, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mAnim:Landroid/view/animation/Animation;
-
-    invoke-virtual {p0, v1}, Landroid/support/v17/leanback/widget/BaseCardView;->startAnimation(Landroid/view/animation/Animation;)V
+    if-nez v2, :cond_2
 
     return-void
 
@@ -440,228 +361,152 @@
     const/4 v1, 0x0
 
     goto :goto_1
+
+    :cond_2
+    new-instance v3, Landroid/support/v17/leanback/widget/BaseCardView$InfoAlphaAnimation;
+
+    iget v4, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoAlpha:F
+
+    if-eqz p1, :cond_3
+
+    const/high16 v2, 0x3f800000    # 1.0f
+
+    :goto_2
+    invoke-direct {v3, p0, v4, v2}, Landroid/support/v17/leanback/widget/BaseCardView$InfoAlphaAnimation;-><init>(Landroid/support/v17/leanback/widget/BaseCardView;FF)V
+
+    iput-object v3, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mAnim:Landroid/view/animation/Animation;
+
+    iget-object v2, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mAnim:Landroid/view/animation/Animation;
+
+    iget v3, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mActivatedAnimDuration:I
+
+    int-to-long v4, v3
+
+    invoke-virtual {v2, v4, v5}, Landroid/view/animation/Animation;->setDuration(J)V
+
+    iget-object v2, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mAnim:Landroid/view/animation/Animation;
+
+    new-instance v3, Landroid/view/animation/DecelerateInterpolator;
+
+    invoke-direct {v3}, Landroid/view/animation/DecelerateInterpolator;-><init>()V
+
+    invoke-virtual {v2, v3}, Landroid/view/animation/Animation;->setInterpolator(Landroid/view/animation/Interpolator;)V
+
+    iget-object v2, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mAnim:Landroid/view/animation/Animation;
+
+    new-instance v3, Landroid/support/v17/leanback/widget/BaseCardView$4;
+
+    invoke-direct {v3, p0}, Landroid/support/v17/leanback/widget/BaseCardView$4;-><init>(Landroid/support/v17/leanback/widget/BaseCardView;)V
+
+    invoke-virtual {v2, v3}, Landroid/view/animation/Animation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
+
+    iget-object v2, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mAnim:Landroid/view/animation/Animation;
+
+    invoke-virtual {p0, v2}, Landroid/support/v17/leanback/widget/BaseCardView;->startAnimation(Landroid/view/animation/Animation;)V
+
+    return-void
+
+    :cond_3
+    const/4 v2, 0x0
+
+    goto :goto_2
 .end method
 
 .method private animateInfoHeight(Z)V
-    .locals 8
-
-    const/4 v7, 0x0
+    .locals 6
 
     invoke-direct {p0}, Landroid/support/v17/leanback/widget/BaseCardView;->cancelAnimations()V
 
-    const/4 v0, 0x0
-
     if-eqz p1, :cond_0
 
-    iget v5, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mMeasuredWidth:I
+    const/4 v1, 0x0
 
-    const/high16 v6, 0x40000000    # 2.0f
+    :goto_0
+    iget-object v3, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoViewList:Ljava/util/ArrayList;
 
-    invoke-static {v5, v6}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
-    move-result v4
+    move-result v3
 
-    invoke-static {v7, v7}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+    if-ge v1, v3, :cond_0
 
-    move-result v2
+    iget-object v3, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoViewList:Ljava/util/ArrayList;
+
+    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/View;
 
     const/4 v3, 0x0
 
-    :goto_0
-    iget-object v5, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mExtraViewList:Ljava/util/ArrayList;
+    invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
 
-    invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
-
-    move-result v5
-
-    if-ge v3, v5, :cond_0
-
-    iget-object v5, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mExtraViewList:Ljava/util/ArrayList;
-
-    invoke-virtual {v5, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/view/View;
-
-    invoke-virtual {v1, v7}, Landroid/view/View;->setVisibility(I)V
-
-    invoke-virtual {v1, v4, v2}, Landroid/view/View;->measure(II)V
-
-    invoke-virtual {v1}, Landroid/view/View;->getMeasuredHeight()I
-
-    move-result v5
-
-    invoke-static {v0, v5}, Ljava/lang/Math;->max(II)I
-
-    move-result v0
-
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_0
-    new-instance v6, Landroid/support/v17/leanback/widget/BaseCardView$InfoHeightAnimation;
-
-    iget v7, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoVisFraction:F
-
     if-eqz p1, :cond_1
 
-    const/high16 v5, 0x3f800000    # 1.0f
+    const/high16 v2, 0x3f800000    # 1.0f
 
     :goto_1
-    invoke-direct {v6, p0, v7, v5}, Landroid/support/v17/leanback/widget/BaseCardView$InfoHeightAnimation;-><init>(Landroid/support/v17/leanback/widget/BaseCardView;FF)V
+    iget v3, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoVisFraction:F
 
-    iput-object v6, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mAnim:Landroid/view/animation/Animation;
+    cmpl-float v3, v3, v2
 
-    iget-object v5, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mAnim:Landroid/view/animation/Animation;
-
-    iget v6, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mSelectedAnimDuration:I
-
-    int-to-long v6, v6
-
-    invoke-virtual {v5, v6, v7}, Landroid/view/animation/Animation;->setDuration(J)V
-
-    iget-object v5, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mAnim:Landroid/view/animation/Animation;
-
-    new-instance v6, Landroid/view/animation/AccelerateDecelerateInterpolator;
-
-    invoke-direct {v6}, Landroid/view/animation/AccelerateDecelerateInterpolator;-><init>()V
-
-    invoke-virtual {v5, v6}, Landroid/view/animation/Animation;->setInterpolator(Landroid/view/animation/Interpolator;)V
-
-    iget-object v5, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mAnim:Landroid/view/animation/Animation;
-
-    new-instance v6, Landroid/support/v17/leanback/widget/BaseCardView$3;
-
-    invoke-direct {v6, p0}, Landroid/support/v17/leanback/widget/BaseCardView$3;-><init>(Landroid/support/v17/leanback/widget/BaseCardView;)V
-
-    invoke-virtual {v5, v6}, Landroid/view/animation/Animation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
-
-    iget-object v5, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mAnim:Landroid/view/animation/Animation;
-
-    invoke-virtual {p0, v5}, Landroid/support/v17/leanback/widget/BaseCardView;->startAnimation(Landroid/view/animation/Animation;)V
+    if-nez v3, :cond_2
 
     return-void
 
     :cond_1
-    const/4 v5, 0x0
+    const/4 v2, 0x0
 
     goto :goto_1
-.end method
 
-.method private animateInfoOffset(Z)V
-    .locals 8
+    :cond_2
+    new-instance v3, Landroid/support/v17/leanback/widget/BaseCardView$InfoHeightAnimation;
 
-    const/4 v5, 0x0
+    iget v4, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoVisFraction:F
 
-    invoke-direct {p0}, Landroid/support/v17/leanback/widget/BaseCardView;->cancelAnimations()V
+    invoke-direct {v3, p0, v4, v2}, Landroid/support/v17/leanback/widget/BaseCardView$InfoHeightAnimation;-><init>(Landroid/support/v17/leanback/widget/BaseCardView;FF)V
 
-    const/4 v0, 0x0
+    iput-object v3, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mAnim:Landroid/view/animation/Animation;
 
-    if-eqz p1, :cond_0
+    iget-object v3, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mAnim:Landroid/view/animation/Animation;
 
-    iget v6, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mMeasuredWidth:I
+    iget v4, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mSelectedAnimDuration:I
 
-    const/high16 v7, 0x40000000    # 2.0f
+    int-to-long v4, v4
 
-    invoke-static {v6, v7}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+    invoke-virtual {v3, v4, v5}, Landroid/view/animation/Animation;->setDuration(J)V
 
-    move-result v4
+    iget-object v3, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mAnim:Landroid/view/animation/Animation;
 
-    invoke-static {v5, v5}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+    new-instance v4, Landroid/view/animation/AccelerateDecelerateInterpolator;
 
-    move-result v2
+    invoke-direct {v4}, Landroid/view/animation/AccelerateDecelerateInterpolator;-><init>()V
 
-    const/4 v3, 0x0
+    invoke-virtual {v3, v4}, Landroid/view/animation/Animation;->setInterpolator(Landroid/view/animation/Interpolator;)V
 
-    :goto_0
-    iget-object v6, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mExtraViewList:Ljava/util/ArrayList;
+    iget-object v3, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mAnim:Landroid/view/animation/Animation;
 
-    invoke-virtual {v6}, Ljava/util/ArrayList;->size()I
+    new-instance v4, Landroid/support/v17/leanback/widget/BaseCardView$3;
 
-    move-result v6
+    invoke-direct {v4, p0}, Landroid/support/v17/leanback/widget/BaseCardView$3;-><init>(Landroid/support/v17/leanback/widget/BaseCardView;)V
 
-    if-ge v3, v6, :cond_0
+    invoke-virtual {v3, v4}, Landroid/view/animation/Animation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
 
-    iget-object v6, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mExtraViewList:Ljava/util/ArrayList;
+    iget-object v3, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mAnim:Landroid/view/animation/Animation;
 
-    invoke-virtual {v6, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/view/View;
-
-    invoke-virtual {v1, v5}, Landroid/view/View;->setVisibility(I)V
-
-    invoke-virtual {v1, v4, v2}, Landroid/view/View;->measure(II)V
-
-    invoke-virtual {v1}, Landroid/view/View;->getMeasuredHeight()I
-
-    move-result v6
-
-    invoke-static {v0, v6}, Ljava/lang/Math;->max(II)I
-
-    move-result v0
-
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    new-instance v6, Landroid/support/v17/leanback/widget/BaseCardView$InfoOffsetAnimation;
-
-    iget v7, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoOffset:F
-
-    if-eqz p1, :cond_1
-
-    :goto_1
-    int-to-float v5, v0
-
-    invoke-direct {v6, p0, v7, v5}, Landroid/support/v17/leanback/widget/BaseCardView$InfoOffsetAnimation;-><init>(Landroid/support/v17/leanback/widget/BaseCardView;FF)V
-
-    iput-object v6, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mAnim:Landroid/view/animation/Animation;
-
-    iget-object v5, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mAnim:Landroid/view/animation/Animation;
-
-    iget v6, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mSelectedAnimDuration:I
-
-    int-to-long v6, v6
-
-    invoke-virtual {v5, v6, v7}, Landroid/view/animation/Animation;->setDuration(J)V
-
-    iget-object v5, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mAnim:Landroid/view/animation/Animation;
-
-    new-instance v6, Landroid/view/animation/AccelerateDecelerateInterpolator;
-
-    invoke-direct {v6}, Landroid/view/animation/AccelerateDecelerateInterpolator;-><init>()V
-
-    invoke-virtual {v5, v6}, Landroid/view/animation/Animation;->setInterpolator(Landroid/view/animation/Interpolator;)V
-
-    iget-object v5, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mAnim:Landroid/view/animation/Animation;
-
-    new-instance v6, Landroid/support/v17/leanback/widget/BaseCardView$2;
-
-    invoke-direct {v6, p0}, Landroid/support/v17/leanback/widget/BaseCardView$2;-><init>(Landroid/support/v17/leanback/widget/BaseCardView;)V
-
-    invoke-virtual {v5, v6}, Landroid/view/animation/Animation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
-
-    iget-object v5, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mAnim:Landroid/view/animation/Animation;
-
-    invoke-virtual {p0, v5}, Landroid/support/v17/leanback/widget/BaseCardView;->startAnimation(Landroid/view/animation/Animation;)V
+    invoke-virtual {p0, v3}, Landroid/support/v17/leanback/widget/BaseCardView;->startAnimation(Landroid/view/animation/Animation;)V
 
     return-void
-
-    :cond_1
-    move v0, v5
-
-    goto :goto_1
 .end method
 
 .method private applyActiveState(Z)V
     .locals 2
-
-    const/4 v1, 0x1
 
     invoke-direct {p0}, Landroid/support/v17/leanback/widget/BaseCardView;->hasInfoRegion()Z
 
@@ -671,22 +516,19 @@
 
     iget v0, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoVisibility:I
 
-    if-gt v0, v1, :cond_0
+    const/4 v1, 0x1
 
-    invoke-direct {p0, p1}, Landroid/support/v17/leanback/widget/BaseCardView;->setInfoViewVisibility(Z)V
+    if-ne v0, v1, :cond_0
 
-    :cond_0
-    invoke-direct {p0}, Landroid/support/v17/leanback/widget/BaseCardView;->hasExtraRegion()Z
+    iget v0, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoVisibility:I
+
+    invoke-direct {p0, v0}, Landroid/support/v17/leanback/widget/BaseCardView;->isRegionVisible(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    invoke-direct {p0, v0}, Landroid/support/v17/leanback/widget/BaseCardView;->setInfoViewVisibility(Z)V
 
-    iget v0, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mExtraVisibility:I
-
-    if-gt v0, v1, :cond_1
-
-    :cond_1
+    :cond_0
     return-void
 .end method
 
@@ -735,7 +577,7 @@
     :cond_2
     const/4 v0, 0x0
 
-    invoke-direct {p0, v0}, Landroid/support/v17/leanback/widget/BaseCardView;->animateInfoOffset(Z)V
+    invoke-virtual {p0, v0}, Landroid/support/v17/leanback/widget/BaseCardView;->animateInfoOffset(Z)V
 
     goto :goto_0
 
@@ -766,18 +608,16 @@
 
     iput-object v1, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mAnim:Landroid/view/animation/Animation;
 
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/BaseCardView;->clearAnimation()V
+
     :cond_0
     return-void
 .end method
 
 .method private findChildrenViews()V
-    .locals 11
+    .locals 10
 
     const/16 v8, 0x8
-
-    const/4 v9, 0x0
-
-    const/4 v10, 0x2
 
     const/4 v7, 0x0
 
@@ -797,12 +637,19 @@
 
     move-result v1
 
+    invoke-direct {p0}, Landroid/support/v17/leanback/widget/BaseCardView;->hasInfoRegion()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_0
+
     iget v6, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoVisibility:I
 
-    invoke-direct {p0, v6}, Landroid/support/v17/leanback/widget/BaseCardView;->isRegionVisible(I)Z
+    invoke-direct {p0, v6}, Landroid/support/v17/leanback/widget/BaseCardView;->isCurrentRegionVisible(I)Z
 
     move-result v4
 
+    :goto_0
     invoke-direct {p0}, Landroid/support/v17/leanback/widget/BaseCardView;->hasExtraRegion()Z
 
     move-result v6
@@ -811,60 +658,42 @@
 
     iget v6, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoOffset:F
 
+    const/4 v9, 0x0
+
     cmpl-float v6, v6, v9
 
     if-lez v6, :cond_1
 
     const/4 v2, 0x1
 
-    :goto_0
-    iget v6, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mCardType:I
-
-    if-ne v6, v10, :cond_0
-
-    iget v6, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoVisibility:I
-
-    if-ne v6, v10, :cond_0
-
-    if-eqz v4, :cond_2
-
-    iget v6, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoVisFraction:F
-
-    cmpl-float v6, v6, v9
-
-    if-lez v6, :cond_2
-
-    const/4 v4, 0x1
-
-    :cond_0
     :goto_1
     const/4 v3, 0x0
 
     :goto_2
-    if-ge v3, v1, :cond_8
+    if-ge v3, v1, :cond_7
 
     invoke-virtual {p0, v3}, Landroid/support/v17/leanback/widget/BaseCardView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_2
 
     :goto_3
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_2
 
-    :cond_1
-    const/4 v2, 0x0
+    :cond_0
+    const/4 v4, 0x0
 
     goto :goto_0
 
-    :cond_2
-    const/4 v4, 0x0
+    :cond_1
+    const/4 v2, 0x0
 
     goto :goto_1
 
-    :cond_3
+    :cond_2
     invoke-virtual {v0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v5
@@ -875,13 +704,17 @@
 
     const/4 v9, 0x1
 
-    if-ne v6, v9, :cond_5
+    if-ne v6, v9, :cond_4
+
+    iget v6, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoAlpha:F
+
+    invoke-virtual {v0, v6}, Landroid/view/View;->setAlpha(F)V
 
     iget-object v6, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoViewList:Ljava/util/ArrayList;
 
     invoke-virtual {v6, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_3
 
     move v6, v7
 
@@ -890,21 +723,23 @@
 
     goto :goto_3
 
-    :cond_4
+    :cond_3
     move v6, v8
 
     goto :goto_4
 
-    :cond_5
+    :cond_4
     iget v6, v5, Landroid/support/v17/leanback/widget/BaseCardView$LayoutParams;->viewType:I
 
-    if-ne v6, v10, :cond_7
+    const/4 v9, 0x2
+
+    if-ne v6, v9, :cond_6
 
     iget-object v6, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mExtraViewList:Ljava/util/ArrayList;
 
     invoke-virtual {v6, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_5
 
     move v6, v7
 
@@ -913,12 +748,12 @@
 
     goto :goto_3
 
-    :cond_6
+    :cond_5
     move v6, v8
 
     goto :goto_5
 
-    :cond_7
+    :cond_6
     iget-object v6, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mMainViewList:Ljava/util/ArrayList;
 
     invoke-virtual {v6, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -927,7 +762,7 @@
 
     goto :goto_3
 
-    :cond_8
+    :cond_7
     return-void
 .end method
 
@@ -966,12 +801,71 @@
     return v0
 .end method
 
-.method private isRegionVisible(I)Z
-    .locals 2
+.method private isCurrentRegionVisible(I)Z
+    .locals 4
 
-    const/4 v0, 0x0
+    const/4 v0, 0x1
+
+    const/4 v1, 0x0
 
     packed-switch p1, :pswitch_data_0
+
+    return v1
+
+    :pswitch_0
+    return v0
+
+    :pswitch_1
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/BaseCardView;->isActivated()Z
+
+    move-result v0
+
+    return v0
+
+    :pswitch_2
+    iget v2, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mCardType:I
+
+    const/4 v3, 0x2
+
+    if-ne v2, v3, :cond_1
+
+    iget v2, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoVisFraction:F
+
+    const/4 v3, 0x0
+
+    cmpl-float v2, v2, v3
+
+    if-lez v2, :cond_0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    move v0, v1
+
+    goto :goto_0
+
+    :cond_1
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/BaseCardView;->isSelected()Z
+
+    move-result v0
+
+    return v0
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+    .end packed-switch
+.end method
+
+.method private isRegionVisible(I)Z
+    .locals 1
+
+    packed-switch p1, :pswitch_data_0
+
+    const/4 v0, 0x0
 
     return v0
 
@@ -988,17 +882,10 @@
     return v0
 
     :pswitch_2
-    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/BaseCardView;->isActivated()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
     invoke-virtual {p0}, Landroid/support/v17/leanback/widget/BaseCardView;->isSelected()Z
 
     move-result v0
 
-    :cond_0
     return v0
 
     nop
@@ -1177,6 +1064,114 @@
 
 
 # virtual methods
+.method animateInfoOffset(Z)V
+    .locals 8
+
+    const/4 v5, 0x0
+
+    invoke-direct {p0}, Landroid/support/v17/leanback/widget/BaseCardView;->cancelAnimations()V
+
+    const/4 v0, 0x0
+
+    if-eqz p1, :cond_0
+
+    iget v6, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mMeasuredWidth:I
+
+    const/high16 v7, 0x40000000    # 2.0f
+
+    invoke-static {v6, v7}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+
+    move-result v4
+
+    invoke-static {v5, v5}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+
+    move-result v2
+
+    const/4 v3, 0x0
+
+    :goto_0
+    iget-object v6, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mExtraViewList:Ljava/util/ArrayList;
+
+    invoke-virtual {v6}, Ljava/util/ArrayList;->size()I
+
+    move-result v6
+
+    if-ge v3, v6, :cond_0
+
+    iget-object v6, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mExtraViewList:Ljava/util/ArrayList;
+
+    invoke-virtual {v6, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/view/View;
+
+    invoke-virtual {v1, v5}, Landroid/view/View;->setVisibility(I)V
+
+    invoke-virtual {v1, v4, v2}, Landroid/view/View;->measure(II)V
+
+    invoke-virtual {v1}, Landroid/view/View;->getMeasuredHeight()I
+
+    move-result v6
+
+    invoke-static {v0, v6}, Ljava/lang/Math;->max(II)I
+
+    move-result v0
+
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    new-instance v6, Landroid/support/v17/leanback/widget/BaseCardView$InfoOffsetAnimation;
+
+    iget v7, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoOffset:F
+
+    if-eqz p1, :cond_1
+
+    :goto_1
+    int-to-float v5, v0
+
+    invoke-direct {v6, p0, v7, v5}, Landroid/support/v17/leanback/widget/BaseCardView$InfoOffsetAnimation;-><init>(Landroid/support/v17/leanback/widget/BaseCardView;FF)V
+
+    iput-object v6, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mAnim:Landroid/view/animation/Animation;
+
+    iget-object v5, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mAnim:Landroid/view/animation/Animation;
+
+    iget v6, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mSelectedAnimDuration:I
+
+    int-to-long v6, v6
+
+    invoke-virtual {v5, v6, v7}, Landroid/view/animation/Animation;->setDuration(J)V
+
+    iget-object v5, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mAnim:Landroid/view/animation/Animation;
+
+    new-instance v6, Landroid/view/animation/AccelerateDecelerateInterpolator;
+
+    invoke-direct {v6}, Landroid/view/animation/AccelerateDecelerateInterpolator;-><init>()V
+
+    invoke-virtual {v5, v6}, Landroid/view/animation/Animation;->setInterpolator(Landroid/view/animation/Interpolator;)V
+
+    iget-object v5, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mAnim:Landroid/view/animation/Animation;
+
+    new-instance v6, Landroid/support/v17/leanback/widget/BaseCardView$2;
+
+    invoke-direct {v6, p0}, Landroid/support/v17/leanback/widget/BaseCardView$2;-><init>(Landroid/support/v17/leanback/widget/BaseCardView;)V
+
+    invoke-virtual {v5, v6}, Landroid/view/animation/Animation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
+
+    iget-object v5, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mAnim:Landroid/view/animation/Animation;
+
+    invoke-virtual {p0, v5}, Landroid/support/v17/leanback/widget/BaseCardView;->startAnimation(Landroid/view/animation/Animation;)V
+
+    return-void
+
+    :cond_1
+    move v0, v5
+
+    goto :goto_1
+.end method
+
 .method protected checkLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Z
     .locals 1
 
@@ -1193,6 +1188,16 @@
     new-instance v0, Landroid/support/v17/leanback/widget/BaseCardView$LayoutParams;
 
     invoke-direct {v0, v1, v1}, Landroid/support/v17/leanback/widget/BaseCardView$LayoutParams;-><init>(II)V
+
+    return-object v0
+.end method
+
+.method protected bridge synthetic generateDefaultLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/BaseCardView;->generateDefaultLayoutParams()Landroid/support/v17/leanback/widget/BaseCardView$LayoutParams;
+
+    move-result-object v0
 
     return-object v0
 .end method
@@ -1244,6 +1249,16 @@
     return-object v0
 .end method
 
+.method public bridge synthetic generateLayoutParams(Landroid/util/AttributeSet;)Landroid/view/ViewGroup$LayoutParams;
+    .locals 1
+
+    invoke-virtual {p0, p1}, Landroid/support/v17/leanback/widget/BaseCardView;->generateLayoutParams(Landroid/util/AttributeSet;)Landroid/support/v17/leanback/widget/BaseCardView$LayoutParams;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method protected bridge synthetic generateLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Landroid/view/ViewGroup$LayoutParams;
     .locals 1
 
@@ -1262,6 +1277,72 @@
     move-result-object v0
 
     return-object v0
+.end method
+
+.method final getFinalInfoAlpha()F
+    .locals 2
+
+    iget v0, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mCardType:I
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_0
+
+    iget v0, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoVisibility:I
+
+    const/4 v1, 0x2
+
+    if-ne v0, v1, :cond_0
+
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/BaseCardView;->isSelected()Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    goto :goto_0
+.end method
+
+.method final getFinalInfoVisFraction()F
+    .locals 2
+
+    const/4 v1, 0x2
+
+    iget v0, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mCardType:I
+
+    if-ne v0, v1, :cond_0
+
+    iget v0, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoVisibility:I
+
+    if-ne v0, v1, :cond_0
+
+    invoke-virtual {p0}, Landroid/support/v17/leanback/widget/BaseCardView;->isSelected()Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    goto :goto_0
 .end method
 
 .method protected onCreateDrawableState(I)[I
@@ -1334,9 +1415,7 @@
 .end method
 
 .method protected onDetachedFromWindow()V
-    .locals 2
-
-    const/4 v1, 0x0
+    .locals 1
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onDetachedFromWindow()V
 
@@ -1345,10 +1424,6 @@
     invoke-virtual {p0, v0}, Landroid/support/v17/leanback/widget/BaseCardView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     invoke-direct {p0}, Landroid/support/v17/leanback/widget/BaseCardView;->cancelAnimations()V
-
-    iput v1, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoOffset:F
-
-    iput v1, p0, Landroid/support/v17/leanback/widget/BaseCardView;->mInfoVisFraction:F
 
     return-void
 .end method

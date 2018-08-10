@@ -21,8 +21,6 @@
 
 .field private volatile mSimCheckInProgress:Z
 
-.field private mSimImageView:Landroid/widget/ImageView;
-
 .field private mSimUnlockProgressDialog:Landroid/app/ProgressDialog;
 
 .field private mSubId:I
@@ -121,14 +119,6 @@
     return-void
 .end method
 
-.method private getSimIconResId()I
-    .locals 1
-
-    sget v0, Lcom/android/keyguard/R$drawable;->lock_ic_pin_attempt_sim:I
-
-    return v0
-.end method
-
 .method private getSimUnlockProgressDialog()Landroid/app/Dialog;
     .locals 3
 
@@ -140,7 +130,9 @@
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSimPersoView;->mContext:Landroid/content/Context;
 
-    invoke-direct {v0, v1}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;)V
+    const v2, 0x10302d2
+
+    invoke-direct {v0, v1, v2}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;I)V
 
     iput-object v0, p0, Lcom/android/keyguard/KeyguardSimPersoView;->mSimUnlockProgressDialog:Landroid/app/ProgressDialog;
 
@@ -148,7 +140,7 @@
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSimPersoView;->mContext:Landroid/content/Context;
 
-    sget v2, Lcom/android/keyguard/R$string;->kg_kor_sim_unlock_progress_dialog_message:I
+    const v2, 0x7f120574
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -189,7 +181,7 @@
 .method protected getPasswordTextViewId()I
     .locals 1
 
-    sget v0, Lcom/android/keyguard/R$id;->simPersoEntry:I
+    const v0, 0x7f0a04c8
 
     return v0
 .end method
@@ -198,6 +190,14 @@
     .locals 1
 
     const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method protected getSecurityViewId()I
+    .locals 1
+
+    const v0, 0x7f0a029e
 
     return v0
 .end method
@@ -249,31 +249,13 @@
 
     invoke-interface {v0, v1}, Lcom/android/keyguard/SecurityMessageDisplay;->setTimeout(I)V
 
-    sget v0, Lcom/android/keyguard/R$id;->keyguard_sim_icon:I
-
-    invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardSimPersoView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/ImageView;
-
-    iput-object v0, p0, Lcom/android/keyguard/KeyguardSimPersoView;->mSimImageView:Landroid/widget/ImageView;
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardSimPersoView;->mSimImageView:Landroid/widget/ImageView;
-
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardSimPersoView;->getSimIconResId()I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
-
     iget-object v0, p0, Lcom/android/keyguard/KeyguardSimPersoView;->mPasswordEntry:Lcom/android/keyguard/PasswordTextView;
 
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardSimPersoView;->mPasswordEntry:Lcom/android/keyguard/PasswordTextView;
 
-    sget v1, Lcom/android/keyguard/KeyguardRune;->SUPPORT_SKT_SIM_PERSO_LOCK_PASSWORD_LENGTH:I
+    sget v1, Lcom/android/systemui/Rune;->SECURITY_VALUE_PERSO_LOCK_PASSWORD_LENGTH:I
 
     invoke-virtual {v0, v1}, Lcom/android/keyguard/PasswordTextView;->setMaxLength(I)V
 
@@ -301,9 +283,7 @@
 .end method
 
 .method public resetState()V
-    .locals 3
-
-    const/4 v2, 0x1
+    .locals 2
 
     invoke-super {p0}, Lcom/android/keyguard/KeyguardPinBasedInputView;->resetState()V
 
@@ -327,7 +307,7 @@
 
     iput v0, p0, Lcom/android/keyguard/KeyguardSimPersoView;->mSubId:I
 
-    sget v0, Lcom/android/keyguard/KeyguardRune;->SUPPORT_SKT_SIM_PERSO_LOCK_PASSWORD_LENGTH:I
+    sget v0, Lcom/android/systemui/Rune;->SECURITY_VALUE_PERSO_LOCK_PASSWORD_LENGTH:I
 
     const/4 v1, 0x4
 
@@ -335,9 +315,9 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardSimPersoView;->mSecurityMessageDisplay:Lcom/android/keyguard/SecurityMessageDisplay;
 
-    sget v1, Lcom/android/keyguard/R$string;->kg_skt_sim_perso_instructions:I
+    const v1, 0x7f12065a
 
-    invoke-interface {v0, v1, v2}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(IZ)V
+    invoke-interface {v0, v1}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(I)V
 
     :goto_0
     return-void
@@ -345,9 +325,9 @@
     :cond_0
     iget-object v0, p0, Lcom/android/keyguard/KeyguardSimPersoView;->mSecurityMessageDisplay:Lcom/android/keyguard/SecurityMessageDisplay;
 
-    sget v1, Lcom/android/keyguard/R$string;->kg_ktt_sim_perso_instructions:I
+    const v1, 0x7f120577
 
-    invoke-interface {v0, v1, v2}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(IZ)V
+    invoke-interface {v0, v1}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(I)V
 
     goto :goto_0
 .end method
@@ -377,15 +357,15 @@
 .method protected verifyPasswordAndUnlock()V
     .locals 5
 
-    const/4 v3, 0x4
+    const/4 v4, 0x4
 
-    const/4 v4, 0x1
+    const/4 v3, 0x1
 
     invoke-virtual {p0}, Lcom/android/keyguard/KeyguardSimPersoView;->getPasswordText()Ljava/lang/String;
 
     move-result-object v0
 
-    sget-boolean v1, Lcom/android/keyguard/KeyguardRune;->SUPPORT_KTT_USIM_TEXT:Z
+    sget-boolean v1, Lcom/android/systemui/Rune;->KEYGUARD_SUPPORT_KTT_USIM_TEXT:Z
 
     if-eqz v1, :cond_0
 
@@ -395,7 +375,7 @@
 
     if-lt v1, v2, :cond_0
 
-    invoke-virtual {p0, v4, v4}, Lcom/android/keyguard/KeyguardSimPersoView;->resetPasswordText(ZZ)V
+    invoke-virtual {p0, v3, v3}, Lcom/android/keyguard/KeyguardSimPersoView;->resetPasswordText(ZZ)V
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSimPersoView;->mSecurityMessageDisplay:Lcom/android/keyguard/SecurityMessageDisplay;
 
@@ -403,13 +383,13 @@
 
     move-result-object v2
 
-    sget v3, Lcom/android/keyguard/R$string;->kg_password_perso_max_failed:I
+    const v3, 0x7f120608
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-interface {v1, v2, v4}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(Ljava/lang/CharSequence;Z)V
+    invoke-interface {v1, v2}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(Ljava/lang/CharSequence;)V
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSimPersoView;->mCallback:Lcom/android/keyguard/KeyguardSecurityCallback;
 
@@ -426,11 +406,11 @@
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSimPersoView;->mSecurityMessageDisplay:Lcom/android/keyguard/SecurityMessageDisplay;
 
-    sget v2, Lcom/android/keyguard/R$string;->kg_empty_sim_perso_hint:I
+    const v2, 0x7f1204cc
 
-    invoke-interface {v1, v2, v4}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(IZ)V
+    invoke-interface {v1, v2}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(I)V
 
-    invoke-virtual {p0, v4, v4}, Lcom/android/keyguard/KeyguardSimPersoView;->resetPasswordText(ZZ)V
+    invoke-virtual {p0, v3, v3}, Lcom/android/keyguard/KeyguardSimPersoView;->resetPasswordText(ZZ)V
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSimPersoView;->mCallback:Lcom/android/keyguard/KeyguardSecurityCallback;
 
@@ -443,20 +423,20 @@
 
     move-result v1
 
-    if-ge v1, v3, :cond_3
+    if-ge v1, v4, :cond_3
 
-    sget v1, Lcom/android/keyguard/KeyguardRune;->SUPPORT_SKT_SIM_PERSO_LOCK_PASSWORD_LENGTH:I
+    sget v1, Lcom/android/systemui/Rune;->SECURITY_VALUE_PERSO_LOCK_PASSWORD_LENGTH:I
 
-    if-ne v1, v3, :cond_2
+    if-ne v1, v4, :cond_2
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSimPersoView;->mSecurityMessageDisplay:Lcom/android/keyguard/SecurityMessageDisplay;
 
-    sget v2, Lcom/android/keyguard/R$string;->kg_skt_sim_perso_instructions:I
+    const v2, 0x7f12065a
 
-    invoke-interface {v1, v2, v4}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(IZ)V
+    invoke-interface {v1, v2}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(I)V
 
     :goto_0
-    invoke-virtual {p0, v4, v4}, Lcom/android/keyguard/KeyguardSimPersoView;->resetPasswordText(ZZ)V
+    invoke-virtual {p0, v3, v3}, Lcom/android/keyguard/KeyguardSimPersoView;->resetPasswordText(ZZ)V
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSimPersoView;->mCallback:Lcom/android/keyguard/KeyguardSecurityCallback;
 
@@ -467,9 +447,9 @@
     :cond_2
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSimPersoView;->mSecurityMessageDisplay:Lcom/android/keyguard/SecurityMessageDisplay;
 
-    sget v2, Lcom/android/keyguard/R$string;->kg_ktt_sim_perso_instructions:I
+    const v2, 0x7f120577
 
-    invoke-interface {v1, v2, v4}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(IZ)V
+    invoke-interface {v1, v2}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(I)V
 
     goto :goto_0
 
@@ -498,7 +478,7 @@
 
     if-nez v1, :cond_4
 
-    iput-boolean v4, p0, Lcom/android/keyguard/KeyguardSimPersoView;->mSimCheckInProgress:Z
+    iput-boolean v3, p0, Lcom/android/keyguard/KeyguardSimPersoView;->mSimCheckInProgress:Z
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSimPersoView;->mCheckSimPersoThread:Lcom/android/keyguard/KeyguardSimPersoView$CheckSimPerso;
 

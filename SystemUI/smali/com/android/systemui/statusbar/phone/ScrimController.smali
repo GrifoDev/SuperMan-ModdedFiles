@@ -4,19 +4,23 @@
 
 # interfaces
 .implements Landroid/view/ViewTreeObserver$OnPreDrawListener;
-.implements Lcom/android/systemui/statusbar/policy/HeadsUpManager$OnHeadsUpChangedListener;
+.implements Lcom/android/systemui/statusbar/policy/OnHeadsUpChangedListener;
 
 
 # static fields
 .field public static final KEYGUARD_FADE_OUT_INTERPOLATOR:Landroid/view/animation/Interpolator;
 
+.field public static final KEYGUARD_FADE_OUT_INTERPOLATOR_LOCKED:Landroid/view/animation/Interpolator;
+
 
 # instance fields
-.field private mAnimateChange:Z
+.field protected mAnimateChange:Z
 
 .field private mAnimateKeyguardFadingOut:Z
 
 .field private mAnimationDelay:J
+
+.field protected mBouncerIsKeyguard:Z
 
 .field protected mBouncerShowing:Z
 
@@ -38,9 +42,7 @@
 
 .field private mDraggedHeadsUpView:Landroid/view/View;
 
-.field private mDurationOverride:J
-
-.field private mExpanding:Z
+.field protected mDurationOverride:J
 
 .field private mForceHideScrims:Z
 
@@ -52,25 +54,31 @@
 
 .field protected mIsSecure:Z
 
-.field protected mIsShadeLocked:Z
-
 .field private mKeyguardFadeoutAnimation:Landroid/animation/ValueAnimator;
 
 .field private mKeyguardFadingOutInProgress:Z
 
 .field protected mKeyguardShowing:Z
 
+.field private final mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+.field private final mLightBarController:Lcom/android/systemui/statusbar/phone/LightBarController;
+
 .field private mOnAnimationFinished:Ljava/lang/Runnable;
 
 .field private mPinnedHeadsUpCount:I
 
+.field private mScrimAlphaForKeyguard:F
+
 .field protected final mScrimBehind:Lcom/android/systemui/statusbar/ScrimView;
 
-.field private mScrimBehindAlpha:F
+.field protected mScrimBehindAlpha:F
 
-.field private mScrimBehindAlphaKeyguard:F
+.field protected mScrimBehindAlphaKeyguard:F
 
-.field private mScrimBehindAlphaUnlocking:F
+.field protected mScrimBehindAlphaUnlocking:F
+
+.field private mScrimBouncerColor:I
 
 .field private final mScrimInFront:Lcom/android/systemui/statusbar/ScrimView;
 
@@ -78,15 +86,17 @@
 
 .field private mSkipOnce:Z
 
-.field private mSwipeFraction:F
-
 .field private mTopHeadsUpDragAmount:F
+
+.field private mTracking:Z
 
 .field private final mUnlockMethodCache:Lcom/android/systemui/statusbar/phone/UnlockMethodCache;
 
 .field private mUpdatePending:Z
 
 .field private mWakeAndUnlocking:Z
+
+.field private mWhiteKeyguardWallpaper:Z
 
 
 # direct methods
@@ -146,16 +156,10 @@
     return-void
 .end method
 
-.method static synthetic -wrap1(Lcom/android/systemui/statusbar/phone/ScrimController;Landroid/view/View;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/ScrimController;->updateScrimColor(Landroid/view/View;)V
-
-    return-void
-.end method
-
 .method static constructor <clinit>()V
-    .locals 4
+    .locals 5
+
+    const/high16 v4, 0x3f800000    # 1.0f
 
     const/4 v3, 0x0
 
@@ -163,23 +167,31 @@
 
     const v1, 0x3f333333    # 0.7f
 
-    const/high16 v2, 0x3f800000    # 1.0f
-
-    invoke-direct {v0, v3, v3, v1, v2}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
+    invoke-direct {v0, v3, v3, v1, v4}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
 
     sput-object v0, Lcom/android/systemui/statusbar/phone/ScrimController;->KEYGUARD_FADE_OUT_INTERPOLATOR:Landroid/view/animation/Interpolator;
+
+    new-instance v0, Landroid/view/animation/PathInterpolator;
+
+    const v1, 0x3e99999a    # 0.3f
+
+    const v2, 0x3f4ccccd    # 0.8f
+
+    invoke-direct {v0, v1, v3, v2, v4}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
+
+    sput-object v0, Lcom/android/systemui/statusbar/phone/ScrimController;->KEYGUARD_FADE_OUT_INTERPOLATOR_LOCKED:Landroid/view/animation/Interpolator;
 
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/systemui/statusbar/ScrimView;Lcom/android/systemui/statusbar/ScrimView;Landroid/view/View;)V
-    .locals 4
+.method public constructor <init>(Lcom/android/systemui/statusbar/phone/LightBarController;Lcom/android/systemui/statusbar/ScrimView;Lcom/android/systemui/statusbar/ScrimView;Landroid/view/View;)V
+    .locals 6
+
+    const/4 v5, 0x0
+
+    const/high16 v4, -0x40800000    # -1.0f
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    const v1, 0x3f1eb852    # 0.62f
-
-    iput v1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimBehindAlpha:F
 
     const v1, 0x3ee66666    # 0.45f
 
@@ -188,6 +200,8 @@
     const v1, 0x3e4ccccd    # 0.2f
 
     iput v1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimBehindAlphaUnlocking:F
+
+    iput-boolean v5, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mBouncerIsKeyguard:Z
 
     const-wide/16 v2, -0x1
 
@@ -199,17 +213,19 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mInterpolator:Landroid/view/animation/Interpolator;
 
-    const/high16 v1, 0x3f800000    # 1.0f
+    iput v4, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mCurrentInFrontAlpha:F
 
-    iput v1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mCurrentHeadsUpAlpha:F
+    iput v4, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mCurrentBehindAlpha:F
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimBehind:Lcom/android/systemui/statusbar/ScrimView;
+    iput v4, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mCurrentHeadsUpAlpha:F
 
-    iput-object p2, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimInFront:Lcom/android/systemui/statusbar/ScrimView;
+    iput-object p2, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimBehind:Lcom/android/systemui/statusbar/ScrimView;
 
-    iput-object p3, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mHeadsUpScrim:Landroid/view/View;
+    iput-object p3, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimInFront:Lcom/android/systemui/statusbar/ScrimView;
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/ScrimView;->getContext()Landroid/content/Context;
+    iput-object p4, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mHeadsUpScrim:Landroid/view/View;
+
+    invoke-virtual {p2}, Lcom/android/systemui/statusbar/ScrimView;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -218,6 +234,38 @@
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mUnlockMethodCache:Lcom/android/systemui/statusbar/phone/UnlockMethodCache;
+
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    iput-object p1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mLightBarController:Lcom/android/systemui/statusbar/phone/LightBarController;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f0705e8
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getFloat(I)F
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimBehindAlpha:F
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f0601c4
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimBouncerColor:I
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mUnlockMethodCache:Lcom/android/systemui/statusbar/phone/UnlockMethodCache;
 
@@ -235,9 +283,13 @@
 
     iput-boolean v1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mIsSecure:Z
 
-    const/4 v1, 0x0
+    const v1, 0x3f19999a    # 0.6f
 
-    invoke-direct {p0, v1}, Lcom/android/systemui/statusbar/phone/ScrimController;->updateHeadsUpScrim(Z)V
+    iput v1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimAlphaForKeyguard:F
+
+    invoke-direct {p0, v5}, Lcom/android/systemui/statusbar/phone/ScrimController;->updateHeadsUpScrim(Z)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/ScrimController;->updateScrims()V
 
     return-void
 .end method
@@ -296,7 +348,7 @@
 
     iput-boolean v1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mAnimateKeyguardFadingOut:Z
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_0
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimInFront:Lcom/android/systemui/statusbar/ScrimView;
 
@@ -304,7 +356,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimBehind:Lcom/android/systemui/statusbar/ScrimView;
 
@@ -312,16 +364,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mOnAnimationFinished:Ljava/lang/Runnable;
+    xor-int/lit8 v0, v0, 0x1
 
     if-eqz v0, :cond_2
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mOnAnimationFinished:Ljava/lang/Runnable;
+
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mOnAnimationFinished:Ljava/lang/Runnable;
 
@@ -329,71 +379,31 @@
 
     iput-object v2, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mOnAnimationFinished:Ljava/lang/Runnable;
 
-    :cond_2
+    :cond_1
     iput-boolean v1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mKeyguardFadingOutInProgress:Z
 
-    goto :goto_0
+    :cond_2
+    return-void
 .end method
 
-.method private getCurrentScrimAlpha(Landroid/view/View;)F
+.method private getScrimInFrontAlpha()F
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimBehind:Lcom/android/systemui/statusbar/ScrimView;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    if-ne p1, v0, :cond_0
+    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->needsSlowUnlockTransition()Z
 
-    iget v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mCurrentBehindAlpha:F
-
-    :goto_0
-    return v0
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimInFront:Lcom/android/systemui/statusbar/ScrimView;
-
-    if-ne p1, v0, :cond_1
-
-    iget v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mCurrentInFrontAlpha:F
-
-    goto :goto_0
-
-    :cond_1
-    iget v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mCurrentHeadsUpAlpha:F
-
-    goto :goto_0
-.end method
-
-.method private getDozeAlpha(Landroid/view/View;)F
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimBehind:Lcom/android/systemui/statusbar/ScrimView;
-
-    if-ne p1, v0, :cond_0
-
-    iget v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mDozeBehindAlpha:F
-
-    :goto_0
-    return v0
-
-    :cond_0
-    iget v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mDozeInFrontAlpha:F
-
-    goto :goto_0
-.end method
-
-.method private getInterpolator()Landroid/view/animation/Interpolator;
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mAnimateKeyguardFadingOut:Z
+    move-result v0
 
     if-eqz v0, :cond_0
 
-    sget-object v0, Lcom/android/systemui/statusbar/phone/ScrimController;->KEYGUARD_FADE_OUT_INTERPOLATOR:Landroid/view/animation/Interpolator;
+    const v0, 0x3f59999a    # 0.85f
 
     :goto_0
-    return-object v0
+    return v0
 
     :cond_0
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mInterpolator:Landroid/view/animation/Interpolator;
+    const/high16 v0, 0x3f400000    # 0.75f
 
     goto :goto_0
 .end method
@@ -401,7 +411,7 @@
 .method private isAnimating(Landroid/view/View;)Z
     .locals 1
 
-    const v0, 0x7f130035
+    const v0, 0x7f0a0465
 
     invoke-virtual {p1, v0}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
 
@@ -420,35 +430,6 @@
     goto :goto_0
 .end method
 
-.method private scheduleUpdate()V
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mUpdatePending:Z
-
-    if-eqz v0, :cond_0
-
-    return-void
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimBehind:Lcom/android/systemui/statusbar/ScrimView;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/ScrimView;->invalidate()V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimBehind:Lcom/android/systemui/statusbar/ScrimView;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/ScrimView;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p0}, Landroid/view/ViewTreeObserver;->addOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mUpdatePending:Z
-
-    return-void
-.end method
-
 .method private setCurrentScrimAlpha(Landroid/view/View;F)V
     .locals 2
 
@@ -457,6 +438,12 @@
     if-ne p1, v0, :cond_0
 
     iput p2, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mCurrentBehindAlpha:F
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mLightBarController:Lcom/android/systemui/statusbar/phone/LightBarController;
+
+    iget v1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mCurrentBehindAlpha:F
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/LightBarController;->setScrimAlpha(F)V
 
     :goto_0
     return-void
@@ -503,7 +490,7 @@
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mAnimateChange:Z
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/ScrimController;->getCurrentScrimAlpha(Landroid/view/View;)F
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/phone/ScrimController;->getCurrentScrimAlpha(Landroid/view/View;)F
 
     move-result v1
 
@@ -513,43 +500,37 @@
 .end method
 
 .method private setScrimInFrontColor(F)V
-    .locals 3
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimInFront:Lcom/android/systemui/statusbar/ScrimView;
+
+    invoke-direct {p0, v0, p1}, Lcom/android/systemui/statusbar/phone/ScrimController;->setScrimColor(Landroid/view/View;F)V
 
     const/4 v0, 0x0
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimInFront:Lcom/android/systemui/statusbar/ScrimView;
+    cmpl-float v0, p1, v0
 
-    invoke-direct {p0, v1, p1}, Lcom/android/systemui/statusbar/phone/ScrimController;->setScrimColor(Landroid/view/View;F)V
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimInFront:Lcom/android/systemui/statusbar/ScrimView;
 
     const/4 v1, 0x0
 
-    cmpl-float v1, p1, v1
-
-    if-nez v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimInFront:Lcom/android/systemui/statusbar/ScrimView;
-
-    invoke-virtual {v1, v0}, Lcom/android/systemui/statusbar/ScrimView;->setClickable(Z)V
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/ScrimView;->setClickable(Z)V
 
     :goto_0
     return-void
 
     :cond_0
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimInFront:Lcom/android/systemui/statusbar/ScrimView;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimInFront:Lcom/android/systemui/statusbar/ScrimView;
 
-    iget-boolean v2, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mDozing:Z
+    iget-boolean v1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mDozing:Z
 
-    if-eqz v2, :cond_1
+    xor-int/lit8 v1, v1, 0x1
 
-    :goto_1
-    invoke-virtual {v1, v0}, Lcom/android/systemui/statusbar/ScrimView;->setClickable(Z)V
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/ScrimView;->setClickable(Z)V
 
     goto :goto_0
-
-    :cond_1
-    const/4 v0, 0x1
-
-    goto :goto_1
 .end method
 
 .method private startScrimAnimation(Landroid/view/View;F)V
@@ -557,7 +538,7 @@
 
     const/4 v6, 0x1
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/ScrimController;->getCurrentScrimAlpha(Landroid/view/View;)F
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/phone/ScrimController;->getCurrentScrimAlpha(Landroid/view/View;)F
 
     move-result v1
 
@@ -581,7 +562,7 @@
 
     invoke-virtual {v0, v2}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/ScrimController;->getInterpolator()Landroid/view/animation/Interpolator;
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/ScrimController;->getInterpolator()Landroid/view/animation/Interpolator;
 
     move-result-object v2
 
@@ -630,7 +611,7 @@
     invoke-virtual {v0, v2, v3}, Landroid/animation/ValueAnimator;->setCurrentPlayTime(J)V
 
     :cond_1
-    const v2, 0x7f130035
+    const v2, 0x7f0a0465
 
     invoke-virtual {p1, v2, v0}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
@@ -638,7 +619,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f130036
+    const v3, 0x7f0a046a
 
     invoke-virtual {p1, v3, v2}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
@@ -667,18 +648,30 @@
 .end method
 
 .method private updateScrim(ZLandroid/view/View;FF)V
-    .locals 10
+    .locals 12
 
     iget-boolean v7, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mKeyguardFadingOutInProgress:Z
+
+    if-eqz v7, :cond_0
+
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mKeyguardFadeoutAnimation:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {v7}, Landroid/animation/ValueAnimator;->getCurrentPlayTime()J
+
+    move-result-wide v8
+
+    const-wide/16 v10, 0x0
+
+    cmp-long v7, v8, v10
 
     if-eqz v7, :cond_0
 
     return-void
 
     :cond_0
-    const v7, 0x7f130035
+    const v7, 0x7f0a0465
 
-    invoke-static {p2, v7}, Lcom/android/systemui/statusbar/stack/StackStateAnimator;->getChildTag(Landroid/view/View;I)Ljava/lang/Object;
+    invoke-static {p2, v7}, Lcom/android/systemui/statusbar/stack/ViewState;->getChildTag(Landroid/view/View;I)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -711,11 +704,11 @@
 
     invoke-direct {p0, p2, p3}, Lcom/android/systemui/statusbar/phone/ScrimController;->startScrimAnimation(Landroid/view/View;F)V
 
-    invoke-static {p4}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    invoke-static/range {p4 .. p4}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
     move-result-object v7
 
-    const v8, 0x7f130037
+    const v8, 0x7f0a0467
 
     invoke-virtual {p2, v8, v7}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
@@ -723,7 +716,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f130038
+    const v8, 0x7f0a0466
 
     invoke-virtual {p2, v8, v7}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
@@ -732,9 +725,9 @@
     return-void
 
     :cond_4
-    const v7, 0x7f130038
+    const v7, 0x7f0a0466
 
-    invoke-static {p2, v7}, Lcom/android/systemui/statusbar/stack/StackStateAnimator;->getChildTag(Landroid/view/View;I)Ljava/lang/Object;
+    invoke-static {p2, v7}, Lcom/android/systemui/statusbar/stack/ViewState;->getChildTag(Landroid/view/View;I)Ljava/lang/Object;
 
     move-result-object v7
 
@@ -749,9 +742,9 @@
     :cond_5
     if-eqz v2, :cond_6
 
-    const v7, 0x7f130037
+    const v7, 0x7f0a0467
 
-    invoke-static {p2, v7}, Lcom/android/systemui/statusbar/stack/StackStateAnimator;->getChildTag(Landroid/view/View;I)Ljava/lang/Object;
+    invoke-static {p2, v7}, Lcom/android/systemui/statusbar/stack/ViewState;->getChildTag(Landroid/view/View;I)Ljava/lang/Object;
 
     move-result-object v7
 
@@ -761,9 +754,9 @@
 
     move-result v4
 
-    const v7, 0x7f130038
+    const v7, 0x7f0a0466
 
-    invoke-static {p2, v7}, Lcom/android/systemui/statusbar/stack/StackStateAnimator;->getChildTag(Landroid/view/View;I)Ljava/lang/Object;
+    invoke-static {p2, v7}, Lcom/android/systemui/statusbar/stack/ViewState;->getChildTag(Landroid/view/View;I)Ljava/lang/Object;
 
     move-result-object v7
 
@@ -780,6 +773,18 @@
     sub-float v5, p3, v3
 
     add-float v1, v4, v5
+
+    const/4 v7, 0x0
+
+    const/high16 v8, 0x3f800000    # 1.0f
+
+    invoke-static {v8, v1}, Ljava/lang/Math;->min(FF)F
+
+    move-result v8
+
+    invoke-static {v7, v8}, Ljava/lang/Math;->max(FF)F
+
+    move-result v1
 
     const/4 v7, 0x0
 
@@ -803,7 +808,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f130037
+    const v8, 0x7f0a0467
 
     invoke-virtual {p2, v8, v7}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
@@ -811,7 +816,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f130038
+    const v8, 0x7f0a0466
 
     invoke-virtual {p2, v8, v7}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
@@ -826,95 +831,43 @@
     :cond_6
     invoke-direct {p0, p2, p3}, Lcom/android/systemui/statusbar/phone/ScrimController;->setCurrentScrimAlpha(Landroid/view/View;F)V
 
-    invoke-direct {p0, p2}, Lcom/android/systemui/statusbar/phone/ScrimController;->updateScrimColor(Landroid/view/View;)V
+    invoke-virtual {p0, p2}, Lcom/android/systemui/statusbar/phone/ScrimController;->updateScrimColor(Landroid/view/View;)V
 
     goto :goto_1
 .end method
 
-.method private updateScrimColor(Landroid/view/View;)V
-    .locals 7
-
-    const/4 v6, 0x0
-
-    const/high16 v5, 0x3f800000    # 1.0f
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/ScrimController;->getCurrentScrimAlpha(Landroid/view/View;)F
-
-    move-result v1
-
-    instance-of v3, p1, Lcom/android/systemui/statusbar/ScrimView;
-
-    if-eqz v3, :cond_0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/ScrimController;->getDozeAlpha(Landroid/view/View;)F
-
-    move-result v2
-
-    sub-float v3, v5, v1
-
-    sub-float v4, v5, v2
-
-    mul-float/2addr v3, v4
-
-    sub-float v0, v5, v3
-
-    check-cast p1, Lcom/android/systemui/statusbar/ScrimView;
-
-    const/high16 v3, 0x437f0000    # 255.0f
-
-    mul-float/2addr v3, v0
-
-    float-to-int v3, v3
-
-    invoke-static {v3, v6, v6, v6}, Landroid/graphics/Color;->argb(IIII)I
-
-    move-result v3
-
-    invoke-virtual {p1, v3}, Lcom/android/systemui/statusbar/ScrimView;->setScrimColor(I)V
-
-    :goto_0
-    return-void
-
-    :cond_0
-    invoke-virtual {p1, v1}, Landroid/view/View;->setAlpha(F)V
-
-    goto :goto_0
-.end method
-
 .method private updateScrimKeyguard()V
-    .locals 10
+    .locals 8
 
-    const/high16 v7, 0x3f400000    # 0.75f
+    const-wide v6, 0x3fe99999a0000000L    # 0.800000011920929
 
-    const-wide v8, 0x3fe99999a0000000L    # 0.800000011920929
-
-    const/high16 v6, 0x3f800000    # 1.0f
+    const/high16 v4, 0x3f800000    # 1.0f
 
     const/4 v5, 0x0
 
-    iget-boolean v4, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mExpanding:Z
+    iget-boolean v3, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mTracking:Z
 
-    if-eqz v4, :cond_0
+    if-eqz v3, :cond_0
 
-    iget-boolean v4, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mDarkenWhileDragging:Z
+    iget-boolean v3, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mDarkenWhileDragging:Z
 
-    if-eqz v4, :cond_0
+    if-eqz v3, :cond_0
 
-    iget v4, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mFraction:F
+    iget v3, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mFraction:F
 
-    invoke-static {v4, v6}, Ljava/lang/Math;->min(FF)F
+    invoke-static {v3, v4}, Ljava/lang/Math;->min(FF)F
 
-    move-result v4
+    move-result v3
 
-    invoke-static {v5, v4}, Ljava/lang/Math;->max(FF)F
+    invoke-static {v5, v3}, Ljava/lang/Math;->max(FF)F
 
     move-result v1
 
-    sub-float v2, v6, v1
+    sub-float v2, v4, v1
 
     float-to-double v4, v2
 
-    invoke-static {v4, v5, v8, v9}, Ljava/lang/Math;->pow(DD)D
+    invoke-static {v4, v5, v6, v7}, Ljava/lang/Math;->pow(DD)D
 
     move-result-wide v4
 
@@ -922,74 +875,132 @@
 
     float-to-double v4, v1
 
-    invoke-static {v4, v5, v8, v9}, Ljava/lang/Math;->pow(DD)D
+    invoke-static {v4, v5, v6, v7}, Ljava/lang/Math;->pow(DD)D
 
     move-result-wide v4
 
     double-to-float v1, v4
 
-    mul-float v4, v2, v7
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/ScrimController;->getScrimInFrontAlpha()F
 
-    invoke-direct {p0, v4}, Lcom/android/systemui/statusbar/phone/ScrimController;->setScrimInFrontColor(F)V
+    move-result v3
 
-    iget v4, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimBehindAlphaKeyguard:F
+    mul-float/2addr v3, v2
 
-    mul-float/2addr v4, v1
+    invoke-direct {p0, v3}, Lcom/android/systemui/statusbar/phone/ScrimController;->setScrimInFrontColor(F)V
 
-    invoke-direct {p0, v4}, Lcom/android/systemui/statusbar/phone/ScrimController;->setScrimBehindColor(F)V
+    iget v3, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimBehindAlphaKeyguard:F
+
+    mul-float/2addr v3, v1
+
+    invoke-direct {p0, v3}, Lcom/android/systemui/statusbar/phone/ScrimController;->setScrimBehindColor(F)V
 
     :goto_0
     return-void
 
     :cond_0
-    iget-boolean v4, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mBouncerShowing:Z
+    iget-boolean v3, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mBouncerShowing:Z
 
-    if-eqz v4, :cond_2
+    if-eqz v3, :cond_3
 
-    invoke-direct {p0, v7}, Lcom/android/systemui/statusbar/phone/ScrimController;->setScrimInFrontColor(F)V
+    iget-boolean v3, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mBouncerIsKeyguard:Z
 
-    iget-boolean v4, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mSkipOnce:Z
+    xor-int/lit8 v3, v3, 0x1
 
-    if-eqz v4, :cond_1
+    if-eqz v3, :cond_3
+
+    sget-boolean v3, Lcom/android/systemui/Rune;->KEYWI_SUPPORT_PROPORTIONAL_DIM:Z
+
+    if-eqz v3, :cond_2
+
+    iget-boolean v3, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mSkipOnce:Z
+
+    if-eqz v3, :cond_1
+
+    iget-boolean v3, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mWhiteKeyguardWallpaper:Z
+
+    if-eqz v3, :cond_1
 
     invoke-direct {p0, v5}, Lcom/android/systemui/statusbar/phone/ScrimController;->setScrimInFrontColor(F)V
-
-    const/4 v4, 0x0
-
-    iput-boolean v4, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mSkipOnce:Z
 
     :goto_1
     invoke-direct {p0, v5}, Lcom/android/systemui/statusbar/phone/ScrimController;->setScrimBehindColor(F)V
 
+    const/4 v3, 0x0
+
+    iput-boolean v3, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mSkipOnce:Z
+
     goto :goto_0
 
     :cond_1
-    const/high16 v4, 0x3e800000    # 0.25f
+    iget v3, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimAlphaForKeyguard:F
 
-    invoke-direct {p0, v4}, Lcom/android/systemui/statusbar/phone/ScrimController;->setScrimInFrontColor(F)V
+    invoke-direct {p0, v3}, Lcom/android/systemui/statusbar/phone/ScrimController;->setScrimInFrontColor(F)V
 
     goto :goto_1
 
     :cond_2
-    iget v4, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mSwipeFraction:F
-
-    invoke-static {v4, v6}, Ljava/lang/Math;->min(FF)F
-
-    move-result v4
-
-    invoke-static {v5, v4}, Ljava/lang/Math;->max(FF)F
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/ScrimController;->getScrimInFrontAlpha()F
 
     move-result v3
 
-    const v4, 0x3e7fffff    # 0.24999999f
+    invoke-direct {p0, v3}, Lcom/android/systemui/statusbar/phone/ScrimController;->setScrimInFrontColor(F)V
 
-    mul-float v0, v3, v4
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/ScrimController;->updateScrimNormal()V
 
+    goto :goto_0
+
+    :cond_3
+    iget-boolean v3, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mBouncerShowing:Z
+
+    if-eqz v3, :cond_4
+
+    invoke-direct {p0, v5}, Lcom/android/systemui/statusbar/phone/ScrimController;->setScrimInFrontColor(F)V
+
+    iget v3, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimBehindAlpha:F
+
+    invoke-direct {p0, v3}, Lcom/android/systemui/statusbar/phone/ScrimController;->setScrimBehindColor(F)V
+
+    goto :goto_0
+
+    :cond_4
+    sget-boolean v3, Lcom/android/systemui/Rune;->KEYWI_SUPPORT_PROPORTIONAL_DIM:Z
+
+    if-eqz v3, :cond_5
+
+    const/4 v0, 0x0
+
+    :goto_2
     invoke-direct {p0, v5}, Lcom/android/systemui/statusbar/phone/ScrimController;->setScrimInFrontColor(F)V
 
     invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/phone/ScrimController;->setScrimBehindColor(F)V
 
     goto :goto_0
+
+    :cond_5
+    iget v3, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mFraction:F
+
+    invoke-static {v3, v4}, Ljava/lang/Math;->min(FF)F
+
+    move-result v3
+
+    invoke-static {v5, v3}, Ljava/lang/Math;->max(FF)F
+
+    move-result v2
+
+    iget v3, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimBehindAlphaKeyguard:F
+
+    iget v4, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimBehindAlphaUnlocking:F
+
+    sub-float/2addr v3, v4
+
+    mul-float/2addr v3, v2
+
+    iget v4, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimBehindAlphaUnlocking:F
+
+    add-float v0, v3, v4
+
+    goto :goto_2
 .end method
 
 .method private updateScrimNormal()V
@@ -1060,6 +1071,14 @@
 
 
 # virtual methods
+.method synthetic -com_android_systemui_statusbar_phone_ScrimController-mthref-0()V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/ScrimController;->scheduleUpdate()V
+
+    return-void
+.end method
+
 .method public abortKeyguardFadingOut()V
     .locals 1
 
@@ -1086,13 +1105,13 @@
 
     iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mAnimateChange:Z
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/ScrimController;->scheduleUpdate()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/ScrimController;->scheduleUpdate()V
 
     return-void
 .end method
 
 .method public animateKeyguardFadingOut(JJLjava/lang/Runnable;Z)V
-    .locals 3
+    .locals 5
 
     const/4 v1, 0x0
 
@@ -1112,19 +1131,53 @@
 
     iput-object p5, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mOnAnimationFinished:Ljava/lang/Runnable;
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/ScrimController;->scheduleUpdate()V
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->needsSlowUnlockTransition()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/ScrimController;->scheduleUpdate()V
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/ScrimController;->onPreDraw()Z
 
+    :goto_0
     return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimInFront:Lcom/android/systemui/statusbar/ScrimView;
+
+    new-instance v1, Lcom/android/systemui/statusbar/phone/-$Lambda$Qa_0r0Wgvb30yriIJPTwPtXGSyk;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/phone/-$Lambda$Qa_0r0Wgvb30yriIJPTwPtXGSyk;-><init>(Ljava/lang/Object;)V
+
+    const-wide/16 v2, 0x10
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/android/systemui/statusbar/ScrimView;->postOnAnimationDelayed(Ljava/lang/Runnable;J)V
+
+    goto :goto_0
 .end method
 
-.method public animateNextChange()V
+.method public animateKeyguardUnoccluding(J)V
     .locals 1
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mAnimateChange:Z
+
+    const/4 v0, 0x0
+
+    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/phone/ScrimController;->setScrimBehindColor(F)V
 
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mAnimateChange:Z
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/ScrimController;->scheduleUpdate()V
+
+    iput-wide p1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mDurationOverride:J
 
     return-void
 .end method
@@ -1158,9 +1211,54 @@
 
     iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mAnimateChange:Z
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/ScrimController;->scheduleUpdate()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/ScrimController;->scheduleUpdate()V
 
     return-void
+.end method
+
+.method protected getCurrentScrimAlpha(Landroid/view/View;)F
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimBehind:Lcom/android/systemui/statusbar/ScrimView;
+
+    if-ne p1, v0, :cond_0
+
+    iget v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mCurrentBehindAlpha:F
+
+    :goto_0
+    return v0
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimInFront:Lcom/android/systemui/statusbar/ScrimView;
+
+    if-ne p1, v0, :cond_1
+
+    iget v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mCurrentInFrontAlpha:F
+
+    goto :goto_0
+
+    :cond_1
+    iget v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mCurrentHeadsUpAlpha:F
+
+    goto :goto_0
+.end method
+
+.method protected getDozeAlpha(Landroid/view/View;)F
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimBehind:Lcom/android/systemui/statusbar/ScrimView;
+
+    if-ne p1, v0, :cond_0
+
+    iget v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mDozeBehindAlpha:F
+
+    :goto_0
+    return v0
+
+    :cond_0
+    iget v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mDozeInFrontAlpha:F
+
+    goto :goto_0
 .end method
 
 .method public getDozeBehindAlpha()F
@@ -1177,6 +1275,40 @@
     iget v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mDozeInFrontAlpha:F
 
     return v0
+.end method
+
+.method protected getInterpolator()Landroid/view/animation/Interpolator;
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mAnimateKeyguardFadingOut:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->needsSlowUnlockTransition()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    sget-object v0, Lcom/android/systemui/statusbar/phone/ScrimController;->KEYGUARD_FADE_OUT_INTERPOLATOR_LOCKED:Landroid/view/animation/Interpolator;
+
+    return-object v0
+
+    :cond_0
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mAnimateKeyguardFadingOut:Z
+
+    if-eqz v0, :cond_1
+
+    sget-object v0, Lcom/android/systemui/statusbar/phone/ScrimController;->KEYGUARD_FADE_OUT_INTERPOLATOR:Landroid/view/animation/Interpolator;
+
+    return-object v0
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mInterpolator:Landroid/view/animation/Interpolator;
+
+    return-object v0
 .end method
 
 .method public getScrimBehindColor()I
@@ -1206,7 +1338,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d027a
+    const v2, 0x7f0701a4
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1226,7 +1358,7 @@
 
     const/4 v0, 0x0
 
-    iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mExpanding:Z
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mTracking:Z
 
     return-void
 .end method
@@ -1330,55 +1462,89 @@
 .end method
 
 .method public onTrackingStarted()V
-    .locals 2
+    .locals 1
 
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mExpanding:Z
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mTracking:Z
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mUnlockMethodCache:Lcom/android/systemui/statusbar/phone/UnlockMethodCache;
+    sget-boolean v0, Lcom/android/systemui/Rune;->KEYWI_SUPPORT_PROPORTIONAL_DIM:Z
 
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/UnlockMethodCache;->canSkipBouncer()Z
+    if-nez v0, :cond_0
 
-    move-result v1
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mUnlockMethodCache:Lcom/android/systemui/statusbar/phone/UnlockMethodCache;
 
-    if-eqz v1, :cond_0
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/UnlockMethodCache;->canSkipBouncer()Z
 
-    const/4 v0, 0x0
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mDarkenWhileDragging:Z
 
     :cond_0
-    iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mDarkenWhileDragging:Z
+    return-void
+.end method
+
+.method protected scheduleUpdate()V
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mUpdatePending:Z
+
+    if-eqz v0, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimBehind:Lcom/android/systemui/statusbar/ScrimView;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/ScrimView;->invalidate()V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimBehind:Lcom/android/systemui/statusbar/ScrimView;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/ScrimView;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Landroid/view/ViewTreeObserver;->addOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mUpdatePending:Z
 
     return-void
 .end method
 
 .method public setBouncerShowing(Z)V
-    .locals 2
-
-    const/4 v0, 0x0
+    .locals 1
 
     iput-boolean p1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mBouncerShowing:Z
 
-    iget-boolean v1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mExpanding:Z
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mTracking:Z
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
-    iget-boolean v1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mDontAnimateBouncerChanges:Z
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mDontAnimateBouncerChanges:Z
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
     :goto_0
     iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mAnimateChange:Z
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/ScrimController;->scheduleUpdate()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/ScrimController;->scheduleUpdate()V
 
     return-void
 
-    :cond_1
-    const/4 v0, 0x1
+    :cond_0
+    const/4 v0, 0x0
 
     goto :goto_0
+.end method
+
+.method public setCurrentUser(I)V
+    .locals 0
+
+    return-void
 .end method
 
 .method public setDozeBehindAlpha(F)V
@@ -1388,7 +1554,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimBehind:Lcom/android/systemui/statusbar/ScrimView;
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/phone/ScrimController;->updateScrimColor(Landroid/view/View;)V
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/ScrimController;->updateScrimColor(Landroid/view/View;)V
 
     return-void
 .end method
@@ -1400,7 +1566,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimInFront:Lcom/android/systemui/statusbar/ScrimView;
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/phone/ScrimController;->updateScrimColor(Landroid/view/View;)V
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/ScrimController;->updateScrimColor(Landroid/view/View;)V
 
     return-void
 .end method
@@ -1414,7 +1580,7 @@
 
     iput-boolean p1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mDozing:Z
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/ScrimController;->scheduleUpdate()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/ScrimController;->scheduleUpdate()V
 
     :cond_0
     return-void
@@ -1440,20 +1606,12 @@
     return-void
 .end method
 
-.method public setIsShadeLocked(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mIsShadeLocked:Z
-
-    return-void
-.end method
-
 .method public setKeyguardShowing(Z)V
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mKeyguardShowing:Z
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/ScrimController;->scheduleUpdate()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/ScrimController;->scheduleUpdate()V
 
     return-void
 .end method
@@ -1471,7 +1629,7 @@
 
     iput p1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mFraction:F
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/ScrimController;->scheduleUpdate()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/ScrimController;->scheduleUpdate()V
 
     iget v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mPinnedHeadsUpCount:I
 
@@ -1484,12 +1642,38 @@
 
     if-eqz v0, :cond_1
 
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mTracking:Z
+
+    if-eqz v0, :cond_1
+
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mKeyguardFadeoutAnimation:Landroid/animation/ValueAnimator;
 
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->cancel()V
 
     :cond_1
     return-void
+.end method
+
+.method public setScrimAlphaForKeyguard(Z)V
+    .locals 1
+
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mWhiteKeyguardWallpaper:Z
+
+    if-eqz p1, :cond_0
+
+    const v0, 0x3dcccccd    # 0.1f
+
+    iput v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimAlphaForKeyguard:F
+
+    :goto_0
+    return-void
+
+    :cond_0
+    const v0, 0x3f19999a    # 0.6f
+
+    iput v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimAlphaForKeyguard:F
+
+    goto :goto_0
 .end method
 
 .method public setScrimBehindChangeRunnable(Ljava/lang/Runnable;)V
@@ -1509,62 +1693,6 @@
 
     iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mSkipOnce:Z
 
-    return-void
-.end method
-
-.method public setSwipedFraction(F)V
-    .locals 3
-
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mIsSecure:Z
-
-    if-eqz v0, :cond_1
-
-    iget v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mSwipeFraction:F
-
-    cmpl-float v0, v0, p1
-
-    if-eqz v0, :cond_1
-
-    const-string/jumbo v0, "ScrimController"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "mSwipeFraction = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget v2, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mSwipeFraction:F
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v0, 0x0
-
-    cmpl-float v0, p1, v0
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mAnimateChange:Z
-
-    :cond_0
-    iput p1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mSwipeFraction:F
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/ScrimController;->scheduleUpdate()V
-
-    :cond_1
     return-void
 .end method
 
@@ -1589,46 +1717,164 @@
 
     iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mWakeAndUnlocking:Z
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/ScrimController;->scheduleUpdate()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/ScrimController;->scheduleUpdate()V
 
     return-void
 .end method
 
+.method public updateQSColoringDimEffect()V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/ScrimController;->updateScrims()V
+
+    return-void
+.end method
+
+.method protected updateScrimColor(Landroid/view/View;)V
+    .locals 7
+
+    const/high16 v6, 0x3f800000    # 1.0f
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/phone/ScrimController;->getCurrentScrimAlpha(Landroid/view/View;)F
+
+    move-result v1
+
+    instance-of v4, p1, Lcom/android/systemui/statusbar/ScrimView;
+
+    if-eqz v4, :cond_1
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/phone/ScrimController;->getDozeAlpha(Landroid/view/View;)F
+
+    move-result v2
+
+    sub-float v4, v6, v1
+
+    sub-float v5, v6, v2
+
+    mul-float/2addr v4, v5
+
+    sub-float v0, v6, v4
+
+    const/4 v4, 0x0
+
+    invoke-static {v6, v0}, Ljava/lang/Math;->min(FF)F
+
+    move-result v5
+
+    invoke-static {v4, v5}, Ljava/lang/Math;->max(FF)F
+
+    move-result v0
+
+    move-object v4, p1
+
+    check-cast v4, Lcom/android/systemui/statusbar/ScrimView;
+
+    invoke-virtual {v4}, Lcom/android/systemui/statusbar/ScrimView;->getScrimColor()I
+
+    move-result v3
+
+    check-cast p1, Lcom/android/systemui/statusbar/ScrimView;
+
+    iget-boolean v4, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mBouncerShowing:Z
+
+    if-eqz v4, :cond_0
+
+    iget v3, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mScrimBouncerColor:I
+
+    :cond_0
+    const/high16 v4, 0x437f0000    # 255.0f
+
+    mul-float/2addr v4, v0
+
+    float-to-int v4, v4
+
+    invoke-static {v3, v4}, Landroid/support/v4/graphics/ColorUtils;->setAlphaComponent(II)I
+
+    move-result v4
+
+    invoke-virtual {p1, v4}, Lcom/android/systemui/statusbar/ScrimView;->setScrimColor(I)V
+
+    :goto_0
+    return-void
+
+    :cond_1
+    invoke-virtual {p1, v1}, Landroid/view/View;->setAlpha(F)V
+
+    goto :goto_0
+.end method
+
 .method protected updateScrims()V
-    .locals 3
+    .locals 4
+
+    const/4 v3, 0x0
 
     const/high16 v2, 0x3f800000    # 1.0f
 
     const/4 v1, 0x0
 
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mAnimateKeyguardFadingOut:Z
+    const-class v0, Lcom/android/systemui/coloring/QSColoringServiceManager;
+
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/coloring/QSColoringServiceManager;
+
+    invoke-virtual {v0}, Lcom/android/systemui/coloring/QSColoringServiceManager;->isQSColoringEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-class v0, Lcom/android/systemui/coloring/QSColoringServiceManager;
+
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/coloring/QSColoringServiceManager;
+
+    invoke-virtual {v0}, Lcom/android/systemui/coloring/QSColoringServiceManager;->isQSColoringDimEffectEnabled()Z
+
+    move-result v0
 
     if-nez v0, :cond_0
 
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mForceHideScrims:Z
+    invoke-direct {p0, v1}, Lcom/android/systemui/statusbar/phone/ScrimController;->setScrimInFrontColor(F)V
 
-    if-eqz v0, :cond_1
+    invoke-direct {p0, v1}, Lcom/android/systemui/statusbar/phone/ScrimController;->setScrimBehindColor(F)V
+
+    iput-boolean v3, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mAnimateChange:Z
+
+    return-void
 
     :cond_0
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mAnimateKeyguardFadingOut:Z
+
+    if-nez v0, :cond_1
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mForceHideScrims:Z
+
+    if-eqz v0, :cond_2
+
+    :cond_1
     invoke-direct {p0, v1}, Lcom/android/systemui/statusbar/phone/ScrimController;->setScrimInFrontColor(F)V
 
     invoke-direct {p0, v1}, Lcom/android/systemui/statusbar/phone/ScrimController;->setScrimBehindColor(F)V
 
     :goto_0
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mAnimateChange:Z
+    iput-boolean v3, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mAnimateChange:Z
 
     return-void
 
-    :cond_1
+    :cond_2
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mWakeAndUnlocking:Z
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mDozing:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     invoke-direct {p0, v1}, Lcom/android/systemui/statusbar/phone/ScrimController;->setScrimInFrontColor(F)V
 
@@ -1636,35 +1882,31 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     invoke-direct {p0, v2}, Lcom/android/systemui/statusbar/phone/ScrimController;->setScrimInFrontColor(F)V
 
     invoke-direct {p0, v1}, Lcom/android/systemui/statusbar/phone/ScrimController;->setScrimBehindColor(F)V
 
     goto :goto_0
 
-    :cond_3
+    :cond_4
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mKeyguardShowing:Z
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_5
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mBouncerShowing:Z
 
+    xor-int/lit8 v0, v0, 0x1
+
     if-eqz v0, :cond_5
 
-    :cond_4
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mIsShadeLocked:Z
-
-    if-eqz v0, :cond_6
-
-    :cond_5
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/ScrimController;->updateScrimNormal()V
 
     invoke-direct {p0, v1}, Lcom/android/systemui/statusbar/phone/ScrimController;->setScrimInFrontColor(F)V
 
     goto :goto_0
 
-    :cond_6
+    :cond_5
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/ScrimController;->updateScrimKeyguard()V
 
     goto :goto_0

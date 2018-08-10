@@ -1,9 +1,6 @@
 .class Lcom/android/systemui/qs/customize/SecQSCustomizer$3;
-.super Ljava/lang/Object;
+.super Landroid/os/Handler;
 .source "SecQSCustomizer.java"
-
-# interfaces
-.implements Landroid/view/View$OnLongClickListener;
 
 
 # annotations
@@ -22,165 +19,124 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/customize/SecQSCustomizer;)V
+.method constructor <init>(Lcom/android/systemui/qs/customize/SecQSCustomizer;Landroid/os/Looper;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$3;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onLongClick(Landroid/view/View;)Z
+.method public handleMessage(Landroid/os/Message;)V
     .locals 6
 
-    const/4 v5, 0x0
+    const-string/jumbo v3, "SecQSCustomizer"
 
-    const/4 v4, 0x0
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1, v4}, Landroid/view/View;->setBackgroundResource(I)V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v2, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$3;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
+    const-string/jumbo v5, "handleMessage() msg.what="
 
-    move-object v1, p1
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    check-cast v1, Lcom/android/systemui/qs/customize/CustomizeTileView;
+    move-result-object v4
 
-    invoke-static {v2, v1}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-set2(Lcom/android/systemui/qs/customize/SecQSCustomizer;Lcom/android/systemui/qs/customize/CustomizeTileView;)Lcom/android/systemui/qs/customize/CustomizeTileView;
+    iget v5, p1, Landroid/os/Message;->what:I
 
-    iget-object v1, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$3;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-get6(Lcom/android/systemui/qs/customize/SecQSCustomizer;)Lcom/android/systemui/qs/customize/CustomizeTileView;
+    move-result-object v4
 
-    move-result-object v1
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v1, v4}, Lcom/android/systemui/qs/customize/CustomizeTileView;->setHapticFeedbackEnabled(Z)V
+    move-result-object v4
 
-    iget-object v2, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$3;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
+    iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    move-result-object v1
+    check-cast v1, Lcom/android/systemui/qs/customize/SecQSCustomizer$MessageObjectAnim;
 
-    check-cast v1, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;
-
-    invoke-static {v2, v1}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-set3(Lcom/android/systemui/qs/customize/SecQSCustomizer;Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;)Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;
-
-    iget-object v1, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$3;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
-
-    new-instance v2, Lcom/android/systemui/qs/customize/SecQSCustomizer$3$1;
-
-    invoke-direct {v2, p0, p1}, Lcom/android/systemui/qs/customize/SecQSCustomizer$3$1;-><init>(Lcom/android/systemui/qs/customize/SecQSCustomizer$3;Landroid/view/View;)V
-
-    invoke-static {v1, v2}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-set4(Lcom/android/systemui/qs/customize/SecQSCustomizer;Landroid/view/View$DragShadowBuilder;)Landroid/view/View$DragShadowBuilder;
-
-    invoke-virtual {p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Landroid/view/ViewParent;->getParent()Landroid/view/ViewParent;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/view/View;
-
-    iget-object v2, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$3;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
-
-    invoke-virtual {v0}, Landroid/view/View;->getId()I
-
-    move-result v1
-
-    const v3, 0x7f130371
-
-    if-ne v1, v3, :cond_1
-
-    const/16 v1, 0x1388
-
-    :goto_0
-    invoke-static {v2, v1}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-set5(Lcom/android/systemui/qs/customize/SecQSCustomizer;I)I
-
-    const-string/jumbo v1, "SecQSCustomizer"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "onLongClick mWhereAmI = "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
+    iget-object v0, v1, Lcom/android/systemui/qs/customize/SecQSCustomizer$MessageObjectAnim;->longClickedTileInfo:Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;
 
     iget-object v3, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$3;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
 
-    invoke-static {v3}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-get9(Lcom/android/systemui/qs/customize/SecQSCustomizer;)I
+    invoke-static {v3}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-get11(Lcom/android/systemui/qs/customize/SecQSCustomizer;)I
 
     move-result v3
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const/16 v4, 0x1388
+
+    if-ne v3, v4, :cond_0
+
+    iget-object v3, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$3;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
+
+    invoke-static {v3}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-get1(Lcom/android/systemui/qs/customize/SecQSCustomizer;)Lcom/android/systemui/qs/customize/SecQSCustomizer$QSCustomizerTileLayout;
 
     move-result-object v2
 
-    const-string/jumbo v3, "v = "
+    check-cast v2, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :goto_0
+    iget v3, p1, Landroid/os/Message;->what:I
 
-    move-result-object v2
+    packed-switch v3, :pswitch_data_0
 
-    invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v1, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$3;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
-
-    invoke-static {v1}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-wrap4(Lcom/android/systemui/qs/customize/SecQSCustomizer;)V
-
-    iget-object v1, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$3;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
-
-    iget-object v2, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$3;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
-
-    invoke-static {v2}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-get8(Lcom/android/systemui/qs/customize/SecQSCustomizer;)Landroid/view/View$DragShadowBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {p1, v5, v2, v5, v4}, Landroid/view/View;->startDrag(Landroid/content/ClipData;Landroid/view/View$DragShadowBuilder;Ljava/lang/Object;I)Z
-
-    move-result v2
-
-    invoke-static {v1, v2}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-set0(Lcom/android/systemui/qs/customize/SecQSCustomizer;Z)Z
-
-    iget-object v1, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$3;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
-
-    invoke-static {v1}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-get4(Lcom/android/systemui/qs/customize/SecQSCustomizer;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$3;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
-
-    invoke-virtual {v1}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->requestLayout()V
+    :goto_1
+    return-void
 
     :cond_0
-    const/4 v1, 0x1
+    iget-object v3, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$3;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
 
-    return v1
+    invoke-static {v3}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-get2(Lcom/android/systemui/qs/customize/SecQSCustomizer;)Lcom/android/systemui/qs/customize/SecQSCustomizer$QSCustomizerTileLayout;
 
-    :cond_1
-    const/16 v1, 0x1770
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;
 
     goto :goto_0
+
+    :pswitch_0
+    iget-object v3, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v3, Lcom/android/systemui/qs/customize/SecQSCustomizer$MessageObjectAnim;
+
+    invoke-virtual {v2, v3}, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;->handleAnimate(Lcom/android/systemui/qs/customize/SecQSCustomizer$MessageObjectAnim;)V
+
+    goto :goto_1
+
+    :pswitch_1
+    iget-object v3, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v3, Lcom/android/systemui/qs/customize/SecQSCustomizer$MessageObjectAnim;
+
+    invoke-virtual {v2, v3}, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;->handleAnimate(Lcom/android/systemui/qs/customize/SecQSCustomizer$MessageObjectAnim;)V
+
+    goto :goto_1
+
+    :pswitch_2
+    iget-object v4, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer$3;->this$0:Lcom/android/systemui/qs/customize/SecQSCustomizer;
+
+    iget-object v3, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v3, Lcom/android/systemui/qs/customize/SecQSCustomizer$MessageObjectAnim;
+
+    invoke-static {v4, v3}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->-wrap6(Lcom/android/systemui/qs/customize/SecQSCustomizer;Lcom/android/systemui/qs/customize/SecQSCustomizer$MessageObjectAnim;)V
+
+    goto :goto_1
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x64
+        :pswitch_1
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+    .end packed-switch
 .end method

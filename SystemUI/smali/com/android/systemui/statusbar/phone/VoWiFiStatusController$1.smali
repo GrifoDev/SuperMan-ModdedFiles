@@ -79,7 +79,7 @@
 
     if-nez v4, :cond_2
 
-    const-string/jumbo v4, "com.oem.smartwifisupport"
+    const-string/jumbo v4, "com.sec.unifiedwfc"
 
     invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

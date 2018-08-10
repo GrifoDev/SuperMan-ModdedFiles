@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="keyboard_shortcuts_category_subheader_line_height">3.0px</dimen>
+</resources>

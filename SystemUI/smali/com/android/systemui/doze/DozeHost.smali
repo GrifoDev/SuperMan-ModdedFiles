@@ -13,10 +13,16 @@
 
 
 # virtual methods
+.method public abstract abortPulsing()V
+.end method
+
 .method public abstract addCallback(Lcom/android/systemui/doze/DozeHost$Callback;)V
 .end method
 
-.method public abstract isNotificationLightOn()Z
+.method public abstract dozeTimeTick()V
+.end method
+
+.method public abstract extendPulse()V
 .end method
 
 .method public abstract isPowerSaveActive()Z
@@ -31,7 +37,10 @@
 .method public abstract removeCallback(Lcom/android/systemui/doze/DozeHost$Callback;)V
 .end method
 
-.method public abstract startDozing(Ljava/lang/Runnable;)V
+.method public abstract setAnimateWakeup(Z)V
+.end method
+
+.method public abstract startDozing()V
 .end method
 
 .method public abstract stopDozing()V

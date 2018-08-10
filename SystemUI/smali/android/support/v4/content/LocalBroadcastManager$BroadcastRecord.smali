@@ -1,4 +1,4 @@
-.class Landroid/support/v4/content/LocalBroadcastManager$BroadcastRecord;
+.class final Landroid/support/v4/content/LocalBroadcastManager$BroadcastRecord;
 .super Ljava/lang/Object;
 .source "LocalBroadcastManager.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x1a
     name = "BroadcastRecord"
 .end annotation
 

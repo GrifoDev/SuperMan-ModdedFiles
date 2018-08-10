@@ -4,6 +4,8 @@
 
 
 # instance fields
+.field private mDeviceId:I
+
 .field private mDividerSnapAlgorithm:Lcom/android/internal/policy/DividerSnapAlgorithm;
 
 .field private mDownPos:Landroid/graphics/Point;
@@ -72,16 +74,7 @@
     .end annotation
 .end field
 
-.field private mVisibleFreeformStates:Ljava/util/ArrayList;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/ArrayList",
-            "<",
-            "Lcom/android/systemui/recents/model/TaskStack$FreeformState;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field private mVisibleFreeformState:Lcom/android/systemui/recents/model/TaskStack$FreeformState;
 
 
 # direct methods
@@ -102,6 +95,10 @@
 
     iput-object v0, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mDownPos:Landroid/graphics/Point;
 
+    const/4 v0, -0x1
+
+    iput v0, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mDeviceId:I
+
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -113,12 +110,6 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mVisibleDockStates:Ljava/util/ArrayList;
-
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v0, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mVisibleFreeformStates:Ljava/util/ArrayList;
 
     iput-object p1, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mRv:Lcom/android/systemui/recents/views/RecentsView;
 
@@ -144,13 +135,13 @@
 .end method
 
 .method private handleTouchEvent(Landroid/view/MotionEvent;)V
-    .locals 20
+    .locals 22
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
-    move-result v8
+    move-result v9
 
-    packed-switch v8, :pswitch_data_0
+    packed-switch v9, :pswitch_data_0
 
     :cond_0
     :goto_0
@@ -175,16 +166,24 @@
 
     invoke-virtual {v3, v4, v7}, Landroid/graphics/Point;->set(II)V
 
+    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getDeviceId()I
+
+    move-result v3
+
+    move-object/from16 v0, p0
+
+    iput v3, v0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mDeviceId:I
+
     goto :goto_0
 
     :pswitch_1
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getX()F
 
-    move-result v11
+    move-result v12
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getY()F
 
-    move-result v12
+    move-result v13
 
     move-object/from16 v0, p0
 
@@ -194,7 +193,7 @@
 
     int-to-float v3, v3
 
-    sub-float v14, v11, v3
+    sub-float v15, v12, v3
 
     move-object/from16 v0, p0
 
@@ -204,7 +203,7 @@
 
     int-to-float v3, v3
 
-    sub-float v15, v12, v3
+    sub-float v16, v13, v3
 
     move-object/from16 v0, p0
 
@@ -226,11 +225,11 @@
 
     int-to-float v3, v3
 
-    sub-float v3, v11, v3
+    sub-float v3, v12, v3
 
     float-to-double v0, v3
 
-    move-wide/from16 v16, v0
+    move-wide/from16 v18, v0
 
     move-object/from16 v0, p0
 
@@ -240,15 +239,15 @@
 
     int-to-float v3, v3
 
-    sub-float v3, v12, v3
+    sub-float v3, v13, v3
 
     float-to-double v0, v3
 
-    move-wide/from16 v18, v0
+    move-wide/from16 v20, v0
 
-    invoke-static/range {v16 .. v19}, Ljava/lang/Math;->hypot(DD)D
+    invoke-static/range {v18 .. v21}, Ljava/lang/Math;->hypot(DD)D
 
-    move-result-wide v16
+    move-result-wide v18
 
     move-object/from16 v0, p0
 
@@ -256,9 +255,9 @@
 
     float-to-double v0, v3
 
-    move-wide/from16 v18, v0
+    move-wide/from16 v20, v0
 
-    cmpl-double v3, v16, v18
+    cmpl-double v3, v18, v20
 
     if-lez v3, :cond_6
 
@@ -292,7 +291,7 @@
 
     move-result v6
 
-    const/4 v10, 0x0
+    const/4 v11, 0x0
 
     move-object/from16 v0, p0
 
@@ -304,13 +303,19 @@
 
     iget-object v2, v0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mLastDropTarget:Lcom/android/systemui/recents/views/DropTarget;
 
-    float-to-int v3, v11
+    float-to-int v3, v12
 
-    float-to-int v4, v12
+    float-to-int v4, v13
 
-    const/4 v7, 0x1
+    move-object/from16 v0, p0
 
-    invoke-interface/range {v2 .. v7}, Lcom/android/systemui/recents/views/DropTarget;->acceptsDrop(IIIIZ)Z
+    iget-object v7, v0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mRv:Lcom/android/systemui/recents/views/RecentsView;
+
+    iget-object v7, v7, Lcom/android/systemui/recents/views/RecentsView;->mSystemInsets:Landroid/graphics/Rect;
+
+    const/4 v8, 0x1
+
+    invoke-interface/range {v2 .. v8}, Lcom/android/systemui/recents/views/DropTarget;->acceptsDrop(IIIILandroid/graphics/Rect;Z)Z
 
     move-result v3
 
@@ -318,10 +323,10 @@
 
     move-object/from16 v0, p0
 
-    iget-object v10, v0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mLastDropTarget:Lcom/android/systemui/recents/views/DropTarget;
+    iget-object v11, v0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mLastDropTarget:Lcom/android/systemui/recents/views/DropTarget;
 
     :cond_2
-    if-nez v10, :cond_4
+    if-nez v11, :cond_4
 
     move-object/from16 v0, p0
 
@@ -329,45 +334,78 @@
 
     invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v13
+    move-result-object v14
 
     :cond_3
-    invoke-interface {v13}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v14}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
     if-eqz v3, :cond_4
 
-    invoke-interface {v13}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v14}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Lcom/android/systemui/recents/views/DropTarget;
 
-    float-to-int v3, v11
+    float-to-int v3, v12
 
-    float-to-int v4, v12
+    float-to-int v4, v13
 
-    const/4 v7, 0x0
+    move-object/from16 v0, p0
 
-    invoke-interface/range {v2 .. v7}, Lcom/android/systemui/recents/views/DropTarget;->acceptsDrop(IIIIZ)Z
+    iget-object v7, v0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mRv:Lcom/android/systemui/recents/views/RecentsView;
+
+    iget-object v7, v7, Lcom/android/systemui/recents/views/RecentsView;->mSystemInsets:Landroid/graphics/Rect;
+
+    const/4 v8, 0x0
+
+    invoke-interface/range {v2 .. v8}, Lcom/android/systemui/recents/views/DropTarget;->acceptsDrop(IIIILandroid/graphics/Rect;Z)Z
 
     move-result v3
 
     if-eqz v3, :cond_3
 
-    move-object v10, v2
+    move-object v11, v2
 
     :cond_4
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mLastDropTarget:Lcom/android/systemui/recents/views/DropTarget;
 
-    if-eq v3, v10, :cond_5
+    if-eq v3, v11, :cond_5
+
+    const-string/jumbo v4, "RecentsViewTouchHandler"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "handleTouchEvent :: drop target is change to "
+
+    invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    if-nez v11, :cond_7
+
+    const-string/jumbo v3, "null"
+
+    :goto_2
+    invoke-virtual {v7, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v4, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     move-object/from16 v0, p0
 
-    iput-object v10, v0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mLastDropTarget:Lcom/android/systemui/recents/views/DropTarget;
+    iput-object v11, v0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mLastDropTarget:Lcom/android/systemui/recents/views/DropTarget;
 
     invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
 
@@ -379,7 +417,7 @@
 
     iget-object v7, v0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mDragTask:Lcom/android/systemui/recents/model/Task;
 
-    invoke-direct {v4, v7, v10}, Lcom/android/systemui/recents/events/ui/dragndrop/DragDropTargetChangedEvent;-><init>(Lcom/android/systemui/recents/model/Task;Lcom/android/systemui/recents/views/DropTarget;)V
+    invoke-direct {v4, v7, v11}, Lcom/android/systemui/recents/events/ui/dragndrop/DragDropTargetChangedEvent;-><init>(Lcom/android/systemui/recents/model/Task;Lcom/android/systemui/recents/views/DropTarget;)V
 
     invoke-virtual {v3, v4}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
 
@@ -388,36 +426,45 @@
 
     iget-object v3, v0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mTaskView:Lcom/android/systemui/recents/views/TaskView;
 
-    invoke-virtual {v3, v14}, Lcom/android/systemui/recents/views/TaskView;->setTranslationX(F)V
+    invoke-virtual {v3, v15}, Lcom/android/systemui/recents/views/TaskView;->setTranslationX(F)V
 
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mTaskView:Lcom/android/systemui/recents/views/TaskView;
 
-    invoke-virtual {v3, v15}, Lcom/android/systemui/recents/views/TaskView;->setTranslationY(F)V
+    move/from16 v0, v16
+
+    invoke-virtual {v3, v0}, Lcom/android/systemui/recents/views/TaskView;->setTranslationY(F)V
 
     goto/16 :goto_0
 
     :cond_6
     const/4 v3, 0x0
 
-    goto :goto_1
+    goto/16 :goto_1
+
+    :cond_7
+    invoke-virtual {v11}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    goto :goto_2
 
     :pswitch_2
     move-object/from16 v0, p0
 
     iget-boolean v3, v0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mDragRequested:Z
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_c
 
     const/4 v3, 0x3
 
-    if-ne v8, v3, :cond_8
+    if-ne v9, v3, :cond_9
 
-    const/4 v9, 0x1
+    const/4 v10, 0x1
 
-    :goto_2
-    if-eqz v9, :cond_7
+    :goto_3
+    if-eqz v10, :cond_8
 
     invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
 
@@ -429,15 +476,58 @@
 
     iget-object v7, v0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mDragTask:Lcom/android/systemui/recents/model/Task;
 
-    const/16 v16, 0x0
+    const/4 v8, 0x0
 
-    move-object/from16 v0, v16
-
-    invoke-direct {v4, v7, v0}, Lcom/android/systemui/recents/events/ui/dragndrop/DragDropTargetChangedEvent;-><init>(Lcom/android/systemui/recents/model/Task;Lcom/android/systemui/recents/views/DropTarget;)V
+    invoke-direct {v4, v7, v8}, Lcom/android/systemui/recents/events/ui/dragndrop/DragDropTargetChangedEvent;-><init>(Lcom/android/systemui/recents/model/Task;Lcom/android/systemui/recents/views/DropTarget;)V
 
     invoke-virtual {v3, v4}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
 
-    :cond_7
+    :cond_8
+    const-string/jumbo v4, "RecentsViewTouchHandler"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "handleTouchEvent :: "
+
+    invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    if-eqz v10, :cond_a
+
+    const-string/jumbo v3, "canceled"
+
+    :goto_4
+    invoke-virtual {v7, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v7, " drag t="
+
+    invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    move-object/from16 v0, p0
+
+    iget-object v7, v0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mDragTask:Lcom/android/systemui/recents/model/Task;
+
+    iget-object v7, v7, Lcom/android/systemui/recents/model/Task;->key:Lcom/android/systemui/recents/model/Task$TaskKey;
+
+    iget v7, v7, Lcom/android/systemui/recents/model/Task$TaskKey;->id:I
+
+    invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v4, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
 
     move-result-object v4
@@ -446,9 +536,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mDragTask:Lcom/android/systemui/recents/model/Task;
-
-    move-object/from16 v16, v0
+    iget-object v8, v0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mDragTask:Lcom/android/systemui/recents/model/Task;
 
     move-object/from16 v0, p0
 
@@ -456,32 +544,46 @@
 
     move-object/from16 v17, v0
 
-    if-nez v9, :cond_9
+    if-nez v10, :cond_b
 
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mLastDropTarget:Lcom/android/systemui/recents/views/DropTarget;
 
-    :goto_3
-    move-object/from16 v0, v16
+    :goto_5
+    move-object/from16 v0, v17
 
-    move-object/from16 v1, v17
-
-    invoke-direct {v7, v0, v1, v3}, Lcom/android/systemui/recents/events/ui/dragndrop/DragEndEvent;-><init>(Lcom/android/systemui/recents/model/Task;Lcom/android/systemui/recents/views/TaskView;Lcom/android/systemui/recents/views/DropTarget;)V
+    invoke-direct {v7, v8, v0, v3}, Lcom/android/systemui/recents/events/ui/dragndrop/DragEndEvent;-><init>(Lcom/android/systemui/recents/model/Task;Lcom/android/systemui/recents/views/TaskView;Lcom/android/systemui/recents/views/DropTarget;)V
 
     invoke-virtual {v4, v7}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
 
     goto/16 :goto_0
 
-    :cond_8
-    const/4 v9, 0x0
-
-    goto :goto_2
-
     :cond_9
-    const/4 v3, 0x0
+    const/4 v10, 0x0
 
     goto :goto_3
+
+    :cond_a
+    const-string/jumbo v3, "end"
+
+    goto :goto_4
+
+    :cond_b
+    const/4 v3, 0x0
+
+    goto :goto_5
+
+    :cond_c
+    const/4 v3, -0x1
+
+    move-object/from16 v0, p0
+
+    iput v3, v0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mDeviceId:I
+
+    goto/16 :goto_0
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -528,130 +630,6 @@
 
 
 # virtual methods
-.method public getDockStatesForCurrentOrientation()[Lcom/android/systemui/recents/model/TaskStack$DockState;
-    .locals 6
-
-    iget-object v4, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mRv:Lcom/android/systemui/recents/views/RecentsView;
-
-    invoke-virtual {v4}, Lcom/android/systemui/recents/views/RecentsView;->getContext()Landroid/content/Context;
-
-    move-result-object v4
-
-    invoke-static {v4}, Lcom/android/systemui/recents/misc/Utilities;->getAppConfiguration(Landroid/content/Context;)Landroid/content/res/Configuration;
-
-    move-result-object v1
-
-    iget v4, v1, Landroid/content/res/Configuration;->orientation:I
-
-    const/4 v5, 0x2
-
-    if-ne v4, v5, :cond_0
-
-    const/4 v3, 0x1
-
-    :goto_0
-    invoke-static {}, Lcom/android/systemui/recents/Recents;->getConfiguration()Lcom/android/systemui/recents/RecentsConfiguration;
-
-    move-result-object v0
-
-    if-eqz v3, :cond_2
-
-    iget-boolean v4, v0, Lcom/android/systemui/recents/RecentsConfiguration;->isLargeScreen:Z
-
-    if-eqz v4, :cond_1
-
-    sget-object v2, Lcom/android/systemui/recents/views/DockRegion;->TABLET_LANDSCAPE:[Lcom/android/systemui/recents/model/TaskStack$DockState;
-
-    :goto_1
-    return-object v2
-
-    :cond_0
-    const/4 v3, 0x0
-
-    goto :goto_0
-
-    :cond_1
-    sget-object v2, Lcom/android/systemui/recents/views/DockRegion;->PHONE_LANDSCAPE:[Lcom/android/systemui/recents/model/TaskStack$DockState;
-
-    goto :goto_1
-
-    :cond_2
-    iget-boolean v4, v0, Lcom/android/systemui/recents/RecentsConfiguration;->isLargeScreen:Z
-
-    if-eqz v4, :cond_3
-
-    sget-object v2, Lcom/android/systemui/recents/views/DockRegion;->TABLET_PORTRAIT:[Lcom/android/systemui/recents/model/TaskStack$DockState;
-
-    goto :goto_1
-
-    :cond_3
-    sget-object v2, Lcom/android/systemui/recents/views/DockRegion;->PHONE_PORTRAIT:[Lcom/android/systemui/recents/model/TaskStack$DockState;
-
-    goto :goto_1
-.end method
-
-.method public getFreeformStatesForCurrentOrientation()[Lcom/android/systemui/recents/model/TaskStack$FreeformState;
-    .locals 6
-
-    iget-object v4, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mRv:Lcom/android/systemui/recents/views/RecentsView;
-
-    invoke-virtual {v4}, Lcom/android/systemui/recents/views/RecentsView;->getContext()Landroid/content/Context;
-
-    move-result-object v4
-
-    invoke-static {v4}, Lcom/android/systemui/recents/misc/Utilities;->getAppConfiguration(Landroid/content/Context;)Landroid/content/res/Configuration;
-
-    move-result-object v1
-
-    iget v4, v1, Landroid/content/res/Configuration;->orientation:I
-
-    const/4 v5, 0x2
-
-    if-ne v4, v5, :cond_0
-
-    const/4 v3, 0x1
-
-    :goto_0
-    invoke-static {}, Lcom/android/systemui/recents/Recents;->getConfiguration()Lcom/android/systemui/recents/RecentsConfiguration;
-
-    move-result-object v0
-
-    if-eqz v3, :cond_2
-
-    iget-boolean v4, v0, Lcom/android/systemui/recents/RecentsConfiguration;->isLargeScreen:Z
-
-    if-eqz v4, :cond_1
-
-    sget-object v2, Lcom/android/systemui/recents/views/FreeformRegion;->TABLET_LANDSCAPE:[Lcom/android/systemui/recents/model/TaskStack$FreeformState;
-
-    :goto_1
-    return-object v2
-
-    :cond_0
-    const/4 v3, 0x0
-
-    goto :goto_0
-
-    :cond_1
-    sget-object v2, Lcom/android/systemui/recents/views/FreeformRegion;->PHONE_LANDSCAPE:[Lcom/android/systemui/recents/model/TaskStack$FreeformState;
-
-    goto :goto_1
-
-    :cond_2
-    iget-boolean v4, v0, Lcom/android/systemui/recents/RecentsConfiguration;->isLargeScreen:Z
-
-    if-eqz v4, :cond_3
-
-    sget-object v2, Lcom/android/systemui/recents/views/FreeformRegion;->TABLET_PORTRAIT:[Lcom/android/systemui/recents/model/TaskStack$FreeformState;
-
-    goto :goto_1
-
-    :cond_3
-    sget-object v2, Lcom/android/systemui/recents/views/FreeformRegion;->PHONE_PORTRAIT:[Lcom/android/systemui/recents/model/TaskStack$FreeformState;
-
-    goto :goto_1
-.end method
-
 .method public getVisibleDockStates()Ljava/util/ArrayList;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
@@ -669,19 +647,10 @@
     return-object v0
 .end method
 
-.method public getVisibleFreeformStates()Ljava/util/ArrayList;
+.method public getVisibleFreeformState()Lcom/android/systemui/recents/model/TaskStack$FreeformState;
     .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/ArrayList",
-            "<",
-            "Lcom/android/systemui/recents/model/TaskStack$FreeformState;",
-            ">;"
-        }
-    .end annotation
 
-    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mVisibleFreeformStates:Ljava/util/ArrayList;
+    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mVisibleFreeformState:Lcom/android/systemui/recents/model/TaskStack$FreeformState;
 
     return-object v0
 .end method
@@ -705,84 +674,73 @@
 .end method
 
 .method public final onBusEvent(Lcom/android/systemui/recents/events/ui/dragndrop/DragEndEvent;)V
-    .locals 3
+    .locals 2
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mDragTask:Lcom/android/systemui/recents/model/Task;
 
     iget-boolean v0, v0, Lcom/android/systemui/recents/model/Task;->isDockable:Z
 
-    if-nez v0, :cond_0
-
-    invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/android/systemui/recents/events/ui/HideIncompatibleAppOverlayEvent;
-
-    invoke-direct {v1}, Lcom/android/systemui/recents/events/ui/HideIncompatibleAppOverlayEvent;-><init>()V
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
-
-    :cond_0
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mDragRequested:Z
 
-    iput-object v2, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mDragTask:Lcom/android/systemui/recents/model/Task;
+    iput-object v1, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mDragTask:Lcom/android/systemui/recents/model/Task;
 
-    iput-object v2, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mTaskView:Lcom/android/systemui/recents/views/TaskView;
+    iput-object v1, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mTaskView:Lcom/android/systemui/recents/views/TaskView;
 
-    iput-object v2, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mLastDropTarget:Lcom/android/systemui/recents/views/DropTarget;
+    iput-object v1, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mLastDropTarget:Lcom/android/systemui/recents/views/DropTarget;
 
     return-void
 .end method
 
 .method public final onBusEvent(Lcom/android/systemui/recents/events/ui/dragndrop/DragStartEvent;)V
-    .locals 13
+    .locals 14
+
+    const/4 v13, 0x0
 
     const/4 v12, 0x1
 
-    const/4 v8, 0x0
+    const/4 v9, 0x0
 
     invoke-static {}, Lcom/android/systemui/recents/Recents;->getSystemServices()Lcom/android/systemui/recents/misc/SystemServicesProxy;
 
     move-result-object v5
 
-    iget-object v9, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mRv:Lcom/android/systemui/recents/views/RecentsView;
+    iget-object v8, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mRv:Lcom/android/systemui/recents/views/RecentsView;
 
-    invoke-virtual {v9}, Lcom/android/systemui/recents/views/RecentsView;->getParent()Landroid/view/ViewParent;
+    invoke-virtual {v8}, Lcom/android/systemui/recents/views/RecentsView;->getParent()Landroid/view/ViewParent;
 
-    move-result-object v9
+    move-result-object v8
 
-    invoke-interface {v9, v12}, Landroid/view/ViewParent;->requestDisallowInterceptTouchEvent(Z)V
+    invoke-interface {v8, v12}, Landroid/view/ViewParent;->requestDisallowInterceptTouchEvent(Z)V
 
     iput-boolean v12, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mDragRequested:Z
 
-    iput-boolean v8, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mIsDragging:Z
+    iput-boolean v9, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mIsDragging:Z
 
-    iget-object v9, p1, Lcom/android/systemui/recents/events/ui/dragndrop/DragStartEvent;->task:Lcom/android/systemui/recents/model/Task;
+    iget-object v8, p1, Lcom/android/systemui/recents/events/ui/dragndrop/DragStartEvent;->task:Lcom/android/systemui/recents/model/Task;
 
-    iput-object v9, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mDragTask:Lcom/android/systemui/recents/model/Task;
+    iput-object v8, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mDragTask:Lcom/android/systemui/recents/model/Task;
 
-    iget-object v9, p1, Lcom/android/systemui/recents/events/ui/dragndrop/DragStartEvent;->taskView:Lcom/android/systemui/recents/views/TaskView;
+    iget-object v8, p1, Lcom/android/systemui/recents/events/ui/dragndrop/DragStartEvent;->taskView:Lcom/android/systemui/recents/views/TaskView;
 
-    iput-object v9, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mTaskView:Lcom/android/systemui/recents/views/TaskView;
+    iput-object v8, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mTaskView:Lcom/android/systemui/recents/views/TaskView;
 
-    iget-object v9, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mDropTargets:Ljava/util/ArrayList;
+    iget-object v8, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mDropTargets:Ljava/util/ArrayList;
 
-    invoke-virtual {v9}, Ljava/util/ArrayList;->clear()V
+    invoke-virtual {v8}, Ljava/util/ArrayList;->clear()V
 
-    const/4 v9, 0x2
+    const/4 v8, 0x2
 
-    new-array v4, v9, [I
+    new-array v4, v8, [I
 
-    iget-object v9, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mRv:Lcom/android/systemui/recents/views/RecentsView;
+    iget-object v8, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mRv:Lcom/android/systemui/recents/views/RecentsView;
 
-    invoke-virtual {v9, v4}, Lcom/android/systemui/recents/views/RecentsView;->getLocationInWindow([I)V
+    invoke-virtual {v8, v4}, Lcom/android/systemui/recents/views/RecentsView;->getLocationInWindow([I)V
 
-    iget-object v9, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mTaskViewOffset:Landroid/graphics/Point;
+    iget-object v8, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mTaskViewOffset:Landroid/graphics/Point;
 
     iget-object v10, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mTaskView:Lcom/android/systemui/recents/views/TaskView;
 
@@ -790,7 +748,7 @@
 
     move-result v10
 
-    aget v11, v4, v8
+    aget v11, v4, v9
 
     sub-int/2addr v10, v11
 
@@ -816,83 +774,160 @@
 
     add-int/2addr v11, v12
 
-    invoke-virtual {v9, v10, v11}, Landroid/graphics/Point;->set(II)V
+    invoke-virtual {v8, v10, v11}, Landroid/graphics/Point;->set(II)V
 
-    iget-object v9, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mDownPos:Landroid/graphics/Point;
+    iget-boolean v8, p1, Lcom/android/systemui/recents/events/ui/dragndrop/DragStartEvent;->isUserTouchInitiated:Z
 
-    iget v9, v9, Landroid/graphics/Point;->x:I
+    if-eqz v8, :cond_0
+
+    iget-object v8, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mDownPos:Landroid/graphics/Point;
+
+    iget v8, v8, Landroid/graphics/Point;->x:I
 
     iget-object v10, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mTaskViewOffset:Landroid/graphics/Point;
 
     iget v10, v10, Landroid/graphics/Point;->x:I
 
-    sub-int/2addr v9, v10
+    sub-int/2addr v8, v10
 
-    int-to-float v6, v9
+    int-to-float v6, v8
 
-    iget-object v9, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mDownPos:Landroid/graphics/Point;
+    iget-object v8, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mDownPos:Landroid/graphics/Point;
 
-    iget v9, v9, Landroid/graphics/Point;->y:I
+    iget v8, v8, Landroid/graphics/Point;->y:I
 
     iget-object v10, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mTaskViewOffset:Landroid/graphics/Point;
 
     iget v10, v10, Landroid/graphics/Point;->y:I
 
-    sub-int/2addr v9, v10
+    sub-int/2addr v8, v10
 
-    int-to-float v7, v9
+    int-to-float v7, v8
 
-    iget-object v9, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mTaskView:Lcom/android/systemui/recents/views/TaskView;
+    iget-object v8, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mTaskView:Lcom/android/systemui/recents/views/TaskView;
 
-    invoke-virtual {v9, v6}, Lcom/android/systemui/recents/views/TaskView;->setTranslationX(F)V
+    invoke-virtual {v8, v6}, Lcom/android/systemui/recents/views/TaskView;->setTranslationX(F)V
 
-    iget-object v9, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mTaskView:Lcom/android/systemui/recents/views/TaskView;
+    iget-object v8, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mTaskView:Lcom/android/systemui/recents/views/TaskView;
 
-    invoke-virtual {v9, v7}, Lcom/android/systemui/recents/views/TaskView;->setTranslationY(F)V
+    invoke-virtual {v8, v7}, Lcom/android/systemui/recents/views/TaskView;->setTranslationY(F)V
 
-    iget-object v9, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mVisibleDockStates:Ljava/util/ArrayList;
+    :cond_0
+    iget-object v8, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mVisibleDockStates:Ljava/util/ArrayList;
 
-    invoke-virtual {v9}, Ljava/util/ArrayList;->clear()V
+    invoke-virtual {v8}, Ljava/util/ArrayList;->clear()V
 
-    invoke-static {}, Landroid/app/ActivityManager;->supportsMultiWindow()Z
+    iget-object v8, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mRv:Lcom/android/systemui/recents/views/RecentsView;
 
-    move-result v9
+    invoke-virtual {v8}, Lcom/android/systemui/recents/views/RecentsView;->getContext()Landroid/content/Context;
 
-    if-eqz v9, :cond_0
+    move-result-object v8
+
+    invoke-static {v8}, Landroid/app/ActivityManager;->supportsMultiWindow(Landroid/content/Context;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_1
 
     invoke-virtual {v5}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->hasDockedTask()Z
 
-    move-result v9
+    move-result v8
 
-    if-eqz v9, :cond_2
+    xor-int/lit8 v8, v8, 0x1
 
-    :cond_0
+    if-eqz v8, :cond_1
+
+    iget-object v8, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mDividerSnapAlgorithm:Lcom/android/internal/policy/DividerSnapAlgorithm;
+
+    invoke-virtual {v8}, Lcom/android/internal/policy/DividerSnapAlgorithm;->isSplitScreenFeasible()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_1
+
+    sget-boolean v8, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnablePairedTask:Z
+
+    if-eqz v8, :cond_4
+
+    iget-object v8, p1, Lcom/android/systemui/recents/events/ui/dragndrop/DragStartEvent;->task:Lcom/android/systemui/recents/model/Task;
+
+    iget-boolean v8, v8, Lcom/android/systemui/recents/model/Task;->isPairedTask:Z
+
     :goto_0
-    sget-boolean v9, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SAMSUNG_MULTIWINDOW_DYNAMIC_ENABLED:Z
+    xor-int/lit8 v8, v8, 0x1
 
-    if-eqz v9, :cond_1
+    if-eqz v8, :cond_1
 
-    sget-boolean v9, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->FREEFORM_SUPPORT:Z
+    iget-object v8, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mRv:Lcom/android/systemui/recents/views/RecentsView;
 
-    if-eqz v9, :cond_1
+    invoke-virtual {v8}, Lcom/android/systemui/recents/views/RecentsView;->getContext()Landroid/content/Context;
 
-    iget-object v9, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mVisibleFreeformStates:Ljava/util/ArrayList;
+    move-result-object v8
 
-    invoke-virtual {v9}, Ljava/util/ArrayList;->clear()V
+    iget-object v10, p1, Lcom/android/systemui/recents/events/ui/dragndrop/DragStartEvent;->task:Lcom/android/systemui/recents/model/Task;
 
-    invoke-static {}, Landroid/app/ActivityManager;->supportsMultiWindow()Z
+    invoke-virtual {v10}, Lcom/android/systemui/recents/model/Task;->getTopComponent()Landroid/content/ComponentName;
 
-    move-result v9
+    move-result-object v10
 
-    if-eqz v9, :cond_1
+    iget-object v11, p1, Lcom/android/systemui/recents/events/ui/dragndrop/DragStartEvent;->task:Lcom/android/systemui/recents/model/Task;
 
-    iget-object v9, p1, Lcom/android/systemui/recents/events/ui/dragndrop/DragStartEvent;->task:Lcom/android/systemui/recents/model/Task;
+    iget v11, v11, Lcom/android/systemui/recents/model/Task;->resizeMode:I
 
-    iget-boolean v9, v9, Lcom/android/systemui/recents/model/Task;->isDockable:Z
+    invoke-static {v8, v10, v11}, Lcom/android/systemui/recents/Recents;->logDockAttempt(Landroid/content/Context;Landroid/content/ComponentName;I)V
 
-    if-nez v9, :cond_4
+    iget-object v8, p1, Lcom/android/systemui/recents/events/ui/dragndrop/DragStartEvent;->task:Lcom/android/systemui/recents/model/Task;
 
-    new-instance v9, Landroid/view/ContextThemeWrapper;
+    iget-boolean v8, v8, Lcom/android/systemui/recents/model/Task;->isDockable:Z
+
+    if-nez v8, :cond_5
+
+    :cond_1
+    iput-object v13, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mVisibleFreeformState:Lcom/android/systemui/recents/model/TaskStack$FreeformState;
+
+    invoke-static {}, Lcom/android/systemui/recents/RecentsDebugFlags;->isSamsungMultiWindowEnabled()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_2
+
+    sget-boolean v8, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnablePairedTask:Z
+
+    if-eqz v8, :cond_6
+
+    iget-object v8, p1, Lcom/android/systemui/recents/events/ui/dragndrop/DragStartEvent;->task:Lcom/android/systemui/recents/model/Task;
+
+    iget-boolean v8, v8, Lcom/android/systemui/recents/model/Task;->isPairedTask:Z
+
+    :goto_1
+    xor-int/lit8 v8, v8, 0x1
+
+    if-eqz v8, :cond_2
+
+    iget-object v8, p1, Lcom/android/systemui/recents/events/ui/dragndrop/DragStartEvent;->task:Lcom/android/systemui/recents/model/Task;
+
+    iget-boolean v8, v8, Lcom/android/systemui/recents/model/Task;->isDockable:Z
+
+    if-nez v8, :cond_8
+
+    sget-boolean v8, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableFreeformDropLayout:Z
+
+    if-eqz v8, :cond_7
+
+    iget-object v8, p1, Lcom/android/systemui/recents/events/ui/dragndrop/DragStartEvent;->task:Lcom/android/systemui/recents/model/Task;
+
+    iget v8, v8, Lcom/android/systemui/recents/model/Task;->resizeMode:I
+
+    invoke-static {v8}, Landroid/content/pm/ActivityInfo;->isResizeableMode(I)Z
+
+    move-result v8
+
+    :goto_2
+    xor-int/lit8 v8, v8, 0x1
+
+    if-eqz v8, :cond_8
+
+    new-instance v8, Landroid/view/ContextThemeWrapper;
 
     iget-object v10, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mRv:Lcom/android/systemui/recents/views/RecentsView;
 
@@ -902,7 +937,7 @@
 
     const v11, 0x103012b
 
-    invoke-direct {v9, v10, v11}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
+    invoke-direct {v8, v10, v11}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
     iget-object v10, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mRv:Lcom/android/systemui/recents/views/RecentsView;
 
@@ -914,19 +949,20 @@
 
     move-result-object v10
 
-    sget v11, Lcom/samsung/android/framework/res/R$string;->dream_cant_use_this_app_in_multi_window_view_tpop:I
+    const v11, 0x7f12095f
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v10
 
-    invoke-static {v9, v10, v8}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    invoke-static {v8, v10, v9}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
     move-result-object v8
 
     invoke-virtual {v8}, Landroid/widget/Toast;->show()V
 
-    :cond_1
+    :cond_2
+    :goto_3
     invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
 
     move-result-object v8
@@ -941,72 +977,51 @@
 
     invoke-virtual {v8, v9}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
 
-    return-void
+    iget v8, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mDeviceId:I
 
-    :cond_2
-    iget-object v9, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mDividerSnapAlgorithm:Lcom/android/internal/policy/DividerSnapAlgorithm;
+    const/4 v9, -0x1
 
-    invoke-virtual {v9}, Lcom/android/internal/policy/DividerSnapAlgorithm;->isSplitScreenFeasible()Z
+    if-eq v8, v9, :cond_3
 
-    move-result v9
+    iget v8, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mDeviceId:I
 
-    if-eqz v9, :cond_0
+    invoke-static {v8}, Landroid/view/InputDevice;->getDevice(I)Landroid/view/InputDevice;
 
-    iget-object v9, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mRv:Lcom/android/systemui/recents/views/RecentsView;
+    move-result-object v0
 
-    invoke-virtual {v9}, Lcom/android/systemui/recents/views/RecentsView;->getContext()Landroid/content/Context;
+    if-eqz v0, :cond_3
 
-    move-result-object v9
+    const/16 v8, 0x3fd
 
-    iget-object v10, p1, Lcom/android/systemui/recents/events/ui/dragndrop/DragStartEvent;->task:Lcom/android/systemui/recents/model/Task;
-
-    invoke-virtual {v10}, Lcom/android/systemui/recents/model/Task;->getTopComponent()Landroid/content/ComponentName;
-
-    move-result-object v10
-
-    iget-object v11, p1, Lcom/android/systemui/recents/events/ui/dragndrop/DragStartEvent;->task:Lcom/android/systemui/recents/model/Task;
-
-    iget v11, v11, Lcom/android/systemui/recents/model/Task;->resizeMode:I
-
-    iget-object v12, p1, Lcom/android/systemui/recents/events/ui/dragndrop/DragStartEvent;->task:Lcom/android/systemui/recents/model/Task;
-
-    iget-boolean v12, v12, Lcom/android/systemui/recents/model/Task;->isDockable:Z
-
-    invoke-static {v9, v10, v11, v12}, Lcom/android/systemui/recents/Recents;->logDockAttempt(Landroid/content/Context;Landroid/content/ComponentName;IZ)V
-
-    iget-object v9, p1, Lcom/android/systemui/recents/events/ui/dragndrop/DragStartEvent;->task:Lcom/android/systemui/recents/model/Task;
-
-    iget-boolean v9, v9, Lcom/android/systemui/recents/model/Task;->isDockable:Z
-
-    if-nez v9, :cond_3
-
-    invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
-
-    move-result-object v9
-
-    new-instance v10, Lcom/android/systemui/recents/events/ui/ShowIncompatibleAppOverlayEvent;
-
-    invoke-direct {v10}, Lcom/android/systemui/recents/events/ui/ShowIncompatibleAppOverlayEvent;-><init>()V
-
-    invoke-virtual {v9, v10}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
-
-    goto :goto_0
+    invoke-virtual {v0, v8}, Landroid/view/InputDevice;->setPointerType(I)V
 
     :cond_3
-    invoke-virtual {p0}, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->getDockStatesForCurrentOrientation()[Lcom/android/systemui/recents/model/TaskStack$DockState;
+    return-void
 
-    move-result-object v1
+    :cond_4
+    move v8, v9
 
-    array-length v10, v1
+    goto/16 :goto_0
 
-    move v9, v8
+    :cond_5
+    invoke-static {}, Lcom/android/systemui/recents/Recents;->getConfiguration()Lcom/android/systemui/recents/RecentsConfiguration;
 
-    :goto_1
-    if-ge v9, v10, :cond_0
+    move-result-object v8
 
-    aget-object v0, v1, v9
+    invoke-virtual {v8}, Lcom/android/systemui/recents/RecentsConfiguration;->getDockStatesForCurrentOrientation()[Lcom/android/systemui/recents/model/TaskStack$DockState;
 
-    invoke-virtual {p0, v0}, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->registerDropTargetForCurrentDrag(Lcom/android/systemui/recents/views/DropTarget;)V
+    move-result-object v2
+
+    array-length v10, v2
+
+    move v8, v9
+
+    :goto_4
+    if-ge v8, v10, :cond_1
+
+    aget-object v1, v2, v8
+
+    invoke-virtual {p0, v1}, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->registerDropTargetForCurrentDrag(Lcom/android/systemui/recents/views/DropTarget;)V
 
     iget-object v11, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mRv:Lcom/android/systemui/recents/views/RecentsView;
 
@@ -1014,59 +1029,64 @@
 
     move-result-object v11
 
-    invoke-virtual {v0, v11}, Lcom/android/systemui/recents/model/TaskStack$DockState;->update(Landroid/content/Context;)V
+    invoke-virtual {v1, v11}, Lcom/android/systemui/recents/model/TaskStack$DockState;->update(Landroid/content/Context;)V
 
     iget-object v11, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mVisibleDockStates:Ljava/util/ArrayList;
 
-    invoke-virtual {v11, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    add-int/lit8 v9, v9, 0x1
-
-    goto :goto_1
-
-    :cond_4
-    invoke-virtual {p0}, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->getFreeformStatesForCurrentOrientation()[Lcom/android/systemui/recents/model/TaskStack$FreeformState;
-
-    move-result-object v3
-
-    array-length v9, v3
-
-    :goto_2
-    if-ge v8, v9, :cond_1
-
-    aget-object v2, v3, v8
-
-    invoke-virtual {p0, v2}, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->registerDropTargetForCurrentDrag(Lcom/android/systemui/recents/views/DropTarget;)V
-
-    iget-object v10, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mRv:Lcom/android/systemui/recents/views/RecentsView;
-
-    invoke-virtual {v10}, Lcom/android/systemui/recents/views/RecentsView;->getContext()Landroid/content/Context;
-
-    move-result-object v10
-
-    invoke-virtual {v2, v10}, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->update(Landroid/content/Context;)V
-
-    iget-object v10, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mRv:Lcom/android/systemui/recents/views/RecentsView;
-
-    invoke-virtual {v10}, Lcom/android/systemui/recents/views/RecentsView;->getMeasuredWidth()I
-
-    move-result v10
-
-    iget-object v11, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mRv:Lcom/android/systemui/recents/views/RecentsView;
-
-    invoke-virtual {v11}, Lcom/android/systemui/recents/views/RecentsView;->getMeasuredHeight()I
-
-    move-result v11
-
-    invoke-virtual {v2, v10, v11}, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->updateFreeformArea(II)V
-
-    iget-object v10, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mVisibleFreeformStates:Ljava/util/ArrayList;
-
-    invoke-virtual {v10, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v11, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     add-int/lit8 v8, v8, 0x1
 
+    goto :goto_4
+
+    :cond_6
+    move v8, v9
+
+    goto/16 :goto_1
+
+    :cond_7
+    move v8, v9
+
     goto :goto_2
+
+    :cond_8
+    sget-boolean v8, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableFreeformDropLayout:Z
+
+    if-eqz v8, :cond_2
+
+    sget-object v3, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->FREEFORM:Lcom/android/systemui/recents/model/TaskStack$FreeformState;
+
+    invoke-virtual {p0, v3}, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->registerDropTargetForCurrentDrag(Lcom/android/systemui/recents/views/DropTarget;)V
+
+    iget-object v8, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mRv:Lcom/android/systemui/recents/views/RecentsView;
+
+    invoke-virtual {v8}, Lcom/android/systemui/recents/views/RecentsView;->getContext()Landroid/content/Context;
+
+    move-result-object v8
+
+    invoke-virtual {v3, v8}, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->update(Landroid/content/Context;)V
+
+    iget-object v8, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mRv:Lcom/android/systemui/recents/views/RecentsView;
+
+    invoke-virtual {v8}, Lcom/android/systemui/recents/views/RecentsView;->getMeasuredWidth()I
+
+    move-result v8
+
+    iget-object v9, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mRv:Lcom/android/systemui/recents/views/RecentsView;
+
+    invoke-virtual {v9}, Lcom/android/systemui/recents/views/RecentsView;->getMeasuredHeight()I
+
+    move-result v9
+
+    iget-object v10, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mRv:Lcom/android/systemui/recents/views/RecentsView;
+
+    iget-object v10, v10, Lcom/android/systemui/recents/views/RecentsView;->mSystemInsets:Landroid/graphics/Rect;
+
+    invoke-virtual {v3, v8, v9, v10}, Lcom/android/systemui/recents/model/TaskStack$FreeformState;->updateFreeformArea(IILandroid/graphics/Rect;)V
+
+    iput-object v3, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mVisibleFreeformState:Lcom/android/systemui/recents/model/TaskStack$FreeformState;
+
+    goto :goto_3
 .end method
 
 .method public onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
@@ -1080,13 +1100,44 @@
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 1
+    .locals 4
+
+    const/4 v3, 0x0
+
+    const/4 v2, 0x1
 
     invoke-direct {p0, p1}, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->handleTouchEvent(Landroid/view/MotionEvent;)V
 
-    iget-boolean v0, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mDragRequested:Z
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
-    return v0
+    move-result v0
+
+    if-ne v0, v2, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsViewTouchHandler;->mRv:Lcom/android/systemui/recents/views/RecentsView;
+
+    invoke-virtual {v0}, Lcom/android/systemui/recents/views/RecentsView;->getStack()Lcom/android/systemui/recents/model/TaskStack;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/systemui/recents/model/TaskStack;->getStackTaskCount()I
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/systemui/recents/events/activity/HideRecentsEvent;
+
+    invoke-direct {v1, v3, v2}, Lcom/android/systemui/recents/events/activity/HideRecentsEvent;-><init>(ZZ)V
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
+
+    :cond_0
+    return v2
 .end method
 
 .method public registerDropTargetForCurrentDrag(Lcom/android/systemui/recents/views/DropTarget;)V

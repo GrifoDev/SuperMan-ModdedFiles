@@ -112,7 +112,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0400f5
+    const v7, 0x7f0d0144
 
     const/4 v8, 0x0
 
@@ -142,15 +142,10 @@
 
     check-cast v2, Landroid/widget/ImageView;
 
-    iget-object v6, v1, Lcom/android/systemui/qs/QSDetailItems$Item;->drawable:Landroid/graphics/drawable/Drawable;
+    iget v6, v1, Lcom/android/systemui/qs/QSDetailItems$Item;->icon:I
 
-    if-eqz v6, :cond_5
+    invoke-virtual {v2, v6}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    iget-object v6, v1, Lcom/android/systemui/qs/QSDetailItems$Item;->drawable:Landroid/graphics/drawable/Drawable;
-
-    invoke-virtual {v2, v6}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    :goto_1
     invoke-virtual {v2}, Landroid/widget/ImageView;->getOverlay()Landroid/view/ViewOverlay;
 
     move-result-object v6
@@ -163,15 +158,15 @@
 
     iget-object v6, v1, Lcom/android/systemui/qs/QSDetailItems$Item;->overlay:Landroid/graphics/drawable/Drawable;
 
-    iget-object v7, v1, Lcom/android/systemui/qs/QSDetailItems$Item;->overlay:Landroid/graphics/drawable/Drawable;
+    iget-object v7, p0, Lcom/android/systemui/qs/QSDetailItems$Adapter;->this$0:Lcom/android/systemui/qs/QSDetailItems;
 
-    invoke-virtual {v7}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
+    invoke-static {v7}, Lcom/android/systemui/qs/QSDetailItems;->-get4(Lcom/android/systemui/qs/QSDetailItems;)I
 
     move-result v7
 
-    iget-object v8, v1, Lcom/android/systemui/qs/QSDetailItems$Item;->overlay:Landroid/graphics/drawable/Drawable;
+    iget-object v8, p0, Lcom/android/systemui/qs/QSDetailItems$Adapter;->this$0:Lcom/android/systemui/qs/QSDetailItems;
 
-    invoke-virtual {v8}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
+    invoke-static {v8}, Lcom/android/systemui/qs/QSDetailItems;->-get4(Lcom/android/systemui/qs/QSDetailItems;)I
 
     move-result v8
 
@@ -204,7 +199,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f02034d
+    const v7, 0x7f0804c8
 
     const/4 v8, 0x0
 
@@ -215,21 +210,17 @@
     invoke-virtual {v2, v6}, Landroid/widget/ImageView;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
     :cond_2
-    iget-object v6, p0, Lcom/android/systemui/qs/QSDetailItems$Adapter;->this$0:Lcom/android/systemui/qs/QSDetailItems;
-
-    iget-boolean v6, v6, Lcom/android/systemui/qs/QSDetailItems;->mIsOpenTheme:Z
-
-    if-eqz v6, :cond_6
-
     iget v6, v1, Lcom/android/systemui/qs/QSDetailItems$Item;->tint:I
 
-    if-eqz v6, :cond_6
+    if-eqz v6, :cond_3
 
-    iget v6, v1, Lcom/android/systemui/qs/QSDetailItems$Item;->tint:I
+    iget-object v6, v1, Lcom/android/systemui/qs/QSDetailItems$Item;->overlay:Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {v2, v6}, Landroid/widget/ImageView;->setColorFilter(I)V
+    iget v7, v1, Lcom/android/systemui/qs/QSDetailItems$Item;->tint:I
 
-    :goto_2
+    invoke-virtual {v6, v7}, Landroid/graphics/drawable/Drawable;->setTint(I)V
+
+    :cond_3
     const v6, 0x1020016
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -242,6 +233,10 @@
 
     invoke-virtual {v4, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
+    iget-boolean v6, v1, Lcom/android/systemui/qs/QSDetailItems$Item;->isInProgress:Z
+
+    if-eqz v6, :cond_5
+
     iget-object v6, p0, Lcom/android/systemui/qs/QSDetailItems$Adapter;->this$0:Lcom/android/systemui/qs/QSDetailItems;
 
     invoke-static {v6}, Lcom/android/systemui/qs/QSDetailItems;->-get1(Lcom/android/systemui/qs/QSDetailItems;)Landroid/content/Context;
@@ -250,21 +245,35 @@
 
     invoke-virtual {v6}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v7
+    move-result-object v6
 
-    iget-boolean v6, v1, Lcom/android/systemui/qs/QSDetailItems$Item;->isActive:Z
+    const v7, 0x7f060150
 
-    if-eqz v6, :cond_7
-
-    const v6, 0x7f0b0129
-
-    :goto_3
-    invoke-virtual {v7, v6}, Landroid/content/res/Resources;->getColor(I)I
+    invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getColor(I)I
 
     move-result v6
 
     invoke-virtual {v4, v6}, Landroid/widget/TextView;->setTextColor(I)V
 
+    iget-object v6, p0, Lcom/android/systemui/qs/QSDetailItems$Adapter;->this$0:Lcom/android/systemui/qs/QSDetailItems;
+
+    invoke-static {v6}, Lcom/android/systemui/qs/QSDetailItems;->-get1(Lcom/android/systemui/qs/QSDetailItems;)Landroid/content/Context;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v6
+
+    const v7, 0x7f0b0053
+
+    invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getFloat(I)F
+
+    move-result v6
+
+    invoke-virtual {v4, v6}, Landroid/widget/TextView;->setAlpha(F)V
+
+    :goto_1
     const v6, 0x1020010
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -279,30 +288,27 @@
 
     move-result v6
 
-    if-eqz v6, :cond_8
+    xor-int/lit8 v5, v6, 0x1
 
-    const/4 v5, 0x0
-
-    :goto_4
-    if-eqz v5, :cond_9
+    if-eqz v5, :cond_7
 
     const/4 v6, 0x1
 
-    :goto_5
+    :goto_2
     invoke-virtual {v4, v6}, Landroid/widget/TextView;->setMaxLines(I)V
 
-    if-eqz v5, :cond_a
+    if-eqz v5, :cond_8
 
     const/4 v6, 0x0
 
-    :goto_6
+    :goto_3
     invoke-virtual {v3, v6}, Landroid/widget/TextView;->setVisibility(I)V
 
-    if-eqz v5, :cond_b
+    if-eqz v5, :cond_9
 
     iget-object v6, v1, Lcom/android/systemui/qs/QSDetailItems$Item;->line2:Ljava/lang/CharSequence;
 
-    :goto_7
+    :goto_4
     invoke-virtual {v3, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     new-instance v6, Lcom/android/systemui/qs/QSDetailItems$Adapter$1;
@@ -319,16 +325,21 @@
 
     check-cast v0, Landroid/widget/ImageView;
 
-    if-eqz v0, :cond_3
-
     iget-boolean v6, v1, Lcom/android/systemui/qs/QSDetailItems$Item;->canDisconnect:Z
 
-    if-eqz v6, :cond_c
+    if-eqz v6, :cond_a
+
+    const v6, 0x7f08029a
+
+    invoke-virtual {v0, v6}, Landroid/widget/ImageView;->setImageResource(I)V
 
     const/4 v6, 0x0
 
-    :goto_8
     invoke-virtual {v0, v6}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    const/4 v6, 0x1
+
+    invoke-virtual {v0, v6}, Landroid/widget/ImageView;->setClickable(Z)V
 
     new-instance v6, Lcom/android/systemui/qs/QSDetailItems$Adapter$2;
 
@@ -336,7 +347,7 @@
 
     invoke-virtual {v0, v6}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    :cond_3
+    :goto_5
     return-object p2
 
     :cond_4
@@ -345,44 +356,80 @@
     goto/16 :goto_0
 
     :cond_5
-    iget v6, v1, Lcom/android/systemui/qs/QSDetailItems$Item;->icon:I
+    iget-object v6, p0, Lcom/android/systemui/qs/QSDetailItems$Adapter;->this$0:Lcom/android/systemui/qs/QSDetailItems;
 
-    invoke-virtual {v2, v6}, Landroid/widget/ImageView;->setImageResource(I)V
+    invoke-static {v6}, Lcom/android/systemui/qs/QSDetailItems;->-get1(Lcom/android/systemui/qs/QSDetailItems;)Landroid/content/Context;
 
-    goto/16 :goto_1
+    move-result-object v6
+
+    invoke-virtual {v6}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v7
+
+    iget-boolean v6, v1, Lcom/android/systemui/qs/QSDetailItems$Item;->isActive:Z
+
+    if-eqz v6, :cond_6
+
+    const v6, 0x7f060150
+
+    :goto_6
+    invoke-virtual {v7, v6}, Landroid/content/res/Resources;->getColor(I)I
+
+    move-result v6
+
+    invoke-virtual {v4, v6}, Landroid/widget/TextView;->setTextColor(I)V
+
+    const/high16 v6, 0x3f800000    # 1.0f
+
+    invoke-virtual {v4, v6}, Landroid/widget/TextView;->setAlpha(F)V
+
+    goto :goto_1
 
     :cond_6
-    invoke-virtual {v2}, Landroid/widget/ImageView;->clearColorFilter()V
-
-    goto :goto_2
-
-    :cond_7
-    const v6, 0x7f0b0128
-
-    goto :goto_3
-
-    :cond_8
-    const/4 v5, 0x1
-
-    goto :goto_4
-
-    :cond_9
-    const/4 v6, 0x2
-
-    goto :goto_5
-
-    :cond_a
-    const/16 v6, 0x8
+    const v6, 0x7f06015c
 
     goto :goto_6
 
-    :cond_b
-    const/4 v6, 0x0
+    :cond_7
+    const/4 v6, 0x2
 
-    goto :goto_7
+    goto :goto_2
 
-    :cond_c
+    :cond_8
     const/16 v6, 0x8
 
-    goto :goto_8
+    goto :goto_3
+
+    :cond_9
+    const/4 v6, 0x0
+
+    goto :goto_4
+
+    :cond_a
+    iget v6, v1, Lcom/android/systemui/qs/QSDetailItems$Item;->icon2:I
+
+    const/4 v7, -0x1
+
+    if-eq v6, v7, :cond_b
+
+    const/4 v6, 0x0
+
+    invoke-virtual {v0, v6}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    iget v6, v1, Lcom/android/systemui/qs/QSDetailItems$Item;->icon2:I
+
+    invoke-virtual {v0, v6}, Landroid/widget/ImageView;->setImageResource(I)V
+
+    const/4 v6, 0x0
+
+    invoke-virtual {v0, v6}, Landroid/widget/ImageView;->setClickable(Z)V
+
+    goto :goto_5
+
+    :cond_b
+    const/16 v6, 0x8
+
+    invoke-virtual {v0, v6}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    goto :goto_5
 .end method

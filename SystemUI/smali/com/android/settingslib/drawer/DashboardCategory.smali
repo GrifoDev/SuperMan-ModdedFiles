@@ -26,6 +26,8 @@
     .end annotation
 .end field
 
+.field private static final DEBUG:Z
+
 
 # instance fields
 .field public key:Ljava/lang/String;
@@ -48,7 +50,17 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .locals 2
+
+    const-string/jumbo v0, "DashboardCategory"
+
+    const/4 v1, 0x3
+
+    invoke-static {v0, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/settingslib/drawer/DashboardCategory;->DEBUG:Z
 
     new-instance v0, Lcom/android/settingslib/drawer/DashboardCategory$1;
 
