@@ -323,21 +323,40 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3
 
     array-length v0, v2
 
-    if-lez v0, :cond_2
+    if-lez v0, :cond_3
 
     array-length v3, v2
 
     const/4 v0, 0x0
 
     :goto_0
-    if-ge v0, v3, :cond_2
+    if-ge v0, v3, :cond_3
 
     aget-object v4, v2, v0
 
+    invoke-virtual {v4}, Ljava/io/File;->getName()Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "config.gz"
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_2
+
+    :cond_1
+    :goto_1
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_2
     invoke-direct {p0, v4}, Lcom/sec/android/app/sysscope/job/RootProcessScanner;->a(Ljava/io/File;)Z
 
     move-result v5
@@ -372,12 +391,9 @@
 
     invoke-interface {v1, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    :cond_1
-    add-int/lit8 v0, v0, 0x1
+    goto :goto_1
 
-    goto :goto_0
-
-    :cond_2
+    :cond_3
     return-object v1
 .end method
 
@@ -694,12 +710,7 @@
     goto :goto_1
 .end method
 
-.method public checkIsApprivedProcess(Ljava/lang/String;)I
-    .locals 2
-
-    const v0, 0x1
-
-    return v0
+.method public native checkIsApprivedProcess(Ljava/lang/String;)I
 .end method
 
 .method public d()V

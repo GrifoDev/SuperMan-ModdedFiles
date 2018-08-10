@@ -5,26 +5,29 @@ Name: assets/databases/SysScope.db
 SHA1-Digest: S5o5SoAZTadHpJTGUbQfDgE9cBs=
 
 Name: AndroidManifest.xml
-SHA1-Digest: 0kT6kS7iAOhZ2mVoduesyybWtqM=
+SHA1-Digest: NI6TeShG56TIYL4/+t58yS4p4X8=
+
+Name: res/drawable-ldpi-v4/icon.webp
+SHA1-Digest: tmW7TUkd2fQXlXvzkStDBT/LE9o=
 
 Name: SEC-INF/buildConfirm.crt
 SHA1-Digest: rzhOt9eAouxefH7GQUAHHm1HIuI=
 
-Name: res/drawable-mdpi-v4/icon.qmg
-SHA1-Digest: eSED2Z18bZ492wXgvFvtRPBSR9o=
-
-Name: res/drawable-ldpi-v4/icon.qmg
-SHA1-Digest: 643TmwegNZHdbrKlm6ao1JYXYXQ=
+Name: res/drawable-mdpi-v4/icon.webp
+SHA1-Digest: FvVj+EYR4LjOKNJH+BSU37GokV4=
 
 Name: res/layout/main.xml
 SHA1-Digest: zCuxTVmY206HEsIqrqTFIdUuQ3w=
 
 Name: SEC-INF/buildinfo.xml
-SHA1-Digest: bACdQO3Jw3eUl7liQ/4iLdBF+hc=
+SHA1-Digest: eUEB+21JhhL1BsIhTiRtTFb258A=
 
 Name: resources.arsc
-SHA1-Digest: sEPkytDeUsbyvDb0bSn7qSjW0OY=
+SHA1-Digest: 6gF28Y7FGOv3oRyk24RbZux1ecE=
 
-Name: res/drawable-hdpi-v4/icon.qmg
-SHA1-Digest: 83oSF+BZV8phoXu5OapGu5HO0AQ=
+Name: classes.dex
+SHA1-Digest: jJYj7kvmz35KIYf9PE53ExAKNMA=
+
+Name: res/drawable-hdpi-v4/icon.webp
+SHA1-Digest: MQuStfldZTtLSmCnQlXfV700ZB8=
 

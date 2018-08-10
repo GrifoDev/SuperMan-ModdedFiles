@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:sharedUserId="android.uid.system" package="com.sec.android.app.sysscope" platformBuildVersionCode="23" platformBuildVersionName="6.0.1">
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:sharedUserId="android.uid.system" package="com.sec.android.app.sysscope" platformBuildVersionCode="26" platformBuildVersionName="8.0.0">
     <protected-broadcast android:name="com.sec.intent.action.SYSSCOPESTATUS"/>
     <protected-broadcast android:name="com.verizon.security.ROOT_STATUS"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
@@ -20,7 +20,7 @@
             </intent-filter>
         </service>
         <provider android:authorities="com.verizon.security" android:name="com.sec.android.app.sysscope.service.DataProvider"/>
-        <meta-data android:name="SPDE.build.signature" android:value="4374477/15828141/flavor1_a-release/SysScope-100200-1.4.25"/>
-        <meta-data android:name="SPDE.env.version" android:value="1.3.1/23.2.20/23.2.5"/>
+        <meta-data android:name="SPDE.build.signature" android:value="f4961e3/19586865/flavor1_a-release/SysScope-100200-1.4.32"/>
+        <meta-data android:name="SPDE.env.version" android:value="2.3.3/G26.1.14/26.1.1"/>
     </application>
 </manifest>

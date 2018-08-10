@@ -3,8 +3,7 @@ apkFileName: SysScope.apk
 compressionType: false
 doNotCompress:
 - arsc
-- so
-- qmg
+- webp
 isFrameworkApk: false
 packageInfo:
   forcedPackageId: '127'
@@ -13,6 +12,7 @@ sdkInfo:
   minSdkVersion: '14'
   targetSdkVersion: '23'
 sharedLibrary: false
+sparseResources: true
 unknownFiles:
   SEC-INF/buildConfirm.crt: '8'
   SEC-INF/buildinfo.xml: '8'
@@ -20,7 +20,7 @@ usesFramework:
   ids:
   - 1
   tag: null
-version: 2.3.1
+version: 2.3.3
 versionInfo:
-  versionCode: '142500200'
-  versionName: 1.4.25
+  versionCode: '143200200'
+  versionName: 1.4.32

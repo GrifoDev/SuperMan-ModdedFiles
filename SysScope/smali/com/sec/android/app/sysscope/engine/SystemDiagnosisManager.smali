@@ -344,8 +344,6 @@
 
     invoke-static {v1, v4}, Lcom/sec/android/app/sysscope/engine/i;->c(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x1
-
     invoke-virtual {p0, v0}, Lcom/sec/android/app/sysscope/engine/SystemDiagnosisManager;->storeResult(I)I
 
     move-result v1

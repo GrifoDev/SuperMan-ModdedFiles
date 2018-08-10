@@ -379,7 +379,7 @@
     return-void
 
     :cond_0
-    const/4 v1, 0x5
+    const/4 v1, 0x3
 
     invoke-direct {p0, v1, v0, p1}, Lcom/sec/android/app/sysscope/engine/j;->a(IIZ)V
 
