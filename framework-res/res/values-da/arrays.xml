@@ -37,6 +37,19 @@
         <item>Anden</item>
         <item>Brugerdefineret</item>
     </string-array>
+    <string-array name="imAddressTypes">
+        <item>Hjem</item>
+        <item>Arbejde</item>
+        <item>Anden</item>
+        <item>Brugerdefineret</item>
+    </string-array>
+    <string-array name="network_switch_type_name">
+        <item>mobildata</item>
+        <item>Wi-Fi</item>
+        <item>Bluetooth</item>
+        <item>Ethernet</item>
+        <item>VPN</item>
+    </string-array>
     <string-array name="wfcOperatorErrorAlertMessages">
         <item>Hvis du vil foretage opkald og sende beskeder via Wi-Fi, skal du først anmode dit mobilselskab om at konfigurere denne tjeneste. Derefter skal du slå Wi-Fi-opkald til igen fra Indstillinger.</item>
     </string-array>
@@ -46,13 +59,5 @@
     <string-array name="wfcSpnFormats">
         <item>%s</item>
         <item>%s Wi-Fi-opkald</item>
-    </string-array>
-    <array name="fingerprint_acquired_vendor" />
-    <array name="fingerprint_error_vendor" />
-    <string-array name="imAddressTypes">
-        <item>Hjem</item>
-        <item>Arbejde</item>
-        <item>Anden</item>
-        <item>Brugerdefineret</item>
     </string-array>
 </resources>

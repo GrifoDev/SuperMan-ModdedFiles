@@ -10,18 +10,20 @@
     <attr name="readPermission" format="string" />
     <attr name="writePermission" format="string" />
     <attr name="protectionLevel">
-        <flag name="normal" value="0x00000000" />
-        <flag name="system" value="0x00000010" />
         <flag name="appop" value="0x00000040" />
         <flag name="dangerous" value="0x00000001" />
         <flag name="development" value="0x00000020" />
+        <flag name="ephemeral" value="0x00001000" />
         <flag name="installer" value="0x00000100" />
+        <flag name="normal" value="0x00000000" />
         <flag name="pre23" value="0x00000080" />
         <flag name="preinstalled" value="0x00000400" />
         <flag name="privileged" value="0x00000010" />
+        <flag name="runtime" value="0x00002000" />
         <flag name="setup" value="0x00000800" />
         <flag name="signature" value="0x00000002" />
         <flag name="signatureOrSystem" value="0x00000003" />
+        <flag name="system" value="0x00000010" />
         <flag name="verifier" value="0x00000200" />
     </attr>
     <attr name="permissionGroup" format="string" />
@@ -50,7 +52,6 @@
         <enum name="standard" value="0" />
     </attr>
     <attr name="screenOrientation">
-        <enum name="user" value="2" />
         <enum name="behind" value="3" />
         <enum name="fullSensor" value="10" />
         <enum name="fullUser" value="13" />
@@ -64,26 +65,25 @@
         <enum name="sensorLandscape" value="6" />
         <enum name="sensorPortrait" value="7" />
         <enum name="unspecified" value="-1" />
+        <enum name="user" value="2" />
         <enum name="userLandscape" value="11" />
         <enum name="userPortrait" value="12" />
     </attr>
     <attr name="configChanges">
-        <flag name="locale" value="0x00000004" />
-        <flag name="FlipFont" value="0x20000000" />
+        <flag name="colorMode" value="0x00004000" />
         <flag name="density" value="0x00001000" />
         <flag name="fontScale" value="0x40000000" />
         <flag name="keyboard" value="0x00000010" />
         <flag name="keyboardHidden" value="0x00000020" />
         <flag name="layoutDirection" value="0x00002000" />
+        <flag name="locale" value="0x00000004" />
         <flag name="mcc" value="0x00000001" />
         <flag name="mnc" value="0x00000002" />
         <flag name="navigation" value="0x00000040" />
         <flag name="orientation" value="0x00000080" />
         <flag name="screenLayout" value="0x00000100" />
         <flag name="screenSize" value="0x00000400" />
-        <flag name="showButtonBackground" value="0x00200000" />
         <flag name="smallestScreenSize" value="0x00000800" />
-        <flag name="themeSeq" value="0x00010000" />
         <flag name="touchscreen" value="0x00000008" />
         <flag name="uiMode" value="0x00000200" />
     </attr>
@@ -217,9 +217,9 @@
         <enum name="serif" value="2" />
     </attr>
     <attr name="textStyle">
-        <flag name="normal" value="0x00000000" />
         <flag name="bold" value="0x00000001" />
         <flag name="italic" value="0x00000002" />
+        <flag name="normal" value="0x00000000" />
     </attr>
     <attr name="textColor" format="reference|color" />
     <attr name="textColorHighlight" format="reference|color" />
@@ -251,45 +251,45 @@
     <attr name="y" format="dimension" />
     <attr name="windowAnimationStyle" format="reference" />
     <attr name="gravity">
-        <flag name="end" value="0x00800005" />
-        <flag name="start" value="0x00800003" />
         <flag name="bottom" value="0x00000050" />
         <flag name="center" value="0x00000011" />
         <flag name="center_horizontal" value="0x00000001" />
         <flag name="center_vertical" value="0x00000010" />
         <flag name="clip_horizontal" value="0x00000008" />
         <flag name="clip_vertical" value="0x00000080" />
+        <flag name="end" value="0x00800005" />
         <flag name="fill" value="0x00000077" />
         <flag name="fill_horizontal" value="0x00000007" />
         <flag name="fill_vertical" value="0x00000070" />
         <flag name="left" value="0x00000003" />
         <flag name="right" value="0x00000005" />
+        <flag name="start" value="0x00800003" />
         <flag name="top" value="0x00000030" />
     </attr>
     <attr name="autoLink">
-        <flag name="none" value="0x00000000" />
-        <flag name="phone" value="0x00000004" />
         <flag name="all" value="0x0000000f" />
         <flag name="email" value="0x00000002" />
         <flag name="map" value="0x00000008" />
+        <flag name="none" value="0x00000000" />
+        <flag name="phone" value="0x00000004" />
         <flag name="web" value="0x00000001" />
     </attr>
     <attr name="linksClickable" format="boolean" />
     <attr name="entries" format="reference" />
     <attr name="layout_gravity">
-        <flag name="end" value="0x00800005" />
-        <flag name="start" value="0x00800003" />
         <flag name="bottom" value="0x00000050" />
         <flag name="center" value="0x00000011" />
         <flag name="center_horizontal" value="0x00000001" />
         <flag name="center_vertical" value="0x00000010" />
         <flag name="clip_horizontal" value="0x00000008" />
         <flag name="clip_vertical" value="0x00000080" />
+        <flag name="end" value="0x00800005" />
         <flag name="fill" value="0x00000077" />
         <flag name="fill_horizontal" value="0x00000007" />
         <flag name="fill_vertical" value="0x00000070" />
         <flag name="left" value="0x00000003" />
         <flag name="right" value="0x00000005" />
+        <flag name="start" value="0x00800003" />
         <flag name="top" value="0x00000030" />
     </attr>
     <attr name="windowEnterAnimation" format="reference" />
@@ -679,7 +679,9 @@
     <attr name="paddingTop" format="dimension" />
     <attr name="paddingRight" format="dimension" />
     <attr name="paddingBottom" format="dimension" />
-    <attr name="focusable" format="boolean" />
+    <attr name="focusable" format="boolean">
+        <enum name="auto" value="16" />
+    </attr>
     <attr name="focusableInTouchMode" format="boolean" />
     <attr name="visibility">
         <enum name="gone" value="2" />
@@ -688,13 +690,13 @@
     </attr>
     <attr name="fitsSystemWindows" format="boolean" />
     <attr name="scrollbars">
-        <flag name="none" value="0x00000000" />
         <flag name="horizontal" value="0x00000100" />
+        <flag name="none" value="0x00000000" />
         <flag name="vertical" value="0x00000200" />
     </attr>
     <attr name="fadingEdge">
-        <flag name="none" value="0x00000000" />
         <flag name="horizontal" value="0x00001000" />
+        <flag name="none" value="0x00000000" />
         <flag name="vertical" value="0x00002000" />
     </attr>
     <attr name="fadingEdgeLength" format="dimension" />
@@ -716,9 +718,9 @@
     <attr name="layoutAnimation" format="reference" />
     <attr name="animationCache" format="boolean" />
     <attr name="persistentDrawingCache">
-        <flag name="none" value="0x00000000" />
         <flag name="all" value="0x00000003" />
         <flag name="animation" value="0x00000001" />
+        <flag name="none" value="0x00000000" />
         <flag name="scrolling" value="0x00000002" />
     </attr>
     <attr name="alwaysDrawnWithCache" format="boolean" />
@@ -731,14 +733,14 @@
     <attr name="layout" format="reference" />
     <attr name="inflatedId" format="reference" />
     <attr name="layout_width" format="dimension">
-        <enum name="wrap_content" value="-2" />
         <enum name="fill_parent" value="-1" />
         <enum name="match_parent" value="-1" />
+        <enum name="wrap_content" value="-2" />
     </attr>
     <attr name="layout_height" format="dimension">
-        <enum name="wrap_content" value="-2" />
         <enum name="fill_parent" value="-1" />
         <enum name="match_parent" value="-1" />
+        <enum name="wrap_content" value="-2" />
     </attr>
     <attr name="layout_margin" format="dimension" />
     <attr name="layout_marginLeft" format="dimension" />
@@ -751,15 +753,15 @@
     <attr name="scrollingCache" format="boolean" />
     <attr name="textFilterEnabled" format="boolean" />
     <attr name="transcriptMode">
-        <enum name="normal" value="1" />
         <enum name="alwaysScroll" value="2" />
         <enum name="disabled" value="0" />
+        <enum name="normal" value="1" />
     </attr>
     <attr name="cacheColorHint" format="color" />
     <attr name="dial" format="reference" />
     <attr name="hand_hour" format="reference" />
     <attr name="hand_minute" format="reference" />
-    <attr name="format" format="string" localization="suggested" />
+    <attr name="format" format="string" />
     <attr name="checked" format="boolean" />
     <attr name="button" format="reference" />
     <attr name="checkMark" format="reference" />
@@ -777,8 +779,8 @@
     <attr name="horizontalSpacing" format="dimension" />
     <attr name="verticalSpacing" format="dimension" />
     <attr name="stretchMode">
-        <enum name="none" value="0" />
         <enum name="columnWidth" value="2" />
+        <enum name="none" value="0" />
         <enum name="spacingWidth" value="1" />
         <enum name="spacingWidthUniform" value="3" />
     </attr>
@@ -814,9 +816,9 @@
     <attr name="divider" format="reference|color" />
     <attr name="dividerHeight" format="dimension" />
     <attr name="choiceMode">
-        <enum name="none" value="0" />
         <enum name="multipleChoice" value="2" />
         <enum name="multipleChoiceModal" value="3" />
+        <enum name="none" value="0" />
         <enum name="singleChoice" value="1" />
     </attr>
     <attr name="itemTextAppearance" format="reference" />
@@ -857,11 +859,11 @@
     <attr name="layout_column" format="integer" />
     <attr name="layout_span" format="integer" />
     <attr name="bufferType">
-        <enum name="normal" value="0" />
         <enum name="editable" value="2" />
+        <enum name="normal" value="0" />
         <enum name="spannable" value="1" />
     </attr>
-    <attr name="text" format="string" localization="suggested" />
+    <attr name="text" format="string" />
     <attr name="hint" format="string" />
     <attr name="textScaleX" format="float" />
     <attr name="cursorVisible" format="boolean" />
@@ -892,8 +894,8 @@
     <attr name="phoneNumber" format="boolean" />
     <attr name="inputMethod" format="string" />
     <attr name="capitalize">
-        <enum name="none" value="0" />
         <enum name="characters" value="3" />
+        <enum name="none" value="0" />
         <enum name="sentences" value="1" />
         <enum name="words" value="2" />
     </attr>
@@ -987,10 +989,10 @@
     <attr name="toDegrees" format="float" />
     <attr name="pivotX" format="float|fraction" />
     <attr name="pivotY" format="float|fraction" />
-    <attr name="insetLeft" format="dimension" />
-    <attr name="insetRight" format="dimension" />
-    <attr name="insetTop" format="dimension" />
-    <attr name="insetBottom" format="dimension" />
+    <attr name="insetLeft" format="dimension|fraction" />
+    <attr name="insetRight" format="dimension|fraction" />
+    <attr name="insetTop" format="dimension|fraction" />
+    <attr name="insetBottom" format="dimension|fraction" />
     <attr name="shareInterpolator" format="boolean" />
     <attr name="fillBefore" format="boolean" />
     <attr name="fillAfter" format="boolean" />
@@ -1003,8 +1005,8 @@
         <enum name="reverse" value="2" />
     </attr>
     <attr name="zAdjustment">
-        <enum name="normal" value="0" />
         <enum name="bottom" value="-1" />
+        <enum name="normal" value="0" />
         <enum name="top" value="1" />
     </attr>
     <attr name="fromXScale" format="float|dimension|fraction" />
@@ -1021,8 +1023,8 @@
     <attr name="animation" format="reference" />
     <attr name="animationOrder">
         <enum name="normal" value="0" />
-        <enum name="reverse" value="1" />
         <enum name="random" value="2" />
+        <enum name="reverse" value="1" />
     </attr>
     <attr name="columnDelay" format="float|fraction" />
     <attr name="rowDelay" format="float|fraction" />
@@ -1033,8 +1035,8 @@
         <flag name="top_to_bottom" value="0x00000000" />
     </attr>
     <attr name="directionPriority">
-        <enum name="none" value="0" />
         <enum name="column" value="1" />
+        <enum name="none" value="0" />
         <enum name="row" value="2" />
     </attr>
     <attr name="factor" format="float" />
@@ -1061,8 +1063,8 @@
     </attr>
     <attr name="orderInCategory" format="integer" />
     <attr name="checkableBehavior">
-        <enum name="none" value="0" />
         <enum name="all" value="1" />
+        <enum name="none" value="0" />
         <enum name="single" value="2" />
     </attr>
     <attr name="title" format="string" />
@@ -1090,9 +1092,9 @@
     <attr name="dialogLayout" format="reference" />
     <attr name="entryValues" format="reference" />
     <attr name="ringtoneType">
-        <flag name="all" value="0x00000007" />
         <flag name="alarm" value="0x00000004" />
         <flag name="alarm_theme" value="0x00000100" />
+        <flag name="all" value="0x00000007" />
         <flag name="notification" value="0x00000002" />
         <flag name="notification2" value="0x00000010" />
         <flag name="notification_theme" value="0x00000080" />
@@ -1105,19 +1107,19 @@
     <attr name="scaleWidth" format="string" />
     <attr name="scaleHeight" format="string" />
     <attr name="scaleGravity">
-        <flag name="end" value="0x00800005" />
-        <flag name="start" value="0x00800003" />
         <flag name="bottom" value="0x00000050" />
         <flag name="center" value="0x00000011" />
         <flag name="center_horizontal" value="0x00000001" />
         <flag name="center_vertical" value="0x00000010" />
         <flag name="clip_horizontal" value="0x00000008" />
         <flag name="clip_vertical" value="0x00000080" />
+        <flag name="end" value="0x00800005" />
         <flag name="fill" value="0x00000077" />
         <flag name="fill_horizontal" value="0x00000007" />
         <flag name="fill_vertical" value="0x00000070" />
         <flag name="left" value="0x00000003" />
         <flag name="right" value="0x00000005" />
+        <flag name="start" value="0x00800003" />
         <flag name="top" value="0x00000030" />
     </attr>
     <attr name="ignoreGravity" format="reference" />
@@ -1136,10 +1138,10 @@
         <flag name="top" value="0x00000030" />
     </attr>
     <attr name="tileMode">
-        <enum name="disabled" value="-1" />
-        <enum name="repeat" value="1" />
         <enum name="clamp" value="0" />
+        <enum name="disabled" value="-1" />
         <enum name="mirror" value="2" />
+        <enum name="repeat" value="1" />
     </attr>
     <attr name="targetActivity" format="string" />
     <attr name="alwaysRetainTaskState" format="boolean" />
@@ -1149,10 +1151,10 @@
     <attr name="textAppearanceButton" format="reference" />
     <attr name="listSeparatorTextViewStyle" format="reference" />
     <attr name="streamType">
-        <enum name="ring" value="2" />
-        <enum name="system" value="1" />
         <enum name="alarm" value="4" />
         <enum name="music" value="3" />
+        <enum name="ring" value="2" />
+        <enum name="system" value="1" />
         <enum name="voice" value="0" />
     </attr>
     <attr name="clipOrientation">
@@ -1183,9 +1185,9 @@
     <attr name="windowNoDisplay" format="boolean" />
     <attr name="backgroundDimEnabled" format="boolean" />
     <attr name="inputType">
-        <flag name="none" value="0x00000000" />
         <flag name="date" value="0x00000014" />
         <flag name="datetime" value="0x00000004" />
+        <flag name="none" value="0x00000000" />
         <flag name="number" value="0x00000002" />
         <flag name="numberDecimal" value="0x00002002" />
         <flag name="numberPassword" value="0x00000012" />
@@ -1229,17 +1231,17 @@
         <enum name="undefined" value="0" />
     </attr>
     <attr name="reqKeyboardType">
-        <enum name="undefined" value="0" />
         <enum name="nokeys" value="1" />
         <enum name="qwerty" value="2" />
         <enum name="twelvekey" value="3" />
+        <enum name="undefined" value="0" />
     </attr>
     <attr name="reqHardKeyboard" format="boolean" />
     <attr name="reqNavigation">
-        <enum name="undefined" value="0" />
         <enum name="dpad" value="2" />
         <enum name="nonav" value="1" />
         <enum name="trackball" value="3" />
+        <enum name="undefined" value="0" />
         <enum name="wheel" value="4" />
     </attr>
     <attr name="windowSoftInputMode">
@@ -1319,13 +1321,12 @@
     <attr name="thickness" format="dimension" />
     <attr name="sharedUserLabel" format="reference" />
     <attr name="dropDownWidth" format="dimension">
-        <enum name="wrap_content" value="-2" />
         <enum name="fill_parent" value="-1" />
         <enum name="match_parent" value="-1" />
+        <enum name="wrap_content" value="-2" />
     </attr>
     <attr name="dropDownAnchor" format="reference" />
     <attr name="imeOptions">
-        <flag name="normal" value="0x00000000" />
         <flag name="actionDone" value="0x00000006" />
         <flag name="actionGo" value="0x00000002" />
         <flag name="actionNext" value="0x00000005" />
@@ -1341,10 +1342,11 @@
         <flag name="flagNoEnterAction" value="0x40000000" />
         <flag name="flagNoExtractUi" value="0x10000000" />
         <flag name="flagNoFullscreen" value="0x02000000" />
+        <flag name="flagNoPersonalizedLearning" value="0x01000000" />
+        <flag name="normal" value="0x00000000" />
     </attr>
     <attr name="imeActionLabel" format="string" />
     <attr name="imeActionId" format="integer" />
-    <item type="attr" name="APKTOOL_DUMMY_267">false</item>
     <attr name="imeExtractEnterAnimation" format="reference" />
     <attr name="imeExtractExitAnimation" format="reference" />
     <attr name="tension" format="float" />
@@ -1356,7 +1358,7 @@
     <attr name="targetSdkVersion" format="string|integer" />
     <attr name="maxSdkVersion" format="integer" />
     <attr name="testOnly" format="boolean" />
-    <attr name="contentDescription" format="string" localization="suggested" />
+    <attr name="contentDescription" format="string" />
     <attr name="gestureStrokeWidth" format="float" />
     <attr name="gestureColor" format="color" />
     <attr name="uncertainGestureColor" format="color" />
@@ -1376,9 +1378,9 @@
     <attr name="glEsVersion" format="integer" />
     <attr name="queryAfterZeroResults" format="boolean" />
     <attr name="dropDownHeight" format="dimension">
-        <enum name="wrap_content" value="-2" />
         <enum name="fill_parent" value="-1" />
         <enum name="match_parent" value="-1" />
+        <enum name="wrap_content" value="-2" />
     </attr>
     <attr name="smallScreens" format="boolean" />
     <attr name="normalScreens" format="boolean" />
@@ -1459,8 +1461,8 @@
     <attr name="textSelectHandleWindowStyle" format="reference" />
     <attr name="popupAnimationStyle" format="reference" />
     <attr name="screenSize">
-        <enum name="normal" value="300" />
         <enum name="large" value="400" />
+        <enum name="normal" value="300" />
         <enum name="small" value="200" />
         <enum name="xlarge" value="500" />
     </attr>
@@ -1476,14 +1478,14 @@
     <attr name="windowActionBar" format="boolean" />
     <attr name="actionBarStyle" format="reference" />
     <attr name="navigationMode">
-        <enum name="normal" value="0" />
         <enum name="listMode" value="1" />
+        <enum name="normal" value="0" />
         <enum name="tabMode" value="2" />
     </attr>
     <attr name="displayOptions">
-        <flag name="none" value="0x00000000" />
         <flag name="disableHome" value="0x00000020" />
         <flag name="homeAsUp" value="0x00000004" />
+        <flag name="none" value="0x00000000" />
         <flag name="showCustom" value="0x00000010" />
         <flag name="showHome" value="0x00000002" />
         <flag name="showTitle" value="0x00000008" />
@@ -1499,9 +1501,9 @@
     <attr name="actionButtonStyle" format="reference" />
     <attr name="showAsAction">
         <flag name="always" value="0x00000002" />
-        <flag name="never" value="0x00000000" />
         <flag name="collapseActionView" value="0x00000008" />
         <flag name="ifRoom" value="0x00000001" />
+        <flag name="never" value="0x00000000" />
         <flag name="withText" value="0x00000004" />
     </attr>
     <attr name="previewImage" format="reference" />
@@ -1518,8 +1520,8 @@
     </attr>
     <attr name="propertyName" format="string" />
     <attr name="ordering">
-        <enum name="together" value="0" />
         <enum name="sequentially" value="1" />
+        <enum name="together" value="0" />
     </attr>
     <attr name="fragment" format="string" />
     <attr name="windowActionBarOverlay" format="boolean" />
@@ -1601,10 +1603,10 @@
     <attr name="rotationX" format="float" />
     <attr name="rotationY" format="float" />
     <attr name="showDividers">
+        <flag name="beginning" value="0x00000001" />
         <flag name="end" value="0x00000004" />
         <flag name="middle" value="0x00000002" />
         <flag name="none" value="0x00000000" />
-        <flag name="beginning" value="0x00000001" />
     </attr>
     <attr name="dividerPadding" format="dimension" />
     <attr name="borderlessButtonStyle" format="reference" />
@@ -1617,9 +1619,9 @@
     <attr name="allowParallelSyncs" format="boolean" />
     <attr name="isAlwaysSyncable" format="boolean" />
     <attr name="verticalScrollbarPosition">
+        <enum name="defaultPosition" value="0" />
         <enum name="left" value="1" />
         <enum name="right" value="2" />
-        <enum name="defaultPosition" value="0" />
     </attr>
     <attr name="fastScrollAlwaysVisible" format="boolean" />
     <attr name="fastScrollThumbDrawable" format="reference" />
@@ -1657,8 +1659,8 @@
     <attr name="editTextBackground" format="reference" />
     <attr name="horizontalScrollViewStyle" format="reference" />
     <attr name="layerType">
-        <enum name="none" value="0" />
         <enum name="hardware" value="2" />
+        <enum name="none" value="0" />
         <enum name="software" value="1" />
     </attr>
     <attr name="alertDialogIcon" format="reference" />
@@ -1676,8 +1678,8 @@
     <attr name="actionMenuTextColor" format="reference|color" />
     <attr name="textCursorDrawable" format="reference" />
     <attr name="resizeMode" format="integer">
-        <flag name="none" value="0x00000000" />
         <flag name="horizontal" value="0x00000001" />
+        <flag name="none" value="0x00000000" />
         <flag name="vertical" value="0x00000002" />
     </attr>
     <attr name="requiresSmallestWidthDp" format="integer" />
@@ -1751,10 +1753,13 @@
     <attr name="notificationTimeout" format="integer" />
     <attr name="accessibilityFlags">
         <flag name="flagDefault" value="0x00000001" />
+        <flag name="flagEnableAccessibilityVolume" value="0x00000080" />
         <flag name="flagIncludeNotImportantViews" value="0x00000002" />
         <flag name="flagReportViewIds" value="0x00000010" />
+        <flag name="flagRequestAccessibilityButton" value="0x00000100" />
         <flag name="flagRequestEnhancedWebAccessibility" value="0x00000008" />
         <flag name="flagRequestFilterKeyEvents" value="0x00000020" />
+        <flag name="flagRequestFingerprintGestures" value="0x00000200" />
         <flag name="flagRequestTouchExplorationMode" value="0x00000004" />
         <flag name="flagRetrieveInteractiveWindows" value="0x00000040" />
     </attr>
@@ -1794,13 +1799,12 @@
     <attr name="listPreferredItemPaddingLeft" format="dimension" />
     <attr name="listPreferredItemPaddingRight" format="dimension" />
     <attr name="requiresFadingEdge">
-        <flag name="none" value="0x00000000" />
         <flag name="horizontal" value="0x00001000" />
+        <flag name="none" value="0x00000000" />
         <flag name="vertical" value="0x00002000" />
     </attr>
     <attr name="publicKey" format="string" />
     <attr name="parentActivityName" format="string" />
-    <item type="attr" name="APKTOOL_DUMMY_3a8">false</item>
     <attr name="isolatedProcess" format="boolean" />
     <attr name="importantForAccessibility" format="integer">
         <enum name="auto" value="0" />
@@ -1817,19 +1821,19 @@
     </attr>
     <attr name="supportsRtl" format="boolean" />
     <attr name="textDirection" format="integer">
-        <enum name="inherit" value="0" />
-        <enum name="locale" value="5" />
-        <enum name="ltr" value="3" />
-        <enum name="rtl" value="4" />
         <enum name="anyRtl" value="2" />
         <enum name="firstStrong" value="1" />
         <enum name="firstStrongLtr" value="6" />
         <enum name="firstStrongRtl" value="7" />
+        <enum name="inherit" value="0" />
+        <enum name="locale" value="5" />
+        <enum name="ltr" value="3" />
+        <enum name="rtl" value="4" />
     </attr>
     <attr name="textAlignment" format="integer">
         <enum name="center" value="4" />
-        <enum name="inherit" value="0" />
         <enum name="gravity" value="1" />
+        <enum name="inherit" value="0" />
         <enum name="textEnd" value="3" />
         <enum name="textStart" value="2" />
         <enum name="viewEnd" value="6" />
@@ -1857,7 +1861,6 @@
     <attr name="presentationTheme" format="reference" />
     <attr name="subtypeId" format="integer" />
     <attr name="initialKeyguardLayout" format="reference" />
-    <item type="attr" name="APKTOOL_DUMMY_3c3">false</item>
     <attr name="widgetCategory" format="integer">
         <flag name="easylauncher" value="0x00000100" />
         <flag name="favorite" value="0x00000200" />
@@ -1923,8 +1926,8 @@
     <attr name="requireDeviceUnlock" format="boolean" />
     <attr name="apduServiceBanner" format="reference" />
     <attr name="accessibilityLiveRegion" format="integer">
-        <enum name="none" value="0" />
         <enum name="assertive" value="2" />
+        <enum name="none" value="0" />
         <enum name="polite" value="1" />
     </attr>
     <attr name="windowTranslucentStatus" format="boolean" />
@@ -1968,38 +1971,11 @@
         <enum name="square" value="2" />
     </attr>
     <attr name="strokeLineJoin">
-        <enum name="round" value="1" />
         <enum name="bevel" value="2" />
         <enum name="miter" value="0" />
+        <enum name="round" value="1" />
     </attr>
     <attr name="strokeMiterLimit" format="float" />
-    <item type="attr" name="APKTOOL_DUMMY_40e">false</item>
-    <item type="attr" name="APKTOOL_DUMMY_40f">false</item>
-    <item type="attr" name="APKTOOL_DUMMY_410">false</item>
-    <item type="attr" name="APKTOOL_DUMMY_411">false</item>
-    <item type="attr" name="APKTOOL_DUMMY_412">false</item>
-    <item type="attr" name="APKTOOL_DUMMY_413">false</item>
-    <item type="attr" name="APKTOOL_DUMMY_414">false</item>
-    <item type="attr" name="APKTOOL_DUMMY_415">false</item>
-    <item type="attr" name="APKTOOL_DUMMY_416">false</item>
-    <item type="attr" name="APKTOOL_DUMMY_417">false</item>
-    <item type="attr" name="APKTOOL_DUMMY_418">false</item>
-    <item type="attr" name="APKTOOL_DUMMY_419">false</item>
-    <item type="attr" name="APKTOOL_DUMMY_41a">false</item>
-    <item type="attr" name="APKTOOL_DUMMY_41b">false</item>
-    <item type="attr" name="APKTOOL_DUMMY_41c">false</item>
-    <item type="attr" name="APKTOOL_DUMMY_41d">false</item>
-    <item type="attr" name="APKTOOL_DUMMY_41e">false</item>
-    <item type="attr" name="APKTOOL_DUMMY_41f">false</item>
-    <item type="attr" name="APKTOOL_DUMMY_420">false</item>
-    <item type="attr" name="APKTOOL_DUMMY_421">false</item>
-    <item type="attr" name="APKTOOL_DUMMY_422">false</item>
-    <item type="attr" name="APKTOOL_DUMMY_423">false</item>
-    <item type="attr" name="APKTOOL_DUMMY_424">false</item>
-    <item type="attr" name="APKTOOL_DUMMY_425">false</item>
-    <item type="attr" name="APKTOOL_DUMMY_426">false</item>
-    <item type="attr" name="APKTOOL_DUMMY_427">false</item>
-    <item type="attr" name="APKTOOL_DUMMY_428">false</item>
     <attr name="colorControlNormal" format="color" />
     <attr name="colorControlActivated" format="color" />
     <attr name="colorButtonNormal" format="color" />
@@ -2012,11 +1988,11 @@
     <attr name="titleTextAppearance" format="reference" />
     <attr name="subtitleTextAppearance" format="reference" />
     <attr name="slideEdge">
-        <enum name="end" value="8388613" />
-        <enum name="start" value="8388611" />
         <enum name="bottom" value="80" />
+        <enum name="end" value="8388613" />
         <enum name="left" value="3" />
         <enum name="right" value="5" />
+        <enum name="start" value="8388611" />
         <enum name="top" value="48" />
     </attr>
     <attr name="actionBarTheme" format="reference" />
@@ -2040,10 +2016,10 @@
     <attr name="hideOnContentScroll" format="boolean" />
     <attr name="actionOverflowMenuStyle" format="reference" />
     <attr name="documentLaunchMode">
-        <enum name="none" value="0" />
         <enum name="always" value="2" />
-        <enum name="never" value="3" />
         <enum name="intoExisting" value="1" />
+        <enum name="never" value="3" />
+        <enum name="none" value="0" />
     </attr>
     <attr name="maxRecents" format="integer" />
     <attr name="autoRemoveFromRecents" format="boolean" />
@@ -2154,16 +2130,16 @@
     <attr name="propertyYName" format="string" />
     <attr name="relinquishTaskIdentity" format="boolean" />
     <attr name="tileModeX">
-        <enum name="disabled" value="-1" />
-        <enum name="repeat" value="1" />
         <enum name="clamp" value="0" />
+        <enum name="disabled" value="-1" />
         <enum name="mirror" value="2" />
+        <enum name="repeat" value="1" />
     </attr>
     <attr name="tileModeY">
-        <enum name="disabled" value="-1" />
-        <enum name="repeat" value="1" />
         <enum name="clamp" value="0" />
+        <enum name="disabled" value="-1" />
         <enum name="mirror" value="2" />
+        <enum name="repeat" value="1" />
     </attr>
     <attr name="actionModeShareDrawable" format="reference" />
     <attr name="actionModeFindDrawable" format="reference" />
@@ -2195,12 +2171,12 @@
     <attr name="launchTaskBehindTargetAnimation" format="reference" />
     <attr name="launchTaskBehindSourceAnimation" format="reference" />
     <attr name="restrictionType">
-        <enum name="integer" value="5" />
         <enum name="bool" value="1" />
         <enum name="bundle" value="7" />
         <enum name="bundle_array" value="8" />
         <enum name="choice" value="2" />
         <enum name="hidden" value="0" />
+        <enum name="integer" value="5" />
         <enum name="multi-select" value="4" />
         <enum name="string" value="6" />
     </attr>
@@ -2251,16 +2227,16 @@
         <enum name="spinner" value="1" />
     </attr>
     <attr name="timePickerMode">
-        <enum name="spinner" value="1" />
         <enum name="clock" value="2" />
+        <enum name="spinner" value="1" />
     </attr>
-    <attr name="inset" format="dimension" />
+    <attr name="inset" format="dimension|fraction" />
     <attr name="letterSpacing" format="float" />
     <attr name="fontFeatureSettings" format="string" />
     <attr name="outlineProvider">
         <enum name="background" value="0" />
-        <enum name="none" value="1" />
         <enum name="bounds" value="2" />
+        <enum name="none" value="1" />
         <enum name="paddedBounds" value="3" />
     </attr>
     <attr name="contentAgeHint" format="integer" />
@@ -2319,9 +2295,9 @@
         <enum name="simple" value="0" />
     </attr>
     <attr name="hyphenationFrequency">
-        <enum name="normal" value="1" />
-        <enum name="none" value="0" />
         <enum name="full" value="2" />
+        <enum name="none" value="0" />
+        <enum name="normal" value="1" />
     </attr>
     <attr name="allowUndo" format="boolean" />
     <attr name="windowLightStatusBar" format="boolean" />
@@ -2334,12 +2310,12 @@
         <enum name="midpoint" value="0" />
     </attr>
     <attr name="scrollIndicators">
-        <flag name="end" value="0x00000020" />
-        <flag name="none" value="0x00000000" />
-        <flag name="start" value="0x00000010" />
         <flag name="bottom" value="0x00000002" />
+        <flag name="end" value="0x00000020" />
         <flag name="left" value="0x00000004" />
+        <flag name="none" value="0x00000000" />
         <flag name="right" value="0x00000008" />
+        <flag name="start" value="0x00000010" />
         <flag name="top" value="0x00000001" />
     </attr>
     <attr name="contextClickable" format="boolean" />
@@ -2349,10 +2325,10 @@
     <attr name="fullBackupContent" format="reference|boolean" />
     <attr name="usesCleartextTraffic" format="boolean" />
     <attr name="lockTaskMode">
-        <enum name="normal" value="0" />
         <enum name="always" value="2" />
-        <enum name="never" value="1" />
         <enum name="if_whitelisted" value="3" />
+        <enum name="never" value="1" />
+        <enum name="normal" value="0" />
     </attr>
     <attr name="autoVerify" format="boolean" />
     <attr name="showForAllUsers" format="boolean" />
@@ -2385,14 +2361,12 @@
     <attr name="canControlMagnification" format="boolean" />
     <attr name="languageTag" format="string" />
     <attr name="pointerIcon">
-        <enum name="copy" value="1011" />
-        <enum name="none" value="0" />
-        <enum name="text" value="1008" />
         <enum name="alias" value="1010" />
         <enum name="all_scroll" value="1013" />
         <enum name="arrow" value="1000" />
         <enum name="cell" value="1006" />
         <enum name="context_menu" value="1001" />
+        <enum name="copy" value="1011" />
         <enum name="crosshair" value="1007" />
         <enum name="grab" value="1020" />
         <enum name="grabbing" value="1021" />
@@ -2400,6 +2374,8 @@
         <enum name="help" value="1003" />
         <enum name="horizontal_double_arrow" value="1014" />
         <enum name="no_drop" value="1012" />
+        <enum name="none" value="0" />
+        <enum name="text" value="1008" />
         <enum name="top_left_diagonal_double_arrow" value="1017" />
         <enum name="top_right_diagonal_double_arrow" value="1016" />
         <enum name="vertical_double_arrow" value="1015" />
@@ -2448,4 +2424,156 @@
     <attr name="enableVrMode" format="string" />
     <attr name="hash" format="string" />
     <attr name="networkSecurityConfig" format="reference" />
+    <attr name="shortcutId" format="string" />
+    <attr name="shortcutShortLabel" format="reference" />
+    <attr name="shortcutLongLabel" format="reference" />
+    <attr name="shortcutDisabledMessage" format="reference" />
+    <attr name="roundIcon" format="reference" />
+    <attr name="contextUri" format="reference" />
+    <attr name="contextDescription" format="reference" />
+    <attr name="showMetadataInPreview" format="boolean" />
+    <attr name="colorSecondary" format="color" />
+    <attr name="visibleToInstantApps" format="boolean" />
+    <attr name="font" format="reference" />
+    <attr name="fontWeight" format="integer" />
+    <attr name="tooltipText" format="string" />
+    <attr name="autoSizeTextType">
+        <enum name="none" value="0" />
+        <enum name="uniform" value="1" />
+    </attr>
+    <attr name="autoSizeStepGranularity" format="dimension" />
+    <attr name="autoSizePresetSizes" format="reference|string|integer|boolean|color|float|dimension|fraction" />
+    <attr name="autoSizeMinTextSize" format="dimension" />
+    <attr name="min" format="integer" />
+    <attr name="rotationAnimation">
+        <flag name="crossfade" value="0x00000001" />
+        <flag name="jumpcut" value="0x00000002" />
+        <flag name="rotate" value="0x00000000" />
+        <flag name="seamless" value="0x00000003" />
+    </attr>
+    <attr name="layout_marginHorizontal" format="dimension" />
+    <attr name="layout_marginVertical" format="dimension" />
+    <attr name="paddingHorizontal" format="dimension" />
+    <attr name="paddingVertical" format="dimension" />
+    <attr name="fontStyle">
+        <enum name="italic" value="1" />
+        <enum name="normal" value="0" />
+    </attr>
+    <attr name="keyboardNavigationCluster" format="boolean" />
+    <attr name="targetProcesses" format="string" />
+    <attr name="nextClusterForward" format="reference" />
+    <attr name="colorError" format="reference|color" />
+    <attr name="focusedByDefault" format="boolean" />
+    <attr name="appCategory">
+        <enum name="audio" value="1" />
+        <enum name="game" value="0" />
+        <enum name="image" value="3" />
+        <enum name="maps" value="6" />
+        <enum name="news" value="5" />
+        <enum name="productivity" value="7" />
+        <enum name="social" value="4" />
+        <enum name="video" value="2" />
+    </attr>
+    <attr name="autoSizeMaxTextSize" format="dimension" />
+    <attr name="recreateOnConfigChanges">
+        <flag name="mcc" value="0x00000001" />
+        <flag name="mnc" value="0x00000002" />
+    </attr>
+    <attr name="certDigest" format="string" />
+    <attr name="splitName" format="string" />
+    <attr name="colorMode">
+        <enum name="default" value="0" />
+        <enum name="hdr" value="2" />
+        <enum name="wideColorGamut" value="1" />
+    </attr>
+    <attr name="isolatedSplits" format="boolean" />
+    <attr name="targetSandboxVersion" format="integer" />
+    <attr name="canRequestFingerprintGestures" format="boolean" />
+    <attr name="alphabeticModifiers">
+        <flag name="ALT" value="0x00000002" />
+        <flag name="CTRL" value="0x00001000" />
+        <flag name="FUNCTION" value="0x00000008" />
+        <flag name="META" value="0x00010000" />
+        <flag name="SHIFT" value="0x00000001" />
+        <flag name="SYM" value="0x00000004" />
+    </attr>
+    <attr name="numericModifiers">
+        <flag name="ALT" value="0x00000002" />
+        <flag name="CTRL" value="0x00001000" />
+        <flag name="FUNCTION" value="0x00000008" />
+        <flag name="META" value="0x00010000" />
+        <flag name="SHIFT" value="0x00000001" />
+        <flag name="SYM" value="0x00000004" />
+    </attr>
+    <attr name="fontProviderAuthority" format="string" />
+    <attr name="fontProviderQuery" format="string" />
+    <attr name="primaryContentAlpha" format="float" />
+    <attr name="secondaryContentAlpha" format="float" />
+    <attr name="requiredFeature" format="string" />
+    <attr name="requiredNotFeature" format="string" />
+    <attr name="autofillHints" format="reference|string" />
+    <attr name="fontProviderPackage" format="string" />
+    <attr name="importantForAutofill">
+        <flag name="auto" value="0x00000000" />
+        <flag name="no" value="0x00000002" />
+        <flag name="noExcludeDescendants" value="0x00000008" />
+        <flag name="yes" value="0x00000001" />
+        <flag name="yesExcludeDescendants" value="0x00000004" />
+    </attr>
+    <attr name="recycleEnabled" format="boolean" />
+    <attr name="isStatic" format="boolean" />
+    <attr name="isFeatureSplit" format="boolean" />
+    <attr name="singleLineTitle" format="boolean" />
+    <attr name="fontProviderCerts" format="reference" />
+    <attr name="iconTint" format="color" />
+    <attr name="iconTintMode">
+        <enum name="add" value="16" />
+        <enum name="multiply" value="14" />
+        <enum name="screen" value="15" />
+        <enum name="src_atop" value="9" />
+        <enum name="src_in" value="5" />
+        <enum name="src_over" value="3" />
+    </attr>
+    <attr name="maxAspectRatio" format="float" />
+    <attr name="iconSpaceReserved" format="boolean" />
+    <attr name="defaultFocusHighlightEnabled" format="boolean" />
+    <attr name="persistentWhenFeatureAvailable" format="string" />
+    <attr name="windowSplashscreenContent" format="reference" />
+    <attr name="requiredSystemPropertyName" format="string" />
+    <attr name="requiredSystemPropertyValue" format="string" />
+    <attr name="justificationMode">
+        <enum name="inter_word" value="1" />
+        <enum name="none" value="0" />
+    </attr>
+    <attr name="autofilledHighlight" format="reference" />
+    <item type="attr" name="APKTOOL_DUMMY_267">false</item>
+    <item type="attr" name="APKTOOL_DUMMY_3a8">false</item>
+    <item type="attr" name="APKTOOL_DUMMY_3c3">false</item>
+    <item type="attr" name="APKTOOL_DUMMY_40e">false</item>
+    <item type="attr" name="APKTOOL_DUMMY_40f">false</item>
+    <item type="attr" name="APKTOOL_DUMMY_410">false</item>
+    <item type="attr" name="APKTOOL_DUMMY_411">false</item>
+    <item type="attr" name="APKTOOL_DUMMY_412">false</item>
+    <item type="attr" name="APKTOOL_DUMMY_413">false</item>
+    <item type="attr" name="APKTOOL_DUMMY_414">false</item>
+    <item type="attr" name="APKTOOL_DUMMY_415">false</item>
+    <item type="attr" name="APKTOOL_DUMMY_416">false</item>
+    <item type="attr" name="APKTOOL_DUMMY_417">false</item>
+    <item type="attr" name="APKTOOL_DUMMY_418">false</item>
+    <item type="attr" name="APKTOOL_DUMMY_419">false</item>
+    <item type="attr" name="APKTOOL_DUMMY_41a">false</item>
+    <item type="attr" name="APKTOOL_DUMMY_41b">false</item>
+    <item type="attr" name="APKTOOL_DUMMY_41c">false</item>
+    <item type="attr" name="APKTOOL_DUMMY_41d">false</item>
+    <item type="attr" name="APKTOOL_DUMMY_41e">false</item>
+    <item type="attr" name="APKTOOL_DUMMY_41f">false</item>
+    <item type="attr" name="APKTOOL_DUMMY_420">false</item>
+    <item type="attr" name="APKTOOL_DUMMY_421">false</item>
+    <item type="attr" name="APKTOOL_DUMMY_422">false</item>
+    <item type="attr" name="APKTOOL_DUMMY_423">false</item>
+    <item type="attr" name="APKTOOL_DUMMY_424">false</item>
+    <item type="attr" name="APKTOOL_DUMMY_425">false</item>
+    <item type="attr" name="APKTOOL_DUMMY_426">false</item>
+    <item type="attr" name="APKTOOL_DUMMY_427">false</item>
+    <item type="attr" name="APKTOOL_DUMMY_428">false</item>
 </resources>

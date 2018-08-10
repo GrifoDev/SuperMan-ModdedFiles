@@ -37,18 +37,6 @@
         <item>Başqa</item>
         <item>Adi</item>
     </string-array>
-    <string-array name="wfcOperatorErrorAlertMessages">
-        <item>Wi-Fi üzərindən zəng etmək və mesaj göndərmək üçün ilk öncə operatordan bu xidməti ayarlamağı tələb edin. Sonra Ayarlardan Wi-Fi çağrısını aktivləşdirin.</item>
-    </string-array>
-    <string-array name="wfcOperatorErrorNotificationMessages">
-        <item>Operatorla qeydiyyatdan keçin</item>
-    </string-array>
-    <string-array name="wfcSpnFormats">
-        <item>%s</item>
-        <item>%s Wi-Fi Zəngi</item>
-    </string-array>
-    <array name="fingerprint_acquired_vendor" />
-    <array name="fingerprint_error_vendor" />
     <string-array name="imAddressTypes">
         <item>Əs ekr</item>
         <item>İş</item>

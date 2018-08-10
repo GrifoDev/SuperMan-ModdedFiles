@@ -37,18 +37,6 @@
         <item>Друго</item>
         <item>Одредено</item>
     </string-array>
-    <string-array name="wfcOperatorErrorAlertMessages">
-        <item>За повикување и испраќање пораки преку Wi-Fi, прво побарајте од операторот да ви ја постави оваа услуга. Потоа повторно вклучете повикување преку Wi-Fi во Поставки.</item>
-    </string-array>
-    <string-array name="wfcOperatorErrorNotificationMessages">
-        <item>Регистрирајте се со операторот</item>
-    </string-array>
-    <string-array name="wfcSpnFormats">
-        <item>%s</item>
-        <item>%s Повикување преку Wi-Fi</item>
-    </string-array>
-    <array name="fingerprint_acquired_vendor" />
-    <array name="fingerprint_error_vendor" />
     <string-array name="imAddressTypes">
         <item>Дома</item>
         <item>Работа</item>

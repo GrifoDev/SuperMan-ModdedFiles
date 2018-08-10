@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="lock_pattern_view_aspect">square</string>
-    <string name="icu_abbrev_wday_month_day_no_year">eeeMMMMd</string>
-    <string name="system_ui_date_pattern">@string/icu_abbrev_wday_month_day_no_year</string>
+    <string name="date_and_time" formatted="false">%H:%M:%S %-e.%b.%Y.</string>
+    <string name="date_time">%2$s %1$s</string>
+    <string name="month_day_year" formatted="false">%-e. %B %Y.</string>
+    <string name="time_of_day" formatted="false">%H:%M:%S</string>
 </resources>

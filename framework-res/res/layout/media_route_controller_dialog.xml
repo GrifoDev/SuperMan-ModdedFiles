@@ -7,8 +7,5 @@
             <SeekBar android:id="@id/media_route_volume_slider" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:layout_marginRight="8.0dip" android:layout_weight="1.0" />
         </LinearLayout>
         <FrameLayout android:id="@id/media_route_control_frame" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" />
-        <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" style="?attr/buttonBarStyle">
-            <Button android:gravity="center" android:id="@id/media_route_disconnect_button" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/media_route_controller_disconnect" style="?attr/buttonBarButtonStyle" />
-        </LinearLayout>
     </LinearLayout>
 </ScrollView>

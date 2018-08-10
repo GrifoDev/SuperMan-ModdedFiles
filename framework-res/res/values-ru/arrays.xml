@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="emailAddressTypes">
-        <item>Домаш.</item>
+        <item>Домашний</item>
         <item>Рабочий</item>
         <item>Другое</item>
         <item>Создать</item>
@@ -22,7 +22,7 @@
         <item>Создать</item>
     </string-array>
     <string-array name="phoneTypes">
-        <item>Домаш.</item>
+        <item>Домашний</item>
         <item>Мобильный</item>
         <item>Рабочий</item>
         <item>Рабочий факс</item>
@@ -32,10 +32,23 @@
         <item>Создать</item>
     </string-array>
     <string-array name="postalAddressTypes">
-        <item>Домаш.</item>
+        <item>Домашний</item>
         <item>Рабочий</item>
         <item>Другое</item>
         <item>Создать</item>
+    </string-array>
+    <string-array name="imAddressTypes">
+        <item>Домашний</item>
+        <item>Рабочий</item>
+        <item>Другое</item>
+        <item>Создать</item>
+    </string-array>
+    <string-array name="network_switch_type_name">
+        <item>мобильный Интернет</item>
+        <item>Wi-Fi</item>
+        <item>Bluetooth</item>
+        <item>Ethernet</item>
+        <item>VPN</item>
     </string-array>
     <string-array name="wfcOperatorErrorAlertMessages">
         <item>Чтобы совершать звонки и отправлять сообщения по Wi-Fi, необходимо сначала обратиться к оператору связи и подключить эту услугу. После этого вы сможете снова выбрать этот параметр в настройках.</item>
@@ -46,13 +59,5 @@
     <string-array name="wfcSpnFormats">
         <item>%s</item>
         <item>Звонки по Wi-Fi (%s)</item>
-    </string-array>
-    <array name="fingerprint_acquired_vendor" />
-    <array name="fingerprint_error_vendor" />
-    <string-array name="imAddressTypes">
-        <item>Домаш.</item>
-        <item>Рабочий</item>
-        <item>Другое</item>
-        <item>Создать</item>
     </string-array>
 </resources>

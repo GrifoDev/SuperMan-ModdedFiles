@@ -97,6 +97,10 @@
             <table_item temp="370" value="-1" />
             <table_item temp="390" value="12" />
         </limiter>
+        <limiter name="AppInstallStandby" type="number">
+            <table_item temp="380" value="-1" />
+            <table_item temp="400" value="3000" />
+        </limiter>
     </default_scenario>
 
     <extra_scenario>
@@ -229,11 +233,22 @@
             </limiter>
         </scenario>
 
-        <scenario name="HangoutsVTCall">
+        <scenario name="VtCallControl" priority="1">
             <limiter name="CPUFreqMax" type="number">
                 <table_item temp="350" value="1478400" />
                 <table_item temp="370" value="1324800" />
-                <table_item temp="390" value="1036800" />   
+                <table_item temp="390" value="1036800" />
+            </limiter>
+            <limiter name="GPUFreqMax" type="number">
+                <table_item temp="420" value="315000000" />
+            </limiter>
+            <limiter name="LCDBrightness" type="number">
+                <table_item temp="420" value="185" />
+            </limiter>
+            <limiter name="AppInstallStandby" type="number">
+                <table_item temp="350" value="3000" />
+                <table_item temp="370" value="5000" />
+                <table_item temp="390" value="10000" />
             </limiter>
         </scenario>
 
@@ -324,6 +339,10 @@
         <scenario name="ScreenOff" priority="1">
             <limiter name="Charging" type="number">
                 <table_item temp="420" value="100" />
+            </limiter>
+            <limiter name="AppInstallStandby" type="number">
+                <table_item temp="380" value="5000" />
+                <table_item temp="420" value="10000" />
             </limiter>
         </scenario>
 

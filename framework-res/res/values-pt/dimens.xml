@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="sem_datepicker_month_day_label_text_size">9.0dip</dimen>
+</resources>

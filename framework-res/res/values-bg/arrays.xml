@@ -37,6 +37,19 @@
         <item>Друго</item>
         <item>По избор</item>
     </string-array>
+    <string-array name="imAddressTypes">
+        <item>Домаш.</item>
+        <item>Служебен</item>
+        <item>Друго</item>
+        <item>По избор</item>
+    </string-array>
+    <string-array name="network_switch_type_name">
+        <item>мобилни данни</item>
+        <item>Wi-Fi</item>
+        <item>Bluetooth</item>
+        <item>Ethernet</item>
+        <item>виртуална частна мрежа (VPN)</item>
+    </string-array>
     <string-array name="wfcOperatorErrorAlertMessages">
         <item>За да извършвате обаждания и да изпращате съобщения през Wi-Fi, първо помолете оператора си да настрои тази услуга. След това включете отново функцията за обаждания през Wi-Fi от настройките.</item>
     </string-array>
@@ -46,13 +59,5 @@
     <string-array name="wfcSpnFormats">
         <item>%s</item>
         <item>%s – обаждания през Wi-Fi</item>
-    </string-array>
-    <array name="fingerprint_acquired_vendor" />
-    <array name="fingerprint_error_vendor" />
-    <string-array name="imAddressTypes">
-        <item>Домаш.</item>
-        <item>Служебен</item>
-        <item>Друго</item>
-        <item>По избор</item>
     </string-array>
 </resources>

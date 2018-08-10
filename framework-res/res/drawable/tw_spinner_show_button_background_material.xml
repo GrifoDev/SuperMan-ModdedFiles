@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ripple android:color="?colorControlHighlight"
+<layer-list android:paddingLeft="0.0dip" android:paddingRight="0.0dip" android:paddingStart="0.0dip" android:paddingEnd="38.0dip" android:paddingMode="stack"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@id/mask" android:drawable="@drawable/tw_spinner_background_mask_material" />
-    <item android:drawable="@drawable/tw_spinner_show_button_background_mask_material" />
-    <item android:drawable="@drawable/tw_spinner_background_mtrl_am_alpha" />
-</ripple>
+    <item android:gravity="fill" android:drawable="@drawable/sem_spinner_show_button_background_ripple" />
+    <item android:gravity="end|center" android:height="24.0dip" android:width="22.0dip" android:drawable="@drawable/tw_spinner_background_mtrl_am_alpha" android:end="16.0dip" />
+</layer-list>

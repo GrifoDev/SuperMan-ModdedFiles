@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="mdm_app_icon_size">48.0dip</dimen>
+    <dimen name="tw_edittext_field_cursor_width">5.0px</dimen>
+    <dimen name="tw_floating_popup_divider_width">2.0px</dimen>
+    <dimen name="tw_list_divider_height">2.0px</dimen>
+    <dimen name="wb_button_cue_image_padding_bottom">-6.0dip</dimen>
+    <dimen name="wb_button_cue_margin_left">21.0dip</dimen>
+    <dimen name="wb_button_cue_margin_top">16.0dip</dimen>
+    <dimen name="wb_button_cue_offset_from_cursor">8.0dip</dimen>
+</resources>

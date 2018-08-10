@@ -37,6 +37,19 @@
         <item>Inne</item>
         <item>Niestand.</item>
     </string-array>
+    <string-array name="imAddressTypes">
+        <item>Dom</item>
+        <item>Praca</item>
+        <item>Inne</item>
+        <item>Niestand.</item>
+    </string-array>
+    <string-array name="network_switch_type_name">
+        <item>mobilna transmisja danych</item>
+        <item>Wi-Fi</item>
+        <item>Bluetooth</item>
+        <item>Ethernet</item>
+        <item>VPN</item>
+    </string-array>
     <string-array name="wfcOperatorErrorAlertMessages">
         <item>Aby dzwonić i wysyłać wiadomości przez Wi-Fi, poproś swojego operatora o skonfigurowanie tej usługi. Potem ponownie włącz połączenia przez Wi-Fi w Ustawieniach.</item>
     </string-array>
@@ -46,13 +59,5 @@
     <string-array name="wfcSpnFormats">
         <item>%s</item>
         <item>Połączenia przez Wi-Fi (%s)</item>
-    </string-array>
-    <array name="fingerprint_acquired_vendor" />
-    <array name="fingerprint_error_vendor" />
-    <string-array name="imAddressTypes">
-        <item>Dom</item>
-        <item>Praca</item>
-        <item>Inne</item>
-        <item>Niestand.</item>
     </string-array>
 </resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="rectangle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <stroke android:width="@dimen/sem_tooltip_stroke_width" android:color="?^attr-private/semTooltipStrokeColor" />
+    <solid android:color="?^attr-private/tooltipBackgroundColor" />
+    <corners android:radius="@dimen/sem_tooltip_corner_radius" />
+</shape>

@@ -2,7 +2,7 @@
 <selector
   xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
-        <shape android:tint="@color/tw_seekbar_color_control_activated" android:shape="rectangle">
+        <shape android:tint="?^attr-private/semSeekBarActivatedColor" android:shape="rectangle">
             <size android:height="@dimen/tw_seekbar_track_height_material" />
         </shape>
     </item>

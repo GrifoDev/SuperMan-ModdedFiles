@@ -37,18 +37,6 @@
         <item>Outro</item>
         <item>Personalizado</item>
     </string-array>
-    <string-array name="wfcOperatorErrorAlertMessages">
-        <item>Para facer chamadas e enviar mensaxes a través da wifi, primeiro pídelle ao teu operador que configure este servizo. A continuación, activa de novo as chamadas wifi en Configuración.</item>
-    </string-array>
-    <string-array name="wfcOperatorErrorNotificationMessages">
-        <item>Rexístrate co teu operador</item>
-    </string-array>
-    <string-array name="wfcSpnFormats">
-        <item>%s</item>
-        <item>Chamadas wifi de %s</item>
-    </string-array>
-    <array name="fingerprint_acquired_vendor" />
-    <array name="fingerprint_error_vendor" />
     <string-array name="imAddressTypes">
         <item>Inicio</item>
         <item>Traballo</item>

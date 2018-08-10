@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.internal.widget.ResolverDrawerLayout android:id="@id/contentPanel" android:layout_width="fill_parent" android:layout_height="fill_parent" android:maxWidth="@dimen/resolver_max_width" android:maxCollapsedHeight="@dimen/sem_resolver_max_collapsed_height" android:maxCollapsedHeightSmall="@dimen/sem_resolver_max_collapsed_height_small">
+        <include android:id="@id/sem_titlePanel_default" android:visibility="gone" layout="@layout/sem_resolver_title_panel_default" />
+        <include android:id="@id/sem_titlePanel_afw" android:visibility="gone" layout="@layout/sem_resolver_title_panel_afw" />
+        <GridView android:scrollbarStyle="outsideOverlay" android:gravity="center" android:layout_gravity="center" android:id="@id/resolver_list" android:background="?^attr-private/semResolverBackgroundColor" android:paddingBottom="4.0dip" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:numColumns="auto_fit" android:divider="@null" android:nestedScrollingEnabled="true" android:scrollIndicators="top" />
+        <TextView android:gravity="center" android:id="@id/empty" android:background="@color/white" android:padding="32.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/noApplications" android:layout_alwaysShow="true" />
+        <include android:id="@id/button_bar" layout="@layout/sem_resolver_button_bar" />
+    </com.android.internal.widget.ResolverDrawerLayout>
+    <TextView android:gravity="center" android:layout_gravity="bottom|center" android:id="@id/sem_drawer_guide" android:background="@color/sem_resolver_bg_color" android:paddingTop="6.0dip" android:paddingBottom="6.0dip" android:visibility="invisible" android:layout_width="@dimen/resolver_max_width" android:layout_height="wrap_content" android:text="@string/sem_resolver_drawer_guide_text" />
+</FrameLayout>

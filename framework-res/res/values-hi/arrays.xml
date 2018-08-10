@@ -37,6 +37,19 @@
         <item>अन्य</item>
         <item>कस्‍टम</item>
     </string-array>
+    <string-array name="imAddressTypes">
+        <item>होम</item>
+        <item>काम</item>
+        <item>अन्य</item>
+        <item>कस्‍टम</item>
+    </string-array>
+    <string-array name="network_switch_type_name">
+        <item>मोबाइल डेटा</item>
+        <item>वाई-फ़ाई</item>
+        <item>ब्लूटूथ</item>
+        <item>ईथरनेट</item>
+        <item>VPN</item>
+    </string-array>
     <string-array name="wfcOperatorErrorAlertMessages">
         <item>वाई-फ़ाई से कॉल करने और संदेश भेजने के लिए, सबसे पहले अपने वाहक से इस सेवा को सेट करने के लिए कहें. उसके बाद सेटिंग से पुन: वाई-फ़ाई कॉलिंग चालू करें.</item>
     </string-array>
@@ -46,13 +59,5 @@
     <string-array name="wfcSpnFormats">
         <item>%s</item>
         <item>%s वाई-फ़ाई कॉलिंग</item>
-    </string-array>
-    <array name="fingerprint_acquired_vendor" />
-    <array name="fingerprint_error_vendor" />
-    <string-array name="imAddressTypes">
-        <item>होम</item>
-        <item>काम</item>
-        <item>अन्य</item>
-        <item>कस्‍टम</item>
     </string-array>
 </resources>

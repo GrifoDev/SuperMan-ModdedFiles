@@ -5,5 +5,5 @@
         <NumberPicker android:id="@id/hour" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="70.0dip" android:layout_height="wrap_content" />
         <NumberPicker android:id="@id/minute" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="70.0dip" android:layout_height="wrap_content" android:layout_marginStart="5.0dip" />
     </LinearLayout>
-    <Button android:textColor="@color/primary_text_light_nodisable" android:id="@id/amPm" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="43.0dip" android:paddingStart="20.0dip" android:paddingEnd="20.0dip" android:layout_marginStart="5.0dip" style="?android:attr/textAppearanceLargeInverse" />
+    <Button android:textColor="@color/primary_text_light_nodisable" android:id="@id/amPm" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="43.0dip" android:paddingStart="20.0dip" android:paddingEnd="20.0dip" android:layout_marginStart="5.0dip" style="?textAppearanceLargeInverse" />
 </LinearLayout>

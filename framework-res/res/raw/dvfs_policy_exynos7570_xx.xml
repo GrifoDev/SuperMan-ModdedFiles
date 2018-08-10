@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE DvfsHintList [
+<!ELEMENT DvfsHintList (Hint?,TspHint+)>
+<!ELEMENT Hint EMPTY>
+<!ELEMENT TspHint EMPTY>
+<!ATTLIST TspHint
+          scenario_name CDATA #REQUIRED
+          level CDATA #REQUIRED
+          head CDATA #IMPLIED
+          tail CDATA #IMPLIED>
+]>
+
+<DvfsHintList>
+    <Resolution resoltype="Default">
+        <TspHint scenario_name="Default"            level="2" head="130 1274000 1274000 0 0 0" tail="500 962000 962000 0 0 0" />
+        <TspHint scenario_name="SipDefault"         level="1" head="200 1274000 1274000 0 0 0" tail="0 0 0 0 0 0" />
+
+        <Hint name="AMS_RESUME" timeout="-1">
+            <Control type="cpu_min" value="1144000"/>
+        </Hint>
+
+        <Hint name="AMS_ACT_RESUME" timeout="-1">
+            <Control type="cpu_min" value="1040000"/>
+        </Hint>
+
+        <Hint name="AMS_ACT_START" timeout="-1">
+            <Control type="cpu_min" value="1274000"/>
+        </Hint>
+
+        <Hint name="AMS_RESUME_TAIL" timeout="1000">
+            <Control type="cpu_min" value="1144000"/>
+        </Hint>
+
+        <Hint name="GALLERY_TOUCH" timeout="500">
+            <Control type="cpu_min" value="1144000"/>
+        </Hint>
+
+        <Hint name="GALLERY_TOUCH_TAIL" timeout="500">
+            <Control type="cpu_min" value="1144000"/>
+        </Hint>
+
+        <Hint name="GALLERY_SCROLL" timeout="-1">
+            <Control type="cpu_min" value="1144000"/>
+        </Hint>
+
+        <Hint name="LAUNCHER_TOUCH" timeout="1000">
+            <Control type="cpu_min" value="1378000"/>
+        </Hint>
+
+        <Hint name="LISTVIEW_SCROLL" timeout="-1">
+            <Control type="cpu_min" value="829000"/>
+        </Hint>
+
+        <Hint name="DEVICE_WAKEUP" timeout="1000">
+            <Control type="cpu_min" value="1144000"/>
+        </Hint>
+
+        <Hint name="APP_LAUNCH" timeout="2000">
+            <Control type="cpu_min" value="max"/>
+        </Hint>
+
+        <Hint name="BADGE_UPDATE" timeout="500">
+            <Control type="cpu_min" value="90%"/>
+        </Hint>
+
+        <Hint name="GESTURE_DETECTED" timeout="500">
+            <Control type="cpu_min" value="757000"/>
+        </Hint>
+    </Resolution>
+
+    <Resolution resoltype="WQHD">
+    </Resolution>
+    
+    <Resolution resoltype="FHD">
+    </Resolution>
+    
+    <Resolution resoltype="HD">
+        <TspHint scenario_name="Default"            level="2" head="200 1274000 1274000 0 0 0" tail="300 962000 962000 0 0 0" />
+        <TspHint scenario_name="SipDefault"         level="1" head="200 1274000 1274000 0 0 0" tail="0 0 0 0 0 0" />
+
+        <Hint name="BADGE_UPDATE" timeout="500">
+            <Control type="cpu_min" value="80%"/>
+        </Hint>
+
+    </Resolution>
+</DvfsHintList>

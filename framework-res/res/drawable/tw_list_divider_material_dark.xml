@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inset android:insetLeft="@dimen/tw_list_divider_inset_left" android:insetRight="@dimen/tw_list_divider_inset_right"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <shape android:shape="rectangle">
+        <solid android:color="@color/tw_list_divider_mtrl_color_dark" />
+        <size android:height="@dimen/tw_list_divider_height" />
+    </shape>
+</inset>

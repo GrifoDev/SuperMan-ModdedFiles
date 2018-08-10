@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="config_dockedStackDividerSnapMode">1</integer>
+    <integer name="config_longPressOnHomeBehavior">2</integer>
+    <integer name="config_maxResolverActivityColumns">4</integer>
+    <integer name="config_pictureInPictureSnapMode">3</integer>
+    <integer name="kg_carousel_angle">60</integer>
+    <integer name="tw_menu_popup_max_item_count">10</integer>
+    <integer name="tw_option_menu_max_line_count">10</integer>
+</resources>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="config_tether_apndata" />
     <string-array name="config_operatorConsideredNonRoaming">
         <item>23410</item>
         <item>23426</item>
@@ -11,4 +10,5 @@
         <item>23434</item>
         <item>23486</item>
     </string-array>
+    <array name="config_tether_apndata" />
 </resources>

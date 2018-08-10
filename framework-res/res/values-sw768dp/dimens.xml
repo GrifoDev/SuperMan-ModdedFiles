@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="knox_app_icon_height">72.0dip</dimen>
+    <dimen name="knox_app_icon_width">72.0dip</dimen>
+</resources>

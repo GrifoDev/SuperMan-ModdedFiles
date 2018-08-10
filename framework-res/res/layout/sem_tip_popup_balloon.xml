@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/sem_tip_popup_balloon_bubble" android:layout_width="@dimen/sem_tip_popup_bubble_width" android:layout_height="@dimen/sem_tip_popup_bubble_height">
+        <ImageView android:id="@id/sem_tip_popup_balloon_bubble_hint" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/sem_tip_popup_hint_background_02" android:tint="?^attr-private/semTipPopupBackGroundColor" />
+        <ImageView android:id="@id/sem_tip_popup_balloon_bubble_icon" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/sem_tip_popup_hint_background_02" android:tint="?colorPrimary" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/sem_tip_popup_balloon_panel" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageView android:id="@id/sem_tip_popup_balloon_shadow" android:background="@drawable/sem_tip_popup_balloon_shadow" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <ImageView android:id="@id/sem_tip_popup_balloon_bg_01" android:background="@drawable/sem_tip_popup_balloon_background_left" android:layout_width="fill_parent" android:layout_height="fill_parent" android:backgroundTint="?^attr-private/semTipPopupBackGroundColor" />
+        <ImageView android:id="@id/sem_tip_popup_balloon_bg_02" android:background="@drawable/sem_tip_popup_balloon_background_right" android:layout_width="fill_parent" android:layout_height="fill_parent" android:backgroundTint="?^attr-private/semTipPopupBackGroundColor" />
+        <ImageView android:id="@id/sem_tip_popup_balloon_stroke_01" android:background="@drawable/sem_tip_popup_balloon_border_left" android:layout_width="fill_parent" android:layout_height="fill_parent" android:backgroundTint="?colorPrimary" />
+        <ImageView android:id="@id/sem_tip_popup_balloon_stroke_02" android:background="@drawable/sem_tip_popup_balloon_border_right" android:layout_width="fill_parent" android:layout_height="fill_parent" android:backgroundTint="?colorPrimary" />
+        <FrameLayout android:gravity="top" android:orientation="vertical" android:id="@id/sem_tip_popup_balloon_content" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <TextView android:textAppearance="@style/TextAppearance.SemTipPopup.Message" android:layout_gravity="start|center|top" android:id="@id/sem_tip_popup_message" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/sem_tip_popup_button_padding_horizontal" android:layout_marginEnd="@dimen/sem_tip_popup_button_padding_horizontal" />
+            <Button android:ellipsize="end" android:layout_gravity="end|bottom|center" android:id="@id/sem_tip_popup_action" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" style="@style/Widget.DeviceDefault.Light.Button.SemTipPopup" />
+        </FrameLayout>
+    </FrameLayout>
+</FrameLayout>

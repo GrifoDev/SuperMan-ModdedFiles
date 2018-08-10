@@ -30,7 +30,7 @@
         <TspHint scenario_name="Instagram"          level="2" head="130 1200000 800000 0 0 1"  tail="3000 0 800000 0 0 1" />
         <TspHint scenario_name="Wallapop"           level="2" head="130 1200000 800000 0 0 1"  tail="3000 0 800000 0 0 1" />
         <TspHint scenario_name="Hovering"           level="0" head="0 0 0 0 0 0"  tail="0 0 0 0 0 0" />
-        
+
         <Hint name="AMS_RESUME" timeout="-1">
             <Control type="cpu_min" value="1800000"/>
         </Hint>
@@ -53,7 +53,7 @@
 
         <Hint name="LAUNCHER_TOUCH" timeout="-1">
             <Control type="cpu_min" value="-1"/>
-        </Hint>    
+        </Hint>
 
         <Hint name="LISTVIEW_SCROLL" timeout="10000">
             <Control type="cpu_min" value="800000"/>
@@ -62,7 +62,7 @@
         <Hint name="DEVICE_WAKEUP" timeout="1000">
             <Control type="cpu_min" value="1200000"/>
         </Hint>
-        
+
         <Hint name="PWM_ROTATION" timeout="1500">
             <Control type="cpu_min" value="max"/>
         </Hint>
@@ -78,15 +78,77 @@
         <Hint name="GESTURE_DETECTED" timeout="500">
             <Control type="cpu_min" value="800000"/>
         </Hint>
+
+        <Hint name="SCREEN_MIRROR_1_0G" timeout="-1">
+            <Control type="cpu_min" value="500000"/>
+            <Control type="core_num_min" value="3"/>
+        </Hint>
+
+        <Hint name="SCREEN_MIRROR_1_2G" timeout="-1">
+            <Control type="cpu_min" value="600000"/>
+            <Control type="core_num_min" value="3"/>
+        </Hint>
+
+        <Hint name="MUSIC_STUDIO" timeout="-1">
+            <Control type="cpu_min" value="750000"/>
+        </Hint>
     </Resolution>
-    
+
     <Resolution resoltype="WQHD">
     </Resolution>
     
     <Resolution resoltype="FHD">
+        <Hint name="AMS_RESUME" timeout="-1">
+            <Control type="cpu_min" value="1704000"/>
+        </Hint>
+
+        <Hint name="AMS_RESUME_TAIL" timeout="300">
+            <Control type="cpu_min" value="1704000"/>
+        </Hint>
     </Resolution>
-    
+
     <Resolution resoltype="HD">
+        <TspHint scenario_name="Default"            level="2" head="130 1000000 800000 0 0 1"  tail="500 0 1200000 0 0 0" />
+        <TspHint scenario_name="3rdPartyDefault"    level="2" head="130 1200000 800000 0 0 1"  tail="500 0 1296000 0 0 0" />
+        <TspHint scenario_name="Browser"            level="2" head="130 1200000 800000 0 0 1"  tail="200 0 1200000 0 0 0" />
+        <TspHint scenario_name="SipDefault"         level="1" head="130 1000000 800000 0 0 1"  tail="0 0 0 0 0 0" />
+        <TspHint scenario_name="SipHangout"         level="1" head="130 0 1296000 0 0 0"       tail="0 0 0 0 0 0" />
+        <TspHint scenario_name="SipGmail"           level="1" head="130 0 1296000 0 0 0"       tail="0 0 0 0 0 0" />
+        <TspHint scenario_name="SipMms"             level="1" head="130 1000000 800000 0 0 1"  tail="0 0 0 0 0 0" />
+        <TspHint scenario_name="SipFacebook"        level="1" head="130 0 1296000 0 0 0"       tail="0 0 0 0 0 0" />
+        <TspHint scenario_name="SipWeibo"           level="1" head="130 0 1296000 0 0 0"       tail="0 0 0 0 0 0" />
+        <TspHint scenario_name="SipQq"              level="1" head="130 0 1296000 0 0 0"       tail="0 0 0 0 0 0" />
+        <TspHint scenario_name="SipYouku"           level="1" head="130 0 1296000 0 0 0"       tail="0 0 0 0 0 0" />
+        <TspHint scenario_name="PowerGame"          level="2" head="130 0 1296000 0 0 0"       tail="500 0 1000000 0 0 0" />
+        <TspHint scenario_name="PlayBook"           level="2" head="130 1200000 800000 0 0 1"  tail="500 0 800000 0 0 1" />
+        <TspHint scenario_name="PlayStore"          level="2" head="130 1200000 800000 0 0 1"  tail="3000 0 800000 0 0 1" />
+        <TspHint scenario_name="Instagram"          level="2" head="130 1200000 800000 0 0 1"  tail="3000 0 800000 0 0 1" />
+        <TspHint scenario_name="Wallapop"           level="2" head="130 1200000 800000 0 0 1"  tail="3000 0 800000 0 0 1" />
+        <TspHint scenario_name="Hovering"           level="0" head="0 0 0 0 0 0"  tail="0 0 0 0 0 0" />
+
+        <Hint name="AMS_RESUME" timeout="-1">
+            <Control type="cpu_min" value="1600000"/>
+        </Hint>
+
+        <Hint name="AMS_RESUME_TAIL" timeout="300">
+            <Control type="cpu_min" value="1600000"/>
+        </Hint> 
+
+        <Hint name="LISTVIEW_SCROLL" timeout="10000">
+            <Control type="cpu_min" value="750000"/>
+        </Hint>
+
+        <Hint name="DEVICE_WAKEUP" timeout="1000">
+            <Control type="cpu_min" value="1100000"/>
+        </Hint>
+
+        <Hint name="SMOOTH_SCROLL" timeout="10000">
+            <Control type="cpu_min" value="1100000"/>
+        </Hint>
+
+        <Hint name="GESTURE_DETECTED" timeout="500">
+            <Control type="cpu_min" value="750000"/>
+        </Hint>
     </Resolution>
-    
+
 </DvfsHintList>

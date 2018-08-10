@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="false">
+        <nine-patch android:src="@drawable/tw_spinner_mtrl_am_alpha" android:tint="@color/tw_spinner_disabled_material_dark" />
+    </item>
+    <item>
+        <nine-patch android:src="@drawable/tw_spinner_mtrl_am_alpha" android:tint="@color/tw_spinner_normal_material_dark" />
+    </item>
+</selector>

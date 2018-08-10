@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/twSuggestionButtonItems" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="16.0sp" android:id="@id/addToDictionaryButton" android:background="@drawable/tw_text_edit_suggestion_item_background" android:text="@string/addToDictionary" android:textDirection="ltr" style="@style/Widget.Material.SuggestionButton" />
+    <TextView android:textSize="16.0sp" android:id="@id/deleteButton" android:background="@drawable/tw_text_edit_suggestion_item_background" android:text="@string/deleteText" android:textDirection="ltr" style="@style/Widget.Material.SuggestionButton" />
+</LinearLayout>

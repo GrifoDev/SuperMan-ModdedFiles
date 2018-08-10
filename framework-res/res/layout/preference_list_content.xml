@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="0.0px" android:layout_weight="1.0">
-        <LinearLayout android:orientation="vertical" android:id="@id/headers" android:layout_width="0.0px" android:layout_height="fill_parent" android:layout_weight="@integer/preferences_left_pane_weight" style="?attr/preferenceHeaderPanelStyle">
-            <ListView android:listPreferredItemHeight="48.0dip" android:scrollbarAlwaysDrawVerticalTrack="true" android:id="@id/list" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="0.0px" android:drawSelectorOnTop="false" android:cacheColorHint="@color/transparent" android:layout_weight="1.0" style="?attr/preferenceListStyle" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/prefs_container" android:layout_width="fill_parent" android:layout_height="0.0px" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:id="@id/headers" android:layout_width="0.0px" android:layout_height="fill_parent" android:layout_weight="@integer/preferences_left_pane_weight" style="?^attr-private/preferenceHeaderPanelStyle">
+            <ListView android:listPreferredItemHeight="48.0dip" android:scrollbarAlwaysDrawVerticalTrack="true" android:id="@id/list" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="0.0px" android:drawSelectorOnTop="false" android:cacheColorHint="@color/transparent" android:layout_weight="1.0" style="?^attr-private/preferenceListStyle" />
             <FrameLayout android:id="@id/list_footer" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="0.0" />
         </LinearLayout>
-        <LinearLayout android:orientation="vertical" android:id="@id/prefs_frame" android:visibility="gone" android:layout_width="0.0px" android:layout_height="fill_parent" android:layout_weight="@integer/preferences_right_pane_weight" style="?attr/preferencePanelStyle">
+        <LinearLayout android:orientation="vertical" android:id="@id/prefs_frame" android:layout_width="0.0px" android:layout_height="fill_parent" android:layout_weight="@integer/preferences_right_pane_weight" style="?^attr-private/preferencePanelStyle">
             <include layout="@layout/breadcrumbs_in_fragment" />
             <android.preference.PreferenceFrameLayout android:id="@id/prefs" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
         </LinearLayout>

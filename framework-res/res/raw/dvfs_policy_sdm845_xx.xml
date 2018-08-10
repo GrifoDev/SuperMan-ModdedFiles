@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE DvfsHintList [
+<!ELEMENT DvfsHintList (Hint?,TspHint+)>
+<!ELEMENT Hint EMPTY>
+<!ELEMENT TspHint EMPTY>
+<!ATTLIST TspHint
+          scenario_name CDATA #REQUIRED
+          level CDATA #REQUIRED
+          head CDATA #IMPLIED
+          tail CDATA #IMPLIED>
+]>
+
+<DvfsHintList>
+    <Resolution resoltype="Default">
+        <TspHint scenario_name="Default"            level="2" head="130 1132800 1017 2 5" tail="500 960000 1017 2 5" />
+        <TspHint scenario_name="SipDefault"         level="1" head="170 1132800 1017 2 5" tail="0 0 0 0 0" />
+        <TspHint scenario_name="SipMms"             level="1" head="130 1056000 1017 2 5" tail="0 0 0 0 0" />
+        <TspHint scenario_name="Hovering"           level="0" head="0 0 0 0 0"  tail="0 0 0 0 0" />
+
+        <Hint name="AMS_RESUME" timeout="-1">
+            <Control type="cpu_min" value="1689600"/>
+            <Control type="bus_min" value="1555"/>
+        </Hint>
+
+        <Hint name="AMS_RELAUNCH_RESUME" timeout="1000">
+            <Control type="cpu_min" value="1689600"/>
+        </Hint>
+
+        <Hint name="AMS_ACT_RESUME" timeout="-1">
+            <Control type="cpu_min" value="1612800"/>
+            <Control type="bus_min" value="1555"/>
+        </Hint>
+
+        <Hint name="AMS_ACT_START" timeout="-1">
+            <Control type="cpu_min" value="1766400"/>
+            <Control type="bus_min" value="1555"/>
+        </Hint>
+
+        <Hint name="AMS_RESUME_TAIL" timeout="300">
+            <Control type="cpu_min" value="1689600"/>
+            <Control type="bus_min" value="1555"/>
+        </Hint>
+
+        <Hint name="AMS_ACT_LAZY" timeout="15000">
+            <Control type="lpm_bias" value="5"/>
+        </Hint>
+
+        <Hint name="AMS_APP_HOME" timeout="800">
+            <Control type="cpu_min" value="max"/>
+        </Hint>
+
+        <Hint name="GALLERY_TOUCH" timeout="500">
+            <Control type="cpu_min" value="1286400"/>
+        </Hint>
+    
+        <Hint name="GALLERY_TOUCH_TAIL" timeout="500">
+            <Control type="cpu_min" value="1286400"/>
+        </Hint>
+
+        <Hint name="GALLERY_SCROLL" timeout="-1">
+            <Control type="cpu_min" value="1209600"/>
+        </Hint>
+
+        <Hint name="LAUNCHER_TOUCH" timeout="1000">
+            <Control type="cpu_min" value="1286400"/>
+        </Hint>
+    
+        <Hint name="LISTVIEW_SCROLL" timeout="10000">
+            <Control type="cpu_min" value="1132800"/>
+            <Control type="bus_min" value="1017"/>
+        </Hint>
+
+        <Hint name="APP_LAUNCH" timeout="1000">
+            <Control type="bus_min" value="1804"/>
+        </Hint>
+    
+        <Hint name="DEVICE_WAKEUP" timeout="1000">
+            <Control type="cpu_min" value="1612800"/>
+        </Hint>
+    
+        <Hint name="CONTACT_SCROLL" timeout="1000">
+            <Control type="cpu_min" value="1286400"/>
+            <Control type="power_collapse" value="1"/>
+            <Control type="core_num_min" value="max"/>
+        </Hint> 
+    
+        <Hint name="BADGE_UPDATE" timeout="500">
+            <Control type="cpu_min" value="1363200"/>
+        </Hint>
+    
+        <Hint name="SMOOTH_SCROLL" timeout="10000">
+            <Control type="cpu_min" value="1209600"/>
+            <Control type="bus_min" value="1017"/>
+        </Hint>
+    
+        <Hint name="GESTURE_DETECTED" timeout="500">
+            <Control type="cpu_min" value="1056000"/>
+            <Control type="lpm_bias" value="5"/>
+        </Hint>
+
+        <Hint name="SCREEN_MIRROR_1_0G" timeout="-1">
+            <Control type="cpu_min" value="528000"/>
+            <Control type="core_num_min" value="3"/>
+        </Hint>
+
+        <Hint name="SCREEN_MIRROR_1_2G" timeout="-1">
+            <Control type="cpu_min" value="614400"/>
+            <Control type="core_num_min" value="3"/>
+        </Hint>
+    </Resolution>
+    
+    <Resolution resoltype="WQHD">
+    </Resolution>
+    
+    <Resolution resoltype="FHD">
+    </Resolution>
+    
+    <Resolution resoltype="HD">
+    </Resolution>
+</DvfsHintList>

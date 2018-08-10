@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hwparam_document [
+<!ELEMENT hwparam_document (hwparam_setting, hwparam_info+)>
+<!ELEMENT hwparam_setting ANY>
+<!ATTLIST hwparam_setting
+    enable CDATA #REQUIRED
+    DVServer CDATA #REQUIRED
+    DQServer CDATA #REQUIRED    
+    CFServer CDATA #REQUIRED>
+<!ELEMENT hwparam_info ANY>
+<!ATTLIST hwparam_info
+      compID CDATA #REQUIRED
+      compVer CDATA #REQUIRED
+      compManufacture CDATA #REQUIRED
+      hitType CDATA #REQUIRED
+      feature CDATA #REQUIRED
+      order_compID CDATA #REQUIRED
+      order_feature CDATA #REQUIRED
+      uevent_path CDATA #IMPLIED>
+<!ELEMENT sysfs_node (key_info*)>
+<!ATTLIST sysfs_node
+      type CDATA #REQUIRED
+      key CDATA #REQUIRED
+      value CDATA #REQUIRED
+      clear CDATA #REQUIRED>
+<!ELEMENT dev_sysfs_node (key_info*)>
+<!ATTLIST dev_sysfs_node
+      type CDATA #REQUIRED
+      key CDATA #REQUIRED
+      value CDATA #REQUIRED
+      clear CDATA #REQUIRED>          
+<!ELEMENT enc_sysfs_node (key_info*)>
+<!ATTLIST enc_sysfs_node
+      type CDATA #REQUIRED
+      key CDATA #REQUIRED
+      value CDATA #REQUIRED
+      clear CDATA #REQUIRED>
+<!ELEMENT data_info (key_info*)>
+<!ATTLIST data_info
+      interface CDATA #REQUIRED
+      type1 CDATA #REQUIRED
+      type2 CDATA #REQUIRED
+      type3 CDATA #REQUIRED>
+<!ELEMENT key_info EMPTY>
+<!ATTLIST key_info
+      keyname CDATA #REQUIRED
+      min CDATA #REQUIRED
+      max CDATA #REQUIRED
+      desc1 CDATA #REQUIRED
+      desc2 CDATA #REQUIRED
+      desc3 CDATA #REQUIRED
+      desc4 CDATA #REQUIRED
+      type1 CDATA #REQUIRED
+      type2 CDATA #REQUIRED>
+]>
+
+<hwparam_document>
+
+    <hwparam_setting enable="true" DVServer="true" DQServer="true" CFServer="false" />
+    
+    <!-- Device : BSP Qualcomm -->
+    <hwparam_info compID="AP" feature="CORE" hitType="sm" compVer="0.0" compManufacture="" order_compID="1" order_feature="1" >
+    </hwparam_info>
+
+    <hwparam_info compID="AP" feature="DDRQ" hitType="sm" compVer="0.0" compManufacture="" order_compID="1" order_feature="2" >
+    </hwparam_info>
+
+    <hwparam_info compID="AP" feature="VOLA" hitType="sm" compVer="0.0" compManufacture="" order_compID="1" order_feature="3" >
+    </hwparam_info>
+    
+    <!-- Device : Memory -->
+    <hwparam_info compID="UFS" feature="" hitType="" compVer="" compManufacture="" order_compID="2" order_feature="1" >        
+    </hwparam_info>
+
+    <!-- Device : SDcard -->
+    <hwparam_info compID="SDcard" feature="SDMC" hitType="sm" compVer="0.0" compManufacture="" order_compID="3" order_feature="1" >
+        <dev_sysfs_node type="S" key="CID" value="/sys/block/mmcblk1/device/cid" clear="0" />
+        <sysfs_node type="S" key="CDCNT" value="/sys/class/sec/sdcard/cd_cnt" clear="0" >
+            <key_info keyname="CDCNT" min="0" max="500" desc1="Card Detection count" desc2="" desc3="" desc4="" type1="1" type2="0" />
+        </sysfs_node>
+        <sysfs_node type="M" key="" value="/sys/class/sec/sddata/sd_data" clear="0" >
+            <key_info keyname="GE" min="" max="" desc1="General Error" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+            <key_info keyname="CC" min="" max="" desc1="Card Controller Error" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+            <key_info keyname="ECC" min="0" max="100" desc1="Card ECC Error" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+            <key_info keyname="WP" min="" max="" desc1="Write Protection Violation" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+            <key_info keyname="OOR" min="" max="" desc1="Oot Of Range Error" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+            <key_info keyname="CRC" min="" max="" desc1="CRC Error" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+            <key_info keyname="TMO" min="0" max="200" desc1="Timeout Error" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+        </sysfs_node>
+        <sysfs_node type="M" key="" value="/sys/class/sec/sdcard/sdcard_summary" clear="0" >
+            <key_info keyname="MANID" min="" max="" desc1="Manufacture ID" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+            <key_info keyname="SERIAL" min="" max="" desc1="Partialy SD Card Serial" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+            <key_info keyname="SIZE" min="" max="" desc1="SD Card Size" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+            <key_info keyname="SPEEDMODE" min="" max="" desc1="Current SD Card run Speed Mode" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+	    <key_info keyname="NOTI" min="" max="" desc1="SD Card IO Error Notification Count" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+        </sysfs_node>
+    </hwparam_info>
+	
+    <!-- Device : Display -->
+    <hwparam_info compID="Display" feature="" hitType="" compVer="0.0" compManufacture="" order_compID="4" order_feature="1" >        
+    </hwparam_info>
+
+    <!-- Device : TSP -->
+    <hwparam_info compID="TSP" feature="TTSP" hitType="sm" compVer="0.0" compManufacture="" order_compID="5" order_feature="1" >
+    </hwparam_info>
+
+    <!-- Device : Battery -->
+    <hwparam_info compID="Battery" feature="BATT" hitType="sm" compVer="0.0" compManufacture="" order_compID="6" order_feature="1" >    
+    </hwparam_info>
+
+    <!-- Device : Overheat -->
+    <hwparam_info compID="Overheat" feature="" hitType="" compVer="" compManufacture="" order_compID="7" order_feature="1" >        
+    </hwparam_info>
+
+	<!-- Device : Power -->
+    <hwparam_info compID="Power" feature="" hitType="" compVer="" compManufacture="" order_compID="8" order_feature="1" >        
+    </hwparam_info>
+	
+	<!-- Device : Camera -->
+    <hwparam_info compID="Camera" feature="" hitType="" compVer="" compManufacture="" order_compID="9" order_feature="1" >       
+    </hwparam_info>
+
+    <!-- Device : Audio -->
+    <hwparam_info compID="Audio" feature="" hitType="" compVer="" compManufacture="" order_compID="10" order_feature ="1">
+    </hwparam_info>
+
+    <!-- Device : USB -->
+    <hwparam_info compID="USB" feature="UUSB" hitType="sm" compVer="0.0" compManufacture="" order_compID="11" order_feature="1" >
+    </hwparam_info>
+	
+	<!-- Device : Sensor -->
+    <hwparam_info compID="Sensor" feature="" hitType="" compVer="" compManufacture="" order_compID="12" order_feature ="1">        
+    </hwparam_info>
+		
+    <!-- Device : HRM -->
+    <hwparam_info compID="HRM" feature="" hitType="" compVer="" compManufacture="" order_compID="13" order_feature ="1" >        
+    </hwparam_info>
+
+	<!-- Device : Biometrics FingerPrint Sensor -->
+    <hwparam_info compID="BFS" feature="" hitType="" compVer="" compManufacture="" order_compID="14" order_feature="1" >        
+    </hwparam_info>	
+
+    <!-- Device : GNSS -->
+    <hwparam_info compID="GNSS" feature="" hitType="" compVer="" compManufacture="" order_compID="15" order_feature ="1">
+    </hwparam_info>    
+     
+    <!-- Device : NFC -->
+    <hwparam_info compID="NFC" feature="" hitType="" compVer="" compManufacture="" order_compID="16" order_feature ="2">        
+    </hwparam_info>
+
+    <!-- Device : Bluetooth -->
+    <hwparam_info compID="Bluetooth" feature="" hitType="" compVer="" compManufacture="" order_compID="17" order_feature ="1" >        
+    </hwparam_info>
+
+    <!-- Device : Wi-Fi -->
+    <hwparam_info compID="WiFi" feature="" hitType="" compVer="" compManufacture="" order_compID="18" order_feature ="1">        
+    </hwparam_info>
+
+    <!-- Device : Modem -->
+    <hwparam_info compID="Modem" feature="" hitType="" compVer="" compManufacture="" order_compID="19" order_feature ="1" >        
+    </hwparam_info>
+
+</hwparam_document>

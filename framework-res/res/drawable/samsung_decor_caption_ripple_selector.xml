@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple android:color="#ff000000"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@id/mask">
+        <shape android:shape="rectangle">
+            <corners android:radius="@dimen/samsung_decor_caption_ripple_radius" />
+            <solid android:color="#14000000" />
+            <size android:height="@dimen/samsung_decor_caption_ripple_size" android:width="@dimen/samsung_decor_caption_ripple_size" />
+        </shape>
+    </item>
+</ripple>

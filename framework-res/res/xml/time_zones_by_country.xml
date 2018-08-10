@@ -7,7 +7,6 @@
     <timezone code="ai">America/Anguilla</timezone>
     <timezone code="al">Europe/Tirane</timezone>
     <timezone code="am">Asia/Yerevan</timezone>
-    <timezone code="an">America/Curacao</timezone>
     <timezone code="ao">Africa/Luanda</timezone>
     <timezone code="aq">Antarctica/McMurdo</timezone>
     <timezone code="aq">Antarctica/DumontDUrville</timezone>
@@ -180,7 +179,6 @@
     <timezone code="gs">Atlantic/South_Georgia</timezone>
     <timezone code="gt">America/Guatemala</timezone>
     <timezone code="gu">Pacific/Guam</timezone>
-    <timezone code="us">Pacific/Guam</timezone>
     <timezone code="gw">Africa/Bissau</timezone>
     <timezone code="gy">America/Guyana</timezone>
     <timezone code="hk">Asia/Hong_Kong</timezone>
@@ -383,10 +381,8 @@
     <timezone code="ua">Europe/Kiev</timezone>
     <timezone code="ua">Europe/Uzhgorod</timezone>
     <timezone code="ua">Europe/Zaporozhye</timezone>
-    <timezone code="ua">Europe/Simferopol</timezone>
     <timezone code="ug">Africa/Kampala</timezone>
     <timezone code="um">Pacific/Wake</timezone>
-    <timezone code="um">Pacific/Johnston</timezone>
     <timezone code="um">Pacific/Midway</timezone>
     <timezone code="us">America/New_York</timezone>
     <timezone code="us">America/Detroit</timezone>
@@ -404,6 +400,7 @@
     <timezone code="us">America/North_Dakota/Center</timezone>
     <timezone code="us">America/North_Dakota/New_Salem</timezone>
     <timezone code="us">America/Indiana/Tell_City</timezone>
+    <timezone code="us">America/North_Dakota/Beulah</timezone>
     <timezone code="us">America/Denver</timezone>
     <timezone code="us">America/Boise</timezone>
     <timezone code="us">America/Phoenix</timezone>

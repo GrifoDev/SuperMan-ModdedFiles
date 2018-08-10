@@ -8,5 +8,4 @@
     <bookmark category="android.intent.category.APP_MAPS" shortcut="m" />
     <bookmark category="android.intent.category.APP_MUSIC" shortcut="p" />
     <bookmark category="android.intent.category.APP_MESSAGING" shortcut="s" />
-    <bookmark package="com.google.android.talk" class="com.google.android.talk.SigningInActivity" shortcut="t" />
 </bookmarks>

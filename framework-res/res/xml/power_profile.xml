@@ -96,11 +96,34 @@
     <item name="cpu.idle">4.4</item>
     <item name="cpu.awake">22</item>
     <item name="battery.capacity">3600</item>
+    <item name="wifi.controller.idle">1</item>
+    <item name="wifi.controller.rx">90</item>
+    <item name="wifi.controller.tx">80</item>
+    <array name="wifi.controller.tx_levels">
+        <value>0</value>
+    </array>
+    <item name="wifi.controller.voltage">3600</item>
     <array name="wifi.batchedscan">
         <value>.0002</value>
         <value>.002</value>
         <value>.02</value>
         <value>.2</value>
         <value>2</value>
+    </array>
+    <array name="gpu.active">
+        <value>16.5</value>
+        <value>131</value>
+        <value>171</value>
+        <value>249</value>
+        <value>347</value>
+        <value>431</value>
+    </array>
+    <array name="gpu.speeds">
+        <value>260</value>
+        <value>338</value>
+        <value>419</value>
+        <value>546</value>
+        <value>600</value>
+        <value>650</value>
     </array>
 </device>

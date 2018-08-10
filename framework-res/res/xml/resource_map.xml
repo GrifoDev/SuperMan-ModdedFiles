@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resource-map>
+    <color>
+        <match overlay="tw_popup_text_color_normal_material">
+            <original>sem_tip_popup_text_color</original>
+        </match>
+        <match overlay="tw_popup_background_material">
+            <original>sem_tip_popup_background_color</original>
+        </match>
+        <match overlay="material_blue_grey_800">
+            <original>sem_color_primary_light</original>
+        </match>
+        <match overlay="material_blue_grey_900">
+            <original>sem_color_primary_dark_light</original>
+        </match>
+        <match overlay="tw_progress_color_control_normal">
+            <original>tw_progress_color_control_normal_light</original>
+        </match>
+        <match overlay="tw_progress_color_control_activated">
+            <original>tw_progress_color_control_activated_light</original>
+        </match>
+        <match overlay="tw_seekbar_color_control_normal">
+            <original>tw_seekbar_color_control_normal_light</original>
+        </match>
+        <match overlay="tw_seekbar_color_control_activated">
+            <original>tw_seekbar_color_control_activated_light</original>
+        </match>
+        <match overlay="tw_thumb_color_control_activated">
+            <original>tw_thumb_color_control_activated_light</original>
+        </match>
+    </color>
+</resource-map>

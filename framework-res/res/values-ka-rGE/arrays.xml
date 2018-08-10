@@ -37,18 +37,6 @@
         <item>სხვა</item>
         <item>შერჩეული</item>
     </string-array>
-    <string-array name="wfcOperatorErrorAlertMessages">
-        <item>Wi-Fi-ს მეშვეობით ზარების განხორციელების ან შეტყობინების გაგზავნისათვის, პირველ რიგში დაეკითხეთ თქვენს ოპერატორს აღნიშნულ მომსახურებაზე. შემდეგ ხელახლა ჩართეთ Wi-Fi ზარები პარამეტრებიდან.</item>
-    </string-array>
-    <string-array name="wfcOperatorErrorNotificationMessages">
-        <item>დაარეგისტრირეთ თქვენი ოპერატორი</item>
-    </string-array>
-    <string-array name="wfcSpnFormats">
-        <item>%s</item>
-        <item>%s დარეკვა Wi-Fi-ს მეშვეობით</item>
-    </string-array>
-    <array name="fingerprint_acquired_vendor" />
-    <array name="fingerprint_error_vendor" />
     <string-array name="imAddressTypes">
         <item>სახლი</item>
         <item>სამსახური</item>

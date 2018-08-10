@@ -37,6 +37,19 @@
         <item>その他</item>
         <item>カスタム</item>
     </string-array>
+    <string-array name="imAddressTypes">
+        <item>自宅</item>
+        <item>勤務先</item>
+        <item>その他</item>
+        <item>カスタム</item>
+    </string-array>
+    <string-array name="network_switch_type_name">
+        <item>モバイルデータ</item>
+        <item>Wi-Fi</item>
+        <item>Bluetooth</item>
+        <item>イーサネット</item>
+        <item>VPN</item>
+    </string-array>
     <string-array name="wfcOperatorErrorAlertMessages">
         <item>Wi-Fi経由で音声通話の発信やメッセージの送信を行うには、携帯通信会社にWi-Fiサービスを申し込んだ上で、設定画面でWi-Fi発信を再度ONにしてください。</item>
     </string-array>
@@ -46,13 +59,5 @@
     <string-array name="wfcSpnFormats">
         <item>%s</item>
         <item>Wi-Fi通話（%s）</item>
-    </string-array>
-    <array name="fingerprint_acquired_vendor" />
-    <array name="fingerprint_error_vendor" />
-    <string-array name="imAddressTypes">
-        <item>自宅</item>
-        <item>勤務先</item>
-        <item>その他</item>
-        <item>カスタム</item>
     </string-array>
 </resources>

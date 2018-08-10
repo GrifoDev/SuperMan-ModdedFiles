@@ -43,4 +43,21 @@
         <item>වෙනත්</item>
         <item>අභිමත</item>
     </string-array>
+    <string-array name="network_switch_type_name">
+        <item>ජංගම දත්ත</item>
+        <item>Wi-Fi</item>
+        <item>බ්ලූටූත්</item>
+        <item>ඊතර්නෙට්</item>
+        <item>VPN</item>
+    </string-array>
+    <string-array name="wfcOperatorErrorAlertMessages">
+        <item>Wi-Fi හරහා ඇමතුම් සිදු කිරීමට සහ පණිවිඩ යැවීමට, පළමුව මෙම සේවාව පිහිටුවන ලෙස ඔබේ වාහකයෙන් ඉල්ලන්න. අනතුරුව සැකසීම් වෙතින් Wi-Fi ඇමතුම නැවත ක්‍රියාත්මක කරන්න.</item>
+    </string-array>
+    <string-array name="wfcOperatorErrorNotificationMessages">
+        <item>ඔබගේ වාහකය සමඟ ලියාපදිංචි වන්න</item>
+    </string-array>
+    <string-array name="wfcSpnFormats">
+        <item>%s</item>
+        <item>%s Wi-Fi අමතමින්</item>
+    </string-array>
 </resources>

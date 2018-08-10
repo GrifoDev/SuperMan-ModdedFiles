@@ -85,6 +85,21 @@
           },
           "action": "Notify"
      },
+     "systemEvent": {
+          "type": "SystemEvent",
+          "trigger": {
+               "featureEnable": true
+          },
+          "gatherer": {
+               "interval": 10
+          },
+          "analyzer": {
+               "minSystemServerThreshold": 5,
+               "minNetworkRequestThreshold": 60,
+               "minAppInstallThreshold": 60
+          },
+          "action": "Notify"
+     },
      "ble": {
           "type": "Ble",
           "trigger": {

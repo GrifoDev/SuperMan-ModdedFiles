@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="config_mobile_tcp_buffers">
+        <item>lte:2097152,6294156,12582912,524288,1048576,2560000</item>
+    </string-array>
+</resources>

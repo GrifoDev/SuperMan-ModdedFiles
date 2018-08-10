@@ -40,6 +40,12 @@
 
 <siop_document>
 
+    <model_settings>
+        <setting name="TemperatureGap">
+            <set model_gap="0" />
+        </setting>
+    </model_settings>
+
     <levels>
         <level id="0" temp="460" />
         <level id="1" temp="480" />
@@ -56,14 +62,8 @@
         <limiter name="CPUFreqMax" type="number">
             <table_item temp="460" value="-1" />
         </limiter>
-        <limiter name="CPUCoreMax" type="number">
-            <table_item temp="460" value="-1" />
-        </limiter>
         <limiter name="GPUFreqMax" type="number">
             <table_item temp="460" value="-1" />
-        </limiter>
-        <limiter name="TempShift" type="number">
-            <table_item temp="460" value="0" />
         </limiter>
         <limiter name="PST" type="number">
             <table_item temp="460" value="1" />
@@ -77,16 +77,29 @@
         <limiter name="LCDBrightness" type="number">
             <table_item temp="460" value="-1" />
         </limiter>
-        <limiter name="DynamicFpsLevel" type="number">
-            <table_item temp="460" value="99" />
+        <limiter name="AppInstallStandby" type="number">
+            <table_item temp="460" value="-1" />
         </limiter>
     </default_scenario>
 
     <extra_scenario>
 
+        <scenario name="GameSDK" priority="1">
+            <limiter name="CPUFreqMax" type="sdk" />
+            <limiter name="GPUFreqMax" type="sdk" />
+        </scenario>
+
+        <scenario name="IPM+">
+            <limiter name="CPUFreqMax" type="ipm" />
+            <limiter name="GPUFreqMax" type="ipm" />
+        </scenario>
+
         <scenario name="ScreenOff" priority="1">
             <limiter name="Charging" type="number">
                 <table_item temp="460" value="100" />
+            </limiter>
+            <limiter name="AppInstallStandby" type="number">
+                <table_item temp="460" value="5000" />
             </limiter>
         </scenario>
 
@@ -108,33 +121,6 @@
             </trigger_packages>
 
             <limiter name="CPUFreqMax" type="number">
-                <table_item temp="460" value="-1" />
-            </limiter>
-        </scenario>
-
-        <scenario name="AbusiveAppListLevel1">
-            <limiter name="CPUFreqMax" type="number">
-                <table_item temp="460" value="-1" />
-            </limiter>
-            <limiter name="GPUFreqMax" type="number">
-                <table_item temp="460" value="-1" />
-            </limiter>
-        </scenario>
-
-        <scenario name="AbusiveAppListLevel2">
-            <limiter name="CPUFreqMax" type="number">
-                <table_item temp="460" value="-1" />
-            </limiter>
-            <limiter name="GPUFreqMax" type="number">
-                <table_item temp="460" value="-1" />
-            </limiter>
-        </scenario>
-
-        <scenario name="AbusiveAppListLevel3">
-            <limiter name="CPUFreqMax" type="number">
-                <table_item temp="460" value="-1" />
-            </limiter>
-            <limiter name="GPUFreqMax" type="number">
                 <table_item temp="460" value="-1" />
             </limiter>
         </scenario>
@@ -187,7 +173,7 @@
             </limiter>
         </scenario>
 
-		<scenario name="GameThermalCpuControl4">
+        <scenario name="GameThermalCpuControl4">
             <limiter name="CPUFreqMax" type="number">
                 <table_item temp="460" value="-1" />
             </limiter>
@@ -224,6 +210,24 @@
         </scenario>
 
         <scenario name="AppStart" priority="1">
+            <limiter name="CPUFreqMax" type="number">
+                <table_item temp="460" value="-1" />
+            </limiter>
+            <limiter name="GPUFreqMax" type="number">
+                <table_item temp="460" value="-1" />
+            </limiter>
+        </scenario>
+
+        <scenario name="Badge" priority="1">
+            <limiter name="CPUFreqMax" type="number">
+                <table_item temp="460" value="-1" />
+            </limiter>
+            <limiter name="GPUFreqMax" type="number">
+                <table_item temp="460" value="-1" />
+            </limiter>
+        </scenario>
+
+        <scenario name="WakeUp" priority="1">
             <limiter name="CPUFreqMax" type="number">
                 <table_item temp="460" value="-1" />
             </limiter>

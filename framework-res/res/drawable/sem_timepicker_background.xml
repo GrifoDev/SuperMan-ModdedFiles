@@ -3,13 +3,13 @@
   xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:gravity="fill_horizontal|center|top" android:left="18.0dip" android:right="18.0dip">
         <shape android:shape="rectangle">
-            <solid android:color="@color/sem_timepicker_stroke_color_light" />
+            <solid android:color="?^attr-private/semPickerStrokeColor" />
             <size android:height="2.0px" />
         </shape>
     </item>
     <item android:gravity="fill_horizontal|bottom|center" android:left="18.0dip" android:right="18.0dip">
         <shape android:shape="rectangle">
-            <solid android:color="@color/sem_timepicker_stroke_color_light" />
+            <solid android:color="?^attr-private/semPickerStrokeColor" />
             <size android:height="2.0px" />
         </shape>
     </item>

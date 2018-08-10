@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<zen version="2">
+    <allow calls="false" events="false" from="2" messages="false" reminders="false" repeatCallers="false" />
+</zen>

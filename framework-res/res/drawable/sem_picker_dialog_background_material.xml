@@ -2,6 +2,6 @@
 <inset android:inset="0.0dip"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <shape android:shape="rectangle">
-        <solid android:color="@color/sem_picker_dialog_window_background_color_light" />
+        <solid android:color="?^attr-private/semPickerDialogWindowBackgroundColor" />
     </shape>
 </inset>

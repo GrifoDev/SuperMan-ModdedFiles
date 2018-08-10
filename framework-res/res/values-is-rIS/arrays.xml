@@ -37,18 +37,6 @@
         <item>Annað</item>
         <item>Sérstilla</item>
     </string-array>
-    <string-array name="wfcOperatorErrorAlertMessages">
-        <item>Til að hringja og senda skilaboð yfir Wi-Fi þarftu fyrst að biðja símafyrirtækið þitt um að setja þá þjónustu upp. Kveiktu síðan á Wi-Fi símtölum í stillingunum.</item>
-    </string-array>
-    <string-array name="wfcOperatorErrorNotificationMessages">
-        <item>Skráðu þig hjá símafyrirtækinu</item>
-    </string-array>
-    <string-array name="wfcSpnFormats">
-        <item>%s</item>
-        <item>%s Wi-Fi símtöl</item>
-    </string-array>
-    <array name="fingerprint_acquired_vendor" />
-    <array name="fingerprint_error_vendor" />
     <string-array name="imAddressTypes">
         <item>Heima</item>
         <item>Vinna</item>

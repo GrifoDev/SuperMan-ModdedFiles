@@ -37,6 +37,12 @@
         <item>其它</item>
         <item>自定义</item>
     </string-array>
+    <string-array name="imAddressTypes">
+        <item>住宅</item>
+        <item>工作</item>
+        <item>其它</item>
+        <item>自定义</item>
+    </string-array>
     <integer-array name="maps_starting_lat_lng">
         <item>39937795</item>
         <item>116387224</item>
@@ -44,6 +50,13 @@
     <integer-array name="maps_starting_zoom">
         <item>2</item>
     </integer-array>
+    <string-array name="network_switch_type_name">
+        <item>移动数据</item>
+        <item>WLAN</item>
+        <item>蓝牙</item>
+        <item>以太网</item>
+        <item>VPN</item>
+    </string-array>
     <string-array name="wfcOperatorErrorAlertMessages">
         <item>要通过 WLAN 打电话和发信息，请先让您的运营商开通此服务，然后再到“设置”中重新开启 WLAN 通话功能。</item>
     </string-array>
@@ -53,13 +66,5 @@
     <string-array name="wfcSpnFormats">
         <item>%s</item>
         <item>%s WLAN 通话功能</item>
-    </string-array>
-    <array name="fingerprint_acquired_vendor" />
-    <array name="fingerprint_error_vendor" />
-    <string-array name="imAddressTypes">
-        <item>住宅</item>
-        <item>工作</item>
-        <item>其它</item>
-        <item>自定义</item>
     </string-array>
 </resources>

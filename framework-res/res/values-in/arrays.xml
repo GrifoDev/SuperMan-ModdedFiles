@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="emailAddressTypes">
-        <item>Depan</item>
+        <item>Rumah</item>
         <item>Kantor</item>
         <item>Lain</item>
         <item>Kustomisasi</item>
@@ -22,7 +22,7 @@
         <item>Kustomisasi</item>
     </string-array>
     <string-array name="phoneTypes">
-        <item>Depan</item>
+        <item>Rumah</item>
         <item>Ponsel</item>
         <item>Kantor</item>
         <item>Faks kantor</item>
@@ -32,10 +32,23 @@
         <item>Kustomisasi</item>
     </string-array>
     <string-array name="postalAddressTypes">
-        <item>Depan</item>
+        <item>Rumah</item>
         <item>Kantor</item>
         <item>Lain</item>
         <item>Kustomisasi</item>
+    </string-array>
+    <string-array name="imAddressTypes">
+        <item>Rumah</item>
+        <item>Kantor</item>
+        <item>Lain</item>
+        <item>Kustomisasi</item>
+    </string-array>
+    <string-array name="network_switch_type_name">
+        <item>data seluler</item>
+        <item>Wi-Fi</item>
+        <item>Bluetooth</item>
+        <item>Ethernet</item>
+        <item>VPN</item>
     </string-array>
     <string-array name="wfcOperatorErrorAlertMessages">
         <item>Untuk melakukan panggilan telepon dan mengirim pesan melalui Wi-Fi, terlebih dahulu minta operator untuk menyiapkan layanan ini. Lalu, aktifkan lagi panggilan telepon Wi-Fi dari Setelan.</item>
@@ -46,13 +59,5 @@
     <string-array name="wfcSpnFormats">
         <item>%s</item>
         <item>%s Panggilan Wi-Fi</item>
-    </string-array>
-    <array name="fingerprint_acquired_vendor" />
-    <array name="fingerprint_error_vendor" />
-    <string-array name="imAddressTypes">
-        <item>Depan</item>
-        <item>Kantor</item>
-        <item>Lain</item>
-        <item>Kustomisasi</item>
     </string-array>
 </resources>

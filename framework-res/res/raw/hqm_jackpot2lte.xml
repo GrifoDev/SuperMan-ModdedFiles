@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hwparam_document [
+<!ELEMENT hwparam_document (hwparam_setting, hwparam_info+)>
+<!ELEMENT hwparam_setting ANY>
+<!ATTLIST hwparam_setting
+    enable CDATA #REQUIRED
+    DVServer CDATA #REQUIRED
+    DQServer CDATA #REQUIRED    
+    CFServer CDATA #REQUIRED>
+<!ELEMENT hwparam_info ANY>
+<!ATTLIST hwparam_info
+      compID CDATA #REQUIRED
+      compVer CDATA #REQUIRED
+      compManufacture CDATA #REQUIRED
+      hitType CDATA #REQUIRED
+      feature CDATA #REQUIRED
+      order_compID CDATA #REQUIRED
+      order_feature CDATA #REQUIRED
+      uevent_path CDATA #IMPLIED>
+<!ELEMENT sysfs_node (key_info*)>
+<!ATTLIST sysfs_node
+      type CDATA #REQUIRED
+      key CDATA #REQUIRED
+      value CDATA #REQUIRED
+      clear CDATA #REQUIRED>
+<!ELEMENT dev_sysfs_node (key_info*)>
+<!ATTLIST dev_sysfs_node
+      type CDATA #REQUIRED
+      key CDATA #REQUIRED
+      value CDATA #REQUIRED
+      clear CDATA #REQUIRED>          
+<!ELEMENT enc_sysfs_node (key_info*)>
+<!ATTLIST enc_sysfs_node
+      type CDATA #REQUIRED
+      key CDATA #REQUIRED
+      value CDATA #REQUIRED
+      clear CDATA #REQUIRED>
+<!ELEMENT data_info (key_info*)>
+<!ATTLIST data_info
+      interface CDATA #REQUIRED
+      type1 CDATA #REQUIRED
+      type2 CDATA #REQUIRED
+      type3 CDATA #REQUIRED>
+<!ELEMENT key_info EMPTY>
+<!ATTLIST key_info
+      keyname CDATA #REQUIRED
+      min CDATA #REQUIRED
+      max CDATA #REQUIRED
+      desc1 CDATA #REQUIRED
+      desc2 CDATA #REQUIRED
+      desc3 CDATA #REQUIRED
+      desc4 CDATA #REQUIRED
+      type1 CDATA #REQUIRED
+      type2 CDATA #REQUIRED>
+]>
+
+<hwparam_document>
+
+    <hwparam_setting enable="true" DVServer="true" DQServer="true" CFServer="false" />
+    
+    <!-- Device : AP -->
+    <hwparam_info compID="AP" feature="CORE" hitType="sm" compVer="0.0" compManufacture="" order_compID="1" order_feature="1" >
+    </hwparam_info>
+
+    <hwparam_info compID="AP" feature="DDRQ" hitType="sm" compVer="0.0" compManufacture="" order_compID="1" order_feature="2" >
+    </hwparam_info>
+
+    <hwparam_info compID="AP" feature="VOLA" hitType="sm" compVer="0.0" compManufacture="" order_compID="1" order_feature="3" >
+    </hwparam_info>
+    
+    <!-- Device : Memory -->
+    <hwparam_info compID="UFS" feature="" hitType="" compVer="" compManufacture="" order_compID="2" order_feature="1" >        
+    </hwparam_info>
+
+	<!-- Device : SDcard -->
+    <hwparam_info compID="SDcard" feature="" hitType="" compVer="" compManufacture="" order_compID="3" order_feature="1" >        
+    </hwparam_info>
+	
+    <!-- Device : Display -->
+    <hwparam_info compID="Display" feature="" hitType="" compVer="0.0" compManufacture="" order_compID="4" order_feature="1" >        
+    </hwparam_info>
+
+    <!-- Device : TSP -->
+    <hwparam_info compID="TSP" feature="TTSP" hitType="sm" compVer="0.0" compManufacture="" order_compID="5" order_feature="1" >
+    </hwparam_info>
+
+    <!-- Device : Battery -->
+    <hwparam_info compID="Battery" feature="BATT" hitType="sm" compVer="0.0" compManufacture="" order_compID="6" order_feature="1" >
+        <sysfs_node type="M" key="CISD" value="/sys/class/power_supply/battery/cisd_data_json" clear="0" >
+            <key_info keyname="RESET_ALG" min="" max="" desc1="reset alg flag" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="ALG_INDEX" min="" max="" desc1="alg index" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="FULL_CNT" min="" max="" desc1="battery full count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CAP_MAX" min="2450" max="4500" desc1="battery fullcap max" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="CAP_MIN" min="2450" max="4500" desc1="battery fullcap min" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="RECHARGING_CNT" min="0" max="" desc1="battery fullcap once" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="VALERT_CNT" min="" max="" desc1="battery lowvoltage count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="BATT_CYCLE" min="" max="" desc1="battery cycle" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="WIRE_CNT" min="" max="" desc1="wired charging count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="WIRELESS_CNT" min="" max="" desc1="wireless charging count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="HIGH_SWELLING_CNT" min="" max="" desc1="high swelling count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="LOW_SWELLING_CNT" min="" max="" desc1="low swelling count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="SWELLING_CHARGING" min="" max="" desc1="swelling charging count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="SWELLING_FULL_CNT" min="" max="" desc1="swelling full count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="SWELLING_RECOVERY_CNT" min="" max="" desc1="swelling recovery count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="AICL_CNT" min="" max="" desc1="aicl count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="BATT_THM_MAX" min="" max="" desc1="batt_thm max value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="BATT_THM_MIN" min="" max="" desc1="batt_thm min value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_THM_MAX" min="" max="" desc1="chg_thm max value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_THM_MIN" min="" max="" desc1="chg_thm min value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="WPC_THM_MAX" min="" max="" desc1="wpc_thm max value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="WPC_THM_MIN" min="" max="" desc1="wpc_thm min value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="USB_THM_MAX" min="" max="" desc1="usb_thm max value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="USB_THM_MIN" min="" max="" desc1="usb_thm min value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_BATT_THM_MAX" min="" max="" desc1="during charging batt_thm max value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_BATT_THM_MIN" min="" max="" desc1="during chargingbatt_thm min value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_CHG_THM_MAX" min="" max="" desc1="during chargingchg_thm max value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_CHG_THM_MIN" min="" max="" desc1="during chargingchg_thm min value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_WPC_THM_MAX" min="" max="" desc1="during chargingwpc_thm max value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_WPC_THM_MIN" min="" max="" desc1="during chargingwpc_thm min value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_USB_THM_MAX" min="" max="" desc1="during charging usb_thm max value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_USB_THM_MIN" min="" max="" desc1="during charging usb_thm min value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="USB_OVERHEAT_CHARGING" min="0" max="" desc1="usb thm over60 count during charging" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="UNSAFETY_VOLT" min="" max="" desc1="unsafe voltage count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="UNSAFETY_TEMP" min="" max="" desc1="unsafe temperature count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="SAFETY_TIMER" min="" max="" desc1="safety timer expired count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="VSYS_OVP" min="" max="" desc1="vsys ovp count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="VBAT_OVP" min="" max="" desc1="vbat ovp count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="AFC_FAIL" min="" max="" desc1="wired afc fail count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="BUCK_OFF" min="" max="" desc1="buck off count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="WATER_DET" min="" max="" desc1="water detect count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="DROP_SENSOR" min="" max="" desc1="drop sensor" desc2="" desc3="" desc4="" type1="1" type2="99" />
+         </sysfs_node>
+    </hwparam_info>
+
+    <hwparam_info compID="Battery" feature="BATD" hitType="sm" compVer="0.0" compManufacture="" order_compID="6" order_feature="2" >
+        <sysfs_node type="M" key="CISD_D" value="/sys/class/power_supply/battery/cisd_data_d_json" clear="0" >
+            <key_info keyname="FULL_CNT_D" min="" max="" desc1="battery full count per day" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CAP_MAX_D" min="2450" max="4500" desc1="battery fullcap max" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="CAP_MIN_D" min="2450" max="4500" desc1="battery fullcap min" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="RECHARGING_CNT_D" min="0" max="" desc1="battery fullcap once" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="VALERT_CNT_D" min="" max="" desc1="battery lowvoltage count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="WIRE_CNT_D" min="" max="" desc1="wired charging count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="WIRELESS_CNT_D" min="" max="" desc1="wireless charging count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="HIGH_SWELLING_CNT_D" min="" max="" desc1="high swelling count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="LOW_SWELLING_CNT_D" min="" max="" desc1="low swelling count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="SWELLING_CHARGING_D" min="" max="" desc1="swelling charging count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="SWELLING_FULL_CNT_D" min="" max="" desc1="swelling full count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="SWELLING_RECOVERY_CNT_D" min="" max="" desc1="swelling recovery count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="AICL_CNT_D" min="" max="" desc1="aicl count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="BATT_THM_MAX_D" min="" max="" desc1="batt_thm max value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="BATT_THM_MIN_D" min="" max="" desc1="batt_thm min value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_THM_MAX_D" min="" max="" desc1="chg_thm max value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_THM_MIN_D" min="" max="" desc1="chg_thm min value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="WPC_THM_MAX_D" min="" max="" desc1="wpc_thm max value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="WPC_THM_MIN_D" min="" max="" desc1="wpc_thm min value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="USB_THM_MAX_D" min="" max="" desc1="usb_thm max value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="USB_THM_MIN_D" min="" max="" desc1="usb_thm min value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_BATT_THM_MAX_D" min="" max="" desc1="during charging batt_thm max value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_BATT_THM_MIN_D" min="" max="" desc1="during chargingbatt_thm min value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_CHG_THM_MAX_D" min="" max="" desc1="during chargingchg_thm max value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_CHG_THM_MIN_D" min="" max="" desc1="during chargingchg_thm min value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_WPC_THM_MAX_D" min="" max="" desc1="during chargingwpc_thm max value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_WPC_THM_MIN_D" min="" max="" desc1="during chargingwpc_thm min value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_USB_THM_MAX_D" min="" max="" desc1="during charging usb_thm max value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_USB_THM_MIN_D" min="" max="" desc1="during charging usb_thm min value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="USB_OVERHEAT_CHARGING_D" min="0" max="" desc1="usb thm over60 count during charging" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="UNSAFETY_VOLT_D" min="" max="" desc1="unsafe voltage count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="UNSAFETY_TEMP_D" min="" max="" desc1="unsafe temperature count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="SAFETY_TIMER_D" min="" max="" desc1="safety timer expired count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="VSYS_OVP_D" min="" max="" desc1="vsys ovp count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="VBAT_OVP_D" min="" max="" desc1="vbat ovp count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="AFC_FAIL_D" min="" max="" desc1="wired afc fail count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="BUCK_OFF_D" min="" max="" desc1="buck off count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="WATER_DET_D" min="" max="" desc1="water detect count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="DROP_SENSOR_D" min="" max="" desc1="drop sensor" desc2="" desc3="" desc4="" type1="1" type2="99" />
+        </sysfs_node>
+    </hwparam_info>
+
+    <hwparam_info compID="Battery" feature="BATE" hitType="sm" compVer="0.0" compManufacture="" order_compID="6" order_feature="3" >
+        <sysfs_node type="M" key="CISD_WC" value="/sys/class/power_supply/battery/cisd_wc_data_json" clear="0" >
+            <key_info keyname="SNGL_NOBLE" min="" max="" desc1="SNGL_NOBLE PAD" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="SNGL_VEHICLE" min="" max="" desc1="SNGL_VEHICLE PAD" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="SNGL_MINI" min="" max="" desc1="SNGL_MINI PAD" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="SNGL_ZERO" min="" max="" desc1="SNGL_ZERO PAD" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="SNGL_DREAM" min="" max="" desc1="SNGL_DREAM PAD" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="STAND_HERO" min="" max="" desc1="STAND_HERO PAD" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="STAND_DREAM" min="" max="" desc1="STAND_DREAM PAD" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="EXT_PACK" min="" max="" desc1="EXT_PACK PAD" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="EXT_PACK_TA" min="" max="" desc1="EXT_PACK_TA PAD" desc2="" desc3="" desc4="" type1="1" type2="99" />
+        </sysfs_node>
+        <sysfs_node type="S" key="BATTQR" value="/sys/class/power_supply/battery/batt_type" clear="0" >
+            <key_info keyname="BATTQR" min="" max="" desc1="battery QR info" desc2="" desc3="" desc4="" type1="1" type2="10" />
+        </sysfs_node>
+    </hwparam_info>
+
+    <!-- Device : Overheat -->
+    <hwparam_info compID="Overheat" feature="" hitType="" compVer="" compManufacture="" order_compID="7" order_feature="1" >        
+    </hwparam_info>
+
+    <!-- Device : Power -->
+    <hwparam_info compID="Power" feature="" hitType="" compVer="" compManufacture="" order_compID="8" order_feature="1" >        
+    </hwparam_info>
+	
+    <!-- Device : Camera -->
+    <hwparam_info compID="Camera" feature="" hitType="" compVer="" compManufacture="" order_compID="9" order_feature="1" >       
+    </hwparam_info>
+
+    <!-- Device : Audio driver -->    <hwparam_info compID="Audio" feature="AUDI" hitType="sm" compVer="0.0" compManufacture="" order_compID="10" order_feature ="2" >        <sysfs_node type="S" key="SPK_TEMP_MAX" value="/sys/class/nxp/tfa_log/data_maxt" clear="0" >            <key_info keyname="SPK_TEMP_MAX" min="" max="" desc1="Speaker Temperature Max value" desc2="" desc3="" desc4="" type1="1" type2="99" />        </sysfs_node>        <sysfs_node type="S" key="SPK_TEMP_OVERCNT" value="/sys/class/nxp/tfa_log/count_overtmax" clear="0" >            <key_info keyname="SPK_TEMP_OVERCNT" min="" max="" desc1="Speaker Temperature Over Count" desc2="" desc3="" desc4="" type1="1" type2="99" />        </sysfs_node>        <sysfs_node type="S" key="SPK_EXCU_MAX" value="/sys/class/nxp/tfa_log/data_maxx" clear="0" >            <key_info keyname="SPK_EXCU_MAX" min="" max="" desc1="Speaker Excursion Max value" desc2="" desc3="" desc4="" type1="1" type2="99" />        </sysfs_node>        <sysfs_node type="S" key="SPK_EXCU_OVERCNT" value="/sys/class/nxp/tfa_log/count_overxmax" clear="0" >            <key_info keyname="SPK_EXCU_OVERCNT" min="" max="" desc1="Speaker Excursion Over Count" desc2="" desc3="" desc4="" type1="1" type2="99" />        </sysfs_node>        <sysfs_node type="S" key="SPK_TEMP_CAL" value="/sys/class/nxp/tfa_cal/temp" clear="0" >            <key_info keyname="SPK_TEMP_CAL" min="" max="" desc1="Speaker Temperature Calibration" desc2="" desc3="" desc4="" type1="1" type2="99" />        </sysfs_node>        <sysfs_node type="S" key="SPK_RDC_CAL" value="/sys/class/nxp/tfa_cal/rdc" clear="0" >            <key_info keyname="SPK_RDC_CAL" min="" max="" desc1="Speaker Impedance Calibration" desc2="" desc3="" desc4="" type1="1" type2="99" />        </sysfs_node>    </hwparam_info>
+
+    <!-- Device : USB -->
+    <hwparam_info compID="USB" feature="UUSB" hitType="sm" compVer="0.0" compManufacture="" order_compID="11" order_feature="1" >
+    </hwparam_info>
+	
+    <!-- Device : Sensor -->
+    <hwparam_info compID="Sensor" feature="" hitType="" compVer="" compManufacture="" order_compID="12" order_feature ="1">        
+    </hwparam_info>
+		
+    <!-- Device : HRM -->
+    <hwparam_info compID="HRM" feature="" hitType="" compVer="" compManufacture="" order_compID="13" order_feature ="1" >        
+    </hwparam_info>
+
+    <!-- Device : Biometrics FingerPrint Sensor -->
+    <hwparam_info compID="BFS" feature="BFPS" hitType="sm" compVer="0.0" compManufacture="" order_compID="14" order_feature="1" >
+	    <sysfs_node type="S" key="FPTY" value="/sys/class/fingerprint/fingerprint/type_check" clear="0" >
+		    <key_info keyname="FPTY" min="" max="" desc1="-1:unknown, 0:failed, 1~: success" desc2="" desc3="" desc4="" type1="1" type2="99" />
+	    </sysfs_node>
+	    <sysfs_node type="S" key="FPIC" value="/sys/class/fingerprint/fingerprint/name" clear="0" >
+		    <key_info keyname="FPIC" min="" max="" desc1="Fingerprint" desc2="" desc3="" desc4="" type1="1" type2="10" />
+	    </sysfs_node>
+	    <sysfs_node type="M" key="FPVA" value="/sys/class/fingerprint/fingerprint/bfs_values" clear="0" >
+		    <key_info keyname="FP_SPICLK" min="" max="" desc1="clk_speed" desc2="" desc3="" desc4="" type1="1" type2="99" />
+	    </sysfs_node>
+	    <dev_sysfs_node type="S" key="FPNS" value="/data/log/FingerNormalData.log" clear="0" >
+	    </dev_sysfs_node>
+	    <dev_sysfs_node type="S" key="FPSN" value="/data/log/FingerSNRData.log" clear="0" >
+	    </dev_sysfs_node>
+    </hwparam_info>
+
+    <!-- Device : GNSS -->
+    <hwparam_info compID="GNSS" feature="" hitType="" compVer="" compManufacture="" order_compID="15" order_feature ="1">
+    </hwparam_info>    
+     
+    <!-- Device : NFC -->
+    <hwparam_info compID="NFC" feature="ESES" hitType="sm" compVer="0.1" compManufacture="sec" order_compID="16" order_feature ="1" >
+        <data_info interface="I" type1="" type2="" type3="" >
+            <key_info keyname="ESES" min="0" max="0" desc1="Check whether eSE state is restricted" desc2="" desc3="" desc4="" type1="1" type2="0" />
+        </data_info>
+        <enc_sysfs_node type="S" key="CPLC" value="/data/sem/hwparam_cplc" clear="0" >
+            <key_info keyname="CPLC" min="" max="" desc1="CPLC value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+        </enc_sysfs_node>
+    </hwparam_info>
+    <hwparam_info compID="NFC" feature="" hitType="" compVer="" compManufacture="" order_compID="16" order_feature ="2">        
+    </hwparam_info>
+
+    <!-- Device : Bluetooth -->
+    <hwparam_info compID="Bluetooth" feature="" hitType="" compVer="" compManufacture="" order_compID="17" order_feature ="1" >        
+    </hwparam_info>
+
+    <!-- Device : Wi-Fi -->
+    <hwparam_info compID="WiFi" feature="" hitType="" compVer="" compManufacture="" order_compID="18" order_feature ="1">        
+    </hwparam_info>
+
+    <!-- Device : Modem -->
+    <hwparam_info compID="Modem" feature="" hitType="" compVer="" compManufacture="" order_compID="19" order_feature ="1" >        
+    </hwparam_info>
+
+</hwparam_document>

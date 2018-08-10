@@ -3,6 +3,7 @@
     <string-array name="config_cdma_home_system">
         <item>64</item>
         <item>65</item>
+        <item>66</item>
         <item>76</item>
         <item>77</item>
         <item>78</item>
@@ -12,11 +13,22 @@
         <item>82</item>
         <item>83</item>
     </string-array>
-    <string-array name="dial_string_replace">
-        <item>*611:+19085594899,</item>
-        <item>*86:+1MDN,</item>
-    </string-array>
-    <string-array name="config_sms_convert_destination_number_support">
-        <item>true</item>
+    <integer-array name="config_lteDbmThresholds">
+        <item>-140</item>
+        <item>-115</item>
+        <item>-105</item>
+        <item>-95</item>
+        <item>-85</item>
+        <item>-44</item>
+    </integer-array>
+    <string-array name="config_mobile_tcp_buffers">
+        <item>lte:2097152,6294156,12582912,524288,1048576,2560000</item>
+        <item>umts:4094,87380,1220608,4096,16384,1220608</item>
+        <item>hspa:4094,87380,704512,4096,16384,262144</item>
+        <item>hsupa:4094,87380,704512,4096,16384,262144</item>
+        <item>hsdpa:4094,87380,704512,4096,16384,262144</item>
+        <item>hspap:4094,87380,1220608,4096,16384,1220608</item>
+        <item>edge:4093,26280,35040,4096,16384,35040</item>
+        <item>gprs:4092,8760,11680,4096,8760,11680</item>
     </string-array>
 </resources>

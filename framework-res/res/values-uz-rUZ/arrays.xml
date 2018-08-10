@@ -37,18 +37,6 @@
         <item>Boshqa</item>
         <item>Maxsus</item>
     </string-array>
-    <string-array name="wfcOperatorErrorAlertMessages">
-        <item>Wi-Fi orqali qo‘ng‘iroqlarni amalga oshirish va xabarlar bilan almashinish uchun uyali aloqa operatoringizdan ushbu xizmatni yoqib qo‘yishni so‘rashingiz lozim. Keyin sozlamalarda Wi-Fi qo‘ng‘irog‘i imkoniyatini yoqib olishingiz mumkin.</item>
-    </string-array>
-    <string-array name="wfcOperatorErrorNotificationMessages">
-        <item>Mobil operatoringiz yordamida ro‘yxatdan o‘ting</item>
-    </string-array>
-    <string-array name="wfcSpnFormats">
-        <item>%s</item>
-        <item>%s Wi-Fi qo‘ng‘iroqlar</item>
-    </string-array>
-    <array name="fingerprint_acquired_vendor" />
-    <array name="fingerprint_error_vendor" />
     <string-array name="imAddressTypes">
         <item>Asosiy</item>
         <item>Ish</item>

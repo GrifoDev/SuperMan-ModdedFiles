@@ -37,6 +37,19 @@
         <item>Overig</item>
         <item>Aangepast</item>
     </string-array>
+    <string-array name="imAddressTypes">
+        <item>Thuis</item>
+        <item>Zakelijk</item>
+        <item>Overig</item>
+        <item>Aangepast</item>
+    </string-array>
+    <string-array name="network_switch_type_name">
+        <item>mobiele data</item>
+        <item>Wifi</item>
+        <item>Bluetooth</item>
+        <item>Ethernet</item>
+        <item>VPN</item>
+    </string-array>
     <string-array name="wfcOperatorErrorAlertMessages">
         <item>"Als je wilt bellen en berichten wilt verzenden via wifi, moet je eerst je provider vragen deze service in te stellen. Schakel bellen via wifi vervolgens opnieuw in via 'Instellingen'."</item>
     </string-array>
@@ -46,13 +59,5 @@
     <string-array name="wfcSpnFormats">
         <item>%s</item>
         <item>Bellen via wifi van %s</item>
-    </string-array>
-    <array name="fingerprint_acquired_vendor" />
-    <array name="fingerprint_error_vendor" />
-    <string-array name="imAddressTypes">
-        <item>Thuis</item>
-        <item>Zakelijk</item>
-        <item>Overig</item>
-        <item>Aangepast</item>
     </string-array>
 </resources>

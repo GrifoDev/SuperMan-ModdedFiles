@@ -5,7 +5,7 @@
         <ImageView android:layout_gravity="center_vertical" android:id="@id/icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="56.0dip" android:paddingEnd="@dimen/tw_global_actions_icon_right_padding_sviewcover" />
     </LinearLayout>
     <RelativeLayout android:paddingTop="6.0dip" android:paddingBottom="6.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0" android:paddingEnd="@dimen/preference_item_padding_inner">
-        <TextView android:ellipsize="marquee" android:id="@id/message" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" style="?android:attr/twGlobalActionsMessageStyle" />
-        <TextView android:textSize="14.0sp" android:id="@id/status" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:singleLine="true" android:layout_below="@id/message" android:layout_alignStart="@id/message" style="?android:attr/twGlobalActionsStatusStyle" />
+        <TextView android:ellipsize="marquee" android:id="@id/message" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" style="?^attr-private/twGlobalActionsMessageStyle" />
+        <TextView android:textSize="14.0sp" android:id="@id/status" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:singleLine="true" android:layout_below="@id/message" android:layout_alignStart="@id/message" style="?^attr-private/twGlobalActionsStatusStyle" />
     </RelativeLayout>
 </LinearLayout>

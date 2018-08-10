@@ -37,6 +37,30 @@
         <item>آخر</item>
         <item>ضبط مخصص</item>
     </string-array>
+    <string-array name="imAddressTypes">
+        <item>المنزل</item>
+        <item>العمل</item>
+        <item>آخر</item>
+        <item>ضبط مخصص</item>
+    </string-array>
+    <string-array name="network_switch_type_name">
+        <item>بيانات الجوّال</item>
+        <item>Wi-Fi</item>
+        <item>بلوتوث</item>
+        <item>إيثرنت</item>
+        <item>‏شبكة ظاهرية خاصة (VPN)</item>
+    </string-array>
+    <string-array name="num_clients_connected">
+        <item>۲</item>
+        <item>۳</item>
+        <item>٤</item>
+        <item>٥</item>
+        <item>٦</item>
+        <item>٧</item>
+        <item>۸</item>
+        <item>۹</item>
+        <item>۱٠</item>
+    </string-array>
     <string-array name="wfcOperatorErrorAlertMessages">
         <item>‏لإجراء مكالمات وإرسال رسائل عبر Wi-Fi، اطلب من مشغّل شبكة الجوّال أولاً إعداد هذا الجهاز، ثم شغّل الاتصال عبر Wi-Fi مرة أخرى من خلال الإعدادات.</item>
     </string-array>
@@ -46,13 +70,5 @@
     <string-array name="wfcSpnFormats">
         <item>%s</item>
         <item>‏%s جارٍ الاتصال عبر Wi-Fi</item>
-    </string-array>
-    <array name="fingerprint_acquired_vendor" />
-    <array name="fingerprint_error_vendor" />
-    <string-array name="imAddressTypes">
-        <item>المنزل</item>
-        <item>العمل</item>
-        <item>آخر</item>
-        <item>ضبط مخصص</item>
     </string-array>
 </resources>

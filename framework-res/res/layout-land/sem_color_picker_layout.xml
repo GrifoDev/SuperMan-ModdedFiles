@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <HorizontalScrollView android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="fill_parent">
+            <FrameLayout android:id="@id/sem_color_picker_gradient_wheel_container" android:paddingLeft="@dimen/sem_color_picker_gradient_wheel_container_padding_left_top" android:paddingTop="@dimen/sem_color_picker_gradient_wheel_container_padding_left_top" android:paddingRight="@dimen/sem_color_picker_gradient_wheel_container_padding_right_bottom" android:paddingBottom="@dimen/sem_color_picker_gradient_wheel_container_padding_right_bottom" android:layout_width="@dimen/sem_color_picker_gradient_wheel_container_width" android:layout_height="@dimen/sem_color_picker_gradient_wheel_container_height">
+                <com.samsung.android.widget.SemGradientColorWheel android:id="@id/sem_color_picker_gradient_wheel" android:focusable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+            </FrameLayout>
+            <LinearLayout android:orientation="vertical" android:paddingTop="@dimen/sem_color_picker_main_content_padding_top" android:paddingBottom="@dimen/sem_color_picker_main_content_padding_bottom" android:layout_width="@dimen/sem_color_picker_main_content_width" android:layout_height="wrap_content" android:paddingEnd="@dimen/sem_color_picker_main_content_padding_right">
+                <include layout="@layout/sem_color_picker_selected_color_group" />
+                <FrameLayout android:id="@id/sem_color_picker_gradient_seekbar_container" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/sem_color_picker_gradient_seekbar_margin_top">
+                    <com.samsung.android.widget.SemGradientColorSeekBar android:id="@id/sem_color_picker_gradient_seekbar" android:paddingTop="@dimen/sem_color_picker_seekbar_padding" android:paddingBottom="@dimen/sem_color_picker_seekbar_padding" android:layout_width="@dimen/sem_color_picker_seekbar_width" android:layout_height="@dimen/sem_color_picker_seekbar_height" android:importantForAccessibility="no" android:paddingStart="@dimen/sem_color_picker_seekbar_padding" android:paddingEnd="@dimen/sem_color_picker_seekbar_padding" />
+                </FrameLayout>
+                <FrameLayout android:id="@id/sem_color_picker_opacity_seekbar_container" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/sem_color_picker_opacity_seekbar_margin_top">
+                    <View android:layout_gravity="center" android:background="@drawable/sem_color_picker_opacity_seekbar_background" android:layout_width="wrap_content" android:layout_height="@dimen/sem_color_picker_opacity_seekbar_background_height" android:importantForAccessibility="no" android:layout_marginStart="@dimen/sem_color_picker_seekbar_padding" android:layout_marginEnd="@dimen/sem_color_picker_seekbar_padding" />
+                    <com.samsung.android.widget.SemOpacitySeekBar android:id="@id/sem_color_picker_opacity_seekbar" android:paddingTop="@dimen/sem_color_picker_seekbar_padding" android:paddingBottom="@dimen/sem_color_picker_seekbar_padding" android:layout_width="@dimen/sem_color_picker_seekbar_width" android:layout_height="@dimen/sem_color_picker_seekbar_height" android:importantForAccessibility="no" android:paddingStart="@dimen/sem_color_picker_seekbar_padding" android:paddingEnd="@dimen/sem_color_picker_seekbar_padding" />
+                </FrameLayout>
+                <include layout="@layout/sem_color_picker_used_color_group" />
+            </LinearLayout>
+        </LinearLayout>
+    </HorizontalScrollView>
+</ScrollView>

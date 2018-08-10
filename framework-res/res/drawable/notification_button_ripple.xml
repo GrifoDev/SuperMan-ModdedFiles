@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple android:color="?colorControlHighlight"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/hun_background_color" />
+            <corners android:radius="2.0dip" />
+            <padding android:bottom="@dimen/hun_button_ripple_padding" />
+            <padding android:top="@dimen/hun_button_ripple_padding" />
+            <padding android:left="@dimen/hun_button_ripple_padding" />
+            <padding android:right="@dimen/hun_button_ripple_padding" />
+        </shape>
+    </item>
+</ripple>

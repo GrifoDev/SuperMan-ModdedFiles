@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="emailAddressTypes">
-        <item>Хатні</item>
+        <item>Галоўн</item>
         <item>Працоўны</item>
-        <item>Іншы</item>
-        <item>Карыстальніцкі</item>
+        <item>Іншае</item>
+        <item>Адмысловае</item>
     </string-array>
     <string-array name="imProtocols">
         <item>AIM</item>
@@ -19,40 +19,28 @@
     <string-array name="organizationTypes">
         <item>Працоўны</item>
         <item>Іншае</item>
-        <item>Карыстальніцкі</item>
+        <item>Адмысловае</item>
     </string-array>
     <string-array name="phoneTypes">
-        <item>Хатні</item>
+        <item>Галоўн</item>
         <item>Мабільны</item>
         <item>Працоўны</item>
         <item>Працоўны факс</item>
         <item>Хатні факс</item>
         <item>Пэйджар</item>
-        <item>Іншы</item>
-        <item>Асаблівы</item>
+        <item>Іншае</item>
+        <item>Адмысловае</item>
     </string-array>
     <string-array name="postalAddressTypes">
-        <item>На Галоўную старонку</item>
+        <item>Галоўн</item>
         <item>Працоўны</item>
-        <item>Іншы</item>
-        <item>Карыстальніцкі</item>
+        <item>Іншае</item>
+        <item>Адмысловае</item>
     </string-array>
-    <string-array name="wfcOperatorErrorAlertMessages">
-        <item>Каб рабіць выклікі і адпраўляць паведамленні па Wi-Fi, спачатку папрасіце свайго аператара наладзіць гэту паслугу. Затым зноў уключыце Wi-Fi-тэлефанію ў меню Налады.</item>
-    </string-array>
-    <string-array name="wfcOperatorErrorNotificationMessages">
-        <item>Зарэгіструйцеся ў свайго аператара</item>
-    </string-array>
-    <string-array name="wfcSpnFormats">
-        <item>%s</item>
-        <item>Wi-Fi-тэлефанія %s</item>
-    </string-array>
-    <array name="fingerprint_acquired_vendor" />
-    <array name="fingerprint_error_vendor" />
     <string-array name="imAddressTypes">
-        <item>Хатні</item>
+        <item>Галоўн</item>
         <item>Працоўны</item>
-        <item>Іншы</item>
-        <item>Карыстальніцкі</item>
+        <item>Іншае</item>
+        <item>Адмысловае</item>
     </string-array>
 </resources>

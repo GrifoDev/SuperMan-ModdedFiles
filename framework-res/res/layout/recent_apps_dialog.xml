@@ -4,16 +4,16 @@
     <TextView android:textAppearance="?textAppearanceSmall" android:textStyle="bold" android:textColor="#80ffffff" android:gravity="center" android:layout_width="wrap_content" android:layout_height="40.0dip" android:text="@string/recent_tasks_title" android:singleLine="true" />
     <TextView android:textAppearance="?textAppearanceSmall" android:gravity="center" android:id="@id/no_applications_message" android:layout_width="320.0dip" android:layout_height="80.0dip" android:text="@string/no_recent_tasks" />
     <LinearLayout android:orientation="horizontal" android:layout_width="320.0dip" android:layout_height="wrap_content">
-        <include android:id="@id/button0" layout="@android:layout/recent_apps_icon" />
-        <include android:id="@id/button1" layout="@android:layout/recent_apps_icon" />
-        <include android:id="@id/button2" layout="@android:layout/recent_apps_icon" />
-        <include android:id="@id/button3" layout="@android:layout/recent_apps_icon" />
+        <include android:id="@id/button0" layout="@layout/recent_apps_icon" />
+        <include android:id="@id/button1" layout="@layout/recent_apps_icon" />
+        <include android:id="@id/button2" layout="@layout/recent_apps_icon" />
+        <include android:id="@id/button3" layout="@layout/recent_apps_icon" />
     </LinearLayout>
     <LinearLayout android:orientation="horizontal" android:layout_width="320.0dip" android:layout_height="wrap_content">
-        <include android:id="@id/button4" layout="@android:layout/recent_apps_icon" />
-        <include android:id="@id/button5" layout="@android:layout/recent_apps_icon" />
-        <include android:id="@id/button6" layout="@android:layout/recent_apps_icon" />
-        <include android:id="@id/button7" layout="@android:layout/recent_apps_icon" />
+        <include android:id="@id/button4" layout="@layout/recent_apps_icon" />
+        <include android:id="@id/button5" layout="@layout/recent_apps_icon" />
+        <include android:id="@id/button6" layout="@layout/recent_apps_icon" />
+        <include android:id="@id/button7" layout="@layout/recent_apps_icon" />
     </LinearLayout>
     <FrameLayout android:layout_width="fill_parent" android:layout_height="40.0dip" />
 </com.android.internal.policy.impl.RecentApplicationsBackground>

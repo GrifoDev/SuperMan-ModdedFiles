@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<hwpartinform_document>
+    <hwparam_setting enable="false" DVServer="false" CFServer="false" />
+
+	<!-- ??? -->
+	<sysfs_node key="OCTA_BARCODE" path="/efs/FactoryApp/HwPartOCTABarcode" />
+	<sysprop_node key="HW_GPIO" path="ro.revision" />
+	<sysfs_node key="SMD_DATE" path="/efs/FactoryApp/HwPartSMDDate" />
+	<sysfs_node key="RAM" path="" />
+	<sysfs_node key="CODEC" path="" />
+	<sysfs_node key="SPK_AMP" path="" />
+
+	<!-- HW PART INFORM -->
+	<sysfs_node key="AP_NAME" chipset_type="LSI" path="/sys/devices/system/chip-id/ap_id" />
+	<sysfs_node key="AP_NAME" chipset_type="QUALCOMM" path="/sys/devices/soc0/soc_id" />
+	<sysfs_node key="UN" path="/sys/class/scsi_host/host0/unique_number" />
+	<sysfs_node key="OCTA_CELL_ID" path="/sys/class/lcd/panel/cell_id" />
+	
+	<!-- SW_INFORM -->
+	<sysprop_node key="MODEL_NAME" path="ro.product.model" />
+	<sysprop_node key="SW_VER" path="ro.build.PDA" />
+	<sysfs_node key="SERIAL_NO" path="/efs/FactoryApp/serial_no" />
+	<sysfs_node key="SMSN" path="/efs/FactoryApp/HwPartProtoTypeSerialNo" />
+	<function_node key="IMEI" />
+	<function_node key="SLAVE_IMEI" />
+
+	<!-- FW_VER -->
+	<sysfs_node key="MAIN_CAM" path="/sys/class/camera/rear/rear_camfw" />
+	<sysfs_node key="SUB_CAM" path="/sys/class/camera/front/front_camfw" />
+	<sysfs_node key="DISPLAY" path="/sys/class/lcd/panel/lcd_type" />
+	<sysfs_node key="PROXY_SENSOR" path="/sys/class/sensors/proximity_sensor/name" />
+	<sysfs_node key="LIGHT_SENSOR" path="/sys/class/sensors/light_sensor/name" />
+	<sysfs_node key="GRIP_SENSOR" path="/sys/class/sensors/grip_sensor/name" />
+	<sysfs_node key="BAROMETER_SENSOR" path="/sys/class/sensors/barometer_sensor/name" />
+	<sysfs_node key="GYRO_SENSOR" path="/sys/class/sensors/gyro_sensor/name" />
+	<sysfs_node key="MAGNETIC_SENSOR" path="/sys/class/sensors/magnetic_sensor/name" />
+	<sysfs_node key="FINGERPRINT_SENSOR" path="/sys/class/fingerprint/fingerprint/name" />
+	<sysfs_node key="ACC_SENSOR" path="/sys/class/sensors/accelerometer_sensor/name" />
+	<sysfs_node key="WIFI" path="/data/misc/conn/.cid.info" />
+	<sysprop_node key="NFC" path="nfc.fw.ver" />
+
+	<!-- HANDWRITING -->
+	<handwriting_node key="SPK" value="" />
+	<handwriting_node key="RCV" value="" />
+	<handwriting_node key="EAR_JACK" value="" />
+	<handwriting_node key="MIC" value="" />
+	<handwriting_node key="SUB_PBA" value="" />
+	<handwriting_node key="FRONT_ASSAY" value="" />
+	<handwriting_node key="REAR_ASSAY" value="" />
+	<handwriting_node key="LDS_ANT" value="" />
+	<function_node key="TRANCEIVER" />
+	<function_node key="RF_PA" />
+</hwpartinform_document>

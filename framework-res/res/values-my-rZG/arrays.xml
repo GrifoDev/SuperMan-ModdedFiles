@@ -43,4 +43,12 @@
         <item>အျခား</item>
         <item>လုပ္အပ္သလုိ အထူးျပဳလုပ္ပါ</item>
     </string-array>
+    <string-array name="special_locale_codes">
+        <item>my_MM</item>
+        <item>my_ZG</item>
+    </string-array>
+    <string-array name="special_locale_names">
+        <item>ျမန္မာ (Unicode)</item>
+        <item>ျမန္မာ (Zawgyi)</item>
+    </string-array>
 </resources>

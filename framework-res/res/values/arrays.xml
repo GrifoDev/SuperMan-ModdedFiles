@@ -38,217 +38,10 @@
         <item>Custom</item>
     </string-array>
     <array name="config_keySystemUuidMapping" />
-    <array name="preloaded_drawables">
-        <item>@drawable/ab_share_pack_material</item>
-        <item>@drawable/ab_solid_shadow_material</item>
-        <item>@drawable/action_bar_item_background_material</item>
-        <item>@drawable/activated_background_material</item>
-        <item>@drawable/btn_borderless_material</item>
-        <item>@drawable/btn_check_material_anim</item>
-        <item>@drawable/btn_colored_material</item>
-        <item>@drawable/btn_default_material</item>
-        <item>@drawable/btn_group_holo_dark</item>
-        <item>@drawable/btn_group_holo_light</item>
-        <item>@drawable/btn_radio_material_anim</item>
-        <item>@drawable/btn_star_material</item>
-        <item>@drawable/btn_toggle_material</item>
-        <item>@drawable/button_inset</item>
-        <item>@drawable/cab_background_bottom_material</item>
-        <item>@drawable/cab_background_top_material</item>
-        <item>@drawable/control_background_32dp_material</item>
-        <item>@drawable/control_background_40dp_material</item>
-        <item>@drawable/dialog_background_material</item>
-        <item>@drawable/editbox_dropdown_background_dark</item>
-        <item>@drawable/edit_text_material</item>
-        <item>@drawable/expander_group_material</item>
-        <item>@drawable/fastscroll_label_left_material</item>
-        <item>@drawable/fastscroll_label_right_material</item>
-        <item>@drawable/fastscroll_thumb_material</item>
-        <item>@drawable/fastscroll_track_material</item>
-        <item>@drawable/floating_popup_background_dark</item>
-        <item>@drawable/floating_popup_background_light</item>
-        <item>@drawable/gallery_item_background</item>
-        <item>@drawable/ic_ab_back_material</item>
-        <item>@drawable/ic_ab_back_material_dark</item>
-        <item>@drawable/ic_ab_back_material_light</item>
-        <item>@drawable/ic_account_circle</item>
-        <item>@drawable/ic_arrow_drop_right_black_24dp</item>
-        <item>@drawable/ic_clear</item>
-        <item>@drawable/ic_clear_disabled</item>
-        <item>@drawable/ic_clear_material</item>
-        <item>@drawable/ic_clear_normal</item>
-        <item>@drawable/ic_commit_search_api_material</item>
-        <item>@drawable/ic_dialog_alert_material</item>
-        <item>@drawable/ic_find_next_material</item>
-        <item>@drawable/ic_find_previous_material</item>
-        <item>@drawable/ic_go</item>
-        <item>@drawable/ic_go_search_api_material</item>
-        <item>@drawable/ic_media_route_connecting_material</item>
-        <item>@drawable/ic_media_route_material</item>
-        <item>@drawable/ic_menu_close_clear_cancel</item>
-        <item>@drawable/ic_menu_copy_material</item>
-        <item>@drawable/ic_menu_cut_material</item>
-        <item>@drawable/ic_menu_find_material</item>
-        <item>@drawable/ic_menu_more</item>
-        <item>@drawable/ic_menu_moreoverflow_material</item>
-        <item>@drawable/ic_menu_paste_material</item>
-        <item>@drawable/ic_menu_search_material</item>
-        <item>@drawable/ic_menu_selectall_material</item>
-        <item>@drawable/ic_menu_share_material</item>
-        <item>@drawable/ic_search_api_material</item>
-        <item>@drawable/ic_voice_search_api_material</item>
-        <item>@drawable/indicator_check_mark_dark</item>
-        <item>@drawable/indicator_check_mark_light</item>
-        <item>@drawable/item_background_borderless_material</item>
-        <item>@drawable/item_background_borderless_material_dark</item>
-        <item>@drawable/item_background_borderless_material_light</item>
-        <item>@drawable/item_background_material</item>
-        <item>@drawable/item_background_material_dark</item>
-        <item>@drawable/item_background_material_light</item>
-        <item>@drawable/list_choice_background_material</item>
-        <item>@drawable/list_divider_material</item>
-        <item>@drawable/list_section_divider_material</item>
-        <item>@drawable/menu_background_fill_parent_width</item>
-        <item>@drawable/notification_material_action_background</item>
-        <item>@drawable/notification_material_media_action_background</item>
-        <item>@drawable/number_picker_divider_material</item>
-        <item>@drawable/popup_background_material</item>
-        <item>@drawable/popup_inline_error_above_holo_dark</item>
-        <item>@drawable/popup_inline_error_above_holo_light</item>
-        <item>@drawable/popup_inline_error_holo_dark</item>
-        <item>@drawable/popup_inline_error_holo_light</item>
-        <item>@drawable/progress_horizontal_material</item>
-        <item>@drawable/progress_indeterminate_horizontal_material</item>
-        <item>@drawable/progress_large_material</item>
-        <item>@drawable/progress_medium_material</item>
-        <item>@drawable/progress_small_material</item>
-        <item>@drawable/quickcontact_badge_overlay_dark</item>
-        <item>@drawable/quickcontact_badge_overlay_light</item>
-        <item>@drawable/quickcontact_badge_overlay_normal_dark</item>
-        <item>@drawable/quickcontact_badge_overlay_normal_light</item>
-        <item>@drawable/quickcontact_badge_overlay_pressed_dark</item>
-        <item>@drawable/quickcontact_badge_overlay_pressed_light</item>
-        <item>@drawable/ratingbar_indicator_material</item>
-        <item>@drawable/ratingbar_material</item>
-        <item>@drawable/ratingbar_small_material</item>
-        <item>@drawable/screen_background_dark</item>
-        <item>@drawable/screen_background_dark_transparent</item>
-        <item>@drawable/screen_background_light</item>
-        <item>@drawable/screen_background_light_transparent</item>
-        <item>@drawable/screen_background_selector_dark</item>
-        <item>@drawable/screen_background_selector_light</item>
-        <item>@drawable/scrollbar_handle_material</item>
-        <item>@drawable/seekbar_thumb_material_anim</item>
-        <item>@drawable/seekbar_tick_mark_material</item>
-        <item>@drawable/seekbar_track_material</item>
-        <item>@drawable/spinner_background_material</item>
-        <item>@drawable/spinner_textfield_background_material</item>
-        <item>@drawable/switch_thumb_material_anim</item>
-        <item>@drawable/switch_track_material</item>
-        <item>@drawable/tab_indicator_material</item>
-        <item>@drawable/text_cursor_material</item>
-        <item>@drawable/text_edit_paste_window</item>
-        <item>@drawable/textfield_search_material</item>
-        <item>@drawable/text_select_handle_left_material</item>
-        <item>@drawable/text_select_handle_middle_material</item>
-        <item>@drawable/text_select_handle_right_material</item>
-        <item>@drawable/toast_frame</item>
-    </array>
-    <array name="preloaded_color_state_lists">
-        <item>@color/primary_text_dark</item>
-        <item>@color/primary_text_dark_disable_only</item>
-        <item>@color/primary_text_dark_nodisable</item>
-        <item>@color/primary_text_disable_only_holo_dark</item>
-        <item>@color/primary_text_disable_only_holo_light</item>
-        <item>@color/primary_text_holo_dark</item>
-        <item>@color/primary_text_holo_light</item>
-        <item>@color/primary_text_light</item>
-        <item>@color/primary_text_light_disable_only</item>
-        <item>@color/primary_text_light_nodisable</item>
-        <item>@color/primary_text_nodisable_holo_dark</item>
-        <item>@color/primary_text_nodisable_holo_light</item>
-        <item>@color/secondary_text_dark</item>
-        <item>@color/secondary_text_dark_nodisable</item>
-        <item>@color/secondary_text_holo_dark</item>
-        <item>@color/secondary_text_holo_light</item>
-        <item>@color/secondary_text_light</item>
-        <item>@color/secondary_text_light_nodisable</item>
-        <item>@color/secondary_text_nodisable_holo_dark</item>
-        <item>@color/secondary_text_nodisable_holo_light</item>
-        <item>@color/secondary_text_nofocus</item>
-        <item>@color/hint_foreground_dark</item>
-        <item>@color/hint_foreground_holo_dark</item>
-        <item>@color/hint_foreground_holo_light</item>
-        <item>@color/hint_foreground_light</item>
-        <item>@color/bright_foreground_light</item>
-        <item>@color/bright_foreground_dark</item>
-        <item>@color/tab_indicator_text</item>
-        <item>#ff000000</item>
-        <item>#00000000</item>
-        <item>#ffffffff</item>
-        <item>@color/background_cache_hint_selector_material_dark</item>
-        <item>@color/background_cache_hint_selector_material_light</item>
-        <item>@color/btn_default_material_dark</item>
-        <item>@color/btn_default_material_light</item>
-        <item>@color/primary_text_disable_only_material_dark</item>
-        <item>@color/primary_text_disable_only_material_light</item>
-        <item>@color/primary_text_material_dark</item>
-        <item>@color/primary_text_material_light</item>
-        <item>@color/search_url_text_material_dark</item>
-        <item>@color/search_url_text_material_light</item>
-    </array>
-    <array name="preloaded_freeform_multi_window_drawables">
-        <item>@drawable/decor_maximize_button_dark</item>
-        <item>@drawable/decor_maximize_button_light</item>
-    </array>
-    <string-array name="special_locale_codes">
-        <item>ar_EG</item>
-        <item>my_MM</item>
-        <item>zh_CN</item>
-        <item>zh_TW</item>
-    </string-array>
-    <string-array name="special_locale_names">
-        <item>العربية</item>
-        <item>မြန်မာ (Unicode)</item>
-        <item>中文 (简体)</item>
-        <item>中文 (繁體)</item>
-    </string-array>
-    <array name="sim_colors">
-        <item>@color/Teal_700</item>
-        <item>@color/Blue_700</item>
-        <item>@color/Indigo_700</item>
-        <item>@color/Purple_700</item>
-        <item>@color/Pink_700</item>
-        <item>@color/Red_700</item>
-    </array>
-    <string-array name="resolver_target_actions_pin">
-        <item>@string/pin_target</item>
-        <item>@string/app_info</item>
-    </string-array>
-    <string-array name="resolver_target_actions_unpin">
-        <item>@string/unpin_target</item>
-        <item>@string/app_info</item>
-    </string-array>
-    <string-array name="app_ops_labels">
-        <item>Trying to enable WLAN</item>
-        <item>Trying to enable BT</item>
-    </string-array>
-    <string-array name="power_off_alarm_apps">
-        <item>android</item>
-        <item>com.android.location.fused</item>
-        <item>com.android.settings</item>
-        <item>com.android.defcontainer</item>
-        <item>com.android.poweronalert</item>
-        <item>com.android.shell</item>
-        <item>com.android.deskclock</item>
-        <item>com.android.providers.media</item>
-        <item>com.android.inputdevices</item>
-        <item>com.android.providers.settings</item>
-        <item>com.android.externalstorage</item>
-        <item>com.android.providers.downloads.ui</item>
-    </string-array>
     <string-array name="black_listed_apps">
+        <item>com.samsung.android.app.watchmanager</item>
         <item>com.cequint.ecid</item>
+        <item>com.vzw.ecid</item>
         <item>com.mobitv.client.nfl2010</item>
         <item>com.gotv.nflgamecenter.us.lite</item>
         <item>com.samsung.vmmhux</item>
@@ -318,597 +111,119 @@
         <item>com.android.incallui</item>
         <item>com.samsung.android.incallui</item>
     </string-array>
-    <string-array name="shouldNotWriteMessage">
-        <item>com.android.mms</item>
-        <item>com.samsung.android.messaging</item>
-        <item>com.tmobile.vvm.application</item>
-        <item>com.metropcs.service.vvm</item>
-        <item>com.android.phone</item>
-        <item>com.android.bluetooth</item>
-        <item>com.samsung.vvm</item>
-        <item>de.telekom.mds.mbp</item>
-        <item>com.isis.mclient.atnt.activity</item>
-        <item>com.isis.mclient.tmobile.activity</item>
-        <item>com.isis.mclient.verizon.activity</item>
-        <item>com.isis.mclient.atnt.isistest</item>
-        <item>com.isis.mclient.tmobile.isistest</item>
-        <item>com.isis.mclient.verizon.isistest</item>
-        <item>com.cequint.ecid</item>
-        <item>com.att.eptt</item>
-        <item>cn.cj.pe</item>
-        <item>cn.emagsoftware.gamehall</item>
-        <item>com.iflytek.cmcc</item>
-        <item>com.autonavi.cmccmap</item>
-        <item>com.aspire.mm</item>
-        <item>com.asiainfo.android</item>
-        <item>pl.tmobile.vpabx</item>
-        <item>com.samsung.android.coreapps</item>
-        <item>com.chinamobile.cmccwifi</item>
-        <item>com.ophone.reader.ui</item>
-        <item>com.wsandroid.suite.vodaemea</item>
-        <item>com.samsung.android.app.sreminder</item>
-        <item>com.sec.android.app.mt</item>
-        <item>cmccwm.mobilemusic</item>
-        <item>com.bell.ptt</item>
-        <item>com.samsung.android.communicationservice</item>
-        <item>com.android.server.telecom</item>
+    <array name="carrier_properties" />
+    <string-array name="cinematic_service_list">
+        <item>com.android.systemui.infinity.InfinityWallpaperBlack</item>
+        <item>com.android.systemui.infinity.InfinityWallpaperOrchid</item>
+        <item>com.android.systemui.infinity.InfinityWallpaperSilver</item>
+        <item>com.android.systemui.infinity.InfinityWallpaperBlue</item>
+        <item>com.android.systemui.infinity.InfinityWallpaperGold</item>
+        <item>com.android.systemui.infinity.InfinityWallpaperPink</item>
     </string-array>
-    <string-array name="allowedOnDataDisabled">
-        <item>ims</item>
-        <item>xcap</item>
+    <array name="common_nicknames" />
+    <string-array name="components_desktop_mode">
+        <item>/</item>
     </string-array>
-    <string-array name="hideApnBlackList">
-        <item>ent1</item>
-        <item>ent2</item>
-        <item>ims</item>
-        <item>xcap</item>
+    <string-array name="components_normal_mode">
+        <item>/</item>
     </string-array>
-    <integer-array name="config_vibeCommonA">
+    <integer-array name="config_AdjustmentOfEBookSCRWhite">
         <item>0</item>
-        <item>7</item>
+        <item>-6</item>
+        <item>-22</item>
     </integer-array>
-    <integer-array name="config_vibeCommonB">
+    <integer-array name="config_AfcBrightnessValue">
         <item>0</item>
-        <item>7</item>
     </integer-array>
-    <integer-array name="config_vibeCommonC">
+    <integer-array name="config_AfcTableValue">
         <item>0</item>
-        <item>100</item>
-    </integer-array>
-    <integer-array name="config_vibeCommonD">
-        <item>0</item>
-        <item>100</item>
-        <item>50</item>
-        <item>30</item>
-    </integer-array>
-    <integer-array name="config_vibeCommonE">
-        <item>0</item>
-        <item>10</item>
-        <item>60</item>
-        <item>15</item>
-    </integer-array>
-    <integer-array name="config_vibeCommonF">
-        <item>0</item>
-        <item>7</item>
-    </integer-array>
-    <integer-array name="config_vibeCommonG">
-        <item>0</item>
-        <item>75</item>
-        <item>25</item>
-        <item>75</item>
-        <item>300</item>
-    </integer-array>
-    <integer-array name="config_vibeCommonH">
-        <item>0</item>
-        <item>500</item>
-    </integer-array>
-    <integer-array name="config_vibeCommonI">
-        <item>0</item>
-        <item>150</item>
-        <item>80</item>
-        <item>150</item>
-        <item>1120</item>
-    </integer-array>
-    <integer-array name="config_vibeCommonJ">
-        <item>0</item>
-        <item>250</item>
-        <item>250</item>
-        <item>250</item>
-        <item>250</item>
-    </integer-array>
-    <integer-array name="config_vibeCommonK">
-        <item>0</item>
-        <item>1500</item>
-        <item>2000</item>
-    </integer-array>
-    <integer-array name="config_vibeCommonL">
-        <item>0</item>
-        <item>250</item>
-        <item>250</item>
-        <item>250</item>
-        <item>250</item>
-        <item>250</item>
-        <item>750</item>
-    </integer-array>
-    <integer-array name="config_vibeCommonM">
-        <item>0</item>
-        <item>400</item>
-        <item>200</item>
-        <item>100</item>
-        <item>400</item>
-        <item>100</item>
-        <item>400</item>
-    </integer-array>
-    <integer-array name="config_vibeCommonN">
-        <item>0</item>
-        <item>10</item>
-        <item>-1</item>
-        <item>3</item>
-        <item>10</item>
-        <item>10000</item>
-        <item>1580</item>
-    </integer-array>
-    <integer-array name="config_vibeCommonO">
-        <item>0</item>
-        <item>3</item>
-        <item>-1</item>
-        <item>3</item>
-        <item>3</item>
-        <item>10000</item>
-        <item>2000</item>
-    </integer-array>
-    <integer-array name="config_vibeCommonP">
-        <item>0</item>
-        <item>5</item>
-        <item>-1</item>
-        <item>3</item>
-        <item>5</item>
-        <item>10000</item>
-        <item>2000</item>
-    </integer-array>
-    <integer-array name="config_vibeCommonQ">
-        <item>0</item>
-        <item>10</item>
-        <item>110</item>
-        <item>3</item>
-        <item>-1</item>
-        <item>9</item>
-        <item>10</item>
-        <item>10000</item>
-        <item>1580</item>
-        <item>110</item>
-        <item>0</item>
-        <item>1580</item>
-        <item>3</item>
-        <item>10000</item>
-        <item>2000</item>
-    </integer-array>
-    <integer-array name="config_valuesOfDefaultMagnitudeLevel">
-        <item>0</item>
-        <item>2000</item>
-        <item>4000</item>
-        <item>6000</item>
-        <item>8000</item>
-        <item>10000</item>
-    </integer-array>
-    <integer-array name="config_valuesOfDefaultTouchMagnitudeLevel">
-        <item>0</item>
-        <item>3400</item>
-        <item>4900</item>
-        <item>6500</item>
-        <item>8200</item>
-        <item>10000</item>
-    </integer-array>
-    <integer-array name="config_valuesOfDefaultMagnitudeLevelFrequency">
-        <item>0</item>
-        <item>3000</item>
-        <item>4000</item>
-        <item>6000</item>
-        <item>8000</item>
-        <item>10000</item>
-    </integer-array>
-    <integer-array name="config_valuesOfDefaultTouchMagnitudeLevelFrequency">
-        <item>0</item>
-        <item>2000</item>
-        <item>4000</item>
-        <item>6000</item>
-        <item>8000</item>
-        <item>10000</item>
-    </integer-array>
-    <integer-array name="config_valuesOfForceTouchMagnitudeLevel">
-        <item>2000</item>
-        <item>4000</item>
-        <item>6000</item>
-        <item>8000</item>
-        <item>10000</item>
-    </integer-array>
-    <integer-array name="config_valuesOfPMICMagnitudeLevel">
-        <item>0</item>
-        <item>1000</item>
-        <item>5000</item>
-        <item>9000</item>
-    </integer-array>
-    <string-array name="config_statusBarIcons">
-        <item>power_saver</item>
-        <item>rotate</item>
-        <item>headset</item>
-        <item>data_saver</item>
-        <item>managed_profile</item>
-        <item>knox_container</item>
-        <item>smart_network</item>
-        <item>felica_lock</item>
-        <item>ime</item>
-        <item>popup</item>
-        <item>volte</item>
-        <item>glove</item>
-        <item>gesture</item>
-        <item>smart_scroll</item>
-        <item>face</item>
-        <item>sync_failing</item>
-        <item>sync_active</item>
-        <item>cast</item>
-        <item>hotspot</item>
-        <item>location</item>
-        <item>gps</item>
-        <item>lbs</item>
-        <item>wearable_gear</item>
-        <item>bluetooth</item>
-        <item>nfc_on</item>
-        <item>nfc</item>
-        <item>femtoicon</item>
-        <item>tty</item>
-        <item>speakerphone</item>
-        <item>zen</item>
-        <item>mute</item>
-        <item>volume</item>
-        <item>com.samsung.rcs</item>
-        <item>vowifi</item>
-        <item>wifi_p2p</item>
-        <item>wifi</item>
-        <item>wifi_ap</item>
-        <item>wifi_oxygen</item>
-        <item>cdma_eri</item>
-        <item>phone_signal_second_sub</item>
-        <item>data_connection</item>
-        <item>phone_evdo_signal</item>
-        <item>phone_signal</item>
-        <item>battery</item>
-        <item>alarm_clock</item>
-        <item>toddler</item>
-        <item>ims_volte</item>
-        <item>keyguard_wakeup</item>
-        <item>safezone</item>
-        <item>secure</item>
-        <item>clock</item>
-        <item>wimax</item>
-        <item>smart_bonding</item>
-        <item>private_mode</item>
-    </string-array>
-    <string-array name="networkAttributes">
-        <item>wifi,1,1,1,-1,true</item>
-        <item>mobile,0,0,0,-1,true</item>
-        <item>mobile_mms,2,0,2,240000,true</item>
-        <item>mobile_supl,3,0,2,60000,true</item>
-        <item>mobile_dun,4,0,2,60000,true</item>
-        <item>mobile_hipri,5,0,3,60000,true</item>
-        <item>bluetooth,7,7,0,-1,true</item>
-        <item>ethernet,9,9,2,-1,true</item>
-        <item>mobile_fota,10,0,2,60000,true</item>
-        <item>mobile_ims,11,0,1,-1,true</item>
-        <item>mobile_cbs,12,0,2,60000,true</item>
-        <item>wifi_p2p,13,1,0,-1,true</item>
-        <item>mobile_ia,14,0,2,-1,true</item>
-        <item>mobile_emergency,15,0,2,-1,true</item>
-        <item>mobile_bip,23,0,2,60000,true</item>
-        <item>mobile_cas,24,0,3,60000,true</item>
-        <item>mobile_xcap,27,0,2,60000,true</item>
-        <item>mobile_ent1,28,0,2,-1,true</item>
-        <item>mobile_ent2,29,0,2,-1,true</item>
-    </string-array>
-    <integer-array name="config_protectedNetworks">
-        <item>10</item>
-        <item>11</item>
-        <item>12</item>
-        <item>14</item>
-        <item>15</item>
-    </integer-array>
-    <string-array name="radioAttributes">
-        <item>1,1</item>
-        <item>0,1</item>
-    </string-array>
-    <integer-array name="config_data_usage_network_types">
-        <item>0</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>10</item>
-        <item>12</item>
-        <item>14</item>
-    </integer-array>
-    <string-array name="config_tether_usb_regexs">
-        <item>usb\\d</item>
-        <item>rndis\\d</item>
-        <item>ncm\\d</item>
-    </string-array>
-    <string-array name="config_tether_wifi_regexs">
-        <item>wlan0</item>
-    </string-array>
-    <array name="config_tether_wimax_regexs" />
-    <string-array name="config_tether_bluetooth_regexs">
-        <item>bt-pan</item>
-    </string-array>
-    <array name="config_tether_dhcp_range" />
-    <array name="config_mobile_hotspot_provision_app" />
-    <integer-array name="config_tether_upstream_types">
-        <item>0</item>
-        <item>1</item>
-        <item>5</item>
-        <item>7</item>
-        <item>9</item>
-    </integer-array>
-    <array name="config_cdma_dun_supported_types" />
-    <array name="config_tether_apndata" />
-    <integer-array name="config_autoRotationTiltTolerance">
-        <item>-25</item>
-        <item>70</item>
-        <item>-25</item>
-        <item>65</item>
-        <item>-25</item>
-        <item>60</item>
-        <item>-25</item>
-        <item>65</item>
-    </integer-array>
-    <array name="config_usbHostBlacklist" />
-    <array name="config_serialPorts" />
-    <integer-array name="config_longPressVibePattern">
-        <item>0</item>
-        <item>1</item>
-        <item>20</item>
-        <item>21</item>
-    </integer-array>
-    <integer-array name="config_virtualKeyVibePattern">
-        <item>0</item>
-        <item>10</item>
-        <item>20</item>
-        <item>30</item>
-    </integer-array>
-    <integer-array name="config_keyboardTapVibePattern">
-        <item>40</item>
-    </integer-array>
-    <integer-array name="config_clockTickVibePattern">
-        <item>125</item>
-        <item>30</item>
-    </integer-array>
-    <integer-array name="config_calendarDateVibePattern">
-        <item>125</item>
-        <item>30</item>
-    </integer-array>
-    <integer-array name="config_safeModeDisabledVibePattern">
-        <item>0</item>
-        <item>1</item>
-        <item>20</item>
-        <item>21</item>
-    </integer-array>
-    <integer-array name="config_safeModeEnabledVibePattern">
-        <item>0</item>
-        <item>1</item>
-        <item>20</item>
-        <item>21</item>
-        <item>500</item>
-        <item>600</item>
-    </integer-array>
-    <integer-array name="config_scrollBarrierVibePattern">
-        <item>0</item>
-        <item>15</item>
-        <item>10</item>
-        <item>10</item>
-    </integer-array>
-    <integer-array name="config_contextClickVibePattern">
-        <item>0</item>
-        <item>1</item>
-        <item>20</item>
-        <item>21</item>
-    </integer-array>
-    <integer-array name="config_autoBrightnessLevels">
-        <item>15</item>
-        <item>150</item>
-        <item>1000</item>
-        <item>5000</item>
-    </integer-array>
-    <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>10</item>
-        <item>80</item>
-        <item>162</item>
-        <item>190</item>
-        <item>255</item>
-    </integer-array>
-    <array name="config_autoBrightnessButtonBacklightValues" />
-    <array name="config_autoBrightnessKeyboardBacklightValues" />
-    <array name="config_ephemeralResolverPackage" />
-    <string-array name="config_locationProviderPackageNames">
-        <item>com.google.android.gms</item>
-        <item>com.android.location.fused</item>
-    </string-array>
-    <array name="config_testLocationProviders" />
-    <array name="config_twoDigitNumberPattern" />
-    <array name="config_sms_enabled_single_shift_tables" />
-    <array name="config_sms_enabled_locking_shift_tables" />
-    <array name="config_oemUsbModeOverride" />
-    <string-array name="config_mobile_tcp_buffers">
-        <item>lte:1048576,3145728,4194304,524288,1572864,2097152</item>
-    </string-array>
-    <integer-array name="config_colorTransforms">
-        <item>-1</item>
-        <item>-1</item>
-        <item>-1</item>
-    </integer-array>
-    <integer-array name="config_onlySingleDcAllowed">
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>12</item>
-    </integer-array>
-    <integer-array name="config_defaultNotificationVibePattern">
-        <item>0</item>
-        <item>350</item>
-        <item>250</item>
-        <item>350</item>
-    </integer-array>
-    <integer-array name="config_notificationFallbackVibePattern">
-        <item>0</item>
-        <item>100</item>
-        <item>150</item>
-        <item>100</item>
-    </integer-array>
-    <string-array name="config_disabledUntilUsedPreinstalledImes">
-        <item>com.android.inputmethod.latin</item>
-    </string-array>
-    <array name="config_disabledUntilUsedPreinstalledCarrierApps" />
-    <string-array name="config_notificationSignalExtractors">
-        <item>com.android.server.notification.ValidateNotificationPeople</item>
-        <item>com.android.server.notification.PriorityExtractor</item>
-        <item>com.android.server.notification.ImportanceExtractor</item>
-        <item>com.android.server.notification.NotificationIntrusivenessExtractor</item>
-        <item>com.android.server.notification.VisibilityExtractor</item>
-    </string-array>
-    <array name="config_operatorConsideredNonRoaming" />
-    <array name="config_sameNamedOperatorConsideredRoaming" />
-    <string-array name="config_callBarringMMI">
-        <item>33</item>
-        <item>331</item>
-        <item>332</item>
-        <item>35</item>
-        <item>351</item>
-        <item>330</item>
-        <item>333</item>
-        <item>353</item>
-    </string-array>
-    <string-array name="config_globalActionsList">
-        <item>power</item>
-        <item>datamode</item>
-        <item>airplane</item>
-        <item>restart</item>
-        <item>lockdown</item>
-        <item>bugreport</item>
-        <item>users</item>
-        <item>emergencymode</item>
-        <item>subscreen</item>
-        <item>rebootrecovery</item>
-        <item>screenshot</item>
-        <item>screenrec</item>
-        <item>flashlight</item>
-        <item>quickreboot</item>
-    </string-array>
-    <string-array name="config_telephonyHardware">
-        <item>0,modem,0,0,0,1,1,1</item>
-        <item>1,sim,0,modem</item>
-    </string-array>
-    <array name="config_cdma_home_system" />
-    <string-array name="no_ems_support_sim_operators">
-        <item>20404;suffix;BAE0000000000000</item>
-    </string-array>
-    <string-array name="config_gpsParameters">
-        <item>SUPL_HOST=supl.google.com</item>
-        <item>SUPL_PORT=7275</item>
-        <item>NTP_SERVER=north-america.pool.ntp.org</item>
-        <item>SUPL_VER=0x20000</item>
-        <item>SUPL_MODE=1</item>
-    </string-array>
-    <array name="config_default_vm_number" />
-    <array name="dial_string_replace" />
-    <string-array name="networks_not_clear_data">
-        <item>71203</item>
-        <item>71606</item>
-        <item>71610</item>
-        <item>732101</item>
-    </string-array>
-    <string-array name="config_system_condition_providers">
-        <item>countdown</item>
-        <item>schedule</item>
-        <item>event</item>
-    </string-array>
-    <string-array name="config_sms_convert_destination_number_support">
-        <item>false</item>
-    </string-array>
-    <array name="config_cdma_international_roaming_indicators" />
-    <array name="config_cell_retries_per_error_code" />
-    <array name="launchboost_param_value" />
-    <array name="lboostv2_param_value" />
-    <array name="freqaggr_init_param_value" />
-    <array name="freqaggr_param_value" />
-    <array name="launchboost_packing_param_value" />
-    <array name="animationboost_param_value" />
-    <array name="flingboost_param_value" />
-    <array name="scrollboost_param_value" />
-    <array name="boost_activityList" />
-    <array name="ascrollboost_param_value" />
-    <array name="debugBoost_activityList" />
-    <array name="debugBoost_param_value" />
-    <array name="panelview_flingboost_param_value" />
-    <array name="config_defaultPinnerServiceFiles" />
-    <string-array name="origin_carrier_names">
-        <item>"CHINA  MOBILE"</item>
-        <item>CMCC</item>
-        <item>CHN-UNICOM</item>
-        <item>China Mobile</item>
-        <item>China Unicom</item>
-        <item>China Telecom</item>
-        <item>CHN-CT</item>
-        <item>中国移动</item>
-        <item>中国联通</item>
-        <item>中国电信</item>
-        <item>中國移動</item>
-        <item>中國聯通</item>
-        <item>中國電信</item>
-        <item>Searching for Service</item>
-    </string-array>
-    <string-array name="locale_carrier_names">
-        <item>China_Mobile</item>
-        <item>China_Mobile</item>
-        <item>China_Unicom</item>
-        <item>China_Mobile</item>
-        <item>China_Unicom</item>
-        <item>China_Telecom</item>
-        <item>China_Telecom</item>
-        <item>China_Mobile</item>
-        <item>China_Unicom</item>
-        <item>China_Telecom</item>
-        <item>China_Mobile</item>
-        <item>China_Unicom</item>
-        <item>China_Telecom</item>
-        <item>roamingTextSearching</item>
-    </string-array>
-    <array name="keypress_param_value" />
-    <integer-array name="umts_signal_strength_threshold">
-        <item>-140</item>
-        <item>-113</item>
-        <item>-103</item>
-        <item>-97</item>
-        <item>-89</item>
-        <item>-44</item>
-    </integer-array>
-    <integer-array name="lte_signal_strength_threshold">
-        <item>-140</item>
-        <item>-120</item>
-        <item>-115</item>
-        <item>-110</item>
-        <item>-100</item>
-        <item>-44</item>
     </integer-array>
     <string-array name="config_Android_App_Launcher">
         <item>com.sec.android.app.launcher.activities.LauncherActivity</item>
     </string-array>
-    <string-array name="config_Sbrowser_App_Launcher">
-        <item>com.sec.android.app.sbrowser</item>
+    <string-array name="config_Camera_App_Launcher">
+        <item>com.sec.android.app.camera</item>
+        <item>com.sec.android.app.clipvideo</item>
     </string-array>
     <string-array name="config_ChromeBrowser_App_Launcher">
         <item>com.android.chrome</item>
     </string-array>
+    <string-array name="config_CoefficientValues">
+        <item>-1.1785</item>
+        <item>-17.1191</item>
+        <item>3.2885</item>
+        <item>13.4797</item>
+        <item>-9.5548</item>
+        <item>-1.4593</item>
+        <item>-3.3245</item>
+        <item>-5.6718</item>
+        <item>5.2332</item>
+        <item>7.5901</item>
+        <item>-8.7085</item>
+        <item>-1.2679</item>
+        <item>1.3927</item>
+        <item>5.2581</item>
+        <item>-2.6969</item>
+        <item>-6.9220</item>
+        <item>5.2016</item>
+        <item>2.9541</item>
+        <item>-1.1306</item>
+        <item>2.2408</item>
+        <item>2.1656</item>
+        <item>-2.5324</item>
+        <item>-1.2400</item>
+        <item>1.2533</item>
+        <item>0.0</item>
+        <item>0.0</item>
+        <item>0.4994</item>
+        <item>-0.4224</item>
+        <item>0.0</item>
+        <item>0.9860</item>
+        <item>0.0</item>
+        <item>0.0</item>
+        <item>-0.5084</item>
+        <item>0.1660</item>
+        <item>0.0</item>
+        <item>1.1356</item>
+    </string-array>
+    <integer-array name="config_CoprRoiTableValue">
+        <item>0</item>
+    </integer-array>
+    <integer-array name="config_CoprRoiXYValue">
+        <item>0</item>
+    </integer-array>
+    <string-array name="config_Display_Solution_Brightness_Value">
+        <item>1.43</item>
+        <item>1.43</item>
+        <item>189.00</item>
+    </string-array>
+    <string-array name="config_Display_Solution_Scale_Factor_Value">
+        <item>0.82</item>
+        <item>0.87</item>
+        <item>0.91</item>
+        <item>0.95</item>
+        <item>1.00</item>
+        <item>1.11</item>
+        <item>1.16</item>
+        <item>1.21</item>
+        <item>1.27</item>
+        <item>1.43</item>
+        <item>-1.00</item>
+    </string-array>
+    <string-array name="config_Dmb_App_Launcher">
+        <item>com.sec.android.app.dmb</item>
+    </string-array>
+    <string-array name="config_Ebook_App_Launcher">
+        <item>com.google.android.apps.books</item>
+    </string-array>
+    <string-array name="config_Email_App_Launcher">
+        <item>com.samsung.android.email.ui</item>
+    </string-array>
     <string-array name="config_Gallery_App_Launcher">
         <item>com.sec.android.gallery3d.app.GalleryOpaqueActivity</item>
+    </string-array>
+    <string-array name="config_Gallery_App_Launcher_From_Camera">
+        <item>com.sec.android.gallery3d.app.GalleryActivity</item>
     </string-array>
     <string-array name="config_Gallery_App_Multi_View_Launcher">
         <item>com.samsung.android.app.interactivepanoramaviewer</item>
@@ -919,12 +234,14 @@
         <item>com.sec.android.mimage.photoretouching.multigrid.MultiGridActivity</item>
         <item>com.sec.spen.flashannotate.FlashAnnotateActivity</item>
     </string-array>
-    <string-array name="config_Gallery_App_Launcher_From_Camera">
-        <item>com.sec.android.gallery3d.app.GalleryActivity</item>
+    <string-array name="config_HDR_Effect_Preload_List">
+        <item>com.sec.android.app.dmb</item>
+        <item>com.samsung.android.app.dtv.dmb</item>
+        <item>com.samsung.android.video</item>
     </string-array>
-    <string-array name="config_Camera_App_Launcher">
-        <item>com.sec.android.app.camera</item>
-        <item>com.sec.android.app.clipvideo</item>
+    <array name="config_POC_RGB_Element" />
+    <string-array name="config_Sbrowser_App_Launcher">
+        <item>com.sec.android.app.sbrowser</item>
     </string-array>
     <string-array name="config_Svideo_App_Launcher">
         <item>com.samsung.android.video.player.activity.MoviePlayer</item>
@@ -933,6 +250,11 @@
     <string-array name="config_Svideo_App_Option_Launcher">
         <item>com.sec.android.app.vepreload.activity.SimpleVideoEditActivity</item>
     </string-array>
+    <integer-array name="config_TestSCRWhite">
+        <item>3570</item>
+        <item>3067</item>
+        <item>3607</item>
+    </integer-array>
     <string-array name="config_Video_App_Launcher">
         <item>com.telstra.android.afl</item>
         <item>air.com.hongyoun.and.bikiniTV</item>
@@ -1326,84 +648,425 @@
         <item>com.hoopladigital.android</item>
         <item>com.mobitv.client.sprinttvng</item>
         <item>com.kt.otv</item>
+        <item>com.skt.skaf.A000VODBOX</item>
+        <item>com.dazn</item>
     </string-array>
-    <string-array name="config_Email_App_Launcher">
-        <item>com.samsung.android.email.ui</item>
-    </string-array>
-    <string-array name="config_Ebook_App_Launcher">
-        <item>com.google.android.apps.books</item>
-    </string-array>
-    <string-array name="config_Dmb_App_Launcher">
-        <item>com.sec.android.app.dmb</item>
-    </string-array>
-    <string-array name="config_HDR_Effect_Preload_List">
-        <item>com.sec.android.app.dmb</item>
-        <item>com.samsung.android.video</item>
-    </string-array>
-    <string-array name="config_Display_Solution_Scale_Factor_Value">
-        <item>0.82</item>
-        <item>0.87</item>
-        <item>0.91</item>
-        <item>0.95</item>
-        <item>1.00</item>
-        <item>1.11</item>
-        <item>1.16</item>
-        <item>1.21</item>
-        <item>1.27</item>
-        <item>1.32</item>
-        <item>1.38</item>
-        <item>1.43</item>
-        <item>-1.00</item>
-    </string-array>
-    <integer-array name="config_AdjustmentOfEBookSCRWhite">
+    <integer-array name="config_XrgbTableValue">
         <item>0</item>
-        <item>-6</item>
-        <item>-22</item>
     </integer-array>
-    <integer-array name="config_TestSCRWhite">
-        <item>3570</item>
-        <item>3067</item>
-        <item>3607</item>
-    </integer-array>
-    <string-array name="config_CoefficientValues">
-        <item>-1.1785</item>
-        <item>-17.1191</item>
-        <item>3.2885</item>
-        <item>13.4797</item>
-        <item>-9.5548</item>
-        <item>-1.4593</item>
-        <item>-3.3245</item>
-        <item>-5.6718</item>
-        <item>5.2332</item>
-        <item>7.5901</item>
-        <item>-8.7085</item>
-        <item>-1.2679</item>
-        <item>1.3927</item>
-        <item>5.2581</item>
-        <item>-2.6969</item>
-        <item>-6.9220</item>
-        <item>5.2016</item>
-        <item>2.9541</item>
-        <item>-1.1306</item>
-        <item>2.2408</item>
-        <item>2.1656</item>
-        <item>-2.5324</item>
-        <item>-1.2400</item>
-        <item>1.2533</item>
-        <item>0.0</item>
-        <item>0.0</item>
-        <item>0.4994</item>
-        <item>-0.4224</item>
-        <item>0.0</item>
-        <item>0.9860</item>
-        <item>0.0</item>
-        <item>0.0</item>
-        <item>-0.5084</item>
-        <item>0.1660</item>
-        <item>0.0</item>
-        <item>1.1356</item>
+    <string-array name="config_adaptiveControlValues">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
     </string-array>
+    <array name="config_allowedGlobalInstantAppSettings" />
+    <array name="config_allowedSecureInstantAppSettings" />
+    <array name="config_allowedSystemInstantAppSettings" />
+    <array name="config_aodBrightnessValues" />
+    <array name="config_autoBrightnessButtonBacklightValues" />
+    <array name="config_autoBrightnessKeyboardBacklightValues" />
+    <integer-array name="config_autoBrightnessLcdBacklightValues">
+        <item>10</item>
+        <item>80</item>
+        <item>162</item>
+        <item>190</item>
+        <item>255</item>
+    </integer-array>
+    <integer-array name="config_autoBrightnessLevels">
+        <item>15</item>
+        <item>150</item>
+        <item>1000</item>
+        <item>5000</item>
+    </integer-array>
+    <integer-array name="config_autoRotationTiltTolerance">
+        <item>-25</item>
+        <item>70</item>
+        <item>-25</item>
+        <item>65</item>
+        <item>-25</item>
+        <item>60</item>
+        <item>-25</item>
+        <item>65</item>
+    </integer-array>
+    <array name="config_batteryPackageTypeService" />
+    <string-array name="config_batteryPackageTypeSystem">
+        <item>com.android.providers.calendar</item>
+        <item>com.android.providers.media</item>
+        <item>com.android.systemui</item>
+    </string-array>
+    <integer-array name="config_calendarDateVibePattern">
+        <item>125</item>
+        <item>30</item>
+    </integer-array>
+    <string-array name="config_callBarringMMI">
+        <item>33</item>
+        <item>331</item>
+        <item>332</item>
+        <item>35</item>
+        <item>351</item>
+        <item>330</item>
+        <item>333</item>
+        <item>353</item>
+    </string-array>
+    <array name="config_cdma_dun_supported_types" />
+    <array name="config_cdma_home_system" />
+    <array name="config_cdma_international_roaming_indicators" />
+    <array name="config_cell_retries_per_error_code" />
+    <integer-array name="config_clockTickVibePattern">
+        <item>125</item>
+        <item>30</item>
+    </integer-array>
+    <integer-array name="config_contextClickVibePattern">
+        <item>0</item>
+        <item>1</item>
+        <item>20</item>
+        <item>21</item>
+    </integer-array>
+    <array name="config_convert_to_emergency_number_map" />
+    <integer-array name="config_data_usage_network_types">
+        <item>0</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>10</item>
+        <item>12</item>
+        <item>14</item>
+    </integer-array>
+    <array name="config_defaultFirstUserRestrictions" />
+    <integer-array name="config_defaultNotificationVibePattern">
+        <item>0</item>
+        <item>250</item>
+        <item>250</item>
+        <item>250</item>
+    </integer-array>
+    <array name="config_defaultPinnerServiceFiles" />
+    <array name="config_default_vm_number" />
+    <array name="config_disabledUntilUsedPreinstalledCarrierApps" />
+    <string-array name="config_disabledUntilUsedPreinstalledImes">
+        <item>com.android.inputmethod.latin</item>
+    </string-array>
+    <integer-array name="config_dynamicAutoBrightnessHighHysteresisLevels">
+        <item>0</item>
+        <item>4</item>
+        <item>7</item>
+        <item>10</item>
+        <item>15</item>
+        <item>300</item>
+        <item>1000</item>
+        <item>1500</item>
+        <item>3000</item>
+        <item>5000</item>
+        <item>6000</item>
+        <item>10000</item>
+        <item>10000</item>
+        <item>40000</item>
+        <item>40000</item>
+        <item>1000000</item>
+    </integer-array>
+    <integer-array name="config_dynamicAutoBrightnessHighHysteresisLevelsForEbookOnly">
+        <item>0</item>
+        <item>15</item>
+        <item>15</item>
+        <item>150</item>
+        <item>1500</item>
+        <item>5000</item>
+        <item>10000</item>
+        <item>39999</item>
+        <item>40000</item>
+    </integer-array>
+    <integer-array name="config_dynamicAutoBrightnessHighHysteresisValues">
+        <item>40</item>
+        <item>40</item>
+        <item>44</item>
+        <item>50</item>
+        <item>57</item>
+        <item>112</item>
+        <item>122</item>
+        <item>128</item>
+        <item>165</item>
+        <item>217</item>
+        <item>255</item>
+        <item>282</item>
+        <item>296</item>
+        <item>310</item>
+        <item>337</item>
+        <item>351</item>
+    </integer-array>
+    <integer-array name="config_dynamicAutoBrightnessHighHysteresisValuesForEbookOnly">
+        <item>10</item>
+        <item>10</item>
+        <item>12</item>
+        <item>40</item>
+        <item>82</item>
+        <item>200</item>
+        <item>300</item>
+        <item>300</item>
+        <item>400</item>
+    </integer-array>
+    <integer-array name="config_dynamicAutoBrightnessLevels">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>10</item>
+        <item>30</item>
+        <item>50</item>
+        <item>100</item>
+        <item>200</item>
+        <item>500</item>
+        <item>1000</item>
+        <item>2000</item>
+        <item>2999</item>
+        <item>3000</item>
+        <item>3999</item>
+        <item>4000</item>
+        <item>4999</item>
+        <item>5000</item>
+        <item>9999</item>
+        <item>10000</item>
+        <item>19999</item>
+        <item>20000</item>
+        <item>29999</item>
+        <item>30000</item>
+        <item>39999</item>
+        <item>40000</item>
+    </integer-array>
+    <integer-array name="config_dynamicAutoBrightnessLevelsForEbookOnly">
+        <item>0</item>
+        <item>6</item>
+        <item>50</item>
+        <item>500</item>
+        <item>1000</item>
+        <item>4999</item>
+        <item>5000</item>
+        <item>39999</item>
+        <item>40000</item>
+    </integer-array>
+    <integer-array name="config_dynamicAutoBrightnessLowHysteresisLevels">
+        <item>0</item>
+        <item>0</item>
+        <item>5</item>
+        <item>25</item>
+        <item>200</item>
+        <item>300</item>
+        <item>400</item>
+        <item>500</item>
+        <item>1000</item>
+        <item>2000</item>
+        <item>3000</item>
+        <item>5000</item>
+    </integer-array>
+    <integer-array name="config_dynamicAutoBrightnessLowHysteresisLevelsForEbookOnly">
+        <item>0</item>
+        <item>0</item>
+        <item>5</item>
+        <item>50</item>
+        <item>1000</item>
+        <item>1000</item>
+        <item>9999</item>
+        <item>10000</item>
+    </integer-array>
+    <integer-array name="config_dynamicAutoBrightnessLowHysteresisValues">
+        <item>40</item>
+        <item>101</item>
+        <item>112</item>
+        <item>128</item>
+        <item>255</item>
+        <item>282</item>
+        <item>296</item>
+        <item>310</item>
+        <item>324</item>
+        <item>337</item>
+        <item>351</item>
+        <item>365</item>
+    </integer-array>
+    <integer-array name="config_dynamicAutoBrightnessLowHysteresisValuesForEbookOnly">
+        <item>10</item>
+        <item>30</item>
+        <item>40</item>
+        <item>82</item>
+        <item>230</item>
+        <item>300</item>
+        <item>300</item>
+        <item>400</item>
+    </integer-array>
+    <integer-array name="config_dynamicAutoBrightnessValues">
+        <item>40</item>
+        <item>44</item>
+        <item>50</item>
+        <item>57</item>
+        <item>61</item>
+        <item>65</item>
+        <item>86</item>
+        <item>112</item>
+        <item>112</item>
+        <item>113</item>
+        <item>118</item>
+        <item>128</item>
+        <item>165</item>
+        <item>255</item>
+        <item>255</item>
+        <item>282</item>
+        <item>282</item>
+        <item>296</item>
+        <item>296</item>
+        <item>310</item>
+        <item>310</item>
+        <item>324</item>
+        <item>324</item>
+        <item>337</item>
+        <item>337</item>
+        <item>351</item>
+        <item>351</item>
+        <item>365</item>
+    </integer-array>
+    <integer-array name="config_dynamicAutoBrightnessValuesForEbookOnly">
+        <item>10</item>
+        <item>10</item>
+        <item>40</item>
+        <item>82</item>
+        <item>140</item>
+        <item>260</item>
+        <item>300</item>
+        <item>300</item>
+        <item>400</item>
+    </integer-array>
+    <integer-array name="config_dynamicHysteresisBrightLevels">
+        <item>100</item>
+    </integer-array>
+    <integer-array name="config_dynamicHysteresisDarkLevels">
+        <item>200</item>
+    </integer-array>
+    <array name="config_dynamicHysteresisLuxLevels" />
+    <integer-array name="config_emergency_mcc_codes">
+        <item>404</item>
+        <item>405</item>
+    </integer-array>
+    <string-array name="config_ephemeralResolverPackage">
+        <item>com.google.android.gms</item>
+    </string-array>
+    <string-array name="config_globalActionsList">
+        <item>power</item>
+        <item>datamode</item>
+        <item>airplane</item>
+        <item>restart</item>
+        <item>lockdown</item>
+        <item>bugreport</item>
+        <item>users</item>
+        <item>emergencymode</item>
+        <item>subscreen</item>
+    </string-array>
+    <string-array name="config_gpsParameters">
+        <item>SUPL_HOST=supl.google.com</item>
+        <item>SUPL_PORT=7275</item>
+        <item>NTP_SERVER=north-america.pool.ntp.org</item>
+        <item>SUPL_VER=0x20000</item>
+        <item>SUPL_MODE=1</item>
+    </string-array>
+    <array name="config_hideWhenDisabled_packageNames" />
+    <integer-array name="config_keyboardTapVibePattern">
+        <item>40</item>
+    </integer-array>
+    <string-array name="config_locationProviderPackageNames">
+        <item>com.google.android.gms</item>
+        <item>com.android.location.fused</item>
+    </string-array>
+    <string-array name="config_locationProviderPackageNames_chn">
+        <item>com.baidu.map.location</item>
+        <item>com.amap.android.location</item>
+        <item>com.tencent.android.location</item>
+        <item>com.sec.location.nsflp2</item>
+        <item>com.android.location.fused</item>
+    </string-array>
+    <integer-array name="config_longPressVibePattern">
+        <item>0</item>
+        <item>1</item>
+        <item>20</item>
+        <item>21</item>
+    </integer-array>
+    <integer-array name="config_lteDbmThresholds">
+        <item>-140</item>
+        <item>-128</item>
+        <item>-118</item>
+        <item>-108</item>
+        <item>-98</item>
+        <item>-44</item>
+    </integer-array>
+    <integer-array name="config_minimumExpressiveBrightnessValues">
+        <item>15</item>
+        <item>20</item>
+        <item>27</item>
+    </integer-array>
+    <array name="config_mobile_hotspot_provision_app" />
+    <string-array name="config_mobile_tcp_buffers">
+        <item>lte:1048576,3145728,4194304,524288,1572864,2097152</item>
+    </string-array>
+    <string-array name="config_mobile_tcp_buffers_vzw">
+        <item>lte:2097152,6294156,12582912,524288,1048576,2560000</item>
+        <item>1xrtt:4096,32768,32768,4096,16384,102400</item>
+        <item>umts:4094,87380,1220608,4096,16384,1220608</item>
+        <item>hspa:4094,87380,704512,4096,16384,262144</item>
+        <item>hsupa:4094,87380,704512,4096,16384,262144</item>
+        <item>hsdpa:4094,87380,704512,4096,16384,262144</item>
+        <item>hspap:4094,87380,1220608,4096,16384,1220608</item>
+        <item>edge:4093,26280,35040,4096,16384,35040</item>
+        <item>gprs:4092,8760,11680,4096,8760,11680</item>
+    </string-array>
+    <array name="config_multiWindowSupportAppList" />
+    <array name="config_networkNotifySwitches" />
+    <string-array name="config_nonBlockableNotificationPackages">
+        <item>com.sec.android.app.cmas:cmas_message</item>
+        <item>com.sec.android.app.setupwizard:Setup Wizard</item>
+        <item>com.android.systemui:LBT</item>
+        <item>com.samsung.android.messaging:CHANNEL_ID_CMAS</item>
+        <item>com.samsung.android.contacts</item>
+    </string-array>
+    <integer-array name="config_notificationFallbackVibePattern">
+        <item>0</item>
+        <item>100</item>
+        <item>150</item>
+        <item>100</item>
+    </integer-array>
+    <string-array name="config_notificationSignalExtractors">
+        <item>com.android.server.notification.ValidateNotificationPeople</item>
+        <item>com.android.server.notification.PriorityExtractor</item>
+        <item>com.android.server.notification.ImportanceExtractor</item>
+        <item>com.android.server.notification.NotificationIntrusivenessExtractor</item>
+        <item>com.android.server.notification.VisibilityExtractor</item>
+        <item>com.android.server.notification.BadgeExtractor</item>
+    </string-array>
+    <array name="config_oemUsbModeOverride" />
+    <array name="config_operatorConsideredNonRoaming" />
+    <integer-array name="config_protectedNetworks">
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>14</item>
+        <item>15</item>
+    </integer-array>
+    <integer-array name="config_safeModeDisabledVibePattern">
+        <item>0</item>
+        <item>1</item>
+        <item>20</item>
+        <item>21</item>
+    </integer-array>
+    <integer-array name="config_safeModeEnabledVibePattern">
+        <item>0</item>
+        <item>1</item>
+        <item>20</item>
+        <item>21</item>
+        <item>500</item>
+        <item>600</item>
+    </integer-array>
+    <array name="config_sameNamedOperatorConsideredRoaming" />
     <string-array name="config_samsung_relaxed_broadcast_actions">
+        <item>com.samsung.android.rubin.app.intent.action.CM_LOGGING</item>
         <item>android.speech.tts.TTS_QUEUE_PROCESSING_COMPLETED</item>
         <item>com.samsung.android.providers.context.log.action.USE_APP_FEATURE_SURVEY</item>
         <item>com.samsung.android.providers.context.log.action.REPORT_APP_STATUS_SURVEY</item>
@@ -1412,25 +1075,59 @@
         <item>com.samsung.android.providers.context.WEEKLY_BROADCAST</item>
         <item>com.samsung.android.providers.context.log.action.GET_DID</item>
         <item>com.samsung.android.providers.context.log.action.REQUEST_DID</item>
-        <item>com.sec.android.intent.action.SSRM_REQUEST</item>
         <item>com.samsung.intent.action.SSRM_REQUEST</item>
         <item>com.samsung.android.action.BLUETOOTH_DEVICE</item>
         <item>com.samsung.intent.videoexist</item>
         <item>com.samsung.CONTEXT_AWARE_MUSIC_INFO</item>
         <item>com.samsung.intent.action.SEC_PRESENTATION_STOP</item>
         <item>com.samsung.intent.action.SEC_PRESENTATION_START</item>
+        <item>com.samsung.intent.action.WIFI_DISPLAY_SINK_STATE</item>
         <item>com.sec.android.screensharing.LOGGING</item>
         <item>com.sec.android.screensharing.DLNA_DISCONNECTION_REQUEST</item>
         <item>com.sec.android.sidesync.source.action.STOP_SERVICE</item>
         <item>com.sec.android.sidesync.sink.action.STOP_SERVICE</item>
         <item>com.sec.android.sidesync.action.FINISH_SIDESYNC_APP</item>
+        <item>com.sec.android.screensharing.LOGGING</item>
+        <item>com.android.launcher.action.INSTALL_SHORTCUT</item>
+        <item>com.sec.app.accesscontrol.ACTION_STOP_SELF</item>
+        <item>ACTION_MOVIE_PLAYER_STATE_IN</item>
+        <item>ACTION_MOVIE_PLAYER_STATE_OUT</item>
         <item>com.samsung.cover.REMOTEVIEWS_UPDATE</item>
         <item>com.samsung.android.app.accesscontrol.TOGGLE_MODE</item>
+        <item>com.samsung.pen.INSERT.USER_SWITCH</item>
+        <item>com.samsung.pen.INSERT</item>
+        <item>com.sec.android.intent.action.SG_TRIGGER</item>
+        <item>com.sec.android.statistics.VZW_QUALITY_STATISTICS</item>
+        <item>com.sec.imsservice.sip.signalling</item>
+        <item>hw_keyboard_connection</item>
+        <item>SamsungIME.UpdateAvailableLanguageAction</item>
+        <item>com.samsung.systemui.popup.intent.DATA_CONNECTION_ERROR</item>
+        <item>action_download_complete</item>
+        <item>commit_char</item>
+        <item>com.sec.android.sidesync.source.SHOW_SIP</item>
+        <item>inputLanguageAction</item>
+        <item>com.sec.android.inputmethod.Subtype</item>
+        <item>com.sec.android.inputmethod.VOICE_INPUT_STARTED</item>
+        <item>com.samsung.android.universalswitch.SipInformation</item>
+        <item>ResponseAxT9Info</item>
+        <item>ResponseAxT9InfoTypeChanged</item>
+        <item>com.sec.android.inputmethod.SIPShown</item>
+        <item>com.samsung.android.intent.action.RESPONSE_BACKUP_SIP</item>
+        <item>com.samsung.android.intent.action.RESPONSE_RESTORE_SIP</item>
+        <item>com.sec.android.inputmethod.removeTerm</item>
+        <item>com.samsung.android.providers.context.log.action.REPORT_MULTI_APP_STATUS_SURVEY</item>
+        <item>com.samsung.android.providers.context.log.action.USE_APP_FEATURE_SURVEY</item>
+        <item>com.samsung.android.inputmethod.handwriting_language_list</item>
+        <item>com.android.server.inputmethodmanagerservice.SWITCHING_DIALOG_CANCEL</item>
+        <item>ACTION_SWITCHING_DIALOG_SHOWN</item>
+        <item>android.settings.SHOW_INPUT_METHOD_PICKER</item>
         <item>com.sec.spp.action.SPP_REQUEST</item>
         <item>com.sec.spp.push.PUSH_CLIENT_SERVICE_ACTION</item>
         <item>com.sec.spp.push.REQUEST_REGISTER</item>
         <item>com.sec.spp.push.REQUEST_DEREGISTER</item>
         <item>com.sec.intent.action.BADGE_COUNT_UPDATE</item>
+        <item>com.samsung.android.net.wifi.WIFI_DIALOG_CANCEL_ACTION</item>
+        <item>com.samsung.android.net.wifi.SEC_PICK_WIFI_NETWORK</item>
         <item>com.autonavi.minimap.carmode.command</item>
         <item>com.autonavi.amapauto.ml</item>
         <item>com.baidu.navi.action.EXIT_REQ</item>
@@ -1458,6 +1155,861 @@
         <item>com.wedrive.android.navigation.action.CANCEL_NAVIGATION</item>
         <item>INRIX_SDK.LOCATION_CHANGED_ACTION</item>
         <item>com.glympse.android.hal.service.STARTED</item>
+        <item>com.samsung.accessory.intent.action.CHECK_NOTIFICATION_ITEM</item>
+        <item>com.samsung.accessory.intent.action.ALERT_NOTIFICATION_ITEM</item>
+        <item>com.samsung.accessory.intent.action.ACTION_CHECK_MUTE_ITEM</item>
+        <item>com.android.launcher.action.UNINSTALL_SHORTCUT</item>
+        <item>android.media.AUDIO_BECOMING_NOISY_SEC</item>
+        <item>com.sec.android.intent.action.WALLPAPER_CHANGED</item>
+        <item>com.android.launcher.action.UNINSTALL_SHORTCUT</item>
+        <item>com.samsung.intent.action.SEC_FACTORY_RESET_WITHOUT_FACTORY_UI</item>
+        <item>com.sec.android.app.setupwizard.NOTIFICATION_CANCEL</item>
+        <item>com.verizon.mips.START_VZW_APPS_DOWNLOAD</item>
+        <item>com.verizon.mips.DO_SETUP_COMPLETE</item>
+        <item>com.vcast.mediamanager.START_CLOUD</item>
+        <item>com.vcast.mediamanager.END_SETUP</item>
+        <item>com.sec.android.app.setupwizard.SETUPWIZARD_COMPLETE</item>
+        <item>com.samsung.vzw.activationagent.intent.action.SET_MOBILEDATA_MULTIUSER</item>
+        <item>com.android.MTP.OBJECT_REMOVED</item>
+        <item>com.android.MTP.OBJECT_ADDED</item>
+        <item>com.android.MTP.OBJECT_PROP_CHANGED</item>
+        <item>android.samsung.media.action.receiver_sar</item>
+        <item>com.samsung.rcs.contentsharing.action.DISCONNECT_SHARE</item>
+        <item>com.samsung.android.nearbyscanning</item>
+        <item>com.samsung.rcs.intent.action.RESUME_SHARING_SERVICE_DIALOG</item>
+        <item>android.intent.action.SHOW_GLOBAL_ACTIONS</item>
+    </string-array>
+    <integer-array name="config_screenBrightnessRangeForClearView">
+        <item>255</item>
+        <item>281</item>
+    </integer-array>
+    <integer-array name="config_scrollBarrierVibePattern">
+        <item>0</item>
+        <item>15</item>
+        <item>10</item>
+        <item>10</item>
+    </integer-array>
+    <array name="config_serialPorts" />
+    <array name="config_sms_enabled_locking_shift_tables" />
+    <array name="config_sms_enabled_single_shift_tables" />
+    <string-array name="config_statusBarIcons">
+        <item>power_saver</item>
+        <item>rotate</item>
+        <item>headset</item>
+        <item>data_saver</item>
+        <item>managed_profile</item>
+        <item>knox_container</item>
+        <item>smart_network</item>
+        <item>felica_lock</item>
+        <item>ime</item>
+        <item>popup</item>
+        <item>volte</item>
+        <item>glove</item>
+        <item>gesture</item>
+        <item>smart_scroll</item>
+        <item>face</item>
+        <item>sync_failing</item>
+        <item>sync_active</item>
+        <item>cast</item>
+        <item>hotspot</item>
+        <item>location</item>
+        <item>gps</item>
+        <item>lbs</item>
+        <item>wearable_gear</item>
+        <item>bluetooth</item>
+        <item>nfc_on</item>
+        <item>nfc</item>
+        <item>femtoicon</item>
+        <item>tty</item>
+        <item>speakerphone</item>
+        <item>zen</item>
+        <item>mute</item>
+        <item>volume</item>
+        <item>com.samsung.rcs</item>
+        <item>vowifi</item>
+        <item>wifi_p2p</item>
+        <item>wifi</item>
+        <item>wifi_ap</item>
+        <item>wifi_oxygen</item>
+        <item>cdma_eri</item>
+        <item>phone_signal_second_sub</item>
+        <item>data_connection</item>
+        <item>phone_evdo_signal</item>
+        <item>phone_signal</item>
+        <item>battery</item>
+        <item>alarm_clock</item>
+        <item>toddler</item>
+        <item>ims_volte</item>
+        <item>ims_volte2</item>
+        <item>keyguard_wakeup</item>
+        <item>safezone</item>
+        <item>secure</item>
+        <item>clock</item>
+        <item>wimax</item>
+        <item>smart_bonding</item>
+        <item>private_mode</item>
+    </string-array>
+    <string-array name="config_system_condition_providers">
+        <item>countdown</item>
+        <item>schedule</item>
+        <item>event</item>
+    </string-array>
+    <string-array name="config_telephonyHardware">
+        <item>0,modem,0,0,0,1,1,1</item>
+        <item>1,sim,0,modem</item>
+    </string-array>
+    <array name="config_testLocationProviders" />
+    <array name="config_tether_apndata" />
+    <string-array name="config_tether_bluetooth_regexs">
+        <item>bt-pan</item>
+    </string-array>
+    <array name="config_tether_dhcp_range" />
+    <integer-array name="config_tether_upstream_types">
+        <item>0</item>
+        <item>1</item>
+        <item>4</item>
+        <item>5</item>
+        <item>7</item>
+        <item>9</item>
+    </integer-array>
+    <string-array name="config_tether_usb_regexs">
+        <item>usb\\d</item>
+        <item>rndis\\d</item>
+        <item>ncm\\d</item>
+    </string-array>
+    <string-array name="config_tether_wifi_regexs">
+        <item>wlan0</item>
+    </string-array>
+    <array name="config_tether_wimax_regexs" />
+    <array name="config_twoDigitNumberPattern" />
+    <array name="config_usbHostBlacklist" />
+    <integer-array name="config_valuesOfDefaultMagnitudeLevel">
+        <item>0</item>
+        <item>2000</item>
+        <item>4000</item>
+        <item>6000</item>
+        <item>8000</item>
+        <item>10000</item>
+    </integer-array>
+    <integer-array name="config_valuesOfDefaultMagnitudeLevelFrequency">
+        <item>0</item>
+        <item>3000</item>
+        <item>4000</item>
+        <item>6000</item>
+        <item>8000</item>
+        <item>10000</item>
+    </integer-array>
+    <integer-array name="config_valuesOfDefaultTouchMagnitudeLevel">
+        <item>0</item>
+        <item>3400</item>
+        <item>4900</item>
+        <item>6500</item>
+        <item>8200</item>
+        <item>10000</item>
+    </integer-array>
+    <integer-array name="config_valuesOfDefaultTouchMagnitudeLevelFrequency">
+        <item>0</item>
+        <item>2000</item>
+        <item>4000</item>
+        <item>6000</item>
+        <item>8000</item>
+        <item>10000</item>
+    </integer-array>
+    <integer-array name="config_valuesOfForceTouchMagnitudeLevel">
+        <item>2000</item>
+        <item>4000</item>
+        <item>6000</item>
+        <item>8000</item>
+        <item>10000</item>
+    </integer-array>
+    <integer-array name="config_valuesOfPMICMagnitudeLevel">
+        <item>0</item>
+        <item>1000</item>
+        <item>5000</item>
+        <item>9000</item>
+    </integer-array>
+    <integer-array name="config_vibeCommonA">
+        <item>0</item>
+        <item>7</item>
+    </integer-array>
+    <integer-array name="config_vibeCommonB">
+        <item>0</item>
+        <item>7</item>
+    </integer-array>
+    <integer-array name="config_vibeCommonC">
+        <item>0</item>
+        <item>100</item>
+    </integer-array>
+    <integer-array name="config_vibeCommonD">
+        <item>0</item>
+        <item>100</item>
+        <item>50</item>
+        <item>30</item>
+    </integer-array>
+    <integer-array name="config_vibeCommonE">
+        <item>0</item>
+        <item>10</item>
+        <item>60</item>
+        <item>15</item>
+    </integer-array>
+    <integer-array name="config_vibeCommonF">
+        <item>0</item>
+        <item>7</item>
+    </integer-array>
+    <integer-array name="config_vibeCommonG">
+        <item>0</item>
+        <item>75</item>
+        <item>25</item>
+        <item>75</item>
+        <item>300</item>
+    </integer-array>
+    <integer-array name="config_vibeCommonH">
+        <item>0</item>
+        <item>500</item>
+    </integer-array>
+    <integer-array name="config_vibeCommonI">
+        <item>0</item>
+        <item>150</item>
+        <item>80</item>
+        <item>150</item>
+        <item>1120</item>
+    </integer-array>
+    <integer-array name="config_vibeCommonJ">
+        <item>0</item>
+        <item>250</item>
+        <item>250</item>
+        <item>250</item>
+        <item>250</item>
+    </integer-array>
+    <integer-array name="config_vibeCommonK">
+        <item>0</item>
+        <item>1500</item>
+        <item>2000</item>
+    </integer-array>
+    <integer-array name="config_vibeCommonL">
+        <item>0</item>
+        <item>250</item>
+        <item>250</item>
+        <item>250</item>
+        <item>250</item>
+        <item>250</item>
+        <item>750</item>
+    </integer-array>
+    <integer-array name="config_vibeCommonM">
+        <item>0</item>
+        <item>400</item>
+        <item>200</item>
+        <item>100</item>
+        <item>400</item>
+        <item>100</item>
+        <item>400</item>
+    </integer-array>
+    <integer-array name="config_vibeCommonN">
+        <item>0</item>
+        <item>7</item>
+        <item>0</item>
+        <item>-1</item>
+        <item>4</item>
+        <item>7</item>
+        <item>10000</item>
+        <item>2000</item>
+        <item>1</item>
+    </integer-array>
+    <integer-array name="config_vibeCommonO">
+        <item>0</item>
+        <item>7</item>
+        <item>0</item>
+        <item>-1</item>
+        <item>4</item>
+        <item>7</item>
+        <item>10000</item>
+        <item>2000</item>
+        <item>1</item>
+    </integer-array>
+    <integer-array name="config_vibeCommonP">
+        <item>0</item>
+        <item>30</item>
+        <item>-1</item>
+        <item>4</item>
+        <item>30</item>
+        <item>10000</item>
+        <item>2000</item>
+        <item>0</item>
+    </integer-array>
+    <integer-array name="config_vibeCommonQ">
+        <item>0</item>
+        <item>100</item>
+        <item>100</item>
+        <item>100</item>
+        <item>100</item>
+        <item>100</item>
+        <item>100</item>
+        <item>100</item>
+        <item>100</item>
+        <item>100</item>
+        <item>100</item>
+        <item>100</item>
+        <item>100</item>
+        <item>100</item>
+        <item>100</item>
+        <item>100</item>
+        <item>1500</item>
+        <item>-1</item>
+        <item>64</item>
+        <item>100</item>
+        <item>10000</item>
+        <item>1230</item>
+        <item>0</item>
+        <item>100</item>
+        <item>0</item>
+        <item>1580</item>
+        <item>0</item>
+        <item>100</item>
+        <item>10000</item>
+        <item>1230</item>
+        <item>0</item>
+        <item>100</item>
+        <item>0</item>
+        <item>1580</item>
+        <item>0</item>
+        <item>100</item>
+        <item>10000</item>
+        <item>1648</item>
+        <item>0</item>
+        <item>100</item>
+        <item>0</item>
+        <item>1580</item>
+        <item>0</item>
+        <item>100</item>
+        <item>10000</item>
+        <item>1648</item>
+        <item>0</item>
+        <item>100</item>
+        <item>0</item>
+        <item>1580</item>
+        <item>0</item>
+        <item>100</item>
+        <item>10000</item>
+        <item>1230</item>
+        <item>0</item>
+        <item>100</item>
+        <item>0</item>
+        <item>1580</item>
+        <item>0</item>
+        <item>100</item>
+        <item>10000</item>
+        <item>1230</item>
+        <item>0</item>
+        <item>100</item>
+        <item>0</item>
+        <item>1580</item>
+        <item>0</item>
+        <item>100</item>
+        <item>10000</item>
+        <item>1648</item>
+        <item>0</item>
+        <item>100</item>
+        <item>0</item>
+        <item>1580</item>
+        <item>0</item>
+        <item>100</item>
+        <item>10000</item>
+        <item>1648</item>
+        <item>0</item>
+        <item>1500</item>
+        <item>0</item>
+        <item>1580</item>
+        <item>0</item>
+    </integer-array>
+    <integer-array name="config_vibeCommonR">
+        <item>0</item>
+        <item>1600</item>
+        <item>1500</item>
+        <item>-1</item>
+        <item>52</item>
+        <item>100</item>
+        <item>10000</item>
+        <item>1468</item>
+        <item>0</item>
+        <item>100</item>
+        <item>10000</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>200</item>
+        <item>10000</item>
+        <item>1746</item>
+        <item>0</item>
+        <item>100</item>
+        <item>10000</item>
+        <item>1468</item>
+        <item>0</item>
+        <item>100</item>
+        <item>10000</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>200</item>
+        <item>10000</item>
+        <item>1746</item>
+        <item>0</item>
+        <item>100</item>
+        <item>10000</item>
+        <item>1468</item>
+        <item>0</item>
+        <item>100</item>
+        <item>10000</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>200</item>
+        <item>10000</item>
+        <item>1746</item>
+        <item>0</item>
+        <item>100</item>
+        <item>10000</item>
+        <item>1468</item>
+        <item>0</item>
+        <item>100</item>
+        <item>10000</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>200</item>
+        <item>10000</item>
+        <item>1746</item>
+        <item>0</item>
+        <item>1500</item>
+        <item>0</item>
+        <item>1580</item>
+        <item>0</item>
+    </integer-array>
+    <integer-array name="config_vibeCommonS">
+        <item>0</item>
+        <item>3200</item>
+        <item>1500</item>
+        <item>-1</item>
+        <item>20</item>
+        <item>800</item>
+        <item>10000</item>
+        <item>1746</item>
+        <item>0</item>
+        <item>800</item>
+        <item>10000</item>
+        <item>1468</item>
+        <item>0</item>
+        <item>800</item>
+        <item>10000</item>
+        <item>1746</item>
+        <item>0</item>
+        <item>800</item>
+        <item>10000</item>
+        <item>1468</item>
+        <item>0</item>
+        <item>1500</item>
+        <item>0</item>
+        <item>1580</item>
+        <item>0</item>
+    </integer-array>
+    <integer-array name="config_vibeCommonT">
+        <item>0</item>
+        <item>70</item>
+        <item>30</item>
+        <item>70</item>
+        <item>30</item>
+        <item>70</item>
+        <item>30</item>
+        <item>70</item>
+        <item>30</item>
+        <item>70</item>
+        <item>30</item>
+        <item>70</item>
+        <item>30</item>
+        <item>70</item>
+        <item>30</item>
+        <item>70</item>
+        <item>30</item>
+        <item>70</item>
+        <item>30</item>
+        <item>70</item>
+        <item>30</item>
+        <item>70</item>
+        <item>30</item>
+        <item>70</item>
+        <item>30</item>
+        <item>70</item>
+        <item>30</item>
+        <item>70</item>
+        <item>30</item>
+        <item>70</item>
+        <item>30</item>
+        <item>70</item>
+        <item>1530</item>
+        <item>-1</item>
+        <item>132</item>
+        <item>70</item>
+        <item>10000</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>70</item>
+        <item>10000</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>70</item>
+        <item>10000</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>70</item>
+        <item>10000</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>70</item>
+        <item>10000</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>70</item>
+        <item>10000</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>70</item>
+        <item>10000</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>70</item>
+        <item>10000</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>70</item>
+        <item>10000</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>70</item>
+        <item>10000</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>70</item>
+        <item>10000</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>70</item>
+        <item>10000</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>70</item>
+        <item>10000</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>70</item>
+        <item>10000</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>70</item>
+        <item>10000</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>70</item>
+        <item>10000</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>1500</item>
+        <item>0</item>
+        <item>1580</item>
+        <item>0</item>
+    </integer-array>
+    <integer-array name="config_vibeCommonU">
+        <item>0</item>
+        <item>50</item>
+        <item>30</item>
+        <item>50</item>
+        <item>30</item>
+        <item>50</item>
+        <item>30</item>
+        <item>50</item>
+        <item>30</item>
+        <item>50</item>
+        <item>30</item>
+        <item>50</item>
+        <item>30</item>
+        <item>50</item>
+        <item>30</item>
+        <item>50</item>
+        <item>30</item>
+        <item>50</item>
+        <item>30</item>
+        <item>50</item>
+        <item>30</item>
+        <item>50</item>
+        <item>30</item>
+        <item>50</item>
+        <item>30</item>
+        <item>50</item>
+        <item>30</item>
+        <item>50</item>
+        <item>30</item>
+        <item>50</item>
+        <item>30</item>
+        <item>50</item>
+        <item>30</item>
+        <item>50</item>
+        <item>30</item>
+        <item>50</item>
+        <item>30</item>
+        <item>50</item>
+        <item>30</item>
+        <item>50</item>
+        <item>1530</item>
+        <item>-1</item>
+        <item>164</item>
+        <item>50</item>
+        <item>10000</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>50</item>
+        <item>10000</item>
+        <item>1746</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>50</item>
+        <item>10000</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>50</item>
+        <item>10000</item>
+        <item>1746</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>50</item>
+        <item>10000</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>50</item>
+        <item>10000</item>
+        <item>1746</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>50</item>
+        <item>10000</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>50</item>
+        <item>10000</item>
+        <item>1746</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>50</item>
+        <item>10000</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>50</item>
+        <item>10000</item>
+        <item>1746</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>50</item>
+        <item>10000</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>50</item>
+        <item>10000</item>
+        <item>1746</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>50</item>
+        <item>10000</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>50</item>
+        <item>10000</item>
+        <item>1746</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>50</item>
+        <item>10000</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>50</item>
+        <item>10000</item>
+        <item>1746</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>50</item>
+        <item>10000</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>50</item>
+        <item>10000</item>
+        <item>1746</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>50</item>
+        <item>10000</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>50</item>
+        <item>10000</item>
+        <item>1746</item>
+        <item>0</item>
+        <item>30</item>
+        <item>0</item>
+        <item>1557</item>
+        <item>0</item>
+        <item>1500</item>
+        <item>0</item>
+        <item>1580</item>
+        <item>0</item>
+    </integer-array>
+    <integer-array name="config_virtualKeyVibePattern">
+        <item>0</item>
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+    </integer-array>
+    <string-array name="config_vvmSmsFilterRegexes">
+        <item>310004,310010,310012,310013,310590,310890,310910,311110,311270,311271,311272,311273,311274,311275,311276,311277,311278,311279,311280,311281,311282,311283,311284,311285,311286,311287,311288,311289,311390,311480,311481,311482,311483,311484,311485,311486,311487,311488,311489;^//VZWVVM.*</item>
+    </string-array>
+    <array name="default_csc_wallpaper_list" />
+    <string-array name="default_wallpaper_list">
+        <item></item>
+        <item>_silver</item>
+        <item>_white</item>
+        <item>_gold</item>
+        <item>_pink</item>
+    </string-array>
+    <array name="dial_string_replace" />
+    <array name="fingerprint_acquired_vendor" />
+    <array name="fingerprint_error_vendor" />
+    <string-array name="imAddressTypes">
+        <item>Home</item>
+        <item>Work</item>
+        <item>Other</item>
+        <item>Custom</item>
     </string-array>
     <integer-array name="maps_starting_lat_lng">
         <item>36149777</item>
@@ -1466,7 +2018,295 @@
     <integer-array name="maps_starting_zoom">
         <item>3</item>
     </integer-array>
-    <array name="common_nicknames" />
+    <string-array name="networkAttributes">
+        <item>wifi,1,1,1,-1,true</item>
+        <item>mobile,0,0,0,-1,true</item>
+        <item>mobile_mms,2,0,2,240000,true</item>
+        <item>mobile_supl,3,0,2,60000,true</item>
+        <item>mobile_dun,4,0,2,60000,true</item>
+        <item>mobile_hipri,5,0,3,60000,true</item>
+        <item>bluetooth,7,7,0,-1,true</item>
+        <item>ethernet,9,9,2,-1,true</item>
+        <item>mobile_fota,10,0,2,60000,true</item>
+        <item>mobile_ims,11,0,1,-1,true</item>
+        <item>mobile_cbs,12,0,2,60000,true</item>
+        <item>wifi_p2p,13,1,0,-1,true</item>
+        <item>mobile_ia,14,0,2,-1,true</item>
+        <item>mobile_emergency,15,0,2,-1,true</item>
+        <item>mobile_bip,23,0,2,60000,true</item>
+        <item>mobile_cas,24,0,3,60000,true</item>
+        <item>mobile_xcap,27,0,2,60000,true</item>
+        <item>mobile_ent1,28,0,2,-1,true</item>
+    </string-array>
+    <string-array name="network_switch_type_name">
+        <item>mobile data</item>
+        <item>Wi-Fi</item>
+        <item>Bluetooth</item>
+        <item>Ethernet</item>
+        <item>VPN</item>
+    </string-array>
+    <string-array name="networks_not_clear_data">
+        <item>71203</item>
+        <item>71606</item>
+        <item>71610</item>
+        <item>732101</item>
+    </string-array>
+    <string-array name="no_ems_support_sim_operators">
+        <item>20404;suffix;BAE0000000000000</item>
+    </string-array>
+    <string-array name="num_clients_connected">
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+    <array name="poc_mode_info" />
+    <array name="preloaded_color_state_lists">
+        <item>@color/primary_text_dark</item>
+        <item>@color/primary_text_dark_disable_only</item>
+        <item>@color/primary_text_dark_nodisable</item>
+        <item>@color/primary_text_disable_only_holo_dark</item>
+        <item>@color/primary_text_disable_only_holo_light</item>
+        <item>@color/primary_text_holo_dark</item>
+        <item>@color/primary_text_holo_light</item>
+        <item>@color/primary_text_light</item>
+        <item>@color/primary_text_light_disable_only</item>
+        <item>@color/primary_text_light_nodisable</item>
+        <item>@color/primary_text_nodisable_holo_dark</item>
+        <item>@color/primary_text_nodisable_holo_light</item>
+        <item>@color/secondary_text_dark</item>
+        <item>@color/secondary_text_dark_nodisable</item>
+        <item>@color/secondary_text_holo_dark</item>
+        <item>@color/secondary_text_holo_light</item>
+        <item>@color/secondary_text_light</item>
+        <item>@color/secondary_text_light_nodisable</item>
+        <item>@color/secondary_text_nodisable_holo_dark</item>
+        <item>@color/secondary_text_nodisable_holo_light</item>
+        <item>@color/secondary_text_nofocus</item>
+        <item>@color/hint_foreground_dark</item>
+        <item>@color/hint_foreground_holo_dark</item>
+        <item>@color/hint_foreground_holo_light</item>
+        <item>@color/hint_foreground_light</item>
+        <item>@color/bright_foreground_light</item>
+        <item>@color/bright_foreground_dark</item>
+        <item>@color/tab_indicator_text</item>
+        <item>#ff000000</item>
+        <item>#00000000</item>
+        <item>#ffffffff</item>
+        <item>@color/background_cache_hint_selector_material_dark</item>
+        <item>@color/background_cache_hint_selector_material_light</item>
+        <item>@color/btn_default_material_dark</item>
+        <item>@color/btn_default_material_light</item>
+        <item>@color/primary_text_disable_only_material_dark</item>
+        <item>@color/primary_text_disable_only_material_light</item>
+        <item>@color/primary_text_material_dark</item>
+        <item>@color/primary_text_material_light</item>
+        <item>@color/search_url_text_material_dark</item>
+        <item>@color/search_url_text_material_light</item>
+    </array>
+    <array name="preloaded_drawables">
+        <item>@drawable/ab_share_pack_material</item>
+        <item>@drawable/ab_solid_shadow_material</item>
+        <item>@drawable/action_bar_item_background_material</item>
+        <item>@drawable/activated_background_material</item>
+        <item>@drawable/btn_borderless_material</item>
+        <item>@drawable/btn_check_material_anim</item>
+        <item>@drawable/btn_colored_material</item>
+        <item>@drawable/btn_default_material</item>
+        <item>@drawable/btn_group_holo_dark</item>
+        <item>@drawable/btn_group_holo_light</item>
+        <item>@drawable/btn_radio_material_anim</item>
+        <item>@drawable/btn_star_material</item>
+        <item>@drawable/btn_toggle_material</item>
+        <item>@drawable/button_inset</item>
+        <item>@drawable/cab_background_bottom_material</item>
+        <item>@drawable/cab_background_top_material</item>
+        <item>@drawable/control_background_32dp_material</item>
+        <item>@drawable/control_background_40dp_material</item>
+        <item>@drawable/dialog_background_material</item>
+        <item>@drawable/editbox_dropdown_background_dark</item>
+        <item>@drawable/edit_text_material</item>
+        <item>@drawable/expander_group_material</item>
+        <item>@drawable/fastscroll_label_left_material</item>
+        <item>@drawable/fastscroll_label_right_material</item>
+        <item>@drawable/fastscroll_thumb_material</item>
+        <item>@drawable/fastscroll_track_material</item>
+        <item>@drawable/floating_popup_background_dark</item>
+        <item>@drawable/floating_popup_background_light</item>
+        <item>@drawable/gallery_item_background</item>
+        <item>@drawable/ic_ab_back_material</item>
+        <item>@drawable/ic_ab_back_material_dark</item>
+        <item>@drawable/ic_ab_back_material_light</item>
+        <item>@drawable/ic_account_circle</item>
+        <item>@drawable/ic_arrow_drop_right_black_24dp</item>
+        <item>@drawable/ic_clear</item>
+        <item>@drawable/ic_clear_disabled</item>
+        <item>@drawable/ic_clear_material</item>
+        <item>@drawable/ic_clear_normal</item>
+        <item>@drawable/ic_commit_search_api_material</item>
+        <item>@drawable/ic_dialog_alert_material</item>
+        <item>@drawable/ic_find_next_material</item>
+        <item>@drawable/ic_find_previous_material</item>
+        <item>@drawable/ic_go</item>
+        <item>@drawable/ic_go_search_api_material</item>
+        <item>@drawable/ic_media_route_connecting_material</item>
+        <item>@drawable/ic_media_route_material</item>
+        <item>@drawable/ic_menu_close_clear_cancel</item>
+        <item>@drawable/ic_menu_copy_material</item>
+        <item>@drawable/ic_menu_cut_material</item>
+        <item>@drawable/ic_menu_find_material</item>
+        <item>@drawable/ic_menu_more</item>
+        <item>@drawable/ic_menu_moreoverflow_material</item>
+        <item>@drawable/ic_menu_paste_material</item>
+        <item>@drawable/ic_menu_search_material</item>
+        <item>@drawable/ic_menu_selectall_material</item>
+        <item>@drawable/ic_menu_share_material</item>
+        <item>@drawable/ic_search_api_material</item>
+        <item>@drawable/ic_voice_search_api_material</item>
+        <item>@drawable/indicator_check_mark_dark</item>
+        <item>@drawable/indicator_check_mark_light</item>
+        <item>@drawable/item_background_borderless_material</item>
+        <item>@drawable/item_background_borderless_material_dark</item>
+        <item>@drawable/item_background_borderless_material_light</item>
+        <item>@drawable/item_background_material</item>
+        <item>@drawable/item_background_material_dark</item>
+        <item>@drawable/item_background_material_light</item>
+        <item>@drawable/list_choice_background_material</item>
+        <item>@drawable/list_divider_material</item>
+        <item>@drawable/list_section_divider_material</item>
+        <item>@drawable/menu_background_fill_parent_width</item>
+        <item>@drawable/notification_material_action_background</item>
+        <item>@drawable/notification_material_media_action_background</item>
+        <item>@drawable/number_picker_divider_material</item>
+        <item>@drawable/popup_background_material</item>
+        <item>@drawable/popup_inline_error_above_holo_dark</item>
+        <item>@drawable/popup_inline_error_above_holo_light</item>
+        <item>@drawable/popup_inline_error_holo_dark</item>
+        <item>@drawable/popup_inline_error_holo_light</item>
+        <item>@drawable/progress_horizontal_material</item>
+        <item>@drawable/progress_indeterminate_horizontal_material</item>
+        <item>@drawable/progress_large_material</item>
+        <item>@drawable/progress_medium_material</item>
+        <item>@drawable/progress_small_material</item>
+        <item>@drawable/quickcontact_badge_overlay_dark</item>
+        <item>@drawable/quickcontact_badge_overlay_light</item>
+        <item>@drawable/quickcontact_badge_overlay_normal_dark</item>
+        <item>@drawable/quickcontact_badge_overlay_normal_light</item>
+        <item>@drawable/quickcontact_badge_overlay_pressed_dark</item>
+        <item>@drawable/quickcontact_badge_overlay_pressed_light</item>
+        <item>@drawable/ratingbar_indicator_material</item>
+        <item>@drawable/ratingbar_material</item>
+        <item>@drawable/ratingbar_small_material</item>
+        <item>@drawable/screen_background_dark</item>
+        <item>@drawable/screen_background_dark_transparent</item>
+        <item>@drawable/screen_background_light</item>
+        <item>@drawable/screen_background_light_transparent</item>
+        <item>@drawable/screen_background_selector_dark</item>
+        <item>@drawable/screen_background_selector_light</item>
+        <item>@drawable/scrollbar_handle_material</item>
+        <item>@drawable/seekbar_thumb_material_anim</item>
+        <item>@drawable/seekbar_tick_mark_material</item>
+        <item>@drawable/seekbar_track_material</item>
+        <item>@drawable/spinner_background_material</item>
+        <item>@drawable/spinner_textfield_background_material</item>
+        <item>@drawable/switch_thumb_material_anim</item>
+        <item>@drawable/switch_track_material</item>
+        <item>@drawable/tab_indicator_material</item>
+        <item>@drawable/text_cursor_material</item>
+        <item>@drawable/text_edit_paste_window</item>
+        <item>@drawable/textfield_search_material</item>
+        <item>@drawable/text_select_handle_left_material</item>
+        <item>@drawable/text_select_handle_middle_material</item>
+        <item>@drawable/text_select_handle_right_material</item>
+        <item>@drawable/toast_frame</item>
+    </array>
+    <array name="preloaded_freeform_multi_window_drawables">
+        <item>@drawable/decor_maximize_button_dark</item>
+        <item>@drawable/decor_maximize_button_light</item>
+    </array>
+    <string-array name="radioAttributes">
+        <item>1,1</item>
+        <item>0,1</item>
+    </string-array>
+    <string-array name="resolver_target_actions_pin">
+        <item>@string/pin_target</item>
+        <item>@string/app_info</item>
+    </string-array>
+    <string-array name="resolver_target_actions_unpin">
+        <item>@string/unpin_target</item>
+        <item>@string/app_info</item>
+    </string-array>
+    <string-array name="sem_resolver_target_actions_only_appinfo">
+        <item>@string/app_info</item>
+    </string-array>
+    <string-array name="shouldNotWriteMessage">
+        <item>com.android.mms</item>
+        <item>com.samsung.android.messaging</item>
+        <item>com.tmobile.vvm.application</item>
+        <item>com.metropcs.service.vvm</item>
+        <item>com.android.phone</item>
+        <item>com.android.bluetooth</item>
+        <item>com.samsung.vvm</item>
+        <item>com.samsung.attvvm</item>
+        <item>de.telekom.mds.mbp</item>
+        <item>com.isis.mclient.atnt.activity</item>
+        <item>com.isis.mclient.tmobile.activity</item>
+        <item>com.isis.mclient.verizon.activity</item>
+        <item>com.isis.mclient.atnt.isistest</item>
+        <item>com.isis.mclient.tmobile.isistest</item>
+        <item>com.isis.mclient.verizon.isistest</item>
+        <item>com.cequint.ecid</item>
+        <item>com.att.eptt</item>
+        <item>cn.cj.pe</item>
+        <item>cn.emagsoftware.gamehall</item>
+        <item>com.iflytek.cmcc</item>
+        <item>com.autonavi.cmccmap</item>
+        <item>com.aspire.mm</item>
+        <item>com.asiainfo.android</item>
+        <item>pl.tmobile.vpabx</item>
+        <item>com.samsung.android.coreapps</item>
+        <item>com.chinamobile.cmccwifi</item>
+        <item>com.ophone.reader.ui</item>
+        <item>com.wsandroid.suite.vodaemea</item>
+        <item>com.samsung.android.app.sreminder</item>
+        <item>com.sec.android.app.mt</item>
+        <item>cmccwm.mobilemusic</item>
+        <item>com.bell.ptt</item>
+        <item>com.samsung.android.communicationservice</item>
+        <item>com.android.server.telecom</item>
+        <item>com.samsung.android.mobileservice</item>
+        <item>com.samsung.android.plugin.cmccvoicemail</item>
+    </string-array>
+    <array name="sim_colors">
+        <item>@color/Teal_700</item>
+        <item>@color/Blue_700</item>
+        <item>@color/Indigo_700</item>
+        <item>@color/Purple_700</item>
+        <item>@color/Pink_700</item>
+        <item>@color/Red_700</item>
+    </array>
+    <string-array name="special_locale_codes">
+        <item>my_MM</item>
+        <item>my_ZG</item>
+    </string-array>
+    <string-array name="special_locale_names">
+        <item>မြန်မာ (Unicode)</item>
+        <item>မြန်မာ (Zawgyi)</item>
+    </string-array>
+    <string-array name="specific_customer_supported_locales">
+        <item>en-ZG</item>
+        <item>km-KH</item>
+        <item>lo-LA</item>
+        <item>my-MM</item>
+        <item>my-ZG</item>
+        <item>ar-IL</item>
+        <item>en-IL</item>
+    </string-array>
     <string-array name="supported_locales">
         <item>af-NA</item>
         <item>af-ZA</item>
@@ -1515,8 +2355,7 @@
         <item>bo-IN</item>
         <item>br-FR</item>
         <item>brx-IN</item>
-        <item>bs-Cyrl-BA</item>
-        <item>bs-Latn-BA</item>
+        <item>bs-BA</item>
         <item>ca-AD</item>
         <item>ca-ES</item>
         <item>ca-FR</item>
@@ -1559,7 +2398,6 @@
         <item>en-BZ</item>
         <item>en-CA</item>
         <item>en-CC</item>
-        <item>en-CH</item>
         <item>en-CK</item>
         <item>en-CM</item>
         <item>en-CX</item>
@@ -1776,6 +2614,7 @@
         <item>kn-IN</item>
         <item>ko-KR</item>
         <item>kok-IN</item>
+        <item>ks-IN</item>
         <item>ksb-TZ</item>
         <item>ksf-CM</item>
         <item>ksh-DE</item>
@@ -1925,46 +2764,12 @@
         <item>yo-NG</item>
         <item>zgh-MA</item>
         <item>zh-Hans-CN</item>
-        <item>zh-Hans-HK</item>
         <item>zh-Hans-MO</item>
-        <item>zh-Hans-SG</item>
         <item>zh-Hant-HK</item>
         <item>zh-Hant-MO</item>
         <item>zh-Hant-TW</item>
         <item>zu-ZA</item>
     </string-array>
-    <string-array name="specific_customer_supported_locales">
-        <item>en-ZG</item>
-        <item>km-KH</item>
-        <item>lo-LA</item>
-        <item>my-MM</item>
-        <item>my-ZG</item>
-        <item>ar-IL</item>
-        <item>en-IL</item>
-    </string-array>
-    <string-array name="wfcOperatorErrorAlertMessages">
-        <item>To make calls and send messages over Wi-Fi, first ask your carrier to set up this service. Then turn on Wi-Fi calling again from Settings.</item>
-    </string-array>
-    <string-array name="wfcOperatorErrorNotificationMessages">
-        <item>Register with your carrier</item>
-    </string-array>
-    <string-array name="wfcSpnFormats">
-        <item>%s</item>
-        <item>%s Wi-Fi Calling</item>
-    </string-array>
-    <array name="fingerprint_acquired_vendor" />
-    <array name="fingerprint_error_vendor" />
-    <string-array name="imAddressTypes">
-        <item>Home</item>
-        <item>Work</item>
-        <item>Other</item>
-        <item>Custom</item>
-    </string-array>
-    <array name="carrier_properties" />
-    <array name="preload_wallpapers" />
-    <array name="preload_tts_wallpapers" />
-    <array name="preload_sview_wallpapers" />
-    <array name="preload_knox_wallpapers" />
     <string-array name="wallpaper_device_color">
         <item>black</item>
         <item>black</item>
@@ -1977,238 +2782,18 @@
         <item>babyblue</item>
         <item>babypink</item>
     </string-array>
-    <string-array name="default_wallpaper_list">
-        <item></item>
-        <item>_silver</item>
-        <item>_white</item>
-        <item>_gold</item>
-        <item>_pink</item>
-        <item>_super1</item>
-        <item>_super2</item>
-        <item>_super3</item>
-        <item>_super4</item>
-        <item>_super5</item>
-        <item>_super6</item>
-        <item>_super7</item>
-        <item>_super8</item>
-        <item>_super9</item>
-        <item>_super10</item>
-        <item>_super11</item>
-        <item>_super12</item>
-        <item>_super13</item>
-        <item>_super14</item>
-        <item>_super15</item>
-        <item>_super16</item>
+    <string-array name="wfcOperatorErrorAlertMessages">
+        <item>To make calls and send messages over Wi-Fi, first ask your carrier to set up this service. Then turn on Wi-Fi calling again from Settings.</item>
     </string-array>
-    <string-array name="config_locationProviderPackageNames_chn">
-        <item>com.baidu.map.location</item>
-        <item>com.amap.android.location</item>
-        <item>com.sec.location.nsflp2</item>
-        <item>com.android.location.fused</item>
+    <string-array name="wfcOperatorErrorNotificationMessages">
+        <item>Register with your carrier</item>
     </string-array>
-    <integer-array name="config_minimumExpressiveBrightnessValues">
-        <item>15</item>
-        <item>20</item>
-        <item>27</item>
-    </integer-array>
-    <integer-array name="config_dynamicAutoBrightnessLowHysteresisLevels">
-        <item>0</item>
-        <item>0</item>
-        <item>5</item>
-        <item>25</item>
-        <item>200</item>
-        <item>300</item>
-        <item>400</item>
-        <item>500</item>
-        <item>1000</item>
-        <item>2000</item>
-        <item>3000</item>
-        <item>5000</item>
-    </integer-array>
-    <integer-array name="config_dynamicAutoBrightnessLowHysteresisValues">
-        <item>40</item>
-        <item>101</item>
-        <item>112</item>
-        <item>128</item>
-        <item>255</item>
-        <item>282</item>
-        <item>296</item>
-        <item>310</item>
-        <item>324</item>
-        <item>337</item>
-        <item>351</item>
-        <item>365</item>
-    </integer-array>
-    <integer-array name="config_dynamicAutoBrightnessLevels">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>10</item>
-        <item>30</item>
-        <item>50</item>
-        <item>100</item>
-        <item>200</item>
-        <item>500</item>
-        <item>1000</item>
-        <item>2000</item>
-        <item>2999</item>
-        <item>3000</item>
-        <item>3999</item>
-        <item>4000</item>
-        <item>4999</item>
-        <item>5000</item>
-        <item>9999</item>
-        <item>10000</item>
-        <item>19999</item>
-        <item>20000</item>
-        <item>29999</item>
-        <item>30000</item>
-        <item>39999</item>
-        <item>40000</item>
-    </integer-array>
-    <integer-array name="config_dynamicAutoBrightnessValues">
-        <item>40</item>
-        <item>44</item>
-        <item>50</item>
-        <item>57</item>
-        <item>61</item>
-        <item>65</item>
-        <item>86</item>
-        <item>112</item>
-        <item>112</item>
-        <item>113</item>
-        <item>118</item>
-        <item>128</item>
-        <item>165</item>
-        <item>255</item>
-        <item>255</item>
-        <item>282</item>
-        <item>282</item>
-        <item>296</item>
-        <item>296</item>
-        <item>310</item>
-        <item>310</item>
-        <item>324</item>
-        <item>324</item>
-        <item>337</item>
-        <item>337</item>
-        <item>351</item>
-        <item>351</item>
-        <item>365</item>
-    </integer-array>
-    <integer-array name="config_dynamicAutoBrightnessHighHysteresisLevels">
-        <item>0</item>
-        <item>4</item>
-        <item>7</item>
-        <item>10</item>
-        <item>15</item>
-        <item>300</item>
-        <item>1000</item>
-        <item>1500</item>
-        <item>3000</item>
-        <item>5000</item>
-        <item>6000</item>
-        <item>10000</item>
-        <item>10000</item>
-        <item>40000</item>
-        <item>40000</item>
-        <item>1000000</item>
-    </integer-array>
-    <integer-array name="config_dynamicAutoBrightnessHighHysteresisValues">
-        <item>40</item>
-        <item>40</item>
-        <item>44</item>
-        <item>50</item>
-        <item>57</item>
-        <item>112</item>
-        <item>122</item>
-        <item>128</item>
-        <item>165</item>
-        <item>217</item>
-        <item>255</item>
-        <item>282</item>
-        <item>296</item>
-        <item>310</item>
-        <item>337</item>
-        <item>351</item>
-    </integer-array>
-    <integer-array name="config_dynamicAutoBrightnessLowHysteresisLevelsForEbookOnly">
-        <item>0</item>
-        <item>0</item>
-        <item>5</item>
-        <item>50</item>
-        <item>1000</item>
-        <item>1000</item>
-        <item>9999</item>
-        <item>10000</item>
-    </integer-array>
-    <integer-array name="config_dynamicAutoBrightnessLowHysteresisValuesForEbookOnly">
-        <item>10</item>
-        <item>30</item>
-        <item>40</item>
-        <item>82</item>
-        <item>230</item>
-        <item>300</item>
-        <item>300</item>
-        <item>400</item>
-    </integer-array>
-    <integer-array name="config_dynamicAutoBrightnessLevelsForEbookOnly">
-        <item>0</item>
-        <item>6</item>
-        <item>50</item>
-        <item>500</item>
-        <item>1000</item>
-        <item>4999</item>
-        <item>5000</item>
-        <item>39999</item>
-        <item>40000</item>
-    </integer-array>
-    <integer-array name="config_dynamicAutoBrightnessValuesForEbookOnly">
-        <item>10</item>
-        <item>10</item>
-        <item>40</item>
-        <item>82</item>
-        <item>140</item>
-        <item>260</item>
-        <item>300</item>
-        <item>300</item>
-        <item>400</item>
-    </integer-array>
-    <integer-array name="config_dynamicAutoBrightnessHighHysteresisLevelsForEbookOnly">
-        <item>0</item>
-        <item>15</item>
-        <item>15</item>
-        <item>150</item>
-        <item>1500</item>
-        <item>5000</item>
-        <item>10000</item>
-        <item>39999</item>
-        <item>40000</item>
-    </integer-array>
-    <integer-array name="config_dynamicAutoBrightnessHighHysteresisValuesForEbookOnly">
-        <item>10</item>
-        <item>10</item>
-        <item>12</item>
-        <item>40</item>
-        <item>82</item>
-        <item>200</item>
-        <item>300</item>
-        <item>300</item>
-        <item>400</item>
-    </integer-array>
-    <integer-array name="config_screenBrightnessRangeForClearView">
-        <item>255</item>
-        <item>281</item>
-    </integer-array>
-    <string-array name="config_adaptiveControlValues">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
+    <string-array name="wfcSpnFormats">
+        <item>%s</item>
+        <item>%s Wi-Fi Calling</item>
     </string-array>
+    <item type="array" name="APKTOOL_DUMMY_a8">false</item>
+    <item type="array" name="APKTOOL_DUMMY_a9">false</item>
+    <item type="array" name="APKTOOL_DUMMY_aa">false</item>
+    <item type="array" name="APKTOOL_DUMMY_ab">false</item>
 </resources>

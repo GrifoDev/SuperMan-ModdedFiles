@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nine-patch android:src="@drawable/sem_tab_divider_mtrl" android:tint="#33252525" android:tintMode="src_over"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

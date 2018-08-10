@@ -37,6 +37,19 @@
         <item>Egyéb</item>
         <item>Egyedi</item>
     </string-array>
+    <string-array name="imAddressTypes">
+        <item>Otthon</item>
+        <item>Munkahelyi</item>
+        <item>Egyéb</item>
+        <item>Egyedi</item>
+    </string-array>
+    <string-array name="network_switch_type_name">
+        <item>mobiladatok</item>
+        <item>Wi-Fi</item>
+        <item>Bluetooth</item>
+        <item>Ethernet</item>
+        <item>VPN</item>
+    </string-array>
     <string-array name="wfcOperatorErrorAlertMessages">
         <item>Ha Wi-Fi-n szeretne telefonálni és üzenetet küldeni, kérje meg szolgáltatóját, hogy állítsa be ezt a szolgáltatást. Ezután a Beállítások menüben kapcsolhatja be újra a Wi-Fi-hívást.</item>
     </string-array>
@@ -46,13 +59,5 @@
     <string-array name="wfcSpnFormats">
         <item>%s</item>
         <item>%s Wi-Fi-hívás</item>
-    </string-array>
-    <array name="fingerprint_acquired_vendor" />
-    <array name="fingerprint_error_vendor" />
-    <string-array name="imAddressTypes">
-        <item>Otthon</item>
-        <item>Munkahelyi</item>
-        <item>Egyéb</item>
-        <item>Egyedi</item>
     </string-array>
 </resources>

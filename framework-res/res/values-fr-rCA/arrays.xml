@@ -37,6 +37,12 @@
         <item>Autre</item>
         <item>Personnaliser</item>
     </string-array>
+    <string-array name="imAddressTypes">
+        <item>Perso.</item>
+        <item>Professionnel</item>
+        <item>Autre</item>
+        <item>Personnaliser</item>
+    </string-array>
     <integer-array name="maps_starting_lat_lng">
         <item>49875832</item>
         <item>-97150726</item>
@@ -44,6 +50,13 @@
     <integer-array name="maps_starting_zoom">
         <item>3</item>
     </integer-array>
+    <string-array name="network_switch_type_name">
+        <item>données cellulaires</item>
+        <item>Wi-Fi</item>
+        <item>Bluetooth</item>
+        <item>Ethernet</item>
+        <item>RPV</item>
+    </string-array>
     <string-array name="wfcOperatorErrorAlertMessages">
         <item>"Pour effectuer des appels et envoyer des messages par Wi-Fi, demandez tout d'abord à votre fournisseur de services de configurer ce service. Réactivez ensuite les appels Wi-Fi dans les paramètres."</item>
     </string-array>
@@ -53,13 +66,5 @@
     <string-array name="wfcSpnFormats">
         <item>%s</item>
         <item>Appels Wi-Fi %s</item>
-    </string-array>
-    <array name="fingerprint_acquired_vendor" />
-    <array name="fingerprint_error_vendor" />
-    <string-array name="imAddressTypes">
-        <item>Perso.</item>
-        <item>Professionnel</item>
-        <item>Autre</item>
-        <item>Personnaliser</item>
     </string-array>
 </resources>

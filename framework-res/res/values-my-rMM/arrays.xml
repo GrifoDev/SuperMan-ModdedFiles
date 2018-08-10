@@ -37,22 +37,18 @@
         <item>အခြား</item>
         <item>စိတ်ကြိုက်</item>
     </string-array>
-    <string-array name="wfcOperatorErrorAlertMessages">
-        <item>ဝိုင်ဖိုင်သုံး၍ ဖုန်းခေါ်ဆိုရန်နှင့် မက်စေ့ဂျ်များပို့ရန်၊ ဤဝန်ဆောင်မှုအား စတင်သုံးနိုင်ရန်အတွက် သင့် မိုဘိုင်းဝန်ဆောင်မှုအား ဦးစွာမေးမြန်းပါ။ ထို့နောက် ဆက်တင်မှတဆင့် ဝိုင်ဖိုင် ခေါ်ဆိုမှုအား ထပ်ဖွင့်ပါ။</item>
-    </string-array>
-    <string-array name="wfcOperatorErrorNotificationMessages">
-        <item>သင့် မိုဘိုင်းဝန်ဆောင်မှုဖြင့် မှတ်ပုံတင်ရန်</item>
-    </string-array>
-    <string-array name="wfcSpnFormats">
-        <item>%s</item>
-        <item>%s ဝိုင်ဖိုင် ခေါ်ဆိုမှု</item>
-    </string-array>
-    <array name="fingerprint_acquired_vendor" />
-    <array name="fingerprint_error_vendor" />
     <string-array name="imAddressTypes">
         <item>ပင်မ</item>
         <item>အလုပ်</item>
         <item>အခြား</item>
         <item>စိတ်ကြိုက်</item>
+    </string-array>
+    <string-array name="special_locale_codes">
+        <item>my_MM</item>
+        <item>my_ZG</item>
+    </string-array>
+    <string-array name="special_locale_names">
+        <item>မြန်မာ (Unicode)</item>
+        <item>မြန်မာ (Zawgyi)</item>
     </string-array>
 </resources>

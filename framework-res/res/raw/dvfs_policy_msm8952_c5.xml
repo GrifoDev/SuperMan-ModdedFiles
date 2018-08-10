@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE DvfsHintList [
+<!ELEMENT DvfsHintList (Hint?,TspHint+)>
+<!ELEMENT Hint EMPTY>
+<!ELEMENT TspHint EMPTY>
+<!ATTLIST TspHint
+          scenario_name CDATA #REQUIRED
+          level CDATA #REQUIRED
+          head CDATA #IMPLIED
+          tail CDATA #IMPLIED>
+]>
+
+<DvfsHintList>
+    <Resolution resoltype="Default">
+        <TspHint scenario_name="Default"            level="2" head="200 604800 0 0"    tail="300 499200 0 0" />
+        <TspHint scenario_name="SipDefault"         level="1" head="200 499200 0 0"    tail="0 0 0 0" />
+
+        <Hint name="AMS_ACT_RESUME" timeout="-1">
+            <Control type="cpu_min" value="547200"/>
+        </Hint>
+
+        <Hint name="AMS_ACT_START" timeout="-1">
+            <Control type="cpu_min" value="1344000"/>
+        </Hint>
+
+        <Hint name="AMS_RESUME_TAIL" timeout="600">
+            <Control type="cpu_min" value="1344000"/>
+            <Control type="bus_min" value="806"/>
+        </Hint>
+
+        <Hint name="GALLERY_TOUCH" timeout="-1">
+            <Control type="cpu_min" value="547200"/>
+        </Hint>
+
+        <Hint name="GALLERY_TOUCH_TAIL" timeout="500">
+            <Control type="cpu_min" value="547200"/>
+        </Hint>
+
+        <Hint name="GALLERY_SCROLL" timeout="-1">
+            <Control type="cpu_min" value="499200"/>
+        </Hint>
+
+        <Hint name="LAUNCHER_TOUCH" timeout="1000">
+            <Control type="cpu_min" value="547200"/>
+        </Hint>
+
+        <Hint name="PWM_ROTATION" timeout="1500">
+            <Control type="cpu_min" value="max"/>
+            <Control type="core_num_min" value="max"/>
+        </Hint>
+
+        <Hint name="LISTVIEW_SCROLL" timeout="-1">
+            <Control type="cpu_min" value="499200"/>
+        </Hint>
+
+        <Hint name="APP_LAUNCH" timeout="2000">
+            <Control type="bus_min" value="931"/>
+        </Hint>
+
+        <Hint name="DEVICE_WAKEUP" timeout="1000">
+            <Control type="cpu_min" value="499200"/>
+        </Hint>
+
+        <Hint name="GESTURE_DETECTED" timeout="500">
+            <Control type="cpu_min" value="403200"/>
+        </Hint>
+    </Resolution>
+</DvfsHintList>

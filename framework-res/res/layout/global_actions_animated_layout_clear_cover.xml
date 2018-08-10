@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/main_root_layout" android:layout_width="fill_parent" android:layout_height="fill_parent" android:splitMotionEvents="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:gravity="center" android:layout_gravity="center|top" android:id="@id/global_actions_confirm_description" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:gravity="center" android:id="@id/animated_status" android:fadingEdge="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?^attr-private/twGlobalActionsStatusStyle" />
+        </LinearLayout>
+        <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+                    <ScrollView android:id="@id/global_actions_scrollview" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true" android:importantForAccessibility="no">
+                        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/global_actions_bg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/sem_global_actions_clear_cover_margin_top" android:soundEffectsEnabled="false" android:layout_marginStart="@dimen/sem_global_actions_dead_zone_width" android:layout_marginEnd="@dimen/sem_global_actions_dead_zone_width" />
+                    </ScrollView>
+                    <HorizontalScrollView android:id="@id/global_actions_horizontalscrollview" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true" android:importantForAccessibility="no">
+                        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/global_actions_bg_land" android:layout_width="wrap_content" android:layout_height="fill_parent" android:soundEffectsEnabled="false" />
+                    </HorizontalScrollView>
+                </FrameLayout>
+            </LinearLayout>
+            <LinearLayout android:gravity="center_horizontal" android:layout_gravity="bottom|center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <LinearLayout android:gravity="center" android:id="@id/global_actions_pet_name" android:focusable="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginBottom="41.0dip">
+                    <ImageView android:gravity="center" android:id="@id/global_actions_pet_name_icon" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+                </LinearLayout>
+                <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/global_actions_forcerestart" android:focusable="false" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="0.0" android:importantForAccessibility="no">
+                    <TextView android:textColor="@color/tw_global_action_forcerestarttext_textcolor" android:ellipsize="marquee" android:gravity="center|top" android:id="@id/force_restart_message" android:fadingEdge="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="false" android:alpha="0.5" android:fontFamily="sans-serif" />
+                </LinearLayout>
+                <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/global_actions_bottomView" android:focusable="false" android:layout_width="fill_parent" android:layout_height="60.0dip" android:layout_weight="0.0" android:importantForAccessibility="no">
+                    <FrameLayout android:gravity="left" android:id="@id/global_actions_bottomView_cancel" android:background="@drawable/tw_ic_do_btn" android:layout_width="200.0dip" android:layout_height="40.0dip" android:minWidth="158.0dip">
+                        <Button android:ellipsize="marquee" android:gravity="center" android:layout_gravity="center" android:id="@id/cancel_button" android:background="@drawable/global_actions_cancel_button_bg" android:focusable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:contentDescription="@string/cancel" />
+                        <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                            <TextView android:textSize="16.0sp" android:textColor="#fffafafa" android:ellipsize="marquee" android:gravity="center" android:id="@id/cancel_text" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cancel" android:singleLine="true" android:textAllCaps="true" />
+                        </LinearLayout>
+                    </FrameLayout>
+                    <FrameLayout android:gravity="center" android:id="@id/global_actions_bottomView_divider" android:layout_width="10.0dip" android:layout_height="40.0dip" android:minWidth="10.0dip" />
+                    <FrameLayout android:gravity="right" android:id="@id/global_actions_bottomView_bugreport" android:background="@drawable/tw_ic_do_btn" android:layout_width="200.0dip" android:layout_height="40.0dip" android:minWidth="158.0dip">
+                        <Button android:ellipsize="marquee" android:gravity="center" android:layout_gravity="center" android:id="@id/bug_report" android:background="@drawable/global_actions_cancel_button_bg" android:focusable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:contentDescription="@string/bugreport_title" android:importantForAccessibility="yes" />
+                        <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                            <TextView android:ellipsize="marquee" android:layout_gravity="center" android:id="@id/bug_report_message" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:textAllCaps="true" style="?^attr-private/twGlobalActionsBugReportMessageStyle" />
+                            <TextView android:ellipsize="marquee" android:layout_gravity="center" android:id="@id/bug_report_status" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:singleLine="true" android:layout_below="@id/bug_report_message" android:textAllCaps="true" android:layout_alignStart="@id/bug_report_message" style="?^attr-private/twGlobalActionsBugReportStatusStyle" />
+                        </LinearLayout>
+                    </FrameLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </FrameLayout>
+    </FrameLayout>
+</LinearLayout>

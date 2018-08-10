@@ -2,8 +2,8 @@
 <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="0.0px" android:layout_weight="1.0">
-        <LinearLayout android:orientation="vertical" android:id="@id/headers" android:layout_width="fill_parent" android:layout_height="fill_parent">
-            <ListView android:listPreferredItemHeight="48.0dip" android:scrollbarAlwaysDrawVerticalTrack="true" android:scrollbarStyle="@integer/preference_fragment_scrollbarStyle" android:id="@id/list" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="0.0px" android:drawSelectorOnTop="false" android:cacheColorHint="@color/transparent" android:layout_weight="1.0" style="?attr/preferenceFragmentStyle" />
+        <LinearLayout android:orientation="vertical" android:id="@id/headers" android:layout_width="fill_parent" android:layout_height="fill_parent" style="?^attr-private/preferencePanelStyle">
+            <ListView android:listPreferredItemHeight="48.0dip" android:scrollbarAlwaysDrawVerticalTrack="true" android:scrollbarStyle="@integer/preference_fragment_scrollbarStyle" android:id="@id/list" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="0.0px" android:drawSelectorOnTop="false" android:cacheColorHint="@color/transparent" android:layout_weight="1.0" style="?preferenceFragmentStyle" />
             <FrameLayout android:id="@id/list_footer" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="0.0" />
         </LinearLayout>
     </LinearLayout>

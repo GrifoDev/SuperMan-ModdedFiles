@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.internal.widget.ResolverDrawerLayout android:id="@id/contentPanel" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxWidth="@dimen/resolver_max_width" android:maxCollapsedHeight="256.0dip" android:maxCollapsedHeightSmall="56.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:background="?colorBackground" android:paddingTop="8.0dip" android:paddingBottom="8.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="?dialogPreferredPadding" android:paddingEnd="?dialogPreferredPadding" android:layout_alwaysShow="true">
+        <TextView android:textAppearance="?textAppearanceMedium" android:gravity="start|center" android:paddingTop="8.0dip" android:paddingBottom="8.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="56.0dip" android:text="@string/accessibility_button_prompt_text" android:layout_alignParentStart="true" />
+        <GridView android:gravity="center" android:id="@id/accessibility_button_chooser_grid" android:layout_width="fill_parent" android:layout_height="wrap_content" android:horizontalSpacing="10.0dip" android:verticalSpacing="10.0dip" android:stretchMode="columnWidth" android:columnWidth="90.0dip" android:numColumns="auto_fit" />
+        <TextView android:textAppearance="?textAppearanceMedium" android:gravity="start|center" android:id="@id/accessibility_button_prompt" android:paddingTop="8.0dip" android:paddingBottom="8.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/accessibility_button_instructional_text" />
+    </LinearLayout>
+</com.android.internal.widget.ResolverDrawerLayout>

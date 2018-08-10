@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item type="dimen" name="time_picker_column_start_material">1</item>
-    <item type="dimen" name="time_picker_column_end_material">0</item>
-    <dimen name="sem_more_show_button_background_inset_right">2.0dip</dimen>
+    <item type="dimen" name="sem_context_menu_popup_scale_anim_pivot_x">100.0%</item>
+    <item type="dimen" name="sem_menu_popup_scale_anim_pivot_x">0.0%</item>
     <dimen name="sem_more_show_button_background_inset_left">20.0dip</dimen>
+    <dimen name="sem_more_show_button_background_inset_right">3.0dip</dimen>
 </resources>

@@ -3,6 +3,7 @@
     <string-array name="config_cdma_home_system">
         <item>64</item>
         <item>65</item>
+        <item>66</item>
         <item>76</item>
         <item>77</item>
         <item>78</item>
@@ -11,8 +12,5 @@
         <item>81</item>
         <item>82</item>
         <item>83</item>
-    </string-array>
-    <string-array name="config_sms_convert_destination_number_support">
-        <item>true</item>
     </string-array>
 </resources>

@@ -37,6 +37,19 @@
         <item>ਹੋਰ</item>
         <item>ਕਸਟਮ</item>
     </string-array>
+    <string-array name="imAddressTypes">
+        <item>ਘਰ</item>
+        <item>ਕੰਮ</item>
+        <item>ਹੋਰ</item>
+        <item>ਕਸਟਮ</item>
+    </string-array>
+    <string-array name="network_switch_type_name">
+        <item>ਮੋਬਾਈਲ ਡੈਟਾ</item>
+        <item>Wi-Fi</item>
+        <item>ਬਲੂਟੁੱਥ</item>
+        <item>ਈਥਰਨੈੱਟ</item>
+        <item>VPN</item>
+    </string-array>
     <string-array name="wfcOperatorErrorAlertMessages">
         <item>Wi-Fi ਤੇ ਕਾਲਾਂ ਕਰਨ ਅਤੇ ਸੁਨੇਹੇ ਭੇਜਣ ਲਈ, ਪਹਿਲਾਂ ਆਪਣੇ ਕੈਰੀਅਰ ਨੂੰ ਇਹ ਸੇਵਾ ਸੈਟ ਅਪ ਕਰਨ ਲਈ ਕਹੋ। ਫਿਰ ਸੈਟਿੰਗਾਂ ਵਿੱਚੋਂ Wi-Fi ਕਾਲਿੰਗ ਦੁਬਾਰਾ ਚਾਲੂ ਕਰੋ।</item>
     </string-array>
@@ -46,13 +59,5 @@
     <string-array name="wfcSpnFormats">
         <item>%s</item>
         <item>%s Wi-Fi ਕਾਲਿੰਗ</item>
-    </string-array>
-    <array name="fingerprint_acquired_vendor" />
-    <array name="fingerprint_error_vendor" />
-    <string-array name="imAddressTypes">
-        <item>ਘਰ</item>
-        <item>ਕੰਮ</item>
-        <item>ਹੋਰ</item>
-        <item>ਕਸਟਮ</item>
     </string-array>
 </resources>

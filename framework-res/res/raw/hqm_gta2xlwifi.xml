@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hwparam_document [
+<!ELEMENT hwparam_document (hwparam_setting, hwparam_info+)>
+<!ELEMENT hwparam_setting ANY>
+<!ATTLIST hwparam_setting
+    enable CDATA #REQUIRED
+    DVServer CDATA #REQUIRED
+    DQServer CDATA #REQUIRED
+    CFServer CDATA #REQUIRED
+    condition CDATA #IMPLIED
+    LogBackup CDATA #IMPLIED
+    analyzer CDATA #IMPLIED>
+<!ELEMENT hwparam_info ANY>
+<!ATTLIST hwparam_info
+      compID CDATA #REQUIRED
+      compVer CDATA #REQUIRED
+      compManufacture CDATA #REQUIRED
+      hitType CDATA #REQUIRED
+      feature CDATA #REQUIRED
+      order_compID CDATA #REQUIRED
+      order_feature CDATA #REQUIRED
+      uevent_path CDATA #IMPLIED>
+<!ELEMENT sysfs_node (key_info*)>
+<!ATTLIST sysfs_node
+      type CDATA #REQUIRED
+      key CDATA #REQUIRED
+      value CDATA #REQUIRED
+      clear CDATA #REQUIRED>
+<!ELEMENT dev_sysfs_node (key_info*)>
+<!ATTLIST dev_sysfs_node
+      type CDATA #REQUIRED
+      key CDATA #REQUIRED
+      value CDATA #REQUIRED
+      clear CDATA #REQUIRED>
+<!ELEMENT enc_sysfs_node (key_info*)>
+<!ATTLIST enc_sysfs_node
+      type CDATA #REQUIRED
+      key CDATA #REQUIRED
+      value CDATA #REQUIRED
+      clear CDATA #REQUIRED>
+<!ELEMENT data_info (key_info*)>
+<!ATTLIST data_info
+      interface CDATA #REQUIRED
+      type1 CDATA #REQUIRED
+      type2 CDATA #REQUIRED
+      type3 CDATA #REQUIRED>
+<!ELEMENT key_info EMPTY>
+<!ATTLIST key_info
+      keyname CDATA #REQUIRED
+      min CDATA #REQUIRED
+      max CDATA #REQUIRED
+      desc1 CDATA #REQUIRED
+      desc2 CDATA #REQUIRED
+      desc3 CDATA #REQUIRED
+      desc4 CDATA #REQUIRED
+      type1 CDATA #REQUIRED
+      type2 CDATA #REQUIRED>
+]>
+
+<hwparam_document>
+
+    <hwparam_setting enable="true" DVServer="true" DQServer="true" CFServer="false" />
+
+    <!-- Device : AP -->
+    <hwparam_info compID="AP" feature="" hitType="" compVer="" compManufacture="" order_compID="1" order_feature="1" >
+    </hwparam_info>
+
+    <!-- Device : eMMC -->
+    <hwparam_info compID="MMC" feature="EMMC" hitType="sm" compVer="0.0" compManufacture="" order_compID="2" order_feature="1" >
+        <sysfs_node type="M" key="" value="/sys/class/sec/mmc/mmc_data" clear="0" >
+            <key_info keyname="GE" min="" max="" desc1="General Error" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+            <key_info keyname="CC" min="" max="" desc1="Card Controller Error" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+            <key_info keyname="ECC" min="0" max="100" desc1="Card ECC Error" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+            <key_info keyname="WP" min="" max="" desc1="Write Protection Violation" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+            <key_info keyname="OOR" min="" max="" desc1="Oot Of Range Error" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+            <key_info keyname="CRC" min="" max="" desc1="CRC Error" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+            <key_info keyname="TMO" min="0" max="200" desc1="Timeout Error" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+            <key_info keyname="HALT" min="" max="" desc1="Halt unhalt Error" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+            <key_info keyname="CQED" min="" max="" desc1="CQ enable disable Error" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+            <key_info keyname="RPMB" min="" max="" desc1="RPMB switch Error" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+        </sysfs_node>
+        <sysfs_node type="M" key="" value="/sys/class/sec/mmc/mmc_summary" clear="0" >
+            <key_info keyname="MANID" min="" max="" desc1="Manufacture ID" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+            <key_info keyname="PNM" min="" max="" desc1="Product Name" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+            <key_info keyname="REV" min="" max="" desc1="FW rev" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+            <key_info keyname="CQ" min="" max="" desc1="Command Queue usage" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+            <key_info keyname="SIZE" min="" max="" desc1="Storage capacity" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+            <key_info keyname="SPEEDMODE" min="" max="" desc1="Current Bus Speed Mode" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+            <key_info keyname="LIFEA" min="" max="" desc1="Lifetime A" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+            <key_info keyname="LIFEB" min="" max="" desc1="Lifetime B" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+        </sysfs_node>
+    </hwparam_info>
+
+    <!-- Device : SDcard -->
+    <hwparam_info compID="SDcard" feature="SDMC" hitType="sm" compVer="0.0" compManufacture="" order_compID="3" order_feature="1" >
+    	<dev_sysfs_node type="S" key="CID" value="/sys/block/mmcblk1/device/cid" clear="0" />
+        <sysfs_node type="S" key="CDCNT" value="/sys/class/sec/sdcard/cd_cnt" clear="0" >
+            <key_info keyname="CDCNT" min="0" max="500" desc1="Card Detection count" desc2="" desc3="" desc4="" type1="1" type2="0" />
+        </sysfs_node>
+        <sysfs_node type="M" key="" value="/sys/class/sec/sddata/sd_data" clear="0" >
+            <key_info keyname="GE" min="" max="" desc1="General Error" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+            <key_info keyname="CC" min="" max="" desc1="Card Controller Error" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+            <key_info keyname="ECC" min="0" max="100" desc1="Card ECC Error" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+            <key_info keyname="WP" min="" max="" desc1="Write Protection Violation" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+            <key_info keyname="OOR" min="" max="" desc1="Oot Of Range Error" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+            <key_info keyname="CRC" min="" max="" desc1="CRC Error" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+            <key_info keyname="TMO" min="0" max="200" desc1="Timeout Error" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+        </sysfs_node>
+        <sysfs_node type="M" key="" value="/sys/class/sec/sdcard/sdcard_summary" clear="0" >
+            <key_info keyname="MANID" min="" max="" desc1="Manufacture ID" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+            <key_info keyname="SERIAL" min="" max="" desc1="Partialy SD Card Serial" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+            <key_info keyname="SIZE" min="" max="" desc1="SD Card Size" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+            <key_info keyname="SPEEDMODE" min="" max="" desc1="Current SD Card run Speed Mode" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+	    <key_info keyname="NOTI" min="" max="" desc1="SD Card IO Error Notification Count" desc2="" desc3="" desc4="" type1="1" type2="0"/>
+	</sysfs_node>
+    </hwparam_info>
+
+    <!-- Device : Display -->
+    <hwparam_info compID="Display" feature="DPUI" hitType="sm" compVer="0.0" compManufacture="" order_compID="4" order_feature="1" >
+        <sysfs_node type="M" key="" value="/sys/class/lcd/panel/dpui" clear="1" >
+            <key_info keyname="DISP_MODEL" min="" max="" desc1="Display Vendor and Model Name" desc2="" desc3="" desc4="" type1="1" type2="10" />
+            <key_info keyname="LCDM_ID1" min="0" max="255" desc1="LCD ID1: Fab, window color info." desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="LCDM_ID2" min="0" max="255" desc1="LCD ID2: Touch IC, DCDC IC, EL material info." desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="LCDM_ID3" min="0" max="255" desc1="LCD ID3: D-IC, Op code info." desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="MAID_DATE" min="" max="" desc1="Manufacture date and time" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="WCRD_X" min="" max="" desc1="lcd white rgb x-coordinate" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="WCRD_Y" min="" max="" desc1="lcd white rgb y-coordinate" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="WOFS_R" min="" max="" desc1="lcd white red offset from user" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="WOFS_G" min="" max="" desc1="lcd white green offset from user" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="WOFS_B" min="" max="" desc1="lcd white blue offset from user" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="CHIPID" min="" max="" desc1="Display Driver-IC CHIP ID" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="PNDSIE" min="" max="" desc1="Panel DSI Error Count" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="PNELVDE" min="" max="" desc1="Panel ELVDD Error Count" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="PNVLI1E" min="" max="" desc1="Panel VLIN1 Error Count" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="PNVLO3E" min="" max="" desc1="Panel VLOUT3 Error Count" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="PNESDE" min="" max="" desc1="Panel ESD Error Count" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="PNSDRE" min="" max="" desc1="Panel OTP Loading Error Count" desc2="" desc3="" desc4="" type1="1" type2="0" />
+        </sysfs_node>
+        <dev_sysfs_node type="M" key="" value="/sys/class/lcd/panel/dpui_dbg" clear="0" />
+    </hwparam_info>
+
+    <hwparam_info compID="Display" feature="DPCQ" hitType="sm" compVer="0.0" compManufacture="" order_compID="4" order_feature="2" >
+        <sysfs_node type="M" key="" value="/sys/class/lcd/panel/dpci" clear="1" >
+            <key_info keyname="QCT_DSIE" min="" max="" desc1="Display Controller MIPI DSI Error Count" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="QCT_PPTO" min="" max="" desc1="Display Controller PingPong Timeout Count" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="QCT_NO_TE" min="" max="" desc1="No TE Response Count" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="QCT_RCV_CNT" min="" max="" desc1="Display Controller S/W Recovery Count" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="QCT_SSLOG" min="" max="" desc1="Display Controller Debugging Log" desc2="" desc3="" desc4="" type1="1" type2="99" />
+        </sysfs_node>
+        <dev_sysfs_node type="M" key="" value="/sys/class/lcd/panel/dpci_dbg" clear="0" />
+    </hwparam_info>
+
+    <hwparam_info compID="Display" feature="DAHW" hitType="sm" compVer="0.0" compManufacture="sec" order_compID="4" order_feature="3">
+        <data_info interface="A" type1="" type2="" type3="" >
+            <key_info keyname="DAOD" min="" max="" desc1="LCD_AOD_ON_DURATAION" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="DAHL" min="" max="" desc1="LCD_AOD_AMBIENT_HIGH_LIGHT" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="DALL" min="" max="" desc1="LCD_AOD_AMBIENT_LOW_LIGHT" desc2="" desc3="" desc4="" type1="1" type2="99" />
+        </data_info>
+    </hwparam_info>
+
+    <hwparam_info compID="Display" feature="DAHX" hitType="ph" compVer="0.0" compManufacture="sec" order_compID="4" order_feature="4">
+        <data_info interface="A" type1="" type2="" type3="" >
+            <key_info keyname="DACC" min="" max="" desc1="LCD_AOD_CNG_CNT" desc2="" desc3="" desc4="" type1="1" type2="99" />
+        </data_info>
+    </hwparam_info>
+
+    <hwparam_info compID="Display" feature="DPSI" hitType="ph" compVer="0.0" compManufacture="sec" order_compID="4" order_feature="5">
+        <data_info interface="A" type1="" type2="" type3="" >
+            <key_info keyname="LUBS_B" min="0" max="255" desc1="LCD_USER_BRIGHTNESS_SETTING_BRIGHTNESS" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="LUBS_L" min="" max="" desc1="LCD_USER_BRIGHTNESS_SETTING_LUX" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="LUBS_M" min="0" max="1" desc1="LCD_USER_BRIGHTNESS_SETTING_MODE" desc2="" desc3="" desc4="" type1="1" type2="0" />
+        </data_info>
+    </hwparam_info>
+
+    <!-- Device : TSP -->
+    <hwparam_info compID="TSP" feature="TTSP" hitType="" compVer="0.0" compManufacture="" order_compID="5" order_feature="1" >
+    </hwparam_info>
+
+    <!-- Device : Battery -->
+    <hwparam_info compID="Battery" feature="BATT" hitType="" compVer="0.0" compManufacture="" order_compID="6" order_feature="1" >
+    </hwparam_info>
+
+    <!-- Device : Overheat -->
+    <hwparam_info compID="Overheat" feature="" hitType="" compVer="" compManufacture="" order_compID="7" order_feature="1" >
+    </hwparam_info>
+
+    <!-- Device : Power -->
+    <hwparam_info compID="Power" feature="" hitType="" compVer="" compManufacture="" order_compID="8" order_feature="1" >
+    </hwparam_info>
+
+    <!-- Device : Camera -->
+    <hwparam_info compID="Camera" feature="" hitType="" compVer="" compManufacture="" order_compID="9" order_feature="1" >
+    </hwparam_info>
+
+    <!-- Device : Audio -->
+    <hwparam_info compID="Audio" feature="" hitType="" compVer="" compManufacture="" order_compID="10" order_feature ="1">
+    </hwparam_info>
+
+    <!-- Device : USB -->
+    <hwparam_info compID="USB" feature="UUSB" hitType="sm" compVer="0.0" compManufacture="" order_compID="11" order_feature="1">
+	<sysfs_node type="M" key="" value="/sys/class/usb_notify/usb_control/hw_param" clear="1">
+	    <key_info keyname="CC_WATER" min="" max="" desc1="Water Detection Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="CC_DRY" min="" max="" desc1="Dry Detection Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="CC_I2C" min="" max="" desc1="CCIC i2c Error Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="CC_OVC" min="" max="" desc1="VBUS Output OverCurrent Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="CC_OTG" min="" max="" desc1="USB OTG Connection Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="CC_DP" min="" max="" desc1="DP(Display Port) Adapter Connection Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="CC_VR" min="" max="" desc1="Samsung Gear VR Connection Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="H_SUPER" min="" max="" desc1="USB Host SuperSpeed device Connection Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="H_HIGH" min="" max="" desc1="USB Host HighSpeed device Connection Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="H_FULL" min="" max="" desc1="USB Host FullSpeed device Connection Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="H_LOW" min="" max="" desc1="USB Host LowSpeed device Connection Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="C_SUPER" min="" max="" desc1="USB Client SuperSpeed Connection Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="C_HIGH" min="" max="" desc1="USB Client HighSpeed Connection Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="H_AUDIO" min="" max="" desc1="USB Host Audio Class Connection Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="H_COMM" min="" max="" desc1="USB Host Communication Class Connection Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="H_HID" min="" max="" desc1="USB Host HID Class Connection Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="H_PHYSIC" min="" max="" desc1="USB Host Physical Class Connection Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="H_IMAGE" min="" max="" desc1="USB Host Image Class Connection Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="H_PRINTER" min="" max="" desc1="USB Host Printer Class Connection Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="H_STORAGE" min="" max="" desc1="USB Host Storage Class Connection Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="H_STO_S" min="" max="" desc1="USB Host Storage Super Speed Connection Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="H_STO_H" min="" max="" desc1="USB Host Storage High Speed Connection Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="H_STO_F" min="" max="" desc1="USB Host Storage Full Speed Connection Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="H_HUB" min="" max="" desc1="USB Host Hub Class Connection Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="H_CDC" min="" max="" desc1="USB Host CDC Class Connection Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="H_CSCID" min="" max="" desc1="USB Host CSCID Class Connection Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="H_CONTENT" min="" max="" desc1="USB Host Content Security Class Connection Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="H_VIDEO" min="" max="" desc1="USB Host Video Class Connection Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="H_WIRE" min="" max="" desc1="USB Host Wireless Control Class Connection Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="H_MISC" min="" max="" desc1="USB Host Miscellaneous Class Connection Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="H_APP" min="" max="" desc1="USB Host App Specific Class Connection Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="H_VENDOR" min="" max="" desc1="USB Host Vendor Specific Class Connection Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="CC_DEX" min="" max="" desc1="DEX Dock Connection Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="CC_WTIME" min="" max="" desc1="Water Detection Duration (minutes)" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="CC_WVBUS" min="" max="" desc1="Water Detection Charging Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="CC_WVTIME" min="" max="" desc1="Water-Vbus Detection Duration (seconds)" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="CC_CSHORT" min="" max="" desc1="CC VBUS Pin Short Count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+	    <key_info keyname="CC_SVSHT" min="" max="" desc1="SBU VBUS Pin Short Count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+	    <key_info keyname="CC_SGSHT" min="" max="" desc1="SBU GND Pin Short Count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+	    <key_info keyname="M_AFCNAK" min="" max="" desc1="AFC Protocol Nack Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="M_AFCERR" min="" max="" desc1="AFC Protocol Nack and Error Voltage Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="M_DCDTMO" min="" max="" desc1="Data Contact Detecting Timeout Event Count" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	    <key_info keyname="CC_KILLER" min="" max="" desc1="USB Killer Connection Count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+	    <key_info keyname="CC_VER" min="" max="" desc1="CCIC FW Version" desc2="" desc3="" desc4="" type1="1" type2="99"/>
+	</sysfs_node>
+    </hwparam_info>
+
+    <!-- Device : Sensor -->
+    <hwparam_info compID="Sensor" feature="" hitType="" compVer="" compManufacture="" order_compID="12" order_feature ="1">
+    </hwparam_info>
+
+    <!-- Device : HRM -->
+    <hwparam_info compID="HRM" feature="" hitType="" compVer="" compManufacture="" order_compID="13" order_feature ="1" >
+    </hwparam_info>
+
+    <!-- Device : Biometrics FingerPrint Sensor -->
+    <hwparam_info compID="BFS" feature="BFPS" hitType="sm" compVer="0.0" compManufacture="" order_compID="14" order_feature="1" >
+	    <sysfs_node type="S" key="FPTY" value="/sys/class/fingerprint/fingerprint/type_check" clear="0" >
+		    <key_info keyname="FPTY" min="" max="" desc1="-1:unknown, 0,-2:failed, 1~: success" desc2="" desc3="" desc4="" type1="1" type2="99" />
+	    </sysfs_node>
+	    <sysfs_node type="S" key="FPIC" value="/sys/class/fingerprint/fingerprint/name" clear="0" >
+		    <key_info keyname="FPIC" min="" max="" desc1="Fingerprint" desc2="" desc3="" desc4="" type1="1" type2="10" />
+	    </sysfs_node>
+	    <sysfs_node type="M" key="FPVA" value="/sys/class/fingerprint/fingerprint/bfs_values" clear="0" >
+		    <key_info keyname="FP_SPICLK" min="" max="" desc1="clk_speed" desc2="" desc3="" desc4="" type1="1" type2="99" />
+	    </sysfs_node>
+	    <dev_sysfs_node type="S" key="FPNS" value="/data/log/FingerNormalData.log" clear="0" >
+	    </dev_sysfs_node>
+	    <dev_sysfs_node type="S" key="FPSN" value="/data/log/FingerSNRData.log" clear="0" >
+	    </dev_sysfs_node>
+    </hwparam_info>
+
+    <!-- Device : GNSS -->
+    <hwparam_info compID="GNSS" feature="HPGD" hitType="ph" compVer="0.0" compManufacture="sec" order_compID="15" order_feature ="1">
+        <data_info interface="A" type1="" type2="" type3="" >
+            <key_info keyname="chip_vendor" min="" max="" desc1="GPS chip vendor" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="chip_version" min="" max="" desc1="GPS chip version" desc2="" desc3="" desc4="" type1="1" type2="10" />
+            <key_info keyname="drift_value" min="0" max="500" desc1="XO drift value" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="ap_temp" min="" max="" desc1="AP temperature" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="data_mode" min="" max="" desc1="Data mode(0:Unknown,1:Mobile,2:WiFi)" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="data_using" min="" max="" desc1="Data using" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="gps_running" min="" max="" desc1="GPS running time(sec)" desc2="" desc3="" desc4="" type1="1" type2="99" />
+        </data_info>
+    </hwparam_info>
+
+    <!-- Device : NFC -->
+    <hwparam_info compID="NFC" feature="ESES" hitType="sm" compVer="0.1" compManufacture="sec" order_compID="16" order_feature ="1" >
+        <data_info interface="I" type1="" type2="" type3="" >
+            <key_info keyname="ESES" min="0" max="0" desc1="Check whether eSE state is restricted" desc2="" desc3="" desc4="" type1="1" type2="0" />
+        </data_info>
+        <enc_sysfs_node type="S" key="CPLC" value="/data/sem/hwparam_cplc" clear="0" >
+            <key_info keyname="CPLC" min="" max="" desc1="CPLC value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+        </enc_sysfs_node>
+    </hwparam_info>
+
+    <hwparam_info compID="NFC" feature="ESEA" hitType="sm" compVer="0.1" compManufacture="sec" order_compID="16" order_feature ="1" >
+        <data_info interface="I" type1="" type2="" type3="" >
+            <key_info keyname="ESEA" min="0" max="0" desc1="Check eSE attack count every 6 months" desc2="" desc3="" desc4="" type1="1" type2="0" />
+        </data_info>
+    </hwparam_info>
+
+    <hwparam_info compID="NFC" feature="" hitType="" compVer="" compManufacture="" order_compID="16" order_feature ="2">
+    </hwparam_info>
+
+    <!-- Device : Bluetooth -->
+    <hwparam_info compID="Bluetooth" feature="" hitType="" compVer="" compManufacture="" order_compID="17" order_feature ="1" >
+    </hwparam_info>
+
+    <!-- Device : Wi-Fi -->
+    <hwparam_info compID="WiFi" feature="" hitType="" compVer="" compManufacture="" order_compID="18" order_feature ="1">
+    </hwparam_info>
+
+    <!-- Device : Modem -->
+    <hwparam_info compID="Modem" feature="" hitType="" compVer="" compManufacture="" order_compID="19" order_feature ="1" >
+    </hwparam_info>
+
+    <!-- Device : GPU -->
+    <hwparam_info compID="GPU" feature="" hitType="" compVer="" compManufacture="" order_compID="20" order_feature ="1">
+    </hwparam_info>
+
+    <!-- Device : Filesystem -->
+    <hwparam_info compID="Filesystem" feature="STAT" hitType="sm" compVer="0.0" compManufacture="" order_compID="21" order_feature ="1" >
+        <sysfs_node type="M" key="" value="/sys/fs/ext4/userdata/sec_fs_stat" clear="0" >
+            <key_info keyname="F_BLOCKS" min="" max="" desc1="total data blocks in filesystem" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="F_BFREE" min="" max="" desc1="free blocks in fs" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="F_FILES" min="" max="" desc1="total file nodes in filesystem" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="F_FFREE" min="" max="" desc1="free file nodes in fs" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="FS_ERROR" min="" max="" desc1="number of fs errors" desc2="" desc3="" desc4="" type1="1" type2="0" />
+        </sysfs_node>
+    </hwparam_info>
+    <hwparam_info compID="Filesystem" feature="FRAG" hitType="sm" compVer="0.0" compManufacture="" order_compID="21" order_feature ="2" >
+        <sysfs_node type="M" key="" value="/sys/fs/ext4/userdata/sec_fs_freefrag" clear="0" >
+            <key_info keyname="4K"  min="" max="" desc1="Count of power-of-two-block 1-block regions of free space" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="8K"  min="" max="" desc1="Count of power-of-two-block 2-block regions" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="16K" min="" max="" desc1="Count of power-of-two-block 4-block regions" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="32K" min="" max="" desc1="Count of power-of-two-block 8-block regions" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="64K" min="" max="" desc1="Count of power-of-two-block 16-block regions" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="128K" min="" max="" desc1="Count of power-of-two-block 32-block regions" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="256K" min="" max="" desc1="Count of power-of-two-block 64-block regions" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="512K" min="" max="" desc1="Count of power-of-two-block 128-block regions" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="1M" min="" max="" desc1="Count of power-of-two-block 256-block regions" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="2M" min="" max="" desc1="Count of power-of-two-block 512-block regions" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="4M" min="" max="" desc1="Count of power-of-two-block 1024-block regions" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="8M" min="" max="" desc1="Count of power-of-two-block 2048-block regions" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="16M" min="" max="" desc1="Count of power-of-two-block 4096-block regions" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="32M" min="" max="" desc1="Count of power-of-two-block 8192-block regions" desc2="" desc3="" desc4="" type1="1" type2="0" />
+        </sysfs_node>
+    </hwparam_info>
+    <hwparam_info compID="Filesystem" feature="FATX" hitType="sm" compVer="0.0" compManufacture="" order_compID="21" order_feature ="3" >
+        <sysfs_node type="M" key="" value="/sys/fs/sdfat/statistics/mount" clear="0" >
+            <key_info keyname="FAT12_MNT_I"  min="" max="" desc1="Count of mount using FAT12" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="FAT16_MNT_I"  min="" max="" desc1="Count of mount using FAT16" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="FAT32_MNT_I"  min="" max="" desc1="Count of mount using FAT32" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="EXFAT_MNT_I"  min="" max="" desc1="Count of mount using EXFAT" desc2="" desc3="" desc4="" type1="1" type2="0" />
+        </sysfs_node>
+        <sysfs_node type="M" key="" value="/sys/fs/sdfat/statistics/nofat_op" clear="0" >
+            <key_info keyname="NOFAT_MOUNT_I"  min="" max="" desc1="Whether EXFAT mount is ture or not" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="NOFAT_MKDIR_I"  min="" max="" desc1="Whether EXFAT mkdir is ture or not" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="NOFAT_CREATE_I"  min="" max="" desc1="Whether EXFAT create is ture or not" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="NOFAT_READ_I"  min="" max="" desc1="Whether EXFAT read is ture or not" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="NOFAT_WRITE_I"  min="" max="" desc1="Whether EXFAT write is ture or not" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="NOFAT_TRUNC_I"  min="" max="" desc1="Whether EXFAT trunc is ture or not" desc2="" desc3="" desc4="" type1="1" type2="0" />
+        </sysfs_node>
+        <sysfs_node type="M" key="" value="/sys/fs/sdfat/statistics/vol_size" clear="0" >
+            <key_info keyname="VOL_4G_I"  min="" max="" desc1="Count of ~4GB volume" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="VOL_8G_I"  min="" max="" desc1="Count of 4GB~8GB volume" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="VOL_16G_I"  min="" max="" desc1="Count of 8GB~16GB volume" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="VOL_32G_I"  min="" max="" desc1="Count of 16GB~32GB volume" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="VOL_64G_I"  min="" max="" desc1="Count of 32GB~64GB volume" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="VOL_128G_I"  min="" max="" desc1="Count of 64GB~128GB volume" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="VOL_256G_I"  min="" max="" desc1="Count of 128GB~256GB volume" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="VOL_512G_I"  min="" max="" desc1="Count of 256GB~512GB volume" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="VOL_XTB_I"  min="" max="" desc1="Count of 512GB~ volume" desc2="" desc3="" desc4="" type1="1" type2="0" />
+        </sysfs_node>
+        <sysfs_node type="M" key="" value="/sys/fs/sdfat/statistics/vfat_cl" clear="0" >
+            <key_info keyname="VCL_512B_I"  min="" max="" desc1="Count of 512Byte cluster" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="VCL_1K_I"  min="" max="" desc1="Count of 1KByte cluster" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="VCL_2K_I"  min="" max="" desc1="Count of 2KByte cluster" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="VCL_4K_I"  min="" max="" desc1="Count of 4KByte cluster" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="VCL_8K_I"  min="" max="" desc1="Count of 8KByte cluster" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="VCL_16K_I"  min="" max="" desc1="Count of 16KByte cluster" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="VCL_32K_I"  min="" max="" desc1="Count of 32KByte cluster" desc2="" desc3="" desc4="" type1="1" type2="0" />
+        </sysfs_node>
+        <sysfs_node type="M" key="" value="/sys/fs/sdfat/statistics/exfat_cl" clear="0" >
+            <key_info keyname="ECL_512B_I"  min="" max="" desc1="Count of 512Byte cluster" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="ECL_1K_I"  min="" max="" desc1="Count of 1KByte cluster" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="ECL_2K_I"  min="" max="" desc1="Count of 2KByte cluster" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="ECL_4K_I"  min="" max="" desc1="Count of 4KByte cluster" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="ECL_8K_I"  min="" max="" desc1="Count of 8KByte cluster" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="ECL_16K_I"  min="" max="" desc1="Count of 16KByte cluster" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="ECL_32K_I"  min="" max="" desc1="Count of 32KByte cluster" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="ECL_64K_I"  min="" max="" desc1="Count of 64KByte cluster" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="ECL_128K_I"  min="" max="" desc1="Count of 128KByte cluster" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="ECL_256K_I"  min="" max="" desc1="Count of 256KByte cluster" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="ECL_512K_I"  min="" max="" desc1="Count of 512KByte cluster" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="ECL_1M_I"  min="" max="" desc1="Count of 1MByte cluster" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="ECL_2M_I"  min="" max="" desc1="Count of 2MByte cluster" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="ECL_4M_I"  min="" max="" desc1="Count of 4MByte cluster" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="ECL_8M_I"  min="" max="" desc1="Count of 8MByte cluster" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="ECL_16M_I"  min="" max="" desc1="Count of 16MByte cluster" desc2="" desc3="" desc4="" type1="1" type2="0" />
+            <key_info keyname="ECL_32M_I"  min="" max="" desc1="Count of 32MByte cluster" desc2="" desc3="" desc4="" type1="1" type2="0" />
+        </sysfs_node>
+    </hwparam_info>
+
+</hwparam_document>

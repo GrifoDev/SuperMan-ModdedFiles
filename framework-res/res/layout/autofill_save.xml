@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/autofill_save" android:background="?colorBackground" android:paddingTop="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="32.0dip" android:elevation="32.0dip">
+        <LinearLayout android:orientation="vertical" android:paddingLeft="16.0dip" android:paddingRight="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:textSize="16.0sp" android:textColor="?textColorPrimary" android:id="@id/autofill_save_title" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/autofill_save_title" android:layout_weight="1.0" />
+                <ImageView android:id="@id/autofill_save_close" android:background="?selectableItemBackgroundBorderless" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dip" android:src="@drawable/ic_close" android:contentDescription="@string/close_button_text" android:alpha="0.54" />
+            </LinearLayout>
+            <TextView android:id="@id/autofill_save_subtitle" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dip" />
+        </LinearLayout>
+        <com.android.internal.widget.ButtonBarLayout android:layout_gravity="end" android:orientation="horizontal" android:padding="16.0dip" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <Space android:visibility="invisible" android:layout_width="0.0dip" android:layout_height="0.0dip" android:layout_weight="1.0" />
+            <Button android:id="@id/autofill_save_no" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/autofill_save_no" style="?buttonBarButtonStyle" />
+            <Button android:id="@id/autofill_save_yes" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/autofill_save_yes" style="@style/Widget.Material.Button.Colored">
+                <requestFocus />
+            </Button>
+        </com.android.internal.widget.ButtonBarLayout>
+    </LinearLayout>
+</LinearLayout>

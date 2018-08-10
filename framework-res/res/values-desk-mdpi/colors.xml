@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="tw_list_ripple_material_light">#29000000</color>
+    <color name="tw_ripple_material_light">#33000000</color>
+    <color name="tw_toolbar_ripple_color_light">#33000000</color>
+</resources>

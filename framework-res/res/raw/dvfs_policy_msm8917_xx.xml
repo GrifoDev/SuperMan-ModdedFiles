@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE DvfsHintList [
+<!ELEMENT DvfsHintList (Hint?,TspHint+)>
+<!ELEMENT Hint EMPTY>
+<!ELEMENT TspHint EMPTY>
+<!ATTLIST TspHint
+          scenario_name CDATA #REQUIRED
+          level CDATA #REQUIRED
+          head CDATA #IMPLIED
+          tail CDATA #IMPLIED>
+]>
+
+<DvfsHintList>
+    <Resolution resoltype="Default">
+        <TspHint scenario_name="Default"            level="2" head="200 1248000 0 1"    tail="300 1094400 0 0" />
+        <TspHint scenario_name="SipDefault"         level="1" head="200 1248000 0 1"    tail="0 0 0 0" />
+
+        <Hint name="AMS_RESUME" timeout="-1">
+            <Control type="cpu_min" value="1248000"/>            
+        </Hint>
+
+        <Hint name="AMS_RELAUNCH_RESUME" timeout="500">
+            <Control type="cpu_min" value="1248000"/>
+        </Hint>
+
+        <Hint name="AMS_ACT_RESUME" timeout="-1">
+            <Control type="cpu_min" value="1094400"/>            
+        </Hint>
+
+        <Hint name="AMS_ACT_START" timeout="-1">
+            <Control type="cpu_min" value="1248000"/>
+        </Hint>
+
+        <Hint name="AMS_RESUME_TAIL" timeout="600">
+            <Control type="cpu_min" value="1248000"/>
+        </Hint>
+
+        <Hint name="GALLERY_TOUCH" timeout="-1">
+            <Control type="cpu_min" value="1401000"/>
+        </Hint>
+
+        <Hint name="GALLERY_TOUCH_TAIL" timeout="500">
+            <Control type="cpu_min" value="1401000"/>
+        </Hint>
+
+        <Hint name="LAUNCHER_TOUCH" timeout="1000">
+            <Control type="cpu_min" value="1401000"/>
+            <Control type="gpu_min" value="523200000"/>
+        </Hint>
+
+        <Hint name="APP_LAUNCH" timeout="2000">
+            <Control type="cpu_min" value="max"/>
+        </Hint>
+
+        <Hint name="DEVICE_WAKEUP" timeout="2000">
+            <Control type="cpu_min" value="1248000"/>
+        </Hint>
+
+        <Hint name="CONTACT_SCROLL" timeout="1000">
+            <Control type="cpu_min" value="1248000"/>
+        </Hint> 
+
+        <Hint name="BADGE_UPDATE" timeout="2000">
+            <Control type="cpu_min" value="1401000"/>
+        </Hint>
+    </Resolution>
+</DvfsHintList>

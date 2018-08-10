@@ -44,8 +44,13 @@
         <setting name="PST">
             <set default="10" min="6" max="14" step="4" />
         </setting>
-        <setting name="FunctionsLimitation">
-            <set ovht_pst="600" ovht_bat="470" final_pst="600" final_bat="470" />
+        <setting name="OverheatComplexControl">
+            <set ovht_mw_pst="600" ovht_mw_bat="470" />
+            <set ovht_low_temp_burn_pst="600" ovht_low_temp_burn_bat="470" />
+            <set ovht_security_standard_pst="600" ovht_security_standard_bat="470" />
+        </setting>
+        <setting name="TemperatureGap">
+            <set model_gap="128" />
         </setting>
     </model_settings>
 
@@ -91,7 +96,7 @@
              <table_item temp="460" value="0" />
         </limiter>
         <limiter name="DynamicFpsLevel" type="number">
-            <table_item temp="460" value="99" />
+            <table_item temp="460" value="60" />
         </limiter>
         <limiter name="DexToOatAffinity" type="number">
             <table_item temp="460" value="-1" />
@@ -103,6 +108,16 @@
     </default_scenario>
 
     <extra_scenario>
+
+        <scenario name="GameSDK" priority="1">
+            <limiter name="CPUFreqMax" type="sdk" />
+            <limiter name="GPUFreqMax" type="sdk" />
+        </scenario>
+
+        <scenario name="IPM+">
+            <limiter name="CPUFreqMax" type="ipm" />
+            <limiter name="GPUFreqMax" type="ipm" />
+        </scenario>
 
         <scenario name="PreloadedApps">
             <limiter name="CPUFreqMax" type="number">
@@ -250,19 +265,19 @@
 
         <scenario name="GameThermalCpuControl3">
             <limiter name="CPUFreqMax" type="STS">
-                <sts_item pre="390" perc="60" trigger="410" release="360" min="1560000" />
+                <sts_item pre="390" perc="65" trigger="410" release="360" min="1560000" />
             </limiter>
         </scenario>
 
         <scenario name="GameThermalCpuControl4">
             <limiter name="CPUFreqMax" type="STS">
-                <sts_item pre="390" perc="60" trigger="410" release="360" min="1664000" />
+                <sts_item pre="390" perc="65" trigger="410" release="360" min="1664000" />
             </limiter>
         </scenario>
 
         <scenario name="GameThermalCpuControl5">
             <limiter name="CPUFreqMax" type="STS">
-                <sts_item pre="390" perc="60" trigger="410" release="360" min="1768000" />
+                <sts_item pre="390" perc="70" trigger="410" release="360" min="1768000" />
             </limiter>
         </scenario>
 
@@ -286,13 +301,17 @@
 
         <scenario name="GameThermalGpuControl2">
             <limiter name="GPUFreqMax" type="STS">
-                <sts_item pre="390" perc="60" trigger="410" release="360" min="419" />
+                <sts_item pre="390" perc="65" trigger="410" release="360" min="419" />
             </limiter>
         </scenario>
 		
         <scenario name="ScreenOff" priority="1">
             <limiter name="Charging" type="number">
                 <table_item temp="460" value="100" />
+            </limiter>
+            <limiter name="AppInstallStandby" type="number">
+                <table_item temp="420" value="5000" />
+                <table_item temp="460" value="10000" />
             </limiter>
         </scenario>
 
@@ -317,6 +336,41 @@
         <scenario name="WirelessChgInCallEvent">
             <limiter name="ChargingEvent" type="number">
                 <table_item temp="440" value="1" />
+            </limiter>
+        </scenario>
+
+        <scenario name="DayDreamAndSustained" priority="2">
+            <limiter name="CPUFreqMax" type="number">
+                <table_item temp="600" value="1144000" />
+                <table_item temp="620" value="396500" />
+                <table_item temp="630" value="318500" />
+            </limiter>
+            <limiter name="GPUFreqMax" type="number">
+                <table_item temp="600" value="419" />
+                <table_item temp="620" value="338" />
+            </limiter>
+        </scenario>
+
+        <scenario name="DayDream" priority="2">
+            <limiter name="CPUFreqMax" type="number">
+                <table_item temp="600" value="1248000" />
+                <table_item temp="620" value="396500" />
+                <table_item temp="630" value="318500" />
+            </limiter>
+            <limiter name="GPUFreqMax" type="number">
+                <table_item temp="600" value="419" />
+                <table_item temp="620" value="338" />
+            </limiter>
+        </scenario>
+
+        <scenario name="SustainedPerformance" priority="2">
+            <limiter name="CPUFreqMax" type="number">
+                <table_item temp="600" value="1144000" />
+                <table_item temp="620" value="396500" />
+                <table_item temp="630" value="318500" />
+            </limiter>
+            <limiter name="GPUFreqMax" type="number">
+                <table_item temp="600" value="260" />
             </limiter>
         </scenario>
 
@@ -404,27 +458,6 @@
         </scenario>
 
         <scenario name="Navigation">
-            <trigger_packages>
-                <package name="me.gfuil.bmap" />
-                <package name="com.google.android.apps.maps" />
-                <package name="com.skt.skaf.l001mtm091" />
-                <package name="kt.navi" />
-                <package name="com.mnsoft.lgunavi" />
-                <package name="com.locnall.KimGiSa" />
-                <package name="kr.mappers.AtlanSmart" />
-                <package name="com.mnsoft.mappyobn" />
-                <package name="com.thinkware.inaviair" />
-                <package name="com.thinkware.sundo.inavi3d" />
-                <package name="net.daum.android.map" />
-                <package name="com.nhn.android.nmap" />
-                <package name="com.autonavi.minimap" />
-                <package name="com.baidu.BaiduMap" />
-                <package name="com.sogou.map.android.maps" />
-                <package name="com.tencent.map" />
-                <package name="com.waze" />
-                <package name="pl.neptis.yanosik.mobi.andorid" />
-            </trigger_packages>
-
             <limiter name="CPUFreqMax" type="number">
                 <table_item temp="480" value="1352000" />
                 <table_item temp="500" value="1040000" />
@@ -440,9 +473,9 @@
                 <table_item temp="520" value="0" />
             </limiter>
             <limiter name="DynamicFpsLevel" type="number">
-                <table_item temp="460" value="99" />
-                <table_item temp="480" value="66" />
-                <table_item temp="500" value="33" />
+                <table_item temp="460" value="60" />
+                <table_item temp="480" value="45" />
+                <table_item temp="500" value="30" />
             </limiter>
         </scenario>
 
@@ -528,7 +561,7 @@
             </limiter>
         </scenario>
 
-        <scenario name="VtCallControl">
+        <scenario name="VtCallControl" priority="1">
             <limiter name="CPUFreqMax" type="number">
                 <table_item temp="420" value="-1" />
                 <table_item temp="440" value="1248000" />
@@ -588,6 +621,30 @@
             <limiter name="Charging" type="number">
                 <table_item temp="0" value="100" />
                 <table_item temp="10" value="70" />
+            </limiter>
+        </scenario>
+
+        <scenario name="Badge" priority="2">
+            <limiter name="CPUFreqMax" type="number">
+                <table_item temp="580" value="-1" />
+                <table_item temp="600" value="936000" />
+                <table_item temp="620" value="728000" />
+            </limiter>
+            <limiter name="GPUFreqMax" type="number">
+                <table_item temp="560" value="-1" />
+                <table_item temp="600" value="260" />
+            </limiter>
+        </scenario>
+
+        <scenario name="WakeUp" priority="2">
+            <limiter name="CPUFreqMax" type="number">
+                <table_item temp="580" value="-1" />
+                <table_item temp="600" value="936000" />
+                <table_item temp="620" value="728000" />
+            </limiter>
+            <limiter name="GPUFreqMax" type="number">
+                <table_item temp="560" value="-1" />
+                <table_item temp="600" value="260" />
             </limiter>
         </scenario>
 

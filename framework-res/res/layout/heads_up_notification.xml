@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/hun_background_color" android:layout_width="fill_parent" android:layout_height="fill_parent" android:maxHeight="@dimen/hun_body_layout_max_height" android:minHeight="@dimen/hun_body_layout_min_height"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/multisound_content" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/HeadsUpNotificationContentLayoutStyle">
+        <LinearLayout android:orientation="horizontal" android:id="@id/multisound_content_header" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="2.0dip" android:layout_weight="1.0">
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/multisound_icon" android:background="?activatedBackgroundIndicator" android:visibility="gone" android:layout_width="14.0dip" android:layout_height="14.0dip" android:scaleType="centerInside" style="@style/HeadsUpNotificationIconStyle" />
+            <TextView android:layout_gravity="center_vertical" android:id="@id/multisound_caller" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/HeadsUpNotificationCallerStyle" />
+        </LinearLayout>
+        <TextView android:id="@id/multisound_title" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0" style="@style/HeadsUpNotificationTitleStyle" />
+        <TextView android:id="@id/multisound_text" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0" style="@style/HeadsUpNotificationDescriptionStyle" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/multisound_buttonSet" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/hun_button_set_layout_height" style="@style/HeadsUpNotificationButtonSetLayoutStyle">
+        <TextView android:id="@id/multisound_button1" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/HeadsUpNotificationTextButtonStyle" />
+        <TextView android:id="@id/multisound_button2" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/HeadsUpNotificationTextButtonStyle" />
+    </LinearLayout>
+</LinearLayout>

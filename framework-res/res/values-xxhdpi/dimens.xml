@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="thumbnail_height">192.0dip</dimen>
+    <dimen name="thumbnail_width">192.0dip</dimen>
+    <dimen name="sem_resolver_divider_height">2.0px</dimen>
+    <dimen name="tw_list_empty_subheader_minheight">3.0px</dimen>
+    <dimen name="tw_scroll_indicator_height">2.0px</dimen>
+    <dimen name="sem_action_bar_divider_height">3.0px</dimen>
+    <dimen name="sem_color_picker_selected_color_group_background_stroke_size">2.0px</dimen>
+    <dimen name="sem_color_picker_used_color_group_divider_height">3.0px</dimen>
+</resources>

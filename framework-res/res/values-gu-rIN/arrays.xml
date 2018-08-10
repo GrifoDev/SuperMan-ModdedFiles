@@ -37,6 +37,19 @@
         <item>બીજા</item>
         <item>કસ્ટમ</item>
     </string-array>
+    <string-array name="imAddressTypes">
+        <item>હોમ</item>
+        <item>કામ</item>
+        <item>બીજા</item>
+        <item>કસ્ટમ</item>
+    </string-array>
+    <string-array name="network_switch_type_name">
+        <item>મોબાઇલ ડેટા</item>
+        <item>Wi-Fi</item>
+        <item>Bluetooth</item>
+        <item>ઇથરનેટ</item>
+        <item>VPN</item>
+    </string-array>
     <string-array name="wfcOperatorErrorAlertMessages">
         <item>Wi-Fi પર કૉલ્સ કરવા અને સંદેશા મોકલવા માટે, પહેલા તમારા કેરીઅરને આ સેવા સેટ કરવા માટે કહો. પછી સેટિંગ્સમાંથી Wi-Fi કૉલિંગ ચાલુ કરો.</item>
     </string-array>
@@ -46,13 +59,5 @@
     <string-array name="wfcSpnFormats">
         <item>%s</item>
         <item>%s Wi-Fi કૉલિંગ</item>
-    </string-array>
-    <array name="fingerprint_acquired_vendor" />
-    <array name="fingerprint_error_vendor" />
-    <string-array name="imAddressTypes">
-        <item>હોમ</item>
-        <item>કામ</item>
-        <item>બીજા</item>
-        <item>કસ્ટમ</item>
     </string-array>
 </resources>

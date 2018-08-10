@@ -37,6 +37,19 @@
         <item>Άλλο</item>
         <item>Προσαρμοσμένη</item>
     </string-array>
+    <string-array name="imAddressTypes">
+        <item>Οικία</item>
+        <item>Εργασία</item>
+        <item>Άλλο</item>
+        <item>Προσαρμοσμένη</item>
+    </string-array>
+    <string-array name="network_switch_type_name">
+        <item>δεδομένα κινητής τηλεφωνίας</item>
+        <item>Wi-Fi</item>
+        <item>Bluetooth</item>
+        <item>Ethernet</item>
+        <item>VPN</item>
+    </string-array>
     <string-array name="wfcOperatorErrorAlertMessages">
         <item>Για να κάνετε κλήσεις και να στέλνετε μηνύματα μέσω Wi-Fi, ζητήστε πρώτα από την εταιρεία κινητής τηλεφωνίας να ρυθμίσει την υπηρεσία. Στη συνέχεια, ενεργοποιήστε ξανά τη λειτουργία κλήσεων μέσω Wi-Fi από τις Ρυθμίσεις.</item>
     </string-array>
@@ -46,13 +59,5 @@
     <string-array name="wfcSpnFormats">
         <item>%s</item>
         <item>%s Κλήση Wi-Fi</item>
-    </string-array>
-    <array name="fingerprint_acquired_vendor" />
-    <array name="fingerprint_error_vendor" />
-    <string-array name="imAddressTypes">
-        <item>Οικία</item>
-        <item>Εργασία</item>
-        <item>Άλλο</item>
-        <item>Προσαρμοσμένη</item>
     </string-array>
 </resources>
