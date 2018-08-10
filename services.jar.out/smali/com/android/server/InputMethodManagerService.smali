@@ -20905,7 +20905,7 @@
 
     move-result v1
 
-    :goto_0
+    :goto_1
     iget-object v4, p0, Lcom/android/server/InputMethodManagerService;->mSettings:Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodSettings;
 
     iget-object v6, p0, Lcom/android/server/InputMethodManagerService;->mUserManager:Landroid/os/UserManager;
@@ -21076,7 +21076,7 @@
     .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    :goto_1
+    :goto_2
     :try_start_2
     iget-object v4, p0, Lcom/android/server/InputMethodManagerService;->mContext:Landroid/content/Context;
 
@@ -21117,7 +21117,7 @@
 
     move-result v1
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 
     :catch_0
     move-exception v2
@@ -21130,7 +21130,7 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    goto :goto_1
+    goto :goto_2
 
     :catchall_0
     move-exception v4
