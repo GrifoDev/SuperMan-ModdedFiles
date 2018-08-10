@@ -3,7 +3,7 @@
 .source "DeviceIdleController.java"
 
 # interfaces
-.implements Landroid/location/LocationListener;
+.implements Landroid/hardware/display/DisplayManager$DisplayListener;
 
 
 # annotations
@@ -34,8 +34,16 @@
 
 
 # virtual methods
-.method public onLocationChanged(Landroid/location/Location;)V
+.method public onDisplayAdded(I)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onDisplayChanged(I)V
     .locals 2
+
+    if-nez p1, :cond_0
 
     iget-object v1, p0, Lcom/android/server/DeviceIdleController$7;->this$0:Lcom/android/server/DeviceIdleController;
 
@@ -44,12 +52,13 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/DeviceIdleController$7;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/DeviceIdleController;->receivedGenericLocationLocked(Landroid/location/Location;)V
+    invoke-virtual {v0}, Lcom/android/server/DeviceIdleController;->updateDisplayLocked()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit v1
 
+    :cond_0
     return-void
 
     :catchall_0
@@ -60,19 +69,7 @@
     throw v0
 .end method
 
-.method public onProviderDisabled(Ljava/lang/String;)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onProviderEnabled(Ljava/lang/String;)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onStatusChanged(Ljava/lang/String;ILandroid/os/Bundle;)V
+.method public onDisplayRemoved(I)V
     .locals 0
 
     return-void

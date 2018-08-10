@@ -15,18 +15,10 @@
 
 
 # instance fields
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
 
 # direct methods
-.method static synthetic -get0(Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;)Landroid/content/Context;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->mContext:Landroid/content/Context;
-
-    return-object v0
-.end method
-
 .method constructor <init>(Landroid/content/Context;)V
     .locals 0
 
@@ -111,12 +103,53 @@
     return-void
 .end method
 
+.method createContextAsUser(Landroid/os/UserHandle;)Landroid/content/Context;
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/content/pm/PackageManager$NameNotFoundException;
+        }
+    .end annotation
+
+    iget-object v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->mContext:Landroid/content/Context;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v0, v2, p1}, Landroid/content/Context;->createPackageContextAsUser(Ljava/lang/String;ILandroid/os/UserHandle;)Landroid/content/Context;
+
+    move-result-object v1
+
+    return-object v1
+.end method
+
 .method environmentGetUserSystemDirectory(I)Ljava/io/File;
     .locals 1
 
     invoke-static {p1}, Landroid/os/Environment;->getUserSystemDirectory(I)Ljava/io/File;
 
     move-result-object v0
+
+    return-object v0
+.end method
+
+.method getAlarmManager()Landroid/app/AlarmManager;
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->mContext:Landroid/content/Context;
+
+    const-class v1, Landroid/app/AlarmManager;
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/AlarmManager;
 
     return-object v0
 .end method
@@ -132,7 +165,7 @@
 .method getIActivityManager()Landroid/app/IActivityManager;
     .locals 1
 
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
     move-result-object v0
 
@@ -181,6 +214,22 @@
     move-result-object v0
 
     invoke-static {v0}, Lcom/samsung/android/knox/IEnterpriseDeviceManager$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/knox/IEnterpriseDeviceManager;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method getIIpConnectivityMetrics()Landroid/net/IIpConnectivityMetrics;
+    .locals 1
+
+    const-string/jumbo v0, "connmetrics"
+
+    invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/net/IIpConnectivityMetrics$Stub;->asInterface(Landroid/os/IBinder;)Landroid/net/IIpConnectivityMetrics;
 
     move-result-object v0
 
@@ -239,6 +288,18 @@
     return-object v0
 .end method
 
+.method getPackageManager()Landroid/content/pm/PackageManager;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method getPackageManagerInternal()Landroid/content/pm/PackageManagerInternal;
     .locals 1
 
@@ -263,6 +324,18 @@
     move-result-object v0
 
     check-cast v0, Landroid/os/PowerManagerInternal;
+
+    return-object v0
+.end method
+
+.method getResources()Landroid/content/res/Resources;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
 
     return-object v0
 .end method
@@ -337,6 +410,31 @@
     return-object v0
 .end method
 
+.method isBuildDebuggable()Z
+    .locals 1
+
+    sget-boolean v0, Landroid/os/Build;->IS_DEBUGGABLE:Z
+
+    return v0
+.end method
+
+.method keyChainBindAsUser(Landroid/os/UserHandle;)Landroid/security/KeyChain$KeyChainConnection;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/InterruptedException;
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->mContext:Landroid/content/Context;
+
+    invoke-static {v0, p1}, Landroid/security/KeyChain;->bindAsUser(Landroid/content/Context;Landroid/os/UserHandle;)Landroid/security/KeyChain$KeyChainConnection;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method newLockPatternUtils()Lcom/android/internal/widget/LockPatternUtils;
     .locals 2
 
@@ -367,6 +465,16 @@
     move-result-object v3
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/devicepolicy/Owners;-><init>(Landroid/os/UserManager;Landroid/os/UserManagerInternal;Landroid/content/pm/PackageManagerInternal;)V
+
+    return-object v0
+.end method
+
+.method pendingIntentGetActivityAsUser(Landroid/content/Context;ILandroid/content/Intent;ILandroid/os/Bundle;Landroid/os/UserHandle;)Landroid/app/PendingIntent;
+    .locals 1
+
+    invoke-static/range {p1 .. p6}, Landroid/app/PendingIntent;->getActivityAsUser(Landroid/content/Context;ILandroid/content/Intent;ILandroid/os/Bundle;Landroid/os/UserHandle;)Landroid/app/PendingIntent;
+
+    move-result-object v0
 
     return-object v0
 .end method
@@ -403,6 +511,21 @@
     check-cast v0, Landroid/os/PowerManager;
 
     invoke-virtual {v0, p1}, Landroid/os/PowerManager;->reboot(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method recoverySystemRebootWipeUserData(ZLjava/lang/String;Z)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->mContext:Landroid/content/Context;
+
+    invoke-static {v0, p1, p2, p3}, Landroid/os/RecoverySystem;->rebootWipeUserData(Landroid/content/Context;ZLjava/lang/String;Z)V
 
     return-void
 .end method
@@ -465,6 +588,22 @@
     return v0
 .end method
 
+.method settingsGlobalGetString(Ljava/lang/String;)Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    invoke-static {v0, p1}, Landroid/provider/Settings$Global;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method settingsGlobalPutInt(Ljava/lang/String;I)V
     .locals 1
 
@@ -521,6 +660,22 @@
     move-result v0
 
     return v0
+.end method
+
+.method settingsSecureGetStringForUser(Ljava/lang/String;I)Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    invoke-static {v0, p1, p2}, Landroid/provider/Settings$Secure;->getStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method settingsSecurePutInt(Ljava/lang/String;I)V

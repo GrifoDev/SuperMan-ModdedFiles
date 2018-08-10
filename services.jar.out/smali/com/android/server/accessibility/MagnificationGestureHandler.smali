@@ -13,6 +13,7 @@
         Lcom/android/server/accessibility/MagnificationGestureHandler$MagnifiedContentInteractionStateHandler;,
         Lcom/android/server/accessibility/MagnificationGestureHandler$MotionEventHandler;,
         Lcom/android/server/accessibility/MagnificationGestureHandler$MotionEventInfo;,
+        Lcom/android/server/accessibility/MagnificationGestureHandler$ScreenStateReceiver;,
         Lcom/android/server/accessibility/MagnificationGestureHandler$StateViewportDraggingHandler;
     }
 .end annotation
@@ -45,7 +46,7 @@
 
 .field private mDelegatingStateDownTime:J
 
-.field private final mDetectControlGestures:Z
+.field private final mDetectTripleTap:Z
 
 .field private final mDetectingStateHandler:Lcom/android/server/accessibility/MagnificationGestureHandler$DetectingStateHandler;
 
@@ -57,6 +58,10 @@
 
 .field private mPreviousState:I
 
+.field private final mScreenStateReceiver:Lcom/android/server/accessibility/MagnificationGestureHandler$ScreenStateReceiver;
+
+.field private mShortcutTriggered:Z
+
 .field private final mStateViewportDraggingHandler:Lcom/android/server/accessibility/MagnificationGestureHandler$StateViewportDraggingHandler;
 
 .field private mTempPointerCoords:[Landroid/view/MotionEvent$PointerCoords;
@@ -64,6 +69,8 @@
 .field private mTempPointerProperties:[Landroid/view/MotionEvent$PointerProperties;
 
 .field private mTranslationEnabledBeforePan:Z
+
+.field private final mTriggerable:Z
 
 
 # direct methods
@@ -75,7 +82,15 @@
     return v0
 .end method
 
-.method static synthetic -get1(Lcom/android/server/accessibility/MagnificationGestureHandler;)Lcom/android/server/accessibility/MagnificationController;
+.method static synthetic -get1(Lcom/android/server/accessibility/MagnificationGestureHandler;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mDetectTripleTap:Z
+
+    return v0
+.end method
+
+.method static synthetic -get2(Lcom/android/server/accessibility/MagnificationGestureHandler;)Lcom/android/server/accessibility/MagnificationController;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mMagnificationController:Lcom/android/server/accessibility/MagnificationController;
@@ -83,7 +98,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get2(Lcom/android/server/accessibility/MagnificationGestureHandler;)I
+.method static synthetic -get3(Lcom/android/server/accessibility/MagnificationGestureHandler;)I
     .locals 1
 
     iget v0, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mPreviousState:I
@@ -91,7 +106,15 @@
     return v0
 .end method
 
-.method static synthetic -get3(Lcom/android/server/accessibility/MagnificationGestureHandler;)Z
+.method static synthetic -get4(Lcom/android/server/accessibility/MagnificationGestureHandler;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mShortcutTriggered:Z
+
+    return v0
+.end method
+
+.method static synthetic -get5(Lcom/android/server/accessibility/MagnificationGestureHandler;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mTranslationEnabledBeforePan:Z
@@ -107,7 +130,15 @@
     return p1
 .end method
 
-.method static synthetic -wrap0(Lcom/android/server/accessibility/MagnificationGestureHandler;I)V
+.method static synthetic -wrap0(Lcom/android/server/accessibility/MagnificationGestureHandler;Z)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/accessibility/MagnificationGestureHandler;->setMagnificationShortcutTriggered(Z)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap1(Lcom/android/server/accessibility/MagnificationGestureHandler;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/accessibility/MagnificationGestureHandler;->transitionToState(I)V
@@ -115,8 +146,10 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Lcom/android/server/accessibility/AccessibilityManagerService;Z)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/server/accessibility/AccessibilityManagerService;ZZ)V
     .locals 2
+
+    const/4 v1, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -134,8 +167,6 @@
 
     new-instance v0, Lcom/android/server/accessibility/MagnificationGestureHandler$StateViewportDraggingHandler;
 
-    const/4 v1, 0x0
-
     invoke-direct {v0, p0, v1}, Lcom/android/server/accessibility/MagnificationGestureHandler$StateViewportDraggingHandler;-><init>(Lcom/android/server/accessibility/MagnificationGestureHandler;Lcom/android/server/accessibility/MagnificationGestureHandler$StateViewportDraggingHandler;)V
 
     iput-object v0, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mStateViewportDraggingHandler:Lcom/android/server/accessibility/MagnificationGestureHandler$StateViewportDraggingHandler;
@@ -146,13 +177,33 @@
 
     iput-object v0, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mMagnifiedContentInteractionStateHandler:Lcom/android/server/accessibility/MagnificationGestureHandler$MagnifiedContentInteractionStateHandler;
 
-    iput-boolean p3, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mDetectControlGestures:Z
+    iput-boolean p3, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mDetectTripleTap:Z
 
+    iput-boolean p4, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mTriggerable:Z
+
+    if-eqz p4, :cond_0
+
+    new-instance v0, Lcom/android/server/accessibility/MagnificationGestureHandler$ScreenStateReceiver;
+
+    invoke-direct {v0, p1, p0}, Lcom/android/server/accessibility/MagnificationGestureHandler$ScreenStateReceiver;-><init>(Landroid/content/Context;Lcom/android/server/accessibility/MagnificationGestureHandler;)V
+
+    iput-object v0, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mScreenStateReceiver:Lcom/android/server/accessibility/MagnificationGestureHandler$ScreenStateReceiver;
+
+    iget-object v0, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mScreenStateReceiver:Lcom/android/server/accessibility/MagnificationGestureHandler$ScreenStateReceiver;
+
+    invoke-virtual {v0}, Lcom/android/server/accessibility/MagnificationGestureHandler$ScreenStateReceiver;->register()V
+
+    :goto_0
     const/4 v0, 0x2
 
     invoke-direct {p0, v0}, Lcom/android/server/accessibility/MagnificationGestureHandler;->transitionToState(I)V
 
     return-void
+
+    :cond_0
+    iput-object v1, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mScreenStateReceiver:Lcom/android/server/accessibility/MagnificationGestureHandler$ScreenStateReceiver;
+
+    goto :goto_0
 .end method
 
 .method private clear()V
@@ -161,6 +212,10 @@
     const/4 v0, 0x2
 
     iput v0, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mCurrentState:I
+
+    const/4 v0, 0x0
+
+    invoke-direct {p0, v0}, Lcom/android/server/accessibility/MagnificationGestureHandler;->setMagnificationShortcutTriggered(Z)V
 
     iget-object v0, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mDetectingStateHandler:Lcom/android/server/accessibility/MagnificationGestureHandler$DetectingStateHandler;
 
@@ -361,30 +416,30 @@
 .method private getTempPointerCoordsWithMinSize(I)[Landroid/view/MotionEvent$PointerCoords;
     .locals 5
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    iget-object v4, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mTempPointerCoords:[Landroid/view/MotionEvent$PointerCoords;
+    iget-object v3, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mTempPointerCoords:[Landroid/view/MotionEvent$PointerCoords;
 
-    if-eqz v4, :cond_1
+    if-eqz v3, :cond_1
 
-    iget-object v4, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mTempPointerCoords:[Landroid/view/MotionEvent$PointerCoords;
+    iget-object v3, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mTempPointerCoords:[Landroid/view/MotionEvent$PointerCoords;
 
-    array-length v1, v4
+    array-length v1, v3
 
     :goto_0
     if-ge v1, p1, :cond_0
 
     iget-object v2, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mTempPointerCoords:[Landroid/view/MotionEvent$PointerCoords;
 
-    new-array v4, p1, [Landroid/view/MotionEvent$PointerCoords;
+    new-array v3, p1, [Landroid/view/MotionEvent$PointerCoords;
 
-    iput-object v4, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mTempPointerCoords:[Landroid/view/MotionEvent$PointerCoords;
+    iput-object v3, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mTempPointerCoords:[Landroid/view/MotionEvent$PointerCoords;
 
     if-eqz v2, :cond_0
 
-    iget-object v4, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mTempPointerCoords:[Landroid/view/MotionEvent$PointerCoords;
+    iget-object v3, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mTempPointerCoords:[Landroid/view/MotionEvent$PointerCoords;
 
-    invoke-static {v2, v3, v4, v3, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v2, v4, v3, v4, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     :cond_0
     move v0, v1
@@ -405,7 +460,7 @@
     goto :goto_1
 
     :cond_1
-    move v1, v3
+    const/4 v1, 0x0
 
     goto :goto_0
 
@@ -418,30 +473,30 @@
 .method private getTempPointerPropertiesWithMinSize(I)[Landroid/view/MotionEvent$PointerProperties;
     .locals 5
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    iget-object v4, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mTempPointerProperties:[Landroid/view/MotionEvent$PointerProperties;
+    iget-object v3, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mTempPointerProperties:[Landroid/view/MotionEvent$PointerProperties;
 
-    if-eqz v4, :cond_1
+    if-eqz v3, :cond_1
 
-    iget-object v4, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mTempPointerProperties:[Landroid/view/MotionEvent$PointerProperties;
+    iget-object v3, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mTempPointerProperties:[Landroid/view/MotionEvent$PointerProperties;
 
-    array-length v1, v4
+    array-length v1, v3
 
     :goto_0
     if-ge v1, p1, :cond_0
 
     iget-object v2, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mTempPointerProperties:[Landroid/view/MotionEvent$PointerProperties;
 
-    new-array v4, p1, [Landroid/view/MotionEvent$PointerProperties;
+    new-array v3, p1, [Landroid/view/MotionEvent$PointerProperties;
 
-    iput-object v4, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mTempPointerProperties:[Landroid/view/MotionEvent$PointerProperties;
+    iput-object v3, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mTempPointerProperties:[Landroid/view/MotionEvent$PointerProperties;
 
     if-eqz v2, :cond_0
 
-    iget-object v4, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mTempPointerProperties:[Landroid/view/MotionEvent$PointerProperties;
+    iget-object v3, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mTempPointerProperties:[Landroid/view/MotionEvent$PointerProperties;
 
-    invoke-static {v2, v3, v4, v3, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v2, v4, v3, v4, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     :cond_0
     move v0, v1
@@ -462,7 +517,7 @@
     goto :goto_1
 
     :cond_1
-    move v1, v3
+    const/4 v1, 0x0
 
     goto :goto_0
 
@@ -527,6 +582,25 @@
     .end packed-switch
 .end method
 
+.method private setMagnificationShortcutTriggered(Z)V
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mShortcutTriggered:Z
+
+    if-ne v0, p1, :cond_0
+
+    return-void
+
+    :cond_0
+    iput-boolean p1, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mShortcutTriggered:Z
+
+    iget-object v0, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mMagnificationController:Lcom/android/server/accessibility/MagnificationController;
+
+    invoke-virtual {v0, p1}, Lcom/android/server/accessibility/MagnificationController;->setForceShowMagnifiableBounds(Z)V
+
+    return-void
+.end method
+
 .method private transitionToState(I)V
     .locals 1
 
@@ -563,6 +637,39 @@
     return-void
 .end method
 
+.method notifyShortcutTriggered()V
+    .locals 2
+
+    iget-boolean v0, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mTriggerable:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mMagnificationController:Lcom/android/server/accessibility/MagnificationController;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/android/server/accessibility/MagnificationController;->resetIfNeeded(Z)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-direct {p0}, Lcom/android/server/accessibility/MagnificationGestureHandler;->clear()V
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    iget-boolean v0, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mShortcutTriggered:Z
+
+    xor-int/lit8 v0, v0, 0x1
+
+    invoke-direct {p0, v0}, Lcom/android/server/accessibility/MagnificationGestureHandler;->setMagnificationShortcutTriggered(Z)V
+
+    goto :goto_0
+.end method
+
 .method public onAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 1
 
@@ -579,8 +686,17 @@
 .end method
 
 .method public onDestroy()V
-    .locals 0
+    .locals 1
 
+    iget-object v0, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mScreenStateReceiver:Lcom/android/server/accessibility/MagnificationGestureHandler$ScreenStateReceiver;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mScreenStateReceiver:Lcom/android/server/accessibility/MagnificationGestureHandler$ScreenStateReceiver;
+
+    invoke-virtual {v0}, Lcom/android/server/accessibility/MagnificationGestureHandler$ScreenStateReceiver;->unregister()V
+
+    :cond_0
     invoke-direct {p0}, Lcom/android/server/accessibility/MagnificationGestureHandler;->clear()V
 
     return-void
@@ -624,9 +740,15 @@
     return-void
 
     :cond_1
-    iget-boolean v0, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mDetectControlGestures:Z
+    iget-boolean v0, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mDetectTripleTap:Z
 
     if-nez v0, :cond_3
+
+    iget-boolean v0, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mTriggerable:Z
+
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_3
 
     iget-object v0, p0, Lcom/android/server/accessibility/MagnificationGestureHandler;->mNext:Lcom/android/server/accessibility/EventStreamTransformation;
 

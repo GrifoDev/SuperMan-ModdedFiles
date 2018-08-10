@@ -40,7 +40,7 @@
 
     const/4 v2, 0x0
 
-    invoke-static {v0, v1, v2, p1}, Lcom/android/server/location/GnssLocationProvider;->-wrap31(Lcom/android/server/location/GnssLocationProvider;IILjava/lang/Object;)V
+    invoke-static {v0, v1, v2, p1}, Lcom/android/server/location/GnssLocationProvider;->-wrap46(Lcom/android/server/location/GnssLocationProvider;IILjava/lang/Object;)V
 
     return-void
 .end method
@@ -52,19 +52,7 @@
 
     const/4 v1, 0x2
 
-    invoke-static {v0, v1}, Lcom/android/server/location/GnssLocationProvider;->-wrap28(Lcom/android/server/location/GnssLocationProvider;I)V
-
-    return-void
-.end method
-
-.method public onUnavailable()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/location/GnssLocationProvider$3;->this$0:Lcom/android/server/location/GnssLocationProvider;
-
-    const/4 v1, 0x5
-
-    invoke-static {v0, v1}, Lcom/android/server/location/GnssLocationProvider;->-wrap28(Lcom/android/server/location/GnssLocationProvider;I)V
+    invoke-static {v0, v1}, Lcom/android/server/location/GnssLocationProvider;->-wrap42(Lcom/android/server/location/GnssLocationProvider;I)V
 
     return-void
 .end method

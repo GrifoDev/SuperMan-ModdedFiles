@@ -35,11 +35,9 @@
 
 .field mIdString:Ljava/lang/String;
 
-.field mInputForwardDisplayId:I
-
 .field mParentActivity:Lcom/android/server/am/ActivityRecord;
 
-.field final mStack:Lcom/android/server/am/ActivityStack;
+.field mStack:Lcom/android/server/am/ActivityStack;
 
 .field final mStackId:I
 
@@ -49,7 +47,7 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/ActivityStackSupervisor;I)V
+.method constructor <init>(Lcom/android/server/am/ActivityStackSupervisor;ILcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;Z)V
     .locals 3
 
     const/4 v0, 0x0
@@ -70,10 +68,6 @@
 
     iput v0, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->mContainerState:I
 
-    const/4 v0, -0x1
-
-    iput v0, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->mInputForwardDisplayId:I
-
     iget-object v1, p1, Lcom/android/server/am/ActivityStackSupervisor;->mService:Lcom/android/server/am/ActivityManagerService;
 
     monitor-enter v1
@@ -83,15 +77,7 @@
 
     iput p2, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->mStackId:I
 
-    new-instance v0, Lcom/android/server/am/ActivityStack;
-
-    invoke-static {p1}, Lcom/android/server/am/ActivityStackSupervisor;->-get4(Lcom/android/server/am/ActivityStackSupervisor;)Lcom/android/server/am/RecentTasks;
-
-    move-result-object v2
-
-    invoke-direct {v0, p0, v2}, Lcom/android/server/am/ActivityStack;-><init>(Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;Lcom/android/server/am/RecentTasks;)V
-
-    iput-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->mStack:Lcom/android/server/am/ActivityStack;
+    iput-object p3, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->mActivityDisplay:Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -120,6 +106,8 @@
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->mIdString:Ljava/lang/String;
+
+    invoke-virtual {p0, p2, p4}, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->createStack(IZ)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -139,15 +127,25 @@
     throw v0
 .end method
 
+.method private removeFromDisplayLocked()V
+    .locals 2
 
-# virtual methods
-.method public asBinder()Landroid/os/IBinder;
-    .locals 0
+    iget-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->mActivityDisplay:Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;
 
-    return-object p0
+    iget-object v1, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->mStack:Lcom/android/server/am/ActivityStack;
+
+    invoke-virtual {v0, v1}, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->detachStack(Lcom/android/server/am/ActivityStack;)V
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->mActivityDisplay:Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;
+
+    return-void
 .end method
 
-.method public attachToDisplay(I)V
+
+# virtual methods
+.method public addToDisplay(I)V
     .locals 3
 
     iget-object v1, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->this$0:Lcom/android/server/am/ActivityStackSupervisor;
@@ -161,17 +159,11 @@
 
     iget-object v1, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->this$0:Lcom/android/server/am/ActivityStackSupervisor;
 
-    invoke-static {v1}, Lcom/android/server/am/ActivityStackSupervisor;->-get1(Lcom/android/server/am/ActivityStackSupervisor;)Landroid/util/SparseArray;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;
+    invoke-static {v1, p1}, Lcom/android/server/am/ActivityStackSupervisor;->-wrap2(Lcom/android/server/am/ActivityStackSupervisor;I)Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v0
 
     if-nez v0, :cond_0
 
@@ -182,10 +174,8 @@
     return-void
 
     :cond_0
-    const/4 v1, 0x1
-
     :try_start_1
-    invoke-virtual {p0, v0, v1}, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->attachToDisplayLocked(Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;Z)V
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->addToDisplayLocked(Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -205,20 +195,57 @@
     throw v1
 .end method
 
-.method attachToDisplayLocked(Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;Z)V
-    .locals 1
+.method addToDisplayLocked(Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;)V
+    .locals 3
 
+    iget-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->mActivityDisplay:Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "ActivityContainer is already attached, displayId="
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->mActivityDisplay:Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;
+
+    iget v2, v2, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->mDisplayId:I
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_0
     iput-object p1, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->mActivityDisplay:Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;
 
     iget-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->mStack:Lcom/android/server/am/ActivityStack;
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/am/ActivityStack;->attachDisplay(Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;Z)V
+    const/4 v1, 0x1
 
-    iget-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->mStack:Lcom/android/server/am/ActivityStack;
-
-    invoke-virtual {p1, v0, p2}, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->attachActivities(Lcom/android/server/am/ActivityStack;Z)V
+    invoke-virtual {v0, p1, v1}, Lcom/android/server/am/ActivityStack;->reparent(Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;Z)V
 
     return-void
+.end method
+
+.method public asBinder()Landroid/os/IBinder;
+    .locals 0
+
+    return-object p0
 .end method
 
 .method checkEmbeddedAllowedInner(ILandroid/content/Intent;Ljava/lang/String;)V
@@ -262,29 +289,43 @@
     return-void
 .end method
 
-.method protected detachLocked()V
-    .locals 3
+.method protected createStack(IZ)V
+    .locals 2
 
-    const/4 v2, 0x0
+    packed-switch p1, :pswitch_data_0
 
-    iget-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->mActivityDisplay:Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;
+    new-instance v0, Lcom/android/server/am/ActivityStack;
 
-    if-eqz v0, :cond_0
+    iget-object v1, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->this$0:Lcom/android/server/am/ActivityStackSupervisor;
 
-    iget-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->mActivityDisplay:Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;
+    invoke-static {v1}, Lcom/android/server/am/ActivityStackSupervisor;->-get5(Lcom/android/server/am/ActivityStackSupervisor;)Lcom/android/server/am/RecentTasks;
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->mStack:Lcom/android/server/am/ActivityStack;
+    move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->detachActivitiesLocked(Lcom/android/server/am/ActivityStack;)V
+    invoke-direct {v0, p0, v1, p2}, Lcom/android/server/am/ActivityStack;-><init>(Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;Lcom/android/server/am/RecentTasks;Z)V
 
-    iput-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->mActivityDisplay:Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;
-
-    iget-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->mStack:Lcom/android/server/am/ActivityStack;
-
-    invoke-virtual {v0}, Lcom/android/server/am/ActivityStack;->detachDisplay()V
-
-    :cond_0
+    :goto_0
     return-void
+
+    :pswitch_0
+    new-instance v0, Lcom/android/server/am/PinnedActivityStack;
+
+    iget-object v1, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->this$0:Lcom/android/server/am/ActivityStackSupervisor;
+
+    invoke-static {v1}, Lcom/android/server/am/ActivityStackSupervisor;->-get5(Lcom/android/server/am/ActivityStackSupervisor;)Lcom/android/server/am/RecentTasks;
+
+    move-result-object v1
+
+    invoke-direct {v0, p0, v1, p2}, Lcom/android/server/am/PinnedActivityStack;-><init>(Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;Lcom/android/server/am/RecentTasks;Z)V
+
+    goto :goto_0
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x4
+        :pswitch_0
+    .end packed-switch
 .end method
 
 .method public getDisplayId()I
@@ -401,7 +442,9 @@
 
     iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->this$0:Lcom/android/server/am/ActivityStackSupervisor;
 
-    iget-object v2, v2, Lcom/android/server/am/ActivityStackSupervisor;->mInputManagerInternal:Landroid/hardware/input/InputManagerInternal;
+    invoke-static {v2}, Lcom/android/server/am/ActivityStackSupervisor;->-get2(Lcom/android/server/am/ActivityStackSupervisor;)Landroid/hardware/input/InputManagerInternal;
+
+    move-result-object v2
 
     iget-object v4, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->mActivityDisplay:Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;
 
@@ -484,49 +527,43 @@
     return v0
 .end method
 
+.method moveToDisplayLocked(Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;Z)V
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->removeFromDisplayLocked()V
+
+    iput-object p1, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->mActivityDisplay:Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;
+
+    iget-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->mStack:Lcom/android/server/am/ActivityStack;
+
+    invoke-virtual {v0, p1, p2}, Lcom/android/server/am/ActivityStack;->reparent(Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;Z)V
+
+    return-void
+.end method
+
 .method onTaskListEmptyLocked()V
     .locals 2
 
-    iget-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->mActivityDisplay:Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;
+    iget-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->this$0:Lcom/android/server/am/ActivityStackSupervisor;
+
+    iget-object v0, v0, Lcom/android/server/am/ActivityStackSupervisor;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mMultiScreenManager:Lcom/android/server/am/MultiScreenManagerService;
+
+    invoke-virtual {p0}, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->getDisplayId()I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Lcom/android/server/am/MultiScreenManagerService;->isVirtualScreen(I)Z
+
+    move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->mActivityDisplay:Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;
-
-    iget-object v0, v0, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->mDisplayInfo:Landroid/view/DisplayInfo;
-
-    iget v0, v0, Landroid/view/DisplayInfo;->flags:I
-
-    const/high16 v1, 0x100000
-
-    and-int/2addr v0, v1
-
-    if-eqz v0, :cond_1
-
-    :cond_0
     return-void
 
-    :cond_1
-    iget-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->mActivityDisplay:Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;
-
-    if-eqz v0, :cond_2
-
-    invoke-static {}, Lcom/android/server/SamsungCoreServices;->getMultiScreenService()Lcom/android/server/am/IMultiScreenManagerServiceBridge;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->mActivityDisplay:Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;
-
-    iget v1, v1, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->mDisplayId:I
-
-    invoke-interface {v0, v1}, Lcom/android/server/am/IMultiScreenManagerServiceBridge;->detachActivityDisplay(I)V
-
-    :cond_2
-    invoke-virtual {p0}, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->detachLocked()V
-
-    iget-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->this$0:Lcom/android/server/am/ActivityStackSupervisor;
-
-    invoke-virtual {v0, p0}, Lcom/android/server/am/ActivityStackSupervisor;->deleteActivityContainer(Landroid/app/IActivityContainer;)V
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->removeLocked()V
 
     iget-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->this$0:Lcom/android/server/am/ActivityStackSupervisor;
 
@@ -631,6 +668,23 @@
     throw v2
 .end method
 
+.method removeLocked()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->mActivityDisplay:Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;
+
+    if-eqz v0, :cond_0
+
+    invoke-direct {p0}, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->removeFromDisplayLocked()V
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->mStack:Lcom/android/server/am/ActivityStack;
+
+    invoke-virtual {v0}, Lcom/android/server/am/ActivityStack;->remove()V
+
+    return-void
+.end method
+
 .method setDrawn()V
     .locals 0
 
@@ -707,79 +761,87 @@
 .end method
 
 .method public final startActivityIntentSender(Landroid/content/IIntentSender;)I
-    .locals 14
+    .locals 16
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/TransactionTooLargeException;
         }
     .end annotation
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->this$0:Lcom/android/server/am/ActivityStackSupervisor;
+    move-object/from16 v0, p0
 
-    iget-object v1, v1, Lcom/android/server/am/ActivityStackSupervisor;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object v2, v0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->this$0:Lcom/android/server/am/ActivityStackSupervisor;
 
-    const-string/jumbo v2, "ActivityContainer.startActivityIntentSender"
+    iget-object v2, v2, Lcom/android/server/am/ActivityStackSupervisor;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-virtual {v1, v2}, Lcom/android/server/am/ActivityManagerService;->enforceNotIsolatedCaller(Ljava/lang/String;)V
+    const-string/jumbo v3, "ActivityContainer.startActivityIntentSender"
 
-    instance-of v1, p1, Lcom/android/server/am/PendingIntentRecord;
+    invoke-virtual {v2, v3}, Lcom/android/server/am/ActivityManagerService;->enforceNotIsolatedCaller(Ljava/lang/String;)V
 
-    if-nez v1, :cond_0
+    move-object/from16 v0, p1
 
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    instance-of v2, v0, Lcom/android/server/am/PendingIntentRecord;
 
-    const-string/jumbo v2, "Bad PendingIntent object"
+    if-nez v2, :cond_0
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    new-instance v2, Ljava/lang/IllegalArgumentException;
 
-    throw v1
+    const-string/jumbo v3, "Bad PendingIntent object"
+
+    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v2
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->this$0:Lcom/android/server/am/ActivityStackSupervisor;
+    move-object/from16 v0, p0
 
-    iget-object v1, v1, Lcom/android/server/am/ActivityStackSupervisor;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object v2, v0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->this$0:Lcom/android/server/am/ActivityStackSupervisor;
 
-    iget-object v0, v1, Lcom/android/server/am/ActivityManagerService;->mUserController:Lcom/android/server/am/UserController;
+    iget-object v2, v2, Lcom/android/server/am/ActivityStackSupervisor;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v1, v2, Lcom/android/server/am/ActivityManagerService;->mUserController:Lcom/android/server/am/UserController;
 
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
-    move-result v1
+    move-result v2
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v2
+    move-result v3
 
-    iget-object v3, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->this$0:Lcom/android/server/am/ActivityStackSupervisor;
+    move-object/from16 v0, p0
 
-    iget v3, v3, Lcom/android/server/am/ActivityStackSupervisor;->mCurrentUser:I
+    iget-object v4, v0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->this$0:Lcom/android/server/am/ActivityStackSupervisor;
 
-    const-string/jumbo v6, "ActivityContainer"
+    iget v4, v4, Lcom/android/server/am/ActivityStackSupervisor;->mCurrentUser:I
 
-    const/4 v4, 0x0
+    const-string/jumbo v7, "ActivityContainer"
 
-    const/4 v5, 0x2
+    const/4 v5, 0x0
 
-    const/4 v7, 0x0
+    const/4 v6, 0x2
 
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/am/UserController;->handleIncomingUser(IIIZILjava/lang/String;Ljava/lang/String;)I
+    const/4 v8, 0x0
 
-    move-result v13
+    invoke-virtual/range {v1 .. v8}, Lcom/android/server/am/UserController;->handleIncomingUser(IIIZILjava/lang/String;Ljava/lang/String;)I
 
-    move-object v0, p1
+    move-result v15
 
-    check-cast v0, Lcom/android/server/am/PendingIntentRecord;
+    move-object/from16 v1, p1
 
-    iget-object v1, v0, Lcom/android/server/am/PendingIntentRecord;->key:Lcom/android/server/am/PendingIntentRecord$Key;
+    check-cast v1, Lcom/android/server/am/PendingIntentRecord;
 
-    iget-object v1, v1, Lcom/android/server/am/PendingIntentRecord$Key;->requestIntent:Landroid/content/Intent;
+    iget-object v2, v1, Lcom/android/server/am/PendingIntentRecord;->key:Lcom/android/server/am/PendingIntentRecord$Key;
 
-    iget-object v2, v0, Lcom/android/server/am/PendingIntentRecord;->key:Lcom/android/server/am/PendingIntentRecord$Key;
+    iget-object v2, v2, Lcom/android/server/am/PendingIntentRecord$Key;->requestIntent:Landroid/content/Intent;
 
-    iget-object v2, v2, Lcom/android/server/am/PendingIntentRecord$Key;->requestResolvedType:Ljava/lang/String;
+    iget-object v3, v1, Lcom/android/server/am/PendingIntentRecord;->key:Lcom/android/server/am/PendingIntentRecord$Key;
 
-    invoke-virtual {p0, v13, v1, v2}, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->checkEmbeddedAllowedInner(ILandroid/content/Intent;Ljava/lang/String;)V
+    iget-object v3, v3, Lcom/android/server/am/PendingIntentRecord$Key;->requestResolvedType:Ljava/lang/String;
 
-    const/4 v1, 0x0
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v15, v2, v3}, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->checkEmbeddedAllowedInner(ILandroid/content/Intent;Ljava/lang/String;)V
 
     const/4 v2, 0x0
 
@@ -795,19 +857,23 @@
 
     const/4 v8, 0x0
 
-    const/high16 v9, 0x18010000
+    const/4 v9, 0x0
 
-    const/high16 v10, 0x18010000
+    const/4 v10, 0x0
 
-    const/4 v11, 0x0
+    const/high16 v11, 0x18010000
 
-    move-object v12, p0
+    const/high16 v12, 0x18010000
 
-    invoke-virtual/range {v0 .. v12}, Lcom/android/server/am/PendingIntentRecord;->sendInner(ILandroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;Ljava/lang/String;Landroid/os/IBinder;Ljava/lang/String;IIILandroid/os/Bundle;Landroid/app/IActivityContainer;)I
+    const/4 v13, 0x0
 
-    move-result v1
+    move-object/from16 v14, p0
 
-    return v1
+    invoke-virtual/range {v1 .. v14}, Lcom/android/server/am/PendingIntentRecord;->sendInner(ILandroid/content/Intent;Ljava/lang/String;Landroid/os/IBinder;Landroid/content/IIntentReceiver;Ljava/lang/String;Landroid/os/IBinder;Ljava/lang/String;IIILandroid/os/Bundle;Landroid/app/IActivityContainer;)I
+
+    move-result v2
+
+    return v2
 .end method
 
 .method public toString()Ljava/lang/String;

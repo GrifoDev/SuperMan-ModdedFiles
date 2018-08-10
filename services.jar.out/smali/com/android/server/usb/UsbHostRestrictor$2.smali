@@ -32,45 +32,23 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 10
+    .locals 9
 
-    const/4 v9, 0x1
+    const/4 v8, 0x1
 
-    const/4 v8, 0x0
+    const/4 v7, 0x0
 
     const-string/jumbo v5, "UsbHostRestrictor"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    const-string/jumbo v6, "UsbHostRestrictionReceiver Receiver onReceive"
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v7, p0, Lcom/android/server/usb/UsbHostRestrictor$2;->this$0:Lcom/android/server/usb/UsbHostRestrictor;
-
-    invoke-static {v7}, Lcom/android/server/usb/UsbHostRestrictor;->-get0(Lcom/android/server/usb/UsbHostRestrictor;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "UsbHostRestrictionReceiver Receiver onReceive"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Lcom/android/server/utils/sysfwutil/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    const-string/jumbo v5, "com.sec.enterprise.intent.action.UPDATE_ALLOW_USB_HOST_STORAGE_STATE_INTERNAL"
+    const-string/jumbo v5, "com.samsung.android.knox.intent.action.UPDATE_ALLOW_USB_HOST_STORAGE_STATE_INTERNAL"
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -80,7 +58,7 @@
 
     const-string/jumbo v5, "reason"
 
-    invoke-virtual {p2, v5, v8}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p2, v5, v7}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v2
 
@@ -88,33 +66,11 @@
 
     const-string/jumbo v5, "UsbHostRestrictor"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    const-string/jumbo v6, "UsbHostRestrictionReceiver : reason - ALLOW"
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v5, v6}, Lcom/android/server/utils/sysfwutil/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v7, p0, Lcom/android/server/usb/UsbHostRestrictor$2;->this$0:Lcom/android/server/usb/UsbHostRestrictor;
-
-    invoke-static {v7}, Lcom/android/server/usb/UsbHostRestrictor;->-get0(Lcom/android/server/usb/UsbHostRestrictor;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "UsbHostRestrictionReceiver : reason - ALLOW"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-static {v8}, Lcom/android/server/usb/UsbHostRestrictor;->-set0(Z)Z
+    invoke-static {v7}, Lcom/android/server/usb/UsbHostRestrictor;->-set0(Z)Z
 
     iget-object v5, p0, Lcom/android/server/usb/UsbHostRestrictor$2;->this$0:Lcom/android/server/usb/UsbHostRestrictor;
 
@@ -146,31 +102,9 @@
 
     const-string/jumbo v5, "UsbHostRestrictor"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    const-string/jumbo v6, "UsbHostRestrictionReceiver USB is already UNBLOCKED"
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v7, p0, Lcom/android/server/usb/UsbHostRestrictor$2;->this$0:Lcom/android/server/usb/UsbHostRestrictor;
-
-    invoke-static {v7}, Lcom/android/server/usb/UsbHostRestrictor;->-get0(Lcom/android/server/usb/UsbHostRestrictor;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "UsbHostRestrictionReceiver USB is already UNBLOCKED"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Lcom/android/server/utils/sysfwutil/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     :goto_0
@@ -193,31 +127,9 @@
 
     const-string/jumbo v5, "UsbHostRestrictor"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    const-string/jumbo v6, "UsbHostRestrictionReceiver USB ALL is already BLOCKED"
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v7, p0, Lcom/android/server/usb/UsbHostRestrictor$2;->this$0:Lcom/android/server/usb/UsbHostRestrictor;
-
-    invoke-static {v7}, Lcom/android/server/usb/UsbHostRestrictor;->-get0(Lcom/android/server/usb/UsbHostRestrictor;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "UsbHostRestrictionReceiver USB ALL is already BLOCKED"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Lcom/android/server/utils/sysfwutil/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
@@ -232,35 +144,13 @@
 
     const-string/jumbo v5, "UsbHostRestrictor"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    const-string/jumbo v6, "UsbHostRestrictionReceiver UNBLOCK USB HOST"
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v7, p0, Lcom/android/server/usb/UsbHostRestrictor$2;->this$0:Lcom/android/server/usb/UsbHostRestrictor;
-
-    invoke-static {v7}, Lcom/android/server/usb/UsbHostRestrictor;->-get0(Lcom/android/server/usb/UsbHostRestrictor;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "UsbHostRestrictionReceiver UNBLOCK USB HOST"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Lcom/android/server/utils/sysfwutil/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v5, p0, Lcom/android/server/usb/UsbHostRestrictor$2;->this$0:Lcom/android/server/usb/UsbHostRestrictor;
 
-    invoke-static {v5, v4}, Lcom/android/server/usb/UsbHostRestrictor;->-wrap9(Lcom/android/server/usb/UsbHostRestrictor;Ljava/lang/String;)V
+    invoke-static {v5, v4}, Lcom/android/server/usb/UsbHostRestrictor;->-wrap10(Lcom/android/server/usb/UsbHostRestrictor;Ljava/lang/String;)V
 
     goto :goto_0
 
@@ -275,66 +165,22 @@
 
     const-string/jumbo v5, "UsbHostRestrictor"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    const-string/jumbo v6, "UsbHostRestrictionReceiver Cannot write for USB HOST ENABLE"
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v5, v6}, Lcom/android/server/utils/sysfwutil/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v7, p0, Lcom/android/server/usb/UsbHostRestrictor$2;->this$0:Lcom/android/server/usb/UsbHostRestrictor;
-
-    invoke-static {v7}, Lcom/android/server/usb/UsbHostRestrictor;->-get0(Lcom/android/server/usb/UsbHostRestrictor;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "UsbHostRestrictionReceiver Cannot write for USB HOST ENABLE"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_0
+    goto :goto_0
 
     :cond_4
-    if-ne v2, v9, :cond_7
+    if-ne v2, v8, :cond_7
 
     const-string/jumbo v5, "UsbHostRestrictor"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    const-string/jumbo v6, "UsbHostRestrictionReceiver : reason - DISALLOW"
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v5, v6}, Lcom/android/server/utils/sysfwutil/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v7, p0, Lcom/android/server/usb/UsbHostRestrictor$2;->this$0:Lcom/android/server/usb/UsbHostRestrictor;
-
-    invoke-static {v7}, Lcom/android/server/usb/UsbHostRestrictor;->-get0(Lcom/android/server/usb/UsbHostRestrictor;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "UsbHostRestrictionReceiver : reason - DISALLOW"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-static {v9}, Lcom/android/server/usb/UsbHostRestrictor;->-set0(Z)Z
+    invoke-static {v8}, Lcom/android/server/usb/UsbHostRestrictor;->-set0(Z)Z
 
     iget-object v5, p0, Lcom/android/server/usb/UsbHostRestrictor$2;->this$0:Lcom/android/server/usb/UsbHostRestrictor;
 
@@ -366,33 +212,11 @@
 
     const-string/jumbo v5, "UsbHostRestrictor"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    const-string/jumbo v6, "UsbHostRestrictionReceiver USB ALL is already BLOCKED"
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v5, v6}, Lcom/android/server/utils/sysfwutil/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v7, p0, Lcom/android/server/usb/UsbHostRestrictor$2;->this$0:Lcom/android/server/usb/UsbHostRestrictor;
-
-    invoke-static {v7}, Lcom/android/server/usb/UsbHostRestrictor;->-get0(Lcom/android/server/usb/UsbHostRestrictor;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "UsbHostRestrictionReceiver USB ALL is already BLOCKED"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_0
+    goto :goto_0
 
     :cond_5
     const-string/jumbo v5, "ON_HOST_MDM"
@@ -405,66 +229,22 @@
 
     const-string/jumbo v5, "UsbHostRestrictor"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    const-string/jumbo v6, "UsbHostRestrictionReceiver BLOCK USB HOST"
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v7, p0, Lcom/android/server/usb/UsbHostRestrictor$2;->this$0:Lcom/android/server/usb/UsbHostRestrictor;
-
-    invoke-static {v7}, Lcom/android/server/usb/UsbHostRestrictor;->-get0(Lcom/android/server/usb/UsbHostRestrictor;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "UsbHostRestrictionReceiver BLOCK USB HOST"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Lcom/android/server/utils/sysfwutil/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v5, p0, Lcom/android/server/usb/UsbHostRestrictor$2;->this$0:Lcom/android/server/usb/UsbHostRestrictor;
 
-    invoke-static {v5, v4}, Lcom/android/server/usb/UsbHostRestrictor;->-wrap9(Lcom/android/server/usb/UsbHostRestrictor;Ljava/lang/String;)V
+    invoke-static {v5, v4}, Lcom/android/server/usb/UsbHostRestrictor;->-wrap10(Lcom/android/server/usb/UsbHostRestrictor;Ljava/lang/String;)V
 
     goto/16 :goto_0
 
     :cond_6
     const-string/jumbo v5, "UsbHostRestrictor"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    const-string/jumbo v6, "UsbHostRestrictionReceiver Cannot write for USB HOST DISABLE"
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v7, p0, Lcom/android/server/usb/UsbHostRestrictor$2;->this$0:Lcom/android/server/usb/UsbHostRestrictor;
-
-    invoke-static {v7}, Lcom/android/server/usb/UsbHostRestrictor;->-get0(Lcom/android/server/usb/UsbHostRestrictor;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "UsbHostRestrictionReceiver Cannot write for USB HOST DISABLE"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Lcom/android/server/utils/sysfwutil/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 
@@ -475,35 +255,13 @@
 
     const-string/jumbo v5, "UsbHostRestrictor"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    const-string/jumbo v6, "UsbHostRestrictionReceiver : reason - INIT"
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v7, p0, Lcom/android/server/usb/UsbHostRestrictor$2;->this$0:Lcom/android/server/usb/UsbHostRestrictor;
-
-    invoke-static {v7}, Lcom/android/server/usb/UsbHostRestrictor;->-get0(Lcom/android/server/usb/UsbHostRestrictor;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "UsbHostRestrictionReceiver : reason - INIT"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Lcom/android/server/utils/sysfwutil/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v5, p0, Lcom/android/server/usb/UsbHostRestrictor$2;->this$0:Lcom/android/server/usb/UsbHostRestrictor;
 
-    invoke-static {v5}, Lcom/android/server/usb/UsbHostRestrictor;->-get2(Lcom/android/server/usb/UsbHostRestrictor;)Landroid/content/Context;
+    invoke-static {v5}, Lcom/android/server/usb/UsbHostRestrictor;->-get1(Lcom/android/server/usb/UsbHostRestrictor;)Landroid/content/Context;
 
     move-result-object v5
 
@@ -523,13 +281,13 @@
 
     if-eqz v3, :cond_0
 
-    invoke-virtual {v3, v8}, Lcom/samsung/android/knox/restriction/RestrictionPolicy;->isUsbHostStorageAllowed(Z)Z
+    invoke-virtual {v3, v7}, Lcom/samsung/android/knox/restriction/RestrictionPolicy;->isUsbHostStorageAllowed(Z)Z
 
     move-result v5
 
     if-eqz v5, :cond_a
 
-    invoke-static {}, Lcom/android/server/usb/UsbHostRestrictor;->-get1()Z
+    invoke-static {}, Lcom/android/server/usb/UsbHostRestrictor;->-get0()Z
 
     move-result v5
 
@@ -537,33 +295,11 @@
 
     const-string/jumbo v5, "UsbHostRestrictor"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    const-string/jumbo v6, "mUsbHostRestrictionReceiver : reason - INIT - UNBLOCK USB HOST"
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v5, v6}, Lcom/android/server/utils/sysfwutil/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v7, p0, Lcom/android/server/usb/UsbHostRestrictor$2;->this$0:Lcom/android/server/usb/UsbHostRestrictor;
-
-    invoke-static {v7}, Lcom/android/server/usb/UsbHostRestrictor;->-get0(Lcom/android/server/usb/UsbHostRestrictor;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "mUsbHostRestrictionReceiver : reason - INIT - UNBLOCK USB HOST"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-static {v8}, Lcom/android/server/usb/UsbHostRestrictor;->-set0(Z)Z
+    invoke-static {v7}, Lcom/android/server/usb/UsbHostRestrictor;->-set0(Z)Z
 
     iget-object v5, p0, Lcom/android/server/usb/UsbHostRestrictor$2;->this$0:Lcom/android/server/usb/UsbHostRestrictor;
 
@@ -595,31 +331,9 @@
 
     const-string/jumbo v5, "UsbHostRestrictor"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    const-string/jumbo v6, "UsbHostRestrictionReceiver USB ALL is already BLOCKED"
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v7, p0, Lcom/android/server/usb/UsbHostRestrictor$2;->this$0:Lcom/android/server/usb/UsbHostRestrictor;
-
-    invoke-static {v7}, Lcom/android/server/usb/UsbHostRestrictor;->-get0(Lcom/android/server/usb/UsbHostRestrictor;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "UsbHostRestrictionReceiver USB ALL is already BLOCKED"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Lcom/android/server/utils/sysfwutil/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 
@@ -634,128 +348,40 @@
 
     const-string/jumbo v5, "UsbHostRestrictor"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    const-string/jumbo v6, "UsbHostRestrictionReceiver UNBLOCK USB HOST"
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v7, p0, Lcom/android/server/usb/UsbHostRestrictor$2;->this$0:Lcom/android/server/usb/UsbHostRestrictor;
-
-    invoke-static {v7}, Lcom/android/server/usb/UsbHostRestrictor;->-get0(Lcom/android/server/usb/UsbHostRestrictor;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "UsbHostRestrictionReceiver UNBLOCK USB HOST"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Lcom/android/server/utils/sysfwutil/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v5, p0, Lcom/android/server/usb/UsbHostRestrictor$2;->this$0:Lcom/android/server/usb/UsbHostRestrictor;
 
-    invoke-static {v5, v4}, Lcom/android/server/usb/UsbHostRestrictor;->-wrap9(Lcom/android/server/usb/UsbHostRestrictor;Ljava/lang/String;)V
+    invoke-static {v5, v4}, Lcom/android/server/usb/UsbHostRestrictor;->-wrap10(Lcom/android/server/usb/UsbHostRestrictor;Ljava/lang/String;)V
 
     goto/16 :goto_0
 
     :cond_9
     const-string/jumbo v5, "UsbHostRestrictor"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    const-string/jumbo v6, "UsbHostRestrictionReceiver Cannot write for USB HOST ENABLE"
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v7, p0, Lcom/android/server/usb/UsbHostRestrictor$2;->this$0:Lcom/android/server/usb/UsbHostRestrictor;
-
-    invoke-static {v7}, Lcom/android/server/usb/UsbHostRestrictor;->-get0(Lcom/android/server/usb/UsbHostRestrictor;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "UsbHostRestrictionReceiver Cannot write for USB HOST ENABLE"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Lcom/android/server/utils/sysfwutil/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 
     :cond_a
     const-string/jumbo v5, "UsbHostRestrictor"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    const-string/jumbo v6, "UsbHostRestrictionReceiver : reason - INIT - Ignore bacuese of Multi admin policy or same value as previos"
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v7, p0, Lcom/android/server/usb/UsbHostRestrictor$2;->this$0:Lcom/android/server/usb/UsbHostRestrictor;
-
-    invoke-static {v7}, Lcom/android/server/usb/UsbHostRestrictor;->-get0(Lcom/android/server/usb/UsbHostRestrictor;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "UsbHostRestrictionReceiver : reason - INIT - Ignore bacuese of Multi admin policy or same value as previos"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Lcom/android/server/utils/sysfwutil/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 
     :cond_b
     const-string/jumbo v5, "UsbHostRestrictor"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    const-string/jumbo v6, "UsbHostRestrictionReceiver reason is unknown."
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v7, p0, Lcom/android/server/usb/UsbHostRestrictor$2;->this$0:Lcom/android/server/usb/UsbHostRestrictor;
-
-    invoke-static {v7}, Lcom/android/server/usb/UsbHostRestrictor;->-get0(Lcom/android/server/usb/UsbHostRestrictor;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "UsbHostRestrictionReceiver reason is unknown."
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Lcom/android/server/utils/sysfwutil/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 .end method

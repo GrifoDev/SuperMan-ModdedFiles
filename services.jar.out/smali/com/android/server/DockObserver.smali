@@ -9,7 +9,8 @@
         Lcom/android/server/DockObserver$1;,
         Lcom/android/server/DockObserver$2;,
         Lcom/android/server/DockObserver$3;,
-        Lcom/android/server/DockObserver$BinderService;
+        Lcom/android/server/DockObserver$BinderService;,
+        Lcom/android/server/DockObserver$logRecent;
     }
 .end annotation
 
@@ -17,9 +18,11 @@
 # static fields
 .field private static final ACCESSORY_CONNECTED:I = 0xff
 
-.field private static final CCIC_DOCK_STATE_PATH:Ljava/lang/String; = "/sys/class/switch/ccic_dock/state"
+.field private static final CCIC_DOCK_STATE_PATH:Ljava/lang/String; = "/sys/class/sec/ccic/usbpd_type"
 
-.field private static final CCIC_DOCK_UEVENT_MATCH:Ljava/lang/String; = "DEVPATH=/devices/virtual/switch/ccic_dock"
+.field private static final CCIC_DOCK_UEVENT_MATCH:Ljava/lang/String; = "DEVPATH=/devices/virtual/sec/ccic"
+
+.field private static final CCIC_DOCK_USBPD_IDS_PATH:Ljava/lang/String; = "/sys/class/sec/ccic/usbpd_ids"
 
 .field private static final DOCKSTATE_PROPERTY:Ljava/lang/String; = "sys.dockstate"
 
@@ -39,13 +42,11 @@
 
 .field private static final TAG:Ljava/lang/String; = "DockObserver"
 
-.field private static mTone:Landroid/media/Ringtone;
-
 
 # instance fields
-.field private final VIBRATION_DURATION:I
-
 .field private mActualDockState:I
+
+.field private mActualUsbpdIds:Ljava/lang/String;
 
 .field private final mAllowTheaterModeWakeFromDock:Z
 
@@ -53,13 +54,11 @@
 
 .field private final mHandler:Landroid/os/Handler;
 
-.field private mLastReportTime:J
-
 .field private mLastUEventDevice:I
 
-.field private mLastUEventTime:J
-
 .field private final mLock:Ljava/lang/Object;
+
+.field private mLogRecent:Lcom/android/server/DockObserver$logRecent;
 
 .field private final mObserver:Landroid/os/UEventObserver;
 
@@ -69,11 +68,15 @@
 
 .field private mReportedDockState:I
 
+.field private mReportedUsbpdIds:Ljava/lang/String;
+
 .field private mSmartDockState:I
 
 .field private mSystemReady:Z
 
 .field private mUpdatesStopped:Z
+
+.field private mUsbpdIds:Ljava/lang/String;
 
 .field private final mWakeLock:Landroid/os/PowerManager$WakeLock;
 
@@ -87,15 +90,7 @@
     return v0
 .end method
 
-.method static synthetic -get1(Lcom/android/server/DockObserver;)J
-    .locals 2
-
-    iget-wide v0, p0, Lcom/android/server/DockObserver;->mLastReportTime:J
-
-    return-wide v0
-.end method
-
-.method static synthetic -get2(Lcom/android/server/DockObserver;)I
+.method static synthetic -get1(Lcom/android/server/DockObserver;)I
     .locals 1
 
     iget v0, p0, Lcom/android/server/DockObserver;->mLastUEventDevice:I
@@ -103,15 +98,7 @@
     return v0
 .end method
 
-.method static synthetic -get3(Lcom/android/server/DockObserver;)J
-    .locals 2
-
-    iget-wide v0, p0, Lcom/android/server/DockObserver;->mLastUEventTime:J
-
-    return-wide v0
-.end method
-
-.method static synthetic -get4(Lcom/android/server/DockObserver;)Ljava/lang/Object;
+.method static synthetic -get2(Lcom/android/server/DockObserver;)Ljava/lang/Object;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/DockObserver;->mLock:Ljava/lang/Object;
@@ -119,7 +106,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get5(Lcom/android/server/DockObserver;)I
+.method static synthetic -get3(Lcom/android/server/DockObserver;)Lcom/android/server/DockObserver$logRecent;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/DockObserver;->mLogRecent:Lcom/android/server/DockObserver$logRecent;
+
+    return-object v0
+.end method
+
+.method static synthetic -get4(Lcom/android/server/DockObserver;)I
     .locals 1
 
     iget v0, p0, Lcom/android/server/DockObserver;->mPreviousDockState:I
@@ -127,7 +122,7 @@
     return v0
 .end method
 
-.method static synthetic -get6(Lcom/android/server/DockObserver;)I
+.method static synthetic -get5(Lcom/android/server/DockObserver;)I
     .locals 1
 
     iget v0, p0, Lcom/android/server/DockObserver;->mReportedDockState:I
@@ -135,7 +130,7 @@
     return v0
 .end method
 
-.method static synthetic -get7(Lcom/android/server/DockObserver;)I
+.method static synthetic -get6(Lcom/android/server/DockObserver;)I
     .locals 1
 
     iget v0, p0, Lcom/android/server/DockObserver;->mSmartDockState:I
@@ -143,7 +138,7 @@
     return v0
 .end method
 
-.method static synthetic -get8(Lcom/android/server/DockObserver;)Z
+.method static synthetic -get7(Lcom/android/server/DockObserver;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/DockObserver;->mUpdatesStopped:Z
@@ -151,7 +146,7 @@
     return v0
 .end method
 
-.method static synthetic -get9(Lcom/android/server/DockObserver;)Landroid/os/PowerManager$WakeLock;
+.method static synthetic -get8(Lcom/android/server/DockObserver;)Landroid/os/PowerManager$WakeLock;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/DockObserver;->mWakeLock:Landroid/os/PowerManager$WakeLock;
@@ -167,15 +162,7 @@
     return p1
 .end method
 
-.method static synthetic -set1(Lcom/android/server/DockObserver;J)J
-    .locals 1
-
-    iput-wide p1, p0, Lcom/android/server/DockObserver;->mLastUEventTime:J
-
-    return-wide p1
-.end method
-
-.method static synthetic -set2(Lcom/android/server/DockObserver;Z)Z
+.method static synthetic -set1(Lcom/android/server/DockObserver;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/DockObserver;->mUpdatesStopped:Z
@@ -183,10 +170,18 @@
     return p1
 .end method
 
-.method static synthetic -wrap0(Lcom/android/server/DockObserver;I)Z
+.method static synthetic -set2(Lcom/android/server/DockObserver;Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/DockObserver;->mUsbpdIds:Ljava/lang/String;
+
+    return-object p1
+.end method
+
+.method static synthetic -wrap0(Lcom/android/server/DockObserver;)Z
     .locals 1
 
-    invoke-direct {p0, p1}, Lcom/android/server/DockObserver;->isOtherState(I)Z
+    invoke-direct {p0}, Lcom/android/server/DockObserver;->shouldHandleOtherStateChange()Z
 
     move-result v0
 
@@ -225,20 +220,8 @@
     return-void
 .end method
 
-.method static constructor <clinit>()V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    sput-object v0, Lcom/android/server/DockObserver;->mTone:Landroid/media/Ringtone;
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 6
-
-    const-wide/16 v4, 0x0
+    .locals 3
 
     const/4 v2, 0x1
 
@@ -260,17 +243,9 @@
 
     iput v1, p0, Lcom/android/server/DockObserver;->mSmartDockState:I
 
-    iput-wide v4, p0, Lcom/android/server/DockObserver;->mLastUEventTime:J
-
-    iput-wide v4, p0, Lcom/android/server/DockObserver;->mLastReportTime:J
-
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/server/DockObserver;->mLastUEventDevice:I
-
-    const/16 v0, 0x3e8
-
-    iput v0, p0, Lcom/android/server/DockObserver;->VIBRATION_DURATION:I
 
     new-instance v0, Lcom/android/server/DockObserver$1;
 
@@ -314,13 +289,19 @@
 
     move-result-object v0
 
-    const v1, 0x1120032
+    const v1, 0x1120014
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v0
 
     iput-boolean v0, p0, Lcom/android/server/DockObserver;->mAllowTheaterModeWakeFromDock:Z
+
+    new-instance v0, Lcom/android/server/DockObserver$logRecent;
+
+    invoke-direct {v0, p0}, Lcom/android/server/DockObserver$logRecent;-><init>(Lcom/android/server/DockObserver;)V
+
+    iput-object v0, p0, Lcom/android/server/DockObserver;->mLogRecent:Lcom/android/server/DockObserver$logRecent;
 
     invoke-direct {p0}, Lcom/android/server/DockObserver;->init()V
 
@@ -332,7 +313,7 @@
 
     iget-object v0, p0, Lcom/android/server/DockObserver;->mCcicObserver:Landroid/os/UEventObserver;
 
-    const-string/jumbo v1, "DEVPATH=/devices/virtual/switch/ccic_dock"
+    const-string/jumbo v1, "DEVPATH=/devices/virtual/sec/ccic"
 
     invoke-virtual {v0, v1}, Landroid/os/UEventObserver;->startObserving(Ljava/lang/String;)V
 
@@ -429,19 +410,28 @@
 
     :cond_0
     :try_start_1
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+    iget-object v3, p0, Lcom/android/server/DockObserver;->mLogRecent:Lcom/android/server/DockObserver$logRecent;
 
-    move-result-wide v6
+    if-eqz v3, :cond_1
 
-    iput-wide v6, p0, Lcom/android/server/DockObserver;->mLastReportTime:J
+    iget-object v3, p0, Lcom/android/server/DockObserver;->mLogRecent:Lcom/android/server/DockObserver$logRecent;
 
+    iget v5, p0, Lcom/android/server/DockObserver;->mReportedDockState:I
+
+    iget-object v6, p0, Lcom/android/server/DockObserver;->mReportedUsbpdIds:Ljava/lang/String;
+
+    const/4 v7, 0x1
+
+    invoke-virtual {v3, v7, v5, v6}, Lcom/android/server/DockObserver$logRecent;->log(IILjava/lang/String;)V
+
+    :cond_1
     new-instance v1, Landroid/content/Intent;
 
     const-string/jumbo v3, "android.intent.action.DOCK_EVENT"
 
     invoke-direct {v1, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const/high16 v3, 0x20000000
+    const v3, 0x20000020
 
     invoke-virtual {v1, v3}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
@@ -463,6 +453,35 @@
 
     invoke-virtual {v1, v3, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
+    iget v3, p0, Lcom/android/server/DockObserver;->mReportedDockState:I
+
+    const/16 v5, 0xc8
+
+    if-ne v3, v5, :cond_2
+
+    iget-object v3, p0, Lcom/android/server/DockObserver;->mReportedUsbpdIds:Ljava/lang/String;
+
+    if-eqz v3, :cond_2
+
+    iget-object v3, p0, Lcom/android/server/DockObserver;->mReportedUsbpdIds:Ljava/lang/String;
+
+    const-string/jumbo v5, ""
+
+    invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_2
+
+    const-string/jumbo v3, "com.sec.intent.extra.DOCK_ID"
+
+    iget-object v5, p0, Lcom/android/server/DockObserver;->mReportedUsbpdIds:Ljava/lang/String;
+
+    invoke-virtual {v1, v3, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    :cond_2
     invoke-virtual {p0}, Lcom/android/server/DockObserver;->getContext()Landroid/content/Context;
 
     move-result-object v3
@@ -486,78 +505,96 @@
 .end method
 
 .method private handleOtherStateChange()V
-    .locals 11
+    .locals 12
 
-    const/16 v10, 0x6c
+    const/4 v4, 0x1
 
-    const/16 v9, 0x6b
+    const/16 v11, 0x69
 
-    const/16 v8, 0x69
+    const/16 v10, 0x70
 
     iget-object v5, p0, Lcom/android/server/DockObserver;->mLock:Ljava/lang/Object;
 
     monitor-enter v5
 
     :try_start_0
-    const-string/jumbo v4, "DockObserver"
+    const-string/jumbo v6, "DockObserver"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "Other state changed from "
+    const-string/jumbo v8, "Other state changed from "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    iget v7, p0, Lcom/android/server/DockObserver;->mPreviousDockState:I
+    iget v8, p0, Lcom/android/server/DockObserver;->mPreviousDockState:I
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    const-string/jumbo v7, " to "
+    const-string/jumbo v8, " to "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    iget v7, p0, Lcom/android/server/DockObserver;->mReportedDockState:I
+    iget v8, p0, Lcom/android/server/DockObserver;->mReportedDockState:I
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string/jumbo v8, "("
 
-    move-result-object v6
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v4, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v7
+
+    iget-object v8, p0, Lcom/android/server/DockObserver;->mReportedUsbpdIds:Ljava/lang/String;
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    const-string/jumbo v8, ")"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     iget v2, p0, Lcom/android/server/DockObserver;->mPreviousDockState:I
 
-    iget v4, p0, Lcom/android/server/DockObserver;->mReportedDockState:I
+    iget v6, p0, Lcom/android/server/DockObserver;->mReportedDockState:I
 
-    iput v4, p0, Lcom/android/server/DockObserver;->mPreviousDockState:I
+    iput v6, p0, Lcom/android/server/DockObserver;->mPreviousDockState:I
 
     invoke-virtual {p0}, Lcom/android/server/DockObserver;->getContext()Landroid/content/Context;
 
-    move-result-object v4
+    move-result-object v6
 
-    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v6}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v1
+    move-result-object v0
 
-    const-string/jumbo v4, "device_provisioned"
+    const-string/jumbo v6, "device_provisioned"
 
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
-    invoke-static {v1, v4, v6}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v0, v6, v7}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v4
+    move-result v6
 
-    if-nez v4, :cond_0
+    if-nez v6, :cond_0
 
     const-string/jumbo v4, "DockObserver"
 
@@ -573,150 +610,131 @@
 
     :cond_0
     :try_start_1
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+    iget-object v6, p0, Lcom/android/server/DockObserver;->mLogRecent:Lcom/android/server/DockObserver$logRecent;
 
-    move-result-wide v6
+    if-eqz v6, :cond_1
 
-    iput-wide v6, p0, Lcom/android/server/DockObserver;->mLastReportTime:J
+    iget-object v6, p0, Lcom/android/server/DockObserver;->mLogRecent:Lcom/android/server/DockObserver$logRecent;
 
-    iget v4, p0, Lcom/android/server/DockObserver;->mReportedDockState:I
+    iget v7, p0, Lcom/android/server/DockObserver;->mReportedDockState:I
 
-    if-ne v4, v9, :cond_1
+    iget-object v8, p0, Lcom/android/server/DockObserver;->mReportedUsbpdIds:Ljava/lang/String;
 
-    invoke-virtual {p0}, Lcom/android/server/DockObserver;->getContext()Landroid/content/Context;
+    const/4 v9, 0x1
 
-    move-result-object v4
-
-    const-string/jumbo v6, "audio"
-
-    invoke-virtual {v4, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/media/AudioManager;
-
-    const-string/jumbo v4, "Gamepad_earjack=0"
-
-    invoke-virtual {v0, v4}, Landroid/media/AudioManager;->setAudioServiceConfig(Ljava/lang/String;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    monitor-exit v5
-
-    return-void
+    invoke-virtual {v6, v9, v7, v8}, Lcom/android/server/DockObserver$logRecent;->log(IILjava/lang/String;)V
 
     :cond_1
-    :try_start_2
-    iget v4, p0, Lcom/android/server/DockObserver;->mReportedDockState:I
+    const-class v6, Lcom/samsung/android/vr/GearVrManagerInternal;
 
-    if-ne v4, v10, :cond_2
-
-    invoke-virtual {p0}, Lcom/android/server/DockObserver;->getContext()Landroid/content/Context;
-
-    move-result-object v4
-
-    const-string/jumbo v6, "audio"
-
-    invoke-virtual {v4, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/media/AudioManager;
-
-    const-string/jumbo v4, "Gamepad_earjack=1"
-
-    invoke-virtual {v0, v4}, Landroid/media/AudioManager;->setAudioServiceConfig(Ljava/lang/String;)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    monitor-exit v5
-
-    return-void
-
-    :cond_2
-    if-eq v2, v9, :cond_3
-
-    if-ne v2, v10, :cond_4
-
-    :cond_3
-    :try_start_3
-    iget v4, p0, Lcom/android/server/DockObserver;->mReportedDockState:I
-
-    if-nez v4, :cond_4
-
-    invoke-virtual {p0}, Lcom/android/server/DockObserver;->getContext()Landroid/content/Context;
-
-    move-result-object v4
-
-    const-string/jumbo v6, "audio"
-
-    invoke-virtual {v4, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/media/AudioManager;
-
-    const-string/jumbo v4, "Gamepad_earjack=-1"
-
-    invoke-virtual {v0, v4}, Landroid/media/AudioManager;->setAudioServiceConfig(Ljava/lang/String;)V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    monitor-exit v5
-
-    return-void
-
-    :cond_4
-    :try_start_4
-    iget v4, p0, Lcom/android/server/DockObserver;->mReportedDockState:I
-
-    if-ne v4, v8, :cond_7
-
-    const-string/jumbo v4, "DockObserver"
-
-    const-string/jumbo v6, "HMT is connected"
-
-    invoke-static {v4, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-class v4, Lcom/android/server/vr/GearVrManagerInternal;
-
-    invoke-static {v4}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-static {v6}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v3
 
-    check-cast v3, Lcom/android/server/vr/GearVrManagerInternal;
+    check-cast v3, Lcom/samsung/android/vr/GearVrManagerInternal;
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_e
 
-    const/4 v4, 0x1
+    const-string/jumbo v6, "04e8:a501"
 
-    invoke-virtual {v3, v4}, Lcom/android/server/vr/GearVrManagerInternal;->notifyDeviceEventChanged(I)V
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    iget-object v7, p0, Lcom/android/server/DockObserver;->mReportedUsbpdIds:Ljava/lang/String;
+
+    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_2
+
+    iget v6, p0, Lcom/android/server/DockObserver;->mReportedDockState:I
+
+    if-ne v6, v10, :cond_6
+
+    :cond_2
+    const/4 v1, 0x1
+
+    :goto_0
+    iget v6, p0, Lcom/android/server/DockObserver;->mReportedDockState:I
+
+    if-eq v6, v11, :cond_3
+
+    iget v6, p0, Lcom/android/server/DockObserver;->mReportedDockState:I
+
+    if-ne v6, v10, :cond_8
+
+    :cond_3
+    const-string/jumbo v6, "DockObserver"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "HMT connected isTethered="
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-eqz v1, :cond_4
+
+    const/16 v4, 0x1001
+
+    :cond_4
+    invoke-virtual {v3, v4}, Lcom/samsung/android/vr/GearVrManagerInternal;->notifyDeviceEventChanged(I)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :cond_5
-    :goto_0
+    :goto_1
     monitor-exit v5
 
     return-void
 
     :cond_6
-    :try_start_5
+    if-ne v2, v10, :cond_7
+
+    const/4 v1, 0x1
+
+    goto :goto_0
+
+    :cond_7
+    const/4 v1, 0x0
+
+    goto :goto_0
+
+    :cond_8
+    if-eq v2, v11, :cond_9
+
+    if-ne v2, v10, :cond_b
+
+    :cond_9
+    :try_start_2
+    iget v4, p0, Lcom/android/server/DockObserver;->mReportedDockState:I
+
+    if-nez v4, :cond_b
+
     const-string/jumbo v4, "DockObserver"
 
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "HMT notifyDeviceEventChanged: "
+    const-string/jumbo v7, "HMT is disconnected isTethered="
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v6
 
-    iget v7, p0, Lcom/android/server/DockObserver;->mReportedDockState:I
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v6
 
@@ -724,11 +742,18 @@
 
     move-result-object v6
 
-    invoke-static {v4, v6}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+    invoke-static {v4, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    if-eqz v1, :cond_a
+
+    const/16 v4, 0x1002
+
+    :goto_2
+    invoke-virtual {v3, v4}, Lcom/samsung/android/vr/GearVrManagerInternal;->notifyDeviceEventChanged(I)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    goto :goto_1
 
     :catchall_0
     move-exception v4
@@ -737,76 +762,18 @@
 
     throw v4
 
-    :cond_7
-    if-ne v2, v8, :cond_9
-
-    :try_start_6
-    iget v4, p0, Lcom/android/server/DockObserver;->mReportedDockState:I
-
-    if-nez v4, :cond_9
-
-    const-string/jumbo v4, "DockObserver"
-
-    const-string/jumbo v6, "HMT is disconnected"
-
-    invoke-static {v4, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-class v4, Lcom/android/server/vr/GearVrManagerInternal;
-
-    invoke-static {v4}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/android/server/vr/GearVrManagerInternal;
-
-    if-eqz v3, :cond_8
-
+    :cond_a
     const/4 v4, 0x2
 
-    invoke-virtual {v3, v4}, Lcom/android/server/vr/GearVrManagerInternal;->notifyDeviceEventChanged(I)V
+    goto :goto_2
 
-    goto :goto_0
+    :cond_b
+    if-eq v2, v11, :cond_c
 
-    :cond_8
-    const-string/jumbo v4, "DockObserver"
+    if-ne v2, v10, :cond_5
 
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v7, "HMT notifyDeviceEventChanged: "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    iget v7, p0, Lcom/android/server/DockObserver;->mReportedDockState:I
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v7, " previousDock="
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v4, v6}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    :cond_9
-    if-ne v2, v8, :cond_5
-
+    :cond_c
+    :try_start_3
     iget v4, p0, Lcom/android/server/DockObserver;->mReportedDockState:I
 
     const/16 v6, 0x6a
@@ -815,34 +782,48 @@
 
     const-string/jumbo v4, "DockObserver"
 
-    const-string/jumbo v6, "HMT is abnormal"
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "HMT is abnormal isTethered="
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
 
     invoke-static {v4, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-class v4, Lcom/android/server/vr/GearVrManagerInternal;
+    if-eqz v1, :cond_d
 
-    invoke-static {v4}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+    const/16 v4, 0x1004
 
-    move-result-object v3
+    :goto_3
+    invoke-virtual {v3, v4}, Lcom/samsung/android/vr/GearVrManagerInternal;->notifyDeviceEventChanged(I)V
 
-    check-cast v3, Lcom/android/server/vr/GearVrManagerInternal;
+    goto :goto_1
 
-    if-eqz v3, :cond_a
-
+    :cond_d
     const/4 v4, 0x4
 
-    invoke-virtual {v3, v4}, Lcom/android/server/vr/GearVrManagerInternal;->notifyDeviceEventChanged(I)V
+    goto :goto_3
 
-    goto/16 :goto_0
-
-    :cond_a
+    :cond_e
     const-string/jumbo v4, "DockObserver"
 
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "HMT notifyDeviceEventChanged: "
+    const-string/jumbo v7, "HMT ignored.  mReportedDockState="
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -869,67 +850,67 @@
     move-result-object v6
 
     invoke-static {v4, v6}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_0
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 .end method
 
 .method private init()V
-    .locals 8
+    .locals 11
 
-    iget-object v6, p0, Lcom/android/server/DockObserver;->mLock:Ljava/lang/Object;
+    iget-object v9, p0, Lcom/android/server/DockObserver;->mLock:Ljava/lang/Object;
 
-    monitor-enter v6
+    monitor-enter v9
 
-    const/16 v5, 0x400
+    const/16 v8, 0x400
 
     :try_start_0
-    new-array v0, v5, [C
+    new-array v0, v8, [C
 
-    new-instance v3, Ljava/io/FileReader;
+    new-instance v4, Ljava/io/FileReader;
 
-    const-string/jumbo v5, "/sys/class/switch/dock/state"
+    const-string/jumbo v8, "/sys/class/switch/dock/state"
 
-    invoke-direct {v3, v5}, Ljava/io/FileReader;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v8}, Ljava/io/FileReader;-><init>(Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    const/4 v5, 0x0
+    const/4 v8, 0x0
 
-    const/16 v7, 0x400
+    const/16 v10, 0x400
 
     :try_start_1
-    invoke-virtual {v3, v0, v5, v7}, Ljava/io/FileReader;->read([CII)I
+    invoke-virtual {v4, v0, v8, v10}, Ljava/io/FileReader;->read([CII)I
 
-    move-result v4
+    move-result v6
 
-    new-instance v5, Ljava/lang/String;
+    new-instance v8, Ljava/lang/String;
 
-    const/4 v7, 0x0
+    const/4 v10, 0x0
 
-    invoke-direct {v5, v0, v7, v4}, Ljava/lang/String;-><init>([CII)V
+    invoke-direct {v8, v0, v10, v6}, Ljava/lang/String;-><init>([CII)V
 
-    invoke-virtual {v5}, Ljava/lang/String;->trim()Ljava/lang/String;
+    invoke-virtual {v8}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v8
 
-    invoke-static {v5}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static {v8}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v5
+    move-result v8
 
-    invoke-direct {p0, v5}, Lcom/android/server/DockObserver;->setActualDockStateLocked(I)V
+    invoke-direct {p0, v8}, Lcom/android/server/DockObserver;->setActualDockStateLocked(I)V
 
-    iget v5, p0, Lcom/android/server/DockObserver;->mActualDockState:I
+    iget v8, p0, Lcom/android/server/DockObserver;->mActualDockState:I
 
-    iput v5, p0, Lcom/android/server/DockObserver;->mPreviousDockState:I
+    iput v8, p0, Lcom/android/server/DockObserver;->mPreviousDockState:I
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :try_start_2
-    invoke-virtual {v3}, Ljava/io/FileReader;->close()V
+    invoke-virtual {v4}, Ljava/io/FileReader;->close()V
     :try_end_2
     .catch Ljava/io/FileNotFoundException; {:try_start_2 .. :try_end_2} :catch_0
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
@@ -937,201 +918,351 @@
 
     :goto_0
     :try_start_3
-    iget v5, p0, Lcom/android/server/DockObserver;->mActualDockState:I
+    iget v8, p0, Lcom/android/server/DockObserver;->mActualDockState:I
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    if-nez v5, :cond_0
+    if-nez v8, :cond_0
 
-    const/16 v5, 0x400
+    const/16 v8, 0x400
 
     :try_start_4
-    new-array v0, v5, [C
+    new-array v1, v8, [C
 
-    new-instance v3, Ljava/io/FileReader;
+    new-instance v5, Ljava/io/FileReader;
 
-    const-string/jumbo v5, "/sys/class/switch/ccic_dock/state"
+    const-string/jumbo v8, "/sys/class/sec/ccic/usbpd_ids"
 
-    invoke-direct {v3, v5}, Ljava/io/FileReader;-><init>(Ljava/lang/String;)V
+    invoke-direct {v5, v8}, Ljava/io/FileReader;-><init>(Ljava/lang/String;)V
     :try_end_4
     .catch Ljava/io/FileNotFoundException; {:try_start_4 .. :try_end_4} :catch_2
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_3
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
-    const/4 v5, 0x0
+    const/4 v8, 0x0
 
-    const/16 v7, 0x400
+    const/16 v10, 0x400
 
     :try_start_5
-    invoke-virtual {v3, v0, v5, v7}, Ljava/io/FileReader;->read([CII)I
+    invoke-virtual {v5, v1, v8, v10}, Ljava/io/FileReader;->read([CII)I
 
-    move-result v4
+    move-result v7
 
-    new-instance v5, Ljava/lang/String;
+    new-instance v8, Ljava/lang/String;
 
-    const/4 v7, 0x0
+    const/4 v10, 0x0
 
-    invoke-direct {v5, v0, v7, v4}, Ljava/lang/String;-><init>([CII)V
+    invoke-direct {v8, v1, v10, v7}, Ljava/lang/String;-><init>([CII)V
 
-    invoke-virtual {v5}, Ljava/lang/String;->trim()Ljava/lang/String;
+    invoke-virtual {v8}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v8
 
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
-
-    move-result v5
-
-    invoke-direct {p0, v5}, Lcom/android/server/DockObserver;->setActualDockStateLocked(I)V
-
-    iget v5, p0, Lcom/android/server/DockObserver;->mActualDockState:I
-
-    iput v5, p0, Lcom/android/server/DockObserver;->mPreviousDockState:I
+    iput-object v8, p0, Lcom/android/server/DockObserver;->mUsbpdIds:Ljava/lang/String;
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_2
 
     :try_start_6
-    invoke-virtual {v3}, Ljava/io/FileReader;->close()V
+    invoke-virtual {v5}, Ljava/io/FileReader;->close()V
+
+    const/16 v8, 0x400
+
+    new-array v0, v8, [C
+
+    new-instance v4, Ljava/io/FileReader;
+
+    const-string/jumbo v8, "/sys/class/sec/ccic/usbpd_type"
+
+    invoke-direct {v4, v8}, Ljava/io/FileReader;-><init>(Ljava/lang/String;)V
     :try_end_6
     .catch Ljava/io/FileNotFoundException; {:try_start_6 .. :try_end_6} :catch_2
     .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_3
     .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
+    const/4 v8, 0x0
+
+    const/16 v10, 0x400
+
+    :try_start_7
+    invoke-virtual {v4, v0, v8, v10}, Ljava/io/FileReader;->read([CII)I
+
+    move-result v6
+
+    new-instance v8, Ljava/lang/String;
+
+    const/4 v10, 0x0
+
+    invoke-direct {v8, v0, v10, v6}, Ljava/lang/String;-><init>([CII)V
+
+    invoke-virtual {v8}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v8}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/Integer;->intValue()I
+
+    move-result v8
+
+    invoke-direct {p0, v8}, Lcom/android/server/DockObserver;->setActualDockStateLocked(I)V
+
+    iget v8, p0, Lcom/android/server/DockObserver;->mActualDockState:I
+
+    iput v8, p0, Lcom/android/server/DockObserver;->mPreviousDockState:I
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_3
+
+    :try_start_8
+    invoke-virtual {v4}, Ljava/io/FileReader;->close()V
+    :try_end_8
+    .catch Ljava/io/FileNotFoundException; {:try_start_8 .. :try_end_8} :catch_2
+    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_3
+    .catchall {:try_start_8 .. :try_end_8} :catchall_1
+
     :cond_0
     :goto_1
-    monitor-exit v6
+    monitor-exit v9
 
     return-void
 
     :catchall_0
-    move-exception v5
+    move-exception v8
 
-    :try_start_7
-    invoke-virtual {v3}, Ljava/io/FileReader;->close()V
+    :try_start_9
+    invoke-virtual {v4}, Ljava/io/FileReader;->close()V
 
-    throw v5
-    :try_end_7
-    .catch Ljava/io/FileNotFoundException; {:try_start_7 .. :try_end_7} :catch_0
-    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_1
-    .catchall {:try_start_7 .. :try_end_7} :catchall_1
+    throw v8
+    :try_end_9
+    .catch Ljava/io/FileNotFoundException; {:try_start_9 .. :try_end_9} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_9} :catch_1
+    .catchall {:try_start_9 .. :try_end_9} :catchall_1
 
     :catch_0
-    move-exception v1
+    move-exception v2
 
-    :try_start_8
-    const-string/jumbo v5, "DockObserver"
+    :try_start_a
+    const-string/jumbo v8, "DockObserver"
 
-    const-string/jumbo v7, "This kernel does not have dock station support"
+    const-string/jumbo v10, "This kernel does not have dock station support"
 
-    invoke-static {v5, v7}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_1
+    invoke-static {v8, v10}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_a
+    .catchall {:try_start_a .. :try_end_a} :catchall_1
 
     goto :goto_0
 
     :catchall_1
-    move-exception v5
+    move-exception v8
 
-    monitor-exit v6
+    monitor-exit v9
 
-    throw v5
+    throw v8
 
     :catch_1
-    move-exception v2
+    move-exception v3
 
-    :try_start_9
-    const-string/jumbo v5, "DockObserver"
+    :try_start_b
+    const-string/jumbo v8, "DockObserver"
 
-    const-string/jumbo v7, ""
+    const-string/jumbo v10, ""
 
-    invoke-static {v5, v7, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_1
+    invoke-static {v8, v10, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_b
+    .catchall {:try_start_b .. :try_end_b} :catchall_1
 
     goto :goto_0
 
     :catchall_2
-    move-exception v5
+    move-exception v8
 
-    :try_start_a
-    invoke-virtual {v3}, Ljava/io/FileReader;->close()V
+    :try_start_c
+    invoke-virtual {v5}, Ljava/io/FileReader;->close()V
 
-    throw v5
-    :try_end_a
-    .catch Ljava/io/FileNotFoundException; {:try_start_a .. :try_end_a} :catch_2
-    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_a} :catch_3
-    .catchall {:try_start_a .. :try_end_a} :catchall_1
+    throw v8
+    :try_end_c
+    .catch Ljava/io/FileNotFoundException; {:try_start_c .. :try_end_c} :catch_2
+    .catch Ljava/lang/Exception; {:try_start_c .. :try_end_c} :catch_3
+    .catchall {:try_start_c .. :try_end_c} :catchall_1
 
     :catch_2
-    move-exception v1
+    move-exception v2
 
-    :try_start_b
-    const-string/jumbo v5, "DockObserver"
+    :try_start_d
+    const-string/jumbo v8, "DockObserver"
 
-    const-string/jumbo v7, "This kernel does not have ccic dock station support"
+    const-string/jumbo v10, "This kernel does not have ccic dock station support"
 
-    invoke-static {v5, v7}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v10}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_d
+    .catchall {:try_start_d .. :try_end_d} :catchall_1
 
     goto :goto_1
 
+    :catchall_3
+    move-exception v8
+
+    :try_start_e
+    invoke-virtual {v4}, Ljava/io/FileReader;->close()V
+
+    throw v8
+    :try_end_e
+    .catch Ljava/io/FileNotFoundException; {:try_start_e .. :try_end_e} :catch_2
+    .catch Ljava/lang/Exception; {:try_start_e .. :try_end_e} :catch_3
+    .catchall {:try_start_e .. :try_end_e} :catchall_1
+
     :catch_3
-    move-exception v2
+    move-exception v3
 
-    const-string/jumbo v5, "DockObserver"
+    :try_start_f
+    const-string/jumbo v8, "DockObserver"
 
-    const-string/jumbo v7, ""
+    const-string/jumbo v10, ""
 
-    invoke-static {v5, v7, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_b
-    .catchall {:try_start_b .. :try_end_b} :catchall_1
+    invoke-static {v8, v10, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_f
+    .catchall {:try_start_f .. :try_end_f} :catchall_1
 
     goto :goto_1
 .end method
 
-.method private isOtherState(I)Z
+.method private isDexmodeState(I)Z
     .locals 2
-
-    const/4 v0, 0x0
-
-    const/16 v1, 0x69
-
-    if-lt p1, v1, :cond_0
-
-    const/16 v1, 0xff
-
-    if-eq p1, v1, :cond_0
 
     const/4 v0, 0x1
 
+    const/16 v1, 0x6d
+
+    if-eq p1, v1, :cond_0
+
+    const/16 v1, 0x6e
+
+    if-ne p1, v1, :cond_1
+
     :cond_0
+    :goto_0
+    return v0
+
+    :cond_1
+    const/16 v1, 0x6f
+
+    if-eq p1, v1, :cond_0
+
+    const/16 v1, 0x72
+
+    if-eq p1, v1, :cond_0
+
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method private isOtherState(I)Z
+    .locals 1
+
+    const/16 v0, 0x69
+
+    if-lt p1, v0, :cond_0
+
+    const/16 v0, 0xff
+
+    if-eq p1, v0, :cond_0
+
+    const/16 v0, 0xc8
+
+    if-eq p1, v0, :cond_0
+
+    invoke-direct {p0, p1}, Lcom/android/server/DockObserver;->isDexmodeState(I)Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method private isVrDevice()Z
+    .locals 3
+
+    const/4 v2, 0x1
+
+    const-string/jumbo v0, "04e8:a500"
+
+    iget-object v1, p0, Lcom/android/server/DockObserver;->mReportedUsbpdIds:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    return v2
+
+    :cond_0
+    const-string/jumbo v0, "04e8:a501"
+
+    iget-object v1, p0, Lcom/android/server/DockObserver;->mReportedUsbpdIds:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    return v2
+
+    :cond_1
+    const/4 v0, 0x0
+
     return v0
 .end method
 
 .method private setActualDockStateLocked(I)V
-    .locals 5
+    .locals 6
 
-    const/16 v4, 0xff
+    const/16 v5, 0xff
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     iput p1, p0, Lcom/android/server/DockObserver;->mActualDockState:I
 
+    iget-object v0, p0, Lcom/android/server/DockObserver;->mUsbpdIds:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/android/server/DockObserver;->mActualUsbpdIds:Ljava/lang/String;
+
+    iget-object v0, p0, Lcom/android/server/DockObserver;->mLogRecent:Lcom/android/server/DockObserver$logRecent;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/DockObserver;->mLogRecent:Lcom/android/server/DockObserver$logRecent;
+
+    iget v1, p0, Lcom/android/server/DockObserver;->mActualDockState:I
+
+    iget-object v2, p0, Lcom/android/server/DockObserver;->mActualUsbpdIds:Ljava/lang/String;
+
+    invoke-virtual {v0, v3, v1, v2}, Lcom/android/server/DockObserver$logRecent;->log(IILjava/lang/String;)V
+
+    :cond_0
     iget v0, p0, Lcom/android/server/DockObserver;->mActualDockState:I
 
     const/4 v1, 0x7
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_1
 
     iget v0, p0, Lcom/android/server/DockObserver;->mActualDockState:I
 
     const/16 v1, 0xb
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_1
 
     const-string/jumbo v0, "DockObserver"
 
@@ -1145,27 +1276,27 @@
 
     iput v0, p0, Lcom/android/server/DockObserver;->mActualDockState:I
 
-    :cond_0
+    :cond_1
     iget v0, p0, Lcom/android/server/DockObserver;->mActualDockState:I
 
     const/16 v1, 0x66
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_3
 
-    iput v3, p0, Lcom/android/server/DockObserver;->mSmartDockState:I
+    iput v4, p0, Lcom/android/server/DockObserver;->mSmartDockState:I
 
-    iput v3, p0, Lcom/android/server/DockObserver;->mActualDockState:I
+    iput v4, p0, Lcom/android/server/DockObserver;->mActualDockState:I
 
     :goto_0
     iget v0, p0, Lcom/android/server/DockObserver;->mActualDockState:I
 
-    if-eq v0, v4, :cond_1
+    if-eq v0, v5, :cond_2
 
     iget v0, p0, Lcom/android/server/DockObserver;->mActualDockState:I
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_4
 
-    :cond_1
+    :cond_2
     const-string/jumbo v0, "sys.dockstate"
 
     iget v1, p0, Lcom/android/server/DockObserver;->mActualDockState:I
@@ -1178,25 +1309,23 @@
 
     iget v0, p0, Lcom/android/server/DockObserver;->mActualDockState:I
 
-    if-ne v0, v4, :cond_3
+    if-ne v0, v5, :cond_4
 
     return-void
 
-    :cond_2
-    iput v2, p0, Lcom/android/server/DockObserver;->mSmartDockState:I
+    :cond_3
+    iput v3, p0, Lcom/android/server/DockObserver;->mSmartDockState:I
 
     goto :goto_0
 
-    :cond_3
+    :cond_4
     iget-boolean v0, p0, Lcom/android/server/DockObserver;->mUpdatesStopped:Z
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_5
 
-    iget v0, p0, Lcom/android/server/DockObserver;->mActualDockState:I
+    invoke-direct {p0, p1}, Lcom/android/server/DockObserver;->setDockStateLocked(I)V
 
-    invoke-direct {p0, v0}, Lcom/android/server/DockObserver;->setDockStateLocked(I)V
-
-    :cond_4
+    :cond_5
     return-void
 .end method
 
@@ -1210,6 +1339,10 @@
     if-eq p1, v0, :cond_2
 
     iput p1, p0, Lcom/android/server/DockObserver;->mReportedDockState:I
+
+    iget-object v0, p0, Lcom/android/server/DockObserver;->mActualUsbpdIds:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/android/server/DockObserver;->mReportedUsbpdIds:Ljava/lang/String;
 
     iget-boolean v0, p0, Lcom/android/server/DockObserver;->mSystemReady:Z
 
@@ -1251,6 +1384,75 @@
 
     :cond_2
     return-void
+.end method
+
+.method private shouldHandleOtherStateChange()Z
+    .locals 4
+
+    const/4 v3, 0x1
+
+    const/4 v2, 0x0
+
+    iget-object v1, p0, Lcom/android/server/DockObserver;->mLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
+    invoke-direct {p0}, Lcom/android/server/DockObserver;->isVrDevice()Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    monitor-exit v1
+
+    return v3
+
+    :cond_0
+    :try_start_1
+    iget v0, p0, Lcom/android/server/DockObserver;->mPreviousDockState:I
+
+    invoke-direct {p0, v0}, Lcom/android/server/DockObserver;->isOtherState(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    iget v0, p0, Lcom/android/server/DockObserver;->mReportedDockState:I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    if-nez v0, :cond_2
+
+    :cond_1
+    monitor-exit v1
+
+    return v3
+
+    :cond_2
+    :try_start_2
+    iget v0, p0, Lcom/android/server/DockObserver;->mReportedDockState:I
+
+    invoke-direct {p0, v0}, Lcom/android/server/DockObserver;->isOtherState(I)Z
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    monitor-exit v1
+
+    return v2
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
 .method private updateLocked()V

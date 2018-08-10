@@ -1172,13 +1172,10 @@
 
     move-result v2
 
-    if-eqz v2, :cond_14
+    xor-int/lit8 v2, v2, 0x1
 
-    :cond_13
-    :goto_4
-    return-void
+    if-eqz v2, :cond_13
 
-    :cond_14
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mUnassociatedKeyboardLayouts:Ljava/util/List;
@@ -1195,7 +1192,8 @@
 
     iput-object v2, v0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mCurrentKeyboardLayout:Ljava/lang/String;
 
-    goto :goto_4
+    :cond_13
+    return-void
 .end method
 
 .method public removeKeyboardLayout(Ljava/lang/String;)Z
@@ -1618,11 +1616,11 @@
 .end method
 
 .method public switchKeyboardLayout(Lcom/android/internal/inputmethod/InputMethodSubtypeHandle;)Z
-    .locals 2
+    .locals 5
 
-    iget-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Landroid/util/ArrayMap;
+    iget-object v2, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Landroid/util/ArrayMap;
 
-    invoke-virtual {v1, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -1630,20 +1628,72 @@
 
     iget-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mCurrentKeyboardLayout:Ljava/lang/String;
 
-    invoke-static {v1, v0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+    const-string/jumbo v3, "InputManager"
 
-    move-result v1
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    if-nez v1, :cond_0
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Switch keyboard layout to "
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    if-eqz v0, :cond_0
+
+    move-object v2, v0
+
+    :goto_0
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v4, " from "
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    if-eqz v1, :cond_1
+
+    :goto_1
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v3, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v2, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mCurrentKeyboardLayout:Ljava/lang/String;
+
+    invoke-static {v2, v0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_2
 
     iput-object v0, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mCurrentKeyboardLayout:Ljava/lang/String;
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    return v1
+    return v2
 
     :cond_0
-    const/4 v1, 0x0
+    const-string/jumbo v2, "null"
 
-    return v1
+    goto :goto_0
+
+    :cond_1
+    const-string/jumbo v1, "null"
+
+    goto :goto_1
+
+    :cond_2
+    const/4 v2, 0x0
+
+    return v2
 .end method

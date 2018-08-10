@@ -53,7 +53,7 @@
 
     iget-object v2, p0, Lcom/android/server/connectivity/Vpn$2;->this$0:Lcom/android/server/connectivity/Vpn;
 
-    invoke-static {v2, p1}, Lcom/android/server/connectivity/Vpn;->-wrap3(Lcom/android/server/connectivity/Vpn;Ljava/lang/String;)I
+    invoke-static {v2, p1}, Lcom/android/server/connectivity/Vpn;->-wrap2(Lcom/android/server/connectivity/Vpn;Ljava/lang/String;)I
 
     move-result v2
 
@@ -61,7 +61,7 @@
 
     iget-object v2, p0, Lcom/android/server/connectivity/Vpn$2;->this$0:Lcom/android/server/connectivity/Vpn;
 
-    invoke-static {v2}, Lcom/android/server/connectivity/Vpn;->-get20(Lcom/android/server/connectivity/Vpn;)Ljava/util/Set;
+    invoke-static {v2}, Lcom/android/server/connectivity/Vpn;->-get23(Lcom/android/server/connectivity/Vpn;)Ljava/util/Set;
 
     move-result-object v2
 
@@ -69,7 +69,7 @@
 
     iget-object v2, p0, Lcom/android/server/connectivity/Vpn$2;->this$0:Lcom/android/server/connectivity/Vpn;
 
-    invoke-static {v2}, Lcom/android/server/connectivity/Vpn;->-get20(Lcom/android/server/connectivity/Vpn;)Ljava/util/Set;
+    invoke-static {v2}, Lcom/android/server/connectivity/Vpn;->-get23(Lcom/android/server/connectivity/Vpn;)Ljava/util/Set;
 
     move-result-object v2
 
@@ -96,7 +96,7 @@
 
     move-result v4
 
-    invoke-static {v2, v4}, Lcom/android/server/connectivity/Vpn;->-wrap7(Lcom/android/server/connectivity/Vpn;I)V
+    invoke-static {v2, v4}, Lcom/android/server/connectivity/Vpn;->-wrap6(Lcom/android/server/connectivity/Vpn;I)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -121,7 +121,7 @@
 
     const/4 v4, 0x0
 
-    invoke-static {v2, v4}, Lcom/android/server/connectivity/Vpn;->-set12(Lcom/android/server/connectivity/Vpn;Ljava/util/Set;)Ljava/util/Set;
+    invoke-static {v2, v4}, Lcom/android/server/connectivity/Vpn;->-set13(Lcom/android/server/connectivity/Vpn;Ljava/util/Set;)Ljava/util/Set;
 
     iget-object v2, p0, Lcom/android/server/connectivity/Vpn$2;->this$0:Lcom/android/server/connectivity/Vpn;
 
@@ -165,7 +165,7 @@
 
     iget-object v2, p0, Lcom/android/server/connectivity/Vpn$2;->this$0:Lcom/android/server/connectivity/Vpn;
 
-    invoke-static {v2}, Lcom/android/server/connectivity/Vpn;->-wrap6(Lcom/android/server/connectivity/Vpn;)V
+    invoke-static {v2}, Lcom/android/server/connectivity/Vpn;->-wrap5(Lcom/android/server/connectivity/Vpn;)V
 
     :cond_1
     :goto_1

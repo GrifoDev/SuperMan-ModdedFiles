@@ -39,8 +39,6 @@
 
 .field private static final TIMA_ALERT_TITLE:Ljava/lang/String; = "TIMA security measurement"
 
-.field private static final TIMA_DUMP_LOG_EXEC:Ljava/lang/String; = "/system/bin/tima_dump_log -s 20 -d 40 -o "
-
 .field private static final TIMA_EVENT_MSG:Ljava/lang/String; = "MSG="
 
 .field private static final TIMA_EVENT_STATUS:Ljava/lang/String; = "TIMA_STATUS="
@@ -74,6 +72,8 @@
 
 .field private mTimerTask:Ljava/util/TimerTask;
 
+.field private pkmThread:Landroid/os/HandlerThread;
+
 
 # direct methods
 .method static synthetic -get0()Z
@@ -106,6 +106,10 @@
     .locals 1
 
     invoke-direct {p0}, Landroid/service/tima/IPKMService$Stub;-><init>()V
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/server/PKMService;->pkmThread:Landroid/os/HandlerThread;
 
     iput-object p1, p0, Lcom/android/server/PKMService;->mContext:Landroid/content/Context;
 
@@ -594,6 +598,8 @@
 
     move-result-object v9
 
+    if-eqz v9, :cond_12
+
     const/16 v18, 0x0
 
     array-length v0, v9
@@ -757,7 +763,7 @@
 
     invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v20, "/system/bin/tima_dump_log -s 20 -d 40 -o "
+    const-string/jumbo v20, "chmod 640 "
 
     invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -778,36 +784,6 @@
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_4
 
     :goto_5
-    :try_start_5
-    invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
-
-    move-result-object v18
-
-    new-instance v19, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v20, "chmod 640 "
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/Runtime;->exec(Ljava/lang/String;)Ljava/lang/Process;
-    :try_end_5
-    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_5
-
-    :goto_6
     sget-boolean v18, Lcom/android/server/TimaService;->iBootCompleted:Z
 
     if-nez v18, :cond_13
@@ -821,35 +797,6 @@
     return-void
 
     :catch_4
-    move-exception v7
-
-    const-string/jumbo v18, "PKMService"
-
-    new-instance v19, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v20, "Failed to execute: /system/bin/tima_dump_log -s 20 -d 40 -o "
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_5
-
-    :catch_5
     move-exception v7
 
     const-string/jumbo v18, "PKMService"
@@ -876,7 +823,7 @@
 
     invoke-static/range {v18 .. v19}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_6
+    goto :goto_5
 
     :cond_13
     const-string/jumbo v18, "com.samsung.android.securitylogagent"
@@ -997,58 +944,64 @@
 .end method
 
 .method private makePKMHandler()Z
-    .locals 5
+    .locals 4
 
-    sget-boolean v3, Lcom/android/server/PKMService;->DBG:Z
+    sget-boolean v2, Lcom/android/server/PKMService;->DBG:Z
 
-    if-eqz v3, :cond_0
+    if-eqz v2, :cond_0
 
-    const-string/jumbo v3, "PKMService"
+    const-string/jumbo v2, "PKMService"
 
-    const-string/jumbo v4, "makePKMHandler"
+    const-string/jumbo v3, "makePKMHandler"
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    new-instance v1, Landroid/os/HandlerThread;
+    new-instance v2, Landroid/os/HandlerThread;
 
     const-string/jumbo v3, "PKMService"
 
-    invoke-direct {v1, v3}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1}, Landroid/os/HandlerThread;->start()V
+    iput-object v2, p0, Lcom/android/server/PKMService;->pkmThread:Landroid/os/HandlerThread;
 
-    invoke-virtual {v1}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
+    iget-object v2, p0, Lcom/android/server/PKMService;->pkmThread:Landroid/os/HandlerThread;
+
+    invoke-virtual {v2}, Landroid/os/HandlerThread;->start()V
+
+    iget-object v2, p0, Lcom/android/server/PKMService;->pkmThread:Landroid/os/HandlerThread;
+
+    invoke-virtual {v2}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
 
     move-result-object v0
 
     if-eqz v0, :cond_1
 
-    new-instance v3, Lcom/android/server/PKMService$PKMServiceHandler;
+    new-instance v2, Lcom/android/server/PKMService$PKMServiceHandler;
 
-    invoke-direct {v3, p0, v0}, Lcom/android/server/PKMService$PKMServiceHandler;-><init>(Lcom/android/server/PKMService;Landroid/os/Looper;)V
+    invoke-direct {v2, v0}, Lcom/android/server/PKMService$PKMServiceHandler;-><init>(Landroid/os/Looper;)V
 
-    iput-object v3, p0, Lcom/android/server/PKMService;->mPKMServiceHandler:Lcom/android/server/PKMService$PKMServiceHandler;
+    iput-object v2, p0, Lcom/android/server/PKMService;->mPKMServiceHandler:Lcom/android/server/PKMService$PKMServiceHandler;
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    const-string/jumbo v3, "PKMService"
+    const-string/jumbo v2, "PKMService"
 
-    const-string/jumbo v4, "Success to get looper for PKMServiceHandler"
+    const-string/jumbo v3, "Success to get looper for PKMServiceHandler"
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_0
-    return v2
+    return v1
 
     :cond_1
-    const-string/jumbo v3, "PKMService"
+    const-string/jumbo v2, "PKMService"
 
-    const-string/jumbo v4, "Failed to get looper for PKMServiceHandler"
+    const-string/jumbo v3, "Failed to get looper for PKMServiceHandler"
 
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method
@@ -1095,12 +1048,6 @@
 .end method
 
 .method static native timaCheckEvent(II)Ljava/lang/String;
-.end method
-
-.method static native timaCheckHistory(II)Ljava/lang/String;
-.end method
-
-.method static native timaDumpLog()[B
 .end method
 
 
@@ -1155,156 +1102,6 @@
     monitor-exit p0
 
     throw v3
-.end method
-
-.method public declared-synchronized checkHistory(II)Ljava/lang/String;
-    .locals 4
-
-    monitor-enter p0
-
-    :try_start_0
-    sget-boolean v1, Lcom/android/server/PKMService;->DBG:Z
-
-    if-eqz v1, :cond_0
-
-    const-string/jumbo v1, "PKMService"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "TIMA: checkHistory, operation: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, " subject: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    invoke-static {p1, p2}, Lcom/android/server/PKMService;->timaCheckHistory(II)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {p0, v0}, Lcom/android/server/PKMService;->displayEvent(Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit p0
-
-    return-object v0
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit p0
-
-    throw v1
-.end method
-
-.method public declared-synchronized dumpLog()[B
-    .locals 7
-
-    monitor-enter p0
-
-    :try_start_0
-    sget-boolean v4, Lcom/android/server/PKMService;->DBG:Z
-
-    if-eqz v4, :cond_0
-
-    const-string/jumbo v4, "PKMService"
-
-    const-string/jumbo v5, "TIMA: timaDumpLog"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    const/16 v4, 0x3e8
-
-    if-eq v1, v4, :cond_1
-
-    const/16 v4, 0x7d0
-
-    if-eq v1, v4, :cond_1
-
-    const-string/jumbo v4, "PKMService"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "not ROOT_UID/SYSTEM_UID/SHELL_UID, return null, uid is "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    const/4 v4, 0x0
-
-    monitor-exit p0
-
-    return-object v4
-
-    :cond_1
-    :try_start_1
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-
-    move-result-wide v2
-
-    invoke-static {}, Lcom/android/server/PKMService;->timaDumpLog()[B
-
-    move-result-object v0
-
-    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    monitor-exit p0
-
-    return-object v0
-
-    :catchall_0
-    move-exception v4
-
-    monitor-exit p0
-
-    throw v4
 .end method
 
 .method public getEventList(I)Ljava/util/List;

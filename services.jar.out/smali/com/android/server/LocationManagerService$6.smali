@@ -1,6 +1,9 @@
 .class Lcom/android/server/LocationManagerService$6;
-.super Landroid/database/ContentObserver;
+.super Ljava/lang/Object;
 .source "LocationManagerService.java"
+
+# interfaces
+.implements Landroid/content/pm/PackageManager$OnPermissionsChangedListener;
 
 
 # annotations
@@ -19,24 +22,24 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/LocationManagerService;Landroid/os/Handler;)V
+.method constructor <init>(Lcom/android/server/LocationManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/LocationManagerService$6;->this$0:Lcom/android/server/LocationManagerService;
 
-    invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onChange(Z)V
+.method public onPermissionsChanged(I)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/LocationManagerService$6;->this$0:Lcom/android/server/LocationManagerService;
 
-    invoke-static {v0}, Lcom/android/server/LocationManagerService;->-get4(Lcom/android/server/LocationManagerService;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/LocationManagerService;->-get17(Lcom/android/server/LocationManagerService;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -45,7 +48,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/LocationManagerService$6;->this$0:Lcom/android/server/LocationManagerService;
 
-    invoke-static {v0}, Lcom/android/server/LocationManagerService;->-wrap8(Lcom/android/server/LocationManagerService;)V
+    invoke-static {v0}, Lcom/android/server/LocationManagerService;->-wrap6(Lcom/android/server/LocationManagerService;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

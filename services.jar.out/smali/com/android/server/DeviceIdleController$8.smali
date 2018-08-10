@@ -44,7 +44,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/DeviceIdleController$8;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/DeviceIdleController;->receivedGpsLocationLocked(Landroid/location/Location;)V
+    invoke-virtual {v0, p1}, Lcom/android/server/DeviceIdleController;->receivedGenericLocationLocked(Landroid/location/Location;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

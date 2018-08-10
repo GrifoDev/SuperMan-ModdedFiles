@@ -85,8 +85,6 @@
 
 .field private static final SERVICE_CONNECTION_TIMEOUT:J = 0x4e20L
 
-.field private static final SET_UNENROLL_FLAG:I = 0x7
-
 .field private static final TAG:Ljava/lang/String; = "GenericSSOService"
 
 .field private static final TIMA_KEYSTORE:Ljava/lang/String; = "TIMAKeyStore"
@@ -173,15 +171,7 @@
 
 
 # direct methods
-.method static synthetic -get0(Lcom/android/server/enterprise/sso/GenericSSOService;)Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/enterprise/sso/GenericSSOService;->UNENROLL_SSO_AD_AUTHENTICATOR:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic -get1()Ljava/util/concurrent/CountDownLatch;
+.method static synthetic -get0()Ljava/util/concurrent/CountDownLatch;
     .locals 1
 
     sget-object v0, Lcom/android/server/enterprise/sso/GenericSSOService;->countDownLatch:Ljava/util/concurrent/CountDownLatch;
@@ -189,7 +179,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get2()Ljava/util/concurrent/CountDownLatch;
+.method static synthetic -get1()Ljava/util/concurrent/CountDownLatch;
     .locals 1
 
     sget-object v0, Lcom/android/server/enterprise/sso/GenericSSOService;->countDownLatchNTP:Ljava/util/concurrent/CountDownLatch;
@@ -197,7 +187,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get3(Lcom/android/server/enterprise/sso/GenericSSOService;)J
+.method static synthetic -get2(Lcom/android/server/enterprise/sso/GenericSSOService;)J
     .locals 2
 
     iget-wide v0, p0, Lcom/android/server/enterprise/sso/GenericSSOService;->initUTCTime:J
@@ -205,7 +195,7 @@
     return-wide v0
 .end method
 
-.method static synthetic -get4(Lcom/android/server/enterprise/sso/GenericSSOService;)Landroid/content/Context;
+.method static synthetic -get3(Lcom/android/server/enterprise/sso/GenericSSOService;)Landroid/content/Context;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/enterprise/sso/GenericSSOService;->mContext:Landroid/content/Context;
@@ -213,15 +203,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get5()Lcom/android/server/enterprise/sso/EnterpriseIdentity;
-    .locals 1
-
-    sget-object v0, Lcom/android/server/enterprise/sso/GenericSSOService;->mEnterpriseId:Lcom/android/server/enterprise/sso/EnterpriseIdentity;
-
-    return-object v0
-.end method
-
-.method static synthetic -get6()Ljava/security/KeyStore;
+.method static synthetic -get4()Ljava/security/KeyStore;
     .locals 1
 
     sget-object v0, Lcom/android/server/enterprise/sso/GenericSSOService;->mKeystore:Ljava/security/KeyStore;
@@ -229,7 +211,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get7()Ljava/util/Map;
+.method static synthetic -get5()Ljava/util/Map;
     .locals 1
 
     sget-object v0, Lcom/android/server/enterprise/sso/GenericSSOService;->mSSOInterfaceMap:Ljava/util/Map;
@@ -237,7 +219,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get8()Landroid/util/SparseArray;
+.method static synthetic -get6()Landroid/util/SparseArray;
     .locals 1
 
     sget-object v0, Lcom/android/server/enterprise/sso/GenericSSOService;->tokenConfigXMLDocs:Landroid/util/SparseArray;
@@ -438,10 +420,6 @@
     invoke-direct {v0, v1}, Lcom/android/server/enterprise/sso/EnterpriseIdentity;-><init>(Landroid/content/Context;)V
 
     sput-object v0, Lcom/android/server/enterprise/sso/GenericSSOService;->mEnterpriseId:Lcom/android/server/enterprise/sso/EnterpriseIdentity;
-
-    iget-object v0, p0, Lcom/android/server/enterprise/sso/GenericSSOService;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/server/enterprise/sso/SSOVersion;->writeVersionInProperties(Landroid/content/Context;)V
 
     const-string/jumbo v0, "GenericSSOService"
 
@@ -1055,7 +1033,7 @@
 .end method
 
 .method private _configureSSOByFile(Lcom/samsung/android/knox/ContextInfo;[BI)I
-    .locals 35
+    .locals 34
 
     move-object/from16 v0, p1
 
@@ -1073,44 +1051,44 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/sso/GenericSSOService;->isCallingMDMMatch(II)Z
 
-    move-result v32
+    move-result v31
 
-    if-nez v32, :cond_1
+    if-nez v31, :cond_1
 
-    sget-boolean v32, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
+    sget-boolean v31, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
 
-    if-eqz v32, :cond_0
+    if-eqz v31, :cond_0
 
-    const-string/jumbo v32, "GenericSSOService"
+    const-string/jumbo v31, "GenericSSOService"
 
-    new-instance v33, Ljava/lang/StringBuilder;
+    new-instance v32, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v34, "In _configureSSOByFile: MDM uid is not matched = "
+    const-string/jumbo v33, "In _configureSSOByFile: MDM uid is not matched = "
 
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v33
+    move-result-object v32
 
-    move-object/from16 v0, v33
+    move-object/from16 v0, v32
 
     move/from16 v1, v22
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v33
+    move-result-object v32
 
-    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v33
+    move-result-object v32
 
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v31 .. v32}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    const/16 v32, -0xa
+    const/16 v31, -0xa
 
-    return v32
+    return v31
 
     :cond_1
     if-eqz p2, :cond_2
@@ -1119,25 +1097,25 @@
 
     array-length v0, v0
 
-    move/from16 v32, v0
+    move/from16 v31, v0
 
-    if-nez v32, :cond_4
+    if-nez v31, :cond_4
 
     :cond_2
-    sget-boolean v32, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
+    sget-boolean v31, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
 
-    if-eqz v32, :cond_3
+    if-eqz v31, :cond_3
 
-    const-string/jumbo v32, "GenericSSOService"
+    const-string/jumbo v31, "GenericSSOService"
 
-    const-string/jumbo v33, "In _configureSSOByFile: config is null or is empty"
+    const-string/jumbo v32, "In _configureSSOByFile: config is null or is empty"
 
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v31 .. v32}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_3
-    const/16 v32, -0x3
+    const/16 v31, -0x3
 
-    return v32
+    return v31
 
     :cond_4
     :try_start_0
@@ -1151,23 +1129,23 @@
 
     invoke-static {v10}, Lcom/android/server/enterprise/sso/GenericSSOService$RequestConfigDocument;->-wrap1(Lcom/android/server/enterprise/sso/GenericSSOService$RequestConfigDocument;)Lorg/w3c/dom/Node;
 
-    move-result-object v26
+    move-result-object v25
 
     const/4 v11, 0x0
 
-    if-eqz v26, :cond_5
+    if-eqz v25, :cond_5
 
-    invoke-interface/range {v26 .. v26}, Lorg/w3c/dom/Node;->getAttributes()Lorg/w3c/dom/NamedNodeMap;
+    invoke-interface/range {v25 .. v25}, Lorg/w3c/dom/Node;->getAttributes()Lorg/w3c/dom/NamedNodeMap;
 
-    move-result-object v32
+    move-result-object v31
 
-    const-string/jumbo v33, "servicepackagename"
+    const-string/jumbo v32, "servicepackagename"
 
-    invoke-interface/range {v32 .. v33}, Lorg/w3c/dom/NamedNodeMap;->getNamedItem(Ljava/lang/String;)Lorg/w3c/dom/Node;
+    invoke-interface/range {v31 .. v32}, Lorg/w3c/dom/NamedNodeMap;->getNamedItem(Ljava/lang/String;)Lorg/w3c/dom/Node;
 
-    move-result-object v32
+    move-result-object v31
 
-    invoke-interface/range {v32 .. v32}, Lorg/w3c/dom/Node;->getTextContent()Ljava/lang/String;
+    invoke-interface/range {v31 .. v31}, Lorg/w3c/dom/Node;->getTextContent()Ljava/lang/String;
 
     move-result-object v11
 
@@ -1178,31 +1156,31 @@
 
     invoke-direct {v0, v1}, Lcom/android/server/enterprise/sso/GenericSSOService;->getTempConfigFilePath(I)Ljava/lang/String;
 
-    move-result-object v30
+    move-result-object v29
 
-    new-instance v28, Ljava/io/File;
+    new-instance v27, Ljava/io/File;
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v27
 
-    move-object/from16 v1, v30
+    move-object/from16 v1, v29
 
     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     new-instance v9, Ljava/io/BufferedOutputStream;
 
-    new-instance v32, Ljava/io/FileOutputStream;
+    new-instance v31, Ljava/io/FileOutputStream;
 
-    const/16 v33, 0x0
+    const/16 v32, 0x0
 
-    move-object/from16 v0, v32
+    move-object/from16 v0, v31
 
-    move-object/from16 v1, v28
+    move-object/from16 v1, v27
 
-    move/from16 v2, v33
+    move/from16 v2, v32
 
     invoke-direct {v0, v1, v2}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;Z)V
 
-    move-object/from16 v0, v32
+    move-object/from16 v0, v31
 
     invoke-direct {v9, v0}, Ljava/io/BufferedOutputStream;-><init>(Ljava/io/OutputStream;)V
     :try_end_0
@@ -1224,7 +1202,7 @@
 
     move-result-object v12
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v27
 
     invoke-virtual {v12, v0}, Ljavax/xml/parsers/DocumentBuilder;->parse(Ljava/io/File;)Lorg/w3c/dom/Document;
 
@@ -1232,173 +1210,173 @@
 
     invoke-interface {v14}, Lorg/w3c/dom/Document;->getDocumentElement()Lorg/w3c/dom/Element;
 
-    move-result-object v32
+    move-result-object v31
 
-    invoke-interface/range {v32 .. v32}, Lorg/w3c/dom/Element;->normalize()V
+    invoke-interface/range {v31 .. v31}, Lorg/w3c/dom/Element;->normalize()V
 
-    new-instance v29, Lcom/android/server/enterprise/sso/GenericSSOService$RequestConfigDocument;
+    new-instance v28, Lcom/android/server/enterprise/sso/GenericSSOService$RequestConfigDocument;
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v28
 
     invoke-direct {v0, v14}, Lcom/android/server/enterprise/sso/GenericSSOService$RequestConfigDocument;-><init>(Lorg/w3c/dom/Document;)V
 
-    invoke-static/range {v29 .. v29}, Lcom/android/server/enterprise/sso/GenericSSOService$RequestConfigDocument;->-wrap1(Lcom/android/server/enterprise/sso/GenericSSOService$RequestConfigDocument;)Lorg/w3c/dom/Node;
+    invoke-static/range {v28 .. v28}, Lcom/android/server/enterprise/sso/GenericSSOService$RequestConfigDocument;->-wrap1(Lcom/android/server/enterprise/sso/GenericSSOService$RequestConfigDocument;)Lorg/w3c/dom/Node;
 
-    move-result-object v27
+    move-result-object v26
 
-    check-cast v27, Lorg/w3c/dom/Element;
+    check-cast v26, Lorg/w3c/dom/Element;
 
-    const-string/jumbo v32, "mdmuid"
+    const-string/jumbo v31, "mdmuid"
 
-    new-instance v33, Ljava/lang/StringBuilder;
+    new-instance v32, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v34, ""
+    const-string/jumbo v33, ""
 
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v33
+    move-result-object v32
 
-    move-object/from16 v0, v33
+    move-object/from16 v0, v32
 
     move/from16 v1, v22
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v33
+    move-result-object v32
 
-    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v33
+    move-result-object v32
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v26
 
-    move-object/from16 v1, v32
+    move-object/from16 v1, v31
 
-    move-object/from16 v2, v33
+    move-object/from16 v2, v32
 
     invoke-interface {v0, v1, v2}, Lorg/w3c/dom/Element;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v32, "servicepackagename"
+    const-string/jumbo v31, "servicepackagename"
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v26
 
-    move-object/from16 v1, v32
+    move-object/from16 v1, v31
 
     invoke-interface {v0, v1}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v6
 
-    const-string/jumbo v32, "servicepackagesignature"
+    const-string/jumbo v31, "servicepackagesignature"
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v26
 
-    move-object/from16 v1, v32
+    move-object/from16 v1, v31
 
     invoke-interface {v0, v1}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 
-    invoke-static/range {v29 .. v29}, Lcom/android/server/enterprise/sso/GenericSSOService$RequestConfigDocument;->-wrap2(Lcom/android/server/enterprise/sso/GenericSSOService$RequestConfigDocument;)V
+    invoke-static/range {v28 .. v28}, Lcom/android/server/enterprise/sso/GenericSSOService$RequestConfigDocument;->-wrap2(Lcom/android/server/enterprise/sso/GenericSSOService$RequestConfigDocument;)V
 
-    sget-boolean v32, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
+    sget-boolean v31, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
 
-    if-eqz v32, :cond_6
+    if-eqz v31, :cond_6
 
-    const-string/jumbo v32, "GenericSSOService"
+    const-string/jumbo v31, "GenericSSOService"
 
-    new-instance v33, Ljava/lang/StringBuilder;
+    new-instance v32, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v34, "In _configureSSOByFile: tmp sso config doc is updated in "
+    const-string/jumbo v33, "In _configureSSOByFile: tmp sso config doc is updated in "
 
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v33
+    move-result-object v32
 
-    move-object/from16 v0, v33
+    move-object/from16 v0, v32
 
-    move-object/from16 v1, v30
+    move-object/from16 v1, v29
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v33
+    move-result-object v32
 
-    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v33
+    move-result-object v32
 
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v31 .. v32}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_6
-    move-object/from16 v0, v29
+    move-object/from16 v0, v28
 
     iget-object v0, v0, Lcom/android/server/enterprise/sso/GenericSSOService$RequestConfigDocument;->XMLDoc:Lorg/w3c/dom/Document;
 
-    move-object/from16 v32, v0
+    move-object/from16 v31, v0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v32
+    move-object/from16 v1, v31
 
-    move-object/from16 v2, v30
+    move-object/from16 v2, v29
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/sso/GenericSSOService;->saveConfigToFile(Lorg/w3c/dom/Document;Ljava/lang/String;)V
 
-    sget-boolean v32, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
+    sget-boolean v31, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
 
-    if-eqz v32, :cond_7
+    if-eqz v31, :cond_7
 
-    const-string/jumbo v32, "GenericSSOService"
+    const-string/jumbo v31, "GenericSSOService"
 
-    new-instance v33, Ljava/lang/StringBuilder;
+    new-instance v32, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v34, "In _configureSSOByFile: updated sso config doc is saved at "
+    const-string/jumbo v33, "In _configureSSOByFile: updated sso config doc is saved at "
 
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v33
+    move-result-object v32
 
-    move-object/from16 v0, v33
+    move-object/from16 v0, v32
 
-    move-object/from16 v1, v30
+    move-object/from16 v1, v29
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v33
+    move-result-object v32
 
-    const-string/jumbo v34, " for userId "
+    const-string/jumbo v33, " for userId "
 
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v33
+    move-result-object v32
 
-    move-object/from16 v0, v33
+    move-object/from16 v0, v32
 
     move/from16 v1, p3
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v33
+    move-result-object v32
 
-    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v33
+    move-result-object v32
 
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v31 .. v32}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_7
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v20
 
-    const-string/jumbo v32, "application_policy"
+    const-string/jumbo v31, "application_policy"
 
-    invoke-static/range {v32 .. v32}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getPolicyService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static/range {v31 .. v31}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getPolicyService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v4
 
@@ -1410,22 +1388,22 @@
 
     invoke-virtual {v4, v6, v0}, Lcom/android/server/enterprise/application/ApplicationPolicy;->isApplicationInstalled(Ljava/lang/String;I)Z
 
-    move-result v32
+    move-result v31
 
-    if-nez v32, :cond_a
+    if-nez v31, :cond_a
 
-    sget-boolean v32, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
+    sget-boolean v31, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
 
-    if-eqz v32, :cond_8
+    if-eqz v31, :cond_8
 
-    const-string/jumbo v32, "GenericSSOService"
+    const-string/jumbo v31, "GenericSSOService"
 
-    const-string/jumbo v33, "In _configureSSOByFile: Authenticator not installed"
+    const-string/jumbo v32, "In _configureSSOByFile: Authenticator not installed"
 
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v31 .. v32}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_8
-    invoke-virtual/range {v28 .. v28}, Ljava/io/File;->delete()Z
+    invoke-virtual/range {v27 .. v27}, Ljava/io/File;->delete()Z
 
     invoke-static/range {v20 .. v21}, Landroid/os/Binder;->restoreCallingIdentity(J)V
     :try_end_1
@@ -1434,7 +1412,7 @@
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_f
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    const/16 v32, -0xc
+    const/16 v31, -0xc
 
     if-eqz v9, :cond_9
 
@@ -1445,7 +1423,7 @@
 
     :cond_9
     :goto_0
-    return v32
+    return v31
 
     :catch_0
     move-exception v16
@@ -1470,29 +1448,29 @@
 
     invoke-direct {v0, v5}, Lcom/android/server/enterprise/sso/GenericSSOService;->isNullOrEmpty(Ljava/lang/String;)Z
 
-    move-result v32
+    move-result v31
 
-    if-nez v32, :cond_d
+    if-nez v31, :cond_d
 
     move-object/from16 v0, v19
 
     invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v32
+    move-result v31
 
-    if-nez v32, :cond_d
+    if-nez v31, :cond_d
 
-    invoke-virtual/range {v28 .. v28}, Ljava/io/File;->delete()Z
+    invoke-virtual/range {v27 .. v27}, Ljava/io/File;->delete()Z
 
-    sget-boolean v32, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
+    sget-boolean v31, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
 
-    if-eqz v32, :cond_b
+    if-eqz v31, :cond_b
 
-    const-string/jumbo v32, "GenericSSOService"
+    const-string/jumbo v31, "GenericSSOService"
 
-    const-string/jumbo v33, "In _configureSSOByFile: Authenticator signature is not matched"
+    const-string/jumbo v32, "In _configureSSOByFile: Authenticator signature is not matched"
 
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v31 .. v32}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_3
     .catch Ljava/io/FileNotFoundException; {:try_start_3 .. :try_end_3} :catch_d
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_e
@@ -1500,7 +1478,7 @@
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     :cond_b
-    const/16 v32, -0xd
+    const/16 v31, -0xd
 
     if-eqz v9, :cond_c
 
@@ -1511,7 +1489,7 @@
 
     :cond_c
     :goto_1
-    return v32
+    return v31
 
     :catch_1
     move-exception v16
@@ -1528,17 +1506,84 @@
 
     invoke-direct {v0, v11}, Lcom/android/server/enterprise/sso/GenericSSOService;->isNullOrEmpty(Ljava/lang/String;)Z
 
-    move-result v32
+    move-result v31
 
-    if-nez v32, :cond_e
+    if-nez v31, :cond_10
 
     invoke-virtual {v6, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v32
+    move-result v31
 
-    if-eqz v32, :cond_12
+    xor-int/lit8 v31, v31, 0x1
+
+    if-eqz v31, :cond_10
+
+    sget-boolean v31, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
+
+    if-eqz v31, :cond_e
+
+    const-string/jumbo v31, "GenericSSOService"
+
+    new-instance v32, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v33, "In _configureSSOByFile: there\'s already one sso vendor enrolled for userId "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, v32
+
+    move/from16 v1, p3
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, ", please unenroll the existing one first"
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v32
+
+    invoke-static/range {v31 .. v32}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_e
+    invoke-virtual/range {v27 .. v27}, Ljava/io/File;->delete()Z
+    :try_end_5
+    .catch Ljava/io/FileNotFoundException; {:try_start_5 .. :try_end_5} :catch_d
+    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_e
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_f
+    .catchall {:try_start_5 .. :try_end_5} :catchall_1
+
+    const/16 v31, -0x9
+
+    if-eqz v9, :cond_f
+
+    :try_start_6
+    invoke-virtual {v9}, Ljava/io/OutputStream;->close()V
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_2
+
+    :cond_f
+    :goto_2
+    return v31
+
+    :catch_2
+    move-exception v16
+
+    invoke-virtual/range {v16 .. v16}, Ljava/io/IOException;->printStackTrace()V
+
+    goto :goto_2
+
+    :cond_10
+    :try_start_7
     move-object/from16 v0, p0
 
     move/from16 v1, p3
@@ -1555,128 +1600,62 @@
 
     invoke-virtual {v7}, Ljava/io/File;->exists()Z
 
-    move-result v32
+    move-result v31
 
-    if-eqz v32, :cond_f
+    if-eqz v31, :cond_11
 
     invoke-virtual {v7}, Ljava/io/File;->delete()Z
 
-    :cond_f
-    move-object/from16 v0, v28
+    :cond_11
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v7}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
 
-    move-result v25
+    move-result v24
 
-    if-nez v25, :cond_15
+    if-nez v24, :cond_14
 
-    sget-boolean v32, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
+    sget-boolean v31, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
 
-    if-eqz v32, :cond_10
+    if-eqz v31, :cond_12
 
-    const-string/jumbo v32, "GenericSSOService"
+    const-string/jumbo v31, "GenericSSOService"
 
-    const-string/jumbo v33, "In _configureSSOByFile: tempConfigFile failed to be saved to ssoconfig.xml"
+    const-string/jumbo v32, "In _configureSSOByFile: tempConfigFile failed to be saved to ssoconfig.xml"
 
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_5
-    .catch Ljava/io/FileNotFoundException; {:try_start_5 .. :try_end_5} :catch_d
-    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_e
-    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_f
-    .catchall {:try_start_5 .. :try_end_5} :catchall_1
-
-    :cond_10
-    const/16 v32, -0x1
-
-    if-eqz v9, :cond_11
-
-    :try_start_6
-    invoke-virtual {v9}, Ljava/io/OutputStream;->close()V
-    :try_end_6
-    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_3
-
-    :cond_11
-    :goto_2
-    return v32
-
-    :cond_12
-    :try_start_7
-    sget-boolean v32, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
-
-    if-eqz v32, :cond_13
-
-    const-string/jumbo v32, "GenericSSOService"
-
-    new-instance v33, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v34, "In _configureSSOByFile: there\'s already one sso vendor enrolled for userId "
-
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    move-object/from16 v0, v33
-
-    move/from16 v1, p3
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    const-string/jumbo v34, ", please unenroll the existing one first"
-
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v33
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_13
-    invoke-virtual/range {v28 .. v28}, Ljava/io/File;->delete()Z
+    invoke-static/range {v31 .. v32}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_7
     .catch Ljava/io/FileNotFoundException; {:try_start_7 .. :try_end_7} :catch_d
     .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_e
     .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_f
     .catchall {:try_start_7 .. :try_end_7} :catchall_1
 
-    const/16 v32, -0x9
+    :cond_12
+    const/16 v31, -0x1
 
-    if-eqz v9, :cond_14
+    if-eqz v9, :cond_13
 
     :try_start_8
     invoke-virtual {v9}, Ljava/io/OutputStream;->close()V
     :try_end_8
-    .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_2
+    .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_3
 
-    :cond_14
+    :cond_13
     :goto_3
-    return v32
-
-    :catch_2
-    move-exception v16
-
-    invoke-virtual/range {v16 .. v16}, Ljava/io/IOException;->printStackTrace()V
-
-    goto :goto_3
+    return v31
 
     :catch_3
     move-exception v16
 
     invoke-virtual/range {v16 .. v16}, Ljava/io/IOException;->printStackTrace()V
 
-    goto :goto_2
+    goto :goto_3
 
-    :cond_15
+    :cond_14
     :try_start_9
-    sget-object v32, Lcom/android/server/enterprise/sso/GenericSSOService;->requestConfigXMLDocs:Landroid/util/SparseArray;
+    sget-object v31, Lcom/android/server/enterprise/sso/GenericSSOService;->requestConfigXMLDocs:Landroid/util/SparseArray;
 
-    move-object/from16 v0, v32
+    move-object/from16 v0, v31
 
     move/from16 v1, p3
 
@@ -1694,48 +1673,48 @@
 
     invoke-direct {v0, v1}, Lcom/android/server/enterprise/sso/GenericSSOService;->getConfigDataForSSOVendor(I)Landroid/os/Bundle;
 
-    move-result-object v31
+    move-result-object v30
 
     move-object/from16 v0, p0
 
     move/from16 v1, p3
 
-    move-object/from16 v2, v31
+    move-object/from16 v2, v30
 
     invoke-direct {v0, v1, v6, v2}, Lcom/android/server/enterprise/sso/GenericSSOService;->pushAuthenticatorConfig(ILjava/lang/String;Landroid/os/Bundle;)I
 
-    move-result v24
+    move-result v23
 
-    if-eqz v24, :cond_18
+    if-eqz v23, :cond_17
 
-    sget-boolean v32, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
+    sget-boolean v31, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
 
-    if-eqz v32, :cond_16
+    if-eqz v31, :cond_15
 
-    const-string/jumbo v32, "GenericSSOService"
+    const-string/jumbo v31, "GenericSSOService"
 
-    const-string/jumbo v33, "In configureSSOByFile: failed because of pushAuthenticatorConfig()"
+    const-string/jumbo v32, "In configureSSOByFile: failed because of pushAuthenticatorConfig()"
 
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v31 .. v32}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_9
     .catch Ljava/io/FileNotFoundException; {:try_start_9 .. :try_end_9} :catch_d
     .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_e
     .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_9} :catch_f
     .catchall {:try_start_9 .. :try_end_9} :catchall_1
 
-    :cond_16
-    const/16 v32, -0x10
+    :cond_15
+    const/16 v31, -0x10
 
-    if-eqz v9, :cond_17
+    if-eqz v9, :cond_16
 
     :try_start_a
     invoke-virtual {v9}, Ljava/io/OutputStream;->close()V
     :try_end_a
     .catch Ljava/io/IOException; {:try_start_a .. :try_end_a} :catch_4
 
-    :cond_17
+    :cond_16
     :goto_4
-    return v32
+    return v31
 
     :catch_4
     move-exception v16
@@ -1744,84 +1723,19 @@
 
     goto :goto_4
 
-    :cond_18
-    const/16 v32, 0x64
-
-    move/from16 v0, p3
-
-    move/from16 v1, v32
-
-    if-lt v0, v1, :cond_19
+    :cond_17
+    if-eqz v9, :cond_18
 
     :try_start_b
-    sget-object v32, Lcom/android/server/enterprise/sso/GenericSSOService;->mEnterpriseId:Lcom/android/server/enterprise/sso/EnterpriseIdentity;
-
-    move-object/from16 v0, v32
-
-    move/from16 v1, p3
-
-    invoke-virtual {v0, v1}, Lcom/android/server/enterprise/sso/EnterpriseIdentity;->getUnEnrollSetting(I)Z
-
-    move-result v32
-
-    if-eqz v32, :cond_19
-
-    invoke-direct/range {p0 .. p0}, Lcom/android/server/enterprise/sso/GenericSSOService;->getHandler()Landroid/os/Handler;
-
-    move-result-object v32
-
-    const/16 v33, 0x7
-
-    invoke-virtual/range {v32 .. v33}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
-
-    move-result-object v23
-
-    move/from16 v0, p3
-
-    move-object/from16 v1, v23
-
-    iput v0, v1, Landroid/os/Message;->arg1:I
-
-    const/16 v32, 0x0
-
-    move/from16 v0, v32
-
-    move-object/from16 v1, v23
-
-    iput v0, v1, Landroid/os/Message;->arg2:I
-
-    move-object/from16 v0, v23
-
-    iput-object v6, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    invoke-direct/range {p0 .. p0}, Lcom/android/server/enterprise/sso/GenericSSOService;->getHandler()Landroid/os/Handler;
-
-    move-result-object v32
-
-    move-object/from16 v0, v32
-
-    move-object/from16 v1, v23
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
-    :try_end_b
-    .catch Ljava/io/FileNotFoundException; {:try_start_b .. :try_end_b} :catch_d
-    .catch Ljava/io/IOException; {:try_start_b .. :try_end_b} :catch_e
-    .catch Ljava/lang/Exception; {:try_start_b .. :try_end_b} :catch_f
-    .catchall {:try_start_b .. :try_end_b} :catchall_1
-
-    :cond_19
-    if-eqz v9, :cond_1a
-
-    :try_start_c
     invoke-virtual {v9}, Ljava/io/OutputStream;->close()V
-    :try_end_c
-    .catch Ljava/io/IOException; {:try_start_c .. :try_end_c} :catch_5
+    :try_end_b
+    .catch Ljava/io/IOException; {:try_start_b .. :try_end_b} :catch_5
 
-    :cond_1a
+    :cond_18
     :goto_5
-    const/16 v32, 0x0
+    const/16 v31, 0x0
 
-    return v32
+    return v31
 
     :catch_5
     move-exception v16
@@ -1834,33 +1748,33 @@
     move-exception v17
 
     :goto_6
-    :try_start_d
-    const-string/jumbo v32, "GenericSSOService"
+    :try_start_c
+    const-string/jumbo v31, "GenericSSOService"
 
-    const-string/jumbo v33, "In configureSSOByFile: Exception"
+    const-string/jumbo v32, "In configureSSOByFile: Exception"
 
-    move-object/from16 v0, v32
+    move-object/from16 v0, v31
 
-    move-object/from16 v1, v33
+    move-object/from16 v1, v32
 
     move-object/from16 v2, v17
 
     invoke-static {v0, v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_d
-    .catchall {:try_start_d .. :try_end_d} :catchall_0
+    :try_end_c
+    .catchall {:try_start_c .. :try_end_c} :catchall_0
 
-    const/16 v32, -0x1
+    const/16 v31, -0x1
 
-    if-eqz v8, :cond_1b
+    if-eqz v8, :cond_19
 
-    :try_start_e
+    :try_start_d
     invoke-virtual {v8}, Ljava/io/OutputStream;->close()V
-    :try_end_e
-    .catch Ljava/io/IOException; {:try_start_e .. :try_end_e} :catch_7
+    :try_end_d
+    .catch Ljava/io/IOException; {:try_start_d .. :try_end_d} :catch_7
 
-    :cond_1b
+    :cond_19
     :goto_7
-    return v32
+    return v31
 
     :catch_7
     move-exception v16
@@ -1873,33 +1787,33 @@
     move-exception v16
 
     :goto_8
-    :try_start_f
-    const-string/jumbo v32, "GenericSSOService"
+    :try_start_e
+    const-string/jumbo v31, "GenericSSOService"
 
-    const-string/jumbo v33, "In configureSSOByFile: IO exception in configureSSOByFile"
+    const-string/jumbo v32, "In configureSSOByFile: IO exception in configureSSOByFile"
 
-    move-object/from16 v0, v32
+    move-object/from16 v0, v31
 
-    move-object/from16 v1, v33
+    move-object/from16 v1, v32
 
     move-object/from16 v2, v16
 
     invoke-static {v0, v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_f
-    .catchall {:try_start_f .. :try_end_f} :catchall_0
+    :try_end_e
+    .catchall {:try_start_e .. :try_end_e} :catchall_0
 
-    const/16 v32, -0x1
+    const/16 v31, -0x1
 
-    if-eqz v8, :cond_1c
+    if-eqz v8, :cond_1a
 
-    :try_start_10
+    :try_start_f
     invoke-virtual {v8}, Ljava/io/OutputStream;->close()V
-    :try_end_10
-    .catch Ljava/io/IOException; {:try_start_10 .. :try_end_10} :catch_9
+    :try_end_f
+    .catch Ljava/io/IOException; {:try_start_f .. :try_end_f} :catch_9
 
-    :cond_1c
+    :cond_1a
     :goto_9
-    return v32
+    return v31
 
     :catch_9
     move-exception v16
@@ -1912,31 +1826,31 @@
     move-exception v15
 
     :goto_a
-    :try_start_11
-    const-string/jumbo v32, "GenericSSOService"
+    :try_start_10
+    const-string/jumbo v31, "GenericSSOService"
 
-    const-string/jumbo v33, "In _configureSSOByFile: File not found exception in configureSSOByFile"
+    const-string/jumbo v32, "In _configureSSOByFile: File not found exception in configureSSOByFile"
 
-    move-object/from16 v0, v32
+    move-object/from16 v0, v31
 
-    move-object/from16 v1, v33
+    move-object/from16 v1, v32
 
     invoke-static {v0, v1, v15}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_11
-    .catchall {:try_start_11 .. :try_end_11} :catchall_0
+    :try_end_10
+    .catchall {:try_start_10 .. :try_end_10} :catchall_0
 
-    const/16 v32, -0x5
+    const/16 v31, -0x5
 
-    if-eqz v8, :cond_1d
+    if-eqz v8, :cond_1b
 
-    :try_start_12
+    :try_start_11
     invoke-virtual {v8}, Ljava/io/OutputStream;->close()V
-    :try_end_12
-    .catch Ljava/io/IOException; {:try_start_12 .. :try_end_12} :catch_b
+    :try_end_11
+    .catch Ljava/io/IOException; {:try_start_11 .. :try_end_11} :catch_b
 
-    :cond_1d
+    :cond_1b
     :goto_b
-    return v32
+    return v31
 
     :catch_b
     move-exception v16
@@ -1946,19 +1860,19 @@
     goto :goto_b
 
     :catchall_0
-    move-exception v32
+    move-exception v31
 
     :goto_c
-    if-eqz v8, :cond_1e
+    if-eqz v8, :cond_1c
 
-    :try_start_13
+    :try_start_12
     invoke-virtual {v8}, Ljava/io/OutputStream;->close()V
-    :try_end_13
-    .catch Ljava/io/IOException; {:try_start_13 .. :try_end_13} :catch_c
+    :try_end_12
+    .catch Ljava/io/IOException; {:try_start_12 .. :try_end_12} :catch_c
 
-    :cond_1e
+    :cond_1c
     :goto_d
-    throw v32
+    throw v31
 
     :catch_c
     move-exception v16
@@ -1968,7 +1882,7 @@
     goto :goto_d
 
     :catchall_1
-    move-exception v32
+    move-exception v31
 
     move-object v8, v9
 
@@ -1997,7 +1911,7 @@
 .end method
 
 .method private _enrollSSOVendor(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;IZ)I
-    .locals 31
+    .locals 30
 
     move-object/from16 v0, p1
 
@@ -2005,68 +1919,68 @@
 
     move/from16 v20, v0
 
-    sget-boolean v28, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
+    sget-boolean v27, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
 
-    if-eqz v28, :cond_0
+    if-eqz v27, :cond_0
 
-    const-string/jumbo v28, "GenericSSOService"
+    const-string/jumbo v27, "GenericSSOService"
 
-    new-instance v29, Ljava/lang/StringBuilder;
+    new-instance v28, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v29 .. v29}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v28 .. v28}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v30, "In _enrollSSOVendor mdmUid = "
+    const-string/jumbo v29, "In _enrollSSOVendor mdmUid = "
 
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v29
+    move-result-object v28
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v28
 
     move/from16 v1, v20
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v29
+    move-result-object v28
 
-    invoke-virtual/range {v29 .. v29}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v29
+    move-result-object v28
 
-    invoke-static/range {v28 .. v29}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v27 .. v28}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     const/16 v17, 0x0
 
-    sget-boolean v28, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
+    sget-boolean v27, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
 
-    if-eqz v28, :cond_1
+    if-eqz v27, :cond_1
 
-    const-string/jumbo v28, "GenericSSOService"
+    const-string/jumbo v27, "GenericSSOService"
 
-    new-instance v29, Ljava/lang/StringBuilder;
+    new-instance v28, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v29 .. v29}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v28 .. v28}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v30, "In _enrollSSOVendor userid = "
+    const-string/jumbo v29, "In _enrollSSOVendor userid = "
 
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v29
+    move-result-object v28
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v28
 
     move/from16 v1, p5
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v29
+    move-result-object v28
 
-    invoke-virtual/range {v29 .. v29}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v29
+    move-result-object v28
 
-    invoke-static/range {v28 .. v29}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v27 .. v28}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
     move-object/from16 v0, p0
@@ -2089,74 +2003,75 @@
 
     move-result-object v11
 
-    if-eqz v12, :cond_2
+    if-eqz v12, :cond_3
 
-    if-eqz v11, :cond_2
+    if-eqz v11, :cond_3
 
     move-object/from16 v0, p2
 
     invoke-virtual {v11, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v28
+    move-result v27
 
-    if-eqz v28, :cond_4
+    xor-int/lit8 v27, v27, 0x1
+
+    if-eqz v27, :cond_3
+
+    sget-boolean v27, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
+
+    if-eqz v27, :cond_2
+
+    const-string/jumbo v27, "GenericSSOService"
+
+    const-string/jumbo v28, "In _enrollSSOVendor: there\'s already one sso vendor enrolled"
+
+    invoke-static/range {v27 .. v28}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
+    const/16 v27, -0x9
+
+    return v27
+
+    :cond_3
     move-object/from16 v0, p0
 
     move-object/from16 v1, p2
 
     invoke-direct {v0, v1}, Lcom/android/server/enterprise/sso/GenericSSOService;->isNullOrEmpty(Ljava/lang/String;)Z
 
-    move-result v28
+    move-result v27
 
-    if-eqz v28, :cond_6
+    if-eqz v27, :cond_5
 
-    sget-boolean v28, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
+    sget-boolean v27, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
 
-    if-eqz v28, :cond_3
+    if-eqz v27, :cond_4
 
-    const-string/jumbo v28, "GenericSSOService"
+    const-string/jumbo v27, "GenericSSOService"
 
-    const-string/jumbo v29, "In _enrollSSOVendor: authenticator is null or empty"
+    const-string/jumbo v28, "In _enrollSSOVendor: authenticator is null or empty"
 
-    invoke-static/range {v28 .. v29}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_3
-    const/16 v28, -0x3
-
-    return v28
+    invoke-static/range {v27 .. v28}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_4
-    sget-boolean v28, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
+    const/16 v27, -0x3
 
-    if-eqz v28, :cond_5
-
-    const-string/jumbo v28, "GenericSSOService"
-
-    const-string/jumbo v29, "In _enrollSSOVendor: there\'s already one sso vendor enrolled"
-
-    invoke-static/range {v28 .. v29}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    return v27
 
     :cond_5
-    const/16 v28, -0x9
-
-    return v28
-
-    :cond_6
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v14
 
-    const-string/jumbo v28, "application_policy"
+    const-string/jumbo v27, "application_policy"
 
-    invoke-static/range {v28 .. v28}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getPolicyService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static/range {v27 .. v27}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getPolicyService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v4
 
     check-cast v4, Lcom/android/server/enterprise/application/ApplicationPolicy;
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_9
 
     move-object/from16 v0, p2
 
@@ -2164,28 +2079,28 @@
 
     invoke-virtual {v4, v0, v1}, Lcom/android/server/enterprise/application/ApplicationPolicy;->isApplicationInstalled(Ljava/lang/String;I)Z
 
-    move-result v28
+    move-result v27
 
-    if-nez v28, :cond_8
+    if-nez v27, :cond_7
 
-    sget-boolean v28, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
+    sget-boolean v27, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
 
-    if-eqz v28, :cond_7
+    if-eqz v27, :cond_6
 
-    const-string/jumbo v28, "GenericSSOService"
+    const-string/jumbo v27, "GenericSSOService"
 
-    const-string/jumbo v29, "In _enrollSSOVendor: Authenticator not installed"
+    const-string/jumbo v28, "In _enrollSSOVendor: Authenticator not installed"
 
-    invoke-static/range {v28 .. v29}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v27 .. v28}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_7
+    :cond_6
     invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    const/16 v28, -0xc
+    const/16 v27, -0xc
 
-    return v28
+    return v27
 
-    :cond_8
+    :cond_7
     move-object/from16 v0, p0
 
     move/from16 v1, p5
@@ -2202,9 +2117,9 @@
 
     invoke-direct {v0, v1}, Lcom/android/server/enterprise/sso/GenericSSOService;->isNullOrEmpty(Ljava/lang/String;)Z
 
-    move-result v28
+    move-result v27
 
-    if-nez v28, :cond_a
+    if-nez v27, :cond_9
 
     move-object/from16 v0, p3
 
@@ -2212,50 +2127,50 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v28
+    move-result v27
 
-    if-nez v28, :cond_a
+    if-nez v27, :cond_9
 
-    sget-boolean v28, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
+    sget-boolean v27, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
 
-    if-eqz v28, :cond_9
+    if-eqz v27, :cond_8
 
-    const-string/jumbo v28, "GenericSSOService"
+    const-string/jumbo v27, "GenericSSOService"
 
-    const-string/jumbo v29, "In _enrollSSOVendor: Authenticator signature is not matched"
+    const-string/jumbo v28, "In _enrollSSOVendor: Authenticator signature is not matched"
 
-    invoke-static/range {v28 .. v29}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v27 .. v28}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_9
+    :cond_8
     invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    const/16 v28, -0xd
+    const/16 v27, -0xd
 
-    return v28
+    return v27
 
-    :cond_a
+    :cond_9
     invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     :try_start_0
     iget-object v7, v6, Lcom/android/server/enterprise/sso/GenericSSOService$RequestConfigDocument;->XMLDoc:Lorg/w3c/dom/Document;
 
-    const/16 v22, 0x0
+    const/16 v21, 0x0
 
     invoke-virtual/range {p0 .. p1}, Lcom/android/server/enterprise/sso/GenericSSOService;->getEnrolledSSOVendor(Lcom/samsung/android/knox/ContextInfo;)Ljava/lang/String;
 
     move-result-object v11
 
-    if-eqz v12, :cond_e
+    if-eqz v12, :cond_d
 
-    if-eqz v11, :cond_e
+    if-eqz v11, :cond_d
 
     move-object/from16 v0, p2
 
     invoke-virtual {v11, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v28
+    move-result v27
 
-    if-eqz v28, :cond_e
+    if-eqz v27, :cond_d
 
     move-object/from16 v0, p0
 
@@ -2265,26 +2180,26 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/sso/GenericSSOService;->isCallingMDMMatch(II)Z
 
-    move-result v28
+    move-result v27
 
-    if-nez v28, :cond_c
+    if-nez v27, :cond_b
 
-    sget-boolean v28, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
+    sget-boolean v27, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
 
-    if-eqz v28, :cond_b
+    if-eqz v27, :cond_a
 
-    const-string/jumbo v28, "GenericSSOService"
+    const-string/jumbo v27, "GenericSSOService"
 
-    const-string/jumbo v29, "In _enrollSSOVendor: MDM uid is not matched"
+    const-string/jumbo v28, "In _enrollSSOVendor: MDM uid is not matched"
 
-    invoke-static/range {v28 .. v29}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v27 .. v28}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_a
+    const/16 v27, -0xa
+
+    return v27
 
     :cond_b
-    const/16 v28, -0xa
-
-    return v28
-
-    :cond_c
     const/16 v17, 0x1
 
     invoke-interface {v12}, Lorg/w3c/dom/Node;->getChildNodes()Lorg/w3c/dom/NodeList;
@@ -2296,45 +2211,45 @@
     :goto_0
     invoke-interface {v5}, Lorg/w3c/dom/NodeList;->getLength()I
 
-    move-result v28
+    move-result v27
 
-    move/from16 v0, v28
+    move/from16 v0, v27
 
-    if-ge v13, v0, :cond_10
+    if-ge v13, v0, :cond_f
 
     invoke-interface {v5, v13}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
 
-    move-result-object v24
+    move-result-object v23
 
-    invoke-interface/range {v24 .. v24}, Lorg/w3c/dom/Node;->getNodeName()Ljava/lang/String;
+    invoke-interface/range {v23 .. v23}, Lorg/w3c/dom/Node;->getNodeName()Ljava/lang/String;
 
-    move-result-object v28
+    move-result-object v27
 
-    const-string/jumbo v29, "whitelistpackage"
+    const-string/jumbo v28, "whitelistpackage"
 
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v27 .. v28}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v28
+    move-result v27
 
-    if-nez v28, :cond_d
+    if-nez v27, :cond_c
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v23
 
     invoke-interface {v12, v0}, Lorg/w3c/dom/Node;->removeChild(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;
 
-    :cond_d
+    :cond_c
     add-int/lit8 v13, v13, 0x1
 
     goto :goto_0
 
-    :cond_e
-    const-string/jumbo v28, "ssoprovider"
+    :cond_d
+    const-string/jumbo v27, "ssoprovider"
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v27
 
     invoke-interface {v7, v0}, Lorg/w3c/dom/Document;->createElement(Ljava/lang/String;)Lorg/w3c/dom/Element;
 
-    move-result-object v22
+    move-result-object v21
 
     move-object/from16 v0, p0
 
@@ -2342,100 +2257,100 @@
 
     invoke-direct {v0, v1}, Lcom/android/server/enterprise/sso/GenericSSOService;->isNullOrEmpty(Ljava/lang/String;)Z
 
-    move-result v28
+    move-result v27
 
-    if-nez v28, :cond_13
+    if-nez v27, :cond_12
 
-    const-string/jumbo v28, "servicepackagesignature"
+    const-string/jumbo v27, "servicepackagesignature"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v21
 
-    move-object/from16 v1, v28
+    move-object/from16 v1, v27
 
     move-object/from16 v2, p3
 
     invoke-interface {v0, v1, v2}, Lorg/w3c/dom/Element;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_f
+    :cond_e
     :goto_1
-    const-string/jumbo v28, "servicepackagename"
+    const-string/jumbo v27, "servicepackagename"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v21
 
-    move-object/from16 v1, v28
+    move-object/from16 v1, v27
 
     move-object/from16 v2, p2
 
     invoke-interface {v0, v1, v2}, Lorg/w3c/dom/Element;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v28, "mdmuid"
+    const-string/jumbo v27, "mdmuid"
 
-    new-instance v29, Ljava/lang/StringBuilder;
+    new-instance v28, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v29 .. v29}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v28 .. v28}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v30, ""
+    const-string/jumbo v29, ""
 
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v29
+    move-result-object v28
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v28
 
     move/from16 v1, v20
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v29
+    move-result-object v28
 
-    invoke-virtual/range {v29 .. v29}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v29
+    move-result-object v28
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v21
 
-    move-object/from16 v1, v28
+    move-object/from16 v1, v27
 
-    move-object/from16 v2, v29
+    move-object/from16 v2, v28
 
     invoke-interface {v0, v1, v2}, Lorg/w3c/dom/Element;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_10
+    :cond_f
     move-object/from16 v0, p0
 
     move-object/from16 v1, p4
 
     invoke-direct {v0, v1}, Lcom/android/server/enterprise/sso/GenericSSOService;->isNullOrEmpty(Landroid/os/Bundle;)Z
 
-    move-result v28
+    move-result v27
 
-    if-nez v28, :cond_15
+    if-nez v27, :cond_14
 
     iget-object v0, v6, Lcom/android/server/enterprise/sso/GenericSSOService$RequestConfigDocument;->XMLDoc:Lorg/w3c/dom/Document;
 
-    move-object/from16 v28, v0
+    move-object/from16 v27, v0
 
-    const-string/jumbo v29, "vendorconfigs"
+    const-string/jumbo v28, "vendorconfigs"
 
-    invoke-interface/range {v28 .. v29}, Lorg/w3c/dom/Document;->createElement(Ljava/lang/String;)Lorg/w3c/dom/Element;
+    invoke-interface/range {v27 .. v28}, Lorg/w3c/dom/Document;->createElement(Ljava/lang/String;)Lorg/w3c/dom/Element;
 
-    move-result-object v27
+    move-result-object v26
 
     invoke-virtual/range {p4 .. p4}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
 
-    move-result-object v28
+    move-result-object v27
 
-    invoke-interface/range {v28 .. v28}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface/range {v27 .. v27}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v19
 
-    :cond_11
+    :cond_10
     :goto_2
     invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v28
+    move-result v27
 
-    if-eqz v28, :cond_14
+    if-eqz v27, :cond_13
 
     invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2449,54 +2364,54 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v28
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v28
-
-    invoke-direct {v0, v1}, Lcom/android/server/enterprise/sso/GenericSSOService;->isNullOrEmpty(Ljava/lang/String;)Z
-
-    move-result v28
-
-    if-nez v28, :cond_11
-
-    const/16 v23, 0x0
+    move-result-object v27
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, v27
 
+    invoke-direct {v0, v1}, Lcom/android/server/enterprise/sso/GenericSSOService;->isNullOrEmpty(Ljava/lang/String;)Z
+
+    move-result v27
+
+    if-nez v27, :cond_10
+
+    const/16 v22, 0x0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v26
+
     move-object/from16 v2, v18
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/sso/GenericSSOService;->existedNode(Lorg/w3c/dom/Node;Ljava/lang/String;)Lorg/w3c/dom/Node;
 
-    move-result-object v23
+    move-result-object v22
 
-    check-cast v23, Lorg/w3c/dom/Element;
+    check-cast v22, Lorg/w3c/dom/Element;
 
-    if-nez v23, :cond_12
+    if-nez v22, :cond_11
 
     iget-object v0, v6, Lcom/android/server/enterprise/sso/GenericSSOService$RequestConfigDocument;->XMLDoc:Lorg/w3c/dom/Document;
 
-    move-object/from16 v28, v0
+    move-object/from16 v27, v0
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v27
 
     move-object/from16 v1, v18
 
     invoke-interface {v0, v1}, Lorg/w3c/dom/Document;->createElement(Ljava/lang/String;)Lorg/w3c/dom/Element;
 
-    move-result-object v23
+    move-result-object v22
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v26
 
-    move-object/from16 v1, v23
+    move-object/from16 v1, v22
 
     invoke-interface {v0, v1}, Lorg/w3c/dom/Element;->appendChild(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;
 
-    :cond_12
-    const-string/jumbo v28, "value"
+    :cond_11
+    const-string/jumbo v27, "value"
 
     move-object/from16 v0, p4
 
@@ -2504,45 +2419,45 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v29
+    move-result-object v28
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
-    move-object/from16 v1, v28
+    move-object/from16 v1, v27
 
-    move-object/from16 v2, v29
+    move-object/from16 v2, v28
 
     invoke-interface {v0, v1, v2}, Lorg/w3c/dom/Element;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    sget-boolean v28, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
+    sget-boolean v27, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
 
-    if-eqz v28, :cond_11
+    if-eqz v27, :cond_10
 
-    const-string/jumbo v28, "GenericSSOService"
+    const-string/jumbo v27, "GenericSSOService"
 
-    new-instance v29, Ljava/lang/StringBuilder;
+    new-instance v28, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v29 .. v29}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v28 .. v28}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v30, "In _enrollSSOVendor:  <"
+    const-string/jumbo v29, "In _enrollSSOVendor:  <"
 
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v29
+    move-result-object v28
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v28
 
     move-object/from16 v1, v18
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v29
+    move-result-object v28
 
-    const-string/jumbo v30, ":"
+    const-string/jumbo v29, ":"
 
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v29
+    move-result-object v28
 
     move-object/from16 v0, p4
 
@@ -2550,29 +2465,29 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v30
-
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     move-result-object v29
 
-    const-string/jumbo v30, "> parameter for - packageName "
+    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v28
 
-    move-result-object v29
+    const-string/jumbo v29, "> parameter for - packageName "
 
-    const-string/jumbo v30, " is added"
+    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v28
 
-    move-result-object v29
+    const-string/jumbo v29, " is added"
 
-    invoke-virtual/range {v29 .. v29}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v29
+    move-result-object v28
 
-    invoke-static/range {v28 .. v29}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v28
+
+    invoke-static/range {v27 .. v28}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Lorg/w3c/dom/DOMException; {:try_start_0 .. :try_end_0} :catch_1
@@ -2583,32 +2498,32 @@
     :catch_0
     move-exception v9
 
-    const-string/jumbo v28, "GenericSSOService"
+    const-string/jumbo v27, "GenericSSOService"
 
-    const-string/jumbo v29, "In _enrollSSOVendor: NullPointerException"
+    const-string/jumbo v28, "In _enrollSSOVendor: NullPointerException"
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v27
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v28
 
     invoke-static {v0, v1, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_3
-    const/16 v28, -0x1
+    const/16 v27, -0x1
 
-    return v28
+    return v27
 
-    :cond_13
+    :cond_12
     :try_start_1
-    sget-boolean v28, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
+    sget-boolean v27, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
 
-    if-eqz v28, :cond_f
+    if-eqz v27, :cond_e
 
-    const-string/jumbo v28, "GenericSSOService"
+    const-string/jumbo v27, "GenericSSOService"
 
-    const-string/jumbo v29, "In _enrollSSOVendor: Authenticator signature is not specified"
+    const-string/jumbo v28, "In _enrollSSOVendor: Authenticator signature is not specified"
 
-    invoke-static/range {v28 .. v29}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v27 .. v28}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_1
     .catch Ljava/lang/NullPointerException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Lorg/w3c/dom/DOMException; {:try_start_1 .. :try_end_1} :catch_1
@@ -2619,56 +2534,56 @@
     :catch_1
     move-exception v10
 
-    const-string/jumbo v28, "GenericSSOService"
+    const-string/jumbo v27, "GenericSSOService"
 
-    const-string/jumbo v29, "In _enrollSSOVendor: DOMException"
+    const-string/jumbo v28, "In _enrollSSOVendor: DOMException"
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v27
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v28
 
     invoke-static {v0, v1, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_3
 
-    :cond_14
-    if-nez v17, :cond_18
+    :cond_13
+    if-nez v17, :cond_17
 
     :try_start_2
-    move-object/from16 v0, v22
+    move-object/from16 v0, v21
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v26
 
     invoke-interface {v0, v1}, Lorg/w3c/dom/Element;->appendChild(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;
 
-    :cond_15
+    :cond_14
     :goto_4
-    if-nez v17, :cond_16
+    if-nez v17, :cond_15
 
     iget-object v0, v6, Lcom/android/server/enterprise/sso/GenericSSOService$RequestConfigDocument;->XMLDoc:Lorg/w3c/dom/Document;
 
-    move-object/from16 v28, v0
+    move-object/from16 v27, v0
 
-    invoke-interface/range {v28 .. v28}, Lorg/w3c/dom/Document;->getFirstChild()Lorg/w3c/dom/Node;
+    invoke-interface/range {v27 .. v27}, Lorg/w3c/dom/Document;->getFirstChild()Lorg/w3c/dom/Node;
 
-    move-result-object v28
+    move-result-object v27
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v27
 
-    move-object/from16 v1, v22
+    move-object/from16 v1, v21
 
     invoke-interface {v0, v1}, Lorg/w3c/dom/Node;->appendChild(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;
 
-    :cond_16
+    :cond_15
     iget-object v0, v6, Lcom/android/server/enterprise/sso/GenericSSOService$RequestConfigDocument;->XMLDoc:Lorg/w3c/dom/Document;
 
-    move-object/from16 v28, v0
+    move-object/from16 v27, v0
 
-    invoke-interface/range {v28 .. v28}, Lorg/w3c/dom/Document;->getDocumentElement()Lorg/w3c/dom/Element;
+    invoke-interface/range {v27 .. v27}, Lorg/w3c/dom/Document;->getDocumentElement()Lorg/w3c/dom/Element;
 
-    move-result-object v28
+    move-result-object v27
 
-    invoke-interface/range {v28 .. v28}, Lorg/w3c/dom/Element;->normalize()V
+    invoke-interface/range {v27 .. v27}, Lorg/w3c/dom/Element;->normalize()V
 
     move-object/from16 v0, p0
 
@@ -2682,9 +2597,9 @@
 
     invoke-direct {v0, v1}, Lcom/android/server/enterprise/sso/GenericSSOService;->getConfigDataForSSOVendor(I)Landroid/os/Bundle;
 
-    move-result-object v26
+    move-result-object v25
 
-    if-eqz p6, :cond_19
+    if-eqz p6, :cond_18
 
     move-object/from16 v0, p0
 
@@ -2692,31 +2607,31 @@
 
     move-object/from16 v2, p2
 
-    move-object/from16 v3, v26
+    move-object/from16 v3, v25
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/enterprise/sso/GenericSSOService;->pushAuthenticatorConfig(ILjava/lang/String;Landroid/os/Bundle;)I
 
-    move-result v25
+    move-result v24
 
-    if-eqz v25, :cond_19
+    if-eqz v24, :cond_18
 
-    sget-boolean v28, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
+    sget-boolean v27, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
 
-    if-eqz v28, :cond_17
+    if-eqz v27, :cond_16
 
-    const-string/jumbo v28, "GenericSSOService"
+    const-string/jumbo v27, "GenericSSOService"
 
-    const-string/jumbo v29, "In _enrollSSOVendor: failed because of pushAuthenticatorConfig()"
+    const-string/jumbo v28, "In _enrollSSOVendor: failed because of pushAuthenticatorConfig()"
 
-    invoke-static/range {v28 .. v29}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v27 .. v28}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_16
+    const/16 v27, -0x10
+
+    return v27
 
     :cond_17
-    const/16 v28, -0x10
-
-    return v28
-
-    :cond_18
-    move-object/from16 v0, v27
+    move-object/from16 v0, v26
 
     invoke-interface {v12, v0}, Lorg/w3c/dom/Node;->appendChild(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;
     :try_end_2
@@ -2729,94 +2644,33 @@
     :catch_2
     move-exception v8
 
-    const-string/jumbo v28, "GenericSSOService"
+    const-string/jumbo v27, "GenericSSOService"
 
-    const-string/jumbo v29, "In _enrollSSOVendor: Exception"
+    const-string/jumbo v28, "In _enrollSSOVendor: Exception"
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v27
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v28
 
     invoke-static {v0, v1, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto/16 :goto_3
 
-    :cond_19
+    :cond_18
     :try_start_3
     move-object/from16 v0, p0
 
     move/from16 v1, p5
 
     invoke-direct {v0, v1}, Lcom/android/server/enterprise/sso/GenericSSOService;->cleanUpSSOConnections(I)V
-
-    const/16 v28, 0x64
-
-    move/from16 v0, p5
-
-    move/from16 v1, v28
-
-    if-lt v0, v1, :cond_1a
-
-    sget-object v28, Lcom/android/server/enterprise/sso/GenericSSOService;->mEnterpriseId:Lcom/android/server/enterprise/sso/EnterpriseIdentity;
-
-    move-object/from16 v0, v28
-
-    move/from16 v1, p5
-
-    invoke-virtual {v0, v1}, Lcom/android/server/enterprise/sso/EnterpriseIdentity;->getUnEnrollSetting(I)Z
-
-    move-result v28
-
-    if-eqz v28, :cond_1a
-
-    invoke-direct/range {p0 .. p0}, Lcom/android/server/enterprise/sso/GenericSSOService;->getHandler()Landroid/os/Handler;
-
-    move-result-object v28
-
-    const/16 v29, 0x7
-
-    invoke-virtual/range {v28 .. v29}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
-
-    move-result-object v21
-
-    move/from16 v0, p5
-
-    move-object/from16 v1, v21
-
-    iput v0, v1, Landroid/os/Message;->arg1:I
-
-    const/16 v28, 0x0
-
-    move/from16 v0, v28
-
-    move-object/from16 v1, v21
-
-    iput v0, v1, Landroid/os/Message;->arg2:I
-
-    move-object/from16 v0, p2
-
-    move-object/from16 v1, v21
-
-    iput-object v0, v1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    invoke-direct/range {p0 .. p0}, Lcom/android/server/enterprise/sso/GenericSSOService;->getHandler()Landroid/os/Handler;
-
-    move-result-object v28
-
-    move-object/from16 v0, v28
-
-    move-object/from16 v1, v21
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
     :try_end_3
     .catch Ljava/lang/NullPointerException; {:try_start_3 .. :try_end_3} :catch_0
     .catch Lorg/w3c/dom/DOMException; {:try_start_3 .. :try_end_3} :catch_1
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_2
 
-    :cond_1a
-    const/16 v28, 0x0
+    const/16 v27, 0x0
 
-    return v28
+    return v27
 .end method
 
 .method private addAppTokenToSecureStorageForUser(ILjava/lang/String;Lcom/samsung/android/knox/sso/common/TokenInfo;)I
@@ -2965,7 +2819,9 @@
 
     move-result v9
 
-    if-nez v9, :cond_2
+    xor-int/lit8 v9, v9, 0x1
+
+    if-eqz v9, :cond_2
 
     const-string/jumbo v9, "SAML_RESPONSE_DEVICE_CERT"
 
@@ -2973,7 +2829,9 @@
 
     move-result v9
 
-    if-nez v9, :cond_2
+    xor-int/lit8 v9, v9, 0x1
+
+    if-eqz v9, :cond_2
 
     const-string/jumbo v9, "OAUTH_RESPONSE_DEVICE_CERT"
 
@@ -2981,7 +2839,9 @@
 
     move-result v9
 
-    if-nez v9, :cond_2
+    xor-int/lit8 v9, v9, 0x1
+
+    if-eqz v9, :cond_2
 
     invoke-direct {p0, v0, v7, v3, v8}, Lcom/android/server/enterprise/sso/GenericSSOService;->fillChildNodes(Lcom/android/server/enterprise/sso/GenericSSOService$TokenConfigDocument;Lorg/w3c/dom/Element;Ljava/lang/String;Ljava/lang/String;)V
     :try_end_0
@@ -3846,70 +3706,70 @@
 .method private callingAppIsPermitted(ILjava/lang/String;Landroid/os/Bundle;I)Z
     .locals 7
 
-    const/4 v3, 0x0
+    const/4 v6, 0x0
 
-    const/4 v2, 0x1
+    const/4 v5, 0x1
 
-    sget-boolean v4, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
+    sget-boolean v2, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
 
-    if-eqz v4, :cond_0
+    if-eqz v2, :cond_0
 
-    const-string/jumbo v4, "GenericSSOService"
+    const-string/jumbo v2, "GenericSSOService"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "In callingAppIsPermitted: packageName = "
+    const-string/jumbo v4, "In callingAppIsPermitted: packageName = "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v3
 
-    invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v3
 
-    const-string/jumbo v6, " pid = "
+    const-string/jumbo v4, " pid = "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v3
 
-    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v3
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v3
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    iget-object v4, p0, Lcom/android/server/enterprise/sso/GenericSSOService;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/android/server/enterprise/sso/GenericSSOService;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v4
+    move-result-object v2
 
-    iget-object v5, p0, Lcom/android/server/enterprise/sso/GenericSSOService;->WHITELIST_ALL_APPS_STATE:Ljava/lang/String;
+    iget-object v3, p0, Lcom/android/server/enterprise/sso/GenericSSOService;->WHITELIST_ALL_APPS_STATE:Ljava/lang/String;
 
-    invoke-static {v4, v5, v3, p4}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+    invoke-static {v2, v3, v6, p4}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
 
-    move-result v4
+    move-result v2
 
-    if-ne v4, v2, :cond_1
+    if-ne v2, v5, :cond_1
 
-    move v1, v2
+    const/4 v1, 0x1
 
     :goto_0
     if-eqz v1, :cond_2
 
-    return v2
+    return v5
 
     :cond_1
-    move v1, v3
+    const/4 v1, 0x0
 
     goto :goto_0
 
@@ -3918,65 +3778,65 @@
 
     invoke-virtual {p3}, Landroid/os/Bundle;->isEmpty()Z
 
-    move-result v4
+    move-result v2
 
-    if-eqz v4, :cond_4
+    if-eqz v2, :cond_4
 
     :cond_3
     const-string/jumbo v2, "GenericSSOService"
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, "In callingAppIsPermitted: Bundle configData is null or empty: "
+    const-string/jumbo v4, "In callingAppIsPermitted: Bundle configData is null or empty: "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-virtual {v4, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v3
 
-    const-string/jumbo v5, " is not whitelisted"
+    const-string/jumbo v4, " is not whitelisted"
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-static {v2, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v3
+    return v6
 
     :cond_4
-    const-string/jumbo v4, "clientpackagesignature"
+    const-string/jumbo v2, "clientpackagesignature"
 
-    invoke-virtual {p3, v4}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p3, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v2
 
-    if-eqz v4, :cond_6
+    if-eqz v2, :cond_6
 
-    invoke-direct {p0, p1, v2}, Lcom/android/server/enterprise/sso/GenericSSOService;->getPackageInfoForPid(II)Ljava/lang/String;
+    invoke-direct {p0, p1, v5}, Lcom/android/server/enterprise/sso/GenericSSOService;->getPackageInfoForPid(II)Ljava/lang/String;
 
     move-result-object v0
 
-    const-string/jumbo v4, "clientpackagesignature"
+    const-string/jumbo v2, "clientpackagesignature"
 
-    invoke-virtual {p3, v4}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p3, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v2
 
-    if-nez v4, :cond_6
+    if-nez v2, :cond_6
 
     sget-boolean v2, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
 
@@ -3984,47 +3844,47 @@
 
     const-string/jumbo v2, "GenericSSOService"
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, "In callingAppIsPermitted: Fail to pass the callingApp cert check: (ondevice vs config) "
+    const-string/jumbo v4, "In callingAppIsPermitted: Fail to pass the callingApp cert check: (ondevice vs config) "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v3
 
-    const-string/jumbo v5, " vs "
+    const-string/jumbo v4, " vs "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v3
 
-    const-string/jumbo v5, "clientpackagesignature"
+    const-string/jumbo v4, "clientpackagesignature"
 
-    invoke-virtual {p3, v5}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, v4}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-static {v2, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_5
-    return v3
+    return v6
 
     :cond_6
-    return v2
+    return v5
 .end method
 
 .method private cleanUpSSOConnections(I)V
@@ -6162,7 +6022,9 @@
 
     move-result v3
 
-    if-nez v3, :cond_8
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_8
 
     const/4 v3, 0x0
 
@@ -7259,7 +7121,7 @@
 
     move-result v7
 
-    if-ge v3, v7, :cond_2
+    if-ge v3, v7, :cond_1
 
     invoke-interface {v5, v3}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
 
@@ -7281,15 +7143,10 @@
 
     move-result v7
 
-    if-eqz v7, :cond_1
+    xor-int/lit8 v7, v7, 0x1
 
-    :cond_0
-    :goto_1
-    add-int/lit8 v3, v3, 0x1
+    if-eqz v7, :cond_0
 
-    goto :goto_0
-
-    :cond_1
     invoke-interface {v4}, Lorg/w3c/dom/Node;->getNodeName()Ljava/lang/String;
 
     move-result-object v7
@@ -7310,9 +7167,12 @@
 
     invoke-virtual {v0, v7, v8}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_1
+    :cond_0
+    add-int/lit8 v3, v3, 0x1
 
-    :cond_2
+    goto :goto_0
+
+    :cond_1
     invoke-virtual {v6, v0}, Lcom/samsung/android/knox/sso/common/TokenInfo;->setResponseBundle(Landroid/os/Bundle;)V
 
     return-object v6
@@ -8104,6 +7964,10 @@
     :cond_1
     const/4 v4, 0x0
 
+    const/4 v6, 0x0
+
+    const/4 v2, 0x0
+
     :try_start_0
     iget-object v7, p0, Lcom/android/server/enterprise/sso/GenericSSOService;->mContext:Landroid/content/Context;
 
@@ -8115,20 +7979,25 @@
 
     check-cast v0, Landroid/app/ActivityManager;
 
+    if-eqz v0, :cond_2
+
     invoke-virtual {v0}, Landroid/app/ActivityManager;->getRunningAppProcesses()Ljava/util/List;
 
     move-result-object v6
+
+    :cond_2
+    if-eqz v6, :cond_3
 
     invoke-interface {v6}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    :cond_2
+    :cond_3
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_4
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -8138,17 +8007,17 @@
 
     iget v7, v5, Landroid/app/ActivityManager$RunningAppProcessInfo;->pid:I
 
-    if-ne v7, p1, :cond_2
+    if-ne v7, p1, :cond_3
 
     iget-object v4, v5, Landroid/app/ActivityManager$RunningAppProcessInfo;->processName:Ljava/lang/String;
     :try_end_0
     .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_3
+    :cond_4
     sget-boolean v7, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
 
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_5
 
     const-string/jumbo v7, "GenericSSOService"
 
@@ -8182,7 +8051,7 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_4
+    :cond_5
     return-object v4
 
     :catch_0
@@ -9212,7 +9081,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_3
 
     invoke-direct {p0, v4}, Lcom/android/server/enterprise/sso/GenericSSOService;->getAccessTokenByProtocolType(Lcom/samsung/android/knox/sso/common/TokenInfo;)Ljava/lang/String;
 
@@ -9232,14 +9101,18 @@
 
     move-result v7
 
-    if-eqz v7, :cond_3
+    xor-int/lit8 v7, v7, 0x1
+
+    if-eqz v7, :cond_1
+
+    return-object v4
 
     :cond_1
     invoke-direct {p0, p1, v5}, Lcom/android/server/enterprise/sso/GenericSSOService;->hasTokenExpired(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_3
 
     sget-boolean v7, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
 
@@ -9258,12 +9131,9 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_3
 
     return-object v3
-
-    :cond_3
-    return-object v4
 
     :catch_0
     move-exception v2
@@ -9274,7 +9144,7 @@
 
     invoke-static {v7, v8, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :cond_4
+    :cond_3
     return-object v10
 .end method
 
@@ -9301,7 +9171,7 @@
 
     move-result-object v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_1
 
     invoke-interface {v7}, Lorg/w3c/dom/Node;->getChildNodes()Lorg/w3c/dom/NodeList;
 
@@ -9314,7 +9184,7 @@
 
     move-result v8
 
-    if-ge v3, v8, :cond_2
+    if-ge v3, v8, :cond_1
 
     invoke-interface {v5, v3}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
 
@@ -9334,15 +9204,10 @@
 
     move-result v8
 
-    if-eqz v8, :cond_1
+    xor-int/lit8 v8, v8, 0x1
 
-    :cond_0
-    :goto_1
-    add-int/lit8 v3, v3, 0x1
+    if-eqz v8, :cond_0
 
-    goto :goto_0
-
-    :cond_1
     invoke-interface {v4}, Lorg/w3c/dom/Node;->getNodeName()Ljava/lang/String;
 
     move-result-object v8
@@ -9367,14 +9232,17 @@
 
     invoke-virtual {v0, v8, v9}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_1
+    :cond_0
+    add-int/lit8 v3, v3, 0x1
 
-    :cond_2
+    goto :goto_0
+
+    :cond_1
     invoke-static {v1}, Lcom/android/server/enterprise/sso/GenericSSOService$TokenConfigDocument;->-wrap0(Lcom/android/server/enterprise/sso/GenericSSOService$TokenConfigDocument;)Lorg/w3c/dom/Node;
 
     move-result-object v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_3
 
     invoke-interface {v2}, Lorg/w3c/dom/Node;->getChildNodes()Lorg/w3c/dom/NodeList;
 
@@ -9382,12 +9250,12 @@
 
     const/4 v3, 0x0
 
-    :goto_2
+    :goto_1
     invoke-interface {v5}, Lorg/w3c/dom/NodeList;->getLength()I
 
     move-result v8
 
-    if-ge v3, v8, :cond_5
+    if-ge v3, v8, :cond_3
 
     invoke-interface {v5, v3}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
 
@@ -9397,7 +9265,7 @@
 
     move-result v8
 
-    if-ne v8, v12, :cond_3
+    if-ne v8, v12, :cond_2
 
     invoke-interface {v4}, Lorg/w3c/dom/Node;->getNodeName()Ljava/lang/String;
 
@@ -9407,15 +9275,10 @@
 
     move-result v8
 
-    if-eqz v8, :cond_4
+    xor-int/lit8 v8, v8, 0x1
 
-    :cond_3
-    :goto_3
-    add-int/lit8 v3, v3, 0x1
+    if-eqz v8, :cond_2
 
-    goto :goto_2
-
-    :cond_4
     invoke-interface {v4}, Lorg/w3c/dom/Node;->getNodeName()Ljava/lang/String;
 
     move-result-object v8
@@ -9440,18 +9303,21 @@
 
     invoke-virtual {v0, v8, v9}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_3
+    :cond_2
+    add-int/lit8 v3, v3, 0x1
 
-    :cond_5
+    goto :goto_1
+
+    :cond_3
     invoke-direct {p0, v0}, Lcom/android/server/enterprise/sso/GenericSSOService;->isNullOrEmpty(Landroid/os/Bundle;)Z
 
     move-result v8
 
-    if-eqz v8, :cond_6
+    if-eqz v8, :cond_4
 
     return-object v11
 
-    :cond_6
+    :cond_4
     invoke-virtual {v6, v0}, Lcom/samsung/android/knox/sso/common/TokenInfo;->setResponseBundle(Landroid/os/Bundle;)V
 
     return-object v6
@@ -9487,7 +9353,7 @@
 
     move-result v7
 
-    if-ge v2, v7, :cond_2
+    if-ge v2, v7, :cond_1
 
     invoke-interface {v4, v2}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
 
@@ -9509,15 +9375,10 @@
 
     move-result v7
 
-    if-eqz v7, :cond_1
+    xor-int/lit8 v7, v7, 0x1
 
-    :cond_0
-    :goto_1
-    add-int/lit8 v2, v2, 0x1
+    if-eqz v7, :cond_0
 
-    goto :goto_0
-
-    :cond_1
     invoke-interface {v3}, Lorg/w3c/dom/Node;->getNodeName()Ljava/lang/String;
 
     move-result-object v7
@@ -9538,9 +9399,12 @@
 
     invoke-virtual {v0, v7, v8}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_1
+    :cond_0
+    add-int/lit8 v2, v2, 0x1
 
-    :cond_2
+    goto :goto_0
+
+    :cond_1
     invoke-virtual {v5, v0}, Lcom/samsung/android/knox/sso/common/TokenInfo;->setResponseBundle(Landroid/os/Bundle;)V
 
     return-object v5
@@ -11987,6 +11851,12 @@
 
     move-result-object v10
 
+    const-string/jumbo v12, "indent"
+
+    const-string/jumbo v14, "yes"
+
+    invoke-virtual {v10, v12, v14}, Ljavax/xml/transform/Transformer;->setOutputProperty(Ljava/lang/String;Ljava/lang/String;)V
+
     new-instance v9, Ljava/io/FileOutputStream;
 
     const/4 v12, 0x0
@@ -13238,52 +13108,52 @@
 
 # virtual methods
 .method public _unenrollSSOVendor(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;I)I
-    .locals 12
+    .locals 9
 
     iget v4, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
     invoke-direct {p0, p3, v4}, Lcom/android/server/enterprise/sso/GenericSSOService;->isCallingMDMMatch(II)Z
 
-    move-result v7
+    move-result v6
 
-    if-nez v7, :cond_1
+    if-nez v6, :cond_1
 
-    sget-boolean v7, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
+    sget-boolean v6, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
 
-    if-eqz v7, :cond_0
+    if-eqz v6, :cond_0
 
-    const-string/jumbo v7, "GenericSSOService"
+    const-string/jumbo v6, "GenericSSOService"
 
-    const-string/jumbo v10, "In unenrollSSOVendor: MDM uid is not matched"
+    const-string/jumbo v7, "In unenrollSSOVendor: MDM uid is not matched"
 
-    invoke-static {v7, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    const/16 v7, -0xa
+    const/16 v6, -0xa
 
-    return v7
+    return v6
 
     :cond_1
     invoke-direct {p0, p2}, Lcom/android/server/enterprise/sso/GenericSSOService;->isNullOrEmpty(Ljava/lang/String;)Z
 
-    move-result v7
+    move-result v6
 
-    if-eqz v7, :cond_3
+    if-eqz v6, :cond_3
 
-    sget-boolean v7, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
+    sget-boolean v6, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
 
-    if-eqz v7, :cond_2
+    if-eqz v6, :cond_2
 
-    const-string/jumbo v7, "GenericSSOService"
+    const-string/jumbo v6, "GenericSSOService"
 
-    const-string/jumbo v10, "In unenrollSSOVendor: authenticatorPkgName is null or empty"
+    const-string/jumbo v7, "In unenrollSSOVendor: authenticatorPkgName is null or empty"
 
-    invoke-static {v7, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
-    const/4 v7, -0x3
+    const/4 v6, -0x3
 
-    return v7
+    return v6
 
     :cond_3
     :try_start_0
@@ -13299,149 +13169,103 @@
 
     invoke-static {v0}, Lcom/android/server/enterprise/sso/GenericSSOService$RequestConfigDocument;->-wrap0(Lcom/android/server/enterprise/sso/GenericSSOService$RequestConfigDocument;)Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-virtual {p2, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_4
-
-    invoke-direct {p0, p3}, Lcom/android/server/enterprise/sso/GenericSSOService;->clearConfigAndTokenForAuthenticator(I)I
+    invoke-virtual {p2, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
+    xor-int/lit8 v6, v6, 0x1
+
     if-eqz v6, :cond_6
 
-    const-string/jumbo v7, "GenericSSOService"
-
-    const-string/jumbo v10, "In unenrollSSOVendor: failed clearConfigAndTokenFor Authenticator"
-
-    invoke-static {v7, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v7, -0x10
-
-    return v7
-
     :cond_4
-    sget-boolean v7, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
+    sget-boolean v6, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
 
-    if-eqz v7, :cond_5
+    if-eqz v6, :cond_5
 
-    const-string/jumbo v7, "GenericSSOService"
+    const-string/jumbo v6, "GenericSSOService"
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v11, "In unenrollSSOVendor: this authenticator "
+    const-string/jumbo v8, "In unenrollSSOVendor: this authenticator "
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v7
 
-    invoke-virtual {v10, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v7
 
-    const-string/jumbo v11, " is not enrolled"
+    const-string/jumbo v8, " is not enrolled"
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v7
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v7
 
-    invoke-static {v7, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_5
-    const/4 v7, -0x6
+    const/4 v6, -0x6
 
-    return v7
+    return v6
 
     :cond_6
+    invoke-direct {p0, p3}, Lcom/android/server/enterprise/sso/GenericSSOService;->clearConfigAndTokenForAuthenticator(I)I
+
+    move-result v5
+
+    if-eqz v5, :cond_7
+
+    const-string/jumbo v6, "GenericSSOService"
+
+    const-string/jumbo v7, "In unenrollSSOVendor: failed clearConfigAndTokenFor Authenticator"
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v6, -0x10
+
+    return v6
+
+    :cond_7
     invoke-direct {p0, p3}, Lcom/android/server/enterprise/sso/GenericSSOService;->cleanUpSSOConnections(I)V
 
     invoke-direct {p0, p2, p3}, Lcom/android/server/enterprise/sso/GenericSSOService;->stopAuthenticatorApplication(Ljava/lang/String;I)V
-
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-
-    move-result-wide v8
-
-    iget-object v7, p0, Lcom/android/server/enterprise/sso/GenericSSOService;->mContext:Landroid/content/Context;
-
-    new-instance v10, Landroid/content/Intent;
-
-    const-string/jumbo v11, "genericsso.INTENT.ACTION.tokens_cleared"
-
-    invoke-direct {v10, v11}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    new-instance v11, Landroid/os/UserHandle;
-
-    invoke-direct {v11, p3}, Landroid/os/UserHandle;-><init>(I)V
-
-    invoke-virtual {v7, v10, v11}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
-
-    invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    const/16 v7, 0x64
-
-    if-lt p3, v7, :cond_7
-
-    invoke-direct {p0}, Lcom/android/server/enterprise/sso/GenericSSOService;->getHandler()Landroid/os/Handler;
-
-    move-result-object v7
-
-    const/4 v10, 0x7
-
-    invoke-virtual {v7, v10}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
-
-    move-result-object v5
-
-    iput p3, v5, Landroid/os/Message;->arg1:I
-
-    const/4 v7, 0x1
-
-    iput v7, v5, Landroid/os/Message;->arg2:I
-
-    iput-object p2, v5, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    invoke-direct {p0}, Lcom/android/server/enterprise/sso/GenericSSOService;->getHandler()Landroid/os/Handler;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v5}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
     :try_end_0
     .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_7
-    return v6
+    return v5
 
     :catch_0
     move-exception v1
 
-    const-string/jumbo v7, "GenericSSOService"
+    const-string/jumbo v6, "GenericSSOService"
 
-    const-string/jumbo v10, "In unenrollSSOVendor: Exception"
+    const-string/jumbo v7, "In unenrollSSOVendor: Exception"
 
-    invoke-static {v7, v10, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v6, v7, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
-    const/4 v7, -0x1
+    const/4 v6, -0x1
 
-    return v7
+    return v6
 
     :catch_1
     move-exception v2
 
-    const-string/jumbo v7, "GenericSSOService"
+    const-string/jumbo v6, "GenericSSOService"
 
-    const-string/jumbo v10, "In unenrollSSOVendor: NullPointerException"
+    const-string/jumbo v7, "In unenrollSSOVendor: NullPointerException"
 
-    invoke-static {v7, v10, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v6, v7, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 .end method
@@ -13574,151 +13398,19 @@
 .end method
 
 .method public addAppTokenToGenericSSO(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Lcom/samsung/android/knox/sso/common/TokenInfo;)I
-    .locals 5
+    .locals 1
 
-    invoke-direct {p0, p2}, Lcom/android/server/enterprise/sso/GenericSSOService;->isNullOrEmpty(Ljava/lang/String;)Z
+    const/4 v0, 0x0
 
-    move-result v3
-
-    if-nez v3, :cond_0
-
-    if-nez p3, :cond_2
-
-    :cond_0
-    sget-boolean v3, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
-
-    if-eqz v3, :cond_1
-
-    const-string/jumbo v3, "GenericSSOService"
-
-    const-string/jumbo v4, "In addAppTokenToGenericSSO: appPkgName is null or empty string or token is null"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1
-    const/4 v3, -0x3
-
-    return v3
-
-    :cond_2
-    invoke-virtual {p3}, Lcom/samsung/android/knox/sso/common/TokenInfo;->getResponseBundle()Landroid/os/Bundle;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_0
-
-    invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
-
-    move-result v2
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v1
-
-    const/4 v3, 0x0
-
-    invoke-direct {p0, v1, v3}, Lcom/android/server/enterprise/sso/GenericSSOService;->getPackageInfoForPid(II)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {p0, v2, v0}, Lcom/android/server/enterprise/sso/GenericSSOService;->vendorPermissionCheck(ILjava/lang/String;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_4
-
-    sget-boolean v3, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
-
-    if-eqz v3, :cond_3
-
-    const-string/jumbo v3, "GenericSSOService"
-
-    const-string/jumbo v4, "In addAppTokenToGenericSSO: authenticator is not permitted to call this API"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_3
-    const/4 v3, -0x1
-
-    return v3
-
-    :cond_4
-    invoke-direct {p0, v2, p2, p3}, Lcom/android/server/enterprise/sso/GenericSSOService;->addAppTokenToSecureStorageForUser(ILjava/lang/String;Lcom/samsung/android/knox/sso/common/TokenInfo;)I
-
-    move-result v3
-
-    return v3
+    return v0
 .end method
 
 .method public addUserAndDeviceCertToGenericSSO(Lcom/samsung/android/knox/ContextInfo;Lcom/samsung/android/knox/sso/common/TokenInfo;)I
-    .locals 5
+    .locals 1
 
-    if-eqz p2, :cond_0
+    const/4 v0, 0x0
 
-    invoke-virtual {p2}, Lcom/samsung/android/knox/sso/common/TokenInfo;->getResponseBundle()Landroid/os/Bundle;
-
-    move-result-object v3
-
-    if-nez v3, :cond_2
-
-    :cond_0
-    sget-boolean v3, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
-
-    if-eqz v3, :cond_1
-
-    const-string/jumbo v3, "GenericSSOService"
-
-    const-string/jumbo v4, "In addUserAndDeviceCertToGenericSSO: token is null or empty"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1
-    const/4 v3, -0x3
-
-    return v3
-
-    :cond_2
-    invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
-
-    move-result v2
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v1
-
-    const/4 v3, 0x0
-
-    invoke-direct {p0, v1, v3}, Lcom/android/server/enterprise/sso/GenericSSOService;->getPackageInfoForPid(II)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {p0, v2, v0}, Lcom/android/server/enterprise/sso/GenericSSOService;->vendorPermissionCheck(ILjava/lang/String;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_4
-
-    sget-boolean v3, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
-
-    if-eqz v3, :cond_3
-
-    const-string/jumbo v3, "GenericSSOService"
-
-    const-string/jumbo v4, "In addUserAndDeviceCertToGenericSSO: authenticator is not permitted to call this API"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_3
-    const/4 v3, -0x1
-
-    return v3
-
-    :cond_4
-    invoke-direct {p0, v2, p2}, Lcom/android/server/enterprise/sso/GenericSSOService;->addUserAndDeviceCertificatesForUser(ILcom/samsung/android/knox/sso/common/TokenInfo;)I
-
-    move-result v3
-
-    return v3
+    return v0
 .end method
 
 .method public addWhiteListPackages(Lcom/samsung/android/knox/ContextInfo;Ljava/util/List;)I
@@ -14467,7 +14159,7 @@
 .end method
 
 .method public forceAuthenticate(Lcom/samsung/android/knox/ContextInfo;)I
-    .locals 11
+    .locals 9
 
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/sso/GenericSSOService;->enforceKnoxSSOPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
@@ -14475,20 +14167,20 @@
 
     if-nez p1, :cond_1
 
-    sget-boolean v8, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
+    sget-boolean v6, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
 
-    if-eqz v8, :cond_0
+    if-eqz v6, :cond_0
 
-    const-string/jumbo v8, "GenericSSOService"
+    const-string/jumbo v6, "GenericSSOService"
 
-    const-string/jumbo v9, "In forceAuthenticate: cxtInfo is null"
+    const-string/jumbo v7, "In forceAuthenticate: cxtInfo is null"
 
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    const/4 v8, -0x3
+    const/4 v6, -0x3
 
-    return v8
+    return v6
 
     :cond_1
     iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
@@ -14500,51 +14192,51 @@
 
     invoke-direct {p0, v5, v1}, Lcom/android/server/enterprise/sso/GenericSSOService;->isCallingMDMMatch(II)Z
 
-    move-result v8
+    move-result v6
 
-    if-nez v8, :cond_3
+    if-nez v6, :cond_3
 
-    sget-boolean v8, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
+    sget-boolean v6, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
 
-    if-eqz v8, :cond_2
+    if-eqz v6, :cond_2
 
-    const-string/jumbo v8, "GenericSSOService"
+    const-string/jumbo v6, "GenericSSOService"
 
-    const-string/jumbo v9, "In forceAuthenticate: MDM uid is not matched"
+    const-string/jumbo v7, "In forceAuthenticate: MDM uid is not matched"
 
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
-    const/16 v8, -0xa
+    const/16 v6, -0xa
 
-    return v8
+    return v6
 
     :cond_3
-    sget-boolean v8, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
+    sget-boolean v6, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
 
-    if-eqz v8, :cond_4
+    if-eqz v6, :cond_4
 
-    const-string/jumbo v8, "GenericSSOService"
+    const-string/jumbo v6, "GenericSSOService"
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v10, "In forceAuthenticate: UserID = "
+    const-string/jumbo v8, "In forceAuthenticate: UserID = "
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v7
 
-    invoke-virtual {v9, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v7
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v7
 
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_4
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
@@ -14559,38 +14251,18 @@
 
     if-eqz v4, :cond_5
 
-    const-string/jumbo v8, "GenericSSOService"
+    const-string/jumbo v6, "GenericSSOService"
 
-    const-string/jumbo v9, "In forceAuthenticate: Fail to clear authenticator\'s records"
+    const-string/jumbo v7, "In forceAuthenticate: Fail to clear authenticator\'s records"
 
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v8, -0x10
+    const/16 v6, -0x10
 
-    return v8
+    return v6
 
     :cond_5
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/sso/GenericSSOService;->clearUserCertAndAppToken(Lcom/samsung/android/knox/ContextInfo;)I
-
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-
-    move-result-wide v6
-
-    iget-object v8, p0, Lcom/android/server/enterprise/sso/GenericSSOService;->mContext:Landroid/content/Context;
-
-    new-instance v9, Landroid/content/Intent;
-
-    const-string/jumbo v10, "genericsso.INTENT.ACTION.tokens_cleared"
-
-    invoke-direct {v9, v10}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    new-instance v10, Landroid/os/UserHandle;
-
-    invoke-direct {v10, v5}, Landroid/os/UserHandle;-><init>(I)V
-
-    invoke-virtual {v8, v9, v10}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
-
-    invoke-static {v6, v7}, Landroid/os/Binder;->restoreCallingIdentity(J)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -14599,15 +14271,15 @@
     :catch_0
     move-exception v0
 
-    const-string/jumbo v8, "GenericSSOService"
+    const-string/jumbo v6, "GenericSSOService"
 
-    const-string/jumbo v9, "In forceAuthenticate: Exception"
+    const-string/jumbo v7, "In forceAuthenticate: Exception"
 
-    invoke-static {v8, v9, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v6, v7, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    const/4 v8, -0x1
+    const/4 v6, -0x1
 
-    return v8
+    return v6
 .end method
 
 .method public getAppTokenFromGenericSSO(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Lcom/samsung/android/knox/sso/common/TokenInfo;
@@ -15645,198 +15317,176 @@
 .end method
 
 .method public onAdminRemoved(I)V
-    .locals 13
+    .locals 9
 
-    sget-boolean v10, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
+    sget-boolean v6, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
 
-    if-eqz v10, :cond_0
+    if-eqz v6, :cond_0
 
-    const-string/jumbo v10, "GenericSSOService"
+    const-string/jumbo v6, "GenericSSOService"
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v12, "In onAdminRemoved: Admin removed"
+    const-string/jumbo v8, "In onAdminRemoved: Admin removed"
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v7
 
-    invoke-virtual {v11, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v7
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object v7
 
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     invoke-static {p1}, Landroid/os/UserHandle;->getUserId(I)I
 
-    move-result v7
+    move-result v5
 
     :try_start_0
-    invoke-direct {p0, v7, p1}, Lcom/android/server/enterprise/sso/GenericSSOService;->isCallingMDMMatch(II)Z
+    invoke-virtual {p0, v5}, Lcom/android/server/enterprise/sso/GenericSSOService;->getEnrolledSSOVendor(I)Ljava/lang/String;
 
-    move-result v10
+    move-result-object v6
 
-    if-nez v10, :cond_2
+    if-nez v6, :cond_2
 
-    sget-boolean v10, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
+    sget-boolean v6, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
 
-    if-eqz v10, :cond_1
+    if-eqz v6, :cond_1
 
-    const-string/jumbo v10, "GenericSSOService"
+    const-string/jumbo v6, "GenericSSOService"
 
-    const-string/jumbo v11, "In onAdminRemoved: MDM uid is not matched"
+    const-string/jumbo v7, "In onAdminRemoved: Generic SSO was not used"
 
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
     return-void
 
     :cond_2
-    invoke-direct {p0, v7}, Lcom/android/server/enterprise/sso/GenericSSOService;->unregisterByAuthenticator(I)I
+    invoke-direct {p0, v5, p1}, Lcom/android/server/enterprise/sso/GenericSSOService;->isCallingMDMMatch(II)Z
 
-    move-result v10
+    move-result v6
 
-    if-eqz v10, :cond_3
+    if-nez v6, :cond_4
 
-    sget-boolean v10, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
+    sget-boolean v6, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
 
-    if-eqz v10, :cond_3
+    if-eqz v6, :cond_3
 
-    const-string/jumbo v10, "GenericSSOService"
+    const-string/jumbo v6, "GenericSSOService"
 
-    const-string/jumbo v11, "In onAdminRemoved: Fail to clear records remotely"
+    const-string/jumbo v7, "In onAdminRemoved: MDM uid is not matched"
 
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_3
-    const/4 v6, 0x0
-
-    sget-object v10, Lcom/android/server/enterprise/sso/GenericSSOService;->requestConfigXMLDocs:Landroid/util/SparseArray;
-
-    invoke-virtual {v10, v7}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/server/enterprise/sso/GenericSSOService$RequestConfigDocument;
-
-    if-eqz v0, :cond_4
-
-    invoke-static {v0}, Lcom/android/server/enterprise/sso/GenericSSOService$RequestConfigDocument;->-wrap0(Lcom/android/server/enterprise/sso/GenericSSOService$RequestConfigDocument;)Ljava/lang/String;
-
-    move-result-object v10
-
-    if-eqz v10, :cond_4
-
-    const/4 v6, 0x1
+    return-void
 
     :cond_4
-    sget-object v10, Lcom/android/server/enterprise/sso/GenericSSOService;->requestConfigXMLDocs:Landroid/util/SparseArray;
+    invoke-direct {p0, v5}, Lcom/android/server/enterprise/sso/GenericSSOService;->unregisterByAuthenticator(I)I
 
-    invoke-virtual {v10, v7}, Landroid/util/SparseArray;->delete(I)V
+    move-result v6
 
-    sget-object v10, Lcom/android/server/enterprise/sso/GenericSSOService;->tokenConfigXMLDocs:Landroid/util/SparseArray;
+    if-eqz v6, :cond_5
 
-    invoke-virtual {v10, v7}, Landroid/util/SparseArray;->delete(I)V
+    sget-boolean v6, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
 
-    const/4 v3, 0x0
+    if-eqz v6, :cond_5
 
-    invoke-direct {p0, v7}, Lcom/android/server/enterprise/sso/GenericSSOService;->getRequestConfigFilePath(I)Ljava/lang/String;
+    const-string/jumbo v6, "GenericSSOService"
 
-    move-result-object v4
+    const-string/jumbo v7, "In onAdminRemoved: Fail to clear records remotely"
 
-    new-instance v3, Ljava/io/File;
-
-    invoke-direct {v3, v4}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v3}, Ljava/io/File;->exists()Z
-
-    move-result v10
-
-    if-eqz v10, :cond_5
-
-    invoke-virtual {v3}, Ljava/io/File;->delete()Z
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_5
-    invoke-direct {p0, v7}, Lcom/android/server/enterprise/sso/GenericSSOService;->getTokenConfigFilePath(I)Ljava/lang/String;
+    sget-object v6, Lcom/android/server/enterprise/sso/GenericSSOService;->requestConfigXMLDocs:Landroid/util/SparseArray;
 
-    move-result-object v4
+    invoke-virtual {v6, v5}, Landroid/util/SparseArray;->delete(I)V
 
-    new-instance v3, Ljava/io/File;
+    sget-object v6, Lcom/android/server/enterprise/sso/GenericSSOService;->tokenConfigXMLDocs:Landroid/util/SparseArray;
 
-    invoke-direct {v3, v4}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v6, v5}, Landroid/util/SparseArray;->delete(I)V
 
-    invoke-virtual {v3}, Ljava/io/File;->exists()Z
+    sget-object v6, Lcom/android/server/enterprise/sso/GenericSSOService;->mEnterpriseId:Lcom/android/server/enterprise/sso/EnterpriseIdentity;
 
-    move-result v10
+    invoke-virtual {v6, v5}, Lcom/android/server/enterprise/sso/EnterpriseIdentity;->onAdminRemoved(I)V
 
-    if-eqz v10, :cond_6
+    const/4 v2, 0x0
 
-    invoke-virtual {v3}, Ljava/io/File;->delete()Z
+    invoke-direct {p0, v5}, Lcom/android/server/enterprise/sso/GenericSSOService;->getRequestConfigFilePath(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    new-instance v2, Ljava/io/File;
+
+    invoke-direct {v2, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v2}, Ljava/io/File;->exists()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_6
+
+    invoke-virtual {v2}, Ljava/io/File;->delete()Z
 
     :cond_6
-    if-nez v7, :cond_7
+    invoke-direct {p0, v5}, Lcom/android/server/enterprise/sso/GenericSSOService;->getTokenConfigFilePath(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    new-instance v2, Ljava/io/File;
+
+    invoke-direct {v2, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v2}, Ljava/io/File;->exists()Z
+
+    move-result v6
 
     if-eqz v6, :cond_7
 
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-
-    move-result-wide v8
-
-    iget-object v10, p0, Lcom/android/server/enterprise/sso/GenericSSOService;->mContext:Landroid/content/Context;
-
-    new-instance v11, Landroid/content/Intent;
-
-    const-string/jumbo v12, "genericsso.INTENT.ACTION.tokens_cleared"
-
-    invoke-direct {v11, v12}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    new-instance v12, Landroid/os/UserHandle;
-
-    invoke-direct {v12, v7}, Landroid/os/UserHandle;-><init>(I)V
-
-    invoke-virtual {v10, v11, v12}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
-
-    invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-virtual {v2}, Ljava/io/File;->delete()Z
 
     :cond_7
-    const/4 v10, 0x0
+    const/4 v6, 0x0
 
-    sput-object v10, Lcom/android/server/enterprise/sso/GenericSSOService;->mSecretKey:Ljava/security/Key;
+    sput-object v6, Lcom/android/server/enterprise/sso/GenericSSOService;->mSecretKey:Ljava/security/Key;
 
-    const/4 v10, 0x0
+    const/4 v6, 0x0
 
-    sput-object v10, Lcom/android/server/enterprise/sso/GenericSSOService;->mKeyPair:Ljava/security/KeyPair;
+    sput-object v6, Lcom/android/server/enterprise/sso/GenericSSOService;->mKeyPair:Ljava/security/KeyPair;
 
-    const/4 v10, 0x0
+    const/4 v6, 0x0
 
-    sput-object v10, Lcom/android/server/enterprise/sso/GenericSSOService;->sSecretKeyFromAndroidKeyStore:Ljavax/crypto/SecretKey;
-
-    invoke-direct {p0}, Lcom/android/server/enterprise/sso/GenericSSOService;->getHandler()Landroid/os/Handler;
-
-    move-result-object v10
-
-    const/4 v11, 0x6
-
-    invoke-virtual {v10, v11}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
-
-    move-result-object v5
-
-    iput v7, v5, Landroid/os/Message;->arg1:I
+    sput-object v6, Lcom/android/server/enterprise/sso/GenericSSOService;->sSecretKeyFromAndroidKeyStore:Ljavax/crypto/SecretKey;
 
     invoke-direct {p0}, Lcom/android/server/enterprise/sso/GenericSSOService;->getHandler()Landroid/os/Handler;
 
-    move-result-object v10
+    move-result-object v6
 
-    invoke-virtual {v10, v5}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+    const/4 v7, 0x6
 
-    invoke-direct {p0, v7}, Lcom/android/server/enterprise/sso/GenericSSOService;->cleanUpSSOConnections(I)V
+    invoke-virtual {v6, v7}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+
+    move-result-object v4
+
+    iput v5, v4, Landroid/os/Message;->arg1:I
+
+    invoke-direct {p0}, Lcom/android/server/enterprise/sso/GenericSSOService;->getHandler()Landroid/os/Handler;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v4}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+
+    invoke-direct {p0, v5}, Lcom/android/server/enterprise/sso/GenericSSOService;->cleanUpSSOConnections(I)V
     :try_end_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
@@ -15845,24 +15495,24 @@
     return-void
 
     :catch_0
-    move-exception v1
+    move-exception v0
 
-    const-string/jumbo v10, "GenericSSOService"
+    const-string/jumbo v6, "GenericSSOService"
 
-    const-string/jumbo v11, "In onAdminRemoved: Exception"
+    const-string/jumbo v7, "In onAdminRemoved: Exception"
 
-    invoke-static {v10, v11, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v6, v7, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 
     :catch_1
-    move-exception v2
+    move-exception v1
 
-    const-string/jumbo v10, "GenericSSOService"
+    const-string/jumbo v6, "GenericSSOService"
 
-    const-string/jumbo v11, "In onAdminRemoved: SecurityException"
+    const-string/jumbo v7, "In onAdminRemoved: SecurityException"
 
-    invoke-static {v10, v11, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v6, v7, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 .end method
@@ -16159,112 +15809,31 @@
 .end method
 
 .method public removeAppTokenFromGenericSSO(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)I
-    .locals 5
+    .locals 1
 
-    invoke-direct {p0, p2}, Lcom/android/server/enterprise/sso/GenericSSOService;->isNullOrEmpty(Ljava/lang/String;)Z
+    const/4 v0, 0x0
 
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    sget-boolean v3, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
-
-    if-eqz v3, :cond_0
-
-    const-string/jumbo v3, "GenericSSOService"
-
-    const-string/jumbo v4, "In removeAppTokenFromGenericSSO: appPkgName is null"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
-
-    move-result v2
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v1
-
-    const/4 v3, 0x0
-
-    invoke-direct {p0, v1, v3}, Lcom/android/server/enterprise/sso/GenericSSOService;->getPackageInfoForPid(II)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {p0, v2, v0}, Lcom/android/server/enterprise/sso/GenericSSOService;->vendorPermissionCheck(ILjava/lang/String;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_2
-
-    sget-boolean v3, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
-
-    if-eqz v3, :cond_1
-
-    const-string/jumbo v3, "GenericSSOService"
-
-    const-string/jumbo v4, "In removeAppTokenFromGenericSSO: authenticator is not permitted to call this API"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1
-    const/4 v3, -0x1
-
-    return v3
-
-    :cond_2
-    invoke-direct {p0, v2, p2}, Lcom/android/server/enterprise/sso/GenericSSOService;->deleteAppTokenForUser(ILjava/lang/String;)I
-
-    move-result v3
-
-    return v3
+    return v0
 .end method
 
 .method public removeUserAndDeviceCertFromGenericSSO(Lcom/samsung/android/knox/ContextInfo;)I
-    .locals 5
+    .locals 1
 
-    invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
+    const/4 v0, 0x0
 
-    move-result v2
+    return v0
+.end method
 
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+.method public resetPassword(Lcom/samsung/android/knox/ContextInfo;)Z
+    .locals 1
 
-    move-result v1
+    sget-object v0, Lcom/android/server/enterprise/sso/GenericSSOService;->mEnterpriseId:Lcom/android/server/enterprise/sso/EnterpriseIdentity;
 
-    const/4 v3, 0x0
+    invoke-virtual {v0, p1}, Lcom/android/server/enterprise/sso/EnterpriseIdentity;->resetPasswordByToken(Lcom/samsung/android/knox/ContextInfo;)Z
 
-    invoke-direct {p0, v1, v3}, Lcom/android/server/enterprise/sso/GenericSSOService;->getPackageInfoForPid(II)Ljava/lang/String;
+    move-result v0
 
-    move-result-object v0
-
-    invoke-direct {p0, v2, v0}, Lcom/android/server/enterprise/sso/GenericSSOService;->vendorPermissionCheck(ILjava/lang/String;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_1
-
-    sget-boolean v3, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
-
-    if-eqz v3, :cond_0
-
-    const-string/jumbo v3, "GenericSSOService"
-
-    const-string/jumbo v4, "In removeUserAndDeviceCertFromGenericSSO: authenticator is not permitted to call this API"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    const/4 v3, -0x1
-
-    return v3
-
-    :cond_1
-    invoke-direct {p0, v2}, Lcom/android/server/enterprise/sso/GenericSSOService;->deleteUserAndDeviceCertForUser(I)I
-
-    move-result v3
-
-    return v3
+    return v0
 .end method
 
 .method public setAuthenticationConfig(Lcom/samsung/android/knox/ContextInfo;Lcom/samsung/android/knox/container/AuthenticationConfig;)I
@@ -16745,8 +16314,100 @@
 .end method
 
 .method public systemReady()V
-    .locals 0
+    .locals 7
 
+    iget-object v4, p0, Lcom/android/server/enterprise/sso/GenericSSOService;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v5, "user"
+
+    invoke-virtual {v4, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/os/UserManager;
+
+    invoke-virtual {v1}, Landroid/os/UserManager;->getUsers()Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
+
+    :cond_0
+    :goto_0
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/content/pm/UserInfo;
+
+    iget v4, v2, Landroid/content/pm/UserInfo;->id:I
+
+    invoke-static {v4}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
+
+    move-result v4
+
+    if-nez v4, :cond_1
+
+    iget v4, v2, Landroid/content/pm/UserInfo;->id:I
+
+    invoke-static {v4}, Lcom/samsung/android/knox/SemPersonaManager;->isLegacyClId(I)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    :cond_1
+    sget-object v4, Lcom/android/server/enterprise/sso/GenericSSOService;->mEnterpriseId:Lcom/android/server/enterprise/sso/EnterpriseIdentity;
+
+    iget v5, v2, Landroid/content/pm/UserInfo;->id:I
+
+    invoke-virtual {v4, v5}, Lcom/android/server/enterprise/sso/EnterpriseIdentity;->checkADCExist(I)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    const-string/jumbo v4, "GenericSSOService"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "systemReady: provision token for user "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    iget v6, v2, Landroid/content/pm/UserInfo;->id:I
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    sget-object v4, Lcom/android/server/enterprise/sso/GenericSSOService;->mEnterpriseId:Lcom/android/server/enterprise/sso/EnterpriseIdentity;
+
+    iget v5, v2, Landroid/content/pm/UserInfo;->id:I
+
+    invoke-virtual {v4, v5}, Lcom/android/server/enterprise/sso/EnterpriseIdentity;->provisionResetPasswordToken(I)Z
+
+    goto :goto_0
+
+    :cond_2
     return-void
 .end method
 

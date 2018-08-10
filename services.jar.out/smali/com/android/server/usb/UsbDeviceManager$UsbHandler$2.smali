@@ -32,43 +32,71 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
+    .locals 5
 
-    const-string/jumbo v0, "UsbDeviceManager"
+    const-string/jumbo v3, "UsbDeviceManager"
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    const-string/jumbo v4, "received ACTION_LOCALE_CHANGED"
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v3, v4}, Lcom/android/server/utils/sysfwutil/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v2, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler$2;->this$1:Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
+    iget-object v3, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler$2;->this$1:Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
 
-    iget-object v2, v2, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->this$0:Lcom/android/server/usb/UsbDeviceManager;
+    invoke-static {v3}, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->-get1(Lcom/android/server/usb/UsbDeviceManager$UsbHandler;)Landroid/content/res/Resources;
 
-    invoke-static {v2}, Lcom/android/server/usb/UsbDeviceManager;->-get0(Lcom/android/server/usb/UsbDeviceManager;)Ljava/lang/String;
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v3
+
+    iget-object v1, v3, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
+
+    invoke-virtual {v1}, Ljava/util/Locale;->toString()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v3, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler$2;->this$1:Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
 
-    move-result-object v1
+    invoke-static {v3}, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->-get0(Lcom/android/server/usb/UsbDeviceManager$UsbHandler;)Ljava/util/Locale;
 
-    const-string/jumbo v2, "received ACTION_LOCALE_CHANGED"
+    move-result-object v3
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3}, Ljava/util/Locale;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result-object v1
+    move-result v3
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    if-eqz v3, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler$2;->this$1:Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
+    const-string/jumbo v3, "UsbDeviceManager"
 
-    const/4 v1, 0x1
+    const-string/jumbo v4, "Current Locale is same as received Locale"
 
-    invoke-static {v0, v1}, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->-wrap3(Lcom/android/server/usb/UsbDeviceManager$UsbHandler;Z)V
+    invoke-static {v3, v4}, Lcom/android/server/utils/sysfwutil/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    :goto_0
     return-void
+
+    :cond_0
+    const-string/jumbo v3, "UsbDeviceManager"
+
+    const-string/jumbo v4, "Current Locale is different from received Locale"
+
+    invoke-static {v3, v4}, Lcom/android/server/utils/sysfwutil/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v3, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler$2;->this$1:Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
+
+    invoke-static {v3, v1}, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->-set0(Lcom/android/server/usb/UsbDeviceManager$UsbHandler;Ljava/util/Locale;)Ljava/util/Locale;
+
+    iget-object v3, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler$2;->this$1:Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
+
+    const/4 v4, 0x1
+
+    invoke-static {v3, v4}, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->-wrap5(Lcom/android/server/usb/UsbDeviceManager$UsbHandler;Z)V
+
+    goto :goto_0
 .end method

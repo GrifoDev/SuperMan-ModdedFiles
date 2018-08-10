@@ -579,7 +579,7 @@
 
     if-eqz v0, :cond_6
 
-    const-string/jumbo v0, "com.nttdocomo.android.*"
+    const-string/jumbo v0, "com.nttdocomo.*"
 
     invoke-virtual {p0, v0}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->add(Ljava/lang/String;)V
 
@@ -604,10 +604,6 @@
     invoke-virtual {p0, v0}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->add(Ljava/lang/String;)V
 
     const-string/jumbo v0, "com.mcafee.android.scanservice"
-
-    invoke-virtual {p0, v0}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->add(Ljava/lang/String;)V
-
-    const-string/jumbo v0, "com.nttdocomo.osaifu.tsmproxy"
 
     invoke-virtual {p0, v0}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->add(Ljava/lang/String;)V
 

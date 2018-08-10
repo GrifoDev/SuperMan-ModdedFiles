@@ -91,5 +91,5 @@
 .method public abstract restorePendingWhileIdleAlarmsLocked(Ljava/lang/String;)V
 .end method
 
-.method public abstract setPendingIdleUntil(Lcom/android/server/AlarmManagerService$Alarm;)V
+.method public abstract setPendingIdleUntilLocked(Lcom/android/server/AlarmManagerService$Alarm;Z)V
 .end method

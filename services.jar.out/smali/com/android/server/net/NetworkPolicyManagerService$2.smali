@@ -1,5 +1,5 @@
 .class Lcom/android/server/net/NetworkPolicyManagerService$2;
-.super Landroid/app/IUidObserver$Stub;
+.super Landroid/content/BroadcastReceiver;
 .source "NetworkPolicyManagerService.java"
 
 
@@ -24,83 +24,121 @@
 
     iput-object p1, p0, Lcom/android/server/net/NetworkPolicyManagerService$2;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
-    invoke-direct {p0}, Landroid/app/IUidObserver$Stub;-><init>()V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onUidActive(I)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 6
 
-    return-void
-.end method
+    const/4 v2, 0x0
 
-.method public onUidGone(I)V
-    .locals 3
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
+    const-string/jumbo v3, "1"
 
-    iget-object v1, p0, Lcom/android/server/net/NetworkPolicyManagerService$2;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
+    const-string/jumbo v4, "rrEnabled"
 
-    iget-object v1, v1, Lcom/android/server/net/NetworkPolicyManagerService;->mHandler:Landroid/os/Handler;
+    invoke-virtual {p2, v4}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
-    const/16 v2, 0x3ea
+    move-result-object v4
 
-    invoke-virtual {v1, v2}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result-object v0
+    move-result v3
 
-    iput p1, v0, Landroid/os/Message;->arg1:I
+    if-eqz v3, :cond_2
 
-    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+    const/4 v1, 0x1
 
-    return-void
-.end method
+    :goto_0
+    const-string/jumbo v3, "NetworkPolicy"
 
-.method public onUidIdle(I)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    return-void
-.end method
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-.method public onUidStateChanged(II)V
-    .locals 3
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
+    const-string/jumbo v5, "onReceive: rrEnabledInCscChameleon "
 
-    iget-object v1, p0, Lcom/android/server/net/NetworkPolicyManagerService$2;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, v1, Lcom/android/server/net/NetworkPolicyManagerService;->mHandler:Landroid/os/Handler;
+    move-result-object v4
 
-    const/16 v2, 0x3e9
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "CscFeature_Common_ConfigAllowedPackagesDuringRoamingReduction"
+
+    invoke-virtual {v3, v4}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput p1, v0, Landroid/os/Message;->arg1:I
+    invoke-static {}, Lcom/android/server/net/NetworkPolicyManagerService;->-get14()Z
 
-    iput p2, v0, Landroid/os/Message;->arg2:I
+    move-result v3
 
-    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+    if-eq v3, v1, :cond_1
 
+    invoke-static {v1}, Lcom/android/server/net/NetworkPolicyManagerService;->-set7(Z)Z
+
+    invoke-static {}, Lcom/android/server/net/NetworkPolicyManagerService;->-get14()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
+
+    move-result v3
+
+    if-lez v3, :cond_1
+
+    iget-object v3, p0, Lcom/android/server/net/NetworkPolicyManagerService$2;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
+
+    invoke-static {}, Lcom/android/server/net/NetworkPolicyManagerService;->-get13()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    iget-object v2, p0, Lcom/android/server/net/NetworkPolicyManagerService$2;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
+
+    invoke-static {v2}, Lcom/android/server/net/NetworkPolicyManagerService;->-get16(Lcom/android/server/net/NetworkPolicyManagerService;)Z
+
+    move-result v2
+
+    xor-int/lit8 v2, v2, 0x1
+
+    :cond_0
+    invoke-static {v3, v2}, Lcom/android/server/net/NetworkPolicyManagerService;->-wrap22(Lcom/android/server/net/NetworkPolicyManagerService;Z)V
+
+    :cond_1
+    :goto_1
     return-void
+
+    :cond_2
+    const/4 v1, 0x0
+
+    goto :goto_0
+
+    :cond_3
+    iget-object v3, p0, Lcom/android/server/net/NetworkPolicyManagerService$2;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
+
+    invoke-static {v3, v2}, Lcom/android/server/net/NetworkPolicyManagerService;->-wrap22(Lcom/android/server/net/NetworkPolicyManagerService;Z)V
+
+    goto :goto_1
 .end method

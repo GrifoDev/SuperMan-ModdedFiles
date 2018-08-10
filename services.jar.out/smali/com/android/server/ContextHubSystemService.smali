@@ -8,7 +8,7 @@
 
 
 # instance fields
-.field private final mContextHubService:Landroid/hardware/location/ContextHubService;
+.field private final mContextHubService:Lcom/android/server/location/ContextHubService;
 
 
 # direct methods
@@ -17,11 +17,11 @@
 
     invoke-direct {p0, p1}, Lcom/android/server/SystemService;-><init>(Landroid/content/Context;)V
 
-    new-instance v0, Landroid/hardware/location/ContextHubService;
+    new-instance v0, Lcom/android/server/location/ContextHubService;
 
-    invoke-direct {v0, p1}, Landroid/hardware/location/ContextHubService;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p1}, Lcom/android/server/location/ContextHubService;-><init>(Landroid/content/Context;)V
 
-    iput-object v0, p0, Lcom/android/server/ContextHubSystemService;->mContextHubService:Landroid/hardware/location/ContextHubService;
+    iput-object v0, p0, Lcom/android/server/ContextHubSystemService;->mContextHubService:Lcom/android/server/location/ContextHubService;
 
     return-void
 .end method
@@ -41,9 +41,9 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v0, "contexthub_service"
+    const-string/jumbo v0, "contexthub"
 
-    iget-object v1, p0, Lcom/android/server/ContextHubSystemService;->mContextHubService:Landroid/hardware/location/ContextHubService;
+    iget-object v1, p0, Lcom/android/server/ContextHubSystemService;->mContextHubService:Lcom/android/server/location/ContextHubService;
 
     invoke-virtual {p0, v0, v1}, Lcom/android/server/ContextHubSystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 

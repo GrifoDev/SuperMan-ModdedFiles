@@ -14,10 +14,6 @@
 .end annotation
 
 
-# static fields
-.field private static final HANDLER_TAG:Ljava/lang/String; = "EnterpriseRightsManagerServiceHandler"
-
-
 # instance fields
 .field final synthetic this$0:Lcom/android/server/DLPManagerService;
 
@@ -41,8 +37,6 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 12
-
-    const/4 v8, 0x0
 
     iget-object v9, p0, Lcom/android/server/DLPManagerService$DLPHandler;->this$0:Lcom/android/server/DLPManagerService;
 
@@ -74,32 +68,47 @@
 
     check-cast v4, Lcom/samsung/android/knox/SemPersonaManager;
 
-    if-eqz v4, :cond_0
+    const/4 v9, 0x0
 
-    invoke-virtual {v4}, Lcom/samsung/android/knox/SemPersonaManager;->getPersonaIds()[I
+    invoke-virtual {v4, v9}, Lcom/samsung/android/knox/SemPersonaManager;->getKnoxIds(Z)Ljava/util/List;
+
+    move-result-object v8
+
+    if-eqz v8, :cond_0
+
+    invoke-interface {v8}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v7
 
-    if-eqz v7, :cond_0
-
-    array-length v9, v7
-
+    :cond_1
     :goto_1
-    if-ge v8, v9, :cond_0
+    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
-    aget v6, v7, v8
+    move-result v9
+
+    if-eqz v9, :cond_0
+
+    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v9
+
+    check-cast v9, Ljava/lang/Integer;
+
+    invoke-virtual {v9}, Ljava/lang/Integer;->intValue()I
+
+    move-result v6
 
     invoke-static {}, Lcom/samsung/android/knox/EnterpriseKnoxManager;->getInstance()Lcom/samsung/android/knox/EnterpriseKnoxManager;
 
+    move-result-object v9
+
+    iget-object v10, p0, Lcom/android/server/DLPManagerService$DLPHandler;->this$0:Lcom/android/server/DLPManagerService;
+
+    invoke-static {v10}, Lcom/android/server/DLPManagerService;->-get0(Lcom/android/server/DLPManagerService;)Landroid/content/Context;
+
     move-result-object v10
 
-    iget-object v11, p0, Lcom/android/server/DLPManagerService$DLPHandler;->this$0:Lcom/android/server/DLPManagerService;
-
-    invoke-static {v11}, Lcom/android/server/DLPManagerService;->-get0(Lcom/android/server/DLPManagerService;)Landroid/content/Context;
-
-    move-result-object v11
-
-    invoke-virtual {v10, v11, v6}, Lcom/samsung/android/knox/EnterpriseKnoxManager;->getKnoxContainerManager(Landroid/content/Context;I)Lcom/samsung/android/knox/container/KnoxContainerManager;
+    invoke-virtual {v9, v10, v6}, Lcom/samsung/android/knox/EnterpriseKnoxManager;->getKnoxContainerManager(Landroid/content/Context;I)Lcom/samsung/android/knox/container/KnoxContainerManager;
 
     move-result-object v5
 
@@ -117,53 +126,72 @@
 
     if-eqz v0, :cond_1
 
-    const-string/jumbo v10, "Lock"
+    const-string/jumbo v9, "Lock"
 
-    const/4 v11, 0x0
+    const/4 v10, 0x0
 
-    invoke-virtual {v0, v10, v11}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {v0, v9, v10}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
 
-    move-result v10
+    move-result v9
 
-    invoke-static {v10}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {v9}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v3
 
     invoke-virtual {v3}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v10
+    move-result v9
 
-    if-eqz v10, :cond_2
+    if-eqz v9, :cond_2
 
-    iget-object v10, p0, Lcom/android/server/DLPManagerService$DLPHandler;->this$0:Lcom/android/server/DLPManagerService;
+    iget-object v9, p0, Lcom/android/server/DLPManagerService$DLPHandler;->this$0:Lcom/android/server/DLPManagerService;
 
-    invoke-virtual {v10, v6}, Lcom/android/server/DLPManagerService;->lockDLP(I)Z
-
-    :cond_1
-    :goto_2
-    add-int/lit8 v8, v8, 0x1
-
-    goto :goto_1
-
-    :cond_2
-    iget-object v10, p0, Lcom/android/server/DLPManagerService$DLPHandler;->this$0:Lcom/android/server/DLPManagerService;
-
-    invoke-virtual {v10, v6}, Lcom/android/server/DLPManagerService;->unlockDLP(I)Z
+    invoke-virtual {v9, v6}, Lcom/android/server/DLPManagerService;->lockDLP(I)Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_2
+    goto :goto_1
 
     :catch_0
     move-exception v2
 
-    const-string/jumbo v8, "DLPManagerService"
+    const-string/jumbo v9, "DLP_DLPManagerService"
 
-    const-string/jumbo v9, "Exception occurs while handle message for MSG_SYSTEM_READY:"
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    invoke-static {v8, v9, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "Exception occurs while handle message for MSG_SYSTEM_READY:"
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v2}, Ljava/lang/Exception;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Lcom/samsung/android/knox/dlp/log/DLPLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
+
+    :cond_2
+    :try_start_1
+    iget-object v9, p0, Lcom/android/server/DLPManagerService$DLPHandler;->this$0:Lcom/android/server/DLPManagerService;
+
+    invoke-virtual {v9, v6}, Lcom/android/server/DLPManagerService;->unlockDLP(I)Z
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+
+    goto :goto_1
 
     :pswitch_data_0
     .packed-switch 0x1

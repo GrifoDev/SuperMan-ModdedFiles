@@ -330,45 +330,45 @@
 .method public prepare()V
     .locals 10
 
-    const/4 v7, 0x0
+    const/4 v9, 0x0
 
-    const-string/jumbo v8, "ShutdownDialog"
+    const-string/jumbo v7, "ShutdownDialog"
 
-    const-string/jumbo v9, "prepare shutdown dialog image and sound"
+    const-string/jumbo v8, "prepare shutdown dialog image and sound"
 
-    invoke-static {v8, v9}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v8, p0, Lcom/android/server/power/ShutdownDialog$StatePrepare;->this$0:Lcom/android/server/power/ShutdownDialog;
+    iget-object v7, p0, Lcom/android/server/power/ShutdownDialog$StatePrepare;->this$0:Lcom/android/server/power/ShutdownDialog;
 
-    invoke-static {v8}, Lcom/android/server/power/ShutdownDialog;->-get13(Lcom/android/server/power/ShutdownDialog;)Ljava/util/List;
+    invoke-static {v7}, Lcom/android/server/power/ShutdownDialog;->-get13(Lcom/android/server/power/ShutdownDialog;)Ljava/util/List;
 
-    move-result-object v8
+    move-result-object v7
 
-    invoke-interface {v8}, Ljava/util/List;->size()I
+    invoke-interface {v7}, Ljava/util/List;->size()I
 
-    move-result v8
+    move-result v7
 
-    if-lez v8, :cond_1
+    if-lez v7, :cond_1
 
-    iget-object v8, p0, Lcom/android/server/power/ShutdownDialog$StatePrepare;->this$0:Lcom/android/server/power/ShutdownDialog;
+    iget-object v7, p0, Lcom/android/server/power/ShutdownDialog$StatePrepare;->this$0:Lcom/android/server/power/ShutdownDialog;
 
-    invoke-static {v8}, Lcom/android/server/power/ShutdownDialog;->-get13(Lcom/android/server/power/ShutdownDialog;)Ljava/util/List;
+    invoke-static {v7}, Lcom/android/server/power/ShutdownDialog;->-get13(Lcom/android/server/power/ShutdownDialog;)Ljava/util/List;
 
-    move-result-object v8
+    move-result-object v7
 
-    invoke-interface {v8, v7}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v7, v9}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Lcom/android/server/power/LibQmg;
 
-    const-string/jumbo v8, "ShutdownDialog"
+    const-string/jumbo v7, "ShutdownDialog"
 
     invoke-virtual {v2}, Lcom/android/server/power/LibQmg;->toString()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v8
 
-    invoke-static {v8, v9}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {v2}, Lcom/android/server/power/LibQmg;->getWidth()I
 
@@ -383,33 +383,33 @@
     const/4 v1, 0x0
 
     :goto_0
-    const/4 v8, 0x3
+    const/4 v7, 0x3
 
-    if-ge v1, v8, :cond_2
+    if-ge v1, v7, :cond_2
 
-    iget-object v8, p0, Lcom/android/server/power/ShutdownDialog$StatePrepare;->this$0:Lcom/android/server/power/ShutdownDialog;
+    iget-object v7, p0, Lcom/android/server/power/ShutdownDialog$StatePrepare;->this$0:Lcom/android/server/power/ShutdownDialog;
 
-    invoke-static {v8}, Lcom/android/server/power/ShutdownDialog;->-get0(Lcom/android/server/power/ShutdownDialog;)[Landroid/graphics/Bitmap;
+    invoke-static {v7}, Lcom/android/server/power/ShutdownDialog;->-get0(Lcom/android/server/power/ShutdownDialog;)[Landroid/graphics/Bitmap;
+
+    move-result-object v7
+
+    aget-object v7, v7, v1
+
+    if-nez v7, :cond_0
+
+    iget-object v7, p0, Lcom/android/server/power/ShutdownDialog$StatePrepare;->this$0:Lcom/android/server/power/ShutdownDialog;
+
+    invoke-static {v7}, Lcom/android/server/power/ShutdownDialog;->-get0(Lcom/android/server/power/ShutdownDialog;)[Landroid/graphics/Bitmap;
+
+    move-result-object v7
+
+    sget-object v8, Landroid/graphics/Bitmap$Config;->RGB_565:Landroid/graphics/Bitmap$Config;
+
+    invoke-static {v6, v0, v8}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
     move-result-object v8
 
-    aget-object v8, v8, v1
-
-    if-nez v8, :cond_0
-
-    iget-object v8, p0, Lcom/android/server/power/ShutdownDialog$StatePrepare;->this$0:Lcom/android/server/power/ShutdownDialog;
-
-    invoke-static {v8}, Lcom/android/server/power/ShutdownDialog;->-get0(Lcom/android/server/power/ShutdownDialog;)[Landroid/graphics/Bitmap;
-
-    move-result-object v8
-
-    sget-object v9, Landroid/graphics/Bitmap$Config;->RGB_565:Landroid/graphics/Bitmap$Config;
-
-    invoke-static {v6, v0, v9}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
-
-    move-result-object v9
-
-    aput-object v9, v8, v1
+    aput-object v8, v7, v1
 
     :cond_0
     add-int/lit8 v1, v1, 0x1
@@ -417,43 +417,47 @@
     goto :goto_0
 
     :cond_1
-    const-string/jumbo v8, "ShutdownDialog"
+    const-string/jumbo v7, "ShutdownDialog"
 
-    const-string/jumbo v9, "qmglist error"
+    const-string/jumbo v8, "qmglist error"
 
-    invoke-static {v8, v9}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
-    iget-object v8, p0, Lcom/android/server/power/ShutdownDialog$StatePrepare;->this$0:Lcom/android/server/power/ShutdownDialog;
+    iget-object v7, p0, Lcom/android/server/power/ShutdownDialog$StatePrepare;->this$0:Lcom/android/server/power/ShutdownDialog;
 
-    invoke-static {v8}, Lcom/android/server/power/ShutdownDialog;->-wrap2(Lcom/android/server/power/ShutdownDialog;)I
+    invoke-static {v7}, Lcom/android/server/power/ShutdownDialog;->-wrap2(Lcom/android/server/power/ShutdownDialog;)I
 
     move-result v5
 
+    iget-object v7, p0, Lcom/android/server/power/ShutdownDialog$StatePrepare;->this$0:Lcom/android/server/power/ShutdownDialog;
+
     iget-object v8, p0, Lcom/android/server/power/ShutdownDialog$StatePrepare;->this$0:Lcom/android/server/power/ShutdownDialog;
 
-    iget-object v9, p0, Lcom/android/server/power/ShutdownDialog$StatePrepare;->this$0:Lcom/android/server/power/ShutdownDialog;
+    invoke-static {v8}, Lcom/android/server/power/ShutdownDialog;->-get14(Lcom/android/server/power/ShutdownDialog;)Ljava/lang/String;
 
-    invoke-static {v9}, Lcom/android/server/power/ShutdownDialog;->-get14(Lcom/android/server/power/ShutdownDialog;)Ljava/lang/String;
+    move-result-object v8
 
-    move-result-object v9
-
-    invoke-static {v8, v9}, Lcom/android/server/power/ShutdownDialog;->-wrap3(Lcom/android/server/power/ShutdownDialog;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v7, v8}, Lcom/android/server/power/ShutdownDialog;->-wrap3(Lcom/android/server/power/ShutdownDialog;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
-    iget-object v8, p0, Lcom/android/server/power/ShutdownDialog$StatePrepare;->this$0:Lcom/android/server/power/ShutdownDialog;
+    iget-object v7, p0, Lcom/android/server/power/ShutdownDialog$StatePrepare;->this$0:Lcom/android/server/power/ShutdownDialog;
 
-    invoke-static {v8}, Lcom/android/server/power/ShutdownDialog;->-get15(Lcom/android/server/power/ShutdownDialog;)Z
+    invoke-static {v7}, Lcom/android/server/power/ShutdownDialog;->-get15(Lcom/android/server/power/ShutdownDialog;)Z
 
-    move-result v8
+    move-result v7
 
-    if-nez v8, :cond_3
+    if-nez v7, :cond_3
 
     if-nez v3, :cond_4
 
     :cond_3
+    const/4 v7, 0x1
+
     :goto_1
+    xor-int/lit8 v7, v7, 0x1
+
     iput-boolean v7, p0, Lcom/android/server/power/ShutdownDialog$StatePrepare;->hasSound:Z
 
     iget-boolean v7, p0, Lcom/android/server/power/ShutdownDialog$StatePrepare;->hasSound:Z
@@ -486,11 +490,7 @@
 
     invoke-virtual {p0}, Lcom/android/server/power/ShutdownDialog$StatePrepare;->checkFotaSilent()Z
 
-    move-result v8
-
-    if-nez v8, :cond_3
-
-    const/4 v7, 0x1
+    move-result v7
 
     goto :goto_1
 

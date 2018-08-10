@@ -14,5 +14,11 @@
 
 
 # virtual methods
+.method public abstract isUidNetworkingBlocked(ILjava/lang/String;)Z
+.end method
+
+.method public abstract isUidRestrictedOnMeteredNetworks(I)Z
+.end method
+
 .method public abstract resetUserState(I)V
 .end method

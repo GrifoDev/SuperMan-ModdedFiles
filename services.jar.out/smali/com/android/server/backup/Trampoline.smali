@@ -88,7 +88,63 @@
 
     move-object v5, p5
 
-    invoke-virtual/range {v0 .. v5}, Lcom/android/server/backup/BackupManagerService;->acknowledgeFullBackupOrRestore(IZLjava/lang/String;Ljava/lang/String;Landroid/app/backup/IFullBackupRestoreObserver;)V
+    invoke-virtual/range {v0 .. v5}, Lcom/android/server/backup/BackupManagerService;->acknowledgeAdbBackupOrRestore(IZLjava/lang/String;Ljava/lang/String;Landroid/app/backup/IFullBackupRestoreObserver;)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public adbBackup(Landroid/os/ParcelFileDescriptor;ZZZZZZZZ[Ljava/lang/String;)V
+    .locals 11
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/server/backup/Trampoline;->mService:Lcom/android/server/backup/BackupManagerService;
+
+    if-eqz v0, :cond_0
+
+    move-object v1, p1
+
+    move v2, p2
+
+    move v3, p3
+
+    move v4, p4
+
+    move/from16 v5, p5
+
+    move/from16 v6, p6
+
+    move/from16 v7, p7
+
+    move/from16 v8, p8
+
+    move/from16 v9, p9
+
+    move-object/from16 v10, p10
+
+    invoke-virtual/range {v0 .. v10}, Lcom/android/server/backup/BackupManagerService;->adbBackup(Landroid/os/ParcelFileDescriptor;ZZZZZZZZ[Ljava/lang/String;)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public adbRestore(Landroid/os/ParcelFileDescriptor;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/server/backup/Trampoline;->mService:Lcom/android/server/backup/BackupManagerService;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0, p1}, Lcom/android/server/backup/BackupManagerService;->adbRestore(Landroid/os/ParcelFileDescriptor;)V
 
     :cond_0
     return-void
@@ -190,6 +246,24 @@
     return-object v1
 .end method
 
+.method public cancelBackups()V
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/server/backup/Trampoline;->mService:Lcom/android/server/backup/BackupManagerService;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/server/backup/BackupManagerService;->cancelBackups()V
+
+    :cond_0
+    return-void
+.end method
+
 .method public clearBackupData(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
@@ -227,26 +301,31 @@
 .end method
 
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .locals 4
+    .locals 3
 
     iget-object v1, p0, Lcom/android/server/backup/Trampoline;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v2, "android.permission.DUMP"
+    const-string/jumbo v2, "BackupManagerService"
 
-    const-string/jumbo v3, "BackupManagerService"
+    invoke-static {v1, v2, p2}, Lcom/android/internal/util/DumpUtils;->checkDumpPermission(Landroid/content/Context;Ljava/lang/String;Ljava/io/PrintWriter;)Z
 
-    invoke-virtual {v1, v2, v3}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+    move-result v1
 
+    if-nez v1, :cond_0
+
+    return-void
+
+    :cond_0
     iget-object v0, p0, Lcom/android/server/backup/Trampoline;->mService:Lcom/android/server/backup/BackupManagerService;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     invoke-virtual {v0, p1, p2, p3}, Lcom/android/server/backup/BackupManagerService;->dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
 
     :goto_0
     return-void
 
-    :cond_0
+    :cond_1
     const-string/jumbo v1, "Inactive"
 
     invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
@@ -267,8 +346,8 @@
     return-void
 .end method
 
-.method public fullBackup(Landroid/os/ParcelFileDescriptor;ZZZZZZZ[Ljava/lang/String;)V
-    .locals 10
+.method public fullBackupCustomized(Ljava/lang/String;ZZZZZZZ[Ljava/lang/String;ZLjava/lang/String;ZLandroid/app/backup/IMemorySaverBackupRestoreObserver;)V
+    .locals 15
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -279,47 +358,11 @@
 
     if-eqz v0, :cond_0
 
-    move-object v1, p1
+    move-object/from16 v1, p1
 
-    move v2, p2
+    move/from16 v2, p2
 
-    move v3, p3
-
-    move v4, p4
-
-    move v5, p5
-
-    move/from16 v6, p6
-
-    move/from16 v7, p7
-
-    move/from16 v8, p8
-
-    move-object/from16 v9, p9
-
-    invoke-virtual/range {v0 .. v9}, Lcom/android/server/backup/BackupManagerService;->fullBackup(Landroid/os/ParcelFileDescriptor;ZZZZZZZ[Ljava/lang/String;)V
-
-    :cond_0
-    return-void
-.end method
-
-.method public fullBackupCustomized(Ljava/lang/String;ZZZZZZZ[Ljava/lang/String;Z)V
-    .locals 12
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    iget-object v0, p0, Lcom/android/server/backup/Trampoline;->mService:Lcom/android/server/backup/BackupManagerService;
-
-    if-eqz v0, :cond_0
-
-    move-object v1, p1
-
-    move v2, p2
-
-    move v3, p3
+    move/from16 v3, p3
 
     move/from16 v4, p4
 
@@ -335,8 +378,14 @@
 
     move/from16 v10, p10
 
+    move-object/from16 v11, p11
+
+    move/from16 v12, p12
+
+    move-object/from16 v13, p13
+
     :try_start_0
-    invoke-virtual/range {v0 .. v10}, Lcom/android/server/backup/BackupManagerService;->fullBackupCustomized(Ljava/lang/String;ZZZZZZZ[Ljava/lang/String;Z)V
+    invoke-virtual/range {v0 .. v13}, Lcom/android/server/backup/BackupManagerService;->fullBackupCustomized(Ljava/lang/String;ZZZZZZZ[Ljava/lang/String;ZLjava/lang/String;ZLandroid/app/backup/IMemorySaverBackupRestoreObserver;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -345,9 +394,9 @@
     return-void
 
     :catch_0
-    move-exception v11
+    move-exception v14
 
-    invoke-virtual {v11}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v14}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -392,25 +441,7 @@
     return-object v1
 .end method
 
-.method public fullRestore(Landroid/os/ParcelFileDescriptor;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    iget-object v0, p0, Lcom/android/server/backup/Trampoline;->mService:Lcom/android/server/backup/BackupManagerService;
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0, p1}, Lcom/android/server/backup/BackupManagerService;->fullRestore(Landroid/os/ParcelFileDescriptor;)V
-
-    :cond_0
-    return-void
-.end method
-
-.method public fullRestoreCustomized(Ljava/lang/String;Z)V
+.method public fullRestoreCustomized(Ljava/lang/String;ZLjava/lang/String;Landroid/app/backup/IMemorySaverBackupRestoreObserver;)V
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -423,7 +454,7 @@
     if-eqz v1, :cond_0
 
     :try_start_0
-    invoke-virtual {v1, p1, p2}, Lcom/android/server/backup/BackupManagerService;->fullRestoreCustomized(Ljava/lang/String;Z)V
+    invoke-virtual {v1, p1, p2, p3, p4}, Lcom/android/server/backup/BackupManagerService;->fullRestoreCustomized(Ljava/lang/String;ZLjava/lang/String;Landroid/app/backup/IMemorySaverBackupRestoreObserver;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -807,6 +838,53 @@
     return v0
 .end method
 
+.method public isSubUserSupported()Z
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/server/backup/Trampoline;->mService:Lcom/android/server/backup/BackupManagerService;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/server/backup/BackupManagerService;->isSubUserSupported()Z
+
+    move-result v1
+
+    :goto_0
+    return v1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
+.end method
+
+.method public listAllTransportComponents()[Landroid/content/ComponentName;
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    const/4 v1, 0x0
+
+    iget-object v0, p0, Lcom/android/server/backup/Trampoline;->mService:Lcom/android/server/backup/BackupManagerService;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/server/backup/BackupManagerService;->listAllTransportComponents()[Landroid/content/ComponentName;
+
+    move-result-object v1
+
+    :cond_0
+    return-object v1
+.end method
+
 .method public listAllTransports()[Ljava/lang/String;
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
@@ -847,7 +925,7 @@
     return-void
 .end method
 
-.method public requestBackup([Ljava/lang/String;Landroid/app/backup/IBackupObserver;)I
+.method public requestBackup([Ljava/lang/String;Landroid/app/backup/IBackupObserver;Landroid/app/backup/IBackupManagerMonitor;I)I
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -855,22 +933,16 @@
         }
     .end annotation
 
-    const/4 v1, 0x0
-
     iget-object v0, p0, Lcom/android/server/backup/Trampoline;->mService:Lcom/android/server/backup/BackupManagerService;
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/backup/BackupManagerService;->requestBackup([Ljava/lang/String;Landroid/app/backup/IBackupObserver;)I
+    const/16 v1, -0x7d1
 
-    move-result v1
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
+    return v1
 
     :cond_0
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v0, p1, p2, p3, p4}, Lcom/android/server/backup/BackupManagerService;->requestBackup([Ljava/lang/String;Landroid/app/backup/IBackupObserver;Landroid/app/backup/IBackupManagerMonitor;I)I
 
     move-result v1
 
@@ -915,6 +987,100 @@
 
     :cond_0
     return-object v1
+.end method
+
+.method public selectBackupTransportAsync(Landroid/content/ComponentName;Landroid/app/backup/ISelectBackupTransportCallback;)V
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    iget-object v1, p0, Lcom/android/server/backup/Trampoline;->mService:Lcom/android/server/backup/BackupManagerService;
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {v1, p1, p2}, Lcom/android/server/backup/BackupManagerService;->selectBackupTransportAsync(Landroid/content/ComponentName;Landroid/app/backup/ISelectBackupTransportCallback;)V
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    if-eqz p2, :cond_0
+
+    const/16 v2, -0x7d1
+
+    :try_start_0
+    invoke-interface {p2, v2}, Landroid/app/backup/ISelectBackupTransportCallback;->onFailure(I)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    goto :goto_0
+.end method
+
+.method public semBackupPackageAsUser(Landroid/os/ParcelFileDescriptor;[Ljava/lang/String;Ljava/lang/String;II)Z
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/server/backup/Trampoline;->mService:Lcom/android/server/backup/BackupManagerService;
+
+    if-eqz v0, :cond_0
+
+    move-object v1, p1
+
+    move-object v2, p2
+
+    move-object v3, p3
+
+    move v4, p4
+
+    move v5, p5
+
+    invoke-virtual/range {v0 .. v5}, Lcom/android/server/backup/BackupManagerService;->semBackupPackageAsUser(Landroid/os/ParcelFileDescriptor;[Ljava/lang/String;Ljava/lang/String;II)Z
+
+    move-result v1
+
+    return v1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    return v1
+.end method
+
+.method public semRestorePackageAsUser(Landroid/os/ParcelFileDescriptor;Ljava/lang/String;I)Z
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/server/backup/Trampoline;->mService:Lcom/android/server/backup/BackupManagerService;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0, p1, p2, p3}, Lcom/android/server/backup/BackupManagerService;->semRestorePackageAsUser(Landroid/os/ParcelFileDescriptor;Ljava/lang/String;I)Z
+
+    move-result v1
+
+    return v1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    return v1
 .end method
 
 .method public setAutoRestore(Z)V

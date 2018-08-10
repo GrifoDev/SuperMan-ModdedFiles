@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public process(Lcom/android/server/job/controllers/JobStatus;)V
-    .locals 2
+    .locals 3
 
     iget v0, p0, Lcom/android/server/job/controllers/DeviceIdleJobsController$3;->val$filterUid:I
 
@@ -98,7 +98,9 @@
 
     iget v0, p1, Lcom/android/server/job/controllers/JobStatus;->satisfiedConstraints:I
 
-    and-int/lit16 v0, v0, 0x100
+    const/high16 v2, 0x2000000
+
+    and-int/2addr v0, v2
 
     if-eqz v0, :cond_2
 

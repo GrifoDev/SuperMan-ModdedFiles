@@ -4,6 +4,8 @@
 
 
 # static fields
+.field private static final SLOW_DISPATCH_THRESHOLD_MS:J = 0x64L
+
 .field private static sHandler:Landroid/os/Handler;
 
 .field private static sInstance:Lcom/android/server/UiThread;
@@ -27,23 +29,23 @@
 .method private static ensureThreadLocked()V
     .locals 4
 
-    sget-object v0, Lcom/android/server/UiThread;->sInstance:Lcom/android/server/UiThread;
+    sget-object v1, Lcom/android/server/UiThread;->sInstance:Lcom/android/server/UiThread;
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
-    new-instance v0, Lcom/android/server/UiThread;
+    new-instance v1, Lcom/android/server/UiThread;
 
-    invoke-direct {v0}, Lcom/android/server/UiThread;-><init>()V
+    invoke-direct {v1}, Lcom/android/server/UiThread;-><init>()V
 
-    sput-object v0, Lcom/android/server/UiThread;->sInstance:Lcom/android/server/UiThread;
+    sput-object v1, Lcom/android/server/UiThread;->sInstance:Lcom/android/server/UiThread;
 
-    sget-object v0, Lcom/android/server/UiThread;->sInstance:Lcom/android/server/UiThread;
+    sget-object v1, Lcom/android/server/UiThread;->sInstance:Lcom/android/server/UiThread;
 
-    invoke-virtual {v0}, Lcom/android/server/UiThread;->start()V
+    invoke-virtual {v1}, Lcom/android/server/UiThread;->start()V
 
-    sget-object v0, Lcom/android/server/UiThread;->sInstance:Lcom/android/server/UiThread;
+    sget-object v1, Lcom/android/server/UiThread;->sInstance:Lcom/android/server/UiThread;
 
-    invoke-virtual {v0}, Lcom/android/server/UiThread;->getLooper()Landroid/os/Looper;
+    invoke-virtual {v1}, Lcom/android/server/UiThread;->getLooper()Landroid/os/Looper;
 
     move-result-object v0
 
@@ -51,17 +53,21 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/os/Looper;->setTraceTag(J)V
 
-    new-instance v0, Landroid/os/Handler;
+    const-wide/16 v2, 0x64
 
-    sget-object v1, Lcom/android/server/UiThread;->sInstance:Lcom/android/server/UiThread;
+    invoke-virtual {v0, v2, v3}, Landroid/os/Looper;->setSlowDispatchThresholdMs(J)V
 
-    invoke-virtual {v1}, Lcom/android/server/UiThread;->getLooper()Landroid/os/Looper;
+    new-instance v1, Landroid/os/Handler;
 
-    move-result-object v1
+    sget-object v2, Lcom/android/server/UiThread;->sInstance:Lcom/android/server/UiThread;
 
-    invoke-direct {v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+    invoke-virtual {v2}, Lcom/android/server/UiThread;->getLooper()Landroid/os/Looper;
 
-    sput-object v0, Lcom/android/server/UiThread;->sHandler:Landroid/os/Handler;
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+
+    sput-object v1, Lcom/android/server/UiThread;->sHandler:Landroid/os/Handler;
 
     :cond_0
     return-void
@@ -117,4 +123,22 @@
     monitor-exit v1
 
     throw v0
+.end method
+
+
+# virtual methods
+.method public run()V
+    .locals 2
+
+    invoke-static {}, Landroid/os/Process;->myTid()I
+
+    move-result v0
+
+    const/4 v1, 0x5
+
+    invoke-static {v0, v1}, Landroid/os/Process;->setThreadGroup(II)V
+
+    invoke-super {p0}, Lcom/android/server/ServiceThread;->run()V
+
+    return-void
 .end method

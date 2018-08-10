@@ -157,6 +157,36 @@
 
     check-cast v3, Landroid/app/ActivityManager;
 
+    if-nez v3, :cond_0
+
+    const-string/jumbo v13, "ReactiveService"
+
+    const-string/jumbo v14, "ActivityManager is null, something wrong in framework"
+
+    invoke-static {v13, v14}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v13, 0x0
+
+    return v13
+
+    :cond_0
+    invoke-virtual {v3}, Landroid/app/ActivityManager;->getRunningAppProcesses()Ljava/util/List;
+
+    move-result-object v13
+
+    if-nez v13, :cond_1
+
+    const-string/jumbo v13, "ReactiveService"
+
+    const-string/jumbo v14, "getRunningAppProcesses return null List. Cannot check permision"
+
+    invoke-static {v13, v14}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v13, 0x0
+
+    return v13
+
+    :cond_1
     invoke-virtual {v3}, Landroid/app/ActivityManager;->getRunningAppProcesses()Ljava/util/List;
 
     move-result-object v13
@@ -165,12 +195,12 @@
 
     move-result-object v9
 
-    :cond_0
+    :cond_2
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v13
 
-    if-eqz v13, :cond_1
+    if-eqz v13, :cond_3
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -182,11 +212,11 @@
 
     move/from16 v0, p1
 
-    if-ne v13, v0, :cond_0
+    if-ne v13, v0, :cond_2
 
     iget-object v4, v8, Landroid/app/ActivityManager$RunningAppProcessInfo;->processName:Ljava/lang/String;
 
-    :cond_1
+    :cond_3
     sget-object v13, Lcom/android/server/ReactiveService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v13}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
@@ -208,7 +238,7 @@
 
     move-result v14
 
-    if-eq v13, v14, :cond_3
+    if-eq v13, v14, :cond_5
 
     const-string/jumbo v13, "ReactiveService"
 
@@ -258,9 +288,9 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_2
+    :cond_4
     :goto_0
-    if-eqz v10, :cond_6
+    if-eqz v10, :cond_8
 
     const-string/jumbo v13, "ReactiveService"
 
@@ -293,7 +323,7 @@
     :goto_1
     return v10
 
-    :cond_3
+    :cond_5
     :try_start_1
     const-string/jumbo v13, "android"
 
@@ -301,7 +331,7 @@
 
     move-result v13
 
-    if-nez v13, :cond_4
+    if-nez v13, :cond_6
 
     move-object/from16 v0, p0
 
@@ -313,14 +343,14 @@
 
     goto :goto_0
 
-    :cond_4
+    :cond_6
     const-string/jumbo v13, "com.osp.app.signin"
 
     invoke-virtual {v13, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v13
 
-    if-eqz v13, :cond_2
+    if-eqz v13, :cond_4
 
     iget-object v14, v6, Landroid/content/pm/PackageInfo;->signatures:[Landroid/content/pm/Signature;
 
@@ -329,7 +359,7 @@
     array-length v15, v14
 
     :goto_2
-    if-ge v13, v15, :cond_2
+    if-ge v13, v15, :cond_4
 
     aget-object v11, v14, v13
 
@@ -337,7 +367,7 @@
 
     move-result v16
 
-    if-eqz v16, :cond_5
+    if-eqz v16, :cond_7
 
     move-object/from16 v0, p0
 
@@ -351,7 +381,7 @@
 
     goto :goto_0
 
-    :cond_5
+    :cond_7
     add-int/lit8 v13, v13, 0x1
 
     goto :goto_2
@@ -369,7 +399,7 @@
 
     goto :goto_0
 
-    :cond_6
+    :cond_8
     const-string/jumbo v13, "ReactiveService"
 
     new-instance v14, Ljava/lang/StringBuilder;

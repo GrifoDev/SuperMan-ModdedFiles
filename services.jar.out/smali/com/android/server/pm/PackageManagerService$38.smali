@@ -1,11 +1,14 @@
 .class Lcom/android/server/pm/PackageManagerService$38;
-.super Ljava/lang/Thread;
+.super Ljava/lang/Object;
 .source "PackageManagerService.java"
+
+# interfaces
+.implements Ljava/io/FilenameFilter;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/pm/PackageManagerService;->checkDPMAndSaveHash(Ljava/lang/String;Ljava/io/File;I)V
+    value = Lcom/android/server/pm/PackageManagerService;->ASKS_copyXMLFromSystemIfneed()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,44 +20,44 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/pm/PackageManagerService;
 
-.field final synthetic val$apkFilePath:Ljava/io/File;
-
-.field final synthetic val$packageName:Ljava/lang/String;
-
-.field final synthetic val$userHandle:I
-
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;Ljava/io/File;I)V
+.method constructor <init>(Lcom/android/server/pm/PackageManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$38;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    iput-object p2, p0, Lcom/android/server/pm/PackageManagerService$38;->val$packageName:Ljava/lang/String;
-
-    iput-object p3, p0, Lcom/android/server/pm/PackageManagerService$38;->val$apkFilePath:Ljava/io/File;
-
-    iput p4, p0, Lcom/android/server/pm/PackageManagerService$38;->val$userHandle:I
-
-    invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 4
+.method public accept(Ljava/io/File;Ljava/lang/String;)Z
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$38;->this$0:Lcom/android/server/pm/PackageManagerService;
+    const-string/jumbo v0, "ASKS"
 
-    iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$38;->val$packageName:Ljava/lang/String;
+    invoke-virtual {p2, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    iget-object v2, p0, Lcom/android/server/pm/PackageManagerService$38;->val$apkFilePath:Ljava/io/File;
+    move-result v0
 
-    iget v3, p0, Lcom/android/server/pm/PackageManagerService$38;->val$userHandle:I
+    if-eqz v0, :cond_0
 
-    invoke-static {v0, v1, v2, v3}, Lcom/android/server/pm/PackageManagerService;->-wrap45(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;Ljava/io/File;I)V
+    const-string/jumbo v0, "ROOT"
 
-    return-void
+    invoke-virtual {p2, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method

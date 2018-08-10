@@ -270,12 +270,20 @@
     return v11
 
     :cond_0
+    new-instance v7, Ljava/security/KeyStore$PasswordProtection;
+
+    invoke-virtual {p2}, Ljava/lang/String;->toCharArray()[C
+
+    move-result-object v8
+
+    invoke-direct {v7, v8}, Ljava/security/KeyStore$PasswordProtection;-><init>([C)V
+
     const/4 v5, 0x0
 
     :goto_0
     const/4 v8, 0x5
 
-    if-ge v5, v8, :cond_4
+    if-ge v5, v8, :cond_5
 
     const-string/jumbo v8, "CertificateHandler"
 
@@ -330,20 +338,6 @@
 
     move-result-object v6
 
-    new-instance v7, Ljava/security/KeyStore$PasswordProtection;
-
-    invoke-virtual {p2}, Ljava/lang/String;->toCharArray()[C
-
-    move-result-object v8
-
-    invoke-direct {v7, v8}, Ljava/security/KeyStore$PasswordProtection;-><init>([C)V
-
-    const-string/jumbo v8, "CertificateHandler"
-
-    const-string/jumbo v9, "extractPkcs12() keystore.load()"
-
-    invoke-static {v8, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
     new-instance v8, Ljava/io/ByteArrayInputStream;
 
     invoke-direct {v8, p1}, Ljava/io/ByteArrayInputStream;-><init>([B)V
@@ -384,7 +378,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_3
+    if-eqz v8, :cond_4
 
     const-string/jumbo v8, "CertificateHandler"
 
@@ -398,6 +392,17 @@
 
     check-cast v0, Ljava/lang/String;
 
+    if-nez v0, :cond_3
+
+    const-string/jumbo v8, "CertificateHandler"
+
+    const-string/jumbo v9, "extractPkcs12() alias is null!"
+
+    invoke-static {v8, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v11
+
+    :cond_3
     const-string/jumbo v8, "CertificateHandler"
 
     const-string/jumbo v9, "extractPkcs12()  keystore.isKeyEntry(alias)"
@@ -476,9 +481,10 @@
     :try_start_1
     invoke-static {v8, v9}, Ljava/lang/Thread;->sleep(J)V
     :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_1
 
-    :cond_3
+    :cond_4
     :goto_1
     add-int/lit8 v5, v5, 0x1
 
@@ -491,7 +497,7 @@
 
     goto :goto_1
 
-    :cond_4
+    :cond_5
     return v11
 .end method
 

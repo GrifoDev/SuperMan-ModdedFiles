@@ -56,21 +56,7 @@
 
     if-eqz v2, :cond_0
 
-    iget-object v2, p0, Lcom/android/server/pm/PersonaPolicyManagerService$1;->this$0:Lcom/android/server/pm/PersonaPolicyManagerService;
-
-    invoke-static {v2}, Lcom/android/server/pm/PersonaPolicyManagerService;->-wrap0(Lcom/android/server/pm/PersonaPolicyManagerService;)Lcom/android/server/pm/PersonaManagerService;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_0
-
-    iget-object v2, p0, Lcom/android/server/pm/PersonaPolicyManagerService$1;->this$0:Lcom/android/server/pm/PersonaPolicyManagerService;
-
-    invoke-static {v2}, Lcom/android/server/pm/PersonaPolicyManagerService;->-wrap0(Lcom/android/server/pm/PersonaPolicyManagerService;)Lcom/android/server/pm/PersonaManagerService;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v1}, Lcom/android/server/pm/PersonaManagerService;->exists(I)Z
+    invoke-static {v1}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
 
     move-result v2
 

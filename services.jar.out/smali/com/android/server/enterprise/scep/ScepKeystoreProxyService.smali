@@ -391,523 +391,6 @@
 
 # virtual methods
 .method public deletecertificateEntry(Ljava/lang/String;Z)I
-    .locals 10
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    const/4 v9, 0x1
-
-    const/4 v0, 0x0
-
-    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
-
-    move-result v5
-
-    const/4 v1, 0x0
-
-    invoke-direct {p0}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->checkCEPCaller()Z
-
-    move-result v6
-
-    if-nez v6, :cond_0
-
-    return v9
-
-    :cond_0
-    :try_start_0
-    sget-boolean v6, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
-
-    if-eqz v6, :cond_1
-
-    const-string/jumbo v6, "SCEPKeystoreProxyService"
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v8, "deleteCertificateEntry: "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
-
-    move-result v8
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1
-    if-nez p2, :cond_5
-
-    const/16 v0, 0x3e8
-
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
-
-    move-result v6
-
-    invoke-static {v6}, Landroid/os/UserHandle;->getUserId(I)I
-
-    move-result v5
-
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
-
-    move-result v6
-
-    invoke-static {v6}, Landroid/os/UserHandle;->getUserId(I)I
-
-    move-result v6
-
-    const/16 v7, 0x3e8
-
-    invoke-static {v6, v7}, Landroid/os/UserHandle;->getUid(II)I
-
-    move-result v1
-
-    :goto_0
-    sget-boolean v6, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
-
-    if-eqz v6, :cond_2
-
-    const-string/jumbo v6, "SCEPKeystoreProxyService"
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v8, "deleteCertificateEntry: UidoftheCert "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_2
-    sget-boolean v6, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
-
-    if-eqz v6, :cond_3
-
-    const-string/jumbo v6, "SCEPKeystoreProxyService"
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v8, "deleteCertificateEntry: processId "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_3
-    const/4 v2, 0x0
-
-    invoke-static {}, Landroid/security/KeyStore;->getInstance()Landroid/security/KeyStore;
-
-    move-result-object v4
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v7, "USRCERT_"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v4, v6, v1}, Landroid/security/KeyStore;->contains(Ljava/lang/String;I)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_9
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v7, "USRCERT_"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-direct {p0, v5, v0}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->makeUidWithUserID(II)I
-
-    move-result v7
-
-    invoke-virtual {v4, v6, v7}, Landroid/security/KeyStore;->delete(Ljava/lang/String;I)Z
-
-    move-result v6
-
-    if-nez v6, :cond_6
-
-    sget-boolean v6, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
-
-    if-eqz v6, :cond_4
-
-    const-string/jumbo v6, "SCEPKeystoreProxyService"
-
-    const-string/jumbo v7, "deleteCertificateEntry delete user cert: failure"
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_4
-    return v9
-
-    :cond_5
-    const/16 v0, 0x3f2
-
-    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
-
-    move-result v5
-
-    const/16 v1, 0x3f2
-
-    goto/16 :goto_0
-
-    :cond_6
-    const/4 v2, 0x1
-
-    sget-boolean v6, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
-
-    if-eqz v6, :cond_7
-
-    const-string/jumbo v6, "SCEPKeystoreProxyService"
-
-    const-string/jumbo v7, "deleteCertificateEntry delete user cert: success"
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_7
-    :goto_1
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v7, "CACERT_"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v4, v6, v1}, Landroid/security/KeyStore;->contains(Ljava/lang/String;I)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_e
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v7, "CACERT_"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-direct {p0, v5, v0}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->makeUidWithUserID(II)I
-
-    move-result v7
-
-    invoke-virtual {v4, v6, v7}, Landroid/security/KeyStore;->delete(Ljava/lang/String;I)Z
-
-    move-result v6
-
-    if-nez v6, :cond_b
-
-    sget-boolean v6, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
-
-    if-eqz v6, :cond_8
-
-    const-string/jumbo v6, "SCEPKeystoreProxyService"
-
-    const-string/jumbo v7, "deleteCertificateEntry delete CA Cert: failure"
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_8
-    return v9
-
-    :cond_9
-    sget-boolean v6, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
-
-    if-eqz v6, :cond_7
-
-    const-string/jumbo v6, "SCEPKeystoreProxyService"
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v8, "not exist : USRCERT_"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_1
-
-    :catch_0
-    move-exception v3
-
-    invoke-virtual {v3}, Ljava/lang/Exception;->printStackTrace()V
-
-    sget-boolean v6, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
-
-    if-eqz v6, :cond_a
-
-    const-string/jumbo v6, "SCEPKeystoreProxyService"
-
-    const-string/jumbo v7, "deleteCertificateEntry return exception"
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_a
-    return v9
-
-    :cond_b
-    const/4 v2, 0x1
-
-    :try_start_1
-    sget-boolean v6, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
-
-    if-eqz v6, :cond_c
-
-    const-string/jumbo v6, "SCEPKeystoreProxyService"
-
-    const-string/jumbo v7, "deleteCertificateEntry delete CA cert: success"
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_c
-    :goto_2
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v7, "USRPKEY_"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v4, v6, v1}, Landroid/security/KeyStore;->contains(Ljava/lang/String;I)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_11
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v7, "USRPKEY_"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-direct {p0, v5, v0}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->makeUidWithUserID(II)I
-
-    move-result v7
-
-    invoke-virtual {v4, v6, v7}, Landroid/security/KeyStore;->delete(Ljava/lang/String;I)Z
-
-    move-result v6
-
-    if-nez v6, :cond_f
-
-    sget-boolean v6, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
-
-    if-eqz v6, :cond_d
-
-    const-string/jumbo v6, "SCEPKeystoreProxyService"
-
-    const-string/jumbo v7, "deleteCertificateEntry delKeyAsUser: failure"
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_d
-    return v9
-
-    :cond_e
-    sget-boolean v6, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
-
-    if-eqz v6, :cond_c
-
-    const-string/jumbo v6, "SCEPKeystoreProxyService"
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v8, "not exist : CACERT_"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_2
-
-    :cond_f
-    const/4 v2, 0x1
-
-    sget-boolean v6, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
-
-    if-eqz v6, :cond_10
-
-    const-string/jumbo v6, "SCEPKeystoreProxyService"
-
-    const-string/jumbo v7, "deleteCertificateEntry delKeyAsUser: success"
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_10
-    :goto_3
-    if-eqz v2, :cond_12
-
-    const/4 v6, 0x0
-
-    return v6
-
-    :cond_11
-    sget-boolean v6, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
-
-    if-eqz v6, :cond_10
-
-    const-string/jumbo v6, "SCEPKeystoreProxyService"
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v8, "not exist : USRPKEY_"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
-
-    goto :goto_3
-
-    :cond_12
-    return v9
-.end method
-
-.method public getCertificate(Ljava/lang/String;)Lcom/samsung/android/cepproxyks/CertificateAKS;
     .locals 12
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -915,46 +398,158 @@
         }
     .end annotation
 
-    const/4 v11, 0x0
+    const/4 v1, 0x0
+
+    const/4 v8, 0x0
+
+    const/4 v2, 0x0
+
+    const/4 v5, 0x0
 
     invoke-direct {p0}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->checkCEPCaller()Z
 
-    move-result v8
+    move-result v9
 
-    if-nez v8, :cond_0
+    if-nez v9, :cond_0
 
-    return-object v11
+    const/4 v9, 0x1
+
+    return v9
 
     :cond_0
+    :try_start_0
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v0
+
+    sget-boolean v9, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
+
+    if-eqz v9, :cond_1
+
+    const-string/jumbo v9, "SCEPKeystoreProxyService"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "deleteCertificateEntry: "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    if-nez p2, :cond_6
+
+    const/16 v1, 0x3e8
+
+    invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v8
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v9
+
+    invoke-static {v9}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v9
+
+    const/16 v10, 0x3e8
+
+    invoke-static {v9, v10}, Landroid/os/UserHandle;->getUid(II)I
+
+    move-result v2
+
+    :goto_0
+    sget-boolean v9, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
+
+    if-eqz v9, :cond_2
+
+    const-string/jumbo v9, "SCEPKeystoreProxyService"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "deleteCertificateEntry: UidoftheCert "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_2
+    sget-boolean v9, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
+
+    if-eqz v9, :cond_3
+
+    const-string/jumbo v9, "SCEPKeystoreProxyService"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "deleteCertificateEntry: processId "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_3
+    const/4 v3, 0x0
+
+    if-nez p2, :cond_4
+
+    const/16 v9, 0x3e8
+
+    if-ne v2, v9, :cond_16
+
+    :cond_4
     invoke-static {}, Landroid/security/KeyStore;->getInstance()Landroid/security/KeyStore;
 
-    move-result-object v4
-
-    new-instance v6, Lcom/samsung/android/cepproxyks/CertificateAKS;
-
-    invoke-direct {v6}, Lcom/samsung/android/cepproxyks/CertificateAKS;-><init>()V
-
-    sget-boolean v8, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
-
-    if-eqz v8, :cond_1
-
-    const-string/jumbo v8, "SCEPKeystoreProxyService"
+    move-result-object v7
 
     new-instance v9, Ljava/lang/StringBuilder;
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v10, "getCertificate:"
+    const-string/jumbo v10, "USRCERT_"
 
     invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v9
 
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
-
-    move-result v10
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v9
 
@@ -962,172 +557,995 @@
 
     move-result-object v9
 
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v7, v9, v2}, Landroid/security/KeyStore;->contains(Ljava/lang/String;I)Z
 
-    :cond_1
-    :try_start_0
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+    move-result v9
 
-    move-result v8
+    if-eqz v9, :cond_a
 
-    invoke-static {v8}, Landroid/os/UserHandle;->getUserId(I)I
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    move-result v8
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const/16 v9, 0x3e8
+    const-string/jumbo v10, "USRCERT_"
 
-    invoke-static {v8, v9}, Landroid/os/UserHandle;->getUid(II)I
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result v0
+    move-result-object v9
 
+    invoke-virtual {v9, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-direct {p0, v8, v1}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->makeUidWithUserID(II)I
+
+    move-result v10
+
+    invoke-virtual {v7, v9, v10}, Landroid/security/KeyStore;->delete(Ljava/lang/String;I)Z
+
+    move-result v9
+
+    if-nez v9, :cond_7
+
+    sget-boolean v9, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
+
+    if-eqz v9, :cond_5
+
+    const-string/jumbo v9, "SCEPKeystoreProxyService"
+
+    const-string/jumbo v10, "deleteCertificateEntry delete user cert: failure"
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_5
+    const/4 v9, 0x1
+
+    return v9
+
+    :cond_6
     const/16 v1, 0x3f2
 
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "USRCERT_"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v4, v8, v0}, Landroid/security/KeyStore;->contains(Ljava/lang/String;I)Z
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
     move-result v8
 
-    if-eqz v8, :cond_3
+    const/16 v2, 0x3f2
 
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+    goto/16 :goto_0
 
-    move-result v8
+    :cond_7
+    const/4 v3, 0x1
 
-    invoke-static {v8}, Landroid/os/UserHandle;->getUserId(I)I
+    sget-boolean v9, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
 
-    move-result v8
+    if-eqz v9, :cond_8
 
-    const/16 v9, 0x3e8
+    const-string/jumbo v9, "SCEPKeystoreProxyService"
 
-    invoke-static {v8, v9}, Landroid/os/UserHandle;->getUid(II)I
+    const-string/jumbo v10, "deleteCertificateEntry delete user cert: success"
 
-    move-result v8
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iput v8, p0, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->UidoftheCert:I
+    :cond_8
+    :goto_1
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    :cond_2
-    :goto_0
-    new-instance v8, Ljava/lang/StringBuilder;
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v10, "CACERT_"
 
-    const-string/jumbo v9, "USRCERT_"
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v9
 
-    move-result-object v8
+    invoke-virtual {v9, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v9
 
-    move-result-object v8
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v9
 
-    move-result-object v8
+    invoke-virtual {v7, v9, v2}, Landroid/security/KeyStore;->contains(Ljava/lang/String;I)Z
 
-    iget v9, p0, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->UidoftheCert:I
+    move-result v9
 
-    invoke-virtual {v4, v8, v9}, Landroid/security/KeyStore;->get(Ljava/lang/String;I)[B
+    if-eqz v9, :cond_10
 
-    move-result-object v7
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    if-nez v7, :cond_4
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    return-object v11
+    const-string/jumbo v10, "CACERT_"
 
-    :cond_3
-    new-instance v8, Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v9
 
-    const-string/jumbo v9, "USRCERT_"
+    invoke-virtual {v9, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v9
 
-    move-result-object v8
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v8, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v9
 
-    move-result-object v8
+    invoke-direct {p0, v8, v1}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->makeUidWithUserID(II)I
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result v10
 
-    move-result-object v8
+    invoke-virtual {v7, v9, v10}, Landroid/security/KeyStore;->delete(Ljava/lang/String;I)Z
 
-    invoke-virtual {v4, v8, v1}, Landroid/security/KeyStore;->contains(Ljava/lang/String;I)Z
+    move-result v9
 
-    move-result v8
+    if-nez v9, :cond_d
 
-    if-eqz v8, :cond_2
+    sget-boolean v9, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
 
-    const/16 v8, 0x3f2
+    if-eqz v9, :cond_9
 
-    iput v8, p0, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->UidoftheCert:I
+    const-string/jumbo v9, "SCEPKeystoreProxyService"
+
+    const-string/jumbo v10, "deleteCertificateEntry delete CA Cert: failure"
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_9
+    const/4 v9, 0x1
+
+    return v9
+
+    :cond_a
+    sget-boolean v9, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
+
+    if-eqz v9, :cond_8
+
+    const-string/jumbo v9, "SCEPKeystoreProxyService"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "not exist : USRCERT_"
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_0
+    goto :goto_1
 
     :catch_0
-    move-exception v3
+    move-exception v4
 
-    invoke-virtual {v3}, Ljava/lang/Exception;->printStackTrace()V
-
-    return-object v11
-
-    :cond_4
     :try_start_1
-    invoke-static {v7}, Landroid/security/Credentials;->convertFromPem([B)Ljava/util/List;
+    invoke-virtual {v4}, Ljava/lang/Exception;->printStackTrace()V
 
-    move-result-object v5
+    sget-boolean v9, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
 
-    if-eqz v5, :cond_5
+    if-eqz v9, :cond_b
 
-    invoke-interface {v5}, Ljava/util/List;->size()I
+    const-string/jumbo v9, "SCEPKeystoreProxyService"
 
-    move-result v8
+    const-string/jumbo v10, "deleteCertificateEntry return exception"
 
-    if-lez v8, :cond_5
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    const/4 v8, 0x1
+    :cond_b
+    const/4 v9, 0x1
 
-    new-array v2, v8, [Ljava/security/cert/Certificate;
+    if-eqz v5, :cond_c
 
-    const/4 v8, 0x0
+    invoke-virtual {v5}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService$KeyChainConnection;->close()V
 
-    invoke-interface {v5, v8}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    :cond_c
+    return v9
 
-    move-result-object v8
+    :cond_d
+    const/4 v3, 0x1
 
-    check-cast v8, Ljava/security/cert/Certificate;
+    :try_start_2
+    sget-boolean v9, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
+
+    if-eqz v9, :cond_e
+
+    const-string/jumbo v9, "SCEPKeystoreProxyService"
+
+    const-string/jumbo v10, "deleteCertificateEntry delete CA cert: success"
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_e
+    :goto_2
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v10, "USRPKEY_"
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v7, v9, v2}, Landroid/security/KeyStore;->contains(Ljava/lang/String;I)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_15
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v10, "USRPKEY_"
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-direct {p0, v8, v1}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->makeUidWithUserID(II)I
+
+    move-result v10
+
+    invoke-virtual {v7, v9, v10}, Landroid/security/KeyStore;->delete(Ljava/lang/String;I)Z
+
+    move-result v9
+
+    if-nez v9, :cond_12
+
+    sget-boolean v9, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
+
+    if-eqz v9, :cond_f
+
+    const-string/jumbo v9, "SCEPKeystoreProxyService"
+
+    const-string/jumbo v10, "deleteCertificateEntry delKeyAsUser: failure"
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_f
+    const/4 v9, 0x1
+
+    return v9
+
+    :cond_10
+    sget-boolean v9, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
+
+    if-eqz v9, :cond_e
+
+    const-string/jumbo v9, "SCEPKeystoreProxyService"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "not exist : CACERT_"
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    goto :goto_2
+
+    :catchall_0
+    move-exception v9
+
+    if-eqz v5, :cond_11
+
+    invoke-virtual {v5}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService$KeyChainConnection;->close()V
+
+    :cond_11
+    throw v9
+
+    :cond_12
+    const/4 v3, 0x1
+
+    :try_start_3
+    sget-boolean v9, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
+
+    if-eqz v9, :cond_13
+
+    const-string/jumbo v9, "SCEPKeystoreProxyService"
+
+    const-string/jumbo v10, "deleteCertificateEntry delKeyAsUser: success"
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    :cond_13
+    :goto_3
+    if-eqz v3, :cond_25
 
     const/4 v9, 0x0
 
-    aput-object v8, v2, v9
+    if-eqz v5, :cond_14
 
-    iput-object v2, v6, Lcom/samsung/android/cepproxyks/CertificateAKS;->mCertificate:[Ljava/security/cert/Certificate;
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    invoke-virtual {v5}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService$KeyChainConnection;->close()V
+
+    :cond_14
+    return v9
+
+    :cond_15
+    :try_start_4
+    sget-boolean v9, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
+
+    if-eqz v9, :cond_13
+
+    const-string/jumbo v9, "SCEPKeystoreProxyService"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "not exist : USRPKEY_"
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_3
+
+    :cond_16
+    iget-object v9, p0, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->mContext:Landroid/content/Context;
+
+    invoke-static {v9, v2}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->bind(Landroid/content/Context;I)Lcom/android/server/enterprise/scep/ScepKeystoreProxyService$KeyChainConnection;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService$KeyChainConnection;->getService()Landroid/security/IKeyChainService;
+
+    move-result-object v6
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v10, "USRCERT_"
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-interface {v6, v9, v2}, Landroid/security/IKeyChainService;->contains(Ljava/lang/String;I)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_1d
+
+    const-string/jumbo v9, "USRCERT_"
+
+    invoke-interface {v6, p1, v9}, Landroid/security/IKeyChainService;->deleteCertificate(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v9
+
+    if-nez v9, :cond_19
+
+    sget-boolean v9, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
+
+    if-eqz v9, :cond_17
+
+    const-string/jumbo v9, "SCEPKeystoreProxyService"
+
+    const-string/jumbo v10, "keyChainService.deleteCertificate delete user cert: failure"
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_4
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+
+    :cond_17
+    const/4 v9, 0x1
+
+    if-eqz v5, :cond_18
+
+    invoke-virtual {v5}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService$KeyChainConnection;->close()V
+
+    :cond_18
+    return v9
+
+    :cond_19
+    const/4 v3, 0x1
+
+    :try_start_5
+    sget-boolean v9, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
+
+    if-eqz v9, :cond_1a
+
+    const-string/jumbo v9, "SCEPKeystoreProxyService"
+
+    const-string/jumbo v10, "keyChainService.deleteCertificate delete user cert: success"
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1a
+    :goto_4
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v10, "CACERT_"
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-interface {v6, v9, v2}, Landroid/security/IKeyChainService;->contains(Ljava/lang/String;I)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_22
+
+    const-string/jumbo v9, "CACERT_"
+
+    invoke-interface {v6, p1, v9}, Landroid/security/IKeyChainService;->deleteCertificate(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v9
+
+    if-nez v9, :cond_1e
+
+    sget-boolean v9, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
+
+    if-eqz v9, :cond_1b
+
+    const-string/jumbo v9, "SCEPKeystoreProxyService"
+
+    const-string/jumbo v10, "keyChainService.deleteCertificate delete CA Cert: failure"
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_5
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_0
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+
+    :cond_1b
+    const/4 v9, 0x1
+
+    if-eqz v5, :cond_1c
+
+    invoke-virtual {v5}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService$KeyChainConnection;->close()V
+
+    :cond_1c
+    return v9
+
+    :cond_1d
+    :try_start_6
+    sget-boolean v9, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
+
+    if-eqz v9, :cond_1a
+
+    const-string/jumbo v9, "SCEPKeystoreProxyService"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "not exist : USRCERT_"
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_4
+
+    :cond_1e
+    const/4 v3, 0x1
+
+    sget-boolean v9, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
+
+    if-eqz v9, :cond_1f
+
+    const-string/jumbo v9, "SCEPKeystoreProxyService"
+
+    const-string/jumbo v10, "keyChainService.deleteCertificate delete CA cert: success"
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1f
+    :goto_5
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v10, "USRPKEY_"
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-interface {v6, v9, v2}, Landroid/security/IKeyChainService;->contains(Ljava/lang/String;I)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_24
+
+    const-string/jumbo v9, "USRPKEY_"
+
+    invoke-interface {v6, p1, v9}, Landroid/security/IKeyChainService;->deleteCertificate(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v9
+
+    if-nez v9, :cond_23
+
+    sget-boolean v9, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
+
+    if-eqz v9, :cond_20
+
+    const-string/jumbo v9, "SCEPKeystoreProxyService"
+
+    const-string/jumbo v10, "keyChainService.deleteCertificate delKeyAsUser: failure"
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_6
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_0
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
+
+    :cond_20
+    const/4 v9, 0x1
+
+    if-eqz v5, :cond_21
+
+    invoke-virtual {v5}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService$KeyChainConnection;->close()V
+
+    :cond_21
+    return v9
+
+    :cond_22
+    :try_start_7
+    sget-boolean v9, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
+
+    if-eqz v9, :cond_1f
+
+    const-string/jumbo v9, "SCEPKeystoreProxyService"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "not exist : CACERT_"
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_5
+
+    :cond_23
+    const/4 v3, 0x1
+
+    sget-boolean v9, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
+
+    if-eqz v9, :cond_13
+
+    const-string/jumbo v9, "SCEPKeystoreProxyService"
+
+    const-string/jumbo v10, "keyChainService.deleteCertificate delKeyAsUser: success"
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_3
+
+    :cond_24
+    sget-boolean v9, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
+
+    if-eqz v9, :cond_13
+
+    const-string/jumbo v9, "SCEPKeystoreProxyService"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "not exist : USRPKEY_"
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_7
+    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_0
+    .catchall {:try_start_7 .. :try_end_7} :catchall_0
+
+    goto/16 :goto_3
+
+    :cond_25
+    const/4 v9, 0x1
+
+    if-eqz v5, :cond_26
+
+    invoke-virtual {v5}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService$KeyChainConnection;->close()V
+
+    :cond_26
+    return v9
+.end method
+
+.method public getCertificate(Ljava/lang/String;)Lcom/samsung/android/cepproxyks/CertificateAKS;
+    .locals 14
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-direct {p0}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->checkCEPCaller()Z
+
+    move-result v11
+
+    if-nez v11, :cond_0
+
+    const/4 v11, 0x0
+
+    return-object v11
+
+    :cond_0
+    invoke-static {}, Landroid/security/KeyStore;->getInstance()Landroid/security/KeyStore;
+
+    move-result-object v7
+
+    new-instance v10, Lcom/samsung/android/cepproxyks/CertificateAKS;
+
+    invoke-direct {v10}, Lcom/samsung/android/cepproxyks/CertificateAKS;-><init>()V
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v0
+
+    const/4 v5, 0x0
+
+    sget-boolean v11, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
+
+    if-eqz v11, :cond_1
+
+    const-string/jumbo v11, "SCEPKeystoreProxyService"
+
+    new-instance v12, Ljava/lang/StringBuilder;
+
+    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v13, "getCertificate:"
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    invoke-virtual {v12, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-static {v11, v12}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    :try_start_0
+    invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v11
+
+    const/16 v12, 0x3e8
+
+    invoke-static {v11, v12}, Landroid/os/UserHandle;->getUid(II)I
+
+    move-result v1
+
+    const/16 v2, 0x3f2
+
+    const/16 v11, 0x3e8
+
+    if-ne v1, v11, :cond_3
+
+    new-instance v11, Ljava/lang/StringBuilder;
+
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v12, "USRCERT_"
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v7, v11, v1}, Landroid/security/KeyStore;->contains(Ljava/lang/String;I)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_3
+
+    new-instance v11, Ljava/lang/StringBuilder;
+
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v12, "USRCERT_"
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    const/16 v12, 0x3e8
+
+    invoke-virtual {v7, v11, v12}, Landroid/security/KeyStore;->get(Ljava/lang/String;I)[B
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v8
+
+    :goto_0
+    if-nez v8, :cond_5
+
+    const/4 v11, 0x0
+
+    if-eqz v5, :cond_2
+
+    invoke-virtual {v5}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService$KeyChainConnection;->close()V
+
+    :cond_2
+    return-object v11
+
+    :cond_3
+    :try_start_1
+    new-instance v11, Ljava/lang/StringBuilder;
+
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v12, "USRCERT_"
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v7, v11, v2}, Landroid/security/KeyStore;->contains(Ljava/lang/String;I)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_4
+
+    new-instance v11, Ljava/lang/StringBuilder;
+
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v12, "USRCERT_"
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v7, v11, v2}, Landroid/security/KeyStore;->get(Ljava/lang/String;I)[B
+
+    move-result-object v8
+
+    goto :goto_0
+
+    :cond_4
+    iget-object v11, p0, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->mContext:Landroid/content/Context;
+
+    invoke-static {v11, v1}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->bind(Landroid/content/Context;I)Lcom/android/server/enterprise/scep/ScepKeystoreProxyService$KeyChainConnection;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService$KeyChainConnection;->getService()Landroid/security/IKeyChainService;
+
+    move-result-object v6
+
+    const-string/jumbo v11, "USRCERT_"
+
+    invoke-interface {v6, p1, v11}, Landroid/security/IKeyChainService;->getCertificateSystem(Ljava/lang/String;Ljava/lang/String;)[B
+
+    move-result-object v8
+
+    goto :goto_0
 
     :cond_5
-    return-object v6
+    invoke-static {v8}, Landroid/security/Credentials;->convertFromPem([B)Ljava/util/List;
+
+    move-result-object v9
+
+    if-eqz v9, :cond_6
+
+    invoke-interface {v9}, Ljava/util/List;->size()I
+
+    move-result v11
+
+    if-lez v11, :cond_6
+
+    const/4 v11, 0x1
+
+    new-array v3, v11, [Ljava/security/cert/Certificate;
+
+    const/4 v11, 0x0
+
+    invoke-interface {v9, v11}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v11
+
+    check-cast v11, Ljava/security/cert/Certificate;
+
+    const/4 v12, 0x0
+
+    aput-object v11, v3, v12
+
+    iput-object v3, v10, Lcom/samsung/android/cepproxyks/CertificateAKS;->mCertificate:[Ljava/security/cert/Certificate;
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :cond_6
+    if-eqz v5, :cond_7
+
+    invoke-virtual {v5}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService$KeyChainConnection;->close()V
+
+    :cond_7
+    return-object v10
+
+    :catch_0
+    move-exception v4
+
+    :try_start_2
+    invoke-virtual {v4}, Ljava/lang/Exception;->printStackTrace()V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    if-eqz v5, :cond_8
+
+    invoke-virtual {v5}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService$KeyChainConnection;->close()V
+
+    :cond_8
+    const/4 v11, 0x0
+
+    return-object v11
+
+    :catchall_0
+    move-exception v11
+
+    if-eqz v5, :cond_9
+
+    invoke-virtual {v5}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService$KeyChainConnection;->close()V
+
+    :cond_9
+    throw v11
 .end method
 
 .method public grantAccessForAKS(ILjava/lang/String;)V
@@ -1226,7 +1644,7 @@
 
     move-result-object v6
 
-    invoke-interface {v3, v6}, Landroid/security/IKeyChainService;->installCaCertificate([B)V
+    invoke-interface {v3, v6}, Landroid/security/IKeyChainService;->installCaCertificate([B)Ljava/lang/String;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -1504,7 +1922,7 @@
 .end method
 
 .method public installCertificateInAndroidKeyStore(Lcom/samsung/android/cepproxyks/CertByte;Ljava/lang/String;[CZI)I
-    .locals 22
+    .locals 27
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1513,175 +1931,191 @@
 
     invoke-direct/range {p0 .. p0}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->checkCEPCaller()Z
 
-    move-result v18
+    move-result v23
 
-    if-nez v18, :cond_0
+    if-nez v23, :cond_0
 
-    const/16 v18, 0x1
+    const/16 v23, 0x1
 
-    return v18
+    return v23
 
     :cond_0
     if-nez p1, :cond_1
 
-    const/16 v18, 0x1
+    const/16 v23, 0x1
 
-    return v18
+    return v23
 
     :cond_1
-    const-wide/16 v12, 0x0
+    const-wide/16 v14, 0x0
+
+    const/16 v16, 0x0
 
     :try_start_0
-    const-string/jumbo v18, "PKCS12"
+    const-string/jumbo v23, "PKCS12"
 
-    invoke-static/range {v18 .. v18}, Ljava/security/KeyStore;->getInstance(Ljava/lang/String;)Ljava/security/KeyStore;
+    invoke-static/range {v23 .. v23}, Ljava/security/KeyStore;->getInstance(Ljava/lang/String;)Ljava/security/KeyStore;
 
-    move-result-object v15
+    move-result-object v20
 
     move-object/from16 v0, p1
 
     iget v0, v0, Lcom/samsung/android/cepproxyks/CertByte;->certsize:I
 
-    move/from16 v18, v0
+    move/from16 v23, v0
 
-    move/from16 v0, v18
+    move/from16 v0, v23
 
-    new-array v14, v0, [B
+    new-array v0, v0, [B
+
+    move-object/from16 v19, v0
 
     move-object/from16 v0, p1
 
-    iget-object v14, v0, Lcom/samsung/android/cepproxyks/CertByte;->certBytes:[B
+    iget-object v0, v0, Lcom/samsung/android/cepproxyks/CertByte;->certBytes:[B
 
-    new-instance v18, Ljava/io/ByteArrayInputStream;
+    move-object/from16 v19, v0
 
-    move-object/from16 v0, v18
+    new-instance v23, Ljava/io/ByteArrayInputStream;
 
-    invoke-direct {v0, v14}, Ljava/io/ByteArrayInputStream;-><init>([B)V
+    move-object/from16 v0, v23
 
-    move-object/from16 v0, v18
+    move-object/from16 v1, v19
 
-    move-object/from16 v1, p3
+    invoke-direct {v0, v1}, Ljava/io/ByteArrayInputStream;-><init>([B)V
 
-    invoke-virtual {v15, v0, v1}, Ljava/security/KeyStore;->load(Ljava/io/InputStream;[C)V
+    move-object/from16 v0, v20
 
-    move-object/from16 v0, p2
+    move-object/from16 v1, v23
 
-    invoke-virtual {v15, v0}, Ljava/security/KeyStore;->getCertificate(Ljava/lang/String;)Ljava/security/cert/Certificate;
+    move-object/from16 v2, p3
 
-    move-result-object v17
+    invoke-virtual {v0, v1, v2}, Ljava/security/KeyStore;->load(Ljava/io/InputStream;[C)V
 
-    check-cast v17, Ljava/security/cert/X509Certificate;
+    move-object/from16 v0, v20
 
-    move-object/from16 v0, p2
+    move-object/from16 v1, p2
 
-    move-object/from16 v1, p3
+    invoke-virtual {v0, v1}, Ljava/security/KeyStore;->getCertificate(Ljava/lang/String;)Ljava/security/cert/Certificate;
 
-    invoke-virtual {v15, v0, v1}, Ljava/security/KeyStore;->getKey(Ljava/lang/String;[C)Ljava/security/Key;
+    move-result-object v22
 
-    move-result-object v16
+    check-cast v22, Ljava/security/cert/X509Certificate;
 
-    const/16 v18, 0x1
+    move-object/from16 v0, v20
 
-    move/from16 v0, v18
+    move-object/from16 v1, p2
 
-    new-array v4, v0, [Ljava/security/cert/Certificate;
+    move-object/from16 v2, p3
 
-    const/16 v18, 0x0
+    invoke-virtual {v0, v1, v2}, Ljava/security/KeyStore;->getKey(Ljava/lang/String;[C)Ljava/security/Key;
 
-    aput-object v17, v4, v18
+    move-result-object v21
+
+    const/16 v23, 0x1
+
+    move/from16 v0, v23
+
+    new-array v7, v0, [Ljava/security/cert/Certificate;
+
+    const/16 v23, 0x0
+
+    aput-object v22, v7, v23
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v12
+    move-result-wide v14
 
-    sget-boolean v18, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
+    sget-boolean v23, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
 
-    if-eqz v18, :cond_2
+    if-eqz v23, :cond_2
 
-    const-string/jumbo v18, "SCEPKeystoreProxyService"
+    const-string/jumbo v23, "SCEPKeystoreProxyService"
 
-    new-instance v19, Ljava/lang/StringBuilder;
+    new-instance v24, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v20, "installCertificateInAndroidKeyStore: "
+    const-string/jumbo v25, "installCertificateInAndroidKeyStore: "
 
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v24
 
     invoke-static/range {p5 .. p5}, Landroid/os/UserHandle;->getUserId(I)I
 
-    move-result v20
+    move-result v25
 
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v24
 
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v19
+    move-result-object v24
 
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
     if-eqz p4, :cond_6
 
     invoke-static {}, Landroid/security/KeyStore;->getInstance()Landroid/security/KeyStore;
 
-    move-result-object v11
-
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v19, "USRCERT_"
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     move-result-object v18
 
-    move-object/from16 v0, v18
+    new-instance v23, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v24, "USRCERT_"
+
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v23
+
+    move-object/from16 v0, v23
 
     move-object/from16 v1, p2
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v23
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v23
 
-    const/16 v19, 0x1
+    const/16 v24, 0x1
 
-    move/from16 v0, v19
+    move/from16 v0, v24
 
     new-array v0, v0, [Ljava/security/cert/Certificate;
 
-    move-object/from16 v19, v0
+    move-object/from16 v24, v0
 
-    const/16 v20, 0x0
+    const/16 v25, 0x0
 
-    aput-object v17, v19, v20
+    aput-object v22, v24, v25
 
-    invoke-static/range {v19 .. v19}, Landroid/security/Credentials;->convertToPem([Ljava/security/cert/Certificate;)[B
+    invoke-static/range {v24 .. v24}, Landroid/security/Credentials;->convertToPem([Ljava/security/cert/Certificate;)[B
 
-    move-result-object v19
+    move-result-object v24
 
-    const/16 v20, 0x3f2
+    const/16 v25, 0x3f2
 
-    const/16 v21, 0x0
+    const/16 v26, 0x0
 
     move-object/from16 v0, v18
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v23
 
-    move/from16 v2, v20
+    move-object/from16 v2, v24
 
-    move/from16 v3, v21
+    move/from16 v3, v25
 
-    invoke-virtual {v11, v0, v1, v2, v3}, Landroid/security/KeyStore;->put(Ljava/lang/String;[BII)Z
+    move/from16 v4, v26
+
+    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/security/KeyStore;->put(Ljava/lang/String;[BII)Z
     :try_end_0
     .catch Ljava/security/KeyStoreException; {:try_start_0 .. :try_end_0} :catch_5
     .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_4
@@ -1691,71 +2125,73 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result v18
+    move-result v23
 
-    if-nez v18, :cond_3
+    if-nez v23, :cond_3
 
-    const/16 v18, 0x1
+    const/16 v23, 0x1
 
-    invoke-static {v12, v13}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return v18
+    return v23
 
     :cond_3
     :try_start_1
-    invoke-interface/range {v16 .. v16}, Ljava/security/Key;->getEncoded()[B
+    invoke-interface/range {v21 .. v21}, Ljava/security/Key;->getEncoded()[B
 
-    move-result-object v18
+    move-result-object v23
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v18
+    move-object/from16 v1, v23
 
     invoke-direct {v0, v1}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->isHardwareBackedKey([B)Z
 
-    move-result v18
+    move-result v23
 
-    if-eqz v18, :cond_4
+    if-eqz v23, :cond_4
 
-    new-instance v18, Ljava/lang/StringBuilder;
+    new-instance v23, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v19, "USRPKEY_"
+    const-string/jumbo v24, "USRPKEY_"
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v23
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v23
 
     move-object/from16 v1, p2
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v23
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v23
 
-    invoke-interface/range {v16 .. v16}, Ljava/security/Key;->getEncoded()[B
+    invoke-interface/range {v21 .. v21}, Ljava/security/Key;->getEncoded()[B
 
-    move-result-object v19
+    move-result-object v24
 
-    const/16 v20, 0x3f2
+    const/16 v25, 0x3f2
 
-    const/16 v21, 0x0
+    const/16 v26, 0x0
 
     move-object/from16 v0, v18
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v23
 
-    move/from16 v2, v20
+    move-object/from16 v2, v24
 
-    move/from16 v3, v21
+    move/from16 v3, v25
 
-    invoke-virtual {v11, v0, v1, v2, v3}, Landroid/security/KeyStore;->importKey(Ljava/lang/String;[BII)Z
+    move/from16 v4, v26
+
+    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/security/KeyStore;->importKey(Ljava/lang/String;[BII)Z
     :try_end_1
     .catch Ljava/security/KeyStoreException; {:try_start_1 .. :try_end_1} :catch_5
     .catch Ljava/security/NoSuchAlgorithmException; {:try_start_1 .. :try_end_1} :catch_4
@@ -1765,57 +2201,59 @@
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    move-result v18
+    move-result v23
 
-    if-nez v18, :cond_5
+    if-nez v23, :cond_5
 
-    const/16 v18, 0x1
+    const/16 v23, 0x1
 
-    invoke-static {v12, v13}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return v18
+    return v23
 
     :cond_4
     :try_start_2
-    new-instance v18, Ljava/lang/StringBuilder;
+    new-instance v23, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v19, "USRPKEY_"
+    const-string/jumbo v24, "USRPKEY_"
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v23
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v23
 
     move-object/from16 v1, p2
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v23
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v23
 
-    invoke-interface/range {v16 .. v16}, Ljava/security/Key;->getEncoded()[B
+    invoke-interface/range {v21 .. v21}, Ljava/security/Key;->getEncoded()[B
 
-    move-result-object v19
+    move-result-object v24
 
-    const/16 v20, 0x3f2
+    const/16 v25, 0x3f2
 
-    const/16 v21, 0x1
+    const/16 v26, 0x1
 
     move-object/from16 v0, v18
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v23
 
-    move/from16 v2, v20
+    move-object/from16 v2, v24
 
-    move/from16 v3, v21
+    move/from16 v3, v25
 
-    invoke-virtual {v11, v0, v1, v2, v3}, Landroid/security/KeyStore;->importKey(Ljava/lang/String;[BII)Z
+    move/from16 v4, v26
+
+    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/security/KeyStore;->importKey(Ljava/lang/String;[BII)Z
     :try_end_2
     .catch Ljava/security/KeyStoreException; {:try_start_2 .. :try_end_2} :catch_5
     .catch Ljava/security/NoSuchAlgorithmException; {:try_start_2 .. :try_end_2} :catch_4
@@ -1825,15 +2263,15 @@
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    move-result v18
+    move-result v23
 
-    if-nez v18, :cond_5
+    if-nez v23, :cond_5
 
-    const/16 v18, 0x1
+    const/16 v23, 0x1
 
-    invoke-static {v12, v13}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return v18
+    return v23
 
     :cond_5
     :try_start_3
@@ -1841,51 +2279,53 @@
 
     iget v0, v0, Lcom/samsung/android/cepproxyks/CertByte;->caSize:I
 
-    move/from16 v18, v0
+    move/from16 v23, v0
 
-    if-lez v18, :cond_c
+    if-lez v23, :cond_15
 
-    new-instance v18, Ljava/lang/StringBuilder;
+    new-instance v23, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v19, "CACERT_"
+    const-string/jumbo v24, "CACERT_"
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v23
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v23
 
     move-object/from16 v1, p2
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v23
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v23
 
     move-object/from16 v0, p1
 
     iget-object v0, v0, Lcom/samsung/android/cepproxyks/CertByte;->caCertBytes:[B
 
-    move-object/from16 v19, v0
+    move-object/from16 v24, v0
 
-    const/16 v20, 0x3f2
+    const/16 v25, 0x3f2
 
-    const/16 v21, 0x0
+    const/16 v26, 0x0
 
     move-object/from16 v0, v18
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v23
 
-    move/from16 v2, v20
+    move-object/from16 v2, v24
 
-    move/from16 v3, v21
+    move/from16 v3, v25
 
-    invoke-virtual {v11, v0, v1, v2, v3}, Landroid/security/KeyStore;->put(Ljava/lang/String;[BII)Z
+    move/from16 v4, v26
+
+    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/security/KeyStore;->put(Ljava/lang/String;[BII)Z
     :try_end_3
     .catch Ljava/security/KeyStoreException; {:try_start_3 .. :try_end_3} :catch_5
     .catch Ljava/security/NoSuchAlgorithmException; {:try_start_3 .. :try_end_3} :catch_4
@@ -1895,165 +2335,151 @@
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    move-result v18
+    move-result v23
 
-    if-nez v18, :cond_c
+    if-nez v23, :cond_15
 
-    const/16 v18, 0x1
+    const/16 v23, 0x1
 
-    invoke-static {v12, v13}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return v18
+    return v23
 
     :cond_6
     :try_start_4
+    invoke-static/range {p5 .. p5}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v23
+
+    const/16 v24, 0x3e8
+
+    invoke-static/range {v23 .. v24}, Landroid/os/UserHandle;->getUid(II)I
+
+    move-result v6
+
+    const/16 v23, 0x3e8
+
+    move/from16 v0, v23
+
+    if-ne v6, v0, :cond_c
+
     invoke-static {}, Landroid/security/KeyStore;->getInstance()Landroid/security/KeyStore;
-
-    move-result-object v11
-
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v19, "USRCERT_"
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v18
 
-    move-object/from16 v0, v18
+    new-instance v23, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v24, "USRCERT_"
+
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v23
+
+    move-object/from16 v0, v23
 
     move-object/from16 v1, p2
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v23
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v23
 
-    const/16 v19, 0x1
+    const/16 v24, 0x1
 
-    move/from16 v0, v19
+    move/from16 v0, v24
 
     new-array v0, v0, [Ljava/security/cert/Certificate;
 
-    move-object/from16 v19, v0
+    move-object/from16 v24, v0
 
-    const/16 v20, 0x0
+    const/16 v25, 0x0
 
-    aput-object v17, v19, v20
+    aput-object v22, v24, v25
 
-    invoke-static/range {v19 .. v19}, Landroid/security/Credentials;->convertToPem([Ljava/security/cert/Certificate;)[B
+    invoke-static/range {v24 .. v24}, Landroid/security/Credentials;->convertToPem([Ljava/security/cert/Certificate;)[B
 
-    move-result-object v19
+    move-result-object v24
 
-    invoke-static/range {p5 .. p5}, Landroid/os/UserHandle;->getUserId(I)I
-
-    move-result v20
-
-    const/16 v21, 0x3e8
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, v20
-
-    move/from16 v2, v21
-
-    invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->makeUidWithUserID(II)I
-
-    move-result v20
-
-    const/16 v21, 0x1
+    const/16 v25, 0x1
 
     move-object/from16 v0, v18
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v23
 
-    move/from16 v2, v20
+    move-object/from16 v2, v24
 
-    move/from16 v3, v21
+    move/from16 v3, v25
 
-    invoke-virtual {v11, v0, v1, v2, v3}, Landroid/security/KeyStore;->put(Ljava/lang/String;[BII)Z
+    invoke-virtual {v0, v1, v2, v6, v3}, Landroid/security/KeyStore;->put(Ljava/lang/String;[BII)Z
 
-    move-result v18
+    move-result v23
 
-    if-nez v18, :cond_8
+    if-nez v23, :cond_8
 
-    sget-boolean v18, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
+    sget-boolean v23, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
 
-    if-eqz v18, :cond_7
+    if-eqz v23, :cond_7
 
-    const-string/jumbo v18, "SCEPKeystoreProxyService"
+    const-string/jumbo v23, "SCEPKeystoreProxyService"
 
-    const-string/jumbo v19, "USER_CERTIFICATE keystoreService.put is failed"
+    const-string/jumbo v24, "USER_CERTIFICATE keystoreService.put is failed"
 
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v18, "SCEPKeystoreProxyService"
+    const-string/jumbo v23, "SCEPKeystoreProxyService"
 
-    new-instance v19, Ljava/lang/StringBuilder;
+    new-instance v24, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v20, "Alias : USRCERT_"
+    const-string/jumbo v25, "Alias : USRCERT_"
 
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v24
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v24
 
     move-object/from16 v1, p2
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v24
 
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v19
+    move-result-object v24
 
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v18, "SCEPKeystoreProxyService"
+    const-string/jumbo v23, "SCEPKeystoreProxyService"
 
-    new-instance v19, Ljava/lang/StringBuilder;
+    new-instance v24, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v20, "Uid : "
+    const-string/jumbo v25, "Uid : "
 
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v24
 
-    invoke-static/range {p5 .. p5}, Landroid/os/UserHandle;->getUserId(I)I
+    move-object/from16 v0, v24
 
-    move-result v20
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const/16 v21, 0x3e8
+    move-result-object v24
 
-    move-object/from16 v0, p0
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move/from16 v1, v20
+    move-result-object v24
 
-    move/from16 v2, v21
-
-    invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->makeUidWithUserID(II)I
-
-    move-result v20
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_4
     .catch Ljava/security/KeyStoreException; {:try_start_4 .. :try_end_4} :catch_5
     .catch Ljava/security/NoSuchAlgorithmException; {:try_start_4 .. :try_end_4} :catch_4
@@ -2064,145 +2490,115 @@
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     :cond_7
-    const/16 v18, 0x1
+    const/16 v23, 0x1
 
-    invoke-static {v12, v13}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return v18
+    return v23
 
     :cond_8
     :try_start_5
-    new-instance v18, Ljava/lang/StringBuilder;
+    new-instance v23, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v19, "USRPKEY_"
+    const-string/jumbo v24, "USRPKEY_"
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v23
 
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, p2
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v18
-
-    invoke-interface/range {v16 .. v16}, Ljava/security/Key;->getEncoded()[B
-
-    move-result-object v19
-
-    invoke-static/range {p5 .. p5}, Landroid/os/UserHandle;->getUserId(I)I
-
-    move-result v20
-
-    const/16 v21, 0x3e8
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, v20
-
-    move/from16 v2, v21
-
-    invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->makeUidWithUserID(II)I
-
-    move-result v20
-
-    const/16 v21, 0x1
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v19
-
-    move/from16 v2, v20
-
-    move/from16 v3, v21
-
-    invoke-virtual {v11, v0, v1, v2, v3}, Landroid/security/KeyStore;->importKey(Ljava/lang/String;[BII)Z
-
-    move-result v18
-
-    if-nez v18, :cond_a
-
-    sget-boolean v18, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
-
-    if-eqz v18, :cond_9
-
-    const-string/jumbo v18, "SCEPKeystoreProxyService"
-
-    const-string/jumbo v19, "USER_PRIVATE_KEY keystoreService.importKey is failed"
-
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v18, "SCEPKeystoreProxyService"
-
-    new-instance v19, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v20, "Alias : USRPKEY_"
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
+    move-object/from16 v0, v23
 
     move-object/from16 v1, p2
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v23
 
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v19
+    move-result-object v23
 
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-interface/range {v21 .. v21}, Ljava/security/Key;->getEncoded()[B
 
-    const-string/jumbo v18, "SCEPKeystoreProxyService"
+    move-result-object v24
 
-    new-instance v19, Ljava/lang/StringBuilder;
+    const/16 v25, 0x1
 
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+    move-object/from16 v0, v18
 
-    const-string/jumbo v20, "Uid : "
+    move-object/from16 v1, v23
 
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v2, v24
 
-    move-result-object v19
+    move/from16 v3, v25
 
-    invoke-static/range {p5 .. p5}, Landroid/os/UserHandle;->getUserId(I)I
+    invoke-virtual {v0, v1, v2, v6, v3}, Landroid/security/KeyStore;->importKey(Ljava/lang/String;[BII)Z
 
-    move-result v20
+    move-result v23
 
-    const/16 v21, 0x3e8
+    if-nez v23, :cond_a
 
-    move-object/from16 v0, p0
+    sget-boolean v23, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
 
-    move/from16 v1, v20
+    if-eqz v23, :cond_9
 
-    move/from16 v2, v21
+    const-string/jumbo v23, "SCEPKeystoreProxyService"
 
-    invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->makeUidWithUserID(II)I
+    const-string/jumbo v24, "USER_PRIVATE_KEY keystoreService.importKey is failed"
 
-    move-result v20
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string/jumbo v23, "SCEPKeystoreProxyService"
 
-    move-result-object v19
+    new-instance v24, Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v19
+    const-string/jumbo v25, "Alias : USRPKEY_"
 
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, p2
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v24
+
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v23, "SCEPKeystoreProxyService"
+
+    new-instance v24, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v25, "Uid : "
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v24
+
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_5
     .catch Ljava/security/KeyStoreException; {:try_start_5 .. :try_end_5} :catch_5
     .catch Ljava/security/NoSuchAlgorithmException; {:try_start_5 .. :try_end_5} :catch_4
@@ -2213,11 +2609,11 @@
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
     :cond_9
-    const/16 v18, 0x1
+    const/16 v23, 0x1
 
-    invoke-static {v12, v13}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return v18
+    return v23
 
     :cond_a
     :try_start_6
@@ -2225,143 +2621,113 @@
 
     iget v0, v0, Lcom/samsung/android/cepproxyks/CertByte;->caSize:I
 
-    move/from16 v18, v0
+    move/from16 v23, v0
 
-    if-lez v18, :cond_c
+    if-lez v23, :cond_15
 
-    new-instance v18, Ljava/lang/StringBuilder;
+    new-instance v23, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v19, "CACERT_"
+    const-string/jumbo v24, "CACERT_"
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v23
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v23
 
     move-object/from16 v1, p2
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v23
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v23
 
     move-object/from16 v0, p1
 
     iget-object v0, v0, Lcom/samsung/android/cepproxyks/CertByte;->caCertBytes:[B
 
-    move-object/from16 v19, v0
+    move-object/from16 v24, v0
 
-    invoke-static/range {p5 .. p5}, Landroid/os/UserHandle;->getUserId(I)I
-
-    move-result v20
-
-    const/16 v21, 0x3e8
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, v20
-
-    move/from16 v2, v21
-
-    invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->makeUidWithUserID(II)I
-
-    move-result v20
-
-    const/16 v21, 0x1
+    const/16 v25, 0x1
 
     move-object/from16 v0, v18
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v23
 
-    move/from16 v2, v20
+    move-object/from16 v2, v24
 
-    move/from16 v3, v21
+    move/from16 v3, v25
 
-    invoke-virtual {v11, v0, v1, v2, v3}, Landroid/security/KeyStore;->put(Ljava/lang/String;[BII)Z
+    invoke-virtual {v0, v1, v2, v6, v3}, Landroid/security/KeyStore;->put(Ljava/lang/String;[BII)Z
 
-    move-result v18
+    move-result v23
 
-    if-nez v18, :cond_c
+    if-nez v23, :cond_15
 
-    sget-boolean v18, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
+    sget-boolean v23, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
 
-    if-eqz v18, :cond_b
+    if-eqz v23, :cond_b
 
-    const-string/jumbo v18, "SCEPKeystoreProxyService"
+    const-string/jumbo v23, "SCEPKeystoreProxyService"
 
-    const-string/jumbo v19, "CA_CERTIFICATE keystoreService.put is failed"
+    const-string/jumbo v24, "CA_CERTIFICATE keystoreService.put is failed"
 
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v18, "SCEPKeystoreProxyService"
+    const-string/jumbo v23, "SCEPKeystoreProxyService"
 
-    new-instance v19, Ljava/lang/StringBuilder;
+    new-instance v24, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v20, "Alias : CACERT_"
+    const-string/jumbo v25, "Alias : CACERT_"
 
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v24
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v24
 
     move-object/from16 v1, p2
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v24
 
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v19
+    move-result-object v24
 
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v18, "SCEPKeystoreProxyService"
+    const-string/jumbo v23, "SCEPKeystoreProxyService"
 
-    new-instance v19, Ljava/lang/StringBuilder;
+    new-instance v24, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v20, "Uid : "
+    const-string/jumbo v25, "Uid : "
 
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v24
 
-    invoke-static/range {p5 .. p5}, Landroid/os/UserHandle;->getUserId(I)I
+    move-object/from16 v0, v24
 
-    move-result v20
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const/16 v21, 0x3e8
+    move-result-object v24
 
-    move-object/from16 v0, p0
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move/from16 v1, v20
+    move-result-object v24
 
-    move/from16 v2, v21
-
-    invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->makeUidWithUserID(II)I
-
-    move-result v20
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_6
     .catch Ljava/security/KeyStoreException; {:try_start_6 .. :try_end_6} :catch_5
     .catch Ljava/security/NoSuchAlgorithmException; {:try_start_6 .. :try_end_6} :catch_4
@@ -2372,348 +2738,861 @@
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
     :cond_b
-    const/16 v18, 0x1
+    const/16 v23, 0x1
 
-    invoke-static {v12, v13}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return v18
+    return v23
 
     :cond_c
-    const/16 v18, 0x0
-
-    invoke-static {v12, v13}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return v18
-
-    :catch_0
-    move-exception v6
-
     :try_start_7
-    invoke-virtual {v6}, Ljava/lang/Exception;->printStackTrace()V
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->mContext:Landroid/content/Context;
+
+    move-object/from16 v23, v0
+
+    move-object/from16 v0, v23
+
+    invoke-static {v0, v6}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->bind(Landroid/content/Context;I)Lcom/android/server/enterprise/scep/ScepKeystoreProxyService$KeyChainConnection;
+
+    move-result-object v16
+
+    invoke-virtual/range {v16 .. v16}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService$KeyChainConnection;->getService()Landroid/security/IKeyChainService;
+
+    move-result-object v17
+
+    const-string/jumbo v23, "USRCERT_"
+
+    const/16 v24, 0x1
+
+    move/from16 v0, v24
+
+    new-array v0, v0, [Ljava/security/cert/Certificate;
+
+    move-object/from16 v24, v0
+
+    const/16 v25, 0x0
+
+    aput-object v22, v24, v25
+
+    invoke-static/range {v24 .. v24}, Landroid/security/Credentials;->convertToPem([Ljava/security/cert/Certificate;)[B
+
+    move-result-object v24
+
+    const/16 v25, 0x1
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, p2
+
+    move-object/from16 v2, v23
+
+    move-object/from16 v3, v24
+
+    move/from16 v4, v25
+
+    invoke-interface {v0, v1, v2, v3, v4}, Landroid/security/IKeyChainService;->put(Ljava/lang/String;Ljava/lang/String;[BI)Z
+
+    move-result v23
+
+    if-nez v23, :cond_f
+
+    sget-boolean v23, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
+
+    if-eqz v23, :cond_d
+
+    const-string/jumbo v23, "SCEPKeystoreProxyService"
+
+    const-string/jumbo v24, "USER_CERTIFICATE keyChainService.put is failed"
+
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v23, "SCEPKeystoreProxyService"
+
+    new-instance v24, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v25, "Alias : USRCERT_"
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, p2
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v24
+
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v23, "SCEPKeystoreProxyService"
+
+    new-instance v24, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v25, "Uid : "
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v24
+
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_7
+    .catch Ljava/security/KeyStoreException; {:try_start_7 .. :try_end_7} :catch_5
+    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_7 .. :try_end_7} :catch_4
+    .catch Ljava/security/cert/CertificateException; {:try_start_7 .. :try_end_7} :catch_3
+    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_2
+    .catch Ljava/security/UnrecoverableKeyException; {:try_start_7 .. :try_end_7} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_0
     .catchall {:try_start_7 .. :try_end_7} :catchall_0
 
-    const/16 v18, 0x4
+    :cond_d
+    const/16 v23, 0x1
 
-    invoke-static {v12, v13}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return v18
+    if-eqz v16, :cond_e
 
-    :catch_1
-    move-exception v9
+    invoke-virtual/range {v16 .. v16}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService$KeyChainConnection;->close()V
 
+    :cond_e
+    return v23
+
+    :cond_f
     :try_start_8
-    invoke-virtual {v9}, Ljava/security/UnrecoverableKeyException;->printStackTrace()V
+    const-string/jumbo v23, "USRPKEY_"
+
+    invoke-interface/range {v21 .. v21}, Ljava/security/Key;->getEncoded()[B
+
+    move-result-object v24
+
+    const/16 v25, 0x1
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, p2
+
+    move-object/from16 v2, v23
+
+    move-object/from16 v3, v24
+
+    move/from16 v4, v25
+
+    invoke-interface {v0, v1, v2, v3, v4}, Landroid/security/IKeyChainService;->put(Ljava/lang/String;Ljava/lang/String;[BI)Z
+
+    move-result v23
+
+    if-nez v23, :cond_12
+
+    sget-boolean v23, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
+
+    if-eqz v23, :cond_10
+
+    const-string/jumbo v23, "SCEPKeystoreProxyService"
+
+    const-string/jumbo v24, "USER_PRIVATE_KEY keyChainService.put is failed"
+
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v23, "SCEPKeystoreProxyService"
+
+    new-instance v24, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v25, "Alias : USRPKEY_"
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, p2
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v24
+
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v23, "SCEPKeystoreProxyService"
+
+    new-instance v24, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v25, "Uid : "
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v24
+
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_8
+    .catch Ljava/security/KeyStoreException; {:try_start_8 .. :try_end_8} :catch_5
+    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_8 .. :try_end_8} :catch_4
+    .catch Ljava/security/cert/CertificateException; {:try_start_8 .. :try_end_8} :catch_3
+    .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_2
+    .catch Ljava/security/UnrecoverableKeyException; {:try_start_8 .. :try_end_8} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_0
     .catchall {:try_start_8 .. :try_end_8} :catchall_0
 
-    const/16 v18, 0x2
+    :cond_10
+    const/16 v23, 0x1
 
-    invoke-static {v12, v13}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return v18
+    if-eqz v16, :cond_11
 
-    :catch_2
-    move-exception v5
+    invoke-virtual/range {v16 .. v16}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService$KeyChainConnection;->close()V
 
+    :cond_11
+    return v23
+
+    :cond_12
     :try_start_9
-    invoke-virtual {v5}, Ljava/io/IOException;->printStackTrace()V
+    move-object/from16 v0, p1
+
+    iget v0, v0, Lcom/samsung/android/cepproxyks/CertByte;->caSize:I
+
+    move/from16 v23, v0
+
+    if-lez v23, :cond_15
+
+    const-string/jumbo v23, "CACERT_"
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Lcom/samsung/android/cepproxyks/CertByte;->caCertBytes:[B
+
+    move-object/from16 v24, v0
+
+    const/16 v25, 0x1
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, p2
+
+    move-object/from16 v2, v23
+
+    move-object/from16 v3, v24
+
+    move/from16 v4, v25
+
+    invoke-interface {v0, v1, v2, v3, v4}, Landroid/security/IKeyChainService;->put(Ljava/lang/String;Ljava/lang/String;[BI)Z
+
+    move-result v23
+
+    if-nez v23, :cond_15
+
+    sget-boolean v23, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
+
+    if-eqz v23, :cond_13
+
+    const-string/jumbo v23, "SCEPKeystoreProxyService"
+
+    const-string/jumbo v24, "CA_CERTIFICATE keyChainService.put is failed"
+
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v23, "SCEPKeystoreProxyService"
+
+    new-instance v24, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v25, "Alias : CACERT_"
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, p2
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v24
+
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v23, "SCEPKeystoreProxyService"
+
+    new-instance v24, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v25, "Uid : "
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v24
+
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_9
+    .catch Ljava/security/KeyStoreException; {:try_start_9 .. :try_end_9} :catch_5
+    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_9 .. :try_end_9} :catch_4
+    .catch Ljava/security/cert/CertificateException; {:try_start_9 .. :try_end_9} :catch_3
+    .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_2
+    .catch Ljava/security/UnrecoverableKeyException; {:try_start_9 .. :try_end_9} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_9} :catch_0
     .catchall {:try_start_9 .. :try_end_9} :catchall_0
 
-    const/16 v18, 0x4
+    :cond_13
+    const/16 v23, 0x1
 
-    invoke-static {v12, v13}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return v18
+    if-eqz v16, :cond_14
 
-    :catch_3
-    move-exception v10
+    invoke-virtual/range {v16 .. v16}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService$KeyChainConnection;->close()V
+
+    :cond_14
+    return v23
+
+    :cond_15
+    const/16 v23, 0x0
+
+    invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    if-eqz v16, :cond_16
+
+    invoke-virtual/range {v16 .. v16}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService$KeyChainConnection;->close()V
+
+    :cond_16
+    return v23
+
+    :catch_0
+    move-exception v9
 
     :try_start_a
-    invoke-virtual {v10}, Ljava/security/cert/CertificateException;->printStackTrace()V
+    invoke-virtual {v9}, Ljava/lang/Exception;->printStackTrace()V
     :try_end_a
     .catchall {:try_start_a .. :try_end_a} :catchall_0
 
-    const/16 v18, 0x3
+    const/16 v23, 0x4
 
-    invoke-static {v12, v13}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return v18
+    if-eqz v16, :cond_17
 
-    :catch_4
-    move-exception v8
+    invoke-virtual/range {v16 .. v16}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService$KeyChainConnection;->close()V
+
+    :cond_17
+    return v23
+
+    :catch_1
+    move-exception v12
 
     :try_start_b
-    invoke-virtual {v8}, Ljava/security/NoSuchAlgorithmException;->printStackTrace()V
+    invoke-virtual {v12}, Ljava/security/UnrecoverableKeyException;->printStackTrace()V
     :try_end_b
     .catchall {:try_start_b .. :try_end_b} :catchall_0
 
-    const/16 v18, 0x2
+    const/16 v23, 0x2
 
-    invoke-static {v12, v13}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return v18
+    if-eqz v16, :cond_18
 
-    :catch_5
-    move-exception v7
+    invoke-virtual/range {v16 .. v16}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService$KeyChainConnection;->close()V
+
+    :cond_18
+    return v23
+
+    :catch_2
+    move-exception v8
 
     :try_start_c
-    invoke-virtual {v7}, Ljava/security/KeyStoreException;->printStackTrace()V
+    invoke-virtual {v8}, Ljava/io/IOException;->printStackTrace()V
     :try_end_c
     .catchall {:try_start_c .. :try_end_c} :catchall_0
 
-    const/16 v18, 0x2
+    const/16 v23, 0x4
 
-    invoke-static {v12, v13}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return v18
+    if-eqz v16, :cond_19
+
+    invoke-virtual/range {v16 .. v16}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService$KeyChainConnection;->close()V
+
+    :cond_19
+    return v23
+
+    :catch_3
+    move-exception v13
+
+    :try_start_d
+    invoke-virtual {v13}, Ljava/security/cert/CertificateException;->printStackTrace()V
+    :try_end_d
+    .catchall {:try_start_d .. :try_end_d} :catchall_0
+
+    const/16 v23, 0x3
+
+    invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    if-eqz v16, :cond_1a
+
+    invoke-virtual/range {v16 .. v16}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService$KeyChainConnection;->close()V
+
+    :cond_1a
+    return v23
+
+    :catch_4
+    move-exception v11
+
+    :try_start_e
+    invoke-virtual {v11}, Ljava/security/NoSuchAlgorithmException;->printStackTrace()V
+    :try_end_e
+    .catchall {:try_start_e .. :try_end_e} :catchall_0
+
+    const/16 v23, 0x2
+
+    invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    if-eqz v16, :cond_1b
+
+    invoke-virtual/range {v16 .. v16}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService$KeyChainConnection;->close()V
+
+    :cond_1b
+    return v23
+
+    :catch_5
+    move-exception v10
+
+    :try_start_f
+    invoke-virtual {v10}, Ljava/security/KeyStoreException;->printStackTrace()V
+    :try_end_f
+    .catchall {:try_start_f .. :try_end_f} :catchall_0
+
+    const/16 v23, 0x2
+
+    invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    if-eqz v16, :cond_1c
+
+    invoke-virtual/range {v16 .. v16}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService$KeyChainConnection;->close()V
+
+    :cond_1c
+    return v23
 
     :catchall_0
-    move-exception v18
+    move-exception v23
 
-    invoke-static {v12, v13}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v18
+    if-eqz v16, :cond_1d
+
+    invoke-virtual/range {v16 .. v16}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService$KeyChainConnection;->close()V
+
+    :cond_1d
+    throw v23
 .end method
 
 .method public isAliasExists(Ljava/lang/String;Z)I
-    .locals 9
+    .locals 13
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v8, 0x0
+    const/16 v12, 0x3e8
 
-    const/4 v7, 0x1
+    const/4 v11, 0x1
+
+    const/4 v10, 0x0
 
     invoke-direct {p0}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->checkCEPCaller()Z
 
-    move-result v4
+    move-result v7
 
-    if-nez v4, :cond_0
+    if-nez v7, :cond_0
 
-    return v7
+    return v11
 
     :cond_0
-    sget-boolean v4, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
-
-    if-eqz v4, :cond_1
-
-    const-string/jumbo v4, "SCEPKeystoreProxyService"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "isAliasExists: "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
-
-    move-result v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1
-    :try_start_0
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
-
-    move-result v4
-
-    invoke-static {v4}, Landroid/os/UserHandle;->getUserId(I)I
-
-    move-result v4
-
-    const/16 v5, 0x3e8
-
-    invoke-static {v4, v5}, Landroid/os/UserHandle;->getUid(II)I
 
     move-result v0
 
-    const/16 v1, 0x3f2
+    const/4 v4, 0x0
+
+    sget-boolean v7, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->DBG:Z
+
+    if-eqz v7, :cond_1
+
+    const-string/jumbo v7, "SCEPKeystoreProxyService"
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "isAliasExists: "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    :try_start_0
+    invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v7
+
+    const/16 v8, 0x3e8
+
+    invoke-static {v7, v8}, Landroid/os/UserHandle;->getUid(II)I
+
+    move-result v1
+
+    const/16 v2, 0x3f2
 
     invoke-static {}, Landroid/security/KeyStore;->getInstance()Landroid/security/KeyStore;
 
-    move-result-object v3
+    move-result-object v6
 
     if-eqz p2, :cond_3
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, "USRCERT_"
+    const-string/jumbo v8, "USRCERT_"
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v7
 
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v7
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v7
 
-    invoke-virtual {v3, v4, v1}, Landroid/security/KeyStore;->contains(Ljava/lang/String;I)Z
+    invoke-virtual {v6, v7, v2}, Landroid/security/KeyStore;->contains(Ljava/lang/String;I)Z
 
-    move-result v4
+    move-result v7
 
-    if-nez v4, :cond_2
+    if-nez v7, :cond_2
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, "USRPKEY_"
+    const-string/jumbo v8, "USRPKEY_"
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v7
 
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v7
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v7
 
-    invoke-virtual {v3, v4, v1}, Landroid/security/KeyStore;->contains(Ljava/lang/String;I)Z
+    invoke-virtual {v6, v7, v2}, Landroid/security/KeyStore;->contains(Ljava/lang/String;I)Z
 
-    move-result v4
+    move-result v7
 
-    if-nez v4, :cond_2
+    if-nez v7, :cond_2
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, "CACERT_"
+    const-string/jumbo v8, "CACERT_"
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v7
 
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v7
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v7
 
-    invoke-virtual {v3, v4, v1}, Landroid/security/KeyStore;->contains(Ljava/lang/String;I)Z
+    invoke-virtual {v6, v7, v2}, Landroid/security/KeyStore;->contains(Ljava/lang/String;I)Z
 
-    move-result v4
+    move-result v7
 
-    if-eqz v4, :cond_5
+    if-eqz v7, :cond_8
 
     :cond_2
-    return v8
+    return v10
 
     :cond_3
-    new-instance v4, Ljava/lang/StringBuilder;
+    if-ne v1, v12, :cond_5
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v5, "USRCERT_"
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v8, "USRCERT_"
 
-    move-result-object v4
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v7
 
-    move-result-object v4
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v7
 
-    move-result-object v4
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v3, v4, v0}, Landroid/security/KeyStore;->contains(Ljava/lang/String;I)Z
+    move-result-object v7
 
-    move-result v4
+    invoke-virtual {v6, v7, v1}, Landroid/security/KeyStore;->contains(Ljava/lang/String;I)Z
 
-    if-nez v4, :cond_4
+    move-result v7
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    if-nez v7, :cond_4
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v5, "USRPKEY_"
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v8, "USRPKEY_"
 
-    move-result-object v4
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v7
 
-    move-result-object v4
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v7
 
-    move-result-object v4
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v3, v4, v0}, Landroid/security/KeyStore;->contains(Ljava/lang/String;I)Z
+    move-result-object v7
 
-    move-result v4
+    invoke-virtual {v6, v7, v1}, Landroid/security/KeyStore;->contains(Ljava/lang/String;I)Z
 
-    if-nez v4, :cond_4
+    move-result v7
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    if-nez v7, :cond_4
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v5, "CACERT_"
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v8, "CACERT_"
 
-    move-result-object v4
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v7
 
-    move-result-object v4
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v7
 
-    move-result-object v4
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v3, v4, v0}, Landroid/security/KeyStore;->contains(Ljava/lang/String;I)Z
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    move-result-object v7
 
-    move-result v4
+    invoke-virtual {v6, v7, v1}, Landroid/security/KeyStore;->contains(Ljava/lang/String;I)Z
 
-    if-eqz v4, :cond_5
+    move-result v7
+
+    if-eqz v7, :cond_5
 
     :cond_4
-    return v8
-
-    :catch_0
-    move-exception v2
-
-    invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
-
-    return v7
+    return v10
 
     :cond_5
-    return v7
+    iget-object v7, p0, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->mContext:Landroid/content/Context;
+
+    invoke-static {v7, v1}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService;->bind(Landroid/content/Context;I)Lcom/android/server/enterprise/scep/ScepKeystoreProxyService$KeyChainConnection;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService$KeyChainConnection;->getService()Landroid/security/IKeyChainService;
+
+    move-result-object v5
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "USRCERT_"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-interface {v5, v7, v1}, Landroid/security/IKeyChainService;->contains(Ljava/lang/String;I)Z
+
+    move-result v7
+
+    if-nez v7, :cond_6
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "USRPKEY_"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-interface {v5, v7, v1}, Landroid/security/IKeyChainService;->contains(Ljava/lang/String;I)Z
+
+    move-result v7
+
+    if-nez v7, :cond_6
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "CACERT_"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-interface {v5, v7, v1}, Landroid/security/IKeyChainService;->contains(Ljava/lang/String;I)Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v7
+
+    if-eqz v7, :cond_8
+
+    :cond_6
+    if-eqz v4, :cond_7
+
+    invoke-virtual {v4}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService$KeyChainConnection;->close()V
+
+    :cond_7
+    return v10
+
+    :cond_8
+    if-eqz v4, :cond_9
+
+    invoke-virtual {v4}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService$KeyChainConnection;->close()V
+
+    :cond_9
+    return v11
+
+    :catch_0
+    move-exception v3
+
+    :try_start_1
+    invoke-virtual {v3}, Ljava/lang/Exception;->printStackTrace()V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    if-eqz v4, :cond_a
+
+    invoke-virtual {v4}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService$KeyChainConnection;->close()V
+
+    :cond_a
+    return v11
+
+    :catchall_0
+    move-exception v7
+
+    if-eqz v4, :cond_b
+
+    invoke-virtual {v4}, Lcom/android/server/enterprise/scep/ScepKeystoreProxyService$KeyChainConnection;->close()V
+
+    :cond_b
+    throw v7
 .end method
 
 .method setPrivateKey([B)Ljava/security/PrivateKey;

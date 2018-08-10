@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/NetworkManagementService;->enableStrict()V
+    value = Lcom/android/server/NetworkManagementService;->addIdleTimer(Ljava/lang/String;II)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,12 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/NetworkManagementService;
 
+.field final synthetic val$type:I
+
 
 # direct methods
-.method constructor <init>(Lcom/android/server/NetworkManagementService;)V
+.method constructor <init>(Lcom/android/server/NetworkManagementService;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/NetworkManagementService$2;->this$0:Lcom/android/server/NetworkManagementService;
+
+    iput p2, p0, Lcom/android/server/NetworkManagementService$2;->val$type:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -35,61 +39,23 @@
 
 # virtual methods
 .method public run()V
-    .locals 6
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/NetworkManagementService$2;->this$0:Lcom/android/server/NetworkManagementService;
-
-    invoke-static {v1}, Lcom/android/server/NetworkManagementService;->-get3(Lcom/android/server/NetworkManagementService;)Lcom/android/server/NativeDaemonConnector;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "strict"
-
-    const/4 v3, 0x1
-
-    new-array v3, v3, [Ljava/lang/Object;
-
-    const-string/jumbo v4, "enable"
-
-    const/4 v5, 0x0
-
-    aput-object v4, v3, v5
-
-    invoke-virtual {v1, v2, v3}, Lcom/android/server/NativeDaemonConnector;->execute(Ljava/lang/String;[Ljava/lang/Object;)Lcom/android/server/NativeDaemonEvent;
+    .locals 8
 
     iget-object v1, p0, Lcom/android/server/NetworkManagementService$2;->this$0:Lcom/android/server/NetworkManagementService;
 
-    const/4 v2, 0x1
+    iget v2, p0, Lcom/android/server/NetworkManagementService$2;->val$type:I
 
-    invoke-static {v1, v2}, Lcom/android/server/NetworkManagementService;->-set1(Lcom/android/server/NetworkManagementService;Z)Z
-    :try_end_0
-    .catch Lcom/android/server/NativeDaemonConnectorException; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtimeNanos()J
 
-    :goto_0
-    invoke-static {}, Lcom/android/server/NetworkManagementService;->-get0()Z
+    move-result-wide v4
 
-    move-result v1
+    const/4 v3, 0x3
 
-    if-eqz v1, :cond_0
+    const/4 v6, -0x1
 
-    const-string/jumbo v1, "NetworkManagement"
+    const/4 v7, 0x0
 
-    const-string/jumbo v2, "finish strict enable"
+    invoke-static/range {v1 .. v7}, Lcom/android/server/NetworkManagementService;->-wrap8(Lcom/android/server/NetworkManagementService;IIJIZ)V
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
     return-void
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v1, "NetworkManagement"
-
-    const-string/jumbo v2, "Failed strict enable"
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_0
 .end method

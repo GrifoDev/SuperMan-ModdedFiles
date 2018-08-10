@@ -344,7 +344,7 @@
 
     new-instance v3, Lcom/android/server/enterprise/general/TypefaceFinder$TypefaceSortByName;
 
-    invoke-direct {v3, p0}, Lcom/android/server/enterprise/general/TypefaceFinder$TypefaceSortByName;-><init>(Lcom/android/server/enterprise/general/TypefaceFinder;)V
+    invoke-direct {v3}, Lcom/android/server/enterprise/general/TypefaceFinder$TypefaceSortByName;-><init>()V
 
     invoke-static {v2, v3}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 

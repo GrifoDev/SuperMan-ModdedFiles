@@ -20,6 +20,8 @@
 # instance fields
 .field private final mContext:Landroid/content/Context;
 
+.field final mHandler:Landroid/os/Handler;
+
 .field private final mSearchables:Landroid/util/SparseArray;
     .annotation build Lcom/android/internal/annotations/GuardedBy;
         value = "mSearchables"
@@ -101,6 +103,12 @@
     move-result-object v1
 
     invoke-direct {v0, p0, v1}, Lcom/android/server/search/SearchManagerService$GlobalSearchProviderObserver;-><init>(Lcom/android/server/search/SearchManagerService;Landroid/content/ContentResolver;)V
+
+    invoke-static {}, Lcom/android/internal/os/BackgroundThread;->getHandler()Landroid/os/Handler;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/server/search/SearchManagerService;->mHandler:Landroid/os/Handler;
 
     return-void
 .end method
@@ -435,28 +443,42 @@
 .end method
 
 .method private onUnlockUser(I)V
-    .locals 1
+    .locals 2
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    invoke-direct {p0, p1, v0}, Lcom/android/server/search/SearchManagerService;->getSearchables(IZ)Lcom/android/server/search/Searchables;
+    :try_start_0
+    invoke-direct {p0, p1, v1}, Lcom/android/server/search/SearchManagerService;->getSearchables(IZ)Lcom/android/server/search/Searchables;
+    :try_end_0
+    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
 
+    :goto_0
     return-void
+
+    :catch_0
+    move-exception v0
+
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .locals 5
+    .locals 4
 
     iget-object v2, p0, Lcom/android/server/search/SearchManagerService;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v3, "android.permission.DUMP"
+    const-string/jumbo v3, "SearchManagerService"
 
-    const-string/jumbo v4, "SearchManagerService"
+    invoke-static {v2, v3, p2}, Lcom/android/internal/util/DumpUtils;->checkDumpPermission(Landroid/content/Context;Ljava/lang/String;Ljava/io/PrintWriter;)Z
 
-    invoke-virtual {v2, v3, v4}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+    move-result v2
 
+    if-nez v2, :cond_0
+
+    return-void
+
+    :cond_0
     new-instance v1, Lcom/android/internal/util/IndentingPrintWriter;
 
     const-string/jumbo v2, "  "
@@ -477,7 +499,7 @@
 
     move-result v2
 
-    if-ge v0, v2, :cond_0
+    if-ge v0, v2, :cond_1
 
     const-string/jumbo v2, "\nUser: "
 
@@ -511,7 +533,7 @@
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
     monitor-exit v3
 
     return-void
@@ -718,7 +740,7 @@
 
     invoke-virtual {v1, v6}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
     move-result-object v0
 

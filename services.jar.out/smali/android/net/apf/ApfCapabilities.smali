@@ -31,7 +31,7 @@
 .method public toString()Ljava/lang/String;
     .locals 4
 
-    const-string/jumbo v0, "%s{version: %d, maxSize: %d format: %d}"
+    const-string/jumbo v0, "%s{version: %d, maxSize: %d, format: %d}"
 
     const/4 v1, 0x4
 

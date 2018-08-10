@@ -430,11 +430,7 @@
     throw v2
 
     :cond_2
-    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Ljava/lang/String;)Ljava/lang/Boolean;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
+    invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
 
     move-result v2
 
@@ -713,13 +709,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v0, :cond_0
 
-    :cond_1
     iget-object v0, p0, Lcom/android/server/tv/PersistentDataStore;->mBlockedRatings:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -730,7 +723,8 @@
 
     invoke-direct {p0}, Lcom/android/server/tv/PersistentDataStore;->postSave()V
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method public getBlockedRatings()[Landroid/media/tv/TvContentRating;

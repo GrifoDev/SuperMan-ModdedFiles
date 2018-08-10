@@ -102,8 +102,8 @@
     goto :goto_0
 .end method
 
-.method public onSvStatusChanged(I[I[F[F[F)V
-    .locals 7
+.method public onSvStatusChanged(I[I[F[F[F[F)V
+    .locals 8
 
     new-instance v0, Lcom/android/server/location/GnssStatusListenerHelper$4;
 
@@ -119,7 +119,9 @@
 
     move-object v6, p5
 
-    invoke-direct/range {v0 .. v6}, Lcom/android/server/location/GnssStatusListenerHelper$4;-><init>(Lcom/android/server/location/GnssStatusListenerHelper;I[I[F[F[F)V
+    move-object v7, p6
+
+    invoke-direct/range {v0 .. v7}, Lcom/android/server/location/GnssStatusListenerHelper$4;-><init>(Lcom/android/server/location/GnssStatusListenerHelper;I[I[F[F[F[F)V
 
     invoke-virtual {p0, v0}, Lcom/android/server/location/GnssStatusListenerHelper;->foreach(Lcom/android/server/location/RemoteListenerHelper$ListenerOperation;)V
 

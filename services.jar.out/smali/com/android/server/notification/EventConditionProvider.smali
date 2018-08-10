@@ -465,11 +465,8 @@
 
     move-result v19
 
-    if-eqz v19, :cond_5
+    xor-int/lit8 v19, v19, 0x1
 
-    const/16 v19, 0x0
-
-    :goto_2
     move-object/from16 v0, p0
 
     move/from16 v1, v19
@@ -488,12 +485,12 @@
 
     move-result-object v7
 
-    :goto_3
+    :goto_2
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v19
 
-    if-eqz v19, :cond_e
+    if-eqz v19, :cond_d
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -505,7 +502,7 @@
 
     move-result-object v9
 
-    if-nez v9, :cond_6
+    if-nez v9, :cond_5
 
     const/16 v19, 0x0
 
@@ -523,7 +520,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_3
+    goto :goto_2
 
     :catchall_0
     move-exception v19
@@ -533,11 +530,6 @@
     throw v19
 
     :cond_5
-    const/16 v19, 0x1
-
-    goto :goto_2
-
-    :cond_6
     const/16 v16, 0x0
 
     :try_start_1
@@ -545,11 +537,11 @@
 
     move-object/from16 v19, v0
 
-    if-nez v19, :cond_8
+    if-nez v19, :cond_7
 
     const/4 v10, 0x0
 
-    :goto_4
+    :goto_3
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/notification/EventConditionProvider;->mTrackers:Landroid/util/SparseArray;
@@ -562,7 +554,7 @@
 
     move/from16 v0, v19
 
-    if-ge v10, v0, :cond_a
+    if-ge v10, v0, :cond_9
 
     move-object/from16 v0, p0
 
@@ -584,16 +576,16 @@
 
     move-result-object v11
 
-    if-nez v16, :cond_7
+    if-nez v16, :cond_6
 
     move-object/from16 v16, v11
 
-    :goto_5
+    :goto_4
     add-int/lit8 v10, v10, 0x1
 
-    goto :goto_4
+    goto :goto_3
 
-    :cond_7
+    :cond_6
     move-object/from16 v0, v16
 
     iget-boolean v0, v0, Lcom/android/server/notification/CalendarTracker$CheckEventResult;->inEvent:Z
@@ -632,9 +624,9 @@
 
     iput-wide v0, v2, Lcom/android/server/notification/CalendarTracker$CheckEventResult;->recheckAt:J
 
-    goto :goto_5
+    goto :goto_4
 
-    :cond_8
+    :cond_7
     iget v0, v9, Landroid/service/notification/ZenModeConfig$EventInfo;->userId:I
 
     move/from16 v19, v0
@@ -659,7 +651,7 @@
 
     check-cast v17, Lcom/android/server/notification/CalendarTracker;
 
-    if-nez v17, :cond_9
+    if-nez v17, :cond_8
 
     const-string/jumbo v19, "ConditionProviders.ECP"
 
@@ -705,16 +697,16 @@
 
     invoke-interface {v8, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_3
+    goto/16 :goto_2
 
-    :cond_9
+    :cond_8
     move-object/from16 v0, v17
 
     invoke-virtual {v0, v9, v12, v13}, Lcom/android/server/notification/CalendarTracker;->checkEvent(Landroid/service/notification/ZenModeConfig$EventInfo;J)Lcom/android/server/notification/CalendarTracker$CheckEventResult;
 
     move-result-object v16
 
-    :cond_a
+    :cond_9
     move-object/from16 v0, v16
 
     iget-wide v0, v0, Lcom/android/server/notification/CalendarTracker$CheckEventResult;->recheckAt:J
@@ -725,13 +717,13 @@
 
     cmp-long v19, v22, v24
 
-    if-eqz v19, :cond_c
+    if-eqz v19, :cond_b
 
     const-wide/16 v22, 0x0
 
     cmp-long v19, v14, v22
 
-    if-eqz v19, :cond_b
+    if-eqz v19, :cond_a
 
     move-object/from16 v0, v16
 
@@ -741,21 +733,21 @@
 
     cmp-long v19, v22, v14
 
-    if-gez v19, :cond_c
+    if-gez v19, :cond_b
 
-    :cond_b
+    :cond_a
     move-object/from16 v0, v16
 
     iget-wide v14, v0, Lcom/android/server/notification/CalendarTracker$CheckEventResult;->recheckAt:J
 
-    :cond_c
+    :cond_b
     move-object/from16 v0, v16
 
     iget-boolean v0, v0, Lcom/android/server/notification/CalendarTracker$CheckEventResult;->inEvent:Z
 
     move/from16 v19, v0
 
-    if-nez v19, :cond_d
+    if-nez v19, :cond_c
 
     const/16 v19, 0x0
 
@@ -771,9 +763,9 @@
 
     invoke-interface {v8, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_3
+    goto/16 :goto_2
 
-    :cond_d
+    :cond_c
     const/16 v19, 0x1
 
     move-object/from16 v0, p0
@@ -788,9 +780,9 @@
 
     invoke-interface {v8, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_3
+    goto/16 :goto_2
 
-    :cond_e
+    :cond_d
     move-object/from16 v0, p0
 
     invoke-direct {v0, v12, v13, v14, v15}, Lcom/android/server/notification/EventConditionProvider;->rescheduleAlarm(JJ)V
@@ -803,13 +795,13 @@
 
     move-result-object v5
 
-    :cond_f
-    :goto_6
+    :cond_e
+    :goto_5
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v19
 
-    if-eqz v19, :cond_10
+    if-eqz v19, :cond_f
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -817,18 +809,18 @@
 
     check-cast v4, Landroid/service/notification/Condition;
 
-    if-eqz v4, :cond_f
+    if-eqz v4, :cond_e
 
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v4}, Lcom/android/server/notification/EventConditionProvider;->notifyCondition(Landroid/service/notification/Condition;)V
 
-    goto :goto_6
+    goto :goto_5
 
-    :cond_10
+    :cond_f
     sget-boolean v19, Lcom/android/server/notification/EventConditionProvider;->DEBUG:Z
 
-    if-eqz v19, :cond_11
+    if-eqz v19, :cond_10
 
     const-string/jumbo v19, "ConditionProviders.ECP"
 
@@ -862,7 +854,7 @@
 
     invoke-static/range {v19 .. v20}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_11
+    :cond_10
     return-void
 .end method
 
@@ -893,72 +885,71 @@
 .end method
 
 .method private reloadTrackers()V
-    .locals 9
+    .locals 8
 
-    const/4 v7, 0x0
+    const/4 v6, 0x0
 
-    sget-boolean v5, Lcom/android/server/notification/EventConditionProvider;->DEBUG:Z
+    sget-boolean v4, Lcom/android/server/notification/EventConditionProvider;->DEBUG:Z
 
-    if-eqz v5, :cond_0
+    if-eqz v4, :cond_0
 
-    const-string/jumbo v5, "ConditionProviders.ECP"
+    const-string/jumbo v4, "ConditionProviders.ECP"
 
-    const-string/jumbo v6, "reloadTrackers"
+    const-string/jumbo v5, "reloadTrackers"
 
-    invoke-static {v5, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     const/4 v1, 0x0
 
     :goto_0
-    iget-object v5, p0, Lcom/android/server/notification/EventConditionProvider;->mTrackers:Landroid/util/SparseArray;
+    iget-object v4, p0, Lcom/android/server/notification/EventConditionProvider;->mTrackers:Landroid/util/SparseArray;
 
-    invoke-virtual {v5}, Landroid/util/SparseArray;->size()I
+    invoke-virtual {v4}, Landroid/util/SparseArray;->size()I
 
-    move-result v5
+    move-result v4
 
-    if-ge v1, v5, :cond_1
+    if-ge v1, v4, :cond_1
 
-    iget-object v5, p0, Lcom/android/server/notification/EventConditionProvider;->mTrackers:Landroid/util/SparseArray;
+    iget-object v4, p0, Lcom/android/server/notification/EventConditionProvider;->mTrackers:Landroid/util/SparseArray;
 
-    invoke-virtual {v5, v1}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v4, v1}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v4
 
-    check-cast v5, Lcom/android/server/notification/CalendarTracker;
+    check-cast v4, Lcom/android/server/notification/CalendarTracker;
 
-    invoke-virtual {v5, v7}, Lcom/android/server/notification/CalendarTracker;->setCallback(Lcom/android/server/notification/CalendarTracker$Callback;)V
+    invoke-virtual {v4, v6}, Lcom/android/server/notification/CalendarTracker;->setCallback(Lcom/android/server/notification/CalendarTracker$Callback;)V
 
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_1
-    iget-object v5, p0, Lcom/android/server/notification/EventConditionProvider;->mTrackers:Landroid/util/SparseArray;
+    iget-object v4, p0, Lcom/android/server/notification/EventConditionProvider;->mTrackers:Landroid/util/SparseArray;
 
-    invoke-virtual {v5}, Landroid/util/SparseArray;->clear()V
+    invoke-virtual {v4}, Landroid/util/SparseArray;->clear()V
 
-    iget-object v5, p0, Lcom/android/server/notification/EventConditionProvider;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Lcom/android/server/notification/EventConditionProvider;->mContext:Landroid/content/Context;
 
-    invoke-static {v5}, Landroid/os/UserManager;->get(Landroid/content/Context;)Landroid/os/UserManager;
+    invoke-static {v4}, Landroid/os/UserManager;->get(Landroid/content/Context;)Landroid/os/UserManager;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5}, Landroid/os/UserManager;->getUserProfiles()Ljava/util/List;
+    invoke-virtual {v4}, Landroid/os/UserManager;->getUserProfiles()Ljava/util/List;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-interface {v5}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {v4}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
-    :cond_2
     :goto_1
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_6
+    if-eqz v4, :cond_4
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -966,9 +957,26 @@
 
     check-cast v2, Landroid/os/UserHandle;
 
-    iget-object v5, p0, Lcom/android/server/notification/EventConditionProvider;->mContext:Landroid/content/Context;
+    invoke-virtual {v2}, Landroid/os/UserHandle;->isSystem()Z
 
-    invoke-static {v5}, Landroid/os/UserManager;->get(Landroid/content/Context;)Landroid/os/UserManager;
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    iget-object v0, p0, Lcom/android/server/notification/EventConditionProvider;->mContext:Landroid/content/Context;
+
+    :goto_2
+    if-nez v0, :cond_3
+
+    const-string/jumbo v4, "ConditionProviders.ECP"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "Unable to create context for user "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
@@ -976,85 +984,45 @@
 
     move-result v6
 
-    invoke-virtual {v5, v6}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v5
 
-    if-eqz v4, :cond_3
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v4}, Landroid/content/pm/UserInfo;->isKnoxWorkspace()Z
+    move-result-object v5
 
-    move-result v5
-
-    if-nez v5, :cond_2
-
-    :cond_3
-    invoke-virtual {v2}, Landroid/os/UserHandle;->isSystem()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_4
-
-    iget-object v0, p0, Lcom/android/server/notification/EventConditionProvider;->mContext:Landroid/content/Context;
-
-    :goto_2
-    if-nez v0, :cond_5
-
-    const-string/jumbo v5, "ConditionProviders.ECP"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v7, "Unable to create context for user "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v2}, Landroid/os/UserHandle;->getIdentifier()I
-
-    move-result v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1
 
-    :cond_4
-    iget-object v5, p0, Lcom/android/server/notification/EventConditionProvider;->mContext:Landroid/content/Context;
+    :cond_2
+    iget-object v4, p0, Lcom/android/server/notification/EventConditionProvider;->mContext:Landroid/content/Context;
 
-    invoke-static {v5, v2}, Lcom/android/server/notification/EventConditionProvider;->getContextForUser(Landroid/content/Context;Landroid/os/UserHandle;)Landroid/content/Context;
+    invoke-static {v4, v2}, Lcom/android/server/notification/EventConditionProvider;->getContextForUser(Landroid/content/Context;Landroid/os/UserHandle;)Landroid/content/Context;
 
     move-result-object v0
 
     goto :goto_2
 
-    :cond_5
-    iget-object v5, p0, Lcom/android/server/notification/EventConditionProvider;->mTrackers:Landroid/util/SparseArray;
+    :cond_3
+    iget-object v4, p0, Lcom/android/server/notification/EventConditionProvider;->mTrackers:Landroid/util/SparseArray;
 
     invoke-virtual {v2}, Landroid/os/UserHandle;->getIdentifier()I
 
-    move-result v6
+    move-result v5
 
-    new-instance v7, Lcom/android/server/notification/CalendarTracker;
+    new-instance v6, Lcom/android/server/notification/CalendarTracker;
 
-    iget-object v8, p0, Lcom/android/server/notification/EventConditionProvider;->mContext:Landroid/content/Context;
+    iget-object v7, p0, Lcom/android/server/notification/EventConditionProvider;->mContext:Landroid/content/Context;
 
-    invoke-direct {v7, v8, v0}, Lcom/android/server/notification/CalendarTracker;-><init>(Landroid/content/Context;Landroid/content/Context;)V
+    invoke-direct {v6, v7, v0}, Lcom/android/server/notification/CalendarTracker;-><init>(Landroid/content/Context;Landroid/content/Context;)V
 
-    invoke-virtual {v5, v6, v7}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {v4, v5, v6}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     goto :goto_1
 
-    :cond_6
+    :cond_4
     invoke-direct {p0}, Lcom/android/server/notification/EventConditionProvider;->evaluateSubscriptions()V
 
     return-void

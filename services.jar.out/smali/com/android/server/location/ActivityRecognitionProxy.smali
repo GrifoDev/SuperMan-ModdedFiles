@@ -61,21 +61,21 @@
 .end method
 
 .method private bindProvider()V
-    .locals 8
+    .locals 9
 
-    iget-object v5, p0, Lcom/android/server/location/ActivityRecognitionProxy;->mServiceWatcher:Lcom/android/server/ServiceWatcher;
+    iget-object v6, p0, Lcom/android/server/location/ActivityRecognitionProxy;->mServiceWatcher:Lcom/android/server/ServiceWatcher;
 
-    invoke-virtual {v5}, Lcom/android/server/ServiceWatcher;->getBinder()Landroid/os/IBinder;
+    invoke-virtual {v6}, Lcom/android/server/ServiceWatcher;->getBinder()Landroid/os/IBinder;
 
     move-result-object v0
 
     if-nez v0, :cond_0
 
-    const-string/jumbo v5, "ActivityRecognitionProxy"
+    const-string/jumbo v6, "ActivityRecognitionProxy"
 
-    const-string/jumbo v6, "Null binder found on connection."
+    const-string/jumbo v7, "Null binder found on connection."
 
-    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
@@ -83,94 +83,140 @@
     :try_start_0
     invoke-interface {v0}, Landroid/os/IBinder;->getInterfaceDescriptor()Ljava/lang/String;
     :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v2
 
-    const-class v5, Landroid/hardware/location/IActivityRecognitionHardwareWatcher;
+    const-class v6, Landroid/hardware/location/IActivityRecognitionHardwareWatcher;
 
-    invoke-virtual {v5}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v5, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v6
 
-    if-eqz v5, :cond_3
+    if-eqz v6, :cond_3
 
     invoke-static {v0}, Landroid/hardware/location/IActivityRecognitionHardwareWatcher$Stub;->asInterface(Landroid/os/IBinder;)Landroid/hardware/location/IActivityRecognitionHardwareWatcher;
 
-    move-result-object v4
+    move-result-object v5
 
-    if-nez v4, :cond_1
+    if-nez v5, :cond_1
 
-    const-string/jumbo v5, "ActivityRecognitionProxy"
+    const-string/jumbo v6, "ActivityRecognitionProxy"
 
-    const-string/jumbo v6, "No watcher found on connection."
+    const-string/jumbo v7, "No watcher found on connection."
 
-    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :catch_0
-    move-exception v3
+    move-exception v4
 
-    const-string/jumbo v5, "ActivityRecognitionProxy"
+    const-string/jumbo v6, "ActivityRecognitionProxy"
 
-    const-string/jumbo v6, "Unable to get interface descriptor."
+    const-string/jumbo v7, "Unable to get interface descriptor by unexpected exception."
 
-    invoke-static {v5, v6, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v6, v7, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    return-void
-
-    :cond_1
-    iget-object v5, p0, Lcom/android/server/location/ActivityRecognitionProxy;->mInstance:Landroid/hardware/location/ActivityRecognitionHardware;
-
-    if-nez v5, :cond_2
-
-    const-string/jumbo v5, "ActivityRecognitionProxy"
-
-    const-string/jumbo v6, "AR HW instance not available, binding will be a no-op."
-
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_2
-    :try_start_1
-    iget-object v5, p0, Lcom/android/server/location/ActivityRecognitionProxy;->mInstance:Landroid/hardware/location/ActivityRecognitionHardware;
-
-    invoke-interface {v4, v5}, Landroid/hardware/location/IActivityRecognitionHardwareWatcher;->onInstanceChanged(Landroid/hardware/location/IActivityRecognitionHardware;)V
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
-
-    :goto_0
     return-void
 
     :catch_1
     move-exception v3
 
-    const-string/jumbo v5, "ActivityRecognitionProxy"
+    const-string/jumbo v6, "ActivityRecognitionProxy"
 
-    const-string/jumbo v6, "Error delivering hardware interface to watcher."
+    const-string/jumbo v7, "Unable to get interface descriptor."
 
-    invoke-static {v5, v6, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v6, v7, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    return-void
+
+    :cond_1
+    iget-object v6, p0, Lcom/android/server/location/ActivityRecognitionProxy;->mInstance:Landroid/hardware/location/ActivityRecognitionHardware;
+
+    if-nez v6, :cond_2
+
+    const-string/jumbo v6, "ActivityRecognitionProxy"
+
+    const-string/jumbo v7, "AR HW instance not available, binding will be a no-op."
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_2
+    :try_start_1
+    iget-object v6, p0, Lcom/android/server/location/ActivityRecognitionProxy;->mInstance:Landroid/hardware/location/ActivityRecognitionHardware;
+
+    invoke-interface {v5, v6}, Landroid/hardware/location/IActivityRecognitionHardwareWatcher;->onInstanceChanged(Landroid/hardware/location/IActivityRecognitionHardware;)V
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_3
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_2
+
+    :goto_0
+    return-void
+
+    :catch_2
+    move-exception v4
+
+    const-string/jumbo v6, "ActivityRecognitionProxy"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "onInstanceChanged Exception from "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    iget-object v8, p0, Lcom/android/server/location/ActivityRecognitionProxy;->mServiceWatcher:Lcom/android/server/ServiceWatcher;
+
+    invoke-virtual {v8}, Lcom/android/server/ServiceWatcher;->getBestPackageName()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+
+    :catch_3
+    move-exception v3
+
+    const-string/jumbo v6, "ActivityRecognitionProxy"
+
+    const-string/jumbo v7, "Error delivering hardware interface to watcher."
+
+    invoke-static {v6, v7, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 
     :cond_3
-    const-class v5, Landroid/hardware/location/IActivityRecognitionHardwareClient;
+    const-class v6, Landroid/hardware/location/IActivityRecognitionHardwareClient;
 
-    invoke-virtual {v5}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v5, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v6
 
-    if-eqz v5, :cond_5
+    if-eqz v6, :cond_5
 
     invoke-static {v0}, Landroid/hardware/location/IActivityRecognitionHardwareClient$Stub;->asInterface(Landroid/os/IBinder;)Landroid/hardware/location/IActivityRecognitionHardwareClient;
 
@@ -178,61 +224,95 @@
 
     if-nez v1, :cond_4
 
-    const-string/jumbo v5, "ActivityRecognitionProxy"
+    const-string/jumbo v6, "ActivityRecognitionProxy"
 
-    const-string/jumbo v6, "No client found on connection."
+    const-string/jumbo v7, "No client found on connection."
 
-    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_4
     :try_start_2
-    iget-boolean v5, p0, Lcom/android/server/location/ActivityRecognitionProxy;->mIsSupported:Z
+    iget-boolean v6, p0, Lcom/android/server/location/ActivityRecognitionProxy;->mIsSupported:Z
 
-    iget-object v6, p0, Lcom/android/server/location/ActivityRecognitionProxy;->mInstance:Landroid/hardware/location/ActivityRecognitionHardware;
+    iget-object v7, p0, Lcom/android/server/location/ActivityRecognitionProxy;->mInstance:Landroid/hardware/location/ActivityRecognitionHardware;
 
-    invoke-interface {v1, v5, v6}, Landroid/hardware/location/IActivityRecognitionHardwareClient;->onAvailabilityChanged(ZLandroid/hardware/location/IActivityRecognitionHardware;)V
+    invoke-interface {v1, v6, v7}, Landroid/hardware/location/IActivityRecognitionHardwareClient;->onAvailabilityChanged(ZLandroid/hardware/location/IActivityRecognitionHardware;)V
     :try_end_2
-    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_2
+    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_4
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_5
 
     goto :goto_0
 
-    :catch_2
+    :catch_4
     move-exception v3
 
-    const-string/jumbo v5, "ActivityRecognitionProxy"
+    const-string/jumbo v6, "ActivityRecognitionProxy"
 
-    const-string/jumbo v6, "Error delivering hardware interface to client."
+    const-string/jumbo v7, "Error delivering hardware interface to client."
 
-    invoke-static {v5, v6, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v6, v7, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+
+    :catch_5
+    move-exception v4
+
+    const-string/jumbo v6, "ActivityRecognitionProxy"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "onAvailabilityChanged Exception from "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    iget-object v8, p0, Lcom/android/server/location/ActivityRecognitionProxy;->mServiceWatcher:Lcom/android/server/ServiceWatcher;
+
+    invoke-virtual {v8}, Lcom/android/server/ServiceWatcher;->getBestPackageName()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 
     :cond_5
-    const-string/jumbo v5, "ActivityRecognitionProxy"
+    const-string/jumbo v6, "ActivityRecognitionProxy"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "Invalid descriptor found on connection: "
+    const-string/jumbo v8, "Invalid descriptor found on connection: "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    goto/16 :goto_0
 .end method
 
 .method public static createAndBind(Landroid/content/Context;Landroid/os/Handler;ZLandroid/hardware/location/ActivityRecognitionHardware;III)Lcom/android/server/location/ActivityRecognitionProxy;

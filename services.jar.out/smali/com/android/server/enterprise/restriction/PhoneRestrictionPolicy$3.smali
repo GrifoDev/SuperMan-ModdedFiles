@@ -1,9 +1,6 @@
 .class Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$3;
-.super Ljava/lang/Object;
+.super Landroid/content/BroadcastReceiver;
 .source "PhoneRestrictionPolicy.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
@@ -27,78 +24,100 @@
 
     iput-object p1, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$3;->this$0:Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 6
 
-    const-string/jumbo v2, "PhoneRestrictionPolicy"
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    const-string/jumbo v3, "Trying to connect to EnterpriseSimPin Service"
+    move-result-object v0
 
-    invoke-static {v2, v3}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    const-string/jumbo v1, "com.samsung.android.knox.intent.action.PHONE_READY_INTERNAL"
 
-    new-instance v0, Landroid/content/ComponentName;
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "com.sec.enterprise.mdm.services.simpin"
+    move-result v1
 
-    const-string/jumbo v3, "com.sec.enterprise.mdm.services.simpin.EnterpriseSimPin"
+    if-nez v1, :cond_0
 
-    invoke-direct {v0, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    const-string/jumbo v1, "edm.intent.action.PHONE_READY"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string/jumbo v1, "android.intent.action.BOOT_COMPLETED"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$3;->this$0:Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;
+
+    invoke-static {v1}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->-get2(Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;)Landroid/os/Handler;
+
+    move-result-object v1
 
     iget-object v2, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$3;->this$0:Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;
 
-    invoke-static {v2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->-get2(Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;)Landroid/os/Handler;
+    invoke-static {v2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->-get1(Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;)Ljava/lang/Runnable;
 
     move-result-object v2
 
-    invoke-virtual {v2, p0}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+    const-wide/16 v4, 0x0
 
-    :try_start_0
-    iget-object v2, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$3;->this$0:Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;
+    invoke-virtual {v1, v2, v4, v5}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    invoke-static {v2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->-get0(Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;)Landroid/content/Context;
+    iget-object v1, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$3;->this$0:Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;
 
-    move-result-object v2
+    invoke-virtual {p1}, Landroid/content/Context;->getUserId()I
 
-    new-instance v3, Landroid/content/Intent;
+    move-result v2
 
-    const-string/jumbo v4, "com.sec.enterprise.SimPinCode"
+    invoke-static {v1, v2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->-wrap1(Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;I)V
 
-    invoke-direct {v3, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v3, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$3;->this$0:Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;
-
-    invoke-static {v4}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->-get3(Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;)Landroid/content/ServiceConnection;
-
-    move-result-object v4
-
-    const/4 v5, 0x1
-
-    invoke-virtual {v2, v3, v4, v5}, Landroid/content/Context;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
-    :try_end_0
-    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
-
+    :cond_1
     :goto_0
     return-void
 
-    :catch_0
-    move-exception v1
+    :cond_2
+    const-string/jumbo v1, "android.intent.action.ACTION_SUBINFO_RECORD_UPDATED"
 
-    const-string/jumbo v2, "PhoneRestrictionPolicy"
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const-string/jumbo v3, "Failed to bind Sim Pin Service"
+    move-result v1
 
-    invoke-static {v2, v3}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    if-nez v1, :cond_3
+
+    const-string/jumbo v1, "android.intent.action.SIM_STATE_CHANGED"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    :cond_3
+    const-string/jumbo v1, "PhoneRestrictionPolicy"
+
+    const-string/jumbo v2, "Received ACTION_SUBINFO_RECORD_UPDATED broadcast"
+
+    invoke-static {v1, v2}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v1, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$3;->this$0:Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;
+
+    invoke-static {v1}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->-wrap2(Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;)V
 
     goto :goto_0
 .end method

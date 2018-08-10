@@ -101,9 +101,11 @@
 
     iget-object v0, p0, Lcom/android/server/audio/AudioService$7;->this$0:Lcom/android/server/audio/AudioService;
 
+    iget-object v0, v0, Lcom/android/server/audio/AudioService;->mSecGlobal:Lcom/android/server/audio/AudioService$SecGlobalVariable;
+
     const/4 v1, 0x1
 
-    iput-boolean v1, v0, Lcom/android/server/audio/AudioService;->mHMTDocked:Z
+    iput-boolean v1, v0, Lcom/android/server/audio/AudioService$SecGlobalVariable;->mHMTDocked:Z
 
     goto :goto_0
 
@@ -120,9 +122,11 @@
 
     iget-object v0, p0, Lcom/android/server/audio/AudioService$7;->this$0:Lcom/android/server/audio/AudioService;
 
+    iget-object v0, v0, Lcom/android/server/audio/AudioService;->mSecGlobal:Lcom/android/server/audio/AudioService$SecGlobalVariable;
+
     const/4 v1, 0x0
 
-    iput-boolean v1, v0, Lcom/android/server/audio/AudioService;->mHMTDocked:Z
+    iput-boolean v1, v0, Lcom/android/server/audio/AudioService$SecGlobalVariable;->mHMTDocked:Z
 
     goto :goto_0
 

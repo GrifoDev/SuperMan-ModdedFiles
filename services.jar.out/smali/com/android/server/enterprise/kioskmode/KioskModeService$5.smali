@@ -46,9 +46,5 @@
 
     invoke-static {v1, v2, v0}, Lcom/android/server/enterprise/kioskmode/KioskModeService;->-wrap0(Lcom/android/server/enterprise/kioskmode/KioskModeService;ZI)Z
 
-    iget-object v1, p0, Lcom/android/server/enterprise/kioskmode/KioskModeService$5;->this$0:Lcom/android/server/enterprise/kioskmode/KioskModeService;
-
-    invoke-static {v1, v0}, Lcom/android/server/enterprise/kioskmode/KioskModeService;->-wrap8(Lcom/android/server/enterprise/kioskmode/KioskModeService;I)V
-
     return-void
 .end method

@@ -286,11 +286,15 @@
     const/4 v2, 0x1
 
     :goto_0
+    const/4 v2, 0x1
+
     sget-boolean v3, Lcom/android/server/AlarmManagerServiceExt$Sales;->VZW:Z
+
+    xor-int/lit8 v3, v3, 0x1
 
     if-eqz v3, :cond_1
 
-    const/4 v1, 0x0
+    const/4 v1, 0x1
 
     :goto_1
     const-string/jumbo v4, "dev.ssrm.appsync3p"
@@ -343,7 +347,7 @@
     goto :goto_0
 
     :cond_1
-    const/4 v1, 0x1
+    const/4 v1, 0x0
 
     goto :goto_1
 
@@ -351,50 +355,6 @@
     const-string/jumbo v3, "false"
 
     goto :goto_2
-.end method
-
-.method public static isApplicationUid(I)Z
-    .locals 2
-
-    const/4 v0, 0x0
-
-    const/16 v1, 0x2710
-
-    if-lt p0, v1, :cond_0
-
-    const/16 v1, 0x4e1f
-
-    if-gt p0, v1, :cond_0
-
-    const/4 v0, 0x1
-
-    :cond_0
-    return v0
-.end method
-
-.method public static isApplicationUidAsUser(II)Z
-    .locals 4
-
-    const v3, 0x186a0
-
-    move v2, p1
-
-    div-int v1, p0, v3
-
-    rem-int v0, p0, v3
-
-    if-eq p1, v1, :cond_0
-
-    const/4 v3, 0x0
-
-    return v3
-
-    :cond_0
-    invoke-static {v0}, Lcom/android/server/AlarmManagerServiceExt;->isApplicationUid(I)Z
-
-    move-result v3
-
-    return v3
 .end method
 
 .method public static maxRepeatInterval(JJ)J

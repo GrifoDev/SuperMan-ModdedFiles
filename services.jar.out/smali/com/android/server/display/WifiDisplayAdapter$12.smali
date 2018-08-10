@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/display/WifiDisplayAdapter;->requestConnectLocked(ILjava/lang/String;Z)V
+    value = Lcom/android/server/display/WifiDisplayAdapter;->updateDeviceState(Landroid/hardware/display/SemDeviceInfo;Landroid/os/IBinder;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,24 +20,20 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
-.field final synthetic val$address:Ljava/lang/String;
+.field final synthetic val$appToken:Landroid/os/IBinder;
 
-.field final synthetic val$connectingMode:I
-
-.field final synthetic val$isPendingRequest:Z
+.field final synthetic val$deviceInfo:Landroid/hardware/display/SemDeviceInfo;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/display/WifiDisplayAdapter;ILjava/lang/String;Z)V
+.method constructor <init>(Lcom/android/server/display/WifiDisplayAdapter;Landroid/hardware/display/SemDeviceInfo;Landroid/os/IBinder;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/display/WifiDisplayAdapter$12;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
-    iput p2, p0, Lcom/android/server/display/WifiDisplayAdapter$12;->val$connectingMode:I
+    iput-object p2, p0, Lcom/android/server/display/WifiDisplayAdapter$12;->val$deviceInfo:Landroid/hardware/display/SemDeviceInfo;
 
-    iput-object p3, p0, Lcom/android/server/display/WifiDisplayAdapter$12;->val$address:Ljava/lang/String;
-
-    iput-boolean p4, p0, Lcom/android/server/display/WifiDisplayAdapter$12;->val$isPendingRequest:Z
+    iput-object p3, p0, Lcom/android/server/display/WifiDisplayAdapter$12;->val$appToken:Landroid/os/IBinder;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -47,30 +43,65 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 3
 
-    iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$12;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
+    iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$12;->val$deviceInfo:Landroid/hardware/display/SemDeviceInfo;
 
-    invoke-static {v0}, Lcom/android/server/display/WifiDisplayAdapter;->-get9(Lcom/android/server/display/WifiDisplayAdapter;)Lcom/android/server/display/WifiDisplayController;
+    invoke-virtual {v0}, Landroid/hardware/display/SemDeviceInfo;->getConnectType()I
 
-    move-result-object v0
+    move-result v0
 
-    if-eqz v0, :cond_0
+    packed-switch v0, :pswitch_data_0
 
-    iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$12;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
-
-    invoke-static {v0}, Lcom/android/server/display/WifiDisplayAdapter;->-get9(Lcom/android/server/display/WifiDisplayAdapter;)Lcom/android/server/display/WifiDisplayController;
-
-    move-result-object v0
-
-    iget v1, p0, Lcom/android/server/display/WifiDisplayAdapter$12;->val$connectingMode:I
-
-    iget-object v2, p0, Lcom/android/server/display/WifiDisplayAdapter$12;->val$address:Ljava/lang/String;
-
-    iget-boolean v3, p0, Lcom/android/server/display/WifiDisplayAdapter$12;->val$isPendingRequest:Z
-
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/display/WifiDisplayController;->requestConnect(ILjava/lang/String;Z)V
-
-    :cond_0
+    :goto_0
     return-void
+
+    :pswitch_0
+    iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$12;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
+
+    invoke-static {v0}, Lcom/android/server/display/WifiDisplayAdapter;->-get6(Lcom/android/server/display/WifiDisplayAdapter;)Lcom/android/server/display/DlnaController;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/server/display/WifiDisplayAdapter$12;->val$deviceInfo:Landroid/hardware/display/SemDeviceInfo;
+
+    iget-object v2, p0, Lcom/android/server/display/WifiDisplayAdapter$12;->val$appToken:Landroid/os/IBinder;
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/display/DlnaController;->updateDeviceState(Landroid/hardware/display/SemDeviceInfo;Landroid/os/IBinder;)V
+
+    goto :goto_0
+
+    :pswitch_1
+    iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$12;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
+
+    invoke-static {v0}, Lcom/android/server/display/WifiDisplayAdapter;->-get5(Lcom/android/server/display/WifiDisplayAdapter;)Lcom/android/server/display/WifiDisplayController;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/server/display/WifiDisplayAdapter$12;->val$deviceInfo:Landroid/hardware/display/SemDeviceInfo;
+
+    invoke-virtual {v0, v1}, Lcom/android/server/display/WifiDisplayController;->updateDeviceState(Landroid/hardware/display/SemDeviceInfo;)V
+
+    goto :goto_0
+
+    :pswitch_2
+    iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$12;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
+
+    invoke-static {v0}, Lcom/android/server/display/WifiDisplayAdapter;->-get8(Lcom/android/server/display/WifiDisplayAdapter;)Lcom/android/server/display/GoogleCastController;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/server/display/WifiDisplayAdapter$12;->val$deviceInfo:Landroid/hardware/display/SemDeviceInfo;
+
+    invoke-virtual {v0, v1}, Lcom/android/server/display/GoogleCastController;->updateDeviceState(Landroid/hardware/display/SemDeviceInfo;)V
+
+    goto :goto_0
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_2
+        :pswitch_0
+    .end packed-switch
 .end method

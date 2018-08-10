@@ -64,24 +64,26 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     iget v3, v1, Lcom/android/internal/net/LegacyVpnInfo;->state:I
 
     const/4 v4, 0x3
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_1
 
     :try_start_0
     invoke-static {}, Landroid/security/KeyStore;->getInstance()Landroid/security/KeyStore;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Landroid/security/KeyStore;->isEmptyForSystemCredential()Z
+    const-string/jumbo v3, "LOCKDOWN_VPN"
 
-    move-result v3
+    invoke-virtual {v2, v3}, Landroid/security/KeyStore;->get(Ljava/lang/String;)[B
 
-    if-eqz v3, :cond_0
+    move-result-object v3
+
+    if-nez v3, :cond_0
 
     iget-object v3, p0, Lcom/android/server/connectivity/Vpn$LegacyVpnRunner$2;->this$1:Lcom/android/server/connectivity/Vpn$LegacyVpnRunner;
 
@@ -96,6 +98,33 @@
     move-result-object v3
 
     invoke-virtual {v3}, Landroid/net/ConnectivityManager;->updateLockdownVpn()Z
+
+    :cond_0
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "VPN_"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget-object v4, v1, Lcom/android/internal/net/LegacyVpnInfo;->key:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Landroid/security/KeyStore;->get(Ljava/lang/String;)[B
+
+    move-result-object v3
+
+    if-nez v3, :cond_1
 
     iget-object v3, p0, Lcom/android/server/connectivity/Vpn$LegacyVpnRunner$2;->this$1:Lcom/android/server/connectivity/Vpn$LegacyVpnRunner;
 
@@ -115,7 +144,7 @@
 
     iget-object v5, v5, Lcom/android/server/connectivity/Vpn$LegacyVpnRunner;->this$0:Lcom/android/server/connectivity/Vpn;
 
-    invoke-static {v5}, Lcom/android/server/connectivity/Vpn;->-get18(Lcom/android/server/connectivity/Vpn;)I
+    invoke-static {v5}, Lcom/android/server/connectivity/Vpn;->-get20(Lcom/android/server/connectivity/Vpn;)I
 
     move-result v5
 
@@ -125,7 +154,7 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_0
+    :cond_1
     :goto_0
     return-void
 

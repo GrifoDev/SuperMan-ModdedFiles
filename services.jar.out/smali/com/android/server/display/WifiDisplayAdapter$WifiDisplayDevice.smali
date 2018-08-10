@@ -21,7 +21,7 @@
 
 .field private mHavePendingChanges:Z
 
-.field private mHeight:I
+.field private final mHeight:I
 
 .field private mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
@@ -35,13 +35,13 @@
 
 .field private mSurface:Landroid/view/Surface;
 
-.field private mWidth:I
+.field private final mWidth:I
 
 .field final synthetic this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/server/display/WifiDisplayAdapter;Landroid/os/IBinder;Ljava/lang/String;IIFIILjava/lang/String;Landroid/view/Surface;)V
+.method public constructor <init>(Lcom/android/server/display/WifiDisplayAdapter;Landroid/os/IBinder;Ljava/lang/String;IIFILjava/lang/String;Landroid/view/Surface;I)V
     .locals 2
 
     iput-object p1, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
@@ -56,7 +56,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, p9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
@@ -80,11 +80,9 @@
 
     iput p7, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mFlags:I
 
-    iput p8, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mRotation:I
+    iput-object p8, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mAddress:Ljava/lang/String;
 
-    iput-object p9, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mAddress:Ljava/lang/String;
-
-    iput-object p10, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mSurface:Landroid/view/Surface;
+    iput-object p9, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mSurface:Landroid/view/Surface;
 
     invoke-static {p4, p5, p6}, Lcom/android/server/display/WifiDisplayAdapter;->createMode(IIF)Landroid/view/Display$Mode;
 
@@ -92,12 +90,14 @@
 
     iput-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mMode:Landroid/view/Display$Mode;
 
+    iput p10, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mRotation:I
+
     return-void
 .end method
 
 
 # virtual methods
-.method public addFlags(I)V
+.method public addFlagLocked(I)V
     .locals 1
 
     iget v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mFlags:I
@@ -105,10 +105,6 @@
     or-int/2addr v0, p1
 
     iput v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mFlags:I
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
     const/4 v0, 0x1
 
@@ -322,6 +318,14 @@
     return-object v0
 .end method
 
+.method public hasStableUniqueId()Z
+    .locals 1
+
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
 .method public performTraversalInTransactionLocked()V
     .locals 1
 
@@ -337,38 +341,10 @@
     return-void
 .end method
 
-.method public removeFlags(I)V
-    .locals 2
-
-    iget v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mFlags:I
-
-    iget v1, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mFlags:I
-
-    xor-int/2addr v1, p1
-
-    and-int/2addr v0, v1
-
-    iput v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mFlags:I
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mHavePendingChanges:Z
-
-    return-void
-.end method
-
 .method public setNameLocked(Ljava/lang/String;)V
     .locals 1
 
     iput-object p1, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mName:Ljava/lang/String;
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
     const/4 v0, 0x1
 
@@ -397,9 +373,9 @@
     :goto_0
     iput p1, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mRotation:I
 
-    const/4 v1, 0x0
+    const/4 v1, 0x1
 
-    iput-object v1, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+    iput-boolean v1, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mHavePendingChanges:Z
 
     return-void
 

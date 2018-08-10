@@ -15,6 +15,8 @@
 
 
 # static fields
+.field public static final MSG_CHECK_CONFIG_CHANGED:I = 0x4
+
 .field public static final MSG_DISPATCH_PRINT_JOB_STATE_CHANGED:I = 0x1
 
 .field public static final MSG_DISPATCH_PRINT_SERVICES_CHANGED:I = 0x2
@@ -84,10 +86,40 @@
 
     goto :goto_0
 
+    :pswitch_3
+    iget-object v2, p0, Lcom/android/server/print/UserState$UserStateHandler;->this$0:Lcom/android/server/print/UserState;
+
+    invoke-static {v2}, Lcom/android/server/print/UserState;->-get2(Lcom/android/server/print/UserState;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    monitor-enter v3
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/server/print/UserState$UserStateHandler;->this$0:Lcom/android/server/print/UserState;
+
+    invoke-static {v2}, Lcom/android/server/print/UserState;->-wrap4(Lcom/android/server/print/UserState;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v3
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v2
+
+    monitor-exit v3
+
+    throw v2
+
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
         :pswitch_1
         :pswitch_2
+        :pswitch_3
     .end packed-switch
 .end method

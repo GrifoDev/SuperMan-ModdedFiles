@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/am/ActivityManagerService;->restart()V
+    value = Lcom/android/server/am/ActivityManagerService;->systemReady(Ljava/lang/Runnable;Landroid/util/BootTimingsTraceLog;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -32,39 +32,172 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 2
+    .locals 7
 
-    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->-get0()Ljava/lang/String;
+    const/4 v6, -0x1
 
-    move-result-object v0
+    if-eqz p2, :cond_0
 
-    const-string/jumbo v1, "Shutting down activity manager..."
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v3
 
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$20;->this$0:Lcom/android/server/am/ActivityManagerService;
+    if-nez v3, :cond_1
 
-    const/16 v1, 0x2710
+    :cond_0
+    return-void
 
-    invoke-virtual {v0, v1}, Lcom/android/server/am/ActivityManagerService;->shutdown(I)Z
+    :cond_1
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->-get0()Ljava/lang/String;
+    move-result-object v3
 
-    move-result-object v0
+    const-string/jumbo v4, "com.samsung.CHECK_COOLDOWN_LEVEL"
 
-    const-string/jumbo v1, "Shutdown complete, restarting!"
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    move-result v3
 
-    invoke-static {}, Landroid/os/Process;->myPid()I
+    if-eqz v3, :cond_6
+
+    const/4 v2, -0x1
+
+    const/4 v0, -0x1
+
+    invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_6
+
+    const-string/jumbo v3, "check_cooldown_level"
+
+    invoke-virtual {v1, v3, v6}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+
+    move-result v2
+
+    if-eq v2, v6, :cond_2
+
+    iget-object v3, p0, Lcom/android/server/am/ActivityManagerService$20;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    invoke-static {v3, v2}, Lcom/android/server/am/ActivityManagerService;->-set3(Lcom/android/server/am/ActivityManagerService;I)I
+
+    :cond_2
+    const-string/jumbo v3, "batt_temp_level"
+
+    invoke-virtual {v1, v3, v6}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
     move-result v0
 
-    invoke-static {v0}, Landroid/os/Process;->killProcess(I)V
+    if-eq v0, v6, :cond_3
 
-    const/16 v0, 0xa
+    iget-object v3, p0, Lcom/android/server/am/ActivityManagerService$20;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-static {v0}, Ljava/lang/System;->exit(I)V
+    invoke-static {v3, v0}, Lcom/android/server/am/ActivityManagerService;->-set0(Lcom/android/server/am/ActivityManagerService;I)I
 
+    :cond_3
+    iget-object v3, p0, Lcom/android/server/am/ActivityManagerService$20;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    const-string/jumbo v4, "overheat_id"
+
+    const v5, 0x104012d
+
+    invoke-virtual {v1, v4, v5}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+
+    move-result v4
+
+    invoke-static {v3, v4}, Lcom/android/server/am/ActivityManagerService;->-set2(Lcom/android/server/am/ActivityManagerService;I)I
+
+    iget-object v3, p0, Lcom/android/server/am/ActivityManagerService$20;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    invoke-static {v3}, Lcom/android/server/am/ActivityManagerService;->-get6(Lcom/android/server/am/ActivityManagerService;)I
+
+    move-result v3
+
+    if-ne v3, v6, :cond_4
+
+    iget-object v3, p0, Lcom/android/server/am/ActivityManagerService$20;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    invoke-static {v3}, Lcom/android/server/am/ActivityManagerService;->-get2(Lcom/android/server/am/ActivityManagerService;)I
+
+    move-result v3
+
+    if-eq v3, v6, :cond_5
+
+    :cond_4
+    const-string/jumbo v3, "check_cooldown_list"
+
+    invoke-virtual {v1, v3}, Landroid/os/Bundle;->getSerializable(Ljava/lang/String;)Ljava/io/Serializable;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_5
+
+    iget-object v3, p0, Lcom/android/server/am/ActivityManagerService$20;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    invoke-static {v3}, Lcom/android/server/am/ActivityManagerService;->-get3(Lcom/android/server/am/ActivityManagerService;)Ljava/util/HashMap;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/util/HashMap;->clear()V
+
+    iget-object v4, p0, Lcom/android/server/am/ActivityManagerService$20;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    const-string/jumbo v3, "check_cooldown_list"
+
+    invoke-virtual {v1, v3}, Landroid/os/Bundle;->getSerializable(Ljava/lang/String;)Ljava/io/Serializable;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/util/HashMap;
+
+    invoke-static {v4, v3}, Lcom/android/server/am/ActivityManagerService;->-set1(Lcom/android/server/am/ActivityManagerService;Ljava/util/HashMap;)Ljava/util/HashMap;
+
+    :cond_5
+    const-string/jumbo v3, "checkingSIOP"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "VZWLevel = "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget-object v5, p0, Lcom/android/server/am/ActivityManagerService$20;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    invoke-static {v5}, Lcom/android/server/am/ActivityManagerService;->-get6(Lcom/android/server/am/ActivityManagerService;)I
+
+    move-result v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, ", OverheatLevel = "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget-object v5, p0, Lcom/android/server/am/ActivityManagerService$20;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    invoke-static {v5}, Lcom/android/server/am/ActivityManagerService;->-get2(Lcom/android/server/am/ActivityManagerService;)I
+
+    move-result v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_6
     return-void
 .end method

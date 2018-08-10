@@ -1,4 +1,4 @@
-.class Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
+.class final Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
 .super Ljava/lang/Object;
 .source "TextServicesManagerService.java"
 
@@ -12,25 +12,15 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1a
     name = "InternalDeathRecipient"
 .end annotation
 
 
 # instance fields
-.field public final mBundle:Landroid/os/Bundle;
-
 .field private final mGroup:Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;
 
 .field public final mScListener:Lcom/android/internal/textservice/ISpellCheckerSessionListener;
-
-.field public final mScLocale:Ljava/lang/String;
-
-.field public final mTsListener:Lcom/android/internal/textservice/ITextServicesSessionListener;
-
-.field public final mUid:I
-
-.field final synthetic this$0:Lcom/android/server/TextServicesManagerService;
 
 
 # direct methods
@@ -42,24 +32,14 @@
     return-object v0
 .end method
 
-.method public constructor <init>(Lcom/android/server/TextServicesManagerService;Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;Lcom/android/internal/textservice/ITextServicesSessionListener;Ljava/lang/String;Lcom/android/internal/textservice/ISpellCheckerSessionListener;ILandroid/os/Bundle;)V
+.method public constructor <init>(Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;Lcom/android/internal/textservice/ISpellCheckerSessionListener;)V
     .locals 0
-
-    iput-object p1, p0, Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;->this$0:Lcom/android/server/TextServicesManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p3, p0, Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;->mTsListener:Lcom/android/internal/textservice/ITextServicesSessionListener;
+    iput-object p2, p0, Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;->mScListener:Lcom/android/internal/textservice/ISpellCheckerSessionListener;
 
-    iput-object p5, p0, Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;->mScListener:Lcom/android/internal/textservice/ISpellCheckerSessionListener;
-
-    iput-object p4, p0, Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;->mScLocale:Ljava/lang/String;
-
-    iput-object p2, p0, Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;->mGroup:Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;
-
-    iput p6, p0, Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;->mUid:I
-
-    iput-object p7, p0, Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;->mBundle:Landroid/os/Bundle;
+    iput-object p1, p0, Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;->mGroup:Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;
 
     return-void
 .end method

@@ -19,12 +19,12 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/enterprise/restriction/RoamingPolicy;)V
+.method constructor <init>(Lcom/android/server/enterprise/restriction/RoamingPolicy;Ljava/lang/Integer;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/enterprise/restriction/RoamingPolicy$1;->this$0:Lcom/android/server/enterprise/restriction/RoamingPolicy;
 
-    invoke-direct {p0}, Landroid/telephony/PhoneStateListener;-><init>()V
+    invoke-direct {p0, p2}, Landroid/telephony/PhoneStateListener;-><init>(Ljava/lang/Integer;)V
 
     return-void
 .end method
@@ -58,51 +58,7 @@
 
     iget-object v0, p0, Lcom/android/server/enterprise/restriction/RoamingPolicy$1;->this$0:Lcom/android/server/enterprise/restriction/RoamingPolicy;
 
-    invoke-static {v0}, Lcom/android/server/enterprise/restriction/RoamingPolicy;->-get0(Lcom/android/server/enterprise/restriction/RoamingPolicy;)Landroid/telephony/TelephonyManager;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->isNetworkRoaming()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const-string/jumbo v0, "RoamingPolicy"
-
-    const-string/jumbo v1, "Entering Roaming"
-
-    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/server/enterprise/restriction/RoamingPolicy$1;->this$0:Lcom/android/server/enterprise/restriction/RoamingPolicy;
-
-    invoke-static {v0}, Lcom/android/server/enterprise/restriction/RoamingPolicy;->-wrap2(Lcom/android/server/enterprise/restriction/RoamingPolicy;)V
-
-    iget-object v0, p0, Lcom/android/server/enterprise/restriction/RoamingPolicy$1;->this$0:Lcom/android/server/enterprise/restriction/RoamingPolicy;
-
-    iget-object v1, p0, Lcom/android/server/enterprise/restriction/RoamingPolicy$1;->this$0:Lcom/android/server/enterprise/restriction/RoamingPolicy;
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v1, v2}, Lcom/android/server/enterprise/restriction/RoamingPolicy;->isRoamingSyncEnabled(Lcom/samsung/android/knox/ContextInfo;)Z
-
-    move-result v1
-
-    invoke-static {v0, v1}, Lcom/android/server/enterprise/restriction/RoamingPolicy;->-wrap1(Lcom/android/server/enterprise/restriction/RoamingPolicy;Z)V
-
-    :goto_0
-    return-void
-
-    :cond_0
-    const-string/jumbo v0, "RoamingPolicy"
-
-    const-string/jumbo v1, "Leaving Roaming"
-
-    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/server/enterprise/restriction/RoamingPolicy$1;->this$0:Lcom/android/server/enterprise/restriction/RoamingPolicy;
-
     invoke-static {v0}, Lcom/android/server/enterprise/restriction/RoamingPolicy;->-wrap0(Lcom/android/server/enterprise/restriction/RoamingPolicy;)V
 
-    goto :goto_0
+    return-void
 .end method

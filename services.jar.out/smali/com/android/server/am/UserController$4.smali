@@ -1,6 +1,9 @@
 .class Lcom/android/server/am/UserController$4;
-.super Landroid/content/IIntentReceiver$Stub;
+.super Ljava/lang/Object;
 .source "UserController.java"
+
+# interfaces
+.implements Ljava/lang/Runnable;
 
 
 # annotations
@@ -17,46 +20,45 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/am/UserController;
 
-.field final synthetic val$userId:I
+.field final synthetic val$callback:Landroid/app/IStopUserCallback;
 
-.field final synthetic val$uss:Lcom/android/server/am/UserState;
+.field final synthetic val$userId:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/UserController;ILcom/android/server/am/UserState;)V
+.method constructor <init>(Lcom/android/server/am/UserController;Landroid/app/IStopUserCallback;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/UserController$4;->this$0:Lcom/android/server/am/UserController;
 
-    iput p2, p0, Lcom/android/server/am/UserController$4;->val$userId:I
+    iput-object p2, p0, Lcom/android/server/am/UserController$4;->val$callback:Landroid/app/IStopUserCallback;
 
-    iput-object p3, p0, Lcom/android/server/am/UserController$4;->val$uss:Lcom/android/server/am/UserState;
+    iput p3, p0, Lcom/android/server/am/UserController$4;->val$userId:I
 
-    invoke-direct {p0}, Landroid/content/IIntentReceiver$Stub;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public performReceive(Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;ZZI)V
-    .locals 4
+.method public run()V
+    .locals 3
 
-    iget-object v0, p0, Lcom/android/server/am/UserController$4;->this$0:Lcom/android/server/am/UserController;
-
-    invoke-static {v0}, Lcom/android/server/am/UserController;->-get0(Lcom/android/server/am/UserController;)Landroid/os/Handler;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/android/server/am/UserController$4$1;
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/am/UserController$4;->val$callback:Landroid/app/IStopUserCallback;
 
     iget v2, p0, Lcom/android/server/am/UserController$4;->val$userId:I
 
-    iget-object v3, p0, Lcom/android/server/am/UserController$4;->val$uss:Lcom/android/server/am/UserState;
+    invoke-interface {v1, v2}, Landroid/app/IStopUserCallback;->userStopped(I)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    invoke-direct {v1, p0, v2, v3}, Lcom/android/server/am/UserController$4$1;-><init>(Lcom/android/server/am/UserController$4;ILcom/android/server/am/UserState;)V
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
+    :goto_0
     return-void
+
+    :catch_0
+    move-exception v0
+
+    goto :goto_0
 .end method

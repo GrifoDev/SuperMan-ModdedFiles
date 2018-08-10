@@ -76,19 +76,17 @@
 
     const/4 v4, 0x1
 
-    invoke-static {v3, v4}, Lcom/android/server/enterprise/security/SecurityPolicy;->-set0(Lcom/android/server/enterprise/security/SecurityPolicy;Z)Z
+    invoke-static {v3, v4}, Lcom/android/server/enterprise/security/SecurityPolicy;->-set1(Lcom/android/server/enterprise/security/SecurityPolicy;Z)Z
 
     iget-object v3, p0, Lcom/android/server/enterprise/security/SecurityPolicy$1;->this$0:Lcom/android/server/enterprise/security/SecurityPolicy;
 
-    invoke-static {v3}, Lcom/android/server/enterprise/security/SecurityPolicy;->-get0(Lcom/android/server/enterprise/security/SecurityPolicy;)Landroid/content/Context;
+    invoke-static {v3}, Lcom/android/server/enterprise/security/SecurityPolicy;->-get1(Lcom/android/server/enterprise/security/SecurityPolicy;)Landroid/content/Context;
 
     move-result-object v3
 
     invoke-static {v3}, Lcom/android/server/enterprise/adapterlayer/PersonaManagerAdapter;->getInstance(Landroid/content/Context;)Lcom/android/server/enterprise/adapterlayer/PersonaManagerAdapter;
 
-    move-result-object v3
-
-    invoke-virtual {v3, v2}, Lcom/android/server/enterprise/adapterlayer/PersonaManagerAdapter;->isPersonaId(I)Z
+    invoke-static {v2}, Lcom/android/server/enterprise/adapterlayer/PersonaManagerAdapter;->isValidKnoxId(I)Z
 
     move-result v3
 
@@ -154,6 +152,12 @@
 
     invoke-direct {v3, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    const/high16 v4, 0x1000000
+
+    invoke-virtual {v3, v4}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
+    move-result-object v3
+
     invoke-virtual {p1, v3}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
     const-string/jumbo v3, "SecurityPolicy"
@@ -167,6 +171,12 @@
     const-string/jumbo v4, "com.samsung.android.knox.intent.action.LAST_BOOT_SAFE_MODE_INTERNAL"
 
     invoke-direct {v3, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const/high16 v4, 0x1000000
+
+    invoke-virtual {v3, v4}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
+    move-result-object v3
 
     invoke-virtual {p1, v3}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 

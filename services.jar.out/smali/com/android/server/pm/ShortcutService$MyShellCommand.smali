@@ -44,11 +44,11 @@
 .end method
 
 .method private clearLauncher()V
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/pm/ShortcutService$MyShellCommand;->this$0:Lcom/android/server/pm/ShortcutService;
 
-    invoke-static {v0}, Lcom/android/server/pm/ShortcutService;->-get2(Lcom/android/server/pm/ShortcutService;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/pm/ShortcutService;->-get3(Lcom/android/server/pm/ShortcutService;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -63,11 +63,7 @@
 
     move-result-object v0
 
-    iget-object v2, p0, Lcom/android/server/pm/ShortcutService$MyShellCommand;->this$0:Lcom/android/server/pm/ShortcutService;
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v0, v2, v3}, Lcom/android/server/pm/ShortcutUser;->setLauncherComponent(Lcom/android/server/pm/ShortcutService;Landroid/content/ComponentName;)V
+    invoke-virtual {v0}, Lcom/android/server/pm/ShortcutUser;->forceClearLauncher()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -84,33 +80,62 @@
 .end method
 
 .method private handleClearDefaultLauncher()V
-    .locals 1
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/server/pm/ShortcutService$CommandException;
         }
     .end annotation
+
+    iget-object v0, p0, Lcom/android/server/pm/ShortcutService$MyShellCommand;->this$0:Lcom/android/server/pm/ShortcutService;
+
+    invoke-static {v0}, Lcom/android/server/pm/ShortcutService;->-get3(Lcom/android/server/pm/ShortcutService;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    monitor-enter v1
 
     const/4 v0, 0x1
 
-    invoke-direct {p0, v0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->parseOptions(Z)V
+    :try_start_0
+    invoke-direct {p0, v0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->parseOptionsLocked(Z)V
 
     invoke-direct {p0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->clearLauncher()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
 
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
 .method private handleClearShortcuts()V
-    .locals 4
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/server/pm/ShortcutService$CommandException;
         }
     .end annotation
 
+    iget-object v1, p0, Lcom/android/server/pm/ShortcutService$MyShellCommand;->this$0:Lcom/android/server/pm/ShortcutService;
+
+    invoke-static {v1}, Lcom/android/server/pm/ShortcutService;->-get3(Lcom/android/server/pm/ShortcutService;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    monitor-enter v2
+
     const/4 v1, 0x1
 
-    invoke-direct {p0, v1}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->parseOptions(Z)V
+    :try_start_0
+    invoke-direct {p0, v1}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->parseOptionsLocked(Z)V
 
     invoke-virtual {p0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->getNextArgRequired()Ljava/lang/String;
 
@@ -118,62 +143,97 @@
 
     const-string/jumbo v1, "ShortcutService"
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "cmd: handleClearShortcuts: "
+    const-string/jumbo v4, "cmd: handleClearShortcuts: user"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    iget v3, p0, Lcom/android/server/pm/ShortcutService$MyShellCommand;->mUserId:I
+    iget v4, p0, Lcom/android/server/pm/ShortcutService$MyShellCommand;->mUserId:I
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string/jumbo v3, ", "
+    const-string/jumbo v4, ", "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v3}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v1, p0, Lcom/android/server/pm/ShortcutService$MyShellCommand;->this$0:Lcom/android/server/pm/ShortcutService;
 
-    iget v2, p0, Lcom/android/server/pm/ShortcutService$MyShellCommand;->mUserId:I
+    iget v3, p0, Lcom/android/server/pm/ShortcutService$MyShellCommand;->mUserId:I
 
-    invoke-static {v1, v0, v2}, Lcom/android/server/pm/ShortcutService;->-wrap0(Lcom/android/server/pm/ShortcutService;Ljava/lang/String;I)V
+    const/4 v4, 0x1
+
+    invoke-static {v1, v0, v3, v4}, Lcom/android/server/pm/ShortcutService;->-wrap3(Lcom/android/server/pm/ShortcutService;Ljava/lang/String;IZ)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v2
 
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+
+    throw v1
 .end method
 
 .method private handleGetDefaultLauncher()V
-    .locals 1
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/server/pm/ShortcutService$CommandException;
         }
     .end annotation
 
+    iget-object v0, p0, Lcom/android/server/pm/ShortcutService$MyShellCommand;->this$0:Lcom/android/server/pm/ShortcutService;
+
+    invoke-static {v0}, Lcom/android/server/pm/ShortcutService;->-get3(Lcom/android/server/pm/ShortcutService;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    monitor-enter v1
+
     const/4 v0, 0x1
 
-    invoke-direct {p0, v0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->parseOptions(Z)V
+    :try_start_0
+    invoke-direct {p0, v0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->parseOptionsLocked(Z)V
+
+    invoke-direct {p0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->clearLauncher()V
 
     invoke-direct {p0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->showLauncher()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
 
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
 .method private handleOverrideConfig()V
@@ -212,7 +272,7 @@
 
     iget-object v1, p0, Lcom/android/server/pm/ShortcutService$MyShellCommand;->this$0:Lcom/android/server/pm/ShortcutService;
 
-    invoke-static {v1}, Lcom/android/server/pm/ShortcutService;->-get2(Lcom/android/server/pm/ShortcutService;)Ljava/lang/Object;
+    invoke-static {v1}, Lcom/android/server/pm/ShortcutService;->-get3(Lcom/android/server/pm/ShortcutService;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -250,25 +310,6 @@
     return-void
 .end method
 
-.method private handleRefreshDefaultLauncher()V
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Lcom/android/server/pm/ShortcutService$CommandException;
-        }
-    .end annotation
-
-    const/4 v0, 0x1
-
-    invoke-direct {p0, v0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->parseOptions(Z)V
-
-    invoke-direct {p0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->clearLauncher()V
-
-    invoke-direct {p0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->showLauncher()V
-
-    return-void
-.end method
-
 .method private handleResetAllThrottling()V
     .locals 2
 
@@ -296,7 +337,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/ShortcutService$MyShellCommand;->this$0:Lcom/android/server/pm/ShortcutService;
 
-    invoke-static {v0}, Lcom/android/server/pm/ShortcutService;->-get2(Lcom/android/server/pm/ShortcutService;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/pm/ShortcutService;->-get3(Lcom/android/server/pm/ShortcutService;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -305,7 +346,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/pm/ShortcutService$MyShellCommand;->this$0:Lcom/android/server/pm/ShortcutService;
 
-    invoke-static {v0}, Lcom/android/server/pm/ShortcutService;->-wrap5(Lcom/android/server/pm/ShortcutService;)V
+    invoke-static {v0}, Lcom/android/server/pm/ShortcutService;->-wrap9(Lcom/android/server/pm/ShortcutService;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -321,7 +362,7 @@
     throw v0
 .end method
 
-.method private handleResetPackageThrottling()V
+.method private handleResetThrottling()V
     .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -329,27 +370,34 @@
         }
     .end annotation
 
-    const/4 v1, 0x1
+    iget-object v0, p0, Lcom/android/server/pm/ShortcutService$MyShellCommand;->this$0:Lcom/android/server/pm/ShortcutService;
 
-    invoke-direct {p0, v1}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->parseOptions(Z)V
+    invoke-static {v0}, Lcom/android/server/pm/ShortcutService;->-get3(Lcom/android/server/pm/ShortcutService;)Ljava/lang/Object;
 
-    invoke-virtual {p0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->getNextArgRequired()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v0
+    monitor-enter v1
 
-    const-string/jumbo v1, "ShortcutService"
+    const/4 v0, 0x1
+
+    :try_start_0
+    invoke-direct {p0, v0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->parseOptionsLocked(Z)V
+
+    const-string/jumbo v0, "ShortcutService"
 
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "cmd: handleResetPackageThrottling: "
+    const-string/jumbo v3, "cmd: handleResetThrottling: user="
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget v3, p0, Lcom/android/server/pm/ShortcutService$MyShellCommand;->mUserId:I
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
@@ -357,90 +405,29 @@
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v1, p0, Lcom/android/server/pm/ShortcutService$MyShellCommand;->this$0:Lcom/android/server/pm/ShortcutService;
-
-    iget v2, p0, Lcom/android/server/pm/ShortcutService$MyShellCommand;->mUserId:I
-
-    invoke-virtual {v1, v0, v2}, Lcom/android/server/pm/ShortcutService;->resetPackageThrottling(Ljava/lang/String;I)V
-
-    return-void
-.end method
-
-.method private handleResetThrottling()V
-    .locals 2
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Lcom/android/server/pm/ShortcutService$CommandException;
-        }
-    .end annotation
-
-    const/4 v0, 0x1
-
-    invoke-direct {p0, v0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->parseOptions(Z)V
-
-    const-string/jumbo v0, "ShortcutService"
-
-    const-string/jumbo v1, "cmd: handleResetThrottling"
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v0, p0, Lcom/android/server/pm/ShortcutService$MyShellCommand;->this$0:Lcom/android/server/pm/ShortcutService;
 
-    iget v1, p0, Lcom/android/server/pm/ShortcutService$MyShellCommand;->mUserId:I
+    iget v2, p0, Lcom/android/server/pm/ShortcutService$MyShellCommand;->mUserId:I
 
-    invoke-virtual {v0, v1}, Lcom/android/server/pm/ShortcutService;->resetThrottlingInner(I)V
+    invoke-virtual {v0, v2}, Lcom/android/server/pm/ShortcutService;->resetThrottlingInner(I)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
 
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
 .method private handleUnloadUser()V
-    .locals 3
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Lcom/android/server/pm/ShortcutService$CommandException;
-        }
-    .end annotation
-
-    const/4 v0, 0x1
-
-    invoke-direct {p0, v0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->parseOptions(Z)V
-
-    const-string/jumbo v0, "ShortcutService"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "cmd: handleUnloadUser: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget v2, p0, Lcom/android/server/pm/ShortcutService$MyShellCommand;->mUserId:I
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v0, p0, Lcom/android/server/pm/ShortcutService$MyShellCommand;->this$0:Lcom/android/server/pm/ShortcutService;
-
-    iget v1, p0, Lcom/android/server/pm/ShortcutService$MyShellCommand;->mUserId:I
-
-    invoke-virtual {v0, v1}, Lcom/android/server/pm/ShortcutService;->handleCleanupUser(I)V
-
-    return-void
-.end method
-
-.method private parseOptions(Z)V
     .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -448,12 +435,134 @@
         }
     .end annotation
 
-    :goto_0
+    iget-object v0, p0, Lcom/android/server/pm/ShortcutService$MyShellCommand;->this$0:Lcom/android/server/pm/ShortcutService;
+
+    invoke-static {v0}, Lcom/android/server/pm/ShortcutService;->-get3(Lcom/android/server/pm/ShortcutService;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    monitor-enter v1
+
+    const/4 v0, 0x1
+
+    :try_start_0
+    invoke-direct {p0, v0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->parseOptionsLocked(Z)V
+
+    const-string/jumbo v0, "ShortcutService"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "cmd: handleUnloadUser: user="
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget v3, p0, Lcom/android/server/pm/ShortcutService$MyShellCommand;->mUserId:I
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v0, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/android/server/pm/ShortcutService$MyShellCommand;->this$0:Lcom/android/server/pm/ShortcutService;
+
+    iget v2, p0, Lcom/android/server/pm/ShortcutService$MyShellCommand;->mUserId:I
+
+    invoke-virtual {v0, v2}, Lcom/android/server/pm/ShortcutService;->handleStopUser(I)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
+.end method
+
+.method private handleVerifyStates()V
+    .locals 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/android/server/pm/ShortcutService$CommandException;
+        }
+    .end annotation
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/pm/ShortcutService$MyShellCommand;->this$0:Lcom/android/server/pm/ShortcutService;
+
+    invoke-static {v1}, Lcom/android/server/pm/ShortcutService;->-wrap10(Lcom/android/server/pm/ShortcutService;)V
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    new-instance v1, Lcom/android/server/pm/ShortcutService$CommandException;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "\n"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-static {v0}, Landroid/util/Log;->getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Lcom/android/server/pm/ShortcutService$CommandException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+.end method
+
+.method private parseOptionsLocked(Z)V
+    .locals 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/android/server/pm/ShortcutService$CommandException;
+        }
+    .end annotation
+
+    :cond_0
     invoke-virtual {p0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->getNextOption()Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     const-string/jumbo v1, "--user"
 
@@ -461,9 +570,9 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
     invoke-virtual {p0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->getNextArgRequired()Ljava/lang/String;
 
@@ -475,9 +584,49 @@
 
     iput v1, p0, Lcom/android/server/pm/ShortcutService$MyShellCommand;->mUserId:I
 
-    goto :goto_0
+    iget-object v1, p0, Lcom/android/server/pm/ShortcutService$MyShellCommand;->this$0:Lcom/android/server/pm/ShortcutService;
 
-    :cond_0
+    iget v2, p0, Lcom/android/server/pm/ShortcutService$MyShellCommand;->mUserId:I
+
+    invoke-virtual {v1, v2}, Lcom/android/server/pm/ShortcutService;->isUserUnlockedL(I)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    new-instance v1, Lcom/android/server/pm/ShortcutService$CommandException;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "User "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget v3, p0, Lcom/android/server/pm/ShortcutService$MyShellCommand;->mUserId:I
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " is not running or locked"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Lcom/android/server/pm/ShortcutService$CommandException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    :cond_1
     new-instance v1, Lcom/android/server/pm/ShortcutService$CommandException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -502,7 +651,7 @@
 
     throw v1
 
-    :cond_1
+    :cond_2
     return-void
 .end method
 
@@ -511,7 +660,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/ShortcutService$MyShellCommand;->this$0:Lcom/android/server/pm/ShortcutService;
 
-    invoke-static {v0}, Lcom/android/server/pm/ShortcutService;->-get2(Lcom/android/server/pm/ShortcutService;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/pm/ShortcutService;->-get3(Lcom/android/server/pm/ShortcutService;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -548,7 +697,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v3}, Lcom/android/server/pm/ShortcutUser;->getLauncherComponent()Landroid/content/ComponentName;
+    invoke-virtual {v3}, Lcom/android/server/pm/ShortcutUser;->getLastKnownLauncher()Landroid/content/ComponentName;
 
     move-result-object v3
 
@@ -595,7 +744,7 @@
     move-result-object v1
 
     :try_start_0
-    const-string/jumbo v2, "reset-package-throttling"
+    const-string/jumbo v2, "reset-throttling"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -603,7 +752,7 @@
 
     if-eqz v2, :cond_1
 
-    invoke-direct {p0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->handleResetPackageThrottling()V
+    invoke-direct {p0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->handleResetThrottling()V
     :try_end_0
     .catch Lcom/android/server/pm/ShortcutService$CommandException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -618,7 +767,7 @@
 
     :cond_1
     :try_start_1
-    const-string/jumbo v2, "reset-throttling"
+    const-string/jumbo v2, "reset-all-throttling"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -626,7 +775,7 @@
 
     if-eqz v2, :cond_2
 
-    invoke-direct {p0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->handleResetThrottling()V
+    invoke-direct {p0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->handleResetAllThrottling()V
     :try_end_1
     .catch Lcom/android/server/pm/ShortcutService$CommandException; {:try_start_1 .. :try_end_1} :catch_0
 
@@ -665,7 +814,7 @@
 
     :cond_2
     :try_start_2
-    const-string/jumbo v2, "reset-all-throttling"
+    const-string/jumbo v2, "override-config"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -673,12 +822,12 @@
 
     if-eqz v2, :cond_3
 
-    invoke-direct {p0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->handleResetAllThrottling()V
+    invoke-direct {p0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->handleOverrideConfig()V
 
     goto :goto_0
 
     :cond_3
-    const-string/jumbo v2, "override-config"
+    const-string/jumbo v2, "reset-config"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -686,12 +835,12 @@
 
     if-eqz v2, :cond_4
 
-    invoke-direct {p0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->handleOverrideConfig()V
+    invoke-direct {p0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->handleResetConfig()V
 
     goto :goto_0
 
     :cond_4
-    const-string/jumbo v2, "reset-config"
+    const-string/jumbo v2, "clear-default-launcher"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -699,12 +848,12 @@
 
     if-eqz v2, :cond_5
 
-    invoke-direct {p0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->handleResetConfig()V
+    invoke-direct {p0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->handleClearDefaultLauncher()V
 
     goto :goto_0
 
     :cond_5
-    const-string/jumbo v2, "clear-default-launcher"
+    const-string/jumbo v2, "get-default-launcher"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -712,12 +861,12 @@
 
     if-eqz v2, :cond_6
 
-    invoke-direct {p0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->handleClearDefaultLauncher()V
+    invoke-direct {p0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->handleGetDefaultLauncher()V
 
     goto :goto_0
 
     :cond_6
-    const-string/jumbo v2, "get-default-launcher"
+    const-string/jumbo v2, "unload-user"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -725,12 +874,12 @@
 
     if-eqz v2, :cond_7
 
-    invoke-direct {p0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->handleGetDefaultLauncher()V
+    invoke-direct {p0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->handleUnloadUser()V
 
     goto :goto_0
 
     :cond_7
-    const-string/jumbo v2, "refresh-default-launcher"
+    const-string/jumbo v2, "clear-shortcuts"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -738,12 +887,12 @@
 
     if-eqz v2, :cond_8
 
-    invoke-direct {p0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->handleRefreshDefaultLauncher()V
+    invoke-direct {p0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->handleClearShortcuts()V
 
     goto :goto_0
 
     :cond_8
-    const-string/jumbo v2, "unload-user"
+    const-string/jumbo v2, "verify-states"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -751,24 +900,11 @@
 
     if-eqz v2, :cond_9
 
-    invoke-direct {p0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->handleUnloadUser()V
+    invoke-direct {p0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->handleVerifyStates()V
 
     goto/16 :goto_0
 
     :cond_9
-    const-string/jumbo v2, "clear-shortcuts"
-
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_a
-
-    invoke-direct {p0}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->handleClearShortcuts()V
-
-    goto/16 :goto_0
-
-    :cond_a
     invoke-virtual {p0, p1}, Lcom/android/server/pm/ShortcutService$MyShellCommand;->handleDefaultCommands(Ljava/lang/String;)I
     :try_end_2
     .catch Lcom/android/server/pm/ShortcutService$CommandException; {:try_start_2 .. :try_end_2} :catch_0
@@ -786,16 +922,6 @@
     move-result-object v0
 
     const-string/jumbo v1, "Usage: cmd shortcut COMMAND [options ...]"
-
-    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    invoke-virtual {v0}, Ljava/io/PrintWriter;->println()V
-
-    const-string/jumbo v1, "cmd shortcut reset-package-throttling [--user USER_ID] PACKAGE"
-
-    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    const-string/jumbo v1, "    Reset throttling for a package"
 
     invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
@@ -855,17 +981,7 @@
 
     invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    const-string/jumbo v1, "    Show the cached default launcher"
-
-    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    invoke-virtual {v0}, Ljava/io/PrintWriter;->println()V
-
-    const-string/jumbo v1, "cmd shortcut refresh-default-launcher [--user USER_ID]"
-
-    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    const-string/jumbo v1, "    Refresh the cached default launcher"
+    const-string/jumbo v1, "    Show the default launcher"
 
     invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 

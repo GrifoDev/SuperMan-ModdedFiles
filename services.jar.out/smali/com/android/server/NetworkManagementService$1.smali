@@ -1,11 +1,14 @@
 .class Lcom/android/server/NetworkManagementService$1;
-.super Landroid/content/BroadcastReceiver;
+.super Ljava/lang/Object;
 .source "NetworkManagementService.java"
+
+# interfaces
+.implements Ljava/lang/Runnable;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/server/NetworkManagementService;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/server/NetworkManagementService;->enableStrict()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,147 +27,69 @@
 
     iput-object p1, p0, Lcom/android/server/NetworkManagementService$1;->this$0:Lcom/android/server/NetworkManagementService;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 7
+.method public run()V
+    .locals 6
 
-    const/4 v4, 0x0
-
-    const/4 v1, 0x0
-
-    if-eqz p2, :cond_0
-
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "org.codeaurora.restrictData"
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    const-string/jumbo v2, "Restrict"
-
-    invoke-virtual {p2, v2, v4}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
-
-    move-result v1
-
-    const-string/jumbo v2, "ZeroBalance"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "Intent value to block unblock data"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    iget-object v2, p0, Lcom/android/server/NetworkManagementService$1;->this$0:Lcom/android/server/NetworkManagementService;
-
-    invoke-static {v2}, Lcom/android/server/NetworkManagementService;->-get4(Lcom/android/server/NetworkManagementService;)Landroid/content/Context;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "android.permission.CONNECTIVITY_INTERNAL"
-
-    const-string/jumbo v4, "NetworkManagement"
-
-    invoke-virtual {v2, v3, v4}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v2, p0, Lcom/android/server/NetworkManagementService$1;->this$0:Lcom/android/server/NetworkManagementService;
-
-    invoke-static {v2}, Lcom/android/server/NetworkManagementService;->-get1(Lcom/android/server/NetworkManagementService;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_1
-
-    return-void
-
-    :cond_1
     :try_start_0
-    const-string/jumbo v2, "ZeroBalance"
+    iget-object v1, p0, Lcom/android/server/NetworkManagementService$1;->this$0:Lcom/android/server/NetworkManagementService;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-static {v1}, Lcom/android/server/NetworkManagementService;->-get3(Lcom/android/server/NetworkManagementService;)Lcom/android/server/NativeDaemonConnector;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v1
 
-    const-string/jumbo v4, "before calling connector Intentvalue to block unblock data"
+    const-string/jumbo v2, "strict"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/4 v3, 0x1
 
-    move-result-object v3
+    new-array v3, v3, [Ljava/lang/Object;
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    const-string/jumbo v4, "enable"
 
-    move-result-object v3
+    const/4 v5, 0x0
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    aput-object v4, v3, v5
 
-    move-result-object v3
+    invoke-virtual {v1, v2, v3}, Lcom/android/server/NativeDaemonConnector;->execute(Ljava/lang/String;[Ljava/lang/Object;)Lcom/android/server/NativeDaemonEvent;
 
-    invoke-static {v2, v3}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v2, p0, Lcom/android/server/NetworkManagementService$1;->this$0:Lcom/android/server/NetworkManagementService;
-
-    invoke-static {v2}, Lcom/android/server/NetworkManagementService;->-get3(Lcom/android/server/NetworkManagementService;)Lcom/android/server/NativeDaemonConnector;
-
-    move-result-object v3
-
-    const-string/jumbo v4, "bandwidth"
+    iget-object v1, p0, Lcom/android/server/NetworkManagementService$1;->this$0:Lcom/android/server/NetworkManagementService;
 
     const/4 v2, 0x1
 
-    new-array v5, v2, [Ljava/lang/Object;
-
-    if-eqz v1, :cond_2
-
-    const-string/jumbo v2, "blockAllData"
-
-    :goto_0
-    const/4 v6, 0x0
-
-    aput-object v2, v5, v6
-
-    invoke-virtual {v3, v4, v5}, Lcom/android/server/NativeDaemonConnector;->execute(Ljava/lang/String;[Ljava/lang/Object;)Lcom/android/server/NativeDaemonEvent;
-
-    return-void
-
-    :cond_2
-    const-string/jumbo v2, "unblockAllData"
+    invoke-static {v1, v2}, Lcom/android/server/NetworkManagementService;->-set3(Lcom/android/server/NetworkManagementService;Z)Z
     :try_end_0
     .catch Lcom/android/server/NativeDaemonConnectorException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    :goto_0
+    invoke-static {}, Lcom/android/server/NetworkManagementService;->-get0()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const-string/jumbo v1, "NetworkManagement"
+
+    const-string/jumbo v2, "finish strict enable"
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    return-void
 
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Lcom/android/server/NativeDaemonConnectorException;->rethrowAsParcelableException()Ljava/lang/IllegalArgumentException;
+    const-string/jumbo v1, "NetworkManagement"
 
-    move-result-object v2
+    const-string/jumbo v2, "Failed strict enable"
 
-    throw v2
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
 .end method

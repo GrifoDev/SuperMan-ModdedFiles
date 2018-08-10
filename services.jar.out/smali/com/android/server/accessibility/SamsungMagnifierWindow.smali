@@ -11,15 +11,48 @@
     value = {
         Lcom/android/server/accessibility/SamsungMagnifierWindow$1;,
         Lcom/android/server/accessibility/SamsungMagnifierWindow$2;,
-        Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+        Lcom/android/server/accessibility/SamsungMagnifierWindow$DetectingStateHandler;,
+        Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifiedContentInteractionStateHandler;,
+        Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;,
+        Lcom/android/server/accessibility/SamsungMagnifierWindow$MotionEventHandler;,
+        Lcom/android/server/accessibility/SamsungMagnifierWindow$MotionEventInfo;,
+        Lcom/android/server/accessibility/SamsungMagnifierWindow$StateViewportDraggingHandler;
     }
 .end annotation
 
 
 # static fields
+.field private static final DEBUG_DETECTING:Z = true
+
+.field private static final DEBUG_PANNING:Z = false
+
+.field private static final DEBUG_STATE_TRANSITIONS:Z = true
+
+.field private static final DEBUG_WINDOW_POLICY:Z = false
+
 .field private static final LOG_TAG:Ljava/lang/String;
 
+.field private static final MAX_SCALE:F = 8.0f
+
+.field private static final MIN_SCALE:F = 1.0f
+
 .field private static final MY_PID:I
+
+.field private static final STATE_DELEGATING:I = 0x1
+
+.field private static final STATE_DETECTING:I = 0x2
+
+.field private static final STATE_MAGNIFIED_INTERACTION:I = 0x4
+
+.field private static final STATE_VIEWPORT_DRAGGING:I = 0x3
+
+.field private static final WINDOW_SIZE_COUNT_MAX:I = 0x3
+
+.field private static final WINDOW_SIZE_LARGE:I = 0x2
+
+.field private static final WINDOW_SIZE_MEDIUM:I = 0x1
+
+.field private static final WINDOW_SIZE_SMALL:I
 
 
 # instance fields
@@ -27,21 +60,47 @@
 
 .field private final ADD_BORDER_BOUNDAY_SIZE:I
 
+.field private final HORIZONTAL_FOCUS_LOCK_DEGREE:I
+
 .field private final mAms:Lcom/android/server/accessibility/AccessibilityManagerService;
 
 .field private final mConfigurationChangedReceiver:Landroid/content/BroadcastReceiver;
 
 .field private final mContext:Landroid/content/Context;
 
+.field private mCurrentState:I
+
+.field private mDelegatingStateDownTime:J
+
+.field private final mDetectingStateHandler:Lcom/android/server/accessibility/SamsungMagnifierWindow$MotionEventHandler;
+
 .field private final mDisplayManager:Landroid/hardware/display/IDisplayManager;
+
+.field private mIsHorizontalFocusLock:I
 
 .field private mIsShowSamsungMagnifierWindow:Z
 
 .field private final mMagnificationSettingsObserver:Landroid/database/ContentObserver;
 
+.field private final mMagnifiedContentInteractionStateHandler:Lcom/android/server/accessibility/SamsungMagnifierWindow$MotionEventHandler;
+
 .field private mNext:Lcom/android/server/accessibility/EventStreamTransformation;
 
 .field private mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+
+.field private mPreviousState:I
+
+.field private final mStateViewportDraggingHandler:Lcom/android/server/accessibility/SamsungMagnifierWindow$MotionEventHandler;
+
+.field private mTempPointerCoords:[Landroid/view/MotionEvent$PointerCoords;
+
+.field private mTempPointerProperties:[Landroid/view/MotionEvent$PointerProperties;
+
+.field private mTranslationEnabledBeforePan:Z
+
+.field private originalOffsetX:F
+
+.field private originalOffsetY:F
 
 
 # direct methods
@@ -61,12 +120,52 @@
     return-object v0
 .end method
 
-.method static synthetic -get2(Lcom/android/server/accessibility/SamsungMagnifierWindow;)Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+.method static synthetic -get2(Lcom/android/server/accessibility/SamsungMagnifierWindow;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mCurrentState:I
+
+    return v0
+.end method
+
+.method static synthetic -get3(Lcom/android/server/accessibility/SamsungMagnifierWindow;)Lcom/android/server/accessibility/EventStreamTransformation;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mNext:Lcom/android/server/accessibility/EventStreamTransformation;
+
+    return-object v0
+.end method
+
+.method static synthetic -get4(Lcom/android/server/accessibility/SamsungMagnifierWindow;)Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
 
     return-object v0
+.end method
+
+.method static synthetic -get5(Lcom/android/server/accessibility/SamsungMagnifierWindow;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPreviousState:I
+
+    return v0
+.end method
+
+.method static synthetic -get6(Lcom/android/server/accessibility/SamsungMagnifierWindow;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mTranslationEnabledBeforePan:Z
+
+    return v0
+.end method
+
+.method static synthetic -set0(Lcom/android/server/accessibility/SamsungMagnifierWindow;I)I
+    .locals 0
+
+    iput p1, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mIsHorizontalFocusLock:I
+
+    return p1
 .end method
 
 .method static synthetic -wrap0(Lcom/android/server/accessibility/SamsungMagnifierWindow;)V
@@ -77,10 +176,34 @@
     return-void
 .end method
 
-.method static synthetic -wrap1(Lcom/android/server/accessibility/SamsungMagnifierWindow;Z)V
+.method static synthetic -wrap1(Lcom/android/server/accessibility/SamsungMagnifierWindow;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/server/accessibility/SamsungMagnifierWindow;->hideMagnifier()V
+
+    return-void
+.end method
+
+.method static synthetic -wrap2(Lcom/android/server/accessibility/SamsungMagnifierWindow;Landroid/view/MotionEvent;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/accessibility/SamsungMagnifierWindow;->moveWindow(Landroid/view/MotionEvent;)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap3(Lcom/android/server/accessibility/SamsungMagnifierWindow;Z)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/accessibility/SamsungMagnifierWindow;->setMagnificationSettings(Z)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap4(Lcom/android/server/accessibility/SamsungMagnifierWindow;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/accessibility/SamsungMagnifierWindow;->transitionToState(I)V
 
     return-void
 .end method
@@ -110,6 +233,8 @@
 
     const/4 v4, 0x1
 
+    const/4 v3, 0x0
+
     const/4 v5, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -121,6 +246,16 @@
     const/16 v2, 0xa
 
     iput v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->ADD_BORDER_BOUNDAY_MOVE_SIZE:I
+
+    const/16 v2, 0x32
+
+    iput v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->HORIZONTAL_FOCUS_LOCK_DEGREE:I
+
+    iput v5, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mIsHorizontalFocusLock:I
+
+    iput v3, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->originalOffsetX:F
+
+    iput v3, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->originalOffsetY:F
 
     new-instance v2, Lcom/android/server/accessibility/SamsungMagnifierWindow$1;
 
@@ -178,6 +313,22 @@
 
     move-result-object v2
 
+    const-string/jumbo v3, "magnifier_window_horizontal_focus_lock"
+
+    const/4 v4, -0x2
+
+    invoke-static {v2, v3, v5, v4}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+
+    move-result v2
+
+    iput v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mIsHorizontalFocusLock:I
+
+    iget-object v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
     const-string/jumbo v3, "hover_zoom_magnifier_size"
 
     invoke-static {v3}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
@@ -204,6 +355,22 @@
 
     invoke-virtual {v2, v3, v5, v4}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
+    iget-object v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "magnifier_window_horizontal_focus_lock"
+
+    invoke-static {v3}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mMagnificationSettingsObserver:Landroid/database/ContentObserver;
+
+    invoke-virtual {v2, v3, v5, v4}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
     new-instance v1, Landroid/content/IntentFilter;
 
     invoke-direct {v1}, Landroid/content/IntentFilter;-><init>()V
@@ -217,6 +384,30 @@
     iget-object v3, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mConfigurationChangedReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v2, v3, v1}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+
+    new-instance v2, Lcom/android/server/accessibility/SamsungMagnifierWindow$DetectingStateHandler;
+
+    invoke-direct {v2, p0, p1}, Lcom/android/server/accessibility/SamsungMagnifierWindow$DetectingStateHandler;-><init>(Lcom/android/server/accessibility/SamsungMagnifierWindow;Landroid/content/Context;)V
+
+    iput-object v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mDetectingStateHandler:Lcom/android/server/accessibility/SamsungMagnifierWindow$MotionEventHandler;
+
+    new-instance v2, Lcom/android/server/accessibility/SamsungMagnifierWindow$StateViewportDraggingHandler;
+
+    const/4 v3, 0x0
+
+    invoke-direct {v2, p0, v3}, Lcom/android/server/accessibility/SamsungMagnifierWindow$StateViewportDraggingHandler;-><init>(Lcom/android/server/accessibility/SamsungMagnifierWindow;Lcom/android/server/accessibility/SamsungMagnifierWindow$StateViewportDraggingHandler;)V
+
+    iput-object v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mStateViewportDraggingHandler:Lcom/android/server/accessibility/SamsungMagnifierWindow$MotionEventHandler;
+
+    new-instance v2, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifiedContentInteractionStateHandler;
+
+    invoke-direct {v2, p0, p1}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifiedContentInteractionStateHandler;-><init>(Lcom/android/server/accessibility/SamsungMagnifierWindow;Landroid/content/Context;)V
+
+    iput-object v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mMagnifiedContentInteractionStateHandler:Lcom/android/server/accessibility/SamsungMagnifierWindow$MotionEventHandler;
+
+    const/4 v2, 0x2
+
+    invoke-direct {p0, v2}, Lcom/android/server/accessibility/SamsungMagnifierWindow;->transitionToState(I)V
 
     return-void
 
@@ -270,6 +461,562 @@
     invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
     goto :goto_0
+.end method
+
+.method private dispatchTransformedEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+
+    invoke-virtual {v0, p1}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->isOnMagnifierWindowWithQuickOption(Landroid/view/MotionEvent;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+
+    invoke-virtual {v0}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->isMovingMode()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/server/accessibility/SamsungMagnifierWindow;->isShowWindow()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/accessibility/SamsungMagnifierWindow;->handleMotionEventOnMagnifierWindow(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
+
+    return-void
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mNext:Lcom/android/server/accessibility/EventStreamTransformation;
+
+    invoke-interface {v0, p1, p2, p3}, Lcom/android/server/accessibility/EventStreamTransformation;->onMotionEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
+
+    return-void
+.end method
+
+.method private handleMotionEventOnMagnifierWindow(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
+    .locals 7
+
+    const/4 v6, 0x1
+
+    const/4 v5, -0x2
+
+    const/4 v4, 0x0
+
+    const/high16 v3, -0x40800000    # -1.0f
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
+
+    move-result v2
+
+    packed-switch v2, :pswitch_data_0
+
+    :cond_0
+    :goto_0
+    :pswitch_0
+    return-void
+
+    :pswitch_1
+    iget-object v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+
+    invoke-virtual {v2, v4, v3, v3}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->setMovingMode(ZFF)V
+
+    iget-object v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+
+    invoke-virtual {v2, p1}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->isOnCloseBtn(Landroid/view/MotionEvent;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    sget-object v2, Lcom/android/server/accessibility/SamsungMagnifierWindow;->LOG_TAG:Ljava/lang/String;
+
+    const-string/jumbo v3, "onMotionEvent: isOnCloseBtn"
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+
+    invoke-virtual {v2, v6}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->setCloseMode(Z)V
+
+    goto :goto_0
+
+    :cond_1
+    iget-object v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+
+    invoke-virtual {v2, p1}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->isOnWindowSizeBtn(Landroid/view/MotionEvent;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    iget-object v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "hover_zoom_magnifier_size"
+
+    invoke-static {v2, v3, v4, v5}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+
+    move-result v1
+
+    add-int/lit8 v0, v1, 0x1
+
+    const/4 v2, 0x3
+
+    if-lt v0, v2, :cond_2
+
+    const/4 v0, 0x0
+
+    :cond_2
+    iget-object v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "hover_zoom_magnifier_size"
+
+    invoke-static {v2, v3, v0, v5}, Landroid/provider/Settings$System;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
+
+    goto :goto_0
+
+    :cond_3
+    iget-object v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+
+    invoke-virtual {v2, p1}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->isOnHorizontalLockBtn(Landroid/view/MotionEvent;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_4
+
+    iget v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mIsHorizontalFocusLock:I
+
+    rsub-int/lit8 v2, v2, 0x1
+
+    iput v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mIsHorizontalFocusLock:I
+
+    iget-object v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "magnifier_offset_X"
+
+    iget-object v4, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+
+    invoke-virtual {v4}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->getMagnificationSpec()Landroid/view/MagnificationSpec;
+
+    move-result-object v4
+
+    iget v4, v4, Landroid/view/MagnificationSpec;->offsetX:F
+
+    invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->putFloat(Landroid/content/ContentResolver;Ljava/lang/String;F)Z
+
+    iget-object v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "magnifier_offset_Y"
+
+    iget-object v4, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+
+    invoke-virtual {v4}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->getMagnificationSpec()Landroid/view/MagnificationSpec;
+
+    move-result-object v4
+
+    iget v4, v4, Landroid/view/MagnificationSpec;->offsetY:F
+
+    invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->putFloat(Landroid/content/ContentResolver;Ljava/lang/String;F)Z
+
+    iget-object v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "magnifier_window_horizontal_focus_lock"
+
+    iget v4, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mIsHorizontalFocusLock:I
+
+    invoke-static {v2, v3, v4, v5}, Landroid/provider/Settings$System;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
+
+    goto/16 :goto_0
+
+    :cond_4
+    iget-object v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+
+    invoke-virtual {v2, p1}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->isOnHandle(Landroid/view/MotionEvent;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_5
+
+    iget-object v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+
+    invoke-virtual {v2, p1}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->isOnUpperSide(Landroid/view/MotionEvent;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_5
+
+    iget-object v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+
+    invoke-virtual {v2, p1}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->isOnLowerSide(Landroid/view/MotionEvent;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_6
+
+    :cond_5
+    sget-object v2, Lcom/android/server/accessibility/SamsungMagnifierWindow;->LOG_TAG:Ljava/lang/String;
+
+    const-string/jumbo v3, "onMotionEvent: For moving"
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawX()F
+
+    move-result v3
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawY()F
+
+    move-result v4
+
+    invoke-virtual {v2, v6, v3, v4}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->setMovingMode(ZFF)V
+
+    return-void
+
+    :cond_6
+    iget-object v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+
+    invoke-virtual {v2, p1}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->isOnMagnifierWindowWithoutBorder(Landroid/view/MotionEvent;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_7
+
+    iget-object v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+
+    invoke-virtual {v2, p1}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->isOnMagnifierWindow(Landroid/view/MotionEvent;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    :cond_7
+    sget-object v2, Lcom/android/server/accessibility/SamsungMagnifierWindow;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "onMotionEvent: isOnMagnifierWindowWithoutBorder "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/accessibility/SamsungMagnifierWindow;->sendComputedMotionEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
+
+    return-void
+
+    :pswitch_2
+    iget-object v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+
+    invoke-virtual {v2}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->isCloseMode()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_8
+
+    return-void
+
+    :cond_8
+    iget-object v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+
+    invoke-virtual {v2}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->isMovingMode()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_9
+
+    invoke-direct {p0, p1}, Lcom/android/server/accessibility/SamsungMagnifierWindow;->moveWindow(Landroid/view/MotionEvent;)V
+
+    return-void
+
+    :cond_9
+    iget-object v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+
+    invoke-virtual {v2, p1}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->isOnMagnifierWindowWithQuickOption(Landroid/view/MotionEvent;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    sget-object v2, Lcom/android/server/accessibility/SamsungMagnifierWindow;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "onMotionEvent: isOnMagnifierWindowWithQuickOption "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/accessibility/SamsungMagnifierWindow;->sendComputedMotionEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
+
+    return-void
+
+    :pswitch_3
+    iget-object v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+
+    invoke-virtual {v2}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->isCloseMode()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_b
+
+    iget-object v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+
+    invoke-virtual {v2, v4}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->setCloseMode(Z)V
+
+    iget-object v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+
+    invoke-virtual {v2, p1}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->isOnCloseBtn(Landroid/view/MotionEvent;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_a
+
+    invoke-direct {p0}, Lcom/android/server/accessibility/SamsungMagnifierWindow;->stopMagnifier()V
+
+    :cond_a
+    return-void
+
+    :cond_b
+    iget-object v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+
+    invoke-virtual {v2}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->isMovingMode()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_c
+
+    iget-object v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+
+    invoke-virtual {v2, v4, v3, v3}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->setMovingMode(ZFF)V
+
+    return-void
+
+    :cond_c
+    iget-object v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+
+    invoke-virtual {v2, p1}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->isOnMagnifierWindowWithQuickOption(Landroid/view/MotionEvent;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    sget-object v2, Lcom/android/server/accessibility/SamsungMagnifierWindow;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "onMotionEvent: isOnMagnifierWindowWithQuickOption "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/accessibility/SamsungMagnifierWindow;->sendComputedMotionEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
+
+    return-void
+
+    :pswitch_4
+    iget-object v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+
+    invoke-virtual {v2}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->isMovingMode()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_d
+
+    return-void
+
+    :cond_d
+    iget-object v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+
+    invoke-virtual {v2, p1}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->isOnMagnifierWindowWithoutBorder(Landroid/view/MotionEvent;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    sget-object v2, Lcom/android/server/accessibility/SamsungMagnifierWindow;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "onMotionEvent: isOnMagnifierWindowWithoutBorder "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/accessibility/SamsungMagnifierWindow;->sendComputedMotionEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
+
+    return-void
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_1
+        :pswitch_3
+        :pswitch_2
+        :pswitch_0
+        :pswitch_0
+        :pswitch_4
+        :pswitch_4
+    .end packed-switch
+.end method
+
+.method private handleMotionEventStateDelegating(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
+    .locals 2
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
+
+    move-result v0
+
+    packed-switch v0, :pswitch_data_0
+
+    :cond_0
+    :goto_0
+    iget-object v0, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mNext:Lcom/android/server/accessibility/EventStreamTransformation;
+
+    if-eqz v0, :cond_1
+
+    iget-wide v0, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mDelegatingStateDownTime:J
+
+    invoke-virtual {p1, v0, v1}, Landroid/view/MotionEvent;->setDownTime(J)V
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/accessibility/SamsungMagnifierWindow;->dispatchTransformedEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
+
+    :cond_1
+    return-void
+
+    :pswitch_0
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getDownTime()J
+
+    move-result-wide v0
+
+    iput-wide v0, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mDelegatingStateDownTime:J
+
+    goto :goto_0
+
+    :pswitch_1
+    iget-object v0, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mDetectingStateHandler:Lcom/android/server/accessibility/SamsungMagnifierWindow$MotionEventHandler;
+
+    instance-of v0, v0, Lcom/android/server/accessibility/SamsungMagnifierWindow$DetectingStateHandler;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mDetectingStateHandler:Lcom/android/server/accessibility/SamsungMagnifierWindow$MotionEventHandler;
+
+    check-cast v0, Lcom/android/server/accessibility/SamsungMagnifierWindow$DetectingStateHandler;
+
+    invoke-static {v0}, Lcom/android/server/accessibility/SamsungMagnifierWindow$DetectingStateHandler;->-get0(Lcom/android/server/accessibility/SamsungMagnifierWindow$DetectingStateHandler;)Lcom/android/server/accessibility/SamsungMagnifierWindow$MotionEventInfo;
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x2
+
+    invoke-direct {p0, v0}, Lcom/android/server/accessibility/SamsungMagnifierWindow;->transitionToState(I)V
+
+    goto :goto_0
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+        :pswitch_1
+    .end packed-switch
 .end method
 
 .method private hideMagnifier()V
@@ -383,35 +1130,16 @@
     goto :goto_0
 .end method
 
-.method private moveWindow(Landroid/view/MotionEvent;)V
-    .locals 11
+.method private moveWindow(FF)V
+    .locals 13
 
-    const/high16 v10, 0x41f00000    # 30.0f
+    const/high16 v12, 0x41f00000    # 30.0f
 
-    const/high16 v9, -0x40800000    # -1.0f
+    const/high16 v11, -0x40800000    # -1.0f
 
-    const/4 v8, 0x0
+    const/4 v10, 0x1
 
-    iget-object v6, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
-
-    invoke-virtual {v6}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->getMovingStartedX()F
-
-    move-result v6
-
-    cmpg-float v6, v6, v8
-
-    if-gez v6, :cond_0
-
-    iget-object v6, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
-
-    const/4 v7, 0x0
-
-    invoke-virtual {v6, v7, v9, v9}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->setMovingMode(ZFF)V
-
-    :cond_0
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawX()F
-
-    move-result v6
+    const/4 v9, 0x0
 
     iget-object v7, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
 
@@ -419,11 +1147,24 @@
 
     move-result v7
 
-    sub-float v1, v6, v7
+    cmpg-float v7, v7, v9
 
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawY()F
+    if-gez v7, :cond_0
 
-    move-result v6
+    iget-object v7, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+
+    const/4 v8, 0x0
+
+    invoke-virtual {v7, v8, v11, v11}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->setMovingMode(ZFF)V
+
+    :cond_0
+    iget-object v7, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+
+    invoke-virtual {v7}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->getMovingStartedX()F
+
+    move-result v7
+
+    sub-float v2, p1, v7
 
     iget-object v7, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
 
@@ -431,157 +1172,111 @@
 
     move-result v7
 
-    sub-float v2, v6, v7
+    sub-float v3, p2, v7
 
-    new-instance v0, Landroid/util/DisplayMetrics;
+    new-instance v1, Landroid/util/DisplayMetrics;
 
-    invoke-direct {v0}, Landroid/util/DisplayMetrics;-><init>()V
+    invoke-direct {v1}, Landroid/util/DisplayMetrics;-><init>()V
 
-    iget-object v6, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mContext:Landroid/content/Context;
+    iget-object v7, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v7, "window"
+    const-string/jumbo v8, "window"
 
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/view/WindowManager;
-
-    invoke-interface {v5}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
+    invoke-virtual {v7, v8}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v6
 
-    invoke-virtual {v6, v0}, Landroid/view/Display;->getMetrics(Landroid/util/DisplayMetrics;)V
+    check-cast v6, Landroid/view/WindowManager;
 
-    iget v3, v0, Landroid/util/DisplayMetrics;->heightPixels:I
+    invoke-interface {v6}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
 
-    iget v4, v0, Landroid/util/DisplayMetrics;->widthPixels:I
+    move-result-object v7
 
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawY()F
+    invoke-virtual {v7, v1}, Landroid/view/Display;->getMetrics(Landroid/util/DisplayMetrics;)V
 
-    move-result v6
+    iget v4, v1, Landroid/util/DisplayMetrics;->heightPixels:I
 
-    add-int/lit8 v7, v3, -0x1e
+    iget v5, v1, Landroid/util/DisplayMetrics;->widthPixels:I
 
-    int-to-float v7, v7
+    iget v7, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mIsHorizontalFocusLock:I
 
-    cmpl-float v6, v6, v7
+    if-ne v7, v10, :cond_1
 
-    if-lez v6, :cond_1
+    invoke-static {v2}, Ljava/lang/Math;->abs(F)F
 
-    cmpl-float v6, v2, v8
+    move-result v7
 
-    if-ltz v6, :cond_1
+    invoke-static {v3}, Ljava/lang/Math;->abs(F)F
 
-    const/high16 v2, 0x41200000    # 10.0f
+    move-result v8
+
+    invoke-direct {p0, v7, v8}, Lcom/android/server/accessibility/SamsungMagnifierWindow;->selectDirectionForMove(FF)I
+
+    move-result v0
+
+    if-ne v0, v10, :cond_6
+
+    const/4 v3, 0x0
 
     :cond_1
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawY()F
-
-    move-result v6
-
-    cmpg-float v6, v6, v10
-
-    if-gez v6, :cond_2
-
-    cmpg-float v6, v2, v8
-
-    if-gtz v6, :cond_2
-
-    const/high16 v2, -0x3ee00000    # -10.0f
-
-    :cond_2
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawX()F
-
-    move-result v6
-
+    :goto_0
     add-int/lit8 v7, v4, -0x1e
 
     int-to-float v7, v7
 
-    cmpl-float v6, v6, v7
+    cmpl-float v7, p2, v7
 
-    if-lez v6, :cond_3
+    if-lez v7, :cond_2
 
-    cmpl-float v6, v1, v8
+    cmpl-float v7, v3, v9
 
-    if-ltz v6, :cond_3
+    if-ltz v7, :cond_2
 
-    const/high16 v1, 0x41200000    # 10.0f
+    const/high16 v3, 0x41200000    # 10.0f
+
+    :cond_2
+    cmpg-float v7, p2, v12
+
+    if-gez v7, :cond_3
+
+    cmpg-float v7, v3, v9
+
+    if-gtz v7, :cond_3
+
+    const/high16 v3, -0x3ee00000    # -10.0f
 
     :cond_3
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawX()F
+    add-int/lit8 v7, v5, -0x1e
 
-    move-result v6
+    int-to-float v7, v7
 
-    cmpg-float v6, v6, v10
+    cmpl-float v7, p1, v7
 
-    if-gez v6, :cond_4
+    if-lez v7, :cond_4
 
-    cmpg-float v6, v1, v8
+    cmpl-float v7, v2, v9
 
-    if-gtz v6, :cond_4
+    if-ltz v7, :cond_4
 
-    const/high16 v1, -0x3ee00000    # -10.0f
+    const/high16 v2, 0x41200000    # 10.0f
 
     :cond_4
-    sget-object v6, Lcom/android/server/accessibility/SamsungMagnifierWindow;->LOG_TAG:Ljava/lang/String;
+    cmpg-float v7, p1, v12
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    if-gez v7, :cond_5
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    cmpg-float v7, v2, v9
 
-    const-string/jumbo v8, "moveWindow - dx2: "
+    if-gtz v7, :cond_5
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/high16 v2, -0x3ee00000    # -10.0f
 
-    move-result-object v7
-
-    invoke-virtual {v7, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string/jumbo v8, " / dy2 : "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v6, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
-
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawX()F
-
-    move-result v7
-
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawY()F
-
-    move-result v8
-
-    const/4 v9, 0x1
-
-    invoke-virtual {v6, v9, v7, v8}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->setMovingMode(ZFF)V
-
-    iget-object v6, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
-
+    :cond_5
     iget-object v7, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
 
-    invoke-virtual {v7}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->getMagnificationSpec()Landroid/view/MagnificationSpec;
+    invoke-virtual {v7, v10, p1, p2}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->setMovingMode(ZFF)V
 
-    move-result-object v7
-
-    iget v7, v7, Landroid/view/MagnificationSpec;->offsetX:F
-
-    add-float/2addr v7, v1
+    iget-object v7, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
 
     iget-object v8, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
 
@@ -589,21 +1284,119 @@
 
     move-result-object v8
 
-    iget v8, v8, Landroid/view/MagnificationSpec;->offsetY:F
+    iget v8, v8, Landroid/view/MagnificationSpec;->offsetX:F
 
     add-float/2addr v8, v2
 
-    invoke-virtual {v6, v7, v8}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->updateMagnificationSpec(FF)V
+    iget-object v9, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
 
-    iget-object v6, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+    invoke-virtual {v9}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->getMagnificationSpec()Landroid/view/MagnificationSpec;
 
-    invoke-virtual {v6}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->getMagnificationSpec()Landroid/view/MagnificationSpec;
+    move-result-object v9
 
-    move-result-object v6
+    iget v9, v9, Landroid/view/MagnificationSpec;->offsetY:F
 
-    invoke-direct {p0, v6}, Lcom/android/server/accessibility/SamsungMagnifierWindow;->setMagnificationSpec(Landroid/view/MagnificationSpec;)V
+    add-float/2addr v9, v3
+
+    invoke-virtual {v7, v8, v9}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->updateMagnificationSpec(FF)V
+
+    iget-object v7, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+
+    invoke-virtual {v7}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->getMagnificationSpec()Landroid/view/MagnificationSpec;
+
+    move-result-object v7
+
+    invoke-direct {p0, v7}, Lcom/android/server/accessibility/SamsungMagnifierWindow;->setMagnificationSpec(Landroid/view/MagnificationSpec;)V
 
     return-void
+
+    :cond_6
+    const/4 v7, 0x2
+
+    if-ne v0, v7, :cond_1
+
+    const/4 v2, 0x0
+
+    goto :goto_0
+.end method
+
+.method private moveWindow(Landroid/view/MotionEvent;)V
+    .locals 2
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawX()F
+
+    move-result v0
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawY()F
+
+    move-result v1
+
+    invoke-direct {p0, v0, v1}, Lcom/android/server/accessibility/SamsungMagnifierWindow;->moveWindow(FF)V
+
+    return-void
+.end method
+
+.method private selectDirectionForMove(FF)I
+    .locals 7
+
+    const/4 v2, 0x0
+
+    div-float v3, p2, p1
+
+    const-wide/high16 v4, 0x4049000000000000L    # 50.0
+
+    invoke-static {v4, v5}, Ljava/lang/Math;->toRadians(D)D
+
+    move-result-wide v4
+
+    invoke-static {v4, v5}, Ljava/lang/Math;->tan(D)D
+
+    move-result-wide v0
+
+    float-to-double v4, v3
+
+    cmpg-double v4, v4, v0
+
+    if-gtz v4, :cond_1
+
+    const/4 v2, 0x1
+
+    :cond_0
+    :goto_0
+    sget-object v4, Lcom/android/server/accessibility/SamsungMagnifierWindow;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "selectDirectionForMove - direction : "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v2
+
+    :cond_1
+    float-to-double v4, v3
+
+    cmpl-double v4, v4, v0
+
+    if-lez v4, :cond_0
+
+    const/4 v2, 0x2
+
+    goto :goto_0
 .end method
 
 .method private sendComputedMotionEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
@@ -691,13 +1484,9 @@
 
     iget-object v2, v0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
 
-    invoke-virtual {v2}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->getScale()I
+    invoke-virtual {v2}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->getScale()F
 
-    move-result v2
-
-    int-to-float v0, v2
-
-    move/from16 v23, v0
+    move-result v23
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getPointerCount()I
 
@@ -970,16 +1759,25 @@
 
     const-string/jumbo v14, "hover_zoom_value"
 
-    const/4 v15, 0x1
+    const/high16 v15, 0x3f800000    # 1.0f
 
     const/16 v16, -0x2
 
-    invoke-static/range {v13 .. v16}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+    invoke-static/range {v13 .. v16}, Landroid/provider/Settings$System;->getFloatForUser(Landroid/content/ContentResolver;Ljava/lang/String;FI)F
 
     move-result v13
 
-    add-int/lit8 v8, v13, 0x1
+    const/high16 v14, 0x3f800000    # 1.0f
 
+    add-float v8, v13, v14
+
+    const/4 v13, 0x3
+
+    if-lt v10, v13, :cond_0
+
+    const/4 v10, 0x2
+
+    :cond_0
     sget-object v13, Lcom/android/server/accessibility/SamsungMagnifierWindow;->LOG_TAG:Ljava/lang/String;
 
     new-instance v14, Ljava/lang/StringBuilder;
@@ -1002,7 +1800,7 @@
 
     move-result-object v14
 
-    invoke-virtual {v14, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v8}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
     move-result-object v14
 
@@ -1016,7 +1814,7 @@
 
     iget-object v13, v0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
 
-    invoke-virtual {v13, v8}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->setScale(I)Z
+    invoke-virtual {v13, v8}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->setScale(F)Z
 
     move-result v9
 
@@ -1028,17 +1826,13 @@
 
     move-result v11
 
-    if-nez v9, :cond_0
+    if-nez v9, :cond_1
 
-    if-nez v11, :cond_0
+    if-nez v11, :cond_1
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_4
 
-    :cond_0
-    const/high16 v6, -0x40800000    # -1.0f
-
-    const/high16 v7, -0x40800000    # -1.0f
-
+    :cond_1
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mContext:Landroid/content/Context;
@@ -1087,12 +1881,12 @@
 
     move-result v13
 
-    if-eqz v13, :cond_4
+    if-eqz v13, :cond_5
 
     const/4 v4, 0x1
 
     :goto_0
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2
 
     new-instance v5, Landroid/util/DisplayMetrics;
 
@@ -1136,7 +1930,7 @@
 
     cmpl-float v13, v13, v14
 
-    if-lez v13, :cond_1
+    if-lez v13, :cond_2
 
     move-object/from16 v0, p0
 
@@ -1152,7 +1946,7 @@
 
     int-to-float v7, v13
 
-    :cond_1
+    :cond_2
     sget-object v13, Lcom/android/server/accessibility/SamsungMagnifierWindow;->LOG_TAG:Ljava/lang/String;
 
     new-instance v14, Ljava/lang/StringBuilder;
@@ -1197,7 +1991,7 @@
 
     cmpl-double v13, v14, v16
 
-    if-eqz v13, :cond_2
+    if-eqz v13, :cond_3
 
     float-to-double v14, v7
 
@@ -1205,7 +1999,7 @@
 
     cmpl-double v13, v14, v16
 
-    if-eqz v13, :cond_2
+    if-eqz v13, :cond_3
 
     move-object/from16 v0, p0
 
@@ -1227,7 +2021,7 @@
 
     iput v7, v13, Landroid/view/MagnificationSpec;->offsetY:F
 
-    :cond_2
+    :cond_3
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
@@ -1261,69 +2055,11 @@
 
     move-object/from16 v16, v0
 
-    invoke-virtual/range {v16 .. v16}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->getScale()I
+    invoke-virtual/range {v16 .. v16}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->getScale()F
 
     move-result v16
 
-    move/from16 v0, v16
-
-    int-to-float v0, v0
-
-    move/from16 v16, v0
-
     invoke-interface/range {v13 .. v16}, Landroid/hardware/display/IDisplayManager;->setMagnificationSettings(IIF)V
-
-    sget-object v13, Lcom/android/server/accessibility/SamsungMagnifierWindow;->LOG_TAG:Ljava/lang/String;
-
-    new-instance v14, Ljava/lang/StringBuilder;
-
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v15, "setMagnificationSettings: mPolicy.getMagnificationSpec().offsetX = "
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    move-object/from16 v0, p0
-
-    iget-object v15, v0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
-
-    invoke-virtual {v15}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->getMagnificationSpec()Landroid/view/MagnificationSpec;
-
-    move-result-object v15
-
-    iget v15, v15, Landroid/view/MagnificationSpec;->offsetX:F
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    const-string/jumbo v15, " mPolicy.getMagnificationSpec().offsetY ="
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    move-object/from16 v0, p0
-
-    iget-object v15, v0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
-
-    invoke-virtual {v15}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->getMagnificationSpec()Landroid/view/MagnificationSpec;
-
-    move-result-object v15
-
-    iget v15, v15, Landroid/view/MagnificationSpec;->offsetY:F
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-static {v13, v14}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     move-object/from16 v0, p0
 
@@ -1347,11 +2083,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_3
+    :cond_4
     :goto_1
     return-void
 
-    :cond_4
+    :cond_5
     const/4 v4, 0x0
 
     goto/16 :goto_0
@@ -1386,68 +2122,138 @@
 .end method
 
 .method private stopMagnifier()V
-    .locals 5
+    .locals 4
 
-    sget-object v1, Lcom/android/server/accessibility/SamsungMagnifierWindow;->LOG_TAG:Ljava/lang/String;
+    sget-object v0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->LOG_TAG:Ljava/lang/String;
 
-    const-string/jumbo v2, "stopMagnifier()"
+    const-string/jumbo v1, "stopMagnifier()"
 
-    new-instance v3, Ljava/lang/Exception;
+    new-instance v2, Ljava/lang/Exception;
 
-    invoke-direct {v3}, Ljava/lang/Exception;-><init>()V
+    invoke-direct {v2}, Ljava/lang/Exception;-><init>()V
 
-    invoke-static {v1, v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    iget-object v1, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v1
+    move-result-object v0
 
-    const-string/jumbo v2, "com.sec.feature.spen_usp"
+    const-string/jumbo v1, "finger_magnifier"
 
-    invoke-virtual {v1, v2}, Landroid/content/pm/PackageManager;->semGetSystemFeatureLevel(Ljava/lang/String;)I
+    const/4 v2, 0x0
 
-    move-result v0
+    const/4 v3, -0x2
 
-    const/16 v1, 0xa
-
-    if-lt v0, v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "air_button_onoff"
-
-    const/4 v3, 0x1
-
-    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    :cond_0
-    iget-object v1, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "finger_magnifier"
-
-    const/4 v3, 0x0
-
-    const/4 v4, -0x2
-
-    invoke-static {v1, v2, v3, v4}, Landroid/provider/Settings$System;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
+    invoke-static {v0, v1, v2, v3}, Landroid/provider/Settings$System;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
 
     return-void
+.end method
+
+.method private transitionToState(I)V
+    .locals 3
+
+    packed-switch p1, :pswitch_data_0
+
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Unknown state: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :pswitch_0
+    sget-object v0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->LOG_TAG:Ljava/lang/String;
+
+    const-string/jumbo v1, "mCurrentState: STATE_DELEGATING"
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_0
+    iget v0, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mCurrentState:I
+
+    iput v0, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPreviousState:I
+
+    iput p1, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mCurrentState:I
+
+    return-void
+
+    :pswitch_1
+    sget-object v0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->LOG_TAG:Ljava/lang/String;
+
+    const-string/jumbo v1, "mCurrentState: STATE_DETECTING"
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :pswitch_2
+    sget-object v0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->LOG_TAG:Ljava/lang/String;
+
+    const-string/jumbo v1, "mCurrentState: STATE_VIEWPORT_DRAGGING"
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :pswitch_3
+    sget-object v0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->LOG_TAG:Ljava/lang/String;
+
+    const-string/jumbo v1, "mCurrentState: STATE_MAGNIFIED_INTERACTION"
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+    .end packed-switch
 .end method
 
 
 # virtual methods
 .method public clear()V
     .locals 1
+
+    const/4 v0, 0x2
+
+    iput v0, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mCurrentState:I
+
+    iget-object v0, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mDetectingStateHandler:Lcom/android/server/accessibility/SamsungMagnifierWindow$MotionEventHandler;
+
+    invoke-interface {v0}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MotionEventHandler;->clear()V
+
+    iget-object v0, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mStateViewportDraggingHandler:Lcom/android/server/accessibility/SamsungMagnifierWindow$MotionEventHandler;
+
+    invoke-interface {v0}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MotionEventHandler;->clear()V
+
+    iget-object v0, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mMagnifiedContentInteractionStateHandler:Lcom/android/server/accessibility/SamsungMagnifierWindow$MotionEventHandler;
+
+    invoke-interface {v0}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MotionEventHandler;->clear()V
 
     iget-object v0, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mNext:Lcom/android/server/accessibility/EventStreamTransformation;
 
@@ -1547,292 +2353,89 @@
 .end method
 
 .method public onMotionEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
-    .locals 6
+    .locals 3
 
-    const/4 v5, 0x0
+    const/16 v0, 0x1002
 
-    const/high16 v4, -0x40800000    # -1.0f
-
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
+    invoke-virtual {p1, v0}, Landroid/view/MotionEvent;->isFromSource(I)Z
 
     move-result v0
 
-    sget-object v1, Lcom/android/server/accessibility/SamsungMagnifierWindow;->LOG_TAG:Ljava/lang/String;
+    if-nez v0, :cond_1
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    iget-object v0, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mNext:Lcom/android/server/accessibility/EventStreamTransformation;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    if-eqz v0, :cond_0
 
-    const-string/jumbo v3, "onMotionEvent: "
+    iget-object v0, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mNext:Lcom/android/server/accessibility/EventStreamTransformation;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-interface {v0, p1, p2, p3}, Lcom/android/server/accessibility/EventStreamTransformation;->onMotionEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
 
-    move-result-object v2
+    :cond_0
+    return-void
 
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->toString()Ljava/lang/String;
+    :cond_1
+    iget-object v0, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mMagnifiedContentInteractionStateHandler:Lcom/android/server/accessibility/SamsungMagnifierWindow$MotionEventHandler;
 
-    move-result-object v3
+    invoke-interface {v0, p1, p2, p3}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MotionEventHandler;->onMotionEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    iget v0, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mCurrentState:I
 
     packed-switch v0, :pswitch_data_0
 
-    :cond_0
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Unknown state: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mCurrentState:I
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
     :pswitch_0
-    sget-object v1, Lcom/android/server/accessibility/SamsungMagnifierWindow;->LOG_TAG:Ljava/lang/String;
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/accessibility/SamsungMagnifierWindow;->handleMotionEventStateDelegating(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
 
-    const-string/jumbo v2, "onMotionEvent: It is outside of Magnifier window"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v1, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mNext:Lcom/android/server/accessibility/EventStreamTransformation;
-
-    if-eqz v1, :cond_1
-
-    iget-object v1, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mNext:Lcom/android/server/accessibility/EventStreamTransformation;
-
-    invoke-interface {v1, p1, p2, p3}, Lcom/android/server/accessibility/EventStreamTransformation;->onMotionEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
-
-    :cond_1
-    return-void
-
+    :goto_0
     :pswitch_1
-    iget-object v1, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+    return-void
 
-    invoke-virtual {v1, v5, v4, v4}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->setMovingMode(ZFF)V
-
-    iget-object v1, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
-
-    invoke-virtual {v1, p1}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->isOnCloseBtn(Landroid/view/MotionEvent;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_3
-
-    sget-object v1, Lcom/android/server/accessibility/SamsungMagnifierWindow;->LOG_TAG:Ljava/lang/String;
-
-    const-string/jumbo v2, "onMotionEvent: isOnCloseBtn"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_2
     :pswitch_2
-    iget-object v1, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+    iget-object v0, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mDetectingStateHandler:Lcom/android/server/accessibility/SamsungMagnifierWindow$MotionEventHandler;
 
-    invoke-virtual {v1}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->isCloseMode()Z
+    invoke-interface {v0, p1, p2, p3}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MotionEventHandler;->onMotionEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
 
-    move-result v1
+    goto :goto_0
 
-    if-eqz v1, :cond_7
-
-    return-void
-
-    :cond_3
-    iget-object v1, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
-
-    invoke-virtual {v1, p1}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->isOnHandle(Landroid/view/MotionEvent;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_4
-
-    iget-object v1, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
-
-    invoke-virtual {v1, p1}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->isOnUpperSide(Landroid/view/MotionEvent;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_4
-
-    iget-object v1, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
-
-    invoke-virtual {v1, p1}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->isOnLowerSide(Landroid/view/MotionEvent;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_5
-
-    :cond_4
-    sget-object v1, Lcom/android/server/accessibility/SamsungMagnifierWindow;->LOG_TAG:Ljava/lang/String;
-
-    const-string/jumbo v2, "onMotionEvent: For moving"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v1, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
-
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawX()F
-
-    move-result v2
-
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawY()F
-
-    move-result v3
-
-    const/4 v4, 0x1
-
-    invoke-virtual {v1, v4, v2, v3}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->setMovingMode(ZFF)V
-
-    return-void
-
-    :cond_5
-    iget-object v1, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
-
-    invoke-virtual {v1, p1}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->isOnMagnifierWindowWithoutBorder(Landroid/view/MotionEvent;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_6
-
-    iget-object v1, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
-
-    invoke-virtual {v1, p1}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->isOnMagnifierWindow(Landroid/view/MotionEvent;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    :cond_6
-    sget-object v1, Lcom/android/server/accessibility/SamsungMagnifierWindow;->LOG_TAG:Ljava/lang/String;
-
-    const-string/jumbo v2, "onMotionEvent: isOnMagnifierWindowWithoutBorder"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/accessibility/SamsungMagnifierWindow;->sendComputedMotionEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
-
-    return-void
-
-    :cond_7
-    iget-object v1, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
-
-    invoke-virtual {v1}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->isMovingMode()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_8
-
-    invoke-direct {p0, p1}, Lcom/android/server/accessibility/SamsungMagnifierWindow;->moveWindow(Landroid/view/MotionEvent;)V
-
-    return-void
-
-    :cond_8
-    iget-object v1, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
-
-    invoke-virtual {v1, p1}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->isOnMagnifierWindowWithoutBorder(Landroid/view/MotionEvent;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_9
-
-    sget-object v1, Lcom/android/server/accessibility/SamsungMagnifierWindow;->LOG_TAG:Ljava/lang/String;
-
-    const-string/jumbo v2, "onMotionEvent: isOnMagnifierWindowWithoutBorder"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/accessibility/SamsungMagnifierWindow;->sendComputedMotionEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
-
-    return-void
-
-    :cond_9
     :pswitch_3
-    iget-object v1, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+    iget-object v0, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mStateViewportDraggingHandler:Lcom/android/server/accessibility/SamsungMagnifierWindow$MotionEventHandler;
 
-    invoke-virtual {v1, p1}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->isOnCloseBtn(Landroid/view/MotionEvent;)Z
+    invoke-interface {v0, p1, p2, p3}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MotionEventHandler;->onMotionEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
 
-    move-result v1
-
-    if-eqz v1, :cond_a
-
-    invoke-direct {p0}, Lcom/android/server/accessibility/SamsungMagnifierWindow;->stopMagnifier()V
-
-    return-void
-
-    :cond_a
-    iget-object v1, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
-
-    invoke-virtual {v1}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->isMovingMode()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_b
-
-    iget-object v1, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
-
-    invoke-virtual {v1, v5, v4, v4}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->setMovingMode(ZFF)V
-
-    return-void
-
-    :cond_b
-    iget-object v1, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
-
-    invoke-virtual {v1, p1}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->isOnMagnifierWindowWithoutBorder(Landroid/view/MotionEvent;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_c
-
-    sget-object v1, Lcom/android/server/accessibility/SamsungMagnifierWindow;->LOG_TAG:Ljava/lang/String;
-
-    const-string/jumbo v2, "onMotionEvent: isOnMagnifierWindowWithoutBorder"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/accessibility/SamsungMagnifierWindow;->sendComputedMotionEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
-
-    return-void
-
-    :cond_c
-    :pswitch_4
-    iget-object v1, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
-
-    invoke-virtual {v1}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->isMovingMode()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_d
-
-    return-void
-
-    :cond_d
-    iget-object v1, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow;->mPolicy:Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
-
-    invoke-virtual {v1, p1}, Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;->isOnMagnifierWindowWithoutBorder(Landroid/view/MotionEvent;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    sget-object v1, Lcom/android/server/accessibility/SamsungMagnifierWindow;->LOG_TAG:Ljava/lang/String;
-
-    const-string/jumbo v2, "onMotionEvent: isOnMagnifierWindowWithoutBorder"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/accessibility/SamsungMagnifierWindow;->sendComputedMotionEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
-
-    return-void
-
-    nop
+    goto :goto_0
 
     :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_1
-        :pswitch_3
+    .packed-switch 0x1
+        :pswitch_0
         :pswitch_2
-        :pswitch_0
-        :pswitch_0
-        :pswitch_4
-        :pswitch_4
+        :pswitch_3
+        :pswitch_1
     .end packed-switch
 .end method
 

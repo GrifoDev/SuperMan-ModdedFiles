@@ -32,13 +32,13 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 9
+    .locals 8
 
     const/4 v4, 0x1
 
-    const/4 v7, -0x1
-
     const/4 v5, 0x0
+
+    const/4 v7, -0x1
 
     iget v6, p1, Landroid/os/Message;->what:I
 
@@ -67,7 +67,7 @@
 
     check-cast v4, Landroid/app/trust/ITrustListener;
 
-    invoke-static {v5, v4}, Lcom/android/server/trust/TrustManagerService;->-wrap9(Lcom/android/server/trust/TrustManagerService;Landroid/app/trust/ITrustListener;)V
+    invoke-static {v5, v4}, Lcom/android/server/trust/TrustManagerService;->-wrap10(Lcom/android/server/trust/TrustManagerService;Landroid/app/trust/ITrustListener;)V
 
     goto :goto_0
 
@@ -93,15 +93,26 @@
     :pswitch_4
     iget-object v4, p0, Lcom/android/server/trust/TrustManagerService$2;->this$0:Lcom/android/server/trust/TrustManagerService;
 
-    invoke-virtual {v4, v7}, Lcom/android/server/trust/TrustManagerService;->refreshAgentList(I)V
+    iget v5, p1, Landroid/os/Message;->arg1:I
 
-    iget-object v4, p0, Lcom/android/server/trust/TrustManagerService$2;->this$0:Lcom/android/server/trust/TrustManagerService;
+    iget v6, p1, Landroid/os/Message;->arg2:I
 
-    invoke-static {v4, v7}, Lcom/android/server/trust/TrustManagerService;->-wrap7(Lcom/android/server/trust/TrustManagerService;I)V
+    invoke-static {v4, v5, v6}, Lcom/android/server/trust/TrustManagerService;->-wrap6(Lcom/android/server/trust/TrustManagerService;II)V
 
     goto :goto_0
 
     :pswitch_5
+    iget-object v4, p0, Lcom/android/server/trust/TrustManagerService$2;->this$0:Lcom/android/server/trust/TrustManagerService;
+
+    invoke-virtual {v4, v7}, Lcom/android/server/trust/TrustManagerService;->refreshAgentList(I)V
+
+    iget-object v4, p0, Lcom/android/server/trust/TrustManagerService$2;->this$0:Lcom/android/server/trust/TrustManagerService;
+
+    invoke-static {v4, v7}, Lcom/android/server/trust/TrustManagerService;->-wrap8(Lcom/android/server/trust/TrustManagerService;I)V
+
+    goto :goto_0
+
+    :pswitch_6
     iget-object v4, p0, Lcom/android/server/trust/TrustManagerService$2;->this$0:Lcom/android/server/trust/TrustManagerService;
 
     iget-object v5, p0, Lcom/android/server/trust/TrustManagerService$2;->this$0:Lcom/android/server/trust/TrustManagerService;
@@ -110,16 +121,7 @@
 
     move-result v5
 
-    invoke-static {v4, v5}, Lcom/android/server/trust/TrustManagerService;->-wrap7(Lcom/android/server/trust/TrustManagerService;I)V
-
-    goto :goto_0
-
-    :pswitch_6
-    iget-object v4, p0, Lcom/android/server/trust/TrustManagerService$2;->this$0:Lcom/android/server/trust/TrustManagerService;
-
-    iget v5, p1, Landroid/os/Message;->arg1:I
-
-    invoke-virtual {v4, v5}, Lcom/android/server/trust/TrustManagerService;->refreshAgentList(I)V
+    invoke-static {v4, v5}, Lcom/android/server/trust/TrustManagerService;->-wrap8(Lcom/android/server/trust/TrustManagerService;I)V
 
     goto :goto_0
 
@@ -128,34 +130,33 @@
 
     iget v5, p1, Landroid/os/Message;->arg1:I
 
-    invoke-static {v4, v5}, Lcom/android/server/trust/TrustManagerService;->-set0(Lcom/android/server/trust/TrustManagerService;I)I
-
-    iget-object v4, p0, Lcom/android/server/trust/TrustManagerService$2;->this$0:Lcom/android/server/trust/TrustManagerService;
-
-    invoke-static {v4, v7}, Lcom/android/server/trust/TrustManagerService;->-wrap7(Lcom/android/server/trust/TrustManagerService;I)V
+    invoke-virtual {v4, v5}, Lcom/android/server/trust/TrustManagerService;->refreshAgentList(I)V
 
     goto :goto_0
 
     :pswitch_8
-    iget-object v6, p0, Lcom/android/server/trust/TrustManagerService$2;->this$0:Lcom/android/server/trust/TrustManagerService;
+    iget-object v4, p0, Lcom/android/server/trust/TrustManagerService$2;->this$0:Lcom/android/server/trust/TrustManagerService;
 
-    iget v7, p1, Landroid/os/Message;->arg2:I
+    iget v5, p1, Landroid/os/Message;->arg1:I
 
-    iget v8, p1, Landroid/os/Message;->arg1:I
+    invoke-static {v4, v5}, Lcom/android/server/trust/TrustManagerService;->-set0(Lcom/android/server/trust/TrustManagerService;I)I
 
-    if-eqz v8, :cond_2
+    iget-object v4, p0, Lcom/android/server/trust/TrustManagerService$2;->this$0:Lcom/android/server/trust/TrustManagerService;
 
-    :goto_2
-    invoke-virtual {v6, v7, v4}, Lcom/android/server/trust/TrustManagerService;->setDeviceLockedForUser(IZ)V
+    invoke-static {v4, v7}, Lcom/android/server/trust/TrustManagerService;->-wrap8(Lcom/android/server/trust/TrustManagerService;I)V
 
     goto :goto_0
 
-    :cond_2
-    move v4, v5
-
-    goto :goto_2
-
     :pswitch_9
+    iget-object v5, p0, Lcom/android/server/trust/TrustManagerService$2;->this$0:Lcom/android/server/trust/TrustManagerService;
+
+    iget v6, p1, Landroid/os/Message;->arg1:I
+
+    invoke-static {v5, v6, v4}, Lcom/android/server/trust/TrustManagerService;->-wrap11(Lcom/android/server/trust/TrustManagerService;IZ)V
+
+    goto :goto_0
+
+    :pswitch_a
     iget-object v4, p0, Lcom/android/server/trust/TrustManagerService$2;->this$0:Lcom/android/server/trust/TrustManagerService;
 
     invoke-static {v4}, Lcom/android/server/trust/TrustManagerService;->-get8(Lcom/android/server/trust/TrustManagerService;)Landroid/util/SparseBooleanArray;
@@ -181,7 +182,7 @@
 
     const/4 v0, 0x0
 
-    :goto_3
+    :goto_2
     invoke-virtual {v2}, Landroid/util/SparseBooleanArray;->size()I
 
     move-result v4
@@ -206,7 +207,7 @@
 
     move-result v4
 
-    if-eq v3, v4, :cond_3
+    if-eq v3, v4, :cond_2
 
     iget-object v4, p0, Lcom/android/server/trust/TrustManagerService$2;->this$0:Lcom/android/server/trust/TrustManagerService;
 
@@ -216,10 +217,10 @@
 
     invoke-virtual {v4, v3, v1}, Lcom/android/internal/widget/LockPatternUtils;->setTrustUsuallyManaged(ZI)V
 
-    :cond_3
+    :cond_2
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_3
+    goto :goto_2
 
     :catchall_0
     move-exception v4
@@ -235,14 +236,15 @@
         :pswitch_1
         :pswitch_2
         :pswitch_3
-        :pswitch_4
-        :pswitch_0
         :pswitch_5
-        :pswitch_6
+        :pswitch_0
         :pswitch_6
         :pswitch_7
+        :pswitch_7
         :pswitch_8
+        :pswitch_a
+        :pswitch_7
         :pswitch_9
-        :pswitch_6
+        :pswitch_4
     .end packed-switch
 .end method

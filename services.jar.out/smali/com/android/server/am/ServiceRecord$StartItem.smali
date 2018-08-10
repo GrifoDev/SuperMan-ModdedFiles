@@ -15,6 +15,8 @@
 
 
 # instance fields
+.field final callingId:I
+
 .field deliveredTime:J
 
 .field deliveryCount:I
@@ -37,7 +39,7 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/ServiceRecord;ZILandroid/content/Intent;Lcom/android/server/am/ActivityManagerService$NeededUriGrants;)V
+.method constructor <init>(Lcom/android/server/am/ServiceRecord;ZILandroid/content/Intent;Lcom/android/server/am/ActivityManagerService$NeededUriGrants;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -51,6 +53,8 @@
     iput-object p4, p0, Lcom/android/server/am/ServiceRecord$StartItem;->intent:Landroid/content/Intent;
 
     iput-object p5, p0, Lcom/android/server/am/ServiceRecord$StartItem;->neededGrants:Lcom/android/server/am/ActivityManagerService$NeededUriGrants;
+
+    iput p6, p0, Lcom/android/server/am/ServiceRecord$StartItem;->callingId:I
 
     return-void
 .end method

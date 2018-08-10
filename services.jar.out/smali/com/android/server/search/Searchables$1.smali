@@ -58,12 +58,24 @@
 
     if-eqz v0, :cond_1
 
-    if-eqz v1, :cond_3
+    xor-int/lit8 v2, v1, 0x1
+
+    if-eqz v2, :cond_1
+
+    const/4 v2, -0x1
+
+    return v2
 
     :cond_1
     if-eqz v1, :cond_2
 
-    if-eqz v0, :cond_4
+    xor-int/lit8 v2, v0, 0x1
+
+    if-eqz v2, :cond_2
+
+    const/4 v2, 0x1
+
+    return v2
 
     :cond_2
     iget v2, p2, Landroid/content/pm/ResolveInfo;->priority:I
@@ -71,16 +83,6 @@
     iget v3, p1, Landroid/content/pm/ResolveInfo;->priority:I
 
     sub-int/2addr v2, v3
-
-    return v2
-
-    :cond_3
-    const/4 v2, -0x1
-
-    return v2
-
-    :cond_4
-    const/4 v2, 0x1
 
     return v2
 .end method

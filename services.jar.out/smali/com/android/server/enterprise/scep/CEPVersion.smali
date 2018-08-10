@@ -12,6 +12,8 @@
 
 .field private static final KNOX_CEP_VERSION_2_1_1:Ljava/lang/String; = "2.1.1"
 
+.field private static final KNOX_CEP_VERSION_2_2_0:Ljava/lang/String; = "2.2.0"
+
 .field private static final KNOX_CEP_VERSION_NOT_AVAILABLE:Ljava/lang/String; = "N/A"
 
 .field private static final PROP_KNOX_CEP_VERSION:Ljava/lang/String; = "net.knoxscep.version"
@@ -99,7 +101,24 @@
     return-object v4
 
     :cond_2
+    invoke-virtual {v3}, Lcom/samsung/android/knox/EnterpriseKnoxManager$EnterpriseKnoxSdkVersion;->ordinal()I
+
+    move-result v4
+
+    sget-object v5, Lcom/samsung/android/knox/EnterpriseKnoxManager$EnterpriseKnoxSdkVersion;->KNOX_ENTERPRISE_SDK_VERSION_2_8:Lcom/samsung/android/knox/EnterpriseKnoxManager$EnterpriseKnoxSdkVersion;
+
+    invoke-virtual {v5}, Lcom/samsung/android/knox/EnterpriseKnoxManager$EnterpriseKnoxSdkVersion;->ordinal()I
+
+    move-result v5
+
+    if-ge v4, v5, :cond_3
+
     const-string/jumbo v4, "2.1.1"
+
+    return-object v4
+
+    :cond_3
+    const-string/jumbo v4, "2.2.0"
     :try_end_0
     .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_2
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_1

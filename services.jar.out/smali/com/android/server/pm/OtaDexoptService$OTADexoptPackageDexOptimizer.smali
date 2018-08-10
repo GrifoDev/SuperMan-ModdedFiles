@@ -24,13 +24,3 @@
 
     return-void
 .end method
-
-
-# virtual methods
-.method protected adjustDexoptFlags(I)I
-    .locals 1
-
-    or-int/lit8 v0, p1, 0x40
-
-    return v0
-.end method

@@ -56,7 +56,7 @@
 
     move-result v2
 
-    invoke-static {v1, v2}, Lcom/android/server/tv/TvInputManagerService;->-wrap20(Lcom/android/server/tv/TvInputManagerService;I)V
+    invoke-static {v1, v2}, Lcom/android/server/tv/TvInputManagerService;->-wrap19(Lcom/android/server/tv/TvInputManagerService;I)V
 
     :cond_0
     :goto_0
@@ -79,7 +79,7 @@
 
     move-result v2
 
-    invoke-static {v1, v2}, Lcom/android/server/tv/TvInputManagerService;->-wrap16(Lcom/android/server/tv/TvInputManagerService;I)V
+    invoke-static {v1, v2}, Lcom/android/server/tv/TvInputManagerService;->-wrap15(Lcom/android/server/tv/TvInputManagerService;I)V
 
     goto :goto_0
 .end method

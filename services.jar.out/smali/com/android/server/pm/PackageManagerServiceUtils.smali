@@ -3,37 +3,11 @@
 .source "PackageManagerServiceUtils.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/server/pm/PackageManagerServiceUtils$-java_util_List_getPackagesForDexopt_java_util_Collection_packages_com_android_server_pm_PackageManagerService_packageManagerService_LambdaImpl0;
-    }
-.end annotation
-
-
 # static fields
 .field private static final SEVEN_DAYS_IN_MILLISECONDS:J = 0x240c8400L
 
 
 # direct methods
-.method static synthetic -com_android_server_pm_PackageManagerServiceUtils_lambda$1(Landroid/content/pm/PackageParser$Package;Landroid/content/pm/PackageParser$Package;)I
-    .locals 4
-
-    invoke-virtual {p0}, Landroid/content/pm/PackageParser$Package;->getLatestForegroundPackageUseTimeInMills()J
-
-    move-result-wide v0
-
-    invoke-virtual {p1}, Landroid/content/pm/PackageParser$Package;->getLatestForegroundPackageUseTimeInMills()J
-
-    move-result-wide v2
-
-    invoke-static {v0, v1, v2, v3}, Ljava/lang/Long;->compare(JJ)I
-
-    move-result v0
-
-    return v0
-.end method
-
 .method public constructor <init>()V
     .locals 0
 
@@ -42,60 +16,146 @@
     return-void
 .end method
 
-.method private static filterRecentlyUsedApps(Ljava/util/Collection;JJ)V
-    .locals 9
+.method private static applyPackageFilter(Ljava/util/function/Predicate;Ljava/util/Collection;Ljava/util/Collection;Ljava/util/List;Lcom/android/server/pm/PackageManagerService;)V
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
+            "Ljava/util/function/Predicate",
+            "<",
+            "Landroid/content/pm/PackageParser$Package;",
+            ">;",
             "Ljava/util/Collection",
             "<",
             "Landroid/content/pm/PackageParser$Package;",
-            ">;JJ)V"
+            ">;",
+            "Ljava/util/Collection",
+            "<",
+            "Landroid/content/pm/PackageParser$Package;",
+            ">;",
+            "Ljava/util/List",
+            "<",
+            "Landroid/content/pm/PackageParser$Package;",
+            ">;",
+            "Lcom/android/server/pm/PackageManagerService;",
+            ")V"
         }
     .end annotation
 
-    invoke-interface {p0}, Ljava/util/Collection;->size()I
+    invoke-interface {p2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result v3
-
-    const/4 v2, 0x0
-
-    invoke-interface {p0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
+    move-result-object v2
 
     :cond_0
     :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v6
+    move-result v3
 
-    if-eqz v6, :cond_1
+    if-eqz v3, :cond_1
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Landroid/content/pm/PackageParser$Package;
 
-    invoke-virtual {v1}, Landroid/content/pm/PackageParser$Package;->getLatestForegroundPackageUseTimeInMills()J
+    invoke-interface {p0, v1}, Ljava/util/function/Predicate;->test(Ljava/lang/Object;)Z
 
-    move-result-wide v4
+    move-result v3
 
-    sub-long v6, p1, p3
+    if-eqz v3, :cond_0
 
-    cmp-long v6, v4, v6
-
-    if-gez v6, :cond_0
-
-    invoke-interface {v0}, Ljava/util/Iterator;->remove()V
-
-    add-int/lit8 v2, v2, 0x1
+    invoke-interface {p3, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
     :cond_1
+    invoke-static {p3, p4}, Lcom/android/server/pm/PackageManagerServiceUtils;->sortPackagesByUsageDate(Ljava/util/List;Lcom/android/server/pm/PackageManagerService;)V
+
+    invoke-interface {p2, p3}, Ljava/util/Collection;->removeAll(Ljava/util/Collection;)Z
+
+    invoke-interface {p3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :cond_2
+    :goto_1
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/content/pm/PackageParser$Package;
+
+    invoke-interface {p1, v1}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+
+    invoke-virtual {p4, v1}, Lcom/android/server/pm/PackageManagerService;->findSharedNonSystemLibraries(Landroid/content/pm/PackageParser$Package;)Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/Collection;->isEmpty()Z
+
+    move-result v3
+
+    if-nez v3, :cond_2
+
+    invoke-interface {v0, p1}, Ljava/util/Collection;->removeAll(Ljava/util/Collection;)Z
+
+    invoke-interface {p1, v0}, Ljava/util/Collection;->addAll(Ljava/util/Collection;)Z
+
+    invoke-interface {p2, v0}, Ljava/util/Collection;->removeAll(Ljava/util/Collection;)Z
+
+    goto :goto_1
+
+    :cond_3
+    invoke-interface {p3}, Ljava/util/List;->clear()V
+
     return-void
+.end method
+
+.method public static checkISA(Ljava/lang/String;)Z
+    .locals 6
+
+    const/4 v2, 0x0
+
+    sget-object v3, Landroid/os/Build;->SUPPORTED_ABIS:[Ljava/lang/String;
+
+    array-length v4, v3
+
+    move v1, v2
+
+    :goto_0
+    if-ge v1, v4, :cond_1
+
+    aget-object v0, v3, v1
+
+    invoke-static {v0}, Ldalvik/system/VMRuntime;->getInstructionSet(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v5, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    const/4 v1, 0x1
+
+    return v1
+
+    :cond_0
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    return v2
 .end method
 
 .method private static getPackageNamesForIntent(Landroid/content/Intent;I)Landroid/util/ArraySet;
@@ -175,7 +235,7 @@
 .end method
 
 .method public static getPackagesForDexopt(Ljava/util/Collection;Lcom/android/server/pm/PackageManagerService;)Ljava/util/List;
-    .locals 19
+    .locals 14
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -192,319 +252,282 @@
         }
     .end annotation
 
-    new-instance v14, Ljava/util/ArrayList;
+    new-instance v7, Ljava/util/ArrayList;
 
-    move-object/from16 v0, p0
+    invoke-direct {v7, p0}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    invoke-direct {v14, v0}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+    new-instance v9, Ljava/util/LinkedList;
 
-    new-instance v15, Ljava/util/LinkedList;
+    invoke-direct {v9}, Ljava/util/LinkedList;-><init>()V
 
-    invoke-direct {v15}, Ljava/util/LinkedList;-><init>()V
+    new-instance v10, Ljava/util/ArrayList;
 
-    invoke-interface {v14}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
 
-    move-result-object v12
+    move-result v11
+
+    invoke-direct {v10, v11}, Ljava/util/ArrayList;-><init>(I)V
+
+    new-instance v11, Lcom/android/server/pm/-$Lambda$LlDgbnHlShdoOCTPTWIe496B9MM$2;
+
+    invoke-direct {v11}, Lcom/android/server/pm/-$Lambda$LlDgbnHlShdoOCTPTWIe496B9MM$2;-><init>()V
+
+    invoke-static {v11, v9, v7, v10, p1}, Lcom/android/server/pm/PackageManagerServiceUtils;->applyPackageFilter(Ljava/util/function/Predicate;Ljava/util/Collection;Ljava/util/Collection;Ljava/util/List;Lcom/android/server/pm/PackageManagerService;)V
+
+    new-instance v4, Landroid/content/Intent;
+
+    const-string/jumbo v11, "android.intent.action.PRE_BOOT_COMPLETED"
+
+    invoke-direct {v4, v11}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const/4 v11, 0x0
+
+    invoke-static {v4, v11}, Lcom/android/server/pm/PackageManagerServiceUtils;->getPackageNamesForIntent(Landroid/content/Intent;I)Landroid/util/ArraySet;
+
+    move-result-object v6
+
+    new-instance v11, Lcom/android/server/pm/-$Lambda$LlDgbnHlShdoOCTPTWIe496B9MM$5;
+
+    invoke-direct {v11, v6}, Lcom/android/server/pm/-$Lambda$LlDgbnHlShdoOCTPTWIe496B9MM$5;-><init>(Ljava/lang/Object;)V
+
+    invoke-static {v11, v9, v7, v10, p1}, Lcom/android/server/pm/PackageManagerServiceUtils;->applyPackageFilter(Ljava/util/function/Predicate;Ljava/util/Collection;Ljava/util/Collection;Ljava/util/List;Lcom/android/server/pm/PackageManagerService;)V
+
+    new-instance v11, Lcom/android/server/pm/-$Lambda$LlDgbnHlShdoOCTPTWIe496B9MM$6;
+
+    invoke-direct {v11, p1}, Lcom/android/server/pm/-$Lambda$LlDgbnHlShdoOCTPTWIe496B9MM$6;-><init>(Ljava/lang/Object;)V
+
+    invoke-static {v11, v9, v7, v10, p1}, Lcom/android/server/pm/PackageManagerServiceUtils;->applyPackageFilter(Ljava/util/function/Predicate;Ljava/util/Collection;Ljava/util/Collection;Ljava/util/List;Lcom/android/server/pm/PackageManagerService;)V
+
+    invoke-virtual {v7}, Ljava/util/ArrayList;->isEmpty()Z
+
+    move-result v11
+
+    if-nez v11, :cond_1
+
+    invoke-virtual {p1}, Lcom/android/server/pm/PackageManagerService;->isHistoricalPackageUsageAvailable()Z
+
+    move-result v11
+
+    if-eqz v11, :cond_1
+
+    new-instance v11, Lcom/android/server/pm/-$Lambda$LlDgbnHlShdoOCTPTWIe496B9MM;
+
+    invoke-direct {v11}, Lcom/android/server/pm/-$Lambda$LlDgbnHlShdoOCTPTWIe496B9MM;-><init>()V
+
+    invoke-static {v7, v11}, Ljava/util/Collections;->max(Ljava/util/Collection;Ljava/util/Comparator;)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/content/pm/PackageParser$Package;
+
+    invoke-virtual {v5}, Landroid/content/pm/PackageParser$Package;->getLatestForegroundPackageUseTimeInMills()J
+
+    move-result-wide v2
+
+    const-wide/16 v12, 0x0
+
+    cmp-long v11, v2, v12
+
+    if-eqz v11, :cond_0
+
+    const-wide/32 v12, 0x240c8400
+
+    sub-long v0, v2, v12
+
+    new-instance v8, Lcom/android/server/pm/-$Lambda$LlDgbnHlShdoOCTPTWIe496B9MM$7;
+
+    invoke-direct {v8, v0, v1}, Lcom/android/server/pm/-$Lambda$LlDgbnHlShdoOCTPTWIe496B9MM$7;-><init>(J)V
+
+    :goto_0
+    invoke-static {v7, p1}, Lcom/android/server/pm/PackageManagerServiceUtils;->sortPackagesByUsageDate(Ljava/util/List;Lcom/android/server/pm/PackageManagerService;)V
+
+    :goto_1
+    invoke-static {v8, v9, v7, v10, p1}, Lcom/android/server/pm/PackageManagerServiceUtils;->applyPackageFilter(Ljava/util/function/Predicate;Ljava/util/Collection;Ljava/util/Collection;Ljava/util/List;Lcom/android/server/pm/PackageManagerService;)V
+
+    return-object v9
 
     :cond_0
-    :goto_0
-    invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
+    new-instance v8, Lcom/android/server/pm/-$Lambda$LlDgbnHlShdoOCTPTWIe496B9MM$3;
 
-    move-result v16
-
-    if-eqz v16, :cond_1
-
-    invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v11
-
-    check-cast v11, Landroid/content/pm/PackageParser$Package;
-
-    iget-boolean v0, v11, Landroid/content/pm/PackageParser$Package;->coreApp:Z
-
-    move/from16 v16, v0
-
-    if-eqz v16, :cond_0
-
-    invoke-virtual {v15, v11}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
+    invoke-direct {v8}, Lcom/android/server/pm/-$Lambda$LlDgbnHlShdoOCTPTWIe496B9MM$3;-><init>()V
 
     goto :goto_0
 
     :cond_1
-    invoke-virtual {v14, v15}, Ljava/util/ArrayList;->removeAll(Ljava/util/Collection;)Z
+    new-instance v8, Lcom/android/server/pm/-$Lambda$LlDgbnHlShdoOCTPTWIe496B9MM$4;
 
-    new-instance v7, Landroid/content/Intent;
-
-    const-string/jumbo v16, "android.intent.action.PRE_BOOT_COMPLETED"
-
-    move-object/from16 v0, v16
-
-    invoke-direct {v7, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const/16 v16, 0x0
-
-    move/from16 v0, v16
-
-    invoke-static {v7, v0}, Lcom/android/server/pm/PackageManagerServiceUtils;->getPackageNamesForIntent(Landroid/content/Intent;I)Landroid/util/ArraySet;
-
-    move-result-object v13
-
-    invoke-interface {v14}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v12
-
-    :cond_2
-    :goto_1
-    invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v16
-
-    if-eqz v16, :cond_3
-
-    invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v11
-
-    check-cast v11, Landroid/content/pm/PackageParser$Package;
-
-    iget-object v0, v11, Landroid/content/pm/PackageParser$Package;->packageName:Ljava/lang/String;
-
-    move-object/from16 v16, v0
-
-    move-object/from16 v0, v16
-
-    invoke-virtual {v13, v0}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
-
-    move-result v16
-
-    if-eqz v16, :cond_2
-
-    invoke-virtual {v15, v11}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
+    invoke-direct {v8}, Lcom/android/server/pm/-$Lambda$LlDgbnHlShdoOCTPTWIe496B9MM$4;-><init>()V
 
     goto :goto_1
+.end method
 
-    :cond_3
-    invoke-virtual {v14, v15}, Ljava/util/ArrayList;->removeAll(Ljava/util/Collection;)Z
+.method static synthetic lambda$-com_android_server_pm_PackageManagerServiceUtils_2703(Landroid/content/pm/PackageParser$Package;Landroid/content/pm/PackageParser$Package;)I
+    .locals 4
 
-    invoke-interface {v14}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-virtual {p1}, Landroid/content/pm/PackageParser$Package;->getLatestForegroundPackageUseTimeInMills()J
 
-    move-result-object v12
+    move-result-wide v0
 
-    :cond_4
-    :goto_2
-    invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
+    invoke-virtual {p0}, Landroid/content/pm/PackageParser$Package;->getLatestForegroundPackageUseTimeInMills()J
 
-    move-result v16
+    move-result-wide v2
 
-    if-eqz v16, :cond_5
+    invoke-static {v0, v1, v2, v3}, Ljava/lang/Long;->compare(JJ)I
 
-    invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    move-result v0
 
-    move-result-object v11
+    return v0
+.end method
 
-    check-cast v11, Landroid/content/pm/PackageParser$Package;
+.method static synthetic lambda$-com_android_server_pm_PackageManagerServiceUtils_4844(Landroid/content/pm/PackageParser$Package;)Z
+    .locals 1
 
-    invoke-static {v11}, Lcom/android/server/pm/PackageDexOptimizer;->isUsedByOtherApps(Landroid/content/pm/PackageParser$Package;)Z
+    iget-boolean v0, p0, Landroid/content/pm/PackageParser$Package;->coreApp:Z
 
-    move-result v16
+    return v0
+.end method
 
-    if-eqz v16, :cond_4
+.method static synthetic lambda$-com_android_server_pm_PackageManagerServiceUtils_5212(Landroid/util/ArraySet;Landroid/content/pm/PackageParser$Package;)Z
+    .locals 1
 
-    invoke-virtual {v15, v11}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
+    iget-object v0, p1, Landroid/content/pm/PackageParser$Package;->packageName:Ljava/lang/String;
 
-    goto :goto_2
+    invoke-virtual {p0, v0}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
 
-    :cond_5
-    invoke-virtual {v14, v15}, Ljava/util/ArrayList;->removeAll(Ljava/util/Collection;)Z
+    move-result v0
 
-    const/16 v16, 0x2
+    return v0
+.end method
 
-    move/from16 v0, v16
+.method static synthetic lambda$-com_android_server_pm_PackageManagerServiceUtils_5411(Lcom/android/server/pm/PackageManagerService;Landroid/content/pm/PackageParser$Package;)Z
+    .locals 2
 
-    new-array v3, v0, [Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/android/server/pm/PackageManagerService;->getDexManager()Lcom/android/server/pm/dex/DexManager;
 
-    const-string/jumbo v16, "com.eg.android.AlipayGphone"
+    move-result-object v0
 
-    const/16 v17, 0x0
+    iget-object v1, p1, Landroid/content/pm/PackageParser$Package;->packageName:Ljava/lang/String;
 
-    aput-object v16, v3, v17
+    invoke-virtual {v0, v1}, Lcom/android/server/pm/dex/DexManager;->isUsedByOtherApps(Ljava/lang/String;)Z
 
-    const-string/jumbo v16, "com.baidu.BaiduMap"
+    move-result v0
 
-    const/16 v17, 0x1
+    return v0
+.end method
 
-    aput-object v16, v3, v17
+.method static synthetic lambda$-com_android_server_pm_PackageManagerServiceUtils_6115(Landroid/content/pm/PackageParser$Package;Landroid/content/pm/PackageParser$Package;)I
+    .locals 4
 
-    invoke-static {v3}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+    invoke-virtual {p0}, Landroid/content/pm/PackageParser$Package;->getLatestForegroundPackageUseTimeInMills()J
 
-    move-result-object v6
+    move-result-wide v0
 
-    invoke-interface {v14}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-virtual {p1}, Landroid/content/pm/PackageParser$Package;->getLatestForegroundPackageUseTimeInMills()J
 
-    move-result-object v12
+    move-result-wide v2
 
-    :cond_6
-    :goto_3
-    invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
+    invoke-static {v0, v1, v2, v3}, Ljava/lang/Long;->compare(JJ)I
 
-    move-result v16
+    move-result v0
 
-    if-eqz v16, :cond_7
+    return v0
+.end method
 
-    invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+.method static synthetic lambda$-com_android_server_pm_PackageManagerServiceUtils_6855(JLandroid/content/pm/PackageParser$Package;)Z
+    .locals 2
 
-    move-result-object v11
+    invoke-virtual {p2}, Landroid/content/pm/PackageParser$Package;->getLatestForegroundPackageUseTimeInMills()J
 
-    check-cast v11, Landroid/content/pm/PackageParser$Package;
+    move-result-wide v0
 
-    iget-object v0, v11, Landroid/content/pm/PackageParser$Package;->packageName:Ljava/lang/String;
+    cmp-long v0, v0, p0
 
-    move-object/from16 v16, v0
+    if-ltz v0, :cond_0
 
-    move-object/from16 v0, v16
+    const/4 v0, 0x1
 
-    invoke-interface {v6, v0}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+    :goto_0
+    return v0
 
-    move-result v16
+    :cond_0
+    const/4 v0, 0x0
 
-    if-eqz v16, :cond_6
+    goto :goto_0
+.end method
 
-    const-string/jumbo v16, "PackageManager"
+.method static synthetic lambda$-com_android_server_pm_PackageManagerServiceUtils_7044(Landroid/content/pm/PackageParser$Package;)Z
+    .locals 1
 
-    new-instance v17, Ljava/lang/StringBuilder;
+    const/4 v0, 0x1
 
-    invoke-direct/range {v17 .. v17}, Ljava/lang/StringBuilder;-><init>()V
+    return v0
+.end method
 
-    const-string/jumbo v18, "Adding app by forceDexopt apps "
+.method static synthetic lambda$-com_android_server_pm_PackageManagerServiceUtils_7243(Landroid/content/pm/PackageParser$Package;)Z
+    .locals 1
 
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/4 v0, 0x1
 
-    move-result-object v17
+    return v0
+.end method
 
-    invoke-virtual {v15}, Ljava/util/LinkedList;->size()I
+.method public static packagesToString(Ljava/util/Collection;)Ljava/lang/String;
+    .locals 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Collection",
+            "<",
+            "Landroid/content/pm/PackageParser$Package;",
+            ">;)",
+            "Ljava/lang/String;"
+        }
+    .end annotation
 
-    move-result v18
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v17
+    invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    const-string/jumbo v18, ": "
+    move-result-object v1
 
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result-object v17
+    move-result v3
 
-    iget-object v0, v11, Landroid/content/pm/PackageParser$Package;->packageName:Ljava/lang/String;
+    if-eqz v3, :cond_1
 
-    move-object/from16 v18, v0
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    move-result-object v17
+    check-cast v0, Landroid/content/pm/PackageParser$Package;
 
-    invoke-virtual/range {v17 .. v17}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->length()I
 
-    move-result-object v17
+    move-result v3
 
-    invoke-static/range {v16 .. v17}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    if-lez v3, :cond_0
 
-    invoke-virtual {v15, v11}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
+    const-string/jumbo v3, ", "
 
-    goto :goto_3
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_7
-    invoke-virtual {v14, v15}, Ljava/util/ArrayList;->removeAll(Ljava/util/Collection;)Z
+    :cond_0
+    iget-object v3, v0, Landroid/content/pm/PackageParser$Package;->packageName:Ljava/lang/String;
 
-    invoke-virtual {v14}, Ljava/util/ArrayList;->isEmpty()Z
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result v16
+    goto :goto_0
 
-    if-nez v16, :cond_8
+    :cond_1
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual/range {p1 .. p1}, Lcom/android/server/pm/PackageManagerService;->isHistoricalPackageUsageAvailable()Z
+    move-result-object v3
 
-    move-result v16
-
-    if-eqz v16, :cond_8
-
-    new-instance v16, Lcom/android/server/pm/PackageManagerServiceUtils$-java_util_List_getPackagesForDexopt_java_util_Collection_packages_com_android_server_pm_PackageManagerService_packageManagerService_LambdaImpl0;
-
-    invoke-direct/range {v16 .. v16}, Lcom/android/server/pm/PackageManagerServiceUtils$-java_util_List_getPackagesForDexopt_java_util_Collection_packages_com_android_server_pm_PackageManagerService_packageManagerService_LambdaImpl0;-><init>()V
-
-    move-object/from16 v0, v16
-
-    invoke-static {v14, v0}, Ljava/util/Collections;->max(Ljava/util/Collection;Ljava/util/Comparator;)Ljava/lang/Object;
-
-    move-result-object v8
-
-    check-cast v8, Landroid/content/pm/PackageParser$Package;
-
-    invoke-virtual {v8}, Landroid/content/pm/PackageParser$Package;->getLatestForegroundPackageUseTimeInMills()J
-
-    move-result-wide v4
-
-    const-wide/16 v16, 0x0
-
-    cmp-long v16, v4, v16
-
-    if-eqz v16, :cond_8
-
-    const-wide/32 v16, 0x240c8400
-
-    move-wide/from16 v0, v16
-
-    invoke-static {v14, v4, v5, v0, v1}, Lcom/android/server/pm/PackageManagerServiceUtils;->filterRecentlyUsedApps(Ljava/util/Collection;JJ)V
-
-    :cond_8
-    invoke-virtual {v15, v14}, Ljava/util/LinkedList;->addAll(Ljava/util/Collection;)Z
-
-    new-instance v2, Ljava/util/HashSet;
-
-    invoke-direct {v2}, Ljava/util/HashSet;-><init>()V
-
-    invoke-interface {v15}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v10
-
-    :goto_4
-    invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v16
-
-    if-eqz v16, :cond_9
-
-    invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v9
-
-    check-cast v9, Landroid/content/pm/PackageParser$Package;
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v9}, Lcom/android/server/pm/PackageManagerService;->findSharedNonSystemLibraries(Landroid/content/pm/PackageParser$Package;)Ljava/util/Collection;
-
-    move-result-object v16
-
-    move-object/from16 v0, v16
-
-    invoke-interface {v2, v0}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
-
-    goto :goto_4
-
-    :cond_9
-    invoke-interface {v2}, Ljava/util/Set;->isEmpty()Z
-
-    move-result v16
-
-    if-nez v16, :cond_a
-
-    invoke-interface {v2, v15}, Ljava/util/Set;->removeAll(Ljava/util/Collection;)Z
-
-    :cond_a
-    invoke-virtual {v15, v2}, Ljava/util/LinkedList;->addAll(Ljava/util/Collection;)Z
-
-    return-object v15
+    return-object v3
 .end method
 
 .method public static realpath(Ljava/io/File;)Ljava/lang/String;
@@ -538,4 +561,36 @@
     move-result-object v1
 
     throw v1
+.end method
+
+.method public static sortPackagesByUsageDate(Ljava/util/List;Lcom/android/server/pm/PackageManagerService;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<",
+            "Landroid/content/pm/PackageParser$Package;",
+            ">;",
+            "Lcom/android/server/pm/PackageManagerService;",
+            ")V"
+        }
+    .end annotation
+
+    invoke-virtual {p1}, Lcom/android/server/pm/PackageManagerService;->isHistoricalPackageUsageAvailable()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    new-instance v0, Lcom/android/server/pm/-$Lambda$LlDgbnHlShdoOCTPTWIe496B9MM$1;
+
+    invoke-direct {v0}, Lcom/android/server/pm/-$Lambda$LlDgbnHlShdoOCTPTWIe496B9MM$1;-><init>()V
+
+    invoke-static {p0, v0}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
+
+    return-void
 .end method

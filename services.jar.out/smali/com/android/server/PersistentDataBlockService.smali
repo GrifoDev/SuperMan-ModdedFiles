@@ -44,6 +44,8 @@
 
 .field private final mDataBlockFile:Ljava/lang/String;
 
+.field private final mInitDoneSignal:Ljava/util/concurrent/CountDownLatch;
+
 .field private mIsWritable:Z
     .annotation build Lcom/android/internal/annotations/GuardedBy;
         value = "mLock"
@@ -128,6 +130,14 @@
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/PersistentDataBlockService;->enforceUid(I)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap11(Lcom/android/server/PersistentDataBlockService;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/PersistentDataBlockService;->enforceUserRestriction(Ljava/lang/String;)V
 
     return-void
 .end method
@@ -221,6 +231,8 @@
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
 
+    const/4 v1, 0x1
+
     invoke-direct {p0, p1}, Lcom/android/server/SystemService;-><init>(Landroid/content/Context;)V
 
     new-instance v0, Ljava/lang/Object;
@@ -229,13 +241,17 @@
 
     iput-object v0, p0, Lcom/android/server/PersistentDataBlockService;->mLock:Ljava/lang/Object;
 
+    new-instance v0, Ljava/util/concurrent/CountDownLatch;
+
+    invoke-direct {v0, v1}, Ljava/util/concurrent/CountDownLatch;-><init>(I)V
+
+    iput-object v0, p0, Lcom/android/server/PersistentDataBlockService;->mInitDoneSignal:Ljava/util/concurrent/CountDownLatch;
+
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/server/PersistentDataBlockService;->mAllowedUid:I
 
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/server/PersistentDataBlockService;->mIsWritable:Z
+    iput-boolean v1, p0, Lcom/android/server/PersistentDataBlockService;->mIsWritable:Z
 
     new-instance v0, Lcom/android/server/PersistentDataBlockService$1;
 
@@ -256,14 +272,6 @@
     const-wide/16 v0, -0x1
 
     iput-wide v0, p0, Lcom/android/server/PersistentDataBlockService;->mBlockDeviceSize:J
-
-    const/4 v0, 0x0
-
-    invoke-direct {p0, v0}, Lcom/android/server/PersistentDataBlockService;->getAllowedUid(I)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/server/PersistentDataBlockService;->mAllowedUid:I
 
     return-void
 .end method
@@ -766,21 +774,14 @@
     if-eqz v0, :cond_0
 
     invoke-static {v1, v0}, Ljava/util/Arrays;->equals([B[B)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    xor-int/lit8 v2, v2, 0x1
 
-    monitor-exit v3
-
-    const/4 v2, 0x1
-
-    return v2
+    if-eqz v2, :cond_1
 
     :cond_0
-    :try_start_1
     sget-object v2, Lcom/android/server/PersistentDataBlockService;->TAG:Ljava/lang/String;
 
     const-string/jumbo v4, "Formatting FRP partition..."
@@ -790,12 +791,19 @@
     const/4 v2, 0x0
 
     invoke-direct {p0, v2}, Lcom/android/server/PersistentDataBlockService;->formatPartitionLocked(Z)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit v3
 
     return v5
+
+    :cond_1
+    monitor-exit v3
+
+    const/4 v2, 0x1
+
+    return v2
 
     :catchall_0
     move-exception v2
@@ -913,6 +921,49 @@
     const-string/jumbo v2, " not allowed to access PST"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_0
+    return-void
+.end method
+
+.method private enforceUserRestriction(Ljava/lang/String;)V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/PersistentDataBlockService;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Landroid/os/UserManager;->get(Landroid/content/Context;)Landroid/os/UserManager;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Landroid/os/UserManager;->hasUserRestriction(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Ljava/lang/SecurityException;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "OEM unlock is disallowed by user restriction: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
@@ -1071,7 +1122,7 @@
 
     move-result-object v4
 
-    const v5, 0x1040068
+    const v5, 0x1040225
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1207,8 +1258,16 @@
 
 
 # virtual methods
-.method public onStart()V
+.method synthetic lambda$-com_android_server_PersistentDataBlockService_4708()V
     .locals 2
+
+    const/4 v0, 0x0
+
+    invoke-direct {p0, v0}, Lcom/android/server/PersistentDataBlockService;->getAllowedUid(I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/server/PersistentDataBlockService;->mAllowedUid:I
 
     invoke-direct {p0}, Lcom/android/server/PersistentDataBlockService;->enforceChecksumValidity()Z
 
@@ -1219,6 +1278,147 @@
     iget-object v1, p0, Lcom/android/server/PersistentDataBlockService;->mService:Landroid/os/IBinder;
 
     invoke-virtual {p0, v0, v1}, Lcom/android/server/PersistentDataBlockService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+
+    iget-object v0, p0, Lcom/android/server/PersistentDataBlockService;->mInitDoneSignal:Ljava/util/concurrent/CountDownLatch;
+
+    invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
+
+    return-void
+.end method
+
+.method public onBootPhase(I)V
+    .locals 5
+
+    const/16 v1, 0x1f4
+
+    if-ne p1, v1, :cond_0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/PersistentDataBlockService;->mInitDoneSignal:Ljava/util/concurrent/CountDownLatch;
+
+    const-wide/16 v2, 0xa
+
+    sget-object v4, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
+
+    invoke-virtual {v1, v2, v3, v4}, Ljava/util/concurrent/CountDownLatch;->await(JLjava/util/concurrent/TimeUnit;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    new-instance v1, Ljava/lang/IllegalStateException;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Service "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    sget-object v3, Lcom/android/server/PersistentDataBlockService;->TAG:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " init timeout"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :catch_0
+    move-exception v0
+
+    invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/Thread;->interrupt()V
+
+    new-instance v1, Ljava/lang/IllegalStateException;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Service "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    sget-object v3, Lcom/android/server/PersistentDataBlockService;->TAG:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " init interrupted"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    throw v1
+
+    :cond_0
+    invoke-super {p0, p1}, Lcom/android/server/SystemService;->onBootPhase(I)V
+
+    return-void
+.end method
+
+.method public onStart()V
+    .locals 4
+
+    invoke-static {}, Lcom/android/server/SystemServerInitThreadPool;->get()Lcom/android/server/SystemServerInitThreadPool;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/server/-$Lambda$Vs1k-33pKk0_ZNh1UtgE1Q9ZrgU;
+
+    invoke-direct {v1, p0}, Lcom/android/server/-$Lambda$Vs1k-33pKk0_ZNh1UtgE1Q9ZrgU;-><init>(Ljava/lang/Object;)V
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    sget-object v3, Lcom/android/server/PersistentDataBlockService;->TAG:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, ".onStart"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/SystemServerInitThreadPool;->submit(Ljava/lang/Runnable;Ljava/lang/String;)Ljava/util/concurrent/Future;
 
     return-void
 .end method

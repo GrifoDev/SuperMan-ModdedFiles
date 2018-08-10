@@ -1,4 +1,4 @@
-.class Lcom/android/server/TextServicesManagerService$TextServicesBroadcastReceiver;
+.class final Lcom/android/server/TextServicesManagerService$TextServicesBroadcastReceiver;
 .super Landroid/content/BroadcastReceiver;
 .source "TextServicesManagerService.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x12
     name = "TextServicesBroadcastReceiver"
 .end annotation
 
@@ -19,12 +19,20 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/TextServicesManagerService;)V
+.method private constructor <init>(Lcom/android/server/TextServicesManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/TextServicesManagerService$TextServicesBroadcastReceiver;->this$0:Lcom/android/server/TextServicesManagerService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+
+    return-void
+.end method
+
+.method synthetic constructor <init>(Lcom/android/server/TextServicesManagerService;Lcom/android/server/TextServicesManagerService$TextServicesBroadcastReceiver;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/TextServicesManagerService$TextServicesBroadcastReceiver;-><init>(Lcom/android/server/TextServicesManagerService;)V
 
     return-void
 .end method

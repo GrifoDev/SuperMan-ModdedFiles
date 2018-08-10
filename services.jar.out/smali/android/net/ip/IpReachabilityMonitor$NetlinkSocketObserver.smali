@@ -274,7 +274,7 @@
 
     iget-object v6, p0, Landroid/net/ip/IpReachabilityMonitor$NetlinkSocketObserver;->this$0:Landroid/net/ip/IpReachabilityMonitor;
 
-    invoke-static {v6, v1}, Landroid/net/ip/IpReachabilityMonitor;->-wrap2(Landroid/net/ip/IpReachabilityMonitor;Ljava/lang/String;)V
+    invoke-static {v6, v1}, Landroid/net/ip/IpReachabilityMonitor;->-wrap1(Landroid/net/ip/IpReachabilityMonitor;Ljava/lang/String;)V
 
     :cond_4
     return-void
@@ -511,45 +511,34 @@
 .method public run()V
     .locals 8
 
+    const/4 v7, 0x0
+
     iget-object v3, p0, Landroid/net/ip/IpReachabilityMonitor$NetlinkSocketObserver;->this$0:Landroid/net/ip/IpReachabilityMonitor;
 
-    invoke-static {v3}, Landroid/net/ip/IpReachabilityMonitor;->-get2(Landroid/net/ip/IpReachabilityMonitor;)Ljava/lang/Object;
+    const/4 v6, 0x1
 
-    move-result-object v6
-
-    monitor-enter v6
+    invoke-static {v3, v6}, Landroid/net/ip/IpReachabilityMonitor;->-set0(Landroid/net/ip/IpReachabilityMonitor;Z)Z
 
     :try_start_0
-    iget-object v3, p0, Landroid/net/ip/IpReachabilityMonitor$NetlinkSocketObserver;->this$0:Landroid/net/ip/IpReachabilityMonitor;
-
-    const/4 v7, 0x1
-
-    invoke-static {v3, v7}, Landroid/net/ip/IpReachabilityMonitor;->-set0(Landroid/net/ip/IpReachabilityMonitor;Z)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit v6
-
-    :try_start_1
     invoke-direct {p0}, Landroid/net/ip/IpReachabilityMonitor$NetlinkSocketObserver;->setupNetlinkSocket()V
-    :try_end_1
-    .catch Landroid/system/ErrnoException; {:try_start_1 .. :try_end_1} :catch_0
-    .catch Ljava/net/SocketException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_0
+    .catch Landroid/system/ErrnoException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/net/SocketException; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_0
     :goto_0
     iget-object v3, p0, Landroid/net/ip/IpReachabilityMonitor$NetlinkSocketObserver;->this$0:Landroid/net/ip/IpReachabilityMonitor;
 
-    invoke-static {v3}, Landroid/net/ip/IpReachabilityMonitor;->-wrap1(Landroid/net/ip/IpReachabilityMonitor;)Z
+    invoke-static {v3}, Landroid/net/ip/IpReachabilityMonitor;->-get3(Landroid/net/ip/IpReachabilityMonitor;)Z
 
     move-result v3
 
     if-eqz v3, :cond_1
 
-    :try_start_2
+    :try_start_1
     invoke-direct {p0}, Landroid/net/ip/IpReachabilityMonitor$NetlinkSocketObserver;->recvKernelReply()Ljava/nio/ByteBuffer;
-    :try_end_2
-    .catch Landroid/system/ErrnoException; {:try_start_2 .. :try_end_2} :catch_1
+    :try_end_1
+    .catch Landroid/system/ErrnoException; {:try_start_1 .. :try_end_1} :catch_1
 
     move-result-object v0
 
@@ -563,13 +552,6 @@
 
     goto :goto_0
 
-    :catchall_0
-    move-exception v3
-
-    monitor-exit v6
-
-    throw v3
-
     :catch_0
     move-exception v2
 
@@ -581,38 +563,16 @@
 
     iget-object v3, p0, Landroid/net/ip/IpReachabilityMonitor$NetlinkSocketObserver;->this$0:Landroid/net/ip/IpReachabilityMonitor;
 
-    invoke-static {v3}, Landroid/net/ip/IpReachabilityMonitor;->-get2(Landroid/net/ip/IpReachabilityMonitor;)Ljava/lang/Object;
-
-    move-result-object v6
-
-    monitor-enter v6
-
-    :try_start_3
-    iget-object v3, p0, Landroid/net/ip/IpReachabilityMonitor$NetlinkSocketObserver;->this$0:Landroid/net/ip/IpReachabilityMonitor;
-
-    const/4 v7, 0x0
-
     invoke-static {v3, v7}, Landroid/net/ip/IpReachabilityMonitor;->-set0(Landroid/net/ip/IpReachabilityMonitor;Z)Z
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
-
-    monitor-exit v6
 
     goto :goto_0
-
-    :catchall_1
-    move-exception v3
-
-    monitor-exit v6
-
-    throw v3
 
     :catch_1
     move-exception v1
 
     iget-object v3, p0, Landroid/net/ip/IpReachabilityMonitor$NetlinkSocketObserver;->this$0:Landroid/net/ip/IpReachabilityMonitor;
 
-    invoke-static {v3}, Landroid/net/ip/IpReachabilityMonitor;->-wrap1(Landroid/net/ip/IpReachabilityMonitor;)Z
+    invoke-static {v3}, Landroid/net/ip/IpReachabilityMonitor;->-get3(Landroid/net/ip/IpReachabilityMonitor;)Z
 
     move-result v3
 
@@ -629,29 +589,7 @@
 
     iget-object v3, p0, Landroid/net/ip/IpReachabilityMonitor$NetlinkSocketObserver;->this$0:Landroid/net/ip/IpReachabilityMonitor;
 
-    invoke-static {v3}, Landroid/net/ip/IpReachabilityMonitor;->-get2(Landroid/net/ip/IpReachabilityMonitor;)Ljava/lang/Object;
-
-    move-result-object v6
-
-    monitor-enter v6
-
-    :try_start_4
-    iget-object v3, p0, Landroid/net/ip/IpReachabilityMonitor$NetlinkSocketObserver;->this$0:Landroid/net/ip/IpReachabilityMonitor;
-
-    const/4 v7, 0x0
-
     invoke-static {v3, v7}, Landroid/net/ip/IpReachabilityMonitor;->-set0(Landroid/net/ip/IpReachabilityMonitor;Z)Z
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_2
-
-    monitor-exit v6
 
     return-void
-
-    :catchall_2
-    move-exception v3
-
-    monitor-exit v6
-
-    throw v3
 .end method

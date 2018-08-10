@@ -42,95 +42,115 @@
 .end method
 
 .method private adjustUriForUserAndGrantPermission(Landroid/net/Uri;Ljava/lang/String;I)Landroid/net/Uri;
-    .locals 8
+    .locals 11
 
-    invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
+    new-instance v3, Landroid/content/Intent;
+
+    invoke-direct {v3}, Landroid/content/Intent;-><init>()V
+
+    invoke-virtual {v3, p1}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
+
+    invoke-virtual {v3, p3}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
 
-    invoke-static {p1, v0}, Landroid/content/ContentProvider;->maybeAddUserId(Landroid/net/Uri;I)Landroid/net/Uri;
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-static {p1, v1}, Landroid/content/ContentProvider;->maybeAddUserId(Landroid/net/Uri;I)Landroid/net/Uri;
 
     move-result-object p1
 
     :cond_0
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v4
+    move-result-wide v6
 
     :try_start_0
-    iget-object v6, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
+    const-class v8, Landroid/app/ActivityManagerInternal;
 
-    invoke-static {v6}, Lcom/android/server/MmsServiceBroker;->-get5(Lcom/android/server/MmsServiceBroker;)Landroid/content/Context;
+    invoke-static {v8}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v8
 
-    const-string/jumbo v7, "com.android.phone"
+    check-cast v8, Landroid/app/ActivityManagerInternal;
 
-    invoke-virtual {v6, v7, p1, p3}, Landroid/content/Context;->grantUriPermission(Ljava/lang/String;Landroid/net/Uri;I)V
+    const-string/jumbo v9, "com.android.phone"
 
-    new-instance v2, Landroid/content/Intent;
+    const/4 v10, 0x0
 
-    invoke-direct {v2, p2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v8, v0, v9, v3, v10}, Landroid/app/ActivityManagerInternal;->grantUriPermissionFromIntent(ILjava/lang/String;Landroid/content/Intent;I)V
 
-    iget-object v6, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
+    new-instance v4, Landroid/content/Intent;
 
-    invoke-static {v6}, Lcom/android/server/MmsServiceBroker;->-get5(Lcom/android/server/MmsServiceBroker;)Landroid/content/Context;
+    invoke-direct {v4, p2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    move-result-object v6
+    iget-object v8, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
 
-    const-string/jumbo v7, "phone"
+    invoke-static {v8}, Lcom/android/server/MmsServiceBroker;->-get5(Lcom/android/server/MmsServiceBroker;)Landroid/content/Context;
 
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    move-result-object v8
 
-    move-result-object v3
+    const-string/jumbo v9, "phone"
 
-    check-cast v3, Landroid/telephony/TelephonyManager;
+    invoke-virtual {v8, v9}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-virtual {v3, v2}, Landroid/telephony/TelephonyManager;->getCarrierPackageNamesForIntent(Landroid/content/Intent;)Ljava/util/List;
+    move-result-object v5
 
-    move-result-object v1
+    check-cast v5, Landroid/telephony/TelephonyManager;
 
-    if-eqz v1, :cond_1
+    invoke-virtual {v5, v4}, Landroid/telephony/TelephonyManager;->getCarrierPackageNamesForIntent(Landroid/content/Intent;)Ljava/util/List;
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    move-result-object v2
 
-    move-result v6
+    if-eqz v2, :cond_1
 
-    const/4 v7, 0x1
+    invoke-interface {v2}, Ljava/util/List;->size()I
 
-    if-ne v6, v7, :cond_1
+    move-result v8
 
-    iget-object v6, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
+    const/4 v9, 0x1
 
-    invoke-static {v6}, Lcom/android/server/MmsServiceBroker;->-get5(Lcom/android/server/MmsServiceBroker;)Landroid/content/Context;
+    if-ne v8, v9, :cond_1
 
-    move-result-object v7
+    const-class v8, Landroid/app/ActivityManagerInternal;
 
-    const/4 v6, 0x0
+    invoke-static {v8}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    invoke-interface {v1, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    move-result-object v8
 
-    move-result-object v6
+    check-cast v8, Landroid/app/ActivityManagerInternal;
 
-    check-cast v6, Ljava/lang/String;
+    const/4 v9, 0x0
 
-    invoke-virtual {v7, v6, p1, p3}, Landroid/content/Context;->grantUriPermission(Ljava/lang/String;Landroid/net/Uri;I)V
+    invoke-interface {v2, v9}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v9
+
+    check-cast v9, Ljava/lang/String;
+
+    const/4 v10, 0x0
+
+    invoke-virtual {v8, v0, v9, v3, v10}, Landroid/app/ActivityManagerInternal;->grantUriPermissionFromIntent(ILjava/lang/String;Landroid/content/Intent;I)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_1
-    invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v6, v7}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     return-object p1
 
     :catchall_0
-    move-exception v6
+    move-exception v8
 
-    invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v6, v7}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v6
+    throw v8
 .end method
 
 

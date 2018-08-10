@@ -29,29 +29,6 @@
 
 
 # virtual methods
-.method public onBootPhase(I)V
-    .locals 1
-
-    const/16 v0, 0x226
-
-    if-ne p1, v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/server/LockSettingsService$Lifecycle;->mLockSettingsService:Lcom/android/server/LockSettingsService;
-
-    invoke-static {v0}, Lcom/android/server/LockSettingsService;->-wrap4(Lcom/android/server/LockSettingsService;)V
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
-    const/16 v0, 0x3e8
-
-    if-ne p1, v0, :cond_0
-
-    goto :goto_0
-.end method
-
 .method public onCleanupUser(I)V
     .locals 1
 
@@ -82,6 +59,16 @@
     iget-object v1, p0, Lcom/android/server/LockSettingsService$Lifecycle;->mLockSettingsService:Lcom/android/server/LockSettingsService;
 
     invoke-virtual {p0, v0, v1}, Lcom/android/server/LockSettingsService$Lifecycle;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+
+    return-void
+.end method
+
+.method public onStartUser(I)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/LockSettingsService$Lifecycle;->mLockSettingsService:Lcom/android/server/LockSettingsService;
+
+    invoke-virtual {v0, p1}, Lcom/android/server/LockSettingsService;->onStartUser(I)V
 
     return-void
 .end method

@@ -93,10 +93,13 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_0
+
+    const/4 p2, 0x0
 
     :cond_0
-    :goto_0
     :try_start_0
     new-instance v2, Lcom/android/server/enterprise/proxy/EnterpriseSocketConnect;
 
@@ -114,37 +117,32 @@
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_2
 
-    :goto_1
+    :goto_0
     :try_start_2
     invoke-virtual {v3}, Lcom/android/server/enterprise/proxy/EnterpriseSocketConnect;->join()V
     :try_end_2
     .catch Ljava/lang/InterruptedException; {:try_start_2 .. :try_end_2} :catch_1
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_2
 
-    :goto_2
+    :goto_1
     return-void
-
-    :cond_1
-    const/4 p2, 0x0
-
-    goto :goto_0
 
     :catch_0
     move-exception v1
 
-    goto :goto_1
+    goto :goto_0
 
     :catch_1
     move-exception v1
 
-    goto :goto_2
+    goto :goto_1
 
     :catch_2
     move-exception v0
 
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
-    goto :goto_2
+    goto :goto_1
 .end method
 
 .method private static getContentLength(Ljava/lang/String;)I

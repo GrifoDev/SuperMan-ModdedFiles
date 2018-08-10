@@ -1,4 +1,4 @@
-.class Lcom/android/server/pm/PackageManagerServiceCompilerMapping;
+.class public Lcom/android/server/pm/PackageManagerServiceCompilerMapping;
 .super Ljava/lang/Object;
 .source "PackageManagerServiceCompilerMapping.java"
 
@@ -11,7 +11,7 @@
 .method static constructor <clinit>()V
     .locals 4
 
-    const/16 v3, 0x9
+    const/4 v3, 0x5
 
     new-array v0, v3, [Ljava/lang/String;
 
@@ -45,30 +45,6 @@
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "nsys-library"
-
-    const/4 v2, 0x5
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "shared-apk"
-
-    const/4 v2, 0x6
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "forced-dexopt"
-
-    const/4 v2, 0x7
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "core-app"
-
-    const/16 v2, 0x8
-
-    aput-object v1, v0, v2
-
     sput-object v0, Lcom/android/server/pm/PackageManagerServiceCompilerMapping;->REASON_STRINGS:[Ljava/lang/String;
 
     sget-object v0, Lcom/android/server/pm/PackageManagerServiceCompilerMapping;->REASON_STRINGS:[Ljava/lang/String;
@@ -89,7 +65,7 @@
     return-void
 .end method
 
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -105,7 +81,7 @@
     const/4 v1, 0x0
 
     :goto_0
-    const/16 v4, 0x8
+    const/4 v4, 0x4
 
     if-gt v1, v4, :cond_3
 
@@ -120,15 +96,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_0
-
-    invoke-virtual {v2}, Ljava/lang/String;->length()I
-
-    move-result v4
-
-    const/16 v5, 0x1f
-
-    if-le v4, v5, :cond_2
+    if-eqz v4, :cond_2
 
     :cond_0
     new-instance v4, Ljava/lang/IllegalStateException;
@@ -218,26 +186,23 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_0
 
     invoke-static {v0}, Ldalvik/system/DexFile;->isValidCompilerFilter(Ljava/lang/String;)Z
 
     move-result v1
 
+    xor-int/lit8 v1, v1, 0x1
+
     if-eqz v1, :cond_1
 
-    packed-switch p0, :pswitch_data_0
-
     :cond_0
-    return-object v0
-
-    :cond_1
     new-instance v1, Ljava/lang/IllegalStateException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -288,64 +253,8 @@
 
     throw v1
 
-    :pswitch_0
-    invoke-static {v0}, Ldalvik/system/DexFile;->isProfileGuidedCompilerFilter(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    new-instance v1, Ljava/lang/IllegalStateException;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "\""
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "\" is profile-guided, "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "but not allowed for "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    sget-object v3, Lcom/android/server/pm/PackageManagerServiceCompilerMapping;->REASON_STRINGS:[Ljava/lang/String;
-
-    aget-object v3, v3, p0
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v1
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x6
-        :pswitch_0
-        :pswitch_0
-    .end packed-switch
+    :cond_1
+    return-object v0
 .end method
 
 .method public static getCompilerFilterForReason(I)Ljava/lang/String;
@@ -358,7 +267,7 @@
     return-object v0
 .end method
 
-.method public static getFullCompilerFilter()Ljava/lang/String;
+.method public static getDefaultCompilerFilter()Ljava/lang/String;
     .locals 2
 
     const-string/jumbo v1, "dalvik.vm.dex2oat-filter"
@@ -399,16 +308,6 @@
     return-object v1
 
     :cond_3
-    return-object v0
-.end method
-
-.method public static getNonProfileGuidedCompilerFilter(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
-
-    invoke-static {p0}, Ldalvik/system/DexFile;->getNonProfileGuidedCompilerFilter(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
     return-object v0
 .end method
 

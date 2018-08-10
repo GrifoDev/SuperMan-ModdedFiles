@@ -105,12 +105,12 @@
 
     iput-object p1, p0, Lcom/android/server/usage/AppIdleHistory;->mStorageDir:Ljava/io/File;
 
-    invoke-direct {p0}, Lcom/android/server/usage/AppIdleHistory;->readScreenOnTimeLocked()V
+    invoke-direct {p0}, Lcom/android/server/usage/AppIdleHistory;->readScreenOnTime()V
 
     return-void
 .end method
 
-.method private getElapsedTimeLocked(J)J
+.method private getElapsedTime(J)J
     .locals 5
 
     iget-wide v0, p0, Lcom/android/server/usage/AppIdleHistory;->mElapsedSnapshot:J
@@ -124,7 +124,7 @@
     return-wide v0
 .end method
 
-.method private getPackageHistoryLocked(Landroid/util/ArrayMap;Ljava/lang/String;J)Lcom/android/server/usage/AppIdleHistory$PackageHistory;
+.method private getPackageHistory(Landroid/util/ArrayMap;Ljava/lang/String;J)Lcom/android/server/usage/AppIdleHistory$PackageHistory;
     .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -154,13 +154,13 @@
 
     invoke-direct {v0, v1}, Lcom/android/server/usage/AppIdleHistory$PackageHistory;-><init>(Lcom/android/server/usage/AppIdleHistory$PackageHistory;)V
 
-    invoke-direct {p0, p3, p4}, Lcom/android/server/usage/AppIdleHistory;->getElapsedTimeLocked(J)J
+    invoke-direct {p0, p3, p4}, Lcom/android/server/usage/AppIdleHistory;->getElapsedTime(J)J
 
     move-result-wide v2
 
     iput-wide v2, v0, Lcom/android/server/usage/AppIdleHistory$PackageHistory;->lastUsedElapsedTime:J
 
-    invoke-virtual {p0, p3, p4}, Lcom/android/server/usage/AppIdleHistory;->getScreenOnTimeLocked(J)J
+    invoke-virtual {p0, p3, p4}, Lcom/android/server/usage/AppIdleHistory;->getScreenOnTime(J)J
 
     move-result-wide v2
 
@@ -200,7 +200,7 @@
     return-object v0
 .end method
 
-.method private getUserHistoryLocked(I)Landroid/util/ArrayMap;
+.method private getUserHistory(I)Landroid/util/ArrayMap;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -231,20 +231,20 @@
 
     invoke-virtual {v1, p1, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    invoke-direct {p0, p1, v0}, Lcom/android/server/usage/AppIdleHistory;->readAppIdleTimesLocked(ILandroid/util/ArrayMap;)V
+    invoke-direct {p0, p1, v0}, Lcom/android/server/usage/AppIdleHistory;->readAppIdleTimes(ILandroid/util/ArrayMap;)V
 
     :cond_0
     return-object v0
 .end method
 
-.method private hasPassedThresholdsLocked(Lcom/android/server/usage/AppIdleHistory$PackageHistory;J)Z
+.method private hasPassedThresholds(Lcom/android/server/usage/AppIdleHistory$PackageHistory;J)Z
     .locals 8
 
     const/4 v0, 0x0
 
     iget-wide v2, p1, Lcom/android/server/usage/AppIdleHistory$PackageHistory;->lastUsedScreenTime:J
 
-    invoke-virtual {p0, p2, p3}, Lcom/android/server/usage/AppIdleHistory;->getScreenOnTimeLocked(J)J
+    invoke-virtual {p0, p2, p3}, Lcom/android/server/usage/AppIdleHistory;->getScreenOnTime(J)J
 
     move-result-wide v4
 
@@ -258,7 +258,7 @@
 
     iget-wide v2, p1, Lcom/android/server/usage/AppIdleHistory$PackageHistory;->lastUsedElapsedTime:J
 
-    invoke-direct {p0, p2, p3}, Lcom/android/server/usage/AppIdleHistory;->getElapsedTimeLocked(J)J
+    invoke-direct {p0, p2, p3}, Lcom/android/server/usage/AppIdleHistory;->getElapsedTime(J)J
 
     move-result-wide v4
 
@@ -276,7 +276,7 @@
     return v0
 .end method
 
-.method private readAppIdleTimesLocked(ILandroid/util/ArrayMap;)V
+.method private readAppIdleTimes(ILandroid/util/ArrayMap;)V
     .locals 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -503,7 +503,7 @@
     throw v8
 .end method
 
-.method private readScreenOnTimeLocked()V
+.method private readScreenOnTime()V
     .locals 6
 
     invoke-virtual {p0}, Lcom/android/server/usage/AppIdleHistory;->getScreenOnTimeFile()Ljava/io/File;
@@ -554,7 +554,7 @@
     return-void
 
     :cond_0
-    invoke-direct {p0}, Lcom/android/server/usage/AppIdleHistory;->writeScreenOnTimeLocked()V
+    invoke-direct {p0}, Lcom/android/server/usage/AppIdleHistory;->writeScreenOnTime()V
 
     goto :goto_0
 
@@ -701,7 +701,7 @@
     return-void
 .end method
 
-.method private writeScreenOnTimeLocked()V
+.method private writeScreenOnTime()V
     .locals 6
 
     new-instance v2, Landroid/util/AtomicFile;
@@ -782,10 +782,10 @@
 
 
 # virtual methods
-.method public clearUsageLocked(Ljava/lang/String;I)V
+.method public clearUsage(Ljava/lang/String;I)V
     .locals 1
 
-    invoke-direct {p0, p2}, Lcom/android/server/usage/AppIdleHistory;->getUserHistoryLocked(I)Landroid/util/ArrayMap;
+    invoke-direct {p0, p2}, Lcom/android/server/usage/AppIdleHistory;->getUserHistory(I)Landroid/util/ArrayMap;
 
     move-result-object v0
 
@@ -823,13 +823,13 @@
 
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v4, v5}, Lcom/android/server/usage/AppIdleHistory;->getElapsedTimeLocked(J)J
+    invoke-direct {v0, v4, v5}, Lcom/android/server/usage/AppIdleHistory;->getElapsedTime(J)J
 
     move-result-wide v10
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4, v5}, Lcom/android/server/usage/AppIdleHistory;->getScreenOnTimeLocked(J)J
+    invoke-virtual {v0, v4, v5}, Lcom/android/server/usage/AppIdleHistory;->getScreenOnTime(J)J
 
     move-result-wide v8
 
@@ -923,7 +923,7 @@
 
     move/from16 v1, p2
 
-    invoke-virtual {v0, v7, v1, v4, v5}, Lcom/android/server/usage/AppIdleHistory;->isIdleLocked(Ljava/lang/String;IJ)Z
+    invoke-virtual {v0, v7, v1, v4, v5}, Lcom/android/server/usage/AppIdleHistory;->isIdle(Ljava/lang/String;IJ)Z
 
     move-result v13
 
@@ -966,7 +966,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v4, v5}, Lcom/android/server/usage/AppIdleHistory;->getElapsedTimeLocked(J)J
+    invoke-direct {v0, v4, v5}, Lcom/android/server/usage/AppIdleHistory;->getElapsedTime(J)J
 
     move-result-wide v14
 
@@ -984,7 +984,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4, v5}, Lcom/android/server/usage/AppIdleHistory;->getScreenOnTimeLocked(J)J
+    invoke-virtual {v0, v4, v5}, Lcom/android/server/usage/AppIdleHistory;->getScreenOnTime(J)J
 
     move-result-wide v14
 
@@ -1078,7 +1078,7 @@
 
     move-result-object v9
 
-    invoke-virtual {p0, v6, p2, v2, v3}, Lcom/android/server/usage/AppIdleHistory;->isIdleLocked(Ljava/lang/String;IJ)Z
+    invoke-virtual {p0, v6, p2, v2, v3}, Lcom/android/server/usage/AppIdleHistory;->isIdle(Ljava/lang/String;IJ)Z
 
     move-result v8
 
@@ -1132,21 +1132,7 @@
     return-void
 .end method
 
-.method getScreenOnTimeFile()Ljava/io/File;
-    .locals 3
-
-    new-instance v0, Ljava/io/File;
-
-    iget-object v1, p0, Lcom/android/server/usage/AppIdleHistory;->mStorageDir:Ljava/io/File;
-
-    const-string/jumbo v2, "screen_on_time"
-
-    invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
-
-    return-object v0
-.end method
-
-.method public getScreenOnTimeLocked(J)J
+.method public getScreenOnTime(J)J
     .locals 5
 
     iget-wide v0, p0, Lcom/android/server/usage/AppIdleHistory;->mScreenOnDuration:J
@@ -1165,14 +1151,28 @@
     return-wide v0
 .end method
 
-.method public isIdleLocked(Ljava/lang/String;IJ)Z
+.method getScreenOnTimeFile()Ljava/io/File;
     .locals 3
 
-    invoke-direct {p0, p2}, Lcom/android/server/usage/AppIdleHistory;->getUserHistoryLocked(I)Landroid/util/ArrayMap;
+    new-instance v0, Ljava/io/File;
+
+    iget-object v1, p0, Lcom/android/server/usage/AppIdleHistory;->mStorageDir:Ljava/io/File;
+
+    const-string/jumbo v2, "screen_on_time"
+
+    invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    return-object v0
+.end method
+
+.method public isIdle(Ljava/lang/String;IJ)Z
+    .locals 3
+
+    invoke-direct {p0, p2}, Lcom/android/server/usage/AppIdleHistory;->getUserHistory(I)Landroid/util/ArrayMap;
 
     move-result-object v1
 
-    invoke-direct {p0, v1, p1, p3, p4}, Lcom/android/server/usage/AppIdleHistory;->getPackageHistoryLocked(Landroid/util/ArrayMap;Ljava/lang/String;J)Lcom/android/server/usage/AppIdleHistory$PackageHistory;
+    invoke-direct {p0, v1, p1, p3, p4}, Lcom/android/server/usage/AppIdleHistory;->getPackageHistory(Landroid/util/ArrayMap;Ljava/lang/String;J)Lcom/android/server/usage/AppIdleHistory$PackageHistory;
 
     move-result-object v0
 
@@ -1183,7 +1183,7 @@
     return v2
 
     :cond_0
-    invoke-direct {p0, v0, p3, p4}, Lcom/android/server/usage/AppIdleHistory;->hasPassedThresholdsLocked(Lcom/android/server/usage/AppIdleHistory$PackageHistory;J)Z
+    invoke-direct {p0, v0, p3, p4}, Lcom/android/server/usage/AppIdleHistory;->hasPassedThresholds(Lcom/android/server/usage/AppIdleHistory$PackageHistory;J)Z
 
     move-result v2
 
@@ -1200,14 +1200,14 @@
     return-void
 .end method
 
-.method public reportUsageLocked(Ljava/lang/String;IJ)V
+.method public reportUsage(Ljava/lang/String;IJ)V
     .locals 7
 
-    invoke-direct {p0, p2}, Lcom/android/server/usage/AppIdleHistory;->getUserHistoryLocked(I)Landroid/util/ArrayMap;
+    invoke-direct {p0, p2}, Lcom/android/server/usage/AppIdleHistory;->getUserHistory(I)Landroid/util/ArrayMap;
 
     move-result-object v1
 
-    invoke-direct {p0, v1, p1, p3, p4}, Lcom/android/server/usage/AppIdleHistory;->getPackageHistoryLocked(Landroid/util/ArrayMap;Ljava/lang/String;J)Lcom/android/server/usage/AppIdleHistory$PackageHistory;
+    invoke-direct {p0, v1, p1, p3, p4}, Lcom/android/server/usage/AppIdleHistory;->getPackageHistory(Landroid/util/ArrayMap;Ljava/lang/String;J)Lcom/android/server/usage/AppIdleHistory$PackageHistory;
 
     move-result-object v0
 
@@ -1223,7 +1223,7 @@
 
     iput-wide v2, v0, Lcom/android/server/usage/AppIdleHistory$PackageHistory;->lastUsedElapsedTime:J
 
-    invoke-virtual {p0, p3, p4}, Lcom/android/server/usage/AppIdleHistory;->getScreenOnTimeLocked(J)J
+    invoke-virtual {p0, p3, p4}, Lcom/android/server/usage/AppIdleHistory;->getScreenOnTime(J)J
 
     move-result-wide v2
 
@@ -1243,11 +1243,11 @@
 .method public setIdle(Ljava/lang/String;IJ)V
     .locals 5
 
-    invoke-direct {p0, p2}, Lcom/android/server/usage/AppIdleHistory;->getUserHistoryLocked(I)Landroid/util/ArrayMap;
+    invoke-direct {p0, p2}, Lcom/android/server/usage/AppIdleHistory;->getUserHistory(I)Landroid/util/ArrayMap;
 
     move-result-object v1
 
-    invoke-direct {p0, v1, p1, p3, p4}, Lcom/android/server/usage/AppIdleHistory;->getPackageHistoryLocked(Landroid/util/ArrayMap;Ljava/lang/String;J)Lcom/android/server/usage/AppIdleHistory$PackageHistory;
+    invoke-direct {p0, v1, p1, p3, p4}, Lcom/android/server/usage/AppIdleHistory;->getPackageHistory(Landroid/util/ArrayMap;Ljava/lang/String;J)Lcom/android/server/usage/AppIdleHistory$PackageHistory;
 
     move-result-object v0
 
@@ -1268,18 +1268,18 @@
     return-void
 .end method
 
-.method public setIdleLocked(Ljava/lang/String;IZJ)V
+.method public setIdle(Ljava/lang/String;IZJ)V
     .locals 6
 
-    invoke-direct {p0, p2}, Lcom/android/server/usage/AppIdleHistory;->getUserHistoryLocked(I)Landroid/util/ArrayMap;
+    invoke-direct {p0, p2}, Lcom/android/server/usage/AppIdleHistory;->getUserHistory(I)Landroid/util/ArrayMap;
 
     move-result-object v1
 
-    invoke-direct {p0, v1, p1, p4, p5}, Lcom/android/server/usage/AppIdleHistory;->getPackageHistoryLocked(Landroid/util/ArrayMap;Ljava/lang/String;J)Lcom/android/server/usage/AppIdleHistory$PackageHistory;
+    invoke-direct {p0, v1, p1, p4, p5}, Lcom/android/server/usage/AppIdleHistory;->getPackageHistory(Landroid/util/ArrayMap;Ljava/lang/String;J)Lcom/android/server/usage/AppIdleHistory$PackageHistory;
 
     move-result-object v0
 
-    invoke-direct {p0, p4, p5}, Lcom/android/server/usage/AppIdleHistory;->getElapsedTimeLocked(J)J
+    invoke-direct {p0, p4, p5}, Lcom/android/server/usage/AppIdleHistory;->getElapsedTime(J)J
 
     move-result-wide v2
 
@@ -1289,7 +1289,7 @@
 
     iput-wide v2, v0, Lcom/android/server/usage/AppIdleHistory$PackageHistory;->lastUsedElapsedTime:J
 
-    invoke-virtual {p0, p4, p5}, Lcom/android/server/usage/AppIdleHistory;->getScreenOnTimeLocked(J)J
+    invoke-virtual {p0, p4, p5}, Lcom/android/server/usage/AppIdleHistory;->getScreenOnTime(J)J
 
     move-result-wide v4
 
@@ -1324,7 +1324,7 @@
     return-void
 .end method
 
-.method public updateDisplayLocked(ZJ)V
+.method public updateDisplay(ZJ)V
     .locals 4
 
     iget-boolean v0, p0, Lcom/android/server/usage/AppIdleHistory;->mScreenOn:Z
@@ -1366,14 +1366,36 @@
 
     iput-wide v0, p0, Lcom/android/server/usage/AppIdleHistory;->mElapsedDuration:J
 
-    invoke-direct {p0}, Lcom/android/server/usage/AppIdleHistory;->writeScreenOnTimeLocked()V
-
     iput-wide p2, p0, Lcom/android/server/usage/AppIdleHistory;->mElapsedSnapshot:J
 
     goto :goto_0
 .end method
 
-.method public writeAppIdleTimesLocked(I)V
+.method public writeAppIdleDurations()V
+    .locals 6
+
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+
+    move-result-wide v0
+
+    iget-wide v2, p0, Lcom/android/server/usage/AppIdleHistory;->mElapsedDuration:J
+
+    iget-wide v4, p0, Lcom/android/server/usage/AppIdleHistory;->mElapsedSnapshot:J
+
+    sub-long v4, v0, v4
+
+    add-long/2addr v2, v4
+
+    iput-wide v2, p0, Lcom/android/server/usage/AppIdleHistory;->mElapsedDuration:J
+
+    iput-wide v0, p0, Lcom/android/server/usage/AppIdleHistory;->mElapsedSnapshot:J
+
+    invoke-direct {p0}, Lcom/android/server/usage/AppIdleHistory;->writeScreenOnTime()V
+
+    return-void
+.end method
+
+.method public writeAppIdleTimes(I)V
     .locals 14
 
     const/4 v4, 0x0
@@ -1429,7 +1451,7 @@
 
     invoke-virtual {v9, v11, v10}, Lcom/android/internal/util/FastXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-direct {p0, p1}, Lcom/android/server/usage/AppIdleHistory;->getUserHistoryLocked(I)Landroid/util/ArrayMap;
+    invoke-direct {p0, p1}, Lcom/android/server/usage/AppIdleHistory;->getUserHistory(I)Landroid/util/ArrayMap;
 
     move-result-object v8
 
@@ -1544,28 +1566,4 @@
     invoke-static {v10, v11}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1
-.end method
-
-.method public writeElapsedTimeLocked()V
-    .locals 6
-
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
-
-    move-result-wide v0
-
-    iget-wide v2, p0, Lcom/android/server/usage/AppIdleHistory;->mElapsedDuration:J
-
-    iget-wide v4, p0, Lcom/android/server/usage/AppIdleHistory;->mElapsedSnapshot:J
-
-    sub-long v4, v0, v4
-
-    add-long/2addr v2, v4
-
-    iput-wide v2, p0, Lcom/android/server/usage/AppIdleHistory;->mElapsedDuration:J
-
-    iput-wide v0, p0, Lcom/android/server/usage/AppIdleHistory;->mElapsedSnapshot:J
-
-    invoke-direct {p0}, Lcom/android/server/usage/AppIdleHistory;->writeScreenOnTimeLocked()V
-
-    return-void
 .end method

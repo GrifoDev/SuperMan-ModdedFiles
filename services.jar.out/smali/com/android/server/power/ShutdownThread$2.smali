@@ -32,7 +32,7 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "android.intent.action.SHOW_GLOBAL_ACTIONS"
+    const-string/jumbo v1, "android.intent.action.SCREEN_OFF"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -42,13 +42,23 @@
 
     const-string/jumbo v1, "ShutdownThread"
 
-    const-string/jumbo v2, "secure lock released, start shutdown sequence"
+    const-string/jumbo v2, "screen off intent, dismiss confirm dialog"
 
     invoke-static {v1, v2}, Lcom/android/server/power/ShutdownThread$Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v1, 0x1
+    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-wrap11()V
 
-    invoke-static {p1, v1}, Lcom/android/server/power/ShutdownThread;->-wrap2(Landroid/content/Context;Z)V
+    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get24()Landroid/app/Dialog;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/app/Dialog;->dismiss()V
+
+    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get17()Landroid/content/BroadcastReceiver;
+
+    move-result-object v1
+
+    invoke-virtual {p1, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
     :cond_0
     return-void

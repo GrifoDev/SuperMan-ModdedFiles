@@ -1,5 +1,5 @@
 .class Lcom/android/server/lights/LightsService$1;
-.super Landroid/service/vr/IVrStateCallbacks$Stub;
+.super Lcom/android/server/lights/LightsManager;
 .source "LightsService.java"
 
 
@@ -24,73 +24,32 @@
 
     iput-object p1, p0, Lcom/android/server/lights/LightsService$1;->this$0:Lcom/android/server/lights/LightsService;
 
-    invoke-direct {p0}, Landroid/service/vr/IVrStateCallbacks$Stub;-><init>()V
+    invoke-direct {p0}, Lcom/android/server/lights/LightsManager;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onVrStateChanged(Z)V
-    .locals 4
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
+.method public getLight(I)Lcom/android/server/lights/Light;
+    .locals 1
 
-    const/4 v3, 0x0
+    if-ltz p1, :cond_0
 
-    iget-object v2, p0, Lcom/android/server/lights/LightsService$1;->this$0:Lcom/android/server/lights/LightsService;
+    const/16 v0, 0x8
 
-    iget-object v2, v2, Lcom/android/server/lights/LightsService;->mLights:[Lcom/android/server/lights/LightsService$LightImpl;
+    if-ge p1, v0, :cond_0
 
-    aget-object v0, v2, v3
+    iget-object v0, p0, Lcom/android/server/lights/LightsService$1;->this$0:Lcom/android/server/lights/LightsService;
 
-    iget-object v2, p0, Lcom/android/server/lights/LightsService$1;->this$0:Lcom/android/server/lights/LightsService;
+    iget-object v0, v0, Lcom/android/server/lights/LightsService;->mLights:[Lcom/android/server/lights/LightsService$LightImpl;
 
-    invoke-static {v2}, Lcom/android/server/lights/LightsService;->-wrap0(Lcom/android/server/lights/LightsService;)I
+    aget-object v0, v0, p1
 
-    move-result v1
-
-    if-eqz p1, :cond_1
-
-    if-nez v1, :cond_1
-
-    iget-object v2, p0, Lcom/android/server/lights/LightsService$1;->this$0:Lcom/android/server/lights/LightsService;
-
-    invoke-static {v2}, Lcom/android/server/lights/LightsService;->-get19(Lcom/android/server/lights/LightsService;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    invoke-virtual {v0}, Lcom/android/server/lights/LightsService$LightImpl;->enableLowPersistence()V
-
-    iget-object v2, p0, Lcom/android/server/lights/LightsService$1;->this$0:Lcom/android/server/lights/LightsService;
-
-    const/4 v3, 0x1
-
-    invoke-static {v2, v3}, Lcom/android/server/lights/LightsService;->-set12(Lcom/android/server/lights/LightsService;Z)Z
+    return-object v0
 
     :cond_0
-    :goto_0
-    return-void
+    const/4 v0, 0x0
 
-    :cond_1
-    iget-object v2, p0, Lcom/android/server/lights/LightsService$1;->this$0:Lcom/android/server/lights/LightsService;
-
-    invoke-static {v2}, Lcom/android/server/lights/LightsService;->-get19(Lcom/android/server/lights/LightsService;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    invoke-virtual {v0}, Lcom/android/server/lights/LightsService$LightImpl;->disableLowPersistence()V
-
-    iget-object v2, p0, Lcom/android/server/lights/LightsService$1;->this$0:Lcom/android/server/lights/LightsService;
-
-    invoke-static {v2, v3}, Lcom/android/server/lights/LightsService;->-set12(Lcom/android/server/lights/LightsService;Z)Z
-
-    goto :goto_0
+    return-object v0
 .end method

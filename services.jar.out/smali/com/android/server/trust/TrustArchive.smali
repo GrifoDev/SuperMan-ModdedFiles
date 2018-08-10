@@ -24,6 +24,8 @@
 
 .field private static final TYPE_MANAGING_TRUST:I = 0x6
 
+.field private static final TYPE_POLICY_CHANGED:I = 0x7
+
 .field private static final TYPE_REVOKE_TRUST:I = 0x1
 
 .field private static final TYPE_TRUST_TIMEOUT:I = 0x2
@@ -211,6 +213,11 @@
 
     return-object v0
 
+    :pswitch_7
+    const-string/jumbo v0, "DevicePolicyChanged"
+
+    return-object v0
+
     nop
 
     :pswitch_data_0
@@ -222,6 +229,7 @@
         :pswitch_4
         :pswitch_5
         :pswitch_6
+        :pswitch_7
     .end packed-switch
 .end method
 
@@ -315,9 +323,9 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_5
 
-    if-ge v0, p2, :cond_4
+    if-ge v0, p2, :cond_5
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -331,7 +339,13 @@
 
     iget v3, v1, Lcom/android/server/trust/TrustArchive$Event;->userId:I
 
-    if-ne p3, v3, :cond_0
+    if-eq p3, v3, :cond_1
+
+    iget v3, v1, Lcom/android/server/trust/TrustArchive$Event;->userId:I
+
+    const/4 v4, -0x1
+
+    if-ne v3, v4, :cond_0
 
     :cond_1
     invoke-virtual {p1, p4}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -389,11 +403,15 @@
     invoke-virtual {p1, v3}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     :cond_2
+    iget-object v3, v1, Lcom/android/server/trust/TrustArchive$Event;->agent:Landroid/content/ComponentName;
+
+    if-eqz v3, :cond_3
+
     const-string/jumbo v3, "agent="
 
     invoke-virtual {p1, v3}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    if-eqz p5, :cond_3
+    if-eqz p5, :cond_4
 
     iget-object v3, v1, Lcom/android/server/trust/TrustArchive$Event;->agent:Landroid/content/ComponentName;
 
@@ -403,6 +421,7 @@
 
     invoke-virtual {p1, v3}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
+    :cond_3
     :goto_1
     iget v3, v1, Lcom/android/server/trust/TrustArchive$Event;->type:I
 
@@ -415,7 +434,7 @@
 
     goto :goto_0
 
-    :cond_3
+    :cond_4
     iget-object v3, v1, Lcom/android/server/trust/TrustArchive$Event;->agent:Landroid/content/ComponentName;
 
     invoke-static {v3}, Lcom/android/server/trust/TrustArchive;->getSimpleName(Landroid/content/ComponentName;)Ljava/lang/String;
@@ -492,8 +511,10 @@
 
     goto :goto_2
 
-    :cond_4
+    :cond_5
     return-void
+
+    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -578,6 +599,34 @@
     move v9, v8
 
     move-object v10, v5
+
+    invoke-direct/range {v1 .. v10}, Lcom/android/server/trust/TrustArchive$Event;-><init>(IILandroid/content/ComponentName;Ljava/lang/String;JIZLcom/android/server/trust/TrustArchive$Event;)V
+
+    invoke-direct {p0, v1}, Lcom/android/server/trust/TrustArchive;->addEvent(Lcom/android/server/trust/TrustArchive$Event;)V
+
+    return-void
+.end method
+
+.method public logDevicePolicyChanged()V
+    .locals 11
+
+    const/4 v8, 0x0
+
+    const/4 v4, 0x0
+
+    new-instance v1, Lcom/android/server/trust/TrustArchive$Event;
+
+    const-wide/16 v6, 0x0
+
+    const/4 v2, 0x7
+
+    const/4 v3, -0x1
+
+    move-object v5, v4
+
+    move v9, v8
+
+    move-object v10, v4
 
     invoke-direct/range {v1 .. v10}, Lcom/android/server/trust/TrustArchive$Event;-><init>(IILandroid/content/ComponentName;Ljava/lang/String;JIZLcom/android/server/trust/TrustArchive$Event;)V
 

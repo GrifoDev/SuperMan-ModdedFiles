@@ -356,6 +356,14 @@
     return-object v2
 .end method
 
+.method public hasStableUniqueId()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
 .method public abstract onModeChangedLocked(I)V
 .end method
 
@@ -387,7 +395,7 @@
     return-void
 .end method
 
-.method public requestColorTransformAndModeInTransactionLocked(II)V
+.method public requestDisplayModesInTransactionLocked(II)V
     .locals 5
 
     const/4 v1, -0x1

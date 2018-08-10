@@ -22,8 +22,6 @@
 
 
 # instance fields
-.field private final EMPTY_STRING:Ljava/lang/String;
-
 .field private final MAX_RETRY:I
 
 .field private final TO_READ:I
@@ -110,10 +108,6 @@
     const/4 v0, 0x3
 
     iput v0, p0, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->MAX_RETRY:I
-
-    const-string/jumbo v0, ""
-
-    iput-object v0, p0, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->EMPTY_STRING:Ljava/lang/String;
 
     new-instance v0, Lcom/android/server/SdpManagerService$SdpEngineDatabase$EngineListHandler;
 

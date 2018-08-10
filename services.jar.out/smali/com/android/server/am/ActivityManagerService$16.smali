@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/am/ActivityManagerService;->requestTargetProviderPermissionsReviewIfNeededLocked(Landroid/content/pm/ProviderInfo;Lcom/android/server/am/ProcessRecord;I)Z
+    value = Lcom/android/server/am/ActivityManagerService;->appNotRespondingViaProvider(Landroid/os/IBinder;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/am/ActivityManagerService;
 
-.field final synthetic val$intent:Landroid/content/Intent;
-
-.field final synthetic val$userHandle:Landroid/os/UserHandle;
+.field final synthetic val$host:Lcom/android/server/am/ProcessRecord;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/ActivityManagerService;Landroid/content/Intent;Landroid/os/UserHandle;)V
+.method constructor <init>(Lcom/android/server/am/ActivityManagerService;Lcom/android/server/am/ProcessRecord;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$16;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    iput-object p2, p0, Lcom/android/server/am/ActivityManagerService$16;->val$intent:Landroid/content/Intent;
-
-    iput-object p3, p0, Lcom/android/server/am/ActivityManagerService$16;->val$userHandle:Landroid/os/UserHandle;
+    iput-object p2, p0, Lcom/android/server/am/ActivityManagerService$16;->val$host:Lcom/android/server/am/ProcessRecord;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,17 +39,23 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 6
+
+    const/4 v2, 0x0
 
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$16;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
+    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mAppErrors:Lcom/android/server/am/AppErrors;
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$16;->val$intent:Landroid/content/Intent;
+    iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$16;->val$host:Lcom/android/server/am/ProcessRecord;
 
-    iget-object v2, p0, Lcom/android/server/am/ActivityManagerService$16;->val$userHandle:Landroid/os/UserHandle;
+    const-string/jumbo v5, "ContentProvider not responding"
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+    const/4 v4, 0x0
+
+    move-object v3, v2
+
+    invoke-virtual/range {v0 .. v5}, Lcom/android/server/am/AppErrors;->appNotResponding(Lcom/android/server/am/ProcessRecord;Lcom/android/server/am/ActivityRecord;Lcom/android/server/am/ActivityRecord;ZLjava/lang/String;)V
 
     return-void
 .end method

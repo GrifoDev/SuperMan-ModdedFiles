@@ -2,6 +2,9 @@
 .super Lcom/android/server/backup/BackupManagerService$FullBackupTask;
 .source "BackupManagerService.java"
 
+# interfaces
+.implements Lcom/android/server/backup/BackupManagerService$BackupRestoreTask;
+
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
@@ -28,11 +31,25 @@
 # instance fields
 .field mBackupObserver:Landroid/app/backup/IBackupObserver;
 
+.field mBackupRunner:Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask$SinglePackageBackupRunner;
+
+.field private final mBackupRunnerOpToken:I
+
+.field private volatile mCancelAll:Z
+
+.field private final mCancelLock:Ljava/lang/Object;
+
+.field private final mCurrentOpToken:I
+
+.field mCurrentPackage:Landroid/content/pm/PackageInfo;
+
+.field private volatile mIsDoingBackup:Z
+
 .field mJob:Lcom/android/server/backup/FullBackupJob;
 
-.field mKeepRunning:Ljava/util/concurrent/atomic/AtomicBoolean;
-
 .field mLatch:Ljava/util/concurrent/CountDownLatch;
+
+.field mMonitor:Landroid/app/backup/IBackupManagerMonitor;
 
 .field mPackages:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
@@ -45,6 +62,8 @@
     .end annotation
 .end field
 
+.field private volatile mTransport:Lcom/android/internal/backup/IBackupTransport;
+
 .field mUpdateSchedule:Z
 
 .field mUserInitiated:Z
@@ -53,26 +72,36 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/backup/BackupManagerService;Landroid/app/backup/IFullBackupRestoreObserver;[Ljava/lang/String;ZLcom/android/server/backup/FullBackupJob;Ljava/util/concurrent/CountDownLatch;Landroid/app/backup/IBackupObserver;Z)V
-    .locals 9
+.method static synthetic -wrap0(Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->unregisterTask()V
+
+    return-void
+.end method
+
+.method constructor <init>(Lcom/android/server/backup/BackupManagerService;Landroid/app/backup/IFullBackupRestoreObserver;[Ljava/lang/String;ZLcom/android/server/backup/FullBackupJob;Ljava/util/concurrent/CountDownLatch;Landroid/app/backup/IBackupObserver;Landroid/app/backup/IBackupManagerMonitor;Z)V
+    .locals 11
 
     iput-object p1, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/backup/BackupManagerService$FullBackupTask;-><init>(Lcom/android/server/backup/BackupManagerService;Landroid/app/backup/IFullBackupRestoreObserver;)V
 
+    new-instance v4, Ljava/lang/Object;
+
+    invoke-direct {v4}, Ljava/lang/Object;-><init>()V
+
+    iput-object v4, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mCancelLock:Ljava/lang/Object;
+
     iput-boolean p4, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mUpdateSchedule:Z
 
-    iput-object p6, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mLatch:Ljava/util/concurrent/CountDownLatch;
+    move-object/from16 v0, p6
 
-    new-instance v4, Ljava/util/concurrent/atomic/AtomicBoolean;
+    iput-object v0, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mLatch:Ljava/util/concurrent/CountDownLatch;
 
-    const/4 v5, 0x1
+    move-object/from16 v0, p5
 
-    invoke-direct {v4, v5}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V
-
-    iput-object v4, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mKeepRunning:Ljava/util/concurrent/atomic/AtomicBoolean;
-
-    iput-object p5, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mJob:Lcom/android/server/backup/FullBackupJob;
+    iput-object v0, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mJob:Lcom/android/server/backup/FullBackupJob;
 
     new-instance v4, Ljava/util/ArrayList;
 
@@ -86,21 +115,58 @@
 
     iput-object v0, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupObserver:Landroid/app/backup/IBackupObserver;
 
-    move/from16 v0, p8
+    move-object/from16 v0, p8
+
+    iput-object v0, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mMonitor:Landroid/app/backup/IBackupManagerMonitor;
+
+    move/from16 v0, p9
 
     iput-boolean v0, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mUserInitiated:Z
+
+    invoke-virtual {p1}, Lcom/android/server/backup/BackupManagerService;->generateToken()I
+
+    move-result v4
+
+    iput v4, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mCurrentOpToken:I
+
+    invoke-virtual {p1}, Lcom/android/server/backup/BackupManagerService;->generateToken()I
+
+    move-result v4
+
+    iput v4, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupRunnerOpToken:I
+
+    invoke-static {p1}, Lcom/android/server/backup/BackupManagerService;->-wrap10(Lcom/android/server/backup/BackupManagerService;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    const-string/jumbo v4, "PFTBT"
+
+    const-string/jumbo v5, "Skipping full backup. A backup is already in progress."
+
+    invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v4, 0x1
+
+    iput-boolean v4, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mCancelAll:Z
+
+    return-void
+
+    :cond_0
+    invoke-direct {p0}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->registerTask()V
 
     const/4 v4, 0x0
 
     array-length v5, p3
 
     :goto_0
-    if-ge v4, v5, :cond_3
+    if-ge v4, v5, :cond_4
 
     aget-object v3, p3, v4
 
     :try_start_0
-    invoke-static {p1}, Lcom/android/server/backup/BackupManagerService;->-get8(Lcom/android/server/backup/BackupManagerService;)Landroid/content/pm/PackageManager;
+    invoke-static {p1}, Lcom/android/server/backup/BackupManagerService;->-get10(Lcom/android/server/backup/BackupManagerService;)Landroid/content/pm/PackageManager;
 
     move-result-object v6
 
@@ -110,13 +176,19 @@
 
     move-result-object v2
 
+    iput-object v2, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mCurrentPackage:Landroid/content/pm/PackageInfo;
+
     iget-object v6, v2, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    invoke-static {v6}, Lcom/android/server/backup/BackupManagerService;->appIsEligibleForBackup(Landroid/content/pm/ApplicationInfo;)Z
+    invoke-static {p1}, Lcom/android/server/backup/BackupManagerService;->-get10(Lcom/android/server/backup/BackupManagerService;)Landroid/content/pm/PackageManager;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Lcom/android/server/backup/BackupManagerService;->appIsEligibleForBackup(Landroid/content/pm/ApplicationInfo;Landroid/content/pm/PackageManager;)Z
 
     move-result v6
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_1
 
     const-string/jumbo v6, "PFTBT"
 
@@ -140,23 +212,39 @@
 
     invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    iget-object v6, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mMonitor:Landroid/app/backup/IBackupManagerMonitor;
+
+    iget-object v7, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mCurrentPackage:Landroid/content/pm/PackageInfo;
+
+    const/16 v8, 0x9
+
+    const/4 v9, 0x3
+
+    const/4 v10, 0x0
+
+    invoke-static {v6, v8, v7, v9, v10}, Lcom/android/server/backup/BackupManagerService;->-wrap0(Landroid/app/backup/IBackupManagerMonitor;ILandroid/content/pm/PackageInfo;ILandroid/os/Bundle;)Landroid/app/backup/IBackupManagerMonitor;
+
+    move-result-object v6
+
+    iput-object v6, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mMonitor:Landroid/app/backup/IBackupManagerMonitor;
+
     iget-object v6, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupObserver:Landroid/app/backup/IBackupObserver;
 
     const/16 v7, -0x7d1
 
-    invoke-static {v6, v3, v7}, Lcom/android/server/backup/BackupManagerService;->-wrap20(Landroid/app/backup/IBackupObserver;Ljava/lang/String;I)V
+    invoke-static {v6, v3, v7}, Lcom/android/server/backup/BackupManagerService;->-wrap23(Landroid/app/backup/IBackupObserver;Ljava/lang/String;I)V
 
     :goto_1
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
-    :cond_0
-    invoke-static {v2}, Lcom/android/server/backup/BackupManagerService;->-wrap0(Landroid/content/pm/PackageInfo;)Z
+    :cond_1
+    invoke-static {v2}, Lcom/android/server/backup/BackupManagerService;->-wrap5(Landroid/content/pm/PackageInfo;)Z
 
     move-result v6
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_2
 
     const-string/jumbo v6, "PFTBT"
 
@@ -180,11 +268,27 @@
 
     invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    iget-object v6, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mMonitor:Landroid/app/backup/IBackupManagerMonitor;
+
+    iget-object v7, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mCurrentPackage:Landroid/content/pm/PackageInfo;
+
+    const/16 v8, 0xa
+
+    const/4 v9, 0x3
+
+    const/4 v10, 0x0
+
+    invoke-static {v6, v8, v7, v9, v10}, Lcom/android/server/backup/BackupManagerService;->-wrap0(Landroid/app/backup/IBackupManagerMonitor;ILandroid/content/pm/PackageInfo;ILandroid/os/Bundle;)Landroid/app/backup/IBackupManagerMonitor;
+
+    move-result-object v6
+
+    iput-object v6, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mMonitor:Landroid/app/backup/IBackupManagerMonitor;
+
     iget-object v6, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupObserver:Landroid/app/backup/IBackupObserver;
 
     const/16 v7, -0x7d1
 
-    invoke-static {v6, v3, v7}, Lcom/android/server/backup/BackupManagerService;->-wrap20(Landroid/app/backup/IBackupObserver;Ljava/lang/String;I)V
+    invoke-static {v6, v3, v7}, Lcom/android/server/backup/BackupManagerService;->-wrap23(Landroid/app/backup/IBackupObserver;Ljava/lang/String;I)V
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -221,17 +325,33 @@
 
     invoke-static {v6, v7}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    iget-object v6, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mMonitor:Landroid/app/backup/IBackupManagerMonitor;
+
+    iget-object v7, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mCurrentPackage:Landroid/content/pm/PackageInfo;
+
+    const/16 v8, 0xc
+
+    const/4 v9, 0x3
+
+    const/4 v10, 0x0
+
+    invoke-static {v6, v8, v7, v9, v10}, Lcom/android/server/backup/BackupManagerService;->-wrap0(Landroid/app/backup/IBackupManagerMonitor;ILandroid/content/pm/PackageInfo;ILandroid/os/Bundle;)Landroid/app/backup/IBackupManagerMonitor;
+
+    move-result-object v6
+
+    iput-object v6, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mMonitor:Landroid/app/backup/IBackupManagerMonitor;
+
     goto :goto_1
 
-    :cond_1
+    :cond_2
     :try_start_1
     iget-object v6, v2, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    invoke-static {v6}, Lcom/android/server/backup/BackupManagerService;->-wrap2(Landroid/content/pm/ApplicationInfo;)Z
+    invoke-static {v6}, Lcom/android/server/backup/BackupManagerService;->-wrap7(Landroid/content/pm/ApplicationInfo;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_3
 
     const-string/jumbo v6, "PFTBT"
 
@@ -255,24 +375,122 @@
 
     invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    iget-object v6, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mMonitor:Landroid/app/backup/IBackupManagerMonitor;
+
+    iget-object v7, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mCurrentPackage:Landroid/content/pm/PackageInfo;
+
+    const/16 v8, 0xb
+
+    const/4 v9, 0x3
+
+    const/4 v10, 0x0
+
+    invoke-static {v6, v8, v7, v9, v10}, Lcom/android/server/backup/BackupManagerService;->-wrap0(Landroid/app/backup/IBackupManagerMonitor;ILandroid/content/pm/PackageInfo;ILandroid/os/Bundle;)Landroid/app/backup/IBackupManagerMonitor;
+
+    move-result-object v6
+
+    iput-object v6, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mMonitor:Landroid/app/backup/IBackupManagerMonitor;
+
     iget-object v6, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupObserver:Landroid/app/backup/IBackupObserver;
 
     const/16 v7, -0x7d1
 
-    invoke-static {v6, v3, v7}, Lcom/android/server/backup/BackupManagerService;->-wrap20(Landroid/app/backup/IBackupObserver;Ljava/lang/String;I)V
+    invoke-static {v6, v3, v7}, Lcom/android/server/backup/BackupManagerService;->-wrap23(Landroid/app/backup/IBackupObserver;Ljava/lang/String;I)V
 
-    goto :goto_1
+    goto/16 :goto_1
 
-    :cond_2
+    :cond_3
     iget-object v6, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mPackages:Ljava/util/ArrayList;
 
     invoke-virtual {v6, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     :try_end_1
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto :goto_1
+    goto/16 :goto_1
 
-    :cond_3
+    :cond_4
+    return-void
+.end method
+
+.method private registerTask()V
+    .locals 7
+
+    iget-object v0, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    iget-object v1, v0, Lcom/android/server/backup/BackupManagerService;->mCurrentOpLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
+    const-string/jumbo v0, "PFTBT"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "backupmanager pftbt token="
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget v3, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mCurrentOpToken:I
+
+    invoke-static {v3}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v0, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService;->mCurrentOperations:Landroid/util/SparseArray;
+
+    iget v2, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mCurrentOpToken:I
+
+    new-instance v3, Lcom/android/server/backup/BackupManagerService$Operation;
+
+    iget-object v4, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x2
+
+    invoke-direct {v3, v4, v5, p0, v6}, Lcom/android/server/backup/BackupManagerService$Operation;-><init>(Lcom/android/server/backup/BackupManagerService;ILcom/android/server/backup/BackupManagerService$BackupRestoreTask;I)V
+
+    invoke-virtual {v0, v2, v3}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
+.end method
+
+.method private unregisterTask()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    iget v1, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mCurrentOpToken:I
+
+    invoke-static {v0, v1}, Lcom/android/server/backup/BackupManagerService;->-wrap19(Lcom/android/server/backup/BackupManagerService;I)V
+
     return-void
 .end method
 
@@ -344,2087 +562,2344 @@
     goto :goto_1
 .end method
 
+.method public execute()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public handleCancel(Z)V
+    .locals 5
+
+    iget-object v2, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mCancelLock:Ljava/lang/Object;
+
+    monitor-enter v2
+
+    if-nez p1, :cond_0
+
+    :try_start_0
+    const-string/jumbo v1, "PFTBT"
+
+    const-string/jumbo v3, "Expected cancelAll to be true."
+
+    invoke-static {v1, v3}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    iget-boolean v1, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mCancelAll:Z
+
+    if-eqz v1, :cond_1
+
+    const-string/jumbo v1, "PFTBT"
+
+    const-string/jumbo v3, "Ignoring duplicate cancel call."
+
+    invoke-static {v1, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v2
+
+    return-void
+
+    :cond_1
+    const/4 v1, 0x1
+
+    :try_start_1
+    iput-boolean v1, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mCancelAll:Z
+
+    iget-boolean v1, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mIsDoingBackup:Z
+
+    if-eqz v1, :cond_2
+
+    iget-object v1, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    iget v3, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupRunnerOpToken:I
+
+    invoke-virtual {v1, v3, p1}, Lcom/android/server/backup/BackupManagerService;->handleCancel(IZ)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :try_start_2
+    iget-object v1, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mTransport:Lcom/android/internal/backup/IBackupTransport;
+
+    invoke-interface {v1}, Lcom/android/internal/backup/IBackupTransport;->cancelFullBackup()V
+    :try_end_2
+    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    :cond_2
+    :goto_0
+    monitor-exit v2
+
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    :try_start_3
+    const-string/jumbo v1, "PFTBT"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Error calling cancelFullBackup() on transport: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v1, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+
+    throw v1
+.end method
+
+.method public operationComplete(J)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public run()V
     .locals 36
 
+    const/16 v21, 0x0
+
+    const/16 v34, 0x0
+
+    const-wide/16 v14, 0x0
+
     const/16 v16, 0x0
-
-    const/16 v31, 0x0
-
-    const-wide/16 v8, 0x0
-
-    const/4 v10, 0x0
 
     :try_start_0
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
 
-    move-object/from16 v32, v0
+    iget-boolean v5, v5, Lcom/android/server/backup/BackupManagerService;->mEnabled:Z
 
-    move-object/from16 v0, v32
-
-    iget-boolean v0, v0, Lcom/android/server/backup/BackupManagerService;->mEnabled:Z
-
-    move/from16 v32, v0
-
-    if-eqz v32, :cond_2
+    if-eqz v5, :cond_0
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
 
-    move-object/from16 v32, v0
+    iget-boolean v5, v5, Lcom/android/server/backup/BackupManagerService;->mProvisioned:Z
 
-    move-object/from16 v0, v32
+    xor-int/lit8 v5, v5, 0x1
 
-    iget-boolean v0, v0, Lcom/android/server/backup/BackupManagerService;->mProvisioned:Z
-
-    move/from16 v32, v0
-
-    if-eqz v32, :cond_2
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
-
-    move-object/from16 v32, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
-
-    move-object/from16 v33, v0
-
-    move-object/from16 v0, v33
-
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService;->mCurrentTransport:Ljava/lang/String;
-
-    move-object/from16 v33, v0
-
-    invoke-static/range {v32 .. v33}, Lcom/android/server/backup/BackupManagerService;->-wrap9(Lcom/android/server/backup/BackupManagerService;Ljava/lang/String;)Lcom/android/internal/backup/IBackupTransport;
-
-    move-result-object v30
-
-    if-nez v30, :cond_5
-
-    const-string/jumbo v32, "PFTBT"
-
-    const-string/jumbo v33, "Transport not present; full data backup not performed"
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_2
-
-    const/16 v10, -0x3e8
-
-    const-string/jumbo v32, "PFTBT"
-
-    new-instance v33, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v34, "Full backup completed with status: "
-
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    move-object/from16 v0, v33
-
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v33
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupObserver:Landroid/app/backup/IBackupObserver;
-
-    move-object/from16 v32, v0
-
-    move-object/from16 v0, v32
-
-    invoke-static {v0, v10}, Lcom/android/server/backup/BackupManagerService;->-wrap19(Landroid/app/backup/IBackupObserver;I)V
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v31
-
-    invoke-virtual {v0, v1}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->cleanUpPipes([Landroid/os/ParcelFileDescriptor;)V
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->cleanUpPipes([Landroid/os/ParcelFileDescriptor;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mJob:Lcom/android/server/backup/FullBackupJob;
-
-    move-object/from16 v32, v0
-
-    if-eqz v32, :cond_0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mJob:Lcom/android/server/backup/FullBackupJob;
-
-    move-object/from16 v32, v0
-
-    invoke-virtual/range {v32 .. v32}, Lcom/android/server/backup/FullBackupJob;->finishBackupPass()V
+    if-eqz v5, :cond_5
 
     :cond_0
+    const-string/jumbo v5, "PFTBT"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "full backup requested but enabled="
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+    iget-object v7, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
 
-    move-object/from16 v32, v0
+    iget-boolean v7, v7, Lcom/android/server/backup/BackupManagerService;->mEnabled:Z
 
-    move-object/from16 v0, v32
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService;->mQueueLock:Ljava/lang/Object;
+    move-result-object v6
 
-    move-object/from16 v33, v0
+    const-string/jumbo v7, " provisioned="
 
-    monitor-enter v33
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move-object/from16 v0, p0
+
+    iget-object v7, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    iget-boolean v7, v7, Lcom/android/server/backup/BackupManagerService;->mProvisioned:Z
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, "; ignoring"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    iget-boolean v5, v5, Lcom/android/server/backup/BackupManagerService;->mEnabled:Z
+
+    if-nez v5, :cond_4
+
+    const/16 v26, 0xd
+
+    :goto_0
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mMonitor:Landroid/app/backup/IBackupManagerMonitor;
+
+    const/4 v6, 0x0
+
+    const/4 v7, 0x3
+
+    const/4 v9, 0x0
+
+    move/from16 v0, v26
+
+    invoke-static {v5, v0, v6, v7, v9}, Lcom/android/server/backup/BackupManagerService;->-wrap0(Landroid/app/backup/IBackupManagerMonitor;ILandroid/content/pm/PackageInfo;ILandroid/os/Bundle;)Landroid/app/backup/IBackupManagerMonitor;
+
+    move-result-object v5
+
+    move-object/from16 v0, p0
+
+    iput-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mMonitor:Landroid/app/backup/IBackupManagerMonitor;
+
+    const/4 v5, 0x0
+
+    move-object/from16 v0, p0
+
+    iput-boolean v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mUpdateSchedule:Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_3
+
+    const/16 v16, -0x7d1
+
+    move-object/from16 v0, p0
+
+    iget-boolean v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mCancelAll:Z
+
+    if-eqz v5, :cond_1
+
+    const/16 v16, -0x7d3
+
+    :cond_1
+    const-string/jumbo v5, "PFTBT"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "Full backup completed with status: "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move/from16 v0, v16
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupObserver:Landroid/app/backup/IBackupObserver;
+
+    move/from16 v0, v16
+
+    invoke-static {v5, v0}, Lcom/android/server/backup/BackupManagerService;->-wrap22(Landroid/app/backup/IBackupObserver;I)V
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v34
+
+    invoke-virtual {v0, v1}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->cleanUpPipes([Landroid/os/ParcelFileDescriptor;)V
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v21
+
+    invoke-virtual {v0, v1}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->cleanUpPipes([Landroid/os/ParcelFileDescriptor;)V
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->unregisterTask()V
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mJob:Lcom/android/server/backup/FullBackupJob;
+
+    if-eqz v5, :cond_2
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mJob:Lcom/android/server/backup/FullBackupJob;
+
+    invoke-virtual {v5}, Lcom/android/server/backup/FullBackupJob;->finishBackupPass()V
+
+    :cond_2
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    iget-object v6, v5, Lcom/android/server/backup/BackupManagerService;->mQueueLock:Ljava/lang/Object;
+
+    monitor-enter v6
 
     :try_start_1
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
 
-    move-object/from16 v32, v0
+    const/4 v7, 0x0
 
-    const/16 v34, 0x0
-
-    move-object/from16 v0, v34
-
-    move-object/from16 v1, v32
-
-    iput-object v0, v1, Lcom/android/server/backup/BackupManagerService;->mRunningFullBackupTask:Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;
+    iput-object v7, v5, Lcom/android/server/backup/BackupManagerService;->mRunningFullBackupTask:Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    monitor-exit v33
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mLatch:Ljava/util/concurrent/CountDownLatch;
-
-    move-object/from16 v32, v0
-
-    invoke-virtual/range {v32 .. v32}, Ljava/util/concurrent/CountDownLatch;->countDown()V
+    monitor-exit v6
 
     move-object/from16 v0, p0
 
-    iget-boolean v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mUpdateSchedule:Z
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mLatch:Ljava/util/concurrent/CountDownLatch;
 
-    move/from16 v32, v0
-
-    if-eqz v32, :cond_1
+    invoke-virtual {v5}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+    iget-boolean v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mUpdateSchedule:Z
 
-    move-object/from16 v32, v0
-
-    move-object/from16 v0, v32
-
-    invoke-virtual {v0, v8, v9}, Lcom/android/server/backup/BackupManagerService;->scheduleNextFullBackupJob(J)V
-
-    :cond_1
-    const-string/jumbo v32, "BackupManagerService"
-
-    const-string/jumbo v33, "Full data backup pass finished."
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    if-eqz v5, :cond_3
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
 
-    move-object/from16 v32, v0
+    invoke-virtual {v5, v14, v15}, Lcom/android/server/backup/BackupManagerService;->scheduleNextFullBackupJob(J)V
 
-    move-object/from16 v0, v32
+    :cond_3
+    const-string/jumbo v5, "BackupManagerService"
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService;->mWakelock:Landroid/os/PowerManager$WakeLock;
+    const-string/jumbo v6, "Full data backup pass finished."
 
-    move-object/from16 v32, v0
+    invoke-static {v5, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual/range {v32 .. v32}, Landroid/os/PowerManager$WakeLock;->release()V
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    iget-object v5, v5, Lcom/android/server/backup/BackupManagerService;->mWakelock:Landroid/os/PowerManager$WakeLock;
+
+    invoke-virtual {v5}, Landroid/os/PowerManager$WakeLock;->release()V
 
     return-void
 
-    :cond_2
+    :cond_4
+    const/16 v26, 0xe
+
+    goto/16 :goto_0
+
+    :catchall_0
+    move-exception v5
+
+    monitor-exit v6
+
+    throw v5
+
+    :cond_5
     :try_start_2
-    const-string/jumbo v32, "PFTBT"
+    move-object/from16 v0, p0
 
-    new-instance v33, Ljava/lang/StringBuilder;
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
 
-    invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v5}, Lcom/android/server/backup/BackupManagerService;->-get13(Lcom/android/server/backup/BackupManagerService;)Lcom/android/server/backup/TransportManager;
 
-    const-string/jumbo v34, "full backup requested but e="
+    move-result-object v5
 
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5}, Lcom/android/server/backup/TransportManager;->getCurrentTransportBinder()Lcom/android/internal/backup/IBackupTransport;
 
-    move-result-object v33
+    move-result-object v5
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
-
-    move-object/from16 v34, v0
-
-    move-object/from16 v0, v34
-
-    iget-boolean v0, v0, Lcom/android/server/backup/BackupManagerService;->mEnabled:Z
-
-    move/from16 v34, v0
-
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    const-string/jumbo v34, " p="
-
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
+    iput-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mTransport:Lcom/android/internal/backup/IBackupTransport;
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mTransport:Lcom/android/internal/backup/IBackupTransport;
 
-    move-object/from16 v34, v0
+    if-nez v5, :cond_9
 
-    move-object/from16 v0, v34
+    const-string/jumbo v5, "PFTBT"
 
-    iget-boolean v0, v0, Lcom/android/server/backup/BackupManagerService;->mProvisioned:Z
+    const-string/jumbo v6, "Transport not present; full data backup not performed"
 
-    move/from16 v34, v0
+    invoke-static {v5, v6}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    const/16 v16, -0x3e8
 
-    move-result-object v33
+    move-object/from16 v0, p0
 
-    const-string/jumbo v34, "; ignoring"
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mMonitor:Landroid/app/backup/IBackupManagerMonitor;
 
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, p0
 
-    move-result-object v33
+    iget-object v6, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mCurrentPackage:Landroid/content/pm/PackageInfo;
 
-    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const/16 v7, 0xf
 
-    move-result-object v33
+    const/4 v9, 0x1
 
-    invoke-static/range {v32 .. v33}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    const/4 v12, 0x0
 
-    const/16 v32, 0x0
+    invoke-static {v5, v7, v6, v9, v12}, Lcom/android/server/backup/BackupManagerService;->-wrap0(Landroid/app/backup/IBackupManagerMonitor;ILandroid/content/pm/PackageInfo;ILandroid/os/Bundle;)Landroid/app/backup/IBackupManagerMonitor;
 
-    move/from16 v0, v32
+    move-result-object v5
 
-    move-object/from16 v1, p0
+    move-object/from16 v0, p0
 
-    iput-boolean v0, v1, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mUpdateSchedule:Z
+    iput-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mMonitor:Landroid/app/backup/IBackupManagerMonitor;
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
-
-    const/16 v10, -0x7d1
-
-    const-string/jumbo v32, "PFTBT"
-
-    new-instance v33, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v34, "Full backup completed with status: "
-
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    move-object/from16 v0, v33
-
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v33
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    .catchall {:try_start_2 .. :try_end_2} :catchall_3
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupObserver:Landroid/app/backup/IBackupObserver;
+    iget-boolean v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mCancelAll:Z
 
-    move-object/from16 v32, v0
+    if-eqz v5, :cond_6
 
-    move-object/from16 v0, v32
+    const/16 v16, -0x7d3
 
-    invoke-static {v0, v10}, Lcom/android/server/backup/BackupManagerService;->-wrap19(Landroid/app/backup/IBackupObserver;I)V
+    :cond_6
+    const-string/jumbo v5, "PFTBT"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "Full backup completed with status: "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move/from16 v0, v16
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v31
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupObserver:Landroid/app/backup/IBackupObserver;
+
+    move/from16 v0, v16
+
+    invoke-static {v5, v0}, Lcom/android/server/backup/BackupManagerService;->-wrap22(Landroid/app/backup/IBackupObserver;I)V
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v34
 
     invoke-virtual {v0, v1}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->cleanUpPipes([Landroid/os/ParcelFileDescriptor;)V
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v16
+    move-object/from16 v1, v21
 
     invoke-virtual {v0, v1}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->cleanUpPipes([Landroid/os/ParcelFileDescriptor;)V
 
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mJob:Lcom/android/server/backup/FullBackupJob;
-
-    move-object/from16 v32, v0
-
-    if-eqz v32, :cond_3
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->unregisterTask()V
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mJob:Lcom/android/server/backup/FullBackupJob;
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mJob:Lcom/android/server/backup/FullBackupJob;
 
-    move-object/from16 v32, v0
+    if-eqz v5, :cond_7
 
-    invoke-virtual/range {v32 .. v32}, Lcom/android/server/backup/FullBackupJob;->finishBackupPass()V
-
-    :cond_3
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mJob:Lcom/android/server/backup/FullBackupJob;
 
-    move-object/from16 v32, v0
+    invoke-virtual {v5}, Lcom/android/server/backup/FullBackupJob;->finishBackupPass()V
 
-    move-object/from16 v0, v32
+    :cond_7
+    move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService;->mQueueLock:Ljava/lang/Object;
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
 
-    move-object/from16 v33, v0
+    iget-object v6, v5, Lcom/android/server/backup/BackupManagerService;->mQueueLock:Ljava/lang/Object;
 
-    monitor-enter v33
+    monitor-enter v6
 
     :try_start_3
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
 
-    move-object/from16 v32, v0
+    const/4 v7, 0x0
 
-    const/16 v34, 0x0
-
-    move-object/from16 v0, v34
-
-    move-object/from16 v1, v32
-
-    iput-object v0, v1, Lcom/android/server/backup/BackupManagerService;->mRunningFullBackupTask:Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;
+    iput-object v7, v5, Lcom/android/server/backup/BackupManagerService;->mRunningFullBackupTask:Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;
     :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    monitor-exit v33
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mLatch:Ljava/util/concurrent/CountDownLatch;
-
-    move-object/from16 v32, v0
-
-    invoke-virtual/range {v32 .. v32}, Ljava/util/concurrent/CountDownLatch;->countDown()V
+    monitor-exit v6
 
     move-object/from16 v0, p0
 
-    iget-boolean v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mUpdateSchedule:Z
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mLatch:Ljava/util/concurrent/CountDownLatch;
 
-    move/from16 v32, v0
-
-    if-eqz v32, :cond_4
+    invoke-virtual {v5}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+    iget-boolean v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mUpdateSchedule:Z
 
-    move-object/from16 v32, v0
-
-    move-object/from16 v0, v32
-
-    invoke-virtual {v0, v8, v9}, Lcom/android/server/backup/BackupManagerService;->scheduleNextFullBackupJob(J)V
-
-    :cond_4
-    const-string/jumbo v32, "BackupManagerService"
-
-    const-string/jumbo v33, "Full data backup pass finished."
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    if-eqz v5, :cond_8
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
 
-    move-object/from16 v32, v0
+    invoke-virtual {v5, v14, v15}, Lcom/android/server/backup/BackupManagerService;->scheduleNextFullBackupJob(J)V
 
-    move-object/from16 v0, v32
+    :cond_8
+    const-string/jumbo v5, "BackupManagerService"
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService;->mWakelock:Landroid/os/PowerManager$WakeLock;
+    const-string/jumbo v6, "Full data backup pass finished."
 
-    move-object/from16 v32, v0
+    invoke-static {v5, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual/range {v32 .. v32}, Landroid/os/PowerManager$WakeLock;->release()V
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    iget-object v5, v5, Lcom/android/server/backup/BackupManagerService;->mWakelock:Landroid/os/PowerManager$WakeLock;
+
+    invoke-virtual {v5}, Landroid/os/PowerManager$WakeLock;->release()V
 
     return-void
 
-    :catchall_0
-    move-exception v32
-
-    monitor-exit v33
-
-    throw v32
-
     :catchall_1
-    move-exception v32
+    move-exception v5
 
-    monitor-exit v33
+    monitor-exit v6
 
-    throw v32
+    throw v5
 
-    :cond_5
+    :cond_9
     :try_start_4
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mPackages:Ljava/util/ArrayList;
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mPackages:Ljava/util/ArrayList;
 
-    move-object/from16 v32, v0
+    invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
 
-    invoke-virtual/range {v32 .. v32}, Ljava/util/ArrayList;->size()I
+    move-result v4
 
-    move-result v6
+    const/16 v5, 0x2000
 
-    const/16 v32, 0x2000
+    new-array v0, v5, [B
 
-    move/from16 v0, v32
+    move-object/from16 v18, v0
 
-    new-array v13, v0, [B
-
-    const/16 v19, 0x0
-
-    :goto_0
-    move/from16 v0, v19
-
-    if-ge v0, v6, :cond_1d
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mPackages:Ljava/util/ArrayList;
-
-    move-object/from16 v32, v0
-
-    move-object/from16 v0, v32
-
-    move/from16 v1, v19
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v14
-
-    check-cast v14, Landroid/content/pm/PackageInfo;
-
-    iget-object v0, v14, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;
-
-    move-object/from16 v23, v0
-
-    const-string/jumbo v32, "PFTBT"
-
-    new-instance v33, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v34, "Initiating full-data transport backup of "
-
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    move-object/from16 v0, v33
-
-    move-object/from16 v1, v23
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v33
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v32, 0xb18
-
-    move/from16 v0, v32
-
-    move-object/from16 v1, v23
-
-    invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(ILjava/lang/String;)I
-
-    invoke-static {}, Landroid/os/ParcelFileDescriptor;->createPipe()[Landroid/os/ParcelFileDescriptor;
-
-    move-result-object v31
-
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mUserInitiated:Z
-
-    move/from16 v32, v0
-
-    if-eqz v32, :cond_c
-
-    const/16 v18, 0x1
+    const/16 v24, 0x0
 
     :goto_1
-    const/16 v32, 0x0
+    move/from16 v0, v24
 
-    aget-object v32, v31, v32
+    if-ge v0, v4, :cond_a
 
-    move-object/from16 v0, v30
+    move-object/from16 v0, p0
 
-    move-object/from16 v1, v32
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mPackages:Ljava/util/ArrayList;
 
-    move/from16 v2, v18
+    move/from16 v0, v24
 
-    invoke-interface {v0, v14, v1, v2}, Lcom/android/internal/backup/IBackupTransport;->performFullBackup(Landroid/content/pm/PackageInfo;Landroid/os/ParcelFileDescriptor;I)I
+    invoke-virtual {v5, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result v7
+    move-result-object v8
 
-    if-nez v7, :cond_a
+    check-cast v8, Landroid/content/pm/PackageInfo;
 
-    const/16 v32, 0x0
+    iget-object v0, v8, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;
 
-    aget-object v32, v31, v32
+    move-object/from16 v29, v0
 
-    invoke-virtual/range {v32 .. v32}, Landroid/os/ParcelFileDescriptor;->close()V
+    const-string/jumbo v5, "PFTBT"
 
-    const/16 v32, 0x0
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    const/16 v33, 0x0
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    aput-object v32, v31, v33
+    const-string/jumbo v7, "Initiating full-data transport backup of "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move-object/from16 v0, v29
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, " token: "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move-object/from16 v0, p0
+
+    iget v7, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mCurrentOpToken:I
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v5, 0xb18
+
+    move-object/from16 v0, v29
+
+    invoke-static {v5, v0}, Landroid/util/EventLog;->writeEvent(ILjava/lang/String;)I
 
     invoke-static {}, Landroid/os/ParcelFileDescriptor;->createPipe()[Landroid/os/ParcelFileDescriptor;
 
-    move-result-object v16
-
-    new-instance v11, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask$SinglePackageBackupRunner;
-
-    const/16 v32, 0x1
-
-    aget-object v32, v16, v32
+    move-result-object v34
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v32
+    iget-boolean v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mUserInitiated:Z
 
-    move-object/from16 v2, v30
+    if-eqz v5, :cond_e
 
-    invoke-direct {v11, v0, v1, v14, v2}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask$SinglePackageBackupRunner;-><init>(Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;Landroid/os/ParcelFileDescriptor;Landroid/content/pm/PackageInfo;Lcom/android/internal/backup/IBackupTransport;)V
+    const/16 v23, 0x1
 
-    const/16 v32, 0x1
-
-    aget-object v32, v16, v32
-
-    invoke-virtual/range {v32 .. v32}, Landroid/os/ParcelFileDescriptor;->close()V
-
-    const/16 v32, 0x0
-
-    const/16 v33, 0x1
-
-    aput-object v32, v16, v33
-
-    new-instance v32, Ljava/lang/Thread;
-
-    const-string/jumbo v33, "package-backup-bridge"
-
-    move-object/from16 v0, v32
-
-    move-object/from16 v1, v33
-
-    invoke-direct {v0, v11, v1}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;Ljava/lang/String;)V
-
-    invoke-virtual/range {v32 .. v32}, Ljava/lang/Thread;->start()V
-
-    new-instance v20, Ljava/io/FileInputStream;
-
-    const/16 v32, 0x0
-
-    aget-object v32, v16, v32
-
-    invoke-virtual/range {v32 .. v32}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
-
-    move-result-object v32
-
-    move-object/from16 v0, v20
-
-    move-object/from16 v1, v32
-
-    invoke-direct {v0, v1}, Ljava/io/FileInputStream;-><init>(Ljava/io/FileDescriptor;)V
-
-    new-instance v22, Ljava/io/FileOutputStream;
-
-    const/16 v32, 0x1
-
-    aget-object v32, v31, v32
-
-    invoke-virtual/range {v32 .. v32}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
-
-    move-result-object v32
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, v32
-
-    invoke-direct {v0, v1}, Ljava/io/FileOutputStream;-><init>(Ljava/io/FileDescriptor;)V
-
-    const-wide/16 v28, 0x0
-
-    invoke-virtual {v11}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask$SinglePackageBackupRunner;->getPreflightResultBlocking()J
-
-    move-result-wide v24
-
-    const-wide/16 v32, 0x0
-
-    cmp-long v32, v24, v32
-
-    if-gez v32, :cond_d
-
-    const-string/jumbo v32, "PFTBT"
-
-    new-instance v33, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v34, "Backup error after preflight of package "
-
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    move-object/from16 v0, v33
-
-    move-object/from16 v1, v23
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    const-string/jumbo v34, ": "
-
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    move-object/from16 v0, v33
-
-    move-wide/from16 v1, v24
-
-    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    const-string/jumbo v34, ", not running backup."
-
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v33
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-wide/from16 v0, v24
-
-    long-to-int v7, v0
-
-    :cond_6
     :goto_2
+    const-wide v10, 0x7fffffffffffffffL
+
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mKeepRunning:Ljava/util/concurrent/atomic/AtomicBoolean;
+    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mCancelLock:Ljava/lang/Object;
 
-    move-object/from16 v32, v0
+    move-object/from16 v35, v0
 
-    invoke-virtual/range {v32 .. v32}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
+    monitor-enter v35
+    :try_end_4
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
+    .catchall {:try_start_4 .. :try_end_4} :catchall_3
 
-    move-result v32
+    :try_start_5
+    move-object/from16 v0, p0
 
-    if-nez v32, :cond_13
+    iget-boolean v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mCancelAll:Z
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_2
 
-    const/16 v7, -0x3e8
+    if-eqz v5, :cond_f
 
-    invoke-interface/range {v30 .. v30}, Lcom/android/internal/backup/IBackupTransport;->cancelFullBackup()V
-
-    :cond_7
-    :goto_3
-    if-nez v7, :cond_14
-
-    invoke-virtual {v11}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask$SinglePackageBackupRunner;->getBackupResultBlocking()I
-
-    move-result v12
-
-    if-eqz v12, :cond_8
-
-    move v7, v12
-
-    :cond_8
-    :goto_4
-    const-string/jumbo v32, "PFTBT"
-
-    new-instance v33, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v34, "Done delivering backup data: result="
-
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    move-object/from16 v0, v33
-
-    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v33
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-eqz v7, :cond_9
-
-    const-string/jumbo v32, "PFTBT"
-
-    new-instance v33, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v34, "Error "
-
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    move-object/from16 v0, v33
-
-    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    const-string/jumbo v34, " backing up "
-
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    move-object/from16 v0, v33
-
-    move-object/from16 v1, v23
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v33
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_9
-    invoke-interface/range {v30 .. v30}, Lcom/android/internal/backup/IBackupTransport;->requestFullBackupTime()J
-
-    move-result-wide v8
-
-    const-string/jumbo v32, "PFTBT"
-
-    new-instance v33, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v34, "Transport suggested backoff="
-
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    move-object/from16 v0, v33
-
-    invoke-virtual {v0, v8, v9}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v33
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    :try_start_6
+    monitor-exit v35
+    :try_end_6
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_0
+    .catchall {:try_start_6 .. :try_end_6} :catchall_3
 
     :cond_a
     move-object/from16 v0, p0
 
-    iget-boolean v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mUpdateSchedule:Z
+    iget-boolean v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mCancelAll:Z
 
-    move/from16 v32, v0
+    if-eqz v5, :cond_b
 
-    if-eqz v32, :cond_b
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
-
-    move-object/from16 v32, v0
-
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v34
-
-    move-object/from16 v0, v32
-
-    move-object/from16 v1, v23
-
-    move-wide/from16 v2, v34
-
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/backup/BackupManagerService;->enqueueFullBackup(Ljava/lang/String;J)V
+    const/16 v16, -0x7d3
 
     :cond_b
-    const/16 v32, -0x3ea
+    const-string/jumbo v5, "PFTBT"
 
-    move/from16 v0, v32
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    if-ne v7, v0, :cond_17
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "Full backup completed with status: "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move/from16 v0, v16
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupObserver:Landroid/app/backup/IBackupObserver;
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupObserver:Landroid/app/backup/IBackupObserver;
 
-    move-object/from16 v32, v0
+    move/from16 v0, v16
 
-    const/16 v33, -0x3ea
+    invoke-static {v5, v0}, Lcom/android/server/backup/BackupManagerService;->-wrap22(Landroid/app/backup/IBackupObserver;I)V
 
-    move-object/from16 v0, v32
-
-    move-object/from16 v1, v23
-
-    move/from16 v2, v33
-
-    invoke-static {v0, v1, v2}, Lcom/android/server/backup/BackupManagerService;->-wrap20(Landroid/app/backup/IBackupObserver;Ljava/lang/String;I)V
-
-    const-string/jumbo v32, "PFTBT"
-
-    new-instance v33, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v34, "Transport rejected backup of "
-
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    move-object/from16 v0, v33
-
-    move-object/from16 v1, v23
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    const-string/jumbo v34, ", skipping"
-
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v33
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v32, 0x2
-
-    move/from16 v0, v32
-
-    new-array v0, v0, [Ljava/lang/Object;
-
-    move-object/from16 v32, v0
-
-    const/16 v33, 0x0
-
-    aput-object v23, v32, v33
-
-    const-string/jumbo v33, "transport rejected"
-
-    const/16 v34, 0x1
-
-    aput-object v33, v32, v34
-
-    const/16 v33, 0xb19
-
-    move/from16 v0, v33
-
-    move-object/from16 v1, v32
-
-    invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
-
-    :goto_5
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v31
+    move-object/from16 v1, v34
 
     invoke-virtual {v0, v1}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->cleanUpPipes([Landroid/os/ParcelFileDescriptor;)V
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v16
+    move-object/from16 v1, v21
 
     invoke-virtual {v0, v1}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->cleanUpPipes([Landroid/os/ParcelFileDescriptor;)V
 
-    add-int/lit8 v19, v19, 0x1
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->unregisterTask()V
 
-    goto/16 :goto_0
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mJob:Lcom/android/server/backup/FullBackupJob;
+
+    if-eqz v5, :cond_c
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mJob:Lcom/android/server/backup/FullBackupJob;
+
+    invoke-virtual {v5}, Lcom/android/server/backup/FullBackupJob;->finishBackupPass()V
 
     :cond_c
-    const/16 v18, 0x0
-
-    goto/16 :goto_1
-
-    :cond_d
-    const/16 v21, 0x0
-
-    :goto_6
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mKeepRunning:Ljava/util/concurrent/atomic/AtomicBoolean;
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
 
-    move-object/from16 v32, v0
+    iget-object v6, v5, Lcom/android/server/backup/BackupManagerService;->mQueueLock:Ljava/lang/Object;
 
-    invoke-virtual/range {v32 .. v32}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
+    monitor-enter v6
 
-    move-result v32
+    :try_start_7
+    move-object/from16 v0, p0
 
-    if-nez v32, :cond_11
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
 
-    const-string/jumbo v32, "PFTBT"
+    const/4 v7, 0x0
 
-    const-string/jumbo v33, "Full backup task told to stop"
+    iput-object v7, v5, Lcom/android/server/backup/BackupManagerService;->mRunningFullBackupTask:Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_7
 
-    invoke-static/range {v32 .. v33}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    monitor-exit v6
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mLatch:Ljava/util/concurrent/CountDownLatch;
+
+    invoke-virtual {v5}, Ljava/util/concurrent/CountDownLatch;->countDown()V
+
+    move-object/from16 v0, p0
+
+    iget-boolean v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mUpdateSchedule:Z
+
+    if-eqz v5, :cond_d
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    invoke-virtual {v5, v14, v15}, Lcom/android/server/backup/BackupManagerService;->scheduleNextFullBackupJob(J)V
+
+    :cond_d
+    const-string/jumbo v5, "BackupManagerService"
+
+    const-string/jumbo v6, "Full data backup pass finished."
+
+    invoke-static {v5, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    iget-object v5, v5, Lcom/android/server/backup/BackupManagerService;->mWakelock:Landroid/os/PowerManager$WakeLock;
+
+    invoke-virtual {v5}, Landroid/os/PowerManager$WakeLock;->release()V
+
+    :goto_3
+    return-void
 
     :cond_e
-    const/16 v32, -0x3ed
-
-    move/from16 v0, v32
-
-    if-ne v7, v0, :cond_6
-
-    const/16 v32, 0x1
-
-    move-object/from16 v0, v30
-
-    move-object/from16 v1, v23
-
-    move/from16 v2, v32
-
-    invoke-interface {v0, v1, v2}, Lcom/android/internal/backup/IBackupTransport;->getBackupQuota(Ljava/lang/String;Z)J
-
-    move-result-wide v26
-
-    const-string/jumbo v32, "PFTBT"
-
-    new-instance v33, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v34, "Package hit quota limit in-flight "
-
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    move-object/from16 v0, v33
-
-    move-object/from16 v1, v23
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    const-string/jumbo v34, ": "
-
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    move-object/from16 v0, v33
-
-    move-wide/from16 v1, v28
-
-    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    const-string/jumbo v34, " of "
-
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    move-object/from16 v0, v33
-
-    move-wide/from16 v1, v26
-
-    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v33
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-wide/from16 v0, v28
-
-    move-wide/from16 v2, v26
-
-    invoke-virtual {v11, v0, v1, v2, v3}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask$SinglePackageBackupRunner;->sendQuotaExceeded(JJ)V
-    :try_end_4
-    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
-    .catchall {:try_start_4 .. :try_end_4} :catchall_2
+    const/16 v23, 0x0
 
     goto/16 :goto_2
 
-    :catch_0
-    move-exception v15
-
-    const/16 v10, -0x3e8
-
-    :try_start_5
-    const-string/jumbo v32, "PFTBT"
-
-    const-string/jumbo v33, "Exception trying full transport backup"
-
-    move-object/from16 v0, v32
-
-    move-object/from16 v1, v33
-
-    invoke-static {v0, v1, v15}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_2
-
-    const-string/jumbo v32, "PFTBT"
-
-    new-instance v33, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v34, "Full backup completed with status: "
-
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    move-object/from16 v0, v33
-
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v33
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupObserver:Landroid/app/backup/IBackupObserver;
-
-    move-object/from16 v32, v0
-
-    move-object/from16 v0, v32
-
-    invoke-static {v0, v10}, Lcom/android/server/backup/BackupManagerService;->-wrap19(Landroid/app/backup/IBackupObserver;I)V
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v31
-
-    invoke-virtual {v0, v1}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->cleanUpPipes([Landroid/os/ParcelFileDescriptor;)V
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->cleanUpPipes([Landroid/os/ParcelFileDescriptor;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mJob:Lcom/android/server/backup/FullBackupJob;
-
-    move-object/from16 v32, v0
-
-    if-eqz v32, :cond_f
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mJob:Lcom/android/server/backup/FullBackupJob;
-
-    move-object/from16 v32, v0
-
-    invoke-virtual/range {v32 .. v32}, Lcom/android/server/backup/FullBackupJob;->finishBackupPass()V
-
     :cond_f
+    :try_start_8
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mTransport:Lcom/android/internal/backup/IBackupTransport;
 
-    move-object/from16 v32, v0
+    const/4 v6, 0x0
 
-    move-object/from16 v0, v32
+    aget-object v6, v34, v6
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService;->mQueueLock:Ljava/lang/Object;
+    move/from16 v0, v23
 
-    move-object/from16 v33, v0
+    invoke-interface {v5, v8, v6, v0}, Lcom/android/internal/backup/IBackupTransport;->performFullBackup(Landroid/content/pm/PackageInfo;Landroid/os/ParcelFileDescriptor;I)I
 
-    monitor-enter v33
+    move-result v13
 
-    :try_start_6
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
-
-    move-object/from16 v32, v0
-
-    const/16 v34, 0x0
-
-    move-object/from16 v0, v34
-
-    move-object/from16 v1, v32
-
-    iput-object v0, v1, Lcom/android/server/backup/BackupManagerService;->mRunningFullBackupTask:Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_5
-
-    monitor-exit v33
+    if-nez v13, :cond_10
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mLatch:Ljava/util/concurrent/CountDownLatch;
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mTransport:Lcom/android/internal/backup/IBackupTransport;
 
-    move-object/from16 v32, v0
+    iget-object v6, v8, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;
 
-    invoke-virtual/range {v32 .. v32}, Ljava/util/concurrent/CountDownLatch;->countDown()V
+    const/4 v7, 0x1
+
+    invoke-interface {v5, v6, v7}, Lcom/android/internal/backup/IBackupTransport;->getBackupQuota(Ljava/lang/String;Z)J
+
+    move-result-wide v10
+
+    invoke-static {}, Landroid/os/ParcelFileDescriptor;->createPipe()[Landroid/os/ParcelFileDescriptor;
+
+    move-result-object v21
+
+    new-instance v5, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask$SinglePackageBackupRunner;
+
+    const/4 v6, 0x1
+
+    aget-object v7, v21, v6
 
     move-object/from16 v0, p0
 
-    iget-boolean v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mUpdateSchedule:Z
-
-    move/from16 v32, v0
-
-    if-eqz v32, :cond_10
+    iget-object v9, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mTransport:Lcom/android/internal/backup/IBackupTransport;
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+    iget v12, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupRunnerOpToken:I
 
-    move-object/from16 v32, v0
+    move-object/from16 v6, p0
 
-    move-object/from16 v0, v32
+    invoke-direct/range {v5 .. v12}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask$SinglePackageBackupRunner;-><init>(Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;Landroid/os/ParcelFileDescriptor;Landroid/content/pm/PackageInfo;Lcom/android/internal/backup/IBackupTransport;JI)V
 
-    invoke-virtual {v0, v8, v9}, Lcom/android/server/backup/BackupManagerService;->scheduleNextFullBackupJob(J)V
+    move-object/from16 v0, p0
+
+    iput-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupRunner:Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask$SinglePackageBackupRunner;
+
+    const/4 v5, 0x1
+
+    aget-object v5, v21, v5
+
+    invoke-virtual {v5}, Landroid/os/ParcelFileDescriptor;->close()V
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x1
+
+    aput-object v5, v21, v6
+
+    const/4 v5, 0x1
+
+    move-object/from16 v0, p0
+
+    iput-boolean v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mIsDoingBackup:Z
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_2
 
     :cond_10
-    const-string/jumbo v32, "BackupManagerService"
+    :try_start_9
+    monitor-exit v35
 
-    const-string/jumbo v33, "Full data backup pass finished."
+    if-nez v13, :cond_15
 
-    invoke-static/range {v32 .. v33}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    const/4 v5, 0x0
 
-    move-object/from16 v0, p0
+    aget-object v5, v34, v5
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+    invoke-virtual {v5}, Landroid/os/ParcelFileDescriptor;->close()V
 
-    move-object/from16 v32, v0
+    const/4 v5, 0x0
 
-    move-object/from16 v0, v32
+    const/4 v6, 0x0
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService;->mWakelock:Landroid/os/PowerManager$WakeLock;
+    aput-object v5, v34, v6
 
-    move-object/from16 v32, v0
-
-    invoke-virtual/range {v32 .. v32}, Landroid/os/PowerManager$WakeLock;->release()V
-
-    :goto_7
-    return-void
-
-    :cond_11
-    :try_start_7
-    move-object/from16 v0, v20
-
-    invoke-virtual {v0, v13}, Ljava/io/FileInputStream;->read([B)I
-
-    move-result v21
-
-    const-string/jumbo v32, "PFTBT"
-
-    new-instance v33, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v34, "in.read(buffer) from app: "
-
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    move-object/from16 v0, v33
-
-    move/from16 v1, v21
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v33
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-lez v21, :cond_12
-
-    const/16 v32, 0x0
-
-    move-object/from16 v0, v22
-
-    move/from16 v1, v32
-
-    move/from16 v2, v21
-
-    invoke-virtual {v0, v13, v1, v2}, Ljava/io/FileOutputStream;->write([BII)V
-
-    move-object/from16 v0, v30
-
-    move/from16 v1, v21
-
-    invoke-interface {v0, v1}, Lcom/android/internal/backup/IBackupTransport;->sendBackupData(I)I
-
-    move-result v7
-
-    move/from16 v0, v21
-
-    int-to-long v0, v0
-
-    move-wide/from16 v32, v0
-
-    add-long v28, v28, v32
+    new-instance v5, Ljava/lang/Thread;
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupObserver:Landroid/app/backup/IBackupObserver;
+    iget-object v6, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupRunner:Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask$SinglePackageBackupRunner;
 
-    move-object/from16 v32, v0
+    const-string/jumbo v7, "package-backup-bridge"
 
-    if-eqz v32, :cond_12
+    invoke-direct {v5, v6, v7}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;Ljava/lang/String;)V
+
+    invoke-virtual {v5}, Ljava/lang/Thread;->start()V
+
+    new-instance v25, Ljava/io/FileInputStream;
+
+    const/4 v5, 0x0
+
+    aget-object v5, v21, v5
+
+    invoke-virtual {v5}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
+
+    move-result-object v5
+
+    move-object/from16 v0, v25
+
+    invoke-direct {v0, v5}, Ljava/io/FileInputStream;-><init>(Ljava/io/FileDescriptor;)V
+
+    new-instance v28, Ljava/io/FileOutputStream;
+
+    const/4 v5, 0x1
+
+    aget-object v5, v34, v5
+
+    invoke-virtual {v5}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
+
+    move-result-object v5
+
+    move-object/from16 v0, v28
+
+    invoke-direct {v0, v5}, Ljava/io/FileOutputStream;-><init>(Ljava/io/FileDescriptor;)V
 
     const-wide/16 v32, 0x0
 
-    cmp-long v32, v24, v32
+    move-object/from16 v0, p0
 
-    if-lez v32, :cond_12
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupRunner:Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask$SinglePackageBackupRunner;
+
+    invoke-virtual {v5}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask$SinglePackageBackupRunner;->getPreflightResultBlocking()J
+
+    move-result-wide v30
+
+    const-wide/16 v6, 0x0
+
+    cmp-long v5, v30, v6
+
+    if-gez v5, :cond_1b
+
+    const-string/jumbo v5, "PFTBT"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "Backup error after preflight of package "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move-object/from16 v0, v29
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, ": "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move-wide/from16 v0, v30
+
+    invoke-virtual {v6, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, ", not running backup."
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupObserver:Landroid/app/backup/IBackupObserver;
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mMonitor:Landroid/app/backup/IBackupManagerMonitor;
 
-    move-object/from16 v32, v0
+    move-object/from16 v0, p0
 
-    new-instance v33, Landroid/app/backup/BackupProgress;
+    iget-object v6, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mCurrentPackage:Landroid/content/pm/PackageInfo;
 
-    move-object/from16 v0, v33
+    move-object/from16 v0, p0
 
-    move-wide/from16 v1, v24
+    iget-object v7, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
 
-    move-wide/from16 v3, v28
+    const-string/jumbo v9, "android.app.backup.extra.LOG_PREFLIGHT_ERROR"
 
-    invoke-direct {v0, v1, v2, v3, v4}, Landroid/app/backup/BackupProgress;-><init>(JJ)V
+    const/4 v12, 0x0
 
-    move-object/from16 v0, v32
+    move-wide/from16 v0, v30
 
-    move-object/from16 v1, v23
+    invoke-static {v7, v12, v9, v0, v1}, Lcom/android/server/backup/BackupManagerService;->-wrap4(Lcom/android/server/backup/BackupManagerService;Landroid/os/Bundle;Ljava/lang/String;J)Landroid/os/Bundle;
 
-    move-object/from16 v2, v33
+    move-result-object v7
 
-    invoke-static {v0, v1, v2}, Lcom/android/server/backup/BackupManagerService;->-wrap21(Landroid/app/backup/IBackupObserver;Ljava/lang/String;Landroid/app/backup/BackupProgress;)V
+    const/16 v9, 0x10
 
-    :cond_12
-    if-lez v21, :cond_e
+    const/4 v12, 0x3
 
-    if-nez v7, :cond_e
+    invoke-static {v5, v9, v6, v12, v7}, Lcom/android/server/backup/BackupManagerService;->-wrap0(Landroid/app/backup/IBackupManagerMonitor;ILandroid/content/pm/PackageInfo;ILandroid/os/Bundle;)Landroid/app/backup/IBackupManagerMonitor;
 
-    goto/16 :goto_6
+    move-result-object v5
 
-    :cond_13
-    invoke-interface/range {v30 .. v30}, Lcom/android/internal/backup/IBackupTransport;->finishBackup()I
+    move-object/from16 v0, p0
+
+    iput-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mMonitor:Landroid/app/backup/IBackupManagerMonitor;
+
+    move-wide/from16 v0, v30
+
+    long-to-int v13, v0
+
+    :cond_11
+    :goto_4
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupRunner:Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask$SinglePackageBackupRunner;
+
+    invoke-virtual {v5}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask$SinglePackageBackupRunner;->getBackupResultBlocking()I
 
     move-result v17
 
-    if-nez v7, :cond_7
+    move-object/from16 v0, p0
 
-    move/from16 v7, v17
+    iget-object v6, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mCancelLock:Ljava/lang/Object;
 
-    goto/16 :goto_3
+    monitor-enter v6
+    :try_end_9
+    .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_9} :catch_0
+    .catchall {:try_start_9 .. :try_end_9} :catchall_3
+
+    const/4 v5, 0x0
+
+    :try_start_a
+    move-object/from16 v0, p0
+
+    iput-boolean v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mIsDoingBackup:Z
+
+    move-object/from16 v0, p0
+
+    iget-boolean v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mCancelAll:Z
+
+    if-nez v5, :cond_12
+
+    if-nez v17, :cond_23
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mTransport:Lcom/android/internal/backup/IBackupTransport;
+
+    invoke-interface {v5}, Lcom/android/internal/backup/IBackupTransport;->finishBackup()I
+    :try_end_a
+    .catchall {:try_start_a .. :try_end_a} :catchall_5
+
+    move-result v22
+
+    if-nez v13, :cond_12
+
+    move/from16 v13, v22
+
+    :cond_12
+    :goto_5
+    :try_start_b
+    monitor-exit v6
+
+    if-nez v13, :cond_24
+
+    if-eqz v17, :cond_13
+
+    move/from16 v13, v17
+
+    :cond_13
+    :goto_6
+    const-string/jumbo v5, "PFTBT"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "Done delivering backup data: result="
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-eqz v13, :cond_14
+
+    const-string/jumbo v5, "PFTBT"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "Error "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, " backing up "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move-object/from16 v0, v29
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_14
-    const-string/jumbo v32, "PFTBT"
-
-    const-string/jumbo v33, "Transport-level failure; cancelling agent work"
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_7
-    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_0
-    .catchall {:try_start_7 .. :try_end_7} :catchall_2
-
-    goto/16 :goto_4
-
-    :catchall_2
-    move-exception v32
-
-    const-string/jumbo v33, "PFTBT"
-
-    new-instance v34, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v34 .. v34}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v35, "Full backup completed with status: "
-
-    invoke-virtual/range {v34 .. v35}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v34
-
-    move-object/from16 v0, v34
-
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v34
-
-    invoke-virtual/range {v34 .. v34}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v34
-
-    invoke-static/range {v33 .. v34}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupObserver:Landroid/app/backup/IBackupObserver;
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mTransport:Lcom/android/internal/backup/IBackupTransport;
 
-    move-object/from16 v33, v0
+    invoke-interface {v5}, Lcom/android/internal/backup/IBackupTransport;->requestFullBackupTime()J
 
-    move-object/from16 v0, v33
+    move-result-wide v14
 
-    invoke-static {v0, v10}, Lcom/android/server/backup/BackupManagerService;->-wrap19(Landroid/app/backup/IBackupObserver;I)V
+    const-string/jumbo v5, "PFTBT"
 
-    move-object/from16 v0, p0
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    move-object/from16 v1, v31
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v0, v1}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->cleanUpPipes([Landroid/os/ParcelFileDescriptor;)V
+    const-string/jumbo v7, "Transport suggested backoff="
 
-    move-object/from16 v0, p0
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v1, v16
+    move-result-object v6
 
-    invoke-virtual {v0, v1}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->cleanUpPipes([Landroid/os/ParcelFileDescriptor;)V
+    invoke-virtual {v6, v14, v15}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, p0
+    move-result-object v6
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mJob:Lcom/android/server/backup/FullBackupJob;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-object/from16 v33, v0
+    move-result-object v6
 
-    if-eqz v33, :cond_15
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mJob:Lcom/android/server/backup/FullBackupJob;
-
-    move-object/from16 v33, v0
-
-    invoke-virtual/range {v33 .. v33}, Lcom/android/server/backup/FullBackupJob;->finishBackupPass()V
+    invoke-static {v5, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_15
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+    iget-boolean v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mUpdateSchedule:Z
 
-    move-object/from16 v33, v0
+    if-eqz v5, :cond_16
 
-    move-object/from16 v0, v33
-
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService;->mQueueLock:Ljava/lang/Object;
-
-    move-object/from16 v33, v0
-
-    monitor-enter v33
-
-    :try_start_8
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
 
-    move-object/from16 v34, v0
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v6
+
+    move-object/from16 v0, v29
+
+    invoke-virtual {v5, v0, v6, v7}, Lcom/android/server/backup/BackupManagerService;->enqueueFullBackup(Ljava/lang/String;J)V
+
+    :cond_16
+    const/16 v5, -0x3ea
+
+    if-ne v13, v5, :cond_25
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupObserver:Landroid/app/backup/IBackupObserver;
+
+    const/16 v6, -0x3ea
+
+    move-object/from16 v0, v29
+
+    invoke-static {v5, v0, v6}, Lcom/android/server/backup/BackupManagerService;->-wrap23(Landroid/app/backup/IBackupObserver;Ljava/lang/String;I)V
+
+    const-string/jumbo v5, "PFTBT"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "Transport rejected backup of "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move-object/from16 v0, v29
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, ", skipping"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v5, 0x2
+
+    new-array v5, v5, [Ljava/lang/Object;
+
+    const/4 v6, 0x0
+
+    aput-object v29, v5, v6
+
+    const-string/jumbo v6, "transport rejected"
+
+    const/4 v7, 0x1
+
+    aput-object v6, v5, v7
+
+    const/16 v6, 0xb19
+
+    invoke-static {v6, v5}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
+
+    :goto_7
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v34
+
+    invoke-virtual {v0, v1}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->cleanUpPipes([Landroid/os/ParcelFileDescriptor;)V
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v21
+
+    invoke-virtual {v0, v1}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->cleanUpPipes([Landroid/os/ParcelFileDescriptor;)V
+
+    iget-object v5, v8, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    if-eqz v5, :cond_17
+
+    const-string/jumbo v5, "PFTBT"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "Unbinding agent in "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move-object/from16 v0, v29
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "unbinding "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move-object/from16 v0, v29
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Lcom/android/server/backup/BackupManagerService;->addBackupTrace(Ljava/lang/String;)V
+    :try_end_b
+    .catch Ljava/lang/Exception; {:try_start_b .. :try_end_b} :catch_0
+    .catchall {:try_start_b .. :try_end_b} :catchall_3
+
+    :try_start_c
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    invoke-static {v5}, Lcom/android/server/backup/BackupManagerService;->-get4(Lcom/android/server/backup/BackupManagerService;)Landroid/app/IActivityManager;
+
+    move-result-object v5
+
+    iget-object v6, v8, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    invoke-interface {v5, v6}, Landroid/app/IActivityManager;->unbindBackupAgent(Landroid/content/pm/ApplicationInfo;)V
+    :try_end_c
+    .catch Landroid/os/RemoteException; {:try_start_c .. :try_end_c} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_c .. :try_end_c} :catch_0
+    .catchall {:try_start_c .. :try_end_c} :catchall_3
+
+    :cond_17
+    :goto_8
+    add-int/lit8 v24, v24, 0x1
+
+    goto/16 :goto_1
+
+    :catchall_2
+    move-exception v5
+
+    :try_start_d
+    monitor-exit v35
+
+    throw v5
+    :try_end_d
+    .catch Ljava/lang/Exception; {:try_start_d .. :try_end_d} :catch_0
+    .catchall {:try_start_d .. :try_end_d} :catchall_3
+
+    :catch_0
+    move-exception v20
+
+    const/16 v16, -0x3e8
+
+    :try_start_e
+    const-string/jumbo v5, "PFTBT"
+
+    const-string/jumbo v6, "Exception trying full transport backup"
+
+    move-object/from16 v0, v20
+
+    invoke-static {v5, v6, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mMonitor:Landroid/app/backup/IBackupManagerMonitor;
+
+    move-object/from16 v0, p0
+
+    iget-object v6, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mCurrentPackage:Landroid/content/pm/PackageInfo;
+
+    move-object/from16 v0, p0
+
+    iget-object v7, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    const-string/jumbo v9, "android.app.backup.extra.LOG_EXCEPTION_FULL_BACKUP"
+
+    invoke-static/range {v20 .. v20}, Landroid/util/Log;->getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
+
+    move-result-object v12
 
     const/16 v35, 0x0
 
     move-object/from16 v0, v35
 
-    move-object/from16 v1, v34
+    invoke-static {v7, v0, v9, v12}, Lcom/android/server/backup/BackupManagerService;->-wrap3(Lcom/android/server/backup/BackupManagerService;Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/String;)Landroid/os/Bundle;
 
-    iput-object v0, v1, Lcom/android/server/backup/BackupManagerService;->mRunningFullBackupTask:Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;
-    :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_6
+    move-result-object v7
 
-    monitor-exit v33
+    const/16 v9, 0x13
 
-    move-object/from16 v0, p0
+    const/4 v12, 0x3
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mLatch:Ljava/util/concurrent/CountDownLatch;
+    invoke-static {v5, v9, v6, v12, v7}, Lcom/android/server/backup/BackupManagerService;->-wrap0(Landroid/app/backup/IBackupManagerMonitor;ILandroid/content/pm/PackageInfo;ILandroid/os/Bundle;)Landroid/app/backup/IBackupManagerMonitor;
 
-    move-object/from16 v33, v0
-
-    invoke-virtual/range {v33 .. v33}, Ljava/util/concurrent/CountDownLatch;->countDown()V
+    move-result-object v5
 
     move-object/from16 v0, p0
 
-    iget-boolean v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mUpdateSchedule:Z
-
-    move/from16 v33, v0
-
-    if-eqz v33, :cond_16
+    iput-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mMonitor:Landroid/app/backup/IBackupManagerMonitor;
+    :try_end_e
+    .catchall {:try_start_e .. :try_end_e} :catchall_3
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+    iget-boolean v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mCancelAll:Z
 
-    move-object/from16 v33, v0
+    if-eqz v5, :cond_18
 
-    move-object/from16 v0, v33
-
-    invoke-virtual {v0, v8, v9}, Lcom/android/server/backup/BackupManagerService;->scheduleNextFullBackupJob(J)V
-
-    :cond_16
-    const-string/jumbo v33, "BackupManagerService"
-
-    const-string/jumbo v34, "Full data backup pass finished."
-
-    invoke-static/range {v33 .. v34}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
-
-    move-object/from16 v33, v0
-
-    move-object/from16 v0, v33
-
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService;->mWakelock:Landroid/os/PowerManager$WakeLock;
-
-    move-object/from16 v33, v0
-
-    invoke-virtual/range {v33 .. v33}, Landroid/os/PowerManager$WakeLock;->release()V
-
-    throw v32
-
-    :cond_17
-    const/16 v32, -0x3ed
-
-    move/from16 v0, v32
-
-    if-ne v7, v0, :cond_18
-
-    :try_start_9
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupObserver:Landroid/app/backup/IBackupObserver;
-
-    move-object/from16 v32, v0
-
-    const/16 v33, -0x3ed
-
-    move-object/from16 v0, v32
-
-    move-object/from16 v1, v23
-
-    move/from16 v2, v33
-
-    invoke-static {v0, v1, v2}, Lcom/android/server/backup/BackupManagerService;->-wrap20(Landroid/app/backup/IBackupObserver;Ljava/lang/String;I)V
-
-    const-string/jumbo v32, "PFTBT"
-
-    new-instance v33, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v34, "Transport quota exceeded for package: "
-
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    move-object/from16 v0, v33
-
-    move-object/from16 v1, v23
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v33
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v32, 0xb1d
-
-    move/from16 v0, v32
-
-    move-object/from16 v1, v23
-
-    invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(ILjava/lang/String;)I
-
-    goto/16 :goto_5
+    const/16 v16, -0x7d3
 
     :cond_18
-    const/16 v32, -0x3eb
+    const-string/jumbo v5, "PFTBT"
 
-    move/from16 v0, v32
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    if-ne v7, v0, :cond_19
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-object/from16 v0, p0
+    const-string/jumbo v7, "Full backup completed with status: "
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupObserver:Landroid/app/backup/IBackupObserver;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v32, v0
+    move-result-object v6
 
-    const/16 v33, -0x3eb
+    move/from16 v0, v16
 
-    move-object/from16 v0, v32
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-object/from16 v1, v23
+    move-result-object v6
 
-    move/from16 v2, v33
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v0, v1, v2}, Lcom/android/server/backup/BackupManagerService;->-wrap20(Landroid/app/backup/IBackupObserver;Ljava/lang/String;I)V
+    move-result-object v6
 
-    const-string/jumbo v32, "PFTBT"
-
-    new-instance v33, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v34, "Application failure for package: "
-
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    move-object/from16 v0, v33
-
-    move-object/from16 v1, v23
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v33
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v32, 0xb07
-
-    move/from16 v0, v32
-
-    move-object/from16 v1, v23
-
-    invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(ILjava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupObserver:Landroid/app/backup/IBackupObserver;
 
-    move-object/from16 v32, v0
+    move/from16 v0, v16
 
-    iget-object v0, v14, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    invoke-static {v5, v0}, Lcom/android/server/backup/BackupManagerService;->-wrap22(Landroid/app/backup/IBackupObserver;I)V
 
-    move-object/from16 v33, v0
+    move-object/from16 v0, p0
 
-    invoke-virtual/range {v32 .. v33}, Lcom/android/server/backup/BackupManagerService;->tearDownAgentAndKill(Landroid/content/pm/ApplicationInfo;)V
+    move-object/from16 v1, v34
 
-    goto/16 :goto_5
+    invoke-virtual {v0, v1}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->cleanUpPipes([Landroid/os/ParcelFileDescriptor;)V
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v21
+
+    invoke-virtual {v0, v1}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->cleanUpPipes([Landroid/os/ParcelFileDescriptor;)V
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->unregisterTask()V
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mJob:Lcom/android/server/backup/FullBackupJob;
+
+    if-eqz v5, :cond_19
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mJob:Lcom/android/server/backup/FullBackupJob;
+
+    invoke-virtual {v5}, Lcom/android/server/backup/FullBackupJob;->finishBackupPass()V
 
     :cond_19
-    if-eqz v7, :cond_1c
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    iget-object v6, v5, Lcom/android/server/backup/BackupManagerService;->mQueueLock:Ljava/lang/Object;
+
+    monitor-enter v6
+
+    :try_start_f
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    const/4 v7, 0x0
+
+    iput-object v7, v5, Lcom/android/server/backup/BackupManagerService;->mRunningFullBackupTask:Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;
+    :try_end_f
+    .catchall {:try_start_f .. :try_end_f} :catchall_8
+
+    monitor-exit v6
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupObserver:Landroid/app/backup/IBackupObserver;
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mLatch:Ljava/util/concurrent/CountDownLatch;
 
-    move-object/from16 v32, v0
-
-    const/16 v33, -0x3e8
-
-    move-object/from16 v0, v32
-
-    move-object/from16 v1, v23
-
-    move/from16 v2, v33
-
-    invoke-static {v0, v1, v2}, Lcom/android/server/backup/BackupManagerService;->-wrap20(Landroid/app/backup/IBackupObserver;Ljava/lang/String;I)V
-
-    const-string/jumbo v32, "PFTBT"
-
-    new-instance v33, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v34, "Transport failed; aborting backup: "
-
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    move-object/from16 v0, v33
-
-    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v33
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v32, 0x0
-
-    move/from16 v0, v32
-
-    new-array v0, v0, [Ljava/lang/Object;
-
-    move-object/from16 v32, v0
-
-    const/16 v33, 0xb1a
-
-    move/from16 v0, v33
-
-    move-object/from16 v1, v32
-
-    invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
-    :try_end_9
-    .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_9} :catch_0
-    .catchall {:try_start_9 .. :try_end_9} :catchall_2
-
-    const/16 v10, -0x3e8
-
-    const-string/jumbo v32, "PFTBT"
-
-    new-instance v33, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v34, "Full backup completed with status: "
-
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    move-object/from16 v0, v33
-
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v33
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v5}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupObserver:Landroid/app/backup/IBackupObserver;
+    iget-boolean v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mUpdateSchedule:Z
 
-    move-object/from16 v32, v0
-
-    move-object/from16 v0, v32
-
-    invoke-static {v0, v10}, Lcom/android/server/backup/BackupManagerService;->-wrap19(Landroid/app/backup/IBackupObserver;I)V
+    if-eqz v5, :cond_1a
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v31
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->cleanUpPipes([Landroid/os/ParcelFileDescriptor;)V
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->cleanUpPipes([Landroid/os/ParcelFileDescriptor;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mJob:Lcom/android/server/backup/FullBackupJob;
-
-    move-object/from16 v32, v0
-
-    if-eqz v32, :cond_1a
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mJob:Lcom/android/server/backup/FullBackupJob;
-
-    move-object/from16 v32, v0
-
-    invoke-virtual/range {v32 .. v32}, Lcom/android/server/backup/FullBackupJob;->finishBackupPass()V
+    invoke-virtual {v5, v14, v15}, Lcom/android/server/backup/BackupManagerService;->scheduleNextFullBackupJob(J)V
 
     :cond_1a
-    move-object/from16 v0, p0
+    const-string/jumbo v5, "BackupManagerService"
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+    const-string/jumbo v6, "Full data backup pass finished."
 
-    move-object/from16 v32, v0
-
-    move-object/from16 v0, v32
-
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService;->mQueueLock:Ljava/lang/Object;
-
-    move-object/from16 v33, v0
-
-    monitor-enter v33
-
-    :try_start_a
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
-
-    move-object/from16 v32, v0
-
-    const/16 v34, 0x0
-
-    move-object/from16 v0, v34
-
-    move-object/from16 v1, v32
-
-    iput-object v0, v1, Lcom/android/server/backup/BackupManagerService;->mRunningFullBackupTask:Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;
-    :try_end_a
-    .catchall {:try_start_a .. :try_end_a} :catchall_3
-
-    monitor-exit v33
+    invoke-static {v5, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mLatch:Ljava/util/concurrent/CountDownLatch;
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
 
-    move-object/from16 v32, v0
+    iget-object v5, v5, Lcom/android/server/backup/BackupManagerService;->mWakelock:Landroid/os/PowerManager$WakeLock;
 
-    invoke-virtual/range {v32 .. v32}, Ljava/util/concurrent/CountDownLatch;->countDown()V
+    invoke-virtual {v5}, Landroid/os/PowerManager$WakeLock;->release()V
 
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mUpdateSchedule:Z
-
-    move/from16 v32, v0
-
-    if-eqz v32, :cond_1b
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
-
-    move-object/from16 v32, v0
-
-    move-object/from16 v0, v32
-
-    invoke-virtual {v0, v8, v9}, Lcom/android/server/backup/BackupManagerService;->scheduleNextFullBackupJob(J)V
+    goto/16 :goto_3
 
     :cond_1b
-    const-string/jumbo v32, "BackupManagerService"
-
-    const-string/jumbo v33, "Full data backup pass finished."
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
-
-    move-object/from16 v32, v0
-
-    move-object/from16 v0, v32
-
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService;->mWakelock:Landroid/os/PowerManager$WakeLock;
-
-    move-object/from16 v32, v0
-
-    invoke-virtual/range {v32 .. v32}, Landroid/os/PowerManager$WakeLock;->release()V
-
-    return-void
-
-    :catchall_3
-    move-exception v32
-
-    monitor-exit v33
-
-    throw v32
+    const/16 v27, 0x0
 
     :cond_1c
-    :try_start_b
+    :try_start_10
+    move-object/from16 v0, v25
+
+    move-object/from16 v1, v18
+
+    invoke-virtual {v0, v1}, Ljava/io/FileInputStream;->read([B)I
+
+    move-result v27
+
+    const-string/jumbo v5, "PFTBT"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "in.read(buffer) from app: "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move/from16 v0, v27
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-lez v27, :cond_1e
+
+    const/4 v5, 0x0
+
+    move-object/from16 v0, v28
+
+    move-object/from16 v1, v18
+
+    move/from16 v2, v27
+
+    invoke-virtual {v0, v1, v5, v2}, Ljava/io/FileOutputStream;->write([BII)V
+
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupObserver:Landroid/app/backup/IBackupObserver;
+    iget-object v6, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mCancelLock:Ljava/lang/Object;
 
-    move-object/from16 v32, v0
+    monitor-enter v6
+    :try_end_10
+    .catch Ljava/lang/Exception; {:try_start_10 .. :try_end_10} :catch_0
+    .catchall {:try_start_10 .. :try_end_10} :catchall_3
 
-    const/16 v33, 0x0
+    :try_start_11
+    move-object/from16 v0, p0
 
-    move-object/from16 v0, v32
+    iget-boolean v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mCancelAll:Z
 
-    move-object/from16 v1, v23
-
-    move/from16 v2, v33
-
-    invoke-static {v0, v1, v2}, Lcom/android/server/backup/BackupManagerService;->-wrap20(Landroid/app/backup/IBackupObserver;Ljava/lang/String;I)V
-
-    const/16 v32, 0xb1b
-
-    move/from16 v0, v32
-
-    move-object/from16 v1, v23
-
-    invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(ILjava/lang/String;)I
+    if-nez v5, :cond_1d
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mTransport:Lcom/android/internal/backup/IBackupTransport;
 
-    move-object/from16 v32, v0
+    move/from16 v0, v27
 
-    move-object/from16 v0, v32
+    invoke-interface {v5, v0}, Lcom/android/internal/backup/IBackupTransport;->sendBackupData(I)I
+    :try_end_11
+    .catchall {:try_start_11 .. :try_end_11} :catchall_4
 
-    move-object/from16 v1, v23
+    move-result v13
 
-    invoke-virtual {v0, v1}, Lcom/android/server/backup/BackupManagerService;->logBackupComplete(Ljava/lang/String;)V
-    :try_end_b
-    .catch Ljava/lang/Exception; {:try_start_b .. :try_end_b} :catch_0
-    .catchall {:try_start_b .. :try_end_b} :catchall_2
+    :cond_1d
+    :try_start_12
+    monitor-exit v6
+
+    move/from16 v0, v27
+
+    int-to-long v6, v0
+
+    add-long v32, v32, v6
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupObserver:Landroid/app/backup/IBackupObserver;
+
+    if-eqz v5, :cond_1e
+
+    const-wide/16 v6, 0x0
+
+    cmp-long v5, v30, v6
+
+    if-lez v5, :cond_1e
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupObserver:Landroid/app/backup/IBackupObserver;
+
+    new-instance v6, Landroid/app/backup/BackupProgress;
+
+    move-wide/from16 v0, v30
+
+    move-wide/from16 v2, v32
+
+    invoke-direct {v6, v0, v1, v2, v3}, Landroid/app/backup/BackupProgress;-><init>(JJ)V
+
+    move-object/from16 v0, v29
+
+    invoke-static {v5, v0, v6}, Lcom/android/server/backup/BackupManagerService;->-wrap24(Landroid/app/backup/IBackupObserver;Ljava/lang/String;Landroid/app/backup/BackupProgress;)V
+
+    :cond_1e
+    if-lez v27, :cond_1f
+
+    if-eqz v13, :cond_1c
+
+    :cond_1f
+    const/16 v5, -0x3ed
+
+    if-ne v13, v5, :cond_11
+
+    const-string/jumbo v5, "PFTBT"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "Package hit quota limit in-flight "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move-object/from16 v0, v29
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, ": "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move-wide/from16 v0, v32
+
+    invoke-virtual {v6, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, " of "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v10, v11}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mMonitor:Landroid/app/backup/IBackupManagerMonitor;
+
+    move-object/from16 v0, p0
+
+    iget-object v6, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mCurrentPackage:Landroid/content/pm/PackageInfo;
+
+    const/16 v7, 0x12
+
+    const/4 v9, 0x1
+
+    const/4 v12, 0x0
+
+    invoke-static {v5, v7, v6, v9, v12}, Lcom/android/server/backup/BackupManagerService;->-wrap0(Landroid/app/backup/IBackupManagerMonitor;ILandroid/content/pm/PackageInfo;ILandroid/os/Bundle;)Landroid/app/backup/IBackupManagerMonitor;
+
+    move-result-object v5
+
+    move-object/from16 v0, p0
+
+    iput-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mMonitor:Landroid/app/backup/IBackupManagerMonitor;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupRunner:Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask$SinglePackageBackupRunner;
+
+    move-wide/from16 v0, v32
+
+    invoke-virtual {v5, v0, v1, v10, v11}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask$SinglePackageBackupRunner;->sendQuotaExceeded(JJ)V
+    :try_end_12
+    .catch Ljava/lang/Exception; {:try_start_12 .. :try_end_12} :catch_0
+    .catchall {:try_start_12 .. :try_end_12} :catchall_3
+
+    goto/16 :goto_4
+
+    :catchall_3
+    move-exception v5
+
+    move-object/from16 v0, p0
+
+    iget-boolean v6, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mCancelAll:Z
+
+    if-eqz v6, :cond_20
+
+    const/16 v16, -0x7d3
+
+    :cond_20
+    const-string/jumbo v6, "PFTBT"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "Full backup completed with status: "
+
+    invoke-virtual {v7, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    move/from16 v0, v16
+
+    invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    iget-object v6, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupObserver:Landroid/app/backup/IBackupObserver;
+
+    move/from16 v0, v16
+
+    invoke-static {v6, v0}, Lcom/android/server/backup/BackupManagerService;->-wrap22(Landroid/app/backup/IBackupObserver;I)V
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v34
+
+    invoke-virtual {v0, v1}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->cleanUpPipes([Landroid/os/ParcelFileDescriptor;)V
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v21
+
+    invoke-virtual {v0, v1}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->cleanUpPipes([Landroid/os/ParcelFileDescriptor;)V
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->unregisterTask()V
+
+    move-object/from16 v0, p0
+
+    iget-object v6, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mJob:Lcom/android/server/backup/FullBackupJob;
+
+    if-eqz v6, :cond_21
+
+    move-object/from16 v0, p0
+
+    iget-object v6, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mJob:Lcom/android/server/backup/FullBackupJob;
+
+    invoke-virtual {v6}, Lcom/android/server/backup/FullBackupJob;->finishBackupPass()V
+
+    :cond_21
+    move-object/from16 v0, p0
+
+    iget-object v6, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    iget-object v6, v6, Lcom/android/server/backup/BackupManagerService;->mQueueLock:Ljava/lang/Object;
+
+    monitor-enter v6
+
+    :try_start_13
+    move-object/from16 v0, p0
+
+    iget-object v7, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    const/4 v9, 0x0
+
+    iput-object v9, v7, Lcom/android/server/backup/BackupManagerService;->mRunningFullBackupTask:Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;
+    :try_end_13
+    .catchall {:try_start_13 .. :try_end_13} :catchall_9
+
+    monitor-exit v6
+
+    move-object/from16 v0, p0
+
+    iget-object v6, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mLatch:Ljava/util/concurrent/CountDownLatch;
+
+    invoke-virtual {v6}, Ljava/util/concurrent/CountDownLatch;->countDown()V
+
+    move-object/from16 v0, p0
+
+    iget-boolean v6, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mUpdateSchedule:Z
+
+    if-eqz v6, :cond_22
+
+    move-object/from16 v0, p0
+
+    iget-object v6, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    invoke-virtual {v6, v14, v15}, Lcom/android/server/backup/BackupManagerService;->scheduleNextFullBackupJob(J)V
+
+    :cond_22
+    const-string/jumbo v6, "BackupManagerService"
+
+    const-string/jumbo v7, "Full data backup pass finished."
+
+    invoke-static {v6, v7}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    iget-object v6, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    iget-object v6, v6, Lcom/android/server/backup/BackupManagerService;->mWakelock:Landroid/os/PowerManager$WakeLock;
+
+    invoke-virtual {v6}, Landroid/os/PowerManager$WakeLock;->release()V
+
+    throw v5
+
+    :catchall_4
+    move-exception v5
+
+    :try_start_14
+    monitor-exit v6
+
+    throw v5
+    :try_end_14
+    .catch Ljava/lang/Exception; {:try_start_14 .. :try_end_14} :catch_0
+    .catchall {:try_start_14 .. :try_end_14} :catchall_3
+
+    :cond_23
+    :try_start_15
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mTransport:Lcom/android/internal/backup/IBackupTransport;
+
+    invoke-interface {v5}, Lcom/android/internal/backup/IBackupTransport;->cancelFullBackup()V
+    :try_end_15
+    .catchall {:try_start_15 .. :try_end_15} :catchall_5
 
     goto/16 :goto_5
 
-    :cond_1d
-    const-string/jumbo v32, "PFTBT"
+    :catchall_5
+    move-exception v5
 
-    new-instance v33, Ljava/lang/StringBuilder;
+    :try_start_16
+    monitor-exit v6
 
-    invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
+    throw v5
 
-    const-string/jumbo v34, "Full backup completed with status: "
+    :cond_24
+    const-string/jumbo v5, "PFTBT"
 
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v6, "Transport-level failure; cancelling agent work"
 
-    move-result-object v33
+    invoke-static {v5, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-object/from16 v0, v33
+    goto/16 :goto_6
 
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    :cond_25
+    const/16 v5, -0x3ed
 
-    move-result-object v33
-
-    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v33
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    if-ne v13, v5, :cond_26
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupObserver:Landroid/app/backup/IBackupObserver;
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupObserver:Landroid/app/backup/IBackupObserver;
 
-    move-object/from16 v32, v0
+    const/16 v6, -0x3ed
 
-    move-object/from16 v0, v32
+    move-object/from16 v0, v29
 
-    invoke-static {v0, v10}, Lcom/android/server/backup/BackupManagerService;->-wrap19(Landroid/app/backup/IBackupObserver;I)V
+    invoke-static {v5, v0, v6}, Lcom/android/server/backup/BackupManagerService;->-wrap23(Landroid/app/backup/IBackupObserver;Ljava/lang/String;I)V
 
-    move-object/from16 v0, p0
+    const-string/jumbo v5, "PFTBT"
 
-    move-object/from16 v1, v31
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->cleanUpPipes([Landroid/os/ParcelFileDescriptor;)V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-object/from16 v0, p0
+    const-string/jumbo v7, "Transport quota exceeded for package: "
 
-    move-object/from16 v1, v16
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->cleanUpPipes([Landroid/os/ParcelFileDescriptor;)V
+    move-result-object v6
 
-    move-object/from16 v0, p0
+    move-object/from16 v0, v29
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mJob:Lcom/android/server/backup/FullBackupJob;
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v32, v0
+    move-result-object v6
 
-    if-eqz v32, :cond_1e
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-object/from16 v0, p0
+    move-result-object v6
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mJob:Lcom/android/server/backup/FullBackupJob;
+    invoke-static {v5, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-object/from16 v32, v0
+    const/16 v5, 0xb1d
 
-    invoke-virtual/range {v32 .. v32}, Lcom/android/server/backup/FullBackupJob;->finishBackupPass()V
+    move-object/from16 v0, v29
 
-    :cond_1e
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
-
-    move-object/from16 v32, v0
-
-    move-object/from16 v0, v32
-
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService;->mQueueLock:Ljava/lang/Object;
-
-    move-object/from16 v33, v0
-
-    monitor-enter v33
-
-    :try_start_c
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
-
-    move-object/from16 v32, v0
-
-    const/16 v34, 0x0
-
-    move-object/from16 v0, v34
-
-    move-object/from16 v1, v32
-
-    iput-object v0, v1, Lcom/android/server/backup/BackupManagerService;->mRunningFullBackupTask:Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;
-    :try_end_c
-    .catchall {:try_start_c .. :try_end_c} :catchall_4
-
-    monitor-exit v33
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mLatch:Ljava/util/concurrent/CountDownLatch;
-
-    move-object/from16 v32, v0
-
-    invoke-virtual/range {v32 .. v32}, Ljava/util/concurrent/CountDownLatch;->countDown()V
-
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mUpdateSchedule:Z
-
-    move/from16 v32, v0
-
-    if-eqz v32, :cond_1f
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
-
-    move-object/from16 v32, v0
-
-    move-object/from16 v0, v32
-
-    invoke-virtual {v0, v8, v9}, Lcom/android/server/backup/BackupManagerService;->scheduleNextFullBackupJob(J)V
-
-    :cond_1f
-    const-string/jumbo v32, "BackupManagerService"
-
-    const-string/jumbo v33, "Full data backup pass finished."
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
-
-    move-object/from16 v32, v0
-
-    move-object/from16 v0, v32
-
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService;->mWakelock:Landroid/os/PowerManager$WakeLock;
-
-    move-object/from16 v32, v0
-
-    invoke-virtual/range {v32 .. v32}, Landroid/os/PowerManager$WakeLock;->release()V
+    invoke-static {v5, v0}, Landroid/util/EventLog;->writeEvent(ILjava/lang/String;)I
 
     goto/16 :goto_7
 
-    :catchall_4
-    move-exception v32
+    :cond_26
+    const/16 v5, -0x3eb
 
-    monitor-exit v33
+    if-ne v13, v5, :cond_27
 
-    throw v32
+    move-object/from16 v0, p0
 
-    :catchall_5
-    move-exception v32
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupObserver:Landroid/app/backup/IBackupObserver;
 
-    monitor-exit v33
+    const/16 v6, -0x3eb
 
-    throw v32
+    move-object/from16 v0, v29
 
-    :catchall_6
-    move-exception v32
+    invoke-static {v5, v0, v6}, Lcom/android/server/backup/BackupManagerService;->-wrap23(Landroid/app/backup/IBackupObserver;Ljava/lang/String;I)V
 
-    monitor-exit v33
+    const-string/jumbo v5, "PFTBT"
 
-    throw v32
-.end method
+    new-instance v6, Ljava/lang/StringBuilder;
 
-.method public setRunning(Z)V
-    .locals 1
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v0, p0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mKeepRunning:Ljava/util/concurrent/atomic/AtomicBoolean;
+    const-string/jumbo v7, "Application failure for package: "
 
-    invoke-virtual {v0, p1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move-object/from16 v0, v29
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v5, 0xb07
+
+    move-object/from16 v0, v29
+
+    invoke-static {v5, v0}, Landroid/util/EventLog;->writeEvent(ILjava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    iget-object v6, v8, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    invoke-virtual {v5, v6}, Lcom/android/server/backup/BackupManagerService;->tearDownAgentAndKill(Landroid/content/pm/ApplicationInfo;)V
+
+    goto/16 :goto_7
+
+    :cond_27
+    const/16 v5, -0x7d3
+
+    if-ne v13, v5, :cond_28
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupObserver:Landroid/app/backup/IBackupObserver;
+
+    const/16 v6, -0x7d3
+
+    move-object/from16 v0, v29
+
+    invoke-static {v5, v0, v6}, Lcom/android/server/backup/BackupManagerService;->-wrap23(Landroid/app/backup/IBackupObserver;Ljava/lang/String;I)V
+
+    const-string/jumbo v5, "PFTBT"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "Backup cancelled. package="
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move-object/from16 v0, v29
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, ", cancelAll="
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move-object/from16 v0, p0
+
+    iget-boolean v7, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mCancelAll:Z
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v5, 0xb1e
+
+    move-object/from16 v0, v29
+
+    invoke-static {v5, v0}, Landroid/util/EventLog;->writeEvent(ILjava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    iget-object v6, v8, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    invoke-virtual {v5, v6}, Lcom/android/server/backup/BackupManagerService;->tearDownAgentAndKill(Landroid/content/pm/ApplicationInfo;)V
+
+    goto/16 :goto_7
+
+    :cond_28
+    if-eqz v13, :cond_2c
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupObserver:Landroid/app/backup/IBackupObserver;
+
+    const/16 v6, -0x3e8
+
+    move-object/from16 v0, v29
+
+    invoke-static {v5, v0, v6}, Lcom/android/server/backup/BackupManagerService;->-wrap23(Landroid/app/backup/IBackupObserver;Ljava/lang/String;I)V
+
+    const-string/jumbo v5, "PFTBT"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "Transport failed; aborting backup: "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v5, 0x0
+
+    new-array v5, v5, [Ljava/lang/Object;
+
+    const/16 v6, 0xb1a
+
+    invoke-static {v6, v5}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
+    :try_end_16
+    .catch Ljava/lang/Exception; {:try_start_16 .. :try_end_16} :catch_0
+    .catchall {:try_start_16 .. :try_end_16} :catchall_3
+
+    const/16 v16, -0x3e8
+
+    move-object/from16 v0, p0
+
+    iget-boolean v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mCancelAll:Z
+
+    if-eqz v5, :cond_29
+
+    const/16 v16, -0x7d3
+
+    :cond_29
+    const-string/jumbo v5, "PFTBT"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "Full backup completed with status: "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move/from16 v0, v16
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupObserver:Landroid/app/backup/IBackupObserver;
+
+    move/from16 v0, v16
+
+    invoke-static {v5, v0}, Lcom/android/server/backup/BackupManagerService;->-wrap22(Landroid/app/backup/IBackupObserver;I)V
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v34
+
+    invoke-virtual {v0, v1}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->cleanUpPipes([Landroid/os/ParcelFileDescriptor;)V
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v21
+
+    invoke-virtual {v0, v1}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->cleanUpPipes([Landroid/os/ParcelFileDescriptor;)V
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->unregisterTask()V
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mJob:Lcom/android/server/backup/FullBackupJob;
+
+    if-eqz v5, :cond_2a
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mJob:Lcom/android/server/backup/FullBackupJob;
+
+    invoke-virtual {v5}, Lcom/android/server/backup/FullBackupJob;->finishBackupPass()V
+
+    :cond_2a
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    iget-object v6, v5, Lcom/android/server/backup/BackupManagerService;->mQueueLock:Ljava/lang/Object;
+
+    monitor-enter v6
+
+    :try_start_17
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    const/4 v7, 0x0
+
+    iput-object v7, v5, Lcom/android/server/backup/BackupManagerService;->mRunningFullBackupTask:Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;
+    :try_end_17
+    .catchall {:try_start_17 .. :try_end_17} :catchall_6
+
+    monitor-exit v6
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mLatch:Ljava/util/concurrent/CountDownLatch;
+
+    invoke-virtual {v5}, Ljava/util/concurrent/CountDownLatch;->countDown()V
+
+    move-object/from16 v0, p0
+
+    iget-boolean v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mUpdateSchedule:Z
+
+    if-eqz v5, :cond_2b
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    invoke-virtual {v5, v14, v15}, Lcom/android/server/backup/BackupManagerService;->scheduleNextFullBackupJob(J)V
+
+    :cond_2b
+    const-string/jumbo v5, "BackupManagerService"
+
+    const-string/jumbo v6, "Full data backup pass finished."
+
+    invoke-static {v5, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    iget-object v5, v5, Lcom/android/server/backup/BackupManagerService;->mWakelock:Landroid/os/PowerManager$WakeLock;
+
+    invoke-virtual {v5}, Landroid/os/PowerManager$WakeLock;->release()V
 
     return-void
+
+    :catchall_6
+    move-exception v5
+
+    monitor-exit v6
+
+    throw v5
+
+    :cond_2c
+    :try_start_18
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->mBackupObserver:Landroid/app/backup/IBackupObserver;
+
+    const/4 v6, 0x0
+
+    move-object/from16 v0, v29
+
+    invoke-static {v5, v0, v6}, Lcom/android/server/backup/BackupManagerService;->-wrap23(Landroid/app/backup/IBackupObserver;Ljava/lang/String;I)V
+
+    const/16 v5, 0xb1b
+
+    move-object/from16 v0, v29
+
+    invoke-static {v5, v0}, Landroid/util/EventLog;->writeEvent(ILjava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/backup/BackupManagerService$PerformFullTransportBackupTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    move-object/from16 v0, v29
+
+    invoke-virtual {v5, v0}, Lcom/android/server/backup/BackupManagerService;->logBackupComplete(Ljava/lang/String;)V
+    :try_end_18
+    .catch Ljava/lang/Exception; {:try_start_18 .. :try_end_18} :catch_0
+    .catchall {:try_start_18 .. :try_end_18} :catchall_3
+
+    goto/16 :goto_7
+
+    :catchall_7
+    move-exception v5
+
+    monitor-exit v6
+
+    throw v5
+
+    :catchall_8
+    move-exception v5
+
+    monitor-exit v6
+
+    throw v5
+
+    :catchall_9
+    move-exception v5
+
+    monitor-exit v6
+
+    throw v5
+
+    :catch_1
+    move-exception v19
+
+    goto/16 :goto_8
 .end method

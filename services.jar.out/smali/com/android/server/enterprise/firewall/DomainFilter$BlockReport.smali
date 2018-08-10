@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0xa
     name = "BlockReport"
 .end annotation
 
@@ -21,22 +21,18 @@
 
 .field private mUrl:Ljava/lang/String;
 
-.field final synthetic this$0:Lcom/android/server/enterprise/firewall/DomainFilter;
-
 
 # direct methods
-.method public constructor <init>(Lcom/android/server/enterprise/firewall/DomainFilter;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-
-    iput-object p1, p0, Lcom/android/server/enterprise/firewall/DomainFilter$BlockReport;->this$0:Lcom/android/server/enterprise/firewall/DomainFilter;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p2, p0, Lcom/android/server/enterprise/firewall/DomainFilter$BlockReport;->mTimeStamp:Ljava/lang/String;
+    iput-object p1, p0, Lcom/android/server/enterprise/firewall/DomainFilter$BlockReport;->mTimeStamp:Ljava/lang/String;
 
-    iput-object p3, p0, Lcom/android/server/enterprise/firewall/DomainFilter$BlockReport;->mUid:Ljava/lang/String;
+    iput-object p2, p0, Lcom/android/server/enterprise/firewall/DomainFilter$BlockReport;->mUid:Ljava/lang/String;
 
-    iput-object p4, p0, Lcom/android/server/enterprise/firewall/DomainFilter$BlockReport;->mUrl:Ljava/lang/String;
+    iput-object p3, p0, Lcom/android/server/enterprise/firewall/DomainFilter$BlockReport;->mUrl:Ljava/lang/String;
 
     return-void
 .end method
@@ -116,29 +112,30 @@
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_4
+
+    return v2
 
     :cond_4
     iget-object v0, p0, Lcom/android/server/enterprise/firewall/DomainFilter$BlockReport;->mUid:Ljava/lang/String;
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_6
 
     invoke-virtual {p1}, Lcom/android/server/enterprise/firewall/DomainFilter$BlockReport;->getUid()Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_6
 
     :cond_5
     return v2
 
     :cond_6
-    return v2
-
-    :cond_7
     iget-object v0, p0, Lcom/android/server/enterprise/firewall/DomainFilter$BlockReport;->mUid:Ljava/lang/String;
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_7
 
     invoke-virtual {p1}, Lcom/android/server/enterprise/firewall/DomainFilter$BlockReport;->getUid()Ljava/lang/String;
 
@@ -146,10 +143,10 @@
 
     if-eqz v0, :cond_5
 
-    :cond_8
+    :cond_7
     iget-object v0, p0, Lcom/android/server/enterprise/firewall/DomainFilter$BlockReport;->mUid:Ljava/lang/String;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_8
 
     iget-object v0, p0, Lcom/android/server/enterprise/firewall/DomainFilter$BlockReport;->mUid:Ljava/lang/String;
 
@@ -161,29 +158,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_b
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_9
-    iget-object v0, p0, Lcom/android/server/enterprise/firewall/DomainFilter$BlockReport;->mUrl:Ljava/lang/String;
+    if-eqz v0, :cond_8
 
-    if-nez v0, :cond_c
-
-    invoke-virtual {p1}, Lcom/android/server/enterprise/firewall/DomainFilter$BlockReport;->getUrl()Ljava/lang/String;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_c
-
-    :cond_a
     return v2
 
-    :cond_b
-    return v2
-
-    :cond_c
+    :cond_8
     iget-object v0, p0, Lcom/android/server/enterprise/firewall/DomainFilter$BlockReport;->mUrl:Ljava/lang/String;
 
-    if-eqz v0, :cond_d
+    if-nez v0, :cond_a
 
     invoke-virtual {p1}, Lcom/android/server/enterprise/firewall/DomainFilter$BlockReport;->getUrl()Ljava/lang/String;
 
@@ -191,10 +175,24 @@
 
     if-eqz v0, :cond_a
 
-    :cond_d
+    :cond_9
+    return v2
+
+    :cond_a
     iget-object v0, p0, Lcom/android/server/enterprise/firewall/DomainFilter$BlockReport;->mUrl:Ljava/lang/String;
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_b
+
+    invoke-virtual {p1}, Lcom/android/server/enterprise/firewall/DomainFilter$BlockReport;->getUrl()Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_9
+
+    :cond_b
+    iget-object v0, p0, Lcom/android/server/enterprise/firewall/DomainFilter$BlockReport;->mUrl:Ljava/lang/String;
+
+    if-eqz v0, :cond_c
 
     iget-object v0, p0, Lcom/android/server/enterprise/firewall/DomainFilter$BlockReport;->mUrl:Ljava/lang/String;
 
@@ -206,13 +204,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_f
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_e
+    if-eqz v0, :cond_c
+
+    return v2
+
+    :cond_c
     const/4 v0, 0x1
 
     return v0
-
-    :cond_f
-    return v2
 .end method

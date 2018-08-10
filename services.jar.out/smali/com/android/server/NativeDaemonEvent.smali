@@ -117,7 +117,9 @@
 .end method
 
 .method public static parseRawEvent(Ljava/lang/String;[Ljava/io/FileDescriptor;)Lcom/android/server/NativeDaemonEvent;
-    .locals 12
+    .locals 13
+
+    const/4 v12, 0x3
 
     const/4 v11, 0x1
 
@@ -177,9 +179,7 @@
 
     array-length v0, v8
 
-    const/4 v4, 0x3
-
-    if-ge v0, v4, :cond_1
+    if-ge v0, v12, :cond_1
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -282,6 +282,14 @@
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
+
+    array-length v0, v8
+
+    if-le v0, v12, :cond_3
+
+    aget-object v0, v8, v12
+
+    invoke-virtual {v0}, Ljava/lang/String;->clear()V
 
     :cond_3
     invoke-virtual {p0, v9}, Ljava/lang/String;->substring(I)Ljava/lang/String;

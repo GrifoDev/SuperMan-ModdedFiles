@@ -107,17 +107,20 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    xor-int/lit8 v2, v2, 0x1
 
+    if-eqz v2, :cond_1
+
+    :cond_0
+    return v4
+
+    :cond_1
     invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getOpcode()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    return v4
-
-    :cond_0
     return v4
 
     :pswitch_0
@@ -131,7 +134,7 @@
 
     const/16 v2, 0xc4
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_2
 
     invoke-virtual {p0}, Lcom/android/server/hdmi/RequestArcAction;->disableArcTransmission()V
 
@@ -139,10 +142,10 @@
 
     return v5
 
-    :cond_1
+    :cond_2
     const/16 v2, 0xc3
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_3
 
     invoke-virtual {p0}, Lcom/android/server/hdmi/RequestArcAction;->tv()Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
 
@@ -154,7 +157,7 @@
 
     return v5
 
-    :cond_2
+    :cond_3
     return v4
 
     nop

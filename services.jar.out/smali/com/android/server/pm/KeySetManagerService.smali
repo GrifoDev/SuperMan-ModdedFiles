@@ -851,7 +851,7 @@
     const/4 v2, 0x0
 
     :goto_0
-    if-ge v2, v1, :cond_2
+    if-ge v2, v1, :cond_1
 
     invoke-virtual {p2, v2}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
 
@@ -865,11 +865,16 @@
 
     check-cast v7, Landroid/util/ArraySet;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_0
 
-    :goto_1
+    invoke-virtual {v7}, Landroid/util/ArraySet;->size()I
+
+    move-result v8
+
+    if-lez v8, :cond_0
+
     invoke-direct {p0, v7}, Lcom/android/server/pm/KeySetManagerService;->addKeySetLPw(Landroid/util/ArraySet;)Lcom/android/server/pm/KeySetHandle;
 
     move-result-object v3
@@ -890,23 +895,14 @@
     goto :goto_0
 
     :cond_1
-    invoke-virtual {v7}, Landroid/util/ArraySet;->size()I
-
-    move-result v8
-
-    if-lez v8, :cond_0
-
-    goto :goto_1
-
-    :cond_2
     invoke-virtual {v6}, Landroid/util/ArrayMap;->size()I
 
     move-result v5
 
     const/4 v2, 0x0
 
-    :goto_2
-    if-ge v2, v5, :cond_3
+    :goto_1
+    if-ge v2, v5, :cond_2
 
     invoke-virtual {v6, v2}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
 
@@ -922,9 +918,9 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_2
+    goto :goto_1
 
-    :cond_3
+    :cond_2
     iget-object v8, p1, Lcom/android/server/pm/PackageSetting;->keySetData:Lcom/android/server/pm/PackageKeySetData;
 
     invoke-virtual {v8}, Lcom/android/server/pm/PackageKeySetData;->removeAllUpgradeKeySets()V
@@ -1239,9 +1235,9 @@
     :cond_8
     iget-object v4, p1, Landroid/content/pm/PackageParser$Package;->mUpgradeKeySets:Landroid/util/ArraySet;
 
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_a
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_9
 
     invoke-virtual {v1}, Landroid/util/ArrayMap;->keySet()Ljava/util/Set;
 
@@ -1251,12 +1247,11 @@
 
     move-result v5
 
+    xor-int/lit8 v5, v5, 0x1
+
     if-eqz v5, :cond_a
 
     :cond_9
-    return-void
-
-    :cond_a
     new-instance v5, Lcom/android/server/pm/PackageManagerException;
 
     const-string/jumbo v6, "Package has upgrade-key-sets without corresponding definitions."
@@ -1264,6 +1259,9 @@
     invoke-direct {v5, v7, v6}, Lcom/android/server/pm/PackageManagerException;-><init>(ILjava/lang/String;)V
 
     throw v5
+
+    :cond_a
+    return-void
 .end method
 
 .method public dumpLPr(Ljava/io/PrintWriter;Ljava/lang/String;Lcom/android/server/pm/PackageManagerService$DumpState;)V
@@ -1311,7 +1309,9 @@
 
     move-result v15
 
-    if-eqz v15, :cond_0
+    xor-int/lit8 v15, v15, 0x1
+
+    if-nez v15, :cond_0
 
     :cond_1
     if-nez v13, :cond_3

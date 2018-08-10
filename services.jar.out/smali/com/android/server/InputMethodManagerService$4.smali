@@ -1,11 +1,14 @@
 .class Lcom/android/server/InputMethodManagerService$4;
-.super Landroid/content/pm/ISystemPersonaObserver$Stub;
+.super Ljava/lang/Object;
 .source "InputMethodManagerService.java"
+
+# interfaces
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/InputMethodManagerService;->systemRunning(Lcom/android/server/statusbar/StatusBarManagerService;)V
+    value = Lcom/android/server/InputMethodManagerService;->setInputMethodLocked(Ljava/lang/String;I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,43 +27,27 @@
 
     iput-object p1, p0, Lcom/android/server/InputMethodManagerService$4;->this$0:Lcom/android/server/InputMethodManagerService;
 
-    invoke-direct {p0}, Landroid/content/pm/ISystemPersonaObserver$Stub;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onKnoxContainerLaunch(I)V
-    .locals 1
+.method public run()V
+    .locals 2
+
+    const-string/jumbo v0, "InputMethodManagerService"
+
+    const-string/jumbo v1, "setSpellCheckerEnabled"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService$4;->this$0:Lcom/android/server/InputMethodManagerService;
 
-    invoke-virtual {v0}, Lcom/android/server/InputMethodManagerService;->hideInputMethodMenu()V
+    const/4 v1, 0x0
 
-    return-void
-.end method
-
-.method public onPersonaActive(I)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onRemovePersona(I)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onResetPersona(I)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onStateChange(ILcom/samsung/android/knox/SemPersonaState;Lcom/samsung/android/knox/SemPersonaState;)V
-    .locals 0
+    invoke-static {v0, v1}, Lcom/android/server/InputMethodManagerService;->-wrap13(Lcom/android/server/InputMethodManagerService;Z)V
 
     return-void
 .end method

@@ -22,15 +22,23 @@
 
 .field private final mLayerStack:I
 
+.field private mOriginalDisplayDevice:Lcom/android/server/display/DisplayDevice;
+
+.field private mOverrideDisplayHeight:I
+
 .field private mOverrideDisplayInfo:Landroid/view/DisplayInfo;
+
+.field private mOverrideDisplayWidth:I
 
 .field private mPrimaryDisplayDevice:Lcom/android/server/display/DisplayDevice;
 
 .field private mPrimaryDisplayDeviceInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
-.field private mRequestedColorTransformId:I
+.field private mRequestedColorMode:I
 
 .field private mRequestedModeId:I
+
+.field private mSwapped:Z
 
 .field private final mTempDisplayRect:Landroid/graphics/Rect;
 
@@ -39,7 +47,9 @@
 
 # direct methods
 .method public constructor <init>(IILcom/android/server/display/DisplayDevice;)V
-    .locals 1
+    .locals 2
+
+    const/4 v1, -0x1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -61,6 +71,10 @@
 
     iput-object v0, p0, Lcom/android/server/display/LogicalDisplay;->mTempDisplayRect:Landroid/graphics/Rect;
 
+    iput v1, p0, Lcom/android/server/display/LogicalDisplay;->mOverrideDisplayWidth:I
+
+    iput v1, p0, Lcom/android/server/display/LogicalDisplay;->mOverrideDisplayHeight:I
+
     iput p1, p0, Lcom/android/server/display/LogicalDisplay;->mDisplayId:I
 
     iput p2, p0, Lcom/android/server/display/LogicalDisplay;->mLayerStack:I
@@ -75,7 +89,7 @@
 .method public configureDisplayInTransactionLocked(Lcom/android/server/display/DisplayDevice;Z)V
     .locals 16
 
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_2
 
     const/4 v11, -0x1
 
@@ -90,11 +104,11 @@
 
     move-object/from16 v0, p1
 
-    if-ne v0, v11, :cond_4
+    if-ne v0, v11, :cond_3
 
     move-object/from16 v0, p0
 
-    iget v11, v0, Lcom/android/server/display/LogicalDisplay;->mRequestedColorTransformId:I
+    iget v11, v0, Lcom/android/server/display/LogicalDisplay;->mRequestedColorMode:I
 
     move-object/from16 v0, p0
 
@@ -102,7 +116,7 @@
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v11, v12}, Lcom/android/server/display/DisplayDevice;->requestColorTransformAndModeInTransactionLocked(II)V
+    invoke-virtual {v0, v11, v12}, Lcom/android/server/display/DisplayDevice;->requestDisplayModesInTransactionLocked(II)V
 
     :goto_1
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/display/LogicalDisplay;->getDisplayInfoLocked()Landroid/view/DisplayInfo;
@@ -138,16 +152,6 @@
     iget v7, v2, Landroid/view/DisplayInfo;->rotation:I
 
     :cond_0
-    iget v11, v1, Lcom/android/server/display/DisplayDeviceInfo;->fixedOrientation:I
-
-    const/16 v12, 0xa
-
-    if-ne v11, v12, :cond_5
-
-    iget v7, v2, Landroid/view/DisplayInfo;->rotation:I
-
-    :cond_1
-    :goto_2
     iget v11, v1, Lcom/android/server/display/DisplayDeviceInfo;->rotation:I
 
     add-int/2addr v11, v7
@@ -156,51 +160,51 @@
 
     iget v11, v1, Lcom/android/server/display/DisplayDeviceInfo;->fixedOrientation:I
 
-    if-ltz v11, :cond_2
+    if-ltz v11, :cond_1
 
     iget v11, v1, Lcom/android/server/display/DisplayDeviceInfo;->fixedOrientation:I
 
     const/4 v12, 0x3
 
-    if-gt v11, v12, :cond_2
+    if-gt v11, v12, :cond_1
 
     iget v7, v1, Lcom/android/server/display/DisplayDeviceInfo;->fixedOrientation:I
 
-    :cond_2
+    :cond_1
     const/4 v11, 0x1
 
-    if-eq v7, v11, :cond_6
+    if-eq v7, v11, :cond_4
 
     const/4 v11, 0x3
 
-    if-ne v7, v11, :cond_7
+    if-ne v7, v11, :cond_5
 
     const/4 v10, 0x1
 
-    :goto_3
-    if-eqz v10, :cond_8
+    :goto_2
+    if-eqz v10, :cond_6
 
     iget v9, v1, Lcom/android/server/display/DisplayDeviceInfo;->height:I
 
-    :goto_4
-    if-eqz v10, :cond_9
+    :goto_3
+    if-eqz v10, :cond_7
 
     iget v8, v1, Lcom/android/server/display/DisplayDeviceInfo;->width:I
 
-    :goto_5
+    :goto_4
     iget v11, v2, Landroid/view/DisplayInfo;->flags:I
 
     const/high16 v12, 0x40000000    # 2.0f
 
     and-int/2addr v11, v12
 
-    if-eqz v11, :cond_a
+    if-eqz v11, :cond_8
 
     iget v6, v2, Landroid/view/DisplayInfo;->logicalWidth:I
 
     iget v3, v2, Landroid/view/DisplayInfo;->logicalHeight:I
 
-    :goto_6
+    :goto_5
     sub-int v11, v8, v3
 
     div-int/lit8 v5, v11, 0x2
@@ -289,58 +293,45 @@
 
     return-void
 
-    :cond_3
+    :cond_2
     move-object/from16 v0, p0
 
     iget v11, v0, Lcom/android/server/display/LogicalDisplay;->mLayerStack:I
 
     goto/16 :goto_0
 
-    :cond_4
+    :cond_3
     const/4 v11, 0x0
 
     const/4 v12, 0x0
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v11, v12}, Lcom/android/server/display/DisplayDevice;->requestColorTransformAndModeInTransactionLocked(II)V
+    invoke-virtual {v0, v11, v12}, Lcom/android/server/display/DisplayDevice;->requestDisplayModesInTransactionLocked(II)V
 
     goto/16 :goto_1
 
-    :cond_5
-    iget v11, v1, Lcom/android/server/display/DisplayDeviceInfo;->fixedOrientation:I
-
-    const/16 v12, 0xb
-
-    if-ne v11, v12, :cond_1
-
-    iget v11, v2, Landroid/view/DisplayInfo;->rotation:I
-
-    add-int/lit8 v7, v11, 0x1
-
-    goto/16 :goto_2
-
-    :cond_6
+    :cond_4
     const/4 v10, 0x1
 
-    goto/16 :goto_3
+    goto :goto_2
 
-    :cond_7
+    :cond_5
     const/4 v10, 0x0
 
-    goto/16 :goto_3
+    goto :goto_2
 
-    :cond_8
+    :cond_6
     iget v9, v1, Lcom/android/server/display/DisplayDeviceInfo;->width:I
 
-    goto/16 :goto_4
+    goto :goto_3
 
-    :cond_9
+    :cond_7
     iget v8, v1, Lcom/android/server/display/DisplayDeviceInfo;->height:I
 
-    goto/16 :goto_5
+    goto :goto_4
 
-    :cond_a
+    :cond_8
     iget v11, v2, Landroid/view/DisplayInfo;->logicalHeight:I
 
     mul-int/2addr v11, v9
@@ -349,7 +340,7 @@
 
     mul-int/2addr v12, v8
 
-    if-ge v11, v12, :cond_b
+    if-ge v11, v12, :cond_9
 
     move v6, v9
 
@@ -361,9 +352,9 @@
 
     div-int v3, v11, v12
 
-    goto/16 :goto_6
+    goto :goto_5
 
-    :cond_b
+    :cond_9
     iget v11, v2, Landroid/view/DisplayInfo;->logicalWidth:I
 
     mul-int/2addr v11, v8
@@ -374,7 +365,7 @@
 
     move v3, v8
 
-    goto/16 :goto_6
+    goto/16 :goto_5
 .end method
 
 .method public dumpLocked(Ljava/io/PrintWriter;)V
@@ -472,13 +463,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v1, "mRequestedColorTransformId="
+    const-string/jumbo v1, "mRequestedColorMode="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    iget v1, p0, Lcom/android/server/display/LogicalDisplay;->mRequestedColorTransformId:I
+    iget v1, p0, Lcom/android/server/display/LogicalDisplay;->mRequestedColorMode:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -794,6 +785,43 @@
     return v0
 .end method
 
+.method getNonOverrideDisplayInfoLocked(Landroid/view/DisplayInfo;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/display/LogicalDisplay;->mBaseDisplayInfo:Landroid/view/DisplayInfo;
+
+    invoke-virtual {p1, v0}, Landroid/view/DisplayInfo;->copyFrom(Landroid/view/DisplayInfo;)V
+
+    return-void
+.end method
+
+.method public getOverrideDisplaySizeLocked([I)V
+    .locals 2
+
+    if-eqz p1, :cond_0
+
+    array-length v0, p1
+
+    const/4 v1, 0x2
+
+    if-ne v0, v1, :cond_0
+
+    iget v0, p0, Lcom/android/server/display/LogicalDisplay;->mOverrideDisplayWidth:I
+
+    const/4 v1, 0x0
+
+    aput v0, p1, v1
+
+    iget v0, p0, Lcom/android/server/display/LogicalDisplay;->mOverrideDisplayHeight:I
+
+    const/4 v1, 0x1
+
+    aput v0, p1, v1
+
+    :cond_0
+    return-void
+.end method
+
 .method public getPrimaryDisplayDeviceLocked()Lcom/android/server/display/DisplayDevice;
     .locals 1
 
@@ -802,10 +830,28 @@
     return-object v0
 .end method
 
-.method public getRequestedColorTransformIdLocked()I
+.method public getRealDisplayDeviceLocked()Lcom/android/server/display/DisplayDevice;
     .locals 1
 
-    iget v0, p0, Lcom/android/server/display/LogicalDisplay;->mRequestedColorTransformId:I
+    iget-object v0, p0, Lcom/android/server/display/LogicalDisplay;->mOriginalDisplayDevice:Lcom/android/server/display/DisplayDevice;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/display/LogicalDisplay;->mOriginalDisplayDevice:Lcom/android/server/display/DisplayDevice;
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/display/LogicalDisplay;->mPrimaryDisplayDevice:Lcom/android/server/display/DisplayDevice;
+
+    goto :goto_0
+.end method
+
+.method public getRequestedColorModeLocked()I
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/display/LogicalDisplay;->mRequestedColorMode:I
 
     return v0
 .end method
@@ -822,6 +868,14 @@
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/display/LogicalDisplay;->mHasContent:Z
+
+    return v0
+.end method
+
+.method public isSwapped()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/server/display/LogicalDisplay;->mSwapped:Z
 
     return v0
 .end method
@@ -992,22 +1046,61 @@
     return-void
 .end method
 
-.method public setPrimaryDisplayDeviceLocked(Lcom/android/server/display/DisplayDevice;)V
-    .locals 1
+.method public setOverrideDisplaySizeLocked(II)V
+    .locals 0
 
-    iput-object p1, p0, Lcom/android/server/display/LogicalDisplay;->mPrimaryDisplayDevice:Lcom/android/server/display/DisplayDevice;
+    iput p1, p0, Lcom/android/server/display/LogicalDisplay;->mOverrideDisplayWidth:I
 
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/server/display/LogicalDisplay;->mInfo:Landroid/view/DisplayInfo;
+    iput p2, p0, Lcom/android/server/display/LogicalDisplay;->mOverrideDisplayHeight:I
 
     return-void
 .end method
 
-.method public setRequestedColorTransformIdLocked(I)V
+.method public setPrimaryDisplayDeviceLocked(Lcom/android/server/display/DisplayDevice;)V
+    .locals 3
+
+    const/4 v2, 0x0
+
+    const/4 v1, -0x1
+
+    iget-object v0, p0, Lcom/android/server/display/LogicalDisplay;->mOriginalDisplayDevice:Lcom/android/server/display/DisplayDevice;
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/display/LogicalDisplay;->mPrimaryDisplayDevice:Lcom/android/server/display/DisplayDevice;
+
+    iput-object v0, p0, Lcom/android/server/display/LogicalDisplay;->mOriginalDisplayDevice:Lcom/android/server/display/DisplayDevice;
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/display/LogicalDisplay;->mOriginalDisplayDevice:Lcom/android/server/display/DisplayDevice;
+
+    if-eq v0, p1, :cond_1
+
+    const/4 v0, 0x1
+
+    :goto_0
+    iput-boolean v0, p0, Lcom/android/server/display/LogicalDisplay;->mSwapped:Z
+
+    iput-object p1, p0, Lcom/android/server/display/LogicalDisplay;->mPrimaryDisplayDevice:Lcom/android/server/display/DisplayDevice;
+
+    iput-object v2, p0, Lcom/android/server/display/LogicalDisplay;->mInfo:Landroid/view/DisplayInfo;
+
+    iput v1, p0, Lcom/android/server/display/LogicalDisplay;->mOverrideDisplayHeight:I
+
+    iput v1, p0, Lcom/android/server/display/LogicalDisplay;->mOverrideDisplayWidth:I
+
+    return-void
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public setRequestedColorModeLocked(I)V
     .locals 0
 
-    iput p1, p0, Lcom/android/server/display/LogicalDisplay;->mRequestedColorTransformId:I
+    iput p1, p0, Lcom/android/server/display/LogicalDisplay;->mRequestedColorMode:I
 
     return-void
 .end method
@@ -1021,7 +1114,7 @@
 .end method
 
 .method public updateLocked(Ljava/util/List;)V
-    .locals 6
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1032,9 +1125,13 @@
         }
     .end annotation
 
-    const/high16 v5, 0x100000
+    const/high16 v7, 0x200000
 
-    const/4 v4, 0x0
+    const/high16 v6, 0x100000
+
+    const/4 v5, 0x0
+
+    const/4 v4, 0x1
 
     const/4 v3, 0x0
 
@@ -1053,7 +1150,7 @@
 
     if-nez v1, :cond_1
 
-    iput-object v4, p0, Lcom/android/server/display/LogicalDisplay;->mPrimaryDisplayDevice:Lcom/android/server/display/DisplayDevice;
+    iput-object v5, p0, Lcom/android/server/display/LogicalDisplay;->mPrimaryDisplayDevice:Lcom/android/server/display/DisplayDevice;
 
     return-void
 
@@ -1070,7 +1167,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_8
+    if-nez v1, :cond_c
 
     iget-object v1, p0, Lcom/android/server/display/LogicalDisplay;->mBaseDisplayInfo:Landroid/view/DisplayInfo;
 
@@ -1126,6 +1223,10 @@
 
     iput v2, v1, Landroid/view/DisplayInfo;->flags:I
 
+    iget-object v1, p0, Lcom/android/server/display/LogicalDisplay;->mBaseDisplayInfo:Landroid/view/DisplayInfo;
+
+    iput v4, v1, Landroid/view/DisplayInfo;->removeMode:I
+
     :cond_4
     iget v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
 
@@ -1159,7 +1260,7 @@
     :cond_6
     iget v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
 
-    and-int/2addr v1, v5
+    and-int/lit16 v1, v1, 0x200
 
     if-eqz v1, :cond_7
 
@@ -1167,11 +1268,41 @@
 
     iget v2, v1, Landroid/view/DisplayInfo;->flags:I
 
-    or-int/2addr v2, v5
+    or-int/lit8 v2, v2, 0x20
 
     iput v2, v1, Landroid/view/DisplayInfo;->flags:I
 
     :cond_7
+    iget v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
+
+    and-int/2addr v1, v6
+
+    if-eqz v1, :cond_8
+
+    iget-object v1, p0, Lcom/android/server/display/LogicalDisplay;->mBaseDisplayInfo:Landroid/view/DisplayInfo;
+
+    iget v2, v1, Landroid/view/DisplayInfo;->flags:I
+
+    or-int/2addr v2, v6
+
+    iput v2, v1, Landroid/view/DisplayInfo;->flags:I
+
+    :cond_8
+    iget v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
+
+    and-int/2addr v1, v7
+
+    if-eqz v1, :cond_9
+
+    iget-object v1, p0, Lcom/android/server/display/LogicalDisplay;->mBaseDisplayInfo:Landroid/view/DisplayInfo;
+
+    iget v2, v1, Landroid/view/DisplayInfo;->flags:I
+
+    or-int/2addr v2, v7
+
+    iput v2, v1, Landroid/view/DisplayInfo;->flags:I
+
+    :cond_9
     iget-object v1, p0, Lcom/android/server/display/LogicalDisplay;->mBaseDisplayInfo:Landroid/view/DisplayInfo;
 
     iget v2, v0, Lcom/android/server/display/DisplayDeviceInfo;->type:I
@@ -1254,31 +1385,23 @@
 
     iget-object v1, p0, Lcom/android/server/display/LogicalDisplay;->mBaseDisplayInfo:Landroid/view/DisplayInfo;
 
-    iget v2, v0, Lcom/android/server/display/DisplayDeviceInfo;->colorTransformId:I
+    iget v2, v0, Lcom/android/server/display/DisplayDeviceInfo;->colorMode:I
 
-    iput v2, v1, Landroid/view/DisplayInfo;->colorTransformId:I
+    iput v2, v1, Landroid/view/DisplayInfo;->colorMode:I
 
     iget-object v1, p0, Lcom/android/server/display/LogicalDisplay;->mBaseDisplayInfo:Landroid/view/DisplayInfo;
 
-    iget v2, v0, Lcom/android/server/display/DisplayDeviceInfo;->defaultColorTransformId:I
+    iget-object v2, v0, Lcom/android/server/display/DisplayDeviceInfo;->supportedColorModes:[I
 
-    iput v2, v1, Landroid/view/DisplayInfo;->defaultColorTransformId:I
-
-    iget-object v2, p0, Lcom/android/server/display/LogicalDisplay;->mBaseDisplayInfo:Landroid/view/DisplayInfo;
-
-    iget-object v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->supportedColorTransforms:[Landroid/view/Display$ColorTransform;
-
-    iget-object v3, v0, Lcom/android/server/display/DisplayDeviceInfo;->supportedColorTransforms:[Landroid/view/Display$ColorTransform;
+    iget-object v3, v0, Lcom/android/server/display/DisplayDeviceInfo;->supportedColorModes:[I
 
     array-length v3, v3
 
-    invoke-static {v1, v3}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
+    invoke-static {v2, v3}, Ljava/util/Arrays;->copyOf([II)[I
 
-    move-result-object v1
+    move-result-object v2
 
-    check-cast v1, [Landroid/view/Display$ColorTransform;
-
-    iput-object v1, v2, Landroid/view/DisplayInfo;->supportedColorTransforms:[Landroid/view/Display$ColorTransform;
+    iput-object v2, v1, Landroid/view/DisplayInfo;->supportedColorModes:[I
 
     iget-object v1, p0, Lcom/android/server/display/LogicalDisplay;->mBaseDisplayInfo:Landroid/view/DisplayInfo;
 
@@ -1360,8 +1483,60 @@
 
     iput-object v0, p0, Lcom/android/server/display/LogicalDisplay;->mPrimaryDisplayDeviceInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
-    iput-object v4, p0, Lcom/android/server/display/LogicalDisplay;->mInfo:Landroid/view/DisplayInfo;
+    iput-object v5, p0, Lcom/android/server/display/LogicalDisplay;->mInfo:Landroid/view/DisplayInfo;
 
-    :cond_8
+    iget v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
+
+    const/high16 v2, 0x10000000
+
+    and-int/2addr v1, v2
+
+    if-eqz v1, :cond_b
+
+    iget-object v1, p0, Lcom/android/server/display/LogicalDisplay;->mBaseDisplayInfo:Landroid/view/DisplayInfo;
+
+    iget v2, v1, Landroid/view/DisplayInfo;->flags:I
+
+    const/high16 v3, 0x10000000
+
+    or-int/2addr v2, v3
+
+    iput v2, v1, Landroid/view/DisplayInfo;->flags:I
+
+    iget v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->rotation:I
+
+    if-eq v1, v4, :cond_a
+
+    iget v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->rotation:I
+
+    const/4 v2, 0x3
+
+    if-ne v1, v2, :cond_b
+
+    :cond_a
+    iget-object v1, p0, Lcom/android/server/display/LogicalDisplay;->mBaseDisplayInfo:Landroid/view/DisplayInfo;
+
+    iput v4, v1, Landroid/view/DisplayInfo;->rotation:I
+
+    :cond_b
+    iget v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
+
+    const/high16 v2, 0x20000000
+
+    and-int/2addr v1, v2
+
+    if-eqz v1, :cond_c
+
+    iget-object v1, p0, Lcom/android/server/display/LogicalDisplay;->mBaseDisplayInfo:Landroid/view/DisplayInfo;
+
+    iget v2, v1, Landroid/view/DisplayInfo;->flags:I
+
+    const/high16 v3, 0x20000000
+
+    or-int/2addr v2, v3
+
+    iput v2, v1, Landroid/view/DisplayInfo;->flags:I
+
+    :cond_c
     return-void
 .end method

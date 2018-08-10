@@ -30,7 +30,9 @@
 
 .field private static final HANDLE_MSG_SEND_PEN_DETECTION_INFO:I = 0x3019
 
-.field private static INTENT_ACTION_AIRCOMMAND_STATE_CHANGE:Ljava/lang/String; = null
+.field private static final INTENT_ACTION_AIRCOMMAND_STATE_CHANGE:Ljava/lang/String; = "com.samsung.android.aircommand.intent.action.STATE_CHANGE"
+
+.field private static final INTENT_ACTION_SCREEN_OFF_MEMO_STATE_CHANGED:Ljava/lang/String; = "com.sec.android.intent.action.BLACK_MEMO"
 
 .field private static final MAX_META_FILE_COUNT:I = 0x3
 
@@ -70,6 +72,8 @@
 
 .field private mAcIsPenButtonPressed:Z
 
+.field private mAcIsScreenOffMemoShowing:Z
+
 .field private mAcIsTouchDowned:Z
 
 .field private mAcLastStartTime:J
@@ -94,6 +98,8 @@
 
 .field private mDataExtractionSync:Ljava/lang/Object;
 
+.field private mEditorInfo:Landroid/view/inputmethod/EditorInfo;
+
 .field private mGestureDetector:Landroid/view/GestureDetector;
 
 .field private final mHandler:Landroid/os/Handler;
@@ -113,6 +119,19 @@
 
 .field private mInboxSPen:Z
 
+.field private mInputContext:Lcom/android/internal/view/IInputContext;
+
+.field private mInputInfoChangeListeners:Landroid/os/RemoteCallbackList;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/os/RemoteCallbackList",
+            "<",
+            "Lcom/samsung/android/content/smartclip/IInputMethodInfoChangeListener;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private mInputManager:Landroid/hardware/input/InputManager;
 
 .field private mIsEnableLockScreenQuickNote:Z
@@ -122,6 +141,8 @@
 .field private mKioskMode:Lcom/samsung/android/knox/kiosk/KioskMode;
 
 .field private mLastMetaFileId:I
+
+.field private mMissingMethodFlags:I
 
 .field private mPenDataStructArray:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -290,7 +311,15 @@
     return p1
 .end method
 
-.method static synthetic -set1(Lcom/android/server/smartclip/SpenGestureManagerService;Landroid/os/Messenger;)Landroid/os/Messenger;
+.method static synthetic -set1(Lcom/android/server/smartclip/SpenGestureManagerService;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mAcIsScreenOffMemoShowing:Z
+
+    return p1
+.end method
+
+.method static synthetic -set2(Lcom/android/server/smartclip/SpenGestureManagerService;Landroid/os/Messenger;)Landroid/os/Messenger;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mAcService:Landroid/os/Messenger;
@@ -298,7 +327,7 @@
     return-object p1
 .end method
 
-.method static synthetic -set2(Lcom/android/server/smartclip/SpenGestureManagerService;I)I
+.method static synthetic -set3(Lcom/android/server/smartclip/SpenGestureManagerService;I)I
     .locals 0
 
     iput p1, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mBatteryOnlineStatus:I
@@ -306,18 +335,10 @@
     return p1
 .end method
 
-.method static synthetic -set3(Lcom/android/server/smartclip/SpenGestureManagerService;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mClearCoverOpened:Z
-
-    return p1
-.end method
-
 .method static synthetic -set4(Lcom/android/server/smartclip/SpenGestureManagerService;Z)Z
     .locals 0
 
-    iput-boolean p1, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mHoverStayDetectEnabled:Z
+    iput-boolean p1, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mClearCoverOpened:Z
 
     return p1
 .end method
@@ -499,10 +520,6 @@
 
     sput-object v0, Lcom/android/server/smartclip/SpenGestureManagerService;->PERMISSION_INJECT_INPUT_EVENT:Ljava/lang/String;
 
-    const-string/jumbo v0, "com.samsung.android.aircommand.intent.action.STATE_CHANGE"
-
-    sput-object v0, Lcom/android/server/smartclip/SpenGestureManagerService;->INTENT_ACTION_AIRCOMMAND_STATE_CHANGE:Ljava/lang/String;
-
     const-string/jumbo v0, "SPEN"
 
     sput-object v0, Lcom/android/server/smartclip/SpenGestureManagerService;->USE_APP_FEATURE_NAME_SPEN:Ljava/lang/String;
@@ -570,6 +587,8 @@
     iput-boolean v1, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mAcIsTouchDowned:Z
 
     iput-boolean v1, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mAcIsFloatingIconEnabled:Z
+
+    iput-boolean v1, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mAcIsScreenOffMemoShowing:Z
 
     iput-boolean v1, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mAcAutoFloatingIconMode:Z
 
@@ -643,7 +662,7 @@
 
     iput v6, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->ALLOWANCE_RANGE_Y:I
 
-    const/16 v0, 0x3e8
+    const/16 v0, 0x12c
 
     iput v0, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->ALLOWANCE_HOVER_TIME:I
 
@@ -710,6 +729,8 @@
     iput-boolean v1, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mAcIsTouchDowned:Z
 
     iput-boolean v1, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mAcIsFloatingIconEnabled:Z
+
+    iput-boolean v1, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mAcIsScreenOffMemoShowing:Z
 
     iput-boolean v1, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mAcAutoFloatingIconMode:Z
 
@@ -783,7 +804,7 @@
 
     iput v5, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->ALLOWANCE_RANGE_Y:I
 
-    const/16 v0, 0x3e8
+    const/16 v0, 0x12c
 
     iput v0, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->ALLOWANCE_HOVER_TIME:I
 
@@ -857,10 +878,6 @@
 
     invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    const-string/jumbo v0, "com.samsung.cover.OPEN"
-
-    invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
     const-string/jumbo v0, "android.intent.action.USER_SWITCHED"
 
     invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
@@ -869,10 +886,15 @@
 
     invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    const-string/jumbo v0, "com.samsung.android.service.airviewdictionary.set"
+    iget-boolean v0, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mInboxSPen:Z
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "com.sec.android.intent.action.BLACK_MEMO"
 
     invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    :cond_0
     sget-object v0, Lcom/android/server/smartclip/SpenGestureManagerService;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
@@ -883,10 +905,6 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
-    iget-boolean v0, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mInboxSPen:Z
-
-    if-eqz v0, :cond_0
-
     new-instance v6, Lcom/android/server/smartclip/SpenGestureManagerService$AcSettingsObserver;
 
     iget-object v0, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mHandler:Landroid/os/Handler;
@@ -895,7 +913,6 @@
 
     invoke-virtual {v6}, Lcom/android/server/smartclip/SpenGestureManagerService$AcSettingsObserver;->observe()V
 
-    :cond_0
     return-void
 .end method
 
@@ -1164,6 +1181,164 @@
     return-void
 .end method
 
+.method private broastcastInputContextChanged()V
+    .locals 5
+
+    iget-object v2, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mInputInfoChangeListeners:Landroid/os/RemoteCallbackList;
+
+    if-nez v2, :cond_0
+
+    return-void
+
+    :cond_0
+    sget-object v2, Lcom/android/server/smartclip/SpenGestureManagerService;->TAG:Ljava/lang/String;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "broastcastInputContextChanged getRegisteredCallbackCount() = "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mInputInfoChangeListeners:Landroid/os/RemoteCallbackList;
+
+    invoke-virtual {v4}, Landroid/os/RemoteCallbackList;->getRegisteredCallbackCount()I
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v2, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mInputInfoChangeListeners:Landroid/os/RemoteCallbackList;
+
+    invoke-virtual {v2}, Landroid/os/RemoteCallbackList;->beginBroadcast()I
+
+    move-result v1
+
+    :goto_0
+    if-lez v1, :cond_1
+
+    add-int/lit8 v1, v1, -0x1
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mInputInfoChangeListeners:Landroid/os/RemoteCallbackList;
+
+    invoke-virtual {v2, v1}, Landroid/os/RemoteCallbackList;->getBroadcastItem(I)Landroid/os/IInterface;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/samsung/android/content/smartclip/IInputMethodInfoChangeListener;
+
+    iget-object v3, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mInputContext:Lcom/android/internal/view/IInputContext;
+
+    iget-object v4, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mEditorInfo:Landroid/view/inputmethod/EditorInfo;
+
+    invoke-interface {v2, v3, v4}, Lcom/samsung/android/content/smartclip/IInputMethodInfoChangeListener;->onInputInfoChanged(Lcom/android/internal/view/IInputContext;Landroid/view/inputmethod/EditorInfo;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    goto :goto_0
+
+    :cond_1
+    iget-object v2, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mInputInfoChangeListeners:Landroid/os/RemoteCallbackList;
+
+    invoke-virtual {v2}, Landroid/os/RemoteCallbackList;->finishBroadcast()V
+
+    return-void
+.end method
+
+.method private broastcastKeyboardClosed()V
+    .locals 5
+
+    iget-object v2, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mInputInfoChangeListeners:Landroid/os/RemoteCallbackList;
+
+    if-nez v2, :cond_0
+
+    return-void
+
+    :cond_0
+    sget-object v2, Lcom/android/server/smartclip/SpenGestureManagerService;->TAG:Ljava/lang/String;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "broastcastKeyboardClosed getRegisteredCallbackCount() = "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mInputInfoChangeListeners:Landroid/os/RemoteCallbackList;
+
+    invoke-virtual {v4}, Landroid/os/RemoteCallbackList;->getRegisteredCallbackCount()I
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v2, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mInputInfoChangeListeners:Landroid/os/RemoteCallbackList;
+
+    invoke-virtual {v2}, Landroid/os/RemoteCallbackList;->beginBroadcast()I
+
+    move-result v1
+
+    :goto_0
+    if-lez v1, :cond_1
+
+    add-int/lit8 v1, v1, -0x1
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mInputInfoChangeListeners:Landroid/os/RemoteCallbackList;
+
+    invoke-virtual {v2, v1}, Landroid/os/RemoteCallbackList;->getBroadcastItem(I)Landroid/os/IInterface;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/samsung/android/content/smartclip/IInputMethodInfoChangeListener;
+
+    invoke-interface {v2}, Lcom/samsung/android/content/smartclip/IInputMethodInfoChangeListener;->onKeyboardClosed()V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    goto :goto_0
+
+    :cond_1
+    iget-object v2, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mInputInfoChangeListeners:Landroid/os/RemoteCallbackList;
+
+    invoke-virtual {v2}, Landroid/os/RemoteCallbackList;->finishBroadcast()V
+
+    return-void
+.end method
+
 .method private calculateSpenUsingDuration(J)V
     .locals 5
 
@@ -1252,59 +1427,93 @@
 .end method
 
 .method private canStartAirCommand()Z
-    .locals 6
+    .locals 7
+
+    const/4 v6, 0x0
+
+    sget-object v3, Lcom/android/server/smartclip/SpenGestureManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "device_provisioned"
+
+    invoke-static {v3, v4, v6}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v3
+
+    if-nez v3, :cond_1
 
     const/4 v2, 0x1
-
-    const/4 v3, 0x0
-
-    sget-object v4, Lcom/android/server/smartclip/SpenGestureManagerService;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v4
-
-    const-string/jumbo v5, "device_provisioned"
-
-    invoke-static {v4, v5, v3}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v4
-
-    if-nez v4, :cond_1
-
-    move v1, v2
 
     :goto_0
     const/4 v0, 0x0
 
-    if-eqz v1, :cond_2
+    invoke-direct {p0}, Lcom/android/server/smartclip/SpenGestureManagerService;->isDesktopModeSupported()Z
 
-    const-string/jumbo v0, "setupWizard on"
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    sget-object v3, Lcom/android/server/smartclip/SpenGestureManagerService;->mContext:Landroid/content/Context;
+
+    invoke-direct {p0, v3}, Lcom/android/server/smartclip/SpenGestureManagerService;->isDesktopMode(Landroid/content/Context;)Z
+
+    move-result v1
+
+    :goto_1
+    if-eqz v2, :cond_3
+
+    const-string/jumbo v0, "SetupWizard on"
 
     :cond_0
-    :goto_1
-    if-nez v0, :cond_3
+    :goto_2
+    if-nez v0, :cond_6
 
-    return v2
+    const/4 v3, 0x1
+
+    return v3
 
     :cond_1
-    move v1, v3
+    const/4 v2, 0x0
 
     goto :goto_0
 
     :cond_2
-    invoke-static {}, Landroid/os/FactoryTest;->isFactoryMode()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    const-string/jumbo v0, "factory mode"
+    const/4 v1, 0x0
 
     goto :goto_1
 
     :cond_3
-    sget-object v2, Lcom/android/server/smartclip/SpenGestureManagerService;->TAG:Ljava/lang/String;
+    invoke-static {}, Landroid/os/FactoryTest;->isFactoryBinary()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_4
+
+    const-string/jumbo v0, "FactoryBinary"
+
+    goto :goto_2
+
+    :cond_4
+    iget-boolean v3, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mAcIsScreenOffMemoShowing:Z
+
+    if-eqz v3, :cond_5
+
+    const-string/jumbo v0, "ScreenOffMemo on"
+
+    goto :goto_2
+
+    :cond_5
+    if-eqz v1, :cond_0
+
+    const-string/jumbo v0, "DexMode on"
+
+    goto :goto_2
+
+    :cond_6
+    sget-object v3, Lcom/android/server/smartclip/SpenGestureManagerService;->TAG:Ljava/lang/String;
 
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -1324,9 +1533,9 @@
 
     move-result-object v4
 
-    invoke-static {v2, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v3
+    return v6
 .end method
 
 .method private checkHoverStay(Landroid/view/MotionEvent;IZ)V
@@ -1573,8 +1782,6 @@
 .method private checkPermission(Ljava/lang/String;)V
     .locals 4
 
-    const/4 v0, 0x0
-
     sget-object v1, Lcom/android/server/smartclip/SpenGestureManagerService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, p1}, Landroid/content/Context;->checkCallingPermission(Ljava/lang/String;)I
@@ -1585,7 +1792,7 @@
 
     const/4 v0, 0x1
 
-    :cond_0
+    :goto_0
     if-nez v0, :cond_1
 
     new-instance v1, Ljava/lang/SecurityException;
@@ -1617,6 +1824,11 @@
     invoke-direct {v1, v2}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
 
     throw v1
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 
     :cond_1
     return-void
@@ -1916,6 +2128,62 @@
     return-void
 .end method
 
+.method private getFocusedUserHandle(Landroid/content/Context;)Landroid/os/UserHandle;
+    .locals 6
+
+    const-string/jumbo v4, "persona"
+
+    invoke-virtual {p1, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/samsung/android/knox/SemPersonaManager;
+
+    invoke-virtual {v1}, Lcom/samsung/android/knox/SemPersonaManager;->getKioskId()I
+
+    move-result v0
+
+    const/4 v3, 0x0
+
+    const/4 v4, -0x1
+
+    if-eq v0, v4, :cond_1
+
+    move v3, v0
+
+    :cond_0
+    :goto_0
+    new-instance v2, Landroid/os/UserHandle;
+
+    invoke-direct {v2, v3}, Landroid/os/UserHandle;-><init>(I)V
+
+    if-eqz v2, :cond_2
+
+    return-object v2
+
+    :cond_1
+    invoke-virtual {v1}, Lcom/samsung/android/knox/SemPersonaManager;->getFocusedKnoxId()I
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    const/4 v3, -0x2
+
+    goto :goto_0
+
+    :cond_2
+    sget-object v4, Lcom/android/server/smartclip/SpenGestureManagerService;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v5, "Failed to get UserHandle#2, Return Current Handle."
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    sget-object v4, Landroid/os/UserHandle;->SEM_CURRENT:Landroid/os/UserHandle;
+
+    return-object v4
+.end method
+
 .method private getFullScreenRect()Landroid/graphics/Rect;
     .locals 6
 
@@ -2178,6 +2446,49 @@
     goto :goto_1
 .end method
 
+.method private isDesktopMode(Landroid/content/Context;)Z
+    .locals 2
+
+    const-string/jumbo v1, "desktopmode"
+
+    invoke-virtual {p1, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/samsung/android/desktopmode/SemDesktopModeManager;
+
+    if-eqz v0, :cond_0
+
+    invoke-static {}, Lcom/samsung/android/desktopmode/SemDesktopModeManager;->isDesktopMode()Z
+
+    move-result v1
+
+    return v1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    return v1
+.end method
+
+.method private isDesktopModeSupported()Z
+    .locals 3
+
+    invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "SEC_FLOATING_FEATURE_COMMON_SUPPORT_KNOX_DESKTOP"
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Lcom/samsung/android/feature/SemFloatingFeature;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method private isHapticFeedbackEnabled()Z
     .locals 3
 
@@ -2240,37 +2551,41 @@
 .end method
 
 .method private launchActionMemo()V
-    .locals 6
+    .locals 7
 
-    iget v3, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mSpenUspLevel:I
+    sget-object v4, Lcom/android/server/smartclip/SpenGestureManagerService;->mContext:Landroid/content/Context;
 
-    const/16 v4, 0x14
+    invoke-direct {p0, v4}, Lcom/android/server/smartclip/SpenGestureManagerService;->getFocusedUserHandle(Landroid/content/Context;)Landroid/os/UserHandle;
 
-    if-lt v3, v4, :cond_1
+    move-result-object v3
+
+    iget v4, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mSpenUspLevel:I
+
+    const/16 v5, 0x14
+
+    if-lt v4, v5, :cond_1
 
     new-instance v0, Landroid/content/Intent;
 
-    const-string/jumbo v3, "com.samsung.action.POPUP_NOTE_DOUBLETAB"
+    const-string/jumbo v4, "com.samsung.action.POPUP_NOTE_DOUBLETAB"
 
-    invoke-direct {v0, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v3, "com.samsung.android.app.notes"
+    const-string/jumbo v4, "com.samsung.android.app.notes"
 
-    const-string/jumbo v4, "com.samsung.android.app.notes.popupnote.PopupNoteService"
+    const-string/jumbo v5, "com.samsung.android.app.notes.popupnote.PopupNoteService"
 
-    invoke-virtual {v0, v3, v4}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v0, v4, v5}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    sget-object v3, Lcom/android/server/smartclip/SpenGestureManagerService;->mContext:Landroid/content/Context;
+    sget-object v4, Lcom/android/server/smartclip/SpenGestureManagerService;->mContext:Landroid/content/Context;
 
-    sget-object v4, Landroid/os/UserHandle;->CURRENT:Landroid/os/UserHandle;
+    invoke-virtual {v4, v0, v3}, Landroid/content/Context;->startServiceAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)Landroid/content/ComponentName;
 
-    invoke-virtual {v3, v0, v4}, Landroid/content/Context;->startServiceAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)Landroid/content/ComponentName;
+    sget-object v4, Lcom/android/server/smartclip/SpenGestureManagerService;->TAG:Ljava/lang/String;
 
-    sget-object v3, Lcom/android/server/smartclip/SpenGestureManagerService;->TAG:Ljava/lang/String;
+    const-string/jumbo v5, "launchActionMemo : Trying to launch Samsung notes action memo"
 
-    const-string/jumbo v4, "launchActionMemo : Trying to launch Samsung notes action memo"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     :goto_0
@@ -2279,77 +2594,71 @@
     :cond_1
     new-instance v2, Landroid/content/Intent;
 
-    const-string/jumbo v3, "com.samsung.action.MINI_MODE_SERVICE"
+    const-string/jumbo v4, "com.samsung.action.MINI_MODE_SERVICE"
 
-    invoke-direct {v2, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v3, "com.samsung.android.snote"
+    const-string/jumbo v4, "com.samsung.android.snote"
 
-    const-string/jumbo v4, "com.samsung.android.snote.control.ui.quickmemo.service.QuickMemo_Service"
+    const-string/jumbo v5, "com.samsung.android.snote.control.ui.quickmemo.service.QuickMemo_Service"
 
-    invoke-virtual {v2, v3, v4}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v2, v4, v5}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    sget-object v3, Lcom/android/server/smartclip/SpenGestureManagerService;->TAG:Ljava/lang/String;
+    sget-object v4, Lcom/android/server/smartclip/SpenGestureManagerService;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v4, "launchActionMemo : Trying to launch Snote aciton memo.."
+    const-string/jumbo v5, "launchActionMemo : Trying to launch Snote aciton memo.."
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    sget-object v3, Lcom/android/server/smartclip/SpenGestureManagerService;->mContext:Landroid/content/Context;
+    sget-object v4, Lcom/android/server/smartclip/SpenGestureManagerService;->mContext:Landroid/content/Context;
 
-    sget-object v4, Landroid/os/UserHandle;->CURRENT:Landroid/os/UserHandle;
+    invoke-virtual {v4, v2, v3}, Landroid/content/Context;->startServiceAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)Landroid/content/ComponentName;
 
-    invoke-virtual {v3, v2, v4}, Landroid/content/Context;->startServiceAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)Landroid/content/ComponentName;
+    move-result-object v4
 
-    move-result-object v3
+    if-nez v4, :cond_0
 
-    if-nez v3, :cond_0
+    sget-object v4, Lcom/android/server/smartclip/SpenGestureManagerService;->TAG:Ljava/lang/String;
 
-    sget-object v3, Lcom/android/server/smartclip/SpenGestureManagerService;->TAG:Ljava/lang/String;
+    const-string/jumbo v5, "launchActionMemo : Snote action memo launch failed. Trying to launch diotek PenMemo..."
 
-    const-string/jumbo v4, "launchActionMemo : Snote action memo launch failed. Trying to launch diotek PenMemo..."
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     new-instance v1, Landroid/content/Intent;
 
-    const-string/jumbo v3, "com.samsung.action.MINI_MODE_SERVICE"
+    const-string/jumbo v4, "com.samsung.action.MINI_MODE_SERVICE"
 
-    invoke-direct {v1, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v3, "com.diotek.mini_penmemo"
+    const-string/jumbo v4, "com.diotek.mini_penmemo"
 
-    const-string/jumbo v4, "com.diotek.mini_penmemo.Mini_PenMemo_Service"
+    const-string/jumbo v5, "com.diotek.mini_penmemo.Mini_PenMemo_Service"
 
-    invoke-virtual {v1, v3, v4}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v1, v4, v5}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    sget-object v3, Lcom/android/server/smartclip/SpenGestureManagerService;->mContext:Landroid/content/Context;
+    sget-object v4, Lcom/android/server/smartclip/SpenGestureManagerService;->mContext:Landroid/content/Context;
 
-    sget-object v4, Landroid/os/UserHandle;->CURRENT:Landroid/os/UserHandle;
+    invoke-virtual {v4, v1, v3}, Landroid/content/Context;->startServiceAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)Landroid/content/ComponentName;
 
-    invoke-virtual {v3, v1, v4}, Landroid/content/Context;->startServiceAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)Landroid/content/ComponentName;
+    move-result-object v4
 
-    move-result-object v3
+    if-nez v4, :cond_0
 
-    if-nez v3, :cond_0
+    sget-object v4, Lcom/android/server/smartclip/SpenGestureManagerService;->TAG:Ljava/lang/String;
 
-    sget-object v3, Lcom/android/server/smartclip/SpenGestureManagerService;->TAG:Ljava/lang/String;
+    const-string/jumbo v5, "launchActionMemo : Diotek PenMemo launch failed. Sending legacy quick memo broadcasting"
 
-    const-string/jumbo v4, "launchActionMemo : Diotek PenMemo launch failed. Sending legacy quick memo broadcasting"
+    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    sget-object v4, Lcom/android/server/smartclip/SpenGestureManagerService;->mContext:Landroid/content/Context;
 
-    sget-object v3, Lcom/android/server/smartclip/SpenGestureManagerService;->mContext:Landroid/content/Context;
+    new-instance v5, Landroid/content/Intent;
 
-    new-instance v4, Landroid/content/Intent;
+    const-string/jumbo v6, "android.intent.action.QUICKMEMO_LAUNCH"
 
-    const-string/jumbo v5, "android.intent.action.QUICKMEMO_LAUNCH"
+    invoke-direct {v5, v6}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v4, v5}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    sget-object v5, Landroid/os/UserHandle;->CURRENT:Landroid/os/UserHandle;
-
-    invoke-virtual {v3, v4, v5}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+    invoke-virtual {v4, v5, v3}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
     goto :goto_0
 .end method
@@ -2412,35 +2721,47 @@
 .end method
 
 .method private onFloatingIconSettingChanged(Z)V
-    .locals 3
+    .locals 4
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     if-eqz p1, :cond_1
 
-    iput-boolean v0, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mAcIsFloatingIconEnabled:Z
+    iput-boolean v1, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mAcIsFloatingIconEnabled:Z
 
-    iget-boolean v2, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mInboxSPen:Z
+    iget-boolean v3, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mInboxSPen:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_0
 
     :goto_0
-    iput-boolean v0, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mAcAutoFloatingIconMode:Z
+    iput-boolean v1, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mAcAutoFloatingIconMode:Z
+
+    new-instance v0, Landroid/os/Bundle;
+
+    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
+
+    const-string/jumbo v1, "cause"
+
+    const-string/jumbo v2, "floating_on"
+
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-direct {p0, v0}, Lcom/android/server/smartclip/SpenGestureManagerService;->startAirCommandService(Landroid/os/Bundle;)V
 
     :goto_1
     return-void
 
     :cond_0
-    move v0, v1
+    move v1, v2
 
     goto :goto_0
 
     :cond_1
-    iput-boolean v1, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mAcIsFloatingIconEnabled:Z
+    iput-boolean v2, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mAcIsFloatingIconEnabled:Z
 
-    iput-boolean v1, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mAcAutoFloatingIconMode:Z
+    iput-boolean v2, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mAcAutoFloatingIconMode:Z
 
     goto :goto_1
 .end method
@@ -2490,6 +2811,14 @@
 
     move-object/from16 v0, p0
 
+    iget-boolean v2, v0, Lcom/android/server/smartclip/SpenGestureManagerService;->mAcIsScreenOffMemoShowing:Z
+
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_1
+
+    move-object/from16 v0, p0
+
     iget-boolean v2, v0, Lcom/android/server/smartclip/SpenGestureManagerService;->mAcIsHoverOccuredBeforeTouchDown:Z
 
     if-nez v2, :cond_1
@@ -2524,6 +2853,14 @@
 
     if-eqz v2, :cond_3
 
+    move-object/from16 v0, p0
+
+    iget-boolean v2, v0, Lcom/android/server/smartclip/SpenGestureManagerService;->mAcIsScreenOffMemoShowing:Z
+
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_3
+
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getDownTime()J
 
     move-result-wide v2
@@ -2532,7 +2869,7 @@
 
     cmp-long v2, v2, v4
 
-    if-gtz v2, :cond_4
+    if-gtz v2, :cond_5
 
     const/4 v10, 0x1
 
@@ -2572,7 +2909,7 @@
 
     cmp-long v2, v2, v4
 
-    if-lez v2, :cond_6
+    if-lez v2, :cond_7
 
     move-object/from16 v0, p0
 
@@ -2584,7 +2921,7 @@
 
     cmp-long v2, v2, v4
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_6
 
     const/4 v2, 0x1
 
@@ -2596,21 +2933,43 @@
     :pswitch_3
     move-object/from16 v0, p0
 
+    iget-wide v2, v0, Lcom/android/server/smartclip/SpenGestureManagerService;->mAcButtonPressTouchDownTime:J
+
+    const-wide/16 v4, 0x0
+
+    cmp-long v2, v2, v4
+
+    if-lez v2, :cond_4
+
+    xor-int/lit8 v2, p3, 0x1
+
+    if-eqz v2, :cond_4
+
+    sget-object v2, Lcom/android/server/smartclip/SpenGestureManagerService;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v3, "Clear touched state by unpressed button"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v2, 0x0
+
+    move-object/from16 v0, p0
+
+    iput-boolean v2, v0, Lcom/android/server/smartclip/SpenGestureManagerService;->mAcIsTouchDowned:Z
+
+    :cond_4
+    move-object/from16 v0, p0
+
     iget-boolean v2, v0, Lcom/android/server/smartclip/SpenGestureManagerService;->mAcIsTouchDowned:Z
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_8
 
     return-void
 
-    :cond_4
+    :cond_5
     const/4 v10, 0x0
 
     goto :goto_2
-
-    :cond_5
-    const/4 v2, 0x0
-
-    goto :goto_3
 
     :cond_6
     const/4 v2, 0x0
@@ -2618,15 +2977,38 @@
     goto :goto_3
 
     :cond_7
-    if-eqz p3, :cond_8
+    const/4 v2, 0x0
+
+    goto :goto_3
+
+    :cond_8
+    if-eqz p3, :cond_9
 
     move-object/from16 v0, p0
 
     iget-boolean v2, v0, Lcom/android/server/smartclip/SpenGestureManagerService;->mAcIsPenButtonPressed:Z
 
-    if-eqz v2, :cond_a
+    xor-int/lit8 v2, v2, 0x1
 
-    :cond_8
+    if-eqz v2, :cond_9
+
+    const/4 v2, 0x1
+
+    move-object/from16 v0, p0
+
+    iput-boolean v2, v0, Lcom/android/server/smartclip/SpenGestureManagerService;->mAcIsPenButtonPressed:Z
+
+    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getEventTime()J
+
+    move-result-wide v2
+
+    move-object/from16 v0, p0
+
+    iput-wide v2, v0, Lcom/android/server/smartclip/SpenGestureManagerService;->mAcPenButtonPressedTime:J
+
+    goto/16 :goto_0
+
+    :cond_9
     if-nez p3, :cond_1
 
     move-object/from16 v0, p0
@@ -2655,7 +3037,7 @@
 
     cmp-long v2, v14, v2
 
-    if-lez v2, :cond_9
+    if-lez v2, :cond_a
 
     const-wide/16 v2, 0x320
 
@@ -2663,25 +3045,8 @@
 
     if-lez v2, :cond_b
 
-    :cond_9
-    return-void
-
     :cond_a
-    const/4 v2, 0x1
-
-    move-object/from16 v0, p0
-
-    iput-boolean v2, v0, Lcom/android/server/smartclip/SpenGestureManagerService;->mAcIsPenButtonPressed:Z
-
-    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getEventTime()J
-
-    move-result-wide v2
-
-    move-object/from16 v0, p0
-
-    iput-wide v2, v0, Lcom/android/server/smartclip/SpenGestureManagerService;->mAcPenButtonPressedTime:J
-
-    goto/16 :goto_0
+    return-void
 
     :cond_b
     const-string/jumbo v8, "right"
@@ -2818,6 +3183,14 @@
 
     move-object/from16 v0, p0
 
+    iget-boolean v2, v0, Lcom/android/server/smartclip/SpenGestureManagerService;->mAcIsScreenOffMemoShowing:Z
+
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_1
+
+    move-object/from16 v0, p0
+
     iget-object v2, v0, Lcom/android/server/smartclip/SpenGestureManagerService;->mInputManager:Landroid/hardware/input/InputManager;
 
     if-eqz v2, :cond_f
@@ -2892,6 +3265,8 @@
 
     goto :goto_5
 
+    nop
+
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_1
@@ -2913,7 +3288,7 @@
 
     new-instance v0, Landroid/content/Intent;
 
-    sget-object v1, Lcom/android/server/smartclip/SpenGestureManagerService;->INTENT_ACTION_AIRCOMMAND_STATE_CHANGE:Ljava/lang/String;
+    const-string/jumbo v1, "com.samsung.android.aircommand.intent.action.STATE_CHANGE"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
@@ -3313,6 +3688,244 @@
 
 
 # virtual methods
+.method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
+    .locals 4
+
+    sget-object v0, Lcom/android/server/smartclip/SpenGestureManagerService;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v1, "android.permission.DUMP"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Permission Denial: can\'t dump from from pid="
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, ", uid="
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string/jumbo v0, "AirCommand:"
+
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "  UspLevel : "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mSpenUspLevel:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "  InBoxType : "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-boolean v1, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mInboxSPen:Z
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "  PenInserted : "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-boolean v1, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mIsPenInserted:Z
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "  mAcIsBound : "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-boolean v1, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mAcIsBound:Z
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "  mAcIsFloatingIconEnabled : "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-boolean v1, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mAcIsFloatingIconEnabled:Z
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, ", "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-boolean v1, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mAcAutoFloatingIconMode:Z
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "  mAcIsScreenOffMemoShowing : "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-boolean v1, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mAcIsScreenOffMemoShowing:Z
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public getBleSpenAddress()Ljava/lang/String;
+    .locals 2
+
+    sget-object v0, Lcom/android/server/smartclip/SpenGestureManagerService;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v1, "getBleSpenAddress"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-direct {p0}, Lcom/android/server/smartclip/SpenGestureManagerService;->checkSmartClipMetaExtractionPermission()V
+
+    invoke-static {}, Lcom/android/server/smartclip/BleSpenManager;->getBleSpenAddress()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public getCurrentEditorInfo()Landroid/view/inputmethod/EditorInfo;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mEditorInfo:Landroid/view/inputmethod/EditorInfo;
+
+    return-object v0
+.end method
+
+.method public getCurrentInputContext()Lcom/android/internal/view/IInputContext;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mInputContext:Lcom/android/internal/view/IInputContext;
+
+    return-object v0
+.end method
+
+.method public getCurrentMissingMethodFlags()I
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mMissingMethodFlags:I
+
+    return v0
+.end method
+
 .method public getScrollableAreaInfo(Landroid/graphics/Rect;Landroid/os/IBinder;)Landroid/os/Bundle;
     .locals 9
 
@@ -3435,7 +4048,7 @@
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "Exception e : "
+    const-string/jumbo v7, "getScrollableAreaInfo : Exception thrown! e = "
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3453,7 +4066,7 @@
 
     move-result-object v6
 
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     return-object v8
 .end method
@@ -3586,7 +4199,7 @@
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v8, "Exception e : "
+    const-string/jumbo v8, "getScrollableViewInfo : Exception thrown! e = "
 
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3604,7 +4217,7 @@
 
     move-result-object v7
 
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     return-object v9
 .end method
@@ -3762,7 +4375,7 @@
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v10, "getSmartClipDataByScreenRect : Exception e : "
+    const-string/jumbo v10, "getSmartClipDataByScreenRect : Exception thrown! e = "
 
     invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3780,7 +4393,7 @@
 
     move-result-object v9
 
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     const/4 v8, 0x0
 
@@ -3933,9 +4546,41 @@
 
     move-result-object v7
 
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_1
+.end method
+
+.method public isSupportBleSpen()Z
+    .locals 4
+
+    invoke-static {}, Lcom/android/server/smartclip/BleSpenManager;->isSupportBleSpen()Z
+
+    move-result v0
+
+    sget-object v1, Lcom/android/server/smartclip/SpenGestureManagerService;->TAG:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "isSupportBleSpen : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v0
 .end method
 
 .method public keyguardOn()Z
@@ -4018,6 +4663,14 @@
     return v1
 .end method
 
+.method public notifyKeyboardClosed()V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/server/smartclip/SpenGestureManagerService;->broastcastKeyboardClosed()V
+
+    return-void
+.end method
+
 .method public registerHoverListener(Lcom/samsung/android/content/smartclip/ISpenGestureHoverListener;)V
     .locals 1
 
@@ -4033,6 +4686,27 @@
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mHoverListeners:Landroid/os/RemoteCallbackList;
+
+    invoke-virtual {v0, p1}, Landroid/os/RemoteCallbackList;->register(Landroid/os/IInterface;)Z
+
+    return-void
+.end method
+
+.method public registerInputMethodInfoChangeListener(Lcom/samsung/android/content/smartclip/IInputMethodInfoChangeListener;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mInputInfoChangeListeners:Landroid/os/RemoteCallbackList;
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Landroid/os/RemoteCallbackList;
+
+    invoke-direct {v0}, Landroid/os/RemoteCallbackList;-><init>()V
+
+    iput-object v0, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mInputInfoChangeListeners:Landroid/os/RemoteCallbackList;
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mInputInfoChangeListeners:Landroid/os/RemoteCallbackList;
 
     invoke-virtual {v0, p1}, Landroid/os/RemoteCallbackList;->register(Landroid/os/IInterface;)Z
 
@@ -4097,6 +4771,52 @@
     goto :goto_0
 .end method
 
+.method public setBleSpenAddress(Ljava/lang/String;)V
+    .locals 3
+
+    sget-object v0, Lcom/android/server/smartclip/SpenGestureManagerService;->TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "setBleSpenAddress : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-direct {p0}, Lcom/android/server/smartclip/SpenGestureManagerService;->checkSmartClipMetaExtractionPermission()V
+
+    invoke-static {p1}, Lcom/android/server/smartclip/BleSpenManager;->setBleSpenAddress(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public setCurrentInputInfo(Lcom/android/internal/view/IInputContext;Landroid/view/inputmethod/EditorInfo;I)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mInputContext:Lcom/android/internal/view/IInputContext;
+
+    iput-object p2, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mEditorInfo:Landroid/view/inputmethod/EditorInfo;
+
+    iput p3, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mMissingMethodFlags:I
+
+    invoke-direct {p0}, Lcom/android/server/smartclip/SpenGestureManagerService;->broastcastInputContextChanged()V
+
+    return-void
+.end method
+
 .method public setFocusWindow(I)V
     .locals 0
 
@@ -4132,6 +4852,34 @@
     return-void
 .end method
 
+.method public setSpenInsertionState(Z)V
+    .locals 3
+
+    sget-object v0, Lcom/android/server/smartclip/SpenGestureManagerService;->TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "setSpenInsertionState : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+.end method
+
 .method public unregisterHoverListener(Lcom/samsung/android/content/smartclip/ISpenGestureHoverListener;)V
     .locals 1
 
@@ -4144,5 +4892,52 @@
     invoke-virtual {v0, p1}, Landroid/os/RemoteCallbackList;->unregister(Landroid/os/IInterface;)Z
 
     :cond_0
+    return-void
+.end method
+
+.method public unregisterInputMethodInfoChangeListener(Lcom/samsung/android/content/smartclip/IInputMethodInfoChangeListener;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mInputInfoChangeListeners:Landroid/os/RemoteCallbackList;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/smartclip/SpenGestureManagerService;->mInputInfoChangeListeners:Landroid/os/RemoteCallbackList;
+
+    invoke-virtual {v0, p1}, Landroid/os/RemoteCallbackList;->unregister(Landroid/os/IInterface;)Z
+
+    :cond_0
+    return-void
+.end method
+
+.method public writeBleSpenCommand(Ljava/lang/String;)V
+    .locals 3
+
+    sget-object v0, Lcom/android/server/smartclip/SpenGestureManagerService;->TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "writeBleSpenCommand : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-direct {p0}, Lcom/android/server/smartclip/SpenGestureManagerService;->checkSmartClipMetaExtractionPermission()V
+
+    invoke-static {p1}, Lcom/android/server/smartclip/BleSpenManager;->writeBleSpenCommand(Ljava/lang/String;)V
+
     return-void
 .end method

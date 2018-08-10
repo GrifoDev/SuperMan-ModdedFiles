@@ -1829,14 +1829,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_2
-    const/4 v0, 0x0
+    if-eqz v0, :cond_2
 
-    return v0
-
-    :cond_3
     invoke-static {p1, p3, p4}, Lcom/android/server/enterprise/certificate/CertificatePolicy;->findIssuerInAndroidKeystore(Landroid/content/Context;Ljava/security/cert/X509Certificate;I)Ljava/security/cert/X509Certificate;
 
     move-result-object v3
@@ -1856,6 +1852,11 @@
     invoke-virtual/range {v0 .. v5}, Lcom/android/server/enterprise/certificate/EdmKeyStore;->containsCertificateOrChain(Landroid/content/Context;Lcom/android/server/enterprise/certificate/CertificateCache;Ljava/security/cert/X509Certificate;II)Z
 
     move-result v0
+
+    return v0
+
+    :cond_2
+    const/4 v0, 0x0
 
     return v0
 .end method

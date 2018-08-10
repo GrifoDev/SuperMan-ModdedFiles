@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/backup/BackupManagerService;->beginFullBackup(Lcom/android/server/backup/FullBackupJob;)Z
+    value = Lcom/android/server/backup/BackupManagerService;->scheduleNextFullBackupJob(J)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,7 +20,7 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/backup/BackupManagerService;
 
-.field final synthetic val$deferTime:J
+.field final synthetic val$latency:J
 
 
 # direct methods
@@ -29,7 +29,7 @@
 
     iput-object p1, p0, Lcom/android/server/backup/BackupManagerService$4;->this$0:Lcom/android/server/backup/BackupManagerService;
 
-    iput-wide p2, p0, Lcom/android/server/backup/BackupManagerService$4;->val$deferTime:J
+    iput-wide p2, p0, Lcom/android/server/backup/BackupManagerService$4;->val$latency:J
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -45,7 +45,7 @@
 
     iget-object v0, v0, Lcom/android/server/backup/BackupManagerService;->mContext:Landroid/content/Context;
 
-    iget-wide v2, p0, Lcom/android/server/backup/BackupManagerService$4;->val$deferTime:J
+    iget-wide v2, p0, Lcom/android/server/backup/BackupManagerService$4;->val$latency:J
 
     invoke-static {v0, v2, v3}, Lcom/android/server/backup/FullBackupJob;->schedule(Landroid/content/Context;J)V
 

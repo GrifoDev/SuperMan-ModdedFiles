@@ -82,26 +82,10 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    xor-int/lit8 v3, v3, 0x1
 
-    :cond_1
-    iget-object v3, p0, Lcom/android/server/smartclip/SpenGestureManagerService$3;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
+    if-eqz v3, :cond_1
 
-    invoke-static {v3}, Lcom/android/server/smartclip/SpenGestureManagerService;->-wrap2(Lcom/android/server/smartclip/SpenGestureManagerService;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_3
-
-    sget-object v3, Lcom/android/server/smartclip/SpenGestureManagerService;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v4, "Double tap is disabled : Screen pinning mode enabled"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_2
     sget-object v3, Lcom/android/server/smartclip/SpenGestureManagerService;->TAG:Ljava/lang/String;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -132,7 +116,24 @@
 
     return-void
 
-    :cond_3
+    :cond_1
+    iget-object v3, p0, Lcom/android/server/smartclip/SpenGestureManagerService$3;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
+
+    invoke-static {v3}, Lcom/android/server/smartclip/SpenGestureManagerService;->-wrap2(Lcom/android/server/smartclip/SpenGestureManagerService;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    sget-object v3, Lcom/android/server/smartclip/SpenGestureManagerService;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v4, "Double tap is disabled : Screen pinning mode enabled"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_2
     :try_start_0
     sget-object v3, Lcom/android/server/smartclip/SpenGestureManagerService;->TAG:Ljava/lang/String;
 
@@ -146,9 +147,6 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
-
-    :cond_4
     iget-object v3, p0, Lcom/android/server/smartclip/SpenGestureManagerService$3;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
 
     new-instance v5, Landroid/content/Intent;
@@ -191,7 +189,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_3
 
     iget-object v3, p0, Lcom/android/server/smartclip/SpenGestureManagerService$3;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
 
@@ -203,12 +201,12 @@
 
     move-result v1
 
-    :cond_5
-    if-eq v0, v4, :cond_6
+    :cond_3
+    if-eq v0, v4, :cond_4
 
-    if-ne v0, v9, :cond_7
+    if-ne v0, v9, :cond_5
 
-    :cond_6
+    :cond_4
     invoke-static {}, Lcom/android/server/smartclip/SpenGestureManagerService;->-get5()Landroid/content/Context;
 
     move-result-object v3
@@ -224,10 +222,10 @@
     :goto_0
     return-void
 
-    :cond_7
-    if-eq v1, v4, :cond_6
+    :cond_5
+    if-eq v1, v4, :cond_4
 
-    if-eq v1, v9, :cond_6
+    if-eq v1, v9, :cond_4
 
     iget-object v3, p0, Lcom/android/server/smartclip/SpenGestureManagerService$3;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
 

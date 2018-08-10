@@ -1,4 +1,4 @@
-.class public Lcom/android/server/job/controllers/DeviceIdleJobsController;
+.class public final Lcom/android/server/job/controllers/DeviceIdleJobsController;
 .super Lcom/android/server/job/controllers/StateController;
 .source "DeviceIdleJobsController.java"
 
@@ -264,27 +264,11 @@
 .end method
 
 .method public maybeStartTrackingJobLocked(Lcom/android/server/job/controllers/JobStatus;Lcom/android/server/job/controllers/JobStatus;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/job/controllers/DeviceIdleJobsController;->mLock:Ljava/lang/Object;
-
-    monitor-enter v0
-
-    :try_start_0
     invoke-direct {p0, p1}, Lcom/android/server/job/controllers/DeviceIdleJobsController;->updateTaskStateLocked(Lcom/android/server/job/controllers/JobStatus;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit v0
 
     return-void
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-
-    throw v1
 .end method
 
 .method public maybeStopTrackingJobLocked(Lcom/android/server/job/controllers/JobStatus;Lcom/android/server/job/controllers/JobStatus;Z)V

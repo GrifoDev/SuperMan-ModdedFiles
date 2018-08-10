@@ -22,8 +22,6 @@
 
 .field private static mTimaHelper:Lcom/android/server/pm/TimaHelper;
 
-.field private static timaVersion20:Z
-
 
 # instance fields
 .field private mTksName:Ljava/lang/String;
@@ -34,10 +32,6 @@
 # direct methods
 .method static constructor <clinit>()V
     .locals 2
-
-    const/4 v0, 0x0
-
-    sput-boolean v0, Lcom/android/server/pm/TimaHelper;->timaVersion20:Z
 
     const-string/jumbo v0, "eng"
 
@@ -77,83 +71,31 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 4
+    .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const-string/jumbo v2, "NONE"
+    const-string/jumbo v0, "NONE"
 
-    iput-object v2, p0, Lcom/android/server/pm/TimaHelper;->mTksName:Ljava/lang/String;
+    iput-object v0, p0, Lcom/android/server/pm/TimaHelper;->mTksName:Ljava/lang/String;
 
-    const-string/jumbo v2, "NONE"
+    const-string/jumbo v0, "NONE"
 
-    iput-object v2, p0, Lcom/android/server/pm/TimaHelper;->mVersion:Ljava/lang/String;
+    iput-object v0, p0, Lcom/android/server/pm/TimaHelper;->mVersion:Ljava/lang/String;
 
-    :try_start_0
-    invoke-direct {p0}, Lcom/android/server/pm/TimaHelper;->getTimaService()Landroid/service/tima/ITimaService;
+    invoke-direct {p0}, Lcom/android/server/pm/TimaHelper;->initTimaHelper()V
 
-    move-result-object v2
+    const-string/jumbo v0, "TimaHelper"
 
-    if-eqz v2, :cond_0
+    const-string/jumbo v1, "TimaHelper created"
 
-    invoke-direct {p0}, Lcom/android/server/pm/TimaHelper;->getTimaService()Landroid/service/tima/ITimaService;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Landroid/service/tima/ITimaService;->getTimaVersion()Ljava/lang/String;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "2.0"
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->matches(Ljava/lang/String;)Z
-
-    move-result v2
-
-    sput-boolean v2, Lcom/android/server/pm/TimaHelper;->timaVersion20:Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    :cond_0
-    :goto_0
-    invoke-virtual {p0}, Lcom/android/server/pm/TimaHelper;->initTimaHelper()V
-
-    const-string/jumbo v2, "TimaHelper"
-
-    const-string/jumbo v3, "TimaHelper created"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
-
-    :catch_0
-    move-exception v0
-
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
-
-    const-string/jumbo v2, "TimaHelper"
-
-    const-string/jumbo v3, "failed to get TIMA version."
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    :catch_1
-    move-exception v1
-
-    const-string/jumbo v2, "TimaHelper"
-
-    const-string/jumbo v3, "failed to talk with TIMA service."
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
 .end method
 
 .method private checkTimaError(II)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/server/pm/TimaException;
@@ -165,32 +107,18 @@
     return-void
 
     :pswitch_0
-    const/16 v1, 0x64
+    const/16 v0, 0x64
 
-    if-lt p1, v1, :cond_0
+    if-lt p1, v0, :cond_0
 
-    const/16 v1, 0xc8
-
-    if-gt p1, v1, :cond_0
-
-    const-string/jumbo v1, "persona"
-
-    invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/server/pm/PersonaManagerService;
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0, p1}, Lcom/android/server/pm/PersonaManagerService;->setTimaCompromisedState(I)V
+    const/16 v0, 0xc8
 
     :cond_0
-    new-instance v1, Lcom/android/server/pm/TimaException;
+    new-instance v0, Lcom/android/server/pm/TimaException;
 
-    invoke-direct {v1}, Lcom/android/server/pm/TimaException;-><init>()V
+    invoke-direct {v0}, Lcom/android/server/pm/TimaException;-><init>()V
 
-    throw v1
+    throw v0
 
     :pswitch_data_0
     .packed-switch 0x1000c
@@ -352,6 +280,42 @@
     move-result-object v0
 
     return-object v0
+.end method
+
+.method private initTimaHelper()V
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/server/pm/TimaHelper;->isFipsAvilable()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "FIPS3.0"
+
+    iput-object v0, p0, Lcom/android/server/pm/TimaHelper;->mVersion:Ljava/lang/String;
+
+    const-string/jumbo v0, "FipsTimaKeyStore"
+
+    iput-object v0, p0, Lcom/android/server/pm/TimaHelper;->mTksName:Ljava/lang/String;
+
+    :goto_0
+    const-string/jumbo v0, "initTimaHelper()"
+
+    invoke-virtual {p0, v0}, Lcom/android/server/pm/TimaHelper;->dump(Ljava/lang/String;)V
+
+    return-void
+
+    :cond_0
+    const-string/jumbo v0, "3.0"
+
+    iput-object v0, p0, Lcom/android/server/pm/TimaHelper;->mVersion:Ljava/lang/String;
+
+    const-string/jumbo v0, "TIMAKeyStore"
+
+    iput-object v0, p0, Lcom/android/server/pm/TimaHelper;->mTksName:Ljava/lang/String;
+
+    goto :goto_0
 .end method
 
 
@@ -570,41 +534,6 @@
 .method public deleteEntry(ILjava/lang/String;)V
     .locals 7
 
-    sget-boolean v4, Lcom/android/server/pm/TimaHelper;->timaVersion20:Z
-
-    if-eqz v4, :cond_0
-
-    const-string/jumbo v4, "TimaHelper"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "deleteEntry("
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v6, "TimaHelper doesn\'t support Tima 2.0! error"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_0
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -638,7 +567,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_1
 
     const/4 v2, 0x0
 
@@ -651,7 +580,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_0
 
     invoke-virtual {v2, p2}, Ljava/security/KeyStore;->deleteEntry(Ljava/lang/String;)V
     :try_end_1
@@ -659,8 +588,8 @@
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    :cond_1
-    if-nez v2, :cond_2
+    :cond_0
+    if-nez v2, :cond_1
 
     :try_start_2
     const-string/jumbo v4, "TimaHelper"
@@ -671,7 +600,7 @@
     :try_end_2
     .catch Lcom/android/server/pm/TimaException; {:try_start_2 .. :try_end_2} :catch_1
 
-    :cond_2
+    :cond_1
     :goto_0
     return-void
 
@@ -683,7 +612,7 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_1
 
     :try_start_4
     const-string/jumbo v4, "TimaHelper"
@@ -709,7 +638,7 @@
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_1
 
     :try_start_6
     const-string/jumbo v4, "TimaHelper"
@@ -723,7 +652,7 @@
     :catchall_0
     move-exception v4
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_2
 
     const-string/jumbo v5, "TimaHelper"
 
@@ -731,7 +660,7 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_3
+    :cond_2
     throw v4
     :try_end_6
     .catch Lcom/android/server/pm/TimaException; {:try_start_6 .. :try_end_6} :catch_1
@@ -830,51 +759,6 @@
 
     const/4 v4, 0x0
 
-    sget-boolean v6, Lcom/android/server/pm/TimaHelper;->timaVersion20:Z
-
-    if-eqz v6, :cond_0
-
-    const-string/jumbo v6, "TimaHelper"
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v8, "getEntry("
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string/jumbo v8, ", "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string/jumbo v8, "TimaHelper doesn\'t support Tima 2.0! error"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-object v4
-
-    :cond_0
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -908,7 +792,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_1
 
     const/4 v3, 0x0
 
@@ -921,7 +805,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/TimaHelper;->getEntryPassword(I)Ljava/security/KeyStore$ProtectionParameter;
 
@@ -933,7 +817,7 @@
 
     check-cast v2, Ljava/security/KeyStore$SecretKeyEntry;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_0
 
     invoke-virtual {v2}, Ljava/security/KeyStore$SecretKeyEntry;->getSecretKey()Ljavax/crypto/SecretKey;
 
@@ -947,8 +831,8 @@
 
     move-result-object v4
 
-    :cond_1
-    if-nez v3, :cond_2
+    :cond_0
+    if-nez v3, :cond_1
 
     :try_start_2
     const-string/jumbo v6, "TimaHelper"
@@ -959,9 +843,9 @@
     :try_end_2
     .catch Lcom/android/server/pm/TimaException; {:try_start_2 .. :try_end_2} :catch_1
 
-    :cond_2
+    :cond_1
     :goto_0
-    if-nez v4, :cond_4
+    if-nez v4, :cond_3
 
     const-string/jumbo v6, "TimaHelper"
 
@@ -1002,7 +886,7 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_1
 
     :try_start_4
     const-string/jumbo v6, "TimaHelper"
@@ -1028,7 +912,7 @@
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_1
 
     :try_start_6
     const-string/jumbo v6, "TimaHelper"
@@ -1042,7 +926,7 @@
     :catchall_0
     move-exception v6
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_2
 
     const-string/jumbo v7, "TimaHelper"
 
@@ -1050,12 +934,12 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_3
+    :cond_2
     throw v6
     :try_end_6
     .catch Lcom/android/server/pm/TimaException; {:try_start_6 .. :try_end_6} :catch_1
 
-    :cond_4
+    :cond_3
     const-string/jumbo v6, "TimaHelper"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -1088,151 +972,136 @@
 .end method
 
 .method public getTimaStatus()I
-    .locals 9
+    .locals 10
 
-    const/4 v3, -0x1
+    const/4 v4, -0x1
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v4
+    move-result-wide v6
 
     const/4 v2, 0x0
 
     :try_start_0
-    iget-object v6, p0, Lcom/android/server/pm/TimaHelper;->mVersion:Ljava/lang/String;
-
-    const-string/jumbo v7, "2.0"
-
-    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_1
-
     invoke-direct {p0}, Lcom/android/server/pm/TimaHelper;->getTimaService()Landroid/service/tima/ITimaService;
 
-    move-result-object v6
+    move-result-object v3
 
-    invoke-interface {v6}, Landroid/service/tima/ITimaService;->keystoreInit()I
+    iget-object v5, p0, Lcom/android/server/pm/TimaHelper;->mVersion:Ljava/lang/String;
 
-    move-result v3
+    const-string/jumbo v8, "3.0"
 
-    invoke-direct {p0}, Lcom/android/server/pm/TimaHelper;->getTimaService()Landroid/service/tima/ITimaService;
+    invoke-virtual {v5, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result-object v6
+    move-result v8
 
-    invoke-interface {v6}, Landroid/service/tima/ITimaService;->keystoreShutdown()I
+    if-eqz v8, :cond_1
+
+    if-eqz v3, :cond_2
+
+    invoke-interface {v3}, Landroid/service/tima/ITimaService;->KeyStore3_init()I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    move-result v4
+
     :goto_0
-    invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v6, v7}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     :goto_1
-    if-eqz v3, :cond_0
+    if-eqz v4, :cond_0
 
-    const-string/jumbo v6, "TimaHelper"
+    const-string/jumbo v5, "TimaHelper"
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v8, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v8, "getTimaStatus() - Tima Status : "
+    const-string/jumbo v9, "getTimaStatus() - Tima Status : "
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-virtual {v7, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v8
 
-    const-string/jumbo v8, ", "
+    const-string/jumbo v9, ", "
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-virtual {v7, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-static {v6, v7}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v5, v8}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
-    return v3
+    return v4
 
     :cond_1
     :try_start_1
-    const-string/jumbo v7, "3.0"
+    const-string/jumbo v8, "FIPS3.0"
 
-    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v5
 
-    if-eqz v7, :cond_2
+    if-eqz v5, :cond_4
 
-    invoke-direct {p0}, Lcom/android/server/pm/TimaHelper;->getTimaService()Landroid/service/tima/ITimaService;
+    if-eqz v3, :cond_3
 
-    move-result-object v6
+    const/4 v5, 0x1
 
-    invoke-interface {v6}, Landroid/service/tima/ITimaService;->KeyStore3_init()I
+    invoke-interface {v3, v5}, Landroid/service/tima/ITimaService;->FipsKeyStore3_init(Z)I
 
-    move-result v3
+    move-result v4
 
     goto :goto_0
 
     :cond_2
-    const-string/jumbo v7, "FIPS3.0"
-
-    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_3
-
-    invoke-direct {p0}, Lcom/android/server/pm/TimaHelper;->getTimaService()Landroid/service/tima/ITimaService;
-
-    move-result-object v6
-
-    const/4 v7, 0x1
-
-    invoke-interface {v6, v7}, Landroid/service/tima/ITimaService;->FipsKeyStore3_init(Z)I
-
-    move-result v3
+    const/4 v4, -0x1
 
     goto :goto_0
 
     :cond_3
-    const-string/jumbo v6, "TimaHelper"
+    const/4 v4, -0x1
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    goto :goto_0
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    :cond_4
+    const-string/jumbo v5, "TimaHelper"
 
-    const-string/jumbo v8, "getTimaStatus() - Unknown Tima Version... "
+    new-instance v8, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v7
+    const-string/jumbo v9, "getTimaStatus() - Unknown Tima Version... "
 
-    iget-object v8, p0, Lcom/android/server/pm/TimaHelper;->mVersion:Ljava/lang/String;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v8
 
-    move-result-object v7
+    iget-object v9, p0, Lcom/android/server/pm/TimaHelper;->mVersion:Ljava/lang/String;
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v5, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
@@ -1244,11 +1113,11 @@
     move-exception v0
 
     :try_start_2
-    const-string/jumbo v6, "TimaHelper"
+    const-string/jumbo v5, "TimaHelper"
 
-    const-string/jumbo v7, "getTimaStatus() - Failed to access to tima service..."
+    const-string/jumbo v8, "getTimaStatus() - Failed to access to tima service..."
 
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {v0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
     :try_end_2
@@ -1256,7 +1125,7 @@
 
     move-result-object v2
 
-    invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v6, v7}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     goto :goto_1
 
@@ -1264,11 +1133,11 @@
     move-exception v1
 
     :try_start_3
-    const-string/jumbo v6, "TimaHelper"
+    const-string/jumbo v5, "TimaHelper"
 
-    const-string/jumbo v7, "getTimaStatus() - Failed due to unexpected error..."
+    const-string/jumbo v8, "getTimaStatus() - Failed due to unexpected error..."
 
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {v1}, Ljava/lang/Exception;->toString()Ljava/lang/String;
     :try_end_3
@@ -1276,16 +1145,16 @@
 
     move-result-object v2
 
-    invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v6, v7}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    goto/16 :goto_1
+    goto :goto_1
 
     :catchall_0
-    move-exception v6
+    move-exception v5
 
-    invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v6, v7}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v6
+    throw v5
 .end method
 
 .method public getTimaVersion()Ljava/lang/String;
@@ -1296,53 +1165,6 @@
     return-object v0
 .end method
 
-.method public initTimaHelper()V
-    .locals 1
-
-    sget-boolean v0, Lcom/android/server/pm/TimaHelper;->timaVersion20:Z
-
-    if-eqz v0, :cond_0
-
-    const-string/jumbo v0, "2.0"
-
-    iput-object v0, p0, Lcom/android/server/pm/TimaHelper;->mVersion:Ljava/lang/String;
-
-    :goto_0
-    const-string/jumbo v0, "initTimaHelper()"
-
-    invoke-virtual {p0, v0}, Lcom/android/server/pm/TimaHelper;->dump(Ljava/lang/String;)V
-
-    return-void
-
-    :cond_0
-    invoke-virtual {p0}, Lcom/android/server/pm/TimaHelper;->isFipsAvilable()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    const-string/jumbo v0, "FIPS3.0"
-
-    iput-object v0, p0, Lcom/android/server/pm/TimaHelper;->mVersion:Ljava/lang/String;
-
-    const-string/jumbo v0, "FipsTimaKeyStore"
-
-    iput-object v0, p0, Lcom/android/server/pm/TimaHelper;->mTksName:Ljava/lang/String;
-
-    goto :goto_0
-
-    :cond_1
-    const-string/jumbo v0, "3.0"
-
-    iput-object v0, p0, Lcom/android/server/pm/TimaHelper;->mVersion:Ljava/lang/String;
-
-    const-string/jumbo v0, "TIMAKeyStore"
-
-    iput-object v0, p0, Lcom/android/server/pm/TimaHelper;->mTksName:Ljava/lang/String;
-
-    goto :goto_0
-.end method
-
 .method public isFipsAvilable()Z
     .locals 1
 
@@ -1350,6 +1172,23 @@
 
     move-result v0
 
+    return v0
+.end method
+
+.method public isTimaAvailable()Z
+    .locals 2
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0}, Lcom/android/server/pm/TimaHelper;->getTimaStatus()I
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
     return v0
 .end method
 
@@ -1648,51 +1487,6 @@
 
     const/4 v3, 0x0
 
-    sget-boolean v7, Lcom/android/server/pm/TimaHelper;->timaVersion20:Z
-
-    if-eqz v7, :cond_0
-
-    const-string/jumbo v7, "TimaHelper"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "setEntry("
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string/jumbo v9, ", "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string/jumbo v9, "TimaHelper doesn\'t support Tima 2.0! error"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v3
-
-    :cond_0
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -1726,7 +1520,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_0
 
     const/4 v2, 0x0
 
@@ -1757,7 +1551,7 @@
 
     const/4 v3, 0x1
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_0
 
     :try_start_2
     const-string/jumbo v7, "TimaHelper"
@@ -1768,7 +1562,7 @@
     :try_end_2
     .catch Lcom/android/server/pm/TimaException; {:try_start_2 .. :try_end_2} :catch_1
 
-    :cond_1
+    :cond_0
     :goto_0
     const-string/jumbo v7, "TimaHelper"
 
@@ -1812,7 +1606,7 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_0
 
     :try_start_4
     const-string/jumbo v7, "TimaHelper"
@@ -1840,7 +1634,7 @@
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_0
 
     :try_start_6
     const-string/jumbo v7, "TimaHelper"
@@ -1854,7 +1648,7 @@
     :catchall_0
     move-exception v7
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_1
 
     const-string/jumbo v8, "TimaHelper"
 
@@ -1862,7 +1656,7 @@
 
     invoke-static {v8, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_2
+    :cond_1
     throw v7
     :try_end_6
     .catch Lcom/android/server/pm/TimaException; {:try_start_6 .. :try_end_6} :catch_1

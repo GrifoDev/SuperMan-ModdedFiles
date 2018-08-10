@@ -38,7 +38,7 @@
 
 
 # virtual methods
-.method appendArg(I)Lcom/android/server/pm/KnoxCommandBuilder;
+.method public appendArg(I)Lcom/android/server/pm/KnoxCommandBuilder;
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/pm/KnoxCommandBuilder;->sb:Ljava/lang/StringBuilder;
@@ -60,7 +60,7 @@
     return-object p0
 .end method
 
-.method appendArg(Ljava/lang/String;)Lcom/android/server/pm/KnoxCommandBuilder;
+.method public appendArg(Ljava/lang/String;)Lcom/android/server/pm/KnoxCommandBuilder;
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/pm/KnoxCommandBuilder;->sb:Ljava/lang/StringBuilder;
@@ -76,7 +76,7 @@
     return-object p0
 .end method
 
-.method build()Ljava/lang/String;
+.method public build()Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/KnoxCommandBuilder;->sb:Ljava/lang/StringBuilder;

@@ -36,13 +36,13 @@
 
     move v4, p4
 
-    invoke-direct/range {v0 .. v5}, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityDisplay;-><init>(Lcom/android/server/am/ActivityStackSupervisor;IIIZ)V
+    invoke-direct/range {v0 .. v5}, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityDisplay;-><init>(Lcom/android/server/am/ActivityStackSupervisor;IIII)V
 
     return-void
 .end method
 
 .method constructor <init>(Lcom/android/server/am/ActivityStackSupervisor;IIII)V
-    .locals 11
+    .locals 12
 
     iput-object p1, p0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityDisplay;->this$0:Lcom/android/server/am/ActivityStackSupervisor;
 
@@ -52,13 +52,15 @@
 
     move-result-object v0
 
-    or-int/lit8 p5, p5, 0x9
-
     iget-object v1, p1, Lcom/android/server/am/ActivityStackSupervisor;->mService:Lcom/android/server/am/ActivityManagerService;
 
     iget-object v1, v1, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
     const-string/jumbo v3, "ActivityViewVirtualDisplay"
+
+    or-int/lit8 v2, p5, 0x1
+
+    or-int/lit8 v8, v2, 0x8
 
     const/4 v2, 0x0
 
@@ -68,15 +70,15 @@
 
     const/4 v10, 0x0
 
+    const/4 v11, 0x0
+
     move v4, p2
 
     move v5, p3
 
-    move v6, p4
+    move/from16 v6, p4
 
-    move/from16 v8, p5
-
-    invoke-virtual/range {v0 .. v10}, Landroid/hardware/display/DisplayManagerGlobal;->createVirtualDisplay(Landroid/content/Context;Landroid/media/projection/MediaProjection;Ljava/lang/String;IIILandroid/view/Surface;ILandroid/hardware/display/VirtualDisplay$Callback;Landroid/os/Handler;)Landroid/hardware/display/VirtualDisplay;
+    invoke-virtual/range {v0 .. v11}, Landroid/hardware/display/DisplayManagerGlobal;->createVirtualDisplay(Landroid/content/Context;Landroid/media/projection/MediaProjection;Ljava/lang/String;IIILandroid/view/Surface;ILandroid/hardware/display/VirtualDisplay$Callback;Landroid/os/Handler;Ljava/lang/String;)Landroid/hardware/display/VirtualDisplay;
 
     move-result-object v1
 
@@ -94,47 +96,19 @@
 
     iget v2, p0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityDisplay;->mDisplayId:I
 
-    invoke-virtual {v1, v2}, Lcom/android/server/wm/WindowManagerService;->handleDisplayAdded(I)V
+    invoke-virtual {v1, v2}, Lcom/android/server/wm/WindowManagerService;->onDisplayAdded(I)V
 
     return-void
-.end method
-
-.method constructor <init>(Lcom/android/server/am/ActivityStackSupervisor;IIIZ)V
-    .locals 6
-
-    if-eqz p5, :cond_0
-
-    const/16 v5, 0x20
-
-    :goto_0
-    move-object v0, p0
-
-    move-object v1, p1
-
-    move v2, p2
-
-    move v3, p3
-
-    move v4, p4
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityDisplay;-><init>(Lcom/android/server/am/ActivityStackSupervisor;IIII)V
-
-    return-void
-
-    :cond_0
-    const/4 v5, 0x0
-
-    goto :goto_0
 .end method
 
 
 # virtual methods
-.method detachActivitiesLocked(Lcom/android/server/am/ActivityStack;)V
+.method detachStack(Lcom/android/server/am/ActivityStack;)V
     .locals 2
 
     const/4 v1, 0x0
 
-    invoke-super {p0, p1}, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->detachActivitiesLocked(Lcom/android/server/am/ActivityStack;)V
+    invoke-super {p0, p1}, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->detachStack(Lcom/android/server/am/ActivityStack;)V
 
     iget-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityDisplay;->mVirtualDisplay:Landroid/hardware/display/VirtualDisplay;
 

@@ -58,20 +58,10 @@
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_4
 
     :cond_0
     const/4 v1, 0x0
-
-    iget-object v4, p0, Lcom/android/server/enterprise/auditlog/AuditLogService$1;->this$0:Lcom/android/server/enterprise/auditlog/AuditLogService;
-
-    invoke-static {v4}, Lcom/android/server/enterprise/auditlog/AuditLogService;->-get0(Lcom/android/server/enterprise/auditlog/AuditLogService;)Ljava/util/Map;
-
-    move-result-object v4
-
-    invoke-interface {v4}, Ljava/util/Map;->values()Ljava/util/Collection;
-
-    move-result-object v2
 
     iget-object v4, p0, Lcom/android/server/enterprise/auditlog/AuditLogService$1;->this$0:Lcom/android/server/enterprise/auditlog/AuditLogService;
 
@@ -82,6 +72,16 @@
     monitor-enter v5
 
     :try_start_0
+    iget-object v4, p0, Lcom/android/server/enterprise/auditlog/AuditLogService$1;->this$0:Lcom/android/server/enterprise/auditlog/AuditLogService;
+
+    invoke-static {v4}, Lcom/android/server/enterprise/auditlog/AuditLogService;->-get0(Lcom/android/server/enterprise/auditlog/AuditLogService;)Ljava/util/Map;
+
+    move-result-object v4
+
+    invoke-interface {v4}, Ljava/util/Map;->values()Ljava/util/Collection;
+
+    move-result-object v2
+
     invoke-interface {v2}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
@@ -91,7 +91,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -117,13 +117,20 @@
     throw v4
 
     :cond_1
-    monitor-exit v5
+    :try_start_1
+    iget-object v4, p0, Lcom/android/server/enterprise/auditlog/AuditLogService$1;->this$0:Lcom/android/server/enterprise/auditlog/AuditLogService;
+
+    invoke-static {v4}, Lcom/android/server/enterprise/auditlog/AuditLogService;->-wrap0(Lcom/android/server/enterprise/auditlog/AuditLogService;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     :cond_2
-    :goto_1
-    return-void
+    monitor-exit v5
 
     :cond_3
+    return-void
+
+    :cond_4
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v4
@@ -134,7 +141,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_3
 
     iget-object v4, p0, Lcom/android/server/enterprise/auditlog/AuditLogService$1;->this$0:Lcom/android/server/enterprise/auditlog/AuditLogService;
 
@@ -146,31 +153,31 @@
 
     invoke-static {v4}, Lcom/android/server/enterprise/auditlog/AuditLogService;->-get0(Lcom/android/server/enterprise/auditlog/AuditLogService;)Ljava/util/Map;
 
+    move-result-object v5
+
+    monitor-enter v5
+
+    :try_start_2
+    iget-object v4, p0, Lcom/android/server/enterprise/auditlog/AuditLogService$1;->this$0:Lcom/android/server/enterprise/auditlog/AuditLogService;
+
+    invoke-static {v4}, Lcom/android/server/enterprise/auditlog/AuditLogService;->-get0(Lcom/android/server/enterprise/auditlog/AuditLogService;)Ljava/util/Map;
+
     move-result-object v4
 
     invoke-interface {v4}, Ljava/util/Map;->values()Ljava/util/Collection;
 
     move-result-object v2
 
-    iget-object v4, p0, Lcom/android/server/enterprise/auditlog/AuditLogService$1;->this$0:Lcom/android/server/enterprise/auditlog/AuditLogService;
-
-    invoke-static {v4}, Lcom/android/server/enterprise/auditlog/AuditLogService;->-get0(Lcom/android/server/enterprise/auditlog/AuditLogService;)Ljava/util/Map;
-
-    move-result-object v5
-
-    monitor-enter v5
-
-    :try_start_1
     invoke-interface {v2}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
-    :goto_2
+    :goto_1
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_1
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -185,10 +192,10 @@
     const/4 v4, 0x1
 
     invoke-virtual {v1, v4}, Lcom/android/server/enterprise/auditlog/Admin;->setBootCompleted(Z)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    goto :goto_2
+    goto :goto_1
 
     :catchall_1
     move-exception v4
@@ -196,13 +203,4 @@
     monitor-exit v5
 
     throw v4
-
-    :cond_4
-    monitor-exit v5
-
-    iget-object v4, p0, Lcom/android/server/enterprise/auditlog/AuditLogService$1;->this$0:Lcom/android/server/enterprise/auditlog/AuditLogService;
-
-    invoke-static {v4}, Lcom/android/server/enterprise/auditlog/AuditLogService;->-wrap0(Lcom/android/server/enterprise/auditlog/AuditLogService;)V
-
-    goto :goto_1
 .end method

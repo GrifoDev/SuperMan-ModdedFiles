@@ -51,21 +51,13 @@
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 3
 
-    invoke-static {}, Lcom/android/server/enterprise/dlp/DLPManagerPolicyService;->-get0()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "onServiceConnected DLPServiceConnection"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     invoke-static {p2}, Lcom/samsung/android/knox/dlp/IFrameworkConnector$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/knox/dlp/IFrameworkConnector;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/server/enterprise/dlp/DLPManagerPolicyService$DLPServiceConnection;->mDLPInterface:Lcom/samsung/android/knox/dlp/IFrameworkConnector;
 
-    invoke-static {}, Lcom/android/server/enterprise/dlp/DLPManagerPolicyService;->-get3()Ljava/util/Map;
+    invoke-static {}, Lcom/android/server/enterprise/dlp/DLPManagerPolicyService;->-get4()Ljava/util/Map;
 
     move-result-object v0
 
@@ -81,7 +73,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-static {}, Lcom/android/server/enterprise/dlp/DLPManagerPolicyService;->-get3()Ljava/util/Map;
+    invoke-static {}, Lcom/android/server/enterprise/dlp/DLPManagerPolicyService;->-get4()Ljava/util/Map;
 
     move-result-object v0
 
@@ -94,7 +86,7 @@
     invoke-interface {v0, v1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_0
-    invoke-static {}, Lcom/android/server/enterprise/dlp/DLPManagerPolicyService;->-get3()Ljava/util/Map;
+    invoke-static {}, Lcom/android/server/enterprise/dlp/DLPManagerPolicyService;->-get4()Ljava/util/Map;
 
     move-result-object v0
 
@@ -153,21 +145,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-static {}, Lcom/android/server/enterprise/dlp/DLPManagerPolicyService;->-get0()Ljava/lang/String;
-
-    move-result-object v0
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "DLP Interface: "
+    const-string/jumbo v2, " DLP Interface: "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -179,21 +157,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-static {}, Lcom/android/server/enterprise/dlp/DLPManagerPolicyService;->-get0()Ljava/lang/String;
-
-    move-result-object v0
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "DLP ComponentName className: "
+    const-string/jumbo v2, " DLP ComponentName className: "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -211,7 +175,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/samsung/android/knox/dlp/log/DLPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -219,17 +183,9 @@
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 3
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    invoke-static {}, Lcom/android/server/enterprise/dlp/DLPManagerPolicyService;->-get0()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "onServiceDisconnected DLPServiceConnection"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iput-object v2, p0, Lcom/android/server/enterprise/dlp/DLPManagerPolicyService$DLPServiceConnection;->mDLPInterface:Lcom/samsung/android/knox/dlp/IFrameworkConnector;
+    iput-object v0, p0, Lcom/android/server/enterprise/dlp/DLPManagerPolicyService$DLPServiceConnection;->mDLPInterface:Lcom/samsung/android/knox/dlp/IFrameworkConnector;
 
     invoke-static {}, Lcom/android/server/enterprise/dlp/DLPManagerPolicyService;->-get1()Ljava/util/concurrent/CountDownLatch;
 
@@ -244,7 +200,7 @@
     invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
     :cond_0
-    invoke-static {}, Lcom/android/server/enterprise/dlp/DLPManagerPolicyService;->-get3()Ljava/util/Map;
+    invoke-static {}, Lcom/android/server/enterprise/dlp/DLPManagerPolicyService;->-get4()Ljava/util/Map;
 
     move-result-object v0
 
@@ -284,9 +240,9 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/samsung/android/knox/dlp/log/DLPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-static {}, Lcom/android/server/enterprise/dlp/DLPManagerPolicyService;->-get3()Ljava/util/Map;
+    invoke-static {}, Lcom/android/server/enterprise/dlp/DLPManagerPolicyService;->-get4()Ljava/util/Map;
 
     move-result-object v0
 
@@ -298,35 +254,6 @@
 
     invoke-interface {v0, v1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    :goto_0
-    return-void
-
     :cond_1
-    invoke-static {}, Lcom/android/server/enterprise/dlp/DLPManagerPolicyService;->-get0()Ljava/lang/String;
-
-    move-result-object v0
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "onServiceDisconnected: DLPServiceConnection : Entry is not there for UID:"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget v2, p0, Lcom/android/server/enterprise/dlp/DLPManagerPolicyService$DLPServiceConnection;->mUserInfoId:I
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
+    return-void
 .end method

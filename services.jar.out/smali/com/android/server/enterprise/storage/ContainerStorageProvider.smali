@@ -45,9 +45,7 @@
 .method static constructor <clinit>()V
     .locals 4
 
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     const-class v0, Lcom/android/server/enterprise/storage/ContainerStorageProvider;
 
@@ -55,34 +53,33 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     sput-boolean v0, Lcom/android/server/enterprise/storage/ContainerStorageProvider;->-assertionsDisabled:Z
 
-    sput-object v2, Lcom/android/server/enterprise/storage/ContainerStorageProvider;->sUriMatcher:Landroid/content/UriMatcher;
+    sput-object v1, Lcom/android/server/enterprise/storage/ContainerStorageProvider;->sUriMatcher:Landroid/content/UriMatcher;
 
-    sput-object v2, Lcom/android/server/enterprise/storage/ContainerStorageProvider;->mQuotesPreferencesProjectionMap:Ljava/util/HashMap;
+    sput-object v1, Lcom/android/server/enterprise/storage/ContainerStorageProvider;->mQuotesPreferencesProjectionMap:Ljava/util/HashMap;
 
-    sput-object v2, Lcom/android/server/enterprise/storage/ContainerStorageProvider;->mSelfInstance:Lcom/android/server/enterprise/storage/ContainerStorageProvider;
+    sput-object v1, Lcom/android/server/enterprise/storage/ContainerStorageProvider;->mSelfInstance:Lcom/android/server/enterprise/storage/ContainerStorageProvider;
 
     new-instance v0, Landroid/content/UriMatcher;
 
-    const/4 v2, -0x1
+    const/4 v1, -0x1
 
-    invoke-direct {v0, v2}, Landroid/content/UriMatcher;-><init>(I)V
+    invoke-direct {v0, v1}, Landroid/content/UriMatcher;-><init>(I)V
 
     sput-object v0, Lcom/android/server/enterprise/storage/ContainerStorageProvider;->sUriMatcher:Landroid/content/UriMatcher;
 
     sget-object v0, Lcom/android/server/enterprise/storage/ContainerStorageProvider;->sUriMatcher:Landroid/content/UriMatcher;
 
-    sget-object v2, Lcom/android/server/enterprise/storage/ContainerDBConstants;->AUTHORITY:Ljava/lang/String;
+    sget-object v1, Lcom/android/server/enterprise/storage/ContainerDBConstants;->AUTHORITY:Ljava/lang/String;
 
-    sget-object v3, Lcom/android/server/enterprise/storage/ContainerDBConstants;->CONTAINER_TABLE_NAME:Ljava/lang/String;
+    sget-object v2, Lcom/android/server/enterprise/storage/ContainerDBConstants;->CONTAINER_TABLE_NAME:Ljava/lang/String;
 
-    invoke-virtual {v0, v2, v3, v1}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
+    const/4 v3, 0x1
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
 
     new-instance v0, Ljava/util/HashMap;
 
@@ -295,11 +292,6 @@
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
 
     return-void
-
-    :cond_0
-    move v0, v1
-
-    goto/16 :goto_0
 .end method
 
 .method private constructor <init>(Landroid/content/Context;)V

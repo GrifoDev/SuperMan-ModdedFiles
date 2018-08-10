@@ -67,7 +67,7 @@
 
     iput-object v0, p0, Lcom/android/server/enterprise/sso/GenericSSOService$SSOServiceConnection;->mService:Lcom/samsung/android/knox/sso/serviceprovider/GenericSSOSupportSolution;
 
-    invoke-static {}, Lcom/android/server/enterprise/sso/GenericSSOService;->-get7()Ljava/util/Map;
+    invoke-static {}, Lcom/android/server/enterprise/sso/GenericSSOService;->-get5()Ljava/util/Map;
 
     move-result-object v0
 
@@ -79,7 +79,7 @@
 
     invoke-interface {v0, v1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {}, Lcom/android/server/enterprise/sso/GenericSSOService;->-get7()Ljava/util/Map;
+    invoke-static {}, Lcom/android/server/enterprise/sso/GenericSSOService;->-get5()Ljava/util/Map;
 
     move-result-object v0
 
@@ -91,13 +91,13 @@
 
     invoke-interface {v0, v1, p0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {}, Lcom/android/server/enterprise/sso/GenericSSOService;->-get1()Ljava/util/concurrent/CountDownLatch;
+    invoke-static {}, Lcom/android/server/enterprise/sso/GenericSSOService;->-get0()Ljava/util/concurrent/CountDownLatch;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    invoke-static {}, Lcom/android/server/enterprise/sso/GenericSSOService;->-get1()Ljava/util/concurrent/CountDownLatch;
+    invoke-static {}, Lcom/android/server/enterprise/sso/GenericSSOService;->-get0()Ljava/util/concurrent/CountDownLatch;
 
     move-result-object v0
 
@@ -120,7 +120,7 @@
 
     iput-object v2, p0, Lcom/android/server/enterprise/sso/GenericSSOService$SSOServiceConnection;->mService:Lcom/samsung/android/knox/sso/serviceprovider/GenericSSOSupportSolution;
 
-    invoke-static {}, Lcom/android/server/enterprise/sso/GenericSSOService;->-get7()Ljava/util/Map;
+    invoke-static {}, Lcom/android/server/enterprise/sso/GenericSSOService;->-get5()Ljava/util/Map;
 
     move-result-object v0
 
@@ -132,13 +132,13 @@
 
     invoke-interface {v0, v1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {}, Lcom/android/server/enterprise/sso/GenericSSOService;->-get1()Ljava/util/concurrent/CountDownLatch;
+    invoke-static {}, Lcom/android/server/enterprise/sso/GenericSSOService;->-get0()Ljava/util/concurrent/CountDownLatch;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    invoke-static {}, Lcom/android/server/enterprise/sso/GenericSSOService;->-get1()Ljava/util/concurrent/CountDownLatch;
+    invoke-static {}, Lcom/android/server/enterprise/sso/GenericSSOService;->-get0()Ljava/util/concurrent/CountDownLatch;
 
     move-result-object v0
 

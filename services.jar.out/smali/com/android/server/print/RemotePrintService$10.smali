@@ -45,7 +45,7 @@
 
     iget-object v1, p0, Lcom/android/server/print/RemotePrintService$10;->val$printerId:Landroid/print/PrinterId;
 
-    invoke-static {v0, v1}, Lcom/android/server/print/RemotePrintService;->-wrap11(Lcom/android/server/print/RemotePrintService;Landroid/print/PrinterId;)V
+    invoke-static {v0, v1}, Lcom/android/server/print/RemotePrintService;->-wrap12(Lcom/android/server/print/RemotePrintService;Landroid/print/PrinterId;)V
 
     return-void
 .end method

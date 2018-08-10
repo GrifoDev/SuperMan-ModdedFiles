@@ -25,6 +25,10 @@
 
 .field static final KEY_USAGE_STATS:Ljava/lang/String; = "usage_stats"
 
+.field private static final RETENTION_LEN_KEY:Ljava/lang/String; = "ro.usagestats.chooser.retention"
+
+.field private static final SELECTION_LOG_RETENTION_LEN:I
+
 .field private static final TAG:Ljava/lang/String; = "UsageStatsDatabase"
 
 
@@ -55,6 +59,22 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 2
+
+    const-string/jumbo v0, "ro.usagestats.chooser.retention"
+
+    const/16 v1, 0xe
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
+
+    move-result v0
+
+    sput v0, Lcom/android/server/usage/UsageStatsDatabase;->SELECTION_LOG_RETENTION_LEN:I
+
+    return-void
+.end method
+
 .method public constructor <init>(Ljava/io/File;)V
     .locals 4
 
@@ -522,9 +542,9 @@
     :catchall_5
     move-exception v9
 
-    move-object v10, v11
-
     move-object v4, v5
+
+    move-object v10, v11
 
     goto :goto_6
 
@@ -915,6 +935,147 @@
     iput-object v0, p1, Lcom/android/server/usage/IntervalStats;->events:Landroid/app/usage/TimeSparseArray;
 
     return-object p1
+.end method
+
+.method private static pruneChooserCountsOlderThan(Ljava/io/File;J)V
+    .locals 15
+
+    invoke-virtual {p0}, Ljava/io/File;->listFiles()[Ljava/io/File;
+
+    move-result-object v5
+
+    if-eqz v5, :cond_4
+
+    const/4 v11, 0x0
+
+    array-length v12, v5
+
+    :goto_0
+    if-ge v11, v12, :cond_4
+
+    aget-object v4, v5, v11
+
+    invoke-virtual {v4}, Ljava/io/File;->getPath()Ljava/lang/String;
+
+    move-result-object v7
+
+    const-string/jumbo v13, ".bak"
+
+    invoke-virtual {v7, v13}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+
+    move-result v13
+
+    if-eqz v13, :cond_0
+
+    new-instance v4, Ljava/io/File;
+
+    invoke-virtual {v7}, Ljava/lang/String;->length()I
+
+    move-result v13
+
+    const-string/jumbo v14, ".bak"
+
+    invoke-virtual {v14}, Ljava/lang/String;->length()I
+
+    move-result v14
+
+    sub-int/2addr v13, v14
+
+    const/4 v14, 0x0
+
+    invoke-virtual {v7, v14, v13}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-direct {v4, v13}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    :cond_0
+    :try_start_0
+    invoke-static {v4}, Lcom/android/server/usage/UsageStatsXml;->parseBeginTime(Ljava/io/File;)J
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-wide v2
+
+    :goto_1
+    cmp-long v13, v2, p1
+
+    if-gez v13, :cond_3
+
+    :try_start_1
+    new-instance v0, Landroid/util/AtomicFile;
+
+    invoke-direct {v0, v4}, Landroid/util/AtomicFile;-><init>(Ljava/io/File;)V
+
+    new-instance v10, Lcom/android/server/usage/IntervalStats;
+
+    invoke-direct {v10}, Lcom/android/server/usage/IntervalStats;-><init>()V
+
+    invoke-static {v0, v10}, Lcom/android/server/usage/UsageStatsXml;->read(Landroid/util/AtomicFile;Lcom/android/server/usage/IntervalStats;)V
+
+    iget-object v13, v10, Lcom/android/server/usage/IntervalStats;->packageStats:Landroid/util/ArrayMap;
+
+    invoke-virtual {v13}, Landroid/util/ArrayMap;->size()I
+
+    move-result v8
+
+    const/4 v6, 0x0
+
+    :goto_2
+    if-ge v6, v8, :cond_2
+
+    iget-object v13, v10, Lcom/android/server/usage/IntervalStats;->packageStats:Landroid/util/ArrayMap;
+
+    invoke-virtual {v13, v6}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v9
+
+    check-cast v9, Landroid/app/usage/UsageStats;
+
+    iget-object v13, v9, Landroid/app/usage/UsageStats;->mChooserCounts:Landroid/util/ArrayMap;
+
+    if-eqz v13, :cond_1
+
+    iget-object v13, v9, Landroid/app/usage/UsageStats;->mChooserCounts:Landroid/util/ArrayMap;
+
+    invoke-virtual {v13}, Landroid/util/ArrayMap;->clear()V
+
+    :cond_1
+    add-int/lit8 v6, v6, 0x1
+
+    goto :goto_2
+
+    :catch_0
+    move-exception v1
+
+    const-wide/16 v2, 0x0
+
+    goto :goto_1
+
+    :cond_2
+    invoke-static {v0, v10}, Lcom/android/server/usage/UsageStatsXml;->write(Landroid/util/AtomicFile;Lcom/android/server/usage/IntervalStats;)V
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
+
+    :cond_3
+    :goto_3
+    add-int/lit8 v11, v11, 0x1
+
+    goto :goto_0
+
+    :catch_1
+    move-exception v1
+
+    const-string/jumbo v13, "UsageStatsDatabase"
+
+    const-string/jumbo v14, "Failed to delete chooser counts from usage stats file"
+
+    invoke-static {v13, v14, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_3
+
+    :cond_4
+    return-void
 .end method
 
 .method private static pruneFilesOlderThan(Ljava/io/File;J)V
@@ -2489,135 +2650,173 @@
 .end method
 
 .method public prune(JZ)V
-    .locals 5
+    .locals 7
 
-    iget-object v1, p0, Lcom/android/server/usage/UsageStatsDatabase;->mLock:Ljava/lang/Object;
+    iget-object v2, p0, Lcom/android/server/usage/UsageStatsDatabase;->mLock:Ljava/lang/Object;
 
-    monitor-enter v1
+    monitor-enter v2
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/usage/UsageStatsDatabase;->mCal:Lcom/android/server/usage/UnixCalendar;
+    iget-object v1, p0, Lcom/android/server/usage/UsageStatsDatabase;->mCal:Lcom/android/server/usage/UnixCalendar;
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/usage/UnixCalendar;->setTimeInMillis(J)V
+    invoke-virtual {v1, p1, p2}, Lcom/android/server/usage/UnixCalendar;->setTimeInMillis(J)V
 
     if-nez p3, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/usage/UsageStatsDatabase;->mCal:Lcom/android/server/usage/UnixCalendar;
+    iget-object v1, p0, Lcom/android/server/usage/UsageStatsDatabase;->mCal:Lcom/android/server/usage/UnixCalendar;
 
-    const/4 v2, -0x3
+    const/4 v3, -0x3
 
-    invoke-virtual {v0, v2}, Lcom/android/server/usage/UnixCalendar;->addYears(I)V
+    invoke-virtual {v1, v3}, Lcom/android/server/usage/UnixCalendar;->addYears(I)V
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/usage/UsageStatsDatabase;->mIntervalDirs:[Ljava/io/File;
+    iget-object v1, p0, Lcom/android/server/usage/UsageStatsDatabase;->mIntervalDirs:[Ljava/io/File;
 
-    const/4 v2, 0x3
+    const/4 v3, 0x3
 
-    aget-object v0, v0, v2
+    aget-object v1, v1, v3
 
-    iget-object v2, p0, Lcom/android/server/usage/UsageStatsDatabase;->mCal:Lcom/android/server/usage/UnixCalendar;
+    iget-object v3, p0, Lcom/android/server/usage/UsageStatsDatabase;->mCal:Lcom/android/server/usage/UnixCalendar;
 
-    invoke-virtual {v2}, Lcom/android/server/usage/UnixCalendar;->getTimeInMillis()J
+    invoke-virtual {v3}, Lcom/android/server/usage/UnixCalendar;->getTimeInMillis()J
 
-    move-result-wide v2
+    move-result-wide v4
 
-    invoke-static {v0, v2, v3}, Lcom/android/server/usage/UsageStatsDatabase;->pruneFilesOlderThan(Ljava/io/File;J)V
+    invoke-static {v1, v4, v5}, Lcom/android/server/usage/UsageStatsDatabase;->pruneFilesOlderThan(Ljava/io/File;J)V
 
-    iget-object v0, p0, Lcom/android/server/usage/UsageStatsDatabase;->mCal:Lcom/android/server/usage/UnixCalendar;
+    iget-object v1, p0, Lcom/android/server/usage/UsageStatsDatabase;->mCal:Lcom/android/server/usage/UnixCalendar;
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/usage/UnixCalendar;->setTimeInMillis(J)V
+    invoke-virtual {v1, p1, p2}, Lcom/android/server/usage/UnixCalendar;->setTimeInMillis(J)V
 
     if-nez p3, :cond_1
 
-    iget-object v0, p0, Lcom/android/server/usage/UsageStatsDatabase;->mCal:Lcom/android/server/usage/UnixCalendar;
+    iget-object v1, p0, Lcom/android/server/usage/UsageStatsDatabase;->mCal:Lcom/android/server/usage/UnixCalendar;
 
-    const/4 v2, -0x6
+    const/4 v3, -0x6
 
-    invoke-virtual {v0, v2}, Lcom/android/server/usage/UnixCalendar;->addMonths(I)V
+    invoke-virtual {v1, v3}, Lcom/android/server/usage/UnixCalendar;->addMonths(I)V
 
     :cond_1
-    iget-object v0, p0, Lcom/android/server/usage/UsageStatsDatabase;->mIntervalDirs:[Ljava/io/File;
+    iget-object v1, p0, Lcom/android/server/usage/UsageStatsDatabase;->mIntervalDirs:[Ljava/io/File;
 
-    const/4 v2, 0x2
+    const/4 v3, 0x2
 
-    aget-object v0, v0, v2
+    aget-object v1, v1, v3
 
-    iget-object v2, p0, Lcom/android/server/usage/UsageStatsDatabase;->mCal:Lcom/android/server/usage/UnixCalendar;
+    iget-object v3, p0, Lcom/android/server/usage/UsageStatsDatabase;->mCal:Lcom/android/server/usage/UnixCalendar;
 
-    invoke-virtual {v2}, Lcom/android/server/usage/UnixCalendar;->getTimeInMillis()J
+    invoke-virtual {v3}, Lcom/android/server/usage/UnixCalendar;->getTimeInMillis()J
 
-    move-result-wide v2
+    move-result-wide v4
 
-    invoke-static {v0, v2, v3}, Lcom/android/server/usage/UsageStatsDatabase;->pruneFilesOlderThan(Ljava/io/File;J)V
+    invoke-static {v1, v4, v5}, Lcom/android/server/usage/UsageStatsDatabase;->pruneFilesOlderThan(Ljava/io/File;J)V
 
-    iget-object v0, p0, Lcom/android/server/usage/UsageStatsDatabase;->mCal:Lcom/android/server/usage/UnixCalendar;
+    iget-object v1, p0, Lcom/android/server/usage/UsageStatsDatabase;->mCal:Lcom/android/server/usage/UnixCalendar;
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/usage/UnixCalendar;->setTimeInMillis(J)V
+    invoke-virtual {v1, p1, p2}, Lcom/android/server/usage/UnixCalendar;->setTimeInMillis(J)V
 
     if-nez p3, :cond_2
 
-    iget-object v0, p0, Lcom/android/server/usage/UsageStatsDatabase;->mCal:Lcom/android/server/usage/UnixCalendar;
+    iget-object v1, p0, Lcom/android/server/usage/UsageStatsDatabase;->mCal:Lcom/android/server/usage/UnixCalendar;
 
-    const/4 v2, -0x4
+    const/4 v3, -0x4
 
-    invoke-virtual {v0, v2}, Lcom/android/server/usage/UnixCalendar;->addWeeks(I)V
+    invoke-virtual {v1, v3}, Lcom/android/server/usage/UnixCalendar;->addWeeks(I)V
 
     :cond_2
-    iget-object v0, p0, Lcom/android/server/usage/UsageStatsDatabase;->mIntervalDirs:[Ljava/io/File;
+    iget-object v1, p0, Lcom/android/server/usage/UsageStatsDatabase;->mIntervalDirs:[Ljava/io/File;
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    aget-object v0, v0, v2
+    aget-object v1, v1, v3
 
-    iget-object v2, p0, Lcom/android/server/usage/UsageStatsDatabase;->mCal:Lcom/android/server/usage/UnixCalendar;
+    iget-object v3, p0, Lcom/android/server/usage/UsageStatsDatabase;->mCal:Lcom/android/server/usage/UnixCalendar;
 
-    invoke-virtual {v2}, Lcom/android/server/usage/UnixCalendar;->getTimeInMillis()J
+    invoke-virtual {v3}, Lcom/android/server/usage/UnixCalendar;->getTimeInMillis()J
 
-    move-result-wide v2
+    move-result-wide v4
 
-    invoke-static {v0, v2, v3}, Lcom/android/server/usage/UsageStatsDatabase;->pruneFilesOlderThan(Ljava/io/File;J)V
+    invoke-static {v1, v4, v5}, Lcom/android/server/usage/UsageStatsDatabase;->pruneFilesOlderThan(Ljava/io/File;J)V
 
-    iget-object v0, p0, Lcom/android/server/usage/UsageStatsDatabase;->mCal:Lcom/android/server/usage/UnixCalendar;
+    iget-object v1, p0, Lcom/android/server/usage/UsageStatsDatabase;->mCal:Lcom/android/server/usage/UnixCalendar;
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/usage/UnixCalendar;->setTimeInMillis(J)V
+    invoke-virtual {v1, p1, p2}, Lcom/android/server/usage/UnixCalendar;->setTimeInMillis(J)V
 
     if-nez p3, :cond_3
 
-    iget-object v0, p0, Lcom/android/server/usage/UsageStatsDatabase;->mCal:Lcom/android/server/usage/UnixCalendar;
+    iget-object v1, p0, Lcom/android/server/usage/UsageStatsDatabase;->mCal:Lcom/android/server/usage/UnixCalendar;
 
-    const/4 v2, -0x7
+    const/4 v3, -0x7
 
-    invoke-virtual {v0, v2}, Lcom/android/server/usage/UnixCalendar;->addDays(I)V
+    invoke-virtual {v1, v3}, Lcom/android/server/usage/UnixCalendar;->addDays(I)V
 
     :cond_3
-    iget-object v0, p0, Lcom/android/server/usage/UsageStatsDatabase;->mIntervalDirs:[Ljava/io/File;
+    iget-object v1, p0, Lcom/android/server/usage/UsageStatsDatabase;->mIntervalDirs:[Ljava/io/File;
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    aget-object v0, v0, v2
+    aget-object v1, v1, v3
 
-    iget-object v2, p0, Lcom/android/server/usage/UsageStatsDatabase;->mCal:Lcom/android/server/usage/UnixCalendar;
+    iget-object v3, p0, Lcom/android/server/usage/UsageStatsDatabase;->mCal:Lcom/android/server/usage/UnixCalendar;
 
-    invoke-virtual {v2}, Lcom/android/server/usage/UnixCalendar;->getTimeInMillis()J
+    invoke-virtual {v3}, Lcom/android/server/usage/UnixCalendar;->getTimeInMillis()J
 
-    move-result-wide v2
+    move-result-wide v4
 
-    invoke-static {v0, v2, v3}, Lcom/android/server/usage/UsageStatsDatabase;->pruneFilesOlderThan(Ljava/io/File;J)V
+    invoke-static {v1, v4, v5}, Lcom/android/server/usage/UsageStatsDatabase;->pruneFilesOlderThan(Ljava/io/File;J)V
 
+    iget-object v1, p0, Lcom/android/server/usage/UsageStatsDatabase;->mCal:Lcom/android/server/usage/UnixCalendar;
+
+    invoke-virtual {v1, p1, p2}, Lcom/android/server/usage/UnixCalendar;->setTimeInMillis(J)V
+
+    iget-object v1, p0, Lcom/android/server/usage/UsageStatsDatabase;->mCal:Lcom/android/server/usage/UnixCalendar;
+
+    sget v3, Lcom/android/server/usage/UsageStatsDatabase;->SELECTION_LOG_RETENTION_LEN:I
+
+    neg-int v3, v3
+
+    invoke-virtual {v1, v3}, Lcom/android/server/usage/UnixCalendar;->addDays(I)V
+
+    const/4 v0, 0x0
+
+    :goto_0
+    iget-object v1, p0, Lcom/android/server/usage/UsageStatsDatabase;->mIntervalDirs:[Ljava/io/File;
+
+    array-length v1, v1
+
+    if-ge v0, v1, :cond_4
+
+    iget-object v1, p0, Lcom/android/server/usage/UsageStatsDatabase;->mIntervalDirs:[Ljava/io/File;
+
+    aget-object v1, v1, v0
+
+    iget-object v3, p0, Lcom/android/server/usage/UsageStatsDatabase;->mCal:Lcom/android/server/usage/UnixCalendar;
+
+    invoke-virtual {v3}, Lcom/android/server/usage/UnixCalendar;->getTimeInMillis()J
+
+    move-result-wide v4
+
+    invoke-static {v1, v4, v5}, Lcom/android/server/usage/UsageStatsDatabase;->pruneChooserCountsOlderThan(Ljava/io/File;J)V
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_4
     invoke-direct {p0}, Lcom/android/server/usage/UsageStatsDatabase;->indexFilesLocked()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit v1
+    monitor-exit v2
 
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v2
 
-    throw v0
+    throw v1
 .end method
 
 .method public pruneAll(J)V

@@ -15,6 +15,8 @@
 
 
 # instance fields
+.field private mEnterTimeMs:J
+
 .field final synthetic this$0:Landroid/net/dhcp/DhcpClient;
 
 
@@ -32,7 +34,7 @@
 .method private messageName(I)Ljava/lang/String;
     .locals 2
 
-    invoke-static {}, Landroid/net/dhcp/DhcpClient;->-get30()Landroid/util/SparseArray;
+    invoke-static {}, Landroid/net/dhcp/DhcpClient;->-get31()Landroid/util/SparseArray;
 
     move-result-object v0
 
@@ -165,19 +167,51 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    iget-object v0, p0, Landroid/net/dhcp/DhcpClient$LoggingState;->this$0:Landroid/net/dhcp/DhcpClient;
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    invoke-static {v0}, Landroid/net/dhcp/DhcpClient;->-get14(Landroid/net/dhcp/DhcpClient;)Ljava/lang/String;
+    move-result-wide v0
 
-    move-result-object v0
+    iput-wide v0, p0, Landroid/net/dhcp/DhcpClient$LoggingState;->mEnterTimeMs:J
+
+    return-void
+.end method
+
+.method public exit()V
+    .locals 6
+
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+
+    move-result-wide v2
+
+    iget-wide v4, p0, Landroid/net/dhcp/DhcpClient$LoggingState;->mEnterTimeMs:J
+
+    sub-long v0, v2, v4
+
+    iget-object v2, p0, Landroid/net/dhcp/DhcpClient$LoggingState;->this$0:Landroid/net/dhcp/DhcpClient;
 
     invoke-virtual {p0}, Landroid/net/dhcp/DhcpClient$LoggingState;->getName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-static {v0, v1}, Landroid/net/metrics/DhcpClientEvent;->logStateEvent(Ljava/lang/String;Ljava/lang/String;)V
+    long-to-int v4, v0
+
+    invoke-static {v2, v3, v4}, Landroid/net/dhcp/DhcpClient;->-wrap11(Landroid/net/dhcp/DhcpClient;Ljava/lang/String;I)V
 
     return-void
+.end method
+
+.method public getName()Ljava/lang/String;
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/net/dhcp/DhcpClient$LoggingState;->getClass()Ljava/lang/Class;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public processMessage(Landroid/os/Message;)Z

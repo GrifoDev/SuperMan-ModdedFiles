@@ -1,4 +1,4 @@
-.class Lcom/android/server/TextServicesManagerService$TextServicesSettings;
+.class final Lcom/android/server/TextServicesManagerService$TextServicesSettings;
 .super Ljava/lang/Object;
 .source "TextServicesManagerService.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x1a
     name = "TextServicesSettings"
 .end annotation
 

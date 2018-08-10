@@ -39,13 +39,13 @@
 
 # virtual methods
 .method public run()V
-    .locals 5
+    .locals 4
 
     iget-object v1, p0, Lcom/android/server/pm/PackageInstallerService$InternalCallback$1;->this$1:Lcom/android/server/pm/PackageInstallerService$InternalCallback;
 
     iget-object v1, v1, Lcom/android/server/pm/PackageInstallerService$InternalCallback;->this$0:Lcom/android/server/pm/PackageInstallerService;
 
-    invoke-static {v1}, Lcom/android/server/pm/PackageInstallerService;->-get3(Lcom/android/server/pm/PackageInstallerService;)Landroid/util/SparseArray;
+    invoke-static {v1}, Lcom/android/server/pm/PackageInstallerService;->-get2(Lcom/android/server/pm/PackageInstallerService;)Landroid/util/SparseArray;
 
     move-result-object v2
 
@@ -56,7 +56,7 @@
 
     iget-object v1, v1, Lcom/android/server/pm/PackageInstallerService$InternalCallback;->this$0:Lcom/android/server/pm/PackageInstallerService;
 
-    invoke-static {v1}, Lcom/android/server/pm/PackageInstallerService;->-get3(Lcom/android/server/pm/PackageInstallerService;)Landroid/util/SparseArray;
+    invoke-static {v1}, Lcom/android/server/pm/PackageInstallerService;->-get2(Lcom/android/server/pm/PackageInstallerService;)Landroid/util/SparseArray;
 
     move-result-object v1
 
@@ -70,17 +70,9 @@
 
     iget-object v1, v1, Lcom/android/server/pm/PackageInstallerService$InternalCallback;->this$0:Lcom/android/server/pm/PackageInstallerService;
 
-    invoke-static {v1}, Lcom/android/server/pm/PackageInstallerService;->-get1(Lcom/android/server/pm/PackageInstallerService;)Landroid/util/SparseArray;
-
-    move-result-object v1
-
     iget-object v3, p0, Lcom/android/server/pm/PackageInstallerService$InternalCallback$1;->val$session:Lcom/android/server/pm/PackageInstallerSession;
 
-    iget v3, v3, Lcom/android/server/pm/PackageInstallerSession;->sessionId:I
-
-    iget-object v4, p0, Lcom/android/server/pm/PackageInstallerService$InternalCallback$1;->val$session:Lcom/android/server/pm/PackageInstallerSession;
-
-    invoke-virtual {v1, v3, v4}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-static {v1, v3}, Lcom/android/server/pm/PackageInstallerService;->-wrap2(Lcom/android/server/pm/PackageInstallerService;Lcom/android/server/pm/PackageInstallerSession;)V
 
     iget-object v1, p0, Lcom/android/server/pm/PackageInstallerService$InternalCallback$1;->this$1:Lcom/android/server/pm/PackageInstallerService$InternalCallback;
 
@@ -107,7 +99,7 @@
 
     iget-object v1, v1, Lcom/android/server/pm/PackageInstallerService$InternalCallback;->this$0:Lcom/android/server/pm/PackageInstallerService;
 
-    invoke-static {v1}, Lcom/android/server/pm/PackageInstallerService;->-wrap3(Lcom/android/server/pm/PackageInstallerService;)V
+    invoke-static {v1}, Lcom/android/server/pm/PackageInstallerService;->-wrap4(Lcom/android/server/pm/PackageInstallerService;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

@@ -57,7 +57,7 @@
 
 
 # virtual methods
-.method public onChange(ZLandroid/net/Uri;)V
+.method public onChange(ZLandroid/net/Uri;I)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$FontScaleSettingObserver;->mFontScaleUri:Landroid/net/Uri;
@@ -70,7 +70,7 @@
 
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$FontScaleSettingObserver;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-static {v0}, Lcom/android/server/am/ActivityManagerService;->-wrap14(Lcom/android/server/am/ActivityManagerService;)V
+    invoke-static {v0, p3}, Lcom/android/server/am/ActivityManagerService;->-wrap13(Lcom/android/server/am/ActivityManagerService;I)V
 
     :cond_0
     return-void

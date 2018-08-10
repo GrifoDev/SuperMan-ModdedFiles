@@ -49,14 +49,6 @@
     return-object v0
 .end method
 
-.method static synthetic -wrap0(Lcom/android/server/NsdService$NsdStateMachine;Lcom/android/internal/util/IState;)V
-    .locals 0
-
-    invoke-virtual {p0, p1}, Lcom/android/server/NsdService$NsdStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
-
-    return-void
-.end method
-
 .method constructor <init>(Lcom/android/server/NsdService;Ljava/lang/String;)V
     .locals 2
 
@@ -164,7 +156,7 @@
 .method protected getWhatToString(I)Ljava/lang/String;
     .locals 1
 
-    invoke-static {p1}, Lcom/android/server/NsdService;->-wrap12(I)Ljava/lang/String;
+    invoke-static {p1}, Landroid/net/nsd/NsdManager;->nameOf(I)Ljava/lang/String;
 
     move-result-object v0
 

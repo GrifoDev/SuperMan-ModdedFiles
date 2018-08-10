@@ -66,7 +66,7 @@
     :try_start_1
     iget-object v3, p0, Lcom/android/server/enterprise/EnterpriseDeviceManagerService$4;->this$0:Lcom/android/server/enterprise/EnterpriseDeviceManagerService;
 
-    invoke-static {}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->-get1()Landroid/content/ComponentName;
+    invoke-static {}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->-get0()Landroid/content/ComponentName;
 
     move-result-object v4
 
@@ -170,7 +170,7 @@
 
     const/4 v3, 0x0
 
-    invoke-static {v3}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->-set2(Landroid/content/ComponentName;)Landroid/content/ComponentName;
+    invoke-static {v3}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->-set0(Landroid/content/ComponentName;)Landroid/content/ComponentName;
 
     iget-object v3, p0, Lcom/android/server/enterprise/EnterpriseDeviceManagerService$4;->this$0:Lcom/android/server/enterprise/EnterpriseDeviceManagerService;
 

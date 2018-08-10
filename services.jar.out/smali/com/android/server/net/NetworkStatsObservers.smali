@@ -41,7 +41,7 @@
     .end annotation
 .end field
 
-.field private mHandler:Landroid/os/Handler;
+.field private volatile mHandler:Landroid/os/Handler;
 
 .field private mHandlerCallback:Landroid/os/Handler$Callback;
 

@@ -11,8 +11,6 @@
 
 .field private static final TAG:Ljava/lang/String; = "DualSimPolicyService"
 
-.field private static mDualSimAdapter:Lcom/android/server/enterprise/adapterlayer/DualSimAdapter;
-
 
 # instance fields
 .field private final mContext:Landroid/content/Context;
@@ -43,12 +41,6 @@
     invoke-direct {v0, v1}, Lcom/android/server/enterprise/storage/EdmStorageProvider;-><init>(Landroid/content/Context;)V
 
     iput-object v0, p0, Lcom/android/server/enterprise/dualsim/DualSimPolicyService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
-
-    invoke-static {}, Lcom/android/server/enterprise/adapterlayer/DualSimAdapter;->getInstance()Lcom/android/server/enterprise/adapterlayer/DualSimAdapter;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/android/server/enterprise/dualsim/DualSimPolicyService;->mDualSimAdapter:Lcom/android/server/enterprise/adapterlayer/DualSimAdapter;
 
     return-void
 .end method
@@ -198,29 +190,26 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
 
     move-result v4
 
+    xor-int/lit8 v4, v4, 0x1
+
     if-eqz v4, :cond_1
 
-    :cond_0
-    :goto_0
-    return v7
-
-    :cond_1
     invoke-interface {v1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
-    :cond_2
+    :cond_0
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -232,7 +221,7 @@
 
     move-result v4
 
-    if-eq v4, v7, :cond_2
+    if-eq v4, v7, :cond_0
 
     invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
     :try_end_0
@@ -247,7 +236,8 @@
 
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    goto :goto_0
+    :cond_1
+    return v7
 .end method
 
 .method public notifyToAddSystemService(Ljava/lang/String;Landroid/os/IBinder;)V

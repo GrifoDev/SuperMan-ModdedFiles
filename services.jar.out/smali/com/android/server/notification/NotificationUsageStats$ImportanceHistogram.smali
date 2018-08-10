@@ -142,12 +142,22 @@
 .method increment(I)V
     .locals 2
 
-    if-gez p1, :cond_1
+    iget-object v0, p0, Lcom/android/server/notification/NotificationUsageStats$ImportanceHistogram;->mCount:[I
 
-    const/4 p1, 0x0
+    array-length v0, v0
 
-    :cond_0
-    :goto_0
+    add-int/lit8 v0, v0, -0x1
+
+    invoke-static {p1, v0}, Ljava/lang/Math;->min(II)I
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    invoke-static {v1, v0}, Ljava/lang/Math;->max(II)I
+
+    move-result p1
+
     iget-object v0, p0, Lcom/android/server/notification/NotificationUsageStats$ImportanceHistogram;->mCount:[I
 
     aget v1, v0, p1
@@ -157,15 +167,6 @@
     aput v1, v0, p1
 
     return-void
-
-    :cond_1
-    const/4 v0, 0x6
-
-    if-le p1, v0, :cond_0
-
-    const/4 p1, 0x6
-
-    goto :goto_0
 .end method
 
 .method maybeCount(Lcom/android/server/notification/NotificationUsageStats$ImportanceHistogram;)V

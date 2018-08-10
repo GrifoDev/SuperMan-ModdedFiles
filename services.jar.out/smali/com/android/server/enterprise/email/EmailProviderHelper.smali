@@ -279,7 +279,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v7}, Landroid/database/Cursor;->close()V
 
     :cond_0
     :goto_1
@@ -299,11 +303,6 @@
     const/4 v9, 0x0
 
     goto :goto_0
-
-    :cond_2
-    invoke-interface {v7}, Landroid/database/Cursor;->close()V
-
-    goto :goto_1
 
     :catch_0
     move-exception v8
@@ -325,7 +324,9 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
 
     invoke-interface {v7}, Landroid/database/Cursor;->close()V
 
@@ -334,22 +335,20 @@
     :catchall_0
     move-exception v0
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_2
 
     invoke-interface {v7}, Landroid/database/Cursor;->isClosed()Z
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_3
-    :goto_2
-    throw v0
+    if-eqz v1, :cond_2
 
-    :cond_4
     invoke-interface {v7}, Landroid/database/Cursor;->close()V
 
-    goto :goto_2
+    :cond_2
+    throw v0
 .end method
 
 .method public static getAccountId(Landroid/content/Context;Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)J
@@ -813,16 +812,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_1
+
+    invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
     :cond_1
     :goto_1
     return-object v12
-
-    :cond_2
-    invoke-interface {v8}, Landroid/database/Cursor;->close()V
-
-    goto :goto_1
 
     :catch_0
     move-exception v9
@@ -844,7 +842,9 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_1
 
     invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
@@ -853,22 +853,20 @@
     :catchall_0
     move-exception v0
 
-    if-eqz v8, :cond_3
+    if-eqz v8, :cond_2
 
     invoke-interface {v8}, Landroid/database/Cursor;->isClosed()Z
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_3
-    :goto_2
-    throw v0
+    if-eqz v1, :cond_2
 
-    :cond_4
     invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
-    goto :goto_2
+    :cond_2
+    throw v0
 .end method
 
 .method public static getAllEnterpriseEmailAccount(Landroid/content/Context;Lcom/samsung/android/knox/ContextInfo;)[Landroid/sec/enterprise/email/EnterpriseEmailAccount;
@@ -1108,7 +1106,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_1
+
+    invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
     :cond_1
     :goto_1
@@ -1147,7 +1149,9 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_1
 
     invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
@@ -1175,21 +1179,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_6
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_4
+
+    invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
     :cond_4
-    :goto_2
     throw v0
-
-    :cond_5
-    invoke-interface {v8}, Landroid/database/Cursor;->close()V
-
-    goto :goto_1
-
-    :cond_6
-    invoke-interface {v8}, Landroid/database/Cursor;->close()V
-
-    goto :goto_2
 .end method
 
 .method public static getEmailAccountObject(Lcom/samsung/android/knox/ContextInfo;J)Landroid/sec/enterprise/email/EnterpriseEmailAccount;
@@ -1383,11 +1380,15 @@
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_2
+
+    invoke-interface {v10}, Landroid/database/Cursor;->close()V
 
     :cond_2
     :goto_1
-    if-nez v13, :cond_8
+    if-nez v13, :cond_6
 
     const-string/jumbo v2, "EmailProviderHelperService"
 
@@ -1449,7 +1450,9 @@
 
     move-result v2
 
-    if-nez v2, :cond_2
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_2
 
     invoke-interface {v10}, Landroid/database/Cursor;->close()V
 
@@ -1477,23 +1480,16 @@
 
     move-result v3
 
-    if-eqz v3, :cond_7
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_5
+
+    invoke-interface {v10}, Landroid/database/Cursor;->close()V
 
     :cond_5
-    :goto_3
     throw v2
 
     :cond_6
-    invoke-interface {v10}, Landroid/database/Cursor;->close()V
-
-    goto :goto_1
-
-    :cond_7
-    invoke-interface {v10}, Landroid/database/Cursor;->close()V
-
-    goto :goto_3
-
-    :cond_8
     const-string/jumbo v2, "EmailProviderHelperService"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1629,11 +1625,15 @@
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_2
+
+    invoke-interface {v10}, Landroid/database/Cursor;->close()V
 
     :cond_2
     :goto_1
-    if-nez v13, :cond_8
+    if-nez v13, :cond_6
 
     const-string/jumbo v2, "EmailProviderHelperService"
 
@@ -1695,7 +1695,9 @@
 
     move-result v2
 
-    if-nez v2, :cond_2
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_2
 
     invoke-interface {v10}, Landroid/database/Cursor;->close()V
 
@@ -1723,23 +1725,16 @@
 
     move-result v3
 
-    if-eqz v3, :cond_7
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_5
+
+    invoke-interface {v10}, Landroid/database/Cursor;->close()V
 
     :cond_5
-    :goto_3
     throw v2
 
     :cond_6
-    invoke-interface {v10}, Landroid/database/Cursor;->close()V
-
-    goto :goto_1
-
-    :cond_7
-    invoke-interface {v10}, Landroid/database/Cursor;->close()V
-
-    goto :goto_3
-
-    :cond_8
     const-string/jumbo v2, "EmailProviderHelperService"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1848,7 +1843,11 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_1
+
+    invoke-interface {v9}, Landroid/database/Cursor;->close()V
 
     :cond_1
     :goto_1
@@ -1887,7 +1886,9 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_1
 
     invoke-interface {v9}, Landroid/database/Cursor;->close()V
 
@@ -1915,21 +1916,14 @@
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_4
+
+    invoke-interface {v9}, Landroid/database/Cursor;->close()V
 
     :cond_4
-    :goto_2
     throw v1
-
-    :cond_5
-    invoke-interface {v9}, Landroid/database/Cursor;->close()V
-
-    goto :goto_1
-
-    :cond_6
-    invoke-interface {v9}, Landroid/database/Cursor;->close()V
-
-    goto :goto_2
 .end method
 
 .method public static getExchangeAccountObject(Lcom/samsung/android/knox/ContextInfo;J)Landroid/sec/enterprise/email/EnterpriseExchangeAccount;
@@ -2185,7 +2179,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v7}, Landroid/database/Cursor;->close()V
 
     :cond_0
     :goto_1
@@ -2246,13 +2244,10 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    invoke-interface {v7}, Landroid/database/Cursor;->close()V
+    if-eqz v0, :cond_0
 
-    goto :goto_1
-
-    :cond_2
     invoke-interface {v7}, Landroid/database/Cursor;->close()V
 
     goto :goto_1
@@ -2260,22 +2255,20 @@
     :catchall_0
     move-exception v0
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_2
 
     invoke-interface {v7}, Landroid/database/Cursor;->isClosed()Z
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_3
-    :goto_2
-    throw v0
+    if-eqz v1, :cond_2
 
-    :cond_4
     invoke-interface {v7}, Landroid/database/Cursor;->close()V
 
-    goto :goto_2
+    :cond_2
+    throw v0
 .end method
 
 .method public static updateEnterpriseExchangeAccount(Landroid/content/Context;Lcom/samsung/android/knox/ContextInfo;Landroid/sec/enterprise/email/EnterpriseExchangeAccount;)Z
@@ -2358,7 +2351,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v7}, Landroid/database/Cursor;->close()V
 
     :cond_0
     :goto_1
@@ -2419,13 +2416,10 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    invoke-interface {v7}, Landroid/database/Cursor;->close()V
+    if-eqz v0, :cond_0
 
-    goto :goto_1
-
-    :cond_2
     invoke-interface {v7}, Landroid/database/Cursor;->close()V
 
     goto :goto_1
@@ -2433,20 +2427,18 @@
     :catchall_0
     move-exception v0
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_2
 
     invoke-interface {v7}, Landroid/database/Cursor;->isClosed()Z
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_3
-    :goto_2
-    throw v0
+    if-eqz v1, :cond_2
 
-    :cond_4
     invoke-interface {v7}, Landroid/database/Cursor;->close()V
 
-    goto :goto_2
+    :cond_2
+    throw v0
 .end method

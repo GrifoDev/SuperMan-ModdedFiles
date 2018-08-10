@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/BatteryService;->sendSecEventIntentLocked()V
+    value = Lcom/android/server/BatteryService;->sendIntentLocked()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/BatteryService;
 
-.field final synthetic val$batteryWaterInConnector:Z
-
-.field final synthetic val$intent:Landroid/content/Intent;
+.field final synthetic val$pogoIntent:Landroid/content/Intent;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/BatteryService;ZLandroid/content/Intent;)V
+.method constructor <init>(Lcom/android/server/BatteryService;Landroid/content/Intent;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/BatteryService$18;->this$0:Lcom/android/server/BatteryService;
 
-    iput-boolean p2, p0, Lcom/android/server/BatteryService$18;->val$batteryWaterInConnector:Z
-
-    iput-object p3, p0, Lcom/android/server/BatteryService$18;->val$intent:Landroid/content/Intent;
+    iput-object p2, p0, Lcom/android/server/BatteryService$18;->val$pogoIntent:Landroid/content/Intent;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -53,15 +49,19 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "Sending ACTION_SEC_BATTERY_WATER_IN_CONNECTOR. water : "
+    const-string/jumbo v2, "Sending ACTION_DOCK_EVENT. with intent :"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    iget-boolean v2, p0, Lcom/android/server/BatteryService$18;->val$batteryWaterInConnector:Z
+    iget-object v2, p0, Lcom/android/server/BatteryService$18;->this$0:Lcom/android/server/BatteryService;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-static {v2}, Lcom/android/server/BatteryService;->-get24(Lcom/android/server/BatteryService;)I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
@@ -71,13 +71,11 @@
 
     invoke-static {v0, v1}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/android/server/BatteryService$18;->val$intent:Landroid/content/Intent;
+    iget-object v0, p0, Lcom/android/server/BatteryService$18;->val$pogoIntent:Landroid/content/Intent;
 
-    const/4 v1, 0x0
+    const/4 v1, -0x1
 
-    const/4 v2, -0x1
-
-    invoke-static {v0, v1, v2}, Landroid/app/ActivityManagerNative;->broadcastStickyIntent(Landroid/content/Intent;Ljava/lang/String;I)V
+    invoke-static {v0, v1}, Landroid/app/ActivityManager;->broadcastStickyIntent(Landroid/content/Intent;I)V
 
     return-void
 .end method

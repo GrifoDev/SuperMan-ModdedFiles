@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/notification/NotificationManagerService$NotificationListeners;->removeEdgeNotification(Ljava/lang/String;ILandroid/os/Bundle;I)V
+    value = Lcom/android/server/notification/NotificationManagerService$NotificationListeners;->notifyNotificationChannelChanged(Ljava/lang/String;Landroid/os/UserHandle;Landroid/app/NotificationChannel;I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,28 +20,32 @@
 # instance fields
 .field final synthetic this$1:Lcom/android/server/notification/NotificationManagerService$NotificationListeners;
 
-.field final synthetic val$extra:Landroid/os/Bundle;
+.field final synthetic val$channel:Landroid/app/NotificationChannel;
 
-.field final synthetic val$id:I
-
-.field final synthetic val$info:Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;
+.field final synthetic val$modificationType:I
 
 .field final synthetic val$pkg:Ljava/lang/String;
 
+.field final synthetic val$serviceInfo:Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;
+
+.field final synthetic val$user:Landroid/os/UserHandle;
+
 
 # direct methods
-.method constructor <init>(Lcom/android/server/notification/NotificationManagerService$NotificationListeners;Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;Ljava/lang/String;ILandroid/os/Bundle;)V
+.method constructor <init>(Lcom/android/server/notification/NotificationManagerService$NotificationListeners;Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;Ljava/lang/String;Landroid/os/UserHandle;Landroid/app/NotificationChannel;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/notification/NotificationManagerService$NotificationListeners$7;->this$1:Lcom/android/server/notification/NotificationManagerService$NotificationListeners;
 
-    iput-object p2, p0, Lcom/android/server/notification/NotificationManagerService$NotificationListeners$7;->val$info:Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;
+    iput-object p2, p0, Lcom/android/server/notification/NotificationManagerService$NotificationListeners$7;->val$serviceInfo:Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;
 
     iput-object p3, p0, Lcom/android/server/notification/NotificationManagerService$NotificationListeners$7;->val$pkg:Ljava/lang/String;
 
-    iput p4, p0, Lcom/android/server/notification/NotificationManagerService$NotificationListeners$7;->val$id:I
+    iput-object p4, p0, Lcom/android/server/notification/NotificationManagerService$NotificationListeners$7;->val$user:Landroid/os/UserHandle;
 
-    iput-object p5, p0, Lcom/android/server/notification/NotificationManagerService$NotificationListeners$7;->val$extra:Landroid/os/Bundle;
+    iput-object p5, p0, Lcom/android/server/notification/NotificationManagerService$NotificationListeners$7;->val$channel:Landroid/app/NotificationChannel;
+
+    iput p6, p0, Lcom/android/server/notification/NotificationManagerService$NotificationListeners$7;->val$modificationType:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -51,54 +55,34 @@
 
 # virtual methods
 .method public run()V
-    .locals 5
+    .locals 6
 
-    iget-object v2, p0, Lcom/android/server/notification/NotificationManagerService$NotificationListeners$7;->val$info:Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;
+    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$NotificationListeners$7;->this$1:Lcom/android/server/notification/NotificationManagerService$NotificationListeners;
 
-    iget-object v1, v2, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->service:Landroid/os/IInterface;
+    iget-object v0, v0, Lcom/android/server/notification/NotificationManagerService$NotificationListeners;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
-    check-cast v1, Landroid/service/notification/INotificationListener;
+    iget-object v1, p0, Lcom/android/server/notification/NotificationManagerService$NotificationListeners$7;->val$serviceInfo:Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;
 
-    :try_start_0
+    invoke-virtual {v0, v1}, Lcom/android/server/notification/NotificationManagerService;->hasCompanionDevice(Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$NotificationListeners$7;->this$1:Lcom/android/server/notification/NotificationManagerService$NotificationListeners;
+
+    iget-object v1, p0, Lcom/android/server/notification/NotificationManagerService$NotificationListeners$7;->val$serviceInfo:Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;
+
     iget-object v2, p0, Lcom/android/server/notification/NotificationManagerService$NotificationListeners$7;->val$pkg:Ljava/lang/String;
 
-    iget v3, p0, Lcom/android/server/notification/NotificationManagerService$NotificationListeners$7;->val$id:I
+    iget-object v3, p0, Lcom/android/server/notification/NotificationManagerService$NotificationListeners$7;->val$user:Landroid/os/UserHandle;
 
-    iget-object v4, p0, Lcom/android/server/notification/NotificationManagerService$NotificationListeners$7;->val$extra:Landroid/os/Bundle;
+    iget-object v4, p0, Lcom/android/server/notification/NotificationManagerService$NotificationListeners$7;->val$channel:Landroid/app/NotificationChannel;
 
-    invoke-interface {v1, v2, v3, v4}, Landroid/service/notification/INotificationListener;->onEdgeNotificationRemoved(Ljava/lang/String;ILandroid/os/Bundle;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    iget v5, p0, Lcom/android/server/notification/NotificationManagerService$NotificationListeners$7;->val$modificationType:I
 
-    :goto_0
+    invoke-virtual/range {v0 .. v5}, Lcom/android/server/notification/NotificationManagerService$NotificationListeners;->notifyNotificationChannelChanged(Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;Ljava/lang/String;Landroid/os/UserHandle;Landroid/app/NotificationChannel;I)V
+
+    :cond_0
     return-void
-
-    :catch_0
-    move-exception v0
-
-    iget-object v2, p0, Lcom/android/server/notification/NotificationManagerService$NotificationListeners$7;->this$1:Lcom/android/server/notification/NotificationManagerService$NotificationListeners;
-
-    iget-object v2, v2, Lcom/android/server/notification/NotificationManagerService$NotificationListeners;->TAG:Ljava/lang/String;
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "unable to notify listener (posted): "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_0
 .end method

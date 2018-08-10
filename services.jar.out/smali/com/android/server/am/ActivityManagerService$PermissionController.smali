@@ -94,6 +94,8 @@
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
+    and-int/lit8 v4, v4, 0xf
+
     if-ne v4, v2, :cond_0
 
     :goto_0

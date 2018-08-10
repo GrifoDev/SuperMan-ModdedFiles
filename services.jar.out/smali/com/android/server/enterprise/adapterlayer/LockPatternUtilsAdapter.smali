@@ -34,6 +34,18 @@
 
 
 # virtual methods
+.method public getActivePasswordQuality(I)I
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/enterprise/adapterlayer/LockPatternUtilsAdapter;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    invoke-virtual {v0, p1}, Lcom/android/internal/widget/LockPatternUtils;->getActivePasswordQuality(I)I
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public getDevicePolicyManager()Landroid/app/admin/DevicePolicyManager;
     .locals 1
 

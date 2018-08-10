@@ -33,10 +33,23 @@
 
 
 # virtual methods
+.method protected adjustDexoptFlags(I)I
+    .locals 1
+
+    or-int/lit8 v0, p1, 0x40
+
+    return v0
+.end method
+
 .method protected adjustDexoptNeeded(I)I
     .locals 1
 
-    const/4 v0, 0x1
+    if-nez p1, :cond_0
+
+    const/4 v0, -0x3
 
     return v0
+
+    :cond_0
+    return p1
 .end method

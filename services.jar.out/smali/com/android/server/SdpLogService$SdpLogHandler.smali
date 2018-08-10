@@ -23,20 +23,12 @@
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/SdpLogService;)V
+.method public constructor <init>(Lcom/android/server/SdpLogService;Landroid/os/Looper;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/SdpLogService$SdpLogHandler;->this$0:Lcom/android/server/SdpLogService;
 
-    invoke-direct {p0}, Landroid/os/Handler;-><init>()V
-
-    return-void
-.end method
-
-.method synthetic constructor <init>(Lcom/android/server/SdpLogService;Lcom/android/server/SdpLogService$SdpLogHandler;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/SdpLogService$SdpLogHandler;-><init>(Lcom/android/server/SdpLogService;)V
+    invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
     return-void
 .end method

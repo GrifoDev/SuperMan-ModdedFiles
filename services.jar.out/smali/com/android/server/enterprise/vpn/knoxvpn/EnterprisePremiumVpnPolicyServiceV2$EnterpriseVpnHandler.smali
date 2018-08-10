@@ -338,7 +338,7 @@
 
     move-result v5
 
-    sget-object v6, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnConstants;->BLOCK_APP_TRAFFIC:Ljava/lang/String;
+    const/4 v6, 0x0
 
     const/4 v7, 0x1
 
@@ -716,7 +716,7 @@
 
     move-result v5
 
-    sget-object v6, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnConstants;->BLOCK_APP_TRAFFIC:Ljava/lang/String;
+    const/4 v6, 0x0
 
     const/4 v7, 0x1
 
@@ -794,7 +794,7 @@
 
     move-result v5
 
-    sget-object v6, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnConstants;->BLOCK_APP_TRAFFIC:Ljava/lang/String;
+    const/4 v6, 0x0
 
     const/4 v7, 0x1
 
@@ -894,7 +894,7 @@
 
     move-result-object v4
 
-    sget-object v5, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnConstants;->BLOCK_APP_TRAFFIC:Ljava/lang/String;
+    const/4 v5, 0x0
 
     const/4 v6, 0x1
 
@@ -1063,7 +1063,7 @@
 
     move-result v5
 
-    sget-object v6, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnConstants;->BLOCK_APP_TRAFFIC:Ljava/lang/String;
+    const/4 v6, 0x0
 
     const/4 v7, 0x1
 
@@ -1126,7 +1126,7 @@
     :goto_8
     add-int/lit8 v22, v22, 0x1
 
-    goto/16 :goto_7
+    goto :goto_7
 
     :cond_e
     move-object/from16 v0, p0
@@ -1141,7 +1141,7 @@
 
     move-result v5
 
-    sget-object v6, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnConstants;->BLOCK_APP_TRAFFIC:Ljava/lang/String;
+    const/4 v6, 0x0
 
     const/4 v7, 0x1
 
@@ -1866,7 +1866,7 @@
 
     move-result-object v4
 
-    sget-object v5, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnConstants;->BLOCK_APP_TRAFFIC:Ljava/lang/String;
+    const/4 v5, 0x0
 
     const/4 v6, 0x1
 

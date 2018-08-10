@@ -45,17 +45,6 @@
     .end annotation
 .end field
 
-.field public final mClients:Landroid/os/RemoteCallbackList;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Landroid/os/RemoteCallbackList",
-            "<",
-            "Landroid/view/accessibility/IAccessibilityManagerClient;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 .field public final mComponentNameToServiceMap:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -78,8 +67,6 @@
         }
     .end annotation
 .end field
-
-.field public mHasDisplayColorAdjustment:Z
 
 .field public final mInstalledServices:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -107,15 +94,17 @@
 
 .field public mIsAutoclickEnabled:Z
 
-.field public mIsDisplayMagnificationEnabled:Z
+.field public mIsBixbyRunning:Z
 
-.field public mIsEnhancedWebAccessibilityEnabled:Z
+.field public mIsDisplayMagnificationEnabled:Z
 
 .field public mIsFilterKeyEventsEnabled:Z
 
 .field public mIsMagniferWindowEnabled:Z
 
-.field public mIsOverlayMagnificationEnabled:Z
+.field public mIsNavBarMagnificationAssignedToAccessibilityButton:Z
+
+.field public mIsNavBarMagnificationEnabled:Z
 
 .field public mIsPerformGesturesEnabled:Z
 
@@ -127,7 +116,13 @@
 
 .field public mLastSentClientState:I
 
+.field public mLastSentRelevantEventTypes:I
+
+.field public mServiceAssignedToAccessibilityButton:Landroid/content/ComponentName;
+
 .field public mServiceChangingSoftKeyboardMode:Landroid/content/ComponentName;
+
+.field public mServiceToEnableWithShortcut:Landroid/content/ComponentName;
 
 .field public mSoftKeyboardShowMode:I
 
@@ -151,6 +146,17 @@
 .field private mUiAutomationServiceClient:Landroid/accessibilityservice/IAccessibilityServiceClient;
 
 .field private mUiAutomationServiceOwner:Landroid/os/IBinder;
+
+.field public final mUserClients:Landroid/os/RemoteCallbackList;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/os/RemoteCallbackList",
+            "<",
+            "Landroid/view/accessibility/IAccessibilityManagerClient;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field public final mUserId:I
 
@@ -234,7 +240,9 @@
 .end method
 
 .method public constructor <init>(Lcom/android/server/accessibility/AccessibilityManagerService;I)V
-    .locals 1
+    .locals 2
+
+    const/4 v1, -0x1
 
     iput-object p1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
@@ -244,7 +252,7 @@
 
     invoke-direct {v0}, Landroid/os/RemoteCallbackList;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->mClients:Landroid/os/RemoteCallbackList;
+    iput-object v0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->mUserClients:Landroid/os/RemoteCallbackList;
 
     new-instance v0, Landroid/util/SparseArray;
 
@@ -263,6 +271,8 @@
     invoke-direct {v0}, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->mBoundServices:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    iput v1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->mLastSentRelevantEventTypes:I
 
     new-instance v0, Ljava/util/HashMap;
 
@@ -294,9 +304,7 @@
 
     iput-object v0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->mTouchExplorationGrantedServices:Ljava/util/Set;
 
-    const/4 v0, -0x1
-
-    iput v0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->mLastSentClientState:I
+    iput v1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->mLastSentClientState:I
 
     const/4 v0, 0x0
 
@@ -378,34 +386,42 @@
     or-int/lit8 v0, v0, 0x4
 
     :cond_2
+    iget-boolean v1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->mIsBixbyRunning:Z
+
+    if-eqz v1, :cond_3
+
+    or-int/lit16 v0, v0, 0x100
+
+    :cond_3
     return v0
 .end method
 
 .method public isHandlingAccessibilityEvents()Z
-    .locals 2
+    .locals 1
 
-    const/4 v0, 0x1
+    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->mBoundServices:Ljava/util/concurrent/CopyOnWriteArrayList;
 
-    iget-object v1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->mBoundServices:Ljava/util/concurrent/CopyOnWriteArrayList;
+    invoke-virtual {v0}, Ljava/util/concurrent/CopyOnWriteArrayList;->isEmpty()Z
 
-    invoke-virtual {v1}, Ljava/util/concurrent/CopyOnWriteArrayList;->isEmpty()Z
+    move-result v0
 
-    move-result v1
+    if-eqz v0, :cond_0
 
-    if-eqz v1, :cond_0
+    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->mBindingServices:Ljava/util/Set;
 
-    iget-object v1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->mBindingServices:Ljava/util/Set;
+    invoke-interface {v0}, Ljava/util/Set;->isEmpty()Z
 
-    invoke-interface {v1}, Ljava/util/Set;->isEmpty()Z
+    move-result v0
 
-    move-result v1
+    xor-int/lit8 v0, v0, 0x1
 
-    if-eqz v1, :cond_0
-
-    const/4 v0, 0x0
+    :goto_0
+    return v0
 
     :cond_0
-    return v0
+    const/4 v0, 0x1
+
+    goto :goto_0
 .end method
 
 .method isUiAutomationSuppressingOtherServices()Z
@@ -430,7 +446,9 @@
 .end method
 
 .method public onSwitchToAnotherUser()V
-    .locals 2
+    .locals 3
+
+    const/4 v2, 0x0
 
     const/4 v1, 0x0
 
@@ -445,7 +463,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    invoke-static {v0, p0}, Lcom/android/server/accessibility/AccessibilityManagerService;->-wrap31(Lcom/android/server/accessibility/AccessibilityManagerService;Lcom/android/server/accessibility/AccessibilityManagerService$UserState;)V
+    invoke-static {v0, p0}, Lcom/android/server/accessibility/AccessibilityManagerService;->-wrap35(Lcom/android/server/accessibility/AccessibilityManagerService;Lcom/android/server/accessibility/AccessibilityManagerService$UserState;)V
 
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->mBoundServices:Ljava/util/concurrent/CopyOnWriteArrayList;
 
@@ -469,19 +487,19 @@
 
     iput-boolean v1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->mIsTouchExplorationEnabled:Z
 
-    iput-boolean v1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->mIsEnhancedWebAccessibilityEnabled:Z
-
     iput-boolean v1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->mIsDisplayMagnificationEnabled:Z
 
-    iput-boolean v1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->mIsOverlayMagnificationEnabled:Z
-
     iput-boolean v1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->mIsMagniferWindowEnabled:Z
+
+    iput-boolean v1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->mIsNavBarMagnificationEnabled:Z
+
+    iput-object v2, p0, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->mServiceAssignedToAccessibilityButton:Landroid/content/ComponentName;
+
+    iput-boolean v1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->mIsNavBarMagnificationAssignedToAccessibilityButton:Z
 
     iput-boolean v1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->mIsAutoclickEnabled:Z
 
     iput v1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->mSoftKeyboardShowMode:I
-
-    iput-boolean v1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->mIsAccessibilitySTalkBackEnabled:Z
 
     iput-boolean v1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->mIsUniversalSwitchEnabled:Z
 

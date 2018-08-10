@@ -197,7 +197,7 @@
 
     iget-object v10, v0, Lcom/android/server/am/ActivityManagerService$UiHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-static {v10}, Lcom/android/server/am/ActivityManagerService;->-get11(Lcom/android/server/am/ActivityManagerService;)Z
+    invoke-static {v10}, Lcom/android/server/am/ActivityManagerService;->-get7(Lcom/android/server/am/ActivityManagerService;)Z
 
     move-result v10
 
@@ -207,16 +207,41 @@
 
     iget-object v10, v0, Lcom/android/server/am/ActivityManagerService$UiHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-static {v10}, Lcom/android/server/am/ActivityManagerService;->-get12(Lcom/android/server/am/ActivityManagerService;)Z
+    invoke-static {v10}, Lcom/android/server/am/ActivityManagerService;->-get8(Lcom/android/server/am/ActivityManagerService;)Z
 
     move-result v10
 
-    if-eqz v10, :cond_5
+    xor-int/lit8 v10, v10, 0x1
 
-    :cond_4
-    const/4 v10, 0x0
+    if-eqz v10, :cond_4
 
-    invoke-virtual {v8, v10}, Lcom/android/server/am/AppErrorResult;->set(I)V
+    move-object/from16 v0, p0
+
+    iget-object v10, v0, Lcom/android/server/am/ActivityManagerService$UiHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    iget-boolean v10, v10, Lcom/android/server/am/ActivityManagerService;->mShuttingDown:Z
+
+    xor-int/lit8 v10, v10, 0x1
+
+    if-eqz v10, :cond_4
+
+    new-instance v4, Lcom/android/server/am/StrictModeViolationDialog;
+
+    move-object/from16 v0, p0
+
+    iget-object v10, v0, Lcom/android/server/am/ActivityManagerService$UiHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v10, v10, Lcom/android/server/am/ActivityManagerService;->mUiContext:Landroid/content/Context;
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/server/am/ActivityManagerService$UiHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    invoke-direct {v4, v10, v12, v8, v7}, Lcom/android/server/am/StrictModeViolationDialog;-><init>(Landroid/content/Context;Lcom/android/server/am/ActivityManagerService;Lcom/android/server/am/AppErrorResult;Lcom/android/server/am/ProcessRecord;)V
+
+    invoke-virtual {v4}, Landroid/app/Dialog;->show()V
+
+    iput-object v4, v7, Lcom/android/server/am/ProcessRecord;->crashDialog:Landroid/app/Dialog;
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
@@ -233,33 +258,11 @@
 
     goto/16 :goto_0
 
-    :cond_5
+    :cond_4
+    const/4 v10, 0x0
+
     :try_start_3
-    move-object/from16 v0, p0
-
-    iget-object v10, v0, Lcom/android/server/am/ActivityManagerService$UiHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
-
-    iget-boolean v10, v10, Lcom/android/server/am/ActivityManagerService;->mShuttingDown:Z
-
-    if-nez v10, :cond_4
-
-    new-instance v4, Lcom/android/server/am/StrictModeViolationDialog;
-
-    move-object/from16 v0, p0
-
-    iget-object v10, v0, Lcom/android/server/am/ActivityManagerService$UiHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
-
-    iget-object v10, v10, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/server/am/ActivityManagerService$UiHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
-
-    invoke-direct {v4, v10, v12, v8, v7}, Lcom/android/server/am/StrictModeViolationDialog;-><init>(Landroid/content/Context;Lcom/android/server/am/ActivityManagerService;Lcom/android/server/am/AppErrorResult;Lcom/android/server/am/ProcessRecord;)V
-
-    invoke-virtual {v4}, Landroid/app/Dialog;->show()V
-
-    iput-object v4, v7, Lcom/android/server/am/ProcessRecord;->crashDialog:Landroid/app/Dialog;
+    invoke-virtual {v8, v10}, Lcom/android/server/am/AppErrorResult;->set(I)V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
@@ -281,7 +284,7 @@
 
     iget-object v10, v0, Lcom/android/server/am/ActivityManagerService$UiHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v10, v10, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
+    iget-object v10, v10, Lcom/android/server/am/ActivityManagerService;->mUiContext:Landroid/content/Context;
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
 
@@ -325,11 +328,11 @@
 
     iget v10, v0, Landroid/os/Message;->arg1:I
 
-    if-eqz v10, :cond_7
+    if-eqz v10, :cond_6
 
     iget-boolean v10, v1, Lcom/android/server/am/ProcessRecord;->waitedForDebugger:Z
 
-    if-nez v10, :cond_6
+    if-nez v10, :cond_5
 
     new-instance v4, Lcom/android/server/am/AppWaitingForDebuggerDialog;
 
@@ -341,7 +344,7 @@
 
     iget-object v12, v0, Lcom/android/server/am/ActivityManagerService$UiHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v12, v12, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
+    iget-object v12, v12, Lcom/android/server/am/ActivityManagerService;->mUiContext:Landroid/content/Context;
 
     invoke-direct {v4, v10, v12, v1}, Lcom/android/server/am/AppWaitingForDebuggerDialog;-><init>(Lcom/android/server/am/ActivityManagerService;Landroid/content/Context;Lcom/android/server/am/ProcessRecord;)V
 
@@ -355,7 +358,7 @@
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
-    :cond_6
+    :cond_5
     :goto_2
     monitor-exit v11
 
@@ -363,11 +366,11 @@
 
     goto/16 :goto_0
 
-    :cond_7
+    :cond_6
     :try_start_5
     iget-object v10, v1, Lcom/android/server/am/ProcessRecord;->waitDialog:Landroid/app/Dialog;
 
-    if-eqz v10, :cond_6
+    if-eqz v10, :cond_5
 
     iget-object v10, v1, Lcom/android/server/am/ProcessRecord;->waitDialog:Landroid/app/Dialog;
 
@@ -395,7 +398,7 @@
 
     iget-object v10, v0, Lcom/android/server/am/ActivityManagerService$UiHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-static {v10}, Lcom/android/server/am/ActivityManagerService;->-get11(Lcom/android/server/am/ActivityManagerService;)Z
+    invoke-static {v10}, Lcom/android/server/am/ActivityManagerService;->-get7(Lcom/android/server/am/ActivityManagerService;)Z
 
     move-result v10
 
@@ -407,7 +410,7 @@
 
     iget-object v10, v0, Lcom/android/server/am/ActivityManagerService$UiHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v10, v10, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
+    iget-object v10, v10, Lcom/android/server/am/ActivityManagerService;->mUiContext:Landroid/content/Context;
 
     invoke-direct {v3, v10}, Lcom/android/server/am/BaseErrorDialog;-><init>(Landroid/content/Context;)V
 
@@ -427,9 +430,9 @@
 
     iget-object v10, v0, Lcom/android/server/am/ActivityManagerService$UiHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v10, v10, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
+    iget-object v10, v10, Lcom/android/server/am/ActivityManagerService;->mUiContext:Landroid/content/Context;
 
-    const v11, 0x104014e
+    const v11, 0x10400b9
 
     invoke-virtual {v10, v11}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -441,9 +444,9 @@
 
     iget-object v10, v0, Lcom/android/server/am/ActivityManagerService$UiHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v10, v10, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
+    iget-object v10, v10, Lcom/android/server/am/ActivityManagerService;->mUiContext:Landroid/content/Context;
 
-    const v11, 0x10405d2
+    const v11, 0x1040a12
 
     invoke-virtual {v10, v11}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -455,7 +458,7 @@
 
     iget-object v10, v0, Lcom/android/server/am/ActivityManagerService$UiHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v10, v10, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
+    iget-object v10, v10, Lcom/android/server/am/ActivityManagerService;->mUiContext:Landroid/content/Context;
 
     const v11, 0x104000a
 
@@ -484,7 +487,7 @@
 
     iget-object v10, v0, Lcom/android/server/am/ActivityManagerService$UiHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-static {v10}, Lcom/android/server/am/ActivityManagerService;->-get11(Lcom/android/server/am/ActivityManagerService;)Z
+    invoke-static {v10}, Lcom/android/server/am/ActivityManagerService;->-get7(Lcom/android/server/am/ActivityManagerService;)Z
 
     move-result v10
 
@@ -496,7 +499,7 @@
 
     iget-object v10, v0, Lcom/android/server/am/ActivityManagerService$UiHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v10, v10, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
+    iget-object v10, v10, Lcom/android/server/am/ActivityManagerService;->mUiContext:Landroid/content/Context;
 
     invoke-direct {v3, v10}, Lcom/android/server/am/BaseErrorDialog;-><init>(Landroid/content/Context;)V
 
@@ -516,9 +519,9 @@
 
     iget-object v10, v0, Lcom/android/server/am/ActivityManagerService$UiHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v10, v10, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
+    iget-object v10, v10, Lcom/android/server/am/ActivityManagerService;->mUiContext:Landroid/content/Context;
 
-    const v11, 0x104014e
+    const v11, 0x10400b9
 
     invoke-virtual {v10, v11}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -530,9 +533,9 @@
 
     iget-object v10, v0, Lcom/android/server/am/ActivityManagerService$UiHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v10, v10, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
+    iget-object v10, v10, Lcom/android/server/am/ActivityManagerService;->mUiContext:Landroid/content/Context;
 
-    const v11, 0x10405d3
+    const v11, 0x1040a11
 
     invoke-virtual {v10, v11}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -544,7 +547,7 @@
 
     iget-object v10, v0, Lcom/android/server/am/ActivityManagerService$UiHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v10, v10, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
+    iget-object v10, v10, Lcom/android/server/am/ActivityManagerService;->mUiContext:Landroid/content/Context;
 
     const v11, 0x104000a
 
@@ -590,7 +593,7 @@
 
     iget-object v10, v10, Lcom/android/server/am/ActivityManagerService;->mCompatModeDialog:Lcom/android/server/am/CompatModeDialog;
 
-    if-eqz v10, :cond_9
+    if-eqz v10, :cond_8
 
     move-object/from16 v0, p0
 
@@ -614,7 +617,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_8
+    if-eqz v10, :cond_7
 
     monitor-exit v11
 
@@ -622,7 +625,7 @@
 
     return-void
 
-    :cond_8
+    :cond_7
     :try_start_7
     move-object/from16 v0, p0
 
@@ -642,10 +645,7 @@
     :try_end_7
     .catchall {:try_start_7 .. :try_end_7} :catchall_2
 
-    :cond_9
-    if-eqz v2, :cond_a
-
-    :cond_a
+    :cond_8
     monitor-exit v11
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
@@ -683,7 +683,7 @@
 
     iget-object v10, v10, Lcom/android/server/am/ActivityManagerService;->mUnsupportedDisplaySizeDialog:Lcom/android/server/am/UnsupportedDisplaySizeDialog;
 
-    if-eqz v10, :cond_b
+    if-eqz v10, :cond_9
 
     move-object/from16 v0, p0
 
@@ -701,8 +701,8 @@
 
     iput-object v12, v10, Lcom/android/server/am/ActivityManagerService;->mUnsupportedDisplaySizeDialog:Lcom/android/server/am/UnsupportedDisplaySizeDialog;
 
-    :cond_b
-    if-eqz v2, :cond_c
+    :cond_9
+    if-eqz v2, :cond_a
 
     move-object/from16 v0, p0
 
@@ -716,7 +716,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_c
+    if-eqz v10, :cond_a
 
     move-object/from16 v0, p0
 
@@ -732,7 +732,7 @@
 
     iget-object v14, v0, Lcom/android/server/am/ActivityManagerService$UiHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v14, v14, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
+    iget-object v14, v14, Lcom/android/server/am/ActivityManagerService;->mUiContext:Landroid/content/Context;
 
     iget-object v15, v2, Lcom/android/server/am/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
 
@@ -752,7 +752,7 @@
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_3
 
-    :cond_c
+    :cond_a
     monitor-exit v11
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
@@ -801,7 +801,7 @@
 
     iget-object v10, v0, Lcom/android/server/am/ActivityManagerService$UiHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-static {v10}, Lcom/android/server/am/ActivityManagerService;->-wrap5(Lcom/android/server/am/ActivityManagerService;)V
+    invoke-static {v10}, Lcom/android/server/am/ActivityManagerService;->-wrap3(Lcom/android/server/am/ActivityManagerService;)V
 
     goto/16 :goto_0
 
@@ -818,7 +818,7 @@
 
     iget-object v10, v0, Lcom/android/server/am/ActivityManagerService$UiHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-static {v10, v6, v9}, Lcom/android/server/am/ActivityManagerService;->-wrap4(Lcom/android/server/am/ActivityManagerService;II)V
+    invoke-static {v10, v6, v9}, Lcom/android/server/am/ActivityManagerService;->-wrap2(Lcom/android/server/am/ActivityManagerService;II)V
 
     goto/16 :goto_0
 
@@ -827,9 +827,20 @@
 
     iget-object v10, v0, Lcom/android/server/am/ActivityManagerService$UiHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-static {v10}, Lcom/android/server/am/ActivityManagerService;->-wrap6(Lcom/android/server/am/ActivityManagerService;)V
+    invoke-virtual {v10}, Lcom/android/server/am/ActivityManagerService;->dispatchUidsChanged()V
 
     goto/16 :goto_0
+
+    :sswitch_e
+    move-object/from16 v0, p0
+
+    iget-object v10, v0, Lcom/android/server/am/ActivityManagerService$UiHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    invoke-virtual {v10}, Lcom/android/server/am/ActivityManagerService;->pushTempWhitelist()V
+
+    goto/16 :goto_0
+
+    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -845,7 +856,8 @@
         0x20 -> :sswitch_c
         0x2e -> :sswitch_9
         0x30 -> :sswitch_a
-        0x36 -> :sswitch_d
-        0x46 -> :sswitch_8
+        0x35 -> :sswitch_d
+        0x3e -> :sswitch_8
+        0x44 -> :sswitch_e
     .end sparse-switch
 .end method

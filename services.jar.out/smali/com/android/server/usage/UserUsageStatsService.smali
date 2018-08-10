@@ -227,6 +227,16 @@
 
     return-object v0
 
+    :pswitch_8
+    const-string/jumbo v0, "SHORTCUT_INVOCATION"
+
+    return-object v0
+
+    :pswitch_9
+    const-string/jumbo v0, "CHOOSER_ACTION"
+
+    return-object v0
+
     nop
 
     :pswitch_data_0
@@ -239,6 +249,8 @@
         :pswitch_5
         :pswitch_6
         :pswitch_7
+        :pswitch_8
+        :pswitch_9
     .end packed-switch
 .end method
 
@@ -1404,11 +1416,11 @@
 .end method
 
 .method printIntervalStats(Lcom/android/internal/util/IndentingPrintWriter;Lcom/android/server/usage/IntervalStats;Z)V
-    .locals 20
+    .locals 28
 
     if-eqz p3, :cond_0
 
-    const-string/jumbo v18, "timeRange"
+    const-string/jumbo v26, "timeRange"
 
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -1418,7 +1430,7 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v27
 
     move-object/from16 v0, p0
 
@@ -1438,7 +1450,7 @@
 
     move-result-object v3
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1456,7 +1468,7 @@
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v18
+    move-object/from16 v1, v26
 
     invoke-virtual {v0, v1, v3}, Lcom/android/internal/util/IndentingPrintWriter;->printPair(Ljava/lang/String;Ljava/lang/Object;)V
 
@@ -1477,28 +1489,34 @@
 
     iget-object v0, v0, Lcom/android/server/usage/IntervalStats;->packageStats:Landroid/util/ArrayMap;
 
-    move-object/from16 v16, v0
+    move-object/from16 v23, v0
 
-    invoke-virtual/range {v16 .. v16}, Landroid/util/ArrayMap;->size()I
+    invoke-virtual/range {v23 .. v23}, Landroid/util/ArrayMap;->size()I
 
-    move-result v15
+    move-result v22
 
-    const/4 v14, 0x0
+    const/16 v19, 0x0
 
     :goto_1
-    if-ge v14, v15, :cond_1
+    move/from16 v0, v19
 
-    move-object/from16 v0, v16
+    move/from16 v1, v22
 
-    invoke-virtual {v0, v14}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+    if-ge v0, v1, :cond_1
 
-    move-result-object v17
+    move-object/from16 v0, v23
 
-    check-cast v17, Landroid/app/usage/UsageStats;
+    move/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v24
+
+    check-cast v24, Landroid/app/usage/UsageStats;
 
     const-string/jumbo v3, "package"
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v24
 
     iget-object v4, v0, Landroid/app/usage/UsageStats;->mPackageName:Ljava/lang/String;
 
@@ -1508,7 +1526,7 @@
 
     const-string/jumbo v3, "totalTime"
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v24
 
     iget-wide v4, v0, Landroid/app/usage/UsageStats;->mTotalTimeInForeground:J
 
@@ -1526,7 +1544,7 @@
 
     const-string/jumbo v3, "lastTime"
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v24
 
     iget-wide v4, v0, Landroid/app/usage/UsageStats;->mLastTimeUsed:J
 
@@ -1544,7 +1562,7 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/internal/util/IndentingPrintWriter;->println()V
 
-    add-int/lit8 v14, v14, 0x1
+    add-int/lit8 v19, v19, 0x1
 
     goto :goto_1
 
@@ -1577,9 +1595,192 @@
 
     invoke-virtual {v0, v3, v4}, Lcom/android/internal/util/IndentingPrintWriter;->printPair(Ljava/lang/String;Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_1
+    invoke-virtual/range {p1 .. p1}, Lcom/android/internal/util/IndentingPrintWriter;->decreaseIndent()V
+
+    invoke-virtual/range {p1 .. p1}, Lcom/android/internal/util/IndentingPrintWriter;->println()V
+
+    const-string/jumbo v3, "ChooserCounts"
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v3}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+
+    invoke-virtual/range {p1 .. p1}, Lcom/android/internal/util/IndentingPrintWriter;->increaseIndent()V
+
+    invoke-virtual/range {v23 .. v23}, Landroid/util/ArrayMap;->values()Ljava/util/Collection;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v25
+
+    :goto_2
+    invoke-interface/range {v25 .. v25}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_5
+
+    invoke-interface/range {v25 .. v25}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v24
+
+    check-cast v24, Landroid/app/usage/UsageStats;
+
+    const-string/jumbo v3, "package"
+
+    move-object/from16 v0, v24
+
+    iget-object v4, v0, Landroid/app/usage/UsageStats;->mPackageName:Ljava/lang/String;
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v3, v4}, Lcom/android/internal/util/IndentingPrintWriter;->printPair(Ljava/lang/String;Ljava/lang/Object;)V
+
+    move-object/from16 v0, v24
+
+    iget-object v3, v0, Landroid/app/usage/UsageStats;->mChooserCounts:Landroid/util/ArrayMap;
+
+    if-eqz v3, :cond_4
+
+    move-object/from16 v0, v24
+
+    iget-object v3, v0, Landroid/app/usage/UsageStats;->mChooserCounts:Landroid/util/ArrayMap;
+
+    invoke-virtual {v3}, Landroid/util/ArrayMap;->size()I
+
+    move-result v10
+
+    const/16 v19, 0x0
+
+    :goto_3
+    move/from16 v0, v19
+
+    if-ge v0, v10, :cond_4
+
+    move-object/from16 v0, v24
+
+    iget-object v3, v0, Landroid/app/usage/UsageStats;->mChooserCounts:Landroid/util/ArrayMap;
+
+    move/from16 v0, v19
+
+    invoke-virtual {v3, v0}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    move-object/from16 v0, v24
+
+    iget-object v3, v0, Landroid/app/usage/UsageStats;->mChooserCounts:Landroid/util/ArrayMap;
+
+    move/from16 v0, v19
+
+    invoke-virtual {v3, v0}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v15
+
+    check-cast v15, Landroid/util/ArrayMap;
+
+    invoke-virtual {v15}, Landroid/util/ArrayMap;->size()I
+
+    move-result v9
+
+    const/16 v20, 0x0
+
+    :goto_4
+    move/from16 v0, v20
+
+    if-ge v0, v9, :cond_3
+
+    move/from16 v0, v20
+
+    invoke-virtual {v15, v0}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
+
+    move-result-object v21
+
+    check-cast v21, Ljava/lang/String;
+
+    move/from16 v0, v20
+
+    invoke-virtual {v15, v0}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/lang/Integer;
+
+    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
+
+    move-result v14
+
+    if-eqz v14, :cond_2
+
+    const-string/jumbo v3, "ChooserCounts"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, ":"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    move-object/from16 v0, v21
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, " is "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-static {v14}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v3, v4}, Lcom/android/internal/util/IndentingPrintWriter;->printPair(Ljava/lang/String;Ljava/lang/Object;)V
+
+    invoke-virtual/range {p1 .. p1}, Lcom/android/internal/util/IndentingPrintWriter;->println()V
+
+    :cond_2
+    add-int/lit8 v20, v20, 0x1
+
+    goto :goto_4
+
+    :cond_3
+    add-int/lit8 v19, v19, 0x1
+
+    goto :goto_3
+
+    :cond_4
+    invoke-virtual/range {p1 .. p1}, Lcom/android/internal/util/IndentingPrintWriter;->println()V
+
+    goto/16 :goto_2
+
+    :cond_5
     invoke-virtual/range {p1 .. p1}, Lcom/android/internal/util/IndentingPrintWriter;->decreaseIndent()V
 
     const-string/jumbo v3, "configurations"
@@ -1592,26 +1793,30 @@
 
     move-object/from16 v0, p2
 
-    iget-object v10, v0, Lcom/android/server/usage/IntervalStats;->configurations:Landroid/util/ArrayMap;
+    iget-object v13, v0, Lcom/android/server/usage/IntervalStats;->configurations:Landroid/util/ArrayMap;
 
-    invoke-virtual {v10}, Landroid/util/ArrayMap;->size()I
+    invoke-virtual {v13}, Landroid/util/ArrayMap;->size()I
 
-    move-result v9
+    move-result v12
 
-    const/4 v14, 0x0
+    const/16 v19, 0x0
 
-    :goto_2
-    if-ge v14, v9, :cond_2
+    :goto_5
+    move/from16 v0, v19
 
-    invoke-virtual {v10, v14}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+    if-ge v0, v12, :cond_6
 
-    move-result-object v2
+    move/from16 v0, v19
 
-    check-cast v2, Landroid/app/usage/ConfigurationStats;
+    invoke-virtual {v13, v0}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v11
+
+    check-cast v11, Landroid/app/usage/ConfigurationStats;
 
     const-string/jumbo v3, "config"
 
-    iget-object v4, v2, Landroid/app/usage/ConfigurationStats;->mConfiguration:Landroid/content/res/Configuration;
+    iget-object v4, v11, Landroid/app/usage/ConfigurationStats;->mConfiguration:Landroid/content/res/Configuration;
 
     invoke-static {v4}, Landroid/content/res/Configuration;->resourceQualifierString(Landroid/content/res/Configuration;)Ljava/lang/String;
 
@@ -1623,7 +1828,7 @@
 
     const-string/jumbo v3, "totalTime"
 
-    iget-wide v4, v2, Landroid/app/usage/ConfigurationStats;->mTotalTimeActive:J
+    iget-wide v4, v11, Landroid/app/usage/ConfigurationStats;->mTotalTimeActive:J
 
     move-object/from16 v0, p0
 
@@ -1639,7 +1844,7 @@
 
     const-string/jumbo v3, "lastTime"
 
-    iget-wide v4, v2, Landroid/app/usage/ConfigurationStats;->mLastTimeActive:J
+    iget-wide v4, v11, Landroid/app/usage/ConfigurationStats;->mLastTimeActive:J
 
     move-object/from16 v0, p0
 
@@ -1655,7 +1860,7 @@
 
     const-string/jumbo v3, "count"
 
-    iget v4, v2, Landroid/app/usage/ConfigurationStats;->mActivationCount:I
+    iget v4, v11, Landroid/app/usage/ConfigurationStats;->mActivationCount:I
 
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -1667,11 +1872,11 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/internal/util/IndentingPrintWriter;->println()V
 
-    add-int/lit8 v14, v14, 0x1
+    add-int/lit8 v19, v19, 0x1
 
-    goto :goto_2
+    goto :goto_5
 
-    :cond_2
+    :cond_6
     invoke-virtual/range {p1 .. p1}, Lcom/android/internal/util/IndentingPrintWriter;->decreaseIndent()V
 
     const-string/jumbo v3, "events"
@@ -1684,29 +1889,37 @@
 
     move-object/from16 v0, p2
 
-    iget-object v13, v0, Lcom/android/server/usage/IntervalStats;->events:Landroid/app/usage/TimeSparseArray;
+    iget-object v0, v0, Lcom/android/server/usage/IntervalStats;->events:Landroid/app/usage/TimeSparseArray;
 
-    if-eqz v13, :cond_5
+    move-object/from16 v18, v0
 
-    invoke-virtual {v13}, Landroid/app/usage/TimeSparseArray;->size()I
+    if-eqz v18, :cond_a
 
-    move-result v12
+    invoke-virtual/range {v18 .. v18}, Landroid/app/usage/TimeSparseArray;->size()I
 
-    :goto_3
-    const/4 v14, 0x0
+    move-result v17
 
-    :goto_4
-    if-ge v14, v12, :cond_6
+    :goto_6
+    const/16 v19, 0x0
 
-    invoke-virtual {v13, v14}, Landroid/app/usage/TimeSparseArray;->valueAt(I)Ljava/lang/Object;
+    :goto_7
+    move/from16 v0, v19
 
-    move-result-object v11
+    move/from16 v1, v17
 
-    check-cast v11, Landroid/app/usage/UsageEvents$Event;
+    if-ge v0, v1, :cond_b
+
+    invoke-virtual/range {v18 .. v19}, Landroid/app/usage/TimeSparseArray;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v16
+
+    check-cast v16, Landroid/app/usage/UsageEvents$Event;
 
     const-string/jumbo v3, "time"
 
-    iget-wide v4, v11, Landroid/app/usage/UsageEvents$Event;->mTimeStamp:J
+    move-object/from16 v0, v16
+
+    iget-wide v4, v0, Landroid/app/usage/UsageEvents$Event;->mTimeStamp:J
 
     move-object/from16 v0, p0
 
@@ -1722,7 +1935,9 @@
 
     const-string/jumbo v3, "type"
 
-    iget v4, v11, Landroid/app/usage/UsageEvents$Event;->mEventType:I
+    move-object/from16 v0, v16
+
+    iget v4, v0, Landroid/app/usage/UsageEvents$Event;->mEventType:I
 
     invoke-static {v4}, Lcom/android/server/usage/UserUsageStatsService;->eventToString(I)Ljava/lang/String;
 
@@ -1734,32 +1949,42 @@
 
     const-string/jumbo v3, "package"
 
-    iget-object v4, v11, Landroid/app/usage/UsageEvents$Event;->mPackage:Ljava/lang/String;
+    move-object/from16 v0, v16
+
+    iget-object v4, v0, Landroid/app/usage/UsageEvents$Event;->mPackage:Ljava/lang/String;
 
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v3, v4}, Lcom/android/internal/util/IndentingPrintWriter;->printPair(Ljava/lang/String;Ljava/lang/Object;)V
 
-    iget-object v3, v11, Landroid/app/usage/UsageEvents$Event;->mClass:Ljava/lang/String;
+    move-object/from16 v0, v16
 
-    if-eqz v3, :cond_3
+    iget-object v3, v0, Landroid/app/usage/UsageEvents$Event;->mClass:Ljava/lang/String;
+
+    if-eqz v3, :cond_7
 
     const-string/jumbo v3, "class"
 
-    iget-object v4, v11, Landroid/app/usage/UsageEvents$Event;->mClass:Ljava/lang/String;
+    move-object/from16 v0, v16
+
+    iget-object v4, v0, Landroid/app/usage/UsageEvents$Event;->mClass:Ljava/lang/String;
 
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v3, v4}, Lcom/android/internal/util/IndentingPrintWriter;->printPair(Ljava/lang/String;Ljava/lang/Object;)V
 
-    :cond_3
-    iget-object v3, v11, Landroid/app/usage/UsageEvents$Event;->mConfiguration:Landroid/content/res/Configuration;
+    :cond_7
+    move-object/from16 v0, v16
 
-    if-eqz v3, :cond_4
+    iget-object v3, v0, Landroid/app/usage/UsageEvents$Event;->mConfiguration:Landroid/content/res/Configuration;
+
+    if-eqz v3, :cond_8
 
     const-string/jumbo v3, "config"
 
-    iget-object v4, v11, Landroid/app/usage/UsageEvents$Event;->mConfiguration:Landroid/content/res/Configuration;
+    move-object/from16 v0, v16
+
+    iget-object v4, v0, Landroid/app/usage/UsageEvents$Event;->mConfiguration:Landroid/content/res/Configuration;
 
     invoke-static {v4}, Landroid/content/res/Configuration;->resourceQualifierString(Landroid/content/res/Configuration;)Ljava/lang/String;
 
@@ -1769,19 +1994,46 @@
 
     invoke-virtual {v0, v3, v4}, Lcom/android/internal/util/IndentingPrintWriter;->printPair(Ljava/lang/String;Ljava/lang/Object;)V
 
-    :cond_4
+    :cond_8
+    move-object/from16 v0, v16
+
+    iget-object v3, v0, Landroid/app/usage/UsageEvents$Event;->mShortcutId:Ljava/lang/String;
+
+    if-eqz v3, :cond_9
+
+    const-string/jumbo v3, "shortcutId"
+
+    move-object/from16 v0, v16
+
+    iget-object v4, v0, Landroid/app/usage/UsageEvents$Event;->mShortcutId:Ljava/lang/String;
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v3, v4}, Lcom/android/internal/util/IndentingPrintWriter;->printPair(Ljava/lang/String;Ljava/lang/Object;)V
+
+    :cond_9
+    const-string/jumbo v3, "flags"
+
+    move-object/from16 v0, v16
+
+    iget v4, v0, Landroid/app/usage/UsageEvents$Event;->mFlags:I
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v3, v4}, Lcom/android/internal/util/IndentingPrintWriter;->printHexPair(Ljava/lang/String;I)V
+
     invoke-virtual/range {p1 .. p1}, Lcom/android/internal/util/IndentingPrintWriter;->println()V
 
-    add-int/lit8 v14, v14, 0x1
+    add-int/lit8 v19, v19, 0x1
 
-    goto :goto_4
+    goto/16 :goto_7
 
-    :cond_5
-    const/4 v12, 0x0
+    :cond_a
+    const/16 v17, 0x0
 
-    goto :goto_3
+    goto/16 :goto_6
 
-    :cond_6
+    :cond_b
     invoke-virtual/range {p1 .. p1}, Lcom/android/internal/util/IndentingPrintWriter;->decreaseIndent()V
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/internal/util/IndentingPrintWriter;->decreaseIndent()V
@@ -1818,70 +2070,76 @@
     return-object v0
 .end method
 
-.method queryEvents(JJ)Landroid/app/usage/UsageEvents;
-    .locals 17
+.method queryEvents(JJZ)Landroid/app/usage/UsageEvents;
+    .locals 19
 
-    new-instance v6, Landroid/util/ArraySet;
+    new-instance v9, Landroid/util/ArraySet;
 
-    invoke-direct {v6}, Landroid/util/ArraySet;-><init>()V
+    invoke-direct {v9}, Landroid/util/ArraySet;-><init>()V
 
-    new-instance v0, Lcom/android/server/usage/UserUsageStatsService$3;
+    new-instance v2, Lcom/android/server/usage/UserUsageStatsService$3;
 
-    move-object/from16 v1, p0
+    move-object/from16 v3, p0
 
-    move-wide/from16 v2, p1
+    move-wide/from16 v4, p1
 
-    move-wide/from16 v4, p3
+    move-wide/from16 v6, p3
 
-    invoke-direct/range {v0 .. v6}, Lcom/android/server/usage/UserUsageStatsService$3;-><init>(Lcom/android/server/usage/UserUsageStatsService;JJLandroid/util/ArraySet;)V
+    move/from16 v8, p5
 
-    const/4 v9, 0x0
+    invoke-direct/range {v2 .. v9}, Lcom/android/server/usage/UserUsageStatsService$3;-><init>(Lcom/android/server/usage/UserUsageStatsService;JJZLandroid/util/ArraySet;)V
 
-    move-object/from16 v8, p0
+    const/4 v11, 0x0
 
-    move-wide/from16 v10, p1
+    move-object/from16 v10, p0
 
-    move-wide/from16 v12, p3
+    move-wide/from16 v12, p1
 
-    move-object v14, v0
+    move-wide/from16 v14, p3
 
-    invoke-direct/range {v8 .. v14}, Lcom/android/server/usage/UserUsageStatsService;->queryStats(IJJLcom/android/server/usage/UsageStatsDatabase$StatCombiner;)Ljava/util/List;
+    move-object/from16 v16, v2
 
-    move-result-object v7
+    invoke-direct/range {v10 .. v16}, Lcom/android/server/usage/UserUsageStatsService;->queryStats(IJJLcom/android/server/usage/UsageStatsDatabase$StatCombiner;)Ljava/util/List;
 
-    if-eqz v7, :cond_0
+    move-result-object v17
 
-    invoke-interface {v7}, Ljava/util/List;->isEmpty()Z
+    if-eqz v17, :cond_0
 
-    move-result v0
+    invoke-interface/range {v17 .. v17}, Ljava/util/List;->isEmpty()Z
 
-    if-eqz v0, :cond_1
+    move-result v2
+
+    if-eqz v2, :cond_1
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
-    return-object v0
+    return-object v2
 
     :cond_1
-    invoke-virtual {v6}, Landroid/util/ArraySet;->size()I
+    invoke-virtual {v9}, Landroid/util/ArraySet;->size()I
 
-    move-result v0
+    move-result v2
 
-    new-array v0, v0, [Ljava/lang/String;
+    new-array v2, v2, [Ljava/lang/String;
 
-    invoke-virtual {v6, v0}, Landroid/util/ArraySet;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-virtual {v9, v2}, Landroid/util/ArraySet;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v15
+    move-result-object v18
 
-    check-cast v15, [Ljava/lang/String;
+    check-cast v18, [Ljava/lang/String;
 
-    invoke-static {v15}, Ljava/util/Arrays;->sort([Ljava/lang/Object;)V
+    invoke-static/range {v18 .. v18}, Ljava/util/Arrays;->sort([Ljava/lang/Object;)V
 
-    new-instance v0, Landroid/app/usage/UsageEvents;
+    new-instance v2, Landroid/app/usage/UsageEvents;
 
-    invoke-direct {v0, v7, v15}, Landroid/app/usage/UsageEvents;-><init>(Ljava/util/List;[Ljava/lang/String;)V
+    move-object/from16 v0, v17
 
-    return-object v0
+    move-object/from16 v1, v18
+
+    invoke-direct {v2, v0, v1}, Landroid/app/usage/UsageEvents;-><init>(Ljava/util/List;[Ljava/lang/String;)V
+
+    return-object v2
 .end method
 
 .method queryUsageStats(IJJ)Ljava/util/List;
@@ -1914,110 +2172,153 @@
 .end method
 
 .method reportEvent(Landroid/app/usage/UsageEvents$Event;)V
-    .locals 11
+    .locals 14
 
-    const/4 v10, 0x5
+    const/4 v13, 0x5
 
-    const/4 v3, 0x0
-
-    iget-wide v4, p1, Landroid/app/usage/UsageEvents$Event;->mTimeStamp:J
-
-    iget-object v6, p0, Lcom/android/server/usage/UserUsageStatsService;->mDailyExpiryDate:Lcom/android/server/usage/UnixCalendar;
-
-    invoke-virtual {v6}, Lcom/android/server/usage/UnixCalendar;->getTimeInMillis()J
-
-    move-result-wide v6
-
-    cmp-long v4, v4, v6
-
-    if-ltz v4, :cond_0
-
-    iget-wide v4, p1, Landroid/app/usage/UsageEvents$Event;->mTimeStamp:J
-
-    invoke-direct {p0, v4, v5}, Lcom/android/server/usage/UserUsageStatsService;->rolloverStats(J)V
-
-    :cond_0
-    iget-object v4, p0, Lcom/android/server/usage/UserUsageStatsService;->mCurrentStats:[Lcom/android/server/usage/IntervalStats;
-
-    aget-object v0, v4, v3
-
-    iget-object v1, p1, Landroid/app/usage/UsageEvents$Event;->mConfiguration:Landroid/content/res/Configuration;
-
-    iget v4, p1, Landroid/app/usage/UsageEvents$Event;->mEventType:I
-
-    if-ne v4, v10, :cond_1
-
-    iget-object v4, v0, Lcom/android/server/usage/IntervalStats;->activeConfiguration:Landroid/content/res/Configuration;
-
-    if-eqz v4, :cond_1
-
-    iget-object v4, v0, Lcom/android/server/usage/IntervalStats;->activeConfiguration:Landroid/content/res/Configuration;
-
-    invoke-static {v4, v1}, Landroid/content/res/Configuration;->generateDelta(Landroid/content/res/Configuration;Landroid/content/res/Configuration;)Landroid/content/res/Configuration;
-
-    move-result-object v4
-
-    iput-object v4, p1, Landroid/app/usage/UsageEvents$Event;->mConfiguration:Landroid/content/res/Configuration;
-
-    :cond_1
-    iget-object v4, v0, Lcom/android/server/usage/IntervalStats;->events:Landroid/app/usage/TimeSparseArray;
-
-    if-nez v4, :cond_2
-
-    new-instance v4, Landroid/app/usage/TimeSparseArray;
-
-    invoke-direct {v4}, Landroid/app/usage/TimeSparseArray;-><init>()V
-
-    iput-object v4, v0, Lcom/android/server/usage/IntervalStats;->events:Landroid/app/usage/TimeSparseArray;
-
-    :cond_2
-    iget v4, p1, Landroid/app/usage/UsageEvents$Event;->mEventType:I
-
-    const/4 v5, 0x6
-
-    if-eq v4, v5, :cond_3
-
-    iget-object v4, v0, Lcom/android/server/usage/IntervalStats;->events:Landroid/app/usage/TimeSparseArray;
-
-    iget-wide v6, p1, Landroid/app/usage/UsageEvents$Event;->mTimeStamp:J
-
-    invoke-virtual {v4, v6, v7, p1}, Landroid/app/usage/TimeSparseArray;->put(JLjava/lang/Object;)V
-
-    :cond_3
-    iget-object v4, p0, Lcom/android/server/usage/UserUsageStatsService;->mCurrentStats:[Lcom/android/server/usage/IntervalStats;
-
-    array-length v5, v4
-
-    :goto_0
-    if-ge v3, v5, :cond_5
-
-    aget-object v2, v4, v3
-
-    iget v6, p1, Landroid/app/usage/UsageEvents$Event;->mEventType:I
-
-    if-ne v6, v10, :cond_4
-
-    iget-wide v6, p1, Landroid/app/usage/UsageEvents$Event;->mTimeStamp:J
-
-    invoke-virtual {v2, v1, v6, v7}, Lcom/android/server/usage/IntervalStats;->updateConfigurationStats(Landroid/content/res/Configuration;J)V
-
-    :goto_1
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_0
-
-    :cond_4
-    iget-object v6, p1, Landroid/app/usage/UsageEvents$Event;->mPackage:Ljava/lang/String;
+    const/4 v6, 0x0
 
     iget-wide v8, p1, Landroid/app/usage/UsageEvents$Event;->mTimeStamp:J
 
-    iget v7, p1, Landroid/app/usage/UsageEvents$Event;->mEventType:I
+    iget-object v5, p0, Lcom/android/server/usage/UserUsageStatsService;->mDailyExpiryDate:Lcom/android/server/usage/UnixCalendar;
 
-    invoke-virtual {v2, v6, v8, v9, v7}, Lcom/android/server/usage/IntervalStats;->update(Ljava/lang/String;JI)V
+    invoke-virtual {v5}, Lcom/android/server/usage/UnixCalendar;->getTimeInMillis()J
+
+    move-result-wide v10
+
+    cmp-long v5, v8, v10
+
+    if-ltz v5, :cond_0
+
+    iget-wide v8, p1, Landroid/app/usage/UsageEvents$Event;->mTimeStamp:J
+
+    invoke-direct {p0, v8, v9}, Lcom/android/server/usage/UserUsageStatsService;->rolloverStats(J)V
+
+    :cond_0
+    iget-object v5, p0, Lcom/android/server/usage/UserUsageStatsService;->mCurrentStats:[Lcom/android/server/usage/IntervalStats;
+
+    aget-object v2, v5, v6
+
+    iget-object v3, p1, Landroid/app/usage/UsageEvents$Event;->mConfiguration:Landroid/content/res/Configuration;
+
+    iget v5, p1, Landroid/app/usage/UsageEvents$Event;->mEventType:I
+
+    if-ne v5, v13, :cond_1
+
+    iget-object v5, v2, Lcom/android/server/usage/IntervalStats;->activeConfiguration:Landroid/content/res/Configuration;
+
+    if-eqz v5, :cond_1
+
+    iget-object v5, v2, Lcom/android/server/usage/IntervalStats;->activeConfiguration:Landroid/content/res/Configuration;
+
+    invoke-static {v5, v3}, Landroid/content/res/Configuration;->generateDelta(Landroid/content/res/Configuration;Landroid/content/res/Configuration;)Landroid/content/res/Configuration;
+
+    move-result-object v5
+
+    iput-object v5, p1, Landroid/app/usage/UsageEvents$Event;->mConfiguration:Landroid/content/res/Configuration;
+
+    :cond_1
+    iget-object v5, v2, Lcom/android/server/usage/IntervalStats;->events:Landroid/app/usage/TimeSparseArray;
+
+    if-nez v5, :cond_2
+
+    new-instance v5, Landroid/app/usage/TimeSparseArray;
+
+    invoke-direct {v5}, Landroid/app/usage/TimeSparseArray;-><init>()V
+
+    iput-object v5, v2, Lcom/android/server/usage/IntervalStats;->events:Landroid/app/usage/TimeSparseArray;
+
+    :cond_2
+    iget v5, p1, Landroid/app/usage/UsageEvents$Event;->mEventType:I
+
+    const/4 v7, 0x6
+
+    if-eq v5, v7, :cond_3
+
+    iget-object v5, v2, Lcom/android/server/usage/IntervalStats;->events:Landroid/app/usage/TimeSparseArray;
+
+    iget-wide v8, p1, Landroid/app/usage/UsageEvents$Event;->mTimeStamp:J
+
+    invoke-virtual {v5, v8, v9, p1}, Landroid/app/usage/TimeSparseArray;->put(JLjava/lang/Object;)V
+
+    :cond_3
+    iget-object v8, p0, Lcom/android/server/usage/UserUsageStatsService;->mCurrentStats:[Lcom/android/server/usage/IntervalStats;
+
+    array-length v9, v8
+
+    move v7, v6
+
+    :goto_0
+    if-ge v7, v9, :cond_7
+
+    aget-object v4, v8, v7
+
+    iget v5, p1, Landroid/app/usage/UsageEvents$Event;->mEventType:I
+
+    if-ne v5, v13, :cond_5
+
+    iget-wide v10, p1, Landroid/app/usage/UsageEvents$Event;->mTimeStamp:J
+
+    invoke-virtual {v4, v3, v10, v11}, Lcom/android/server/usage/IntervalStats;->updateConfigurationStats(Landroid/content/res/Configuration;J)V
+
+    :cond_4
+    :goto_1
+    add-int/lit8 v5, v7, 0x1
+
+    move v7, v5
+
+    goto :goto_0
+
+    :cond_5
+    iget v5, p1, Landroid/app/usage/UsageEvents$Event;->mEventType:I
+
+    const/16 v10, 0x9
+
+    if-ne v5, v10, :cond_6
+
+    iget-object v5, p1, Landroid/app/usage/UsageEvents$Event;->mPackage:Ljava/lang/String;
+
+    iget-object v10, p1, Landroid/app/usage/UsageEvents$Event;->mContentType:Ljava/lang/String;
+
+    iget-object v11, p1, Landroid/app/usage/UsageEvents$Event;->mAction:Ljava/lang/String;
+
+    invoke-virtual {v4, v5, v10, v11}, Lcom/android/server/usage/IntervalStats;->updateChooserCounts(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v1, p1, Landroid/app/usage/UsageEvents$Event;->mContentAnnotations:[Ljava/lang/String;
+
+    if-eqz v1, :cond_4
+
+    array-length v10, v1
+
+    move v5, v6
+
+    :goto_2
+    if-ge v5, v10, :cond_4
+
+    aget-object v0, v1, v5
+
+    iget-object v11, p1, Landroid/app/usage/UsageEvents$Event;->mPackage:Ljava/lang/String;
+
+    iget-object v12, p1, Landroid/app/usage/UsageEvents$Event;->mAction:Ljava/lang/String;
+
+    invoke-virtual {v4, v11, v0, v12}, Lcom/android/server/usage/IntervalStats;->updateChooserCounts(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    add-int/lit8 v5, v5, 0x1
+
+    goto :goto_2
+
+    :cond_6
+    iget-object v5, p1, Landroid/app/usage/UsageEvents$Event;->mPackage:Ljava/lang/String;
+
+    iget-wide v10, p1, Landroid/app/usage/UsageEvents$Event;->mTimeStamp:J
+
+    iget v12, p1, Landroid/app/usage/UsageEvents$Event;->mEventType:I
+
+    invoke-virtual {v4, v5, v10, v11, v12}, Lcom/android/server/usage/IntervalStats;->update(Ljava/lang/String;JI)V
 
     goto :goto_1
 
-    :cond_5
+    :cond_7
     invoke-direct {p0}, Lcom/android/server/usage/UserUsageStatsService;->notifyStatsChanged()V
 
     return-void

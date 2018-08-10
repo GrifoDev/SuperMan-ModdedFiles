@@ -51,7 +51,7 @@
 
     iget v1, p2, Lcom/android/server/am/ProcessRecord;->hotnessAdj:I
 
-    if-le v0, v1, :cond_0
+    if-ge v0, v1, :cond_0
 
     const/4 v0, -0x1
 
@@ -62,7 +62,7 @@
 
     iget v1, p2, Lcom/android/server/am/ProcessRecord;->hotnessAdj:I
 
-    if-ge v0, v1, :cond_1
+    if-le v0, v1, :cond_1
 
     const/4 v0, 0x1
 

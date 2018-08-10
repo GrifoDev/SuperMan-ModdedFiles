@@ -63,9 +63,9 @@
 .end method
 
 .method public run()V
-    .locals 8
+    .locals 9
 
-    const/4 v7, 0x0
+    const/4 v8, 0x0
 
     iget-object v3, p0, Lcom/android/server/power/ShutdownDialog$SoundThread;->this$0:Lcom/android/server/power/ShutdownDialog;
 
@@ -81,7 +81,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    iput-boolean v7, p0, Lcom/android/server/power/ShutdownDialog$SoundThread;->running:Z
+    iput-boolean v8, p0, Lcom/android/server/power/ShutdownDialog$SoundThread;->running:Z
 
     return-void
 
@@ -126,9 +126,11 @@
 
     move-result v4
 
-    mul-int/lit8 v4, v4, 0x2
-
     int-to-long v4, v4
+
+    const-wide/16 v6, 0x2
+
+    mul-long/2addr v4, v6
 
     sget-object v6, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
@@ -157,7 +159,7 @@
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_2
 
     :goto_1
-    iput-boolean v7, p0, Lcom/android/server/power/ShutdownDialog$SoundThread;->running:Z
+    iput-boolean v8, p0, Lcom/android/server/power/ShutdownDialog$SoundThread;->running:Z
 
     const-string/jumbo v3, "ShutdownDialog"
 

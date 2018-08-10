@@ -55,7 +55,7 @@
 
     move-result-object v0
 
-    const v1, 0x1040a18
+    const v1, 0x10408c2
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -84,15 +84,24 @@
     move-result-object v0
 
     invoke-virtual {v0}, Ljava/util/HashMap;->isEmpty()Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/server/enterprise/utils/PackageDownloader$2;->this$0:Lcom/android/server/enterprise/utils/PackageDownloader;
+
+    invoke-static {v0}, Lcom/android/server/enterprise/utils/PackageDownloader;->-get1(Lcom/android/server/enterprise/utils/PackageDownloader;)Ljava/util/HashMap;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_1
-    :goto_1
     monitor-exit p0
 
     return-void
@@ -113,7 +122,7 @@
 
     move-result-object v0
 
-    const v1, 0x1040a19
+    const v1, 0x10408c3
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -131,18 +140,4 @@
     monitor-exit p0
 
     throw v0
-
-    :cond_3
-    :try_start_2
-    iget-object v0, p0, Lcom/android/server/enterprise/utils/PackageDownloader$2;->this$0:Lcom/android/server/enterprise/utils/PackageDownloader;
-
-    invoke-static {v0}, Lcom/android/server/enterprise/utils/PackageDownloader;->-get1(Lcom/android/server/enterprise/utils/PackageDownloader;)Ljava/util/HashMap;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    goto :goto_1
 .end method

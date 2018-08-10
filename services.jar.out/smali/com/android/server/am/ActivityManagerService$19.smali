@@ -1,14 +1,11 @@
 .class Lcom/android/server/am/ActivityManagerService$19;
-.super Ljava/lang/Object;
+.super Landroid/content/BroadcastReceiver;
 .source "ActivityManagerService.java"
-
-# interfaces
-.implements Landroid/os/IBinder$DeathRecipient;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/am/ActivityManagerService;->hang(Landroid/os/IBinder;Z)V
+    value = Lcom/android/server/am/ActivityManagerService;->restart()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,31 +24,47 @@
 
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$19;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public binderDied()V
-    .locals 1
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 2
 
-    monitor-enter p0
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->-get0()Ljava/lang/String;
 
-    :try_start_0
-    invoke-virtual {p0}, Lcom/android/server/am/ActivityManagerService$19;->notifyAll()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    move-result-object v0
 
-    monitor-exit p0
+    const-string/jumbo v1, "Shutting down activity manager..."
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$19;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    const/16 v1, 0x2710
+
+    invoke-virtual {v0, v1}, Lcom/android/server/am/ActivityManagerService;->shutdown(I)Z
+
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->-get0()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "Shutdown complete, restarting!"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {}, Landroid/os/Process;->myPid()I
+
+    move-result v0
+
+    invoke-static {v0}, Landroid/os/Process;->killProcess(I)V
+
+    const/16 v0, 0xa
+
+    invoke-static {v0}, Ljava/lang/System;->exit(I)V
 
     return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
 .end method

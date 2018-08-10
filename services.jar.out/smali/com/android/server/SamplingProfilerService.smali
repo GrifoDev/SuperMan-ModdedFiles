@@ -199,16 +199,21 @@
 
 # virtual methods
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/SamplingProfilerService;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v1, "android.permission.DUMP"
+    const-string/jumbo v1, "SamplingProfilerService"
 
-    const-string/jumbo v2, "SamplingProfilerService"
+    invoke-static {v0, v1, p2}, Lcom/android/internal/util/DumpUtils;->checkDumpPermission(Landroid/content/Context;Ljava/lang/String;Ljava/io/PrintWriter;)Z
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+    move-result v0
 
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
     const-string/jumbo v0, "SamplingProfilerService:"
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V

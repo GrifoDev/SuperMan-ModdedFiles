@@ -1,11 +1,14 @@
 .class Lcom/android/server/pm/PackageManagerService$5;
-.super Ljava/lang/Thread;
+.super Ljava/lang/Object;
 .source "PackageManagerService.java"
+
+# interfaces
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/pm/PackageManagerService;-><init>(Landroid/content/Context;Lcom/android/server/pm/Installer;ZZ)V
+    value = Lcom/android/server/pm/PackageManagerService;->updatePermissionStatesAndFlagsInternal(Ljava/lang/String;Ljava/util/List;IIIIZ)Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,14 +20,22 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/pm/PackageManagerService;
 
+.field final synthetic val$appId:I
+
+.field final synthetic val$userId:I
+
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/PackageManagerService;)V
+.method constructor <init>(Lcom/android/server/pm/PackageManagerService;II)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$5;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
+    iput p2, p0, Lcom/android/server/pm/PackageManagerService$5;->val$appId:I
+
+    iput p3, p0, Lcom/android/server/pm/PackageManagerService$5;->val$userId:I
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -34,26 +45,15 @@
 .method public run()V
     .locals 4
 
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$5;->this$0:Lcom/android/server/pm/PackageManagerService;
+    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$5;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    new-instance v2, Ljava/io/File;
+    iget v1, p0, Lcom/android/server/pm/PackageManagerService$5;->val$appId:I
 
-    const-string/jumbo v3, "/data/overlays/style"
+    iget v2, p0, Lcom/android/server/pm/PackageManagerService$5;->val$userId:I
 
-    invoke-direct {v2, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    const-string/jumbo v3, "permission grant or revoke changed gids"
 
-    invoke-static {v1, v2}, Lcom/android/server/pm/PackageManagerService;->-wrap46(Lcom/android/server/pm/PackageManagerService;Ljava/io/File;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-static {v0, v1, v2, v3}, Lcom/android/server/pm/PackageManagerService;->-wrap46(Lcom/android/server/pm/PackageManagerService;IILjava/lang/String;)V
 
-    :goto_0
     return-void
-
-    :catch_0
-    move-exception v0
-
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
-
-    goto :goto_0
 .end method

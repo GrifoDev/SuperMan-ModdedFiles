@@ -46,7 +46,7 @@
 
     iget-object v3, p0, Lcom/android/server/BatteryService$LedSettingsObserver;->this$0:Lcom/android/server/BatteryService;
 
-    invoke-static {v3}, Lcom/android/server/BatteryService;->-get18(Lcom/android/server/BatteryService;)Ljava/lang/Object;
+    invoke-static {v3}, Lcom/android/server/BatteryService;->-get19(Lcom/android/server/BatteryService;)Ljava/lang/Object;
 
     move-result-object v4
 
@@ -55,7 +55,7 @@
     :try_start_0
     iget-object v3, p0, Lcom/android/server/BatteryService$LedSettingsObserver;->this$0:Lcom/android/server/BatteryService;
 
-    invoke-static {v3}, Lcom/android/server/BatteryService;->-get9(Lcom/android/server/BatteryService;)Landroid/content/Context;
+    invoke-static {v3}, Lcom/android/server/BatteryService;->-get10(Lcom/android/server/BatteryService;)Landroid/content/Context;
 
     move-result-object v3
 
@@ -115,7 +115,7 @@
 
     iget-object v3, p0, Lcom/android/server/BatteryService$LedSettingsObserver;->this$0:Lcom/android/server/BatteryService;
 
-    invoke-static {v3}, Lcom/android/server/BatteryService;->-get16(Lcom/android/server/BatteryService;)Z
+    invoke-static {v3}, Lcom/android/server/BatteryService;->-get17(Lcom/android/server/BatteryService;)Z
 
     move-result v3
 
@@ -145,7 +145,7 @@
 
     iget-object v3, p0, Lcom/android/server/BatteryService$LedSettingsObserver;->this$0:Lcom/android/server/BatteryService;
 
-    invoke-static {v3}, Lcom/android/server/BatteryService;->-get17(Lcom/android/server/BatteryService;)Z
+    invoke-static {v3}, Lcom/android/server/BatteryService;->-get18(Lcom/android/server/BatteryService;)Z
 
     move-result v3
 
@@ -161,7 +161,7 @@
 
     iget-object v1, p0, Lcom/android/server/BatteryService$LedSettingsObserver;->this$0:Lcom/android/server/BatteryService;
 
-    invoke-static {v1}, Lcom/android/server/BatteryService;->-get15(Lcom/android/server/BatteryService;)Lcom/android/server/BatteryService$Led;
+    invoke-static {v1}, Lcom/android/server/BatteryService;->-get16(Lcom/android/server/BatteryService;)Lcom/android/server/BatteryService$Led;
 
     move-result-object v1
 

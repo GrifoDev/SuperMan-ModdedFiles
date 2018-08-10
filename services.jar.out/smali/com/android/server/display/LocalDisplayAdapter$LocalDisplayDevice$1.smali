@@ -184,73 +184,121 @@
     throw v1
 .end method
 
+.method private setVrMode(Z)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice$1;->this$1:Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice;
+
+    invoke-static {v0}, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice;->-get0(Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice;)Lcom/android/server/lights/Light;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice$1;->this$1:Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice;
+
+    invoke-static {v0}, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice;->-get0(Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice;)Lcom/android/server/lights/Light;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Lcom/android/server/lights/Light;->setVrMode(Z)V
+
+    :cond_0
+    return-void
+.end method
+
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 5
 
-    const/4 v2, 0x4
+    const/4 v4, 0x4
+
+    const/4 v1, 0x0
+
+    const/4 v3, 0x5
 
     iget v0, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice$1;->val$oldState:I
 
-    iget v1, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice$1;->val$oldState:I
+    iget v2, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice$1;->val$oldState:I
 
-    invoke-static {v1}, Landroid/view/Display;->isSuspendedState(I)Z
+    invoke-static {v2}, Landroid/view/Display;->isSuspendedState(I)Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_0
+    if-nez v2, :cond_0
 
-    iget v1, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice$1;->val$oldState:I
+    iget v2, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice$1;->val$oldState:I
 
-    if-nez v1, :cond_1
+    if-nez v2, :cond_1
 
     :cond_0
-    iget v1, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice$1;->val$state:I
+    iget v2, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice$1;->val$state:I
 
-    invoke-static {v1}, Landroid/view/Display;->isSuspendedState(I)Z
+    invoke-static {v2}, Landroid/view/Display;->isSuspendedState(I)Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_3
+    if-nez v2, :cond_6
 
-    iget v1, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice$1;->val$state:I
+    iget v2, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice$1;->val$state:I
 
-    invoke-direct {p0, v1}, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice$1;->setDisplayState(I)V
+    invoke-direct {p0, v2}, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice$1;->setDisplayState(I)V
 
     iget v0, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice$1;->val$state:I
 
     :cond_1
     :goto_0
-    iget v1, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice$1;->val$state:I
+    iget v2, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice$1;->val$state:I
 
-    if-eq v1, v0, :cond_2
+    if-eq v2, v3, :cond_2
 
-    iget v1, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice$1;->val$state:I
-
-    invoke-direct {p0, v1}, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice$1;->setDisplayState(I)V
+    if-ne v0, v3, :cond_4
 
     :cond_2
-    return-void
+    iget v2, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice$1;->val$state:I
+
+    if-eq v0, v2, :cond_4
+
+    iget v2, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice$1;->val$state:I
+
+    if-ne v2, v3, :cond_3
+
+    const/4 v1, 0x1
 
     :cond_3
-    iget v1, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice$1;->val$state:I
-
-    if-eq v1, v2, :cond_4
-
-    iget v1, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice$1;->val$oldState:I
-
-    if-ne v1, v2, :cond_5
+    invoke-direct {p0, v1}, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice$1;->setVrMode(Z)V
 
     :cond_4
-    const/4 v1, 0x3
+    iget v1, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice$1;->val$state:I
+
+    if-eq v1, v0, :cond_5
+
+    iget v1, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice$1;->val$state:I
 
     invoke-direct {p0, v1}, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice$1;->setDisplayState(I)V
+
+    :cond_5
+    return-void
+
+    :cond_6
+    iget v2, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice$1;->val$state:I
+
+    if-eq v2, v4, :cond_7
+
+    iget v2, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice$1;->val$oldState:I
+
+    if-ne v2, v4, :cond_8
+
+    :cond_7
+    const/4 v2, 0x3
+
+    invoke-direct {p0, v2}, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice$1;->setDisplayState(I)V
 
     const/4 v0, 0x3
 
     goto :goto_0
 
-    :cond_5
+    :cond_8
     return-void
 .end method

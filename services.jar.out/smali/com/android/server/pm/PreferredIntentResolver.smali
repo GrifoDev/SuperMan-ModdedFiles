@@ -183,8 +183,6 @@
 
     invoke-direct {v2, p0, v6, v5, v1}, Lcom/android/server/pm/PreferredIntentResolver$LogRunnable;-><init>(Lcom/android/server/pm/PreferredIntentResolver;Ljava/lang/String;II)V
 
-    if-eqz p2, :cond_1
-
     const-wide/16 v6, 0x3e8
 
     invoke-virtual {p2, v2, v6, v7}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z

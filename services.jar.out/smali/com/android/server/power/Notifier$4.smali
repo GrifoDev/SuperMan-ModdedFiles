@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/power/Notifier;->onWakefulnessChangeStarted(II)V
+    value = Lcom/android/server/power/Notifier;->onScreenStateChangeStartedByProximity(Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,24 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/power/Notifier;
 
-.field final synthetic val$interactive:Z
-
-.field final synthetic val$wakefulness:I
-
-.field final synthetic val$why:I
+.field final synthetic val$proximity:Z
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/power/Notifier;ZII)V
+.method constructor <init>(Lcom/android/server/power/Notifier;Z)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/power/Notifier$4;->this$0:Lcom/android/server/power/Notifier;
 
-    iput-boolean p2, p0, Lcom/android/server/power/Notifier$4;->val$interactive:Z
-
-    iput p3, p0, Lcom/android/server/power/Notifier$4;->val$why:I
-
-    iput p4, p0, Lcom/android/server/power/Notifier$4;->val$wakefulness:I
+    iput-boolean p2, p0, Lcom/android/server/power/Notifier$4;->val$proximity:Z
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -47,55 +39,61 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 3
 
-    iget-object v1, p0, Lcom/android/server/power/Notifier$4;->this$0:Lcom/android/server/power/Notifier;
+    const-string/jumbo v0, "PowerManagerNotifier"
 
-    invoke-static {v1}, Lcom/android/server/power/Notifier;->-get3(Lcom/android/server/power/Notifier;)Z
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    move-result v1
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-boolean v2, p0, Lcom/android/server/power/Notifier$4;->val$interactive:Z
+    const-string/jumbo v2, "onScreenStateChangeStartedByProximity : "
 
-    if-eq v1, v2, :cond_0
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/power/Notifier$4;->this$0:Lcom/android/server/power/Notifier;
-
-    invoke-static {v1}, Lcom/android/server/power/Notifier;->-get4(Lcom/android/server/power/Notifier;)Landroid/net/INetworkPolicyManager;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    iget-boolean v2, p0, Lcom/android/server/power/Notifier$4;->val$interactive:Z
+    iget-boolean v2, p0, Lcom/android/server/power/Notifier$4;->val$proximity:Z
 
-    iget v3, p0, Lcom/android/server/power/Notifier$4;->val$why:I
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-interface {v1, v2, v3}, Landroid/net/INetworkPolicyManager;->onScreenStateChanged(ZI)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/android/server/power/Notifier$4;->this$0:Lcom/android/server/power/Notifier;
+
+    invoke-static {v0}, Lcom/android/server/power/Notifier;->-get2(Lcom/android/server/power/Notifier;)Landroid/content/Context;
+
+    move-result-object v1
+
+    iget-boolean v0, p0, Lcom/android/server/power/Notifier$4;->val$proximity:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/power/Notifier$4;->this$0:Lcom/android/server/power/Notifier;
+
+    invoke-static {v0}, Lcom/android/server/power/Notifier;->-get8(Lcom/android/server/power/Notifier;)Landroid/content/Intent;
+
+    move-result-object v0
 
     :goto_0
-    iget-object v1, p0, Lcom/android/server/power/Notifier$4;->this$0:Lcom/android/server/power/Notifier;
+    sget-object v2, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
-    iget-boolean v2, p0, Lcom/android/server/power/Notifier$4;->val$interactive:Z
-
-    invoke-static {v1, v2}, Lcom/android/server/power/Notifier;->-set0(Lcom/android/server/power/Notifier;Z)Z
-
-    :cond_0
-    iget-object v1, p0, Lcom/android/server/power/Notifier$4;->this$0:Lcom/android/server/power/Notifier;
-
-    invoke-static {v1}, Lcom/android/server/power/Notifier;->-get0(Lcom/android/server/power/Notifier;)Landroid/app/ActivityManagerInternal;
-
-    move-result-object v1
-
-    iget v2, p0, Lcom/android/server/power/Notifier$4;->val$wakefulness:I
-
-    invoke-virtual {v1, v2}, Landroid/app/ActivityManagerInternal;->onWakefulnessChanged(I)V
+    invoke-virtual {v1, v0, v2}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
     return-void
 
-    :catch_0
-    move-exception v0
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/power/Notifier$4;->this$0:Lcom/android/server/power/Notifier;
+
+    invoke-static {v0}, Lcom/android/server/power/Notifier;->-get10(Lcom/android/server/power/Notifier;)Landroid/content/Intent;
+
+    move-result-object v0
 
     goto :goto_0
 .end method

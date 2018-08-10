@@ -79,6 +79,12 @@
     return-void
 .end method
 
+.method public onSemLog(I)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public setFallbackMulticastFilter(Z)V
     .locals 0
 

@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/pm/PackageInstallerSession;->commitLocked()V
+    value = Lcom/android/server/pm/PackageInstallerSession;->commitLocked(Landroid/content/pm/PackageInfo;Landroid/content/pm/ApplicationInfo;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

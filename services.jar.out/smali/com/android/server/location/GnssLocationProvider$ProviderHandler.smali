@@ -50,11 +50,11 @@
 
     iget-object v12, p0, Lcom/android/server/location/GnssLocationProvider$ProviderHandler;->this$0:Lcom/android/server/location/GnssLocationProvider;
 
-    invoke-static {v12}, Lcom/android/server/location/GnssLocationProvider;->-get11(Lcom/android/server/location/GnssLocationProvider;)Ljava/util/Properties;
+    invoke-static {v12}, Lcom/android/server/location/GnssLocationProvider;->-get17(Lcom/android/server/location/GnssLocationProvider;)Ljava/util/Properties;
 
     move-result-object v12
 
-    invoke-static {v10, v11, v12}, Lcom/android/server/location/GnssLocationProvider;->-wrap29(Lcom/android/server/location/GnssLocationProvider;Landroid/content/Context;Ljava/util/Properties;)V
+    invoke-static {v10, v11, v12}, Lcom/android/server/location/GnssLocationProvider;->-wrap44(Lcom/android/server/location/GnssLocationProvider;Landroid/content/Context;Ljava/util/Properties;)V
 
     iget-object v10, p0, Lcom/android/server/location/GnssLocationProvider$ProviderHandler;->this$0:Lcom/android/server/location/GnssLocationProvider;
 
@@ -64,13 +64,7 @@
 
     move-result-object v11
 
-    iget-object v12, p0, Lcom/android/server/location/GnssLocationProvider$ProviderHandler;->this$0:Lcom/android/server/location/GnssLocationProvider;
-
-    invoke-static {v12}, Lcom/android/server/location/GnssLocationProvider;->-get11(Lcom/android/server/location/GnssLocationProvider;)Ljava/util/Properties;
-
-    move-result-object v12
-
-    invoke-virtual {v10, v11, v12}, Lcom/android/server/location/GnssLocationProvider;->init_GnssLocationPrivider_samsung(Landroid/content/Context;Ljava/util/Properties;)V
+    invoke-virtual {v10, v11}, Lcom/android/server/location/GnssLocationProvider;->init_GnssLocationPrivider_samsung(Landroid/content/Context;)V
 
     iget-object v10, p0, Lcom/android/server/location/GnssLocationProvider$ProviderHandler;->this$0:Lcom/android/server/location/GnssLocationProvider;
 
@@ -84,7 +78,7 @@
 
     iget-object v11, p0, Lcom/android/server/location/GnssLocationProvider$ProviderHandler;->this$0:Lcom/android/server/location/GnssLocationProvider;
 
-    invoke-static {v11}, Lcom/android/server/location/GnssLocationProvider;->-get10(Lcom/android/server/location/GnssLocationProvider;)Landroid/telephony/SubscriptionManager$OnSubscriptionsChangedListener;
+    invoke-static {v11}, Lcom/android/server/location/GnssLocationProvider;->-get16(Lcom/android/server/location/GnssLocationProvider;)Landroid/telephony/SubscriptionManager$OnSubscriptionsChangedListener;
 
     move-result-object v11
 
@@ -94,7 +88,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_0
+    if-eqz v10, :cond_1
 
     new-instance v1, Landroid/content/IntentFilter;
 
@@ -207,6 +201,39 @@
 
     iget-object v10, p0, Lcom/android/server/location/GnssLocationProvider$ProviderHandler;->this$0:Lcom/android/server/location/GnssLocationProvider;
 
+    iget-boolean v10, v10, Lcom/android/server/location/GnssLocationProvider;->mIzatServiceEnabled:Z
+
+    if-eqz v10, :cond_0
+
+    new-instance v1, Landroid/content/IntentFilter;
+
+    invoke-direct {v1}, Landroid/content/IntentFilter;-><init>()V
+
+    const/16 v10, 0x3e8
+
+    invoke-virtual {v1, v10}, Landroid/content/IntentFilter;->setPriority(I)V
+
+    const-string/jumbo v10, "com.samsung.ims.action.IMS_REGISTRATION"
+
+    invoke-virtual {v1, v10}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    iget-object v10, p0, Lcom/android/server/location/GnssLocationProvider$ProviderHandler;->this$0:Lcom/android/server/location/GnssLocationProvider;
+
+    invoke-static {v10}, Lcom/android/server/location/GnssLocationProvider;->-get2(Lcom/android/server/location/GnssLocationProvider;)Landroid/content/Context;
+
+    move-result-object v10
+
+    iget-object v11, p0, Lcom/android/server/location/GnssLocationProvider$ProviderHandler;->this$0:Lcom/android/server/location/GnssLocationProvider;
+
+    invoke-static {v11}, Lcom/android/server/location/GnssLocationProvider;->-get0(Lcom/android/server/location/GnssLocationProvider;)Landroid/content/BroadcastReceiver;
+
+    move-result-object v11
+
+    invoke-virtual {v10, v11, v1, v13, p0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
+
+    :cond_0
+    iget-object v10, p0, Lcom/android/server/location/GnssLocationProvider$ProviderHandler;->this$0:Lcom/android/server/location/GnssLocationProvider;
+
     iget-object v11, p0, Lcom/android/server/location/GnssLocationProvider$ProviderHandler;->this$0:Lcom/android/server/location/GnssLocationProvider;
 
     invoke-static {v11}, Lcom/android/server/location/GnssLocationProvider;->-get0(Lcom/android/server/location/GnssLocationProvider;)Landroid/content/BroadcastReceiver;
@@ -215,7 +242,7 @@
 
     iget-object v12, p0, Lcom/android/server/location/GnssLocationProvider$ProviderHandler;->this$0:Lcom/android/server/location/GnssLocationProvider;
 
-    invoke-static {v12}, Lcom/android/server/location/GnssLocationProvider;->-get4(Lcom/android/server/location/GnssLocationProvider;)Landroid/os/Handler;
+    invoke-static {v12}, Lcom/android/server/location/GnssLocationProvider;->-get6(Lcom/android/server/location/GnssLocationProvider;)Landroid/os/Handler;
 
     move-result-object v12
 
@@ -243,7 +270,7 @@
 
     iget-object v11, p0, Lcom/android/server/location/GnssLocationProvider$ProviderHandler;->this$0:Lcom/android/server/location/GnssLocationProvider;
 
-    invoke-static {v11}, Lcom/android/server/location/GnssLocationProvider;->-get6(Lcom/android/server/location/GnssLocationProvider;)Landroid/net/ConnectivityManager$NetworkCallback;
+    invoke-static {v11}, Lcom/android/server/location/GnssLocationProvider;->-get12(Lcom/android/server/location/GnssLocationProvider;)Landroid/net/ConnectivityManager$NetworkCallback;
 
     move-result-object v11
 
@@ -302,7 +329,7 @@
 
     goto/16 :goto_0
 
-    :cond_0
+    :cond_1
     const-string/jumbo v10, "GnssLocationProvider"
 
     const-string/jumbo v11, "Skipped registration for SMS/WAP-PUSH messages because AGPS Ril in GPS HAL is not supported"
@@ -325,20 +352,25 @@
 
     packed-switch v1, :pswitch_data_0
 
-    :cond_0
     :goto_0
     :pswitch_0
     iget v2, p1, Landroid/os/Message;->arg2:I
 
-    if-ne v2, v5, :cond_1
+    if-ne v2, v5, :cond_0
 
     iget-object v2, p0, Lcom/android/server/location/GnssLocationProvider$ProviderHandler;->this$0:Lcom/android/server/location/GnssLocationProvider;
 
-    invoke-static {v2}, Lcom/android/server/location/GnssLocationProvider;->-get13(Lcom/android/server/location/GnssLocationProvider;)Landroid/os/PowerManager$WakeLock;
+    invoke-static {v2, v1}, Lcom/android/server/location/GnssLocationProvider;->-wrap43(Lcom/android/server/location/GnssLocationProvider;I)V
 
-    move-result-object v2
+    const-string/jumbo v2, "GnssLocationProvider"
 
-    invoke-virtual {v2}, Landroid/os/PowerManager$WakeLock;->release()V
+    const/4 v3, 0x4
+
+    invoke-static {v2, v3}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
 
     const-string/jumbo v2, "GnssLocationProvider"
 
@@ -352,7 +384,13 @@
 
     move-result-object v3
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    iget-object v4, p0, Lcom/android/server/location/GnssLocationProvider$ProviderHandler;->this$0:Lcom/android/server/location/GnssLocationProvider;
+
+    invoke-static {v4, v1}, Lcom/android/server/location/GnssLocationProvider;->-wrap22(Lcom/android/server/location/GnssLocationProvider;I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
@@ -392,24 +430,24 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_1
+    :cond_0
     return-void
 
     :pswitch_1
     iget v2, p1, Landroid/os/Message;->arg1:I
 
-    if-ne v2, v5, :cond_2
+    if-ne v2, v5, :cond_1
 
     iget-object v2, p0, Lcom/android/server/location/GnssLocationProvider$ProviderHandler;->this$0:Lcom/android/server/location/GnssLocationProvider;
 
-    invoke-static {v2}, Lcom/android/server/location/GnssLocationProvider;->-wrap16(Lcom/android/server/location/GnssLocationProvider;)V
+    invoke-static {v2}, Lcom/android/server/location/GnssLocationProvider;->-wrap28(Lcom/android/server/location/GnssLocationProvider;)V
 
     goto :goto_0
 
-    :cond_2
+    :cond_1
     iget-object v2, p0, Lcom/android/server/location/GnssLocationProvider$ProviderHandler;->this$0:Lcom/android/server/location/GnssLocationProvider;
 
-    invoke-static {v2}, Lcom/android/server/location/GnssLocationProvider;->-wrap14(Lcom/android/server/location/GnssLocationProvider;)V
+    invoke-static {v2}, Lcom/android/server/location/GnssLocationProvider;->-wrap26(Lcom/android/server/location/GnssLocationProvider;)V
 
     goto :goto_0
 
@@ -424,7 +462,7 @@
 
     iget-object v4, v0, Lcom/android/server/location/GnssLocationProvider$GpsRequest;->source:Landroid/os/WorkSource;
 
-    invoke-static {v2, v3, v4}, Lcom/android/server/location/GnssLocationProvider;->-wrap20(Lcom/android/server/location/GnssLocationProvider;Lcom/android/internal/location/ProviderRequest;Landroid/os/WorkSource;)V
+    invoke-static {v2, v3, v4}, Lcom/android/server/location/GnssLocationProvider;->-wrap32(Lcom/android/server/location/GnssLocationProvider;Lcom/android/internal/location/ProviderRequest;Landroid/os/WorkSource;)V
 
     goto :goto_0
 
@@ -435,7 +473,7 @@
 
     check-cast v2, Landroid/net/Network;
 
-    invoke-static {v3, v2}, Lcom/android/server/location/GnssLocationProvider;->-wrap22(Lcom/android/server/location/GnssLocationProvider;Landroid/net/Network;)V
+    invoke-static {v3, v2}, Lcom/android/server/location/GnssLocationProvider;->-wrap34(Lcom/android/server/location/GnssLocationProvider;Landroid/net/Network;)V
 
     goto :goto_0
 
@@ -446,38 +484,30 @@
 
     check-cast v2, Ljava/net/InetAddress;
 
-    invoke-static {v3, v2}, Lcom/android/server/location/GnssLocationProvider;->-wrap19(Lcom/android/server/location/GnssLocationProvider;Ljava/net/InetAddress;)V
+    invoke-static {v3, v2}, Lcom/android/server/location/GnssLocationProvider;->-wrap31(Lcom/android/server/location/GnssLocationProvider;Ljava/net/InetAddress;)V
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :pswitch_5
     iget-object v2, p0, Lcom/android/server/location/GnssLocationProvider$ProviderHandler;->this$0:Lcom/android/server/location/GnssLocationProvider;
 
     iget v3, p1, Landroid/os/Message;->arg1:I
 
-    invoke-static {v2, v3}, Lcom/android/server/location/GnssLocationProvider;->-wrap18(Lcom/android/server/location/GnssLocationProvider;I)V
+    invoke-static {v2, v3}, Lcom/android/server/location/GnssLocationProvider;->-wrap30(Lcom/android/server/location/GnssLocationProvider;I)V
 
     goto/16 :goto_0
 
     :pswitch_6
     iget-object v2, p0, Lcom/android/server/location/GnssLocationProvider$ProviderHandler;->this$0:Lcom/android/server/location/GnssLocationProvider;
 
-    invoke-static {v2}, Lcom/android/server/location/GnssLocationProvider;->-wrap17(Lcom/android/server/location/GnssLocationProvider;)V
+    invoke-static {v2}, Lcom/android/server/location/GnssLocationProvider;->-wrap29(Lcom/android/server/location/GnssLocationProvider;)V
 
     goto/16 :goto_0
 
     :pswitch_7
     iget-object v2, p0, Lcom/android/server/location/GnssLocationProvider$ProviderHandler;->this$0:Lcom/android/server/location/GnssLocationProvider;
 
-    invoke-static {v2}, Lcom/android/server/location/GnssLocationProvider;->-get12(Lcom/android/server/location/GnssLocationProvider;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    iget-object v2, p0, Lcom/android/server/location/GnssLocationProvider$ProviderHandler;->this$0:Lcom/android/server/location/GnssLocationProvider;
-
-    invoke-static {v2}, Lcom/android/server/location/GnssLocationProvider;->-wrap15(Lcom/android/server/location/GnssLocationProvider;)V
+    invoke-static {v2}, Lcom/android/server/location/GnssLocationProvider;->-wrap27(Lcom/android/server/location/GnssLocationProvider;)V
 
     goto/16 :goto_0
 
@@ -502,7 +532,7 @@
 
     check-cast v2, Landroid/location/Location;
 
-    invoke-static {v3, v2}, Lcom/android/server/location/GnssLocationProvider;->-wrap21(Lcom/android/server/location/GnssLocationProvider;Landroid/location/Location;)V
+    invoke-static {v3, v2}, Lcom/android/server/location/GnssLocationProvider;->-wrap33(Lcom/android/server/location/GnssLocationProvider;Landroid/location/Location;)V
 
     goto/16 :goto_0
 
@@ -515,7 +545,7 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Lcom/android/server/location/GnssLocationProvider;->-wrap33(Lcom/android/server/location/GnssLocationProvider;Landroid/content/Context;)V
+    invoke-static {v2, v3}, Lcom/android/server/location/GnssLocationProvider;->-wrap48(Lcom/android/server/location/GnssLocationProvider;Landroid/content/Context;)V
 
     goto/16 :goto_0
 
@@ -523,6 +553,52 @@
     invoke-direct {p0}, Lcom/android/server/location/GnssLocationProvider$ProviderHandler;->handleInitialize()V
 
     goto/16 :goto_0
+
+    :pswitch_d
+    iget-object v3, p0, Lcom/android/server/location/GnssLocationProvider$ProviderHandler;->this$0:Lcom/android/server/location/GnssLocationProvider;
+
+    iget v4, p1, Landroid/os/Message;->arg1:I
+
+    iget-object v2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v2, Ljava/lang/Integer;
+
+    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+
+    move-result v2
+
+    invoke-virtual {v3, v4, v2}, Lcom/android/server/location/GnssLocationProvider;->handleWakelockControl(II)V
+
+    goto/16 :goto_0
+
+    :pswitch_e
+    iget-object v2, p0, Lcom/android/server/location/GnssLocationProvider$ProviderHandler;->this$0:Lcom/android/server/location/GnssLocationProvider;
+
+    iget v3, p1, Landroid/os/Message;->arg1:I
+
+    invoke-virtual {v2, v3}, Lcom/android/server/location/GnssLocationProvider;->setAlarmMessage(I)V
+
+    goto/16 :goto_0
+
+    :pswitch_f
+    iget-object v2, p0, Lcom/android/server/location/GnssLocationProvider$ProviderHandler;->this$0:Lcom/android/server/location/GnssLocationProvider;
+
+    iget v3, p1, Landroid/os/Message;->arg1:I
+
+    invoke-virtual {v2, v3}, Lcom/android/server/location/GnssLocationProvider;->extension_sendEngineOnlyMode(I)V
+
+    goto/16 :goto_0
+
+    :pswitch_10
+    iget-object v2, p0, Lcom/android/server/location/GnssLocationProvider$ProviderHandler;->this$0:Lcom/android/server/location/GnssLocationProvider;
+
+    iget v3, p1, Landroid/os/Message;->arg1:I
+
+    invoke-static {v2, v3}, Lcom/android/server/location/GnssLocationProvider;->-wrap37(Lcom/android/server/location/GnssLocationProvider;I)V
+
+    goto/16 :goto_0
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x2
@@ -540,5 +616,13 @@
         :pswitch_c
         :pswitch_4
         :pswitch_5
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_d
+        :pswitch_e
+        :pswitch_f
+        :pswitch_10
     .end packed-switch
 .end method

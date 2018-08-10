@@ -254,19 +254,12 @@
     :goto_0
     array-length v9, v4
 
-    if-ge v2, v9, :cond_2
+    if-ge v2, v9, :cond_3
 
-    if-eqz v1, :cond_4
+    xor-int/lit8 v9, v1, 0x1
 
-    :cond_2
-    if-eqz v1, :cond_3
+    if-eqz v9, :cond_3
 
-    const/4 v0, 0x0
-
-    :cond_3
-    return-object v0
-
-    :cond_4
     aget v9, v4, v2
 
     sparse-switch v9, :sswitch_data_0
@@ -598,7 +591,7 @@
 
     sget-object v11, Lcom/samsung/android/knox/lockscreen/LSOItemContainer$ORIENTATION;->VERTICAL:Lcom/samsung/android/knox/lockscreen/LSOItemContainer$ORIENTATION;
 
-    if-ne v9, v11, :cond_5
+    if-ne v9, v11, :cond_2
 
     const/4 v9, 0x0
 
@@ -626,7 +619,7 @@
 
     goto/16 :goto_1
 
-    :cond_5
+    :cond_2
     const/4 v9, 0x1
 
     goto :goto_2
@@ -656,6 +649,14 @@
     invoke-virtual {v0, v9, v10}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     goto/16 :goto_1
+
+    :cond_3
+    if-eqz v1, :cond_4
+
+    const/4 v0, 0x0
+
+    :cond_4
+    return-object v0
 
     :sswitch_data_0
     .sparse-switch
@@ -1748,7 +1749,27 @@
     :goto_0
     const-string/jumbo v2, "LSOStorageProvider"
 
-    const-string/jumbo v3, "wipeLayerData() - LOCKSCREEN_OVERLAY - cleaned"
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "wipeLayerData() - LOCKSCREEN_OVERLAY - cleaned : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-static {p1}, Lcom/samsung/android/knox/lockscreen/LSOConstants;->getLayerName(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
 
     invoke-static {v2, v3}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -2204,7 +2225,11 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-static {p1}, Lcom/samsung/android/knox/lockscreen/LSOConstants;->getLayerName(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
@@ -2246,22 +2271,22 @@
 .end method
 
 .method public setOverlayData(JLcom/samsung/android/knox/lockscreen/LSOItemData;ILcom/samsung/android/knox/lockscreen/LSOAttributeSet;)Z
-    .locals 9
+    .locals 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/InvalidParameterException;
         }
     .end annotation
 
-    const-wide/16 v6, -0x1
+    const-wide/16 v8, -0x1
 
-    const/4 v3, 0x0
+    const/4 v6, 0x0
 
     if-eqz p3, :cond_0
 
-    cmp-long v4, p1, v6
+    cmp-long v3, p1, v8
 
-    if-nez v4, :cond_1
+    if-nez v3, :cond_1
 
     :cond_0
     new-instance v3, Ljava/security/InvalidParameterException;
@@ -2287,7 +2312,7 @@
 
     if-nez v2, :cond_3
 
-    invoke-virtual {p0, v3}, Lcom/android/server/enterprise/lso/LSOStorageProvider;->resetOverlayData(I)V
+    invoke-virtual {p0, v6}, Lcom/android/server/enterprise/lso/LSOStorageProvider;->resetOverlayData(I)V
 
     :cond_2
     :goto_0
@@ -2296,60 +2321,60 @@
     :cond_3
     int-to-long v4, v1
 
-    cmp-long v4, v4, p1
+    cmp-long v3, v4, p1
 
-    if-eqz v4, :cond_2
+    if-eqz v3, :cond_2
 
     new-instance v0, Landroid/content/ContentValues;
 
     invoke-direct {v0}, Landroid/content/ContentValues;-><init>()V
 
-    const-string/jumbo v4, "policyName"
+    const-string/jumbo v3, "policyName"
 
-    const-string/jumbo v5, "LOCKSCREEN_OVERLAY"
+    const-string/jumbo v4, "LOCKSCREEN_OVERLAY"
 
-    invoke-virtual {v0, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v3, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v4, "adminUid"
+    const-string/jumbo v3, "adminUid"
 
     invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v0, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
+    invoke-virtual {v0, v3, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
 
     if-eqz p5, :cond_4
 
-    const-string/jumbo v4, "accountObject"
+    const-string/jumbo v3, "accountObject"
 
-    invoke-virtual {p5}, Lcom/samsung/android/knox/lockscreen/LSOAttributeSet;->toByteArray()[B
+    invoke-virtual/range {p5 .. p5}, Lcom/samsung/android/knox/lockscreen/LSOAttributeSet;->toByteArray()[B
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v0, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;[B)V
+    invoke-virtual {v0, v3, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;[B)V
 
     :cond_4
-    const-string/jumbo v4, "ADMIN_REF"
+    const-string/jumbo v3, "ADMIN_REF"
 
-    invoke-direct {p0, v4, v0}, Lcom/android/server/enterprise/lso/LSOStorageProvider;->insertRecord(Ljava/lang/String;Landroid/content/ContentValues;)J
+    invoke-direct {p0, v3, v0}, Lcom/android/server/enterprise/lso/LSOStorageProvider;->insertRecord(Ljava/lang/String;Landroid/content/ContentValues;)J
 
     move-result-wide v4
 
-    cmp-long v4, v6, v4
+    cmp-long v3, v8, v4
 
-    if-eqz v4, :cond_5
+    if-eqz v3, :cond_5
 
     const/4 v2, 0x1
 
     :goto_1
     if-nez v2, :cond_2
 
-    invoke-virtual {p0, v3}, Lcom/android/server/enterprise/lso/LSOStorageProvider;->resetOverlayData(I)V
+    invoke-virtual {p0, v6}, Lcom/android/server/enterprise/lso/LSOStorageProvider;->resetOverlayData(I)V
 
     goto :goto_0
 
     :cond_5
-    move v2, v3
+    const/4 v2, 0x0
 
     goto :goto_1
 .end method
@@ -2433,9 +2458,7 @@
 
     const/4 v4, 0x0
 
-    const/4 v1, 0x1
-
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
     new-instance v0, Landroid/content/ContentValues;
 
@@ -2447,18 +2470,20 @@
 
     invoke-virtual {p1}, Lcom/samsung/android/knox/lockscreen/LSOAttributeSet;->toByteArray()[B
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {v0, v4, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;[B)V
+    invoke-virtual {v0, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;[B)V
 
     :goto_0
     const-string/jumbo v3, "policyName=?"
 
-    new-array v2, v1, [Ljava/lang/String;
+    const/4 v4, 0x1
+
+    new-array v2, v4, [Ljava/lang/String;
 
     const-string/jumbo v4, "LOCKSCREEN_OVERLAY"
 
-    aput-object v4, v2, v5
+    aput-object v4, v2, v6
 
     const-string/jumbo v4, "ADMIN_REF"
 
@@ -2468,20 +2493,22 @@
 
     if-lez v4, :cond_1
 
+    const/4 v1, 0x1
+
     :goto_1
     return v1
 
     :cond_0
-    const-string/jumbo v6, "accountObject"
+    const-string/jumbo v5, "accountObject"
 
     check-cast v4, [B
 
-    invoke-virtual {v0, v6, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;[B)V
+    invoke-virtual {v0, v5, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;[B)V
 
     goto :goto_0
 
     :cond_1
-    move v1, v5
+    const/4 v1, 0x0
 
     goto :goto_1
 .end method

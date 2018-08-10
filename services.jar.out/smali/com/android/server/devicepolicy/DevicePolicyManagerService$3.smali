@@ -46,13 +46,13 @@
 
     move-result-object v1
 
-    const-string/jumbo v2, "DevicePolicyManagerService"
+    const-string/jumbo v2, "DevicePolicyManager"
 
     const v3, 0x28700e57
 
     invoke-virtual {v1, v2, v3}, Landroid/app/NotificationManager;->cancel(Ljava/lang/String;I)V
 
-    const-string/jumbo v1, "com.android.server.action.BUGREPORT_SHARING_ACCEPTED"
+    const-string/jumbo v1, "com.android.server.action.REMOTE_BUGREPORT_SHARING_ACCEPTED"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -62,7 +62,7 @@
 
     iget-object v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$3;->this$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-    invoke-static {v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->-wrap10(Lcom/android/server/devicepolicy/DevicePolicyManagerService;)V
+    invoke-static {v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->-wrap13(Lcom/android/server/devicepolicy/DevicePolicyManagerService;)V
 
     :cond_0
     :goto_0
@@ -81,7 +81,7 @@
     return-void
 
     :cond_1
-    const-string/jumbo v1, "com.android.server.action.BUGREPORT_SHARING_DECLINED"
+    const-string/jumbo v1, "com.android.server.action.REMOTE_BUGREPORT_SHARING_DECLINED"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -91,7 +91,7 @@
 
     iget-object v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$3;->this$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-    invoke-static {v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->-wrap11(Lcom/android/server/devicepolicy/DevicePolicyManagerService;)V
+    invoke-static {v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->-wrap14(Lcom/android/server/devicepolicy/DevicePolicyManagerService;)V
 
     goto :goto_0
 .end method

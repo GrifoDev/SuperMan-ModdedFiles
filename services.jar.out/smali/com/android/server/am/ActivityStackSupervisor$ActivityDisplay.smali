@@ -1,5 +1,5 @@
 .class Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;
-.super Ljava/lang/Object;
+.super Lcom/android/server/am/ConfigurationContainer;
 .source "ActivityStackSupervisor.java"
 
 
@@ -17,9 +17,9 @@
 # instance fields
 .field mDisplay:Landroid/view/Display;
 
-.field mDisplayId:I
+.field private mDisplayAccessUIDs:Landroid/util/IntArray;
 
-.field mDisplayInfo:Landroid/view/DisplayInfo;
+.field mDisplayId:I
 
 .field final mStacks:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
@@ -38,24 +38,34 @@
 
 
 # direct methods
+.method static synthetic -wrap0(Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;)Landroid/util/IntArray;
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->getPresentUIDs()Landroid/util/IntArray;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method constructor <init>(Lcom/android/server/am/ActivityStackSupervisor;)V
     .locals 1
 
     iput-object p1, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->this$0:Lcom/android/server/am/ActivityStackSupervisor;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    new-instance v0, Landroid/view/DisplayInfo;
-
-    invoke-direct {v0}, Landroid/view/DisplayInfo;-><init>()V
-
-    iput-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->mDisplayInfo:Landroid/view/DisplayInfo;
+    invoke-direct {p0}, Lcom/android/server/am/ConfigurationContainer;-><init>()V
 
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->mStacks:Ljava/util/ArrayList;
+
+    new-instance v0, Landroid/util/IntArray;
+
+    invoke-direct {v0}, Landroid/util/IntArray;-><init>()V
+
+    iput-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->mDisplayAccessUIDs:Landroid/util/IntArray;
 
     return-void
 .end method
@@ -65,19 +75,19 @@
 
     iput-object p1, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->this$0:Lcom/android/server/am/ActivityStackSupervisor;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    new-instance v1, Landroid/view/DisplayInfo;
-
-    invoke-direct {v1}, Landroid/view/DisplayInfo;-><init>()V
-
-    iput-object v1, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->mDisplayInfo:Landroid/view/DisplayInfo;
+    invoke-direct {p0}, Lcom/android/server/am/ConfigurationContainer;-><init>()V
 
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v1, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->mStacks:Ljava/util/ArrayList;
+
+    new-instance v1, Landroid/util/IntArray;
+
+    invoke-direct {v1}, Landroid/util/IntArray;-><init>()V
+
+    iput-object v1, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->mDisplayAccessUIDs:Landroid/util/IntArray;
 
     iget-object v1, p1, Lcom/android/server/am/ActivityStackSupervisor;->mDisplayManager:Landroid/hardware/display/DisplayManager;
 
@@ -95,79 +105,57 @@
     return-void
 .end method
 
+.method private getPresentUIDs()Landroid/util/IntArray;
+    .locals 3
 
-# virtual methods
-.method attachActivities(Lcom/android/server/am/ActivityStack;Z)V
-    .locals 4
+    iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->mDisplayAccessUIDs:Landroid/util/IntArray;
 
-    const/4 v3, 0x0
-
-    if-eqz p2, :cond_2
-
-    sget-boolean v2, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SAMSUNG_MULTIWINDOW_DYNAMIC_ENABLED:Z
-
-    if-eqz v2, :cond_1
-
-    iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->this$0:Lcom/android/server/am/ActivityStackSupervisor;
-
-    const/4 v3, 0x2
-
-    invoke-virtual {v2, v3}, Lcom/android/server/am/ActivityStackSupervisor;->getStack(I)Lcom/android/server/am/ActivityStack;
-
-    move-result-object v0
+    invoke-virtual {v2}, Landroid/util/IntArray;->clear()V
 
     iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->mStacks:Ljava/util/ArrayList;
 
-    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->indexOf(Ljava/lang/Object;)I
+    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result v1
+    move-result-object v1
 
-    iget v2, p1, Lcom/android/server/am/ActivityStack;->mStackId:I
-
-    invoke-static {v2}, Landroid/app/ActivityManager$StackId;->isAlwaysOnTop(I)Z
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-nez v2, :cond_0
-
-    if-eqz v0, :cond_0
-
-    iget-object v2, v0, Lcom/android/server/am/ActivityStack;->mResumedActivity:Lcom/android/server/am/ActivityRecord;
-
     if-eqz v2, :cond_0
 
-    if-lez v1, :cond_0
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->mStacks:Ljava/util/ArrayList;
+    move-result-object v0
 
-    invoke-virtual {v2, v1, p1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+    check-cast v0, Lcom/android/server/am/ActivityStack;
 
-    :goto_0
-    return-void
+    iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->mDisplayAccessUIDs:Landroid/util/IntArray;
+
+    invoke-virtual {v0, v2}, Lcom/android/server/am/ActivityStack;->getPresentUIDs(Landroid/util/IntArray;)V
+
+    goto :goto_0
 
     :cond_0
-    iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->mStacks:Ljava/util/ArrayList;
+    iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->mDisplayAccessUIDs:Landroid/util/IntArray;
 
-    invoke-virtual {v2, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto :goto_0
-
-    :cond_1
-    iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->mStacks:Ljava/util/ArrayList;
-
-    invoke-virtual {v2, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto :goto_0
-
-    :cond_2
-    iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->mStacks:Ljava/util/ArrayList;
-
-    invoke-virtual {v2, v3, p1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
-
-    goto :goto_0
+    return-object v2
 .end method
 
-.method detachActivitiesLocked(Lcom/android/server/am/ActivityStack;)V
+
+# virtual methods
+.method attachStack(Lcom/android/server/am/ActivityStack;I)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->mStacks:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, p2, p1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+
+    return-void
+.end method
+
+.method detachStack(Lcom/android/server/am/ActivityStack;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->mStacks:Ljava/util/ArrayList;
@@ -175,6 +163,40 @@
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
     return-void
+.end method
+
+.method protected getChildAt(I)Lcom/android/server/am/ConfigurationContainer;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->mStacks:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/am/ConfigurationContainer;
+
+    return-object v0
+.end method
+
+.method protected getChildCount()I
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->mStacks:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method protected getParent()Lcom/android/server/am/ConfigurationContainer;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->this$0:Lcom/android/server/am/ActivityStackSupervisor;
+
+    return-object v0
 .end method
 
 .method hasVisibleBehindActivity()Z
@@ -196,7 +218,7 @@
 .end method
 
 .method init(Landroid/view/Display;)V
-    .locals 2
+    .locals 1
 
     iput-object p1, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->mDisplay:Landroid/view/Display;
 
@@ -206,13 +228,66 @@
 
     iput v0, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->mDisplayId:I
 
-    iget-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->mDisplay:Landroid/view/Display;
-
-    iget-object v1, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->mDisplayInfo:Landroid/view/DisplayInfo;
-
-    invoke-virtual {v0, v1}, Landroid/view/Display;->getDisplayInfo(Landroid/view/DisplayInfo;)Z
-
     return-void
+.end method
+
+.method isPrivate()Z
+    .locals 2
+
+    const/4 v0, 0x0
+
+    iget-object v1, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->mDisplay:Landroid/view/Display;
+
+    invoke-virtual {v1}, Landroid/view/Display;->getFlags()I
+
+    move-result v1
+
+    and-int/lit8 v1, v1, 0x4
+
+    if-eqz v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    return v0
+.end method
+
+.method isUidPresent(I)Z
+    .locals 3
+
+    iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->mStacks:Ljava/util/ArrayList;
+
+    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :cond_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/am/ActivityStack;
+
+    invoke-virtual {v0, p1}, Lcom/android/server/am/ActivityStack;->isUidPresent(I)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    const/4 v2, 0x1
+
+    return v2
+
+    :cond_1
+    const/4 v2, 0x0
+
+    return v2
 .end method
 
 .method setVisibleBehindActivity(Lcom/android/server/am/ActivityRecord;)V
@@ -223,6 +298,28 @@
     return-void
 .end method
 
+.method shouldDestroyContentOnRemove()Z
+    .locals 2
+
+    const/4 v0, 0x1
+
+    iget-object v1, p0, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->mDisplay:Landroid/view/Display;
+
+    invoke-virtual {v1}, Landroid/view/Display;->getRemoveMode()I
+
+    move-result v1
+
+    if-ne v1, v0, :cond_0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
 .method public toString()Ljava/lang/String;
     .locals 2
 
@@ -230,7 +327,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v1, "ActivityDisplay={d"
+    const-string/jumbo v1, "ActivityDisplay={"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

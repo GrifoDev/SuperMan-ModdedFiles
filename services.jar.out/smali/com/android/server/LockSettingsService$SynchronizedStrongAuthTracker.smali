@@ -1,4 +1,4 @@
-.class Lcom/android/server/LockSettingsService$SynchronizedStrongAuthTracker;
+.class public Lcom/android/server/LockSettingsService$SynchronizedStrongAuthTracker;
 .super Lcom/android/internal/widget/LockPatternUtils$StrongAuthTracker;
 .source "LockSettingsService.java"
 
@@ -9,22 +9,16 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0xc
     name = "SynchronizedStrongAuthTracker"
 .end annotation
 
 
-# instance fields
-.field final synthetic this$0:Lcom/android/server/LockSettingsService;
-
-
 # direct methods
-.method public constructor <init>(Lcom/android/server/LockSettingsService;Landroid/content/Context;)V
+.method public constructor <init>(Landroid/content/Context;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/server/LockSettingsService$SynchronizedStrongAuthTracker;->this$0:Lcom/android/server/LockSettingsService;
-
-    invoke-direct {p0, p2}, Lcom/android/internal/widget/LockPatternUtils$StrongAuthTracker;-><init>(Landroid/content/Context;)V
+    invoke-direct {p0, p1}, Lcom/android/internal/widget/LockPatternUtils$StrongAuthTracker;-><init>(Landroid/content/Context;)V
 
     return-void
 .end method
@@ -77,18 +71,12 @@
     throw v0
 .end method
 
-.method register()V
-    .locals 2
+.method register(Lcom/android/server/LockSettingsStrongAuth;)V
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/LockSettingsService$SynchronizedStrongAuthTracker;->this$0:Lcom/android/server/LockSettingsService;
+    iget-object v0, p0, Lcom/android/server/LockSettingsService$SynchronizedStrongAuthTracker;->mStub:Landroid/app/trust/IStrongAuthTracker$Stub;
 
-    invoke-static {v0}, Lcom/android/server/LockSettingsService;->-get7(Lcom/android/server/LockSettingsService;)Lcom/android/server/LockSettingsStrongAuth;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/server/LockSettingsService$SynchronizedStrongAuthTracker;->mStub:Landroid/app/trust/IStrongAuthTracker$Stub;
-
-    invoke-virtual {v0, v1}, Lcom/android/server/LockSettingsStrongAuth;->registerStrongAuthTracker(Landroid/app/trust/IStrongAuthTracker;)V
+    invoke-virtual {p1, v0}, Lcom/android/server/LockSettingsStrongAuth;->registerStrongAuthTracker(Landroid/app/trust/IStrongAuthTracker;)V
 
     return-void
 .end method

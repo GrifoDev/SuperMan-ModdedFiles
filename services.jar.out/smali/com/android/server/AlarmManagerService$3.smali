@@ -46,7 +46,7 @@
 
     const/4 v1, 0x4
 
-    invoke-static {v0, v1}, Lcom/android/server/AlarmManagerService;->-wrap5(Lcom/android/server/AlarmManagerService;I)V
+    invoke-static {v0, v1}, Lcom/android/server/AlarmManagerService;->-wrap6(Lcom/android/server/AlarmManagerService;I)V
 
     goto :goto_0
 
@@ -55,14 +55,25 @@
 
     const/4 v1, 0x7
 
-    invoke-static {v0, v1}, Lcom/android/server/AlarmManagerService;->-wrap5(Lcom/android/server/AlarmManagerService;I)V
+    invoke-static {v0, v1}, Lcom/android/server/AlarmManagerService;->-wrap6(Lcom/android/server/AlarmManagerService;I)V
 
     goto :goto_0
 
     :pswitch_2
     iget-object v0, p0, Lcom/android/server/AlarmManagerService$3;->this$0:Lcom/android/server/AlarmManagerService;
 
-    invoke-static {v0}, Lcom/android/server/AlarmManagerService;->-wrap7(Lcom/android/server/AlarmManagerService;)V
+    const/4 v1, 0x1
+
+    invoke-static {v0, v1}, Lcom/android/server/AlarmManagerService;->-wrap8(Lcom/android/server/AlarmManagerService;Z)V
+
+    goto :goto_0
+
+    :pswitch_3
+    iget-object v0, p0, Lcom/android/server/AlarmManagerService$3;->this$0:Lcom/android/server/AlarmManagerService;
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/server/AlarmManagerService;->-wrap8(Lcom/android/server/AlarmManagerService;Z)V
 
     goto :goto_0
 
@@ -71,5 +82,6 @@
         :pswitch_0
         :pswitch_1
         :pswitch_2
+        :pswitch_3
     .end packed-switch
 .end method

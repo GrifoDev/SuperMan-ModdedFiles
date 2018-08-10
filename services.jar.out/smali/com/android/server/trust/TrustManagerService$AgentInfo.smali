@@ -23,7 +23,7 @@
 
 .field label:Ljava/lang/CharSequence;
 
-.field settings:Landroid/content/ComponentName;
+.field settings:Lcom/android/server/trust/TrustManagerService$SettingsAttrs;
 
 .field userId:I
 

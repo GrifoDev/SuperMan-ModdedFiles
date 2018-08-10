@@ -23,6 +23,8 @@
 
 .field public static final JAPAN:Z
 
+.field public static final KOR:Z
+
 .field public static final NORTH_AMERICA:Z
 
 .field public static final SALES_CODE:Ljava/lang/String;
@@ -448,23 +450,23 @@
 
     sget-boolean v0, Lcom/android/server/power/PowerManagerUtil$Sales;->VZW:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     sget-boolean v0, Lcom/android/server/power/PowerManagerUtil$Sales;->ATT:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     sget-boolean v0, Lcom/android/server/power/PowerManagerUtil$Sales;->TMO:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     sget-boolean v0, Lcom/android/server/power/PowerManagerUtil$Sales;->SPR:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     sget-boolean v0, Lcom/android/server/power/PowerManagerUtil$Sales;->USCC:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     const-string/jumbo v0, "XAR"
 
@@ -474,7 +476,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     const-string/jumbo v0, "MTR"
 
@@ -484,7 +486,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     const-string/jumbo v0, "SPT"
 
@@ -494,7 +496,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     const-string/jumbo v0, "CSP"
 
@@ -504,7 +506,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     const-string/jumbo v0, "TFN"
 
@@ -514,9 +516,110 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     const-string/jumbo v0, "BNN"
+
+    sget-object v2, Lcom/android/server/power/PowerManagerUtil$Sales;->SALES_CODE:Ljava/lang/String;
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    :goto_6
+    sput-boolean v0, Lcom/android/server/power/PowerManagerUtil$Sales;->NORTH_AMERICA:Z
+
+    const-string/jumbo v0, "KOO"
+
+    sget-object v2, Lcom/android/server/power/PowerManagerUtil$Sales;->SALES_CODE:Ljava/lang/String;
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-string/jumbo v0, "SKT"
+
+    sget-object v2, Lcom/android/server/power/PowerManagerUtil$Sales;->SALES_CODE:Ljava/lang/String;
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-string/jumbo v0, "SKC"
+
+    sget-object v2, Lcom/android/server/power/PowerManagerUtil$Sales;->SALES_CODE:Ljava/lang/String;
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-string/jumbo v0, "SKO"
+
+    sget-object v2, Lcom/android/server/power/PowerManagerUtil$Sales;->SALES_CODE:Ljava/lang/String;
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-string/jumbo v0, "KTT"
+
+    sget-object v2, Lcom/android/server/power/PowerManagerUtil$Sales;->SALES_CODE:Ljava/lang/String;
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-string/jumbo v0, "KTC"
+
+    sget-object v2, Lcom/android/server/power/PowerManagerUtil$Sales;->SALES_CODE:Ljava/lang/String;
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-string/jumbo v0, "KTO"
+
+    sget-object v2, Lcom/android/server/power/PowerManagerUtil$Sales;->SALES_CODE:Ljava/lang/String;
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-string/jumbo v0, "LGT"
+
+    sget-object v2, Lcom/android/server/power/PowerManagerUtil$Sales;->SALES_CODE:Ljava/lang/String;
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-string/jumbo v0, "LUC"
+
+    sget-object v2, Lcom/android/server/power/PowerManagerUtil$Sales;->SALES_CODE:Ljava/lang/String;
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-string/jumbo v0, "LUO"
 
     sget-object v1, Lcom/android/server/power/PowerManagerUtil$Sales;->SALES_CODE:Ljava/lang/String;
 
@@ -525,7 +628,7 @@
     move-result v1
 
     :cond_0
-    sput-boolean v1, Lcom/android/server/power/PowerManagerUtil$Sales;->NORTH_AMERICA:Z
+    sput-boolean v1, Lcom/android/server/power/PowerManagerUtil$Sales;->KOR:Z
 
     return-void
 
@@ -557,7 +660,12 @@
     :cond_6
     move v0, v1
 
-    goto :goto_5
+    goto/16 :goto_5
+
+    :cond_7
+    move v0, v1
+
+    goto/16 :goto_6
 .end method
 
 .method public constructor <init>()V

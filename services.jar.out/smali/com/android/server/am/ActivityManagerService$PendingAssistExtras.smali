@@ -30,6 +30,8 @@
 
 .field public final intent:Landroid/content/Intent;
 
+.field public isHome:Z
+
 .field public final receiver:Lcom/android/internal/os/IResultReceiver;
 
 .field public receiverExtras:Landroid/os/Bundle;

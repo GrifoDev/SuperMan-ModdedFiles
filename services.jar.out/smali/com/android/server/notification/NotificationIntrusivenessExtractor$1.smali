@@ -32,12 +32,29 @@
 
 # virtual methods
 .method public applyChangesLocked(Lcom/android/server/notification/NotificationRecord;)V
-    .locals 1
+    .locals 4
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v0
+
+    invoke-virtual {p1}, Lcom/android/server/notification/NotificationRecord;->getLastIntrusive()J
+
+    move-result-wide v2
+
+    sub-long/2addr v0, v2
+
+    const-wide/16 v2, 0x2710
+
+    cmp-long v0, v0, v2
+
+    if-ltz v0, :cond_0
 
     const/4 v0, 0x0
 
     invoke-virtual {p1, v0}, Lcom/android/server/notification/NotificationRecord;->setRecentlyIntrusive(Z)V
 
+    :cond_0
     return-void
 .end method
 

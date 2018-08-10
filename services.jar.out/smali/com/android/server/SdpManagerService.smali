@@ -6,50 +6,97 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/server/SdpManagerService$ActionReceiver;,
-        Lcom/android/server/SdpManagerService$EngineMonitor;,
+        Lcom/android/server/SdpManagerService$1;,
+        Lcom/android/server/SdpManagerService$2;,
+        Lcom/android/server/SdpManagerService$3;,
+        Lcom/android/server/SdpManagerService$FileUtil;,
+        Lcom/android/server/SdpManagerService$KnoxUtil;,
+        Lcom/android/server/SdpManagerService$Lifecycle;,
         Lcom/android/server/SdpManagerService$ListenerRoll;,
         Lcom/android/server/SdpManagerService$SdpEngineDatabase;,
         Lcom/android/server/SdpManagerService$SdpHandler;,
+        Lcom/android/server/SdpManagerService$SdpManagerProxy;,
         Lcom/android/server/SdpManagerService$SdpManagerServiceBinderListener;,
         Lcom/android/server/SdpManagerService$SecureFileSystemManager;,
-        Lcom/android/server/SdpManagerService$StateListener;
+        Lcom/android/server/SdpManagerService$SecureUtil;,
+        Lcom/android/server/SdpManagerService$StateListener;,
+        Lcom/android/server/SdpManagerService$VirtualLockClient;
     }
 .end annotation
 
 
 # static fields
-.field private static final BASE_DIR:Ljava/lang/String; = "/data/system/users"
+.field private static final ALIAS_EPHEMERAL_KEY:Ljava/lang/String; = "SdpEphemeralKey"
 
-.field private static final CMK_DEBUG:Z = false
+.field private static final ALIAS_EPHEMERAL_TOKEN:Ljava/lang/String; = "SdpEphemeralToken"
+
+.field private static final ALIAS_RESET_TOKEN:Ljava/lang/String; = "SdpResetToken"
+
+.field private static final ALIAS_SESSION_KEY:Ljava/lang/String; = "SdpSessionKey"
+
+.field private static final ALIAS_TOKEN_HANDLE:Ljava/lang/String; = "SdpTokenHandle"
+
+.field private static final BASE_DIR:Ljava/lang/String; = "/data/system/users"
 
 .field private static final DATA_PKG_NAME:Ljava/lang/String; = "pkgName"
 
 .field private static final DATA_USERID:Ljava/lang/String; = "userId"
 
+.field public static final DEFAULT_KEY_LEN:I = 0x20
+
+.field private static final DEFAULT_LEGACY_RESET_TIMEOUT:J = 0xdbba0L
+
 .field private static final DEFAULT_USER_ENGINE_ID:I = 0x0
 
 .field private static final DEVICE_SUPPORT_KNOX:Z
 
-.field private static final ENABLE_ENGINE_MONITOR:Z = false
+.field private static final DEVICE_SUPPORT_SDP:Z
+
+.field private static final EMPTY_STRING:Ljava/lang/String;
+
+.field private static final FIRST_STAGE:I = 0x1
+
+.field private static final FULL_STAGE:I = 0x0
 
 .field public static final INTENT_SDP_STATE_CHANGED:Ljava/lang/String; = "com.sec.sdp.SDP_STATE_CHANGED"
 
-.field public static final KEK_LEN:I = 0x20
-
 .field private static final KEYMGNT_DEBUG:Z = false
 
-.field private static final KNOX_SENS_COLUMNS:Ljava/lang/String; = "/system/etc/knox_sensitive_columns.xml"
+.field private static final LEGACY_MIN_AFW_USER_ID:I = 0xa
+
+.field private static final LEGACY_MIN_KNOX_USER_ID:I = 0x64
+
+.field private static final LEGACY_PWD_WRAPPED_MASTER_KEY:Ljava/lang/String; = "ECMK_PWD"
+
+.field private static final LEGACY_TOKEN_WRAPPED_MASTER_KEY:Ljava/lang/String; = "ECMK_MDM"
 
 .field private static final MAX_FAILURE_COUNT:I = 0xa
 
+.field private static final MSG_CLEANUP_USER:I = 0x9
+
+.field private static final MSG_DEVICE_OWNER_CHANGED:I = 0xa
+
+.field private static final MSG_LEGACY_RESET_TIMEOUT:I = 0xc
+
 .field private static final MSG_LOCK:I = 0x2
 
-.field private static final MSG_REMOVE_PKG:I = 0x4
+.field private static final MSG_PACKAGE_REMOVED:I = 0x4
+
+.field private static final MSG_SP_FULL_MIGRATION:I = 0xb
+
+.field private static final MSG_START_USER:I = 0x7
 
 .field private static final MSG_SYSTEM_READY:I = 0x1
 
 .field private static final MSG_UNLOCK:I = 0x3
+
+.field private static final MSG_UNLOCK_USER:I = 0x8
+
+.field private static final MSG_USER_ADDED:I = 0x5
+
+.field private static final MSG_USER_REMOVED:I = 0x6
+
+.field private static final NULL_USER:Landroid/content/pm/UserInfo;
 
 .field public static final SDK_CURRENT_VERSION:D = 1.2
 
@@ -83,7 +130,13 @@
 
 .field public static final SDP_VERSION_DISABLED:I = 0x0
 
+.field private static final SERVICE_NAME:Ljava/lang/String; = "SdpManagerService"
+
+.field private static final SYSTEM_USER_ENGINE_ID:I = 0x0
+
 .field private static final TAG:Ljava/lang/String; = "SdpManagerService"
+
+.field private static final TAG_RECV:Ljava/lang/String; = "SdpManagerService.receiver"
 
 .field private static mFailureCount:Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
@@ -96,12 +149,8 @@
     .end annotation
 .end field
 
-.field private static sContext:Landroid/content/Context;
-
 
 # instance fields
-.field private bootComplete:Z
-
 .field private handlerThread:Landroid/os/HandlerThread;
 
 .field private final mBinderListeners:Ljava/util/Map;
@@ -118,6 +167,8 @@
     .end annotation
 .end field
 
+.field private mBroadcastReceiver:Landroid/content/BroadcastReceiver;
+
 .field private mCMKMap:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -130,25 +181,21 @@
     .end annotation
 .end field
 
-.field private mEPM:Lcom/sec/knox/container/util/EnterprisePartitionManager;
+.field private mContainerStateReceiver:Landroid/os/ContainerStateReceiver;
 
-.field private mEnginState:Ljava/util/Map;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/Integer;",
-            "Ljava/lang/Integer;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field private mContext:Landroid/content/Context;
 
-.field private mEngineMonitor:Lcom/android/server/SdpManagerService$EngineMonitor;
+.field private mDPM:Landroid/app/admin/DevicePolicyManager;
+
+.field private mEPM:Lcom/android/server/EnterprisePartitionManager;
+
+.field private mIsHandlerReady:Z
 
 .field private mIsReady:Z
 
 .field private mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
+
+.field private mKeyProtector:Lcom/android/server/KeyProtector;
 
 .field private final mListenerMap:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
@@ -164,7 +211,33 @@
 
 .field private mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-.field mPolicyManager:Lcom/android/server/SdpPolicyManager;
+.field private mLockSettingsService:Lcom/android/internal/widget/ILockSettings;
+
+.field private final mManagedCredentialMap:Ljava/util/Map;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/Integer;",
+            "[B>;"
+        }
+    .end annotation
+.end field
+
+.field private final mManagedTokenMap:Ljava/util/Map;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/Integer;",
+            "[B>;"
+        }
+    .end annotation
+.end field
+
+.field private mPackageEventReceiver:Landroid/content/BroadcastReceiver;
+
+.field private mPackageManagerService:Lcom/android/server/pm/PackageManagerService;
 
 .field private mResetPwdKeyMap:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
@@ -182,7 +255,7 @@
 
 .field private final mSdpEngineDbLock:Ljava/lang/Object;
 
-.field private mSdpEngineMap:Landroid/util/SparseArray;
+.field private final mSdpEngineMap:Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/SparseArray",
@@ -195,50 +268,36 @@
 
 .field private mSdpHandler:Lcom/android/server/SdpManagerService$SdpHandler;
 
+.field private mSdpManagerProxy:Lcom/android/server/SdpManagerService$SdpManagerProxy;
+
 .field private mSecureFileSystemManager:Lcom/android/server/SdpManagerService$SecureFileSystemManager;
 
 .field private mServiceKeeper:Lcom/android/server/SdpServiceKeeper;
 
-.field mStateMap:Ljava/util/HashMap;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/HashMap",
-            "<",
-            "Ljava/lang/Integer;",
-            "Ljava/lang/Integer;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 .field private mTimaHelper:Lcom/android/server/pm/TimaHelper;
 
-.field private mUM:Landroid/os/UserManager;
+.field private mUserManager:Landroid/os/UserManager;
+
+.field private mUserManagerInternal:Landroid/os/UserManagerInternal;
+
+.field private mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
 
 .field private mWaitForPassword:Z
 
 
 # direct methods
-.method static synthetic -get0(Lcom/android/server/SdpManagerService;)Ljava/util/Map;
+.method static synthetic -get0()Ljava/lang/String;
+    .locals 1
+
+    sget-object v0, Lcom/android/server/SdpManagerService;->EMPTY_STRING:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method static synthetic -get1(Lcom/android/server/SdpManagerService;)Ljava/util/Map;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/SdpManagerService;->mBinderListeners:Ljava/util/Map;
-
-    return-object v0
-.end method
-
-.method static synthetic -get1(Lcom/android/server/SdpManagerService;)Lcom/sec/knox/container/util/EnterprisePartitionManager;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mEPM:Lcom/sec/knox/container/util/EnterprisePartitionManager;
-
-    return-object v0
-.end method
-
-.method static synthetic -get10()Landroid/content/Context;
-    .locals 1
-
-    sget-object v0, Lcom/android/server/SdpManagerService;->sContext:Landroid/content/Context;
 
     return-object v0
 .end method
@@ -259,7 +318,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get4(Lcom/android/server/SdpManagerService;)Lcom/android/server/SdpManagerService$SdpEngineDatabase;
+.method static synthetic -get4(Lcom/android/server/SdpManagerService;)Lcom/android/internal/widget/LockPatternUtils;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    return-object v0
+.end method
+
+.method static synthetic -get5(Lcom/android/server/SdpManagerService;)Lcom/android/server/SdpManagerService$SdpEngineDatabase;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
@@ -267,7 +334,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get5(Lcom/android/server/SdpManagerService;)Ljava/lang/Object;
+.method static synthetic -get6(Lcom/android/server/SdpManagerService;)Ljava/lang/Object;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
@@ -275,7 +342,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get6(Lcom/android/server/SdpManagerService;)Landroid/util/SparseArray;
+.method static synthetic -get7(Lcom/android/server/SdpManagerService;)Landroid/util/SparseArray;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/SdpManagerService;->mSdpEngineMap:Landroid/util/SparseArray;
@@ -283,7 +350,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get7(Lcom/android/server/SdpManagerService;)Lcom/android/server/SdpManagerService$SecureFileSystemManager;
+.method static synthetic -get8(Lcom/android/server/SdpManagerService;)Lcom/android/server/SdpManagerService$SecureFileSystemManager;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/SdpManagerService;->mSecureFileSystemManager:Lcom/android/server/SdpManagerService$SecureFileSystemManager;
@@ -291,31 +358,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get8(Lcom/android/server/SdpManagerService;)Lcom/android/server/SdpServiceKeeper;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mServiceKeeper:Lcom/android/server/SdpServiceKeeper;
-
-    return-object v0
-.end method
-
-.method static synthetic -get9(Lcom/android/server/SdpManagerService;)Lcom/android/server/pm/TimaHelper;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mTimaHelper:Lcom/android/server/pm/TimaHelper;
-
-    return-object v0
-.end method
-
-.method static synthetic -set0(Lcom/android/server/SdpManagerService;Lcom/sec/knox/container/util/EnterprisePartitionManager;)Lcom/sec/knox/container/util/EnterprisePartitionManager;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/server/SdpManagerService;->mEPM:Lcom/sec/knox/container/util/EnterprisePartitionManager;
-
-    return-object p1
-.end method
-
-.method static synthetic -set1(Lcom/android/server/SdpManagerService;Z)Z
+.method static synthetic -set0(Lcom/android/server/SdpManagerService;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/SdpManagerService;->mIsReady:Z
@@ -323,67 +366,133 @@
     return p1
 .end method
 
-.method static synthetic -set2(Lcom/android/server/SdpManagerService;Lcom/android/internal/widget/LockPatternUtils;)Lcom/android/internal/widget/LockPatternUtils;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/server/SdpManagerService;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    return-object p1
-.end method
-
-.method static synthetic -set3(Lcom/android/server/SdpManagerService;Lcom/android/server/SdpManagerService$SecureFileSystemManager;)Lcom/android/server/SdpManagerService$SecureFileSystemManager;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/server/SdpManagerService;->mSecureFileSystemManager:Lcom/android/server/SdpManagerService$SecureFileSystemManager;
-
-    return-object p1
-.end method
-
-.method static synthetic -set4(Lcom/android/server/SdpManagerService;Lcom/android/server/SdpServiceKeeper;)Lcom/android/server/SdpServiceKeeper;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/server/SdpManagerService;->mServiceKeeper:Lcom/android/server/SdpServiceKeeper;
-
-    return-object p1
-.end method
-
-.method static synthetic -set5(Lcom/android/server/SdpManagerService;Lcom/android/server/pm/TimaHelper;)Lcom/android/server/pm/TimaHelper;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/server/SdpManagerService;->mTimaHelper:Lcom/android/server/pm/TimaHelper;
-
-    return-object p1
-.end method
-
-.method static synthetic -wrap0(Lcom/android/server/SdpManagerService;I)Landroid/content/pm/UserInfo;
+.method static synthetic -wrap0(Lcom/android/server/SdpManagerService;[BJ[BJI)Z
     .locals 1
 
-    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->getUserInfo(I)Landroid/content/pm/UserInfo;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic -wrap1(Lcom/android/server/SdpManagerService;I)Z
-    .locals 1
-
-    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->isFirstBootUnlockRequired(I)Z
+    invoke-direct/range {p0 .. p7}, Lcom/android/server/SdpManagerService;->changeToken([BJ[BJI)Z
 
     move-result v0
 
     return v0
 .end method
 
-.method static synthetic -wrap10(Lcom/android/server/SdpManagerService;ILjava/lang/String;)V
+.method static synthetic -wrap1(Lcom/android/server/SdpManagerService;I)Z
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->enableSyntheticPassword(I)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic -wrap10(Lcom/android/server/SdpManagerService;Ljava/lang/String;)I
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic -wrap11(Lcom/android/server/SdpManagerService;)Ljava/lang/String;
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->getDeviceVersion()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic -wrap12(Lcom/android/server/SdpManagerService;)Ljava/util/Optional;
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->getLockSettings()Ljava/util/Optional;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic -wrap13(Lcom/android/server/SdpManagerService;)Ljava/util/Optional;
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->getPackageManagerService()Ljava/util/Optional;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic -wrap14(Lcom/android/server/SdpManagerService;I)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/server/SdpManagerService;->handlePkgRemoved(ILjava/lang/String;)V
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->checkUserSecurity(I)V
 
     return-void
 .end method
 
-.method static synthetic -wrap11(Lcom/android/server/SdpManagerService;I)V
+.method static synthetic -wrap15(Lcom/android/server/SdpManagerService;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->doLegacyRecoveryIfNecessary(I)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap16(Lcom/android/server/SdpManagerService;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->handleCleanupUser(I)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap17(Lcom/android/server/SdpManagerService;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->handleDeviceOwnerChanged()V
+
+    return-void
+.end method
+
+.method static synthetic -wrap18(Lcom/android/server/SdpManagerService;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->handleEmptyListenerRoll(I)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap19(Lcom/android/server/SdpManagerService;Ljava/lang/String;I)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/SdpManagerService;->handlePackageRemoved(Ljava/lang/String;I)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap2(Lcom/android/server/SdpManagerService;)Z
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isFileBasedEncryption()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic -wrap20(Lcom/android/server/SdpManagerService;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->handleStartUser(I)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap21(Lcom/android/server/SdpManagerService;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->handleUserAdded(I)V
@@ -391,7 +500,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap12(Lcom/android/server/SdpManagerService;I)V
+.method static synthetic -wrap22(Lcom/android/server/SdpManagerService;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->handleUserRemoved(I)V
@@ -399,7 +508,73 @@
     return-void
 .end method
 
-.method static synthetic -wrap13(Lcom/android/server/SdpManagerService;Ljava/lang/String;Ljava/lang/Exception;Ljava/lang/String;)V
+.method static synthetic -wrap23(Lcom/android/server/SdpManagerService;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->onBootPhase(I)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap24(Lcom/android/server/SdpManagerService;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->onCleanupUser(I)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap25(Lcom/android/server/SdpManagerService;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->onStartUser(I)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap26(Lcom/android/server/SdpManagerService;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->onUnlockUser(I)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap27(Lcom/android/server/SdpManagerService;ILandroid/os/Bundle;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/SdpManagerService;->quickMessage(ILandroid/os/Bundle;)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap28(Lcom/android/server/SdpManagerService;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->quickMessage(I)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap29(Lcom/android/server/SdpManagerService;II)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/SdpManagerService;->quickMessage(II)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap3(Lcom/android/server/SdpManagerService;I)Z
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->isLegacyEncryptionUser(I)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic -wrap30(Lcom/android/server/SdpManagerService;Ljava/lang/String;Ljava/lang/Exception;Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/SdpManagerService;->recordException(Ljava/lang/String;Ljava/lang/Exception;Ljava/lang/String;)V
@@ -407,35 +582,81 @@
     return-void
 .end method
 
-.method static synthetic -wrap14(Lcom/android/server/SdpManagerService;[B)V
+.method static synthetic -wrap31(Lcom/android/server/SdpManagerService;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->zeroOut([B)V
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->registerReceiver()V
 
     return-void
 .end method
 
-.method static synthetic -wrap2(Lcom/android/server/SdpManagerService;I)Z
+.method static synthetic -wrap32(Lcom/android/server/SdpManagerService;Ljava/io/File;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->removeDirectoryRecursive(Ljava/io/File;)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap33(Lcom/android/server/SdpManagerService;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->updateDeviceOwnerStatus()V
+
+    return-void
+.end method
+
+.method static synthetic -wrap4(Lcom/android/server/SdpManagerService;)Z
     .locals 1
 
-    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->isKnoxEngine(I)Z
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
 
     move-result v0
 
     return v0
 .end method
 
-.method static synthetic -wrap3(Lcom/android/server/SdpManagerService;Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;Ljava/lang/String;Ljava/lang/String;)[B
+.method static synthetic -wrap5(Lcom/android/server/SdpManagerService;[BI)Z
     .locals 1
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/SdpManagerService;->createKeys(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;Ljava/lang/String;Ljava/lang/String;)[B
+    invoke-direct {p0, p1, p2}, Lcom/android/server/SdpManagerService;->saveResetTokenViaProtector([BI)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic -wrap6(Lcom/android/server/SdpManagerService;Ljava/lang/String;IJ[BI)Z
+    .locals 1
+
+    invoke-direct/range {p0 .. p6}, Lcom/android/server/SdpManagerService;->setLockCredentialWithToken(Ljava/lang/String;IJ[BI)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic -wrap7(Lcom/android/server/SdpManagerService;Ljava/lang/String;II)Lcom/android/internal/widget/VerifyCredentialResponse;
+    .locals 1
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/SdpManagerService;->checkCredential(Ljava/lang/String;II)Lcom/android/internal/widget/VerifyCredentialResponse;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method static synthetic -wrap4(Lcom/android/server/SdpManagerService;I)Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
+.method static synthetic -wrap8(Lcom/android/server/SdpManagerService;[BJI)Lcom/android/internal/widget/VerifyCredentialResponse;
+    .locals 2
+
+    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/server/SdpManagerService;->verifyToken([BJI)Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic -wrap9(Lcom/android/server/SdpManagerService;I)Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
     .locals 1
 
     invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->getEngineInfoLocked(I)Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
@@ -445,60 +666,10 @@
     return-object v0
 .end method
 
-.method static synthetic -wrap5(Lcom/android/server/SdpManagerService;Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;IILcom/samsung/android/knox/sdp/core/SdpCreationParam;[B)I
-    .locals 1
-
-    invoke-direct/range {p0 .. p5}, Lcom/android/server/SdpManagerService;->addEngineInternalLocked(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;IILcom/samsung/android/knox/sdp/core/SdpCreationParam;[B)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic -wrap6(Lcom/android/server/SdpManagerService;I)I
-    .locals 1
-
-    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->bootInternal(I)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic -wrap7(Ljava/lang/String;)I
-    .locals 1
-
-    invoke-static {p0}, Lcom/android/server/SdpManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic -wrap8(Lcom/android/server/SdpManagerService;Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;Ljava/lang/String;I)I
-    .locals 1
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/SdpManagerService;->unlockInternal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;Ljava/lang/String;I)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic -wrap9(Lcom/android/server/SdpManagerService;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->handleEmptyListenerRoll(I)V
-
-    return-void
-.end method
-
 .method static constructor <clinit>()V
-    .locals 1
+    .locals 4
 
-    const/4 v0, 0x0
-
-    sput-object v0, Lcom/android/server/SdpManagerService;->sContext:Landroid/content/Context;
+    const/4 v3, 0x0
 
     new-instance v0, Landroid/util/SparseArray;
 
@@ -506,33 +677,47 @@
 
     sput-object v0, Lcom/android/server/SdpManagerService;->mFailureCount:Landroid/util/SparseArray;
 
-    invoke-static {}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxSupported()Z
+    new-instance v0, Landroid/content/pm/UserInfo;
+
+    const/16 v1, -0x2710
+
+    const/4 v2, 0x0
+
+    invoke-direct {v0, v1, v3, v3, v2}, Landroid/content/pm/UserInfo;-><init>(ILjava/lang/String;Ljava/lang/String;I)V
+
+    sput-object v0, Lcom/android/server/SdpManagerService;->NULL_USER:Landroid/content/pm/UserInfo;
+
+    new-instance v0, Ljava/lang/String;
+
+    invoke-direct {v0}, Ljava/lang/String;-><init>()V
+
+    sput-object v0, Lcom/android/server/SdpManagerService;->EMPTY_STRING:Ljava/lang/String;
+
+    invoke-static {}, Lcom/android/server/SdpManagerService$KnoxUtil;->isKnoxSupported()Z
 
     move-result v0
 
     sput-boolean v0, Lcom/android/server/SdpManagerService;->DEVICE_SUPPORT_KNOX:Z
 
+    const/4 v0, 0x1
+
+    sput-boolean v0, Lcom/android/server/SdpManagerService;->DEVICE_SUPPORT_SDP:Z
+
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 3
-
-    const/4 v2, 0x0
+    .locals 6
 
     const/4 v1, 0x0
 
+    const/4 v5, 0x0
+
     invoke-direct {p0}, Landroid/os/ISdpManagerService$Stub;-><init>()V
 
-    new-instance v0, Ljava/util/HashMap;
+    iput-object v5, p0, Lcom/android/server/SdpManagerService;->mContext:Landroid/content/Context;
 
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
-
-    iput-object v0, p0, Lcom/android/server/SdpManagerService;->mStateMap:Ljava/util/HashMap;
-
-    iput-object v1, p0, Lcom/android/server/SdpManagerService;->mPolicyManager:Lcom/android/server/SdpPolicyManager;
-
-    iput-boolean v2, p0, Lcom/android/server/SdpManagerService;->mWaitForPassword:Z
+    iput-boolean v1, p0, Lcom/android/server/SdpManagerService;->mWaitForPassword:Z
 
     new-instance v0, Ljava/lang/Object;
 
@@ -546,15 +731,19 @@
 
     iput-object v0, p0, Lcom/android/server/SdpManagerService;->mSdpEngineMap:Landroid/util/SparseArray;
 
-    iput-object v1, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
-
-    iput-boolean v2, p0, Lcom/android/server/SdpManagerService;->bootComplete:Z
+    iput-object v5, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
 
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/SdpManagerService;->mEnginState:Ljava/util/Map;
+    iput-object v0, p0, Lcom/android/server/SdpManagerService;->mManagedCredentialMap:Ljava/util/Map;
+
+    new-instance v0, Ljava/util/HashMap;
+
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+
+    iput-object v0, p0, Lcom/android/server/SdpManagerService;->mManagedTokenMap:Ljava/util/Map;
 
     new-instance v0, Ljava/util/HashMap;
 
@@ -568,21 +757,19 @@
 
     iput-object v0, p0, Lcom/android/server/SdpManagerService;->mResetPwdKeyMap:Ljava/util/Map;
 
-    iput-object v1, p0, Lcom/android/server/SdpManagerService;->mTimaHelper:Lcom/android/server/pm/TimaHelper;
+    iput-object v5, p0, Lcom/android/server/SdpManagerService;->mTimaHelper:Lcom/android/server/pm/TimaHelper;
 
-    iput-object v1, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
+    iput-object v5, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
 
-    iput-object v1, p0, Lcom/android/server/SdpManagerService;->mEPM:Lcom/sec/knox/container/util/EnterprisePartitionManager;
+    iput-object v5, p0, Lcom/android/server/SdpManagerService;->mEPM:Lcom/android/server/EnterprisePartitionManager;
 
-    iput-object v1, p0, Lcom/android/server/SdpManagerService;->mUM:Landroid/os/UserManager;
+    iput-object v5, p0, Lcom/android/server/SdpManagerService;->mSdpHandler:Lcom/android/server/SdpManagerService$SdpHandler;
 
-    iput-object v1, p0, Lcom/android/server/SdpManagerService;->mEngineMonitor:Lcom/android/server/SdpManagerService$EngineMonitor;
+    iput-object v5, p0, Lcom/android/server/SdpManagerService;->handlerThread:Landroid/os/HandlerThread;
 
-    iput-object v1, p0, Lcom/android/server/SdpManagerService;->mSdpHandler:Lcom/android/server/SdpManagerService$SdpHandler;
+    iput-object v5, p0, Lcom/android/server/SdpManagerService;->mSdpManagerProxy:Lcom/android/server/SdpManagerService$SdpManagerProxy;
 
-    iput-object v1, p0, Lcom/android/server/SdpManagerService;->handlerThread:Landroid/os/HandlerThread;
-
-    iput-boolean v2, p0, Lcom/android/server/SdpManagerService;->mIsReady:Z
+    iput-boolean v1, p0, Lcom/android/server/SdpManagerService;->mIsReady:Z
 
     new-instance v0, Ljava/util/HashMap;
 
@@ -596,33 +783,27 @@
 
     iput-object v0, p0, Lcom/android/server/SdpManagerService;->mBinderListeners:Ljava/util/Map;
 
-    sput-object p1, Lcom/android/server/SdpManagerService;->sContext:Landroid/content/Context;
+    new-instance v0, Lcom/android/server/SdpManagerService$1;
 
-    new-instance v0, Landroid/os/HandlerThread;
+    invoke-direct {v0, p0}, Lcom/android/server/SdpManagerService$1;-><init>(Lcom/android/server/SdpManagerService;)V
 
-    const-string/jumbo v1, "SdpManagerService"
+    iput-object v0, p0, Lcom/android/server/SdpManagerService;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
-    const/16 v2, 0xa
+    new-instance v0, Lcom/android/server/SdpManagerService$2;
 
-    invoke-direct {v0, v1, v2}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, p0}, Lcom/android/server/SdpManagerService$2;-><init>(Lcom/android/server/SdpManagerService;)V
 
-    iput-object v0, p0, Lcom/android/server/SdpManagerService;->handlerThread:Landroid/os/HandlerThread;
+    iput-object v0, p0, Lcom/android/server/SdpManagerService;->mPackageEventReceiver:Landroid/content/BroadcastReceiver;
 
-    iget-object v0, p0, Lcom/android/server/SdpManagerService;->handlerThread:Landroid/os/HandlerThread;
+    new-instance v0, Lcom/android/server/SdpManagerService$3;
 
-    invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V
+    invoke-direct {v0, p0}, Lcom/android/server/SdpManagerService$3;-><init>(Lcom/android/server/SdpManagerService;)V
 
-    new-instance v0, Lcom/android/server/SdpManagerService$SdpHandler;
+    iput-object v0, p0, Lcom/android/server/SdpManagerService;->mContainerStateReceiver:Landroid/os/ContainerStateReceiver;
 
-    iget-object v1, p0, Lcom/android/server/SdpManagerService;->handlerThread:Landroid/os/HandlerThread;
+    iput-object p1, p0, Lcom/android/server/SdpManagerService;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v1}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
-
-    move-result-object v1
-
-    invoke-direct {v0, p0, v1}, Lcom/android/server/SdpManagerService$SdpHandler;-><init>(Lcom/android/server/SdpManagerService;Landroid/os/Looper;)V
-
-    iput-object v0, p0, Lcom/android/server/SdpManagerService;->mSdpHandler:Lcom/android/server/SdpManagerService$SdpHandler;
+    iput-boolean v1, p0, Lcom/android/server/SdpManagerService;->mIsHandlerReady:Z
 
     const-string/jumbo v0, "user"
 
@@ -632,31 +813,1512 @@
 
     check-cast v0, Landroid/os/UserManager;
 
-    iput-object v0, p0, Lcom/android/server/SdpManagerService;->mUM:Landroid/os/UserManager;
+    iput-object v0, p0, Lcom/android/server/SdpManagerService;->mUserManager:Landroid/os/UserManager;
+
+    const-string/jumbo v0, "device_policy"
+
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/admin/DevicePolicyManager;
+
+    iput-object v0, p0, Lcom/android/server/SdpManagerService;->mDPM:Landroid/app/admin/DevicePolicyManager;
+
+    new-instance v0, Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    invoke-direct {v0, p0, p0}, Lcom/android/server/SdpManagerService$VirtualLockClient;-><init>(Lcom/android/server/SdpManagerService;Lcom/android/server/SdpManagerService;)V
+
+    iput-object v0, p0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    new-instance v0, Lcom/android/server/SdpManagerService$SdpEngineDatabase;
+
+    invoke-direct {v0, p0, v5}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;-><init>(Lcom/android/server/SdpManagerService;Lcom/android/server/SdpManagerService$SdpEngineDatabase;)V
+
+    iput-object v0, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
+
+    invoke-static {}, Lcom/sec/knox/container/util/KeyManagementUtil;->getInstance()Lcom/sec/knox/container/util/KeyManagementUtil;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
+
+    invoke-static {}, Lcom/android/server/KeyProtector;->getInstance()Lcom/android/server/KeyProtector;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/server/SdpManagerService;->mKeyProtector:Lcom/android/server/KeyProtector;
+
+    invoke-static {}, Lcom/android/server/pm/TimaHelper;->getInstance()Lcom/android/server/pm/TimaHelper;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/server/SdpManagerService;->mTimaHelper:Lcom/android/server/pm/TimaHelper;
+
+    invoke-static {p1}, Lcom/android/server/EnterprisePartitionManager;->getInstance(Landroid/content/Context;)Lcom/android/server/EnterprisePartitionManager;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/server/SdpManagerService;->mEPM:Lcom/android/server/EnterprisePartitionManager;
+
+    new-instance v0, Lcom/android/internal/widget/LockPatternUtils;
+
+    invoke-direct {v0, p1}, Lcom/android/internal/widget/LockPatternUtils;-><init>(Landroid/content/Context;)V
+
+    iput-object v0, p0, Lcom/android/server/SdpManagerService;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    new-instance v0, Lcom/android/server/SdpManagerService$SecureFileSystemManager;
+
+    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mTimaHelper:Lcom/android/server/pm/TimaHelper;
+
+    iget-object v4, p0, Lcom/android/server/SdpManagerService;->mEPM:Lcom/android/server/EnterprisePartitionManager;
+
+    move-object v1, p0
+
+    move-object v2, p1
+
+    invoke-direct/range {v0 .. v5}, Lcom/android/server/SdpManagerService$SecureFileSystemManager;-><init>(Lcom/android/server/SdpManagerService;Landroid/content/Context;Lcom/android/server/pm/TimaHelper;Lcom/android/server/EnterprisePartitionManager;Lcom/android/server/SdpManagerService$SecureFileSystemManager;)V
+
+    iput-object v0, p0, Lcom/android/server/SdpManagerService;->mSecureFileSystemManager:Lcom/android/server/SdpManagerService$SecureFileSystemManager;
+
+    new-instance v0, Lcom/android/server/SdpServiceKeeper;
+
+    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mContext:Landroid/content/Context;
+
+    invoke-direct {v0, v1}, Lcom/android/server/SdpServiceKeeper;-><init>(Landroid/content/Context;)V
+
+    iput-object v0, p0, Lcom/android/server/SdpManagerService;->mServiceKeeper:Lcom/android/server/SdpServiceKeeper;
+
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->readEngineList()V
 
     return-void
 .end method
 
-.method private addEngineInternalLocked(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;IILcom/samsung/android/knox/sdp/core/SdpCreationParam;[B)I
-    .locals 7
+.method private adaptLegacyDeviceOwner(I)Z
+    .locals 9
+
+    const/4 v8, 0x2
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "Prior to key migration, adapting legacy DO "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v6}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    const/4 v2, 0x0
 
     const/4 v5, 0x0
 
-    if-nez p4, :cond_1
+    const/4 v4, 0x0
 
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->isAndroidDefaultEngine()Z
+    :try_start_0
+    new-instance v3, Ljava/io/File;
+
+    invoke-virtual {p0, p1}, Lcom/android/server/SdpManagerService;->getLegacyPwdWrappedMasterKeyPath(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-direct {v3, v6}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v3}, Ljava/io/File;->exists()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_0
+
+    invoke-virtual {v3}, Ljava/io/File;->delete()Z
+
+    move-result v6
+
+    if-nez v6, :cond_0
+
+    const-string/jumbo v6, "DO adaptation - Failed to remove legacy key file..."
+
+    invoke-static {v6}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+    :try_end_0
+    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_0
+    :goto_0
+    const/4 v1, 0x0
+
+    iget-object v6, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+
+    monitor-enter v6
+
+    :try_start_1
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->getEngineInfoLocked(I)Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    move-result-object v1
+
+    monitor-exit v6
+
+    if-nez v1, :cond_1
+
+    const-string/jumbo v6, "DO adaptation - Failed due to no engine found"
+
+    invoke-static {v6}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    :goto_1
+    new-array v6, v8, [Ljava/lang/Object;
+
+    const/4 v7, 0x0
+
+    aput-object v5, v6, v7
+
+    const/4 v7, 0x1
+
+    aput-object v4, v6, v7
+
+    invoke-static {v6}, Lcom/android/server/SdpManagerService$SecureUtil;->clearAll([Ljava/lang/Object;)V
+
+    return v2
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Ljava/lang/SecurityException;->printStackTrace()V
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v7
+
+    monitor-exit v6
+
+    throw v7
+
+    :cond_1
+    invoke-direct {p0, v1}, Lcom/android/server/SdpManagerService;->getRstTokenFromTima(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Ljava/lang/String;
+
+    move-result-object v5
+
+    if-nez v5, :cond_2
+
+    const-string/jumbo v6, "DO adaptation - Failed to get reset token"
+
+    invoke-static {v6}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto :goto_1
+
+    :cond_2
+    invoke-virtual {p0, v5, p1, v8}, Lcom/android/server/SdpManagerService;->getLegacyMasterKey(Ljava/lang/String;II)[B
+
+    move-result-object v4
+
+    if-nez v4, :cond_3
+
+    const-string/jumbo v6, "DO adaptation - Failed to get master key"
+
+    invoke-static {v6}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto :goto_1
+
+    :cond_3
+    invoke-direct {p0, v4, p1}, Lcom/android/server/SdpManagerService;->saveEphemeralKeyViaProtector([BI)Z
+
+    move-result v6
+
+    if-nez v6, :cond_4
+
+    const-string/jumbo v6, "DO adaptation - Failed to save ephemeral key"
+
+    invoke-static {v6}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto :goto_1
+
+    :cond_4
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->enableSyntheticPassword(I)Z
+
+    move-result v2
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "DO adaptation - Is sp enabled? "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v6}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto :goto_1
+.end method
+
+.method private adaptLegacyKnoxUser(I)Z
+    .locals 7
+
+    const/4 v2, 0x0
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Prior to key migration, adapting legacy knox user "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->enableSyntheticPassword(I)Z
+
+    move-result v1
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->setSeparateProfileChallengeEnabled(I)Z
+
+    move-result v0
+
+    const-string/jumbo v3, "Knox adaptation - Adaptation completed! Is sp enabled? %s Is separated? %s"
+
+    const/4 v4, 0x2
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v5
+
+    aput-object v5, v4, v2
+
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v5
+
+    const/4 v6, 0x1
+
+    aput-object v5, v4, v6
+
+    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    if-eqz v1, :cond_0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    move v0, v2
+
+    goto :goto_0
+.end method
+
+.method private adaptLegacyProfileOwner(I)Z
+    .locals 25
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Prior to key migration, adapting legacy PO "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    move/from16 v0, p1
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    const/16 v24, 0x1
+
+    const/16 v17, 0x0
+
+    const/16 v16, 0x0
+
+    const/16 v20, 0x0
+
+    const/4 v12, 0x0
+
+    new-instance v2, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
+
+    invoke-static/range {p1 .. p1}, Lcom/samsung/android/knox/sdp/SdpUtil;->getAndroidDefaultAlias(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    const/4 v6, 0x1
+
+    const/4 v7, 0x0
+
+    const/4 v8, 0x6
+
+    const/4 v9, 0x0
+
+    move/from16 v4, p1
+
+    move/from16 v5, p1
+
+    invoke-direct/range {v2 .. v9}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;-><init>(Ljava/lang/String;IIIIIZ)V
+
+    const/4 v3, 0x0
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v3}, Lcom/android/server/SdpManagerService;->getEngineInfoLocked(I)Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
+
+    move-result-object v15
+
+    invoke-static {v15}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    :cond_0
+    :goto_0
+    if-nez v24, :cond_6
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "PO adaptation - Is sp enabled? "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-direct/range {p0 .. p1}, Lcom/android/server/SdpManagerService;->enableSyntheticPassword(I)Z
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    invoke-direct/range {p0 .. p1}, Lcom/android/server/SdpManagerService;->onLegacyProfileOwnerAdapted(I)V
+
+    :goto_1
+    const/4 v3, 0x4
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    const/4 v4, 0x0
+
+    aput-object v12, v3, v4
+
+    const/4 v4, 0x1
+
+    aput-object v20, v3, v4
+
+    const/4 v4, 0x2
+
+    aput-object v17, v3, v4
+
+    const/4 v4, 0x3
+
+    aput-object v16, v3, v4
+
+    invoke-static {v3}, Lcom/android/server/SdpManagerService$SecureUtil;->clearAll([Ljava/lang/Object;)V
+
+    if-nez v24, :cond_7
+
+    const/4 v3, 0x1
+
+    :goto_2
+    return v3
+
+    :cond_1
+    const/16 v24, 0x2
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v15}, Lcom/android/server/SdpManagerService;->getRstTokenFromTima(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Ljava/lang/String;
+
+    move-result-object v17
+
+    invoke-static/range {v17 .. v17}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    add-int/lit8 v24, v24, 0x1
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
+
+    invoke-virtual {v15}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+
+    move-result v4
+
+    const/4 v5, 0x2
+
+    const/16 v6, 0x20
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v3, v4, v0, v5, v6}, Lcom/sec/knox/container/util/KeyManagementUtil;->retrieveCMK(ILjava/lang/String;II)Ljava/lang/String;
+
+    move-result-object v16
+
+    invoke-static/range {v16 .. v16}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    add-int/lit8 v24, v24, 0x1
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
+
+    invoke-virtual {v3}, Lcom/sec/knox/container/util/KeyManagementUtil;->generateCMK()Ljava/lang/String;
+
+    move-result-object v20
+
+    const/4 v3, 0x0
+
+    invoke-static {v3}, Lcom/android/server/SdpManagerService$FileUtil;->getUserSystemDir(I)Ljava/io/File;
+
+    move-result-object v18
+
+    invoke-static/range {p1 .. p1}, Lcom/android/server/SdpManagerService$FileUtil;->getUserSystemDir(I)Ljava/io/File;
+
+    move-result-object v21
+
+    const/4 v14, 0x0
+
+    if-eqz v18, :cond_3
+
+    invoke-virtual/range {v18 .. v18}, Ljava/io/File;->isDirectory()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
+    invoke-virtual/range {v18 .. v18}, Ljava/io/File;->list()[Ljava/lang/String;
+
+    move-result-object v19
+
+    :goto_3
+    if-eqz v19, :cond_5
+
+    const/4 v3, 0x0
+
+    move-object/from16 v0, v19
+
+    array-length v4, v0
+
+    :goto_4
+    if-ge v3, v4, :cond_5
+
+    aget-object v13, v19, v3
+
+    if-eqz v13, :cond_2
+
+    const-string/jumbo v5, "SDPK_"
+
+    invoke-virtual {v13, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_2
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual/range {v18 .. v18}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "/"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v23
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual/range {v21 .. v21}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "/"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    new-instance v22, Ljava/io/File;
+
+    invoke-direct/range {v22 .. v23}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    new-instance v10, Ljava/io/File;
+
+    invoke-direct {v10, v11}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    move-object/from16 v0, v22
+
+    invoke-static {v0, v10}, Lcom/android/server/SdpManagerService$FileUtil;->copyFile(Ljava/io/File;Ljava/io/File;)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_4
+
+    const-string/jumbo v5, "PO adaptation - %s moved successfully"
+
+    const/4 v6, 0x1
+
+    new-array v6, v6, [Ljava/lang/Object;
+
+    const-string/jumbo v7, "SDPK_"
+
+    const-string/jumbo v8, ""
+
+    invoke-virtual {v13, v7, v8}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v7
+
+    const/4 v8, 0x0
+
+    aput-object v7, v6, v8
+
+    invoke-static {v5, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    :cond_2
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_4
+
+    :cond_3
+    const/16 v19, 0x0
+
+    goto :goto_3
+
+    :cond_4
+    const-string/jumbo v3, "PO adaptation - Failed to move %s"
+
+    const/4 v4, 0x1
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    const-string/jumbo v5, "SDPK_"
+
+    const-string/jumbo v6, ""
+
+    invoke-virtual {v13, v5, v6}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v5
+
+    const/4 v6, 0x0
+
+    aput-object v5, v4, v6
+
+    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    :cond_5
+    invoke-static {v14}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    add-int/lit8 v24, v24, 0x1
+
+    new-instance v22, Ljava/io/File;
+
+    new-instance v3, Ljava/io/File;
+
+    invoke-static {}, Landroid/os/Environment;->getDataSystemDirectory()Ljava/io/File;
+
+    move-result-object v4
+
+    const-string/jumbo v5, "users"
+
+    invoke-direct {v3, v4, v5}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "sdp_hashedkek_"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v15}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+
+    move-result v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    move-object/from16 v0, v22
+
+    invoke-direct {v0, v3, v4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    new-instance v10, Ljava/io/File;
+
+    new-instance v3, Ljava/io/File;
+
+    invoke-static {}, Landroid/os/Environment;->getDataSystemDirectory()Ljava/io/File;
+
+    move-result-object v4
+
+    const-string/jumbo v5, "users"
+
+    invoke-direct {v3, v4, v5}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "sdp_hashedkek_"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v2}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+
+    move-result v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-direct {v10, v3, v4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    move-object/from16 v0, v22
+
+    invoke-static {v0, v10}, Lcom/android/server/SdpManagerService$FileUtil;->copyFile(Ljava/io/File;Ljava/io/File;)Z
+
+    move-result v3
+
+    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    add-int/lit8 v24, v24, 0x1
+
+    invoke-virtual {v2}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+
+    move-result v3
+
+    const/4 v4, 0x0
+
+    move-object/from16 v0, v16
+
+    invoke-static {v0, v4}, Lcom/sec/knox/container/util/Base64;->decode(Ljava/lang/String;I)[B
+
+    move-result-object v4
+
+    const/4 v5, 0x0
+
+    move-object/from16 v0, v20
+
+    invoke-static {v0, v5}, Lcom/sec/knox/container/util/Base64;->decode(Ljava/lang/String;I)[B
+
+    move-result-object v5
+
+    invoke-static {v3, v4, v5}, Lcom/android/server/SdpManagerService;->nativeOnChangePassword(I[B[B)I
+
+    move-result v3
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    add-int/lit8 v24, v24, 0x1
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/server/SdpManagerService;->mServiceKeeper:Lcom/android/server/SdpServiceKeeper;
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/SdpManagerService;->mContext:Landroid/content/Context;
+
+    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+
+    move-result v5
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v6
+
+    new-instance v8, Ljava/util/ArrayList;
+
+    invoke-direct {v8}, Ljava/util/ArrayList;-><init>()V
+
+    move-object v7, v2
+
+    invoke-virtual/range {v3 .. v8}, Lcom/android/server/SdpServiceKeeper;->addPolicy(Landroid/content/Context;IILcom/samsung/android/knox/sdp/core/SdpEngineInfo;Ljava/util/List;)I
+
+    move-result v3
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    add-int/lit8 v24, v24, 0x1
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
+
+    move-object/from16 v0, v20
+
+    invoke-virtual {v3, v0}, Lcom/sec/knox/container/util/KeyManagementUtil;->cmkToByte(Ljava/lang/String;)[B
+
+    move-result-object v12
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, p1
+
+    invoke-direct {v0, v12, v1}, Lcom/android/server/SdpManagerService;->saveEphemeralKeyViaProtector([BI)Z
+
+    move-result v3
+
+    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    add-int/lit8 v24, v24, 0x1
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+
+    monitor-enter v4
+
+    :try_start_0
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/server/SdpManagerService;->mSdpEngineMap:Landroid/util/SparseArray;
+
+    invoke-virtual {v2}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+
+    move-result v5
+
+    invoke-virtual {v3, v5, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
+
+    invoke-static {v3, v2}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap2(Lcom/android/server/SdpManagerService$SdpEngineDatabase;Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
+
+    invoke-static {v3}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap3(Lcom/android/server/SdpManagerService$SdpEngineDatabase;)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v4
+
+    invoke-virtual {v15}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+
+    move-result v3
+
+    const/4 v4, 0x2
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v3, v4}, Lcom/android/server/SdpManagerService;->removeLegacyKeyPair(II)Z
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "PO adaptation - Successfully done at stage "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    move/from16 v0, v24
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    const/16 v24, 0x0
+
+    goto/16 :goto_0
+
+    :catchall_0
+    move-exception v3
+
+    monitor-exit v4
+
+    throw v3
+
+    :cond_6
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "PO adaptation - Failed at stage "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    move/from16 v0, v24
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto/16 :goto_1
+
+    :cond_7
+    const/4 v3, 0x0
+
+    goto/16 :goto_2
+.end method
+
+.method private adaptLegacyUserZero(I)Z
+    .locals 8
+
+    const/4 v7, 0x2
+
+    const/4 v6, 0x1
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "Prior to key migration, adapting legacy user "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    const/4 v3, 0x0
+
+    const/4 v2, 0x0
+
+    const/4 v1, 0x0
+
+    const/4 v0, 0x0
+
+    iget-object v4, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+
+    monitor-enter v4
+
+    :try_start_0
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->getEngineInfoLocked(I)Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v0
+
+    monitor-exit v4
+
+    if-nez v0, :cond_0
+
+    const-string/jumbo v4, "U0 adaptation - Failed due to no engine found"
+
+    invoke-static {v4}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    :goto_0
+    new-array v4, v7, [Ljava/lang/Object;
+
+    const/4 v5, 0x0
+
+    aput-object v2, v4, v5
+
+    aput-object v1, v4, v6
+
+    invoke-static {v4}, Lcom/android/server/SdpManagerService$SecureUtil;->clearAll([Ljava/lang/Object;)V
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "Result of adapting legacy user : "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    return v3
+
+    :catchall_0
+    move-exception v5
+
+    monitor-exit v4
+
+    throw v5
+
+    :cond_0
+    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->getRstTokenFromTima(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Ljava/lang/String;
+
+    move-result-object v2
+
+    if-nez v2, :cond_1
+
+    const-string/jumbo v4, "U0 adaptation - Failed to get reset token"
+
+    invoke-static {v4}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_1
+    invoke-virtual {p0, v2, p1, v7}, Lcom/android/server/SdpManagerService;->getLegacyMasterKey(Ljava/lang/String;II)[B
+
+    move-result-object v1
+
+    if-nez v1, :cond_2
+
+    const-string/jumbo v4, "U0 adaptation - Failed to get master key"
+
+    invoke-static {v4}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_2
+    invoke-direct {p0, v1, p1}, Lcom/android/server/SdpManagerService;->saveEphemeralKeyViaProtector([BI)Z
+
+    move-result v4
+
+    if-nez v4, :cond_3
+
+    const-string/jumbo v4, "U0 adaptation - Failed to save ephemeral key"
+
+    invoke-static {v4}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_3
+    invoke-direct {p0, p1, v6}, Lcom/android/server/SdpManagerService;->removeLegacyKeyPair(II)Z
+
+    const/4 v3, 0x1
+
+    goto :goto_0
+.end method
+
+.method private addEngineInternalLocked(Lcom/samsung/android/knox/sdp/core/SdpCreationParam;Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;IILjava/lang/String;Ljava/lang/String;)I
+    .locals 19
+
+    invoke-virtual/range {p2 .. p2}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->isMdfpp()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    invoke-virtual/range {p6 .. p6}, Ljava/lang/String;->getBytes()[B
+
+    move-result-object v17
+
+    :goto_0
+    const/16 v4, 0x20
+
+    invoke-static {v4}, Lcom/android/server/SdpManagerService$SecureUtil;->generateRandomBytes(I)[B
+
+    move-result-object v16
+
+    const/4 v13, 0x0
+
+    const/4 v12, 0x0
+
+    invoke-virtual/range {p2 .. p2}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+
+    move-result v18
+
+    const/16 v15, -0x11
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    move/from16 v0, v18
+
+    invoke-virtual {v4, v0}, Lcom/android/server/SdpManagerService$VirtualLockClient;->clean(I)V
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    move/from16 v0, v18
+
+    invoke-virtual {v4, v0}, Lcom/android/server/SdpManagerService$VirtualLockClient;->clearLock(I)V
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    move-object/from16 v0, p5
+
+    move-object/from16 v1, v17
+
+    move/from16 v2, v18
+
+    invoke-virtual {v4, v0, v1, v2}, Lcom/android/server/SdpManagerService$VirtualLockClient;->establish(Ljava/lang/String;[BI)J
+
+    move-result-wide v10
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    move-object/from16 v0, p5
+
+    move/from16 v1, v18
+
+    invoke-virtual {v4, v0, v1}, Lcom/android/server/SdpManagerService$VirtualLockClient;->checkPassword(Ljava/lang/String;I)Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Lcom/android/internal/widget/VerifyCredentialResponse;->getSecret()[B
+
+    move-result-object v13
+
+    invoke-static {v13}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_3
+
+    :cond_0
+    :goto_1
+    if-eqz v15, :cond_4
+
+    const-string/jumbo v4, "SdpManagerService"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "add engine :: Failed with error code "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    move/from16 v0, v18
+
+    invoke-virtual {v4, v0}, Lcom/android/server/SdpManagerService$VirtualLockClient;->clean(I)V
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    move/from16 v0, v18
+
+    invoke-virtual {v4, v0}, Lcom/android/server/SdpManagerService$VirtualLockClient;->clearLock(I)V
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/SdpManagerService;->mServiceKeeper:Lcom/android/server/SdpServiceKeeper;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/SdpManagerService;->mContext:Landroid/content/Context;
+
+    move/from16 v0, p3
+
+    move/from16 v1, p4
+
+    move-object/from16 v2, p2
+
+    invoke-virtual {v4, v5, v0, v1, v2}, Lcom/android/server/SdpServiceKeeper;->removePolicy(Landroid/content/Context;IILcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
+
+    :cond_1
+    :goto_2
+    const/4 v4, 0x3
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    const/4 v5, 0x0
+
+    aput-object v13, v4, v5
+
+    const/4 v5, 0x1
+
+    aput-object v16, v4, v5
+
+    const/4 v5, 0x2
+
+    aput-object v17, v4, v5
+
+    invoke-static {v4}, Lcom/android/server/SdpManagerService$SecureUtil;->clearAll([Ljava/lang/Object;)V
+
+    return v15
+
+    :cond_2
+    const/16 v4, 0x20
+
+    invoke-static {v4}, Lcom/android/server/SdpManagerService$SecureUtil;->generateRandomBytes(I)[B
+
+    move-result-object v17
+
+    goto/16 :goto_0
+
+    :cond_3
+    move-object/from16 v0, p0
+
+    move/from16 v1, v18
+
+    invoke-direct {v0, v10, v11, v1}, Lcom/android/server/SdpManagerService;->saveTokenHandleViaProtector(JI)Z
+
+    move-result v4
+
+    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    invoke-direct {v0, v1, v13}, Lcom/android/server/SdpManagerService;->addEngineNative(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;[B)I
+
+    move-result v15
+
+    invoke-static {v15}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/SdpManagerService;->mServiceKeeper:Lcom/android/server/SdpServiceKeeper;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/SdpManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual/range {p1 .. p1}, Lcom/samsung/android/knox/sdp/core/SdpCreationParam;->getPrivilegedApps()Ljava/util/ArrayList;
+
+    move-result-object v9
+
+    move/from16 v6, p3
+
+    move/from16 v7, p4
+
+    move-object/from16 v8, p2
+
+    invoke-virtual/range {v4 .. v9}, Lcom/android/server/SdpServiceKeeper;->addPolicy(Landroid/content/Context;IILcom/samsung/android/knox/sdp/core/SdpEngineInfo;Ljava/util/List;)I
+
+    move-result v15
+
+    invoke-static {v15}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    goto/16 :goto_1
+
+    :cond_4
+    const-string/jumbo v4, "SdpManagerService"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "add engine - Sucessfully done with "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual/range {p2 .. p2}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v4, 0x1
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->setState(I)V
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/SdpManagerService;->mSdpEngineMap:Landroid/util/SparseArray;
+
+    move/from16 v0, v18
+
+    move-object/from16 v1, p2
+
+    invoke-virtual {v4, v0, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
+
+    move-object/from16 v0, p2
+
+    invoke-static {v4, v0}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap2(Lcom/android/server/SdpManagerService$SdpEngineDatabase;Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
+
+    invoke-static {v4}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap3(Lcom/android/server/SdpManagerService$SdpEngineDatabase;)I
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/SdpManagerService;->mKeyProtector:Lcom/android/server/KeyProtector;
+
+    const-string/jumbo v5, "SdpSessionKey"
+
+    move-object/from16 v0, v16
+
+    move/from16 v1, v18
+
+    invoke-virtual {v4, v0, v5, v1}, Lcom/android/server/KeyProtector;->protect([BLjava/lang/String;I)Z
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/SdpManagerService;->mKeyProtector:Lcom/android/server/KeyProtector;
+
+    const-string/jumbo v5, "SdpTokenHandle"
+
+    move/from16 v0, v18
+
+    invoke-virtual {v4, v12, v5, v0}, Lcom/android/server/KeyProtector;->protect([BLjava/lang/String;I)Z
+
+    invoke-virtual/range {p2 .. p2}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->isMinor()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/SdpManagerService;->mKeyProtector:Lcom/android/server/KeyProtector;
+
+    const-string/jumbo v5, "SdpResetToken"
+
+    move-object/from16 v0, v17
+
+    move/from16 v1, v18
+
+    invoke-virtual {v4, v0, v5, v1}, Lcom/android/server/KeyProtector;->protect([BLjava/lang/String;I)Z
+
+    goto/16 :goto_2
+.end method
+
+.method private addEngineNative(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;[B)I
+    .locals 3
+
+    const/4 v2, 0x0
+
+    const/4 v0, 0x2
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    aput-object p1, v0, v2
+
+    const/4 v1, 0x1
+
+    aput-object p2, v0, v1
+
+    invoke-static {v0}, Lcom/android/server/SdpManagerService$SecureUtil;->isAnyoneEmptyHere([Ljava/lang/Object;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    new-instance v5, Ljava/util/ArrayList;
+    const/16 v0, -0x63
 
-    invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
+    return v0
 
-    :goto_0
-    if-eqz p5, :cond_2
-
+    :cond_0
     invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
 
     move-result v0
@@ -665,11 +2327,19 @@
 
     move-result v1
 
-    invoke-virtual {p0, v0, v1, p5}, Lcom/android/server/SdpManagerService;->addEngineNative(II[B)Z
+    invoke-static {v0, v1, p2}, Lcom/android/server/SdpManagerService;->nativeOnUserAdded(II[B)I
 
     move-result v0
 
-    if-nez v0, :cond_3
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
 
     const-string/jumbo v0, "SdpManagerService"
 
@@ -677,17 +2347,17 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "Error to handle addEngineNative ::"
+    const-string/jumbo v2, "add engine - failed to create engine due to native error "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
 
-    move-result-object v2
+    move-result v2
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
@@ -701,147 +2371,8 @@
 
     return v0
 
-    :cond_0
-    const-string/jumbo v0, "SdpManagerService"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "addEngineInternalLocked :: custom engine requires creation parameter"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v0, -0x3
-
-    return v0
-
     :cond_1
-    invoke-virtual {p4}, Lcom/samsung/android/knox/sdp/core/SdpCreationParam;->getPrivilegedApps()Ljava/util/ArrayList;
-
-    move-result-object v5
-
-    goto :goto_0
-
-    :cond_2
-    const-string/jumbo v0, "SdpManagerService"
-
-    const-string/jumbo v1, "No cmk for adding engine. :: this must be migration"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_3
-    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mServiceKeeper:Lcom/android/server/SdpServiceKeeper;
-
-    sget-object v1, Lcom/android/server/SdpManagerService;->sContext:Landroid/content/Context;
-
-    move v2, p2
-
-    move v3, p3
-
-    move-object v4, p1
-
-    invoke-virtual/range {v0 .. v5}, Lcom/android/server/SdpServiceKeeper;->addPolicy(Landroid/content/Context;IILcom/samsung/android/knox/sdp/core/SdpEngineInfo;Ljava/util/List;)I
-
-    move-result v6
-
-    if-nez v6, :cond_4
-
-    const/4 v0, 0x1
-
-    invoke-virtual {p1, v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->setState(I)V
-
-    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mSdpEngineMap:Landroid/util/SparseArray;
-
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
-
-    move-result v1
-
-    invoke-virtual {v0, v1, p1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
-
-    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
-
-    invoke-static {v0, p1}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap2(Lcom/android/server/SdpManagerService$SdpEngineDatabase;Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
-
-    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
-
-    invoke-static {v0}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap3(Lcom/android/server/SdpManagerService$SdpEngineDatabase;)I
-
-    const-string/jumbo v0, "SdpManagerService"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "engine added! "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_1
-    return v6
-
-    :cond_4
-    const-string/jumbo v0, "SdpManagerService"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "addEngineInternalLocked :: failed ["
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "]"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_1
+    return v2
 .end method
 
 .method private assignEngineId(Ljava/lang/String;)I
@@ -935,296 +2466,214 @@
     return v1
 .end method
 
-.method private bootInternal(I)I
-    .locals 3
+.method private bootInternal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
+    .locals 11
 
-    const-string/jumbo v0, "SdpManagerService"
+    const/4 v10, 0x6
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    const/4 v9, 0x2
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const/4 v8, 0x1
 
-    const-string/jumbo v2, "bootInternal :: "
+    const/4 v7, 0x0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/16 v2, -0x63
 
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->bootNative(I)I
+    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
 
     move-result v0
 
-    return v0
-.end method
+    const-string/jumbo v3, "SdpManagerService"
 
-.method private bootNative(I)I
-    .locals 11
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->getEngineInfoLocked(I)Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v0
+    const-string/jumbo v5, "boot - "
 
-    if-nez v0, :cond_1
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v4
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->bootNative(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
+
+    move-result v2
+
+    const-string/jumbo v3, "SdpManagerService"
+
+    const-string/jumbo v4, "boot - [ Detected version : %d, Latest version : %d ]"
+
+    new-array v5, v9, [Ljava/lang/Object;
+
+    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getVersion()I
+
+    move-result v6
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    aput-object v6, v5, v7
+
+    invoke-static {v10}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    aput-object v6, v5, v8
+
+    invoke-static {v4, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getVersion()I
+
+    move-result v3
+
+    if-eq v3, v10, :cond_1
+
+    const/4 v3, 0x0
+
+    invoke-direct {p0, p1, v3}, Lcom/android/server/SdpManagerService;->onMigrationInternal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;[B)I
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const-string/jumbo v3, "SdpManagerService"
+
+    const-string/jumbo v4, "boot - Migration failed"
+
+    invoke-static {v3, v4}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
+    iget-object v4, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+
+    monitor-enter v4
+
+    :try_start_0
+    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mSdpEngineMap:Landroid/util/SparseArray;
+
+    invoke-virtual {v3, v0, p1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v4
+
+    :cond_1
     iget-object v3, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
 
     monitor-enter v3
 
-    :try_start_0
-    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
+    const/4 v4, 0x1
 
-    invoke-static {v2, p1}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap1(Lcom/android/server/SdpManagerService$SdpEngineDatabase;I)Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
+    :try_start_1
+    invoke-direct {p0, p1, v4}, Lcom/android/server/SdpManagerService;->setEngineStateLocked(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;I)I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineMap:Landroid/util/SparseArray;
-
-    invoke-virtual {v2, p1, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
-
-    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
-
-    invoke-static {v2, v0}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap2(Lcom/android/server/SdpManagerService$SdpEngineDatabase;Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
-
-    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
-
-    invoke-static {v2}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap3(Lcom/android/server/SdpManagerService$SdpEngineDatabase;)I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    :cond_0
     monitor-exit v3
 
-    :cond_1
-    if-nez v0, :cond_5
+    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->generateAndSaveSessionKey(I)Z
 
-    invoke-static {p1}, Lcom/samsung/android/knox/sdp/SdpUtil;->isKnoxWorkspace(I)Z
+    move-result v1
 
-    move-result v2
+    const-string/jumbo v3, "Boot - Prepare session key for engine %d [ res : %s ]"
 
-    if-nez v2, :cond_2
+    new-array v4, v9, [Ljava/lang/Object;
 
-    const-string/jumbo v2, "SdpManagerService"
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    move-result-object v5
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    aput-object v5, v4, v7
 
-    const-string/jumbo v4, "id "
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v5
 
-    move-result-object v3
+    aput-object v5, v4, v8
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v4, " is not knox container! boot failed"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v3}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    const-string/jumbo v3, "Boot - Engine %d boot completed! [ rc : %d ]"
+
+    new-array v4, v9, [Ljava/lang/Object;
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    aput-object v5, v4, v7
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    aput-object v5, v4, v8
+
+    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v2, -0x3
+    invoke-static {v3}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
 
     return v2
 
     :catchall_0
-    move-exception v2
-
-    monitor-exit v3
-
-    throw v2
-
-    :cond_2
-    const-string/jumbo v2, "SdpManagerService"
-
-    const-string/jumbo v3, "Migration from SDP v1(TMR)."
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-static {p1}, Lcom/samsung/android/knox/sdp/SdpUtil;->getAndroidDefaultAlias(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    if-nez v1, :cond_3
-
-    const-string/jumbo v2, "SdpManagerService"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "bootInternal :: migration attempt failed. unknown userid "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v2, -0xb
-
-    return v2
-
-    :cond_3
-    const-string/jumbo v2, "SdpManagerService"
-
-    const-string/jumbo v3, "bootInternal :: SDP user is there but no SdpEngineInfo. This must be SDP v1 -> v1.1 migration"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    new-instance v0, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
-
-    const/4 v4, 0x1
-
-    const/4 v5, 0x1
-
-    const/4 v6, 0x1
-
-    const/4 v7, 0x0
-
-    move v2, p1
-
-    move v3, p1
-
-    invoke-direct/range {v0 .. v7}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;-><init>(Ljava/lang/String;IIIIIZ)V
-
-    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->getRstTokenFromTima(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Ljava/lang/String;
-
-    move-result-object v8
-
-    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
-
-    monitor-enter v2
-
-    if-nez v8, :cond_4
-
-    const/4 v3, 0x0
-
-    :try_start_1
-    invoke-virtual {v0, v3}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->setFlag(I)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
-
-    :cond_4
-    monitor-exit v2
-
-    invoke-direct {p0, v8}, Lcom/android/server/SdpManagerService;->zeroOut(Ljava/lang/String;)V
-
-    iget-object v10, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
-
-    monitor-enter v10
-
-    :try_start_2
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v4
-
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
-
-    move-result v5
-
-    const/4 v6, 0x0
-
-    const/4 v7, 0x0
-
-    move-object v2, p0
-
-    move-object v3, v0
-
-    invoke-direct/range {v2 .. v7}, Lcom/android/server/SdpManagerService;->addEngineInternalLocked(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;IILcom/samsung/android/knox/sdp/core/SdpCreationParam;[B)I
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
-
-    move-result v9
-
-    monitor-exit v10
-
-    if-eqz v9, :cond_5
-
-    const-string/jumbo v2, "SdpManagerService"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "Failed to create engine info/creation for "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v9
-
-    :catchall_1
     move-exception v3
 
-    monitor-exit v2
+    monitor-exit v4
 
     throw v3
 
-    :catchall_2
-    move-exception v2
+    :catchall_1
+    move-exception v4
 
-    monitor-exit v10
+    monitor-exit v3
 
-    throw v2
+    throw v4
+.end method
 
-    :cond_5
-    invoke-virtual {v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+.method private bootNative(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
+    .locals 5
+
+    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+
+    move-result v0
+
+    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getUserId()I
+
+    move-result v1
+
+    invoke-static {v0, v1}, Lcom/android/server/SdpManagerService;->nativeOnBoot(II)I
 
     move-result v2
 
-    invoke-virtual {v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getUserId()I
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result v3
+    move-result-object v2
 
-    invoke-static {v2, v3}, Lcom/android/server/SdpManagerService;->nativeOnBoot(II)I
+    invoke-static {v2}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_0
 
     const-string/jumbo v2, "SdpManagerService"
 
@@ -1232,13 +2681,17 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "bootNative :: failed. "
+    const-string/jumbo v4, "bootNative - Failed with id "
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
@@ -1252,136 +2705,328 @@
 
     return v2
 
-    :cond_6
-    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
-
-    monitor-enter v2
-
-    const/4 v3, 0x1
-
-    :try_start_3
-    invoke-direct {p0, v0, v3}, Lcom/android/server/SdpManagerService;->setEngineStateLocked(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;I)I
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_3
-
-    monitor-exit v2
-
-    invoke-virtual {v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getVersion()I
-
-    move-result v2
-
-    const/4 v3, 0x6
-
-    if-eq v2, v3, :cond_8
-
-    const-string/jumbo v2, "SdpManagerService"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "bootInternal :: upgrade detected. ["
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getVersion()I
-
-    move-result v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v4, "] -> ["
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const/4 v4, 0x6
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v4, "]"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v2, 0x0
-
-    invoke-direct {p0, v0, v2}, Lcom/android/server/SdpManagerService;->onMigrationInternal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;[B)I
-
-    move-result v2
-
-    if-eqz v2, :cond_7
-
-    const-string/jumbo v2, "SdpManagerService"
-
-    const-string/jumbo v3, "bootInternal :: Failed..."
-
-    invoke-static {v2, v3}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    :cond_7
-    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
-
-    monitor-enter v3
-
-    :try_start_4
-    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineMap:Landroid/util/SparseArray;
-
-    invoke-virtual {v2, p1, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_4
-
-    monitor-exit v3
-
-    :cond_8
+    :cond_0
     const/4 v2, 0x0
 
     return v2
-
-    :catchall_3
-    move-exception v3
-
-    monitor-exit v2
-
-    throw v3
-
-    :catchall_4
-    move-exception v2
-
-    monitor-exit v3
-
-    throw v2
 .end method
 
-.method private cacheMasterKey(ILjava/lang/String;)V
-    .locals 3
+.method private cacheManagedCredential([BI)V
+    .locals 2
 
-    const-string/jumbo v0, "SdpManagerService"
+    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mManagedCredentialMap:Ljava/util/Map;
+
+    const-string/jumbo v1, "credential"
+
+    invoke-direct {p0, v0, v1, p1, p2}, Lcom/android/server/SdpManagerService;->cacheSafe(Ljava/util/Map;Ljava/lang/String;[BI)V
+
+    return-void
+.end method
+
+.method private cacheManagedToken([BI)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mManagedTokenMap:Ljava/util/Map;
+
+    const-string/jumbo v1, "token"
+
+    invoke-direct {p0, v0, v1, p1, p2}, Lcom/android/server/SdpManagerService;->cacheSafe(Ljava/util/Map;Ljava/lang/String;[BI)V
+
+    return-void
+.end method
+
+.method private cacheSafe(Ljava/util/Map;Ljava/lang/String;[BI)V
+    .locals 6
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/Integer;",
+            "[B>;",
+            "Ljava/lang/String;",
+            "[BI)V"
+        }
+    .end annotation
+
+    if-eqz p1, :cond_0
+
+    if-nez p3, :cond_1
+
+    :cond_0
+    return-void
+
+    :cond_1
+    const/4 v1, 0x0
+
+    const/4 v0, 0x0
+
+    monitor-enter p1
+
+    :try_start_0
+    invoke-direct {p0, p4}, Lcom/android/server/SdpManagerService;->getSessionKeyViaProtector(I)[B
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "cache - Session key not found for user "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :goto_0
+    monitor-exit p1
+
+    invoke-static {v1}, Lcom/android/server/SdpManagerService$SecureUtil;->clear([B)V
+
+    return-void
+
+    :cond_2
+    :try_start_1
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mKeyProtector:Lcom/android/server/KeyProtector;
+
+    invoke-virtual {v2, v1, p3}, Lcom/android/server/KeyProtector;->encryptFast([B[B)[B
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "cache - Fast encryption failed with user "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v2
+
+    monitor-exit p1
+
+    throw v2
+
+    :cond_3
+    :try_start_2
+    invoke-static {p4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-interface {p1, v2, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string/jumbo v2, "cache - Now %s is under secure management for user %d"
+
+    const/4 v3, 0x2
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    const/4 v4, 0x0
+
+    aput-object p2, v3, v4
+
+    invoke-static {p4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    const/4 v5, 0x1
+
+    aput-object v4, v3, v5
+
+    invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    goto :goto_0
+.end method
+
+.method private changeToken([BJ[BJI)Z
+    .locals 11
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v8
+
+    :try_start_0
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->getLockSettings()Ljava/util/Optional;
+
+    move-result-object v10
+
+    new-instance v0, Lcom/android/server/-$Lambda$lhXyqUMYqEEsOESeK7W8eqkbJis$8;
+
+    move/from16 v1, p7
+
+    move-wide v2, p2
+
+    move-wide/from16 v4, p5
+
+    move-object v6, p1
+
+    move-object v7, p4
+
+    invoke-direct/range {v0 .. v7}, Lcom/android/server/-$Lambda$lhXyqUMYqEEsOESeK7W8eqkbJis$8;-><init>(IJJLjava/lang/Object;Ljava/lang/Object;)V
+
+    invoke-virtual {v10, v0}, Ljava/util/Optional;->map(Ljava/util/function/Function;)Ljava/util/Optional;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/util/Optional;->orElse(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Boolean;
+
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v0
+
+    invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return v0
+
+    :catchall_0
+    move-exception v0
+
+    invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v0
+.end method
+
+.method private checkCallerPermissionFor(Ljava/lang/String;)I
+    .locals 6
+
+    const/4 v5, 0x0
+
+    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mContext:Landroid/content/Context;
+
+    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+
+    move-result v2
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v3
+
+    const-string/jumbo v4, "SdpManagerService"
+
+    invoke-static {v1, v2, v3, v4, p1}, Lcom/android/server/ServiceKeeper;->isAuthorized(Landroid/content/Context;IILjava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    new-instance v0, Ljava/lang/SecurityException;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "cacheMasterKey :: "
+    const-string/jumbo v2, "Security Exception Occurred while pid["
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "] with uid["
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "] trying to access methodName ["
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "] in ["
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "SdpManagerService"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "] service"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
@@ -1389,120 +3034,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-eqz p2, :cond_0
-
-    invoke-virtual {p2}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
-    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mCMKMap:Ljava/util/Map;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    invoke-interface {v0, v1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    goto :goto_0
-.end method
-
-.method private static checkCallerPermissionFor(Ljava/lang/String;)I
-    .locals 6
-
-    const/4 v5, 0x0
-
-    const-string/jumbo v1, "SdpManagerService"
-
-    sget-object v2, Lcom/android/server/SdpManagerService;->sContext:Landroid/content/Context;
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v3
-
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
-
-    move-result v4
-
-    invoke-static {v2, v3, v4, v1, p0}, Lcom/android/server/ServiceKeeper;->isAuthorized(Landroid/content/Context;IILjava/lang/String;Ljava/lang/String;)I
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    new-instance v0, Ljava/lang/SecurityException;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "Security Exception Occurred while pid["
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "] with uid["
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
-
-    move-result v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "] trying to access methodName ["
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "] in ["
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "] service"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-direct {v0, v2}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
@@ -1510,70 +3042,380 @@
     return v5
 .end method
 
-.method private clearCachedMasterKey(I)V
+.method private checkCredential(Ljava/lang/String;II)Lcom/android/internal/widget/VerifyCredentialResponse;
     .locals 4
 
-    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mCMKMap:Ljava/util/Map;
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v0
+
+    :try_start_0
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->getLockSettings()Ljava/util/Optional;
+
+    move-result-object v2
+
+    new-instance v3, Lcom/android/server/-$Lambda$lhXyqUMYqEEsOESeK7W8eqkbJis$9;
+
+    invoke-direct {v3, p2, p3, p1}, Lcom/android/server/-$Lambda$lhXyqUMYqEEsOESeK7W8eqkbJis$9;-><init>(IILjava/lang/Object;)V
+
+    invoke-virtual {v2, v3}, Ljava/util/Optional;->map(Ljava/util/function/Function;)Ljava/util/Optional;
+
+    move-result-object v2
+
+    sget-object v3, Lcom/android/internal/widget/VerifyCredentialResponse;->ERROR:Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    invoke-virtual {v2, v3}, Ljava/util/Optional;->orElse(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/internal/widget/VerifyCredentialResponse;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return-object v2
+
+    :catchall_0
+    move-exception v2
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v2
+.end method
+
+.method private checkDeviceIntegrityTraced()Z
+    .locals 6
+
+    const/4 v3, 0x0
+
+    const-string/jumbo v4, "Check device integrity!"
+
+    invoke-static {v4}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    iget-object v4, p0, Lcom/android/server/SdpManagerService;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v5, "iccc"
+
+    invoke-virtual {v4, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/samsung/android/iccc/IntegrityControlCheckCenter;
+
+    const/4 v2, -0x1
+
+    const v4, -0xdfffff
+
+    :try_start_0
+    invoke-virtual {v1, v4}, Lcom/samsung/android/iccc/IntegrityControlCheckCenter;->getSecureData(I)I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v2
+
+    :goto_0
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "Result of checking golden mesaurements : "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    if-nez v2, :cond_0
+
+    const/4 v3, 0x1
+
+    :cond_0
+    return v3
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v4, "Unexpected exception while check device integrity"
+
+    invoke-static {v4, v0}, Lcom/sec/sdp/internal/SDPLog;->e(Ljava/lang/String;Ljava/lang/Exception;)V
+
+    goto :goto_0
+.end method
+
+.method private checkSystemPermission()Z
+    .locals 3
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v1
+
+    const/16 v2, 0x3e8
+
+    if-eq v1, v2, :cond_0
+
+    const-string/jumbo v1, "SdpManagerService"
+
+    const-string/jumbo v2, "Require system permission."
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v0, Ljava/lang/SecurityException;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Security Exception Occurred in pid["
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "] with uid["
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "]"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_0
+    const/4 v1, 0x1
+
+    return v1
+.end method
+
+.method private checkUserSecurity(I)V
+    .locals 4
+
+    const-string/jumbo v0, "Check security - [ User ID : %d, SP enabled : %s, Has handle : %s, Has legacy credential : %s, Has legacy token : %s]"
+
+    const/4 v1, 0x5
+
+    new-array v1, v1, [Ljava/lang/Object;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
 
-    invoke-interface {v1, v2}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+    const/4 v3, 0x0
+
+    aput-object v2, v1, v3
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->isSyntheticPasswordEnabled(I)Z
+
+    move-result v2
+
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    const/4 v3, 0x1
+
+    aput-object v2, v1, v3
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->hasSyntheticPasswordHandle(I)Z
+
+    move-result v2
+
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    const/4 v3, 0x2
+
+    aput-object v2, v1, v3
+
+    invoke-virtual {p0, p1}, Lcom/android/server/SdpManagerService;->hasLegacyCredential(I)Z
+
+    move-result v2
+
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    const/4 v3, 0x3
+
+    aput-object v2, v1, v3
+
+    invoke-virtual {p0, p1}, Lcom/android/server/SdpManagerService;->hasLegacyToken(I)Z
+
+    move-result v2
+
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    const/4 v3, 0x4
+
+    aput-object v2, v1, v3
+
+    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method private clearCached(Ljava/util/Map;Ljava/lang/String;I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/Integer;",
+            "[B>;",
+            "Ljava/lang/String;",
+            "I)V"
+        }
+    .end annotation
+
+    if-nez p1, :cond_0
+
+    return-void
+
+    :cond_0
+    monitor-enter p1
+
+    :try_start_0
+    invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-interface {p1, v1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mCMKMap:Ljava/util/Map;
+    invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
-
-    invoke-interface {v1, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v0, [B
 
-    const-string/jumbo v1, "SdpManagerService"
+    invoke-static {v0}, Lcom/android/server/SdpManagerService$SecureUtil;->clear([B)V
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    const/4 v0, 0x0
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string/jumbo v3, "clearCachedMasterKey (CMK) "
+    move-result-object v1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-interface {p1, v1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    const-string/jumbo v1, "clear - Managed %s removed for user %d"
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const/4 v2, 0x2
 
-    move-result-object v2
+    new-array v2, v2, [Ljava/lang/Object;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const/4 v3, 0x0
 
-    move-result-object v2
+    aput-object p2, v2, v3
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    if-eqz v0, :cond_0
+    move-result-object v3
 
-    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->zeroOut(Ljava/lang/String;)V
+    const/4 v4, 0x1
 
-    :cond_0
-    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mCMKMap:Ljava/util/Map;
+    aput-object v3, v2, v4
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-interface {v1, v2}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :goto_0
+    monitor-exit p1
+
+    return-void
 
     :cond_1
-    return-void
+    :try_start_1
+    const-string/jumbo v1, "clear - Managed %s not found for user %d"
+
+    const/4 v2, 0x2
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    const/4 v3, 0x0
+
+    aput-object p2, v2, v3
+
+    invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    const/4 v4, 0x1
+
+    aput-object v3, v2, v4
+
+    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit p1
+
+    throw v1
 .end method
 
 .method private clearFailureCount(I)V
@@ -1586,465 +3428,63 @@
     return-void
 .end method
 
-.method private clearResetPasswordKey(I)V
-    .locals 4
+.method private clearManageCredentialIfRequired(I)V
+    .locals 1
 
-    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mResetPwdKeyMap:Ljava/util/Map;
+    invoke-static {p1}, Landroid/os/UserManager;->isVirtualUserId(I)Z
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v1, v2}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mResetPwdKeyMap:Ljava/util/Map;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v1, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    const-string/jumbo v1, "SdpManagerService"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "clearResetPasswordKey "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result v0
 
     if-eqz v0, :cond_0
 
-    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->zeroOut(Ljava/lang/String;)V
+    return-void
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mResetPwdKeyMap:Ljava/util/Map;
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->hasBiometricTypeTraced(I)Z
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result v0
 
-    move-result-object v2
+    if-eqz v0, :cond_1
 
-    invoke-interface {v1, v2}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    return-void
 
     :cond_1
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->hasNoSecurity(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    return-void
+
+    :cond_2
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->clearManagedCredential(I)V
+
     return-void
 .end method
 
-.method private createKeys(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;Ljava/lang/String;Ljava/lang/String;)[B
-    .locals 11
+.method private clearManagedCredential(I)V
+    .locals 2
 
-    if-nez p1, :cond_0
+    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mManagedCredentialMap:Ljava/util/Map;
 
-    const/4 v5, 0x0
+    const-string/jumbo v1, "credential"
 
-    return-object v5
+    invoke-direct {p0, v0, v1, p1}, Lcom/android/server/SdpManagerService;->clearCached(Ljava/util/Map;Ljava/lang/String;I)V
 
-    :cond_0
-    const-string/jumbo v5, "SdpManagerService"
+    return-void
+.end method
 
-    new-instance v8, Ljava/lang/StringBuilder;
+.method private clearManagedToken(I)V
+    .locals 2
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mManagedTokenMap:Ljava/util/Map;
 
-    const-string/jumbo v9, "onUserAdded :: "
+    const-string/jumbo v1, "token"
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {p0, v0, v1, p1}, Lcom/android/server/SdpManagerService;->clearCached(Ljava/util/Map;Ljava/lang/String;I)V
 
-    move-result-object v8
-
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
-
-    move-result v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v5, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    new-instance v0, Ljava/io/File;
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v8, "/data/system/users/"
-
-    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
-
-    move-result v8
-
-    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v8, "/"
-
-    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-direct {v0, v5}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v0}, Ljava/io/File;->exists()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_1
-
-    invoke-virtual {v0}, Ljava/io/File;->isDirectory()Z
-
-    move-result v5
-
-    if-nez v5, :cond_2
-
-    const-string/jumbo v5, "SdpManagerService"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "baseDir exists but not a directory! "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v5, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v5, 0x0
-
-    return-object v5
-
-    :cond_1
-    invoke-virtual {v0}, Ljava/io/File;->mkdir()Z
-
-    move-result v5
-
-    if-nez v5, :cond_2
-
-    const-string/jumbo v5, "SdpManagerService"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "couldn\'t create directory "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v5, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v5, 0x0
-
-    return-object v5
-
-    :cond_2
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->isMinor()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_5
-
-    iget-object v5, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
-
-    invoke-virtual {v5}, Lcom/sec/knox/container/util/KeyManagementUtil;->generatePasswordResetToken()Ljava/lang/String;
-
-    move-result-object p3
-
-    invoke-virtual {p3}, Ljava/lang/String;->getBytes()[B
-
-    move-result-object v4
-
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-
-    move-result-wide v6
-
-    iget-object v5, p0, Lcom/android/server/SdpManagerService;->mTimaHelper:Lcom/android/server/pm/TimaHelper;
-
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
-
-    move-result v8
-
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getResetTokenTimaAlias()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v5, v8, v9, v4}, Lcom/android/server/pm/TimaHelper;->setEntry(ILjava/lang/String;[B)Z
-
-    move-result v5
-
-    if-nez v5, :cond_3
-
-    const-string/jumbo v5, "SdpManagerService"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "error in addEngine failed to store resetToken "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v5, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-static {v6, v7}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    const/4 v5, 0x0
-
-    return-object v5
-
-    :cond_3
-    invoke-static {v6, v7}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    invoke-direct {p0, v4}, Lcom/android/server/SdpManagerService;->zeroOut([B)V
-
-    :cond_4
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->isMinor()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_a
-
-    iget-object v5, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
-
-    invoke-virtual {v5}, Lcom/sec/knox/container/util/KeyManagementUtil;->generateCMK()Ljava/lang/String;
-
-    move-result-object v1
-
-    if-nez v1, :cond_6
-
-    const-string/jumbo v5, "SdpManagerService"
-
-    const-string/jumbo v8, "can\'t generate CMK"
-
-    invoke-static {v5, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v5, 0x0
-
-    return-object v5
-
-    :cond_5
-    if-nez p3, :cond_4
-
-    const-string/jumbo v5, "SdpManagerService"
-
-    const-string/jumbo v8, "can\'t create keys for MDPFF SDP without RST_TOKEN"
-
-    invoke-static {v5, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v5, 0x0
-
-    return-object v5
-
-    :cond_6
-    if-eqz p2, :cond_7
-
-    invoke-virtual {p2}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_9
-
-    :cond_7
-    const-string/jumbo v5, "SdpManagerService"
-
-    const-string/jumbo v8, "no password given. #2"
-
-    invoke-static {v5, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_8
-    iget-object v5, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
-
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
-
-    move-result v8
-
-    const/4 v9, 0x2
-
-    invoke-virtual {v5, v8, v1, p3, v9}, Lcom/sec/knox/container/util/KeyManagementUtil;->storeCMK(ILjava/lang/String;Ljava/lang/String;I)Z
-
-    move-result v5
-
-    if-nez v5, :cond_b
-
-    const-string/jumbo v5, "SdpManagerService"
-
-    const-string/jumbo v8, "storeCMK(RST_TOKEN) failed"
-
-    invoke-static {v5, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v5, 0x0
-
-    return-object v5
-
-    :cond_9
-    iget-object v5, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
-
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
-
-    move-result v8
-
-    const/4 v9, 0x1
-
-    invoke-virtual {v5, v8, v1, p2, v9}, Lcom/sec/knox/container/util/KeyManagementUtil;->storeCMK(ILjava/lang/String;Ljava/lang/String;I)Z
-
-    move-result v5
-
-    if-nez v5, :cond_8
-
-    const-string/jumbo v5, "SdpManagerService"
-
-    const-string/jumbo v8, "storeCMK(PW) failed"
-
-    invoke-static {v5, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v5, 0x0
-
-    return-object v5
-
-    :cond_a
-    iget-object v5, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
-
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
-
-    move-result v8
-
-    invoke-virtual {v5, v8, p2, p3}, Lcom/sec/knox/container/util/KeyManagementUtil;->generateAndStoreCMK(ILjava/lang/String;Ljava/lang/String;)Z
-
-    :cond_b
-    const/4 v3, 0x0
-
-    if-nez p2, :cond_c
-
-    iget-object v5, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
-
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
-
-    move-result v8
-
-    const/4 v9, 0x2
-
-    const/16 v10, 0x20
-
-    invoke-virtual {v5, v8, p3, v9, v10}, Lcom/sec/knox/container/util/KeyManagementUtil;->retrieveCMK(ILjava/lang/String;II)Ljava/lang/String;
-
-    move-result-object v3
-
-    :goto_0
-    if-nez v3, :cond_d
-
-    const-string/jumbo v5, "SdpManagerService"
-
-    const-string/jumbo v8, "internal error!, can\'t retrieve CMK"
-
-    invoke-static {v5, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v5, 0x0
-
-    return-object v5
-
-    :cond_c
-    iget-object v5, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
-
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
-
-    move-result v8
-
-    const/4 v9, 0x1
-
-    const/16 v10, 0x20
-
-    invoke-virtual {v5, v8, p2, v9, v10}, Lcom/sec/knox/container/util/KeyManagementUtil;->retrieveCMK(ILjava/lang/String;II)Ljava/lang/String;
-
-    move-result-object v3
-
-    goto :goto_0
-
-    :cond_d
-    iget-object v5, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
-
-    invoke-virtual {v5, v3}, Lcom/sec/knox/container/util/KeyManagementUtil;->cmkToByte(Ljava/lang/String;)[B
-
-    move-result-object v2
-
-    invoke-direct {p0, v3}, Lcom/android/server/SdpManagerService;->zeroOut(Ljava/lang/String;)V
-
-    return-object v2
+    return-void
 .end method
 
 .method private deleteTokenInternal(ILjava/lang/String;)Z
@@ -2062,7 +3502,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     iget-object v1, p0, Lcom/android/server/SdpManagerService;->mTimaHelper:Lcom/android/server/pm/TimaHelper;
 
@@ -2071,15 +3511,994 @@
     const/4 v0, 0x1
 
     :cond_0
+    :goto_0
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return v0
+
+    :cond_1
+    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mKeyProtector:Lcom/android/server/KeyProtector;
+
+    invoke-virtual {v1, p2, p1}, Lcom/android/server/KeyProtector;->exists(Ljava/lang/String;I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-direct {p0, p2, p1}, Lcom/android/server/SdpManagerService;->removeSpecificKeyViaProtector(Ljava/lang/String;I)Z
+
+    move-result v0
+
+    goto :goto_0
+.end method
+
+.method private doLegacyRecoveryIfNecessary(I)V
+    .locals 6
+
+    const/4 v1, 0x0
+
+    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
+
+    const/4 v4, 0x2
+
+    invoke-virtual {v3, p1, v4}, Lcom/sec/knox/container/util/KeyManagementUtil;->getECMKLength(II)I
+
+    move-result v0
+
+    add-int/lit8 v2, v0, -0x59
+
+    if-lez v2, :cond_2
+
+    sget v3, Lcom/sec/knox/container/security/Header;->LENGTH:I
+
+    rem-int v3, v2, v3
+
+    if-nez v3, :cond_2
+
+    const/4 v1, 0x1
+
+    :cond_0
+    :goto_0
+    if-eqz v1, :cond_1
+
+    const-string/jumbo v3, "SdpManagerService"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "Detected ECMK length : "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, " for user "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
+
+    invoke-virtual {v3, p1}, Lcom/sec/knox/container/util/KeyManagementUtil;->recoverEcmkHeader(I)V
+
+    :cond_1
+    return-void
+
+    :cond_2
+    add-int/lit8 v2, v0, -0x40
+
+    if-lez v2, :cond_0
+
+    sget v3, Lcom/sec/knox/container/security/Header;->LENGTH:I
+
+    rem-int v3, v2, v3
+
+    if-nez v3, :cond_0
+
+    const/4 v1, 0x1
+
+    goto :goto_0
+.end method
+
+.method private doSyntheticPasswordFullMigration([BLjava/lang/String;ILcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Lcom/android/internal/widget/VerifyCredentialResponse;
+    .locals 16
+
+    if-eqz p4, :cond_0
+
+    invoke-virtual/range {p4 .. p4}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->isAndroidDefaultEngine()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    :cond_0
+    sget-object v2, Lcom/android/internal/widget/VerifyCredentialResponse;->ERROR:Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    return-object v2
+
+    :cond_1
+    invoke-virtual/range {p4 .. p4}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+
+    move-result v7
+
+    move v14, v7
+
+    move v13, v7
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Full sp migration ordered for user "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->i(Ljava/lang/String;)V
+
+    const/16 v2, 0x8
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    const-string/jumbo v3, "token"
+
+    const/4 v6, 0x0
+
+    aput-object v3, v2, v6
+
+    const/4 v3, 0x1
+
+    aput-object p1, v2, v3
+
+    const-string/jumbo v3, "password"
+
+    const/4 v6, 0x2
+
+    aput-object v3, v2, v6
+
+    const/4 v3, 0x3
+
+    aput-object p2, v2, v3
+
+    const-string/jumbo v3, "order"
+
+    const/4 v6, 0x4
+
+    aput-object v3, v2, v6
+
+    invoke-static/range {p3 .. p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    const/4 v6, 0x5
+
+    aput-object v3, v2, v6
+
+    const-string/jumbo v3, "info"
+
+    const/4 v6, 0x6
+
+    aput-object v3, v2, v6
+
+    const/4 v3, 0x7
+
+    aput-object p4, v2, v3
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->p([Ljava/lang/Object;)V
+
+    invoke-static/range {p2 .. p2}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    sget-object v2, Lcom/android/internal/widget/VerifyCredentialResponse;->ERROR:Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    return-object v2
+
+    :cond_2
+    sget-object v12, Lcom/android/internal/widget/VerifyCredentialResponse;->ERROR:Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    const/4 v9, 0x0
+
+    const/4 v11, 0x0
+
+    const/4 v10, 0x0
+
+    invoke-virtual/range {p4 .. p4}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->isMinor()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p4
+
+    invoke-direct {v0, v1}, Lcom/android/server/SdpManagerService;->getResetTokenViaTrustedInternal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)[B
+
+    move-result-object p1
+
+    :cond_3
+    invoke-static/range {p1 .. p1}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_5
+
+    const-string/jumbo v2, "sp migration - Failed due to invalid token given"
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    :goto_0
+    invoke-virtual {v12}, Lcom/android/internal/widget/VerifyCredentialResponse;->isOK()Z
+
+    move-result v2
+
+    if-nez v2, :cond_4
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    invoke-virtual {v2, v7}, Lcom/android/server/SdpManagerService$VirtualLockClient;->clearLock(I)V
+
+    invoke-static {v10}, Lcom/android/server/SdpManagerService$SecureUtil;->clear([B)V
+
+    :cond_4
+    invoke-static {v11}, Lcom/android/server/SdpManagerService$SecureUtil;->clear([B)V
+
+    const-string/jumbo v2, "Result of sp full migration for user %d : %s"
+
+    const/4 v3, 0x2
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    const/4 v15, 0x0
+
+    aput-object v6, v3, v15
+
+    invoke-virtual {v12}, Lcom/android/internal/widget/VerifyCredentialResponse;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    const/4 v15, 0x1
+
+    aput-object v6, v3, v15
+
+    invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    return-object v12
+
+    :cond_5
+    const/4 v2, 0x1
+
+    move/from16 v0, p3
+
+    if-ne v0, v2, :cond_6
+
+    move-object/from16 v9, p2
+
+    :goto_1
+    move-object/from16 v0, p0
+
+    move/from16 v1, p3
+
+    invoke-virtual {v0, v9, v7, v1}, Lcom/android/server/SdpManagerService;->getLegacyMasterKey(Ljava/lang/String;II)[B
+
+    move-result-object v11
+
+    invoke-static {v11}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_7
+
+    const-string/jumbo v2, "sp migration - Failed in verification"
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_6
+    new-instance v9, Ljava/lang/String;
+
+    move-object/from16 v0, p1
+
+    invoke-direct {v9, v0}, Ljava/lang/String;-><init>([B)V
+
+    goto :goto_1
+
+    :cond_7
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v2, v0, v7}, Lcom/android/server/SdpManagerService$VirtualLockClient;->setResetPasswordToken([BI)J
+
+    move-result-wide v4
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    move-object/from16 v3, p2
+
+    move-object/from16 v6, p1
+
+    invoke-virtual/range {v2 .. v7}, Lcom/android/server/SdpManagerService$VirtualLockClient;->setPasswordWithToken(Ljava/lang/String;J[BI)Z
+
+    move-result v2
+
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_8
+
+    const-string/jumbo v2, "sp migration - Failed to set password with token"
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_8
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v2, v0, v7}, Lcom/android/server/SdpManagerService$VirtualLockClient;->checkPassword(Ljava/lang/String;I)Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Lcom/android/internal/widget/VerifyCredentialResponse;->isOK()Z
+
+    move-result v2
+
+    if-nez v2, :cond_9
+
+    const-string/jumbo v2, "sp migration - Failed to get sdp effective key"
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    :cond_9
+    invoke-virtual {v8}, Lcom/android/internal/widget/VerifyCredentialResponse;->getSecret()[B
+
+    move-result-object v10
+
+    const/4 v2, 0x0
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v10, v11, v7, v2}, Lcom/android/server/SdpManagerService;->generationalShiftInternal([B[BIZ)Z
+
+    move-result v2
+
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_a
+
+    const-string/jumbo v2, "sp migration - Failed in generational shfit"
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    :cond_a
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    invoke-virtual {v2, v7}, Lcom/android/server/SdpManagerService$VirtualLockClient;->removeLegacyPwdWrappedMasterKey(I)Z
+
+    move-result v2
+
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_b
+
+    const-string/jumbo v2, "sp migration - Failed to remove legacy credential"
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    :cond_b
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    invoke-virtual {v2, v7}, Lcom/android/server/SdpManagerService$VirtualLockClient;->removeLegacyTokenWrappedMasterKey(I)Z
+
+    move-result v2
+
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_c
+
+    const-string/jumbo v2, "sp migration - Failed to remove legacy token"
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    :cond_c
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/SdpManagerService;->mKeyProtector:Lcom/android/server/KeyProtector;
+
+    invoke-static {v4, v5}, Lcom/sec/knox/container/security/BytesUtil;->longToBytes(J)[B
+
+    move-result-object v3
+
+    const-string/jumbo v6, "SdpTokenHandle"
+
+    invoke-virtual {v2, v3, v6, v7}, Lcom/android/server/KeyProtector;->protect([BLjava/lang/String;I)Z
+
+    move-result v2
+
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_d
+
+    const-string/jumbo v2, "sp migration - Failed to protect token handle"
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    :cond_d
+    move-object v12, v8
+
+    goto/16 :goto_0
+.end method
+
+.method private doSyntheticPasswordHalfMigration([BLjava/lang/String;ILcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Lcom/android/internal/widget/VerifyCredentialResponse;
+    .locals 15
+
+    if-eqz p4, :cond_0
+
+    invoke-virtual/range {p4 .. p4}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->isAndroidDefaultEngine()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    :cond_0
+    sget-object v2, Lcom/android/internal/widget/VerifyCredentialResponse;->ERROR:Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    return-object v2
+
+    :cond_1
+    invoke-virtual/range {p4 .. p4}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+
+    move-result v7
+
+    move v14, v7
+
+    move v13, v7
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Half sp migration ordered for user "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->i(Ljava/lang/String;)V
+
+    const/16 v2, 0x8
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    const-string/jumbo v3, "token"
+
+    const/4 v6, 0x0
+
+    aput-object v3, v2, v6
+
+    const/4 v3, 0x1
+
+    aput-object p1, v2, v3
+
+    const-string/jumbo v3, "password"
+
+    const/4 v6, 0x2
+
+    aput-object v3, v2, v6
+
+    const/4 v3, 0x3
+
+    aput-object p2, v2, v3
+
+    const-string/jumbo v3, "order"
+
+    const/4 v6, 0x4
+
+    aput-object v3, v2, v6
+
+    invoke-static/range {p3 .. p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    const/4 v6, 0x5
+
+    aput-object v3, v2, v6
+
+    const-string/jumbo v3, "info"
+
+    const/4 v6, 0x6
+
+    aput-object v3, v2, v6
+
+    const/4 v3, 0x7
+
+    aput-object p4, v2, v3
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->p([Ljava/lang/Object;)V
+
+    sget-object v12, Lcom/android/internal/widget/VerifyCredentialResponse;->ERROR:Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    const/4 v9, 0x0
+
+    const/4 v11, 0x0
+
+    const/4 v10, 0x0
+
+    invoke-virtual/range {p4 .. p4}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->isMinor()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    move-object/from16 v0, p4
+
+    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->getResetTokenViaTrustedInternal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)[B
+
+    move-result-object p1
+
+    :cond_2
+    const/4 v2, 0x1
+
+    move/from16 v0, p3
+
+    if-ne v0, v2, :cond_3
+
+    invoke-static/range {p2 .. p2}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_4
+
+    :cond_3
+    const/4 v2, 0x2
+
+    move/from16 v0, p3
+
+    if-ne v0, v2, :cond_6
+
+    invoke-static/range {p1 .. p1}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_6
+
+    :cond_4
+    const-string/jumbo v2, "sp migration - Failed due to absent requisite"
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    :goto_0
+    invoke-virtual {v12}, Lcom/android/internal/widget/VerifyCredentialResponse;->isOK()Z
+
+    move-result v2
+
+    if-nez v2, :cond_5
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    invoke-virtual {v2, v7}, Lcom/android/server/SdpManagerService$VirtualLockClient;->clearLock(I)V
+
+    invoke-static {v10}, Lcom/android/server/SdpManagerService$SecureUtil;->clear([B)V
+
+    :cond_5
+    invoke-static {v11}, Lcom/android/server/SdpManagerService$SecureUtil;->clear([B)V
+
+    return-object v12
+
+    :cond_6
+    const/4 v2, 0x1
+
+    move/from16 v0, p3
+
+    if-ne v0, v2, :cond_7
+
+    move-object/from16 v9, p2
+
+    :goto_1
+    move/from16 v0, p3
+
+    invoke-virtual {p0, v9, v7, v0}, Lcom/android/server/SdpManagerService;->getLegacyMasterKey(Ljava/lang/String;II)[B
+
+    move-result-object v11
+
+    invoke-static {v11}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_8
+
+    const-string/jumbo v2, "sp migration - Failed in verification"
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_7
+    new-instance v9, Ljava/lang/String;
+
+    move-object/from16 v0, p1
+
+    invoke-direct {v9, v0}, Ljava/lang/String;-><init>([B)V
+
+    goto :goto_1
+
+    :cond_8
+    const/4 v2, 0x1
+
+    move/from16 v0, p3
+
+    if-ne v0, v2, :cond_9
+
+    move-object/from16 p1, v11
+
+    :goto_2
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v2, v0, v7}, Lcom/android/server/SdpManagerService$VirtualLockClient;->setResetPasswordToken([BI)J
+
+    move-result-wide v4
+
+    const-wide/16 v2, 0x0
+
+    cmp-long v2, v4, v2
+
+    if-nez v2, :cond_a
+
+    const-string/jumbo v2, "sp migration - Failed to set reset token"
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    invoke-virtual {v2, v4, v5, v7}, Lcom/android/server/SdpManagerService$VirtualLockClient;->removeResetPasswordToken(JI)Z
+
+    goto :goto_0
+
+    :cond_9
+    new-instance p2, Ljava/lang/String;
+
+    move-object/from16 v0, p2
+
+    invoke-direct {v0, v11}, Ljava/lang/String;-><init>([B)V
+
+    goto :goto_2
+
+    :cond_a
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    move-object/from16 v3, p2
+
+    move-object/from16 v6, p1
+
+    invoke-virtual/range {v2 .. v7}, Lcom/android/server/SdpManagerService$VirtualLockClient;->setPasswordWithToken(Ljava/lang/String;J[BI)Z
+
+    move-result v2
+
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_b
+
+    const-string/jumbo v2, "sp migration - Failed to set password with token"
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_b
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v2, v0, v7}, Lcom/android/server/SdpManagerService$VirtualLockClient;->checkPassword(Ljava/lang/String;I)Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Lcom/android/internal/widget/VerifyCredentialResponse;->isOK()Z
+
+    move-result v2
+
+    if-nez v2, :cond_c
+
+    const-string/jumbo v2, "sp migration - Failed to get sdp effective key"
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    :cond_c
+    invoke-virtual {v8}, Lcom/android/internal/widget/VerifyCredentialResponse;->getSecret()[B
+
+    move-result-object v10
+
+    const/4 v2, 0x0
+
+    invoke-direct {p0, v10, v11, v7, v2}, Lcom/android/server/SdpManagerService;->generationalShiftInternal([B[BIZ)Z
+
+    move-result v2
+
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_d
+
+    const-string/jumbo v2, "sp migration - Failed in generational shfit"
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    :cond_d
+    const/4 v2, 0x1
+
+    move/from16 v0, p3
+
+    if-ne v0, v2, :cond_e
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    invoke-virtual {v2, v7}, Lcom/android/server/SdpManagerService$VirtualLockClient;->removeLegacyPwdWrappedMasterKey(I)Z
+
+    move-result v2
+
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_f
+
+    :cond_e
+    const/4 v2, 0x2
+
+    move/from16 v0, p3
+
+    if-ne v0, v2, :cond_10
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    invoke-virtual {v2, v7}, Lcom/android/server/SdpManagerService$VirtualLockClient;->removeLegacyTokenWrappedMasterKey(I)Z
+
+    move-result v2
+
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_10
+
+    :cond_f
+    const-string/jumbo v2, "sp migration - Failed to remove legacy stuff"
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    :cond_10
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mKeyProtector:Lcom/android/server/KeyProtector;
+
+    invoke-static {v4, v5}, Lcom/sec/knox/container/security/BytesUtil;->longToBytes(J)[B
+
+    move-result-object v3
+
+    const-string/jumbo v6, "SdpTokenHandle"
+
+    invoke-virtual {v2, v3, v6, v7}, Lcom/android/server/KeyProtector;->protect([BLjava/lang/String;I)Z
+
+    move-result v2
+
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_11
+
+    const-string/jumbo v2, "sp migration - Failed to protect token handle"
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    :cond_11
+    move-object v12, v8
+
+    goto/16 :goto_0
+.end method
+
+.method private doesEphemeralKeyExist(I)Z
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mKeyProtector:Lcom/android/server/KeyProtector;
+
+    const-string/jumbo v1, "SdpEphemeralKey"
+
+    invoke-virtual {v0, v1, p1}, Lcom/android/server/KeyProtector;->exists(Ljava/lang/String;I)Z
+
+    move-result v0
 
     return v0
 .end method
 
-.method private dumpCache()V
-    .locals 0
+.method private enableSyntheticPassword()Z
+    .locals 3
 
-    return-void
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v0
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    invoke-virtual {v2}, Lcom/android/internal/widget/LockPatternUtils;->enableSyntheticPassword()V
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    invoke-virtual {v2}, Lcom/android/internal/widget/LockPatternUtils;->isSyntheticPasswordEnabled()Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v2
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return v2
+
+    :catchall_0
+    move-exception v2
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v2
+.end method
+
+.method private enableSyntheticPassword(I)Z
+    .locals 3
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v0
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    invoke-virtual {v2, p1}, Lcom/android/internal/widget/LockPatternUtils;->enableSyntheticPassword(I)V
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    invoke-virtual {v2, p1}, Lcom/android/internal/widget/LockPatternUtils;->isSyntheticPasswordEnabled(I)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v2
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return v2
+
+    :catchall_0
+    move-exception v2
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v2
 .end method
 
 .method private enrollInternal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;Ljava/lang/String;Ljava/lang/String;)I
@@ -2212,6 +4631,567 @@
     return v4
 .end method
 
+.method private establish([BI)Z
+    .locals 13
+
+    const/4 v4, 0x1
+
+    const/4 v5, 0x0
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Establish new engine for user "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    const/4 v12, 0x0
+
+    invoke-static {p2}, Landroid/os/UserManager;->isVirtualUserId(I)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    return v5
+
+    :cond_0
+    invoke-static {p1}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    return v5
+
+    :cond_1
+    invoke-static {p2}, Lcom/samsung/android/knox/sdp/SdpUtil;->getAndroidDefaultAlias(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    new-instance v0, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
+
+    const/4 v6, 0x6
+
+    move v2, p2
+
+    move v3, p2
+
+    move v7, v5
+
+    invoke-direct/range {v0 .. v7}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;-><init>(Ljava/lang/String;IIIIIZ)V
+
+    new-instance v11, Ljava/util/ArrayList;
+
+    invoke-direct {v11}, Ljava/util/ArrayList;-><init>()V
+
+    invoke-direct {p0, v0, p1}, Lcom/android/server/SdpManagerService;->addEngineNative(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;[B)I
+
+    move-result v2
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    const-string/jumbo v2, "establish - Unexpected failure while native setup"
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    :goto_0
+    const-string/jumbo v2, "Result of engine establishment for user %d : %s"
+
+    const/4 v3, 0x2
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    aput-object v6, v3, v5
+
+    invoke-static {v12}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v5
+
+    aput-object v5, v3, v4
+
+    invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    return v12
+
+    :cond_2
+    iget-object v6, p0, Lcom/android/server/SdpManagerService;->mServiceKeeper:Lcom/android/server/SdpServiceKeeper;
+
+    iget-object v7, p0, Lcom/android/server/SdpManagerService;->mContext:Landroid/content/Context;
+
+    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+
+    move-result v8
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v9
+
+    move-object v10, v0
+
+    invoke-virtual/range {v6 .. v11}, Lcom/android/server/SdpServiceKeeper;->addPolicy(Landroid/content/Context;IILcom/samsung/android/knox/sdp/core/SdpEngineInfo;Ljava/util/List;)I
+
+    move-result v2
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    const-string/jumbo v2, "establish - Unexpected failure while policy setup"
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_3
+    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+
+    monitor-enter v3
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineMap:Landroid/util/SparseArray;
+
+    invoke-virtual {v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+
+    move-result v6
+
+    invoke-virtual {v2, v6, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
+
+    invoke-static {v2, v0}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap2(Lcom/android/server/SdpManagerService$SdpEngineDatabase;Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
+
+    invoke-static {v2}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap3(Lcom/android/server/SdpManagerService$SdpEngineDatabase;)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v3
+
+    const/4 v12, 0x1
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v2
+
+    monitor-exit v3
+
+    throw v2
+.end method
+
+.method private generateAndSaveSessionKey(I)Z
+    .locals 2
+
+    const/16 v1, 0x20
+
+    invoke-static {v1}, Lcom/android/server/SdpManagerService$SecureUtil;->generateRandomBytes(I)[B
+
+    move-result-object v0
+
+    :try_start_0
+    invoke-direct {p0, v0, p1}, Lcom/android/server/SdpManagerService;->saveSessionKeyViaProtector([BI)Z
+
+    move-result v1
+
+    invoke-static {v1}, Lcom/android/server/SdpManagerService$SecureUtil;->record(Z)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v1
+
+    invoke-static {v0}, Lcom/android/server/SdpManagerService$SecureUtil;->clear([B)V
+
+    return v1
+
+    :catchall_0
+    move-exception v1
+
+    invoke-static {v0}, Lcom/android/server/SdpManagerService$SecureUtil;->clear([B)V
+
+    throw v1
+.end method
+
+.method private generateAndSaveSpecificKey(Ljava/lang/String;I)Z
+    .locals 2
+
+    const/16 v1, 0x20
+
+    invoke-static {v1}, Lcom/android/server/SdpManagerService$SecureUtil;->generateRandomBytes(I)[B
+
+    move-result-object v0
+
+    :try_start_0
+    invoke-static {p1}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    invoke-direct {p0, v0, p1, p2}, Lcom/android/server/SdpManagerService;->saveSpecificKeyViaProtector([BLjava/lang/String;I)Z
+
+    move-result v1
+
+    invoke-static {v1}, Lcom/android/server/SdpManagerService$SecureUtil;->record(Z)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v1
+
+    :goto_0
+    invoke-static {v0}, Lcom/android/server/SdpManagerService$SecureUtil;->clear([B)V
+
+    return v1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v1
+
+    invoke-static {v0}, Lcom/android/server/SdpManagerService$SecureUtil;->clear([B)V
+
+    throw v1
+.end method
+
+.method private generationalShiftInternal([B[BIZ)Z
+    .locals 3
+
+    const/4 v1, 0x1
+
+    new-instance v0, Ljava/io/File;
+
+    invoke-virtual {p0, p3}, Lcom/android/server/SdpManagerService;->getLegacyPwdWrappedMasterKeyPath(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {v0, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/SdpManagerService;->rewrapSdpKeys([B[BI)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    if-eqz p4, :cond_0
+
+    invoke-virtual {v0}, Ljava/io/File;->exists()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-direct {p0, p3, v1}, Lcom/android/server/SdpManagerService;->removeLegacyKeyPair(II)Z
+
+    move-result v1
+
+    :cond_0
+    :goto_0
+    return v1
+
+    :cond_1
+    const/4 v1, 0x0
+
+    goto :goto_0
+.end method
+
+.method private getCached(Ljava/util/Map;Ljava/lang/String;I)[B
+    .locals 8
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/Integer;",
+            "[B>;",
+            "Ljava/lang/String;",
+            "I)[B"
+        }
+    .end annotation
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x0
+
+    const/4 v1, 0x0
+
+    monitor-enter p1
+
+    :try_start_0
+    invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    invoke-interface {p1, v4}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    const-string/jumbo v4, "get - Managed %s not found for user %d"
+
+    const/4 v5, 0x2
+
+    new-array v5, v5, [Ljava/lang/Object;
+
+    const/4 v6, 0x0
+
+    aput-object p2, v5, v6
+
+    invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    const/4 v7, 0x1
+
+    aput-object v6, v5, v7
+
+    invoke-static {v4, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :goto_0
+    monitor-exit p1
+
+    invoke-static {v3}, Lcom/android/server/SdpManagerService$SecureUtil;->clear([B)V
+
+    return-object v2
+
+    :cond_0
+    :try_start_1
+    invoke-direct {p0, p3}, Lcom/android/server/SdpManagerService;->getSessionKeyViaProtector(I)[B
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "get - Session key not found for user "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v4
+
+    monitor-exit p1
+
+    throw v4
+
+    :cond_1
+    :try_start_2
+    invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    invoke-interface {p1, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    move-object v0, v4
+
+    check-cast v0, [B
+
+    move-object v1, v0
+
+    invoke-static {v1}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    const-string/jumbo v4, "get - Empty managed %s found for user %d"
+
+    const/4 v5, 0x2
+
+    new-array v5, v5, [Ljava/lang/Object;
+
+    const/4 v6, 0x0
+
+    aput-object p2, v5, v6
+
+    invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    const/4 v7, 0x1
+
+    aput-object v6, v5, v7
+
+    invoke-static {v4, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_2
+    iget-object v4, p0, Lcom/android/server/SdpManagerService;->mKeyProtector:Lcom/android/server/KeyProtector;
+
+    invoke-virtual {v4, v3, v1}, Lcom/android/server/KeyProtector;->decryptFast([B[B)[B
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_3
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "get - Fast decryption failed with user "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_3
+    const-string/jumbo v4, "get - Managed %s given for user %d"
+
+    const/4 v5, 0x2
+
+    new-array v5, v5, [Ljava/lang/Object;
+
+    const/4 v6, 0x0
+
+    aput-object p2, v5, v6
+
+    invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    const/4 v7, 0x1
+
+    aput-object v6, v5, v7
+
+    invoke-static {v4, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    goto/16 :goto_0
+.end method
+
+.method private getDeviceVersion()Ljava/lang/String;
+    .locals 4
+
+    const/16 v3, 0x5f
+
+    const-string/jumbo v1, "ro.build.PDA"
+
+    const-string/jumbo v2, "Unknown"
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->indexOf(I)I
+
+    move-result v1
+
+    const/4 v2, -0x1
+
+    if-eq v1, v2, :cond_0
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->indexOf(I)I
+
+    move-result v1
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v2, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v0
+
+    :cond_0
+    return-object v0
+.end method
+
 .method private getEngineInfoLocked(I)Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
     .locals 4
 
@@ -2231,7 +5211,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "engine map doesn\'t have engine info for "
+    const-string/jumbo v3, "get - engine info not found in map  for "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2252,84 +5232,70 @@
 .end method
 
 .method private getEngineInfoLocked(Ljava/lang/String;)Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
-    .locals 8
+    .locals 7
 
-    const/4 v7, 0x0
+    const/4 v6, 0x0
 
     if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_3
+    if-eqz v5, :cond_3
 
     :cond_0
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v6
+    move-result v5
 
-    invoke-static {v6}, Landroid/os/UserHandle;->getUserId(I)I
+    invoke-static {v5}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v4
+
+    invoke-static {v4}, Lcom/samsung/android/knox/sdp/SdpUtil;->isAndroidDefaultUser(I)Z
 
     move-result v5
 
-    invoke-static {v5}, Lcom/samsung/android/knox/sdp/SdpUtil;->isAndroidDefaultUser(I)Z
+    if-nez v5, :cond_1
 
-    move-result v6
-
-    if-nez v6, :cond_1
-
-    return-object v7
+    return-object v6
 
     :cond_1
-    invoke-direct {p0, v5}, Lcom/android/server/SdpManagerService;->getUserInfo(I)Landroid/content/pm/UserInfo;
+    invoke-direct {p0, v4}, Lcom/android/server/SdpManagerService;->getUserInfo(I)Landroid/content/pm/UserInfo;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-virtual {v4}, Landroid/content/pm/UserInfo;->isBMode()Z
+    invoke-virtual {v3}, Landroid/content/pm/UserInfo;->isBMode()Z
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_2
+    if-eqz v5, :cond_2
 
-    return-object v7
+    return-object v6
 
     :cond_2
-    invoke-virtual {v4}, Landroid/content/pm/UserInfo;->isKnoxWorkspace()Z
-
-    move-result v6
-
-    if-nez v6, :cond_4
-
-    invoke-virtual {v4}, Landroid/content/pm/UserInfo;->isManagedProfile()Z
-
-    move-result v2
-
-    :goto_0
-    if-eqz v2, :cond_5
-
-    invoke-direct {p0, v5}, Lcom/android/server/SdpManagerService;->getManagedProfileAlias(I)Ljava/lang/String;
+    invoke-static {v4}, Lcom/samsung/android/knox/sdp/SdpUtil;->getAndroidDefaultAlias(I)Ljava/lang/String;
 
     move-result-object p1
 
     :cond_3
-    :goto_1
-    if-eqz p1, :cond_7
+    if-eqz p1, :cond_5
 
     const/4 v0, 0x0
 
-    iget-object v6, p0, Lcom/android/server/SdpManagerService;->mSdpEngineMap:Landroid/util/SparseArray;
+    iget-object v5, p0, Lcom/android/server/SdpManagerService;->mSdpEngineMap:Landroid/util/SparseArray;
 
-    invoke-virtual {v6}, Landroid/util/SparseArray;->size()I
+    invoke-virtual {v5}, Landroid/util/SparseArray;->size()I
 
-    move-result v3
+    move-result v2
 
-    :goto_2
-    if-ge v0, v3, :cond_7
+    :goto_0
+    if-ge v0, v2, :cond_5
 
-    iget-object v6, p0, Lcom/android/server/SdpManagerService;->mSdpEngineMap:Landroid/util/SparseArray;
+    iget-object v5, p0, Lcom/android/server/SdpManagerService;->mSdpEngineMap:Landroid/util/SparseArray;
 
-    invoke-virtual {v6, v0}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v5, v0}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -2337,35 +5303,37 @@
 
     invoke-virtual {v1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getAlias()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {v6, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_6
+    if-eqz v5, :cond_4
 
     return-object v1
 
     :cond_4
-    const/4 v2, 0x0
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_5
-    invoke-static {v5}, Lcom/samsung/android/knox/sdp/SdpUtil;->getAndroidDefaultAlias(I)Ljava/lang/String;
+    return-object v6
+.end method
 
-    move-result-object p1
+.method private getEphemeralKeyViaProtector(I)[B
+    .locals 2
 
-    goto :goto_1
+    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mKeyProtector:Lcom/android/server/KeyProtector;
 
-    :cond_6
-    add-int/lit8 v0, v0, 0x1
+    const-string/jumbo v1, "SdpEphemeralKey"
 
-    goto :goto_2
+    invoke-virtual {v0, v1, p1}, Lcom/android/server/KeyProtector;->release(Ljava/lang/String;I)[B
 
-    :cond_7
-    return-object v7
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method private getFailureCount(I)I
@@ -2411,6 +5379,58 @@
     return v0
 .end method
 
+.method private getLockSettings()Ljava/util/Optional;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Optional",
+            "<",
+            "Lcom/android/internal/widget/ILockSettings;",
+            ">;"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mLockSettingsService:Lcom/android/internal/widget/ILockSettings;
+
+    if-nez v0, :cond_0
+
+    const-string/jumbo v0, "lock_settings"
+
+    invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/internal/widget/ILockSettings$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/widget/ILockSettings;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/server/SdpManagerService;->mLockSettingsService:Lcom/android/internal/widget/ILockSettings;
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mLockSettingsService:Lcom/android/internal/widget/ILockSettings;
+
+    invoke-static {v0}, Ljava/util/Optional;->ofNullable(Ljava/lang/Object;)Ljava/util/Optional;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method private getManagedCredential(I)[B
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mManagedCredentialMap:Ljava/util/Map;
+
+    const-string/jumbo v1, "credential"
+
+    invoke-direct {p0, v0, v1, p1}, Lcom/android/server/SdpManagerService;->getCached(Ljava/util/Map;Ljava/lang/String;I)[B
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method private getManagedProfileAlias(I)Ljava/lang/String;
     .locals 3
 
@@ -2430,6 +5450,144 @@
 
     :cond_0
     return-object v1
+.end method
+
+.method private getManagedToken(I)[B
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mManagedTokenMap:Ljava/util/Map;
+
+    const-string/jumbo v1, "token"
+
+    invoke-direct {p0, v0, v1, p1}, Lcom/android/server/SdpManagerService;->getCached(Ljava/util/Map;Ljava/lang/String;I)[B
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method private getPackageManagerService()Ljava/util/Optional;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Optional",
+            "<",
+            "Lcom/android/server/pm/PackageManagerService;",
+            ">;"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mPackageManagerService:Lcom/android/server/pm/PackageManagerService;
+
+    if-nez v0, :cond_0
+
+    const-string/jumbo v0, "package"
+
+    invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/pm/PackageManagerService;
+
+    iput-object v0, p0, Lcom/android/server/SdpManagerService;->mPackageManagerService:Lcom/android/server/pm/PackageManagerService;
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mPackageManagerService:Lcom/android/server/pm/PackageManagerService;
+
+    invoke-static {v0}, Ljava/util/Optional;->ofNullable(Ljava/lang/Object;)Ljava/util/Optional;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method private getPackageName(Landroid/content/Context;I)Ljava/lang/String;
+    .locals 8
+
+    invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p2}, Landroid/content/pm/PackageManager;->getPackagesForUid(I)[Ljava/lang/String;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/android/server/SdpManagerService;->EMPTY_STRING:Ljava/lang/String;
+
+    if-nez v1, :cond_1
+
+    const-string/jumbo v3, "SdpManagerService"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "getPackage :: Not found with caller "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    return-object v2
+
+    :cond_1
+    const/4 v3, 0x0
+
+    array-length v4, v1
+
+    :goto_0
+    if-ge v3, v4, :cond_0
+
+    aget-object v0, v1, v3
+
+    const-string/jumbo v5, "SdpManagerService"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "getPackage :: found name for caller "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-eqz v0, :cond_2
+
+    invoke-virtual {v2}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_2
+
+    move-object v2, v0
+
+    :cond_2
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_0
 .end method
 
 .method private getPadded([BI)[B
@@ -2455,11 +5613,11 @@
 
     move-result-wide v0
 
-    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mUM:Landroid/os/UserManager;
+    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mUserManager:Landroid/os/UserManager;
 
     if-eqz v3, :cond_0
 
-    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mUM:Landroid/os/UserManager;
+    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mUserManager:Landroid/os/UserManager;
 
     invoke-virtual {v3, p1}, Landroid/os/UserManager;->getProfileParent(I)Landroid/content/pm/UserInfo;
 
@@ -2468,12 +5626,86 @@
     :goto_0
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
+    if-eqz v2, :cond_1
+
+    :goto_1
     return-object v2
 
     :cond_0
     const/4 v2, 0x0
 
     goto :goto_0
+
+    :cond_1
+    sget-object v2, Lcom/android/server/SdpManagerService;->NULL_USER:Landroid/content/pm/UserInfo;
+
+    goto :goto_1
+.end method
+
+.method private getResetTokenViaProtector(I)[B
+    .locals 4
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v0
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mKeyProtector:Lcom/android/server/KeyProtector;
+
+    const-string/jumbo v3, "SdpResetToken"
+
+    invoke-virtual {v2, v3, p1}, Lcom/android/server/KeyProtector;->release(Ljava/lang/String;I)[B
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v2
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return-object v2
+
+    :catchall_0
+    move-exception v2
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v2
+.end method
+
+.method private getResetTokenViaTrustedInternal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)[B
+    .locals 5
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v0
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mTimaHelper:Lcom/android/server/pm/TimaHelper;
+
+    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+
+    move-result v3
+
+    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getResetTokenTimaAlias()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v2, v3, v4}, Lcom/android/server/pm/TimaHelper;->getEntry(ILjava/lang/String;)[B
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v2
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return-object v2
+
+    :catchall_0
+    move-exception v2
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v2
 .end method
 
 .method private getRstTokenFromTima(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Ljava/lang/String;
@@ -2554,20 +5786,35 @@
     goto :goto_0
 .end method
 
-.method private getUserInfo(I)Landroid/content/pm/UserInfo;
-    .locals 4
+.method private getSessionKeyViaProtector(I)[B
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mKeyProtector:Lcom/android/server/KeyProtector;
+
+    const-string/jumbo v1, "SdpSessionKey"
+
+    invoke-virtual {v0, v1, p1}, Lcom/android/server/KeyProtector;->release(Ljava/lang/String;I)[B
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method private getSpecificKeyViaProtector(Ljava/lang/String;IZ)[B
+    .locals 3
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v0
 
-    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mUM:Landroid/os/UserManager;
+    if-eqz p3, :cond_0
 
-    if-eqz v3, :cond_0
+    :try_start_0
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mKeyProtector:Lcom/android/server/KeyProtector;
 
-    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mUM:Landroid/os/UserManager;
-
-    invoke-virtual {v3, p1}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
+    invoke-virtual {v2, p1, p2}, Lcom/android/server/KeyProtector;->releaseMinor(Ljava/lang/String;I)[B
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -2577,9 +5824,281 @@
     return-object v2
 
     :cond_0
+    :try_start_1
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mKeyProtector:Lcom/android/server/KeyProtector;
+
+    invoke-virtual {v2, p1, p2}, Lcom/android/server/KeyProtector;->release(Ljava/lang/String;I)[B
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    move-result-object v2
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v2
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v2
+.end method
+
+.method private getTokenHandleViaProtector(I)J
+    .locals 7
+
+    const-wide/16 v4, 0x0
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v2
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mKeyProtector:Lcom/android/server/KeyProtector;
+
+    const-string/jumbo v6, "SdpTokenHandle"
+
+    invoke-virtual {v1, v6, p1}, Lcom/android/server/KeyProtector;->release(Ljava/lang/String;I)[B
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {v0}, Lcom/sec/knox/container/security/BytesUtil;->bytesToLong([B)J
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-wide v4
+
+    :cond_0
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return-wide v4
+
+    :catchall_0
+    move-exception v1
+
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v1
+.end method
+
+.method private getUserInfo(I)Landroid/content/pm/UserInfo;
+    .locals 4
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v0
+
+    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mUserManager:Landroid/os/UserManager;
+
+    if-eqz v3, :cond_0
+
+    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mUserManager:Landroid/os/UserManager;
+
+    invoke-virtual {v3, p1}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
+
+    move-result-object v2
+
+    :goto_0
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    if-eqz v2, :cond_1
+
+    :goto_1
+    return-object v2
+
+    :cond_0
     const/4 v2, 0x0
 
     goto :goto_0
+
+    :cond_1
+    sget-object v2, Lcom/android/server/SdpManagerService;->NULL_USER:Landroid/content/pm/UserInfo;
+
+    goto :goto_1
+.end method
+
+.method private getUserManagerInternal()Ljava/util/Optional;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Optional",
+            "<",
+            "Landroid/os/UserManagerInternal;",
+            ">;"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mUserManagerInternal:Landroid/os/UserManagerInternal;
+
+    if-nez v0, :cond_0
+
+    const-class v0, Landroid/os/UserManagerInternal;
+
+    invoke-static {v0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/os/UserManagerInternal;
+
+    iput-object v0, p0, Lcom/android/server/SdpManagerService;->mUserManagerInternal:Landroid/os/UserManagerInternal;
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mUserManagerInternal:Landroid/os/UserManagerInternal;
+
+    invoke-static {v0}, Ljava/util/Optional;->ofNullable(Ljava/lang/Object;)Ljava/util/Optional;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method private handleCleanupUser(I)V
+    .locals 0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/SdpManagerService;->cancelLegacyResetTimeout(I)V
+
+    invoke-virtual {p0, p1}, Lcom/android/server/SdpManagerService;->clearLegacyResetStatus(I)V
+
+    return-void
+.end method
+
+.method private handleDeviceOwnerChanged()V
+    .locals 7
+
+    const/4 v6, 0x1
+
+    const/4 v5, 0x0
+
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mDPM:Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v3}, Landroid/app/admin/DevicePolicyManager;->getDeviceOwner()Ljava/lang/String;
+
+    move-result-object v1
+
+    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mDPM:Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v3}, Landroid/app/admin/DevicePolicyManager;->getDeviceOwnerUserId()I
+
+    move-result v0
+
+    const-string/jumbo v3, "Device Owner has been changed!"
+
+    invoke-static {v3}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    const-string/jumbo v3, "Confirming Device Owner information [ Owner : %s, User : %d ]"
+
+    const/4 v4, 0x2
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    aput-object v1, v4, v5
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    aput-object v5, v4, v6
+
+    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    invoke-static {v1}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_1
+
+    if-eqz v0, :cond_2
+
+    :cond_1
+    const-string/jumbo v3, "Unexpected condition while deal with device owner"
+
+    invoke-static {v3}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    return-void
+
+    :cond_2
+    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->enableSyntheticPassword(I)Z
+
+    move-result v3
+
+    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
+    const-string/jumbo v3, "Unexpected condition while enable sp per user"
+
+    invoke-static {v3}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    return-void
+
+    :cond_3
+    const/4 v2, 0x0
+
+    iget-object v4, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+
+    monitor-enter v4
+
+    :try_start_0
+    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->getEngineInfoLocked(I)Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_4
+
+    const-string/jumbo v3, "Unexpected condition as per DO\' already has engine"
+
+    invoke-static {v3}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v4
+
+    return-void
+
+    :cond_4
+    monitor-exit v4
+
+    invoke-static {v6}, Lcom/android/server/SdpManagerService$KnoxUtil;->setDoEnabled(Z)V
+
+    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    invoke-virtual {v3, v0}, Lcom/android/internal/widget/LockPatternUtils;->setDeviceOwner(I)V
+
+    invoke-virtual {p0, v0}, Lcom/android/server/SdpManagerService;->welcomeNewUser(I)V
+
+    const/4 v3, 0x4
+
+    invoke-virtual {p0, v0, v3}, Lcom/android/server/SdpManagerService;->onMasterKeyDerivationRequired(II)V
+
+    return-void
+
+    :catchall_0
+    move-exception v3
+
+    monitor-exit v4
+
+    throw v3
 .end method
 
 .method private handleEmptyListenerRoll(I)V
@@ -2619,704 +6138,24 @@
     return-void
 .end method
 
-.method private handlePkgRemoved(ILjava/lang/String;)V
-    .locals 11
+.method private handlePackageRemoved(Ljava/lang/String;I)V
+    .locals 7
 
-    iget-object v6, p0, Lcom/android/server/SdpManagerService;->mSecureFileSystemManager:Lcom/android/server/SdpManagerService$SecureFileSystemManager;
-
-    invoke-static {v6, p1, p2}, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->-wrap3(Lcom/android/server/SdpManagerService$SecureFileSystemManager;ILjava/lang/String;)Z
-
-    iget-object v7, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
-
-    monitor-enter v7
-
-    :try_start_0
-    iget-object v6, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
-
-    invoke-static {v6}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap0(Lcom/android/server/SdpManagerService$SdpEngineDatabase;)Landroid/util/SparseArray;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_2
-
-    const/4 v2, 0x0
-
-    :goto_0
-    invoke-virtual {v0}, Landroid/util/SparseArray;->size()I
-
-    move-result v6
-
-    if-ge v2, v6, :cond_2
-
-    invoke-virtual {v0, v2}, Landroid/util/SparseArray;->keyAt(I)I
-
-    move-result v3
-
-    iget-object v6, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
-
-    invoke-static {v6, v3}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap1(Lcom/android/server/SdpManagerService$SdpEngineDatabase;I)Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
-
-    move-result-object v4
-
-    if-eqz v4, :cond_1
-
-    invoke-virtual {v4}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getPackageName()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v6, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_1
-
-    invoke-virtual {v4}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getUserId()I
-
-    move-result v6
-
-    if-ne v6, p1, :cond_1
-
-    const-string/jumbo v6, "SdpManagerService"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "FOUND PACKAGE handlePkgRemoved :: "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v4}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v6, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    new-instance v1, Ljava/io/File;
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v8, "/data/system/users/"
-
-    invoke-virtual {v6, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v4}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
-
-    move-result v8
-
-    invoke-virtual {v6, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v8, "/"
-
-    invoke-virtual {v6, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-direct {v1, v6}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    iget-object v6, p0, Lcom/android/server/SdpManagerService;->mServiceKeeper:Lcom/android/server/SdpServiceKeeper;
-
-    sget-object v8, Lcom/android/server/SdpManagerService;->sContext:Landroid/content/Context;
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v9
-
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
-
-    move-result v10
-
-    invoke-virtual {v6, v8, v9, v10, v4}, Lcom/android/server/SdpServiceKeeper;->removePolicy(Landroid/content/Context;IILcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
-
-    move-result v5
-
-    if-nez v5, :cond_0
-
-    iget-object v8, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
-
-    monitor-enter v8
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
-
-    :try_start_1
-    iget-object v6, p0, Lcom/android/server/SdpManagerService;->mSdpEngineMap:Landroid/util/SparseArray;
-
-    invoke-virtual {v4}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
-
-    move-result v9
-
-    invoke-virtual {v6, v9}, Landroid/util/SparseArray;->remove(I)V
-
-    iget-object v6, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
-
-    invoke-static {v6, v4}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap4(Lcom/android/server/SdpManagerService$SdpEngineDatabase;Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)V
-
-    iget-object v6, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
-
-    invoke-static {v6}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap3(Lcom/android/server/SdpManagerService$SdpEngineDatabase;)I
-
-    invoke-direct {p0, v4}, Lcom/android/server/SdpManagerService;->onEngineRemoved(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    :try_start_2
-    monitor-exit v8
-
-    invoke-virtual {v4}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
-
-    move-result v6
-
-    invoke-virtual {v4}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getUserId()I
-
-    move-result v8
-
-    invoke-direct {p0, v6, v8}, Lcom/android/server/SdpManagerService;->removeEngineNative(II)I
-
-    move-result v5
-
-    const-string/jumbo v6, "SdpManagerService"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "handlePkgRemoved engine removed! "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v4}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v6, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_1
-    const-string/jumbo v6, "SdpManagerService"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "handlePkgRemoved removing dir :: "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v6, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-direct {p0, v1}, Lcom/android/server/SdpManagerService;->removeDirectoryRecursive(Ljava/io/File;)V
-
-    :goto_2
-    add-int/lit8 v2, v2, 0x1
-
-    goto/16 :goto_0
-
-    :catchall_0
-    move-exception v6
-
-    monitor-exit v8
-
-    throw v6
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
-
-    :catchall_1
-    move-exception v6
-
-    monitor-exit v7
-
-    throw v6
-
-    :cond_0
-    :try_start_3
-    const-string/jumbo v6, "SdpManagerService"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "handlePkgRemoved removeEngine :: failed ["
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string/jumbo v9, "]"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v6, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_1
-
-    :cond_1
-    const-string/jumbo v8, "SdpManagerService"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "Can\'t find engine info ["
-
-    invoke-virtual {v6, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v0, v2}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Ljava/lang/String;
-
-    invoke-virtual {v9, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v9, "]"
-
-    invoke-virtual {v6, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v8, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
-
-    goto :goto_2
-
-    :cond_2
-    monitor-exit v7
-
-    return-void
-.end method
-
-.method private handleUserAdded(I)V
-    .locals 13
-
-    const/4 v4, 0x1
-
-    const/4 v7, 0x0
-
-    const/4 v12, 0x0
-
-    if-nez p1, :cond_0
-
-    return-void
-
-    :cond_0
-    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
-
-    monitor-enter v2
-
-    :try_start_0
-    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->getEngineInfoLocked(I)Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result-object v0
-
-    monitor-exit v2
-
-    if-nez v0, :cond_8
-
-    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->getUserInfo(I)Landroid/content/pm/UserInfo;
-
-    move-result-object v11
-
-    if-eqz v11, :cond_1
-
-    invoke-virtual {v11}, Landroid/content/pm/UserInfo;->isBMode()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    const-string/jumbo v2, "SdpManagerService"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "inside handleUserAdded :: do not handle for bmode user "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :catchall_0
-    move-exception v3
-
-    monitor-exit v2
-
-    throw v3
-
-    :cond_1
-    if-eqz v11, :cond_2
-
-    invoke-virtual {v11}, Landroid/content/pm/UserInfo;->isKnoxWorkspace()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    const-string/jumbo v2, "SdpManagerService"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "inside handleUserAdded :: do not handle for knox user "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_2
-    if-eqz v11, :cond_4
-
-    invoke-virtual {v11}, Landroid/content/pm/UserInfo;->isManagedProfile()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_4
-
-    const-string/jumbo v2, "SdpManagerService"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "handleUserAdded :: User "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v4, " is identified as managed profile..."
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSecureFileSystemManager:Lcom/android/server/SdpManagerService$SecureFileSystemManager;
-
-    if-nez v2, :cond_3
-
-    const/4 v8, 0x0
-
-    :goto_0
-    const-string/jumbo v2, "SdpManagerService"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "handleUserAdded :: Base directory has been set up... "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v2, "SdpManagerService"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "handleUserAdded :: Managed profile is not appicable to engine creation... "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_3
-    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSecureFileSystemManager:Lcom/android/server/SdpManagerService$SecureFileSystemManager;
-
-    invoke-static {v2, p1}, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->-wrap4(Lcom/android/server/SdpManagerService$SecureFileSystemManager;I)Z
-
-    move-result v8
-
-    goto :goto_0
-
-    :cond_4
-    const-string/jumbo v2, "SdpManagerService"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "handleUserAdded for SDP "
-
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-static {p1}, Lcom/samsung/android/knox/sdp/SdpUtil;->getAndroidDefaultAlias(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    if-nez v1, :cond_5
-
-    return-void
-
-    :cond_5
-    new-instance v0, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
-
-    const/4 v6, 0x6
-
-    move v2, p1
-
-    move v3, p1
-
-    move v5, v4
-
-    invoke-direct/range {v0 .. v7}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;-><init>(Ljava/lang/String;IIIIIZ)V
-
-    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
-
-    invoke-virtual {v2}, Lcom/sec/knox/container/util/KeyManagementUtil;->generatePasswordResetToken()Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-direct {p0, v0, v12, v10}, Lcom/android/server/SdpManagerService;->createKeys(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;Ljava/lang/String;Ljava/lang/String;)[B
-
-    move-result-object v7
-
-    if-nez v7, :cond_6
-
-    const-string/jumbo v2, "SdpManagerService"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "handleUserAdded failed to create keys for "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_6
-    iget-object v12, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
-
-    monitor-enter v12
-
-    :try_start_1
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v4
-
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
-
-    move-result v5
-
-    const/4 v6, 0x0
-
-    move-object v2, p0
-
-    move-object v3, v0
-
-    invoke-direct/range {v2 .. v7}, Lcom/android/server/SdpManagerService;->addEngineInternalLocked(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;IILcom/samsung/android/knox/sdp/core/SdpCreationParam;[B)I
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
-
-    move-result v9
-
-    monitor-exit v12
-
-    invoke-direct {p0, v7}, Lcom/android/server/SdpManagerService;->zeroOut([B)V
-
-    if-eqz v9, :cond_7
-
-    invoke-virtual {p0, v0}, Lcom/android/server/SdpManagerService;->removeKeys(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)V
-
-    const-string/jumbo v2, "SdpManagerService"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "handleUserAdded failed to create engine info/creation for "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :catchall_1
-    move-exception v2
-
-    monitor-exit v12
-
-    throw v2
-
-    :cond_7
-    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSecureFileSystemManager:Lcom/android/server/SdpManagerService$SecureFileSystemManager;
-
-    invoke-static {v2, p1}, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->-wrap6(Lcom/android/server/SdpManagerService$SecureFileSystemManager;I)Z
-
-    :cond_8
-    return-void
-.end method
-
-.method private handleUserRemoved(I)V
-    .locals 6
+    const/4 v5, 0x0
 
     invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    if-gez p2, :cond_1
+
+    :cond_0
+    return-void
+
+    :cond_1
+    invoke-static {p1}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
 
     move-result v2
 
@@ -3324,16 +6163,406 @@
 
     const-string/jumbo v2, "SdpManagerService"
 
-    const-string/jumbo v3, "handleUserRemoved SDP not supported"
+    const-string/jumbo v3, "handlePackageRemoved - PackageName : %s, UserId : %d"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    const/4 v4, 0x2
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    aput-object p1, v4, v5
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    const/4 v6, 0x1
+
+    aput-object v5, v4, v6
+
+    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isDeviceProvisioned()Z
+
+    move-result v2
+
+    if-nez v2, :cond_2
+
+    const-string/jumbo v2, "SdpManagerService"
+
+    const-string/jumbo v3, "handlePackageRemoved - Device is not provisioned yet..."
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_2
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineMap:Landroid/util/SparseArray;
+
+    invoke-virtual {v2}, Landroid/util/SparseArray;->size()I
+
+    move-result v2
+
+    if-nez v2, :cond_3
+
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->readEngineList()V
+
+    :cond_3
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineMap:Landroid/util/SparseArray;
+
+    invoke-virtual {v2}, Landroid/util/SparseArray;->size()I
+
+    move-result v2
+
+    add-int/lit8 v0, v2, -0x1
+
+    :goto_0
+    if-ltz v0, :cond_5
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineMap:Landroid/util/SparseArray;
+
+    invoke-virtual {v2, v0}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
+
+    if-eqz v1, :cond_4
+
+    invoke-virtual {v1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_4
+
+    invoke-virtual {v1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getUserId()I
+
+    move-result v2
+
+    if-ne v2, p2, :cond_4
+
+    invoke-direct {p0, v1}, Lcom/android/server/SdpManagerService;->removeEngineInternal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
+
+    :cond_4
+    add-int/lit8 v0, v0, -0x1
+
+    goto :goto_0
+
+    :cond_5
+    return-void
+.end method
+
+.method private handleStartUser(I)V
+    .locals 2
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->maybeLegacyUserZero(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "start user - Handle legacy engine for user "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->hasLegacyChild(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->adaptLegacyUserZero(I)Z
+
+    :goto_0
+    return-void
+
+    :cond_0
+    const/4 v0, 0x6
+
+    invoke-direct {p0, v0, p1}, Lcom/android/server/SdpManagerService;->quickMessage(II)V
+
+    goto :goto_0
+
+    :cond_1
+    invoke-virtual {p0, p1}, Lcom/android/server/SdpManagerService;->isEnterpriseUser(I)Z
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    return-void
+
+    :cond_2
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->isSyntheticPasswordEnabled(I)Z
+
+    move-result v0
+
+    if-nez v0, :cond_3
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->checkUserSecurity(I)V
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->doesEphemeralKeyExist(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "start user - Damaged! SP recovery work required for user "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->enableSyntheticPassword(I)Z
+
+    :cond_3
+    :goto_1
+    return-void
+
+    :cond_4
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->hasSyntheticPasswordHandle(I)Z
+
+    move-result v0
+
+    if-nez v0, :cond_8
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "start user - Pre-migration work required for user "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->maybeLegacyDeviceOwner(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->adaptLegacyDeviceOwner(I)Z
+
+    goto :goto_1
+
+    :cond_5
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->maybeLegacyProfileOwner(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_6
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->adaptLegacyProfileOwner(I)Z
+
+    goto :goto_1
+
+    :cond_6
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->maybeLegacyKnoxUser(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_7
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->adaptLegacyKnoxUser(I)Z
+
+    goto :goto_1
+
+    :cond_7
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "start user - Weird! Unreachable or messed with user "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto :goto_1
+
+    :cond_8
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "start user - Tricked! SP recovery work required for user "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->enableSyntheticPassword(I)Z
+
+    goto :goto_1
+.end method
+
+.method private handleUserAdded(I)V
+    .locals 9
+
+    const/4 v8, 0x2
+
+    const/4 v3, 0x1
+
+    const/4 v2, 0x0
+
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
+
+    move-result v4
+
+    if-nez v4, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+    const-string/jumbo v4, "SdpManagerService"
 
-    monitor-enter v2
+    const-string/jumbo v5, "User %d added"
+
+    new-array v6, v3, [Ljava/lang/Object;
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v7
+
+    aput-object v7, v6, v2
+
+    invoke-static {v5, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->getUserInfo(I)Landroid/content/pm/UserInfo;
+
+    move-result-object v1
+
+    const-string/jumbo v4, "SdpManagerService"
+
+    const-string/jumbo v5, "user added - Is user %d Bmode? %s"
+
+    new-array v6, v8, [Ljava/lang/Object;
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v7
+
+    aput-object v7, v6, v2
+
+    invoke-virtual {v1}, Landroid/content/pm/UserInfo;->isBMode()Z
+
+    move-result v7
+
+    invoke-static {v7}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v7
+
+    aput-object v7, v6, v3
+
+    invoke-static {v5, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v4, "SdpManagerService"
+
+    const-string/jumbo v5, "user added - Is user %d managed profile? %s"
+
+    new-array v6, v8, [Ljava/lang/Object;
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v7
+
+    aput-object v7, v6, v2
+
+    invoke-virtual {v1}, Landroid/content/pm/UserInfo;->isManagedProfile()Z
+
+    move-result v7
+
+    invoke-static {v7}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v7
+
+    aput-object v7, v6, v3
+
+    invoke-static {v5, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v4, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+
+    monitor-enter v4
 
     :try_start_0
     invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->getEngineInfoLocked(I)Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
@@ -3342,181 +6571,838 @@
 
     move-result-object v0
 
-    monitor-exit v2
+    monitor-exit v4
 
-    if-nez v0, :cond_1
+    const-string/jumbo v4, "SdpManagerService"
 
-    const-string/jumbo v2, "SdpManagerService"
+    const-string/jumbo v5, "user added - Has user %d sdp engine? %s"
 
-    const-string/jumbo v3, "handleUserRemoved removeEngine :: no engine found"
+    new-array v6, v8, [Ljava/lang/Object;
 
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v7
+
+    aput-object v7, v6, v2
+
+    if-eqz v0, :cond_1
+
+    move v2, v3
+
+    :cond_1
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    aput-object v2, v6, v3
+
+    invoke-static {v5, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v4, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :catchall_0
-    move-exception v3
+    move-exception v2
 
-    monitor-exit v2
+    monitor-exit v4
 
-    throw v3
+    throw v2
+.end method
+
+.method private handleUserRemoved(I)V
+    .locals 19
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
+
+    move-result v12
+
+    if-nez v12, :cond_0
+
+    return-void
+
+    :cond_0
+    const-string/jumbo v12, "SdpManagerService"
+
+    new-instance v13, Ljava/lang/StringBuilder;
+
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v14, "Removing user "
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    move/from16 v0, p1
+
+    invoke-virtual {v13, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-static {v12, v13}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+
+    monitor-enter v12
+
+    :try_start_0
+    invoke-direct/range {p0 .. p1}, Lcom/android/server/SdpManagerService;->getEngineInfoLocked(I)Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v5
+
+    monitor-exit v12
+
+    if-nez v5, :cond_1
+
+    const-string/jumbo v12, "SdpManagerService"
+
+    new-instance v13, Ljava/lang/StringBuilder;
+
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v14, "Remove user - Engine not found with id "
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    move/from16 v0, p1
+
+    invoke-virtual {v13, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-static {v12, v13}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :catchall_0
+    move-exception v13
+
+    monitor-exit v12
+
+    throw v13
 
     :cond_1
-    const-string/jumbo v2, "SdpManagerService"
+    invoke-virtual/range {p0 .. p1}, Lcom/android/server/SdpManagerService;->isLegacyWorkProfile(I)Z
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    move-result v12
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    if-eqz v12, :cond_3
 
-    const-string/jumbo v4, "inside handleUserRemoved "
+    const-string/jumbo v12, "SdpManagerService"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v13, "User %d has dependency with parent"
 
-    move-result-object v3
+    const/4 v14, 0x1
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    new-array v14, v14, [Ljava/lang/Object;
 
-    move-result-object v3
+    invoke-static/range {p1 .. p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string/jumbo v4, " "
+    move-result-object v15
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/16 v16, 0x0
 
-    move-result-object v3
+    aput-object v15, v14, v16
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-static {v13, v14}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v13
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v12, v13}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v3
+    move-object/from16 v0, p0
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    iget-object v12, v0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
 
-    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mServiceKeeper:Lcom/android/server/SdpServiceKeeper;
+    monitor-enter v12
 
-    sget-object v3, Lcom/android/server/SdpManagerService;->sContext:Landroid/content/Context;
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v4
-
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
-
-    move-result v5
-
-    invoke-virtual {v2, v3, v4, v5, v0}, Lcom/android/server/SdpServiceKeeper;->removePolicy(Landroid/content/Context;IILcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
-
-    move-result v1
-
-    if-nez v1, :cond_2
-
-    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
-
-    monitor-enter v3
+    const/4 v13, 0x0
 
     :try_start_1
-    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineMap:Landroid/util/SparseArray;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
-
-    move-result v4
-
-    invoke-virtual {v2, v4}, Landroid/util/SparseArray;->remove(I)V
-
-    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
-
-    invoke-static {v2, v0}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap4(Lcom/android/server/SdpManagerService$SdpEngineDatabase;Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)V
-
-    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
-
-    invoke-static {v2}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap3(Lcom/android/server/SdpManagerService$SdpEngineDatabase;)I
-
-    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->onEngineRemoved(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)V
+    invoke-direct {v0, v13}, Lcom/android/server/SdpManagerService;->getEngineInfoLocked(I)Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    monitor-exit v3
+    move-result-object v8
 
-    invoke-virtual {v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+    monitor-exit v12
 
-    move-result v2
+    if-eqz v8, :cond_2
 
-    invoke-virtual {v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getUserId()I
+    const/4 v12, 0x6
+
+    const/4 v13, 0x0
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v12, v13}, Lcom/android/server/SdpManagerService;->quickMessage(II)V
+
+    :cond_2
+    const/16 v9, -0x63
+
+    invoke-virtual {v5}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
 
     move-result v3
 
-    invoke-direct {p0, v2, v3}, Lcom/android/server/SdpManagerService;->removeEngineNative(II)I
+    move-object/from16 v0, p0
 
-    move-result v1
+    iget-object v12, v0, Lcom/android/server/SdpManagerService;->mServiceKeeper:Lcom/android/server/SdpServiceKeeper;
 
-    const-string/jumbo v2, "SdpManagerService"
+    move-object/from16 v0, p0
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    iget-object v13, v0, Lcom/android/server/SdpManagerService;->mContext:Landroid/content/Context;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
-    const-string/jumbo v4, "handleUserRemoved engine removed! "
+    move-result v14
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result-object v3
+    move-result v15
 
-    invoke-virtual {v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->toString()Ljava/lang/String;
+    invoke-virtual {v12, v13, v14, v15, v5}, Lcom/android/server/SdpServiceKeeper;->removePolicy(Landroid/content/Context;IILcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
 
-    move-result-object v4
+    move-result v9
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v12, "SdpManagerService"
 
-    move-result-object v3
+    const-string/jumbo v13, "Remove user - Policy removal with id %d successfully done? %s"
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const/4 v14, 0x2
 
-    move-result-object v3
+    new-array v14, v14, [Ljava/lang/Object;
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    :goto_0
+    move-result-object v15
+
+    const/16 v16, 0x0
+
+    aput-object v15, v14, v16
+
+    invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v15
+
+    const/16 v16, 0x1
+
+    aput-object v15, v14, v16
+
+    invoke-static {v13, v14}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-static {v12, v13}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+
+    monitor-enter v13
+
+    :try_start_2
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/server/SdpManagerService;->mSdpEngineMap:Landroid/util/SparseArray;
+
+    invoke-virtual {v5}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+
+    move-result v14
+
+    invoke-virtual {v12, v14}, Landroid/util/SparseArray;->remove(I)V
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
+
+    invoke-static {v12, v5}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap4(Lcom/android/server/SdpManagerService$SdpEngineDatabase;Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
+
+    invoke-static {v12}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap3(Lcom/android/server/SdpManagerService$SdpEngineDatabase;)I
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v5}, Lcom/android/server/SdpManagerService;->onEngineRemoved(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+
+    monitor-exit v13
+
+    invoke-virtual {v5}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getUserId()I
+
+    move-result v12
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v3, v12}, Lcom/android/server/SdpManagerService;->removeEngineNative(II)I
+
+    move-result v9
+
+    const-string/jumbo v12, "SdpManagerService"
+
+    const-string/jumbo v13, "Remove user - Native removal with id %d successfully done? %s"
+
+    const/4 v14, 0x2
+
+    new-array v14, v14, [Ljava/lang/Object;
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v15
+
+    const/16 v16, 0x0
+
+    aput-object v15, v14, v16
+
+    invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v15
+
+    const/16 v16, 0x1
+
+    aput-object v15, v14, v16
+
+    invoke-static {v13, v14}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-static {v12, v13}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/server/SdpManagerService;->mKeyProtector:Lcom/android/server/KeyProtector;
+
+    const-string/jumbo v13, "SdpEphemeralKey"
+
+    invoke-virtual {v12, v13, v3}, Lcom/android/server/KeyProtector;->delete(Ljava/lang/String;I)Z
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/server/SdpManagerService;->mKeyProtector:Lcom/android/server/KeyProtector;
+
+    const-string/jumbo v13, "SdpTokenHandle"
+
+    invoke-virtual {v12, v13, v3}, Lcom/android/server/KeyProtector;->delete(Ljava/lang/String;I)Z
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/server/SdpManagerService;->mKeyProtector:Lcom/android/server/KeyProtector;
+
+    const-string/jumbo v13, "SdpResetToken"
+
+    invoke-virtual {v12, v13, v3}, Lcom/android/server/KeyProtector;->delete(Ljava/lang/String;I)Z
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/server/SdpManagerService;->mKeyProtector:Lcom/android/server/KeyProtector;
+
+    const-string/jumbo v13, "SdpSessionKey"
+
+    invoke-virtual {v12, v13, v3}, Lcom/android/server/KeyProtector;->delete(Ljava/lang/String;I)Z
+
+    const-string/jumbo v12, "SdpManagerService"
+
+    new-instance v13, Ljava/lang/StringBuilder;
+
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v14, "Remove user - Engine remove! "
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v5}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->toString()Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-static {v12, v13}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     return-void
 
     :catchall_1
-    move-exception v2
+    move-exception v13
 
-    monitor-exit v3
+    monitor-exit v12
 
-    throw v2
+    throw v13
 
-    :cond_2
-    const-string/jumbo v2, "SdpManagerService"
+    :cond_3
+    invoke-direct/range {p0 .. p1}, Lcom/android/server/SdpManagerService;->isLegacyUserZero(I)Z
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    move-result v12
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    if-eqz v12, :cond_2
 
-    const-string/jumbo v4, "handleUserRemoved removeEngine :: failed ["
+    const/4 v12, 0x0
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v12}, Lcom/android/server/SdpManagerService$FileUtil;->getUserSystemDir(I)Ljava/io/File;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    if-eqz v6, :cond_5
 
-    move-result-object v3
+    invoke-virtual {v6}, Ljava/io/File;->isDirectory()Z
 
-    const-string/jumbo v4, "]"
+    move-result v12
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-eqz v12, :cond_5
 
-    move-result-object v3
+    invoke-virtual {v6}, Ljava/io/File;->list()[Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v7
 
-    move-result-object v3
+    :goto_0
+    if-eqz v7, :cond_2
 
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    const/4 v12, 0x0
+
+    array-length v13, v7
+
+    :goto_1
+    if-ge v12, v13, :cond_2
+
+    aget-object v4, v7, v12
+
+    if-eqz v4, :cond_4
+
+    const-string/jumbo v14, "SDPK_"
+
+    invoke-virtual {v4, v14}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_4
+
+    new-instance v14, Ljava/lang/StringBuilder;
+
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v6}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    const-string/jumbo v15, "/"
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    new-instance v10, Ljava/io/File;
+
+    invoke-direct {v10, v11}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    :try_start_3
+    invoke-virtual {v10}, Ljava/io/File;->exists()Z
+
+    move-result v14
+
+    if-eqz v14, :cond_6
+
+    invoke-virtual {v10}, Ljava/io/File;->delete()Z
+
+    move-result v14
+
+    if-eqz v14, :cond_6
+
+    const-string/jumbo v14, "SdpManagerService"
+
+    const-string/jumbo v15, "Remove user - %s removed successfully"
+
+    const/16 v16, 0x1
+
+    move/from16 v0, v16
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v16, v0
+
+    const-string/jumbo v17, "SDPK_"
+
+    const-string/jumbo v18, ""
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v18
+
+    invoke-virtual {v4, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v17
+
+    const/16 v18, 0x0
+
+    aput-object v17, v16, v18
+
+    invoke-static/range {v15 .. v16}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-static {v14, v15}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_4
+    :goto_2
+    add-int/lit8 v12, v12, 0x1
+
+    goto :goto_1
+
+    :cond_5
+    const/4 v7, 0x0
 
     goto :goto_0
+
+    :cond_6
+    const-string/jumbo v14, "SdpManagerService"
+
+    const-string/jumbo v15, "Remove user - Failed to remove %s..."
+
+    const/16 v16, 0x1
+
+    move/from16 v0, v16
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v16, v0
+
+    const-string/jumbo v17, "SDPK_"
+
+    const-string/jumbo v18, ""
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v18
+
+    invoke-virtual {v4, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v17
+
+    const/16 v18, 0x0
+
+    aput-object v17, v16, v18
+
+    invoke-static/range {v15 .. v16}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-static {v14, v15}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
+
+    goto :goto_2
+
+    :catch_0
+    move-exception v2
+
+    invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
+
+    goto :goto_2
+
+    :catchall_2
+    move-exception v12
+
+    monitor-exit v13
+
+    throw v12
+.end method
+
+.method private hasBiometricTypeTraced(I)Z
+    .locals 6
+
+    const/4 v5, 0x0
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    invoke-virtual {v2, p1}, Lcom/android/internal/widget/LockPatternUtils;->getBiometricType(I)I
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v1, 0x1
+
+    :goto_0
+    if-eqz v1, :cond_1
+
+    const-string/jumbo v2, "Biometrics detected for user %d [ Type : %d ]"
+
+    const/4 v3, 0x2
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    aput-object v4, v3, v5
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    const/4 v5, 0x1
+
+    aput-object v4, v3, v5
+
+    invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    :goto_1
+    return v1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
+
+    :cond_1
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Biometrics not detected for user "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto :goto_1
+.end method
+
+.method private hasLegacyChild(I)Z
+    .locals 6
+
+    const/4 v4, 0x0
+
+    if-eqz p1, :cond_0
+
+    return v4
+
+    :cond_0
+    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mUserManager:Landroid/os/UserManager;
+
+    if-eqz v3, :cond_1
+
+    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mUserManager:Landroid/os/UserManager;
+
+    invoke-virtual {v3, p1}, Landroid/os/UserManager;->getProfiles(I)Ljava/util/List;
+
+    move-result-object v2
+
+    :goto_0
+    if-eqz v2, :cond_3
+
+    const/4 v0, 0x0
+
+    :goto_1
+    invoke-interface {v2}, Ljava/util/List;->size()I
+
+    move-result v3
+
+    if-ge v0, v3, :cond_3
+
+    invoke-interface {v2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/content/pm/UserInfo;
+
+    iget v3, v1, Landroid/content/pm/UserInfo;->id:I
+
+    invoke-virtual {p0, v3}, Lcom/android/server/SdpManagerService;->isLegacyWorkProfile(I)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    const-string/jumbo v3, "SdpManagerService"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "Found legacy child "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget v5, v1, Landroid/content/pm/UserInfo;->id:I
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v3, 0x1
+
+    return v3
+
+    :cond_1
+    const/4 v2, 0x0
+
+    goto :goto_0
+
+    :cond_2
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_1
+
+    :cond_3
+    return v4
+.end method
+
+.method private hasNoSecurity(I)Z
+    .locals 9
+
+    const/4 v2, 0x1
+
+    const/4 v3, 0x0
+
+    iget-object v4, p0, Lcom/android/server/SdpManagerService;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    invoke-virtual {v4, p1}, Lcom/android/internal/widget/LockPatternUtils;->getActivePasswordQuality(I)I
+
+    move-result v1
+
+    iget-object v4, p0, Lcom/android/server/SdpManagerService;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    invoke-virtual {v4, p1}, Lcom/android/internal/widget/LockPatternUtils;->isLockScreenDisabled(I)Z
+
+    move-result v0
+
+    const-string/jumbo v4, "SdpManagerService"
+
+    const-string/jumbo v5, "Check security - [ User ID : %d, Quality : %d, None type? %s ]"
+
+    const/4 v6, 0x3
+
+    new-array v6, v6, [Ljava/lang/Object;
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v7
+
+    aput-object v7, v6, v3
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v7
+
+    aput-object v7, v6, v2
+
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v7
+
+    const/4 v8, 0x2
+
+    aput-object v7, v6, v8
+
+    invoke-static {v5, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-nez v0, :cond_0
+
+    if-nez v1, :cond_1
+
+    :cond_0
+    :goto_0
+    return v2
+
+    :cond_1
+    move v2, v3
+
+    goto :goto_0
+.end method
+
+.method private hasSyntheticPasswordHandle(I)Z
+    .locals 3
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v0
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    invoke-virtual {v2, p1}, Lcom/android/internal/widget/LockPatternUtils;->hasSyntheticPasswordHandle(I)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v2
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return v2
+
+    :catchall_0
+    move-exception v2
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v2
 .end method
 
 .method private isAccumulatedFailure(I)Z
@@ -3561,29 +7447,41 @@
     return v0
 .end method
 
-.method private isDeviceProvisionedInSettingsDb()Z
-    .locals 3
+.method private isDeviceOwnerUser(I)Z
+    .locals 1
 
     const/4 v0, 0x0
 
-    sget-object v1, Lcom/android/server/SdpManagerService;->sContext:Landroid/content/Context;
+    if-nez p1, :cond_0
 
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-static {}, Lcom/android/server/SdpManagerService$KnoxUtil;->isDoEnabled()Z
 
-    move-result-object v1
-
-    const-string/jumbo v2, "device_provisioned"
-
-    invoke-static {v1, v2, v0}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    const/4 v0, 0x1
+    move-result v0
 
     :cond_0
     return v0
+.end method
+
+.method private isDeviceProvisioned()Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mDPM:Landroid/app/admin/DevicePolicyManager;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mDPM:Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->isDeviceProvisioned()Z
+
+    move-result v0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method private isEngineOwner(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Z
@@ -3591,7 +7489,7 @@
 
     iget-object v0, p0, Lcom/android/server/SdpManagerService;->mServiceKeeper:Lcom/android/server/SdpServiceKeeper;
 
-    sget-object v1, Lcom/android/server/SdpManagerService;->sContext:Landroid/content/Context;
+    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mContext:Landroid/content/Context;
 
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
@@ -3602,6 +7500,24 @@
     move-result v3
 
     invoke-virtual {v0, v1, v2, v3, p1}, Lcom/android/server/SdpServiceKeeper;->isEngineOwner(Landroid/content/Context;IILcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method private isFileBasedEncryption()Z
+    .locals 2
+
+    const-string/jumbo v0, "ro.crypto.type"
+
+    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "file"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -3620,31 +7536,6 @@
     return v0
 .end method
 
-.method private isFirstBootUnlockRequired(I)Z
-    .locals 2
-
-    const/4 v0, 0x1
-
-    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    invoke-virtual {v1, p1}, Lcom/android/internal/widget/LockPatternUtils;->isLockScreenDisabled(I)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isDeviceProvisionedInSettingsDb()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    const/4 v0, 0x0
-
-    :cond_0
-    return v0
-.end method
-
 .method private isIrisLockscreen(I)Z
     .locals 1
 
@@ -3658,43 +7549,110 @@
 .end method
 
 .method private isKnoxEngine(I)Z
+    .locals 1
+
+    invoke-static {p1}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method private isLegacyEncryptionUser(I)Z
+    .locals 8
+
+    const/4 v1, 0x0
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v2
+
+    :try_start_0
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->getUserInfo(I)Landroid/content/pm/UserInfo;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/content/pm/UserInfo;->isLegacyEncryption()Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v1
+
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    :goto_0
+    if-nez v1, :cond_0
+
+    const-string/jumbo v5, "SdpManagerService"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "Not a legacy encryption : "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    :try_start_1
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v5
+
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v5
+.end method
+
+.method private isLegacyUserZero(I)Z
     .locals 2
 
     const/4 v0, 0x0
 
-    const/16 v1, 0x64
+    if-nez p1, :cond_0
 
-    if-lt p1, v1, :cond_0
+    invoke-static {}, Lcom/android/server/SdpManagerService$KnoxUtil;->isDoEnabled()Z
 
-    const/16 v1, 0xc8
+    move-result v1
 
-    if-gt p1, v1, :cond_0
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_0
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->getEngineInfoLocked(I)Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
 
     const/4 v0, 0x1
 
     :cond_0
-    return v0
-.end method
-
-.method private isLicensed()Z
-    .locals 4
-
-    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mServiceKeeper:Lcom/android/server/SdpServiceKeeper;
-
-    sget-object v1, Lcom/android/server/SdpManagerService;->sContext:Landroid/content/Context;
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v2
-
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
-
-    move-result v3
-
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/SdpServiceKeeper;->isLicensed(Landroid/content/Context;II)Z
-
-    move-result v0
-
     return v0
 .end method
 
@@ -3703,7 +7661,7 @@
 
     iget-object v0, p0, Lcom/android/server/SdpManagerService;->mServiceKeeper:Lcom/android/server/SdpServiceKeeper;
 
-    sget-object v1, Lcom/android/server/SdpManagerService;->sContext:Landroid/content/Context;
+    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mContext:Landroid/content/Context;
 
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
@@ -3723,7 +7681,7 @@
 .method private isPwdChangeRequested()Z
     .locals 6
 
-    sget-object v3, Lcom/android/server/SdpManagerService;->sContext:Landroid/content/Context;
+    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mContext:Landroid/content/Context;
 
     const-string/jumbo v4, "enterprise_policy"
 
@@ -3775,339 +7733,396 @@
     return v1
 .end method
 
-.method private isSdpUserZeroSupported()Z
-    .locals 1
-
-    sget-boolean v0, Lcom/android/server/SdpManagerService;->DEVICE_SUPPORT_KNOX:Z
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_0
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
 .method private isSecureUnlockRequired(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;Ljava/lang/String;Ljava/lang/String;)Z
     .locals 8
 
-    const/4 v3, 0x1
+    const/4 v7, 0x1
 
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
     invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->isAndroidDefaultEngine()Z
 
-    move-result v5
+    move-result v3
 
-    if-nez v5, :cond_0
+    if-nez v3, :cond_0
 
     const-string/jumbo v3, "SdpManagerService"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "SecureUnlock :: Not a default engine... Skip secure unlock... "
+    const-string/jumbo v5, "SecureUnlock :: Not a default engine... Skip secure unlock... "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v4
 
     invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
 
-    move-result v6
+    move-result v5
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-static {v3, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v4
+    return v6
 
     :cond_0
     invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getUserId()I
 
     move-result v2
 
-    const-string/jumbo v5, "SdpManagerService"
+    const-string/jumbo v3, "SdpManagerService"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "SecureUnlock :: User : "
+    const-string/jumbo v5, "SecureUnlock :: User : "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v4
 
-    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v4
 
-    const-string/jumbo v7, ", Type : "
+    const-string/jumbo v5, ", Type : "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v4
 
-    iget-object v7, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
+    iget-object v5, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
 
-    invoke-virtual {v7, p3}, Lcom/sec/knox/container/util/KeyManagementUtil;->convType(Ljava/lang/String;)I
+    invoke-virtual {v5, p3}, Lcom/sec/knox/container/util/KeyManagementUtil;->convType(Ljava/lang/String;)I
 
-    move-result v7
+    move-result v5
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v4
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v4
 
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
 
-    move-result v5
+    move-result v3
 
-    if-nez v5, :cond_1
+    if-nez v3, :cond_1
 
-    invoke-direct {p0, v4}, Lcom/android/server/SdpManagerService;->isAccumulatedFailure(I)Z
+    invoke-direct {p0, v6}, Lcom/android/server/SdpManagerService;->isAccumulatedFailure(I)Z
 
-    move-result v5
+    move-result v3
 
-    if-eqz v5, :cond_1
+    if-eqz v3, :cond_1
 
-    const-string/jumbo v4, "Failure count has been fully accumulated...Secure unlock required!"
+    const-string/jumbo v3, "Failure count has been fully accumulated...Secure unlock required!"
 
-    invoke-static {v4}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+    invoke-static {v3}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
 
-    return v3
+    return v7
 
     :cond_1
     if-nez p2, :cond_2
 
-    move v0, v3
+    const/4 v0, 0x1
 
     :goto_0
     if-eqz v0, :cond_6
 
-    iget-object v5, p0, Lcom/android/server/SdpManagerService;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    invoke-virtual {v5, v2}, Lcom/android/internal/widget/LockPatternUtils;->isLockScreenDisabled(I)Z
+    invoke-virtual {v3, v2}, Lcom/android/internal/widget/LockPatternUtils;->isLockScreenDisabled(I)Z
 
-    move-result v5
+    move-result v3
 
-    if-eqz v5, :cond_3
+    if-eqz v3, :cond_3
 
-    const-string/jumbo v4, "SdpManagerService"
+    const-string/jumbo v3, "SdpManagerService"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "SecureUnlock :: Lowest security level found...!!! "
+    const-string/jumbo v5, "SecureUnlock :: Lowest security level found...!!! "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v3
+    return v7
 
     :cond_2
-    move v0, v4
+    const/4 v0, 0x0
 
     goto :goto_0
 
     :cond_3
-    iget-object v5, p0, Lcom/android/server/SdpManagerService;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    invoke-virtual {v5, v2}, Lcom/android/internal/widget/LockPatternUtils;->getActivePasswordQuality(I)I
+    invoke-virtual {v3, v2}, Lcom/android/internal/widget/LockPatternUtils;->getActivePasswordQuality(I)I
 
     move-result v1
 
-    const-string/jumbo v5, "SdpManagerService"
+    const-string/jumbo v3, "SdpManagerService"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "SecureUnlock :: Quality for user "
+    const-string/jumbo v5, "SecureUnlock :: Quality for user "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v4
 
-    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v4
 
-    const-string/jumbo v7, " = "
+    const-string/jumbo v5, " = "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v4
 
-    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v4
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v4
 
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     if-nez v1, :cond_4
 
-    const-string/jumbo v4, "SdpManagerService"
+    const-string/jumbo v3, "SdpManagerService"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "SecureUnlock :: Very low security level found...!!! "
+    const-string/jumbo v5, "SecureUnlock :: Very low security level found...!!! "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v3
+    return v7
 
     :cond_4
     invoke-direct {p0, v2}, Lcom/android/server/SdpManagerService;->isFingerprintLockscreen(I)Z
 
-    move-result v5
+    move-result v3
 
-    if-eqz v5, :cond_5
+    if-eqz v3, :cond_5
 
-    const-string/jumbo v4, "SdpManagerService"
+    const-string/jumbo v3, "SdpManagerService"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "SecureUnlock :: Low security level found...!!! "
+    const-string/jumbo v5, "SecureUnlock :: Low security level found...!!! "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v3
+    return v7
 
     :cond_5
     invoke-direct {p0, v2}, Lcom/android/server/SdpManagerService;->isIrisLockscreen(I)Z
 
-    move-result v5
+    move-result v3
 
-    if-eqz v5, :cond_6
+    if-eqz v3, :cond_6
 
-    const-string/jumbo v4, "SdpManagerService"
+    const-string/jumbo v3, "SdpManagerService"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "SecureUnlock :: Low security level found...!!! "
+    const-string/jumbo v5, "SecureUnlock :: Low security level found...!!! "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v3
+    return v7
 
     :cond_6
     const-string/jumbo v3, "SdpManagerService"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "SecureUnlock :: Not applicable... Skip secure unlock... "
+    const-string/jumbo v5, "SecureUnlock :: Not applicable... Skip secure unlock... "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-static {v3, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v4
+    return v6
+.end method
+
+.method private isSeparateProfileChallengeEnabled(I)Z
+    .locals 3
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v0
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    invoke-virtual {v2, p1}, Lcom/android/internal/widget/LockPatternUtils;->isSeparateProfileChallengeEnabled(I)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v2
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return v2
+
+    :catchall_0
+    move-exception v2
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v2
 .end method
 
 .method private isSupportedDevice()Z
-    .locals 1
+    .locals 3
+
+    const/4 v2, 0x0
 
     sget-boolean v0, Lcom/android/server/SdpManagerService;->DEVICE_SUPPORT_KNOX:Z
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
+    const-string/jumbo v0, "SdpManagerService"
+
+    const-string/jumbo v1, "Knox not supported"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v2
+
+    :cond_0
+    sget-boolean v0, Lcom/android/server/SdpManagerService;->DEVICE_SUPPORT_SDP:Z
+
+    if-nez v0, :cond_1
+
+    const-string/jumbo v0, "SdpManagerService"
+
+    const-string/jumbo v1, "SDP not supported"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v2
+
+    :cond_1
     const/4 v0, 0x1
 
     return v0
+.end method
 
-    :cond_0
-    const/4 v0, 0x0
+.method private isSyntheticPasswordEnabled(I)Z
+    .locals 3
 
-    return v0
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v0
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    invoke-virtual {v2, p1}, Lcom/android/internal/widget/LockPatternUtils;->isSyntheticPasswordEnabled(I)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v2
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return v2
+
+    :catchall_0
+    move-exception v2
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v2
 .end method
 
 .method private isSystemComponent(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Z
@@ -4115,7 +8130,7 @@
 
     iget-object v0, p0, Lcom/android/server/SdpManagerService;->mServiceKeeper:Lcom/android/server/SdpServiceKeeper;
 
-    sget-object v1, Lcom/android/server/SdpManagerService;->sContext:Landroid/content/Context;
+    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mContext:Landroid/content/Context;
 
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
@@ -4132,247 +8147,326 @@
     return v0
 .end method
 
-.method private lockInternal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
-    .locals 13
+.method static synthetic lambda$-com_android_server_SdpManagerService_178910([BJILcom/android/internal/widget/ILockSettings;)Lcom/android/internal/widget/VerifyCredentialResponse;
+    .locals 3
 
-    const/16 v12, -0xe
+    sget-object v1, Lcom/android/internal/widget/VerifyCredentialResponse;->ERROR:Lcom/android/internal/widget/VerifyCredentialResponse;
 
-    const/4 v8, 0x0
+    :try_start_0
+    invoke-interface {p4, p0, p1, p2, p3}, Lcom/android/internal/widget/ILockSettings;->verifyToken([BJI)Lcom/android/internal/widget/VerifyCredentialResponse;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    const/4 v7, 0x1
+    move-result-object v2
 
-    if-nez p1, :cond_0
+    return-object v2
 
-    const/4 v7, -0x5
+    :catch_0
+    move-exception v0
 
-    return v7
+    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
+
+    return-object v1
+.end method
+
+.method static synthetic lambda$-com_android_server_SdpManagerService_179704([BJ[BJILcom/android/internal/widget/ILockSettings;)Ljava/lang/Boolean;
+    .locals 9
+
+    move-object/from16 v0, p7
+
+    move-object v1, p0
+
+    move-wide v2, p1
+
+    move-object v4, p3
+
+    move-wide v5, p4
+
+    move v7, p6
+
+    :try_start_0
+    invoke-interface/range {v0 .. v7}, Lcom/android/internal/widget/ILockSettings;->changeToken([BJ[BJI)Z
+
+    move-result v0
+
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v0
+
+    return-object v0
+
+    :catch_0
+    move-exception v8
+
+    invoke-virtual {v8}, Landroid/os/RemoteException;->printStackTrace()V
+
+    const/4 v0, 0x0
+
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic lambda$-com_android_server_SdpManagerService_181352(Ljava/lang/String;IILcom/android/internal/widget/ILockSettings;)Lcom/android/internal/widget/VerifyCredentialResponse;
+    .locals 3
+
+    sget-object v1, Lcom/android/internal/widget/VerifyCredentialResponse;->ERROR:Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    const/4 v2, 0x0
+
+    :try_start_0
+    invoke-interface {p3, p0, p1, p2, v2}, Lcom/android/internal/widget/ILockSettings;->checkCredential(Ljava/lang/String;IILcom/android/internal/widget/ICheckCredentialProgressCallback;)Lcom/android/internal/widget/VerifyCredentialResponse;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v2
+
+    return-object v2
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
+
+    return-object v1
+.end method
+
+.method static synthetic lambda$-com_android_server_SdpManagerService_183445(Ljava/lang/String;IJ[BILcom/android/internal/widget/ILockSettings;)Ljava/lang/Boolean;
+    .locals 8
+
+    move-object v1, p6
+
+    move-object v2, p0
+
+    move v3, p1
+
+    move-wide v4, p2
+
+    move-object v6, p4
+
+    move v7, p5
+
+    :try_start_0
+    invoke-interface/range {v1 .. v7}, Lcom/android/internal/widget/ILockSettings;->setLockCredentialWithToken(Ljava/lang/String;IJ[BI)Z
+
+    move-result v1
+
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    return-object v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
+
+    const/4 v1, 0x0
+
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v1
+
+    return-object v1
+.end method
+
+.method static synthetic lambda$-com_android_server_SdpManagerService_254152(ILandroid/os/UserManagerInternal;)Ljava/lang/Boolean;
+    .locals 1
+
+    const/4 v0, 0x1
+
+    invoke-virtual {p1, p0, v0}, Landroid/os/UserManagerInternal;->setVolatiles(II)Z
+
+    move-result v0
+
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic lambda$-com_android_server_SdpManagerService_255265(ILandroid/os/UserManagerInternal;)Ljava/lang/Boolean;
+    .locals 1
+
+    const/4 v0, 0x1
+
+    invoke-virtual {p1, p0, v0}, Landroid/os/UserManagerInternal;->clearVolatiles(II)Z
+
+    move-result v0
+
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method private lockFinal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
+    .locals 2
+
+    invoke-static {p1}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, -0x3
+
+    return v0
 
     :cond_0
     invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
 
-    move-result v1
+    move-result v0
 
     invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getUserId()I
 
-    move-result v6
+    move-result v1
 
-    const-string/jumbo v9, "SdpManagerService"
+    invoke-static {v0, v1}, Lcom/android/server/SdpManagerService;->nativeOnDeviceLocked(II)I
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    move-result v0
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string/jumbo v11, "lockInternal "
+    move-result-object v0
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v0}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
 
-    move-result-object v10
+    move-result v0
 
-    invoke-virtual {v10, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    if-eqz v0, :cond_1
 
-    move-result-object v10
+    const/16 v0, -0xc
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-direct {p0, v1, v6}, Lcom/android/server/SdpManagerService;->lockNative(II)I
-
-    move-result v4
-
-    if-eqz v4, :cond_1
-
-    const-string/jumbo v7, "SdpManagerService"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "lockInternal :: native failed ret "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v7, "SdpManagerService"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "lockInternal :: native failed :: "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v7, -0xc
-
-    return v7
+    return v0
 
     :cond_1
-    invoke-direct {p0, v1}, Lcom/android/server/SdpManagerService;->clearCachedMasterKey(I)V
+    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
 
-    invoke-direct {p0, v1}, Lcom/android/server/SdpManagerService;->clearResetPasswordKey(I)V
+    monitor-enter v0
 
-    iget-object v9, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
-
-    monitor-enter v9
-
-    const/4 v10, 0x1
+    const/4 v1, 0x1
 
     :try_start_0
-    invoke-direct {p0, p1, v10}, Lcom/android/server/SdpManagerService;->setEngineStateLocked(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;I)I
+    invoke-direct {p0, p1, v1}, Lcom/android/server/SdpManagerService;->setEngineStateLocked(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;I)I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit v9
+    monitor-exit v0
 
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->isAndroidDefaultEngine()Z
+    const/4 v0, 0x0
 
-    move-result v9
+    return v0
 
-    if-eqz v9, :cond_6
+    :catchall_0
+    move-exception v1
 
-    const/4 v2, 0x0
+    monitor-exit v0
 
-    const-string/jumbo v9, "lock_settings"
+    throw v1
+.end method
 
-    invoke-static {v9}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+.method private lockInternal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
+    .locals 10
+
+    const/4 v9, 0x1
+
+    const/4 v8, 0x0
+
+    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+
+    move-result v0
+
+    move v3, v0
+
+    move v2, v0
+
+    const-string/jumbo v4, "SdpManagerService"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "lock :: Lock engine for user "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
-    check-cast v5, Lcom/android/server/LockSettingsService;
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    if-eqz v5, :cond_2
+    move-result-object v5
 
-    :try_start_1
-    const-string/jumbo v9, "lockscreen.password_type"
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const-wide/16 v10, 0x0
+    move-result-object v5
 
-    invoke-virtual {v5, v9, v10, v11, v1}, Lcom/android/server/LockSettingsService;->getLong(Ljava/lang/String;JI)J
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-wide v10
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->lockFinal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
 
-    long-to-int v2, v10
+    move-result v1
 
-    :cond_2
+    if-nez v1, :cond_0
+
+    const-string/jumbo v4, "SdpManagerService"
+
+    const-string/jumbo v5, "lock :: Successfully done for user %d"
+
+    new-array v6, v9, [Ljava/lang/Object;
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v7
+
+    aput-object v7, v6, v8
+
+    invoke-static {v5, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->clearManagedCredential(I)V
+
     :goto_0
-    const v9, 0x61000
+    return v1
 
-    if-eq v2, v9, :cond_3
+    :cond_0
+    const-string/jumbo v4, "SdpManagerService"
 
-    if-nez v2, :cond_4
+    const-string/jumbo v5, "lock :: Failed to lock for user %d... [ rc : %d ]"
 
-    move v3, v7
+    const/4 v6, 0x2
 
-    :goto_1
-    if-eqz v3, :cond_6
+    new-array v6, v6, [Ljava/lang/Object;
 
-    iget-object v9, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+    move-result-object v7
 
-    move-result v10
+    aput-object v7, v6, v8
 
-    invoke-virtual {v9, v10, v7}, Lcom/sec/knox/container/util/KeyManagementUtil;->isCMKExists(II)Z
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result v9
+    move-result-object v7
 
-    if-eqz v9, :cond_6
+    aput-object v7, v6, v9
 
-    iget-object v9, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
+    invoke-static {v5, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+    move-result-object v5
 
-    move-result v10
-
-    invoke-virtual {v9, v10, v7}, Lcom/sec/knox/container/util/KeyManagementUtil;->removeECMK(II)Z
-
-    move-result v9
-
-    if-nez v9, :cond_5
-
-    const-string/jumbo v7, "SdpManagerService"
-
-    const-string/jumbo v8, "couldn\'t remove ECMK!"
-
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v12
-
-    :catchall_0
-    move-exception v7
-
-    monitor-exit v9
-
-    throw v7
-
-    :cond_3
-    move v3, v7
-
-    goto :goto_1
-
-    :cond_4
-    move v3, v8
-
-    goto :goto_1
-
-    :cond_5
-    iget-object v9, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
-
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
-
-    move-result v10
-
-    invoke-virtual {v9, v10, v7}, Lcom/sec/knox/container/util/KeyManagementUtil;->removeKEK(II)Z
-
-    move-result v7
-
-    if-nez v7, :cond_6
-
-    const-string/jumbo v7, "SdpManagerService"
-
-    const-string/jumbo v8, "couldn\'t remove KEK!"
-
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v12
-
-    :cond_6
-    return v8
-
-    :catch_0
-    move-exception v0
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method
@@ -4428,6 +8522,213 @@
     return v1
 .end method
 
+.method private maybeHalfLegacyVirtualUser(I)Z
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->getUserInfo(I)Landroid/content/pm/UserInfo;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/pm/UserInfo;->isVirtualUser()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {p0, p1}, Lcom/android/server/SdpManagerService;->hasLegacyCredential(I)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/SdpManagerService;->hasLegacyToken(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    :cond_0
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->isSyntheticPasswordEnabled(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->hasSyntheticPasswordHandle(I)Z
+
+    move-result v0
+
+    :goto_0
+    return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method private maybeLegacyDeviceOwner(I)Z
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->isDeviceOwnerUser(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/SdpManagerService;->hasLegacyToken(I)Z
+
+    move-result v0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method private maybeLegacyKnoxUser(I)Z
+    .locals 2
+
+    const/4 v0, 0x0
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->getUserInfo(I)Landroid/content/pm/UserInfo;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/pm/UserInfo;->isManagedProfile()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/SdpManagerService;->hasLegacyCredential(I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/SdpManagerService;->hasLegacyToken(I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const/16 v1, 0x64
+
+    if-lt p1, v1, :cond_0
+
+    const/16 v1, 0x3e8
+
+    if-ge p1, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    return v0
+.end method
+
+.method private maybeLegacyProfileOwner(I)Z
+    .locals 2
+
+    const/4 v0, 0x0
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->getUserInfo(I)Landroid/content/pm/UserInfo;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/pm/UserInfo;->isManagedProfile()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/SdpManagerService;->hasLegacyCredential(I)Z
+
+    move-result v1
+
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/SdpManagerService;->hasLegacyToken(I)Z
+
+    move-result v1
+
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_0
+
+    const/16 v1, 0xa
+
+    if-lt p1, v1, :cond_0
+
+    const/16 v1, 0x64
+
+    if-ge p1, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    return v0
+.end method
+
+.method private maybeLegacyUserZero(I)Z
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->isLegacyUserZero(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/SdpManagerService;->hasLegacyToken(I)Z
+
+    move-result v0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method private maybeLegacyVirtualUser(I)Z
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->getUserInfo(I)Landroid/content/pm/UserInfo;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/pm/UserInfo;->isVirtualUser()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/SdpManagerService;->hasLegacyCredential(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/SdpManagerService;->hasLegacyToken(I)Z
+
+    move-result v0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
 .method static native nativeMemGetSensitiveProcess()[I
 .end method
 
@@ -4455,6 +8756,66 @@
 .method static native nativeOnUserRemoved(II)I
 .end method
 
+.method private notifyStateChange(II)V
+    .locals 5
+
+    const/4 v4, 0x0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/SdpManagerService;->isLegacyWorkProfile(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "SdpManagerService"
+
+    const-string/jumbo v1, "User %d has dependency with parent"
+
+    const/4 v2, 0x1
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    aput-object v3, v2, v4
+
+    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    packed-switch p2, :pswitch_data_0
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :pswitch_0
+    const/4 v0, 0x2
+
+    invoke-direct {p0, v0, v4}, Lcom/android/server/SdpManagerService;->quickMessage(II)V
+
+    goto :goto_0
+
+    :pswitch_1
+    const/4 v0, 0x3
+
+    const/4 v1, 0x4
+
+    invoke-direct {p0, v0, v4, v1}, Lcom/android/server/SdpManagerService;->quickMessage(III)V
+
+    goto :goto_0
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_0
+        :pswitch_1
+    .end packed-switch
+.end method
+
 .method private notifyUnlockFailure(I)V
     .locals 2
 
@@ -4474,6 +8835,43 @@
     invoke-direct {p0, p1, v0}, Lcom/android/server/SdpManagerService;->setFailureCount(II)V
 
     return-void
+.end method
+
+.method private onBootPhase(I)V
+    .locals 2
+
+    sparse-switch p1, :sswitch_data_0
+
+    :goto_0
+    return-void
+
+    :sswitch_0
+    const-string/jumbo v0, "SdpManagerService"
+
+    const-string/jumbo v1, "onBootPhase - locksettgins service ready"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :sswitch_1
+    const-string/jumbo v0, "SdpManagerService"
+
+    const-string/jumbo v1, "onBootPhase - Boot completed!"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->checkDeviceIntegrityTraced()Z
+
+    goto :goto_0
+
+    nop
+
+    :sswitch_data_0
+    .sparse-switch
+        0x1e0 -> :sswitch_0
+        0x3e8 -> :sswitch_1
+    .end sparse-switch
 .end method
 
 .method private onCipherModeMigration(I)V
@@ -4634,6 +9032,38 @@
     return-void
 .end method
 
+.method private onCleanupUser(I)V
+    .locals 3
+
+    const-string/jumbo v0, "SdpManagerService"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Cleaning up user - "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v0, 0x9
+
+    invoke-direct {p0, v0, p1}, Lcom/android/server/SdpManagerService;->quickMessage(II)V
+
+    return-void
+.end method
+
 .method private onEngineRemoved(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)V
     .locals 8
 
@@ -4738,456 +9168,538 @@
     return-void
 .end method
 
-.method private onMigrationInternal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;[B)I
-    .locals 13
+.method private onLegacyProfileOwnerAdapted(I)V
+    .locals 10
 
-    const/4 v12, 0x3
+    const/4 v8, 0x1
 
-    const/4 v11, 0x2
+    const/4 v9, 0x0
 
-    const/4 v10, 0x0
-
-    if-nez p1, :cond_0
-
-    const/4 v0, -0x3
-
-    return v0
-
-    :cond_0
-    const-string/jumbo v0, "SdpManagerService"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "onMigrationInternal :: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getVersion()I
+    invoke-virtual {p0, p1}, Lcom/android/server/SdpManagerService;->boot(I)I
 
     move-result v6
 
-    const/4 v0, 0x6
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    if-ne v6, v0, :cond_1
+    move-result-object v6
 
-    const-string/jumbo v0, "SdpManagerService"
+    invoke-static {v6}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    move-result v6
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    if-eqz v6, :cond_0
 
-    const-string/jumbo v2, "onMigrationInternal :: already up to date. version : "
+    const-string/jumbo v6, "PO adapted - PO(%d) engine boot failed"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    new-array v7, v8, [Ljava/lang/Object;
 
-    move-result-object v1
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v8
 
-    move-result-object v1
+    aput-object v8, v7, v9
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v6, v7}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v6
 
-    invoke-static {v0, v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v6}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
 
-    return v10
+    return-void
 
-    :cond_1
-    if-nez v6, :cond_2
+    :cond_0
+    const/4 v0, 0x0
 
-    const-string/jumbo v0, "SdpManagerService"
+    iget-object v6, p0, Lcom/android/server/SdpManagerService;->mContext:Landroid/content/Context;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-virtual {v6}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "onMigrationInternal :: SDP previously disabled. version : "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    return v10
-
-    :cond_2
-    const/4 v0, 0x1
-
-    if-ne v6, v0, :cond_3
-
-    const-string/jumbo v0, "SdpManagerService"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "onMigrationInternal :: MIGRATE from : "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    add-int/lit8 v6, v6, 0x1
-
-    :try_start_0
-    invoke-virtual {p1, v6}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->setVersion(I)V
-
-    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
-
-    invoke-static {v0, p1}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap2(Lcom/android/server/SdpManagerService$SdpEngineDatabase;Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit v1
-
-    const-string/jumbo v0, "SdpManagerService"
-
-    const-string/jumbo v1, "onMigrationInternal :: SKIPPED"
-
-    invoke-static {v0, v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    :cond_3
-    if-ne v6, v11, :cond_4
-
-    const-string/jumbo v0, "SdpManagerService"
-
-    const-string/jumbo v1, "onMigrationInternal :: version 2 -> 3 not implemented (this is targeted for TMR/KMR)"
-
-    invoke-static {v0, v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    add-int/lit8 v6, v6, 0x1
-
-    :try_start_1
-    invoke-virtual {p1, v6}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->setVersion(I)V
-
-    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
-
-    invoke-static {v0, p1}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap2(Lcom/android/server/SdpManagerService$SdpEngineDatabase;Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
-
-    monitor-exit v1
-
-    const-string/jumbo v0, "SdpManagerService"
-
-    const-string/jumbo v1, "onMigrationInternal :: SKIPPED"
-
-    invoke-static {v0, v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    :cond_4
-    if-ne v6, v12, :cond_6
-
-    const-string/jumbo v0, "SdpManagerService"
-
-    const-string/jumbo v1, "onMigrationInternal :: version 3 -> 4)"
-
-    invoke-static {v0, v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    const/16 v8, -0x63
-
-    iget-object v9, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
-
-    monitor-enter v9
-
-    :try_start_2
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v2
-
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
-
-    move-result v3
+    move-result-object v5
 
     const/4 v4, 0x0
 
-    const/4 v5, 0x0
+    if-eqz v5, :cond_1
 
-    move-object v0, p0
+    :try_start_0
+    const-string/jumbo v6, "com.samsung.android.email.provider"
 
-    move-object v1, p1
+    const/16 v7, 0x1000
 
-    invoke-direct/range {v0 .. v5}, Lcom/android/server/SdpManagerService;->addEngineInternalLocked(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;IILcom/samsung/android/knox/sdp/core/SdpCreationParam;[B)I
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+    invoke-virtual {v5, v6, v7, p1}, Landroid/content/pm/PackageManager;->getPackageInfoAsUser(Ljava/lang/String;II)Landroid/content/pm/PackageInfo;
 
-    move-result v8
+    move-result-object v4
 
-    monitor-exit v9
+    iget-object v6, v4, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    if-eqz v8, :cond_5
+    iget-object v0, v6, Landroid/content/pm/ApplicationInfo;->dataDir:Ljava/lang/String;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    const/4 v0, -0x4
+    :cond_1
+    :goto_0
+    invoke-static {v0}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
 
-    if-ne v8, v0, :cond_b
+    move-result v6
 
-    :cond_5
-    const-string/jumbo v0, "SdpManagerService"
+    if-eqz v6, :cond_2
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    const-string/jumbo v6, "PO adapted - PO(%d) failed to find a target application"
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    new-array v7, v8, [Ljava/lang/Object;
 
-    const-string/jumbo v2, "addEngine ret :: "
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v8
+
+    aput-object v8, v7, v9
+
+    invoke-static {v6, v7}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v6}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    return-void
+
+    :catch_0
+    move-exception v2
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "Unexpected exception while perform post-adaptation for user "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v6, v2}, Lcom/sec/sdp/internal/SDPLog;->e(Ljava/lang/String;Ljava/lang/Exception;)V
+
+    goto :goto_0
+
+    :cond_2
+    iget-object v6, p0, Lcom/android/server/SdpManagerService;->mContext:Landroid/content/Context;
+
+    invoke-static {v6}, Lcom/android/server/EnterprisePartitionManager;->getInstance(Landroid/content/Context;)Lcom/android/server/EnterprisePartitionManager;
+
+    move-result-object v3
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, "/databases/EmailProviderBody.db"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {v1, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p1, v1}, Lcom/android/server/EnterprisePartitionManager;->migrateSdpDb(ILjava/lang/String;)Z
 
-    move-result-object v1
+    move-result v6
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    if-nez v6, :cond_3
 
-    move-result-object v1
+    const-string/jumbo v6, "PO adapted - PO(%d) failed to adjust sensitive db"
 
-    invoke-static {v0, v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
+    new-array v7, v8, [Ljava/lang/Object;
 
-    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    monitor-enter v1
+    move-result-object v8
 
-    add-int/lit8 v6, v6, 0x1
+    aput-object v8, v7, v9
 
-    :try_start_3
-    invoke-virtual {p1, v6}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->setVersion(I)V
+    invoke-static {v6, v7}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
+    move-result-object v6
 
-    invoke-static {v0, p1}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap2(Lcom/android/server/SdpManagerService$SdpEngineDatabase;Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_3
+    invoke-static {v6}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
 
-    monitor-exit v1
+    return-void
 
-    :cond_6
-    const/4 v0, 0x4
+    :cond_3
+    const-string/jumbo v6, "PO adapted - Everything is prepared for PO(%d) "
 
-    if-ne v6, v0, :cond_7
+    new-array v7, v8, [Ljava/lang/Object;
 
-    const-string/jumbo v0, "SdpManagerService"
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string/jumbo v1, "onMigrationInternal :: version 4 -> 5)"
+    move-result-object v8
 
-    invoke-static {v0, v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
+    aput-object v8, v7, v9
 
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+    invoke-static {v6, v7}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v6}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method private onMigrationInternal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;[B)I
+    .locals 7
+
+    const/4 v6, 0x3
+
+    const/4 v5, 0x2
+
+    if-nez p1, :cond_0
+
+    const/4 v2, -0x3
+
+    return v2
+
+    :cond_0
+    const-string/jumbo v2, "SdpManagerService"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "onMigrationInternal :: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getVersion()I
 
     move-result v0
 
-    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->onCipherModeMigration(I)V
+    const/4 v2, 0x1
 
-    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+    if-ne v0, v2, :cond_1
 
-    monitor-enter v1
+    const-string/jumbo v2, "SdpManagerService"
 
-    add-int/lit8 v6, v6, 0x1
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "onMigrationInternal :: MIGRATE from : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+
+    monitor-enter v3
+
+    add-int/lit8 v0, v0, 0x1
+
+    :try_start_0
+    invoke-virtual {p1, v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->setVersion(I)V
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
+
+    invoke-static {v2, p1}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap2(Lcom/android/server/SdpManagerService$SdpEngineDatabase;Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v3
+
+    const-string/jumbo v2, "SdpManagerService"
+
+    const-string/jumbo v3, "onMigrationInternal :: SKIPPED"
+
+    invoke-static {v2, v3}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_1
+    if-ne v0, v5, :cond_2
+
+    const-string/jumbo v2, "SdpManagerService"
+
+    const-string/jumbo v3, "onMigrationInternal :: version 2 -> 3 not implemented (this is targeted for TMR/KMR)"
+
+    invoke-static {v2, v3}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+
+    monitor-enter v3
+
+    add-int/lit8 v0, v0, 0x1
+
+    :try_start_1
+    invoke-virtual {p1, v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->setVersion(I)V
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
+
+    invoke-static {v2, p1}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap2(Lcom/android/server/SdpManagerService$SdpEngineDatabase;Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    monitor-exit v3
+
+    const-string/jumbo v2, "SdpManagerService"
+
+    const-string/jumbo v3, "onMigrationInternal :: SKIPPED"
+
+    invoke-static {v2, v3}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_2
+    if-ne v0, v6, :cond_3
+
+    const-string/jumbo v2, "SdpManagerService"
+
+    const-string/jumbo v3, "onMigrationInternal :: version 3 -> 4)"
+
+    invoke-static {v2, v3}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+
+    monitor-enter v3
+
+    add-int/lit8 v0, v0, 0x1
+
+    :try_start_2
+    invoke-virtual {p1, v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->setVersion(I)V
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
+
+    invoke-static {v2, p1}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap2(Lcom/android/server/SdpManagerService$SdpEngineDatabase;Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+
+    monitor-exit v3
+
+    const-string/jumbo v2, "SdpManagerService"
+
+    const-string/jumbo v3, "onMigrationInternal :: SKIPPED"
+
+    invoke-static {v2, v3}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_3
+    const/4 v2, 0x4
+
+    if-ne v0, v2, :cond_4
+
+    const-string/jumbo v2, "SdpManagerService"
+
+    const-string/jumbo v3, "onMigrationInternal :: version 4 -> 5)"
+
+    invoke-static {v2, v3}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+
+    move-result v2
+
+    invoke-direct {p0, v2}, Lcom/android/server/SdpManagerService;->onCipherModeMigration(I)V
+
+    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+
+    monitor-enter v3
+
+    add-int/lit8 v0, v0, 0x1
+
+    :try_start_3
+    invoke-virtual {p1, v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->setVersion(I)V
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
+
+    invoke-static {v2, p1}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap2(Lcom/android/server/SdpManagerService$SdpEngineDatabase;Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_3
+
+    monitor-exit v3
+
+    :cond_4
+    const/4 v2, 0x5
+
+    if-ne v0, v2, :cond_7
+
+    const-string/jumbo v2, "SdpManagerService"
+
+    const-string/jumbo v3, "onMigrationInternal :: version 5 -> 6)"
+
+    invoke-static {v2, v3}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+
+    monitor-enter v3
 
     :try_start_4
-    invoke-virtual {p1, v6}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->setVersion(I)V
+    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getFlag()I
 
-    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
+    move-result v1
 
-    invoke-static {v0, p1}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap2(Lcom/android/server/SdpManagerService$SdpEngineDatabase;Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
+    if-eq v1, v6, :cond_5
+
+    if-ne v1, v5, :cond_6
+
+    :cond_5
+    and-int/lit8 v2, v1, 0x1
+
+    invoke-virtual {p1, v2}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->setFlag(I)V
+
+    :cond_6
+    add-int/lit8 v0, v0, 0x1
+
+    invoke-virtual {p1, v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->setVersion(I)V
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
+
+    invoke-static {v2, p1}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap2(Lcom/android/server/SdpManagerService$SdpEngineDatabase;Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_4
 
-    monitor-exit v1
+    monitor-exit v3
 
     :cond_7
-    const/4 v0, 0x5
+    const-string/jumbo v2, "SdpManagerService"
 
-    if-ne v6, v0, :cond_a
+    const-string/jumbo v3, "onMigrationInternal :: DONE"
 
-    const-string/jumbo v0, "SdpManagerService"
+    invoke-static {v2, v3}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v1, "onMigrationInternal :: version 5 -> 6)"
+    const/4 v2, 0x0
 
-    invoke-static {v0, v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    :try_start_5
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getFlag()I
-
-    move-result v7
-
-    if-eq v7, v12, :cond_8
-
-    if-ne v7, v11, :cond_9
-
-    :cond_8
-    and-int/lit8 v0, v7, 0x1
-
-    invoke-virtual {p1, v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->setFlag(I)V
-
-    :cond_9
-    add-int/lit8 v6, v6, 0x1
-
-    invoke-virtual {p1, v6}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->setVersion(I)V
-
-    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
-
-    invoke-static {v0, p1}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap2(Lcom/android/server/SdpManagerService$SdpEngineDatabase;Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_5
-
-    monitor-exit v1
-
-    :cond_a
-    const-string/jumbo v0, "SdpManagerService"
-
-    const-string/jumbo v1, "onMigrationInternal :: DONE"
-
-    invoke-static {v0, v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    return v10
+    return v2
 
     :catchall_0
-    move-exception v0
+    move-exception v2
 
-    monitor-exit v1
+    monitor-exit v3
 
-    throw v0
+    throw v2
 
     :catchall_1
-    move-exception v0
+    move-exception v2
 
-    monitor-exit v1
+    monitor-exit v3
 
-    throw v0
+    throw v2
 
     :catchall_2
-    move-exception v0
+    move-exception v2
 
-    monitor-exit v9
+    monitor-exit v3
 
-    throw v0
+    throw v2
 
     :catchall_3
-    move-exception v0
+    move-exception v2
 
-    monitor-exit v1
+    monitor-exit v3
 
-    throw v0
-
-    :cond_b
-    const-string/jumbo v0, "SdpManagerService"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "onMigrationInternal :: failed! can\'t create engine for :"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v0, "SdpManagerService"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "onMigrationInternal :: failed! can\'t create engine for :"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    return v8
+    throw v2
 
     :catchall_4
-    move-exception v0
+    move-exception v2
 
-    monitor-exit v1
+    monitor-exit v3
 
-    throw v0
+    throw v2
+.end method
 
-    :catchall_5
-    move-exception v0
+.method private onStartUser(I)V
+    .locals 4
 
-    monitor-exit v1
+    const-string/jumbo v0, "SdpManagerService"
 
-    throw v0
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Starting user "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {p0, p1}, Lcom/android/server/SdpManagerService;->isEnterpriseUser(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->isSyntheticPasswordEnabled(I)Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "Starting user - Enterprise user %d found but sp is disabled"
+
+    const/4 v1, 0x1
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    aput-object v2, v1, v3
+
+    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    :cond_0
+    const/4 v0, 0x7
+
+    invoke-direct {p0, v0, p1}, Lcom/android/server/SdpManagerService;->quickMessage(II)V
+
+    return-void
 .end method
 
 .method private onStateChange(II)V
@@ -5500,6 +10012,450 @@
     return-void
 .end method
 
+.method private onUnlockUser(I)V
+    .locals 3
+
+    const-string/jumbo v0, "SdpManagerService"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Unlocking user "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+.end method
+
+.method private quickMessage(I)V
+    .locals 3
+
+    iget-boolean v0, p0, Lcom/android/server/SdpManagerService;->mIsHandlerReady:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mSdpHandler:Lcom/android/server/SdpManagerService$SdpHandler;
+
+    invoke-virtual {v0, p1}, Lcom/android/server/SdpManagerService$SdpHandler;->obtainMessage(I)Landroid/os/Message;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    const-string/jumbo v0, "SdpManagerService"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Failed to send a message : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+.end method
+
+.method private quickMessage(II)V
+    .locals 3
+
+    iget-boolean v0, p0, Lcom/android/server/SdpManagerService;->mIsHandlerReady:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mSdpHandler:Lcom/android/server/SdpManagerService$SdpHandler;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, p1, p2, v1}, Lcom/android/server/SdpManagerService$SdpHandler;->obtainMessage(III)Landroid/os/Message;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    const-string/jumbo v0, "SdpManagerService"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Failed to send a message : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+.end method
+
+.method private quickMessage(III)V
+    .locals 3
+
+    iget-boolean v0, p0, Lcom/android/server/SdpManagerService;->mIsHandlerReady:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mSdpHandler:Lcom/android/server/SdpManagerService$SdpHandler;
+
+    invoke-virtual {v0, p1, p2, p3}, Lcom/android/server/SdpManagerService$SdpHandler;->obtainMessage(III)Landroid/os/Message;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    const-string/jumbo v0, "SdpManagerService"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Failed to send a message : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+.end method
+
+.method private quickMessage(ILandroid/os/Bundle;)V
+    .locals 4
+
+    iget-boolean v1, p0, Lcom/android/server/SdpManagerService;->mIsHandlerReady:Z
+
+    if-eqz v1, :cond_0
+
+    if-eqz p2, :cond_0
+
+    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mSdpHandler:Lcom/android/server/SdpManagerService$SdpHandler;
+
+    invoke-virtual {v1, p1}, Lcom/android/server/SdpManagerService$SdpHandler;->obtainMessage(I)Landroid/os/Message;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p2}, Landroid/os/Message;->setData(Landroid/os/Bundle;)V
+
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    const-string/jumbo v1, "SdpManagerService"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Failed to send a message : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+.end method
+
+.method private quickMessageDelayed(ILjava/lang/Object;J)V
+    .locals 5
+
+    const/4 v1, 0x0
+
+    iget-boolean v2, p0, Lcom/android/server/SdpManagerService;->mIsHandlerReady:Z
+
+    if-eqz v2, :cond_1
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpHandler:Lcom/android/server/SdpManagerService$SdpHandler;
+
+    invoke-virtual {v2, p1, p2}, Lcom/android/server/SdpManagerService$SdpHandler;->hasMessages(ILjava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpHandler:Lcom/android/server/SdpManagerService$SdpHandler;
+
+    invoke-virtual {v2, p1, p2}, Lcom/android/server/SdpManagerService$SdpHandler;->removeMessages(ILjava/lang/Object;)V
+
+    :cond_0
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpHandler:Lcom/android/server/SdpManagerService$SdpHandler;
+
+    invoke-virtual {v2, p1, p2}, Lcom/android/server/SdpManagerService$SdpHandler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+
+    move-result-object v0
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpHandler:Lcom/android/server/SdpManagerService$SdpHandler;
+
+    invoke-virtual {v2, v0, p3, p4}, Lcom/android/server/SdpManagerService$SdpHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
+
+    move-result v1
+
+    :cond_1
+    if-nez v1, :cond_2
+
+    const-string/jumbo v2, "SdpManagerService"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Failed to send a message delayed : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_2
+    return-void
+.end method
+
+.method private readEngineList()V
+    .locals 11
+
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
+
+    move-result v5
+
+    if-nez v5, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object v6, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+
+    monitor-enter v6
+
+    :try_start_0
+    iget-object v5, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
+
+    invoke-static {v5}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap0(Lcom/android/server/SdpManagerService$SdpEngineDatabase;)Landroid/util/SparseArray;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_2
+
+    const/4 v2, 0x0
+
+    :goto_0
+    invoke-virtual {v1}, Landroid/util/SparseArray;->size()I
+
+    move-result v5
+
+    if-ge v2, v5, :cond_3
+
+    invoke-virtual {v1, v2}, Landroid/util/SparseArray;->keyAt(I)I
+
+    move-result v3
+
+    invoke-virtual {v1, v3}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    const-string/jumbo v5, "SdpManagerService"
+
+    const-string/jumbo v7, "read engine - [%s, %d] found in engine list"
+
+    const/4 v8, 0x2
+
+    new-array v8, v8, [Ljava/lang/Object;
+
+    const/4 v9, 0x0
+
+    aput-object v0, v8, v9
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v9
+
+    const/4 v10, 0x1
+
+    aput-object v9, v8, v10
+
+    invoke-static {v7, v8}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v5, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v5, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
+
+    invoke-static {v5, v3}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap1(Lcom/android/server/SdpManagerService$SdpEngineDatabase;I)Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_1
+
+    const-string/jumbo v5, "SdpManagerService"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "read engine - Put "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v4}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v5, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v5, p0, Lcom/android/server/SdpManagerService;->mSdpEngineMap:Landroid/util/SparseArray;
+
+    invoke-virtual {v5, v3, v4}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    iget-object v5, p0, Lcom/android/server/SdpManagerService;->mServiceKeeper:Lcom/android/server/SdpServiceKeeper;
+
+    invoke-virtual {v5, v4}, Lcom/android/server/SdpServiceKeeper;->loadPolicy(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Lcom/android/server/sdp/engine/SdpPolicy;
+
+    :goto_1
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    const-string/jumbo v5, "SdpManagerService"
+
+    const-string/jumbo v7, "read engine - Can\'t find engine info with [%s, %d]"
+
+    const/4 v8, 0x2
+
+    new-array v8, v8, [Ljava/lang/Object;
+
+    const/4 v9, 0x0
+
+    aput-object v0, v8, v9
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v9
+
+    const/4 v10, 0x1
+
+    aput-object v9, v8, v10
+
+    invoke-static {v7, v8}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v5, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    goto :goto_1
+
+    :catchall_0
+    move-exception v5
+
+    monitor-exit v6
+
+    throw v5
+
+    :cond_2
+    :try_start_1
+    const-string/jumbo v5, "SdpManagerService"
+
+    const-string/jumbo v7, "read engine - No any engine found"
+
+    invoke-static {v5, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :cond_3
+    monitor-exit v6
+
+    return-void
+.end method
+
 .method private recordException(Ljava/lang/String;Ljava/lang/Exception;)V
     .locals 6
 
@@ -5705,6 +10661,76 @@
     throw v3
 .end method
 
+.method private registerReceiver()V
+    .locals 3
+
+    new-instance v0, Landroid/content/IntentFilter;
+
+    invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
+
+    const-string/jumbo v1, "android.intent.action.USER_ADDED"
+
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string/jumbo v1, "android.intent.action.USER_REMOVED"
+
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string/jumbo v1, "android.app.action.DEVICE_OWNER_CHANGED"
+
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mContext:Landroid/content/Context;
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
+
+    invoke-virtual {v1, v2, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+
+    const-string/jumbo v1, "SdpManagerService.receiver"
+
+    const-string/jumbo v2, "Broadcast receiver has been registered"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v0, Landroid/content/IntentFilter;
+
+    invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
+
+    const-string/jumbo v1, "android.intent.action.PACKAGE_REMOVED"
+
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string/jumbo v1, "package"
+
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addDataScheme(Ljava/lang/String;)V
+
+    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mContext:Landroid/content/Context;
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mPackageEventReceiver:Landroid/content/BroadcastReceiver;
+
+    invoke-virtual {v1, v2, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+
+    const-string/jumbo v1, "SdpManagerService.receiver"
+
+    const-string/jumbo v2, "Package event receiver has been registered"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mContext:Landroid/content/Context;
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mContainerStateReceiver:Landroid/os/ContainerStateReceiver;
+
+    invoke-static {v1, v2}, Landroid/os/ContainerStateReceiver;->register(Landroid/content/Context;Landroid/os/ContainerStateReceiver;)V
+
+    const-string/jumbo v1, "SdpManagerService.receiver"
+
+    const-string/jumbo v2, "Container state receiver has been registered"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+.end method
+
 .method private removeDirectoryRecursive(Ljava/io/File;)V
     .locals 5
 
@@ -5743,6 +10769,223 @@
     invoke-virtual {p1}, Ljava/io/File;->delete()Z
 
     return-void
+.end method
+
+.method private removeEngineInternal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
+    .locals 6
+
+    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+
+    move-result v1
+
+    invoke-direct {p0, v1}, Lcom/android/server/SdpManagerService;->maybeLegacyVirtualUser(I)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    invoke-virtual {v2, v1}, Lcom/android/server/SdpManagerService$VirtualLockClient;->isSyntheticPasswordEnabled(I)Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    const-string/jumbo v2, "SdpManagerService"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "remove :: Remove keys for legacy user "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_0
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->removeLegacyKeys(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)V
+
+    :cond_0
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mKeyProtector:Lcom/android/server/KeyProtector;
+
+    const-string/jumbo v3, "SdpEphemeralKey"
+
+    invoke-virtual {v2, v3, v1}, Lcom/android/server/KeyProtector;->delete(Ljava/lang/String;I)Z
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mKeyProtector:Lcom/android/server/KeyProtector;
+
+    const-string/jumbo v3, "SdpSessionKey"
+
+    invoke-virtual {v2, v3, v1}, Lcom/android/server/KeyProtector;->delete(Ljava/lang/String;I)Z
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    invoke-virtual {v2, v1}, Lcom/android/server/SdpManagerService$VirtualLockClient;->clearLock(I)V
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    invoke-virtual {v2, v1}, Lcom/android/server/SdpManagerService$VirtualLockClient;->clean(I)V
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mServiceKeeper:Lcom/android/server/SdpServiceKeeper;
+
+    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mContext:Landroid/content/Context;
+
+    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+
+    move-result v4
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v5
+
+    invoke-virtual {v2, v3, v4, v5, p1}, Lcom/android/server/SdpServiceKeeper;->removePolicy(Landroid/content/Context;IILcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+
+    monitor-enter v3
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineMap:Landroid/util/SparseArray;
+
+    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+
+    move-result v4
+
+    invoke-virtual {v2, v4}, Landroid/util/SparseArray;->remove(I)V
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
+
+    invoke-static {v2, p1}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap4(Lcom/android/server/SdpManagerService$SdpEngineDatabase;Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)V
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
+
+    invoke-static {v2}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap3(Lcom/android/server/SdpManagerService$SdpEngineDatabase;)I
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->onEngineRemoved(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v3
+
+    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+
+    move-result v2
+
+    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getUserId()I
+
+    move-result v3
+
+    invoke-direct {p0, v2, v3}, Lcom/android/server/SdpManagerService;->removeEngineNative(II)I
+
+    move-result v0
+
+    const-string/jumbo v2, "SdpManagerService"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "remove :: successfully engine removed! "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_1
+    return v0
+
+    :cond_1
+    const-string/jumbo v2, "SdpManagerService"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "remove :: Unexpected condition while remove user "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_0
+
+    :catchall_0
+    move-exception v2
+
+    monitor-exit v3
+
+    throw v2
+
+    :cond_2
+    const-string/jumbo v2, "SdpManagerService"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "remove :: failed ["
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "]"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
 .end method
 
 .method private removeEngineNative(II)I
@@ -5796,103 +11039,1314 @@
     return v1
 .end method
 
-.method private resetPasswordInternal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;Ljava/lang/String;Ljava/lang/String;)I
-    .locals 7
+.method private removeEphemeralKeyViaProtector(I)Z
+    .locals 2
 
-    const/4 v6, -0x2
+    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mKeyProtector:Lcom/android/server/KeyProtector;
 
-    if-nez p1, :cond_0
+    const-string/jumbo v1, "SdpEphemeralKey"
 
-    const/4 v3, -0x5
+    invoke-virtual {v0, v1, p1}, Lcom/android/server/KeyProtector;->delete(Ljava/lang/String;I)Z
 
-    return v3
+    move-result v0
 
-    :cond_0
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+    invoke-static {v0}, Lcom/android/server/SdpManagerService$SecureUtil;->record(Z)Z
 
-    move-result v1
+    move-result v0
+
+    return v0
+.end method
+
+.method private removeLegacyKeyPair(II)Z
+    .locals 3
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v0
+
+    :try_start_0
+    invoke-direct {p0, p1, p2}, Lcom/android/server/SdpManagerService;->removeLegacyKeyPairInternal(II)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v2
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return v2
+
+    :catchall_0
+    move-exception v2
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v2
+.end method
+
+.method private removeLegacyKeyPairInternal(II)Z
+    .locals 10
+
+    const/4 v9, 0x2
+
+    const/4 v8, 0x1
+
+    const/4 v7, 0x0
 
     const/4 v2, 0x0
 
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->isMinor()Z
+    iget-object v4, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
 
-    move-result v3
+    invoke-virtual {v4, p2}, Lcom/sec/knox/container/util/KeyManagementUtil;->convType(I)Ljava/lang/String;
 
-    if-eqz v3, :cond_1
+    move-result-object v3
 
-    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->getRstTokenFromTima(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Ljava/lang/String;
+    iget-object v4, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
 
-    move-result-object p2
+    invoke-virtual {v4, p1, p2}, Lcom/sec/knox/container/util/KeyManagementUtil;->isCMKExists(II)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    iget-object v4, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
+
+    invoke-virtual {v4, p1, p2}, Lcom/sec/knox/container/util/KeyManagementUtil;->removeECMK(II)Z
+
+    move-result v0
+
+    iget-object v4, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
+
+    invoke-virtual {v4, p1, p2}, Lcom/sec/knox/container/util/KeyManagementUtil;->removeKEK(II)Z
+
+    move-result v1
+
+    const-string/jumbo v4, "Remove leagcy key pair for engine %d with type %s [ res : %s/%s ] "
+
+    const/4 v5, 0x4
+
+    new-array v5, v5, [Ljava/lang/Object;
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    aput-object v6, v5, v7
+
+    aput-object v3, v5, v8
+
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v6
+
+    aput-object v6, v5, v9
+
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v6
+
+    const/4 v7, 0x3
+
+    aput-object v6, v5, v7
+
+    invoke-static {v4, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    if-eqz v0, :cond_0
+
+    move v2, v1
+
+    :goto_0
+    return v2
+
+    :cond_0
+    const/4 v2, 0x0
+
+    goto :goto_0
+
+    :cond_1
+    const-string/jumbo v4, "Legacy key not found for engine %d with type %s"
+
+    new-array v5, v9, [Ljava/lang/Object;
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    aput-object v6, v5, v7
+
+    aput-object v3, v5, v8
+
+    invoke-static {v4, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
 
     const/4 v2, 0x1
 
+    goto :goto_0
+.end method
+
+.method private removeLegacyKeys(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)V
+    .locals 10
+
+    if-nez p1, :cond_0
+
+    const-string/jumbo v5, "SdpManagerService"
+
+    const-string/jumbo v6, "remove keys - Invalid engine info"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v2
+
+    :try_start_0
+    const-string/jumbo v5, "SdpManagerService"
+
+    const-string/jumbo v6, "remove keys - [ alias : %s, id : %d, uid : %d ]"
+
+    const/4 v7, 0x3
+
+    new-array v7, v7, [Ljava/lang/Object;
+
+    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getAlias()Ljava/lang/String;
+
+    move-result-object v8
+
+    const/4 v9, 0x0
+
+    aput-object v8, v7, v9
+
+    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+
+    move-result v8
+
+    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v8
+
+    const/4 v9, 0x1
+
+    aput-object v8, v7, v9
+
+    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getUserId()I
+
+    move-result v8
+
+    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v8
+
+    const/4 v9, 0x2
+
+    aput-object v8, v7, v9
+
+    invoke-static {v6, v7}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v1, 0x0
+
+    :goto_0
+    sget-object v5, Lcom/sec/knox/container/util/KeyManagementUtil;->TYPE_MAP:Landroid/util/SparseArray;
+
+    invoke-virtual {v5}, Landroid/util/SparseArray;->size()I
+
+    move-result v5
+
+    if-ge v1, v5, :cond_1
+
+    sget-object v5, Lcom/sec/knox/container/util/KeyManagementUtil;->TYPE_MAP:Landroid/util/SparseArray;
+
+    invoke-virtual {v5, v1}, Landroid/util/SparseArray;->keyAt(I)I
+
+    move-result v4
+
+    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+
+    move-result v5
+
+    invoke-direct {p0, v5, v4}, Lcom/android/server/SdpManagerService;->removeLegacyKeyPairInternal(II)Z
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
     :cond_1
-    invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
 
-    move-result v3
+    move-result v5
 
-    if-eqz v3, :cond_2
+    if-eqz v5, :cond_2
 
-    return v6
+    new-instance v0, Ljava/io/File;
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "/data/system/users/"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+
+    move-result v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "/"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-direct {v0, v5}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->removeDirectoryRecursive(Ljava/io/File;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_2
-    invoke-static {p3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    move-result v3
+    return-void
 
-    if-eqz v3, :cond_3
+    :catchall_0
+    move-exception v5
 
-    const/4 v3, -0x1
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return v3
+    throw v5
+.end method
+
+.method private removeResetTokenViaProtector(I)Z
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mKeyProtector:Lcom/android/server/KeyProtector;
+
+    const-string/jumbo v1, "SdpResetToken"
+
+    invoke-virtual {v0, v1, p1}, Lcom/android/server/KeyProtector;->delete(Ljava/lang/String;I)Z
+
+    move-result v0
+
+    invoke-static {v0}, Lcom/android/server/SdpManagerService$SecureUtil;->record(Z)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method private removeSessionKeyViaProtector(I)Z
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mKeyProtector:Lcom/android/server/KeyProtector;
+
+    const-string/jumbo v1, "SdpSessionKey"
+
+    invoke-virtual {v0, v1, p1}, Lcom/android/server/KeyProtector;->delete(Ljava/lang/String;I)Z
+
+    move-result v0
+
+    invoke-static {v0}, Lcom/android/server/SdpManagerService$SecureUtil;->record(Z)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method private removeSpecificKeyViaProtector(Ljava/lang/String;I)Z
+    .locals 3
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v0
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mKeyProtector:Lcom/android/server/KeyProtector;
+
+    invoke-virtual {v2, p1, p2}, Lcom/android/server/KeyProtector;->delete(Ljava/lang/String;I)Z
+
+    move-result v2
+
+    invoke-static {v2}, Lcom/android/server/SdpManagerService$SecureUtil;->record(Z)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v2
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return v2
+
+    :catchall_0
+    move-exception v2
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v2
+.end method
+
+.method private removeTokenHandleViaProtector(I)Z
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mKeyProtector:Lcom/android/server/KeyProtector;
+
+    const-string/jumbo v1, "SdpTokenHandle"
+
+    invoke-virtual {v0, v1, p1}, Lcom/android/server/KeyProtector;->delete(Ljava/lang/String;I)Z
+
+    move-result v0
+
+    invoke-static {v0}, Lcom/android/server/SdpManagerService$SecureUtil;->record(Z)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method private resetPasswordInternal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;Ljava/lang/String;Ljava/lang/String;)I
+    .locals 24
+
+    invoke-virtual/range {p1 .. p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+
+    move-result v9
+
+    move/from16 v22, v9
+
+    move/from16 v21, v9
+
+    const-string/jumbo v2, "SdpManagerService"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "Reset password for user "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v2, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual/range {p1 .. p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->isMinor()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v9}, Lcom/android/server/SdpManagerService;->getLegacyTokenWrappedMasterKeyPath(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/android/server/SdpManagerService$FileUtil;->exists(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v9}, Lcom/android/server/SdpManagerService;->getResetTokenViaTrusted(I)[B
+
+    move-result-object v14
+
+    :goto_0
+    invoke-static {v14}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    const/4 v2, -0x2
+
+    return v2
+
+    :cond_0
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v9}, Lcom/android/server/SdpManagerService;->getResetTokenViaProtector(I)[B
+
+    move-result-object v14
+
+    goto :goto_0
+
+    :cond_1
+    if-eqz p2, :cond_2
+
+    invoke-virtual/range {p2 .. p2}, Ljava/lang/String;->getBytes()[B
+
+    move-result-object v14
+
+    goto :goto_0
+
+    :cond_2
+    const/4 v14, 0x0
+
+    goto :goto_0
 
     :cond_3
-    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
+    invoke-static/range {p3 .. p3}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
 
-    const/4 v4, 0x2
-
-    const/16 v5, 0x20
-
-    invoke-virtual {v3, v1, p2, v4, v5}, Lcom/sec/knox/container/util/KeyManagementUtil;->retrieveCMK(ILjava/lang/String;II)Ljava/lang/String;
-
-    move-result-object v0
+    move-result v2
 
     if-eqz v2, :cond_4
 
-    invoke-direct {p0, p2}, Lcom/android/server/SdpManagerService;->zeroOut(Ljava/lang/String;)V
+    const/4 v2, -0x1
+
+    return v2
 
     :cond_4
-    if-nez v0, :cond_5
+    const/16 v16, 0x0
 
-    return v6
+    const/16 v20, -0x63
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    invoke-virtual {v2, v9}, Lcom/android/server/SdpManagerService$VirtualLockClient;->isSyntheticPasswordEnabled(I)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_d
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    invoke-virtual {v2, v9}, Lcom/android/server/SdpManagerService$VirtualLockClient;->hasSyntheticPasswordHandle(I)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_d
+
+    const-string/jumbo v2, "SdpManagerService"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "reset :: Reset password for sp-applied user "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v2, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v9}, Lcom/android/server/SdpManagerService;->maybeLegacyVirtualUser(I)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_7
+
+    const-string/jumbo v2, "SdpManagerService"
+
+    const-string/jumbo v10, "reset :: User %d compromised!"
+
+    const/4 v11, 0x1
+
+    new-array v11, v11, [Ljava/lang/Object;
+
+    invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v15
+
+    const/16 v23, 0x0
+
+    aput-object v15, v11, v23
+
+    invoke-static {v10, v11}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v2, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_1
+    if-eqz v16, :cond_6
+
+    if-eqz v20, :cond_6
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v9}, Lcom/android/server/SdpManagerService;->getTokenHandleViaProtector(I)J
+
+    move-result-wide v12
+
+    move-object/from16 v0, p0
+
+    iget-object v10, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    move-object/from16 v11, p3
+
+    move v15, v9
+
+    invoke-virtual/range {v10 .. v15}, Lcom/android/server/SdpManagerService$VirtualLockClient;->setPasswordWithToken(Ljava/lang/String;J[BI)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_6
+
+    const/16 v20, 0x0
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v9}, Lcom/android/server/SdpManagerService;->hasLegacyCredential(I)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_5
+
+    const-string/jumbo v2, "SdpManagerService"
+
+    const-string/jumbo v10, "reset - Almost done... User %d legacy credential elminated : %s"
+
+    const/4 v11, 0x2
+
+    new-array v11, v11, [Ljava/lang/Object;
+
+    invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v15
+
+    const/16 v23, 0x0
+
+    aput-object v15, v11, v23
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    invoke-virtual {v15, v9}, Lcom/android/server/SdpManagerService$VirtualLockClient;->removeLegacyPwdWrappedMasterKey(I)Z
+
+    move-result v15
+
+    invoke-static {v15}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v15
+
+    const/16 v23, 0x1
+
+    aput-object v15, v11, v23
+
+    invoke-static {v10, v11}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v2, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_5
-    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
+    move-object/from16 v0, p0
 
-    const/4 v4, 0x1
+    invoke-virtual {v0, v9}, Lcom/android/server/SdpManagerService;->hasLegacyToken(I)Z
 
-    invoke-virtual {v3, v1, v0, p3, v4}, Lcom/sec/knox/container/util/KeyManagementUtil;->storeCMK(ILjava/lang/String;Ljava/lang/String;I)Z
+    move-result v2
 
-    move-result v3
+    if-eqz v2, :cond_6
 
-    if-nez v3, :cond_6
+    const-string/jumbo v2, "SdpManagerService"
 
-    const-string/jumbo v3, "SdpManagerService"
+    const-string/jumbo v10, "reset - Almost done... User %d legacy token elminated : %s"
 
-    const-string/jumbo v4, "resetPasswordInternal :: failed to storeCMK"
+    const/4 v11, 0x2
 
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    new-array v11, v11, [Ljava/lang/Object;
 
-    const/16 v3, -0xe
+    invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    return v3
+    move-result-object v15
+
+    const/16 v23, 0x0
+
+    aput-object v15, v11, v23
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    invoke-virtual {v15, v9}, Lcom/android/server/SdpManagerService$VirtualLockClient;->removeLegacyTokenWrappedMasterKey(I)Z
+
+    move-result v15
+
+    invoke-static {v15}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v15
+
+    const/16 v23, 0x1
+
+    aput-object v15, v11, v23
+
+    invoke-static {v10, v11}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v2, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_6
-    invoke-direct {p0, v1, v0}, Lcom/android/server/SdpManagerService;->cacheMasterKey(ILjava/lang/String;)V
+    return v20
+
+    :cond_7
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v9}, Lcom/android/server/SdpManagerService;->hasLegacyToken(I)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_b
+
+    const/16 v18, 0x0
 
     const/4 v3, 0x0
 
-    return v3
+    const/4 v6, 0x0
+
+    const/4 v2, 0x2
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    invoke-virtual {v0, v1, v9, v2}, Lcom/android/server/SdpManagerService;->getLegacyMasterKey(Ljava/lang/String;II)[B
+
+    move-result-object v6
+
+    invoke-static {v6}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_8
+
+    const-string/jumbo v2, "SdpManagerService"
+
+    const-string/jumbo v10, "reset - Failed in legacy token verification"
+
+    invoke-static {v2, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v20, -0x2
+
+    :goto_2
+    invoke-static {v6}, Lcom/android/server/SdpManagerService$SecureUtil;->clear([B)V
+
+    goto/16 :goto_1
+
+    :cond_8
+    move-object/from16 v18, v6
+
+    move-object v3, v14
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v9}, Lcom/android/server/SdpManagerService;->getTokenHandleViaProtector(I)J
+
+    move-result-wide v7
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    invoke-virtual {v2, v3, v9}, Lcom/android/server/SdpManagerService$VirtualLockClient;->setResetPasswordToken([BI)J
+
+    move-result-wide v4
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/SdpManagerService$VirtualLockClient;->changeToken([BJ[BJI)Z
+
+    move-result v2
+
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_9
+
+    const-string/jumbo v2, "SdpManagerService"
+
+    const-string/jumbo v10, "reset - Failed in legacy token replacement"
+
+    invoke-static {v2, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    invoke-virtual {v2, v4, v5, v9}, Lcom/android/server/SdpManagerService$VirtualLockClient;->removeToken(JI)Z
+
+    goto :goto_2
+
+    :cond_9
+    invoke-virtual/range {p1 .. p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->isMinor()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_a
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v3, v9}, Lcom/android/server/SdpManagerService;->saveResetTokenViaProtector([BI)Z
+
+    :cond_a
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v4, v5, v9}, Lcom/android/server/SdpManagerService;->saveTokenHandleViaProtector(JI)Z
+
+    move-result v16
+
+    goto :goto_2
+
+    :cond_b
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v9}, Lcom/android/server/SdpManagerService;->hasLegacyCredential(I)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_c
+
+    const/16 v16, 0x1
+
+    goto/16 :goto_1
+
+    :cond_c
+    const/16 v16, 0x1
+
+    goto/16 :goto_1
+
+    :cond_d
+    const-string/jumbo v2, "SdpManagerService"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "reset :: Reset password for sp-NOT-applied user "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v2, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v9}, Lcom/android/server/SdpManagerService;->maybeLegacyVirtualUser(I)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_14
+
+    const-string/jumbo v2, "SdpManagerService"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "legacy reset :: Under migration for legacy user "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v2, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance p2, Ljava/lang/String;
+
+    move-object/from16 v0, p2
+
+    invoke-direct {v0, v14}, Ljava/lang/String;-><init>([B)V
+
+    const/4 v2, 0x2
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    invoke-virtual {v0, v1, v9, v2}, Lcom/android/server/SdpManagerService;->getLegacyMasterKey(Ljava/lang/String;II)[B
+
+    move-result-object v6
+
+    const/16 v17, 0x0
+
+    const/16 v20, -0x11
+
+    invoke-static {v6}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_f
+
+    const/16 v20, -0x2
+
+    :goto_3
+    if-eqz v20, :cond_e
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    invoke-virtual {v2, v9}, Lcom/android/server/SdpManagerService$VirtualLockClient;->clearLock(I)V
+
+    :cond_e
+    const/4 v2, 0x3
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    const/4 v10, 0x0
+
+    aput-object v14, v2, v10
+
+    const/4 v10, 0x1
+
+    aput-object v6, v2, v10
+
+    const/4 v10, 0x2
+
+    aput-object v17, v2, v10
+
+    invoke-static {v2}, Lcom/android/server/SdpManagerService$SecureUtil;->clearAll([Ljava/lang/Object;)V
+
+    goto/16 :goto_1
+
+    :cond_f
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v2, v0, v14, v9}, Lcom/android/server/SdpManagerService$VirtualLockClient;->establish(Ljava/lang/String;[BI)J
+
+    move-result-wide v12
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v2, v0, v9}, Lcom/android/server/SdpManagerService$VirtualLockClient;->checkPassword(Ljava/lang/String;I)Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Lcom/android/internal/widget/VerifyCredentialResponse;->isOK()Z
+
+    move-result v2
+
+    if-nez v2, :cond_10
+
+    const-string/jumbo v2, "SdpManagerService"
+
+    const-string/jumbo v10, "legacy reset :: Failed to verify new credential"
+
+    invoke-static {v2, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_3
+
+    :cond_10
+    invoke-virtual/range {v19 .. v19}, Lcom/android/internal/widget/VerifyCredentialResponse;->getSecret()[B
+
+    move-result-object v17
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v17
+
+    invoke-virtual {v0, v1, v6, v9}, Lcom/android/server/SdpManagerService;->generationalShift([B[BI)Z
+
+    move-result v2
+
+    if-nez v2, :cond_11
+
+    const-string/jumbo v2, "SdpManagerService"
+
+    const-string/jumbo v10, "legacy reset :: Failed in generational shift"
+
+    invoke-static {v2, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_3
+
+    :cond_11
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    invoke-virtual {v2, v9}, Lcom/android/server/SdpManagerService$VirtualLockClient;->removeLegacyTokenWrappedMasterKey(I)Z
+
+    move-result v2
+
+    if-nez v2, :cond_12
+
+    const-string/jumbo v2, "SdpManagerService"
+
+    const-string/jumbo v10, "legacy reset :: Failed to remove legacy key"
+
+    invoke-static {v2, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_3
+
+    :cond_12
+    invoke-virtual/range {p1 .. p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->isMinor()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_13
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v14, v9}, Lcom/android/server/SdpManagerService;->saveResetTokenViaProtector([BI)Z
+
+    :cond_13
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v12, v13, v9}, Lcom/android/server/SdpManagerService;->saveTokenHandleViaProtector(JI)Z
+
+    const-string/jumbo v2, "SdpManagerService"
+
+    const-string/jumbo v10, "legacy reset :: Migration successfully done!"
+
+    invoke-static {v2, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v20, 0x0
+
+    goto/16 :goto_3
+
+    :cond_14
+    const-string/jumbo v2, "SdpManagerService"
+
+    const-string/jumbo v10, "reset :: User %d compromised!"
+
+    const/4 v11, 0x1
+
+    new-array v11, v11, [Ljava/lang/Object;
+
+    invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v15
+
+    const/16 v23, 0x0
+
+    aput-object v15, v11, v23
+
+    invoke-static {v10, v11}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v2, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_1
+.end method
+
+.method private rewrapSdpKeys([B[BI)Z
+    .locals 3
+
+    const/4 v0, 0x0
+
+    const/4 v1, 0x2
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    const/4 v2, 0x0
+
+    aput-object p1, v1, v2
+
+    const/4 v2, 0x1
+
+    aput-object p2, v1, v2
+
+    invoke-static {v1}, Lcom/android/server/SdpManagerService$SecureUtil;->isAnyoneEmptyHere([Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const-string/jumbo v1, "rewrap - Failed to rewrap sdp keys due to invalid input"
+
+    invoke-static {v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    :goto_0
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Result of rewrapping sdp keys : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    return v0
+
+    :cond_0
+    invoke-static {p3, p2, p1}, Lcom/android/server/SdpManagerService;->nativeOnChangePassword(I[B[B)I
+
+    move-result v1
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    const-string/jumbo v1, "rewrap - Failed to change password"
+
+    invoke-static {v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v0, 0x1
+
+    goto :goto_0
+.end method
+
+.method private saveEphemeralKeyViaProtector([BI)Z
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mKeyProtector:Lcom/android/server/KeyProtector;
+
+    const-string/jumbo v1, "SdpEphemeralKey"
+
+    invoke-virtual {v0, p1, v1, p2}, Lcom/android/server/KeyProtector;->protect([BLjava/lang/String;I)Z
+
+    move-result v0
+
+    invoke-static {v0}, Lcom/android/server/SdpManagerService$SecureUtil;->record(Z)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method private saveResetTokenIntoTima(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;Ljava/lang/String;)Z
+    .locals 6
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v2
+
+    invoke-virtual {p2}, Ljava/lang/String;->getBytes()[B
+
+    move-result-object v0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mTimaHelper:Lcom/android/server/pm/TimaHelper;
+
+    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+
+    move-result v4
+
+    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getResetTokenTimaAlias()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v1, v4, v5, v0}, Lcom/android/server/pm/TimaHelper;->setEntry(ILjava/lang/String;[B)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v1
+
+    invoke-static {v0}, Lcom/android/server/SdpManagerService$SecureUtil;->clear([B)V
+
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return v1
+
+    :catchall_0
+    move-exception v1
+
+    invoke-static {v0}, Lcom/android/server/SdpManagerService$SecureUtil;->clear([B)V
+
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v1
+.end method
+
+.method private saveResetTokenViaProtector([BI)Z
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mKeyProtector:Lcom/android/server/KeyProtector;
+
+    const-string/jumbo v1, "SdpResetToken"
+
+    invoke-virtual {v0, p1, v1, p2}, Lcom/android/server/KeyProtector;->protect([BLjava/lang/String;I)Z
+
+    move-result v0
+
+    invoke-static {v0}, Lcom/android/server/SdpManagerService$SecureUtil;->record(Z)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method private saveSessionKeyViaProtector([BI)Z
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mKeyProtector:Lcom/android/server/KeyProtector;
+
+    const-string/jumbo v1, "SdpSessionKey"
+
+    invoke-virtual {v0, p1, v1, p2}, Lcom/android/server/KeyProtector;->protect([BLjava/lang/String;I)Z
+
+    move-result v0
+
+    invoke-static {v0}, Lcom/android/server/SdpManagerService$SecureUtil;->record(Z)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method private saveSpecificKeyViaProtector([BLjava/lang/String;I)Z
+    .locals 5
+
+    const/4 v2, 0x0
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v0
+
+    const/4 v3, 0x2
+
+    :try_start_0
+    new-array v3, v3, [Ljava/lang/Object;
+
+    const/4 v4, 0x0
+
+    aput-object p1, v3, v4
+
+    const/4 v4, 0x1
+
+    aput-object p2, v3, v4
+
+    invoke-static {v3}, Lcom/android/server/SdpManagerService$SecureUtil;->isAnyoneEmptyHere([Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mKeyProtector:Lcom/android/server/KeyProtector;
+
+    invoke-virtual {v2, p1, p2, p3}, Lcom/android/server/KeyProtector;->protect([BLjava/lang/String;I)Z
+
+    move-result v2
+
+    invoke-static {v2}, Lcom/android/server/SdpManagerService$SecureUtil;->record(Z)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v2
+
+    :cond_0
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return v2
+
+    :catchall_0
+    move-exception v2
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v2
+.end method
+
+.method private saveTokenHandleViaProtector(JI)Z
+    .locals 3
+
+    invoke-static {p1, p2}, Lcom/sec/knox/container/security/BytesUtil;->longToBytes(J)[B
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mKeyProtector:Lcom/android/server/KeyProtector;
+
+    const-string/jumbo v2, "SdpTokenHandle"
+
+    invoke-virtual {v1, v0, v2, p3}, Lcom/android/server/KeyProtector;->protect([BLjava/lang/String;I)Z
+
+    move-result v1
+
+    invoke-static {v1}, Lcom/android/server/SdpManagerService$SecureUtil;->record(Z)Z
+
+    move-result v1
+
+    return v1
 .end method
 
 .method private saveTokenInternal(ILjava/lang/String;[B)Z
@@ -5978,7 +12432,7 @@
 
     invoke-virtual {v0, v7}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    sget-object v2, Lcom/android/server/SdpManagerService;->sContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mContext:Landroid/content/Context;
 
     new-instance v3, Landroid/os/UserHandle;
 
@@ -6028,7 +12482,7 @@
 
     invoke-virtual {v1, v7}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    sget-object v2, Lcom/android/server/SdpManagerService;->sContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mContext:Landroid/content/Context;
 
     new-instance v3, Landroid/os/UserHandle;
 
@@ -6040,15 +12494,13 @@
 .end method
 
 .method private setEngineStateLocked(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;I)I
-    .locals 9
-
-    const/4 v8, 0x0
+    .locals 5
 
     if-nez p1, :cond_0
 
-    const/4 v7, -0x5
+    const/4 v4, -0x5
 
-    return v7
+    return v4
 
     :cond_0
     invoke-virtual {p1, p2}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->setState(I)V
@@ -6057,13 +12509,13 @@
 
     invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
 
-    move-result v7
+    move-result v4
 
-    invoke-direct {p0, v7, p2}, Lcom/android/server/SdpManagerService;->onStateChange(II)V
+    invoke-direct {p0, v4, p2}, Lcom/android/server/SdpManagerService;->onStateChange(II)V
 
     invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getUserId()I
 
-    move-result v6
+    move-result v1
 
     invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
 
@@ -6071,85 +12523,15 @@
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v4
+    move-result-wide v2
 
-    invoke-direct {p0, v6, v0, p2}, Lcom/android/server/SdpManagerService;->sendBroadcastForStateChange(III)V
+    invoke-direct {p0, v1, v0, p2}, Lcom/android/server/SdpManagerService;->sendBroadcastForStateChange(III)V
 
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->isAndroidDefaultEngine()Z
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    move-result v7
+    const/4 v4, 0x0
 
-    if-eqz v7, :cond_1
-
-    invoke-static {v6}, Lcom/samsung/android/knox/sdp/SdpUtil;->isKnoxWorkspace(I)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_2
-
-    :cond_1
-    invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return v8
-
-    :cond_2
-    iget-object v7, p0, Lcom/android/server/SdpManagerService;->mUM:Landroid/os/UserManager;
-
-    invoke-virtual {v7, v6}, Landroid/os/UserManager;->getProfiles(I)Ljava/util/List;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_1
-
-    invoke-interface {v3}, Ljava/util/List;->size()I
-
-    move-result v7
-
-    if-lez v7, :cond_1
-
-    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    :cond_3
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_1
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/content/pm/UserInfo;
-
-    iget v7, v1, Landroid/content/pm/UserInfo;->id:I
-
-    if-eqz v7, :cond_3
-
-    iget v7, v1, Landroid/content/pm/UserInfo;->id:I
-
-    if-eq v7, v6, :cond_3
-
-    invoke-virtual {v1}, Landroid/content/pm/UserInfo;->isKnoxWorkspace()Z
-
-    move-result v7
-
-    if-nez v7, :cond_3
-
-    invoke-virtual {v1}, Landroid/content/pm/UserInfo;->isBMode()Z
-
-    move-result v7
-
-    if-nez v7, :cond_3
-
-    iget v7, v1, Landroid/content/pm/UserInfo;->id:I
-
-    invoke-direct {p0, v7, v0, p2}, Lcom/android/server/SdpManagerService;->sendBroadcastForStateChange(III)V
-
-    goto :goto_0
+    return v4
 .end method
 
 .method private setFailureCount(II)V
@@ -6186,8 +12568,68 @@
     return-void
 .end method
 
+.method private setLockCredentialWithToken(Ljava/lang/String;IJ[BI)Z
+    .locals 11
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v8
+
+    :try_start_0
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->getLockSettings()Ljava/util/Optional;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/server/-$Lambda$lhXyqUMYqEEsOESeK7W8eqkbJis$10;
+
+    move v2, p2
+
+    move/from16 v3, p6
+
+    move-wide v4, p3
+
+    move-object v6, p1
+
+    move-object/from16 v7, p5
+
+    invoke-direct/range {v1 .. v7}, Lcom/android/server/-$Lambda$lhXyqUMYqEEsOESeK7W8eqkbJis$10;-><init>(IIJLjava/lang/Object;Ljava/lang/Object;)V
+
+    invoke-virtual {v0, v1}, Ljava/util/Optional;->map(Ljava/util/function/Function;)Ljava/util/Optional;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/util/Optional;->orElse(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Boolean;
+
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v0
+
+    invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return v0
+
+    :catchall_0
+    move-exception v0
+
+    invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v0
+.end method
+
 .method private setPasswordInternal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;Ljava/lang/String;)I
-    .locals 10
+    .locals 12
 
     if-nez p1, :cond_0
 
@@ -6196,622 +12638,840 @@
     return v7
 
     :cond_0
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->isAndroidDefaultEngine()Z
-
-    move-result v3
-
     invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
 
-    move-result v2
+    move-result v0
 
-    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isPwdChangeRequested()Z
+    move v6, v0
 
-    move-result v4
+    move v5, v0
 
-    const-string/jumbo v7, "SdpManagerService"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "setPasswordInternal:: isPwdChangeRequested "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-nez v3, :cond_1
-
-    if-eqz v4, :cond_3
-
-    :cond_1
-    if-eqz p2, :cond_2
-
-    invoke-virtual {p2}, Ljava/lang/String;->isEmpty()Z
+    invoke-static {p2}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_1
 
-    :cond_2
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->isMinor()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_5
-
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->isAndroidDefaultEngine()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_4
-
-    const/4 v7, 0x0
+    const/4 v7, -0x1
 
     return v7
 
-    :cond_3
+    :cond_1
     invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getState()I
 
     move-result v7
 
     const/4 v8, 0x2
 
-    if-eq v7, v8, :cond_1
+    if-eq v7, v8, :cond_2
+
+    const/4 v7, -0x6
+
+    return v7
+
+    :cond_2
+    iget-object v7, p0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    invoke-virtual {v7, v0}, Lcom/android/server/SdpManagerService$VirtualLockClient;->isSyntheticPasswordEnabled(I)Z
+
+    move-result v7
+
+    if-nez v7, :cond_3
+
+    const-string/jumbo v7, "SdpManagerService"
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "set password :: Unexpected condition while check sp enabled for user "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v7, -0x6
+
+    return v7
+
+    :cond_3
+    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->getManagedCredential(I)[B
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_4
+
+    const-string/jumbo v7, "SdpManagerService"
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "set password :: Unexpected condition while derive managed creential for user "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     const/4 v7, -0x6
 
     return v7
 
     :cond_4
+    new-instance v4, Ljava/lang/String;
+
+    invoke-direct {v4, v1}, Ljava/lang/String;-><init>([B)V
+
+    iget-object v7, p0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    invoke-virtual {v7, p2, v4, v0}, Lcom/android/server/SdpManagerService$VirtualLockClient;->changePassword(Ljava/lang/String;Ljava/lang/String;I)Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/internal/widget/VerifyCredentialResponse;->isOK()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_5
+
+    const/4 v3, 0x0
+
+    :goto_0
+    if-nez v3, :cond_6
+
     const-string/jumbo v7, "SdpManagerService"
 
-    const-string/jumbo v8, "setPasswordInternal:: removing ECMK_PWD"
-
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v7, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
-
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
-
-    move-result v8
+    const-string/jumbo v8, "set password :: Successfully done for user %d"
 
     const/4 v9, 0x1
 
-    invoke-virtual {v7, v8, v9}, Lcom/sec/knox/container/util/KeyManagementUtil;->removeECMK(II)Z
+    new-array v9, v9, [Ljava/lang/Object;
 
-    move-result v7
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    if-nez v7, :cond_6
+    move-result-object v10
 
-    const-string/jumbo v7, "SdpManagerService"
+    const/4 v11, 0x0
 
-    const-string/jumbo v8, "Couldn\'t remove ECMK!"
+    aput-object v10, v9, v11
 
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v7, -0xe
-
-    return v7
-
-    :cond_5
-    const/4 v7, -0x1
-
-    return v7
-
-    :cond_6
-    const/4 v1, 0x0
-
-    iget-object v7, p0, Lcom/android/server/SdpManagerService;->mCMKMap:Ljava/util/Map;
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v8, v9}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v8
 
-    invoke-interface {v7, v8}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v7
-
-    if-eqz v7, :cond_8
-
-    iget-object v7, p0, Lcom/android/server/SdpManagerService;->mCMKMap:Ljava/util/Map;
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v8
-
-    invoke-interface {v7, v8}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/String;
-
-    :cond_7
-    iget-object v7, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
-
-    const/4 v8, 0x1
-
-    invoke-virtual {v7, v2, v1, p2, v8}, Lcom/sec/knox/container/util/KeyManagementUtil;->storeCMK(ILjava/lang/String;Ljava/lang/String;I)Z
-
-    move-result v7
-
-    if-nez v7, :cond_b
-
-    const-string/jumbo v7, "SdpManagerService"
-
-    const-string/jumbo v8, "setPasswordInternal :: failed to storeCMK"
-
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v7, -0xe
-
-    return v7
-
-    :cond_8
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->isMinor()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_a
-
-    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->getRstTokenFromTima(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Ljava/lang/String;
-
-    move-result-object v5
-
-    if-nez v5, :cond_9
-
-    const/4 v7, -0x2
-
-    return v7
-
-    :cond_9
-    iget-object v7, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
-
-    const/4 v8, 0x2
-
-    const/16 v9, 0x20
-
-    invoke-virtual {v7, v2, v5, v8, v9}, Lcom/sec/knox/container/util/KeyManagementUtil;->retrieveCMK(ILjava/lang/String;II)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {p0, v5}, Lcom/android/server/SdpManagerService;->zeroOut(Ljava/lang/String;)V
-
-    if-nez v1, :cond_7
-
-    const/4 v7, -0x2
-
-    return v7
-
-    :cond_a
-    const/16 v7, -0x63
-
-    return v7
-
-    :cond_b
-    if-eqz v4, :cond_d
-
-    iget-object v7, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
-
-    invoke-virtual {v7, v1}, Lcom/sec/knox/container/util/KeyManagementUtil;->cmkToByte(Ljava/lang/String;)[B
-
-    move-result-object v0
-
-    invoke-direct {p0, v2, v0}, Lcom/android/server/SdpManagerService;->unlockNative(I[B)I
-
-    move-result v6
-
-    if-eqz v6, :cond_c
-
-    const-string/jumbo v7, "SdpManagerService"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "setPasswordInternal::unlockNative :: failed ret "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v7, "SdpManagerService"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "setPasswordInternal::unlockNative :: failed :: "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-direct {p0, v2}, Lcom/android/server/SdpManagerService;->clearCachedMasterKey(I)V
-
-    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->zeroOut([B)V
-
-    const/16 v7, -0xc
-
-    return v7
-
-    :cond_c
-    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->zeroOut([B)V
-
-    iget-object v7, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
-
-    monitor-enter v7
-
-    const/4 v8, 0x2
-
-    :try_start_0
-    invoke-direct {p0, p1, v8}, Lcom/android/server/SdpManagerService;->setEngineStateLocked(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;I)I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit v7
-
-    :goto_0
-    const/4 v7, 0x0
-
-    return v7
-
-    :catchall_0
-    move-exception v8
-
-    monitor-exit v7
-
-    throw v8
-
-    :cond_d
-    invoke-direct {p0, v2, v1}, Lcom/android/server/SdpManagerService;->cacheMasterKey(ILjava/lang/String;)V
-
-    goto :goto_0
-.end method
-
-.method private unlockInternal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;Ljava/lang/String;I)I
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
-
-    invoke-virtual {v0, p3}, Lcom/sec/knox/container/util/KeyManagementUtil;->convType(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {p0, p1, p2, v0}, Lcom/android/server/SdpManagerService;->unlockInternal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method private unlockInternal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;Ljava/lang/String;Ljava/lang/String;)I
-    .locals 12
-
-    const/4 v11, -0x2
-
-    const/16 v10, 0x20
-
-    const/4 v9, 0x0
-
-    const/4 v8, -0x1
-
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
-
-    move-result v2
-
-    const-string/jumbo v5, "SdpManagerService"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v7, "unlock :: Internal... "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->isMdfpp()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_3
-
-    if-eqz p2, :cond_0
-
-    invoke-virtual {p2}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_1
-
-    :cond_0
-    return v8
-
-    :cond_1
-    iget-object v5, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
-
-    invoke-virtual {v5, v2, p2, p3, v10}, Lcom/sec/knox/container/util/KeyManagementUtil;->retrieveCMK(ILjava/lang/String;Ljava/lang/String;I)Ljava/lang/String;
-
-    move-result-object v1
-
-    if-nez v1, :cond_2
-
-    return v8
-
-    :cond_2
-    invoke-direct {p0, v2, v1}, Lcom/android/server/SdpManagerService;->cacheMasterKey(ILjava/lang/String;)V
-
-    :goto_0
-    iget-object v5, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
-
-    invoke-virtual {v5, v1}, Lcom/sec/knox/container/util/KeyManagementUtil;->cmkToByte(Ljava/lang/String;)[B
-
-    move-result-object v0
-
-    invoke-direct {p0, v2, v0}, Lcom/android/server/SdpManagerService;->unlockNative(I[B)I
-
-    move-result v4
-
-    if-eqz v4, :cond_9
-
-    const-string/jumbo v5, "SdpManagerService"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v7, "unlockNative :: failed ret "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v5, "SdpManagerService"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v7, "unlockNative :: failed :: "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/String;->getBytes()[B
 
     move-result-object v7
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {p0, v7, v0}, Lcom/android/server/SdpManagerService;->cacheManagedCredential([BI)V
 
-    move-result-object v6
+    :goto_1
+    invoke-virtual {v2}, Lcom/android/internal/widget/VerifyCredentialResponse;->destroy()V
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const/4 v7, 0x2
 
-    move-result-object v6
+    new-array v7, v7, [Ljava/lang/Object;
 
-    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    const/4 v8, 0x0
 
-    invoke-direct {p0, v2}, Lcom/android/server/SdpManagerService;->clearCachedMasterKey(I)V
+    aput-object v1, v7, v8
 
-    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->zeroOut([B)V
+    const/4 v8, 0x1
 
-    const/16 v5, -0xc
+    aput-object v4, v7, v8
 
-    return v5
+    invoke-static {v7}, Lcom/android/server/SdpManagerService$SecureUtil;->clearAll([Ljava/lang/Object;)V
 
-    :cond_3
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/SdpManagerService;->isSecureUnlockRequired(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;Ljava/lang/String;Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_5
-
-    const-string/jumbo v5, "SdpManagerService"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v7, "unlock :: onDeviceUnLocked from TIMA "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->getRstTokenFromTima(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Ljava/lang/String;
-
-    move-result-object v3
-
-    if-nez v3, :cond_4
-
-    const-string/jumbo v5, "SdpManagerService"
-
-    const-string/jumbo v6, "unlock :: Invalid reset token"
-
-    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v11
-
-    :cond_4
-    iget-object v5, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
-
-    const/4 v6, 0x2
-
-    invoke-virtual {v5, v2, v3, v6, v10}, Lcom/sec/knox/container/util/KeyManagementUtil;->retrieveCMK(ILjava/lang/String;II)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {p0, v3}, Lcom/android/server/SdpManagerService;->zeroOut(Ljava/lang/String;)V
-
-    if-nez v1, :cond_8
-
-    return v11
+    return v3
 
     :cond_5
-    const-string/jumbo v5, "SdpManagerService"
+    const/16 v3, -0x63
 
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v7, "unlock :: onDeviceUnLocked found ECMK "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_6
-
-    return v8
+    goto :goto_0
 
     :cond_6
-    iget-object v5, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
+    const-string/jumbo v7, "SdpManagerService"
 
-    invoke-virtual {v5, v2, p2, p3, v10}, Lcom/sec/knox/container/util/KeyManagementUtil;->retrieveCMK(ILjava/lang/String;Ljava/lang/String;I)Ljava/lang/String;
+    const-string/jumbo v8, "set password :: Failed to set password for user %d... [ rc : %d ]"
 
-    move-result-object v1
+    const/4 v9, 0x2
 
-    if-nez v1, :cond_8
+    new-array v9, v9, [Ljava/lang/Object;
 
-    if-nez v2, :cond_7
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    move-result-object v10
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    const/4 v11, 0x0
 
-    const-string/jumbo v6, "Failed to unlock SDP... "
+    aput-object v10, v9, v11
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v5
+    move-result-object v10
 
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const/4 v11, 0x1
 
-    move-result-object v5
+    aput-object v10, v9, v11
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v8, v9}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v8
 
-    invoke-static {v5}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-direct {p0, v2}, Lcom/android/server/SdpManagerService;->notifyUnlockFailure(I)V
+    goto :goto_1
+.end method
 
-    :cond_7
+.method private setSeparateProfileChallengeEnabled(I)Z
+    .locals 5
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v0
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    const/4 v3, 0x1
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v2, p1, v3, v4}, Lcom/android/internal/widget/LockPatternUtils;->setSeparateProfileChallengeEnabled(IZLjava/lang/String;)V
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    invoke-virtual {v2, p1}, Lcom/android/internal/widget/LockPatternUtils;->isSeparateProfileChallengeEnabled(I)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v2
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return v2
+
+    :catchall_0
+    move-exception v2
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v2
+.end method
+
+.method private unlockFinal([BLcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
+    .locals 2
+
+    invoke-static {p1}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, -0x1
+
+    return v0
+
+    :cond_0
+    invoke-static {p2}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const/4 v0, -0x3
+
+    return v0
+
+    :cond_1
+    invoke-virtual {p2}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+
+    move-result v0
+
+    invoke-static {v0, p1}, Lcom/android/server/SdpManagerService;->nativeOnDeviceUnlocked(I[B)I
+
+    move-result v0
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    const/16 v0, -0xc
+
+    return v0
+
+    :cond_2
+    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    const/4 v1, 0x2
+
+    :try_start_0
+    invoke-direct {p0, p2, v1}, Lcom/android/server/SdpManagerService;->setEngineStateLocked(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;I)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
+
+    const/4 v0, 0x0
+
+    return v0
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
+.end method
+
+.method private unlockInternal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;Ljava/lang/String;)I
+    .locals 17
+
+    invoke-virtual/range {p1 .. p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+
+    move-result v4
+
+    move v11, v4
+
+    move v10, v4
+
+    sget-object v7, Lcom/android/internal/widget/VerifyCredentialResponse;->ERROR:Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    const/4 v3, 0x0
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    invoke-virtual {v12, v4}, Lcom/android/server/SdpManagerService$VirtualLockClient;->isSyntheticPasswordEnabled(I)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_7
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    invoke-virtual {v12, v4}, Lcom/android/server/SdpManagerService$VirtualLockClient;->hasSyntheticPasswordHandle(I)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_7
+
+    const-string/jumbo v12, "SdpManagerService"
+
+    new-instance v13, Ljava/lang/StringBuilder;
+
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v14, "unlock :: Unlock sp-applied user "
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-static {v12, v13}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v4}, Lcom/android/server/SdpManagerService;->maybeLegacyVirtualUser(I)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_2
+
+    const-string/jumbo v12, "SdpManagerService"
+
+    const-string/jumbo v13, "unlock :: User %d compromised!"
+
+    const/4 v14, 0x1
+
+    new-array v14, v14, [Ljava/lang/Object;
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v15
+
+    const/16 v16, 0x0
+
+    aput-object v15, v14, v16
+
+    invoke-static {v13, v14}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-static {v12, v13}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_0
+    invoke-static {v3}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-nez v12, :cond_0
+
+    invoke-virtual {v7}, Lcom/android/internal/widget/VerifyCredentialResponse;->isOK()Z
+
+    move-result v12
+
+    xor-int/lit8 v12, v12, 0x1
+
+    if-eqz v12, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    invoke-virtual {v12, v3, v4}, Lcom/android/server/SdpManagerService$VirtualLockClient;->checkPassword(Ljava/lang/String;I)Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    move-result-object v7
+
+    :cond_0
+    const-string/jumbo v12, "SdpManagerService"
+
+    const-string/jumbo v13, "unlock :: Result of virtual user %d verification : %s"
+
+    const/4 v14, 0x2
+
+    new-array v14, v14, [Ljava/lang/Object;
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v15
+
+    const/16 v16, 0x0
+
+    aput-object v15, v14, v16
+
+    invoke-virtual {v7}, Lcom/android/internal/widget/VerifyCredentialResponse;->toString()Ljava/lang/String;
+
+    move-result-object v15
+
+    const/16 v16, 0x1
+
+    aput-object v15, v14, v16
+
+    invoke-static {v13, v14}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-static {v12, v13}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v8, -0x63
+
+    invoke-virtual {v7}, Lcom/android/internal/widget/VerifyCredentialResponse;->getResponseCode()I
+
+    move-result v12
+
+    packed-switch v12, :pswitch_data_0
+
+    :goto_1
+    if-nez v8, :cond_1
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+
+    monitor-enter v12
+
+    const/4 v13, 0x2
+
+    :try_start_0
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    invoke-direct {v0, v1, v13}, Lcom/android/server/SdpManagerService;->setEngineStateLocked(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;I)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v12
+
+    invoke-virtual/range {p2 .. p2}, Ljava/lang/String;->getBytes()[B
+
+    move-result-object v12
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v12, v4}, Lcom/android/server/SdpManagerService;->cacheManagedCredential([BI)V
+
+    :cond_1
     return v8
 
+    :cond_2
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v4}, Lcom/android/server/SdpManagerService;->hasLegacyCredential(I)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_5
+
+    const/4 v12, 0x1
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    invoke-virtual {v0, v1, v4, v12}, Lcom/android/server/SdpManagerService;->getLegacyMasterKey(Ljava/lang/String;II)[B
+
+    move-result-object v6
+
+    invoke-static {v6}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-nez v12, :cond_4
+
+    new-instance v9, Ljava/lang/String;
+
+    invoke-direct {v9, v6}, Ljava/lang/String;-><init>([B)V
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v12, v0, v9, v4}, Lcom/android/server/SdpManagerService$VirtualLockClient;->changePassword(Ljava/lang/String;Ljava/lang/String;I)Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Lcom/android/internal/widget/VerifyCredentialResponse;->isOK()Z
+
+    move-result v12
+
+    if-eqz v12, :cond_3
+
+    const-string/jumbo v12, "SdpManagerService"
+
+    const-string/jumbo v13, "unlock :: Legacy credential for user %d completely replaced : %s"
+
+    const/4 v14, 0x2
+
+    new-array v14, v14, [Ljava/lang/Object;
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v15
+
+    const/16 v16, 0x0
+
+    aput-object v15, v14, v16
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    invoke-virtual {v15, v4}, Lcom/android/server/SdpManagerService$VirtualLockClient;->removeLegacyPwdWrappedMasterKey(I)Z
+
+    move-result v15
+
+    invoke-static {v15}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v15
+
+    const/16 v16, 0x1
+
+    aput-object v15, v14, v16
+
+    invoke-static {v13, v14}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-static {v12, v13}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_3
+    :goto_2
+    invoke-static {v6}, Lcom/android/server/SdpManagerService$SecureUtil;->clear([B)V
+
+    goto/16 :goto_0
+
+    :cond_4
+    const-string/jumbo v12, "SdpManagerService"
+
+    new-instance v13, Ljava/lang/StringBuilder;
+
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v14, "unlock :: Failed in legacy verification with user "
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-static {v12, v13}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_2
+
+    :cond_5
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v4}, Lcom/android/server/SdpManagerService;->hasLegacyToken(I)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_6
+
+    move-object/from16 v3, p2
+
+    goto/16 :goto_0
+
+    :cond_6
+    move-object/from16 v3, p2
+
+    goto/16 :goto_0
+
+    :cond_7
+    const-string/jumbo v12, "SdpManagerService"
+
+    new-instance v13, Ljava/lang/StringBuilder;
+
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v14, "unlock :: Unlock sp-NOT-applied user "
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-static {v12, v13}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v4}, Lcom/android/server/SdpManagerService;->maybeLegacyVirtualUser(I)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_9
+
+    invoke-virtual/range {p1 .. p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->isMinor()Z
+
+    move-result v12
+
+    if-eqz v12, :cond_8
+
+    const/4 v12, 0x0
+
+    const/4 v13, 0x1
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    move-object/from16 v2, p1
+
+    invoke-direct {v0, v12, v1, v13, v2}, Lcom/android/server/SdpManagerService;->doSyntheticPasswordFullMigration([BLjava/lang/String;ILcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    move-result-object v7
+
+    goto/16 :goto_0
+
     :cond_8
-    invoke-direct {p0, v2, v1}, Lcom/android/server/SdpManagerService;->cacheMasterKey(ILjava/lang/String;)V
+    const/4 v12, 0x0
+
+    const/4 v13, 0x1
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    move-object/from16 v2, p1
+
+    invoke-direct {v0, v12, v1, v13, v2}, Lcom/android/server/SdpManagerService;->doSyntheticPasswordHalfMigration([BLjava/lang/String;ILcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    move-result-object v7
 
     goto/16 :goto_0
 
     :cond_9
-    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->zeroOut([B)V
+    const-string/jumbo v12, "SdpManagerService"
 
-    iget-object v5, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+    const-string/jumbo v13, "unlock :: User %d compromised!"
 
-    monitor-enter v5
+    const/4 v14, 0x1
 
-    const/4 v6, 0x2
+    new-array v14, v14, [Ljava/lang/Object;
 
-    :try_start_0
-    invoke-direct {p0, p1, v6}, Lcom/android/server/SdpManagerService;->setEngineStateLocked(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;I)I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    monitor-exit v5
+    move-result-object v15
 
-    return v9
+    const/16 v16, 0x0
+
+    aput-object v15, v14, v16
+
+    invoke-static {v13, v14}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-static {v12, v13}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_0
+
+    :pswitch_0
+    const/4 v8, -0x1
+
+    goto/16 :goto_1
+
+    :pswitch_1
+    invoke-virtual {v7}, Lcom/android/internal/widget/VerifyCredentialResponse;->getTimeout()I
+
+    move-result v8
+
+    const-string/jumbo v12, "SdpManagerService"
+
+    const-string/jumbo v13, "unlock :: User %d throttled! Please try %d ms later..."
+
+    const/4 v14, 0x2
+
+    new-array v14, v14, [Ljava/lang/Object;
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v15
+
+    const/16 v16, 0x0
+
+    aput-object v15, v14, v16
+
+    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v15
+
+    const/16 v16, 0x1
+
+    aput-object v15, v14, v16
+
+    invoke-static {v13, v14}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-static {v12, v13}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_1
+
+    :pswitch_2
+    const/4 v8, 0x0
+
+    invoke-virtual {v7}, Lcom/android/internal/widget/VerifyCredentialResponse;->getSecret()[B
+
+    move-result-object v5
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v4, v5}, Lcom/android/server/SdpManagerService;->unlockNative(I[B)I
+
+    move-result v12
+
+    invoke-static {v12}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v12
+
+    invoke-static {v12}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_a
+
+    const-string/jumbo v12, "SdpManagerService"
+
+    new-instance v13, Ljava/lang/StringBuilder;
+
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v14, "unlock :: Failed in native unlock with user "
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-static {v12, v13}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_a
+    invoke-static {v5}, Lcom/android/server/SdpManagerService$SecureUtil;->clear([B)V
+
+    goto/16 :goto_1
 
     :catchall_0
-    move-exception v6
+    move-exception v13
 
-    monitor-exit v5
+    monitor-exit v12
 
-    throw v6
+    throw v13
+
+    :pswitch_data_0
+    .packed-switch -0x1
+        :pswitch_0
+        :pswitch_2
+        :pswitch_1
+    .end packed-switch
 .end method
 
 .method private unlockNative(I[B)I
@@ -6869,138 +13529,726 @@
     return v2
 .end method
 
-.method private unlockViaTrustedInternal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;Ljava/lang/String;)I
-    .locals 9
+.method private unlockViaTrustedInternal(Ljava/lang/String;ILcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
+    .locals 28
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
 
-    const/4 v8, 0x2
-
-    const/4 v7, 0x0
-
-    const/4 v6, -0x2
-
-    if-nez p1, :cond_0
+    if-nez p3, :cond_0
 
     const/4 v4, -0x5
 
     return v4
 
     :cond_0
-    if-nez p2, :cond_1
+    invoke-virtual/range {p3 .. p3}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
 
-    return v6
+    move-result v11
 
-    :cond_1
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+    move/from16 v23, v11
 
-    move-result v2
+    move/from16 v22, v11
 
-    const/4 v1, 0x0
+    const/4 v4, 0x1
 
-    iget-object v4, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
+    move-object/from16 v0, p0
 
-    const/16 v5, 0x20
+    move-object/from16 v1, p1
 
-    invoke-virtual {v4, v2, p2, v8, v5}, Lcom/sec/knox/container/util/KeyManagementUtil;->retrieveCMK(ILjava/lang/String;II)Ljava/lang/String;
+    move/from16 v2, p2
 
-    move-result-object v1
+    invoke-direct {v0, v1, v2, v4}, Lcom/android/server/SdpManagerService;->getSpecificKeyViaProtector(Ljava/lang/String;IZ)[B
 
-    if-nez v1, :cond_2
+    move-result-object v5
 
-    return v6
+    invoke-static {v5}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
 
-    :cond_2
-    invoke-direct {p0, v2, v1}, Lcom/android/server/SdpManagerService;->cacheMasterKey(ILjava/lang/String;)V
+    move-result v4
 
-    iget-object v4, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
-
-    invoke-virtual {v4, v1}, Lcom/sec/knox/container/util/KeyManagementUtil;->cmkToByte(Ljava/lang/String;)[B
-
-    move-result-object v0
-
-    invoke-direct {p0, v2, v0}, Lcom/android/server/SdpManagerService;->unlockNative(I[B)I
-
-    move-result v3
-
-    if-eqz v3, :cond_3
+    if-eqz v4, :cond_1
 
     const-string/jumbo v4, "SdpManagerService"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v24, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "unlockNative :: failed ret "
+    const-string/jumbo v25, "unlockViaTrusted :: Failed to get token for user "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v24
 
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v24
 
-    move-result-object v5
+    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v24
 
-    move-result-object v5
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v24
 
-    const-string/jumbo v4, "SdpManagerService"
+    move-object/from16 v0, v24
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    invoke-static {v4, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "unlockNative :: failed :: "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->zeroOut([B)V
-
-    const/16 v4, -0xc
+    const/4 v4, -0x2
 
     return v4
 
-    :cond_3
-    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->zeroOut([B)V
+    :cond_1
+    sget-object v17, Lcom/android/internal/widget/VerifyCredentialResponse;->ERROR:Lcom/android/internal/widget/VerifyCredentialResponse;
 
-    iget-object v4, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+    const/4 v12, 0x0
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    invoke-virtual {v4, v11}, Lcom/android/server/SdpManagerService$VirtualLockClient;->isSyntheticPasswordEnabled(I)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_b
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    invoke-virtual {v4, v11}, Lcom/android/server/SdpManagerService$VirtualLockClient;->hasSyntheticPasswordHandle(I)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_b
+
+    const-string/jumbo v4, "SdpManagerService"
+
+    new-instance v24, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v25, "unlockViaTrusted :: Unlock sp-applied user "
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    invoke-static {v4, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v11}, Lcom/android/server/SdpManagerService;->maybeLegacyVirtualUser(I)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_4
+
+    const-string/jumbo v4, "SdpManagerService"
+
+    const-string/jumbo v24, "unlockViaTrusted :: User %d compromised!"
+
+    const/16 v25, 0x1
+
+    move/from16 v0, v25
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v25, v0
+
+    invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v26
+
+    const/16 v27, 0x0
+
+    aput-object v26, v25, v27
+
+    invoke-static/range {v24 .. v25}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    invoke-static {v4, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    invoke-virtual {v4, v11}, Lcom/android/server/SdpManagerService$VirtualLockClient;->checkUserSecurity(I)V
+
+    :goto_0
+    const/16 v18, -0x63
+
+    if-eqz v12, :cond_3
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v11}, Lcom/android/server/SdpManagerService;->getTokenHandleViaProtector(I)J
+
+    move-result-wide v20
+
+    const-wide/16 v24, 0x0
+
+    cmp-long v4, v20, v24
+
+    if-nez v4, :cond_d
+
+    const-string/jumbo v4, "SdpManagerService"
+
+    new-instance v24, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v25, "unlockViaTrusted :: Failed to get token handle for user"
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    invoke-static {v4, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    sget-object v17, Lcom/android/internal/widget/VerifyCredentialResponse;->ERROR:Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    :goto_1
+    invoke-virtual/range {v17 .. v17}, Lcom/android/internal/widget/VerifyCredentialResponse;->isOK()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_3
+
+    const/16 v18, 0x0
+
+    invoke-virtual/range {v17 .. v17}, Lcom/android/internal/widget/VerifyCredentialResponse;->getSecret()[B
+
+    move-result-object v13
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v11, v13}, Lcom/android/server/SdpManagerService;->unlockNative(I[B)I
+
+    move-result v4
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    const-string/jumbo v4, "SdpManagerService"
+
+    new-instance v24, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v25, "unlockViaTrusted :: Failed in native unlock with user "
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    invoke-static {v4, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_2
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
 
     monitor-enter v4
 
-    const/4 v5, 0x2
+    const/16 v24, 0x2
 
     :try_start_0
-    invoke-direct {p0, p1, v5}, Lcom/android/server/SdpManagerService;->setEngineStateLocked(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;I)I
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p3
+
+    move/from16 v2, v24
+
+    invoke-direct {v0, v1, v2}, Lcom/android/server/SdpManagerService;->setEngineStateLocked(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;I)I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit v4
 
-    return v7
+    invoke-static {v13}, Lcom/android/server/SdpManagerService$SecureUtil;->clear([B)V
+
+    :cond_3
+    const-string/jumbo v4, "SdpManagerService"
+
+    const-string/jumbo v24, "unlockViaTrusted :: Result of virtual user %d verification : %s"
+
+    const/16 v25, 0x2
+
+    move/from16 v0, v25
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v25, v0
+
+    invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v26
+
+    const/16 v27, 0x0
+
+    aput-object v26, v25, v27
+
+    invoke-virtual/range {v17 .. v17}, Lcom/android/internal/widget/VerifyCredentialResponse;->toString()Ljava/lang/String;
+
+    move-result-object v26
+
+    const/16 v27, 0x1
+
+    aput-object v26, v25, v27
+
+    invoke-static/range {v24 .. v25}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    invoke-static {v4, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v18
+
+    :cond_4
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v11}, Lcom/android/server/SdpManagerService;->hasLegacyToken(I)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_9
+
+    new-instance v19, Ljava/lang/String;
+
+    move-object/from16 v0, v19
+
+    invoke-direct {v0, v5}, Ljava/lang/String;-><init>([B)V
+
+    const/4 v8, 0x0
+
+    const/4 v14, 0x0
+
+    const/4 v15, 0x0
+
+    const/16 v16, 0x0
+
+    const/4 v4, 0x2
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1, v11, v4}, Lcom/android/server/SdpManagerService;->getLegacyMasterKey(Ljava/lang/String;II)[B
+
+    move-result-object v8
+
+    invoke-static {v8}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_5
+
+    const-string/jumbo v4, "SdpManagerService"
+
+    new-instance v24, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v25, "unlockViaTrusted :: Failed in legacy token verification with user "
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    invoke-static {v4, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_2
+    const-string/jumbo v4, "SdpManagerService"
+
+    const-string/jumbo v24, "unlockViaTrusted :: Result of user %d token recovery : %s"
+
+    const/16 v25, 0x2
+
+    move/from16 v0, v25
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v25, v0
+
+    invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v26
+
+    const/16 v27, 0x0
+
+    aput-object v26, v25, v27
+
+    invoke-static/range {v16 .. v16}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v26
+
+    const/16 v27, 0x1
+
+    aput-object v26, v25, v27
+
+    invoke-static/range {v24 .. v25}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    invoke-static {v4, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    move/from16 v12, v16
+
+    goto/16 :goto_0
+
+    :cond_5
+    move-object v14, v5
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    invoke-virtual {v4, v5, v11}, Lcom/android/server/SdpManagerService$VirtualLockClient;->setResetPasswordToken([BI)J
+
+    move-result-wide v6
+
+    const-wide/16 v24, 0x0
+
+    cmp-long v4, v6, v24
+
+    if-nez v4, :cond_6
+
+    const-string/jumbo v4, "SdpManagerService"
+
+    new-instance v24, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v25, "unlockViaTrusted :: Failed to set reset token for user "
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    invoke-static {v4, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    invoke-virtual {v4, v6, v7, v11}, Lcom/android/server/SdpManagerService$VirtualLockClient;->removeResetPasswordToken(JI)Z
+
+    goto :goto_2
+
+    :cond_6
+    move-object v15, v8
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v11}, Lcom/android/server/SdpManagerService;->getTokenHandleViaProtector(I)J
+
+    move-result-wide v9
+
+    const-wide/16 v24, 0x0
+
+    cmp-long v4, v9, v24
+
+    if-nez v4, :cond_7
+
+    const-string/jumbo v4, "SdpManagerService"
+
+    new-instance v24, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v25, "unlockViaTrusted :: Failed to get old token handle for user "
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    invoke-static {v4, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_2
+
+    :cond_7
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    invoke-virtual/range {v4 .. v11}, Lcom/android/server/SdpManagerService$VirtualLockClient;->changeToken([BJ[BJI)Z
+
+    move-result v16
+
+    invoke-static/range {v16 .. v16}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_8
+
+    const-string/jumbo v4, "SdpManagerService"
+
+    new-instance v24, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v25, "unlockViaTrusted :: Failed to change token for user "
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    invoke-static {v4, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_2
+
+    :cond_8
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    invoke-virtual {v4, v11}, Lcom/android/server/SdpManagerService$VirtualLockClient;->removeLegacyTokenWrappedMasterKey(I)Z
+
+    move-result v4
+
+    invoke-static {v4}, Lcom/android/server/SdpManagerService$SecureUtil;->record(Z)Z
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v6, v7, v11}, Lcom/android/server/SdpManagerService;->saveTokenHandleViaProtector(JI)Z
+
+    goto/16 :goto_2
+
+    :cond_9
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v11}, Lcom/android/server/SdpManagerService;->hasLegacyCredential(I)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_a
+
+    const/4 v12, 0x1
+
+    goto/16 :goto_0
+
+    :cond_a
+    const/4 v12, 0x1
+
+    goto/16 :goto_0
+
+    :cond_b
+    const-string/jumbo v4, "SdpManagerService"
+
+    new-instance v24, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v25, "unlockViaTrusted :: Unlock sp-NOT-applied user "
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    invoke-static {v4, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v11}, Lcom/android/server/SdpManagerService;->maybeLegacyVirtualUser(I)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_c
+
+    const/4 v4, 0x0
+
+    const/16 v24, 0x2
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v24
+
+    move-object/from16 v2, p3
+
+    invoke-direct {v0, v5, v4, v1, v2}, Lcom/android/server/SdpManagerService;->doSyntheticPasswordHalfMigration([BLjava/lang/String;ILcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    move-result-object v17
+
+    invoke-virtual/range {v17 .. v17}, Lcom/android/internal/widget/VerifyCredentialResponse;->isOK()Z
+
+    move-result v12
+
+    goto/16 :goto_0
+
+    :cond_c
+    const-string/jumbo v4, "SdpManagerService"
+
+    const-string/jumbo v24, "unlockViaTrusted :: User %d compromised!"
+
+    const/16 v25, 0x1
+
+    move/from16 v0, v25
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v25, v0
+
+    invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v26
+
+    const/16 v27, 0x0
+
+    aput-object v26, v25, v27
+
+    invoke-static/range {v24 .. v25}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    invoke-static {v4, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    invoke-virtual {v4, v11}, Lcom/android/server/SdpManagerService$VirtualLockClient;->checkUserSecurity(I)V
+
+    goto/16 :goto_0
+
+    :cond_d
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/SdpManagerService;->mVirtualLock:Lcom/android/server/SdpManagerService$VirtualLockClient;
+
+    move-wide/from16 v0, v20
+
+    invoke-virtual {v4, v5, v0, v1, v11}, Lcom/android/server/SdpManagerService$VirtualLockClient;->verifyToken([BJI)Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    move-result-object v17
+
+    goto/16 :goto_1
 
     :catchall_0
-    move-exception v5
+    move-exception v24
 
     monitor-exit v4
 
-    throw v5
+    throw v24
 .end method
 
 .method private unregisterListenerInternal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;Landroid/os/ISdpListener;)I
@@ -7121,6 +14369,88 @@
     return v6
 .end method
 
+.method private updateDeviceOwnerStatus()V
+    .locals 6
+
+    const/4 v5, 0x0
+
+    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    invoke-virtual {v1, v5}, Lcom/android/internal/widget/LockPatternUtils;->isDeviceOwner(I)Z
+
+    move-result v0
+
+    invoke-static {v0}, Lcom/android/server/SdpManagerService$KnoxUtil;->updateDeviceOwnerStatus(Z)V
+
+    const-string/jumbo v1, "SdpManagerService"
+
+    const-string/jumbo v2, "Device owner status updated! [ Enabled : %b ]"
+
+    const/4 v3, 0x1
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    invoke-static {}, Lcom/android/server/SdpManagerService$KnoxUtil;->isDoEnabled()Z
+
+    move-result v4
+
+    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v4
+
+    aput-object v4, v3, v5
+
+    invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+.end method
+
+.method private verifyToken([BJI)Lcom/android/internal/widget/VerifyCredentialResponse;
+    .locals 6
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v0
+
+    :try_start_0
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->getLockSettings()Ljava/util/Optional;
+
+    move-result-object v3
+
+    new-instance v4, Lcom/android/server/-$Lambda$lhXyqUMYqEEsOESeK7W8eqkbJis$7;
+
+    invoke-direct {v4, p4, p2, p3, p1}, Lcom/android/server/-$Lambda$lhXyqUMYqEEsOESeK7W8eqkbJis$7;-><init>(IJLjava/lang/Object;)V
+
+    invoke-virtual {v3, v4}, Ljava/util/Optional;->map(Ljava/util/function/Function;)Ljava/util/Optional;
+
+    move-result-object v3
+
+    sget-object v4, Lcom/android/internal/widget/VerifyCredentialResponse;->ERROR:Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    invoke-virtual {v3, v4}, Ljava/util/Optional;->orElse(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/internal/widget/VerifyCredentialResponse;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return-object v2
+
+    :catchall_0
+    move-exception v3
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v3
+.end method
+
 .method private zeroOut(Ljava/lang/String;)V
     .locals 0
 
@@ -7156,534 +14486,24 @@
 
 # virtual methods
 .method public addEngine(Lcom/samsung/android/knox/sdp/core/SdpCreationParam;Ljava/lang/String;Ljava/lang/String;)I
-    .locals 22
+    .locals 15
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
 
-    move-result v7
+    move-result v4
 
-    invoke-static {v7}, Landroid/os/UserHandle;->getUserId(I)I
+    if-nez v4, :cond_0
 
-    move-result v6
+    const/16 v4, -0x9
 
-    invoke-direct/range {p0 .. p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
-
-    move-result v7
-
-    if-nez v7, :cond_0
-
-    const-string/jumbo v7, "SdpManagerService"
-
-    const-string/jumbo v8, "SDP not supported"
-
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v7, -0x9
-
-    return v7
+    return v4
 
     :cond_0
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v13
-
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
-
-    move-result v14
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v15
-
-    invoke-static {}, Landroid/os/Process;->myUid()I
-
-    move-result v16
-
-    const-string/jumbo v7, "SdpManagerService"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "calling pid:"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v7, "SdpManagerService"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "calling uid:"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v7, "SdpManagerService"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "my pid:"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v7, "SdpManagerService"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "my uid:"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    move/from16 v0, v16
-
-    invoke-virtual {v8, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-nez p1, :cond_1
-
-    const-string/jumbo v7, "SdpManagerService"
-
-    const-string/jumbo v8, "addEngine :: invalid arg"
-
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v7, -0x3
-
-    return v7
-
-    :cond_1
-    const-string/jumbo v7, "SdpManagerService"
-
-    invoke-virtual/range {p1 .. p1}, Lcom/samsung/android/knox/sdp/core/SdpCreationParam;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual/range {p1 .. p1}, Lcom/samsung/android/knox/sdp/core/SdpCreationParam;->getAlias()Ljava/lang/String;
-
-    move-result-object v7
-
-    if-eqz v7, :cond_2
-
-    invoke-virtual/range {p1 .. p1}, Lcom/samsung/android/knox/sdp/core/SdpCreationParam;->getAlias()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_3
-
-    :cond_2
-    invoke-static {v6}, Lcom/samsung/android/knox/sdp/SdpUtil;->getAndroidDefaultAlias(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    :goto_0
-    invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_4
-
-    const/4 v7, -0x3
-
-    return v7
-
-    :cond_3
-    invoke-virtual/range {p1 .. p1}, Lcom/samsung/android/knox/sdp/core/SdpCreationParam;->getAlias()Ljava/lang/String;
-
-    move-result-object v4
-
-    goto :goto_0
-
-    :cond_4
-    const-string/jumbo v17, ""
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v4}, Lcom/android/server/SdpManagerService;->assignEngineId(Ljava/lang/String;)I
-
-    move-result v5
-
-    sget-object v7, Lcom/android/server/SdpManagerService;->sContext:Landroid/content/Context;
-
-    invoke-virtual {v7}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v14}, Landroid/content/pm/PackageManager;->getPackagesForUid(I)[Ljava/lang/String;
-
-    move-result-object v19
-
-    if-eqz v19, :cond_5
-
-    const/4 v7, 0x0
-
-    move-object/from16 v0, v19
-
-    array-length v8, v0
-
-    :goto_1
-    if-ge v7, v8, :cond_5
-
-    aget-object v18, v19, v7
-
-    const-string/jumbo v9, "SdpManagerService"
-
-    new-instance v10, Ljava/lang/StringBuilder;
-
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v11, "addEngine :: calling getPackagesForUid  "
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v10, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-static {v9, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v17, v18
-
-    add-int/lit8 v7, v7, 0x1
-
-    goto :goto_1
-
-    :cond_5
-    const-string/jumbo v7, "SdpManagerService"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "adding engine :: "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string/jumbo v9, " id "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
-
-    move-object/from16 v21, v0
-
-    monitor-enter v21
-
-    :try_start_0
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v5}, Lcom/android/server/SdpManagerService;->getEngineInfoLocked(I)Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
-
-    move-result-object v7
-
-    if-eqz v7, :cond_6
-
-    const-string/jumbo v7, "SdpManagerService"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "addEngine :: failed.. engine["
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string/jumbo v9, "] already exists"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    const/4 v7, -0x4
-
-    monitor-exit v21
-
-    return v7
-
-    :cond_6
-    :try_start_1
-    new-instance v3, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
-
-    invoke-virtual/range {p1 .. p1}, Lcom/samsung/android/knox/sdp/core/SdpCreationParam;->getFlags()I
-
-    move-result v8
-
-    const/4 v7, 0x1
-
-    const/4 v9, 0x6
-
-    const/4 v10, 0x0
-
-    invoke-direct/range {v3 .. v10}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;-><init>(Ljava/lang/String;IIIIIZ)V
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v3, v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->setPackageName(Ljava/lang/String;)V
-
-    invoke-virtual {v3}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->isAndroidDefaultEngine()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_7
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v3}, Lcom/android/server/SdpManagerService;->isSystemComponent(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Z
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    move-result v7
-
-    if-nez v7, :cond_8
-
-    const/4 v7, -0x7
-
-    monitor-exit v21
-
-    return v7
-
-    :cond_7
-    :try_start_2
-    invoke-direct/range {p0 .. p0}, Lcom/android/server/SdpManagerService;->isLicensed()Z
-
-    move-result v7
-
-    if-nez v7, :cond_8
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v3}, Lcom/android/server/SdpManagerService;->isSystemComponent(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_a
-
-    :cond_8
-    invoke-virtual {v3}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->isMdfpp()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_9
-
-    invoke-virtual {v3}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->isAndroidDefaultEngine()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_b
-
-    :cond_9
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, p2
-
-    move-object/from16 v2, p3
-
-    invoke-direct {v0, v3, v1, v2}, Lcom/android/server/SdpManagerService;->createKeys(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;Ljava/lang/String;Ljava/lang/String;)[B
-
-    move-result-object v12
-
-    if-nez v12, :cond_f
-
-    const-string/jumbo v7, "SdpManagerService"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "failed to create keys for "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v3}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    const/16 v7, -0xc
-
-    monitor-exit v21
-
-    return v7
-
-    :cond_a
-    :try_start_3
-    const-string/jumbo v7, "SdpManagerService"
-
-    const-string/jumbo v8, "Permission denied to invoke engine control API"
-
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    const/4 v7, -0x7
-
-    monitor-exit v21
-
-    return v7
-
-    :cond_b
-    if-eqz p2, :cond_c
-
-    :try_start_4
-    invoke-virtual/range {p2 .. p2}, Ljava/lang/String;->isEmpty()Z
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
-
-    move-result v7
-
-    if-eqz v7, :cond_d
-
-    :cond_c
-    const/4 v7, -0x1
-
-    monitor-exit v21
-
-    return v7
-
-    :cond_d
-    if-eqz p3, :cond_e
-
-    :try_start_5
-    invoke-virtual/range {p3 .. p3}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v7
-
-    if-nez v7, :cond_e
-
-    invoke-virtual/range {p3 .. p3}, Ljava/lang/String;->length()I
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
-
-    move-result v7
-
-    const/16 v8, 0x20
-
-    if-ge v7, v8, :cond_9
-
-    :cond_e
-    const/4 v7, -0x2
-
-    monitor-exit v21
-
-    return v7
-
-    :cond_f
-    :try_start_6
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
     move-result v9
@@ -7692,39 +14512,307 @@
 
     move-result v10
 
-    move-object/from16 v7, p0
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-object v8, v3
+    move-result v4
 
-    move-object/from16 v11, p1
+    invoke-static {v4}, Landroid/os/UserHandle;->getUserId(I)I
 
-    invoke-direct/range {v7 .. v12}, Lcom/android/server/SdpManagerService;->addEngineInternalLocked(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;IILcom/samsung/android/knox/sdp/core/SdpCreationParam;[B)I
+    move-result v3
 
-    move-result v20
+    const-string/jumbo v4, "SdpManagerService"
 
-    move-object/from16 v0, p0
+    const-string/jumbo v6, "add engine :: calling by the process %d %d"
 
-    invoke-direct {v0, v12}, Lcom/android/server/SdpManagerService;->zeroOut([B)V
+    const/4 v7, 0x2
 
-    if-eqz v20, :cond_10
+    new-array v7, v7, [Ljava/lang/Object;
 
-    move-object/from16 v0, p0
+    invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-virtual {v0, v3}, Lcom/android/server/SdpManagerService;->removeKeys(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)V
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_0
+    move-result-object v8
 
-    :cond_10
-    monitor-exit v21
+    const/4 v11, 0x0
 
-    return v20
+    aput-object v8, v7, v11
+
+    invoke-static {v10}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v8
+
+    const/4 v11, 0x1
+
+    aput-object v8, v7, v11
+
+    invoke-static {v6, v7}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v4, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-eqz p1, :cond_1
+
+    invoke-virtual/range {p1 .. p1}, Lcom/samsung/android/knox/sdp/core/SdpCreationParam;->getAlias()Ljava/lang/String;
+
+    move-result-object v4
+
+    if-nez v4, :cond_2
+
+    :cond_1
+    const-string/jumbo v4, "SdpManagerService"
+
+    const-string/jumbo v6, "add engine :: failed to create engine due to invalid parameters"
+
+    invoke-static {v4, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v4, -0x3
+
+    return v4
+
+    :cond_2
+    invoke-virtual/range {p1 .. p1}, Lcom/samsung/android/knox/sdp/core/SdpCreationParam;->getAlias()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v4
+
+    if-nez v4, :cond_1
+
+    invoke-virtual/range {p1 .. p1}, Lcom/samsung/android/knox/sdp/core/SdpCreationParam;->getPrivilegedApps()Ljava/util/ArrayList;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_1
+
+    const-string/jumbo v4, "SdpManagerService"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "add engine :: "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual/range {p1 .. p1}, Lcom/samsung/android/knox/sdp/core/SdpCreationParam;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v4, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual/range {p1 .. p1}, Lcom/samsung/android/knox/sdp/core/SdpCreationParam;->getAlias()Ljava/lang/String;
+
+    move-result-object v1
+
+    iget-object v4, p0, Lcom/android/server/SdpManagerService;->mContext:Landroid/content/Context;
+
+    invoke-direct {p0, v4, v10}, Lcom/android/server/SdpManagerService;->getPackageName(Landroid/content/Context;I)Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-direct {p0, v1}, Lcom/android/server/SdpManagerService;->assignEngineId(Ljava/lang/String;)I
+
+    move-result v2
+
+    invoke-virtual/range {p1 .. p1}, Lcom/samsung/android/knox/sdp/core/SdpCreationParam;->getFlags()I
+
+    move-result v5
+
+    const-string/jumbo v4, "SdpManagerService"
+
+    const-string/jumbo v6, "add engine :: alias : %s, id : %d"
+
+    const/4 v7, 0x2
+
+    new-array v7, v7, [Ljava/lang/Object;
+
+    const/4 v8, 0x0
+
+    aput-object v1, v7, v8
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v8
+
+    const/4 v11, 0x1
+
+    aput-object v8, v7, v11
+
+    invoke-static {v6, v7}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v14, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+
+    monitor-enter v14
+
+    :try_start_0
+    new-instance v0, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
+
+    const/4 v4, 0x1
+
+    const/4 v6, 0x6
+
+    const/4 v7, 0x0
+
+    invoke-direct/range {v0 .. v7}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;-><init>(Ljava/lang/String;IIIIIZ)V
+
+    invoke-virtual {v0, v13}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->setPackageName(Ljava/lang/String;)V
+
+    invoke-virtual {v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->isAndroidDefaultEngine()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_3
+
+    const-string/jumbo v4, "SdpManagerService"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "add engine :: not supported anymore to "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v4, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    const/4 v4, -0x3
+
+    monitor-exit v14
+
+    return v4
+
+    :cond_3
+    :try_start_1
+    invoke-static/range {p2 .. p2}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    move-result v4
+
+    if-eqz v4, :cond_4
+
+    const/4 v4, -0x1
+
+    monitor-exit v14
+
+    return v4
+
+    :cond_4
+    :try_start_2
+    invoke-virtual {v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->isMdfpp()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_6
+
+    invoke-static/range {p3 .. p3}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_5
+
+    invoke-virtual/range {p3 .. p3}, Ljava/lang/String;->length()I
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    move-result v4
+
+    const/16 v6, 0x20
+
+    if-ge v4, v6, :cond_6
+
+    :cond_5
+    const/4 v4, -0x2
+
+    monitor-exit v14
+
+    return v4
+
+    :cond_6
+    :try_start_3
+    invoke-direct {p0, v1}, Lcom/android/server/SdpManagerService;->getEngineInfoLocked(Ljava/lang/String;)Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
+
+    move-result-object v4
+
+    if-nez v4, :cond_7
+
+    invoke-direct {p0, v2}, Lcom/android/server/SdpManagerService;->getEngineInfoLocked(I)Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_8
+
+    :cond_7
+    const-string/jumbo v4, "SdpManagerService"
+
+    const-string/jumbo v6, "add engine :: failed to create engine due to pre-existing engine"
+
+    invoke-static {v4, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    const/4 v4, -0x4
+
+    monitor-exit v14
+
+    return v4
+
+    :cond_8
+    move-object v6, p0
+
+    move-object/from16 v7, p1
+
+    move-object v8, v0
+
+    move-object/from16 v11, p2
+
+    move-object/from16 v12, p3
+
+    :try_start_4
+    invoke-direct/range {v6 .. v12}, Lcom/android/server/SdpManagerService;->addEngineInternalLocked(Lcom/samsung/android/knox/sdp/core/SdpCreationParam;Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;IILjava/lang/String;Ljava/lang/String;)I
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+
+    move-result v4
+
+    monitor-exit v14
+
+    return v4
 
     :catchall_0
-    move-exception v7
+    move-exception v4
 
-    monitor-exit v21
+    monitor-exit v14
 
-    throw v7
+    throw v4
 .end method
 
 .method public addEngineNative(II[B)Z
@@ -7737,12 +14825,6 @@
     move-result v0
 
     if-nez v0, :cond_0
-
-    const-string/jumbo v0, "SdpManagerService"
-
-    const-string/jumbo v1, "SDP not supported"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return v3
 
@@ -7993,7 +15075,7 @@
 
     iget-object v0, p0, Lcom/android/server/SdpManagerService;->mServiceKeeper:Lcom/android/server/SdpServiceKeeper;
 
-    sget-object v1, Lcom/android/server/SdpManagerService;->sContext:Landroid/content/Context;
+    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mContext:Landroid/content/Context;
 
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
@@ -8011,30 +15093,168 @@
 .end method
 
 .method public boot(I)I
-    .locals 2
+    .locals 4
 
     invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
-    const-string/jumbo v0, "SdpManagerService"
+    const/16 v1, -0x9
 
-    const-string/jumbo v1, "SDP not supported"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v0, -0x9
-
-    return v0
+    return v1
 
     :cond_0
-    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->bootInternal(I)I
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->getEngineInfoLocked(I)Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
 
-    move-result v0
+    move-result-object v0
 
-    return v0
+    if-nez v0, :cond_2
+
+    const-string/jumbo v1, "SdpManagerService"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "boot - Engine info not found in map with id "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+
+    monitor-enter v2
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
+
+    invoke-static {v1, p1}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap1(Lcom/android/server/SdpManagerService$SdpEngineDatabase;I)Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mSdpEngineMap:Landroid/util/SparseArray;
+
+    invoke-virtual {v1, p1, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
+
+    invoke-static {v1, v0}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap2(Lcom/android/server/SdpManagerService$SdpEngineDatabase;Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
+
+    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
+
+    invoke-static {v1}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap3(Lcom/android/server/SdpManagerService$SdpEngineDatabase;)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_1
+    monitor-exit v2
+
+    :cond_2
+    if-nez v0, :cond_3
+
+    const-string/jumbo v1, "SdpManagerService"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "boot - Failed to find engine info with id "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v1, -0x63
+
+    return v1
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+
+    throw v1
+
+    :cond_3
+    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->bootInternal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
+
+    move-result v1
+
+    return v1
+.end method
+
+.method public cancelLegacyResetTimeout(I)V
+    .locals 3
+
+    const/16 v2, 0xc
+
+    iget-boolean v1, p0, Lcom/android/server/SdpManagerService;->mIsHandlerReady:Z
+
+    if-eqz v1, :cond_0
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mSdpHandler:Lcom/android/server/SdpManagerService$SdpHandler;
+
+    invoke-virtual {v1, v2, v0}, Lcom/android/server/SdpManagerService$SdpHandler;->hasMessages(ILjava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mSdpHandler:Lcom/android/server/SdpManagerService$SdpHandler;
+
+    invoke-virtual {v1, v2, v0}, Lcom/android/server/SdpManagerService$SdpHandler;->removeMessages(ILjava/lang/Object;)V
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Legacy reset timout canceled for user "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    :cond_0
+    return-void
 .end method
 
 .method public changeCMKNative(I[B[B)I
@@ -8050,12 +15270,6 @@
 
     if-nez v0, :cond_0
 
-    const-string/jumbo v0, "SdpManagerService"
-
-    const-string/jumbo v1, "SDP not supported"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
     const/16 v0, -0x9
 
     return v0
@@ -8063,7 +15277,7 @@
     :cond_0
     const-string/jumbo v0, "changeCMKNative"
 
-    invoke-static {v0}, Lcom/android/server/SdpManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
+    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
 
     if-nez p2, :cond_1
 
@@ -8125,71 +15339,50 @@
 
     const/4 v8, 0x0
 
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->checkSystemPermission()Z
 
-    move-result v1
-
-    const/16 v2, 0x3e8
-
-    if-eq v1, v2, :cond_0
-
-    const-string/jumbo v1, "SdpManagerService"
-
-    const-string/jumbo v2, "Permission denied"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v8
-
-    :cond_0
     invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
 
     move-result v1
 
-    if-nez v1, :cond_1
-
-    const-string/jumbo v1, "SdpManagerService"
-
-    const-string/jumbo v2, "SDP not supported"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    if-nez v1, :cond_0
 
     return v8
 
-    :cond_1
+    :cond_0
     new-array v4, v5, [Ljava/lang/String;
 
     const-string/jumbo v1, "cache"
 
     aput-object v1, v4, v8
 
-    sget-object v1, Lcom/android/server/SdpManagerService;->sContext:Landroid/content/Context;
+    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mContext:Landroid/content/Context;
 
-    invoke-static {v1}, Lcom/sec/knox/container/util/EnterprisePartitionManager;->getInstance(Landroid/content/Context;)Lcom/sec/knox/container/util/EnterprisePartitionManager;
+    invoke-static {v1}, Lcom/android/server/EnterprisePartitionManager;->getInstance(Landroid/content/Context;)Lcom/android/server/EnterprisePartitionManager;
 
     move-result-object v0
 
-    sget v3, Lcom/sec/knox/container/util/EnterprisePartitionManager;->PARTITON_TYPE_SECURE_FS_DATA:I
+    sget v3, Lcom/android/server/EnterprisePartitionManager;->PARTITON_TYPE_SECURE_FS_DATA:I
 
     move v1, p1
 
     move-object v2, p2
 
-    invoke-virtual/range {v0 .. v5}, Lcom/sec/knox/container/util/EnterprisePartitionManager;->clearPkgDataDirs(ILjava/lang/String;I[Ljava/lang/String;I)Z
+    invoke-virtual/range {v0 .. v5}, Lcom/android/server/EnterprisePartitionManager;->clearPkgDataDirs(ILjava/lang/String;I[Ljava/lang/String;I)Z
 
     move-result v6
 
-    sget v3, Lcom/sec/knox/container/util/EnterprisePartitionManager;->PARTITON_TYPE_SECURE_FS_SDCARD:I
+    sget v3, Lcom/android/server/EnterprisePartitionManager;->PARTITON_TYPE_SECURE_FS_SDCARD:I
 
     move v1, p1
 
     move-object v2, p2
 
-    invoke-virtual/range {v0 .. v5}, Lcom/sec/knox/container/util/EnterprisePartitionManager;->clearPkgDataDirs(ILjava/lang/String;I[Ljava/lang/String;I)Z
+    invoke-virtual/range {v0 .. v5}, Lcom/android/server/EnterprisePartitionManager;->clearPkgDataDirs(ILjava/lang/String;I[Ljava/lang/String;I)Z
 
     move-result v7
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_1
 
     const-string/jumbo v1, "SdpManagerService"
 
@@ -8199,8 +15392,8 @@
 
     return v8
 
-    :cond_2
-    if-nez v7, :cond_3
+    :cond_1
+    if-nez v7, :cond_2
 
     const-string/jumbo v1, "SdpManagerService"
 
@@ -8210,7 +15403,7 @@
 
     return v8
 
-    :cond_3
+    :cond_2
     return v5
 .end method
 
@@ -8221,71 +15414,50 @@
 
     const/4 v5, 0x0
 
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->checkSystemPermission()Z
 
-    move-result v1
-
-    const/16 v2, 0x3e8
-
-    if-eq v1, v2, :cond_0
-
-    const-string/jumbo v1, "SdpManagerService"
-
-    const-string/jumbo v2, "Permission denied"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v5
-
-    :cond_0
     invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
 
     move-result v1
 
-    if-nez v1, :cond_1
-
-    const-string/jumbo v1, "SdpManagerService"
-
-    const-string/jumbo v2, "SDP not supported"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    if-nez v1, :cond_0
 
     return v5
 
-    :cond_1
+    :cond_0
     new-array v4, v8, [Ljava/lang/String;
 
     const-string/jumbo v1, "/"
 
     aput-object v1, v4, v5
 
-    sget-object v1, Lcom/android/server/SdpManagerService;->sContext:Landroid/content/Context;
+    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mContext:Landroid/content/Context;
 
-    invoke-static {v1}, Lcom/sec/knox/container/util/EnterprisePartitionManager;->getInstance(Landroid/content/Context;)Lcom/sec/knox/container/util/EnterprisePartitionManager;
+    invoke-static {v1}, Lcom/android/server/EnterprisePartitionManager;->getInstance(Landroid/content/Context;)Lcom/android/server/EnterprisePartitionManager;
 
     move-result-object v0
 
-    sget v3, Lcom/sec/knox/container/util/EnterprisePartitionManager;->PARTITON_TYPE_SECURE_FS_DATA:I
+    sget v3, Lcom/android/server/EnterprisePartitionManager;->PARTITON_TYPE_SECURE_FS_DATA:I
 
     move v1, p1
 
     move-object v2, p2
 
-    invoke-virtual/range {v0 .. v5}, Lcom/sec/knox/container/util/EnterprisePartitionManager;->clearPkgDataDirs(ILjava/lang/String;I[Ljava/lang/String;I)Z
+    invoke-virtual/range {v0 .. v5}, Lcom/android/server/EnterprisePartitionManager;->clearPkgDataDirs(ILjava/lang/String;I[Ljava/lang/String;I)Z
 
     move-result v6
 
-    sget v3, Lcom/sec/knox/container/util/EnterprisePartitionManager;->PARTITON_TYPE_SECURE_FS_SDCARD:I
+    sget v3, Lcom/android/server/EnterprisePartitionManager;->PARTITON_TYPE_SECURE_FS_SDCARD:I
 
     move v1, p1
 
     move-object v2, p2
 
-    invoke-virtual/range {v0 .. v5}, Lcom/sec/knox/container/util/EnterprisePartitionManager;->clearPkgDataDirs(ILjava/lang/String;I[Ljava/lang/String;I)Z
+    invoke-virtual/range {v0 .. v5}, Lcom/android/server/EnterprisePartitionManager;->clearPkgDataDirs(ILjava/lang/String;I[Ljava/lang/String;I)Z
 
     move-result v7
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_1
 
     const-string/jumbo v1, "SdpManagerService"
 
@@ -8295,8 +15467,8 @@
 
     return v5
 
-    :cond_2
-    if-nez v7, :cond_3
+    :cond_1
+    if-nez v7, :cond_2
 
     const-string/jumbo v1, "SdpManagerService"
 
@@ -8306,8 +15478,71 @@
 
     return v5
 
-    :cond_3
+    :cond_2
     return v8
+.end method
+
+.method public clearLegacyResetStatus(I)V
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "Clear legacy reset status for user "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->getUserManagerInternal()Ljava/util/Optional;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/server/-$Lambda$lhXyqUMYqEEsOESeK7W8eqkbJis$4;
+
+    invoke-direct {v1, p1}, Lcom/android/server/-$Lambda$lhXyqUMYqEEsOESeK7W8eqkbJis$4;-><init>(I)V
+
+    invoke-virtual {v0, v1}, Ljava/util/Optional;->map(Ljava/util/function/Function;)Ljava/util/Optional;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/util/Optional;->orElse(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Boolean;
+
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-string/jumbo v0, "Unexpected failure while clear volatiles"
+
+    invoke-static {v0}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    :cond_0
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->clearManagedToken(I)V
+
+    return-void
 .end method
 
 .method public createEncPkgDir(ILjava/lang/String;)I
@@ -8315,37 +15550,42 @@
 
     invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_0
+    if-nez v2, :cond_0
 
-    const-string/jumbo v1, "SdpManagerService"
+    const/16 v2, -0x9
 
-    const-string/jumbo v2, "SDP not supported"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v1, -0x9
-
-    return v1
+    return v2
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mSecureFileSystemManager:Lcom/android/server/SdpManagerService$SecureFileSystemManager;
+    const/4 v1, 0x0
 
-    invoke-static {v1, p1, p2}, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->-wrap0(Lcom/android/server/SdpManagerService$SecureFileSystemManager;ILjava/lang/String;)Z
+    const-string/jumbo v2, "package"
 
-    move-result v0
+    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/pm/PackageManagerService;
 
     if-eqz v0, :cond_1
 
-    const/4 v1, 0x0
+    invoke-virtual {v0, p2, p1}, Lcom/android/server/pm/PackageManagerService;->createEncAppData(Ljava/lang/String;I)Z
 
-    return v1
+    move-result v1
 
     :cond_1
-    const/16 v1, -0xc
+    if-eqz v1, :cond_2
 
-    return v1
+    const/4 v2, 0x0
+
+    return v2
+
+    :cond_2
+    const/16 v2, -0xc
+
+    return v2
 .end method
 
 .method public deleteToeknFromTrusted(Ljava/lang/String;)I
@@ -8358,7 +15598,7 @@
 
     const-string/jumbo v3, "deleteToeknFromTrusted"
 
-    invoke-static {v3}, Lcom/android/server/SdpManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
+    invoke-direct {p0, v3}, Lcom/android/server/SdpManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
 
     const/16 v1, -0x63
 
@@ -8451,7 +15691,7 @@
 
     iget-object v0, p0, Lcom/android/server/SdpManagerService;->mServiceKeeper:Lcom/android/server/SdpServiceKeeper;
 
-    sget-object v1, Lcom/android/server/SdpManagerService;->sContext:Landroid/content/Context;
+    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mContext:Landroid/content/Context;
 
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
@@ -8468,10 +15708,394 @@
     goto :goto_0
 .end method
 
+.method public doSyntheticPasswordFullMigration(Ljava/lang/String;II)Lcom/android/internal/widget/VerifyCredentialResponse;
+    .locals 12
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Full sp migration requested from user "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/sec/sdp/internal/SDPLog;->i(Ljava/lang/String;)V
+
+    const/4 v1, 0x6
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    const-string/jumbo v2, "credential"
+
+    const/4 v3, 0x0
+
+    aput-object v2, v1, v3
+
+    const/4 v2, 0x1
+
+    aput-object p1, v1, v2
+
+    const-string/jumbo v2, "type"
+
+    const/4 v3, 0x2
+
+    aput-object v2, v1, v3
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const/4 v3, 0x3
+
+    aput-object v2, v1, v3
+
+    const-string/jumbo v2, "userId"
+
+    const/4 v3, 0x4
+
+    aput-object v2, v1, v3
+
+    invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const/4 v3, 0x5
+
+    aput-object v2, v1, v3
+
+    invoke-static {v1}, Lcom/sec/sdp/internal/SDPLog;->p([Ljava/lang/Object;)V
+
+    invoke-virtual {p0, p3}, Lcom/android/server/SdpManagerService;->isEnterpriseUser(I)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    sget-object v1, Lcom/android/internal/widget/VerifyCredentialResponse;->ERROR:Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    return-object v1
+
+    :cond_0
+    invoke-static {p1}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    sget-object v1, Lcom/android/internal/widget/VerifyCredentialResponse;->ERROR:Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    return-object v1
+
+    :cond_1
+    const/4 v1, -0x1
+
+    if-ne p2, v1, :cond_2
+
+    sget-object v1, Lcom/android/internal/widget/VerifyCredentialResponse;->ERROR:Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    return-object v1
+
+    :cond_2
+    const/4 v10, 0x0
+
+    const/4 v9, 0x0
+
+    const/4 v6, 0x0
+
+    sget-object v11, Lcom/android/internal/widget/VerifyCredentialResponse;->ERROR:Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    const/4 v0, 0x0
+
+    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
+    invoke-direct {p0, p3}, Lcom/android/server/SdpManagerService;->getEngineInfoLocked(I)Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v0
+
+    monitor-exit v1
+
+    if-nez v0, :cond_3
+
+    const-string/jumbo v1, "SP migration - Failed due to no engine found"
+
+    invoke-static {v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    :goto_0
+    const/4 v1, 0x2
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    const/4 v2, 0x0
+
+    aput-object v10, v1, v2
+
+    const/4 v2, 0x1
+
+    aput-object v6, v1, v2
+
+    invoke-static {v1}, Lcom/android/server/SdpManagerService$SecureUtil;->clearAll([Ljava/lang/Object;)V
+
+    const-string/jumbo v1, "Result of sp full migration for user %d : %s"
+
+    const/4 v2, 0x2
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    const/4 v7, 0x0
+
+    aput-object v3, v2, v7
+
+    invoke-virtual {v11}, Lcom/android/internal/widget/VerifyCredentialResponse;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    const/4 v7, 0x1
+
+    aput-object v3, v2, v7
+
+    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    return-object v11
+
+    :catchall_0
+    move-exception v2
+
+    monitor-exit v1
+
+    throw v2
+
+    :cond_3
+    invoke-virtual {v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->isMinor()Z
+
+    move-result v1
+
+    if-nez v1, :cond_4
+
+    const-string/jumbo v1, "SP migration - Available only for minor type"
+
+    invoke-static {v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_4
+    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->getResetTokenViaTrustedInternal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)[B
+
+    move-result-object v6
+
+    invoke-static {v6}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_5
+
+    const-string/jumbo v1, "SP migration - Failed due to invalid token"
+
+    invoke-static {v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_5
+    invoke-virtual {v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+
+    move-result v1
+
+    const/4 v2, 0x2
+
+    invoke-virtual {p0, v6, v1, v2}, Lcom/android/server/SdpManagerService;->getLegacyMasterKey([BII)[B
+
+    move-result-object v10
+
+    invoke-static {v10}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_6
+
+    const-string/jumbo v1, "SP migration - Failed to get legacy master key"
+
+    invoke-static {v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_6
+    invoke-virtual {p0, v6, p3}, Lcom/android/server/SdpManagerService;->setResetToken([BI)Z
+
+    move-result v1
+
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_7
+
+    const-string/jumbo v1, "SP migration - Failed to set reset token"
+
+    invoke-static {v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_7
+    invoke-direct {p0, p3}, Lcom/android/server/SdpManagerService;->getTokenHandleViaProtector(I)J
+
+    move-result-wide v4
+
+    move-object v1, p0
+
+    move-object v2, p1
+
+    move v3, p2
+
+    move v7, p3
+
+    invoke-direct/range {v1 .. v7}, Lcom/android/server/SdpManagerService;->setLockCredentialWithToken(Ljava/lang/String;IJ[BI)Z
+
+    move-result v1
+
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_8
+
+    const-string/jumbo v1, "SP migration - Failed to set credential with token"
+
+    invoke-static {v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    :cond_8
+    invoke-direct {p0, v6, v4, v5, p3}, Lcom/android/server/SdpManagerService;->verifyToken([BJI)Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Lcom/android/internal/widget/VerifyCredentialResponse;->isOK()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_9
+
+    invoke-virtual {v8}, Lcom/android/internal/widget/VerifyCredentialResponse;->getSecret()[B
+
+    move-result-object v9
+
+    :goto_1
+    invoke-static {v9}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_a
+
+    const-string/jumbo v1, "SP migration - Failed to get sdp essential key"
+
+    invoke-static {v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    :cond_9
+    const/4 v9, 0x0
+
+    goto :goto_1
+
+    :cond_a
+    invoke-direct {p0, v6, p3}, Lcom/android/server/SdpManagerService;->saveResetTokenViaProtector([BI)Z
+
+    move-result v1
+
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_b
+
+    const-string/jumbo v1, "SP migration - Failed to save reset token"
+
+    invoke-static {v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    :cond_b
+    invoke-virtual {p0, v9, v10, p3}, Lcom/android/server/SdpManagerService;->generationalShift([B[BI)Z
+
+    move-result v1
+
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_c
+
+    const-string/jumbo v1, "SP migration - Failed to make generational shift"
+
+    invoke-static {v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    :cond_c
+    const/4 v1, 0x2
+
+    invoke-direct {p0, p3, v1}, Lcom/android/server/SdpManagerService;->removeLegacyKeyPair(II)Z
+
+    move-result v1
+
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_d
+
+    const-string/jumbo v1, "SP migration - Failed to remove legacy token"
+
+    invoke-static {v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    :cond_d
+    move-object v11, v8
+
+    goto/16 :goto_0
+.end method
+
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 9
 
-    sget-object v3, Lcom/android/server/SdpManagerService;->sContext:Landroid/content/Context;
+    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mContext:Landroid/content/Context;
 
     const-string/jumbo v4, "android.permission.DUMP"
 
@@ -8534,7 +16158,7 @@
     return-void
 
     :cond_0
-    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSdpUserZeroSupported()Z
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
 
     move-result v3
 
@@ -8822,12 +16446,6 @@
 
     if-nez v1, :cond_0
 
-    const-string/jumbo v1, "SdpManagerService"
-
-    const-string/jumbo v2, "SDP not supported"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
     const/16 v1, -0x9
 
     return v1
@@ -8940,6 +16558,131 @@
     throw v3
 .end method
 
+.method public generationalShift([B[BI)Z
+    .locals 8
+
+    const/4 v7, 0x2
+
+    const/4 v6, 0x1
+
+    const/4 v5, 0x0
+
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    return v5
+
+    :cond_0
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Generational Shift for user "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/sec/sdp/internal/SDPLog;->i(Ljava/lang/String;)V
+
+    const/4 v3, 0x6
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    const-string/jumbo v4, "newMasterKey"
+
+    aput-object v4, v3, v5
+
+    aput-object p1, v3, v6
+
+    const-string/jumbo v4, "oldMasterKey"
+
+    aput-object v4, v3, v7
+
+    const/4 v4, 0x3
+
+    aput-object p2, v3, v4
+
+    const-string/jumbo v4, "userId"
+
+    const/4 v5, 0x4
+
+    aput-object v4, v3, v5
+
+    invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    const/4 v5, 0x5
+
+    aput-object v4, v3, v5
+
+    invoke-static {v3}, Lcom/sec/sdp/internal/SDPLog;->p([Ljava/lang/Object;)V
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v0
+
+    const/4 v3, 0x1
+
+    :try_start_0
+    invoke-direct {p0, p1, p2, p3, v3}, Lcom/android/server/SdpManagerService;->generationalShiftInternal([B[BIZ)Z
+
+    move-result v2
+
+    const-string/jumbo v3, "Result of sdp generational shift for user %d : %s"
+
+    const/4 v4, 0x2
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    const/4 v6, 0x0
+
+    aput-object v5, v4, v6
+
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v5
+
+    const/4 v6, 0x1
+
+    aput-object v5, v4, v6
+
+    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return v2
+
+    :catchall_0
+    move-exception v3
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v3
+.end method
+
 .method public getEncPkgDataSizeInfo(ILjava/lang/String;)Landroid/content/pm/PackageStats;
     .locals 12
 
@@ -8957,12 +16700,6 @@
 
     if-nez v5, :cond_0
 
-    const-string/jumbo v5, "SdpManagerService"
-
-    const-string/jumbo v6, "SDP not supported"
-
-    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
     return-object v7
 
     :cond_0
@@ -8976,21 +16713,21 @@
 
     aput-object v5, v0, v10
 
-    sget-object v5, Lcom/android/server/SdpManagerService;->sContext:Landroid/content/Context;
+    iget-object v5, p0, Lcom/android/server/SdpManagerService;->mContext:Landroid/content/Context;
 
-    invoke-static {v5}, Lcom/sec/knox/container/util/EnterprisePartitionManager;->getInstance(Landroid/content/Context;)Lcom/sec/knox/container/util/EnterprisePartitionManager;
+    invoke-static {v5}, Lcom/android/server/EnterprisePartitionManager;->getInstance(Landroid/content/Context;)Lcom/android/server/EnterprisePartitionManager;
 
     move-result-object v1
 
-    sget v5, Lcom/sec/knox/container/util/EnterprisePartitionManager;->PARTITON_TYPE_SECURE_FS_DATA:I
+    sget v5, Lcom/android/server/EnterprisePartitionManager;->PARTITON_TYPE_SECURE_FS_DATA:I
 
-    invoke-virtual {v1, p1, p2, v5, v0}, Lcom/sec/knox/container/util/EnterprisePartitionManager;->calculatePkgDirs(ILjava/lang/String;I[Ljava/lang/String;)[J
+    invoke-virtual {v1, p1, p2, v5, v0}, Lcom/android/server/EnterprisePartitionManager;->calculatePkgDirs(ILjava/lang/String;I[Ljava/lang/String;)[J
 
     move-result-object v3
 
-    sget v5, Lcom/sec/knox/container/util/EnterprisePartitionManager;->PARTITON_TYPE_SECURE_FS_SDCARD:I
+    sget v5, Lcom/android/server/EnterprisePartitionManager;->PARTITON_TYPE_SECURE_FS_SDCARD:I
 
-    invoke-virtual {v1, p1, p2, v5, v0}, Lcom/sec/knox/container/util/EnterprisePartitionManager;->calculatePkgDirs(ILjava/lang/String;I[Ljava/lang/String;)[J
+    invoke-virtual {v1, p1, p2, v5, v0}, Lcom/android/server/EnterprisePartitionManager;->calculatePkgDirs(ILjava/lang/String;I[Ljava/lang/String;)[J
 
     move-result-object v4
 
@@ -9056,12 +16793,6 @@
 
     if-nez v1, :cond_0
 
-    const-string/jumbo v1, "SdpManagerService"
-
-    const-string/jumbo v2, "SDP not supported"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
     const/4 v1, 0x0
 
     return-object v1
@@ -9090,6 +16821,298 @@
     throw v2
 .end method
 
+.method public getLegacyMasterKey(Ljava/lang/String;II)[B
+    .locals 4
+
+    const/4 v3, 0x0
+
+    invoke-static {p1}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    return-object v3
+
+    :cond_0
+    const/4 v2, 0x1
+
+    if-eq p3, v2, :cond_1
+
+    const/4 p3, 0x2
+
+    :cond_1
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
+
+    const/16 v3, 0x20
+
+    invoke-virtual {v2, p2, p1, p3, v3}, Lcom/sec/knox/container/util/KeyManagementUtil;->retrieveCMK(ILjava/lang/String;II)Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_2
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
+
+    invoke-virtual {v2, v0}, Lcom/sec/knox/container/util/KeyManagementUtil;->cmkToByte(Ljava/lang/String;)[B
+
+    move-result-object v1
+
+    :goto_0
+    invoke-static {v0}, Lcom/android/server/SdpManagerService$SecureUtil;->clear(Ljava/lang/String;)V
+
+    return-object v1
+
+    :cond_2
+    const/4 v1, 0x0
+
+    goto :goto_0
+.end method
+
+.method public getLegacyMasterKey([BII)[B
+    .locals 2
+
+    if-eqz p1, :cond_0
+
+    new-instance v0, Ljava/lang/String;
+
+    invoke-direct {v0, p1}, Ljava/lang/String;-><init>([B)V
+
+    :goto_0
+    :try_start_0
+    invoke-virtual {p0, v0, p2, p3}, Lcom/android/server/SdpManagerService;->getLegacyMasterKey(Ljava/lang/String;II)[B
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v1
+
+    invoke-static {v0}, Lcom/android/server/SdpManagerService$SecureUtil;->clear(Ljava/lang/String;)V
+
+    return-object v1
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v1
+
+    invoke-static {v0}, Lcom/android/server/SdpManagerService$SecureUtil;->clear(Ljava/lang/String;)V
+
+    throw v1
+.end method
+
+.method public getLegacyPwdWrappedMasterKeyPath(I)Ljava/lang/String;
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-static {p1}, Lcom/android/server/SdpManagerService$FileUtil;->getUserSystemDir(I)Ljava/io/File;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "/"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "ECMK_PWD"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public getLegacyTokenWrappedMasterKeyPath(I)Ljava/lang/String;
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-static {p1}, Lcom/android/server/SdpManagerService$FileUtil;->getUserSystemDir(I)Ljava/io/File;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "/"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "ECMK_MDM"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public getProxy()Lcom/android/server/SdpManagerService$SdpManagerProxy;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mSdpManagerProxy:Lcom/android/server/SdpManagerService$SdpManagerProxy;
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Lcom/android/server/SdpManagerService$SdpManagerProxy;
+
+    invoke-direct {v0, p0}, Lcom/android/server/SdpManagerService$SdpManagerProxy;-><init>(Lcom/android/server/SdpManagerService;)V
+
+    iput-object v0, p0, Lcom/android/server/SdpManagerService;->mSdpManagerProxy:Lcom/android/server/SdpManagerService$SdpManagerProxy;
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mSdpManagerProxy:Lcom/android/server/SdpManagerService$SdpManagerProxy;
+
+    return-object v0
+.end method
+
+.method public getResetToken(I)[B
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->checkSystemPermission()Z
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->getResetTokenViaProtector(I)[B
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public getResetTokenSafe(I)[B
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->checkSystemPermission()Z
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->getManagedToken(I)[B
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public getResetTokenViaTrusted(I)[B
+    .locals 5
+
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->checkSystemPermission()Z
+
+    const/4 v1, 0x0
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+
+    monitor-enter v2
+
+    :try_start_0
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->getEngineInfoLocked(I)Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v0
+
+    monitor-exit v2
+
+    if-nez v0, :cond_1
+
+    const-string/jumbo v2, "SdpManagerService"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "get - Can\'t find engine info with id "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    :goto_0
+    return-object v1
+
+    :catchall_0
+    move-exception v3
+
+    monitor-exit v2
+
+    throw v3
+
+    :cond_1
+    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->getResetTokenViaTrustedInternal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)[B
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    const-string/jumbo v2, "SdpManagerService"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "get - Token not found from tima with id "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+.end method
+
 .method public getSupportedSDKVersion()D
     .locals 3
     .annotation system Ldalvik/annotation/Throws;
@@ -9100,7 +17123,7 @@
 
     const-wide/16 v0, 0x0
 
-    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSdpUserZeroSupported()Z
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
 
     move-result v2
 
@@ -9112,23 +17135,339 @@
     return-wide v0
 .end method
 
-.method public isLicensed(Ljava/lang/String;)I
+.method public getTokenHandle(I)J
     .locals 2
 
-    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isLicensed()Z
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->checkSystemPermission()Z
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->getTokenHandleViaProtector(I)J
+
+    move-result-wide v0
+
+    return-wide v0
+.end method
+
+.method public hasLegacyCredential(I)Z
+    .locals 3
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v0
+
+    :try_start_0
+    invoke-virtual {p0, p1}, Lcom/android/server/SdpManagerService;->getLegacyPwdWrappedMasterKeyPath(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/android/server/SdpManagerService$FileUtil;->exists(Ljava/lang/String;)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v2
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return v2
+
+    :catchall_0
+    move-exception v2
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v2
+.end method
+
+.method public hasLegacyToken(I)Z
+    .locals 3
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v0
+
+    :try_start_0
+    invoke-virtual {p0, p1}, Lcom/android/server/SdpManagerService;->getLegacyTokenWrappedMasterKeyPath(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/android/server/SdpManagerService$FileUtil;->exists(Ljava/lang/String;)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v2
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return v2
+
+    :catchall_0
+    move-exception v2
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v2
+.end method
+
+.method public isEnterpriseUser(I)Z
+    .locals 5
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->getUserInfo(I)Landroid/content/pm/UserInfo;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/pm/UserInfo;->isManagedProfile()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {v1}, Landroid/content/pm/UserInfo;->isGuest()Z
+
+    move-result v2
+
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {v1}, Landroid/content/pm/UserInfo;->isDualAppProfile()Z
+
+    move-result v2
+
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {v1}, Landroid/content/pm/UserInfo;->isBMode()Z
+
+    move-result v2
+
+    xor-int/lit8 v2, v2, 0x1
+
+    if-nez v2, :cond_2
+
+    :cond_0
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->isDeviceOwnerUser(I)Z
 
     move-result v0
 
+    :goto_0
+    if-nez v0, :cond_1
+
+    const-string/jumbo v2, "SdpManagerService"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Not an enterprise user : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    return v0
+
+    :cond_2
+    const/4 v0, 0x1
+
+    goto :goto_0
+.end method
+
+.method public isLegacyContainerUser(I)Z
+    .locals 5
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->getUserInfo(I)Landroid/content/pm/UserInfo;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/pm/UserInfo;->isSecureFolder()Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    invoke-virtual {v1}, Landroid/content/pm/UserInfo;->isCLContainer()Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    invoke-virtual {v1}, Landroid/content/pm/UserInfo;->isBBCContainer()Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    invoke-virtual {v1}, Landroid/content/pm/UserInfo;->isKioskModeEnabled()Z
+
+    move-result v0
+
+    :goto_0
     if-eqz v0, :cond_0
 
-    const/4 v1, 0x0
+    const-string/jumbo v2, "SdpManagerService"
 
-    return v1
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Identified as legacy type container user : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
+    return v0
+
+    :cond_1
+    const/4 v0, 0x1
+
+    goto :goto_0
+.end method
+
+.method public isLegacyEncryption(I)Z
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->isLegacyEncryptionUser(I)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public isLegacyWorkProfile(I)Z
+    .locals 5
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->getUserInfo(I)Landroid/content/pm/UserInfo;
+
+    move-result-object v1
+
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isFileBasedEncryption()Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->isLegacyEncryptionUser(I)Z
+
+    move-result v2
+
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_1
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->isDeviceOwnerUser(I)Z
+
+    move-result v2
+
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_1
+
+    invoke-virtual {p0, p1}, Lcom/android/server/SdpManagerService;->isEnterpriseUser(I)Z
+
+    move-result v0
+
+    :goto_0
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v2, "SdpManagerService"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Identified as legacy work profile : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public isLicensed()I
+    .locals 5
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v1
+
+    invoke-static {v1}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Lcom/android/server/SdpManagerService;->isEnterpriseUser(I)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mServiceKeeper:Lcom/android/server/SdpServiceKeeper;
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mContext:Landroid/content/Context;
+
+    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+
+    move-result v3
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v4
+
+    invoke-virtual {v1, v2, v3, v4}, Lcom/android/server/SdpServiceKeeper;->isLicensed(Landroid/content/Context;II)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    :goto_0
+    return v1
+
+    :cond_1
     const/16 v1, -0x63
 
-    return v1
+    goto :goto_0
 .end method
 
 .method public isSDPEnabled(I)Z
@@ -9175,18 +17514,12 @@
 
     if-nez v1, :cond_0
 
-    const-string/jumbo v1, "SdpManagerService"
-
-    const-string/jumbo v2, "SDP not supported"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
     return v3
 
     :cond_0
     const-string/jumbo v1, "isSdpMigrating"
 
-    invoke-static {v1}, Lcom/android/server/SdpManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
+    invoke-direct {p0, v1}, Lcom/android/server/SdpManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
 
     iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
 
@@ -9225,6 +17558,70 @@
     throw v1
 .end method
 
+.method public isSdpPackage(ILjava/lang/String;)Z
+    .locals 5
+
+    const/4 v3, 0x0
+
+    iget-object v4, p0, Lcom/android/server/SdpManagerService;->mSdpEngineMap:Landroid/util/SparseArray;
+
+    invoke-virtual {v4}, Landroid/util/SparseArray;->size()I
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->readEngineList()V
+
+    :cond_0
+    const/4 v0, 0x0
+
+    iget-object v4, p0, Lcom/android/server/SdpManagerService;->mSdpEngineMap:Landroid/util/SparseArray;
+
+    invoke-virtual {v4}, Landroid/util/SparseArray;->size()I
+
+    move-result v2
+
+    :goto_0
+    if-ge v0, v2, :cond_2
+
+    iget-object v4, p0, Lcom/android/server/SdpManagerService;->mSdpEngineMap:Landroid/util/SparseArray;
+
+    invoke-virtual {v4, v0}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {v1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getPackageName()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    invoke-virtual {v1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getUserId()I
+
+    move-result v4
+
+    if-ne v4, p1, :cond_1
+
+    const/4 v3, 0x1
+
+    :cond_1
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    return v3
+.end method
+
 .method public isSdpSupported()Z
     .locals 3
     .annotation system Ldalvik/annotation/Throws;
@@ -9245,20 +17642,31 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    invoke-virtual {v0}, Landroid/content/pm/UserInfo;->isGuest()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    invoke-virtual {v0}, Landroid/content/pm/UserInfo;->isDualAppProfile()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
 
     invoke-virtual {v0}, Landroid/content/pm/UserInfo;->isBMode()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
+    :cond_0
     const/4 v2, 0x0
 
     return v2
 
-    :cond_0
-    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSdpUserZeroSupported()Z
+    :cond_1
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
 
     move-result v2
 
@@ -9273,19 +17681,11 @@
         }
     .end annotation
 
-    const/4 v3, -0x7
-
     invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
 
     move-result v1
 
     if-nez v1, :cond_0
-
-    const-string/jumbo v1, "SdpManagerService"
-
-    const-string/jumbo v2, "SDP not supported"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     const/16 v1, -0x9
 
@@ -9309,7 +17709,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "lock :: can\'t find engine info "
+    const-string/jumbo v4, "lock :: Can\'t find engine info "
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -9342,13 +17742,31 @@
 
     if-eqz v1, :cond_2
 
-    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->isSystemComponent(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Z
+    const-string/jumbo v1, "SdpManagerService"
 
-    move-result v1
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    if-nez v1, :cond_3
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    return v3
+    const-string/jumbo v3, "lock :: Not supported anymore to "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v1, -0x63
+
+    return v1
 
     :catchall_0
     move-exception v1
@@ -9368,7 +17786,27 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_3
+
+    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->isSystemComponent(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Z
+
+    move-result v1
+
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_3
+
+    const-string/jumbo v1, "SdpManagerService"
+
+    const-string/jumbo v2, "lock :: Permission denied to invoke engine control API"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v1, -0x7
+
+    return v1
 
     :cond_3
     invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->lockInternal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
@@ -9376,37 +17814,16 @@
     move-result v1
 
     return v1
-
-    :cond_4
-    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->isSystemComponent(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_3
-
-    const-string/jumbo v1, "SdpManagerService"
-
-    const-string/jumbo v2, "Permission denied to invoke engine control API"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v3
 .end method
 
 .method public migrate(Ljava/lang/String;)I
-    .locals 2
+    .locals 1
 
     invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
 
     move-result v0
 
     if-nez v0, :cond_0
-
-    const-string/jumbo v0, "SdpManagerService"
-
-    const-string/jumbo v1, "SDP not supported"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     const/16 v0, -0x9
 
@@ -9418,80 +17835,63 @@
     return v0
 .end method
 
-.method public onBoot(I)I
-    .locals 4
+.method public onBiometricsAuthenticated(I)V
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
-            Lcom/samsung/android/knox/sdp/core/SdpException;
+            Landroid/os/RemoteException;
         }
     .end annotation
 
     invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
-    const-string/jumbo v1, "SdpManagerService"
-
-    const-string/jumbo v2, "SDP not supported"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v1, -0x9
-
-    return v1
+    return-void
 
     :cond_0
-    const-string/jumbo v1, "SdpManagerService"
+    const-string/jumbo v0, "SdpManagerService"
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    const-string/jumbo v1, "User %d has been authenticated with biometrics"
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const/4 v2, 0x1
 
-    const-string/jumbo v3, "onBoot :: "
+    new-array v2, v2, [Ljava/lang/Object;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const/4 v4, 0x0
 
-    move-result-object v2
+    aput-object v3, v2, v4
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v1, "onBoot"
-
-    invoke-static {v1}, Lcom/android/server/SdpManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
-
-    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->bootNative(I)I
+    invoke-virtual {p0, p1}, Lcom/android/server/SdpManagerService;->isEnterpriseUser(I)Z
 
     move-result v0
 
-    const/16 v1, -0xa
+    if-eqz v0, :cond_1
 
-    if-ne v0, v1, :cond_1
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->hasBiometricTypeTraced(I)Z
 
-    new-instance v1, Lcom/samsung/android/knox/sdp/core/SdpException;
+    move-result v0
 
-    invoke-direct {v1, v0}, Lcom/samsung/android/knox/sdp/core/SdpException;-><init>(I)V
+    if-eqz v0, :cond_1
 
-    throw v1
+    const/16 v0, 0x8
+
+    invoke-virtual {p0, p1, v0}, Lcom/android/server/SdpManagerService;->onMasterKeyDerivationRequired(II)V
 
     :cond_1
-    if-nez v0, :cond_2
-
-    return v0
-
-    :cond_2
-    const/16 v1, -0x63
-
-    return v1
+    return-void
 .end method
 
 .method public onChangePassword(I[B[B)Z
@@ -9507,18 +17907,12 @@
 
     if-nez v2, :cond_0
 
-    const-string/jumbo v2, "SdpManagerService"
-
-    const-string/jumbo v3, "SDP not supported"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
     return v5
 
     :cond_0
     const-string/jumbo v2, "onChangePassword"
 
-    invoke-static {v2}, Lcom/android/server/SdpManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
+    invoke-direct {p0, v2}, Lcom/android/server/SdpManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
 
     invoke-direct {p0, p2, v3}, Lcom/android/server/SdpManagerService;->getPadded([BI)[B
 
@@ -9574,126 +17968,365 @@
     return v2
 .end method
 
-.method public onDeviceLocked(I)Z
-    .locals 7
-
-    const/4 v6, 0x1
-
-    const/4 v5, 0x0
+.method public onDeviceLocked(I)V
+    .locals 3
 
     invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
 
-    move-result v2
+    move-result v0
 
-    if-nez v2, :cond_0
+    if-nez v0, :cond_0
 
-    const-string/jumbo v2, "SdpManagerService"
-
-    const-string/jumbo v3, "SDP not supported"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v5
+    return-void
 
     :cond_0
-    const-string/jumbo v2, "SdpManagerService"
+    const-string/jumbo v0, "SdpManagerService"
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "onDeviceLocked "
+    const-string/jumbo v2, "onDeviceLocked : User "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v2, "onDeviceLocked"
+    invoke-virtual {p0, p1}, Lcom/android/server/SdpManagerService;->isEnterpriseUser(I)Z
 
-    invoke-static {v2}, Lcom/android/server/SdpManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
+    move-result v0
 
-    invoke-direct {p0, p1, p1}, Lcom/android/server/SdpManagerService;->lockNative(II)I
+    if-eqz v0, :cond_1
 
-    move-result v1
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->isDeviceOwnerUser(I)Z
 
-    if-eqz v1, :cond_1
+    move-result v0
 
-    const-string/jumbo v2, "SdpManagerService"
+    xor-int/lit8 v0, v0, 0x1
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    if-eqz v0, :cond_1
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "lockInternal failed ret "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v5
+    invoke-virtual {p0, p1}, Lcom/android/server/SdpManagerService;->onMasterKeyEvictionRequired(I)V
 
     :cond_1
-    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+    return-void
+.end method
 
-    monitor-enter v3
+.method public onDeviceOwnerLocked(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
 
-    :try_start_0
-    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->getEngineInfoLocked(I)Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    const-string/jumbo v0, "SdpManagerService"
+
+    const-string/jumbo v1, "User %d has been locked"
+
+    const/4 v2, 0x1
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    const/4 v4, 0x0
+
+    aput-object v3, v2, v4
+
+    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->isDeviceOwnerUser(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->hasNoSecurity(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    :cond_1
+    return-void
+
+    :cond_2
+    invoke-virtual {p0, p1}, Lcom/android/server/SdpManagerService;->onMasterKeyEvictionRequired(I)V
+
+    return-void
+.end method
+
+.method public onDeviceUnlocked(I)V
+    .locals 3
+
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    const-string/jumbo v0, "SdpManagerService"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "onDeviceUnLocked "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {p0, p1}, Lcom/android/server/SdpManagerService;->isEnterpriseUser(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->hasBiometricTypeTraced(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    const/16 v0, 0x8
+
+    invoke-virtual {p0, p1, v0}, Lcom/android/server/SdpManagerService;->onMasterKeyDerivationRequired(II)V
+
+    :cond_1
+    :goto_0
+    return-void
+
+    :cond_2
+    iget-object v0, p0, Lcom/android/server/SdpManagerService;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    invoke-virtual {v0, p1}, Lcom/android/internal/widget/LockPatternUtils;->isLockScreenDisabled(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const-string/jumbo v0, "SdpManagerService"
+
+    const-string/jumbo v1, "User has no lock"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v0, 0x4
+
+    invoke-virtual {p0, p1, v0}, Lcom/android/server/SdpManagerService;->onMasterKeyDerivationRequired(II)V
+
+    goto :goto_0
+.end method
+
+.method public onLegacyResetCredentialFinalized(I)V
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "Legacy reset credential policy finalized for user "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    if-nez v0, :cond_2
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    monitor-exit v3
+    move-result-object v0
 
-    return v5
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    :cond_2
-    const/4 v2, 0x1
+    move-result-object v0
 
-    :try_start_1
-    invoke-direct {p0, v0, v2}, Lcom/android/server/SdpManagerService;->setEngineStateLocked(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;I)I
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    invoke-static {v0}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
 
-    monitor-exit v3
+    invoke-virtual {p0, p1}, Lcom/android/server/SdpManagerService;->clearLegacyResetStatus(I)V
 
-    return v6
-
-    :catchall_0
-    move-exception v2
-
-    monitor-exit v3
-
-    throw v2
+    return-void
 .end method
 
-.method public onDeviceUnlocked(I[B)Z
-    .locals 7
+.method public onLegacyResetCredentialRequested([BII)V
+    .locals 5
 
-    const/4 v6, 0x0
+    const/4 v4, 0x0
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Legacy reset credential policy requested for user "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    invoke-static {p1}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    const-string/jumbo v2, "Failed due to invalid token"
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    invoke-direct {p0, p1, p2}, Lcom/android/server/SdpManagerService;->cacheManagedToken([BI)V
+
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->getUserManagerInternal()Ljava/util/Optional;
+
+    move-result-object v2
+
+    new-instance v3, Lcom/android/server/-$Lambda$lhXyqUMYqEEsOESeK7W8eqkbJis$5;
+
+    invoke-direct {v3, p2}, Lcom/android/server/-$Lambda$lhXyqUMYqEEsOESeK7W8eqkbJis$5;-><init>(I)V
+
+    invoke-virtual {v2, v3}, Ljava/util/Optional;->map(Ljava/util/function/Function;)Ljava/util/Optional;
+
+    move-result-object v2
+
+    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/util/Optional;->orElse(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/Boolean;
+
+    invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    const-string/jumbo v2, "Unexpected failure while set volatiles"
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_1
+    if-gtz p3, :cond_2
+
+    const-wide/32 v0, 0xdbba0
+
+    :goto_1
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const/16 v3, 0xc
+
+    invoke-direct {p0, v3, v2, v0, v1}, Lcom/android/server/SdpManagerService;->quickMessageDelayed(ILjava/lang/Object;J)V
+
+    const-string/jumbo v2, "Ready to reset credential!"
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_2
+    mul-int/lit8 v2, p3, 0x3c
+
+    mul-int/lit16 v2, v2, 0x3e8
+
+    int-to-long v0, v2
+
+    goto :goto_1
+.end method
+
+.method public onLegacyResetCredentialStarted(I)V
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "Legacy reset credential policy started for user "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    invoke-virtual {p0, p1}, Lcom/android/server/SdpManagerService;->cancelLegacyResetTimeout(I)V
+
+    return-void
+.end method
+
+.method public onMasterKeyAcquired([BI)V
+    .locals 9
+
+    const/4 v8, 0x1
+
+    const/4 v7, 0x0
+
+    const/4 v6, 0x2
 
     invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
 
@@ -9701,22 +18334,246 @@
 
     if-nez v3, :cond_0
 
-    const-string/jumbo v3, "SdpManagerService"
-
-    const-string/jumbo v4, "SDP not supported"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v6
+    return-void
 
     :cond_0
-    const-string/jumbo v3, "SdpManagerService"
+    invoke-virtual {p0, p2}, Lcom/android/server/SdpManagerService;->isEnterpriseUser(I)Z
 
+    move-result v3
+
+    if-nez v3, :cond_1
+
+    return-void
+
+    :cond_1
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "sdp essential key acquired for user "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/sec/sdp/internal/SDPLog;->i(Ljava/lang/String;)V
+
+    const/4 v3, 0x4
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    const-string/jumbo v4, "masterKey"
+
+    aput-object v4, v3, v7
+
+    aput-object p1, v3, v8
+
+    const-string/jumbo v4, "userId"
+
+    aput-object v4, v3, v6
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    const/4 v5, 0x3
+
+    aput-object v4, v3, v5
+
+    invoke-static {v3}, Lcom/sec/sdp/internal/SDPLog;->p([Ljava/lang/Object;)V
+
+    const/16 v2, -0x63
+
+    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+
+    monitor-enter v3
+
+    :try_start_0
+    invoke-direct {p0, p2}, Lcom/android/server/SdpManagerService;->getEngineInfoLocked(I)Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v0
+
+    monitor-exit v3
+
+    invoke-static {v0}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Couldn\'t find engine info for user "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    :goto_0
+    if-nez v2, :cond_6
+
+    sget-object v1, Lcom/android/internal/widget/VerifyCredentialResponse;->OK:Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    :goto_1
+    invoke-virtual {v1}, Lcom/android/internal/widget/VerifyCredentialResponse;->isOK()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/SdpManagerService;->cacheManagedCredential([BI)V
+
+    invoke-direct {p0, p2, v6}, Lcom/android/server/SdpManagerService;->notifyStateChange(II)V
+
+    :cond_2
+    invoke-static {p1}, Lcom/android/server/SdpManagerService$SecureUtil;->clear([B)V
+
+    const-string/jumbo v3, "Result of sdp unlock : %s [ rc : %d ]"
+
+    new-array v4, v6, [Ljava/lang/Object;
+
+    invoke-virtual {v1}, Lcom/android/internal/widget/VerifyCredentialResponse;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    aput-object v5, v4, v7
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    aput-object v5, v4, v8
+
+    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    return-void
+
+    :catchall_0
+    move-exception v4
+
+    monitor-exit v3
+
+    throw v4
+
+    :cond_3
+    invoke-static {p1}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_4
+
+    const-string/jumbo v3, "Failed to unlock due to invalid key"
+
+    invoke-static {v3}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_4
+    invoke-virtual {v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getState()I
+
+    move-result v3
+
+    if-ne v3, v6, :cond_5
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Engine already unlocked for user "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    :cond_5
+    invoke-direct {p0, p1, v0}, Lcom/android/server/SdpManagerService;->unlockFinal([BLcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
+
+    move-result v2
+
+    goto :goto_0
+
+    :cond_6
+    sget-object v1, Lcom/android/internal/widget/VerifyCredentialResponse;->ERROR:Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    goto :goto_1
+.end method
+
+.method public onMasterKeyDerivationRequired(II)V
+    .locals 10
+
+    const/4 v9, 0x1
+
+    const/4 v8, 0x0
+
+    const/4 v7, 0x2
+
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-virtual {p0, p1}, Lcom/android/server/SdpManagerService;->isEnterpriseUser(I)Z
+
+    move-result v4
+
+    if-nez v4, :cond_1
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->isLegacyUserZero(I)Z
+
+    move-result v4
+
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_1
+
+    return-void
+
+    :cond_1
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, "onDeviceUnLocked "
+    const-string/jumbo v5, "sdp essential key derivation required for user "
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -9730,37 +18587,19 @@
 
     move-result-object v4
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v3, "onDeviceUnlocked"
-
-    invoke-static {v3}, Lcom/android/server/SdpManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
-
-    const/16 v3, 0x20
-
-    invoke-direct {p0, p2, v3}, Lcom/android/server/SdpManagerService;->getPadded([BI)[B
-
-    move-result-object v1
-
-    invoke-direct {p0, p1, v1}, Lcom/android/server/SdpManagerService;->unlockNative(I[B)I
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    const-string/jumbo v3, "SdpManagerService"
+    invoke-static {v4}, Lcom/sec/sdp/internal/SDPLog;->i(Ljava/lang/String;)V
 
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, "unlockNative failed ret : "
+    const-string/jumbo v5, "Issued order is identified as "
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
@@ -9768,12 +18607,11 @@
 
     move-result-object v4
 
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
 
-    return v6
+    const/4 v1, 0x0
 
-    :cond_1
-    invoke-direct {p0, v1}, Lcom/android/server/SdpManagerService;->zeroOut([B)V
+    const/16 v3, -0x63
 
     iget-object v4, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
 
@@ -9786,32 +18624,756 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_2
-
     monitor-exit v4
 
-    return v6
+    invoke-static {v0}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_3
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "Couldn\'t find engine info for user "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    :goto_0
+    if-nez v3, :cond_7
+
+    sget-object v2, Lcom/android/internal/widget/VerifyCredentialResponse;->OK:Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    :goto_1
+    invoke-virtual {v2}, Lcom/android/internal/widget/VerifyCredentialResponse;->isOK()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    invoke-direct {p0, v1, p1}, Lcom/android/server/SdpManagerService;->cacheManagedCredential([BI)V
+
+    invoke-direct {p0, p1, v7}, Lcom/android/server/SdpManagerService;->notifyStateChange(II)V
 
     :cond_2
-    const/4 v3, 0x2
+    invoke-static {v1}, Lcom/android/server/SdpManagerService$SecureUtil;->clear([B)V
 
-    :try_start_1
-    invoke-direct {p0, v0, v3}, Lcom/android/server/SdpManagerService;->setEngineStateLocked(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;I)I
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    const-string/jumbo v4, "Result of sdp unlock : %s [ rc : %d ]"
 
-    monitor-exit v4
+    new-array v5, v7, [Ljava/lang/Object;
 
-    const/4 v3, 0x1
+    invoke-virtual {v2}, Lcom/android/internal/widget/VerifyCredentialResponse;->toString()Ljava/lang/String;
 
-    return v3
+    move-result-object v6
+
+    aput-object v6, v5, v8
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    aput-object v6, v5, v9
+
+    invoke-static {v4, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    return-void
 
     :catchall_0
-    move-exception v3
+    move-exception v5
 
     monitor-exit v4
 
-    throw v3
+    throw v5
+
+    :cond_3
+    sparse-switch p2, :sswitch_data_0
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "Unexpected condition while check order "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    :cond_4
+    :goto_2
+    const/4 v4, 0x6
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    const-string/jumbo v5, "masterKey"
+
+    aput-object v5, v4, v8
+
+    aput-object v1, v4, v9
+
+    const-string/jumbo v5, "userId"
+
+    aput-object v5, v4, v7
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    const/4 v6, 0x3
+
+    aput-object v5, v4, v6
+
+    const-string/jumbo v5, "order"
+
+    const/4 v6, 0x4
+
+    aput-object v5, v4, v6
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    const/4 v6, 0x5
+
+    aput-object v5, v4, v6
+
+    invoke-static {v4}, Lcom/sec/sdp/internal/SDPLog;->p([Ljava/lang/Object;)V
+
+    invoke-static {v1}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_5
+
+    const-string/jumbo v4, "Failed to unlock due to invalid key"
+
+    invoke-static {v4}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :sswitch_0
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->getEphemeralKeyViaProtector(I)[B
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_4
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "Ephemeral key not found for user "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto :goto_2
+
+    :sswitch_1
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->getManagedCredential(I)[B
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_4
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "Managed credential not found for user "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto :goto_2
+
+    :cond_5
+    invoke-virtual {v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getState()I
+
+    move-result v4
+
+    if-ne v4, v7, :cond_6
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "Engine already unlocked for user "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    :cond_6
+    invoke-direct {p0, v1, v0}, Lcom/android/server/SdpManagerService;->unlockFinal([BLcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
+
+    move-result v3
+
+    goto/16 :goto_0
+
+    :cond_7
+    sget-object v2, Lcom/android/internal/widget/VerifyCredentialResponse;->ERROR:Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    goto/16 :goto_1
+
+    :sswitch_data_0
+    .sparse-switch
+        0x4 -> :sswitch_0
+        0x8 -> :sswitch_1
+    .end sparse-switch
+.end method
+
+.method public onMasterKeyDeserted([BI)V
+    .locals 5
+
+    const/4 v4, 0x1
+
+    const/4 v3, 0x0
+
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-virtual {p0, p2}, Lcom/android/server/SdpManagerService;->isEnterpriseUser(I)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    return-void
+
+    :cond_1
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "sdp essential key deserted with user "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/sec/sdp/internal/SDPLog;->i(Ljava/lang/String;)V
+
+    const/4 v0, 0x4
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    const-string/jumbo v1, "masterKey"
+
+    aput-object v1, v0, v3
+
+    aput-object p1, v0, v4
+
+    const-string/jumbo v1, "userId"
+
+    const/4 v2, 0x2
+
+    aput-object v1, v0, v2
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const/4 v2, 0x3
+
+    aput-object v1, v0, v2
+
+    invoke-static {v0}, Lcom/sec/sdp/internal/SDPLog;->p([Ljava/lang/Object;)V
+
+    const-string/jumbo v0, "User %d has none type credential"
+
+    new-array v1, v4, [Ljava/lang/Object;
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    aput-object v2, v1, v3
+
+    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/SdpManagerService;->saveEphemeralKeyViaProtector([BI)Z
+
+    return-void
+.end method
+
+.method public onMasterKeyEvictionRequired(I)V
+    .locals 8
+
+    const/4 v5, 0x2
+
+    const/4 v7, 0x0
+
+    const/4 v6, 0x1
+
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-virtual {p0, p1}, Lcom/android/server/SdpManagerService;->isEnterpriseUser(I)Z
+
+    move-result v3
+
+    if-nez v3, :cond_1
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->isLegacyUserZero(I)Z
+
+    move-result v3
+
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_1
+
+    return-void
+
+    :cond_1
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "sdp essential key eviction required for user "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/sec/sdp/internal/SDPLog;->i(Ljava/lang/String;)V
+
+    new-array v3, v5, [Ljava/lang/Object;
+
+    const-string/jumbo v4, "userId"
+
+    aput-object v4, v3, v7
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    aput-object v4, v3, v6
+
+    invoke-static {v3}, Lcom/sec/sdp/internal/SDPLog;->p([Ljava/lang/Object;)V
+
+    const/16 v2, -0x63
+
+    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+
+    monitor-enter v3
+
+    :try_start_0
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->getEngineInfoLocked(I)Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v0
+
+    monitor-exit v3
+
+    invoke-static {v0}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Couldn\'t find engine info for user "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    :goto_0
+    if-nez v2, :cond_5
+
+    sget-object v1, Lcom/android/internal/widget/VerifyCredentialResponse;->OK:Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    :goto_1
+    invoke-virtual {v1}, Lcom/android/internal/widget/VerifyCredentialResponse;->isOK()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->clearManageCredentialIfRequired(I)V
+
+    invoke-direct {p0, p1, v6}, Lcom/android/server/SdpManagerService;->notifyStateChange(II)V
+
+    :cond_2
+    const-string/jumbo v3, "Result of sdp lock : %s [ rc : %d ]"
+
+    new-array v4, v5, [Ljava/lang/Object;
+
+    invoke-virtual {v1}, Lcom/android/internal/widget/VerifyCredentialResponse;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    aput-object v5, v4, v7
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    aput-object v5, v4, v6
+
+    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    return-void
+
+    :catchall_0
+    move-exception v4
+
+    monitor-exit v3
+
+    throw v4
+
+    :cond_3
+    invoke-virtual {v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getState()I
+
+    move-result v3
+
+    if-ne v3, v6, :cond_4
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Engine already locked for user "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    const/4 v2, 0x0
+
+    goto :goto_0
+
+    :cond_4
+    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->lockFinal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
+
+    move-result v2
+
+    goto :goto_0
+
+    :cond_5
+    sget-object v1, Lcom/android/internal/widget/VerifyCredentialResponse;->ERROR:Lcom/android/internal/widget/VerifyCredentialResponse;
+
+    goto :goto_1
+.end method
+
+.method public onMasterKeyInitialized([BI)V
+    .locals 7
+
+    const/4 v6, 0x1
+
+    const/4 v5, 0x0
+
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-virtual {p0, p2}, Lcom/android/server/SdpManagerService;->isEnterpriseUser(I)Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    return-void
+
+    :cond_1
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "sdp essential key initialized for user "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->i(Ljava/lang/String;)V
+
+    const/4 v2, 0x4
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    const-string/jumbo v3, "masterKey"
+
+    aput-object v3, v2, v5
+
+    aput-object p1, v2, v6
+
+    const-string/jumbo v3, "userId"
+
+    const/4 v4, 0x2
+
+    aput-object v3, v2, v4
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    const/4 v4, 0x3
+
+    aput-object v3, v2, v4
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->p([Ljava/lang/Object;)V
+
+    const/4 v1, 0x0
+
+    const/4 v0, 0x0
+
+    invoke-direct {p0, p2}, Lcom/android/server/SdpManagerService;->getEphemeralKeyViaProtector(I)[B
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    const-string/jumbo v2, "Failed to get ephemeral key"
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    :goto_0
+    if-eqz v1, :cond_2
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    invoke-virtual {v2, p2}, Lcom/android/internal/widget/LockPatternUtils;->getCredentialType(I)I
+
+    move-result v2
+
+    const/4 v3, -0x1
+
+    if-ne v2, v3, :cond_2
+
+    const-string/jumbo v2, "User %d has none type credential"
+
+    new-array v3, v6, [Ljava/lang/Object;
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    aput-object v4, v3, v5
+
+    invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/SdpManagerService;->saveEphemeralKeyViaProtector([BI)Z
+
+    :cond_2
+    invoke-static {p1}, Lcom/android/server/SdpManagerService$SecureUtil;->clear([B)V
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Result of key adjustment : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    return-void
+
+    :cond_3
+    invoke-direct {p0, p1, v0, p2}, Lcom/android/server/SdpManagerService;->rewrapSdpKeys([B[BI)Z
+
+    move-result v2
+
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_4
+
+    const-string/jumbo v2, "Failed to rewrap sdp essential key"
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_4
+    invoke-direct {p0, p2}, Lcom/android/server/SdpManagerService;->removeEphemeralKeyViaProtector(I)Z
+
+    move-result v2
+
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_5
+
+    const-string/jumbo v2, "Failed to delete ephemeral key"
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_5
+    const/4 v1, 0x1
+
+    goto :goto_0
 .end method
 
 .method public onMigration(IZ[B)Z
@@ -9824,12 +19386,6 @@
     move-result v1
 
     if-nez v1, :cond_0
-
-    const-string/jumbo v1, "SdpManagerService"
-
-    const-string/jumbo v2, "SDP not supported"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return v3
 
@@ -9891,385 +19447,234 @@
     return v1
 .end method
 
-.method public onPackageRemoved(ILjava/lang/String;)V
+.method public onPasswordChanged(Ljava/lang/String;ILjava/lang/String;I)V
     .locals 7
 
-    const-string/jumbo v2, "onPackageRemoved"
-
-    invoke-static {v2}, Lcom/android/server/SdpManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
-
-    const-string/jumbo v2, "SdpManagerService"
-
-    const-string/jumbo v3, "onPackageRemoved :: Removed package detected... UserId : %d, Pkg : %s"
-
-    const/4 v4, 0x2
-
-    new-array v4, v4, [Ljava/lang/Object;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    const/4 v6, 0x0
-
-    aput-object v5, v4, v6
-
-    const/4 v5, 0x1
-
-    aput-object p2, v4, v5
-
-    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-boolean v2, p0, Lcom/android/server/SdpManagerService;->mIsReady:Z
-
-    if-nez v2, :cond_0
-
-    const-string/jumbo v2, "SdpManagerService"
-
-    const-string/jumbo v3, "SdpManagerService is not ready..."
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_0
-    new-instance v0, Landroid/os/Bundle;
-
-    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
-
-    const-string/jumbo v2, "userId"
-
-    invoke-virtual {v0, v2, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-
-    const-string/jumbo v2, "pkgName"
-
-    invoke-virtual {v0, v2, p2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpHandler:Lcom/android/server/SdpManagerService$SdpHandler;
-
-    const/4 v3, 0x4
-
-    invoke-virtual {v2, v3}, Lcom/android/server/SdpManagerService$SdpHandler;->obtainMessage(I)Landroid/os/Message;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Landroid/os/Message;->setData(Landroid/os/Bundle;)V
-
-    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpHandler:Lcom/android/server/SdpManagerService$SdpHandler;
-
-    invoke-virtual {v2, v1}, Lcom/android/server/SdpManagerService$SdpHandler;->sendMessage(Landroid/os/Message;)Z
-
-    return-void
-.end method
-
-.method public onUserAdded(I[BI)Z
-    .locals 9
-
-    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    const-string/jumbo v2, "SdpManagerService"
-
-    const-string/jumbo v3, "SDP not supported"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v2, 0x0
-
-    return v2
-
-    :cond_0
-    const-string/jumbo v2, "SdpManagerService"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "onUserAdded :: "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v2, "onUserAdded"
-
-    invoke-static {v2}, Lcom/android/server/SdpManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
-
-    invoke-static {p1}, Lcom/samsung/android/knox/sdp/SdpUtil;->getAndroidDefaultAlias(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    new-instance v0, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
-
-    const/4 v4, 0x1
-
-    const/4 v6, 0x6
-
-    const/4 v7, 0x0
-
-    move v2, p1
-
-    move v3, p1
-
-    move v5, p3
-
-    invoke-direct/range {v0 .. v7}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;-><init>(Ljava/lang/String;IIIIIZ)V
-
-    const/16 v2, 0x20
-
-    invoke-direct {p0, p2, v2}, Lcom/android/server/SdpManagerService;->getPadded([BI)[B
-
-    move-result-object v7
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v4
-
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
-
-    move-result v5
-
-    const/4 v6, 0x0
-
-    move-object v2, p0
-
-    move-object v3, v0
-
-    invoke-direct/range {v2 .. v7}, Lcom/android/server/SdpManagerService;->addEngineInternalLocked(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;IILcom/samsung/android/knox/sdp/core/SdpCreationParam;[B)I
-
-    move-result v8
-
-    invoke-direct {p0, v7}, Lcom/android/server/SdpManagerService;->zeroOut([B)V
-
-    if-eqz v8, :cond_1
-
-    const/4 v2, 0x0
-
-    return v2
-
-    :cond_1
-    const/4 v2, 0x1
-
-    return v2
-.end method
-
-.method public onUserRemoved(I)Z
-    .locals 6
+    const/4 v6, 0x4
 
     const/4 v5, 0x0
 
+    const/4 v4, 0x1
+
     invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
 
-    move-result v2
+    move-result v1
 
-    if-nez v2, :cond_0
+    if-nez v1, :cond_0
 
-    const-string/jumbo v2, "SdpManagerService"
-
-    const-string/jumbo v3, "SDP not supported"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v5
+    return-void
 
     :cond_0
-    const-string/jumbo v2, "onUserRemoved"
+    invoke-virtual {p0, p4}, Lcom/android/server/SdpManagerService;->isEnterpriseUser(I)Z
 
-    invoke-static {v2}, Lcom/android/server/SdpManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
+    move-result v1
 
-    const-string/jumbo v2, "SdpManagerService"
+    if-nez v1, :cond_1
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    return-void
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    :cond_1
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v4, "onUserRemoved "
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v2, "Password has been changed for user "
 
-    move-result-object v3
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v3
+    invoke-virtual {v1, p4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v3
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v1
 
-    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+    invoke-static {v1}, Lcom/sec/sdp/internal/SDPLog;->i(Ljava/lang/String;)V
 
-    monitor-enter v2
+    const/16 v1, 0x8
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    const-string/jumbo v2, "credential"
+
+    aput-object v2, v1, v5
+
+    aput-object p1, v1, v4
+
+    const-string/jumbo v2, "credentialType"
+
+    const/4 v3, 0x2
+
+    aput-object v2, v1, v3
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const/4 v3, 0x3
+
+    aput-object v2, v1, v3
+
+    const-string/jumbo v2, "savedCredential"
+
+    aput-object v2, v1, v6
+
+    const/4 v2, 0x5
+
+    aput-object p3, v1, v2
+
+    const-string/jumbo v2, "userId"
+
+    const/4 v3, 0x6
+
+    aput-object v2, v1, v3
+
+    invoke-static {p4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const/4 v3, 0x7
+
+    aput-object v2, v1, v3
+
+    invoke-static {v1}, Lcom/sec/sdp/internal/SDPLog;->p([Ljava/lang/Object;)V
+
+    const/4 v1, -0x1
+
+    if-ne p2, v1, :cond_3
+
+    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+
+    monitor-enter v1
 
     :try_start_0
-    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->getEngineInfoLocked(I)Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
+    invoke-direct {p0, p4}, Lcom/android/server/SdpManagerService;->getEngineInfoLocked(I)Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v0
 
-    monitor-exit v2
+    monitor-exit v1
 
-    if-nez v0, :cond_1
-
-    const-string/jumbo v2, "SdpManagerService"
-
-    const-string/jumbo v3, "onUserRemoved :: no engine found"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v5
-
-    :catchall_0
-    move-exception v3
-
-    monitor-exit v2
-
-    throw v3
-
-    :cond_1
-    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mServiceKeeper:Lcom/android/server/SdpServiceKeeper;
-
-    sget-object v3, Lcom/android/server/SdpManagerService;->sContext:Landroid/content/Context;
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v4
-
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
-
-    move-result v5
-
-    invoke-virtual {v2, v3, v4, v5, v0}, Lcom/android/server/SdpServiceKeeper;->removePolicy(Landroid/content/Context;IILcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
+    invoke-static {v0}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
 
     move-result v1
 
     if-nez v1, :cond_2
 
-    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+    invoke-virtual {v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getState()I
 
-    monitor-enter v3
+    move-result v1
 
-    :try_start_1
-    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineMap:Landroid/util/SparseArray;
+    if-ne v1, v4, :cond_2
 
-    invoke-virtual {v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+    const-string/jumbo v1, "Engine is locked after changing to none type."
 
-    move-result v4
+    invoke-static {v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v4}, Landroid/util/SparseArray;->remove(I)V
+    invoke-virtual {p0, p4, v6}, Lcom/android/server/SdpManagerService;->onMasterKeyDerivationRequired(II)V
 
-    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
-
-    invoke-static {v2, v0}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap4(Lcom/android/server/SdpManagerService$SdpEngineDatabase;Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)V
-
-    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
-
-    invoke-static {v2}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap3(Lcom/android/server/SdpManagerService$SdpEngineDatabase;)I
-
-    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->onEngineRemoved(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
-
-    monitor-exit v3
-
-    invoke-virtual {v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
-
-    move-result v2
-
-    invoke-virtual {v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getUserId()I
-
-    move-result v3
-
-    invoke-direct {p0, v2, v3}, Lcom/android/server/SdpManagerService;->removeEngineNative(II)I
-
-    const-string/jumbo v2, "SdpManagerService"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "engine removed! "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
+    :cond_2
     :goto_0
-    const/4 v2, 0x1
+    return-void
 
-    return v2
-
-    :catchall_1
+    :catchall_0
     move-exception v2
 
-    monitor-exit v3
+    monitor-exit v1
 
     throw v2
 
-    :cond_2
-    const-string/jumbo v2, "SdpManagerService"
+    :cond_3
+    invoke-direct {p0, p4}, Lcom/android/server/SdpManagerService;->doesEphemeralKeyExist(I)Z
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    move-result v1
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    if-eqz v1, :cond_2
 
-    const-string/jumbo v4, "removeEngine :: failed ["
+    const-string/jumbo v1, "According as user %d password changed, remove ephemeral key"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    new-array v2, v4, [Ljava/lang/Object;
 
-    move-result-object v3
-
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-static {p4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v3
 
-    const-string/jumbo v4, "]"
+    aput-object v3, v2, v5
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
 
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {p0, p4}, Lcom/android/server/SdpManagerService;->removeEphemeralKeyViaProtector(I)Z
 
     goto :goto_0
+.end method
+
+.method public prepareEncUserDirectory(I)V
+    .locals 4
+
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "Prepare enc directory for user "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/sec/sdp/internal/SDPLog;->i(Ljava/lang/String;)V
+
+    const-string/jumbo v0, "Result of preparing enc directory [ res : %s ]"
+
+    const/4 v1, 0x1
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSecureFileSystemManager:Lcom/android/server/SdpManagerService$SecureFileSystemManager;
+
+    invoke-static {v2, p1}, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->-wrap2(Lcom/android/server/SdpManagerService$SecureFileSystemManager;I)Z
+
+    move-result v2
+
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    aput-object v2, v1, v3
+
+    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    return-void
 .end method
 
 .method public registerClient(ILandroid/os/ISdpListener;)V
@@ -10282,17 +19687,11 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSdpUserZeroSupported()Z
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
 
     move-result v3
 
     if-nez v3, :cond_0
-
-    const-string/jumbo v3, "SdpManagerService"
-
-    const-string/jumbo v4, "SDP not supported devices..."
-
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
@@ -10332,7 +19731,7 @@
 
     const/4 v3, 0x0
 
-    invoke-direct {v2, p0, v3}, Lcom/android/server/SdpManagerService$ListenerRoll;-><init>(Lcom/android/server/SdpManagerService;Lcom/android/server/SdpManagerService$ListenerRoll;)V
+    invoke-direct {v2, v3}, Lcom/android/server/SdpManagerService$ListenerRoll;-><init>(Lcom/android/server/SdpManagerService$ListenerRoll;)V
 
     iget-object v3, p0, Lcom/android/server/SdpManagerService;->mListenerMap:Ljava/util/Map;
 
@@ -10428,12 +19827,6 @@
 
     if-nez v1, :cond_0
 
-    const-string/jumbo v1, "SdpManagerService"
-
-    const-string/jumbo v2, "SDP not supported"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
     const/16 v1, -0x9
 
     return v1
@@ -10482,30 +19875,22 @@
 .end method
 
 .method public removeEngine(Ljava/lang/String;)I
-    .locals 6
-
-    const/4 v4, -0x7
+    .locals 4
 
     invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
 
-    move-result v2
+    move-result v1
 
-    if-nez v2, :cond_0
+    if-nez v1, :cond_0
 
-    const-string/jumbo v2, "SdpManagerService"
+    const/16 v1, -0x9
 
-    const-string/jumbo v3, "SDP not supported"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v2, -0x9
-
-    return v2
+    return v1
 
     :cond_0
-    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
 
-    monitor-enter v2
+    monitor-enter v1
 
     :try_start_0
     invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->getEngineInfoLocked(Ljava/lang/String;)Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
@@ -10514,354 +19899,190 @@
 
     move-result-object v0
 
-    monitor-exit v2
+    monitor-exit v1
 
     if-nez v0, :cond_1
 
-    const-string/jumbo v2, "SdpManagerService"
+    const-string/jumbo v1, "SdpManagerService"
 
-    const-string/jumbo v3, "removeEngine :: no engine found"
+    const-string/jumbo v2, "removeEngine :: no engine found"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v2, -0x5
+    const/4 v1, -0x5
 
-    return v2
+    return v1
 
     :catchall_0
-    move-exception v3
+    move-exception v2
 
-    monitor-exit v2
+    monitor-exit v1
 
-    throw v3
+    throw v2
 
     :cond_1
     invoke-virtual {v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->isAndroidDefaultEngine()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_2
+    if-eqz v1, :cond_2
 
-    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->isSystemComponent(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Z
+    const-string/jumbo v1, "SdpManagerService"
 
-    move-result v2
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    if-nez v2, :cond_3
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    return v4
+    const-string/jumbo v3, "remove :: Not supported anymore to "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v1, -0x63
+
+    return v1
 
     :cond_2
     invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->isEngineOwner(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Z
 
-    move-result v2
+    move-result v1
 
-    if-nez v2, :cond_3
+    if-nez v1, :cond_3
 
     invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->isSystemComponent(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Z
 
-    move-result v2
-
-    if-eqz v2, :cond_4
-
-    :cond_3
-    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mServiceKeeper:Lcom/android/server/SdpServiceKeeper;
-
-    sget-object v3, Lcom/android/server/SdpManagerService;->sContext:Landroid/content/Context;
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v4
-
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
-
-    move-result v5
-
-    invoke-virtual {v2, v3, v4, v5, v0}, Lcom/android/server/SdpServiceKeeper;->removePolicy(Landroid/content/Context;IILcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
-
     move-result v1
 
-    if-nez v1, :cond_5
+    xor-int/lit8 v1, v1, 0x1
 
-    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+    if-eqz v1, :cond_3
 
-    monitor-enter v3
+    const-string/jumbo v1, "SdpManagerService"
 
-    :try_start_1
-    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineMap:Landroid/util/SparseArray;
+    const-string/jumbo v2, "remove :: Permission denied to invoke engine control API"
 
-    invoke-virtual {v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v4
-
-    invoke-virtual {v2, v4}, Landroid/util/SparseArray;->remove(I)V
-
-    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
-
-    invoke-static {v2, v0}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap4(Lcom/android/server/SdpManagerService$SdpEngineDatabase;Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)V
-
-    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
-
-    invoke-static {v2}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->-wrap3(Lcom/android/server/SdpManagerService$SdpEngineDatabase;)I
-
-    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->onEngineRemoved(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
-
-    monitor-exit v3
-
-    invoke-virtual {v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
-
-    move-result v2
-
-    invoke-virtual {v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getUserId()I
-
-    move-result v3
-
-    invoke-direct {p0, v2, v3}, Lcom/android/server/SdpManagerService;->removeEngineNative(II)I
-
-    move-result v1
-
-    const-string/jumbo v2, "SdpManagerService"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "engine removed! "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_0
-    invoke-virtual {p0, v0}, Lcom/android/server/SdpManagerService;->removeKeys(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)V
+    const/4 v1, -0x7
 
     return v1
 
-    :cond_4
-    const-string/jumbo v2, "SdpManagerService"
+    :cond_3
+    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->removeEngineInternal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
 
-    const-string/jumbo v3, "Permission denied to invoke engine control API"
+    move-result v1
 
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    return v1
+.end method
 
-    return v4
+.method public removeLegacyToken(I)Z
+    .locals 4
 
-    :catchall_1
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->checkSystemPermission()Z
+
+    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->getEngineInfoLocked(I)Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v0
+
+    monitor-exit v1
+
+    if-nez v0, :cond_1
+
+    const-string/jumbo v1, "SdpManagerService"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "remove token - Can\'t find engine info with id "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    :goto_0
+    const/4 v1, 0x2
+
+    invoke-direct {p0, p1, v1}, Lcom/android/server/SdpManagerService;->removeLegacyKeyPair(II)Z
+
+    move-result v1
+
+    return v1
+
+    :catchall_0
     move-exception v2
 
-    monitor-exit v3
+    monitor-exit v1
 
     throw v2
 
-    :cond_5
-    const-string/jumbo v2, "SdpManagerService"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "removeEngine :: failed ["
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v4, "]"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-.end method
-
-.method removeKeys(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)V
-    .locals 6
-
-    if-eqz p1, :cond_3
-
-    const-string/jumbo v3, "SdpManagerService"
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "removeKeys :: "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v1, 0x0
-
-    :goto_0
-    sget-object v3, Lcom/sec/knox/container/util/KeyManagementUtil;->TYPE_MAP:Landroid/util/SparseArray;
-
-    invoke-virtual {v3}, Landroid/util/SparseArray;->size()I
-
-    move-result v3
-
-    if-ge v1, v3, :cond_1
-
-    sget-object v3, Lcom/sec/knox/container/util/KeyManagementUtil;->TYPE_MAP:Landroid/util/SparseArray;
-
-    invoke-virtual {v3, v1}, Landroid/util/SparseArray;->keyAt(I)I
-
-    move-result v2
-
-    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
-
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
-
-    move-result v4
-
-    invoke-virtual {v3, v4, v2}, Lcom/sec/knox/container/util/KeyManagementUtil;->isCMKExists(II)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
-
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
-
-    move-result v4
-
-    invoke-virtual {v3, v4, v2}, Lcom/sec/knox/container/util/KeyManagementUtil;->removeECMK(II)Z
-
-    iget-object v3, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
-
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
-
-    move-result v4
-
-    invoke-virtual {v3, v4, v2}, Lcom/sec/knox/container/util/KeyManagementUtil;->removeKEK(II)Z
-
-    const-string/jumbo v3, "SdpManagerService"
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "removeKeys :: Key pair of #"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    const-string/jumbo v5, " removed!"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
     :cond_1
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+    invoke-virtual {v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_2
+    invoke-virtual {v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getResetTokenTimaAlias()Ljava/lang/String;
 
-    new-instance v0, Ljava/io/File;
+    move-result-object v2
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-direct {p0, v1, v2}, Lcom/android/server/SdpManagerService;->deleteTokenInternal(ILjava/lang/String;)Z
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    move-result v1
 
-    const-string/jumbo v4, "/data/system/users/"
+    if-nez v1, :cond_0
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v1, "SdpManagerService"
 
-    move-result-object v3
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result v4
+    const-string/jumbo v3, "remove token - Failed to remove token from tima for engine "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v2
 
-    const-string/jumbo v4, "/"
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    move-result-object v3
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v3
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-direct {v0, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->removeDirectoryRecursive(Ljava/io/File;)V
-
-    :cond_2
-    :goto_1
-    return-void
-
-    :cond_3
-    const-string/jumbo v3, "SdpManagerService"
-
-    const-string/jumbo v4, "removeKeys :: Failed. info null"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_1
+    goto :goto_0
 .end method
 
 .method public resetPassword(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
@@ -10872,19 +20093,11 @@
         }
     .end annotation
 
-    const/4 v3, -0x7
-
     invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
 
     move-result v1
 
     if-nez v1, :cond_0
-
-    const-string/jumbo v1, "SdpManagerService"
-
-    const-string/jumbo v2, "SDP not supported"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     const/16 v1, -0x9
 
@@ -10908,7 +20121,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "lock :: can\'t find engine info "
+    const-string/jumbo v4, "reset :: Can\'t find engine info "
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -10941,13 +20154,31 @@
 
     if-eqz v1, :cond_2
 
-    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->isSystemComponent(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Z
+    const-string/jumbo v1, "SdpManagerService"
 
-    move-result v1
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    if-nez v1, :cond_3
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    return v3
+    const-string/jumbo v3, "reset :: Not supported anymore to "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v1, -0x63
+
+    return v1
 
     :catchall_0
     move-exception v1
@@ -10967,7 +20198,27 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_3
+
+    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->isSystemComponent(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Z
+
+    move-result v1
+
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_3
+
+    const-string/jumbo v1, "SdpManagerService"
+
+    const-string/jumbo v2, "reset :: Permission denied to invoke engine control API"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v1, -0x7
+
+    return v1
 
     :cond_3
     invoke-direct {p0, v0, p2, p3}, Lcom/android/server/SdpManagerService;->resetPasswordInternal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;Ljava/lang/String;Ljava/lang/String;)I
@@ -10975,21 +20226,14 @@
     move-result v1
 
     return v1
+.end method
 
-    :cond_4
-    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->isSystemComponent(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Z
+.method public saveResetTokenSafe([BI)V
+    .locals 0
 
-    move-result v1
+    invoke-direct {p0, p1, p2}, Lcom/android/server/SdpManagerService;->cacheManagedToken([BI)V
 
-    if-nez v1, :cond_3
-
-    const-string/jumbo v1, "SdpManagerService"
-
-    const-string/jumbo v2, "Permission denied to invoke engine control API"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v3
+    return-void
 .end method
 
 .method public saveTokenIntoTrusted(Ljava/lang/String;Ljava/lang/String;)I
@@ -11002,9 +20246,9 @@
 
     const-string/jumbo v4, "saveTokenIntoTrusted"
 
-    invoke-static {v4}, Lcom/android/server/SdpManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
+    invoke-direct {p0, v4}, Lcom/android/server/SdpManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
 
-    const/16 v2, -0x63
+    const/16 v1, -0x63
 
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -11050,20 +20294,194 @@
 
     invoke-virtual {p2}, Ljava/lang/String;->getBytes()[B
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-direct {p0, v3, v0}, Lcom/android/server/SdpManagerService;->deleteTokenInternal(ILjava/lang/String;)Z
-
-    invoke-direct {p0, v3, v0, v1}, Lcom/android/server/SdpManagerService;->saveTokenInternal(ILjava/lang/String;[B)Z
+    invoke-direct {p0, v2, v0, v3}, Lcom/android/server/SdpManagerService;->saveSpecificKeyViaProtector([BLjava/lang/String;I)Z
 
     move-result v4
 
     if-eqz v4, :cond_2
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
+
+    :goto_0
+    invoke-static {v2}, Lcom/android/server/SdpManagerService$SecureUtil;->clear([B)V
+
+    return v1
 
     :cond_2
-    return v2
+    const/16 v1, -0x63
+
+    goto :goto_0
+.end method
+
+.method public setEnforcePasswordChange(I)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public setLockCredentialViaProtector(Ljava/lang/String;II)Z
+    .locals 11
+
+    const/4 v10, 0x2
+
+    const/4 v9, 0x1
+
+    const/4 v8, 0x0
+
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->checkSystemPermission()Z
+
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    return v8
+
+    :cond_0
+    invoke-virtual {p0, p3}, Lcom/android/server/SdpManagerService;->isEnterpriseUser(I)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    return v8
+
+    :cond_1
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Set credential via trusted domain for user "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/sec/sdp/internal/SDPLog;->i(Ljava/lang/String;)V
+
+    const/4 v1, 0x6
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    const-string/jumbo v2, "credential"
+
+    aput-object v2, v1, v8
+
+    aput-object p1, v1, v9
+
+    const-string/jumbo v2, "credentialType"
+
+    aput-object v2, v1, v10
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const/4 v3, 0x3
+
+    aput-object v2, v1, v3
+
+    const-string/jumbo v2, "userId"
+
+    const/4 v3, 0x4
+
+    aput-object v2, v1, v3
+
+    invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const/4 v3, 0x5
+
+    aput-object v2, v1, v3
+
+    invoke-static {v1}, Lcom/sec/sdp/internal/SDPLog;->p([Ljava/lang/Object;)V
+
+    const/4 v0, 0x0
+
+    invoke-direct {p0, p3}, Lcom/android/server/SdpManagerService;->getTokenHandleViaProtector(I)J
+
+    move-result-wide v4
+
+    const-wide/16 v2, 0x0
+
+    cmp-long v1, v4, v2
+
+    if-nez v1, :cond_2
+
+    const-string/jumbo v1, "Failed to get token handle"
+
+    invoke-static {v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    :goto_0
+    const-string/jumbo v1, "Result of setting credential via protector for user %d : [ res : %s ]"
+
+    new-array v2, v10, [Ljava/lang/Object;
+
+    invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    aput-object v3, v2, v8
+
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v3
+
+    aput-object v3, v2, v9
+
+    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    return v0
+
+    :cond_2
+    invoke-direct {p0, p3}, Lcom/android/server/SdpManagerService;->getResetTokenViaProtector(I)[B
+
+    move-result-object v6
+
+    invoke-static {v6}, Lcom/android/server/SdpManagerService$SecureUtil;->isEmpty(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    const-string/jumbo v1, "Failed to get reset token"
+
+    invoke-static {v1}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_3
+    move-object v1, p0
+
+    move-object v2, p1
+
+    move v3, p2
+
+    move v7, p3
+
+    invoke-direct/range {v1 .. v7}, Lcom/android/server/SdpManagerService;->setLockCredentialWithToken(Ljava/lang/String;IJ[BI)Z
+
+    move-result v0
+
+    invoke-static {v6}, Lcom/android/server/SdpManagerService$SecureUtil;->clear([B)V
+
+    goto :goto_0
 .end method
 
 .method public setPassword(Ljava/lang/String;Ljava/lang/String;)I
@@ -11074,19 +20492,11 @@
         }
     .end annotation
 
-    const/4 v3, -0x7
-
     invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
 
     move-result v1
 
     if-nez v1, :cond_0
-
-    const-string/jumbo v1, "SdpManagerService"
-
-    const-string/jumbo v2, "SDP not supported"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     const/16 v1, -0x9
 
@@ -11110,7 +20520,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "lock :: can\'t find engine info "
+    const-string/jumbo v4, "set password :: Can\'t find engine info "
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -11143,13 +20553,31 @@
 
     if-eqz v1, :cond_2
 
-    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->isSystemComponent(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Z
+    const-string/jumbo v1, "SdpManagerService"
 
-    move-result v1
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    if-nez v1, :cond_3
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    return v3
+    const-string/jumbo v3, "set password :: Not supported anymore to "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v1, -0x63
+
+    return v1
 
     :catchall_0
     move-exception v1
@@ -11169,7 +20597,27 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_3
+
+    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->isSystemComponent(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Z
+
+    move-result v1
+
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_3
+
+    const-string/jumbo v1, "SdpManagerService"
+
+    const-string/jumbo v2, "set password :: Permission denied to invoke engine control API"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v1, -0x7
+
+    return v1
 
     :cond_3
     invoke-direct {p0, v0, p2}, Lcom/android/server/SdpManagerService;->setPasswordInternal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;Ljava/lang/String;)I
@@ -11177,21 +20625,157 @@
     move-result v1
 
     return v1
+.end method
 
-    :cond_4
-    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->isSystemComponent(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Z
+.method public setResetToken([BI)Z
+    .locals 10
+
+    const/4 v6, 0x0
+
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->checkSystemPermission()Z
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "Set reset token for user "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v7}, Lcom/sec/sdp/internal/SDPLog;->i(Ljava/lang/String;)V
+
+    const/4 v7, 0x4
+
+    new-array v7, v7, [Ljava/lang/Object;
+
+    const-string/jumbo v8, "token"
+
+    aput-object v8, v7, v6
+
+    const/4 v8, 0x1
+
+    aput-object p1, v7, v8
+
+    const-string/jumbo v8, "userId"
+
+    const/4 v9, 0x2
+
+    aput-object v8, v7, v9
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v8
+
+    const/4 v9, 0x3
+
+    aput-object v8, v7, v9
+
+    invoke-static {v7}, Lcom/sec/sdp/internal/SDPLog;->p([Ljava/lang/Object;)V
+
+    const/4 v1, 0x0
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v4
+
+    :try_start_0
+    iget-object v7, p0, Lcom/android/server/SdpManagerService;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    invoke-virtual {v7, p1, p2}, Lcom/android/internal/widget/LockPatternUtils;->addEscrowToken([BI)J
+
+    move-result-wide v2
+
+    const-wide/16 v8, 0x0
+
+    cmp-long v7, v2, v8
+
+    if-eqz v7, :cond_1
+
+    invoke-direct {p0, v2, v3, p2}, Lcom/android/server/SdpManagerService;->saveTokenHandleViaProtector(JI)Z
 
     move-result v1
 
-    if-nez v1, :cond_3
+    :goto_0
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    const-string/jumbo v1, "SdpManagerService"
+    move-result-object v6
 
-    const-string/jumbo v2, "Permission denied to invoke engine control API"
+    invoke-static {v6}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
 
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    move-result v6
 
-    return v3
+    if-eqz v6, :cond_0
+
+    iget-object v6, p0, Lcom/android/server/SdpManagerService;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    invoke-virtual {v6, v2, v3, p2}, Lcom/android/internal/widget/LockPatternUtils;->removeEscrowToken(JI)Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    :goto_1
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "Result of set reset token : "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v6}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    return v1
+
+    :cond_1
+    move v1, v6
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    :try_start_1
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+
+    const-string/jumbo v6, "Unexpected exception while set reset token"
+
+    invoke-static {v6, v0}, Lcom/sec/sdp/internal/SDPLog;->e(Ljava/lang/String;Ljava/lang/Exception;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    goto :goto_1
+
+    :catchall_0
+    move-exception v6
+
+    invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v6
 .end method
 
 .method public setSDPMigrating(IZ)V
@@ -11203,18 +20787,12 @@
 
     if-nez v1, :cond_0
 
-    const-string/jumbo v1, "SdpManagerService"
-
-    const-string/jumbo v2, "SDP not supported"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
     return-void
 
     :cond_0
     const-string/jumbo v1, "setSDPMigrating"
 
-    invoke-static {v1}, Lcom/android/server/SdpManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
+    invoke-direct {p0, v1}, Lcom/android/server/SdpManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
 
     iput-boolean p2, p0, Lcom/android/server/SdpManagerService;->mWaitForPassword:Z
 
@@ -11280,165 +20858,173 @@
 .end method
 
 .method public systemReady()V
-    .locals 3
+    .locals 4
+
+    const/4 v3, 0x1
 
     invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_0
-
-    const-string/jumbo v1, "SdpManagerService"
-
-    const-string/jumbo v2, "systemReady SDP not supported"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    if-nez v0, :cond_0
 
     return-void
 
     :cond_0
+    const-string/jumbo v0, "SdpManagerService"
+
+    const-string/jumbo v1, "SdpManagerService ready"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v0, "systemReady"
+
+    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
+
+    new-instance v0, Landroid/os/HandlerThread;
+
     const-string/jumbo v1, "SdpManagerService"
 
-    const-string/jumbo v2, "SdpManagerService ready"
+    const/16 v2, 0xa
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {v0, v1, v2}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;I)V
 
-    const-string/jumbo v1, "systemReady"
+    iput-object v0, p0, Lcom/android/server/SdpManagerService;->handlerThread:Landroid/os/HandlerThread;
 
-    invoke-static {v1}, Lcom/android/server/SdpManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
+    iget-object v0, p0, Lcom/android/server/SdpManagerService;->handlerThread:Landroid/os/HandlerThread;
 
-    invoke-static {}, Lcom/sec/knox/container/util/KeyManagementUtil;->getInstance()Lcom/sec/knox/container/util/KeyManagementUtil;
+    invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V
+
+    new-instance v0, Lcom/android/server/SdpManagerService$SdpHandler;
+
+    iget-object v1, p0, Lcom/android/server/SdpManagerService;->handlerThread:Landroid/os/HandlerThread;
+
+    invoke-virtual {v1}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
+    invoke-direct {v0, p0, v1}, Lcom/android/server/SdpManagerService$SdpHandler;-><init>(Lcom/android/server/SdpManagerService;Landroid/os/Looper;)V
 
-    new-instance v1, Lcom/android/server/SdpManagerService$SdpEngineDatabase;
+    iput-object v0, p0, Lcom/android/server/SdpManagerService;->mSdpHandler:Lcom/android/server/SdpManagerService$SdpHandler;
 
-    const/4 v2, 0x0
+    iput-boolean v3, p0, Lcom/android/server/SdpManagerService;->mIsHandlerReady:Z
 
-    invoke-direct {v1, p0, v2}, Lcom/android/server/SdpManagerService$SdpEngineDatabase;-><init>(Lcom/android/server/SdpManagerService;Lcom/android/server/SdpManagerService$SdpEngineDatabase;)V
+    const-string/jumbo v0, "SdpManagerService"
 
-    iput-object v1, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDb:Lcom/android/server/SdpManagerService$SdpEngineDatabase;
+    const-string/jumbo v1, "Sending message MSG_SYSTEM_READY to handler"
 
-    const-string/jumbo v1, "SdpManagerService"
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v2, "sending message MSG_SYSTEM_READY to handler."
+    invoke-direct {p0, v3}, Lcom/android/server/SdpManagerService;->quickMessage(I)V
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v0, "SdpManagerService"
 
-    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mSdpHandler:Lcom/android/server/SdpManagerService$SdpHandler;
+    const-string/jumbo v1, "systemReady done."
 
-    const/4 v2, 0x1
-
-    invoke-virtual {v1, v2}, Lcom/android/server/SdpManagerService$SdpHandler;->obtainMessage(I)Landroid/os/Message;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mSdpHandler:Lcom/android/server/SdpManagerService$SdpHandler;
-
-    invoke-virtual {v1, v0}, Lcom/android/server/SdpManagerService$SdpHandler;->sendMessage(Landroid/os/Message;)Z
-
-    const-string/jumbo v1, "SdpManagerService"
-
-    const-string/jumbo v2, "systemReady done."
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method
 
 .method public unlock(Ljava/lang/String;Ljava/lang/String;)I
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v3, -0x7
-
     invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    const-string/jumbo v1, "SdpManagerService"
-
-    const-string/jumbo v2, "SDP not supported"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
     const/16 v1, -0x9
 
     return v1
 
     :cond_0
-    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+    iget-object v1, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
 
-    monitor-enter v2
+    monitor-enter v1
 
     :try_start_0
     invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->getEngineInfoLocked(Ljava/lang/String;)Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v0
+
+    monitor-exit v1
 
     if-nez v0, :cond_1
 
     const-string/jumbo v1, "SdpManagerService"
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "lock :: can\'t find engine info "
+    const-string/jumbo v3, "unlock :: Can\'t find engine info for "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-static {v1, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     const/4 v1, -0x5
 
-    monitor-exit v2
-
     return v1
 
-    :cond_1
-    monitor-exit v2
+    :catchall_0
+    move-exception v2
 
+    monitor-exit v1
+
+    throw v2
+
+    :cond_1
     invoke-virtual {v0}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->isAndroidDefaultEngine()Z
 
     move-result v1
 
     if-eqz v1, :cond_2
 
-    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->isSystemComponent(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Z
+    const-string/jumbo v1, "SdpManagerService"
 
-    move-result v1
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    if-nez v1, :cond_3
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    return v3
+    const-string/jumbo v3, "unlock :: Not supported anymore to "
 
-    :catchall_0
-    move-exception v1
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    monitor-exit v2
+    move-result-object v2
 
-    throw v1
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v1, -0x63
+
+    return v1
 
     :cond_2
     invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->isEngineOwner(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Z
@@ -11451,202 +21037,181 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_3
-    const/4 v1, 0x1
+    if-eqz v1, :cond_3
 
-    invoke-direct {p0, v0, p2, v1}, Lcom/android/server/SdpManagerService;->unlockInternal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;Ljava/lang/String;I)I
-
-    move-result v1
-
-    return v1
-
-    :cond_4
     invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->isSystemComponent(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Z
 
     move-result v1
 
-    if-nez v1, :cond_3
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_3
 
     const-string/jumbo v1, "SdpManagerService"
 
-    const-string/jumbo v2, "Permission denied to invoke engine control API"
+    const-string/jumbo v2, "unlock :: Permission denied to invoke engine control API"
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v3
+    const/4 v1, -0x7
+
+    return v1
+
+    :cond_3
+    invoke-direct {p0, v0, p2}, Lcom/android/server/SdpManagerService;->unlockInternal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;Ljava/lang/String;)I
+
+    move-result v1
+
+    return v1
 .end method
 
 .method public unlockViaTrusted(Ljava/lang/String;Ljava/lang/String;)I
-    .locals 11
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v9, -0x7
-
-    const-string/jumbo v7, "unlockViaTrusted"
-
-    invoke-static {v7}, Lcom/android/server/SdpManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
+    const/4 v5, -0x7
 
     invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
 
-    move-result v7
+    move-result v3
 
-    if-nez v7, :cond_0
+    if-nez v3, :cond_0
 
-    const-string/jumbo v7, "SdpManagerService"
+    const/16 v3, -0x9
 
-    const-string/jumbo v8, "SDP not supported"
-
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v7, -0x9
-
-    return v7
+    return v3
 
     :cond_0
-    iget-object v8, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+    const-string/jumbo v3, "unlockViaTrusted"
 
-    monitor-enter v8
+    invoke-direct {p0, v3}, Lcom/android/server/SdpManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
+
+    iget-object v4, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+
+    monitor-enter v4
 
     :try_start_0
     invoke-direct {p0, p2}, Lcom/android/server/SdpManagerService;->getEngineInfoLocked(Ljava/lang/String;)Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
 
-    move-result-object v2
+    move-result-object v1
 
-    if-nez v2, :cond_1
+    if-nez v1, :cond_1
 
-    const-string/jumbo v7, "SdpManagerService"
+    const-string/jumbo v3, "SdpManagerService"
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v10, "unlockViaTrusted :: Couldn\'t find engine info "
+    const-string/jumbo v6, "unlockViaTrusted :: Can\'t find engine info with "
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v5
 
-    invoke-virtual {v9, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v5
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v5
 
-    invoke-static {v7, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const/4 v7, -0x5
+    const/4 v3, -0x5
 
-    monitor-exit v8
+    monitor-exit v4
 
-    return v7
+    return v3
 
     :cond_1
-    monitor-exit v8
+    monitor-exit v4
 
-    invoke-virtual {v2}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->isAndroidDefaultEngine()Z
+    invoke-virtual {v1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->isAndroidDefaultEngine()Z
 
-    move-result v7
+    move-result v3
 
-    if-eqz v7, :cond_2
+    if-eqz v3, :cond_2
 
-    return v9
+    return v5
 
     :catchall_0
-    move-exception v7
+    move-exception v3
 
-    monitor-exit v8
+    monitor-exit v4
 
-    throw v7
+    throw v3
 
     :cond_2
-    invoke-direct {p0, v2}, Lcom/android/server/SdpManagerService;->isEngineOwner(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Z
+    invoke-direct {p0, v1}, Lcom/android/server/SdpManagerService;->isEngineOwner(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Z
 
-    move-result v7
+    move-result v3
 
-    if-nez v7, :cond_3
+    if-nez v3, :cond_3
 
-    invoke-direct {p0, v2}, Lcom/android/server/SdpManagerService;->isPrivileged(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Z
+    invoke-direct {p0, v1}, Lcom/android/server/SdpManagerService;->isPrivileged(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Z
 
-    move-result v7
+    move-result v3
 
-    if-eqz v7, :cond_5
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_3
+
+    invoke-direct {p0, v1}, Lcom/android/server/SdpManagerService;->isSystemComponent(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Z
+
+    move-result v3
+
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_3
+
+    const-string/jumbo v3, "SdpManagerService"
+
+    const-string/jumbo v4, "unlockViaTrusted :: Permission denied to invoke engine control API"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v5
 
     :cond_3
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v7
+    move-result v3
 
-    invoke-static {v7}, Landroid/os/UserHandle;->getUserId(I)I
+    invoke-static {v3}, Landroid/os/UserHandle;->getUserId(I)I
 
-    move-result v6
+    move-result v0
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v3
 
-    invoke-virtual {v7, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v3
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    const/4 v3, 0x0
+    invoke-direct {p0, v2, v0, v1}, Lcom/android/server/SdpManagerService;->unlockViaTrustedInternal(Ljava/lang/String;ILcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I
 
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+    move-result v3
 
-    move-result-wide v4
-
-    iget-object v7, p0, Lcom/android/server/SdpManagerService;->mTimaHelper:Lcom/android/server/pm/TimaHelper;
-
-    invoke-virtual {v7, v6, v0}, Lcom/android/server/pm/TimaHelper;->getEntry(ILjava/lang/String;)[B
-
-    move-result-object v1
-
-    if-eqz v1, :cond_4
-
-    new-instance v3, Ljava/lang/String;
-
-    invoke-direct {v3, v1}, Ljava/lang/String;-><init>([B)V
-
-    :cond_4
-    invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    invoke-direct {p0, v2, v3}, Lcom/android/server/SdpManagerService;->unlockViaTrustedInternal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;Ljava/lang/String;)I
-
-    move-result v7
-
-    return v7
-
-    :cond_5
-    invoke-direct {p0, v2}, Lcom/android/server/SdpManagerService;->isSystemComponent(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Z
-
-    move-result v7
-
-    if-nez v7, :cond_3
-
-    const-string/jumbo v7, "SdpManagerService"
-
-    const-string/jumbo v8, "Permission denied to invoke engine control API"
-
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v9
+    return v3
 .end method
 
 .method public unregisterClient(ILandroid/os/ISdpListener;)V
@@ -11659,17 +21224,11 @@
 
     const/4 v2, 0x0
 
-    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSdpUserZeroSupported()Z
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
 
     move-result v5
 
     if-nez v5, :cond_0
-
-    const-string/jumbo v5, "SdpManagerService"
-
-    const-string/jumbo v6, "SDP not supported devices..."
-
-    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
@@ -11866,12 +21425,6 @@
 
     if-nez v1, :cond_0
 
-    const-string/jumbo v1, "SdpManagerService"
-
-    const-string/jumbo v2, "SDP not supported"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
     const/16 v1, -0x9
 
     return v1
@@ -11920,95 +21473,178 @@
 .end method
 
 .method public verify(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
-    .locals 5
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    const-string/jumbo v0, "SdpManagerService"
+
+    const-string/jumbo v1, "verify :: Deprecated"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v0, -0x63
+
+    return v0
+.end method
+
+.method public welcomeNewUser(I)V
+    .locals 6
+
     invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_0
+    if-nez v2, :cond_0
 
-    const-string/jumbo v1, "SdpManagerService"
-
-    const-string/jumbo v2, "SDP not supported"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v1, -0x9
-
-    return v1
+    return-void
 
     :cond_0
-    iget-object v2, p0, Lcom/android/server/SdpManagerService;->mSdpEngineDbLock:Ljava/lang/Object;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    monitor-enter v2
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    :try_start_0
-    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->getEngineInfoLocked(Ljava/lang/String;)Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;
+    const-string/jumbo v3, "Welcome new user "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->i(Ljava/lang/String;)V
+
+    const/4 v1, 0x0
+
+    const/16 v2, 0x20
+
+    invoke-static {v2}, Lcom/android/server/SdpManagerService$SecureUtil;->generateRandomBytes(I)[B
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->enableSyntheticPassword(I)Z
 
-    const-string/jumbo v1, "SdpManagerService"
+    move-result v2
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v2
 
-    const-string/jumbo v4, "verify :: can\'t find engine info "
+    invoke-static {v2}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v2
 
-    move-result-object v3
+    if-eqz v2, :cond_1
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v2, "Welcome - Failed to enalbe sp"
 
-    move-result-object v3
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    :goto_0
+    invoke-static {v0}, Lcom/android/server/SdpManagerService$SecureUtil;->clear([B)V
 
-    move-result-object v3
+    const-string/jumbo v2, "Result of welcoming new user %d : %s"
 
-    invoke-static {v1, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    const/4 v3, 0x2
 
-    const/4 v1, -0x5
+    new-array v3, v3, [Ljava/lang/Object;
 
-    monitor-exit v2
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    return v1
+    move-result-object v4
+
+    const/4 v5, 0x0
+
+    aput-object v4, v3, v5
+
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v4
+
+    const/4 v5, 0x1
+
+    aput-object v4, v3, v5
+
+    invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    return-void
 
     :cond_1
-    monitor-exit v2
+    invoke-direct {p0, v0, p1}, Lcom/android/server/SdpManagerService;->establish([BI)Z
 
-    invoke-direct {p0, v0}, Lcom/android/server/SdpManagerService;->isSystemComponent(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Z
+    move-result v2
 
-    move-result v1
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    if-nez v1, :cond_2
+    move-result-object v2
 
-    const/4 v1, -0x7
+    invoke-static {v2}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
 
-    return v1
+    move-result v2
 
-    :catchall_0
-    move-exception v1
+    if-eqz v2, :cond_2
 
-    monitor-exit v2
+    const-string/jumbo v2, "Welcome - Failed to create new engine"
 
-    throw v1
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto :goto_0
 
     :cond_2
-    invoke-direct {p0, v0, p2, p3}, Lcom/android/server/SdpManagerService;->unlockInternal(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {p0, v0, p1}, Lcom/android/server/SdpManagerService;->saveEphemeralKeyViaProtector([BI)Z
 
-    move-result v1
+    move-result v2
 
-    return v1
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    const-string/jumbo v2, "Welcome - Failed to safekeep sdp ephemeral key"
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_3
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService;->generateAndSaveSessionKey(I)Z
+
+    move-result v2
+
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_4
+
+    const-string/jumbo v2, "Welcome - Failed to prepare session key"
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    :cond_4
+    const/4 v1, 0x1
+
+    goto :goto_0
 .end method

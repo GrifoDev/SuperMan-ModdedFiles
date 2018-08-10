@@ -88,35 +88,33 @@
 .end method
 
 .method private hasPrintService(Ljava/lang/String;)Z
-    .locals 6
-
-    const/4 v2, 0x0
+    .locals 5
 
     new-instance v1, Landroid/content/Intent;
 
-    const-string/jumbo v3, "android.printservice.PrintService"
+    const-string/jumbo v2, "android.printservice.PrintService"
 
-    invoke-direct {v1, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
-    iget-object v3, p0, Lcom/android/server/print/PrintManagerService$PrintManagerImpl$2;->this$1:Lcom/android/server/print/PrintManagerService$PrintManagerImpl;
+    iget-object v2, p0, Lcom/android/server/print/PrintManagerService$PrintManagerImpl$2;->this$1:Lcom/android/server/print/PrintManagerService$PrintManagerImpl;
 
-    invoke-static {v3}, Lcom/android/server/print/PrintManagerService$PrintManagerImpl;->-get0(Lcom/android/server/print/PrintManagerService$PrintManagerImpl;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/server/print/PrintManagerService$PrintManagerImpl;->-get0(Lcom/android/server/print/PrintManagerService$PrintManagerImpl;)Landroid/content/Context;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v3
+    move-result-object v2
 
     invoke-virtual {p0}, Lcom/android/server/print/PrintManagerService$PrintManagerImpl$2;->getChangingUserId()I
 
-    move-result v4
+    move-result v3
 
-    const v5, 0x10000004
+    const v4, 0x10000004
 
-    invoke-virtual {v3, v1, v5, v4}, Landroid/content/pm/PackageManager;->queryIntentServicesAsUser(Landroid/content/Intent;II)Ljava/util/List;
+    invoke-virtual {v2, v1, v4, v3}, Landroid/content/pm/PackageManager;->queryIntentServicesAsUser(Landroid/content/Intent;II)Ljava/util/List;
 
     move-result-object v0
 
@@ -124,16 +122,15 @@
 
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_1
+    xor-int/lit8 v2, v2, 0x1
 
-    :cond_0
     :goto_0
     return v2
 
-    :cond_1
-    const/4 v2, 0x1
+    :cond_0
+    const/4 v2, 0x0
 
     goto :goto_0
 .end method
@@ -141,7 +138,7 @@
 
 # virtual methods
 .method public onHandleForceStop(Landroid/content/Intent;[Ljava/lang/String;IZ)Z
-    .locals 11
+    .locals 12
 
     iget-object v7, p0, Lcom/android/server/print/PrintManagerService$PrintManagerImpl$2;->this$1:Lcom/android/server/print/PrintManagerService$PrintManagerImpl;
 
@@ -181,7 +178,9 @@
 
     const/4 v10, 0x0
 
-    invoke-static {v7, v9, v10}, Lcom/android/server/print/PrintManagerService$PrintManagerImpl;->-wrap0(Lcom/android/server/print/PrintManagerService$PrintManagerImpl;IZ)Lcom/android/server/print/UserState;
+    const/4 v11, 0x0
+
+    invoke-static {v7, v9, v10, v11}, Lcom/android/server/print/PrintManagerService$PrintManagerImpl;->-wrap0(Lcom/android/server/print/PrintManagerService$PrintManagerImpl;IZZ)Lcom/android/server/print/UserState;
 
     move-result-object v6
 
@@ -290,7 +289,7 @@
 .end method
 
 .method public onPackageAdded(Ljava/lang/String;I)V
-    .locals 5
+    .locals 6
 
     const-string/jumbo v1, "PrintManagerService"
 
@@ -356,7 +355,9 @@
 
     const/4 v4, 0x0
 
-    invoke-static {v1, v3, v4}, Lcom/android/server/print/PrintManagerService$PrintManagerImpl;->-wrap0(Lcom/android/server/print/PrintManagerService$PrintManagerImpl;IZ)Lcom/android/server/print/UserState;
+    const/4 v5, 0x0
+
+    invoke-static {v1, v3, v4, v5}, Lcom/android/server/print/PrintManagerService$PrintManagerImpl;->-wrap0(Lcom/android/server/print/PrintManagerService$PrintManagerImpl;IZZ)Lcom/android/server/print/UserState;
 
     move-result-object v0
 
@@ -378,7 +379,9 @@
 .end method
 
 .method public onPackageModified(Ljava/lang/String;)V
-    .locals 4
+    .locals 5
+
+    const/4 v4, 0x0
 
     const-string/jumbo v1, "PrintManagerService"
 
@@ -427,9 +430,7 @@
 
     move-result v2
 
-    const/4 v3, 0x0
-
-    invoke-static {v1, v2, v3}, Lcom/android/server/print/PrintManagerService$PrintManagerImpl;->-wrap0(Lcom/android/server/print/PrintManagerService$PrintManagerImpl;IZ)Lcom/android/server/print/UserState;
+    invoke-static {v1, v2, v4, v4}, Lcom/android/server/print/PrintManagerService$PrintManagerImpl;->-wrap0(Lcom/android/server/print/PrintManagerService$PrintManagerImpl;IZZ)Lcom/android/server/print/UserState;
 
     move-result-object v0
 
@@ -527,7 +528,9 @@
 .end method
 
 .method public onPackageRemoved(Ljava/lang/String;I)V
-    .locals 4
+    .locals 5
+
+    const/4 v4, 0x0
 
     const-string/jumbo v1, "PrintManagerService"
 
@@ -576,9 +579,7 @@
 
     move-result v2
 
-    const/4 v3, 0x0
-
-    invoke-static {v1, v2, v3}, Lcom/android/server/print/PrintManagerService$PrintManagerImpl;->-wrap0(Lcom/android/server/print/PrintManagerService$PrintManagerImpl;IZ)Lcom/android/server/print/UserState;
+    invoke-static {v1, v2, v4, v4}, Lcom/android/server/print/PrintManagerService$PrintManagerImpl;->-wrap0(Lcom/android/server/print/PrintManagerService$PrintManagerImpl;IZZ)Lcom/android/server/print/UserState;
 
     move-result-object v0
 

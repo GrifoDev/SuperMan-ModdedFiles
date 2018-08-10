@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 5
 
     iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$NotificationListeners$1;->this$1:Lcom/android/server/notification/NotificationManagerService$NotificationListeners;
 
@@ -57,7 +57,9 @@
 
     iget-object v3, p0, Lcom/android/server/notification/NotificationManagerService$NotificationListeners$1;->val$update:Landroid/service/notification/NotificationRankingUpdate;
 
-    invoke-static {v0, v1, v2, v3}, Lcom/android/server/notification/NotificationManagerService$NotificationListeners;->-wrap5(Lcom/android/server/notification/NotificationManagerService$NotificationListeners;Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;Landroid/service/notification/StatusBarNotification;Landroid/service/notification/NotificationRankingUpdate;)V
+    const/4 v4, 0x6
+
+    invoke-static {v0, v1, v2, v3, v4}, Lcom/android/server/notification/NotificationManagerService$NotificationListeners;->-wrap5(Lcom/android/server/notification/NotificationManagerService$NotificationListeners;Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;Landroid/service/notification/StatusBarNotification;Landroid/service/notification/NotificationRankingUpdate;I)V
 
     return-void
 .end method

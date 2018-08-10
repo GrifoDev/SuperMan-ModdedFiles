@@ -1,4 +1,4 @@
-.class public Lcom/android/server/job/controllers/ContentObserverController;
+.class public final Lcom/android/server/job/controllers/ContentObserverController;
 .super Lcom/android/server/job/controllers/StateController;
 .source "ContentObserverController.java"
 
@@ -30,22 +30,24 @@
 # instance fields
 .field final mHandler:Landroid/os/Handler;
 
-.field mObservers:Landroid/util/ArrayMap;
+.field final mObservers:Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
+            "Landroid/util/SparseArray",
+            "<",
             "Landroid/util/ArrayMap",
             "<",
             "Landroid/app/job/JobInfo$TriggerContentUri;",
             "Lcom/android/server/job/controllers/ContentObserverController$ObserverInstance;",
-            ">;"
+            ">;>;"
         }
     .end annotation
 .end field
 
-.field private final mTrackedTasks:Ljava/util/List;
+.field private final mTrackedTasks:Landroid/util/ArraySet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List",
+            "Landroid/util/ArraySet",
             "<",
             "Lcom/android/server/job/controllers/JobStatus;",
             ">;"
@@ -72,17 +74,17 @@
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/job/controllers/StateController;-><init>(Lcom/android/server/job/StateChangedListener;Landroid/content/Context;Ljava/lang/Object;)V
 
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance v0, Landroid/util/ArraySet;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/job/controllers/ContentObserverController;->mTrackedTasks:Ljava/util/List;
+    iput-object v0, p0, Lcom/android/server/job/controllers/ContentObserverController;->mTrackedTasks:Landroid/util/ArraySet;
 
-    new-instance v0, Landroid/util/ArrayMap;
+    new-instance v0, Landroid/util/SparseArray;
 
-    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
+    invoke-direct {v0}, Landroid/util/SparseArray;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/job/controllers/ContentObserverController;->mObservers:Landroid/util/ArrayMap;
+    iput-object v0, p0, Lcom/android/server/job/controllers/ContentObserverController;->mObservers:Landroid/util/SparseArray;
 
     new-instance v0, Landroid/os/Handler;
 
@@ -157,399 +159,554 @@
 
 # virtual methods
 .method public dumpControllerStateLocked(Ljava/io/PrintWriter;I)V
-    .locals 16
+    .locals 22
 
-    const-string/jumbo v13, "Content:"
+    const-string/jumbo v19, "Content:"
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const/4 v6, 0x0
+
+    :goto_0
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/job/controllers/ContentObserverController;->mTrackedTasks:Landroid/util/ArraySet;
+
+    move-object/from16 v19, v0
+
+    invoke-virtual/range {v19 .. v19}, Landroid/util/ArraySet;->size()I
+
+    move-result v19
+
+    move/from16 v0, v19
+
+    if-ge v6, v0, :cond_1
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/server/job/controllers/ContentObserverController;->mTrackedTasks:Ljava/util/List;
+    iget-object v0, v0, Lcom/android/server/job/controllers/ContentObserverController;->mTrackedTasks:Landroid/util/ArraySet;
 
-    invoke-interface {v13}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    move-object/from16 v19, v0
 
-    move-result-object v6
+    move-object/from16 v0, v19
 
-    :cond_0
-    :goto_0
-    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
+    invoke-virtual {v0, v6}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
-    move-result v13
+    move-result-object v9
 
-    if-eqz v13, :cond_1
-
-    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v8
-
-    check-cast v8, Lcom/android/server/job/controllers/JobStatus;
+    check-cast v9, Lcom/android/server/job/controllers/JobStatus;
 
     move/from16 v0, p2
 
-    invoke-virtual {v8, v0}, Lcom/android/server/job/controllers/JobStatus;->shouldDump(I)Z
+    invoke-virtual {v9, v0}, Lcom/android/server/job/controllers/JobStatus;->shouldDump(I)Z
 
-    move-result v13
+    move-result v19
 
-    if-eqz v13, :cond_0
+    if-nez v19, :cond_0
 
-    const-string/jumbo v13, "  #"
+    :goto_1
+    add-int/lit8 v6, v6, 0x1
 
-    move-object/from16 v0, p1
+    goto :goto_0
 
-    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v8, v0}, Lcom/android/server/job/controllers/JobStatus;->printUniqueId(Ljava/io/PrintWriter;)V
-
-    const-string/jumbo v13, " from "
+    :cond_0
+    const-string/jumbo v19, "  #"
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    move-object/from16 v1, v19
 
-    invoke-virtual {v8}, Lcom/android/server/job/controllers/JobStatus;->getSourceUid()I
-
-    move-result v13
+    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     move-object/from16 v0, p1
 
-    invoke-static {v0, v13}, Landroid/os/UserHandle;->formatUid(Ljava/io/PrintWriter;I)V
+    invoke-virtual {v9, v0}, Lcom/android/server/job/controllers/JobStatus;->printUniqueId(Ljava/io/PrintWriter;)V
+
+    const-string/jumbo v19, " from "
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    invoke-virtual {v9}, Lcom/android/server/job/controllers/JobStatus;->getSourceUid()I
+
+    move-result v19
+
+    move-object/from16 v0, p1
+
+    move/from16 v1, v19
+
+    invoke-static {v0, v1}, Landroid/os/UserHandle;->formatUid(Ljava/io/PrintWriter;I)V
 
     invoke-virtual/range {p1 .. p1}, Ljava/io/PrintWriter;->println()V
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_1
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/server/job/controllers/ContentObserverController;->mObservers:Landroid/util/ArrayMap;
+    iget-object v0, v0, Lcom/android/server/job/controllers/ContentObserverController;->mObservers:Landroid/util/SparseArray;
 
-    invoke-virtual {v13}, Landroid/util/ArrayMap;->size()I
+    move-object/from16 v19, v0
 
-    move-result v3
+    invoke-virtual/range {v19 .. v19}, Landroid/util/SparseArray;->size()I
 
-    if-lez v3, :cond_a
+    move-result v5
 
-    const-string/jumbo v13, "  Observers:"
+    if-lez v5, :cond_b
+
+    const-string/jumbo v19, "  Observers:"
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    move-object/from16 v1, v19
 
-    const/4 v4, 0x0
+    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    :goto_1
-    if-ge v4, v3, :cond_a
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/server/job/controllers/ContentObserverController;->mObservers:Landroid/util/ArrayMap;
-
-    invoke-virtual {v13, v4}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v10
-
-    check-cast v10, Lcom/android/server/job/controllers/ContentObserverController$ObserverInstance;
-
-    iget-object v13, v10, Lcom/android/server/job/controllers/ContentObserverController$ObserverInstance;->mJobs:Landroid/util/ArraySet;
-
-    invoke-virtual {v13}, Landroid/util/ArraySet;->size()I
-
-    move-result v2
-
-    const/4 v11, 0x0
-
-    const/4 v7, 0x0
+    const/16 v18, 0x0
 
     :goto_2
-    if-ge v7, v2, :cond_2
+    move/from16 v0, v18
 
-    iget-object v13, v10, Lcom/android/server/job/controllers/ContentObserverController$ObserverInstance;->mJobs:Landroid/util/ArraySet;
-
-    invoke-virtual {v13, v7}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;
-
-    iget-object v13, v5, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mJobStatus:Lcom/android/server/job/controllers/JobStatus;
-
-    move/from16 v0, p2
-
-    invoke-virtual {v13, v0}, Lcom/android/server/job/controllers/JobStatus;->shouldDump(I)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_4
-
-    const/4 v11, 0x1
-
-    :cond_2
-    if-nez v11, :cond_5
-
-    :cond_3
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_1
-
-    :cond_4
-    add-int/lit8 v7, v7, 0x1
-
-    goto :goto_2
-
-    :cond_5
-    const-string/jumbo v13, "    "
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    if-ge v0, v5, :cond_b
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/server/job/controllers/ContentObserverController;->mObservers:Landroid/util/ArrayMap;
+    iget-object v0, v0, Lcom/android/server/job/controllers/ContentObserverController;->mObservers:Landroid/util/SparseArray;
 
-    invoke-virtual {v13, v4}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move/from16 v1, v18
+
+    invoke-virtual {v0, v1}, Landroid/util/SparseArray;->keyAt(I)I
+
+    move-result v17
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/job/controllers/ContentObserverController;->mObservers:Landroid/util/SparseArray;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object v14
+
+    check-cast v14, Landroid/util/ArrayMap;
+
+    invoke-virtual {v14}, Landroid/util/ArrayMap;->size()I
+
+    move-result v11
+
+    const/4 v13, 0x0
+
+    :goto_3
+    if-ge v13, v11, :cond_a
+
+    invoke-virtual {v14, v13}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
 
     move-result-object v12
 
-    check-cast v12, Landroid/app/job/JobInfo$TriggerContentUri;
+    check-cast v12, Lcom/android/server/job/controllers/ContentObserverController$ObserverInstance;
 
-    invoke-virtual {v12}, Landroid/app/job/JobInfo$TriggerContentUri;->getUri()Landroid/net/Uri;
+    iget-object v0, v12, Lcom/android/server/job/controllers/ContentObserverController$ObserverInstance;->mJobs:Landroid/util/ArraySet;
 
-    move-result-object v13
+    move-object/from16 v19, v0
 
-    move-object/from16 v0, p1
+    invoke-virtual/range {v19 .. v19}, Landroid/util/ArraySet;->size()I
 
-    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->print(Ljava/lang/Object;)V
+    move-result v4
 
-    const-string/jumbo v13, " 0x"
+    const/4 v15, 0x0
 
-    move-object/from16 v0, p1
+    const/4 v8, 0x0
 
-    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    :goto_4
+    if-ge v8, v4, :cond_2
 
-    invoke-virtual {v12}, Landroid/app/job/JobInfo$TriggerContentUri;->getFlags()I
+    iget-object v0, v12, Lcom/android/server/job/controllers/ContentObserverController$ObserverInstance;->mJobs:Landroid/util/ArraySet;
 
-    move-result v13
+    move-object/from16 v19, v0
 
-    invoke-static {v13}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+    move-object/from16 v0, v19
 
-    move-result-object v13
+    invoke-virtual {v0, v8}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
-    move-object/from16 v0, p1
+    move-result-object v7
 
-    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    check-cast v7, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;
 
-    const-string/jumbo v13, " ("
+    iget-object v0, v7, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mJobStatus:Lcom/android/server/job/controllers/JobStatus;
 
-    move-object/from16 v0, p1
+    move-object/from16 v19, v0
 
-    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    move-object/from16 v0, v19
 
-    invoke-static {v10}, Ljava/lang/System;->identityHashCode(Ljava/lang/Object;)I
+    move/from16 v1, p2
 
-    move-result v13
+    invoke-virtual {v0, v1}, Lcom/android/server/job/controllers/JobStatus;->shouldDump(I)Z
 
-    move-object/from16 v0, p1
+    move-result v19
 
-    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->print(I)V
+    if-eqz v19, :cond_4
 
-    const-string/jumbo v13, "):"
+    const/4 v15, 0x1
 
-    move-object/from16 v0, p1
+    :cond_2
+    if-nez v15, :cond_5
 
-    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    :cond_3
+    add-int/lit8 v13, v13, 0x1
 
-    const-string/jumbo v13, "      Jobs:"
+    goto :goto_3
 
-    move-object/from16 v0, p1
+    :cond_4
+    add-int/lit8 v8, v8, 0x1
 
-    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    goto :goto_4
 
-    const/4 v7, 0x0
-
-    :goto_3
-    if-ge v7, v2, :cond_3
-
-    iget-object v13, v10, Lcom/android/server/job/controllers/ContentObserverController$ObserverInstance;->mJobs:Landroid/util/ArraySet;
-
-    invoke-virtual {v13, v7}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;
-
-    const-string/jumbo v13, "        #"
+    :cond_5
+    const-string/jumbo v19, "    "
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    move-object/from16 v1, v19
 
-    iget-object v13, v5, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mJobStatus:Lcom/android/server/job/controllers/JobStatus;
+    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    move-object/from16 v0, p1
+    invoke-virtual {v14, v13}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
 
-    invoke-virtual {v13, v0}, Lcom/android/server/job/controllers/JobStatus;->printUniqueId(Ljava/io/PrintWriter;)V
+    move-result-object v16
 
-    const-string/jumbo v13, " from "
+    check-cast v16, Landroid/app/job/JobInfo$TriggerContentUri;
 
-    move-object/from16 v0, p1
+    invoke-virtual/range {v16 .. v16}, Landroid/app/job/JobInfo$TriggerContentUri;->getUri()Landroid/net/Uri;
 
-    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget-object v13, v5, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mJobStatus:Lcom/android/server/job/controllers/JobStatus;
-
-    invoke-virtual {v13}, Lcom/android/server/job/controllers/JobStatus;->getSourceUid()I
-
-    move-result v13
+    move-result-object v19
 
     move-object/from16 v0, p1
 
-    invoke-static {v0, v13}, Landroid/os/UserHandle;->formatUid(Ljava/io/PrintWriter;I)V
+    move-object/from16 v1, v19
 
-    iget-object v13, v5, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mChangedAuthorities:Landroid/util/ArraySet;
+    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/Object;)V
 
-    if-eqz v13, :cond_8
-
-    const-string/jumbo v13, ":"
+    const-string/jumbo v19, " 0x"
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    move-object/from16 v1, v19
 
-    iget-boolean v13, v5, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mTriggerPending:Z
+    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    if-eqz v13, :cond_6
+    invoke-virtual/range {v16 .. v16}, Landroid/app/job/JobInfo$TriggerContentUri;->getFlags()I
 
-    const-string/jumbo v13, "          Trigger pending: update="
+    move-result v19
 
-    move-object/from16 v0, p1
+    invoke-static/range {v19 .. v19}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
-    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget-object v13, v5, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mJobStatus:Lcom/android/server/job/controllers/JobStatus;
-
-    invoke-virtual {v13}, Lcom/android/server/job/controllers/JobStatus;->getTriggerContentUpdateDelay()J
-
-    move-result-wide v14
+    move-result-object v19
 
     move-object/from16 v0, p1
 
-    invoke-static {v14, v15, v0}, Landroid/util/TimeUtils;->formatDuration(JLjava/io/PrintWriter;)V
+    move-object/from16 v1, v19
 
-    const-string/jumbo v13, ", max="
+    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget-object v13, v5, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mJobStatus:Lcom/android/server/job/controllers/JobStatus;
-
-    invoke-virtual {v13}, Lcom/android/server/job/controllers/JobStatus;->getTriggerContentMaxDelay()J
-
-    move-result-wide v14
+    const-string/jumbo v19, " ("
 
     move-object/from16 v0, p1
 
-    invoke-static {v14, v15, v0}, Landroid/util/TimeUtils;->formatDuration(JLjava/io/PrintWriter;)V
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    invoke-static {v12}, Ljava/lang/System;->identityHashCode(Ljava/lang/Object;)I
+
+    move-result v19
+
+    move-object/from16 v0, p1
+
+    move/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->print(I)V
+
+    const-string/jumbo v19, "):"
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string/jumbo v19, "      Jobs:"
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const/4 v8, 0x0
+
+    :goto_5
+    if-ge v8, v4, :cond_3
+
+    iget-object v0, v12, Lcom/android/server/job/controllers/ContentObserverController$ObserverInstance;->mJobs:Landroid/util/ArraySet;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v8}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v7
+
+    check-cast v7, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;
+
+    const-string/jumbo v19, "        #"
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-object v0, v7, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mJobStatus:Lcom/android/server/job/controllers/JobStatus;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p1
+
+    invoke-virtual {v0, v1}, Lcom/android/server/job/controllers/JobStatus;->printUniqueId(Ljava/io/PrintWriter;)V
+
+    const-string/jumbo v19, " from "
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-object v0, v7, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mJobStatus:Lcom/android/server/job/controllers/JobStatus;
+
+    move-object/from16 v19, v0
+
+    invoke-virtual/range {v19 .. v19}, Lcom/android/server/job/controllers/JobStatus;->getSourceUid()I
+
+    move-result v19
+
+    move-object/from16 v0, p1
+
+    move/from16 v1, v19
+
+    invoke-static {v0, v1}, Landroid/os/UserHandle;->formatUid(Ljava/io/PrintWriter;I)V
+
+    iget-object v0, v7, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mChangedAuthorities:Landroid/util/ArraySet;
+
+    move-object/from16 v19, v0
+
+    if-eqz v19, :cond_8
+
+    const-string/jumbo v19, ":"
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    iget-boolean v0, v7, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mTriggerPending:Z
+
+    move/from16 v19, v0
+
+    if-eqz v19, :cond_6
+
+    const-string/jumbo v19, "          Trigger pending: update="
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-object v0, v7, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mJobStatus:Lcom/android/server/job/controllers/JobStatus;
+
+    move-object/from16 v19, v0
+
+    invoke-virtual/range {v19 .. v19}, Lcom/android/server/job/controllers/JobStatus;->getTriggerContentUpdateDelay()J
+
+    move-result-wide v20
+
+    move-wide/from16 v0, v20
+
+    move-object/from16 v2, p1
+
+    invoke-static {v0, v1, v2}, Landroid/util/TimeUtils;->formatDuration(JLjava/io/PrintWriter;)V
+
+    const-string/jumbo v19, ", max="
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-object v0, v7, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mJobStatus:Lcom/android/server/job/controllers/JobStatus;
+
+    move-object/from16 v19, v0
+
+    invoke-virtual/range {v19 .. v19}, Lcom/android/server/job/controllers/JobStatus;->getTriggerContentMaxDelay()J
+
+    move-result-wide v20
+
+    move-wide/from16 v0, v20
+
+    move-object/from16 v2, p1
+
+    invoke-static {v0, v1, v2}, Landroid/util/TimeUtils;->formatDuration(JLjava/io/PrintWriter;)V
 
     invoke-virtual/range {p1 .. p1}, Ljava/io/PrintWriter;->println()V
 
     :cond_6
-    const-string/jumbo v13, "          Changed Authorities:"
+    const-string/jumbo v19, "          Changed Authorities:"
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    move-object/from16 v1, v19
 
-    const/4 v9, 0x0
+    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    :goto_4
-    iget-object v13, v5, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mChangedAuthorities:Landroid/util/ArraySet;
+    const/4 v10, 0x0
 
-    invoke-virtual {v13}, Landroid/util/ArraySet;->size()I
+    :goto_6
+    iget-object v0, v7, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mChangedAuthorities:Landroid/util/ArraySet;
 
-    move-result v13
+    move-object/from16 v19, v0
 
-    if-ge v9, v13, :cond_7
+    invoke-virtual/range {v19 .. v19}, Landroid/util/ArraySet;->size()I
 
-    const-string/jumbo v13, "          "
+    move-result v19
 
-    move-object/from16 v0, p1
+    move/from16 v0, v19
 
-    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    if-ge v10, v0, :cond_7
 
-    iget-object v13, v5, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mChangedAuthorities:Landroid/util/ArraySet;
-
-    invoke-virtual {v13, v9}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v13
-
-    check-cast v13, Ljava/lang/String;
+    const-string/jumbo v19, "          "
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    move-object/from16 v1, v19
 
-    add-int/lit8 v9, v9, 0x1
+    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    goto :goto_4
+    iget-object v0, v7, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mChangedAuthorities:Landroid/util/ArraySet;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v10}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v19
+
+    check-cast v19, Ljava/lang/String;
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    add-int/lit8 v10, v10, 0x1
+
+    goto :goto_6
 
     :cond_7
-    iget-object v13, v5, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mChangedUris:Landroid/util/ArraySet;
+    iget-object v0, v7, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mChangedUris:Landroid/util/ArraySet;
 
-    if-eqz v13, :cond_9
+    move-object/from16 v19, v0
 
-    const-string/jumbo v13, "          Changed URIs:"
+    if-eqz v19, :cond_9
 
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    const/4 v9, 0x0
-
-    :goto_5
-    iget-object v13, v5, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mChangedUris:Landroid/util/ArraySet;
-
-    invoke-virtual {v13}, Landroid/util/ArraySet;->size()I
-
-    move-result v13
-
-    if-ge v9, v13, :cond_9
-
-    const-string/jumbo v13, "          "
+    const-string/jumbo v19, "          Changed URIs:"
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    move-object/from16 v1, v19
 
-    iget-object v13, v5, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mChangedUris:Landroid/util/ArraySet;
+    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    invoke-virtual {v13, v9}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+    const/4 v10, 0x0
 
-    move-result-object v13
+    :goto_7
+    iget-object v0, v7, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mChangedUris:Landroid/util/ArraySet;
+
+    move-object/from16 v19, v0
+
+    invoke-virtual/range {v19 .. v19}, Landroid/util/ArraySet;->size()I
+
+    move-result v19
+
+    move/from16 v0, v19
+
+    if-ge v10, v0, :cond_9
+
+    const-string/jumbo v19, "          "
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
+    move-object/from16 v1, v19
 
-    add-int/lit8 v9, v9, 0x1
+    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    goto :goto_5
+    iget-object v0, v7, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mChangedUris:Landroid/util/ArraySet;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v10}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v19
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
+
+    add-int/lit8 v10, v10, 0x1
+
+    goto :goto_7
 
     :cond_8
     invoke-virtual/range {p1 .. p1}, Ljava/io/PrintWriter;->println()V
 
     :cond_9
-    add-int/lit8 v7, v7, 0x1
+    add-int/lit8 v8, v8, 0x1
 
-    goto/16 :goto_3
+    goto/16 :goto_5
 
     :cond_a
+    add-int/lit8 v18, v18, 0x1
+
+    goto/16 :goto_2
+
+    :cond_b
     return-void
 .end method
 
@@ -575,9 +732,13 @@
     iput-object v5, p1, Lcom/android/server/job/controllers/JobStatus;->contentObserverJobInstance:Lcom/android/server/job/controllers/ContentObserverController$JobInstance;
 
     :cond_0
-    iget-object v5, p0, Lcom/android/server/job/controllers/ContentObserverController;->mTrackedTasks:Ljava/util/List;
+    iget-object v5, p0, Lcom/android/server/job/controllers/ContentObserverController;->mTrackedTasks:Landroid/util/ArraySet;
 
-    invoke-interface {v5, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, p1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
+
+    const/4 v5, 0x4
+
+    invoke-virtual {p1, v5}, Lcom/android/server/job/controllers/JobStatus;->setTrackingController(I)V
 
     const/4 v2, 0x0
 
@@ -719,11 +880,17 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {p1}, Lcom/android/server/job/controllers/JobStatus;->hasContentTriggerConstraint()Z
+    const/4 v0, 0x4
+
+    invoke-virtual {p1, v0}, Lcom/android/server/job/controllers/JobStatus;->clearTrackingController(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/server/job/controllers/ContentObserverController;->mTrackedTasks:Landroid/util/ArraySet;
+
+    invoke-virtual {v0, p1}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
 
     iget-object v0, p1, Lcom/android/server/job/controllers/JobStatus;->contentObserverJobInstance:Lcom/android/server/job/controllers/ContentObserverController$JobInstance;
 
@@ -733,7 +900,7 @@
 
     invoke-virtual {v0}, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->unscheduleLocked()V
 
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_2
 
     iget-object v0, p1, Lcom/android/server/job/controllers/JobStatus;->contentObserverJobInstance:Lcom/android/server/job/controllers/ContentObserverController$JobInstance;
 
@@ -782,14 +949,9 @@
 
     :cond_1
     :goto_0
-    iget-object v0, p0, Lcom/android/server/job/controllers/ContentObserverController;->mTrackedTasks:Ljava/util/List;
-
-    invoke-interface {v0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
-
-    :cond_2
     return-void
 
-    :cond_3
+    :cond_2
     iget-object v0, p1, Lcom/android/server/job/controllers/JobStatus;->contentObserverJobInstance:Lcom/android/server/job/controllers/ContentObserverController$JobInstance;
 
     invoke-virtual {v0}, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->detachLocked()V
@@ -838,8 +1000,8 @@
     return-void
 .end method
 
-.method public rescheduleForFailure(Lcom/android/server/job/controllers/JobStatus;Lcom/android/server/job/controllers/JobStatus;)V
-    .locals 2
+.method public rescheduleForFailureLocked(Lcom/android/server/job/controllers/JobStatus;Lcom/android/server/job/controllers/JobStatus;)V
+    .locals 1
 
     invoke-virtual {p2}, Lcom/android/server/job/controllers/JobStatus;->hasContentTriggerConstraint()Z
 
@@ -853,11 +1015,6 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/job/controllers/ContentObserverController;->mLock:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    :try_start_0
     iget-object v0, p2, Lcom/android/server/job/controllers/JobStatus;->changedAuthorities:Landroid/util/ArraySet;
 
     iput-object v0, p1, Lcom/android/server/job/controllers/JobStatus;->changedAuthorities:Landroid/util/ArraySet;
@@ -865,18 +1022,7 @@
     iget-object v0, p2, Lcom/android/server/job/controllers/JobStatus;->changedUris:Landroid/util/ArraySet;
 
     iput-object v0, p1, Lcom/android/server/job/controllers/JobStatus;->changedUris:Landroid/util/ArraySet;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit v1
 
     :cond_0
     return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-
-    throw v0
 .end method

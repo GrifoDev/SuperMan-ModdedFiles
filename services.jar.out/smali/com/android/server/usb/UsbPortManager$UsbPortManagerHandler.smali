@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 4
+    .locals 5
 
     iget v1, p1, Landroid/os/Message;->what:I
 
@@ -44,29 +44,9 @@
     :pswitch_0
     const-string/jumbo v1, "UsbPortManager"
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    const-string/jumbo v2, "handleMessage()"
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-static {}, Lcom/android/server/usb/UsbPortManager;->-get0()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "handleMessage()"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Lcom/android/server/utils/sysfwutil/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v1, p0, Lcom/android/server/usb/UsbPortManager$UsbPortManagerHandler;->this$0:Lcom/android/server/usb/UsbPortManager;
 
@@ -85,7 +65,9 @@
 
     const/4 v3, 0x0
 
-    invoke-static {v1, v3, v0}, Lcom/android/server/usb/UsbPortManager;->-wrap1(Lcom/android/server/usb/UsbPortManager;Lcom/android/internal/util/IndentingPrintWriter;Landroid/os/UEventObserver$UEvent;)V
+    const/4 v4, 0x0
+
+    invoke-static {v1, v3, v4, v0}, Lcom/android/server/usb/UsbPortManager;->-wrap2(Lcom/android/server/usb/UsbPortManager;Lcom/android/internal/util/IndentingPrintWriter;Ljava/util/ArrayList;Landroid/os/UEventObserver$UEvent;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

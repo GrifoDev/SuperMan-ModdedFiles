@@ -36,7 +36,7 @@
 
     iget-object v0, p0, Lcom/android/server/execute/SemExecuteManagerService$MyPackageMonitor;->this$0:Lcom/android/server/execute/SemExecuteManagerService;
 
-    invoke-static {v0}, Lcom/android/server/execute/SemExecuteManagerService;->-wrap1(Lcom/android/server/execute/SemExecuteManagerService;)V
+    invoke-static {v0}, Lcom/android/server/execute/SemExecuteManagerService;->-wrap2(Lcom/android/server/execute/SemExecuteManagerService;)V
 
     return-void
 .end method
@@ -46,7 +46,7 @@
 
     iget-object v0, p0, Lcom/android/server/execute/SemExecuteManagerService$MyPackageMonitor;->this$0:Lcom/android/server/execute/SemExecuteManagerService;
 
-    invoke-static {v0}, Lcom/android/server/execute/SemExecuteManagerService;->-wrap1(Lcom/android/server/execute/SemExecuteManagerService;)V
+    invoke-static {v0}, Lcom/android/server/execute/SemExecuteManagerService;->-wrap2(Lcom/android/server/execute/SemExecuteManagerService;)V
 
     return-void
 .end method

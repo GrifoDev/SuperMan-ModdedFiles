@@ -15,22 +15,16 @@
 
 
 # instance fields
-.field private final LID_OPEN:I
-
 .field final synthetic this$0:Lcom/android/server/InputMethodManagerService;
 
 
 # direct methods
 .method constructor <init>(Lcom/android/server/InputMethodManagerService;)V
-    .locals 1
+    .locals 0
 
     iput-object p1, p0, Lcom/android/server/InputMethodManagerService$ImmsBroadcastReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
-
-    const/4 v0, 0x1
-
-    iput v0, p0, Lcom/android/server/InputMethodManagerService$ImmsBroadcastReceiver;->LID_OPEN:I
 
     return-void
 .end method
@@ -38,11 +32,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 10
-
-    const/4 v9, 0x2
-
-    const/4 v8, 0x1
+    .locals 8
 
     const/4 v7, 0x0
 
@@ -177,7 +167,7 @@
 
     iget-object v5, p0, Lcom/android/server/InputMethodManagerService$ImmsBroadcastReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
 
-    invoke-static {v5}, Lcom/android/server/InputMethodManagerService;->-wrap6(Lcom/android/server/InputMethodManagerService;)V
+    invoke-static {v5}, Lcom/android/server/InputMethodManagerService;->-wrap9(Lcom/android/server/InputMethodManagerService;)V
 
     :cond_5
     return-void
@@ -188,7 +178,7 @@
     goto :goto_1
 
     :cond_7
-    const-string/jumbo v5, "android.intent.action.SCREEN_ON"
+    const-string/jumbo v5, "android.intent.action.LOCALE_CHANGED"
 
     invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -198,62 +188,11 @@
 
     iget-object v5, p0, Lcom/android/server/InputMethodManagerService$ImmsBroadcastReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
 
-    iget-boolean v5, v5, Lcom/android/server/InputMethodManagerService;->mIsInteractive:Z
-
-    if-eqz v5, :cond_8
-
-    iget-object v5, p0, Lcom/android/server/InputMethodManagerService$ImmsBroadcastReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
-
-    iget-object v5, v5, Lcom/android/server/InputMethodManagerService;->kb:Lcom/android/server/InputMethodManagerService$KeyboardDetect;
-
-    invoke-virtual {v5}, Lcom/android/server/InputMethodManagerService$KeyboardDetect;->getKeyboardState()I
-
-    move-result v5
-
-    iget-object v6, p0, Lcom/android/server/InputMethodManagerService$ImmsBroadcastReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
-
-    iget-object v6, v6, Lcom/android/server/InputMethodManagerService;->kb:Lcom/android/server/InputMethodManagerService$KeyboardDetect;
-
-    invoke-virtual {v6}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    if-ne v5, v9, :cond_3
-
-    iget-object v5, p0, Lcom/android/server/InputMethodManagerService$ImmsBroadcastReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
-
-    iget-object v5, v5, Lcom/android/server/InputMethodManagerService;->kb:Lcom/android/server/InputMethodManagerService$KeyboardDetect;
-
-    invoke-virtual {v5}, Lcom/android/server/InputMethodManagerService$KeyboardDetect;->keyboardPerflockAcquire()V
-
-    iget-object v5, p0, Lcom/android/server/InputMethodManagerService$ImmsBroadcastReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
-
-    iget-object v5, v5, Lcom/android/server/InputMethodManagerService;->kb:Lcom/android/server/InputMethodManagerService$KeyboardDetect;
-
-    iget-object v6, p0, Lcom/android/server/InputMethodManagerService$ImmsBroadcastReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
-
-    iget-object v6, v6, Lcom/android/server/InputMethodManagerService;->kb:Lcom/android/server/InputMethodManagerService$KeyboardDetect;
-
-    invoke-virtual {v6}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    invoke-virtual {v5, v8}, Lcom/android/server/InputMethodManagerService$KeyboardDetect;->setKeyboardState(I)V
+    invoke-virtual {v5}, Lcom/android/server/InputMethodManagerService;->onActionLocaleChanged()V
 
     goto :goto_0
 
     :cond_8
-    const-string/jumbo v5, "android.intent.action.SCREEN_OFF"
-
-    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_9
-
-    iget-object v5, p0, Lcom/android/server/InputMethodManagerService$ImmsBroadcastReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
-
-    iget-boolean v5, v5, Lcom/android/server/InputMethodManagerService;->mIsInteractive:Z
-
-    if-eqz v5, :cond_a
-
-    :cond_9
     const-string/jumbo v5, "InputMethodManagerService"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -274,44 +213,7 @@
 
     move-result-object v6
 
-    invoke-static {v5, v6}, Lcom/samsung/android/util/SemLog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_0
-
-    :cond_a
-    iget-object v5, p0, Lcom/android/server/InputMethodManagerService$ImmsBroadcastReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
-
-    iget-object v5, v5, Lcom/android/server/InputMethodManagerService;->kb:Lcom/android/server/InputMethodManagerService$KeyboardDetect;
-
-    invoke-virtual {v5}, Lcom/android/server/InputMethodManagerService$KeyboardDetect;->getKeyboardState()I
-
-    move-result v5
-
-    iget-object v6, p0, Lcom/android/server/InputMethodManagerService$ImmsBroadcastReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
-
-    iget-object v6, v6, Lcom/android/server/InputMethodManagerService;->kb:Lcom/android/server/InputMethodManagerService$KeyboardDetect;
-
-    invoke-virtual {v6}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    if-ne v5, v8, :cond_3
-
-    iget-object v5, p0, Lcom/android/server/InputMethodManagerService$ImmsBroadcastReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
-
-    iget-object v5, v5, Lcom/android/server/InputMethodManagerService;->kb:Lcom/android/server/InputMethodManagerService$KeyboardDetect;
-
-    invoke-virtual {v5}, Lcom/android/server/InputMethodManagerService$KeyboardDetect;->keyboardPerflockRelease()V
-
-    iget-object v5, p0, Lcom/android/server/InputMethodManagerService$ImmsBroadcastReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
-
-    iget-object v5, v5, Lcom/android/server/InputMethodManagerService;->kb:Lcom/android/server/InputMethodManagerService$KeyboardDetect;
-
-    iget-object v6, p0, Lcom/android/server/InputMethodManagerService$ImmsBroadcastReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
-
-    iget-object v6, v6, Lcom/android/server/InputMethodManagerService;->kb:Lcom/android/server/InputMethodManagerService$KeyboardDetect;
-
-    invoke-virtual {v6}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    invoke-virtual {v5, v9}, Lcom/android/server/InputMethodManagerService$KeyboardDetect;->setKeyboardState(I)V
-
-    goto/16 :goto_0
+    goto :goto_0
 .end method

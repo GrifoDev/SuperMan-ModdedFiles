@@ -6,8 +6,6 @@
 # static fields
 .field public static final STATE_BOOTING:I = 0x0
 
-.field public static final STATE_KNOX_LOCKED:I = 0x6
-
 .field public static final STATE_RUNNING_LOCKED:I = 0x1
 
 .field public static final STATE_RUNNING_UNLOCKED:I = 0x3
@@ -18,15 +16,11 @@
 
 .field public static final STATE_STOPPING:I = 0x4
 
-.field private static final TAG:Ljava/lang/String;
+.field private static final TAG:Ljava/lang/String; = "ActivityManager"
 
 
 # instance fields
 .field public lastState:I
-
-.field public mAdminUid:I
-
-.field public mContainerState:I
 
 .field public final mHandle:Landroid/os/UserHandle;
 
@@ -63,16 +57,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    const-string/jumbo v0, "ActivityManager"
-
-    sput-object v0, Lcom/android/server/am/UserState;->TAG:Ljava/lang/String;
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/os/UserHandle;)V
     .locals 2
 
@@ -89,12 +73,6 @@
     iput v1, p0, Lcom/android/server/am/UserState;->state:I
 
     iput v1, p0, Lcom/android/server/am/UserState;->lastState:I
-
-    const/4 v0, 0x3
-
-    iput v0, p0, Lcom/android/server/am/UserState;->mContainerState:I
-
-    iput v1, p0, Lcom/android/server/am/UserState;->mAdminUid:I
 
     new-instance v0, Landroid/util/ArrayMap;
 
@@ -117,7 +95,7 @@
     return-void
 .end method
 
-.method private static stateToString(I)Ljava/lang/String;
+.method public static stateToString(I)Ljava/lang/String;
     .locals 1
 
     packed-switch p0, :pswitch_data_0
@@ -207,51 +185,82 @@
 
     iget v0, p0, Lcom/android/server/am/UserState;->state:I
 
+    if-ne p1, v0, :cond_0
+
+    return-void
+
+    :cond_0
+    sget-object v0, Lcom/android/server/am/UserState;->TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "User "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/server/am/UserState;->mHandle:Landroid/os/UserHandle;
+
+    invoke-virtual {v2}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, " state changed from "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget v2, p0, Lcom/android/server/am/UserState;->state:I
+
+    invoke-static {v2}, Lcom/android/server/am/UserState;->stateToString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, " to "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {p1}, Lcom/android/server/am/UserState;->stateToString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget v0, p0, Lcom/android/server/am/UserState;->state:I
+
     iput v0, p0, Lcom/android/server/am/UserState;->lastState:I
 
     iput p1, p0, Lcom/android/server/am/UserState;->state:I
 
-    const/4 v0, 0x3
+    iget-object v0, p0, Lcom/android/server/am/UserState;->mHandle:Landroid/os/UserHandle;
 
-    new-array v0, v0, [Ljava/lang/Object;
+    invoke-virtual {v0}, Landroid/os/UserHandle;->getIdentifier()I
 
-    iget-object v1, p0, Lcom/android/server/am/UserState;->mHandle:Landroid/os/UserHandle;
+    move-result v0
 
-    invoke-virtual {v1}, Landroid/os/UserHandle;->getIdentifier()I
-
-    move-result v1
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    const/4 v2, 0x0
-
-    aput-object v1, v0, v2
-
-    iget v1, p0, Lcom/android/server/am/UserState;->lastState:I
-
-    invoke-static {v1}, Lcom/android/server/am/UserState;->stateToString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    const/4 v2, 0x1
-
-    aput-object v1, v0, v2
-
-    iget v1, p0, Lcom/android/server/am/UserState;->state:I
-
-    invoke-static {v1}, Lcom/android/server/am/UserState;->stateToString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    const/4 v2, 0x2
-
-    aput-object v1, v0, v2
-
-    const v1, 0xf42a4
-
-    invoke-static {v1, v0}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
+    invoke-static {v0, p1}, Lcom/android/server/am/EventLogTags;->writeAmUserStateChanged(II)V
 
     return-void
 .end method

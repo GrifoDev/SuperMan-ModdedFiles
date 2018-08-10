@@ -1008,10 +1008,17 @@
 
     move-result v2
 
-    if-eqz v2, :cond_11
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_b
+
+    iget v2, p0, Lcom/android/server/notification/NotificationUsageStats$AggregatedStats;->numWithTitle:I
+
+    add-int/lit8 v2, v2, 0x1
+
+    iput v2, p0, Lcom/android/server/notification/NotificationUsageStats$AggregatedStats;->numWithTitle:I
 
     :cond_b
-    :goto_3
     const-string/jumbo v2, "android.text"
 
     invoke-interface {v1, v2}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
@@ -1032,10 +1039,17 @@
 
     move-result v2
 
-    if-eqz v2, :cond_12
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_c
+
+    iget v2, p0, Lcom/android/server/notification/NotificationUsageStats$AggregatedStats;->numWithText:I
+
+    add-int/lit8 v2, v2, 0x1
+
+    iput v2, p0, Lcom/android/server/notification/NotificationUsageStats$AggregatedStats;->numWithText:I
 
     :cond_c
-    :goto_4
     const-string/jumbo v2, "android.subText"
 
     invoke-interface {v1, v2}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
@@ -1056,10 +1070,17 @@
 
     move-result v2
 
-    if-eqz v2, :cond_13
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_d
+
+    iget v2, p0, Lcom/android/server/notification/NotificationUsageStats$AggregatedStats;->numWithSubText:I
+
+    add-int/lit8 v2, v2, 0x1
+
+    iput v2, p0, Lcom/android/server/notification/NotificationUsageStats$AggregatedStats;->numWithSubText:I
 
     :cond_d
-    :goto_5
     const-string/jumbo v2, "android.infoText"
 
     invoke-interface {v1, v2}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
@@ -1080,10 +1101,17 @@
 
     move-result v2
 
-    if-eqz v2, :cond_14
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_e
+
+    iget v2, p0, Lcom/android/server/notification/NotificationUsageStats$AggregatedStats;->numWithInfoText:I
+
+    add-int/lit8 v2, v2, 0x1
+
+    iput v2, p0, Lcom/android/server/notification/NotificationUsageStats$AggregatedStats;->numWithInfoText:I
 
     :cond_e
-    :goto_6
     return-void
 
     :cond_f
@@ -1125,42 +1153,6 @@
     invoke-virtual {v2, v3}, Lcom/android/server/notification/NotificationUsageStats$ImportanceHistogram;->increment(I)V
 
     goto/16 :goto_2
-
-    :cond_11
-    iget v2, p0, Lcom/android/server/notification/NotificationUsageStats$AggregatedStats;->numWithTitle:I
-
-    add-int/lit8 v2, v2, 0x1
-
-    iput v2, p0, Lcom/android/server/notification/NotificationUsageStats$AggregatedStats;->numWithTitle:I
-
-    goto :goto_3
-
-    :cond_12
-    iget v2, p0, Lcom/android/server/notification/NotificationUsageStats$AggregatedStats;->numWithText:I
-
-    add-int/lit8 v2, v2, 0x1
-
-    iput v2, p0, Lcom/android/server/notification/NotificationUsageStats$AggregatedStats;->numWithText:I
-
-    goto :goto_4
-
-    :cond_13
-    iget v2, p0, Lcom/android/server/notification/NotificationUsageStats$AggregatedStats;->numWithSubText:I
-
-    add-int/lit8 v2, v2, 0x1
-
-    iput v2, p0, Lcom/android/server/notification/NotificationUsageStats$AggregatedStats;->numWithSubText:I
-
-    goto :goto_5
-
-    :cond_14
-    iget v2, p0, Lcom/android/server/notification/NotificationUsageStats$AggregatedStats;->numWithInfoText:I
-
-    add-int/lit8 v2, v2, 0x1
-
-    iput v2, p0, Lcom/android/server/notification/NotificationUsageStats$AggregatedStats;->numWithInfoText:I
-
-    goto :goto_6
 
     :pswitch_data_0
     .packed-switch -0x1

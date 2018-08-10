@@ -54,7 +54,7 @@
 
     iget-object v2, p0, Lcom/android/server/pm/UserManagerService$2;->val$effective:Landroid/os/Bundle;
 
-    invoke-static {}, Lcom/android/server/pm/UserManagerService;->-get8()Landroid/os/IBinder;
+    invoke-static {}, Lcom/android/server/pm/UserManagerService;->-get7()Landroid/os/IBinder;
 
     move-result-object v3
 

@@ -62,7 +62,7 @@
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionService$SettingsObserver;->this$0:Lcom/android/server/media/MediaSessionService;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionService;->-get4(Lcom/android/server/media/MediaSessionService;)Landroid/content/ContentResolver;
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionService;->-get3(Lcom/android/server/media/MediaSessionService;)Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -84,7 +84,7 @@
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionService$SettingsObserver;->this$0:Lcom/android/server/media/MediaSessionService;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionService;->-wrap7(Lcom/android/server/media/MediaSessionService;)V
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionService;->-wrap15(Lcom/android/server/media/MediaSessionService;)V
 
     return-void
 .end method

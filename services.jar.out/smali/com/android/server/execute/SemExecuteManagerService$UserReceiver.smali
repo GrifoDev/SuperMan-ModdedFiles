@@ -52,11 +52,11 @@
 
     move-result v1
 
-    invoke-static {v0, v1}, Lcom/android/server/execute/SemExecuteManagerService;->-wrap0(Lcom/android/server/execute/SemExecuteManagerService;I)V
+    invoke-static {v0, v1}, Lcom/android/server/execute/SemExecuteManagerService;->-wrap1(Lcom/android/server/execute/SemExecuteManagerService;I)V
 
     iget-object v0, p0, Lcom/android/server/execute/SemExecuteManagerService$UserReceiver;->this$0:Lcom/android/server/execute/SemExecuteManagerService;
 
-    invoke-static {v0}, Lcom/android/server/execute/SemExecuteManagerService;->-wrap1(Lcom/android/server/execute/SemExecuteManagerService;)V
+    invoke-static {v0}, Lcom/android/server/execute/SemExecuteManagerService;->-wrap2(Lcom/android/server/execute/SemExecuteManagerService;)V
 
     return-void
 .end method

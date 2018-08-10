@@ -62,14 +62,6 @@
 
     iget-object v1, p0, Lcom/android/server/DockObserver$3;->this$0:Lcom/android/server/DockObserver;
 
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
-
-    move-result-wide v2
-
-    invoke-static {v1, v2, v3}, Lcom/android/server/DockObserver;->-set1(Lcom/android/server/DockObserver;J)J
-
-    iget-object v1, p0, Lcom/android/server/DockObserver$3;->this$0:Lcom/android/server/DockObserver;
-
     const/4 v2, 0x1
 
     invoke-static {v1, v2}, Lcom/android/server/DockObserver;->-set0(Lcom/android/server/DockObserver;I)I
@@ -77,7 +69,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/DockObserver$3;->this$0:Lcom/android/server/DockObserver;
 
-    invoke-static {v1}, Lcom/android/server/DockObserver;->-get4(Lcom/android/server/DockObserver;)Ljava/lang/Object;
+    invoke-static {v1}, Lcom/android/server/DockObserver;->-get2(Lcom/android/server/DockObserver;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -86,6 +78,16 @@
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     :try_start_1
+    iget-object v1, p0, Lcom/android/server/DockObserver$3;->this$0:Lcom/android/server/DockObserver;
+
+    const-string/jumbo v3, "USBPD_IDS"
+
+    invoke-virtual {p1, v3}, Landroid/os/UEventObserver$UEvent;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v1, v3}, Lcom/android/server/DockObserver;->-set2(Lcom/android/server/DockObserver;Ljava/lang/String;)Ljava/lang/String;
+
     iget-object v1, p0, Lcom/android/server/DockObserver$3;->this$0:Lcom/android/server/DockObserver;
 
     const-string/jumbo v3, "SWITCH_STATE"

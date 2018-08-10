@@ -12,13 +12,13 @@
 
 
 # instance fields
-.field mAllowCategory:Ljava/lang/String;
+.field mAPMWL:[Ljava/lang/String;
 
-.field mBBCAllowCategory:Ljava/lang/String;
+.field mAllowSpace:Ljava/lang/String;
 
-.field mBBCCcategory:I
+.field mBBCAllowSpace:Ljava/lang/String;
 
-.field mCategory:I
+.field mBBCSpace:I
 
 .field private final mCerts:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
@@ -44,6 +44,8 @@
 .end field
 
 .field private final mSeinfo:Ljava/lang/String;
+
+.field mSpace:I
 
 
 # direct methods
@@ -102,29 +104,35 @@
 
     iput-object v0, p0, Lcom/android/server/pm/Policy;->mPkgMap:Ljava/util/Map;
 
+    invoke-static {p1}, Lcom/android/server/pm/Policy$PolicyBuilder;->-get7(Lcom/android/server/pm/Policy$PolicyBuilder;)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/server/pm/Policy;->mSpace:I
+
     invoke-static {p1}, Lcom/android/server/pm/Policy$PolicyBuilder;->-get3(Lcom/android/server/pm/Policy$PolicyBuilder;)I
 
     move-result v0
 
-    iput v0, p0, Lcom/android/server/pm/Policy;->mCategory:I
-
-    invoke-static {p1}, Lcom/android/server/pm/Policy$PolicyBuilder;->-get2(Lcom/android/server/pm/Policy$PolicyBuilder;)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/server/pm/Policy;->mBBCCcategory:I
-
-    invoke-static {p1}, Lcom/android/server/pm/Policy$PolicyBuilder;->-get0(Lcom/android/server/pm/Policy$PolicyBuilder;)Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/server/pm/Policy;->mAllowCategory:Ljava/lang/String;
+    iput v0, p0, Lcom/android/server/pm/Policy;->mBBCSpace:I
 
     invoke-static {p1}, Lcom/android/server/pm/Policy$PolicyBuilder;->-get1(Lcom/android/server/pm/Policy$PolicyBuilder;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/android/server/pm/Policy;->mBBCAllowCategory:Ljava/lang/String;
+    iput-object v0, p0, Lcom/android/server/pm/Policy;->mAllowSpace:Ljava/lang/String;
+
+    invoke-static {p1}, Lcom/android/server/pm/Policy$PolicyBuilder;->-get2(Lcom/android/server/pm/Policy$PolicyBuilder;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/server/pm/Policy;->mBBCAllowSpace:Ljava/lang/String;
+
+    invoke-static {p1}, Lcom/android/server/pm/Policy$PolicyBuilder;->-get0(Lcom/android/server/pm/Policy$PolicyBuilder;)[Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/server/pm/Policy;->mAPMWL:[Ljava/lang/String;
 
     return-void
 .end method
@@ -178,7 +186,7 @@
     return-object v0
 .end method
 
-.method public getMatchedSeinfo(Landroid/content/pm/PackageParser$Package;)Ljava/lang/String;
+.method public getMatchedSeInfo(Landroid/content/pm/PackageParser$Package;)Ljava/lang/String;
     .locals 5
 
     const/4 v4, 0x0
@@ -278,17 +286,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     return v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;

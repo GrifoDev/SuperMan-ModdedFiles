@@ -34,23 +34,13 @@
 .method public onUEvent(Landroid/os/UEventObserver$UEvent;)V
     .locals 14
 
-    invoke-static {}, Lcom/android/server/usb/UsbHostManager;->-get1()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/usb/UsbHostManager;->-get0()Ljava/lang/String;
 
     move-result-object v0
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v2, p0, Lcom/android/server/usb/UsbHostManager$2;->this$0:Lcom/android/server/usb/UsbHostManager;
-
-    invoke-static {v2}, Lcom/android/server/usb/UsbHostManager;->-get0(Lcom/android/server/usb/UsbHostManager;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     const-string/jumbo v2, "onUEvent(HOST cable connected) : "
 
@@ -70,7 +60,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/android/server/utils/sysfwutil/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     const-string/jumbo v0, "ACTION"
 
@@ -108,7 +98,7 @@
 
     iget-object v0, p0, Lcom/android/server/usb/UsbHostManager$2;->this$0:Lcom/android/server/usb/UsbHostManager;
 
-    invoke-static {v0}, Lcom/android/server/usb/UsbHostManager;->-wrap3(Lcom/android/server/usb/UsbHostManager;)V
+    invoke-static {v0}, Lcom/android/server/usb/UsbHostManager;->-wrap4(Lcom/android/server/usb/UsbHostManager;)V
 
     const-string/jumbo v0, "remove"
 
@@ -120,7 +110,7 @@
 
     iget-object v0, p0, Lcom/android/server/usb/UsbHostManager$2;->this$0:Lcom/android/server/usb/UsbHostManager;
 
-    invoke-static {v0}, Lcom/android/server/usb/UsbHostManager;->-get3(Lcom/android/server/usb/UsbHostManager;)Lcom/android/server/usb/UsbNotificationHandler;
+    invoke-static {v0}, Lcom/android/server/usb/UsbHostManager;->-get1(Lcom/android/server/usb/UsbHostManager;)Lcom/android/server/usb/UsbNotificationHandler;
 
     move-result-object v0
 
@@ -156,17 +146,17 @@
 
     iget-object v0, p0, Lcom/android/server/usb/UsbHostManager$2;->this$0:Lcom/android/server/usb/UsbHostManager;
 
-    invoke-static {v0}, Lcom/android/server/usb/UsbHostManager;->-get3(Lcom/android/server/usb/UsbHostManager;)Lcom/android/server/usb/UsbNotificationHandler;
+    invoke-static {v0}, Lcom/android/server/usb/UsbHostManager;->-get1(Lcom/android/server/usb/UsbHostManager;)Lcom/android/server/usb/UsbNotificationHandler;
 
     move-result-object v0
 
     const-string/jumbo v6, "UsbDevices"
 
-    const v1, 0x1040a84
+    const v1, 0x1040aa7
 
     const/4 v2, 0x0
 
-    const v3, 0x1080894
+    const v3, 0x108093d
 
     const/4 v4, 0x0
 
@@ -188,43 +178,17 @@
 
     iget-object v0, p0, Lcom/android/server/usb/UsbHostManager$2;->this$0:Lcom/android/server/usb/UsbHostManager;
 
-    invoke-static {v0}, Lcom/android/server/usb/UsbHostManager;->-get2(Lcom/android/server/usb/UsbHostManager;)Landroid/content/Context;
-
-    move-result-object v0
-
     sget-object v1, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
-    invoke-virtual {v0, v13, v1}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+    invoke-static {v0, v13, v1}, Lcom/android/server/usb/UsbHostManager;->-wrap3(Lcom/android/server/usb/UsbHostManager;Landroid/content/Intent;Landroid/os/UserHandle;)V
 
-    invoke-static {}, Lcom/android/server/usb/UsbHostManager;->-get1()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/usb/UsbHostManager;->-get0()Ljava/lang/String;
 
     move-result-object v0
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    const-string/jumbo v1, "sending intent : HOST CABLE INTENT (Host Connected)"
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v2, p0, Lcom/android/server/usb/UsbHostManager$2;->this$0:Lcom/android/server/usb/UsbHostManager;
-
-    invoke-static {v2}, Lcom/android/server/usb/UsbHostManager;->-get0(Lcom/android/server/usb/UsbHostManager;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "sending intent : HOST CABLE INTENT (Host Connected)"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/android/server/utils/sysfwutil/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
@@ -239,7 +203,7 @@
 
     iget-object v0, p0, Lcom/android/server/usb/UsbHostManager$2;->this$0:Lcom/android/server/usb/UsbHostManager;
 
-    invoke-static {v0}, Lcom/android/server/usb/UsbHostManager;->-get3(Lcom/android/server/usb/UsbHostManager;)Lcom/android/server/usb/UsbNotificationHandler;
+    invoke-static {v0}, Lcom/android/server/usb/UsbHostManager;->-get1(Lcom/android/server/usb/UsbHostManager;)Lcom/android/server/usb/UsbNotificationHandler;
 
     move-result-object v0
 
@@ -247,17 +211,17 @@
 
     iget-object v0, p0, Lcom/android/server/usb/UsbHostManager$2;->this$0:Lcom/android/server/usb/UsbHostManager;
 
-    invoke-static {v0}, Lcom/android/server/usb/UsbHostManager;->-get3(Lcom/android/server/usb/UsbHostManager;)Lcom/android/server/usb/UsbNotificationHandler;
+    invoke-static {v0}, Lcom/android/server/usb/UsbHostManager;->-get1(Lcom/android/server/usb/UsbHostManager;)Lcom/android/server/usb/UsbNotificationHandler;
 
     move-result-object v0
 
     const-string/jumbo v6, "UsbDevices"
 
-    const v1, 0x1040a85
+    const v1, 0x1040aa8
 
     const/4 v2, 0x0
 
-    const v3, 0x1080894
+    const v3, 0x108093d
 
     const/4 v4, 0x0
 
@@ -279,43 +243,17 @@
 
     iget-object v0, p0, Lcom/android/server/usb/UsbHostManager$2;->this$0:Lcom/android/server/usb/UsbHostManager;
 
-    invoke-static {v0}, Lcom/android/server/usb/UsbHostManager;->-get2(Lcom/android/server/usb/UsbHostManager;)Landroid/content/Context;
-
-    move-result-object v0
-
     sget-object v1, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
-    invoke-virtual {v0, v13, v1}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+    invoke-static {v0, v13, v1}, Lcom/android/server/usb/UsbHostManager;->-wrap3(Lcom/android/server/usb/UsbHostManager;Landroid/content/Intent;Landroid/os/UserHandle;)V
 
-    invoke-static {}, Lcom/android/server/usb/UsbHostManager;->-get1()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/usb/UsbHostManager;->-get0()Ljava/lang/String;
 
     move-result-object v0
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    const-string/jumbo v1, "sending intent : HOST CABLE INTENT (Host Disconnected)"
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v2, p0, Lcom/android/server/usb/UsbHostManager$2;->this$0:Lcom/android/server/usb/UsbHostManager;
-
-    invoke-static {v2}, Lcom/android/server/usb/UsbHostManager;->-get0(Lcom/android/server/usb/UsbHostManager;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "sending intent : HOST CABLE INTENT (Host Disconnected)"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/android/server/utils/sysfwutil/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
@@ -330,17 +268,17 @@
 
     iget-object v0, p0, Lcom/android/server/usb/UsbHostManager$2;->this$0:Lcom/android/server/usb/UsbHostManager;
 
-    invoke-static {v0}, Lcom/android/server/usb/UsbHostManager;->-get3(Lcom/android/server/usb/UsbHostManager;)Lcom/android/server/usb/UsbNotificationHandler;
+    invoke-static {v0}, Lcom/android/server/usb/UsbHostManager;->-get1(Lcom/android/server/usb/UsbHostManager;)Lcom/android/server/usb/UsbNotificationHandler;
 
     move-result-object v0
 
     const-string/jumbo v6, "OVERCURRENT"
 
-    const v1, 0x1040a86
+    const v1, 0x1040aaa
 
-    const v2, 0x1040a87
+    const v2, 0x1040aa9
 
-    const v3, 0x1080895
+    const v3, 0x108093e
 
     const/4 v4, 0x1
 
@@ -361,17 +299,17 @@
 
     iget-object v0, p0, Lcom/android/server/usb/UsbHostManager$2;->this$0:Lcom/android/server/usb/UsbHostManager;
 
-    invoke-static {v0}, Lcom/android/server/usb/UsbHostManager;->-get3(Lcom/android/server/usb/UsbHostManager;)Lcom/android/server/usb/UsbNotificationHandler;
+    invoke-static {v0}, Lcom/android/server/usb/UsbHostManager;->-get1(Lcom/android/server/usb/UsbHostManager;)Lcom/android/server/usb/UsbNotificationHandler;
 
     move-result-object v0
 
     const-string/jumbo v6, "UNKNOWN"
 
-    const v1, 0x1040a88
+    const v1, 0x1040aa6
 
     const/4 v2, 0x0
 
-    const v3, 0x1080896
+    const v3, 0x108093f
 
     const/4 v4, 0x1
 
@@ -397,23 +335,13 @@
     :catch_0
     move-exception v9
 
-    invoke-static {}, Lcom/android/server/usb/UsbHostManager;->-get1()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/usb/UsbHostManager;->-get0()Ljava/lang/String;
 
     move-result-object v0
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v2, p0, Lcom/android/server/usb/UsbHostManager$2;->this$0:Lcom/android/server/usb/UsbHostManager;
-
-    invoke-static {v2}, Lcom/android/server/usb/UsbHostManager;->-get0(Lcom/android/server/usb/UsbHostManager;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     const-string/jumbo v2, "Could not parse state or devPath from event "
 
@@ -429,7 +357,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/android/server/utils/sysfwutil/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_5
     return-void

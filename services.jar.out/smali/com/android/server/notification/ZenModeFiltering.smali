@@ -726,6 +726,22 @@
     goto :goto_0
 .end method
 
+.method protected recordCall(Lcom/android/server/notification/NotificationRecord;)V
+    .locals 3
+
+    sget-object v0, Lcom/android/server/notification/ZenModeFiltering;->REPEAT_CALLERS:Lcom/android/server/notification/ZenModeFiltering$RepeatCallers;
+
+    iget-object v1, p0, Lcom/android/server/notification/ZenModeFiltering;->mContext:Landroid/content/Context;
+
+    invoke-static {p1}, Lcom/android/server/notification/ZenModeFiltering;->extras(Lcom/android/server/notification/NotificationRecord;)Landroid/os/Bundle;
+
+    move-result-object v2
+
+    invoke-static {v0, v1, v2}, Lcom/android/server/notification/ZenModeFiltering$RepeatCallers;->-wrap1(Lcom/android/server/notification/ZenModeFiltering$RepeatCallers;Landroid/content/Context;Landroid/os/Bundle;)V
+
+    return-void
+.end method
+
 .method public shouldIntercept(ILandroid/service/notification/ZenModeConfig;Lcom/android/server/notification/NotificationRecord;)Z
     .locals 5
 
@@ -770,13 +786,22 @@
     return v4
 
     :pswitch_2
+    invoke-static {p3}, Lcom/android/server/notification/ZenModeFiltering;->isAlarm(Lcom/android/server/notification/NotificationRecord;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    return v3
+
+    :cond_2
     invoke-virtual {p3}, Lcom/android/server/notification/NotificationRecord;->getPackagePriority()I
 
     move-result v0
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_3
 
     const-string/jumbo v0, "priorityApp"
 
@@ -784,40 +809,16 @@
 
     return v3
 
-    :cond_2
-    invoke-static {p3}, Lcom/android/server/notification/ZenModeFiltering;->isAlarm(Lcom/android/server/notification/NotificationRecord;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    const-string/jumbo v0, "isAlarm"
-
-    invoke-static {p3, v0}, Lcom/android/server/notification/ZenLog;->traceIntercepted(Lcom/android/server/notification/NotificationRecord;Ljava/lang/String;)V
-
-    iget-boolean v0, p2, Landroid/service/notification/ZenModeConfig;->allowAlarms:Z
-
-    if-nez v0, :cond_3
-
-    const-string/jumbo v0, "!allowAlarms"
-
-    invoke-static {p3, v0}, Lcom/android/server/notification/ZenLog;->traceIntercepted(Lcom/android/server/notification/NotificationRecord;Ljava/lang/String;)V
-
-    return v4
-
     :cond_3
-    return v3
-
-    :cond_4
     invoke-virtual {p0, p3}, Lcom/android/server/notification/ZenModeFiltering;->isCall(Lcom/android/server/notification/NotificationRecord;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_6
 
     iget-boolean v0, p2, Landroid/service/notification/ZenModeConfig;->allowRepeatCallers:Z
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_4
 
     sget-object v0, Lcom/android/server/notification/ZenModeFiltering;->REPEAT_CALLERS:Lcom/android/server/notification/ZenModeFiltering$RepeatCallers;
 
@@ -831,7 +832,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_4
 
     const-string/jumbo v0, "repeatCaller"
 
@@ -839,10 +840,10 @@
 
     return v3
 
-    :cond_5
+    :cond_4
     iget-boolean v0, p2, Landroid/service/notification/ZenModeConfig;->allowCalls:Z
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_5
 
     const-string/jumbo v0, "!allowCalls"
 
@@ -850,7 +851,7 @@
 
     return v4
 
-    :cond_6
+    :cond_5
     iget v0, p2, Landroid/service/notification/ZenModeConfig;->allowCallsFrom:I
 
     invoke-static {v0, p3}, Lcom/android/server/notification/ZenModeFiltering;->shouldInterceptAudience(ILcom/android/server/notification/NotificationRecord;)Z
@@ -859,16 +860,16 @@
 
     return v0
 
-    :cond_7
+    :cond_6
     invoke-direct {p0, p3}, Lcom/android/server/notification/ZenModeFiltering;->isMessage(Lcom/android/server/notification/NotificationRecord;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_8
 
     iget-boolean v0, p2, Landroid/service/notification/ZenModeConfig;->allowMessages:Z
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_7
 
     const-string/jumbo v0, "!allowMessages"
 
@@ -876,7 +877,7 @@
 
     return v4
 
-    :cond_8
+    :cond_7
     iget v0, p2, Landroid/service/notification/ZenModeConfig;->allowMessagesFrom:I
 
     invoke-static {v0, p3}, Lcom/android/server/notification/ZenModeFiltering;->shouldInterceptAudience(ILcom/android/server/notification/NotificationRecord;)Z
@@ -885,16 +886,16 @@
 
     return v0
 
-    :cond_9
+    :cond_8
     invoke-static {p3}, Lcom/android/server/notification/ZenModeFiltering;->isEvent(Lcom/android/server/notification/NotificationRecord;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_a
 
     iget-boolean v0, p2, Landroid/service/notification/ZenModeConfig;->allowEvents:Z
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_9
 
     const-string/jumbo v0, "!allowEvents"
 
@@ -902,19 +903,19 @@
 
     return v4
 
-    :cond_a
+    :cond_9
     return v3
 
-    :cond_b
+    :cond_a
     invoke-static {p3}, Lcom/android/server/notification/ZenModeFiltering;->isReminder(Lcom/android/server/notification/NotificationRecord;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_c
 
     iget-boolean v0, p2, Landroid/service/notification/ZenModeConfig;->allowReminders:Z
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_b
 
     const-string/jumbo v0, "!allowReminders"
 
@@ -922,15 +923,17 @@
 
     return v4
 
-    :cond_c
+    :cond_b
     return v3
 
-    :cond_d
+    :cond_c
     const-string/jumbo v0, "!priority"
 
     invoke-static {p3, v0}, Lcom/android/server/notification/ZenLog;->traceIntercepted(Lcom/android/server/notification/NotificationRecord;Ljava/lang/String;)V
 
     return v4
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1

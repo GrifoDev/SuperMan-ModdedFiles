@@ -38,7 +38,7 @@
 
     iget-object v0, p0, Lcom/android/server/print/RemotePrintSpooler$GetCustomPrinterIconCaller$1;->this$1:Lcom/android/server/print/RemotePrintSpooler$GetCustomPrinterIconCaller;
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/print/RemotePrintSpooler$GetCustomPrinterIconCaller;->onRemoteMethodResult(Ljava/lang/Object;I)V
+    invoke-static {v0, p1, p2}, Lcom/android/server/print/RemotePrintSpooler$GetCustomPrinterIconCaller;->-wrap0(Lcom/android/server/print/RemotePrintSpooler$GetCustomPrinterIconCaller;Ljava/lang/Object;I)V
 
     return-void
 .end method

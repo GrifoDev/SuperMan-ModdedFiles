@@ -22,13 +22,15 @@
 
 
 # instance fields
+.field private final mCurrentOpToken:I
+
 .field final mLatch:Ljava/util/concurrent/CountDownLatch;
 
 .field final synthetic this$0:Lcom/android/server/backup/BackupManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/backup/BackupManagerService;)V
+.method constructor <init>(Lcom/android/server/backup/BackupManagerService;I)V
     .locals 2
 
     iput-object p1, p0, Lcom/android/server/backup/BackupManagerService$AdbRestoreFinishedLatch;->this$0:Lcom/android/server/backup/BackupManagerService;
@@ -42,6 +44,8 @@
     invoke-direct {v0, v1}, Ljava/util/concurrent/CountDownLatch;-><init>(I)V
 
     iput-object v0, p0, Lcom/android/server/backup/BackupManagerService$AdbRestoreFinishedLatch;->mLatch:Ljava/util/concurrent/CountDownLatch;
+
+    iput p2, p0, Lcom/android/server/backup/BackupManagerService$AdbRestoreFinishedLatch;->mCurrentOpToken:I
 
     return-void
 .end method
@@ -87,7 +91,7 @@
     return-void
 .end method
 
-.method public handleTimeout()V
+.method public handleCancel(Z)V
     .locals 2
 
     const-string/jumbo v0, "AdbRestoreFinishedLatch"
@@ -99,6 +103,12 @@
     iget-object v0, p0, Lcom/android/server/backup/BackupManagerService$AdbRestoreFinishedLatch;->mLatch:Ljava/util/concurrent/CountDownLatch;
 
     invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
+
+    iget-object v0, p0, Lcom/android/server/backup/BackupManagerService$AdbRestoreFinishedLatch;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    iget v1, p0, Lcom/android/server/backup/BackupManagerService$AdbRestoreFinishedLatch;->mCurrentOpToken:I
+
+    invoke-static {v0, v1}, Lcom/android/server/backup/BackupManagerService;->-wrap19(Lcom/android/server/backup/BackupManagerService;I)V
 
     return-void
 .end method
@@ -115,6 +125,12 @@
     iget-object v0, p0, Lcom/android/server/backup/BackupManagerService$AdbRestoreFinishedLatch;->mLatch:Ljava/util/concurrent/CountDownLatch;
 
     invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
+
+    iget-object v0, p0, Lcom/android/server/backup/BackupManagerService$AdbRestoreFinishedLatch;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    iget v1, p0, Lcom/android/server/backup/BackupManagerService$AdbRestoreFinishedLatch;->mCurrentOpToken:I
+
+    invoke-static {v0, v1}, Lcom/android/server/backup/BackupManagerService;->-wrap19(Lcom/android/server/backup/BackupManagerService;I)V
 
     return-void
 .end method

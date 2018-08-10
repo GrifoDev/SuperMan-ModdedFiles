@@ -32,7 +32,11 @@
 
 .field private static final MSG_NEW_DEVICE_STATE:I = 0x1
 
+.field private static final MSG_SHOW_TOAST:I = 0x3
+
 .field private static final MSG_SYSTEM_READY:I = 0x2
+
+.field private static final NAME_CH_HDMI_AUDIO:Ljava/lang/String; = "ch_hdmi_audio"
 
 .field private static final NAME_H2W:Ljava/lang/String; = "h2w"
 
@@ -50,9 +54,9 @@
 # instance fields
 .field private final mAudioManager:Landroid/media/AudioManager;
 
-.field private final mContext:Landroid/content/Context;
+.field private mBikeMode:Z
 
-.field private mExtInfoManager:Lcom/samsung/android/audiofw/ExtDeviceInfoManager;
+.field private final mContext:Landroid/content/Context;
 
 .field private final mHandler:Landroid/os/Handler;
 
@@ -80,10 +84,10 @@
     return-object v0
 .end method
 
-.method static synthetic -get1(Lcom/android/server/WiredAccessoryManager;)Lcom/samsung/android/audiofw/ExtDeviceInfoManager;
+.method static synthetic -get1(Lcom/android/server/WiredAccessoryManager;)Landroid/content/Context;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/server/WiredAccessoryManager;->mExtInfoManager:Lcom/samsung/android/audiofw/ExtDeviceInfoManager;
+    iget-object v0, p0, Lcom/android/server/WiredAccessoryManager;->mContext:Landroid/content/Context;
 
     return-object v0
 .end method
@@ -123,12 +127,20 @@
 .method static synthetic -wrap0(Lcom/android/server/WiredAccessoryManager;)V
     .locals 0
 
+    invoke-direct {p0}, Lcom/android/server/WiredAccessoryManager;->handleBikeMode()V
+
+    return-void
+.end method
+
+.method static synthetic -wrap1(Lcom/android/server/WiredAccessoryManager;)V
+    .locals 0
+
     invoke-direct {p0}, Lcom/android/server/WiredAccessoryManager;->onSystemReady()V
 
     return-void
 .end method
 
-.method static synthetic -wrap1(Lcom/android/server/WiredAccessoryManager;IILjava/lang/String;)V
+.method static synthetic -wrap2(Lcom/android/server/WiredAccessoryManager;IILjava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/WiredAccessoryManager;->setDevicesState(IILjava/lang/String;)V
@@ -136,7 +148,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap2(Lcom/android/server/WiredAccessoryManager;Ljava/lang/String;I)V
+.method static synthetic -wrap3(Lcom/android/server/WiredAccessoryManager;Ljava/lang/String;I)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/WiredAccessoryManager;->updateLocked(Ljava/lang/String;I)V
@@ -159,91 +171,226 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Lcom/android/server/input/InputManagerService;)V
-    .locals 5
+    .locals 7
 
-    const/4 v4, 0x1
+    const/4 v6, 0x1
+
+    const/4 v5, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v1, Ljava/lang/Object;
+    new-instance v2, Ljava/lang/Object;
 
-    invoke-direct {v1}, Ljava/lang/Object;-><init>()V
+    invoke-direct {v2}, Ljava/lang/Object;-><init>()V
 
-    iput-object v1, p0, Lcom/android/server/WiredAccessoryManager;->mLock:Ljava/lang/Object;
+    iput-object v2, p0, Lcom/android/server/WiredAccessoryManager;->mLock:Ljava/lang/Object;
 
-    new-instance v1, Lcom/android/server/WiredAccessoryManager$1;
+    iput-boolean v5, p0, Lcom/android/server/WiredAccessoryManager;->mBikeMode:Z
+
+    new-instance v2, Lcom/android/server/WiredAccessoryManager$1;
 
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
 
+    move-result-object v3
+
+    const/4 v4, 0x0
+
+    invoke-direct {v2, p0, v3, v4, v6}, Lcom/android/server/WiredAccessoryManager$1;-><init>(Lcom/android/server/WiredAccessoryManager;Landroid/os/Looper;Landroid/os/Handler$Callback;Z)V
+
+    iput-object v2, p0, Lcom/android/server/WiredAccessoryManager;->mHandler:Landroid/os/Handler;
+
+    const-string/jumbo v2, "power"
+
+    invoke-virtual {p1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/os/PowerManager;
+
+    const-string/jumbo v2, "WiredAccessoryManager"
+
+    invoke-virtual {v1, v6, v2}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
+
     move-result-object v2
 
-    const/4 v3, 0x0
+    iput-object v2, p0, Lcom/android/server/WiredAccessoryManager;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    invoke-direct {v1, p0, v2, v3, v4}, Lcom/android/server/WiredAccessoryManager$1;-><init>(Lcom/android/server/WiredAccessoryManager;Landroid/os/Looper;Landroid/os/Handler$Callback;Z)V
+    iget-object v2, p0, Lcom/android/server/WiredAccessoryManager;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    iput-object v1, p0, Lcom/android/server/WiredAccessoryManager;->mHandler:Landroid/os/Handler;
+    invoke-virtual {v2, v5}, Landroid/os/PowerManager$WakeLock;->setReferenceCounted(Z)V
 
-    const-string/jumbo v1, "power"
+    const-string/jumbo v2, "audio"
 
-    invoke-virtual {p1, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Landroid/os/PowerManager;
+    check-cast v2, Landroid/media/AudioManager;
 
-    const-string/jumbo v1, "WiredAccessoryManager"
-
-    invoke-virtual {v0, v4, v1}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/android/server/WiredAccessoryManager;->mWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    iget-object v1, p0, Lcom/android/server/WiredAccessoryManager;->mWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v1, v2}, Landroid/os/PowerManager$WakeLock;->setReferenceCounted(Z)V
-
-    const-string/jumbo v1, "audio"
-
-    invoke-virtual {p1, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/media/AudioManager;
-
-    iput-object v1, p0, Lcom/android/server/WiredAccessoryManager;->mAudioManager:Landroid/media/AudioManager;
+    iput-object v2, p0, Lcom/android/server/WiredAccessoryManager;->mAudioManager:Landroid/media/AudioManager;
 
     iput-object p2, p0, Lcom/android/server/WiredAccessoryManager;->mInputManager:Lcom/android/server/input/InputManagerService;
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v1
+    move-result-object v2
 
-    const v2, 0x112007c
+    const v3, 0x11200b7
 
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getBoolean(I)Z
 
-    move-result v1
+    move-result v2
 
-    iput-boolean v1, p0, Lcom/android/server/WiredAccessoryManager;->mUseDevInputEventForAudioJack:Z
+    iput-boolean v2, p0, Lcom/android/server/WiredAccessoryManager;->mUseDevInputEventForAudioJack:Z
 
-    new-instance v1, Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver;
+    new-instance v2, Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver;
 
-    invoke-direct {v1, p0}, Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver;-><init>(Lcom/android/server/WiredAccessoryManager;)V
+    invoke-direct {v2, p0}, Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver;-><init>(Lcom/android/server/WiredAccessoryManager;)V
 
-    iput-object v1, p0, Lcom/android/server/WiredAccessoryManager;->mObserver:Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver;
-
-    new-instance v1, Lcom/samsung/android/audiofw/ExtDeviceInfoManager;
-
-    invoke-direct {v1, p1}, Lcom/samsung/android/audiofw/ExtDeviceInfoManager;-><init>(Landroid/content/Context;)V
-
-    iput-object v1, p0, Lcom/android/server/WiredAccessoryManager;->mExtInfoManager:Lcom/samsung/android/audiofw/ExtDeviceInfoManager;
+    iput-object v2, p0, Lcom/android/server/WiredAccessoryManager;->mObserver:Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver;
 
     iput-object p1, p0, Lcom/android/server/WiredAccessoryManager;->mContext:Landroid/content/Context;
 
+    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "CscFeature_Common_ConfigBikeMode"
+
+    invoke-virtual {v2, v3}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "bikemode"
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    new-instance v0, Lcom/android/server/WiredAccessoryManager$2;
+
+    new-instance v2, Landroid/os/Handler;
+
+    invoke-direct {v2}, Landroid/os/Handler;-><init>()V
+
+    invoke-direct {v0, p0, v2}, Lcom/android/server/WiredAccessoryManager$2;-><init>(Lcom/android/server/WiredAccessoryManager;Landroid/os/Handler;)V
+
+    iget-object v2, p0, Lcom/android/server/WiredAccessoryManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "isBikeMode"
+
+    invoke-static {v3}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3, v5, v0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    :cond_0
     return-void
+.end method
+
+.method private handleBikeMode()V
+    .locals 7
+
+    const/4 v3, 0x1
+
+    const/4 v4, 0x0
+
+    iget-object v2, p0, Lcom/android/server/WiredAccessoryManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string/jumbo v5, "isBikeMode"
+
+    invoke-static {v2, v5, v4}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    if-ne v2, v3, :cond_2
+
+    move v2, v3
+
+    :goto_0
+    iput-boolean v2, p0, Lcom/android/server/WiredAccessoryManager;->mBikeMode:Z
+
+    iget-boolean v2, p0, Lcom/android/server/WiredAccessoryManager;->mBikeMode:Z
+
+    if-eqz v2, :cond_3
+
+    const/4 v0, 0x0
+
+    sget-object v2, Lcom/android/server/WiredAccessoryManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v5, "Earphones disabled in Bike Mode"
+
+    invoke-static {v2, v5}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget v2, p0, Lcom/android/server/WiredAccessoryManager;->mHeadsetState:I
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/server/WiredAccessoryManager;->mHandler:Landroid/os/Handler;
+
+    const/4 v5, 0x3
+
+    const/4 v6, 0x0
+
+    invoke-virtual {v2, v5, v4, v4, v6}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/server/WiredAccessoryManager;->mHandler:Landroid/os/Handler;
+
+    invoke-virtual {v2, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+
+    :cond_0
+    :goto_1
+    iget-object v2, p0, Lcom/android/server/WiredAccessoryManager;->mWakeLock:Landroid/os/PowerManager$WakeLock;
+
+    invoke-virtual {v2}, Landroid/os/PowerManager$WakeLock;->acquire()V
+
+    iget-object v2, p0, Lcom/android/server/WiredAccessoryManager;->mHandler:Landroid/os/Handler;
+
+    iget v4, p0, Lcom/android/server/WiredAccessoryManager;->mHeadsetState:I
+
+    const-string/jumbo v5, "h2w"
+
+    invoke-virtual {v2, v3, v0, v4, v5}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/server/WiredAccessoryManager;->mHandler:Landroid/os/Handler;
+
+    invoke-virtual {v2, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+
+    iget-boolean v2, p0, Lcom/android/server/WiredAccessoryManager;->mBikeMode:Z
+
+    if-nez v2, :cond_1
+
+    iput v0, p0, Lcom/android/server/WiredAccessoryManager;->mHeadsetState:I
+
+    :cond_1
+    return-void
+
+    :cond_2
+    move v2, v4
+
+    goto :goto_0
+
+    :cond_3
+    iget v0, p0, Lcom/android/server/WiredAccessoryManager;->mHeadsetState:I
+
+    iput v4, p0, Lcom/android/server/WiredAccessoryManager;->mHeadsetState:I
+
+    goto :goto_1
 .end method
 
 .method private onSystemReady()V
@@ -315,58 +462,149 @@
 .end method
 
 .method private setDeviceStateLocked(IIILjava/lang/String;)V
-    .locals 8
+    .locals 7
 
-    const/4 v7, 0x1
+    const/4 v6, 0x1
 
-    const-string/jumbo v0, ""
+    and-int v3, p2, p1
 
-    and-int v4, p2, p1
+    and-int v4, p3, p1
 
-    and-int v5, p3, p1
-
-    if-eq v4, v5, :cond_1
-
-    const/4 v2, 0x0
+    if-eq v3, v4, :cond_1
 
     const/4 v1, 0x0
 
-    and-int v4, p2, p1
+    const/4 v0, 0x0
 
-    if-eqz v4, :cond_2
+    and-int v3, p2, p1
 
-    const/4 v3, 0x1
+    if-eqz v3, :cond_2
+
+    const/4 v2, 0x1
 
     :goto_0
-    if-ne p1, v7, :cond_3
+    if-ne p1, v6, :cond_3
 
-    const/4 v2, 0x4
+    const/4 v1, 0x4
 
-    const v1, -0x7ffffff0
+    const v0, -0x7ffffff0
 
     :goto_1
-    sget-object v5, Lcom/android/server/WiredAccessoryManager;->TAG:Ljava/lang/String;
+    sget-object v4, Lcom/android/server/WiredAccessoryManager;->TAG:Ljava/lang/String;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "headsetName: "
+
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    if-ne v2, v6, :cond_9
+
+    const-string/jumbo v3, " connected"
+
+    :goto_2
+    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v4, v3}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-eqz v1, :cond_0
+
+    iget-object v3, p0, Lcom/android/server/WiredAccessoryManager;->mAudioManager:Landroid/media/AudioManager;
+
+    const-string/jumbo v4, ""
+
+    invoke-virtual {v3, v1, v2, v4, p4}, Landroid/media/AudioManager;->setWiredDeviceConnectionState(IILjava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
+    if-eqz v0, :cond_1
+
+    iget-object v3, p0, Lcom/android/server/WiredAccessoryManager;->mAudioManager:Landroid/media/AudioManager;
+
+    const-string/jumbo v4, ""
+
+    invoke-virtual {v3, v0, v2, v4, p4}, Landroid/media/AudioManager;->setWiredDeviceConnectionState(IILjava/lang/String;Ljava/lang/String;)V
+
+    :cond_1
+    return-void
+
+    :cond_2
+    const/4 v2, 0x0
+
+    goto :goto_0
+
+    :cond_3
+    const/4 v3, 0x2
+
+    if-ne p1, v3, :cond_4
+
+    const/16 v1, 0x8
+
+    goto :goto_1
+
+    :cond_4
+    const/16 v3, 0x20
+
+    if-ne p1, v3, :cond_5
+
+    const/high16 v1, 0x20000
+
+    goto :goto_1
+
+    :cond_5
+    const/4 v3, 0x4
+
+    if-ne p1, v3, :cond_6
+
+    const/16 v1, 0x800
+
+    goto :goto_1
+
+    :cond_6
+    const/16 v3, 0x8
+
+    if-ne p1, v3, :cond_7
+
+    const/16 v1, 0x1000
+
+    goto :goto_1
+
+    :cond_7
+    const/16 v3, 0x10
+
+    if-ne p1, v3, :cond_8
+
+    const/16 v1, 0x400
+
+    goto :goto_1
+
+    :cond_8
+    sget-object v3, Lcom/android/server/WiredAccessoryManager;->TAG:Ljava/lang/String;
 
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "headsetName: "
+    const-string/jumbo v5, "setDeviceState() invalid headset type: "
 
-    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
-    invoke-virtual {v4, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    if-ne v3, v7, :cond_9
-
-    const-string/jumbo v4, " connected"
-
-    :goto_2
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
@@ -374,103 +612,12 @@
 
     move-result-object v4
 
-    invoke-static {v5, v4}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-eqz v2, :cond_0
-
-    iget-object v4, p0, Lcom/android/server/WiredAccessoryManager;->mAudioManager:Landroid/media/AudioManager;
-
-    invoke-virtual {v4, v2, v3, v0, p4}, Landroid/media/AudioManager;->setWiredDeviceConnectionState(IILjava/lang/String;Ljava/lang/String;)V
-
-    :cond_0
-    if-eqz v1, :cond_1
-
-    iget-object v4, p0, Lcom/android/server/WiredAccessoryManager;->mAudioManager:Landroid/media/AudioManager;
-
-    const-string/jumbo v5, ""
-
-    invoke-virtual {v4, v1, v3, v5, p4}, Landroid/media/AudioManager;->setWiredDeviceConnectionState(IILjava/lang/String;Ljava/lang/String;)V
-
-    :cond_1
-    return-void
-
-    :cond_2
-    const/4 v3, 0x0
-
-    goto :goto_0
-
-    :cond_3
-    const/4 v4, 0x2
-
-    if-ne p1, v4, :cond_4
-
-    const/16 v2, 0x8
-
-    goto :goto_1
-
-    :cond_4
-    const/16 v4, 0x20
-
-    if-ne p1, v4, :cond_5
-
-    const/high16 v2, 0x20000
-
-    goto :goto_1
-
-    :cond_5
-    const/4 v4, 0x4
-
-    if-ne p1, v4, :cond_6
-
-    const/16 v2, 0x800
-
-    goto :goto_1
-
-    :cond_6
-    const/16 v4, 0x8
-
-    if-ne p1, v4, :cond_7
-
-    const/16 v2, 0x1000
-
-    goto :goto_1
-
-    :cond_7
-    const/16 v4, 0x10
-
-    if-ne p1, v4, :cond_8
-
-    const/16 v2, 0x400
-
-    goto :goto_1
-
-    :cond_8
-    sget-object v4, Lcom/android/server/WiredAccessoryManager;->TAG:Ljava/lang/String;
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "setDeviceState() invalid headset type: "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_9
-    const-string/jumbo v4, " disconnected"
+    const-string/jumbo v3, " disconnected"
 
     goto :goto_2
 .end method
@@ -561,7 +708,9 @@
 .end method
 
 .method private updateLocked(Ljava/lang/String;I)V
-    .locals 10
+    .locals 11
+
+    const/4 v10, 0x0
 
     and-int/lit8 v2, p2, 0x3f
 
@@ -674,9 +823,26 @@
     :cond_2
     if-nez v0, :cond_3
 
-    if-eqz v4, :cond_4
+    xor-int/lit8 v7, v4, 0x1
+
+    if-eqz v7, :cond_3
+
+    sget-object v7, Lcom/android/server/WiredAccessoryManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v8, "invalid transition, returning ..."
+
+    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
 
     :cond_3
+    iget-boolean v7, p0, Lcom/android/server/WiredAccessoryManager;->mBikeMode:Z
+
+    if-eqz v7, :cond_4
+
+    if-nez v1, :cond_6
+
+    :cond_4
     iget-object v7, p0, Lcom/android/server/WiredAccessoryManager;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v7}, Landroid/os/PowerManager$WakeLock;->acquire()V
@@ -701,18 +867,36 @@
 
     invoke-virtual {v7, v3}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
+    :cond_5
+    :goto_0
     iput v2, p0, Lcom/android/server/WiredAccessoryManager;->mHeadsetState:I
 
     return-void
 
-    :cond_4
+    :cond_6
+    if-eqz v1, :cond_5
+
     sget-object v7, Lcom/android/server/WiredAccessoryManager;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v8, "invalid transition, returning ..."
+    const-string/jumbo v8, "Bike mode is ON. Earphones disabled"
 
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    return-void
+    iget-object v7, p0, Lcom/android/server/WiredAccessoryManager;->mHandler:Landroid/os/Handler;
+
+    const/4 v8, 0x3
+
+    const/4 v9, 0x0
+
+    invoke-virtual {v7, v8, v10, v10, v9}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+
+    move-result-object v3
+
+    iget-object v7, p0, Lcom/android/server/WiredAccessoryManager;->mHandler:Landroid/os/Handler;
+
+    invoke-virtual {v7, v3}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+
+    goto :goto_0
 .end method
 
 

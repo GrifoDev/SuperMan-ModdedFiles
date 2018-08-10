@@ -374,22 +374,25 @@
 
     if-lez v0, :cond_2
 
-    if-eqz v4, :cond_3
+    xor-int/lit8 v5, v4, 0x1
 
-    :cond_2
+    if-eqz v5, :cond_2
+
     :try_start_3
     monitor-exit v6
     :try_end_3
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
+    const/4 v5, 0x1
+
     :try_start_4
     invoke-virtual {v3}, Ljava/io/DataInputStream;->close()V
     :try_end_4
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_2
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_1
 
     :goto_0
-    return v8
+    return v5
 
     :catch_0
     move-exception v1
@@ -404,23 +407,6 @@
 
     return v8
 
-    :cond_3
-    :try_start_5
-    monitor-exit v6
-    :try_end_5
-    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_3
-    .catchall {:try_start_5 .. :try_end_5} :catchall_1
-
-    const/4 v5, 0x1
-
-    :try_start_6
-    invoke-virtual {v3}, Ljava/io/DataInputStream;->close()V
-    :try_end_6
-    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_1
-
-    :goto_1
-    return v5
-
     :catch_1
     move-exception v2
 
@@ -432,7 +418,22 @@
 
     invoke-static {v6, v7}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_1
+    goto :goto_0
+
+    :cond_2
+    :try_start_5
+    monitor-exit v6
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_3
+    .catchall {:try_start_5 .. :try_end_5} :catchall_1
+
+    :try_start_6
+    invoke-virtual {v3}, Ljava/io/DataInputStream;->close()V
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_2
+
+    :goto_1
+    return v8
 
     :catch_2
     move-exception v2
@@ -445,7 +446,7 @@
 
     invoke-static {v5, v6}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    goto :goto_1
 
     :catchall_0
     move-exception v5
@@ -810,6 +811,11 @@
 
 .method public setOemUnlockEnabled(Z)V
     .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/SecurityException;
+        }
+    .end annotation
 
     invoke-static {}, Landroid/app/ActivityManager;->isUserAMonkey()Z
 
@@ -828,6 +834,21 @@
 
     invoke-static {v0}, Lcom/android/server/PersistentDataBlockService;->-wrap7(Lcom/android/server/PersistentDataBlockService;)V
 
+    if-eqz p1, :cond_1
+
+    iget-object v0, p0, Lcom/android/server/PersistentDataBlockService$1;->this$0:Lcom/android/server/PersistentDataBlockService;
+
+    const-string/jumbo v1, "no_oem_unlock"
+
+    invoke-static {v0, v1}, Lcom/android/server/PersistentDataBlockService;->-wrap11(Lcom/android/server/PersistentDataBlockService;Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/android/server/PersistentDataBlockService$1;->this$0:Lcom/android/server/PersistentDataBlockService;
+
+    const-string/jumbo v1, "no_factory_reset"
+
+    invoke-static {v0, v1}, Lcom/android/server/PersistentDataBlockService;->-wrap11(Lcom/android/server/PersistentDataBlockService;Ljava/lang/String;)V
+
+    :cond_1
     iget-object v0, p0, Lcom/android/server/PersistentDataBlockService$1;->this$0:Lcom/android/server/PersistentDataBlockService;
 
     invoke-static {v0}, Lcom/android/server/PersistentDataBlockService;->-get4(Lcom/android/server/PersistentDataBlockService;)Ljava/lang/Object;

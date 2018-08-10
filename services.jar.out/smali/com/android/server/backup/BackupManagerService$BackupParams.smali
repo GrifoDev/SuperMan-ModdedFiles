@@ -39,6 +39,10 @@
     .end annotation
 .end field
 
+.field public monitor:Landroid/app/backup/IBackupManagerMonitor;
+
+.field public nonIncrementalBackup:Z
+
 .field public observer:Landroid/app/backup/IBackupObserver;
 
 .field final synthetic this$0:Lcom/android/server/backup/BackupManagerService;
@@ -49,7 +53,7 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/backup/BackupManagerService;Lcom/android/internal/backup/IBackupTransport;Ljava/lang/String;Ljava/util/ArrayList;Ljava/util/ArrayList;Landroid/app/backup/IBackupObserver;Z)V
+.method constructor <init>(Lcom/android/server/backup/BackupManagerService;Lcom/android/internal/backup/IBackupTransport;Ljava/lang/String;Ljava/util/ArrayList;Ljava/util/ArrayList;Landroid/app/backup/IBackupObserver;Landroid/app/backup/IBackupManagerMonitor;ZZ)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -65,7 +69,8 @@
             "Ljava/lang/String;",
             ">;",
             "Landroid/app/backup/IBackupObserver;",
-            "Z)V"
+            "Landroid/app/backup/IBackupManagerMonitor;",
+            "ZZ)V"
         }
     .end annotation
 
@@ -83,7 +88,11 @@
 
     iput-object p6, p0, Lcom/android/server/backup/BackupManagerService$BackupParams;->observer:Landroid/app/backup/IBackupObserver;
 
-    iput-boolean p7, p0, Lcom/android/server/backup/BackupManagerService$BackupParams;->userInitiated:Z
+    iput-object p7, p0, Lcom/android/server/backup/BackupManagerService$BackupParams;->monitor:Landroid/app/backup/IBackupManagerMonitor;
+
+    iput-boolean p8, p0, Lcom/android/server/backup/BackupManagerService$BackupParams;->userInitiated:Z
+
+    iput-boolean p9, p0, Lcom/android/server/backup/BackupManagerService$BackupParams;->nonIncrementalBackup:Z
 
     return-void
 .end method

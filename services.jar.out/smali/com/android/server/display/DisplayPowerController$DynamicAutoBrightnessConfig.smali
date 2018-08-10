@@ -23,6 +23,8 @@
 
 .field protected mAutoBrightnessLevelStepRatioForEbook:F
 
+.field protected mAutoBrightnessScaleFactor:F
+
 .field protected mBrightnessLevels:[I
 
 .field protected mBrightnessLevelsForEbookOnly:[I
@@ -31,9 +33,13 @@
 
 .field protected mBrightnessValueSlopeForEbookOnly:[F
 
+.field protected mBrightnessValueSlopeOriginal:[F
+
 .field protected mBrightnessValues:[I
 
 .field protected mBrightnessValuesForEbookOnly:[I
+
+.field protected mBrightnessValuesOriginal:[I
 
 .field protected mHighHysteresisLevels:[I
 
@@ -100,6 +106,10 @@
 
     iput v1, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mAutoBrightnessLevelStepRatioForEbook:F
 
+    const/high16 v0, -0x40800000    # -1.0f
+
+    iput v0, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mAutoBrightnessScaleFactor:F
+
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mIsTablet:Z
@@ -113,7 +123,7 @@
     :try_start_0
     iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->this$0:Lcom/android/server/display/DisplayPowerController;
 
-    invoke-static {v9}, Lcom/android/server/display/DisplayPowerController;->-get3(Lcom/android/server/display/DisplayPowerController;)Z
+    invoke-static {v9}, Lcom/android/server/display/DisplayPowerController;->-get2(Lcom/android/server/display/DisplayPowerController;)Z
 
     move-result v9
 
@@ -862,81 +872,87 @@
 .end method
 
 .method private getAutoBrightnessTablePacket()[B
-    .locals 13
+    .locals 14
+
+    const/4 v13, 0x1
+
+    const/4 v12, 0x4
+
+    const/4 v11, 0x0
 
     const/4 v5, 0x0
 
-    iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisLevels:[I
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisLevels:[I
+
+    array-length v9, v9
+
+    iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisValues:[I
 
     array-length v10, v10
 
-    iget-object v11, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisValues:[I
+    add-int/2addr v9, v10
 
-    array-length v11, v11
-
-    add-int/2addr v10, v11
-
-    iget-object v11, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessLevels:[I
-
-    array-length v11, v11
-
-    add-int/2addr v10, v11
-
-    iget-object v11, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValues:[I
-
-    array-length v11, v11
-
-    add-int/2addr v10, v11
-
-    iget-object v11, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisLevels:[I
-
-    array-length v11, v11
-
-    add-int/2addr v10, v11
-
-    iget-object v11, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisValues:[I
-
-    array-length v11, v11
-
-    add-int v6, v10, v11
-
-    sget-boolean v10, Lcom/android/server/power/PowerManagerUtil;->USE_EBOOK_AUTO_BRIGHTNESS_TABLE:Z
-
-    if-eqz v10, :cond_1
-
-    iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisLevelsForEbookOnly:[I
+    iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessLevels:[I
 
     array-length v10, v10
 
-    iget-object v11, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisValuesForEbookOnly:[I
+    add-int/2addr v9, v10
 
-    array-length v11, v11
+    iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValues:[I
 
-    add-int/2addr v10, v11
+    array-length v10, v10
 
-    iget-object v11, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessLevelsForEbookOnly:[I
+    add-int/2addr v9, v10
 
-    array-length v11, v11
+    iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisLevels:[I
 
-    add-int/2addr v10, v11
+    array-length v10, v10
 
-    iget-object v11, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValuesForEbookOnly:[I
+    add-int/2addr v9, v10
 
-    array-length v11, v11
+    iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisValues:[I
 
-    add-int/2addr v10, v11
+    array-length v10, v10
 
-    iget-object v11, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisLevelsForEbookOnly:[I
+    add-int v6, v9, v10
 
-    array-length v11, v11
+    sget-boolean v9, Lcom/android/server/power/PowerManagerUtil;->USE_EBOOK_AUTO_BRIGHTNESS_TABLE:Z
 
-    add-int/2addr v10, v11
+    if-eqz v9, :cond_2
 
-    iget-object v11, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisValuesForEbookOnly:[I
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisLevelsForEbookOnly:[I
 
-    array-length v11, v11
+    array-length v9, v9
 
-    add-int v3, v10, v11
+    iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisValuesForEbookOnly:[I
+
+    array-length v10, v10
+
+    add-int/2addr v9, v10
+
+    iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessLevelsForEbookOnly:[I
+
+    array-length v10, v10
+
+    add-int/2addr v9, v10
+
+    iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValuesForEbookOnly:[I
+
+    array-length v10, v10
+
+    add-int/2addr v9, v10
+
+    iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisLevelsForEbookOnly:[I
+
+    array-length v10, v10
+
+    add-int/2addr v9, v10
+
+    iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisValuesForEbookOnly:[I
+
+    array-length v10, v10
+
+    add-int v3, v9, v10
 
     add-int v5, v6, v3
 
@@ -945,514 +961,417 @@
 
     const/4 v8, 0x0
 
-    sget-boolean v10, Lcom/android/server/power/PowerManagerUtil;->USE_EBOOK_AUTO_BRIGHTNESS_TABLE:Z
+    sget-boolean v9, Lcom/android/server/power/PowerManagerUtil;->USE_EBOOK_AUTO_BRIGHTNESS_TABLE:Z
 
-    if-eqz v10, :cond_2
+    if-eqz v9, :cond_3
 
     const/16 v0, 0xc
 
     :goto_1
-    add-int/lit8 v10, v0, 0x1
+    add-int/lit8 v9, v0, 0x1
 
-    mul-int/lit8 v11, v5, 0x4
+    mul-int/lit8 v10, v5, 0x4
 
-    add-int/2addr v10, v11
+    add-int/2addr v9, v10
 
-    new-array v7, v10, [B
+    new-array v7, v9, [B
 
-    iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisLevels:[I
-
-    iget-object v11, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisLevels:[I
-
-    array-length v11, v11
-
-    const/4 v12, 0x0
-
-    invoke-static {v10, v12, v1, v8, v11}, Ljava/lang/System;->arraycopy([II[III)V
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisLevels:[I
 
     iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisLevels:[I
 
     array-length v10, v10
 
-    add-int/lit8 v8, v10, 0x0
+    invoke-static {v9, v11, v1, v8, v10}, Ljava/lang/System;->arraycopy([II[III)V
 
-    iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisValues:[I
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisLevels:[I
 
-    iget-object v11, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisValues:[I
+    array-length v9, v9
 
-    array-length v11, v11
+    add-int/lit8 v8, v9, 0x0
 
-    const/4 v12, 0x0
-
-    invoke-static {v10, v12, v1, v8, v11}, Ljava/lang/System;->arraycopy([II[III)V
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisValues:[I
 
     iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisValues:[I
 
     array-length v10, v10
 
-    add-int/2addr v8, v10
+    invoke-static {v9, v11, v1, v8, v10}, Ljava/lang/System;->arraycopy([II[III)V
 
-    iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessLevels:[I
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisValues:[I
 
-    iget-object v11, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessLevels:[I
+    array-length v9, v9
 
-    array-length v11, v11
+    add-int/2addr v8, v9
 
-    const/4 v12, 0x0
-
-    invoke-static {v10, v12, v1, v8, v11}, Ljava/lang/System;->arraycopy([II[III)V
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessLevels:[I
 
     iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessLevels:[I
 
     array-length v10, v10
 
-    add-int/2addr v8, v10
+    invoke-static {v9, v11, v1, v8, v10}, Ljava/lang/System;->arraycopy([II[III)V
 
-    iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValues:[I
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessLevels:[I
 
-    iget-object v11, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValues:[I
+    array-length v9, v9
 
-    array-length v11, v11
+    add-int/2addr v8, v9
 
-    const/4 v12, 0x0
-
-    invoke-static {v10, v12, v1, v8, v11}, Ljava/lang/System;->arraycopy([II[III)V
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValues:[I
 
     iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValues:[I
 
     array-length v10, v10
 
-    add-int/2addr v8, v10
+    invoke-static {v9, v11, v1, v8, v10}, Ljava/lang/System;->arraycopy([II[III)V
 
-    iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisLevels:[I
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValues:[I
 
-    iget-object v11, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisLevels:[I
+    array-length v9, v9
 
-    array-length v11, v11
+    add-int/2addr v8, v9
 
-    const/4 v12, 0x0
-
-    invoke-static {v10, v12, v1, v8, v11}, Ljava/lang/System;->arraycopy([II[III)V
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisLevels:[I
 
     iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisLevels:[I
 
     array-length v10, v10
 
-    add-int/2addr v8, v10
+    invoke-static {v9, v11, v1, v8, v10}, Ljava/lang/System;->arraycopy([II[III)V
 
-    iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisValues:[I
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisLevels:[I
 
-    iget-object v11, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisValues:[I
+    array-length v9, v9
 
-    array-length v11, v11
+    add-int/2addr v8, v9
 
-    const/4 v12, 0x0
-
-    invoke-static {v10, v12, v1, v8, v11}, Ljava/lang/System;->arraycopy([II[III)V
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisValues:[I
 
     iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisValues:[I
 
     array-length v10, v10
 
-    add-int/2addr v8, v10
+    invoke-static {v9, v11, v1, v8, v10}, Ljava/lang/System;->arraycopy([II[III)V
 
-    sget-boolean v10, Lcom/android/server/power/PowerManagerUtil;->USE_EBOOK_AUTO_BRIGHTNESS_TABLE:Z
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisValues:[I
 
-    if-eqz v10, :cond_0
+    array-length v9, v9
 
-    iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisLevelsForEbookOnly:[I
+    add-int/2addr v8, v9
 
-    iget-object v11, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisLevelsForEbookOnly:[I
+    sget-boolean v9, Lcom/android/server/power/PowerManagerUtil;->USE_EBOOK_AUTO_BRIGHTNESS_TABLE:Z
 
-    array-length v11, v11
+    if-eqz v9, :cond_0
 
-    const/4 v12, 0x0
-
-    invoke-static {v10, v12, v1, v8, v11}, Ljava/lang/System;->arraycopy([II[III)V
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisLevelsForEbookOnly:[I
 
     iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisLevelsForEbookOnly:[I
 
     array-length v10, v10
 
-    add-int/2addr v8, v10
+    invoke-static {v9, v11, v1, v8, v10}, Ljava/lang/System;->arraycopy([II[III)V
 
-    iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisValuesForEbookOnly:[I
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisLevelsForEbookOnly:[I
 
-    iget-object v11, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisValuesForEbookOnly:[I
+    array-length v9, v9
 
-    array-length v11, v11
+    add-int/2addr v8, v9
 
-    const/4 v12, 0x0
-
-    invoke-static {v10, v12, v1, v8, v11}, Ljava/lang/System;->arraycopy([II[III)V
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisValuesForEbookOnly:[I
 
     iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisValuesForEbookOnly:[I
 
     array-length v10, v10
 
-    add-int/2addr v8, v10
+    invoke-static {v9, v11, v1, v8, v10}, Ljava/lang/System;->arraycopy([II[III)V
 
-    iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessLevelsForEbookOnly:[I
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisValuesForEbookOnly:[I
 
-    iget-object v11, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessLevelsForEbookOnly:[I
+    array-length v9, v9
 
-    array-length v11, v11
+    add-int/2addr v8, v9
 
-    const/4 v12, 0x0
-
-    invoke-static {v10, v12, v1, v8, v11}, Ljava/lang/System;->arraycopy([II[III)V
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessLevelsForEbookOnly:[I
 
     iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessLevelsForEbookOnly:[I
 
     array-length v10, v10
 
-    add-int/2addr v8, v10
+    invoke-static {v9, v11, v1, v8, v10}, Ljava/lang/System;->arraycopy([II[III)V
 
-    iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValuesForEbookOnly:[I
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessLevelsForEbookOnly:[I
 
-    iget-object v11, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValuesForEbookOnly:[I
+    array-length v9, v9
 
-    array-length v11, v11
+    add-int/2addr v8, v9
 
-    const/4 v12, 0x0
-
-    invoke-static {v10, v12, v1, v8, v11}, Ljava/lang/System;->arraycopy([II[III)V
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValuesForEbookOnly:[I
 
     iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValuesForEbookOnly:[I
 
     array-length v10, v10
 
-    add-int/2addr v8, v10
+    invoke-static {v9, v11, v1, v8, v10}, Ljava/lang/System;->arraycopy([II[III)V
 
-    iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisLevelsForEbookOnly:[I
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValuesForEbookOnly:[I
 
-    iget-object v11, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisLevelsForEbookOnly:[I
+    array-length v9, v9
 
-    array-length v11, v11
+    add-int/2addr v8, v9
 
-    const/4 v12, 0x0
-
-    invoke-static {v10, v12, v1, v8, v11}, Ljava/lang/System;->arraycopy([II[III)V
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisLevelsForEbookOnly:[I
 
     iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisLevelsForEbookOnly:[I
 
     array-length v10, v10
 
-    add-int/2addr v8, v10
+    invoke-static {v9, v11, v1, v8, v10}, Ljava/lang/System;->arraycopy([II[III)V
 
-    iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisValuesForEbookOnly:[I
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisLevelsForEbookOnly:[I
 
-    iget-object v11, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisValuesForEbookOnly:[I
+    array-length v9, v9
 
-    array-length v11, v11
+    add-int/2addr v8, v9
 
-    const/4 v12, 0x0
-
-    invoke-static {v10, v12, v1, v8, v11}, Ljava/lang/System;->arraycopy([II[III)V
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisValuesForEbookOnly:[I
 
     iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisValuesForEbookOnly:[I
 
     array-length v10, v10
 
-    add-int/2addr v8, v10
+    invoke-static {v9, v11, v1, v8, v10}, Ljava/lang/System;->arraycopy([II[III)V
+
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisValuesForEbookOnly:[I
+
+    array-length v9, v9
+
+    add-int/2addr v8, v9
 
     :cond_0
-    invoke-static {}, Lcom/android/server/display/DisplayPowerController;->-get0()Z
+    int-to-byte v9, v0
 
-    move-result v10
+    aput-byte v9, v7, v11
 
-    if-eqz v10, :cond_4
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisLevels:[I
 
-    const-string/jumbo v9, ""
+    array-length v9, v9
 
-    const/4 v4, 0x0
+    int-to-byte v9, v9
+
+    aput-byte v9, v7, v13
+
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisValues:[I
+
+    array-length v9, v9
+
+    int-to-byte v9, v9
+
+    const/4 v10, 0x2
+
+    aput-byte v9, v7, v10
+
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessLevels:[I
+
+    array-length v9, v9
+
+    int-to-byte v9, v9
+
+    const/4 v10, 0x3
+
+    aput-byte v9, v7, v10
+
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValues:[I
+
+    array-length v9, v9
+
+    int-to-byte v9, v9
+
+    aput-byte v9, v7, v12
+
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisLevels:[I
+
+    array-length v9, v9
+
+    int-to-byte v9, v9
+
+    const/4 v10, 0x5
+
+    aput-byte v9, v7, v10
+
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisValues:[I
+
+    array-length v9, v9
+
+    int-to-byte v9, v9
+
+    const/4 v10, 0x6
+
+    aput-byte v9, v7, v10
+
+    sget-boolean v9, Lcom/android/server/power/PowerManagerUtil;->USE_EBOOK_AUTO_BRIGHTNESS_TABLE:Z
+
+    if-eqz v9, :cond_1
+
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisLevelsForEbookOnly:[I
+
+    array-length v9, v9
+
+    int-to-byte v9, v9
+
+    const/4 v10, 0x7
+
+    aput-byte v9, v7, v10
+
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisValuesForEbookOnly:[I
+
+    array-length v9, v9
+
+    int-to-byte v9, v9
+
+    const/16 v10, 0x8
+
+    aput-byte v9, v7, v10
+
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessLevelsForEbookOnly:[I
+
+    array-length v9, v9
+
+    int-to-byte v9, v9
+
+    const/16 v10, 0x9
+
+    aput-byte v9, v7, v10
+
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValuesForEbookOnly:[I
+
+    array-length v9, v9
+
+    int-to-byte v9, v9
+
+    const/16 v10, 0xa
+
+    aput-byte v9, v7, v10
+
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisLevelsForEbookOnly:[I
+
+    array-length v9, v9
+
+    int-to-byte v9, v9
+
+    const/16 v10, 0xb
+
+    aput-byte v9, v7, v10
+
+    iget-object v9, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisValuesForEbookOnly:[I
+
+    array-length v9, v9
+
+    int-to-byte v9, v9
+
+    const/16 v10, 0xc
+
+    aput-byte v9, v7, v10
+
+    :cond_1
+    sget-boolean v9, Lcom/android/server/power/PowerManagerUtil;->USE_EBOOK_AUTO_BRIGHTNESS_TABLE:Z
+
+    if-eqz v9, :cond_4
+
+    const/16 v2, 0xd
 
     :goto_2
-    array-length v10, v1
+    const/4 v4, 0x0
 
-    if-ge v4, v10, :cond_3
+    :goto_3
+    array-length v9, v1
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    if-ge v4, v9, :cond_5
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    mul-int/lit8 v9, v4, 0x4
 
-    invoke-virtual {v10, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    add-int/2addr v9, v2
 
-    move-result-object v10
+    add-int/lit8 v9, v9, 0x0
 
-    aget v11, v1, v4
+    aget v10, v1, v4
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    shr-int/lit8 v10, v10, 0x0
 
-    move-result-object v10
+    and-int/lit16 v10, v10, 0xff
 
-    const-string/jumbo v11, " "
+    int-to-byte v10, v10
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    aput-byte v10, v7, v9
 
-    move-result-object v10
+    mul-int/lit8 v9, v4, 0x4
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    add-int/2addr v9, v2
 
-    move-result-object v9
+    add-int/lit8 v9, v9, 0x1
+
+    aget v10, v1, v4
+
+    shr-int/lit8 v10, v10, 0x8
+
+    and-int/lit16 v10, v10, 0xff
+
+    int-to-byte v10, v10
+
+    aput-byte v10, v7, v9
+
+    mul-int/lit8 v9, v4, 0x4
+
+    add-int/2addr v9, v2
+
+    add-int/lit8 v9, v9, 0x2
+
+    aget v10, v1, v4
+
+    shr-int/lit8 v10, v10, 0x10
+
+    and-int/lit16 v10, v10, 0xff
+
+    int-to-byte v10, v10
+
+    aput-byte v10, v7, v9
+
+    mul-int/lit8 v9, v4, 0x4
+
+    add-int/2addr v9, v2
+
+    add-int/lit8 v9, v9, 0x3
+
+    aget v10, v1, v4
+
+    shr-int/lit8 v10, v10, 0x18
+
+    and-int/lit16 v10, v10, 0xff
+
+    int-to-byte v10, v10
+
+    aput-byte v10, v7, v9
 
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_2
+    goto :goto_3
 
-    :cond_1
+    :cond_2
     move v5, v6
 
     goto/16 :goto_0
 
-    :cond_2
+    :cond_3
     const/4 v0, 0x6
 
     goto/16 :goto_1
 
-    :cond_3
-    const-string/jumbo v10, "DisplayPowerController"
-
-    new-instance v11, Ljava/lang/StringBuilder;
-
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v12, "[DAB] data : "
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-static {v10, v11}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     :cond_4
-    int-to-byte v10, v0
-
-    const/4 v11, 0x0
-
-    aput-byte v10, v7, v11
-
-    iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisLevels:[I
-
-    array-length v10, v10
-
-    int-to-byte v10, v10
-
-    const/4 v11, 0x1
-
-    aput-byte v10, v7, v11
-
-    iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisValues:[I
-
-    array-length v10, v10
-
-    int-to-byte v10, v10
-
-    const/4 v11, 0x2
-
-    aput-byte v10, v7, v11
-
-    iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessLevels:[I
-
-    array-length v10, v10
-
-    int-to-byte v10, v10
-
-    const/4 v11, 0x3
-
-    aput-byte v10, v7, v11
-
-    iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValues:[I
-
-    array-length v10, v10
-
-    int-to-byte v10, v10
-
-    const/4 v11, 0x4
-
-    aput-byte v10, v7, v11
-
-    iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisLevels:[I
-
-    array-length v10, v10
-
-    int-to-byte v10, v10
-
-    const/4 v11, 0x5
-
-    aput-byte v10, v7, v11
-
-    iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisValues:[I
-
-    array-length v10, v10
-
-    int-to-byte v10, v10
-
-    const/4 v11, 0x6
-
-    aput-byte v10, v7, v11
-
-    sget-boolean v10, Lcom/android/server/power/PowerManagerUtil;->USE_EBOOK_AUTO_BRIGHTNESS_TABLE:Z
-
-    if-eqz v10, :cond_5
-
-    iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisLevelsForEbookOnly:[I
-
-    array-length v10, v10
-
-    int-to-byte v10, v10
-
-    const/4 v11, 0x7
-
-    aput-byte v10, v7, v11
-
-    iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisValuesForEbookOnly:[I
-
-    array-length v10, v10
-
-    int-to-byte v10, v10
-
-    const/16 v11, 0x8
-
-    aput-byte v10, v7, v11
-
-    iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessLevelsForEbookOnly:[I
-
-    array-length v10, v10
-
-    int-to-byte v10, v10
-
-    const/16 v11, 0x9
-
-    aput-byte v10, v7, v11
-
-    iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValuesForEbookOnly:[I
-
-    array-length v10, v10
-
-    int-to-byte v10, v10
-
-    const/16 v11, 0xa
-
-    aput-byte v10, v7, v11
-
-    iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisLevelsForEbookOnly:[I
-
-    array-length v10, v10
-
-    int-to-byte v10, v10
-
-    const/16 v11, 0xb
-
-    aput-byte v10, v7, v11
-
-    iget-object v10, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisValuesForEbookOnly:[I
-
-    array-length v10, v10
-
-    int-to-byte v10, v10
-
-    const/16 v11, 0xc
-
-    aput-byte v10, v7, v11
-
-    :cond_5
-    sget-boolean v10, Lcom/android/server/power/PowerManagerUtil;->USE_EBOOK_AUTO_BRIGHTNESS_TABLE:Z
-
-    if-eqz v10, :cond_6
-
-    const/16 v2, 0xd
-
-    :goto_3
-    const/4 v4, 0x0
-
-    :goto_4
-    array-length v10, v1
-
-    if-ge v4, v10, :cond_7
-
-    mul-int/lit8 v10, v4, 0x4
-
-    add-int/2addr v10, v2
-
-    add-int/lit8 v10, v10, 0x0
-
-    aget v11, v1, v4
-
-    shr-int/lit8 v11, v11, 0x0
-
-    and-int/lit16 v11, v11, 0xff
-
-    int-to-byte v11, v11
-
-    aput-byte v11, v7, v10
-
-    mul-int/lit8 v10, v4, 0x4
-
-    add-int/2addr v10, v2
-
-    add-int/lit8 v10, v10, 0x1
-
-    aget v11, v1, v4
-
-    shr-int/lit8 v11, v11, 0x8
-
-    and-int/lit16 v11, v11, 0xff
-
-    int-to-byte v11, v11
-
-    aput-byte v11, v7, v10
-
-    mul-int/lit8 v10, v4, 0x4
-
-    add-int/2addr v10, v2
-
-    add-int/lit8 v10, v10, 0x2
-
-    aget v11, v1, v4
-
-    shr-int/lit8 v11, v11, 0x10
-
-    and-int/lit16 v11, v11, 0xff
-
-    int-to-byte v11, v11
-
-    aput-byte v11, v7, v10
-
-    mul-int/lit8 v10, v4, 0x4
-
-    add-int/2addr v10, v2
-
-    add-int/lit8 v10, v10, 0x3
-
-    aget v11, v1, v4
-
-    shr-int/lit8 v11, v11, 0x18
-
-    and-int/lit16 v11, v11, 0xff
-
-    int-to-byte v11, v11
-
-    aput-byte v11, v7, v10
-
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_4
-
-    :cond_6
     const/4 v2, 0x7
 
-    goto :goto_3
+    goto :goto_2
 
-    :cond_7
+    :cond_5
     return-object v7
 .end method
 
@@ -1617,7 +1536,7 @@
     :cond_0
     iget-object v3, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->this$0:Lcom/android/server/display/DisplayPowerController;
 
-    invoke-static {v3, v2}, Lcom/android/server/display/DisplayPowerController;->-set0(Lcom/android/server/display/DisplayPowerController;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v3, v2}, Lcom/android/server/display/DisplayPowerController;->-set1(Lcom/android/server/display/DisplayPowerController;Ljava/lang/String;)Ljava/lang/String;
 
     const-string/jumbo v3, "DisplayPowerController"
 
@@ -1676,36 +1595,33 @@
 
     iget-boolean v9, v9, Landroid/hardware/display/DisplayManagerInternal$DisplayPowerRequest;->autoBrightnessForEbookOnly:Z
 
-    if-eqz v9, :cond_2
-
-    const/4 v4, 0x0
+    xor-int/lit8 v4, v9, 0x1
 
     :cond_0
+    if-eqz v4, :cond_2
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisLevels:[I
+
     :goto_0
     if-eqz v4, :cond_3
 
     move-object/from16 v0, p0
 
-    iget-object v5, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisLevels:[I
+    iget-object v8, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisValues:[I
 
     :goto_1
     if-eqz v4, :cond_4
 
     move-object/from16 v0, p0
 
-    iget-object v8, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisValues:[I
-
-    :goto_2
-    if-eqz v4, :cond_5
-
-    move-object/from16 v0, p0
-
     iget-object v7, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisSlope:[F
 
-    :goto_3
+    :goto_2
     const/4 v3, 0x1
 
-    :goto_4
+    :goto_3
     array-length v9, v8
 
     if-ge v3, v9, :cond_1
@@ -1716,12 +1632,12 @@
 
     cmpg-float v9, p1, v9
 
-    if-gez v9, :cond_6
+    if-gez v9, :cond_5
 
     :cond_1
     array-length v9, v5
 
-    if-lt v3, v9, :cond_7
+    if-lt v3, v9, :cond_6
 
     array-length v9, v5
 
@@ -1731,41 +1647,36 @@
 
     int-to-float v6, v9
 
-    :goto_5
+    :goto_4
     return v6
 
     :cond_2
-    const/4 v4, 0x1
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisLevelsForEbookOnly:[I
 
     goto :goto_0
 
     :cond_3
     move-object/from16 v0, p0
 
-    iget-object v5, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisLevelsForEbookOnly:[I
+    iget-object v8, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisValuesForEbookOnly:[I
 
     goto :goto_1
 
     :cond_4
     move-object/from16 v0, p0
 
-    iget-object v8, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisValuesForEbookOnly:[I
+    iget-object v7, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisSlopeForEbookOnly:[F
 
     goto :goto_2
 
     :cond_5
-    move-object/from16 v0, p0
-
-    iget-object v7, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisSlopeForEbookOnly:[F
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_3
 
     :cond_6
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_4
-
-    :cond_7
     add-int/lit8 v9, v3, -0x1
 
     aget v9, v7, v9
@@ -1774,7 +1685,7 @@
 
     cmpl-float v9, v9, v10
 
-    if-lez v9, :cond_8
+    if-lez v9, :cond_7
 
     const-wide/high16 v10, 0x4024000000000000L    # 10.0
 
@@ -1818,9 +1729,9 @@
 
     int-to-float v6, v9
 
-    goto :goto_5
+    goto :goto_4
 
-    :cond_8
+    :cond_7
     add-int/lit8 v9, v3, -0x1
 
     aget v9, v5, v9
@@ -1829,7 +1740,7 @@
 
     int-to-float v6, v9
 
-    goto :goto_5
+    goto :goto_4
 
     :catch_0
     move-exception v2
@@ -1852,7 +1763,7 @@
 
     iget-object v13, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->this$0:Lcom/android/server/display/DisplayPowerController;
 
-    invoke-static {v13}, Lcom/android/server/display/DisplayPowerController;->-get2(Lcom/android/server/display/DisplayPowerController;)Landroid/content/Context;
+    invoke-static {v13}, Lcom/android/server/display/DisplayPowerController;->-get1(Lcom/android/server/display/DisplayPowerController;)Landroid/content/Context;
 
     move-result-object v13
 
@@ -2138,36 +2049,33 @@
 
     iget-boolean v9, v9, Landroid/hardware/display/DisplayManagerInternal$DisplayPowerRequest;->autoBrightnessForEbookOnly:Z
 
-    if-eqz v9, :cond_2
-
-    const/4 v4, 0x0
+    xor-int/lit8 v4, v9, 0x1
 
     :cond_0
+    if-eqz v4, :cond_2
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisLevels:[I
+
     :goto_0
     if-eqz v4, :cond_3
 
     move-object/from16 v0, p0
 
-    iget-object v5, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisLevels:[I
+    iget-object v8, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisValues:[I
 
     :goto_1
     if-eqz v4, :cond_4
 
     move-object/from16 v0, p0
 
-    iget-object v8, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisValues:[I
-
-    :goto_2
-    if-eqz v4, :cond_5
-
-    move-object/from16 v0, p0
-
     iget-object v7, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisSlope:[F
 
-    :goto_3
+    :goto_2
     const/4 v3, 0x1
 
-    :goto_4
+    :goto_3
     array-length v9, v8
 
     if-ge v3, v9, :cond_1
@@ -2178,12 +2086,12 @@
 
     cmpg-float v9, p1, v9
 
-    if-gtz v9, :cond_6
+    if-gtz v9, :cond_5
 
     :cond_1
     array-length v9, v5
 
-    if-lt v3, v9, :cond_7
+    if-lt v3, v9, :cond_6
 
     array-length v9, v5
 
@@ -2193,41 +2101,36 @@
 
     int-to-float v6, v9
 
-    :goto_5
+    :goto_4
     return v6
 
     :cond_2
-    const/4 v4, 0x1
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisLevelsForEbookOnly:[I
 
     goto :goto_0
 
     :cond_3
     move-object/from16 v0, p0
 
-    iget-object v5, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisLevelsForEbookOnly:[I
+    iget-object v8, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisValuesForEbookOnly:[I
 
     goto :goto_1
 
     :cond_4
     move-object/from16 v0, p0
 
-    iget-object v8, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisValuesForEbookOnly:[I
+    iget-object v7, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisSlopeForEbookOnly:[F
 
     goto :goto_2
 
     :cond_5
-    move-object/from16 v0, p0
-
-    iget-object v7, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisSlopeForEbookOnly:[F
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_3
 
     :cond_6
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_4
-
-    :cond_7
     add-int/lit8 v9, v3, -0x1
 
     aget v9, v7, v9
@@ -2236,7 +2139,7 @@
 
     cmpl-float v9, v9, v10
 
-    if-lez v9, :cond_8
+    if-lez v9, :cond_7
 
     const-wide/high16 v10, 0x4024000000000000L    # 10.0
 
@@ -2280,9 +2183,9 @@
 
     int-to-float v6, v9
 
-    goto :goto_5
+    goto :goto_4
 
-    :cond_8
+    :cond_7
     add-int/lit8 v9, v3, -0x1
 
     aget v9, v5, v9
@@ -2291,7 +2194,7 @@
 
     int-to-float v6, v9
 
-    goto :goto_5
+    goto :goto_4
 
     :catch_0
     move-exception v2
@@ -2308,13 +2211,25 @@
 .end method
 
 .method protected getDynamicAutoBrightnessValue(F)F
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, p1, v0}, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->getDynamicAutoBrightnessValue(FZ)F
+
+    move-result v0
+
+    return v0
+.end method
+
+.method protected getDynamicAutoBrightnessValue(FZ)F
     .locals 18
 
     const/4 v2, 0x0
 
     const/4 v4, 0x0
 
-    const/4 v5, 0x1
+    const/4 v5, 0x0
 
     :try_start_0
     move-object/from16 v0, p0
@@ -2335,38 +2250,27 @@
 
     move-result-object v9
 
-    iget-boolean v9, v9, Landroid/hardware/display/DisplayManagerInternal$DisplayPowerRequest;->autoBrightnessForEbookOnly:Z
-
-    if-eqz v9, :cond_2
-
-    const/4 v5, 0x0
+    iget-boolean v5, v9, Landroid/hardware/display/DisplayManagerInternal$DisplayPowerRequest;->autoBrightnessForEbookOnly:Z
 
     :cond_0
+    if-eqz v5, :cond_2
+
+    move-object/from16 v0, p0
+
+    iget-object v6, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessLevelsForEbookOnly:[I
+
+    move-object/from16 v0, p0
+
+    iget-object v8, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValuesForEbookOnly:[I
+
+    move-object/from16 v0, p0
+
+    iget-object v7, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValueSlopeForEbookOnly:[F
+
     :goto_0
-    if-eqz v5, :cond_3
-
-    move-object/from16 v0, p0
-
-    iget-object v6, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessLevels:[I
-
-    :goto_1
-    if-eqz v5, :cond_4
-
-    move-object/from16 v0, p0
-
-    iget-object v8, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValues:[I
-
-    :goto_2
-    if-eqz v5, :cond_5
-
-    move-object/from16 v0, p0
-
-    iget-object v7, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValueSlope:[F
-
-    :goto_3
     const/4 v4, 0x1
 
-    :goto_4
+    :goto_1
     array-length v9, v6
 
     if-ge v4, v9, :cond_1
@@ -2377,12 +2281,12 @@
 
     cmpg-float v9, p1, v9
 
-    if-gtz v9, :cond_6
+    if-gtz v9, :cond_5
 
     :cond_1
     array-length v9, v8
 
-    if-lt v4, v9, :cond_7
+    if-lt v4, v9, :cond_6
 
     array-length v9, v8
 
@@ -2392,41 +2296,49 @@
 
     int-to-float v2, v9
 
-    :goto_5
+    :goto_2
     return v2
 
     :cond_2
-    const/4 v5, 0x1
+    move-object/from16 v0, p0
+
+    iget-object v6, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessLevels:[I
+
+    if-eqz p2, :cond_3
+
+    move-object/from16 v0, p0
+
+    iget-object v8, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValuesOriginal:[I
+
+    :goto_3
+    if-eqz p2, :cond_4
+
+    move-object/from16 v0, p0
+
+    iget-object v7, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValueSlopeOriginal:[F
 
     goto :goto_0
 
     :cond_3
     move-object/from16 v0, p0
 
-    iget-object v6, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessLevelsForEbookOnly:[I
+    iget-object v8, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValues:[I
 
-    goto :goto_1
+    goto :goto_3
 
     :cond_4
     move-object/from16 v0, p0
 
-    iget-object v8, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValuesForEbookOnly:[I
+    iget-object v7, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValueSlope:[F
 
-    goto :goto_2
+    goto :goto_0
 
     :cond_5
-    move-object/from16 v0, p0
-
-    iget-object v7, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValueSlopeForEbookOnly:[F
-
-    goto :goto_3
-
-    :cond_6
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_4
+    goto :goto_1
 
-    :cond_7
+    :cond_6
     add-int/lit8 v9, v4, -0x1
 
     aget v9, v7, v9
@@ -2435,7 +2347,7 @@
 
     cmpl-float v9, v9, v10
 
-    if-lez v9, :cond_8
+    if-lez v9, :cond_7
 
     add-int/lit8 v9, v4, -0x1
 
@@ -2483,9 +2395,9 @@
 
     double-to-float v2, v10
 
-    goto :goto_5
+    goto :goto_2
 
-    :cond_8
+    :cond_7
     add-int/lit8 v9, v4, -0x1
 
     aget v9, v8, v9
@@ -2494,7 +2406,7 @@
 
     int-to-float v2, v9
 
-    goto :goto_5
+    goto :goto_2
 
     :catch_0
     move-exception v3
@@ -2963,11 +2875,13 @@
 .end method
 
 .method protected initializeProperties()V
-    .locals 9
+    .locals 10
 
     const/4 v8, 0x0
 
     const/high16 v7, 0x43fa0000    # 500.0f
+
+    const/high16 v9, 0x42c80000    # 100.0f
 
     const-string/jumbo v5, "DisplayPowerController"
 
@@ -2977,7 +2891,7 @@
 
     iget-object v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->this$0:Lcom/android/server/display/DisplayPowerController;
 
-    invoke-static {v5}, Lcom/android/server/display/DisplayPowerController;->-get2(Lcom/android/server/display/DisplayPowerController;)Landroid/content/Context;
+    invoke-static {v5}, Lcom/android/server/display/DisplayPowerController;->-get1(Lcom/android/server/display/DisplayPowerController;)Landroid/content/Context;
 
     move-result-object v5
 
@@ -2985,7 +2899,7 @@
 
     move-result-object v3
 
-    const v5, 0x10e00f8
+    const v5, 0x10e00b5
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2993,7 +2907,7 @@
 
     iput v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mValueOfVirtualZeroCandela:I
 
-    const v5, 0x10700a2
+    const v5, 0x1070048
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -3001,7 +2915,7 @@
 
     iput-object v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisLevels:[I
 
-    const v5, 0x10700a3
+    const v5, 0x107004a
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -3009,7 +2923,7 @@
 
     iput-object v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisValues:[I
 
-    const v5, 0x10700a4
+    const v5, 0x1070046
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -3017,7 +2931,7 @@
 
     iput-object v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessLevels:[I
 
-    const v5, 0x10700a5
+    const v5, 0x107004c
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -3025,7 +2939,7 @@
 
     iput-object v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValues:[I
 
-    const v5, 0x10700a6
+    const v5, 0x1070042
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -3033,7 +2947,7 @@
 
     iput-object v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisLevels:[I
 
-    const v5, 0x10700a7
+    const v5, 0x1070044
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -3045,7 +2959,7 @@
 
     if-eqz v5, :cond_0
 
-    const v5, 0x10700a8
+    const v5, 0x1070049
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -3053,7 +2967,7 @@
 
     iput-object v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisLevelsForEbookOnly:[I
 
-    const v5, 0x10700a9
+    const v5, 0x107004b
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -3061,7 +2975,7 @@
 
     iput-object v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mLowHysteresisValuesForEbookOnly:[I
 
-    const v5, 0x10700aa
+    const v5, 0x1070047
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -3069,7 +2983,7 @@
 
     iput-object v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessLevelsForEbookOnly:[I
 
-    const v5, 0x10700ab
+    const v5, 0x107004d
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -3077,7 +2991,7 @@
 
     iput-object v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValuesForEbookOnly:[I
 
-    const v5, 0x10700ac
+    const v5, 0x1070043
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -3085,7 +2999,7 @@
 
     iput-object v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisLevelsForEbookOnly:[I
 
-    const v5, 0x10700ad
+    const v5, 0x1070045
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -3094,7 +3008,7 @@
     iput-object v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mHighHysteresisValuesForEbookOnly:[I
 
     :cond_0
-    const v5, 0x10700a1
+    const v5, 0x107005b
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -3102,7 +3016,7 @@
 
     iput-object v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mMinimumExpressiveBrightnessValues:[I
 
-    const v5, 0x10e00f6
+    const v5, 0x10e007f
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -3111,6 +3025,26 @@
     iput v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mMinimumBrightnessStepValue:I
 
     invoke-virtual {p0}, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->initDynamicAutoBrightnessSlopeTables()V
+
+    iget-object v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValues:[I
+
+    invoke-virtual {v5}, Ljava/lang/Object;->clone()Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, [I
+
+    iput-object v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValuesOriginal:[I
+
+    iget-object v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValueSlope:[F
+
+    invoke-virtual {v5}, Ljava/lang/Object;->clone()Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, [F
+
+    iput-object v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValueSlopeOriginal:[F
 
     sget-boolean v5, Lcom/android/server/power/PowerManagerUtil;->ZERO_PROJECT:Z
 
@@ -3143,7 +3077,7 @@
     :cond_2
     iget-object v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->this$0:Lcom/android/server/display/DisplayPowerController;
 
-    invoke-static {v5}, Lcom/android/server/display/DisplayPowerController;->-get5(Lcom/android/server/display/DisplayPowerController;)Z
+    invoke-static {v5}, Lcom/android/server/display/DisplayPowerController;->-get4(Lcom/android/server/display/DisplayPowerController;)Z
 
     move-result v5
 
@@ -3156,7 +3090,7 @@
     invoke-direct {p0, v2}, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->sendAutoBrightnessTablePacket([B)V
 
     :cond_3
-    const v5, 0x10e0105
+    const v5, 0x10e001f
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -3173,10 +3107,6 @@
     iput v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mAutoBrightnessHbmAmbientLux:I
 
     :cond_4
-    sget-boolean v5, Lcom/android/server/power/PowerManagerUtil;->SEC_FEATURE_SUPPORT_PERFORMANCE_MODE:Z
-
-    if-eqz v5, :cond_6
-
     iget-object v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->this$0:Lcom/android/server/display/DisplayPowerController;
 
     invoke-static {v5}, Lcom/android/server/display/DisplayPowerController;->-get7(Lcom/android/server/display/DisplayPowerController;)Landroid/hardware/display/DisplayManagerInternal$DisplayPowerRequest;
@@ -3195,9 +3125,7 @@
 
     int-to-float v5, v5
 
-    const/high16 v6, 0x42c80000    # 100.0f
-
-    div-float v4, v5, v6
+    div-float v4, v5, v9
 
     const/4 v5, 0x0
 
@@ -3230,6 +3158,8 @@
 
     :cond_5
     invoke-virtual {p0}, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->initDynamicAutoBrightnessSlopeTables()V
+
+    iput v4, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mAutoBrightnessScaleFactor:F
 
     :cond_6
     return-void
@@ -3268,6 +3198,16 @@
     const v5, 0x3da3d70a    # 0.08f
 
     add-float v0, v4, v5
+
+    mul-float v5, v9, v0
+
+    invoke-static {v5}, Ljava/lang/Math;->round(F)I
+
+    move-result v5
+
+    int-to-float v5, v5
+
+    div-float v0, v5, v9
 
     :cond_a
     iget-object v5, p0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValues:[I

@@ -45,17 +45,15 @@
 
 # virtual methods
 .method public process(Lcom/android/server/job/controllers/JobStatus;)V
-    .locals 3
-
-    const/4 v1, 0x1
+    .locals 2
 
     invoke-virtual {p1}, Lcom/android/server/job/controllers/JobStatus;->getSourcePackageName()Ljava/lang/String;
 
     move-result-object v0
 
-    iget-object v2, p0, Lcom/android/server/job/controllers/AppIdleController$PackageUpdateFunc;->mPackage:Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/server/job/controllers/AppIdleController$PackageUpdateFunc;->mPackage:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -65,30 +63,24 @@
 
     move-result v0
 
-    iget v2, p0, Lcom/android/server/job/controllers/AppIdleController$PackageUpdateFunc;->mUserId:I
+    iget v1, p0, Lcom/android/server/job/controllers/AppIdleController$PackageUpdateFunc;->mUserId:I
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v1, :cond_0
 
     iget-boolean v0, p0, Lcom/android/server/job/controllers/AppIdleController$PackageUpdateFunc;->mIdle:Z
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     invoke-virtual {p1, v0}, Lcom/android/server/job/controllers/JobStatus;->setAppNotIdleConstraintSatisfied(Z)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iput-boolean v1, p0, Lcom/android/server/job/controllers/AppIdleController$PackageUpdateFunc;->mChanged:Z
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/server/job/controllers/AppIdleController$PackageUpdateFunc;->mChanged:Z
 
     :cond_0
     return-void
-
-    :cond_1
-    move v0, v1
-
-    goto :goto_0
 .end method

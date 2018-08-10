@@ -26,175 +26,117 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 14
+    .locals 9
 
-    const-wide/16 v12, 0x3e8
+    const/4 v8, 0x0
+
+    const-wide/16 v6, 0x3e8
 
     :try_start_0
-    invoke-static {v12, v13}, Ljava/lang/Thread;->sleep(J)V
+    invoke-static {v6, v7}, Ljava/lang/Thread;->sleep(J)V
     :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
 
     :goto_0
     invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
 
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
+
+    move-result-object v5
+
+    invoke-interface {v5}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
     move-result-object v4
 
-    invoke-virtual {v4}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
+    invoke-static {}, Lcom/android/server/enterprise/auditlog/IptablesLogging;->-get0()Landroid/net/INetd;
 
-    move-result-object v9
+    move-result-object v6
 
-    invoke-interface {v9}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    if-nez v6, :cond_0
 
-    move-result-object v8
-
-    new-instance v3, Ljava/util/ArrayList;
-
-    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+    invoke-static {}, Lcom/android/server/enterprise/auditlog/IptablesLogging;->-wrap0()V
 
     :cond_0
     :goto_1
-    invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v11
+    move-result v6
 
-    if-eqz v11, :cond_2
+    if-eqz v6, :cond_1
 
-    invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v11
+    move-result-object v6
 
-    check-cast v11, Ljava/lang/String;
+    check-cast v6, Ljava/lang/String;
 
-    invoke-virtual {v4, v11}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v1, v6}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    const-string/jumbo v11, " "
+    :try_start_1
+    invoke-static {}, Lcom/android/server/enterprise/auditlog/IptablesLogging;->-get0()Landroid/net/INetd;
 
-    invoke-virtual {v0, v11}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    move-result-object v6
 
-    move-result-object v2
+    if-eqz v6, :cond_0
 
-    const/4 v11, 0x0
+    invoke-static {}, Lcom/android/server/enterprise/auditlog/IptablesLogging;->-get0()Landroid/net/INetd;
 
-    array-length v12, v2
+    move-result-object v6
 
-    :goto_2
-    if-ge v11, v12, :cond_1
+    invoke-interface {v6, v0}, Landroid/net/INetd;->runShellCommand(Ljava/lang/String;)Ljava/lang/String;
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
-    aget-object v1, v2, v11
-
-    invoke-interface {v3, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    add-int/lit8 v11, v11, 0x1
-
-    goto :goto_2
+    goto :goto_1
 
     :catch_0
-    move-exception v6
+    move-exception v2
 
-    invoke-static {}, Lcom/android/server/enterprise/auditlog/InformFailure;->getInstance()Lcom/android/server/enterprise/auditlog/InformFailure;
+    const-string/jumbo v6, "IptablesLogging"
 
-    move-result-object v11
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    const/4 v12, 0x0
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v11, v6, v12}, Lcom/android/server/enterprise/auditlog/InformFailure;->broadcastFailure(Ljava/lang/Exception;Ljava/lang/String;)V
+    const-string/jumbo v8, "Unable to bind: "
 
-    goto :goto_0
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_1
-    :try_start_1
-    new-instance v11, Ljava/lang/ProcessBuilder;
+    move-result-object v7
 
-    const/4 v12, 0x0
+    invoke-virtual {v2}, Landroid/os/RemoteException;->getMessage()Ljava/lang/String;
 
-    new-array v12, v12, [Ljava/lang/String;
+    move-result-object v8
 
-    invoke-direct {v11, v12}, Ljava/lang/ProcessBuilder;-><init>([Ljava/lang/String;)V
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11, v3}, Ljava/lang/ProcessBuilder;->command(Ljava/util/List;)Ljava/lang/ProcessBuilder;
+    move-result-object v7
 
-    move-result-object v11
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const/4 v12, 0x1
+    move-result-object v7
 
-    invoke-virtual {v11, v12}, Ljava/lang/ProcessBuilder;->redirectErrorStream(Z)Ljava/lang/ProcessBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Ljava/lang/ProcessBuilder;->start()Ljava/lang/Process;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Ljava/lang/Process;->waitFor()I
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_2
-    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    invoke-interface {v3}, Ljava/util/List;->clear()V
+    invoke-static {v6, v7}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_1
 
     :catch_1
-    move-exception v7
-
-    :try_start_2
-    const-string/jumbo v11, "IptablesLogging"
-
-    const-string/jumbo v12, "handleMessage.InterruptedException"
-
-    invoke-static {v11, v12}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    move-exception v3
 
     invoke-static {}, Lcom/android/server/enterprise/auditlog/InformFailure;->getInstance()Lcom/android/server/enterprise/auditlog/InformFailure;
 
-    move-result-object v11
+    move-result-object v6
 
-    const/4 v12, 0x0
+    invoke-virtual {v6, v3, v8}, Lcom/android/server/enterprise/auditlog/InformFailure;->broadcastFailure(Ljava/lang/Exception;Ljava/lang/String;)V
 
-    invoke-virtual {v11, v7, v12}, Lcom/android/server/enterprise/auditlog/InformFailure;->broadcastFailure(Ljava/lang/Exception;Ljava/lang/String;)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    goto :goto_0
 
-    invoke-interface {v3}, Ljava/util/List;->clear()V
-
-    goto :goto_1
-
-    :catch_2
-    move-exception v5
-
-    :try_start_3
-    const-string/jumbo v11, "IptablesLogging"
-
-    const-string/jumbo v12, "handleMessage.IOException"
-
-    invoke-static {v11, v12}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
-
-    invoke-static {}, Lcom/android/server/enterprise/auditlog/InformFailure;->getInstance()Lcom/android/server/enterprise/auditlog/InformFailure;
-
-    move-result-object v11
-
-    const/4 v12, 0x0
-
-    invoke-virtual {v11, v5, v12}, Lcom/android/server/enterprise/auditlog/InformFailure;->broadcastFailure(Ljava/lang/Exception;Ljava/lang/String;)V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    invoke-interface {v3}, Ljava/util/List;->clear()V
-
-    goto :goto_1
-
-    :catchall_0
-    move-exception v11
-
-    invoke-interface {v3}, Ljava/util/List;->clear()V
-
-    throw v11
-
-    :cond_2
+    :cond_1
     return-void
 .end method

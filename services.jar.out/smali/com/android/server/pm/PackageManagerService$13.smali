@@ -49,6 +49,8 @@
 .method public run()V
     .locals 9
 
+    const/4 v6, 0x1
+
     const/4 v1, 0x0
 
     :goto_0
@@ -74,9 +76,9 @@
 
     iget-object v3, v0, Lcom/android/server/pm/PackageManagerService$PostInstallData;->res:Lcom/android/server/pm/PackageManagerService$PackageInstalledInfo;
 
-    iget-object v3, v3, Lcom/android/server/pm/PackageManagerService$PackageInstalledInfo;->pkg:Landroid/content/pm/PackageParser$Package;
+    iget v3, v3, Lcom/android/server/pm/PackageManagerService$PackageInstalledInfo;->returnCode:I
 
-    if-nez v3, :cond_1
+    if-eq v3, v6, :cond_1
 
     :cond_0
     add-int/lit8 v1, v1, 0x1
@@ -135,8 +137,6 @@
 
     iget-object v5, p0, Lcom/android/server/pm/PackageManagerService$13;->val$installerPackage:Ljava/lang/String;
 
-    const/4 v6, 0x1
-
     new-array v6, v6, [I
 
     iget v7, p0, Lcom/android/server/pm/PackageManagerService$13;->val$userId:I
@@ -145,7 +145,7 @@
 
     aput v7, v6, v8
 
-    invoke-static {v3, v4, v5, v6}, Lcom/android/server/pm/PackageManagerService;->-wrap47(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;Ljava/lang/String;[I)V
+    invoke-static {v3, v4, v5, v6}, Lcom/android/server/pm/PackageManagerService;->-wrap61(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;Ljava/lang/String;[I)V
 
     return-void
 .end method

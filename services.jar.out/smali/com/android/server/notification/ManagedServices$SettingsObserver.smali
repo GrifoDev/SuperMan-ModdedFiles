@@ -183,11 +183,11 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/server/notification/ManagedServices;->-wrap3(Lcom/android/server/notification/ManagedServices;Z)V
+    invoke-virtual {v0, v1}, Lcom/android/server/notification/ManagedServices;->rebindServices(Z)V
 
     iget-object v0, p0, Lcom/android/server/notification/ManagedServices$SettingsObserver;->this$0:Lcom/android/server/notification/ManagedServices;
 
-    invoke-static {v0}, Lcom/android/server/notification/ManagedServices;->-wrap4(Lcom/android/server/notification/ManagedServices;)V
+    invoke-static {v0}, Lcom/android/server/notification/ManagedServices;->-wrap3(Lcom/android/server/notification/ManagedServices;)V
 
     :cond_2
     return-void

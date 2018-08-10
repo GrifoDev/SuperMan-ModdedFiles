@@ -57,6 +57,14 @@
     return v0
 .end method
 
+.method static synthetic -wrap1(Lcom/android/server/notification/ZenModeFiltering$RepeatCallers;Landroid/content/Context;Landroid/os/Bundle;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/notification/ZenModeFiltering$RepeatCallers;->recordCall(Landroid/content/Context;Landroid/os/Bundle;)V
+
+    return-void
+.end method
+
 .method private constructor <init>()V
     .locals 1
 
@@ -79,142 +87,149 @@
     return-void
 .end method
 
-.method private declared-synchronized isRepeat(Landroid/content/Context;Landroid/os/Bundle;)Z
-    .locals 12
-
-    const/4 v10, 0x0
+.method private declared-synchronized cleanUp(Landroid/util/ArrayMap;J)V
+    .locals 8
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/util/ArrayMap",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/Long;",
+            ">;J)V"
+        }
+    .end annotation
 
     monitor-enter p0
 
     :try_start_0
-    iget v8, p0, Lcom/android/server/notification/ZenModeFiltering$RepeatCallers;->mThresholdMinutes:I
-
-    if-gtz v8, :cond_0
-
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v8
-
-    const v9, 0x10e0093
-
-    invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v8
-
-    iput v8, p0, Lcom/android/server/notification/ZenModeFiltering$RepeatCallers;->mThresholdMinutes:I
-
-    :cond_0
-    iget v8, p0, Lcom/android/server/notification/ZenModeFiltering$RepeatCallers;->mThresholdMinutes:I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    if-lez v8, :cond_1
-
-    if-nez p2, :cond_2
-
-    :cond_1
-    monitor-exit p0
-
-    return v10
-
-    :cond_2
-    :try_start_1
-    invoke-static {p2}, Lcom/android/server/notification/ZenModeFiltering$RepeatCallers;->peopleString(Landroid/os/Bundle;)Ljava/lang/String;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    move-result-object v3
-
-    if-nez v3, :cond_3
-
-    monitor-exit p0
-
-    return v10
-
-    :cond_3
-    :try_start_2
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v4
-
-    iget-object v8, p0, Lcom/android/server/notification/ZenModeFiltering$RepeatCallers;->mCalls:Landroid/util/ArrayMap;
-
-    invoke-virtual {v8}, Landroid/util/ArrayMap;->size()I
+    invoke-virtual {p1}, Landroid/util/ArrayMap;->size()I
 
     move-result v0
 
     add-int/lit8 v1, v0, -0x1
 
     :goto_0
-    if-ltz v1, :cond_6
+    if-ltz v1, :cond_2
 
-    iget-object v8, p0, Lcom/android/server/notification/ZenModeFiltering$RepeatCallers;->mCalls:Landroid/util/ArrayMap;
+    iget-object v4, p0, Lcom/android/server/notification/ZenModeFiltering$RepeatCallers;->mCalls:Landroid/util/ArrayMap;
 
-    invoke-virtual {v8, v1}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v4, v1}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v8
+    move-result-object v4
 
-    check-cast v8, Ljava/lang/Long;
+    check-cast v4, Ljava/lang/Long;
 
-    invoke-virtual {v8}, Ljava/lang/Long;->longValue()J
+    invoke-virtual {v4}, Ljava/lang/Long;->longValue()J
 
-    move-result-wide v6
+    move-result-wide v2
 
-    cmp-long v8, v6, v4
+    cmp-long v4, v2, p2
 
-    if-gtz v8, :cond_4
+    if-gtz v4, :cond_0
 
-    sub-long v8, v4, v6
+    sub-long v4, p2, v2
 
-    iget v10, p0, Lcom/android/server/notification/ZenModeFiltering$RepeatCallers;->mThresholdMinutes:I
+    iget v6, p0, Lcom/android/server/notification/ZenModeFiltering$RepeatCallers;->mThresholdMinutes:I
 
-    mul-int/lit16 v10, v10, 0x3e8
+    mul-int/lit16 v6, v6, 0x3e8
 
-    mul-int/lit8 v10, v10, 0x3c
+    mul-int/lit8 v6, v6, 0x3c
 
-    int-to-long v10, v10
+    int-to-long v6, v6
 
-    cmp-long v8, v8, v10
+    cmp-long v4, v4, v6
 
-    if-lez v8, :cond_5
+    if-lez v4, :cond_1
 
-    :cond_4
-    iget-object v8, p0, Lcom/android/server/notification/ZenModeFiltering$RepeatCallers;->mCalls:Landroid/util/ArrayMap;
+    :cond_0
+    invoke-virtual {p1, v1}, Landroid/util/ArrayMap;->removeAt(I)Ljava/lang/Object;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-virtual {v8, v1}, Landroid/util/ArrayMap;->removeAt(I)Ljava/lang/Object;
-
-    :cond_5
+    :cond_1
     add-int/lit8 v1, v1, -0x1
 
     goto :goto_0
 
-    :cond_6
-    iget-object v8, p0, Lcom/android/server/notification/ZenModeFiltering$RepeatCallers;->mCalls:Landroid/util/ArrayMap;
+    :cond_2
+    monitor-exit p0
 
-    invoke-virtual {v8, v3}, Landroid/util/ArrayMap;->containsKey(Ljava/lang/Object;)Z
+    return-void
 
-    move-result v2
+    :catchall_0
+    move-exception v4
 
-    iget-object v8, p0, Lcom/android/server/notification/ZenModeFiltering$RepeatCallers;->mCalls:Landroid/util/ArrayMap;
+    monitor-exit p0
 
-    invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    throw v4
+.end method
 
-    move-result-object v9
+.method private declared-synchronized isRepeat(Landroid/content/Context;Landroid/os/Bundle;)Z
+    .locals 5
 
-    invoke-virtual {v8, v3, v9}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const/4 v4, 0x0
+
+    monitor-enter p0
+
+    :try_start_0
+    invoke-direct {p0, p1}, Lcom/android/server/notification/ZenModeFiltering$RepeatCallers;->setThresholdMinutes(Landroid/content/Context;)V
+
+    iget v3, p0, Lcom/android/server/notification/ZenModeFiltering$RepeatCallers;->mThresholdMinutes:I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-lez v3, :cond_0
+
+    if-nez p2, :cond_1
+
+    :cond_0
+    monitor-exit p0
+
+    return v4
+
+    :cond_1
+    :try_start_1
+    invoke-static {p2}, Lcom/android/server/notification/ZenModeFiltering$RepeatCallers;->peopleString(Landroid/os/Bundle;)Ljava/lang/String;
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    move-result-object v2
+
+    if-nez v2, :cond_2
+
+    monitor-exit p0
+
+    return v4
+
+    :cond_2
+    :try_start_2
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v0
+
+    iget-object v3, p0, Lcom/android/server/notification/ZenModeFiltering$RepeatCallers;->mCalls:Landroid/util/ArrayMap;
+
+    invoke-direct {p0, v3, v0, v1}, Lcom/android/server/notification/ZenModeFiltering$RepeatCallers;->cleanUp(Landroid/util/ArrayMap;J)V
+
+    iget-object v3, p0, Lcom/android/server/notification/ZenModeFiltering$RepeatCallers;->mCalls:Landroid/util/ArrayMap;
+
+    invoke-virtual {v3, v2}, Landroid/util/ArrayMap;->containsKey(Ljava/lang/Object;)Z
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
+    move-result v3
+
     monitor-exit p0
 
-    return v2
+    return v3
 
     :catchall_0
-    move-exception v8
+    move-exception v3
 
     monitor-exit p0
 
-    throw v8
+    throw v3
 .end method
 
 .method private static peopleString(Landroid/os/Bundle;)Ljava/lang/String;
@@ -299,4 +314,94 @@
     move-result-object v4
 
     goto :goto_2
+.end method
+
+.method private declared-synchronized recordCall(Landroid/content/Context;Landroid/os/Bundle;)V
+    .locals 5
+
+    monitor-enter p0
+
+    :try_start_0
+    invoke-direct {p0, p1}, Lcom/android/server/notification/ZenModeFiltering$RepeatCallers;->setThresholdMinutes(Landroid/content/Context;)V
+
+    iget v3, p0, Lcom/android/server/notification/ZenModeFiltering$RepeatCallers;->mThresholdMinutes:I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-lez v3, :cond_0
+
+    if-nez p2, :cond_1
+
+    :cond_0
+    monitor-exit p0
+
+    return-void
+
+    :cond_1
+    :try_start_1
+    invoke-static {p2}, Lcom/android/server/notification/ZenModeFiltering$RepeatCallers;->peopleString(Landroid/os/Bundle;)Ljava/lang/String;
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    move-result-object v2
+
+    if-nez v2, :cond_2
+
+    monitor-exit p0
+
+    return-void
+
+    :cond_2
+    :try_start_2
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v0
+
+    iget-object v3, p0, Lcom/android/server/notification/ZenModeFiltering$RepeatCallers;->mCalls:Landroid/util/ArrayMap;
+
+    invoke-direct {p0, v3, v0, v1}, Lcom/android/server/notification/ZenModeFiltering$RepeatCallers;->cleanUp(Landroid/util/ArrayMap;J)V
+
+    iget-object v3, p0, Lcom/android/server/notification/ZenModeFiltering$RepeatCallers;->mCalls:Landroid/util/ArrayMap;
+
+    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v2, v4}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    monitor-exit p0
+
+    return-void
+
+    :catchall_0
+    move-exception v3
+
+    monitor-exit p0
+
+    throw v3
+.end method
+
+.method private setThresholdMinutes(Landroid/content/Context;)V
+    .locals 2
+
+    iget v0, p0, Lcom/android/server/notification/ZenModeFiltering$RepeatCallers;->mThresholdMinutes:I
+
+    if-gtz v0, :cond_0
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x10e00e7
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/server/notification/ZenModeFiltering$RepeatCallers;->mThresholdMinutes:I
+
+    :cond_0
+    return-void
 .end method

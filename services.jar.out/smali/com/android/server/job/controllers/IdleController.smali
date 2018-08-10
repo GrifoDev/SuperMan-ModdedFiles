@@ -1,4 +1,4 @@
-.class public Lcom/android/server/job/controllers/IdleController;
+.class public final Lcom/android/server/job/controllers/IdleController;
 .super Lcom/android/server/job/controllers/StateController;
 .source "IdleController.java"
 
@@ -26,10 +26,10 @@
 
 .field private mInactivityIdleThreshold:J
 
-.field final mTrackedTasks:Ljava/util/ArrayList;
+.field final mTrackedTasks:Landroid/util/ArraySet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/ArrayList",
+            "Landroid/util/ArraySet",
             "<",
             "Lcom/android/server/job/controllers/JobStatus;",
             ">;"
@@ -72,11 +72,11 @@
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/job/controllers/StateController;-><init>(Lcom/android/server/job/StateChangedListener;Landroid/content/Context;Ljava/lang/Object;)V
 
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance v0, Landroid/util/ArraySet;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/job/controllers/IdleController;->mTrackedTasks:Ljava/util/ArrayList;
+    iput-object v0, p0, Lcom/android/server/job/controllers/IdleController;->mTrackedTasks:Landroid/util/ArraySet;
 
     invoke-direct {p0}, Lcom/android/server/job/controllers/IdleController;->initIdleStateTracking()V
 
@@ -135,7 +135,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e00a0
+    const v1, 0x10e0069
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -151,7 +151,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e00a1
+    const v1, 0x10e0068
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -189,20 +189,15 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
-
-    const-string/jumbo v2, "true"
-
-    :goto_0
-    invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->println(Z)V
 
     const-string/jumbo v2, "Tracking "
 
     invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    iget-object v2, p0, Lcom/android/server/job/controllers/IdleController;->mTrackedTasks:Ljava/util/ArrayList;
+    iget-object v2, p0, Lcom/android/server/job/controllers/IdleController;->mTrackedTasks:Landroid/util/ArraySet;
 
-    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v2}, Landroid/util/ArraySet;->size()I
 
     move-result v2
 
@@ -214,18 +209,18 @@
 
     const/4 v0, 0x0
 
-    :goto_1
-    iget-object v2, p0, Lcom/android/server/job/controllers/IdleController;->mTrackedTasks:Ljava/util/ArrayList;
+    :goto_0
+    iget-object v2, p0, Lcom/android/server/job/controllers/IdleController;->mTrackedTasks:Landroid/util/ArraySet;
 
-    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v2}, Landroid/util/ArraySet;->size()I
 
     move-result v2
 
-    if-ge v0, v2, :cond_2
+    if-ge v0, v2, :cond_1
 
-    iget-object v2, p0, Lcom/android/server/job/controllers/IdleController;->mTrackedTasks:Ljava/util/ArrayList;
+    iget-object v2, p0, Lcom/android/server/job/controllers/IdleController;->mTrackedTasks:Landroid/util/ArraySet;
 
-    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v2, v0}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -235,19 +230,14 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_0
 
-    :goto_2
+    :goto_1
     add-int/lit8 v0, v0, 0x1
-
-    goto :goto_1
-
-    :cond_0
-    const-string/jumbo v2, "false"
 
     goto :goto_0
 
-    :cond_1
+    :cond_0
     const-string/jumbo v2, "  #"
 
     invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -266,9 +256,9 @@
 
     invoke-virtual {p1}, Ljava/io/PrintWriter;->println()V
 
-    goto :goto_2
+    goto :goto_1
 
-    :cond_2
+    :cond_1
     return-void
 .end method
 
@@ -281,9 +271,13 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/job/controllers/IdleController;->mTrackedTasks:Ljava/util/ArrayList;
+    iget-object v0, p0, Lcom/android/server/job/controllers/IdleController;->mTrackedTasks:Landroid/util/ArraySet;
 
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
+
+    const/16 v0, 0x8
+
+    invoke-virtual {p1, v0}, Lcom/android/server/job/controllers/JobStatus;->setTrackingController(I)V
 
     iget-object v0, p0, Lcom/android/server/job/controllers/IdleController;->mIdleTracker:Lcom/android/server/job/controllers/IdleController$IdlenessTracker;
 
@@ -300,59 +294,70 @@
 .method public maybeStopTrackingJobLocked(Lcom/android/server/job/controllers/JobStatus;Lcom/android/server/job/controllers/JobStatus;Z)V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/server/job/controllers/IdleController;->mTrackedTasks:Ljava/util/ArrayList;
+    const/16 v0, 0x8
 
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v0}, Lcom/android/server/job/controllers/JobStatus;->clearTrackingController(I)Z
 
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/job/controllers/IdleController;->mTrackedTasks:Landroid/util/ArraySet;
+
+    invoke-virtual {v0, p1}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
+
+    :cond_0
     return-void
 .end method
 
 .method reportNewIdleState(Z)V
-    .locals 4
+    .locals 3
 
-    iget-object v3, p0, Lcom/android/server/job/controllers/IdleController;->mLock:Ljava/lang/Object;
+    iget-object v2, p0, Lcom/android/server/job/controllers/IdleController;->mLock:Ljava/lang/Object;
 
-    monitor-enter v3
+    monitor-enter v2
 
     :try_start_0
-    iget-object v2, p0, Lcom/android/server/job/controllers/IdleController;->mTrackedTasks:Ljava/util/ArrayList;
+    iget-object v1, p0, Lcom/android/server/job/controllers/IdleController;->mTrackedTasks:Landroid/util/ArraySet;
 
-    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v1}, Landroid/util/ArraySet;->size()I
+
+    move-result v1
+
+    add-int/lit8 v0, v1, -0x1
+
+    :goto_0
+    if-ltz v0, :cond_0
+
+    iget-object v1, p0, Lcom/android/server/job/controllers/IdleController;->mTrackedTasks:Landroid/util/ArraySet;
+
+    invoke-virtual {v1, v0}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
     move-result-object v1
 
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    check-cast v1, Lcom/android/server/job/controllers/JobStatus;
 
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/server/job/controllers/JobStatus;
-
-    invoke-virtual {v0, p1}, Lcom/android/server/job/controllers/JobStatus;->setIdleConstraintSatisfied(Z)Z
+    invoke-virtual {v1, p1}, Lcom/android/server/job/controllers/JobStatus;->setIdleConstraintSatisfied(Z)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    add-int/lit8 v0, v0, -0x1
+
     goto :goto_0
 
-    :catchall_0
-    move-exception v2
-
-    monitor-exit v3
-
-    throw v2
-
     :cond_0
-    monitor-exit v3
+    monitor-exit v2
 
-    iget-object v2, p0, Lcom/android/server/job/controllers/IdleController;->mStateChangedListener:Lcom/android/server/job/StateChangedListener;
+    iget-object v1, p0, Lcom/android/server/job/controllers/IdleController;->mStateChangedListener:Lcom/android/server/job/StateChangedListener;
 
-    invoke-interface {v2}, Lcom/android/server/job/StateChangedListener;->onControllerStateChanged()V
+    invoke-interface {v1}, Lcom/android/server/job/StateChangedListener;->onControllerStateChanged()V
 
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+
+    throw v1
 .end method

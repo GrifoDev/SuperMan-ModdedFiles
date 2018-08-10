@@ -308,7 +308,9 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    xor-int/lit8 v2, v2, 0x1
+
+    if-nez v2, :cond_0
 
     :cond_1
     invoke-virtual {v0, p1, p2}, Lcom/android/server/notification/NotificationUsageStats$AggregatedStats;->dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
@@ -446,7 +448,9 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    xor-int/lit8 v5, v5, 0x1
+
+    if-nez v5, :cond_0
 
     :cond_1
     invoke-virtual {v1}, Lcom/android/server/notification/NotificationUsageStats$AggregatedStats;->dumpJson()Lorg/json/JSONObject;
@@ -790,7 +794,7 @@
 
     move-result v3
 
-    invoke-virtual {v1, v2, v3}, Lcom/android/server/am/MARsPolicyManager;->handleNotificationBarClicked(Ljava/lang/String;I)V
+    invoke-virtual {v1, v2, v3}, Lcom/android/server/am/MARsPolicyManager;->onNotificationBarClicked(Ljava/lang/String;I)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

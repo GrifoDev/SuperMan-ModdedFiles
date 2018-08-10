@@ -266,6 +266,51 @@
     return v0
 .end method
 
+.method public isAnyMemberMetered()Z
+    .locals 4
+
+    const/4 v3, 0x0
+
+    invoke-virtual {p0}, Lcom/android/server/net/NetworkIdentitySet;->isEmpty()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    return v3
+
+    :cond_0
+    invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :cond_1
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/net/NetworkIdentity;
+
+    invoke-virtual {v0}, Landroid/net/NetworkIdentity;->getMetered()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    const/4 v2, 0x1
+
+    return v2
+
+    :cond_2
+    return v3
+.end method
+
 .method public isAnyMemberRoaming()Z
     .locals 4
 
@@ -309,6 +354,42 @@
 
     :cond_2
     return v3
+.end method
+
+.method public writeToProto(Landroid/util/proto/ProtoOutputStream;J)V
+    .locals 6
+
+    invoke-virtual {p1, p2, p3}, Landroid/util/proto/ProtoOutputStream;->start(J)J
+
+    move-result-wide v2
+
+    invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/net/NetworkIdentity;
+
+    const-wide v4, 0x21100000001L
+
+    invoke-virtual {v0, p1, v4, v5}, Landroid/net/NetworkIdentity;->writeToProto(Landroid/util/proto/ProtoOutputStream;J)V
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p1, v2, v3}, Landroid/util/proto/ProtoOutputStream;->end(J)V
+
+    return-void
 .end method
 
 .method public writeToStream(Ljava/io/DataOutputStream;)V

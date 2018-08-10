@@ -56,7 +56,22 @@
 
     sget-object v0, Lcom/android/server/desktopmode/DesktopModeService$Lifecycle;->sService:Lcom/android/server/desktopmode/DesktopModeService;
 
-    invoke-static {v0, p1}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap1(Lcom/android/server/desktopmode/DesktopModeService;I)V
+    invoke-static {v0, p1}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap10(Lcom/android/server/desktopmode/DesktopModeService;I)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public onCleanupUser(I)V
+    .locals 1
+
+    sget-object v0, Lcom/android/server/desktopmode/DesktopModeService$Lifecycle;->sService:Lcom/android/server/desktopmode/DesktopModeService;
+
+    if-eqz v0, :cond_0
+
+    sget-object v0, Lcom/android/server/desktopmode/DesktopModeService$Lifecycle;->sService:Lcom/android/server/desktopmode/DesktopModeService;
+
+    invoke-static {v0, p1}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap11(Lcom/android/server/desktopmode/DesktopModeService;I)V
 
     :cond_0
     return-void
@@ -86,6 +101,36 @@
     return-void
 .end method
 
+.method public onStartUser(I)V
+    .locals 1
+
+    sget-object v0, Lcom/android/server/desktopmode/DesktopModeService$Lifecycle;->sService:Lcom/android/server/desktopmode/DesktopModeService;
+
+    if-eqz v0, :cond_0
+
+    sget-object v0, Lcom/android/server/desktopmode/DesktopModeService$Lifecycle;->sService:Lcom/android/server/desktopmode/DesktopModeService;
+
+    invoke-static {v0, p1}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap12(Lcom/android/server/desktopmode/DesktopModeService;I)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public onStopUser(I)V
+    .locals 1
+
+    sget-object v0, Lcom/android/server/desktopmode/DesktopModeService$Lifecycle;->sService:Lcom/android/server/desktopmode/DesktopModeService;
+
+    if-eqz v0, :cond_0
+
+    sget-object v0, Lcom/android/server/desktopmode/DesktopModeService$Lifecycle;->sService:Lcom/android/server/desktopmode/DesktopModeService;
+
+    invoke-static {v0, p1}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap13(Lcom/android/server/desktopmode/DesktopModeService;I)V
+
+    :cond_0
+    return-void
+.end method
+
 .method public onSwitchUser(I)V
     .locals 1
 
@@ -95,7 +140,22 @@
 
     sget-object v0, Lcom/android/server/desktopmode/DesktopModeService$Lifecycle;->sService:Lcom/android/server/desktopmode/DesktopModeService;
 
-    invoke-static {v0, p1}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap2(Lcom/android/server/desktopmode/DesktopModeService;I)V
+    invoke-static {v0, p1}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap14(Lcom/android/server/desktopmode/DesktopModeService;I)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public onUnlockUser(I)V
+    .locals 1
+
+    sget-object v0, Lcom/android/server/desktopmode/DesktopModeService$Lifecycle;->sService:Lcom/android/server/desktopmode/DesktopModeService;
+
+    if-eqz v0, :cond_0
+
+    sget-object v0, Lcom/android/server/desktopmode/DesktopModeService$Lifecycle;->sService:Lcom/android/server/desktopmode/DesktopModeService;
+
+    invoke-static {v0, p1}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap15(Lcom/android/server/desktopmode/DesktopModeService;I)V
 
     :cond_0
     return-void

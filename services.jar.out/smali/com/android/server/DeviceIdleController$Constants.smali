@@ -105,7 +105,7 @@
 
 .field public MAX_TEMP_APP_WHITELIST_DURATION:J
 
-.field private final MINIMUN_STEP_TIMEOUT:J
+.field private final MINIMUM_STEP_TIMEOUT:J
 
 .field public MIN_DEEP_MAINTENANCE_TIME:J
 
@@ -142,7 +142,7 @@
 
     const-wide/16 v0, 0x3e8
 
-    iput-wide v0, p0, Lcom/android/server/DeviceIdleController$Constants;->MINIMUN_STEP_TIMEOUT:J
+    iput-wide v0, p0, Lcom/android/server/DeviceIdleController$Constants;->MINIMUM_STEP_TIMEOUT:J
 
     new-instance v0, Landroid/util/KeyValueListParser;
 

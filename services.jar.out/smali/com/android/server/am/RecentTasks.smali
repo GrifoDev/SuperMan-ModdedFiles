@@ -25,9 +25,9 @@
 
 .field private static final MAX_RECENT_BITMAPS:I = 0x3
 
-.field private static final MOVE_AFFILIATED_TASKS_TO_FRONT:Z
+.field private static final MOVE_AFFILIATED_TASKS_TO_FRONT:Z = false
 
-.field private static final TAG:Ljava/lang/String;
+.field private static final TAG:Ljava/lang/String; = "ActivityManager"
 
 .field private static final TAG_RECENTS:Ljava/lang/String;
 
@@ -106,10 +106,6 @@
 # direct methods
 .method static constructor <clinit>()V
     .locals 2
-
-    const-string/jumbo v0, "ActivityManager"
-
-    sput-object v0, Lcom/android/server/am/RecentTasks;->TAG:Ljava/lang/String;
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -228,6 +224,40 @@
     invoke-virtual {p2, p0}, Lcom/android/server/am/ActivityStackSupervisor;->setRecentTasks(Lcom/android/server/am/RecentTasks;)V
 
     return-void
+.end method
+
+.method static synthetic lambda$-com_android_server_am_RecentTasks_5697(Lcom/android/server/am/TaskRecord;Lcom/android/server/am/TaskRecord;)I
+    .locals 8
+
+    const-wide/16 v6, 0x0
+
+    iget-wide v2, p1, Lcom/android/server/am/TaskRecord;->mLastTimeMoved:J
+
+    iget-wide v4, p0, Lcom/android/server/am/TaskRecord;->mLastTimeMoved:J
+
+    sub-long v0, v2, v4
+
+    cmp-long v2, v0, v6
+
+    if-gez v2, :cond_0
+
+    const/4 v2, -0x1
+
+    return v2
+
+    :cond_0
+    cmp-long v2, v0, v6
+
+    if-lez v2, :cond_1
+
+    const/4 v2, 0x1
+
+    return v2
+
+    :cond_1
+    const/4 v2, 0x0
+
+    return v2
 .end method
 
 .method private loadPersistedTaskIdsForUserLocked(I)V
@@ -1117,6 +1147,39 @@
     return v9
 .end method
 
+.method private static shouldPersistTaskLocked(Lcom/android/server/am/TaskRecord;)Z
+    .locals 2
+
+    invoke-virtual {p0}, Lcom/android/server/am/TaskRecord;->getStack()Lcom/android/server/am/ActivityStack;
+
+    move-result-object v0
+
+    iget-boolean v1, p0, Lcom/android/server/am/TaskRecord;->isPersistable:Z
+
+    if-eqz v1, :cond_1
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/server/am/ActivityStack;->isHomeOrRecentsStack()Z
+
+    move-result v1
+
+    xor-int/lit8 v1, v1, 0x1
+
+    :goto_0
+    return v1
+
+    :cond_0
+    const/4 v1, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v1, 0x0
+
+    goto :goto_0
+.end method
+
 .method private syncPersistentTaskIdsLocked()V
     .locals 6
 
@@ -1168,7 +1231,7 @@
     add-int/lit8 v0, v3, -0x1
 
     :goto_1
-    if-ltz v0, :cond_5
+    if-ltz v0, :cond_4
 
     invoke-virtual {p0, v0}, Lcom/android/server/am/RecentTasks;->get(I)Ljava/lang/Object;
 
@@ -1176,29 +1239,12 @@
 
     check-cast v1, Lcom/android/server/am/TaskRecord;
 
-    iget-boolean v3, v1, Lcom/android/server/am/TaskRecord;->isPersistable:Z
-
-    if-eqz v3, :cond_2
-
-    iget-object v3, v1, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
-
-    if-eqz v3, :cond_3
-
-    iget-object v3, v1, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
-
-    invoke-virtual {v3}, Lcom/android/server/am/ActivityStack;->isHomeStack()Z
+    invoke-static {v1}, Lcom/android/server/am/RecentTasks;->shouldPersistTaskLocked(Lcom/android/server/am/TaskRecord;)Z
 
     move-result v3
 
     if-eqz v3, :cond_3
 
-    :cond_2
-    :goto_2
-    add-int/lit8 v0, v0, -0x1
-
-    goto :goto_1
-
-    :cond_3
     iget-object v3, p0, Lcom/android/server/am/RecentTasks;->mPersistedTaskIds:Landroid/util/SparseArray;
 
     iget v4, v1, Lcom/android/server/am/TaskRecord;->userId:I
@@ -1207,7 +1253,7 @@
 
     move-result-object v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_2
 
     sget-object v3, Lcom/android/server/am/RecentTasks;->TAG:Ljava/lang/String;
 
@@ -1265,7 +1311,7 @@
 
     invoke-virtual {v3, v4, v5}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    :cond_4
+    :cond_2
     iget-object v3, p0, Lcom/android/server/am/RecentTasks;->mPersistedTaskIds:Landroid/util/SparseArray;
 
     iget v4, v1, Lcom/android/server/am/TaskRecord;->userId:I
@@ -1282,9 +1328,12 @@
 
     invoke-virtual {v3, v4, v5}, Landroid/util/SparseBooleanArray;->put(IZ)V
 
-    goto :goto_2
+    :cond_3
+    add-int/lit8 v0, v0, -0x1
 
-    :cond_5
+    goto :goto_1
+
+    :cond_4
     return-void
 .end method
 
@@ -1340,9 +1389,7 @@
 
 # virtual methods
 .method final addLocked(Lcom/android/server/am/TaskRecord;)V
-    .locals 14
-
-    const/4 v13, 0x3
+    .locals 13
 
     const/4 v12, 0x1
 
@@ -1445,12 +1492,6 @@
 
     if-eqz v8, :cond_7
 
-    iget-object v8, p0, Lcom/android/server/am/RecentTasks;->mService:Lcom/android/server/am/ActivityManagerService;
-
-    iget-object v8, v8, Lcom/android/server/am/ActivityManagerService;->mBridge:Lcom/android/server/am/IActivityManagerServiceBridge;
-
-    invoke-interface {v8, p0, p1, v13}, Lcom/android/server/am/IActivityManagerServiceBridge;->trimOnlyThumbnailForTaskLocked(Lcom/android/server/am/RecentTasks;Lcom/android/server/am/TaskRecord;I)V
-
     return-void
 
     :cond_6
@@ -1462,9 +1503,23 @@
 
     iget-object v8, p0, Lcom/android/server/am/RecentTasks;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v8, v8, Lcom/android/server/am/ActivityManagerService;->mBridge:Lcom/android/server/am/IActivityManagerServiceBridge;
+    iget-object v8, v8, Lcom/android/server/am/ActivityManagerService;->mMultiWindowManager:Lcom/android/server/am/MultiWindowManagerService;
 
-    invoke-interface {v8, p0, p1, v13}, Lcom/android/server/am/IActivityManagerServiceBridge;->trimOnlyThumbnailForTaskLocked(Lcom/android/server/am/RecentTasks;Lcom/android/server/am/TaskRecord;I)V
+    invoke-virtual {v8}, Lcom/android/server/am/MultiWindowManagerService;->getPairedRecentTasksController()Lcom/android/server/am/PairedRecentTasksController;
+
+    move-result-object v8
+
+    invoke-virtual {v8, p1}, Lcom/android/server/am/PairedRecentTasksController;->updatePairedTaskInfoIfExist(Lcom/android/server/am/TaskRecord;)V
+
+    iget-object v8, p0, Lcom/android/server/am/RecentTasks;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v8, v8, Lcom/android/server/am/ActivityManagerService;->mMultiWindowManager:Lcom/android/server/am/MultiWindowManagerService;
+
+    invoke-virtual {v8}, Lcom/android/server/am/MultiWindowManagerService;->getPairedRecentTasksController()Lcom/android/server/am/PairedRecentTasksController;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Lcom/android/server/am/PairedRecentTasksController;->createPairedRecentTask()V
 
     return-void
 
@@ -1495,6 +1550,16 @@
     check-cast v7, Lcom/android/server/am/TaskRecord;
 
     invoke-virtual {v7}, Lcom/android/server/am/TaskRecord;->removedFromRecents()V
+
+    iget-object v8, p0, Lcom/android/server/am/RecentTasks;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v8, v8, Lcom/android/server/am/ActivityManagerService;->mMultiWindowManager:Lcom/android/server/am/MultiWindowManagerService;
+
+    invoke-virtual {v8}, Lcom/android/server/am/MultiWindowManagerService;->getPairedRecentTasksController()Lcom/android/server/am/PairedRecentTasksController;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v7}, Lcom/android/server/am/PairedRecentTasksController;->removePairedTask(Lcom/android/server/am/TaskRecord;)V
 
     add-int/lit8 v5, v5, -0x1
 
@@ -1536,6 +1601,26 @@
 
     :cond_b
     invoke-virtual {p0, v11, p1}, Lcom/android/server/am/RecentTasks;->add(ILjava/lang/Object;)V
+
+    iget-object v8, p0, Lcom/android/server/am/RecentTasks;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v8, v8, Lcom/android/server/am/ActivityManagerService;->mMultiWindowManager:Lcom/android/server/am/MultiWindowManagerService;
+
+    invoke-virtual {v8}, Lcom/android/server/am/MultiWindowManagerService;->getPairedRecentTasksController()Lcom/android/server/am/PairedRecentTasksController;
+
+    move-result-object v8
+
+    invoke-virtual {v8, p1}, Lcom/android/server/am/PairedRecentTasksController;->updatePairedTaskInfoIfExist(Lcom/android/server/am/TaskRecord;)V
+
+    iget-object v8, p0, Lcom/android/server/am/RecentTasks;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v8, v8, Lcom/android/server/am/ActivityManagerService;->mMultiWindowManager:Lcom/android/server/am/MultiWindowManagerService;
+
+    invoke-virtual {v8}, Lcom/android/server/am/MultiWindowManagerService;->getPairedRecentTasksController()Lcom/android/server/am/PairedRecentTasksController;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Lcom/android/server/am/PairedRecentTasksController;->createPairedRecentTask()V
 
     :cond_c
     :goto_3
@@ -1620,6 +1705,14 @@
     return-void
 
     :cond_0
+    iget-object v7, p0, Lcom/android/server/am/RecentTasks;->mTmpAvailActCache:Ljava/util/HashMap;
+
+    invoke-virtual {v7}, Ljava/util/HashMap;->clear()V
+
+    iget-object v7, p0, Lcom/android/server/am/RecentTasks;->mTmpAvailAppCache:Ljava/util/HashMap;
+
+    invoke-virtual {v7}, Ljava/util/HashMap;->clear()V
+
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 
     move-result-object v4
@@ -1663,6 +1756,16 @@
     invoke-virtual {p0, v3}, Lcom/android/server/am/RecentTasks;->remove(I)Ljava/lang/Object;
 
     invoke-virtual {v6}, Lcom/android/server/am/TaskRecord;->removedFromRecents()V
+
+    iget-object v7, p0, Lcom/android/server/am/RecentTasks;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v7, v7, Lcom/android/server/am/ActivityManagerService;->mMultiWindowManager:Lcom/android/server/am/MultiWindowManagerService;
+
+    invoke-virtual {v7}, Lcom/android/server/am/MultiWindowManagerService;->getPairedRecentTasksController()Lcom/android/server/am/PairedRecentTasksController;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v6}, Lcom/android/server/am/PairedRecentTasksController;->removePairedTask(Lcom/android/server/am/TaskRecord;)V
 
     sget-object v7, Lcom/android/server/am/RecentTasks;->TAG:Ljava/lang/String;
 
@@ -1708,9 +1811,11 @@
     :try_start_0
     iget-object v7, v6, Lcom/android/server/am/TaskRecord;->realActivity:Landroid/content/ComponentName;
 
-    const/high16 v8, 0x10000000
+    iget v8, v6, Lcom/android/server/am/TaskRecord;->userId:I
 
-    invoke-interface {v4, v7, v8, p1}, Landroid/content/pm/IPackageManager;->getActivityInfo(Landroid/content/ComponentName;II)Landroid/content/pm/ActivityInfo;
+    const/high16 v9, 0x10000000
+
+    invoke-interface {v4, v7, v9, v8}, Landroid/content/pm/IPackageManager;->getActivityInfo(Landroid/content/ComponentName;II)Landroid/content/pm/ActivityInfo;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
 
@@ -1755,9 +1860,11 @@
 
     move-result-object v7
 
-    const/16 v8, 0x2000
+    iget v8, v6, Lcom/android/server/am/TaskRecord;->userId:I
 
-    invoke-interface {v4, v7, v8, p1}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
+    const/16 v9, 0x2000
+
+    invoke-interface {v4, v7, v9, v8}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
@@ -1793,6 +1900,16 @@
     invoke-virtual {p0, v3}, Lcom/android/server/am/RecentTasks;->remove(I)Ljava/lang/Object;
 
     invoke-virtual {v6}, Lcom/android/server/am/TaskRecord;->removedFromRecents()V
+
+    iget-object v7, p0, Lcom/android/server/am/RecentTasks;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v7, v7, Lcom/android/server/am/ActivityManagerService;->mMultiWindowManager:Lcom/android/server/am/MultiWindowManagerService;
+
+    invoke-virtual {v7}, Lcom/android/server/am/MultiWindowManagerService;->getPairedRecentTasksController()Lcom/android/server/am/PairedRecentTasksController;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v6}, Lcom/android/server/am/PairedRecentTasksController;->removePairedTask(Lcom/android/server/am/TaskRecord;)V
 
     sget-object v7, Lcom/android/server/am/RecentTasks;->TAG:Ljava/lang/String;
 
@@ -1832,7 +1949,9 @@
 
     iget-boolean v7, v7, Landroid/content/pm/ApplicationInfo;->enabled:Z
 
-    if-eqz v7, :cond_b
+    xor-int/lit8 v7, v7, 0x1
+
+    if-nez v7, :cond_b
 
     iget-object v7, v0, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
@@ -1942,98 +2061,166 @@
     return-object v0
 .end method
 
-.method loadUserRecentsLocked(I)V
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/server/am/RecentTasks;->mUsersWithRecentsLoaded:Landroid/util/SparseBooleanArray;
-
-    invoke-virtual {v0, p1}, Landroid/util/SparseBooleanArray;->get(I)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    invoke-direct {p0, p1}, Lcom/android/server/am/RecentTasks;->loadPersistedTaskIdsForUserLocked(I)V
-
-    sget-object v0, Lcom/android/server/am/RecentTasks;->TAG:Ljava/lang/String;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "Loading recents for user "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, " into memory."
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+.method public getTaskPersister()Lcom/android/server/am/TaskPersister;
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/am/RecentTasks;->mTaskPersister:Lcom/android/server/am/TaskPersister;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/am/TaskPersister;->restoreTasksForUserLocked(I)Ljava/util/List;
+    return-object v0
+.end method
 
-    move-result-object v0
+.method loadUserRecentsLocked(I)V
+    .locals 7
 
-    invoke-virtual {p0, v0}, Lcom/android/server/am/RecentTasks;->addAll(Ljava/util/Collection;)Z
+    const/4 v6, 0x1
 
-    new-instance v0, Lcom/android/server/am/RecentTasks$2;
+    iget-object v3, p0, Lcom/android/server/am/RecentTasks;->mUsersWithRecentsLoaded:Landroid/util/SparseBooleanArray;
 
-    invoke-direct {v0, p0}, Lcom/android/server/am/RecentTasks$2;-><init>(Lcom/android/server/am/RecentTasks;)V
+    invoke-virtual {v3, p1}, Landroid/util/SparseBooleanArray;->get(I)Z
 
-    invoke-static {p0, v0}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-direct {p0, p1}, Lcom/android/server/am/RecentTasks;->loadPersistedTaskIdsForUserLocked(I)V
+
+    new-instance v0, Landroid/util/SparseBooleanArray;
+
+    invoke-direct {v0}, Landroid/util/SparseBooleanArray;-><init>()V
+
+    invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :cond_1
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/server/am/TaskRecord;
+
+    iget v3, v1, Lcom/android/server/am/TaskRecord;->userId:I
+
+    if-ne v3, p1, :cond_1
+
+    invoke-static {v1}, Lcom/android/server/am/RecentTasks;->shouldPersistTaskLocked(Lcom/android/server/am/TaskRecord;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    iget v3, v1, Lcom/android/server/am/TaskRecord;->taskId:I
+
+    invoke-virtual {v0, v3, v6}, Landroid/util/SparseBooleanArray;->put(IZ)V
+
+    goto :goto_0
+
+    :cond_2
+    sget-object v3, Lcom/android/server/am/RecentTasks;->TAG:Ljava/lang/String;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "Loading recents for user "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, " into memory."
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v3, p0, Lcom/android/server/am/RecentTasks;->mTaskPersister:Lcom/android/server/am/TaskPersister;
+
+    invoke-virtual {v3, p1, v0}, Lcom/android/server/am/TaskPersister;->restoreTasksForUserLocked(ILandroid/util/SparseBooleanArray;)Ljava/util/List;
+
+    move-result-object v3
+
+    invoke-virtual {p0, v3}, Lcom/android/server/am/RecentTasks;->addAll(Ljava/util/Collection;)Z
+
+    iget-object v3, p0, Lcom/android/server/am/RecentTasks;->mTaskPersister:Lcom/android/server/am/TaskPersister;
+
+    invoke-virtual {v3, p1}, Lcom/android/server/am/TaskPersister;->restorePairedTaskForUser(I)V
+
+    new-instance v3, Lcom/android/server/am/-$Lambda$9AmbKIhPIG0D55hbwvJegJIdLMg;
+
+    invoke-direct {v3}, Lcom/android/server/am/-$Lambda$9AmbKIhPIG0D55hbwvJegJIdLMg;-><init>()V
+
+    invoke-static {p0, v3}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
     invoke-virtual {p0, p1}, Lcom/android/server/am/RecentTasks;->cleanupLocked(I)V
 
-    iget-object v0, p0, Lcom/android/server/am/RecentTasks;->mUsersWithRecentsLoaded:Landroid/util/SparseBooleanArray;
+    iget-object v3, p0, Lcom/android/server/am/RecentTasks;->mUsersWithRecentsLoaded:Landroid/util/SparseBooleanArray;
 
-    const/4 v1, 0x1
+    invoke-virtual {v3, p1, v6}, Landroid/util/SparseBooleanArray;->put(IZ)V
 
-    invoke-virtual {v0, p1, v1}, Landroid/util/SparseBooleanArray;->put(IZ)V
+    invoke-virtual {v0}, Landroid/util/SparseBooleanArray;->size()I
 
-    :cond_0
+    move-result v3
+
+    if-lez v3, :cond_3
+
+    invoke-direct {p0}, Lcom/android/server/am/RecentTasks;->syncPersistentTaskIdsLocked()V
+
+    :cond_3
     return-void
 .end method
 
 .method notifyTaskPersisterLocked(Lcom/android/server/am/TaskRecord;Z)V
-    .locals 1
+    .locals 2
 
     if-eqz p1, :cond_0
 
-    iget-object v0, p1, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
+    invoke-virtual {p1}, Lcom/android/server/am/TaskRecord;->getStack()Lcom/android/server/am/ActivityStack;
 
-    if-eqz v0, :cond_0
+    move-result-object v0
 
-    iget-object v0, p1, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
+    :goto_0
+    if-eqz v0, :cond_1
 
-    invoke-virtual {v0}, Lcom/android/server/am/ActivityStack;->isHomeStack()Z
+    invoke-virtual {v0}, Lcom/android/server/am/ActivityStack;->isHomeOrRecentsStack()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_1
 
     return-void
 
     :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    :cond_1
     invoke-direct {p0}, Lcom/android/server/am/RecentTasks;->syncPersistentTaskIdsLocked()V
 
-    iget-object v0, p0, Lcom/android/server/am/RecentTasks;->mTaskPersister:Lcom/android/server/am/TaskPersister;
+    iget-object v1, p0, Lcom/android/server/am/RecentTasks;->mTaskPersister:Lcom/android/server/am/TaskPersister;
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/am/TaskPersister;->wakeup(Lcom/android/server/am/TaskRecord;Z)V
+    invoke-virtual {v1, p1, p2}, Lcom/android/server/am/TaskPersister;->wakeup(Lcom/android/server/am/TaskRecord;Z)V
 
     return-void
 .end method
@@ -2164,6 +2351,16 @@
 
     invoke-virtual {v1}, Lcom/android/server/am/TaskRecord;->removedFromRecents()V
 
+    iget-object v2, p0, Lcom/android/server/am/RecentTasks;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v2, v2, Lcom/android/server/am/ActivityManagerService;->mMultiWindowManager:Lcom/android/server/am/MultiWindowManagerService;
+
+    invoke-virtual {v2}, Lcom/android/server/am/MultiWindowManagerService;->getPairedRecentTasksController()Lcom/android/server/am/PairedRecentTasksController;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v1}, Lcom/android/server/am/PairedRecentTasksController;->removePairedTask(Lcom/android/server/am/TaskRecord;)V
+
     :cond_1
     add-int/lit8 v0, v0, -0x1
 
@@ -2239,7 +2436,7 @@
 .end method
 
 .method trimForTaskLocked(Lcom/android/server/am/TaskRecord;Z)I
-    .locals 19
+    .locals 21
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/am/RecentTasks;->size()I
 
@@ -2260,56 +2457,42 @@
 
     iget v0, v0, Lcom/android/server/am/TaskRecord;->maxRecents:I
 
-    move/from16 v17, v0
+    move/from16 v19, v0
 
-    add-int/lit8 v7, v17, -0x1
+    add-int/lit8 v7, v19, -0x1
+
+    invoke-virtual/range {p1 .. p1}, Lcom/android/server/am/TaskRecord;->getStack()Lcom/android/server/am/ActivityStack;
+
+    move-result-object v14
 
     const/4 v5, 0x0
 
     :goto_1
-    if-ge v5, v10, :cond_14
+    if-ge v5, v10, :cond_12
 
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v5}, Lcom/android/server/am/RecentTasks;->get(I)Ljava/lang/Object;
 
-    move-result-object v14
+    move-result-object v15
 
-    check-cast v14, Lcom/android/server/am/TaskRecord;
+    check-cast v15, Lcom/android/server/am/TaskRecord;
 
-    move-object/from16 v0, p1
+    invoke-virtual {v15}, Lcom/android/server/am/TaskRecord;->getStack()Lcom/android/server/am/ActivityStack;
 
-    if-eq v0, v14, :cond_8
-
-    move-object/from16 v0, p1
-
-    iget-object v0, v0, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
-
-    move-object/from16 v17, v0
-
-    if-eqz v17, :cond_2
-
-    iget-object v0, v14, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
-
-    move-object/from16 v17, v0
-
-    if-eqz v17, :cond_2
+    move-result-object v18
 
     move-object/from16 v0, p1
 
-    iget-object v0, v0, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
+    if-eq v0, v15, :cond_8
 
-    move-object/from16 v17, v0
+    if-eqz v14, :cond_2
 
-    iget-object v0, v14, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
+    if-eqz v18, :cond_2
 
-    move-object/from16 v18, v0
+    move-object/from16 v0, v18
 
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v18
-
-    if-eq v0, v1, :cond_2
+    if-eq v14, v0, :cond_2
 
     :cond_0
     :goto_2
@@ -2327,21 +2510,17 @@
 
     iget v0, v0, Lcom/android/server/am/TaskRecord;->userId:I
 
-    move/from16 v17, v0
+    move/from16 v19, v0
 
-    iget v0, v14, Lcom/android/server/am/TaskRecord;->userId:I
+    iget v0, v15, Lcom/android/server/am/TaskRecord;->userId:I
 
-    move/from16 v18, v0
+    move/from16 v20, v0
 
-    move/from16 v0, v17
+    move/from16 v0, v19
 
-    move/from16 v1, v18
+    move/from16 v1, v20
 
     if-ne v0, v1, :cond_0
-
-    sget-boolean v17, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->MULTIINSTANCE_SUPPORT:Z
-
-    if-eqz v17, :cond_4
 
     const/4 v9, 0x0
 
@@ -2349,28 +2528,28 @@
 
     iget-object v0, v0, Lcom/android/server/am/TaskRecord;->affinity:Ljava/lang/String;
 
-    move-object/from16 v17, v0
+    move-object/from16 v19, v0
 
-    if-eqz v17, :cond_3
+    if-eqz v19, :cond_3
 
     move-object/from16 v0, p1
 
     iget-object v0, v0, Lcom/android/server/am/TaskRecord;->affinity:Ljava/lang/String;
 
-    move-object/from16 v17, v0
+    move-object/from16 v19, v0
 
-    iget-object v0, v14, Lcom/android/server/am/TaskRecord;->affinity:Ljava/lang/String;
+    iget-object v0, v15, Lcom/android/server/am/TaskRecord;->affinity:Ljava/lang/String;
 
-    move-object/from16 v18, v0
+    move-object/from16 v20, v0
 
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v17
+    move-result v19
 
-    if-eqz v17, :cond_4
+    if-eqz v19, :cond_4
 
     :cond_3
-    invoke-virtual {v14}, Lcom/android/server/am/TaskRecord;->getTopActivity()Lcom/android/server/am/ActivityRecord;
+    invoke-virtual {v15}, Lcom/android/server/am/TaskRecord;->getTopActivity()Lcom/android/server/am/ActivityRecord;
 
     move-result-object v9
 
@@ -2380,62 +2559,66 @@
 
     iget-object v0, v0, Lcom/android/server/am/RecentTasks;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    move-object/from16 v17, v0
+    move-object/from16 v19, v0
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mMultiWindowManager:Lcom/android/server/am/IMultiWindowManagerServiceBridge;
+    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mMultiWindowManager:Lcom/android/server/am/MultiWindowManagerService;
 
-    move-object/from16 v17, v0
+    move-object/from16 v19, v0
 
     iget-object v0, v9, Lcom/android/server/am/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
 
-    move-object/from16 v18, v0
+    move-object/from16 v20, v0
 
-    invoke-interface/range {v17 .. v18}, Lcom/android/server/am/IMultiWindowManagerServiceBridge;->shouldLaunchAsMultiInstance(Landroid/content/pm/ActivityInfo;)Z
+    invoke-virtual/range {v19 .. v20}, Lcom/android/server/am/MultiWindowManagerService;->isLaunchableForMultiInstance(Landroid/content/pm/ActivityInfo;)Z
 
-    move-result v17
+    move-result v19
 
-    if-nez v17, :cond_0
+    if-nez v19, :cond_0
 
     :cond_4
-    const/16 v17, 0x3
+    const/16 v19, 0x3
 
-    move/from16 v0, v17
+    move/from16 v0, v19
 
     if-le v5, v0, :cond_5
 
-    invoke-virtual {v14}, Lcom/android/server/am/TaskRecord;->freeLastThumbnail()V
+    invoke-virtual {v15}, Lcom/android/server/am/TaskRecord;->freeLastThumbnail()V
 
     :cond_5
-    iget-object v15, v14, Lcom/android/server/am/TaskRecord;->intent:Landroid/content/Intent;
+    iget-object v0, v15, Lcom/android/server/am/TaskRecord;->intent:Landroid/content/Intent;
+
+    move-object/from16 v16, v0
 
     move-object/from16 v0, p1
 
     iget-object v0, v0, Lcom/android/server/am/TaskRecord;->affinity:Ljava/lang/String;
 
-    move-object/from16 v17, v0
+    move-object/from16 v19, v0
 
-    if-eqz v17, :cond_9
+    if-eqz v19, :cond_9
 
     move-object/from16 v0, p1
 
     iget-object v0, v0, Lcom/android/server/am/TaskRecord;->affinity:Ljava/lang/String;
 
-    move-object/from16 v17, v0
+    move-object/from16 v19, v0
 
-    iget-object v0, v14, Lcom/android/server/am/TaskRecord;->affinity:Ljava/lang/String;
+    iget-object v0, v15, Lcom/android/server/am/TaskRecord;->affinity:Ljava/lang/String;
 
-    move-object/from16 v18, v0
+    move-object/from16 v20, v0
 
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v12
 
     :goto_3
     if-eqz v6, :cond_a
 
-    invoke-virtual {v6, v15}, Landroid/content/Intent;->filterEquals(Landroid/content/Intent;)Z
+    move-object/from16 v0, v16
+
+    invoke-virtual {v6, v0}, Landroid/content/Intent;->filterEquals(Landroid/content/Intent;)Z
 
     move-result v13
 
@@ -2446,82 +2629,91 @@
 
     move-result v4
 
-    const/high16 v17, 0x10080000
+    const/high16 v19, 0x10080000
 
-    and-int v17, v17, v4
+    and-int v19, v19, v4
 
-    if-eqz v17, :cond_6
+    if-eqz v19, :cond_6
 
-    const/high16 v17, 0x8000000
+    const/high16 v19, 0x8000000
 
-    and-int v17, v17, v4
+    and-int v19, v19, v4
 
-    if-eqz v17, :cond_6
+    if-eqz v19, :cond_6
 
     const/4 v8, 0x1
 
     :cond_6
-    if-eqz v15, :cond_b
+    if-eqz v16, :cond_b
 
-    invoke-virtual {v15}, Landroid/content/Intent;->isDocument()Z
+    invoke-virtual/range {v16 .. v16}, Landroid/content/Intent;->isDocument()Z
 
-    move-result v16
+    move-result v17
 
     :goto_5
     if-eqz v3, :cond_c
 
-    move/from16 v2, v16
+    move/from16 v2, v17
 
     :goto_6
     if-nez v12, :cond_7
 
-    if-eqz v13, :cond_d
+    xor-int/lit8 v19, v13, 0x1
+
+    if-eqz v19, :cond_7
+
+    xor-int/lit8 v19, v2, 0x1
+
+    if-nez v19, :cond_0
 
     :cond_7
-    :goto_7
-    if-eqz v2, :cond_10
+    if-eqz v2, :cond_e
 
     move-object/from16 v0, p1
 
     iget-object v0, v0, Lcom/android/server/am/TaskRecord;->realActivity:Landroid/content/ComponentName;
 
-    move-object/from16 v17, v0
+    move-object/from16 v19, v0
 
-    if-eqz v17, :cond_e
+    if-eqz v19, :cond_d
 
-    iget-object v0, v14, Lcom/android/server/am/TaskRecord;->realActivity:Landroid/content/ComponentName;
+    iget-object v0, v15, Lcom/android/server/am/TaskRecord;->realActivity:Landroid/content/ComponentName;
 
-    move-object/from16 v17, v0
+    move-object/from16 v19, v0
 
-    if-eqz v17, :cond_e
+    if-eqz v19, :cond_d
 
     move-object/from16 v0, p1
 
     iget-object v0, v0, Lcom/android/server/am/TaskRecord;->realActivity:Landroid/content/ComponentName;
 
-    move-object/from16 v17, v0
+    move-object/from16 v19, v0
 
-    iget-object v0, v14, Lcom/android/server/am/TaskRecord;->realActivity:Landroid/content/ComponentName;
+    iget-object v0, v15, Lcom/android/server/am/TaskRecord;->realActivity:Landroid/content/ComponentName;
 
-    move-object/from16 v18, v0
+    move-object/from16 v20, v0
 
-    invoke-virtual/range {v17 .. v18}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v19 .. v20}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
 
     move-result v11
 
-    :goto_8
+    :goto_7
     if-eqz v11, :cond_0
-
-    if-eqz v13, :cond_0
-
-    if-nez v8, :cond_0
 
     if-lez v7, :cond_8
 
-    if-eqz p2, :cond_f
+    add-int/lit8 v7, v7, -0x1
+
+    if-eqz p2, :cond_0
+
+    xor-int/lit8 v19, v13, 0x1
+
+    if-nez v19, :cond_0
+
+    if-nez v8, :cond_0
 
     :cond_8
-    if-nez p2, :cond_11
+    if-nez p2, :cond_f
 
     return v5
 
@@ -2536,7 +2728,7 @@
     goto :goto_4
 
     :cond_b
-    const/16 v16, 0x0
+    const/16 v17, 0x0
 
     goto :goto_5
 
@@ -2546,29 +2738,19 @@
     goto :goto_6
 
     :cond_d
-    if-eqz v2, :cond_0
+    const/4 v11, 0x0
 
     goto :goto_7
 
     :cond_e
-    const/4 v11, 0x0
-
-    goto :goto_8
-
-    :cond_f
-    add-int/lit8 v7, v7, -0x1
-
-    goto/16 :goto_2
-
-    :cond_10
     if-nez v3, :cond_0
 
-    if-eqz v16, :cond_8
+    if-eqz v17, :cond_8
 
     goto/16 :goto_2
 
-    :cond_11
-    invoke-virtual {v14}, Lcom/android/server/am/TaskRecord;->disposeThumbnail()V
+    :cond_f
+    invoke-virtual {v15}, Lcom/android/server/am/TaskRecord;->disposeThumbnail()V
 
     move-object/from16 v0, p0
 
@@ -2576,11 +2758,31 @@
 
     move-object/from16 v0, p1
 
-    if-eq v0, v14, :cond_12
+    if-eq v0, v15, :cond_10
 
-    invoke-virtual {v14}, Lcom/android/server/am/TaskRecord;->removedFromRecents()V
+    invoke-virtual {v15}, Lcom/android/server/am/TaskRecord;->removedFromRecents()V
 
-    :cond_12
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/RecentTasks;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mMultiWindowManager:Lcom/android/server/am/MultiWindowManagerService;
+
+    move-object/from16 v19, v0
+
+    invoke-virtual/range {v19 .. v19}, Lcom/android/server/am/MultiWindowManagerService;->getPairedRecentTasksController()Lcom/android/server/am/PairedRecentTasksController;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v15}, Lcom/android/server/am/PairedRecentTasksController;->removePairedTask(Lcom/android/server/am/TaskRecord;)V
+
+    :cond_10
     add-int/lit8 v5, v5, -0x1
 
     add-int/lit8 v10, v10, -0x1
@@ -2589,27 +2791,27 @@
 
     iget-object v0, v0, Lcom/android/server/am/TaskRecord;->intent:Landroid/content/Intent;
 
-    move-object/from16 v17, v0
+    move-object/from16 v19, v0
 
-    if-nez v17, :cond_13
+    if-nez v19, :cond_11
 
-    move-object/from16 p1, v14
+    move-object/from16 p1, v15
 
-    :cond_13
-    const/16 v17, 0x0
+    :cond_11
+    const/16 v19, 0x0
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
-    invoke-virtual {v0, v14, v1}, Lcom/android/server/am/RecentTasks;->notifyTaskPersisterLocked(Lcom/android/server/am/TaskRecord;Z)V
+    invoke-virtual {v0, v15, v1}, Lcom/android/server/am/RecentTasks;->notifyTaskPersisterLocked(Lcom/android/server/am/TaskRecord;Z)V
 
     goto/16 :goto_2
 
-    :cond_14
-    const/16 v17, -0x1
+    :cond_12
+    const/16 v19, -0x1
 
-    return v17
+    return v19
 .end method
 
 .method unloadUserDataFromMemoryLocked(I)V

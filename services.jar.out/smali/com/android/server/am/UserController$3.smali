@@ -1,14 +1,11 @@
 .class Lcom/android/server/am/UserController$3;
-.super Ljava/lang/Object;
+.super Landroid/app/IStopUserCallback$Stub;
 .source "UserController.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/am/UserController;->stopSingleUserLocked(ILandroid/app/IStopUserCallback;)V
+    value = Lcom/android/server/am/UserController;->restartUser(IZ)I
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,45 +17,56 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/am/UserController;
 
-.field final synthetic val$callback:Landroid/app/IStopUserCallback;
-
-.field final synthetic val$userId:I
+.field final synthetic val$foreground:Z
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/UserController;Landroid/app/IStopUserCallback;I)V
+.method constructor <init>(Lcom/android/server/am/UserController;Z)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/UserController$3;->this$0:Lcom/android/server/am/UserController;
 
-    iput-object p2, p0, Lcom/android/server/am/UserController$3;->val$callback:Landroid/app/IStopUserCallback;
+    iput-boolean p2, p0, Lcom/android/server/am/UserController$3;->val$foreground:Z
 
-    iput p3, p0, Lcom/android/server/am/UserController$3;->val$userId:I
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/app/IStopUserCallback$Stub;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
+.method synthetic lambda$-com_android_server_am_UserController$3_28399(IZ)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/am/UserController$3;->this$0:Lcom/android/server/am/UserController;
+
+    invoke-virtual {v0, p1, p2}, Lcom/android/server/am/UserController;->startUser(IZ)Z
+
+    return-void
+.end method
+
+.method public userStopAborted(I)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public userStopped(I)V
     .locals 3
 
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/am/UserController$3;->val$callback:Landroid/app/IStopUserCallback;
+    iget-object v0, p0, Lcom/android/server/am/UserController$3;->this$0:Lcom/android/server/am/UserController;
 
-    iget v2, p0, Lcom/android/server/am/UserController$3;->val$userId:I
+    invoke-static {v0}, Lcom/android/server/am/UserController;->-get2(Lcom/android/server/am/UserController;)Landroid/os/Handler;
 
-    invoke-interface {v1, v2}, Landroid/app/IStopUserCallback;->userStopped(I)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    move-result-object v0
 
-    :goto_0
+    new-instance v1, Lcom/android/server/am/-$Lambda$-wbdEBNBIl8hthLGGkbuzj1haLA$1;
+
+    iget-boolean v2, p0, Lcom/android/server/am/UserController$3;->val$foreground:Z
+
+    invoke-direct {v1, v2, p1, p0}, Lcom/android/server/am/-$Lambda$-wbdEBNBIl8hthLGGkbuzj1haLA$1;-><init>(ZILjava/lang/Object;)V
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
     return-void
-
-    :catch_0
-    move-exception v0
-
-    goto :goto_0
 .end method

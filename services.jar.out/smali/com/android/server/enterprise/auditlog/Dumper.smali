@@ -150,8 +150,271 @@
     return-void
 .end method
 
+.method private appendFileNodeToTemporaryFile(Ljava/io/File;)Z
+    .locals 13
+
+    const/4 v11, 0x1
+
+    const/4 v12, 0x0
+
+    iget-object v9, p0, Lcom/android/server/enterprise/auditlog/Dumper;->mTemporaryDirectory:Ljava/io/File;
+
+    if-eqz v9, :cond_0
+
+    iget-object v9, p0, Lcom/android/server/enterprise/auditlog/Dumper;->mTemporaryDirectory:Ljava/io/File;
+
+    invoke-virtual {v9}, Ljava/io/File;->exists()Z
+
+    move-result v9
+
+    xor-int/lit8 v9, v9, 0x1
+
+    if-eqz v9, :cond_1
+
+    :cond_0
+    const-string/jumbo v9, "Dumper"
+
+    const-string/jumbo v10, "Invalid temporary directory, cannot create file"
+
+    invoke-static {v9, v10}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    return v12
+
+    :cond_1
+    const/4 v5, 0x0
+
+    const/4 v7, 0x0
+
+    :try_start_0
+    new-instance v1, Ljava/io/File;
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v10, p0, Lcom/android/server/enterprise/auditlog/Dumper;->mTemporaryDirectory:Ljava/io/File;
+
+    invoke-virtual {v10}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    const-string/jumbo v10, "/temp.gz"
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-direct {v1, v9}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    new-instance v8, Ljava/io/FileOutputStream;
+
+    const/4 v9, 0x1
+
+    invoke-direct {v8, v1, v9}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;Z)V
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_7
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :try_start_1
+    new-instance v6, Ljava/io/FileInputStream;
+
+    invoke-direct {v6, p1}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_8
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    const/high16 v9, 0x10000
+
+    :try_start_2
+    new-array v0, v9, [B
+
+    :goto_0
+    invoke-virtual {v6, v0}, Ljava/io/FileInputStream;->read([B)I
+
+    move-result v4
+
+    if-lez v4, :cond_4
+
+    const/4 v9, 0x0
+
+    invoke-virtual {v8, v0, v9, v4}, Ljava/io/FileOutputStream;->write([BII)V
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v3
+
+    move-object v7, v8
+
+    move-object v5, v6
+
+    :goto_1
+    :try_start_3
+    const-string/jumbo v9, "Dumper"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "Failed to append file: "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v3}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    if-eqz v5, :cond_2
+
+    :try_start_4
+    invoke-virtual {v5}, Ljava/io/FileInputStream;->close()V
+    :try_end_4
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_3
+
+    :cond_2
+    :goto_2
+    if-eqz v7, :cond_3
+
+    :try_start_5
+    invoke-virtual {v7}, Ljava/io/FileOutputStream;->close()V
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_4
+
+    :cond_3
+    :goto_3
+    return v12
+
+    :cond_4
+    if-eqz v6, :cond_5
+
+    :try_start_6
+    invoke-virtual {v6}, Ljava/io/FileInputStream;->close()V
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_1
+
+    :cond_5
+    :goto_4
+    if-eqz v8, :cond_6
+
+    :try_start_7
+    invoke-virtual {v8}, Ljava/io/FileOutputStream;->close()V
+    :try_end_7
+    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_2
+
+    :cond_6
+    :goto_5
+    return v11
+
+    :catch_1
+    move-exception v2
+
+    goto :goto_4
+
+    :catch_2
+    move-exception v2
+
+    goto :goto_5
+
+    :catch_3
+    move-exception v2
+
+    goto :goto_2
+
+    :catch_4
+    move-exception v2
+
+    goto :goto_3
+
+    :catchall_0
+    move-exception v9
+
+    :goto_6
+    if-eqz v5, :cond_7
+
+    :try_start_8
+    invoke-virtual {v5}, Ljava/io/FileInputStream;->close()V
+    :try_end_8
+    .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_5
+
+    :cond_7
+    :goto_7
+    if-eqz v7, :cond_8
+
+    :try_start_9
+    invoke-virtual {v7}, Ljava/io/FileOutputStream;->close()V
+    :try_end_9
+    .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_6
+
+    :cond_8
+    :goto_8
+    throw v9
+
+    :catch_5
+    move-exception v2
+
+    goto :goto_7
+
+    :catch_6
+    move-exception v2
+
+    goto :goto_8
+
+    :catchall_1
+    move-exception v9
+
+    move-object v7, v8
+
+    goto :goto_6
+
+    :catchall_2
+    move-exception v9
+
+    move-object v7, v8
+
+    move-object v5, v6
+
+    goto :goto_6
+
+    :catch_7
+    move-exception v3
+
+    goto :goto_1
+
+    :catch_8
+    move-exception v3
+
+    move-object v7, v8
+
+    goto :goto_1
+.end method
+
 .method private concatenateFiles(Ljava/io/File;Ljava/util/ArrayList;)Ljava/io/File;
-    .locals 14
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -164,270 +427,183 @@
         }
     .end annotation
 
-    const/4 v3, 0x0
+    const/4 v7, 0x0
 
-    invoke-virtual/range {p2 .. p2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+    const/4 v1, 0x0
 
-    move-result-object v5
+    invoke-virtual {p2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    const/4 v2, 0x0
+    move-result-object v3
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/io/File;
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    sget-object v6, Lcom/android/server/enterprise/auditlog/Dumper;->mTemporaryPath:Ljava/lang/String;
 
-    const-string/jumbo v11, "cat "
+    invoke-direct {v5, v6}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iput-object v5, p0, Lcom/android/server/enterprise/auditlog/Dumper;->mTemporaryDirectory:Ljava/io/File;
 
-    new-instance v11, Ljava/io/File;
+    iget-object v5, p0, Lcom/android/server/enterprise/auditlog/Dumper;->mTemporaryDirectory:Ljava/io/File;
 
-    sget-object v12, Lcom/android/server/enterprise/auditlog/Dumper;->mTemporaryPath:Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/io/File;->exists()Z
 
-    invoke-direct {v11, v12}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    move-result v5
 
-    iput-object v11, p0, Lcom/android/server/enterprise/auditlog/Dumper;->mTemporaryDirectory:Ljava/io/File;
+    if-nez v5, :cond_0
 
-    iget-object v11, p0, Lcom/android/server/enterprise/auditlog/Dumper;->mTemporaryDirectory:Ljava/io/File;
+    iget-object v5, p0, Lcom/android/server/enterprise/auditlog/Dumper;->mTemporaryDirectory:Ljava/io/File;
 
-    invoke-virtual {v11}, Ljava/io/File;->exists()Z
-
-    move-result v11
-
-    if-nez v11, :cond_0
-
-    iget-object v11, p0, Lcom/android/server/enterprise/auditlog/Dumper;->mTemporaryDirectory:Ljava/io/File;
-
-    invoke-virtual {v11}, Ljava/io/File;->mkdir()Z
+    invoke-virtual {v5}, Ljava/io/File;->mkdir()Z
 
     :cond_0
     :try_start_0
-    invoke-virtual {p1}, Ljava/io/File;->getCanonicalPath()Ljava/lang/String;
+    invoke-direct {p0, p1}, Lcom/android/server/enterprise/auditlog/Dumper;->appendFileNodeToTemporaryFile(Ljava/io/File;)Z
 
-    move-result-object v11
+    move-result v5
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-nez v5, :cond_1
+
+    const-string/jumbo v5, "Dumper"
+
+    const-string/jumbo v6, "Failed to append tempHeaderFile"
+
+    invoke-static {v5, v6}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-direct {p0}, Lcom/android/server/enterprise/auditlog/Dumper;->removeTempFile()V
+
+    return-object v7
 
     :cond_1
     :goto_0
-    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v11
+    move-result v5
 
-    if-eqz v11, :cond_4
+    if-eqz v5, :cond_4
 
-    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v4
 
-    check-cast v6, Lcom/android/server/enterprise/auditlog/PartialFileNode;
+    check-cast v4, Lcom/android/server/enterprise/auditlog/PartialFileNode;
 
-    invoke-virtual {v6}, Lcom/android/server/enterprise/auditlog/PartialFileNode;->getWasWritten()Z
+    invoke-virtual {v4}, Lcom/android/server/enterprise/auditlog/PartialFileNode;->getWasWritten()Z
 
-    move-result v11
+    move-result v5
 
-    if-nez v11, :cond_3
+    if-nez v5, :cond_3
 
-    invoke-virtual {v6}, Lcom/android/server/enterprise/auditlog/PartialFileNode;->delete()V
+    invoke-virtual {v4}, Lcom/android/server/enterprise/auditlog/PartialFileNode;->delete()V
 
-    invoke-interface {v5}, Ljava/util/Iterator;->remove()V
+    invoke-interface {v3}, Ljava/util/Iterator;->remove()V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v1
+    move-exception v0
 
-    const-string/jumbo v11, "Dumper"
+    const-string/jumbo v5, "Dumper"
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v13, "concatenateFiles.Exception: "
+    const-string/jumbo v7, "concatenateFiles.Exception: "
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v6
 
-    invoke-virtual {v1}, Ljava/lang/Exception;->toString()Ljava/lang/String;
-
-    move-result-object v13
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v12
-
-    invoke-static {v11, v12}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
-
-    :cond_2
-    :goto_1
-    return-object v3
-
-    :cond_3
-    :try_start_1
-    invoke-virtual {v6}, Lcom/android/server/enterprise/auditlog/PartialFileNode;->getFile()Ljava/io/File;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Ljava/io/File;->exists()Z
-
-    move-result v11
-
-    if-eqz v11, :cond_1
-
-    const-string/jumbo v11, " "
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v6}, Lcom/android/server/enterprise/auditlog/PartialFileNode;->getFile()Ljava/io/File;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Ljava/io/File;->getCanonicalPath()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    goto :goto_0
-
-    :cond_4
-    iget-object v11, p0, Lcom/android/server/enterprise/auditlog/Dumper;->mTemporaryDirectory:Ljava/io/File;
-
-    if-eqz v11, :cond_2
-
-    const-string/jumbo v11, " > "
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v11, p0, Lcom/android/server/enterprise/auditlog/Dumper;->mTemporaryDirectory:Ljava/io/File;
-
-    invoke-virtual {v11}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string/jumbo v11, "/temp.gz"
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    const/4 v11, 0x3
-
-    new-array v0, v11, [Ljava/lang/String;
-
-    const-string/jumbo v11, "/system/bin/sh"
-
-    const/4 v12, 0x0
-
-    aput-object v11, v0, v12
-
-    const-string/jumbo v11, "-c"
-
-    const/4 v12, 0x1
-
-    aput-object v11, v0, v12
-
-    const/4 v11, 0x2
-
-    aput-object v2, v0, v11
-
-    invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
-
-    move-result-object v11
-
-    invoke-virtual {v11, v0}, Ljava/lang/Runtime;->exec([Ljava/lang/String;)Ljava/lang/Process;
+    invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
     move-result-object v7
 
-    new-instance v9, Ljava/io/BufferedReader;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance v11, Ljava/io/InputStreamReader;
+    move-result-object v6
 
-    invoke-virtual {v7}, Ljava/lang/Process;->getErrorStream()Ljava/io/InputStream;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v6
 
-    invoke-direct {v11, v12}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;)V
+    invoke-static {v5, v6}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-direct {v9, v11}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
+    :cond_2
+    :goto_1
+    return-object v1
 
-    const-string/jumbo v8, ""
+    :cond_3
+    :try_start_1
+    invoke-virtual {v4}, Lcom/android/server/enterprise/auditlog/PartialFileNode;->getFile()Ljava/io/File;
 
-    invoke-virtual {v9}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
+    move-result-object v5
 
-    move-result-object v8
+    invoke-virtual {v5}, Ljava/io/File;->exists()Z
 
-    if-eqz v8, :cond_5
+    move-result v5
 
-    new-instance v11, Ljava/lang/Exception;
+    if-eqz v5, :cond_1
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    invoke-virtual {v4}, Lcom/android/server/enterprise/auditlog/PartialFileNode;->getFile()Ljava/io/File;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v5
 
-    const-string/jumbo v13, "Error while Executing the Cat command"
+    invoke-direct {p0, v5}, Lcom/android/server/enterprise/auditlog/Dumper;->appendFileNodeToTemporaryFile(Ljava/io/File;)Z
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v5
 
-    move-result-object v12
+    if-nez v5, :cond_1
 
-    invoke-virtual {v12, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v5, "Dumper"
 
-    move-result-object v12
+    const-string/jumbo v6, "Failed to append file node"
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v5, v6}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    move-result-object v12
+    invoke-direct {p0}, Lcom/android/server/enterprise/auditlog/Dumper;->removeTempFile()V
 
-    invoke-direct {v11, v12}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
+    return-object v7
 
-    throw v11
+    :cond_4
+    iget-object v5, p0, Lcom/android/server/enterprise/auditlog/Dumper;->mTemporaryDirectory:Ljava/io/File;
 
-    :cond_5
-    new-instance v4, Ljava/io/File;
+    if-eqz v5, :cond_2
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/io/File;
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    iget-object v12, p0, Lcom/android/server/enterprise/auditlog/Dumper;->mTemporaryDirectory:Ljava/io/File;
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v12}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    iget-object v6, p0, Lcom/android/server/enterprise/auditlog/Dumper;->mTemporaryDirectory:Ljava/io/File;
 
-    move-result-object v12
+    invoke-virtual {v6}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v6
 
-    move-result-object v11
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v12, "/temp.gz"
+    move-result-object v5
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v6, "/temp.gz"
 
-    move-result-object v11
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v5
 
-    move-result-object v11
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v4, v11}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    move-result-object v5
+
+    invoke-direct {v2, v5}, Ljava/io/File;-><init>(Ljava/lang/String;)V
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
-    move-object v3, v4
+    move-object v1, v2
 
-    goto/16 :goto_1
+    goto :goto_1
 .end method
 
 .method private createHeader()V
@@ -2407,6 +2583,65 @@
     move-exception v9
 
     goto/16 :goto_0
+.end method
+
+.method private removeTempFile()V
+    .locals 4
+
+    iget-object v2, p0, Lcom/android/server/enterprise/auditlog/Dumper;->mTemporaryDirectory:Ljava/io/File;
+
+    if-nez v2, :cond_0
+
+    return-void
+
+    :cond_0
+    :try_start_0
+    new-instance v1, Ljava/io/File;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v3, p0, Lcom/android/server/enterprise/auditlog/Dumper;->mTemporaryDirectory:Ljava/io/File;
+
+    invoke-virtual {v3}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "/temp.gz"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v1}, Ljava/io/File;->exists()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-virtual {v1}, Ljava/io/File;->delete()Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_1
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    goto :goto_0
 .end method
 
 .method private static safeClose(Ljava/io/Closeable;)V

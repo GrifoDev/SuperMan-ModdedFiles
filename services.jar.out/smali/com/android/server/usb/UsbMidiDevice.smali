@@ -333,7 +333,7 @@
 
     array-length v0, v7
 
-    add-int/lit8 v10, v0, -0x1
+    add-int/lit8 v11, v0, -0x1
 
     new-array v0, v9, [Landroid/system/StructPollfd;
 
@@ -379,18 +379,18 @@
     goto :goto_0
 
     :cond_1
-    new-array v0, v10, [Ljava/io/FileOutputStream;
+    new-array v0, v11, [Ljava/io/FileOutputStream;
 
     iput-object v0, p0, Lcom/android/server/usb/UsbMidiDevice;->mOutputStreams:[Ljava/io/FileOutputStream;
 
-    new-array v0, v10, [Lcom/android/internal/midi/MidiEventScheduler;
+    new-array v0, v11, [Lcom/android/internal/midi/MidiEventScheduler;
 
     iput-object v0, p0, Lcom/android/server/usb/UsbMidiDevice;->mEventSchedulers:[Lcom/android/internal/midi/MidiEventScheduler;
 
     const/4 v8, 0x0
 
     :goto_1
-    if-ge v8, v10, :cond_2
+    if-ge v8, v11, :cond_2
 
     iget-object v0, p0, Lcom/android/server/usb/UsbMidiDevice;->mOutputStreams:[Ljava/io/FileOutputStream;
 
@@ -429,20 +429,20 @@
 
     invoke-virtual {v0}, Landroid/media/midi/MidiDeviceServer;->getOutputPortReceivers()[Landroid/media/midi/MidiReceiver;
 
-    move-result-object v11
+    move-result-object v10
 
     new-instance v0, Lcom/android/server/usb/UsbMidiDevice$2;
 
     const-string/jumbo v1, "UsbMidiDevice input thread"
 
-    invoke-direct {v0, p0, v1, v11}, Lcom/android/server/usb/UsbMidiDevice$2;-><init>(Lcom/android/server/usb/UsbMidiDevice;Ljava/lang/String;[Landroid/media/midi/MidiReceiver;)V
+    invoke-direct {v0, p0, v1, v10}, Lcom/android/server/usb/UsbMidiDevice$2;-><init>(Lcom/android/server/usb/UsbMidiDevice;Ljava/lang/String;[Landroid/media/midi/MidiReceiver;)V
 
     invoke-virtual {v0}, Lcom/android/server/usb/UsbMidiDevice$2;->start()V
 
     const/4 v13, 0x0
 
     :goto_2
-    if-ge v13, v10, :cond_3
+    if-ge v13, v11, :cond_3
 
     iget-object v0, p0, Lcom/android/server/usb/UsbMidiDevice;->mEventSchedulers:[Lcom/android/internal/midi/MidiEventScheduler;
 

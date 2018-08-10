@@ -96,7 +96,9 @@
 
     iget v0, p1, Lcom/android/server/job/controllers/JobStatus;->satisfiedConstraints:I
 
-    and-int/lit8 v0, v0, 0x40
+    const/high16 v1, 0x8000000
+
+    and-int/2addr v0, v1
 
     if-eqz v0, :cond_1
 

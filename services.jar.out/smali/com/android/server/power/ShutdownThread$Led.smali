@@ -60,14 +60,26 @@
 
     invoke-direct {v1, v4}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_0
 
     invoke-virtual {v1}, Ljava/io/File;->isFile()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    xor-int/lit8 v4, v4, 0x1
 
+    if-eqz v4, :cond_1
+
+    :cond_0
+    const-string/jumbo v4, "LED"
+
+    const-string/jumbo v5, "!@LED File is not exist"
+
+    invoke-static {v4, v5}, Lcom/android/server/power/ShutdownThread$Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_1
     const/4 v2, 0x0
 
     :try_start_0
@@ -92,28 +104,19 @@
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_4
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2
 
     :try_start_2
     invoke-virtual {v3}, Ljava/io/FileOutputStream;->close()V
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
 
-    :cond_0
+    :cond_2
     :goto_0
     move-object v2, v3
 
-    :cond_1
+    :cond_3
     :goto_1
-    return-void
-
-    :cond_2
-    const-string/jumbo v4, "LED"
-
-    const-string/jumbo v5, "!@LED File is not exist"
-
-    invoke-static {v4, v5}, Lcom/android/server/power/ShutdownThread$Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
     return-void
 
     :catch_0
@@ -140,7 +143,7 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3
 
     :try_start_4
     invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
@@ -164,14 +167,14 @@
     move-exception v4
 
     :goto_3
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_4
 
     :try_start_5
     invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
     :try_end_5
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_3
 
-    :cond_3
+    :cond_4
     :goto_4
     throw v4
 

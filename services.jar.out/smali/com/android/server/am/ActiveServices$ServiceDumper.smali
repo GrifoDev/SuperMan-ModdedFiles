@@ -29,8 +29,6 @@
 
 .field private final nowReal:J
 
-.field private final opti:I
-
 .field private printed:Z
 
 .field private printedAnything:Z
@@ -88,10 +86,6 @@
     iput-object p3, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
 
     iput-object p4, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->args:[Ljava/lang/String;
-
-    move/from16 v0, p5
-
-    iput v0, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->opti:I
 
     move/from16 v0, p6
 
@@ -190,7 +184,9 @@
 
     move-result v9
 
-    if-eqz v9, :cond_0
+    xor-int/lit8 v9, v9, 0x1
+
+    if-nez v9, :cond_0
 
     :cond_2
     iget-object v9, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->services:Ljava/util/ArrayList;
@@ -246,520 +242,1258 @@
 .end method
 
 .method private dumpRemainsLocked()V
-    .locals 9
+    .locals 20
 
-    const/4 v7, 0x0
+    move-object/from16 v0, p0
 
-    const/4 v8, 0x1
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->this$0:Lcom/android/server/am/ActiveServices;
 
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->this$0:Lcom/android/server/am/ActiveServices;
+    iget-object v14, v14, Lcom/android/server/am/ActiveServices;->mPendingServices:Ljava/util/ArrayList;
 
-    iget-object v5, v5, Lcom/android/server/am/ActiveServices;->mPendingServices:Ljava/util/ArrayList;
+    invoke-virtual {v14}, Ljava/util/ArrayList;->size()I
 
-    invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
+    move-result v14
 
-    move-result v5
+    if-lez v14, :cond_6
 
-    if-lez v5, :cond_6
+    const/4 v14, 0x0
 
-    iput-boolean v7, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->printed:Z
+    move-object/from16 v0, p0
 
-    const/4 v1, 0x0
+    iput-boolean v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->printed:Z
+
+    const/4 v4, 0x0
 
     :goto_0
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->this$0:Lcom/android/server/am/ActiveServices;
+    move-object/from16 v0, p0
 
-    iget-object v5, v5, Lcom/android/server/am/ActiveServices;->mPendingServices:Ljava/util/ArrayList;
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->this$0:Lcom/android/server/am/ActiveServices;
 
-    invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
+    iget-object v14, v14, Lcom/android/server/am/ActiveServices;->mPendingServices:Ljava/util/ArrayList;
 
-    move-result v5
+    invoke-virtual {v14}, Ljava/util/ArrayList;->size()I
 
-    if-ge v1, v5, :cond_5
+    move-result v14
 
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->this$0:Lcom/android/server/am/ActiveServices;
+    if-ge v4, v14, :cond_5
 
-    iget-object v5, v5, Lcom/android/server/am/ActiveServices;->mPendingServices:Ljava/util/ArrayList;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v5, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->this$0:Lcom/android/server/am/ActiveServices;
 
-    move-result-object v3
+    iget-object v14, v14, Lcom/android/server/am/ActiveServices;->mPendingServices:Ljava/util/ArrayList;
 
-    check-cast v3, Lcom/android/server/am/ServiceRecord;
+    invoke-virtual {v14, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->matcher:Lcom/android/server/am/ActivityManagerService$ItemMatcher;
+    move-result-object v9
 
-    iget-object v6, v3, Lcom/android/server/am/ServiceRecord;->name:Landroid/content/ComponentName;
+    check-cast v9, Lcom/android/server/am/ServiceRecord;
 
-    invoke-virtual {v5, v3, v6}, Lcom/android/server/am/ActivityManagerService$ItemMatcher;->match(Ljava/lang/Object;Landroid/content/ComponentName;)Z
+    move-object/from16 v0, p0
 
-    move-result v5
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->matcher:Lcom/android/server/am/ActivityManagerService$ItemMatcher;
 
-    if-nez v5, :cond_1
+    iget-object v15, v9, Lcom/android/server/am/ServiceRecord;->name:Landroid/content/ComponentName;
+
+    invoke-virtual {v14, v9, v15}, Lcom/android/server/am/ActivityManagerService$ItemMatcher;->match(Ljava/lang/Object;Landroid/content/ComponentName;)Z
+
+    move-result v14
+
+    if-nez v14, :cond_1
 
     :cond_0
     :goto_1
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
     :cond_1
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->dumpPackage:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    if-eqz v5, :cond_2
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->dumpPackage:Ljava/lang/String;
 
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->dumpPackage:Ljava/lang/String;
+    if-eqz v14, :cond_2
 
-    iget-object v6, v3, Lcom/android/server/am/ServiceRecord;->appInfo:Landroid/content/pm/ApplicationInfo;
+    move-object/from16 v0, p0
 
-    iget-object v6, v6, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->dumpPackage:Ljava/lang/String;
 
-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    iget-object v15, v9, Lcom/android/server/am/ServiceRecord;->appInfo:Landroid/content/pm/ApplicationInfo;
 
-    move-result v5
+    iget-object v15, v15, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    if-eqz v5, :cond_0
+    invoke-virtual {v14, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v14
+
+    xor-int/lit8 v14, v14, 0x1
+
+    if-nez v14, :cond_0
 
     :cond_2
-    iput-boolean v8, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->printedAnything:Z
+    const/4 v14, 0x1
 
-    iget-boolean v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->printed:Z
+    move-object/from16 v0, p0
 
-    if-nez v5, :cond_4
+    iput-boolean v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->printedAnything:Z
 
-    iget-boolean v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->needSep:Z
+    move-object/from16 v0, p0
 
-    if-eqz v5, :cond_3
+    iget-boolean v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->printed:Z
 
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+    if-nez v14, :cond_4
 
-    invoke-virtual {v5}, Ljava/io/PrintWriter;->println()V
+    move-object/from16 v0, p0
+
+    iget-boolean v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->needSep:Z
+
+    if-eqz v14, :cond_3
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    invoke-virtual {v14}, Ljava/io/PrintWriter;->println()V
 
     :cond_3
-    iput-boolean v8, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->needSep:Z
+    const/4 v14, 0x1
 
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+    move-object/from16 v0, p0
 
-    const-string/jumbo v6, "  Pending services:"
+    iput-boolean v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->needSep:Z
 
-    invoke-virtual {v5, v6}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    move-object/from16 v0, p0
 
-    iput-boolean v8, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->printed:Z
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    const-string/jumbo v15, "  Pending services:"
+
+    invoke-virtual {v14, v15}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const/4 v14, 0x1
+
+    move-object/from16 v0, p0
+
+    iput-boolean v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->printed:Z
 
     :cond_4
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+    move-object/from16 v0, p0
 
-    const-string/jumbo v6, "  * Pending "
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
 
-    invoke-virtual {v5, v6}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    const-string/jumbo v15, "  * Pending "
 
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+    invoke-virtual {v14, v15}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    invoke-virtual {v5, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
+    move-object/from16 v0, p0
 
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
 
-    const-string/jumbo v6, "    "
+    invoke-virtual {v14, v9}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
-    invoke-virtual {v3, v5, v6}, Lcom/android/server/am/ServiceRecord;->dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    const-string/jumbo v15, "    "
+
+    invoke-virtual {v9, v14, v15}, Lcom/android/server/am/ServiceRecord;->dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
 
     goto :goto_1
 
     :cond_5
-    iput-boolean v8, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->needSep:Z
+    const/4 v14, 0x1
+
+    move-object/from16 v0, p0
+
+    iput-boolean v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->needSep:Z
 
     :cond_6
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->this$0:Lcom/android/server/am/ActiveServices;
+    move-object/from16 v0, p0
 
-    iget-object v5, v5, Lcom/android/server/am/ActiveServices;->mRestartingServices:Ljava/util/ArrayList;
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->this$0:Lcom/android/server/am/ActiveServices;
 
-    invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
+    iget-object v14, v14, Lcom/android/server/am/ActiveServices;->mRestartingServices:Ljava/util/ArrayList;
 
-    move-result v5
+    invoke-virtual {v14}, Ljava/util/ArrayList;->size()I
 
-    if-lez v5, :cond_d
+    move-result v14
 
-    iput-boolean v7, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->printed:Z
+    if-lez v14, :cond_d
 
-    const/4 v1, 0x0
+    const/4 v14, 0x0
+
+    move-object/from16 v0, p0
+
+    iput-boolean v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->printed:Z
+
+    const/4 v4, 0x0
 
     :goto_2
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->this$0:Lcom/android/server/am/ActiveServices;
+    move-object/from16 v0, p0
 
-    iget-object v5, v5, Lcom/android/server/am/ActiveServices;->mRestartingServices:Ljava/util/ArrayList;
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->this$0:Lcom/android/server/am/ActiveServices;
 
-    invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
+    iget-object v14, v14, Lcom/android/server/am/ActiveServices;->mRestartingServices:Ljava/util/ArrayList;
 
-    move-result v5
+    invoke-virtual {v14}, Ljava/util/ArrayList;->size()I
 
-    if-ge v1, v5, :cond_c
+    move-result v14
 
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->this$0:Lcom/android/server/am/ActiveServices;
+    if-ge v4, v14, :cond_c
 
-    iget-object v5, v5, Lcom/android/server/am/ActiveServices;->mRestartingServices:Ljava/util/ArrayList;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v5, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->this$0:Lcom/android/server/am/ActiveServices;
 
-    move-result-object v3
+    iget-object v14, v14, Lcom/android/server/am/ActiveServices;->mRestartingServices:Ljava/util/ArrayList;
 
-    check-cast v3, Lcom/android/server/am/ServiceRecord;
+    invoke-virtual {v14, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->matcher:Lcom/android/server/am/ActivityManagerService$ItemMatcher;
+    move-result-object v9
 
-    iget-object v6, v3, Lcom/android/server/am/ServiceRecord;->name:Landroid/content/ComponentName;
+    check-cast v9, Lcom/android/server/am/ServiceRecord;
 
-    invoke-virtual {v5, v3, v6}, Lcom/android/server/am/ActivityManagerService$ItemMatcher;->match(Ljava/lang/Object;Landroid/content/ComponentName;)Z
+    move-object/from16 v0, p0
 
-    move-result v5
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->matcher:Lcom/android/server/am/ActivityManagerService$ItemMatcher;
 
-    if-nez v5, :cond_8
+    iget-object v15, v9, Lcom/android/server/am/ServiceRecord;->name:Landroid/content/ComponentName;
+
+    invoke-virtual {v14, v9, v15}, Lcom/android/server/am/ActivityManagerService$ItemMatcher;->match(Ljava/lang/Object;Landroid/content/ComponentName;)Z
+
+    move-result v14
+
+    if-nez v14, :cond_8
 
     :cond_7
     :goto_3
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_2
 
     :cond_8
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->dumpPackage:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    if-eqz v5, :cond_9
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->dumpPackage:Ljava/lang/String;
 
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->dumpPackage:Ljava/lang/String;
+    if-eqz v14, :cond_9
 
-    iget-object v6, v3, Lcom/android/server/am/ServiceRecord;->appInfo:Landroid/content/pm/ApplicationInfo;
+    move-object/from16 v0, p0
 
-    iget-object v6, v6, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->dumpPackage:Ljava/lang/String;
 
-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    iget-object v15, v9, Lcom/android/server/am/ServiceRecord;->appInfo:Landroid/content/pm/ApplicationInfo;
 
-    move-result v5
+    iget-object v15, v15, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    if-eqz v5, :cond_7
+    invoke-virtual {v14, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v14
+
+    xor-int/lit8 v14, v14, 0x1
+
+    if-nez v14, :cond_7
 
     :cond_9
-    iput-boolean v8, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->printedAnything:Z
+    const/4 v14, 0x1
 
-    iget-boolean v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->printed:Z
+    move-object/from16 v0, p0
 
-    if-nez v5, :cond_b
+    iput-boolean v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->printedAnything:Z
 
-    iget-boolean v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->needSep:Z
+    move-object/from16 v0, p0
 
-    if-eqz v5, :cond_a
+    iget-boolean v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->printed:Z
 
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+    if-nez v14, :cond_b
 
-    invoke-virtual {v5}, Ljava/io/PrintWriter;->println()V
+    move-object/from16 v0, p0
+
+    iget-boolean v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->needSep:Z
+
+    if-eqz v14, :cond_a
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    invoke-virtual {v14}, Ljava/io/PrintWriter;->println()V
 
     :cond_a
-    iput-boolean v8, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->needSep:Z
+    const/4 v14, 0x1
 
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+    move-object/from16 v0, p0
 
-    const-string/jumbo v6, "  Restarting services:"
+    iput-boolean v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->needSep:Z
 
-    invoke-virtual {v5, v6}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    move-object/from16 v0, p0
 
-    iput-boolean v8, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->printed:Z
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    const-string/jumbo v15, "  Restarting services:"
+
+    invoke-virtual {v14, v15}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const/4 v14, 0x1
+
+    move-object/from16 v0, p0
+
+    iput-boolean v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->printed:Z
 
     :cond_b
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+    move-object/from16 v0, p0
 
-    const-string/jumbo v6, "  * Restarting "
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
 
-    invoke-virtual {v5, v6}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    const-string/jumbo v15, "  * Restarting "
 
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+    invoke-virtual {v14, v15}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    invoke-virtual {v5, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
+    move-object/from16 v0, p0
 
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
 
-    const-string/jumbo v6, "    "
+    invoke-virtual {v14, v9}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
-    invoke-virtual {v3, v5, v6}, Lcom/android/server/am/ServiceRecord;->dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    const-string/jumbo v15, "    "
+
+    invoke-virtual {v9, v14, v15}, Lcom/android/server/am/ServiceRecord;->dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
 
     goto :goto_3
 
     :cond_c
-    iput-boolean v8, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->needSep:Z
+    const/4 v14, 0x1
+
+    move-object/from16 v0, p0
+
+    iput-boolean v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->needSep:Z
 
     :cond_d
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->this$0:Lcom/android/server/am/ActiveServices;
+    move-object/from16 v0, p0
 
-    iget-object v5, v5, Lcom/android/server/am/ActiveServices;->mDestroyingServices:Ljava/util/ArrayList;
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->this$0:Lcom/android/server/am/ActiveServices;
 
-    invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
+    iget-object v14, v14, Lcom/android/server/am/ActiveServices;->mDestroyingServices:Ljava/util/ArrayList;
 
-    move-result v5
+    invoke-virtual {v14}, Ljava/util/ArrayList;->size()I
 
-    if-lez v5, :cond_14
+    move-result v14
 
-    iput-boolean v7, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->printed:Z
+    if-lez v14, :cond_14
 
-    const/4 v1, 0x0
+    const/4 v14, 0x0
+
+    move-object/from16 v0, p0
+
+    iput-boolean v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->printed:Z
+
+    const/4 v4, 0x0
 
     :goto_4
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->this$0:Lcom/android/server/am/ActiveServices;
+    move-object/from16 v0, p0
 
-    iget-object v5, v5, Lcom/android/server/am/ActiveServices;->mDestroyingServices:Ljava/util/ArrayList;
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->this$0:Lcom/android/server/am/ActiveServices;
 
-    invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
+    iget-object v14, v14, Lcom/android/server/am/ActiveServices;->mDestroyingServices:Ljava/util/ArrayList;
 
-    move-result v5
+    invoke-virtual {v14}, Ljava/util/ArrayList;->size()I
 
-    if-ge v1, v5, :cond_13
+    move-result v14
 
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->this$0:Lcom/android/server/am/ActiveServices;
+    if-ge v4, v14, :cond_13
 
-    iget-object v5, v5, Lcom/android/server/am/ActiveServices;->mDestroyingServices:Ljava/util/ArrayList;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v5, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->this$0:Lcom/android/server/am/ActiveServices;
 
-    move-result-object v3
+    iget-object v14, v14, Lcom/android/server/am/ActiveServices;->mDestroyingServices:Ljava/util/ArrayList;
 
-    check-cast v3, Lcom/android/server/am/ServiceRecord;
+    invoke-virtual {v14, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->matcher:Lcom/android/server/am/ActivityManagerService$ItemMatcher;
+    move-result-object v9
 
-    iget-object v6, v3, Lcom/android/server/am/ServiceRecord;->name:Landroid/content/ComponentName;
+    check-cast v9, Lcom/android/server/am/ServiceRecord;
 
-    invoke-virtual {v5, v3, v6}, Lcom/android/server/am/ActivityManagerService$ItemMatcher;->match(Ljava/lang/Object;Landroid/content/ComponentName;)Z
+    move-object/from16 v0, p0
 
-    move-result v5
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->matcher:Lcom/android/server/am/ActivityManagerService$ItemMatcher;
 
-    if-nez v5, :cond_f
+    iget-object v15, v9, Lcom/android/server/am/ServiceRecord;->name:Landroid/content/ComponentName;
+
+    invoke-virtual {v14, v9, v15}, Lcom/android/server/am/ActivityManagerService$ItemMatcher;->match(Ljava/lang/Object;Landroid/content/ComponentName;)Z
+
+    move-result v14
+
+    if-nez v14, :cond_f
 
     :cond_e
     :goto_5
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_4
 
     :cond_f
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->dumpPackage:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    if-eqz v5, :cond_10
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->dumpPackage:Ljava/lang/String;
 
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->dumpPackage:Ljava/lang/String;
+    if-eqz v14, :cond_10
 
-    iget-object v6, v3, Lcom/android/server/am/ServiceRecord;->appInfo:Landroid/content/pm/ApplicationInfo;
+    move-object/from16 v0, p0
 
-    iget-object v6, v6, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->dumpPackage:Ljava/lang/String;
 
-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    iget-object v15, v9, Lcom/android/server/am/ServiceRecord;->appInfo:Landroid/content/pm/ApplicationInfo;
 
-    move-result v5
+    iget-object v15, v15, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    if-eqz v5, :cond_e
+    invoke-virtual {v14, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v14
+
+    xor-int/lit8 v14, v14, 0x1
+
+    if-nez v14, :cond_e
 
     :cond_10
-    iput-boolean v8, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->printedAnything:Z
+    const/4 v14, 0x1
 
-    iget-boolean v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->printed:Z
+    move-object/from16 v0, p0
 
-    if-nez v5, :cond_12
+    iput-boolean v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->printedAnything:Z
 
-    iget-boolean v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->needSep:Z
+    move-object/from16 v0, p0
 
-    if-eqz v5, :cond_11
+    iget-boolean v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->printed:Z
 
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+    if-nez v14, :cond_12
 
-    invoke-virtual {v5}, Ljava/io/PrintWriter;->println()V
+    move-object/from16 v0, p0
+
+    iget-boolean v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->needSep:Z
+
+    if-eqz v14, :cond_11
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    invoke-virtual {v14}, Ljava/io/PrintWriter;->println()V
 
     :cond_11
-    iput-boolean v8, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->needSep:Z
+    const/4 v14, 0x1
 
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+    move-object/from16 v0, p0
 
-    const-string/jumbo v6, "  Destroying services:"
+    iput-boolean v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->needSep:Z
 
-    invoke-virtual {v5, v6}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    move-object/from16 v0, p0
 
-    iput-boolean v8, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->printed:Z
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    const-string/jumbo v15, "  Destroying services:"
+
+    invoke-virtual {v14, v15}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const/4 v14, 0x1
+
+    move-object/from16 v0, p0
+
+    iput-boolean v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->printed:Z
 
     :cond_12
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+    move-object/from16 v0, p0
 
-    const-string/jumbo v6, "  * Destroy "
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
 
-    invoke-virtual {v5, v6}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    const-string/jumbo v15, "  * Destroy "
 
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+    invoke-virtual {v14, v15}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    invoke-virtual {v5, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
+    move-object/from16 v0, p0
 
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
 
-    const-string/jumbo v6, "    "
+    invoke-virtual {v14, v9}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
-    invoke-virtual {v3, v5, v6}, Lcom/android/server/am/ServiceRecord;->dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    const-string/jumbo v15, "    "
+
+    invoke-virtual {v9, v14, v15}, Lcom/android/server/am/ServiceRecord;->dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
 
     goto :goto_5
 
     :cond_13
-    iput-boolean v8, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->needSep:Z
+    const/4 v14, 0x1
+
+    move-object/from16 v0, p0
+
+    iput-boolean v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->needSep:Z
 
     :cond_14
-    iget-boolean v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->dumpAll:Z
+    move-object/from16 v0, p0
 
-    if-eqz v5, :cond_1b
+    iget-boolean v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->dumpAll:Z
 
-    iput-boolean v7, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->printed:Z
+    if-eqz v14, :cond_1b
 
-    const/4 v2, 0x0
+    const/4 v14, 0x0
+
+    move-object/from16 v0, p0
+
+    iput-boolean v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->printed:Z
+
+    const/4 v5, 0x0
 
     :goto_6
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->this$0:Lcom/android/server/am/ActiveServices;
+    move-object/from16 v0, p0
 
-    iget-object v5, v5, Lcom/android/server/am/ActiveServices;->mServiceConnections:Landroid/util/ArrayMap;
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->this$0:Lcom/android/server/am/ActiveServices;
 
-    invoke-virtual {v5}, Landroid/util/ArrayMap;->size()I
+    iget-object v14, v14, Lcom/android/server/am/ActiveServices;->mServiceConnections:Landroid/util/ArrayMap;
 
-    move-result v5
+    invoke-virtual {v14}, Landroid/util/ArrayMap;->size()I
 
-    if-ge v2, v5, :cond_1b
+    move-result v14
 
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->this$0:Lcom/android/server/am/ActiveServices;
+    if-ge v5, v14, :cond_1b
 
-    iget-object v5, v5, Lcom/android/server/am/ActiveServices;->mServiceConnections:Landroid/util/ArrayMap;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v5, v2}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->this$0:Lcom/android/server/am/ActiveServices;
 
-    move-result-object v4
+    iget-object v14, v14, Lcom/android/server/am/ActiveServices;->mServiceConnections:Landroid/util/ArrayMap;
 
-    check-cast v4, Ljava/util/ArrayList;
+    invoke-virtual {v14, v5}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
 
-    const/4 v1, 0x0
+    move-result-object v10
+
+    check-cast v10, Ljava/util/ArrayList;
+
+    const/4 v4, 0x0
 
     :goto_7
-    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v10}, Ljava/util/ArrayList;->size()I
 
-    move-result v5
+    move-result v14
 
-    if-ge v1, v5, :cond_1a
+    if-ge v4, v14, :cond_1a
 
-    invoke-virtual {v4, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v10, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v3
 
-    check-cast v0, Lcom/android/server/am/ConnectionRecord;
+    check-cast v3, Lcom/android/server/am/ConnectionRecord;
 
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->matcher:Lcom/android/server/am/ActivityManagerService$ItemMatcher;
+    move-object/from16 v0, p0
 
-    iget-object v6, v0, Lcom/android/server/am/ConnectionRecord;->binding:Lcom/android/server/am/AppBindRecord;
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->matcher:Lcom/android/server/am/ActivityManagerService$ItemMatcher;
 
-    iget-object v6, v6, Lcom/android/server/am/AppBindRecord;->service:Lcom/android/server/am/ServiceRecord;
+    iget-object v15, v3, Lcom/android/server/am/ConnectionRecord;->binding:Lcom/android/server/am/AppBindRecord;
 
-    iget-object v7, v0, Lcom/android/server/am/ConnectionRecord;->binding:Lcom/android/server/am/AppBindRecord;
+    iget-object v15, v15, Lcom/android/server/am/AppBindRecord;->service:Lcom/android/server/am/ServiceRecord;
 
-    iget-object v7, v7, Lcom/android/server/am/AppBindRecord;->service:Lcom/android/server/am/ServiceRecord;
+    iget-object v0, v3, Lcom/android/server/am/ConnectionRecord;->binding:Lcom/android/server/am/AppBindRecord;
 
-    iget-object v7, v7, Lcom/android/server/am/ServiceRecord;->name:Landroid/content/ComponentName;
+    move-object/from16 v16, v0
 
-    invoke-virtual {v5, v6, v7}, Lcom/android/server/am/ActivityManagerService$ItemMatcher;->match(Ljava/lang/Object;Landroid/content/ComponentName;)Z
+    move-object/from16 v0, v16
 
-    move-result v5
+    iget-object v0, v0, Lcom/android/server/am/AppBindRecord;->service:Lcom/android/server/am/ServiceRecord;
 
-    if-nez v5, :cond_16
+    move-object/from16 v16, v0
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ServiceRecord;->name:Landroid/content/ComponentName;
+
+    move-object/from16 v16, v0
+
+    invoke-virtual/range {v14 .. v16}, Lcom/android/server/am/ActivityManagerService$ItemMatcher;->match(Ljava/lang/Object;Landroid/content/ComponentName;)Z
+
+    move-result v14
+
+    if-nez v14, :cond_16
 
     :cond_15
     :goto_8
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_7
 
     :cond_16
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->dumpPackage:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    if-eqz v5, :cond_17
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->dumpPackage:Ljava/lang/String;
 
-    iget-object v5, v0, Lcom/android/server/am/ConnectionRecord;->binding:Lcom/android/server/am/AppBindRecord;
+    if-eqz v14, :cond_17
 
-    iget-object v5, v5, Lcom/android/server/am/AppBindRecord;->client:Lcom/android/server/am/ProcessRecord;
+    iget-object v14, v3, Lcom/android/server/am/ConnectionRecord;->binding:Lcom/android/server/am/AppBindRecord;
 
-    if-eqz v5, :cond_15
+    iget-object v14, v14, Lcom/android/server/am/AppBindRecord;->client:Lcom/android/server/am/ProcessRecord;
 
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->dumpPackage:Ljava/lang/String;
+    if-eqz v14, :cond_15
 
-    iget-object v6, v0, Lcom/android/server/am/ConnectionRecord;->binding:Lcom/android/server/am/AppBindRecord;
+    move-object/from16 v0, p0
 
-    iget-object v6, v6, Lcom/android/server/am/AppBindRecord;->client:Lcom/android/server/am/ProcessRecord;
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->dumpPackage:Ljava/lang/String;
 
-    iget-object v6, v6, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
+    iget-object v15, v3, Lcom/android/server/am/ConnectionRecord;->binding:Lcom/android/server/am/AppBindRecord;
 
-    iget-object v6, v6, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+    iget-object v15, v15, Lcom/android/server/am/AppBindRecord;->client:Lcom/android/server/am/ProcessRecord;
 
-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    iget-object v15, v15, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
 
-    move-result v5
+    iget-object v15, v15, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    if-eqz v5, :cond_15
+    invoke-virtual {v14, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v14
+
+    xor-int/lit8 v14, v14, 0x1
+
+    if-nez v14, :cond_15
 
     :cond_17
-    iput-boolean v8, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->printedAnything:Z
+    const/4 v14, 0x1
 
-    iget-boolean v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->printed:Z
+    move-object/from16 v0, p0
 
-    if-nez v5, :cond_19
+    iput-boolean v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->printedAnything:Z
 
-    iget-boolean v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->needSep:Z
+    move-object/from16 v0, p0
 
-    if-eqz v5, :cond_18
+    iget-boolean v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->printed:Z
 
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+    if-nez v14, :cond_19
 
-    invoke-virtual {v5}, Ljava/io/PrintWriter;->println()V
+    move-object/from16 v0, p0
+
+    iget-boolean v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->needSep:Z
+
+    if-eqz v14, :cond_18
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    invoke-virtual {v14}, Ljava/io/PrintWriter;->println()V
 
     :cond_18
-    iput-boolean v8, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->needSep:Z
+    const/4 v14, 0x1
 
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+    move-object/from16 v0, p0
 
-    const-string/jumbo v6, "  Connection bindings to services:"
+    iput-boolean v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->needSep:Z
 
-    invoke-virtual {v5, v6}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    move-object/from16 v0, p0
 
-    iput-boolean v8, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->printed:Z
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    const-string/jumbo v15, "  Connection bindings to services:"
+
+    invoke-virtual {v14, v15}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const/4 v14, 0x1
+
+    move-object/from16 v0, p0
+
+    iput-boolean v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->printed:Z
 
     :cond_19
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+    move-object/from16 v0, p0
 
-    const-string/jumbo v6, "  * "
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
 
-    invoke-virtual {v5, v6}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    const-string/jumbo v15, "  * "
 
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+    invoke-virtual {v14, v15}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    invoke-virtual {v5, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
+    move-object/from16 v0, p0
 
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
 
-    const-string/jumbo v6, "    "
+    invoke-virtual {v14, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
-    invoke-virtual {v0, v5, v6}, Lcom/android/server/am/ConnectionRecord;->dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    const-string/jumbo v15, "    "
+
+    invoke-virtual {v3, v14, v15}, Lcom/android/server/am/ConnectionRecord;->dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
 
     goto :goto_8
 
     :cond_1a
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v5, v5, 0x1
 
     goto/16 :goto_6
 
     :cond_1b
-    iget-boolean v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->printedAnything:Z
+    move-object/from16 v0, p0
 
-    if-nez v5, :cond_1c
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->matcher:Lcom/android/server/am/ActivityManagerService$ItemMatcher;
 
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+    iget-boolean v14, v14, Lcom/android/server/am/ActivityManagerService$ItemMatcher;->all:Z
 
-    const-string/jumbo v6, "  (nothing)"
+    if-eqz v14, :cond_25
 
-    invoke-virtual {v5, v6}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+
+    move-result-wide v6
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->this$0:Lcom/android/server/am/ActiveServices;
+
+    iget-object v14, v14, Lcom/android/server/am/ActiveServices;->mAm:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v14, v14, Lcom/android/server/am/ActivityManagerService;->mUserController:Lcom/android/server/am/UserController;
+
+    invoke-virtual {v14}, Lcom/android/server/am/UserController;->getUsers()[I
+
+    move-result-object v13
+
+    const/4 v14, 0x0
+
+    array-length v15, v13
+
+    :goto_9
+    if-ge v14, v15, :cond_25
+
+    aget v12, v13, v14
+
+    const/4 v8, 0x0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->this$0:Lcom/android/server/am/ActiveServices;
+
+    move-object/from16 v16, v0
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ActiveServices;->mServiceMap:Landroid/util/SparseArray;
+
+    move-object/from16 v16, v0
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v12}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object v11
+
+    check-cast v11, Lcom/android/server/am/ActiveServices$ServiceMap;
+
+    if-nez v11, :cond_1d
 
     :cond_1c
+    :goto_a
+    add-int/lit8 v14, v14, 0x1
+
+    goto :goto_9
+
+    :cond_1d
+    iget-object v0, v11, Lcom/android/server/am/ActiveServices$ServiceMap;->mActiveForegroundApps:Landroid/util/ArrayMap;
+
+    move-object/from16 v16, v0
+
+    invoke-virtual/range {v16 .. v16}, Landroid/util/ArrayMap;->size()I
+
+    move-result v16
+
+    add-int/lit8 v4, v16, -0x1
+
+    :goto_b
+    if-ltz v4, :cond_23
+
+    iget-object v0, v11, Lcom/android/server/am/ActiveServices$ServiceMap;->mActiveForegroundApps:Landroid/util/ArrayMap;
+
+    move-object/from16 v16, v0
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v4}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/server/am/ActiveServices$ActiveForegroundApp;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->dumpPackage:Ljava/lang/String;
+
+    move-object/from16 v16, v0
+
+    if-eqz v16, :cond_1f
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->dumpPackage:Ljava/lang/String;
+
+    move-object/from16 v16, v0
+
+    iget-object v0, v2, Lcom/android/server/am/ActiveServices$ActiveForegroundApp;->mPackageName:Ljava/lang/String;
+
+    move-object/from16 v17, v0
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v16
+
+    xor-int/lit8 v16, v16, 0x1
+
+    if-eqz v16, :cond_1f
+
+    :cond_1e
+    :goto_c
+    add-int/lit8 v4, v4, -0x1
+
+    goto :goto_b
+
+    :cond_1f
+    if-nez v8, :cond_21
+
+    const/4 v8, 0x1
+
+    const/16 v16, 0x1
+
+    move/from16 v0, v16
+
+    move-object/from16 v1, p0
+
+    iput-boolean v0, v1, Lcom/android/server/am/ActiveServices$ServiceDumper;->printedAnything:Z
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->needSep:Z
+
+    move/from16 v16, v0
+
+    if-eqz v16, :cond_20
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    move-object/from16 v16, v0
+
+    invoke-virtual/range {v16 .. v16}, Ljava/io/PrintWriter;->println()V
+
+    :cond_20
+    const/16 v16, 0x1
+
+    move/from16 v0, v16
+
+    move-object/from16 v1, p0
+
+    iput-boolean v0, v1, Lcom/android/server/am/ActiveServices$ServiceDumper;->needSep:Z
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    move-object/from16 v16, v0
+
+    const-string/jumbo v17, "Active foreground apps - user "
+
+    invoke-virtual/range {v16 .. v17}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    move-object/from16 v16, v0
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v12}, Ljava/io/PrintWriter;->print(I)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    move-object/from16 v16, v0
+
+    const-string/jumbo v17, ":"
+
+    invoke-virtual/range {v16 .. v17}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    :cond_21
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    move-object/from16 v16, v0
+
+    const-string/jumbo v17, "  #"
+
+    invoke-virtual/range {v16 .. v17}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    move-object/from16 v16, v0
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v4}, Ljava/io/PrintWriter;->print(I)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    move-object/from16 v16, v0
+
+    const-string/jumbo v17, ": "
+
+    invoke-virtual/range {v16 .. v17}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    move-object/from16 v16, v0
+
+    iget-object v0, v2, Lcom/android/server/am/ActiveServices$ActiveForegroundApp;->mPackageName:Ljava/lang/String;
+
+    move-object/from16 v17, v0
+
+    invoke-virtual/range {v16 .. v17}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    iget-object v0, v2, Lcom/android/server/am/ActiveServices$ActiveForegroundApp;->mLabel:Ljava/lang/CharSequence;
+
+    move-object/from16 v16, v0
+
+    if-eqz v16, :cond_22
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    move-object/from16 v16, v0
+
+    const-string/jumbo v17, "    mLabel="
+
+    invoke-virtual/range {v16 .. v17}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    move-object/from16 v16, v0
+
+    iget-object v0, v2, Lcom/android/server/am/ActiveServices$ActiveForegroundApp;->mLabel:Ljava/lang/CharSequence;
+
+    move-object/from16 v17, v0
+
+    invoke-virtual/range {v16 .. v17}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
+
+    :cond_22
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    move-object/from16 v16, v0
+
+    const-string/jumbo v17, "    mNumActive="
+
+    invoke-virtual/range {v16 .. v17}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    move-object/from16 v16, v0
+
+    iget v0, v2, Lcom/android/server/am/ActiveServices$ActiveForegroundApp;->mNumActive:I
+
+    move/from16 v17, v0
+
+    invoke-virtual/range {v16 .. v17}, Ljava/io/PrintWriter;->print(I)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    move-object/from16 v16, v0
+
+    const-string/jumbo v17, " mAppOnTop="
+
+    invoke-virtual/range {v16 .. v17}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    move-object/from16 v16, v0
+
+    iget-boolean v0, v2, Lcom/android/server/am/ActiveServices$ActiveForegroundApp;->mAppOnTop:Z
+
+    move/from16 v17, v0
+
+    invoke-virtual/range {v16 .. v17}, Ljava/io/PrintWriter;->print(Z)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    move-object/from16 v16, v0
+
+    const-string/jumbo v17, " mShownWhileTop="
+
+    invoke-virtual/range {v16 .. v17}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    move-object/from16 v16, v0
+
+    iget-boolean v0, v2, Lcom/android/server/am/ActiveServices$ActiveForegroundApp;->mShownWhileTop:Z
+
+    move/from16 v17, v0
+
+    invoke-virtual/range {v16 .. v17}, Ljava/io/PrintWriter;->print(Z)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    move-object/from16 v16, v0
+
+    const-string/jumbo v17, " mShownWhileScreenOn="
+
+    invoke-virtual/range {v16 .. v17}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    move-object/from16 v16, v0
+
+    iget-boolean v0, v2, Lcom/android/server/am/ActiveServices$ActiveForegroundApp;->mShownWhileScreenOn:Z
+
+    move/from16 v17, v0
+
+    invoke-virtual/range {v16 .. v17}, Ljava/io/PrintWriter;->println(Z)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    move-object/from16 v16, v0
+
+    const-string/jumbo v17, "    mStartTime="
+
+    invoke-virtual/range {v16 .. v17}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-wide v0, v2, Lcom/android/server/am/ActiveServices$ActiveForegroundApp;->mStartTime:J
+
+    move-wide/from16 v16, v0
+
+    sub-long v16, v16, v6
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    move-object/from16 v18, v0
+
+    invoke-static/range {v16 .. v18}, Landroid/util/TimeUtils;->formatDuration(JLjava/io/PrintWriter;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    move-object/from16 v16, v0
+
+    const-string/jumbo v17, " mStartVisibleTime="
+
+    invoke-virtual/range {v16 .. v17}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-wide v0, v2, Lcom/android/server/am/ActiveServices$ActiveForegroundApp;->mStartVisibleTime:J
+
+    move-wide/from16 v16, v0
+
+    sub-long v16, v16, v6
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    move-object/from16 v18, v0
+
+    invoke-static/range {v16 .. v18}, Landroid/util/TimeUtils;->formatDuration(JLjava/io/PrintWriter;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    move-object/from16 v16, v0
+
+    invoke-virtual/range {v16 .. v16}, Ljava/io/PrintWriter;->println()V
+
+    iget-wide v0, v2, Lcom/android/server/am/ActiveServices$ActiveForegroundApp;->mEndTime:J
+
+    move-wide/from16 v16, v0
+
+    const-wide/16 v18, 0x0
+
+    cmp-long v16, v16, v18
+
+    if-eqz v16, :cond_1e
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    move-object/from16 v16, v0
+
+    const-string/jumbo v17, "    mEndTime="
+
+    invoke-virtual/range {v16 .. v17}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-wide v0, v2, Lcom/android/server/am/ActiveServices$ActiveForegroundApp;->mEndTime:J
+
+    move-wide/from16 v16, v0
+
+    sub-long v16, v16, v6
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    move-object/from16 v18, v0
+
+    invoke-static/range {v16 .. v18}, Landroid/util/TimeUtils;->formatDuration(JLjava/io/PrintWriter;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    move-object/from16 v16, v0
+
+    invoke-virtual/range {v16 .. v16}, Ljava/io/PrintWriter;->println()V
+
+    goto/16 :goto_c
+
+    :cond_23
+    invoke-virtual {v11}, Lcom/android/server/am/ActiveServices$ServiceMap;->hasMessagesOrCallbacks()Z
+
+    move-result v16
+
+    if-eqz v16, :cond_1c
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->needSep:Z
+
+    move/from16 v16, v0
+
+    if-eqz v16, :cond_24
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    move-object/from16 v16, v0
+
+    invoke-virtual/range {v16 .. v16}, Ljava/io/PrintWriter;->println()V
+
+    :cond_24
+    const/16 v16, 0x1
+
+    move/from16 v0, v16
+
+    move-object/from16 v1, p0
+
+    iput-boolean v0, v1, Lcom/android/server/am/ActiveServices$ServiceDumper;->printedAnything:Z
+
+    const/16 v16, 0x1
+
+    move/from16 v0, v16
+
+    move-object/from16 v1, p0
+
+    iput-boolean v0, v1, Lcom/android/server/am/ActiveServices$ServiceDumper;->needSep:Z
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    move-object/from16 v16, v0
+
+    const-string/jumbo v17, "  Handler - user "
+
+    invoke-virtual/range {v16 .. v17}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    move-object/from16 v16, v0
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v12}, Ljava/io/PrintWriter;->print(I)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    move-object/from16 v16, v0
+
+    const-string/jumbo v17, ":"
+
+    invoke-virtual/range {v16 .. v17}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    new-instance v16, Landroid/util/PrintWriterPrinter;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    move-object/from16 v17, v0
+
+    invoke-direct/range {v16 .. v17}, Landroid/util/PrintWriterPrinter;-><init>(Ljava/io/PrintWriter;)V
+
+    const-string/jumbo v17, "    "
+
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v17
+
+    invoke-virtual {v11, v0, v1}, Lcom/android/server/am/ActiveServices$ServiceMap;->dumpMine(Landroid/util/Printer;Ljava/lang/String;)V
+
+    goto/16 :goto_a
+
+    :cond_25
+    move-object/from16 v0, p0
+
+    iget-boolean v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->printedAnything:Z
+
+    if-nez v14, :cond_26
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/server/am/ActiveServices$ServiceDumper;->pw:Ljava/io/PrintWriter;
+
+    const-string/jumbo v15, "  (nothing)"
+
+    invoke-virtual {v14, v15}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    :cond_26
     return-void
 .end method
 
@@ -803,13 +1537,9 @@
 
     move-result-object v5
 
-    invoke-virtual {v5}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
-
-    move-result-object v5
-
     iget-object v6, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->args:[Ljava/lang/String;
 
-    invoke-interface {v3, v5, p1, v6}, Landroid/app/IApplicationThread;->dumpService(Ljava/io/FileDescriptor;Landroid/os/IBinder;[Ljava/lang/String;)V
+    invoke-interface {v3, v5, p1, v6}, Landroid/app/IApplicationThread;->dumpService(Landroid/os/ParcelFileDescriptor;Landroid/os/IBinder;[Ljava/lang/String;)V
 
     const-string/jumbo v5, "      "
 
@@ -1213,7 +1943,9 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    xor-int/lit8 v4, v4, 0x1
+
+    if-nez v4, :cond_0
 
     :cond_2
     iget-boolean v4, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->printed:Z
@@ -1327,7 +2059,9 @@
 
     move-result v4
 
-    if-eqz v4, :cond_6
+    xor-int/lit8 v4, v4, 0x1
+
+    if-nez v4, :cond_6
 
     :cond_8
     iget-boolean v4, p0, Lcom/android/server/am/ActiveServices$ServiceDumper;->printed:Z

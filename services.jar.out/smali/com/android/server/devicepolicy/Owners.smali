@@ -45,6 +45,8 @@
 
 .field private static final TAG_DEVICE_OWNER_CONTEXT:Ljava/lang/String; = "device-owner-context"
 
+.field private static final TAG_PENDING_OTA_INFO:Ljava/lang/String; = "pending-ota-info"
+
 .field private static final TAG_PROFILE_OWNER:Ljava/lang/String; = "profile-owner"
 
 .field private static final TAG_ROOT:Ljava/lang/String; = "root"
@@ -72,6 +74,8 @@
         }
     .end annotation
 .end field
+
+.field private mSystemUpdateInfo:Landroid/app/admin/SystemUpdateInfo;
 
 .field private mSystemUpdatePolicy:Landroid/app/admin/SystemUpdatePolicy;
 
@@ -105,7 +109,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get3(Lcom/android/server/devicepolicy/Owners;)Landroid/app/admin/SystemUpdatePolicy;
+.method static synthetic -get3(Lcom/android/server/devicepolicy/Owners;)Landroid/app/admin/SystemUpdateInfo;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/devicepolicy/Owners;->mSystemUpdateInfo:Landroid/app/admin/SystemUpdateInfo;
+
+    return-object v0
+.end method
+
+.method static synthetic -get4(Lcom/android/server/devicepolicy/Owners;)Landroid/app/admin/SystemUpdatePolicy;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/devicepolicy/Owners;->mSystemUpdatePolicy:Landroid/app/admin/SystemUpdatePolicy;
@@ -129,7 +141,15 @@
     return p1
 .end method
 
-.method static synthetic -set2(Lcom/android/server/devicepolicy/Owners;Landroid/app/admin/SystemUpdatePolicy;)Landroid/app/admin/SystemUpdatePolicy;
+.method static synthetic -set2(Lcom/android/server/devicepolicy/Owners;Landroid/app/admin/SystemUpdateInfo;)Landroid/app/admin/SystemUpdateInfo;
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/devicepolicy/Owners;->mSystemUpdateInfo:Landroid/app/admin/SystemUpdateInfo;
+
+    return-object p1
+.end method
+
+.method static synthetic -set3(Lcom/android/server/devicepolicy/Owners;Landroid/app/admin/SystemUpdatePolicy;)Landroid/app/admin/SystemUpdatePolicy;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/devicepolicy/Owners;->mSystemUpdatePolicy:Landroid/app/admin/SystemUpdatePolicy;
@@ -710,8 +730,6 @@
 
     if-eqz v2, :cond_1
 
-    const/4 v2, 0x0
-
     invoke-virtual {p2}, Ljava/io/PrintWriter;->println()V
 
     :cond_1
@@ -772,8 +790,6 @@
     check-cast v0, Ljava/util/Map$Entry;
 
     if-eqz v2, :cond_3
-
-    const/4 v2, 0x0
 
     invoke-virtual {p2}, Ljava/io/PrintWriter;->println()V
 
@@ -843,6 +859,44 @@
     goto :goto_0
 
     :cond_4
+    iget-object v3, p0, Lcom/android/server/devicepolicy/Owners;->mSystemUpdateInfo:Landroid/app/admin/SystemUpdateInfo;
+
+    if-eqz v3, :cond_6
+
+    if-eqz v2, :cond_5
+
+    invoke-virtual {p2}, Ljava/io/PrintWriter;->println()V
+
+    :cond_5
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "Pending System Update: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/android/server/devicepolicy/Owners;->mSystemUpdateInfo:Landroid/app/admin/SystemUpdateInfo;
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {p2, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const/4 v2, 0x1
+
+    :cond_6
     return-void
 .end method
 
@@ -1112,35 +1166,32 @@
 .end method
 
 .method getDeviceOwnerUserRestrictionsNeedsMigration()Z
-    .locals 3
-
-    const/4 v0, 0x0
+    .locals 2
 
     iget-object v1, p0, Lcom/android/server/devicepolicy/Owners;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
     :try_start_0
-    iget-object v2, p0, Lcom/android/server/devicepolicy/Owners;->mDeviceOwner:Lcom/android/server/devicepolicy/Owners$OwnerInfo;
+    iget-object v0, p0, Lcom/android/server/devicepolicy/Owners;->mDeviceOwner:Lcom/android/server/devicepolicy/Owners$OwnerInfo;
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v2, p0, Lcom/android/server/devicepolicy/Owners;->mDeviceOwner:Lcom/android/server/devicepolicy/Owners$OwnerInfo;
+    iget-object v0, p0, Lcom/android/server/devicepolicy/Owners;->mDeviceOwner:Lcom/android/server/devicepolicy/Owners$OwnerInfo;
 
-    iget-boolean v2, v2, Lcom/android/server/devicepolicy/Owners$OwnerInfo;->userRestrictionsMigrated:Z
+    iget-boolean v0, v0, Lcom/android/server/devicepolicy/Owners$OwnerInfo;->userRestrictionsMigrated:Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-eqz v2, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
     :goto_0
     monitor-exit v1
 
     return v0
 
-    :cond_1
-    const/4 v0, 0x1
+    :cond_0
+    const/4 v0, 0x0
 
     goto :goto_0
 
@@ -1345,22 +1396,20 @@
 .end method
 
 .method getProfileOwnerUserRestrictionsNeedsMigration(I)Z
-    .locals 5
-
-    const/4 v1, 0x0
+    .locals 4
 
     iget-object v2, p0, Lcom/android/server/devicepolicy/Owners;->mLock:Ljava/lang/Object;
 
     monitor-enter v2
 
     :try_start_0
-    iget-object v3, p0, Lcom/android/server/devicepolicy/Owners;->mProfileOwners:Landroid/util/ArrayMap;
+    iget-object v1, p0, Lcom/android/server/devicepolicy/Owners;->mProfileOwners:Landroid/util/ArrayMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-virtual {v3, v4}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v3}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -1368,20 +1417,19 @@
 
     if-eqz v0, :cond_0
 
-    iget-boolean v3, v0, Lcom/android/server/devicepolicy/Owners$OwnerInfo;->userRestrictionsMigrated:Z
+    iget-boolean v1, v0, Lcom/android/server/devicepolicy/Owners$OwnerInfo;->userRestrictionsMigrated:Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-eqz v3, :cond_1
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_0
     :goto_0
     monitor-exit v2
 
     return v1
 
-    :cond_1
-    const/4 v1, 0x1
+    :cond_0
+    const/4 v1, 0x0
 
     goto :goto_0
 
@@ -1389,6 +1437,30 @@
     move-exception v1
 
     monitor-exit v2
+
+    throw v1
+.end method
+
+.method public getSystemUpdateInfo()Landroid/app/admin/SystemUpdateInfo;
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/devicepolicy/Owners;->mLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/devicepolicy/Owners;->mSystemUpdateInfo:Landroid/app/admin/SystemUpdateInfo;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
+
+    return-object v1
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
 
     throw v1
 .end method
@@ -1758,6 +1830,56 @@
     monitor-exit v1
 
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
+.end method
+
+.method saveSystemUpdateInfo(Landroid/app/admin/SystemUpdateInfo;)Z
+    .locals 2
+
+    iget-object v1, p0, Lcom/android/server/devicepolicy/Owners;->mLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
+    iget-object v0, p0, Lcom/android/server/devicepolicy/Owners;->mSystemUpdateInfo:Landroid/app/admin/SystemUpdateInfo;
+
+    invoke-static {p1, v0}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x0
+
+    monitor-exit v1
+
+    return v0
+
+    :cond_0
+    :try_start_1
+    iput-object p1, p0, Lcom/android/server/devicepolicy/Owners;->mSystemUpdateInfo:Landroid/app/admin/SystemUpdateInfo;
+
+    new-instance v0, Lcom/android/server/devicepolicy/Owners$DeviceOwnerReadWriter;
+
+    invoke-direct {v0, p0}, Lcom/android/server/devicepolicy/Owners$DeviceOwnerReadWriter;-><init>(Lcom/android/server/devicepolicy/Owners;)V
+
+    invoke-virtual {v0}, Lcom/android/server/devicepolicy/Owners$DeviceOwnerReadWriter;->writeToFileLocked()V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    const/4 v0, 0x1
+
+    monitor-exit v1
+
+    return v0
 
     :catchall_0
     move-exception v0

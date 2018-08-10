@@ -35,11 +35,11 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/AnyMotionDetector$2;->this$0:Lcom/android/server/AnyMotionDetector;
 
-    invoke-static {v0}, Lcom/android/server/AnyMotionDetector;->-get1(Lcom/android/server/AnyMotionDetector;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/AnyMotionDetector;->-get2(Lcom/android/server/AnyMotionDetector;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -48,10 +48,25 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/AnyMotionDetector$2;->this$0:Lcom/android/server/AnyMotionDetector;
 
+    invoke-static {v0}, Lcom/android/server/AnyMotionDetector;->-get6(Lcom/android/server/AnyMotionDetector;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/AnyMotionDetector$2;->this$0:Lcom/android/server/AnyMotionDetector;
+
+    const/4 v2, 0x0
+
+    invoke-static {v0, v2}, Lcom/android/server/AnyMotionDetector;->-set1(Lcom/android/server/AnyMotionDetector;Z)Z
+
+    iget-object v0, p0, Lcom/android/server/AnyMotionDetector$2;->this$0:Lcom/android/server/AnyMotionDetector;
+
     invoke-static {v0}, Lcom/android/server/AnyMotionDetector;->-wrap1(Lcom/android/server/AnyMotionDetector;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    :cond_0
     monitor-exit v1
 
     return-void

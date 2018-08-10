@@ -42,6 +42,8 @@
 
 .field private mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
+.field private final mMainDisplayInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
 .field private mMode:Landroid/view/Display$Mode;
 
 .field final mName:Ljava/lang/String;
@@ -72,8 +74,8 @@
     return v0
 .end method
 
-.method public constructor <init>(Lcom/android/server/display/VirtualDisplayAdapter;Landroid/os/IBinder;Landroid/os/IBinder;ILjava/lang/String;Ljava/lang/String;IIILandroid/view/Surface;ILcom/android/server/display/VirtualDisplayAdapter$Callback;Ljava/lang/String;I)V
-    .locals 1
+.method public constructor <init>(Lcom/android/server/display/VirtualDisplayAdapter;Landroid/os/IBinder;Landroid/os/IBinder;ILjava/lang/String;Ljava/lang/String;IIILandroid/view/Surface;ILcom/android/server/display/VirtualDisplayAdapter$Callback;Ljava/lang/String;ILcom/android/server/display/DisplayDeviceInfo;)V
+    .locals 2
 
     iput-object p1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->this$0:Lcom/android/server/display/VirtualDisplayAdapter;
 
@@ -91,13 +93,13 @@
 
     iput p8, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mHeight:I
 
-    const/high16 v0, 0x42700000    # 60.0f
+    const/high16 v1, 0x42700000    # 60.0f
 
-    invoke-static {p7, p8, v0}, Lcom/android/server/display/VirtualDisplayAdapter;->createMode(IIF)Landroid/view/Display$Mode;
+    invoke-static {p7, p8, v1}, Lcom/android/server/display/VirtualDisplayAdapter;->createMode(IIF)Landroid/view/Display$Mode;
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mMode:Landroid/view/Display$Mode;
+    iput-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mMode:Landroid/view/Display$Mode;
 
     iput p9, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mDensityDpi:I
 
@@ -107,37 +109,27 @@
 
     iput-object p12, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mCallback:Lcom/android/server/display/VirtualDisplayAdapter$Callback;
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    iput v0, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mDisplayState:I
+    iput v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mDisplayState:I
 
-    iget v0, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mPendingChanges:I
+    iget v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mPendingChanges:I
 
-    or-int/lit8 v0, v0, 0x1
+    or-int/lit8 v1, v1, 0x1
 
-    iput v0, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mPendingChanges:I
+    iput v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mPendingChanges:I
 
-    iput p14, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mUniqueIndex:I
+    move/from16 v0, p14
 
-    const/4 v0, -0x1
+    iput v0, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mUniqueIndex:I
 
-    iput v0, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mFixedOrientation:I
+    const/4 v1, -0x1
 
-    return-void
-.end method
+    iput v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mFixedOrientation:I
 
-.method private updateDeviceInfoLocked()V
-    .locals 2
+    move-object/from16 v0, p15
 
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
-
-    iget-object v0, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->this$0:Lcom/android/server/display/VirtualDisplayAdapter;
-
-    const/4 v1, 0x2
-
-    invoke-virtual {v0, p0, v1}, Lcom/android/server/display/VirtualDisplayAdapter;->sendDisplayDeviceEventLocked(Lcom/android/server/display/DisplayDevice;I)V
+    iput-object v0, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mMainDisplayInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
     return-void
 .end method
@@ -145,7 +137,7 @@
 
 # virtual methods
 .method public binderDied()V
-    .locals 3
+    .locals 4
 
     iget-object v0, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->this$0:Lcom/android/server/display/VirtualDisplayAdapter;
 
@@ -161,6 +153,40 @@
     iget-object v2, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mAppToken:Landroid/os/IBinder;
 
     invoke-static {v0, v2}, Lcom/android/server/display/VirtualDisplayAdapter;->-wrap0(Lcom/android/server/display/VirtualDisplayAdapter;Landroid/os/IBinder;)V
+
+    const-string/jumbo v0, "VirtualDisplayAdapter"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Virtual display device released because application token died: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mOwnerPackageName:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v0, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->destroyLocked(Z)V
+
+    iget-object v0, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->this$0:Lcom/android/server/display/VirtualDisplayAdapter;
+
+    const/4 v2, 0x3
+
+    invoke-virtual {v0, p0, v2}, Lcom/android/server/display/VirtualDisplayAdapter;->sendDisplayDeviceEventLocked(Lcom/android/server/display/DisplayDevice;I)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -287,273 +313,488 @@
 .end method
 
 .method public getDisplayDeviceInfoLocked()Lcom/android/server/display/DisplayDeviceInfo;
-    .locals 5
-
-    const/4 v0, 0x1
-
-    const/4 v4, 0x0
-
-    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
-
-    if-nez v1, :cond_5
-
-    new-instance v1, Lcom/android/server/display/DisplayDeviceInfo;
-
-    invoke-direct {v1}, Lcom/android/server/display/DisplayDeviceInfo;-><init>()V
-
-    iput-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
-
-    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
-
-    iget-object v2, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mName:Ljava/lang/String;
-
-    iput-object v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->name:Ljava/lang/String;
-
-    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
-
-    invoke-virtual {p0}, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->getUniqueId()Ljava/lang/String;
-
-    move-result-object v2
-
-    iput-object v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->uniqueId:Ljava/lang/String;
-
-    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
-
-    iget v2, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mWidth:I
-
-    iput v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->width:I
-
-    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
-
-    iget v2, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mHeight:I
-
-    iput v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->height:I
-
-    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
-
-    iget-object v2, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mMode:Landroid/view/Display$Mode;
-
-    invoke-virtual {v2}, Landroid/view/Display$Mode;->getModeId()I
-
-    move-result v2
-
-    iput v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->modeId:I
-
-    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
-
-    iget-object v2, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mMode:Landroid/view/Display$Mode;
-
-    invoke-virtual {v2}, Landroid/view/Display$Mode;->getModeId()I
-
-    move-result v2
-
-    iput v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->defaultModeId:I
-
-    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
-
-    new-array v2, v0, [Landroid/view/Display$Mode;
-
-    iget-object v3, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mMode:Landroid/view/Display$Mode;
-
-    aput-object v3, v2, v4
-
-    iput-object v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->supportedModes:[Landroid/view/Display$Mode;
-
-    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
-
-    iget v2, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mDensityDpi:I
-
-    iput v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->densityDpi:I
-
-    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
-
-    iget v2, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mDensityDpi:I
-
-    int-to-float v2, v2
-
-    iput v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->xDpi:F
-
-    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
-
-    iget v2, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mDensityDpi:I
-
-    int-to-float v2, v2
-
-    iput v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->yDpi:F
-
-    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
-
-    const-wide/32 v2, 0xfe502a
-
-    iput-wide v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->presentationDeadlineNanos:J
-
-    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
-
-    iput v4, v1, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
-
-    iget v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mFlags:I
-
-    and-int/lit8 v1, v1, 0x1
-
-    if-nez v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
-
-    iget v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
-
-    or-int/lit8 v2, v2, 0x30
-
-    iput v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
-
-    :cond_0
-    iget v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mFlags:I
-
-    and-int/lit8 v1, v1, 0x10
-
-    if-eqz v1, :cond_6
-
-    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
-
-    iget v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
-
-    and-int/lit8 v2, v2, -0x21
-
-    iput v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
-
-    :goto_0
-    iget v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mFlags:I
-
-    and-int/lit8 v1, v1, 0x4
-
-    if-eqz v1, :cond_1
-
-    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
-
-    iget v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
-
-    or-int/lit8 v2, v2, 0x4
-
-    iput v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
-
-    :cond_1
-    iget v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mFlags:I
-
-    and-int/lit8 v1, v1, 0x2
-
-    if-eqz v1, :cond_2
-
-    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
-
-    iget v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
-
-    or-int/lit8 v2, v2, 0x40
-
-    iput v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
-
-    iget v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mFlags:I
-
-    and-int/lit8 v1, v1, 0x1
-
-    if-eqz v1, :cond_2
-
-    const-string/jumbo v1, "portrait"
-
-    const-string/jumbo v2, "persist.demo.remoterotation"
-
-    invoke-static {v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+    .locals 8
 
     const/4 v2, 0x3
 
-    iput v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->rotation:I
+    const/4 v3, 0x2
+
+    const/4 v4, 0x1
+
+    const/4 v1, 0x0
+
+    iget-object v5, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    if-nez v5, :cond_6
+
+    new-instance v5, Lcom/android/server/display/DisplayDeviceInfo;
+
+    invoke-direct {v5}, Lcom/android/server/display/DisplayDeviceInfo;-><init>()V
+
+    iput-object v5, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget-object v5, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget-object v6, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mName:Ljava/lang/String;
+
+    iput-object v6, v5, Lcom/android/server/display/DisplayDeviceInfo;->name:Ljava/lang/String;
+
+    iget-object v5, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    invoke-virtual {p0}, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->getUniqueId()Ljava/lang/String;
+
+    move-result-object v6
+
+    iput-object v6, v5, Lcom/android/server/display/DisplayDeviceInfo;->uniqueId:Ljava/lang/String;
+
+    iget-object v5, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget v6, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mWidth:I
+
+    iput v6, v5, Lcom/android/server/display/DisplayDeviceInfo;->width:I
+
+    iget-object v5, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget v6, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mHeight:I
+
+    iput v6, v5, Lcom/android/server/display/DisplayDeviceInfo;->height:I
+
+    iget-object v5, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget-object v6, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mMode:Landroid/view/Display$Mode;
+
+    invoke-virtual {v6}, Landroid/view/Display$Mode;->getModeId()I
+
+    move-result v6
+
+    iput v6, v5, Lcom/android/server/display/DisplayDeviceInfo;->modeId:I
+
+    iget-object v5, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget-object v6, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mMode:Landroid/view/Display$Mode;
+
+    invoke-virtual {v6}, Landroid/view/Display$Mode;->getModeId()I
+
+    move-result v6
+
+    iput v6, v5, Lcom/android/server/display/DisplayDeviceInfo;->defaultModeId:I
+
+    iget-object v5, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    new-array v6, v4, [Landroid/view/Display$Mode;
+
+    iget-object v7, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mMode:Landroid/view/Display$Mode;
+
+    aput-object v7, v6, v1
+
+    iput-object v6, v5, Lcom/android/server/display/DisplayDeviceInfo;->supportedModes:[Landroid/view/Display$Mode;
+
+    iget-object v5, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget v6, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mDensityDpi:I
+
+    iput v6, v5, Lcom/android/server/display/DisplayDeviceInfo;->densityDpi:I
+
+    iget-object v5, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget v6, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mDensityDpi:I
+
+    int-to-float v6, v6
+
+    iput v6, v5, Lcom/android/server/display/DisplayDeviceInfo;->xDpi:F
+
+    iget-object v5, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget v6, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mDensityDpi:I
+
+    int-to-float v6, v6
+
+    iput v6, v5, Lcom/android/server/display/DisplayDeviceInfo;->yDpi:F
+
+    iget-object v5, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    const-wide/32 v6, 0xfe502a
+
+    iput-wide v6, v5, Lcom/android/server/display/DisplayDeviceInfo;->presentationDeadlineNanos:J
+
+    iget-object v5, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iput v1, v5, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
+
+    iget v5, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mFlags:I
+
+    and-int/lit8 v5, v5, 0x1
+
+    if-nez v5, :cond_0
+
+    iget-object v5, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget v6, v5, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
+
+    or-int/lit8 v6, v6, 0x30
+
+    iput v6, v5, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
+
+    :cond_0
+    iget v5, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mFlags:I
+
+    and-int/lit8 v5, v5, 0x10
+
+    if-eqz v5, :cond_7
+
+    iget-object v5, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget v6, v5, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
+
+    and-int/lit8 v6, v6, -0x21
+
+    iput v6, v5, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
+
+    :goto_0
+    iget v5, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mFlags:I
+
+    and-int/lit8 v5, v5, 0x4
+
+    if-eqz v5, :cond_1
+
+    iget-object v5, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget v6, v5, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
+
+    or-int/lit8 v6, v6, 0x4
+
+    iput v6, v5, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
+
+    :cond_1
+    iget v5, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mFlags:I
+
+    and-int/lit8 v5, v5, 0x2
+
+    if-eqz v5, :cond_2
+
+    iget-object v5, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget v6, v5, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
+
+    or-int/lit8 v6, v6, 0x40
+
+    iput v6, v5, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
+
+    iget v5, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mFlags:I
+
+    and-int/lit8 v5, v5, 0x1
+
+    if-eqz v5, :cond_2
+
+    const-string/jumbo v5, "portrait"
+
+    const-string/jumbo v6, "persist.demo.remoterotation"
+
+    invoke-static {v6}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_2
+
+    iget-object v5, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iput v2, v5, Lcom/android/server/display/DisplayDeviceInfo;->rotation:I
 
     :cond_2
-    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+    iget v5, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mFlags:I
 
-    const/4 v2, 0x5
+    and-int/lit8 v5, v5, 0x20
 
-    iput v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->type:I
+    if-eqz v5, :cond_3
 
-    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+    iget-object v5, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
-    iput v4, v1, Lcom/android/server/display/DisplayDeviceInfo;->touch:I
+    iget v6, v5, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
 
-    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+    or-int/lit16 v6, v6, 0x200
 
-    iget-object v2, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mSurface:Landroid/view/Surface;
-
-    if-eqz v2, :cond_3
-
-    const/4 v0, 0x2
+    iput v6, v5, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
 
     :cond_3
-    iput v0, v1, Lcom/android/server/display/DisplayDeviceInfo;->state:I
+    iget-object v5, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
-    iget v0, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mFlags:I
+    const/4 v6, 0x5
 
-    and-int/lit8 v0, v0, 0x20
+    iput v6, v5, Lcom/android/server/display/DisplayDeviceInfo;->type:I
 
-    if-eqz v0, :cond_4
+    iget-object v5, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
-    iget-object v0, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+    iget v6, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mFlags:I
 
-    iget v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
+    and-int/lit8 v6, v6, 0x40
 
-    const/high16 v2, 0x100000
+    if-nez v6, :cond_8
 
-    or-int/2addr v1, v2
+    :goto_1
+    iput v1, v5, Lcom/android/server/display/DisplayDeviceInfo;->touch:I
 
-    iput v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
+    iget-object v2, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
-    iget-object v0, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mSurface:Landroid/view/Surface;
 
-    iget v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mDisplayState:I
+    if-eqz v1, :cond_9
 
-    iput v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->state:I
+    move v1, v3
+
+    :goto_2
+    iput v1, v2, Lcom/android/server/display/DisplayDeviceInfo;->state:I
+
+    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget v2, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mOwnerUid:I
+
+    iput v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->ownerUid:I
+
+    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget-object v2, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mOwnerPackageName:Ljava/lang/String;
+
+    iput-object v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->ownerPackageName:Ljava/lang/String;
+
+    iget v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mFlags:I
+
+    and-int/lit16 v1, v1, 0x80
+
+    if-eqz v1, :cond_4
+
+    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
+
+    const/high16 v4, 0x100000
+
+    or-int/2addr v2, v4
+
+    iput v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
+
+    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget v2, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mDisplayState:I
+
+    iput v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->state:I
+
+    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mMainDisplayInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    if-eqz v1, :cond_4
+
+    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget-object v2, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mMainDisplayInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget-object v2, v2, Lcom/android/server/display/DisplayDeviceInfo;->hdrCapabilities:Landroid/view/Display$HdrCapabilities;
+
+    iput-object v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->hdrCapabilities:Landroid/view/Display$HdrCapabilities;
 
     :cond_4
-    iget-object v0, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+    iget v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mFlags:I
 
-    iget v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mOwnerUid:I
+    and-int/lit16 v1, v1, 0x100
 
-    iput v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->ownerUid:I
+    if-eqz v1, :cond_5
 
-    iget-object v0, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
-    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mOwnerPackageName:Ljava/lang/String;
+    iget v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
 
-    iput-object v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->ownerPackageName:Ljava/lang/String;
+    const v4, 0x200004
 
-    iget-object v0, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+    or-int/2addr v2, v4
 
-    iget v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mFixedOrientation:I
+    iput v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
 
-    iput v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->fixedOrientation:I
+    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iput v3, v1, Lcom/android/server/display/DisplayDeviceInfo;->state:I
+
+    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mMainDisplayInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    if-eqz v1, :cond_5
+
+    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget v1, v1, Lcom/android/server/display/DisplayDeviceInfo;->rotation:I
+
+    rem-int/lit8 v1, v1, 0x2
+
+    if-nez v1, :cond_a
+
+    const/4 v0, 0x1
+
+    :goto_3
+    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget v1, v1, Lcom/android/server/display/DisplayDeviceInfo;->width:I
+
+    iget-object v2, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mMainDisplayInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget v2, v2, Lcom/android/server/display/DisplayDeviceInfo;->width:I
+
+    if-ne v1, v2, :cond_b
+
+    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget-object v2, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mMainDisplayInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget v2, v2, Lcom/android/server/display/DisplayDeviceInfo;->xDpi:F
+
+    iput v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->xDpi:F
+
+    :goto_4
+    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget v1, v1, Lcom/android/server/display/DisplayDeviceInfo;->height:I
+
+    iget-object v2, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mMainDisplayInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget v2, v2, Lcom/android/server/display/DisplayDeviceInfo;->height:I
+
+    if-ne v1, v2, :cond_d
+
+    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget-object v2, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mMainDisplayInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget v2, v2, Lcom/android/server/display/DisplayDeviceInfo;->yDpi:F
+
+    iput v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->yDpi:F
+
+    :goto_5
+    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget-object v2, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mMainDisplayInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget-object v2, v2, Lcom/android/server/display/DisplayDeviceInfo;->hdrCapabilities:Landroid/view/Display$HdrCapabilities;
+
+    iput-object v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->hdrCapabilities:Landroid/view/Display$HdrCapabilities;
 
     :cond_5
-    iget-object v0, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
-    return-object v0
+    iget v2, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mFixedOrientation:I
+
+    iput v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->fixedOrientation:I
 
     :cond_6
     iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
-    iget v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
+    return-object v1
 
-    or-int/lit16 v2, v2, 0x80
+    :cond_7
+    iget-object v5, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
-    iput v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
+    iget v6, v5, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
 
-    goto :goto_0
+    or-int/lit16 v6, v6, 0x80
+
+    iput v6, v5, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
+
+    goto/16 :goto_0
+
+    :cond_8
+    move v1, v2
+
+    goto/16 :goto_1
+
+    :cond_9
+    move v1, v4
+
+    goto/16 :goto_2
+
+    :cond_a
+    const/4 v0, 0x0
+
+    goto :goto_3
+
+    :cond_b
+    iget-object v2, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mMainDisplayInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget v1, v1, Lcom/android/server/display/DisplayDeviceInfo;->xDpi:F
+
+    iget-object v3, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget v3, v3, Lcom/android/server/display/DisplayDeviceInfo;->width:I
+
+    int-to-float v3, v3
+
+    mul-float/2addr v3, v1
+
+    if-eqz v0, :cond_c
+
+    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mMainDisplayInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget v1, v1, Lcom/android/server/display/DisplayDeviceInfo;->width:I
+
+    :goto_6
+    int-to-float v1, v1
+
+    div-float v1, v3, v1
+
+    iput v1, v2, Lcom/android/server/display/DisplayDeviceInfo;->xDpi:F
+
+    goto :goto_4
+
+    :cond_c
+    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mMainDisplayInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget v1, v1, Lcom/android/server/display/DisplayDeviceInfo;->height:I
+
+    goto :goto_6
+
+    :cond_d
+    iget-object v2, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mMainDisplayInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget v1, v1, Lcom/android/server/display/DisplayDeviceInfo;->yDpi:F
+
+    iget-object v3, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget v3, v3, Lcom/android/server/display/DisplayDeviceInfo;->height:I
+
+    int-to-float v3, v3
+
+    mul-float/2addr v3, v1
+
+    if-eqz v0, :cond_e
+
+    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mMainDisplayInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget v1, v1, Lcom/android/server/display/DisplayDeviceInfo;->height:I
+
+    :goto_7
+    int-to-float v1, v1
+
+    div-float v1, v3, v1
+
+    iput v1, v2, Lcom/android/server/display/DisplayDeviceInfo;->yDpi:F
+
+    goto :goto_5
+
+    :cond_e
+    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mMainDisplayInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget v1, v1, Lcom/android/server/display/DisplayDeviceInfo;->width:I
+
+    goto :goto_7
+.end method
+
+.method public hasStableUniqueId()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
 .end method
 
 .method public performTraversalInTransactionLocked()V
@@ -599,34 +840,25 @@
 
     iget v0, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mDisplayState:I
 
-    if-eq p1, v0, :cond_1
+    if-eq p1, v0, :cond_0
 
     iput p1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mDisplayState:I
 
-    iget v0, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mFlags:I
-
-    and-int/lit8 v0, v0, 0x20
-
-    if-eqz v0, :cond_0
-
-    invoke-direct {p0}, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->updateDeviceInfoLocked()V
-
-    :cond_0
     const/4 v0, 0x1
 
-    if-ne p1, v0, :cond_2
+    if-ne p1, v0, :cond_1
 
     iget-object v0, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mCallback:Lcom/android/server/display/VirtualDisplayAdapter$Callback;
 
     invoke-virtual {v0}, Lcom/android/server/display/VirtualDisplayAdapter$Callback;->dispatchDisplayPaused()V
 
-    :cond_1
+    :cond_0
     :goto_0
     const/4 v0, 0x0
 
     return-object v0
 
-    :cond_2
+    :cond_1
     iget-object v0, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mCallback:Lcom/android/server/display/VirtualDisplayAdapter$Callback;
 
     invoke-virtual {v0}, Lcom/android/server/display/VirtualDisplayAdapter$Callback;->dispatchDisplayResumed()V

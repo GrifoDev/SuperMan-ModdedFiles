@@ -32,55 +32,45 @@
 
 # virtual methods
 .method public onMeteredIfacesChanged([Ljava/lang/String;)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/job/controllers/ConnectivityController$2;->this$0:Lcom/android/server/job/controllers/ConnectivityController;
-
-    const/4 v1, -0x1
-
-    invoke-static {v0, v1}, Lcom/android/server/job/controllers/ConnectivityController;->-wrap0(Lcom/android/server/job/controllers/ConnectivityController;I)V
-
-    return-void
-.end method
-
-.method public onRestrictBackgroundBlacklistChanged(IZ)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/job/controllers/ConnectivityController$2;->this$0:Lcom/android/server/job/controllers/ConnectivityController;
-
-    invoke-static {v0, p1}, Lcom/android/server/job/controllers/ConnectivityController;->-wrap0(Lcom/android/server/job/controllers/ConnectivityController;I)V
+    .locals 0
 
     return-void
 .end method
 
 .method public onRestrictBackgroundChanged(Z)V
-    .locals 2
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/job/controllers/ConnectivityController$2;->this$0:Lcom/android/server/job/controllers/ConnectivityController;
 
     const/4 v1, -0x1
 
-    invoke-static {v0, v1}, Lcom/android/server/job/controllers/ConnectivityController;->-wrap0(Lcom/android/server/job/controllers/ConnectivityController;I)V
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, v2}, Lcom/android/server/job/controllers/ConnectivityController;->-wrap0(Lcom/android/server/job/controllers/ConnectivityController;ILandroid/net/NetworkCapabilities;)V
 
     return-void
 .end method
 
-.method public onRestrictBackgroundWhitelistChanged(IZ)V
-    .locals 1
+.method public onUidPoliciesChanged(II)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/job/controllers/ConnectivityController$2;->this$0:Lcom/android/server/job/controllers/ConnectivityController;
 
-    invoke-static {v0, p1}, Lcom/android/server/job/controllers/ConnectivityController;->-wrap0(Lcom/android/server/job/controllers/ConnectivityController;I)V
+    const/4 v1, 0x0
+
+    invoke-static {v0, p1, v1}, Lcom/android/server/job/controllers/ConnectivityController;->-wrap0(Lcom/android/server/job/controllers/ConnectivityController;ILandroid/net/NetworkCapabilities;)V
 
     return-void
 .end method
 
 .method public onUidRulesChanged(II)V
-    .locals 1
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/job/controllers/ConnectivityController$2;->this$0:Lcom/android/server/job/controllers/ConnectivityController;
 
-    invoke-static {v0, p1}, Lcom/android/server/job/controllers/ConnectivityController;->-wrap0(Lcom/android/server/job/controllers/ConnectivityController;I)V
+    const/4 v1, 0x0
+
+    invoke-static {v0, p1, v1}, Lcom/android/server/job/controllers/ConnectivityController;->-wrap0(Lcom/android/server/job/controllers/ConnectivityController;ILandroid/net/NetworkCapabilities;)V
 
     return-void
 .end method

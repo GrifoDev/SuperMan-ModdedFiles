@@ -40,65 +40,19 @@
 .end method
 
 .method public static applyReducedScreenParamsToInputWindowHandle(Lcom/android/server/input/InputWindowHandle;FFF)V
-    .locals 7
-
-    iget-object v0, p0, Lcom/android/server/input/InputWindowHandle;->touchableRegion:Landroid/graphics/Region;
-
-    sget-object v1, Lcom/android/server/PackageConfigurationController$Tools;->mTmpRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v0, v1}, Landroid/graphics/Region;->getBounds(Landroid/graphics/Rect;)Z
-
-    sget-object v0, Lcom/android/server/PackageConfigurationController$Tools;->mTmpRect:Landroid/graphics/Rect;
-
-    iget v2, v0, Landroid/graphics/Rect;->top:I
-
-    sget-object v0, Lcom/android/server/PackageConfigurationController$Tools;->mTmpRect:Landroid/graphics/Rect;
-
-    iget v4, v0, Landroid/graphics/Rect;->bottom:I
-
-    iget-object v0, p0, Lcom/android/server/input/InputWindowHandle;->touchableRegion:Landroid/graphics/Region;
-
-    invoke-virtual {v0, p1}, Landroid/graphics/Region;->scale(F)V
-
-    iget-object v0, p0, Lcom/android/server/input/InputWindowHandle;->touchableRegion:Landroid/graphics/Region;
-
-    float-to-int v1, p2
-
-    float-to-int v3, p3
-
-    invoke-virtual {v0, v1, v3}, Landroid/graphics/Region;->translate(II)V
-
-    iget-object v0, p0, Lcom/android/server/input/InputWindowHandle;->touchableRegion:Landroid/graphics/Region;
-
-    sget-object v1, Lcom/android/server/PackageConfigurationController$Tools;->mTmpRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v0, v1}, Landroid/graphics/Region;->getBounds(Landroid/graphics/Rect;)Z
-
-    iget-object v0, p0, Lcom/android/server/input/InputWindowHandle;->touchableRegion:Landroid/graphics/Region;
-
-    sget-object v1, Lcom/android/server/PackageConfigurationController$Tools;->mTmpRect:Landroid/graphics/Rect;
-
-    iget v1, v1, Landroid/graphics/Rect;->left:I
-
-    sget-object v3, Lcom/android/server/PackageConfigurationController$Tools;->mTmpRect:Landroid/graphics/Rect;
-
-    iget v3, v3, Landroid/graphics/Rect;->right:I
-
-    sget-object v5, Landroid/graphics/Region$Op;->UNION:Landroid/graphics/Region$Op;
-
-    invoke-virtual/range {v0 .. v5}, Landroid/graphics/Region;->op(IIIILandroid/graphics/Region$Op;)Z
+    .locals 5
 
     sget-object v0, Lcom/android/server/PackageConfigurationController$Tools;->mTmpRect:Landroid/graphics/Rect;
 
     iget v1, p0, Lcom/android/server/input/InputWindowHandle;->frameLeft:I
 
-    iget v3, p0, Lcom/android/server/input/InputWindowHandle;->frameTop:I
+    iget v2, p0, Lcom/android/server/input/InputWindowHandle;->frameTop:I
 
-    iget v5, p0, Lcom/android/server/input/InputWindowHandle;->frameRight:I
+    iget v3, p0, Lcom/android/server/input/InputWindowHandle;->frameRight:I
 
-    iget v6, p0, Lcom/android/server/input/InputWindowHandle;->frameBottom:I
+    iget v4, p0, Lcom/android/server/input/InputWindowHandle;->frameBottom:I
 
-    invoke-virtual {v0, v1, v3, v5, v6}, Landroid/graphics/Rect;->set(IIII)V
+    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/Rect;->set(IIII)V
 
     sget-object v0, Lcom/android/server/PackageConfigurationController$Tools;->mTmpRect:Landroid/graphics/Rect;
 
@@ -108,9 +62,9 @@
 
     float-to-int v1, p2
 
-    float-to-int v3, p3
+    float-to-int v2, p3
 
-    invoke-virtual {v0, v1, v3}, Landroid/graphics/Rect;->offset(II)V
+    invoke-virtual {v0, v1, v2}, Landroid/graphics/Rect;->offset(II)V
 
     sget-object v0, Lcom/android/server/PackageConfigurationController$Tools;->mTmpRect:Landroid/graphics/Rect;
 

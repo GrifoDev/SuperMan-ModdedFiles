@@ -4,11 +4,15 @@
 
 
 # static fields
+.field private static final SYSTEM_TZ_DATA_FILE:Ljava/io/File;
+
 .field private static final TAG:Ljava/lang/String; = "TZDataInstallReceiver"
+
+.field private static final TIME_ZONE_UPDATED_SETTINGS_DB_NAME:Ljava/lang/String; = "time_zone_db_auto_updated"
 
 .field private static final TZ_DATA_DIR:Ljava/io/File;
 
-.field private static final UPDATE_CONTENT_FILE_NAME:Ljava/lang/String; = "tzdata_bundle.zip"
+.field private static final UPDATE_CONTENT_FILE_NAME:Ljava/lang/String; = "tzdata_distro.zip"
 
 .field private static final UPDATE_DIR_NAME:Ljava/lang/String;
 
@@ -18,22 +22,22 @@
 
 
 # instance fields
-.field private final installer:Llibcore/tzdata/update/TzDataBundleInstaller;
+.field private final installer:Llibcore/tzdata/update2/TimeZoneDistroInstaller;
 
 .field private mContext:Landroid/content/Context;
 
 
 # direct methods
-.method static synthetic -get0(Lcom/android/server/updates/TzDataInstallReceiver;)Landroid/content/Context;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/updates/TzDataInstallReceiver;->mContext:Landroid/content/Context;
-
-    return-object v0
-.end method
-
 .method static constructor <clinit>()V
     .locals 2
+
+    new-instance v0, Ljava/io/File;
+
+    const-string/jumbo v1, "/system/usr/share/zoneinfo/tzdata"
+
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    sput-object v0, Lcom/android/server/updates/TzDataInstallReceiver;->SYSTEM_TZ_DATA_FILE:Ljava/io/File;
 
     new-instance v0, Ljava/io/File;
 
@@ -77,7 +81,7 @@
 
     sget-object v0, Lcom/android/server/updates/TzDataInstallReceiver;->UPDATE_DIR_NAME:Ljava/lang/String;
 
-    const-string/jumbo v1, "tzdata_bundle.zip"
+    const-string/jumbo v1, "tzdata_distro.zip"
 
     const-string/jumbo v2, "metadata/"
 
@@ -85,15 +89,17 @@
 
     invoke-direct {p0, v0, v1, v2, v3}, Lcom/android/server/updates/ConfigUpdateInstallReceiver;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v0, Llibcore/tzdata/update/TzDataBundleInstaller;
+    new-instance v0, Llibcore/tzdata/update2/TimeZoneDistroInstaller;
 
     const-string/jumbo v1, "TZDataInstallReceiver"
 
-    sget-object v2, Lcom/android/server/updates/TzDataInstallReceiver;->TZ_DATA_DIR:Ljava/io/File;
+    sget-object v2, Lcom/android/server/updates/TzDataInstallReceiver;->SYSTEM_TZ_DATA_FILE:Ljava/io/File;
 
-    invoke-direct {v0, v1, v2}, Llibcore/tzdata/update/TzDataBundleInstaller;-><init>(Ljava/lang/String;Ljava/io/File;)V
+    sget-object v3, Lcom/android/server/updates/TzDataInstallReceiver;->TZ_DATA_DIR:Ljava/io/File;
 
-    iput-object v0, p0, Lcom/android/server/updates/TzDataInstallReceiver;->installer:Llibcore/tzdata/update/TzDataBundleInstaller;
+    invoke-direct {v0, v1, v2, v3}, Llibcore/tzdata/update2/TimeZoneDistroInstaller;-><init>(Ljava/lang/String;Ljava/io/File;Ljava/io/File;)V
+
+    iput-object v0, p0, Lcom/android/server/updates/TzDataInstallReceiver;->installer:Llibcore/tzdata/update2/TimeZoneDistroInstaller;
 
     return-void
 .end method
@@ -108,9 +114,9 @@
         }
     .end annotation
 
-    iget-object v1, p0, Lcom/android/server/updates/TzDataInstallReceiver;->installer:Llibcore/tzdata/update/TzDataBundleInstaller;
+    iget-object v1, p0, Lcom/android/server/updates/TzDataInstallReceiver;->installer:Llibcore/tzdata/update2/TimeZoneDistroInstaller;
 
-    invoke-virtual {v1, p1}, Llibcore/tzdata/update/TzDataBundleInstaller;->install([B)Z
+    invoke-virtual {v1, p1}, Llibcore/tzdata/update2/TimeZoneDistroInstaller;->install([B)Z
 
     move-result v0
 
@@ -140,7 +146,17 @@
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/server/updates/TzDataInstallReceiver;->rebootSystem()V
+    iget-object v1, p0, Lcom/android/server/updates/TzDataInstallReceiver;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "time_zone_db_auto_updated"
+
+    const/4 v3, 0x1
+
+    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     :cond_0
     return-void
@@ -156,22 +172,6 @@
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/server/updates/TzDataInstallReceiver;->mContext:Landroid/content/Context;
-
-    return-void
-.end method
-
-.method rebootSystem()V
-    .locals 2
-
-    new-instance v0, Lcom/android/server/updates/TzDataInstallReceiver$1;
-
-    invoke-direct {v0, p0}, Lcom/android/server/updates/TzDataInstallReceiver$1;-><init>(Lcom/android/server/updates/TzDataInstallReceiver;)V
-
-    new-instance v1, Ljava/lang/Thread;
-
-    invoke-direct {v1, v0}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
-
-    invoke-virtual {v1}, Ljava/lang/Thread;->start()V
 
     return-void
 .end method

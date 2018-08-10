@@ -14,12 +14,20 @@
 .end annotation
 
 
+# static fields
+.field public static final DEFAULT_SUSPICIOUS_TIME_THRESHOLD:J = 0x2710L
+
+.field public static volatile SUSPICIOUS_TIME_THRESHOLD:J
+
+
 # instance fields
 .field public isExact:Z
 
 .field public isIntervalChanged:Z
 
 .field public isPassedAlarm:Z
+
+.field private isSuspiciousAlarm:Z
 
 .field public isWhitelist:Z
 
@@ -33,6 +41,16 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 2
+
+    const-wide/16 v0, 0x2710
+
+    sput-wide v0, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->SUSPICIOUS_TIME_THRESHOLD:J
+
+    return-void
+.end method
+
 .method public constructor <init>(Lcom/android/server/AlarmManagerService$Alarm;)V
     .locals 23
 
@@ -201,7 +219,7 @@
 
     if-eqz v2, :cond_2
 
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
     move-result-object v2
 
@@ -225,6 +243,12 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_3
+    const/4 v2, 0x1
+
+    move-object/from16 v0, p0
+
+    iput-boolean v2, v0, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->isSuspiciousAlarm:Z
+
     return-void
 
     :cond_0
@@ -281,12 +305,37 @@
 
 
 # virtual methods
+.method public checkSuspiciousAlarm(J)V
+    .locals 3
+
+    sget-wide v0, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->SUSPICIOUS_TIME_THRESHOLD:J
+
+    cmp-long v0, p1, v0
+
+    if-gez v0, :cond_0
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->isSuspiciousAlarm:Z
+
+    :cond_0
+    return-void
+.end method
+
 .method public bridge synthetic dump(Ljava/io/PrintWriter;Ljava/lang/String;JJLjava/text/SimpleDateFormat;)V
     .locals 1
 
     invoke-super/range {p0 .. p7}, Lcom/android/server/AlarmManagerService$Alarm;->dump(Ljava/io/PrintWriter;Ljava/lang/String;JJLjava/text/SimpleDateFormat;)V
 
     return-void
+.end method
+
+.method public isSuspiciousAlarm()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->isSuspiciousAlarm:Z
+
+    return v0
 .end method
 
 .method public bridge synthetic makeWakeupEvent(J)Lcom/android/server/AlarmManagerService$WakeupEvent;
@@ -313,16 +362,6 @@
     .locals 1
 
     invoke-super {p0, p1}, Lcom/android/server/AlarmManagerService$Alarm;->matches(Ljava/lang/String;)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic matches(Ljava/lang/String;I)Z
-    .locals 1
-
-    invoke-super {p0, p1, p2}, Lcom/android/server/AlarmManagerService$Alarm;->matches(Ljava/lang/String;I)Z
 
     move-result v0
 

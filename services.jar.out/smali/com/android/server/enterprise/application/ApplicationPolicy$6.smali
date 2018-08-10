@@ -36,7 +36,7 @@
 
     iget-object v10, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$6;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
 
-    invoke-static {v10, p2}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap6(Lcom/android/server/enterprise/application/ApplicationPolicy;Landroid/content/Intent;)Ljava/lang/String;
+    invoke-static {v10, p2}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap5(Lcom/android/server/enterprise/application/ApplicationPolicy;Landroid/content/Intent;)Ljava/lang/String;
 
     move-result-object v4
 
@@ -79,7 +79,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_2
+    if-eqz v10, :cond_5
 
     iget-object v10, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$6;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
 
@@ -91,6 +91,14 @@
 
     move-result-object v7
 
+    const-string/jumbo v10, "android.intent.extra.REPLACING"
+
+    const/4 v11, 0x0
+
+    invoke-virtual {p2, v10, v11}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result v2
+
     invoke-interface {v7}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v6
@@ -101,7 +109,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_3
+    if-eqz v10, :cond_2
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -131,25 +139,19 @@
 
     const-string/jumbo v11, "applicationUninstallationCount"
 
-    invoke-static {v10, v5, v4, v11}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap18(Lcom/android/server/enterprise/application/ApplicationPolicy;ILjava/lang/String;Ljava/lang/String;)V
-
-    const-string/jumbo v10, "android.intent.extra.REPLACING"
-
-    const/4 v11, 0x0
-
-    invoke-virtual {p2, v10, v11}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
-
-    move-result v2
+    invoke-static {v10, v5, v4, v11}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap20(Lcom/android/server/enterprise/application/ApplicationPolicy;ILjava/lang/String;Ljava/lang/String;)V
 
     if-nez v2, :cond_0
 
     iget-object v10, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$6;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
 
-    invoke-static {v10, v4}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap2(Lcom/android/server/enterprise/application/ApplicationPolicy;Ljava/lang/String;)Z
+    invoke-static {v10, v4}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap1(Lcom/android/server/enterprise/application/ApplicationPolicy;Ljava/lang/String;)Z
 
     move-result v10
 
-    if-nez v10, :cond_0
+    xor-int/lit8 v10, v10, 0x1
+
+    if-eqz v10, :cond_0
 
     iget-object v10, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$6;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
 
@@ -157,7 +159,21 @@
 
     const/4 v12, 0x0
 
-    invoke-static {v10, v4, v5, v11, v12}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap3(Lcom/android/server/enterprise/application/ApplicationPolicy;Ljava/lang/String;IIZ)Z
+    invoke-static {v10, v4, v5, v11, v12}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap2(Lcom/android/server/enterprise/application/ApplicationPolicy;Ljava/lang/String;IIZ)Z
+
+    iget-object v10, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$6;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
+
+    const/high16 v11, 0x1000000
+
+    const/4 v12, 0x0
+
+    invoke-static {v10, v4, v5, v11, v12}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap2(Lcom/android/server/enterprise/application/ApplicationPolicy;Ljava/lang/String;IIZ)Z
+
+    const-string/jumbo v10, "ApplicationPolicy"
+
+    const-string/jumbo v11, "App removed, clear masks"
+
+    invoke-static {v10, v11}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -173,16 +189,35 @@
     return-void
 
     :cond_2
-    :try_start_1
-    const-string/jumbo v10, "android.intent.action.PACKAGE_CHANGED"
+    if-nez v2, :cond_3
 
-    invoke-virtual {v3, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :try_start_1
+    iget-object v10, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$6;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
+
+    invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
+
+    move-result-object v11
+
+    invoke-static {v10, v11}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap0(Lcom/android/server/enterprise/application/ApplicationPolicy;Landroid/os/Bundle;)Z
 
     move-result v10
 
-    if-eqz v10, :cond_4
+    xor-int/lit8 v10, v10, 0x1
+
+    if-eqz v10, :cond_3
+
+    iget-object v10, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$6;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
+
+    invoke-static {v10, v4}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap16(Lcom/android/server/enterprise/application/ApplicationPolicy;Ljava/lang/String;)V
 
     :cond_3
+    if-nez v2, :cond_4
+
+    iget-object v10, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$6;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
+
+    invoke-static {v10, v4, v9}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap12(Lcom/android/server/enterprise/application/ApplicationPolicy;Ljava/lang/String;I)V
+
+    :cond_4
     :goto_2
     const-string/jumbo v10, "android.intent.action.PACKAGE_REMOVED"
 
@@ -196,22 +231,49 @@
 
     iget-object v11, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$6;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
 
-    invoke-static {v11, v4, v9}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap7(Lcom/android/server/enterprise/application/ApplicationPolicy;Ljava/lang/String;I)Ljava/util/List;
+    invoke-static {v11, v4, v9}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap6(Lcom/android/server/enterprise/application/ApplicationPolicy;Ljava/lang/String;I)Ljava/util/List;
 
     move-result-object v11
 
-    invoke-static {v10, v11, v9}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap16(Lcom/android/server/enterprise/application/ApplicationPolicy;Ljava/util/List;I)V
+    invoke-static {v10, v11, v9}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap18(Lcom/android/server/enterprise/application/ApplicationPolicy;Ljava/util/List;I)V
 
     goto :goto_1
 
-    :cond_4
+    :cond_5
+    const-string/jumbo v10, "android.intent.action.PACKAGE_CHANGED"
+
+    invoke-virtual {v3, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_6
+
+    iget-object v10, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$6;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
+
+    invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
+
+    move-result-object v11
+
+    invoke-static {v10, v11}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap0(Lcom/android/server/enterprise/application/ApplicationPolicy;Landroid/os/Bundle;)Z
+
+    move-result v10
+
+    if-nez v10, :cond_4
+
+    iget-object v10, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$6;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
+
+    invoke-static {v10, v4, v9}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap15(Lcom/android/server/enterprise/application/ApplicationPolicy;Ljava/lang/String;I)V
+
+    goto :goto_2
+
+    :cond_6
     const-string/jumbo v10, "android.intent.action.PACKAGE_ADDED"
 
     invoke-virtual {v3, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v10
 
-    if-eqz v10, :cond_7
+    if-eqz v10, :cond_b
 
     iget-object v10, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$6;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
 
@@ -227,13 +289,13 @@
 
     move-result-object v6
 
-    :cond_5
+    :cond_7
     :goto_3
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v10
 
-    if-eqz v10, :cond_6
+    if-eqz v10, :cond_8
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -257,13 +319,13 @@
 
     move-result-object v10
 
-    if-eqz v10, :cond_5
+    if-eqz v10, :cond_7
 
     iget-object v10, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$6;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
 
     const-string/jumbo v11, "applicationInstallationCount"
 
-    invoke-static {v10, v5, v4, v11}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap18(Lcom/android/server/enterprise/application/ApplicationPolicy;ILjava/lang/String;Ljava/lang/String;)V
+    invoke-static {v10, v5, v4, v11}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap20(Lcom/android/server/enterprise/application/ApplicationPolicy;ILjava/lang/String;Ljava/lang/String;)V
 
     const-string/jumbo v10, "ApplicationPolicy"
 
@@ -273,29 +335,51 @@
 
     goto :goto_3
 
-    :cond_6
+    :cond_8
     iget-object v10, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$6;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
 
-    invoke-static {v10, v4}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap2(Lcom/android/server/enterprise/application/ApplicationPolicy;Ljava/lang/String;)Z
+    invoke-static {v10, v4}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap1(Lcom/android/server/enterprise/application/ApplicationPolicy;Ljava/lang/String;)Z
 
     move-result v10
 
-    if-eqz v10, :cond_3
+    if-eqz v10, :cond_9
 
     iget-object v10, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$6;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
 
-    invoke-static {v10, v4}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap19(Lcom/android/server/enterprise/application/ApplicationPolicy;Ljava/lang/String;)V
+    invoke-static {v10, v4}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap21(Lcom/android/server/enterprise/application/ApplicationPolicy;Ljava/lang/String;)V
 
-    goto :goto_2
+    :cond_9
+    iget-object v10, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$6;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
 
-    :cond_7
+    invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
+
+    move-result-object v11
+
+    invoke-static {v10, v11}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap0(Lcom/android/server/enterprise/application/ApplicationPolicy;Landroid/os/Bundle;)Z
+
+    move-result v10
+
+    if-nez v10, :cond_a
+
+    iget-object v10, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$6;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
+
+    invoke-static {v10, v4, v9}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap15(Lcom/android/server/enterprise/application/ApplicationPolicy;Ljava/lang/String;I)V
+
+    :cond_a
+    iget-object v10, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$6;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
+
+    invoke-static {v10, v4, v9}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap11(Lcom/android/server/enterprise/application/ApplicationPolicy;Ljava/lang/String;I)V
+
+    goto/16 :goto_2
+
+    :cond_b
     const-string/jumbo v10, "android.intent.action.PACKAGE_REPLACED"
 
     invoke-virtual {v3, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v10
 
-    if-eqz v10, :cond_3
+    if-eqz v10, :cond_4
 
     const-string/jumbo v10, "com.sec.enterprise.knox.express"
 
@@ -303,11 +387,11 @@
 
     move-result v10
 
-    if-eqz v10, :cond_3
+    if-eqz v10, :cond_4
 
     iget-object v10, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$6;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
 
-    invoke-static {v10}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap9(Lcom/android/server/enterprise/application/ApplicationPolicy;)V
+    invoke-static {v10}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap7(Lcom/android/server/enterprise/application/ApplicationPolicy;)V
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 

@@ -48,8 +48,16 @@
 
     goto :goto_0
 
+    :pswitch_1
+    iget-object v0, p0, Lcom/android/server/am/UserSwitchingDialog$1;->this$0:Lcom/android/server/am/UserSwitchingDialog;
+
+    invoke-virtual {v0}, Lcom/android/server/am/UserSwitchingDialog;->dismiss()V
+
+    goto :goto_0
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method

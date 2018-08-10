@@ -51,3 +51,6 @@
         }
     .end annotation
 .end method
+
+.method public abstract updateServices(I)V
+.end method

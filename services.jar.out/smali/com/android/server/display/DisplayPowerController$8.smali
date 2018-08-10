@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/display/DisplayPowerController;->dump(Ljava/io/PrintWriter;)V
+    value = Lcom/android/server/display/DisplayPowerController;->updatePowerState()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,16 +20,12 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/display/DisplayPowerController;
 
-.field final synthetic val$pw:Ljava/io/PrintWriter;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/server/display/DisplayPowerController;Ljava/io/PrintWriter;)V
+.method constructor <init>(Lcom/android/server/display/DisplayPowerController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/display/DisplayPowerController$8;->this$0:Lcom/android/server/display/DisplayPowerController;
-
-    iput-object p2, p0, Lcom/android/server/display/DisplayPowerController$8;->val$pw:Ljava/io/PrintWriter;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,9 +39,9 @@
 
     iget-object v0, p0, Lcom/android/server/display/DisplayPowerController$8;->this$0:Lcom/android/server/display/DisplayPowerController;
 
-    iget-object v1, p0, Lcom/android/server/display/DisplayPowerController$8;->val$pw:Ljava/io/PrintWriter;
+    const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/server/display/DisplayPowerController;->-wrap2(Lcom/android/server/display/DisplayPowerController;Ljava/io/PrintWriter;)V
+    invoke-static {v0, v1}, Lcom/android/server/display/DisplayPowerController;->-set2(Lcom/android/server/display/DisplayPowerController;Z)Z
 
     return-void
 .end method

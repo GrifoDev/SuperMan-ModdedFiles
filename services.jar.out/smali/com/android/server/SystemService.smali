@@ -85,6 +85,20 @@
     return-object v0
 .end method
 
+.method public final getUiContext()Landroid/content/Context;
+    .locals 1
+
+    invoke-static {}, Landroid/app/ActivityThread;->currentActivityThread()Landroid/app/ActivityThread;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/ActivityThread;->getSystemUiContext()Landroid/app/ContextImpl;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public final isSafeMode()Z
     .locals 1
 

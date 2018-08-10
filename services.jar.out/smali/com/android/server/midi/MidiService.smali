@@ -1600,16 +1600,21 @@
 .end method
 
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .locals 8
+    .locals 7
 
     iget-object v5, p0, Lcom/android/server/midi/MidiService;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v6, "android.permission.DUMP"
+    const-string/jumbo v6, "MidiService"
 
-    const-string/jumbo v7, "MidiService"
+    invoke-static {v5, v6, p2}, Lcom/android/internal/util/DumpUtils;->checkDumpPermission(Landroid/content/Context;Ljava/lang/String;Ljava/io/PrintWriter;)Z
 
-    invoke-virtual {v5, v6, v7}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+    move-result v5
 
+    if-nez v5, :cond_0
+
+    return-void
+
+    :cond_0
     new-instance v4, Lcom/android/internal/util/IndentingPrintWriter;
 
     const-string/jumbo v5, "  "
@@ -1648,7 +1653,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_1
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1673,7 +1678,7 @@
 
     throw v5
 
-    :cond_0
+    :cond_1
     monitor-exit v6
 
     invoke-virtual {v4}, Lcom/android/internal/util/IndentingPrintWriter;->decreaseIndent()V
@@ -1704,7 +1709,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_2
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1729,7 +1734,7 @@
 
     throw v5
 
-    :cond_1
+    :cond_2
     monitor-exit v6
 
     invoke-virtual {v4}, Lcom/android/internal/util/IndentingPrintWriter;->decreaseIndent()V

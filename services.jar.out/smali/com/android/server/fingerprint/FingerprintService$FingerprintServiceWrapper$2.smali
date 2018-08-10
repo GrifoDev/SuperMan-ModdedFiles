@@ -39,13 +39,13 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 6
 
     iget-object v1, p0, Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper$2;->this$1:Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper;
 
     iget-object v1, v1, Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper;->this$0:Lcom/android/server/fingerprint/FingerprintService;
 
-    invoke-static {v1}, Lcom/android/server/fingerprint/FingerprintService;->-get1(Lcom/android/server/fingerprint/FingerprintService;)Lcom/android/server/fingerprint/ClientMonitor;
+    invoke-static {v1}, Lcom/android/server/fingerprint/FingerprintService;->-get3(Lcom/android/server/fingerprint/FingerprintService;)Lcom/android/server/fingerprint/ClientMonitor;
 
     move-result-object v0
 
@@ -65,7 +65,7 @@
 
     iget-object v1, v1, Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper;->this$0:Lcom/android/server/fingerprint/FingerprintService;
 
-    invoke-static {v1}, Lcom/android/server/fingerprint/FingerprintService;->-get10(Lcom/android/server/fingerprint/FingerprintService;)Ljava/lang/Object;
+    invoke-static {v1}, Lcom/android/server/fingerprint/FingerprintService;->-get23(Lcom/android/server/fingerprint/FingerprintService;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -78,7 +78,11 @@
 
     const/4 v3, 0x1
 
-    invoke-static {v1, v3}, Lcom/android/server/fingerprint/FingerprintService;->-wrap19(Lcom/android/server/fingerprint/FingerprintService;Z)V
+    const/4 v4, 0x0
+
+    const/4 v5, -0x1
+
+    invoke-static {v1, v3, v4, v5}, Lcom/android/server/fingerprint/FingerprintService;->-wrap15(Lcom/android/server/fingerprint/FingerprintService;ZZI)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

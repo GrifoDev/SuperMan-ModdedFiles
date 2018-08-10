@@ -34,9 +34,9 @@
 .end method
 
 .method public process(Lcom/android/server/notification/NotificationRecord;)Lcom/android/server/notification/RankingReconsideration;
-    .locals 4
+    .locals 2
 
-    const/4 v3, 0x0
+    const/4 v1, 0x0
 
     if-eqz p1, :cond_0
 
@@ -47,37 +47,37 @@
     if-nez v0, :cond_1
 
     :cond_0
-    return-object v3
+    return-object v1
 
     :cond_1
     iget-object v0, p0, Lcom/android/server/notification/PriorityExtractor;->mConfig:Lcom/android/server/notification/RankingConfig;
 
     if-nez v0, :cond_2
 
-    return-object v3
+    return-object v1
 
     :cond_2
-    iget-object v0, p0, Lcom/android/server/notification/PriorityExtractor;->mConfig:Lcom/android/server/notification/RankingConfig;
+    invoke-virtual {p1}, Lcom/android/server/notification/NotificationRecord;->getChannel()Landroid/app/NotificationChannel;
 
-    iget-object v1, p1, Lcom/android/server/notification/NotificationRecord;->sbn:Landroid/service/notification/StatusBarNotification;
+    move-result-object v0
 
-    invoke-virtual {v1}, Landroid/service/notification/StatusBarNotification;->getPackageName()Ljava/lang/String;
-
-    move-result-object v1
-
-    iget-object v2, p1, Lcom/android/server/notification/NotificationRecord;->sbn:Landroid/service/notification/StatusBarNotification;
-
-    invoke-virtual {v2}, Landroid/service/notification/StatusBarNotification;->getUid()I
-
-    move-result v2
-
-    invoke-interface {v0, v1, v2}, Lcom/android/server/notification/RankingConfig;->getPriority(Ljava/lang/String;I)I
+    invoke-virtual {v0}, Landroid/app/NotificationChannel;->canBypassDnd()Z
 
     move-result v0
 
+    if-eqz v0, :cond_3
+
+    const/4 v0, 0x2
+
+    :goto_0
     invoke-virtual {p1, v0}, Lcom/android/server/notification/NotificationRecord;->setPackagePriority(I)V
 
-    return-object v3
+    return-object v1
+
+    :cond_3
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public setConfig(Lcom/android/server/notification/RankingConfig;)V

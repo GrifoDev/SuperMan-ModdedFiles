@@ -115,7 +115,7 @@
 
     invoke-virtual {v8}, Ljava/io/File;->delete()Z
 
-    invoke-static {}, Lcom/android/server/enterprise/sso/GenericSSOService;->-get8()Landroid/util/SparseArray;
+    invoke-static {}, Lcom/android/server/enterprise/sso/GenericSSOService;->-get6()Landroid/util/SparseArray;
 
     move-result-object v11
 
@@ -124,7 +124,7 @@
     const/4 v7, 0x0
 
     :goto_1
-    invoke-static {}, Lcom/android/server/enterprise/sso/GenericSSOService;->-get8()Landroid/util/SparseArray;
+    invoke-static {}, Lcom/android/server/enterprise/sso/GenericSSOService;->-get6()Landroid/util/SparseArray;
 
     move-result-object v11
 
@@ -134,7 +134,7 @@
 
     if-ge v7, v11, :cond_3
 
-    invoke-static {}, Lcom/android/server/enterprise/sso/GenericSSOService;->-get8()Landroid/util/SparseArray;
+    invoke-static {}, Lcom/android/server/enterprise/sso/GenericSSOService;->-get6()Landroid/util/SparseArray;
 
     move-result-object v11
 
@@ -142,7 +142,7 @@
 
     move-result v10
 
-    invoke-static {}, Lcom/android/server/enterprise/sso/GenericSSOService;->-get8()Landroid/util/SparseArray;
+    invoke-static {}, Lcom/android/server/enterprise/sso/GenericSSOService;->-get6()Landroid/util/SparseArray;
 
     move-result-object v11
 

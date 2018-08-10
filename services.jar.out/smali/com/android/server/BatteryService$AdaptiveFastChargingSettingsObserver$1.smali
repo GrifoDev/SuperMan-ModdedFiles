@@ -43,7 +43,7 @@
 
     iget-object v2, v2, Lcom/android/server/BatteryService$AdaptiveFastChargingSettingsObserver;->this$0:Lcom/android/server/BatteryService;
 
-    invoke-static {v2}, Lcom/android/server/BatteryService;->-get18(Lcom/android/server/BatteryService;)Ljava/lang/Object;
+    invoke-static {v2}, Lcom/android/server/BatteryService;->-get19(Lcom/android/server/BatteryService;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -54,7 +54,7 @@
 
     iget-object v3, v3, Lcom/android/server/BatteryService$AdaptiveFastChargingSettingsObserver;->this$0:Lcom/android/server/BatteryService;
 
-    invoke-static {v3}, Lcom/android/server/BatteryService;->-get9(Lcom/android/server/BatteryService;)Landroid/content/Context;
+    invoke-static {v3}, Lcom/android/server/BatteryService;->-get10(Lcom/android/server/BatteryService;)Landroid/content/Context;
 
     move-result-object v3
 
@@ -99,7 +99,7 @@
 
     iget-object v4, v4, Lcom/android/server/BatteryService$AdaptiveFastChargingSettingsObserver;->this$0:Lcom/android/server/BatteryService;
 
-    invoke-static {v4}, Lcom/android/server/BatteryService;->-get2(Lcom/android/server/BatteryService;)Z
+    invoke-static {v4}, Lcom/android/server/BatteryService;->-get3(Lcom/android/server/BatteryService;)Z
 
     move-result v4
 
@@ -121,7 +121,7 @@
 
     iget-object v3, v3, Lcom/android/server/BatteryService$AdaptiveFastChargingSettingsObserver;->this$0:Lcom/android/server/BatteryService;
 
-    invoke-static {v3}, Lcom/android/server/BatteryService;->-get2(Lcom/android/server/BatteryService;)Z
+    invoke-static {v3}, Lcom/android/server/BatteryService;->-get3(Lcom/android/server/BatteryService;)Z
 
     move-result v3
 

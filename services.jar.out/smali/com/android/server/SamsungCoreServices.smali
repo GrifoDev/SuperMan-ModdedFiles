@@ -194,38 +194,6 @@
     return-object v0
 .end method
 
-.method public static getHorizontalModeService()Lcom/android/server/wm/HorizontalModeService;
-    .locals 2
-
-    sget-object v0, Lcom/android/server/SamsungCoreServices;->sCoreServicesCreator:Lcom/android/server/SamsungCoreServices$ISamsungCoreServicesCreator;
-
-    sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_HORIZONTAL_MODE_SERVICE:Lcom/android/server/SamsungCoreServices$ServiceTag;
-
-    invoke-interface {v0, v1}, Lcom/android/server/SamsungCoreServices$ISamsungCoreServicesCreator;->getService(Lcom/android/server/SamsungCoreServices$ServiceTag;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/server/wm/HorizontalModeService;
-
-    return-object v0
-.end method
-
-.method public static getMultiScreenService()Lcom/android/server/am/IMultiScreenManagerServiceBridge;
-    .locals 2
-
-    sget-object v0, Lcom/android/server/SamsungCoreServices;->sCoreServicesCreator:Lcom/android/server/SamsungCoreServices$ISamsungCoreServicesCreator;
-
-    sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_MULTISCREEN_MANAGER_SERVICE:Lcom/android/server/SamsungCoreServices$ServiceTag;
-
-    invoke-interface {v0, v1}, Lcom/android/server/SamsungCoreServices$ISamsungCoreServicesCreator;->getService(Lcom/android/server/SamsungCoreServices$ServiceTag;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/server/am/IMultiScreenManagerServiceBridge;
-
-    return-object v0
-.end method
-
 .method public static getMultitapKeyManager()Ljava/lang/Object;
     .locals 2
 
@@ -252,22 +220,6 @@
     move-result-object v0
 
     check-cast v0, Lcom/android/server/PackageConfigurationController;
-
-    return-object v0
-.end method
-
-.method public static getReduceScreenPolicy()Lcom/android/server/policy/ReduceScreenPolicy;
-    .locals 2
-
-    sget-object v0, Lcom/android/server/SamsungCoreServices;->sCoreServicesCreator:Lcom/android/server/SamsungCoreServices$ISamsungCoreServicesCreator;
-
-    sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_REDUCE_SCREEN_MANAGER:Lcom/android/server/SamsungCoreServices$ServiceTag;
-
-    invoke-interface {v0, v1}, Lcom/android/server/SamsungCoreServices$ISamsungCoreServicesCreator;->getService(Lcom/android/server/SamsungCoreServices$ServiceTag;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/server/policy/ReduceScreenPolicy;
 
     return-object v0
 .end method

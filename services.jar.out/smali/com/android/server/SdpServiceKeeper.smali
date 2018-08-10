@@ -12,9 +12,11 @@
 
 
 # static fields
-.field private static final SDP_LICENSE_PERMISSION:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_SDP"
+.field private static final SDP_LICENSE_PERMISSION:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_SENSITIVE_DATA_PROTECTION"
 
 .field private static final SDP_LICENSE_PERMISSION_OLD:Ljava/lang/String; = "com.sec.enterprise.permission.KNOX_SDP"
+
+.field private static final SYSTEM_PACKAGE_NAME:Ljava/lang/String; = "android"
 
 .field private static final TAG:Ljava/lang/String; = "SdpServiceKeeper"
 
@@ -160,50 +162,58 @@
 .end method
 
 .method private checkPermission(Landroid/content/Context;)Z
-    .locals 5
+    .locals 1
 
-    const/4 v2, 0x0
+    if-eqz p1, :cond_1
+
+    const-string/jumbo v0, "com.samsung.android.knox.permission.KNOX_SENSITIVE_DATA_PROTECTION"
+
+    invoke-direct {p0, p1, v0}, Lcom/android/server/SdpServiceKeeper;->enforceCallingPermission(Landroid/content/Context;Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-string/jumbo v0, "com.sec.enterprise.permission.KNOX_SDP"
+
+    invoke-direct {p0, p1, v0}, Lcom/android/server/SdpServiceKeeper;->enforceCallingPermission(Landroid/content/Context;Ljava/lang/String;)Z
+
+    move-result v0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method private enforceCallingPermission(Landroid/content/Context;Ljava/lang/String;)Z
+    .locals 2
+
+    const/4 v1, 0x0
 
     :try_start_0
-    const-string/jumbo v3, "com.samsung.android.knox.permission.KNOX_SDP"
-
-    const/4 v4, 0x0
-
-    invoke-virtual {p1, v3, v4}, Landroid/content/Context;->enforceCallingPermission(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p1, p2, v1}, Landroid/content/Context;->enforceCallingPermission(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    :goto_0
-    return v2
+    return v1
 
     :catch_0
     move-exception v0
 
-    :try_start_1
-    const-string/jumbo v3, "com.sec.enterprise.permission.KNOX_SDP"
+    const/4 v1, 0x0
 
-    const/4 v4, 0x0
-
-    invoke-virtual {p1, v3, v4}, Landroid/content/Context;->enforceCallingPermission(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_1
-    .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_1} :catch_1
-
-    const/4 v2, 0x1
-
-    goto :goto_0
-
-    :catch_1
-    move-exception v1
-
-    const-string/jumbo v3, "SdpServiceKeeper"
-
-    const-string/jumbo v4, "License validation failed"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
+    return v1
 .end method
 
 .method private getDefaultEngineOwner(Ljava/lang/String;)Lcom/samsung/android/knox/sdp/core/SdpDomain;
@@ -218,47 +228,33 @@
     return-object v0
 .end method
 
-.method private getDeviceOwner()Ljava/lang/String;
-    .locals 3
+.method private getPackageName(Landroid/content/Context;II)Ljava/lang/String;
+    .locals 5
 
-    iget-object v1, p0, Lcom/android/server/SdpServiceKeeper;->mContext:Landroid/content/Context;
+    const/4 v2, 0x0
 
-    const-string/jumbo v2, "device_policy"
+    :try_start_0
+    iget-object v3, p0, Lcom/android/server/SdpServiceKeeper;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    const-string/jumbo v4, "activity"
+
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Landroid/app/admin/DevicePolicyManager;
+    check-cast v0, Landroid/app/ActivityManager;
 
-    invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->getDeviceOwner()Ljava/lang/String;
-
-    move-result-object v1
-
-    return-object v1
-.end method
-
-.method private getPackageName(Landroid/content/Context;II)Ljava/lang/String;
-    .locals 3
-
-    const/4 v1, 0x0
-
-    :try_start_0
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
-
-    move-result-object v2
-
-    invoke-interface {v2, p2}, Landroid/app/IActivityManager;->getPackageFromAppProcesses(I)Ljava/lang/String;
+    invoke-virtual {v0, p2}, Landroid/app/ActivityManager;->getPackageFromAppProcesses(I)Ljava/lang/String;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v1
+    move-result-object v2
 
     :goto_0
-    return-object v1
+    return-object v2
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
     goto :goto_0
 .end method
@@ -343,50 +339,72 @@
 .end method
 
 .method private isSystemApp(Ljava/lang/String;I)Z
-    .locals 5
+    .locals 7
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     if-nez p1, :cond_0
 
-    return v2
+    return v3
 
     :cond_0
     :try_start_0
-    iget-object v3, p0, Lcom/android/server/SdpServiceKeeper;->mPM:Lcom/android/server/pm/PackageManagerService;
+    iget-object v4, p0, Lcom/android/server/SdpServiceKeeper;->mPM:Lcom/android/server/pm/PackageManagerService;
 
-    if-eqz v3, :cond_2
+    if-eqz v4, :cond_2
 
-    iget-object v3, p0, Lcom/android/server/SdpServiceKeeper;->mPM:Lcom/android/server/pm/PackageManagerService;
+    iget-object v4, p0, Lcom/android/server/SdpServiceKeeper;->mPM:Lcom/android/server/pm/PackageManagerService;
 
-    const/4 v4, 0x0
+    const/16 v5, 0x40
 
-    invoke-virtual {v3, p1, v4, p2}, Lcom/android/server/pm/PackageManagerService;->getApplicationInfo(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
+    invoke-virtual {v4, p1, v5, p2}, Lcom/android/server/pm/PackageManagerService;->getPackageInfo(Ljava/lang/String;II)Landroid/content/pm/PackageInfo;
 
-    move-result-object v0
+    move-result-object v2
 
-    if-eqz v0, :cond_2
+    iget-object v4, p0, Lcom/android/server/SdpServiceKeeper;->mPM:Lcom/android/server/pm/PackageManagerService;
 
-    iget v3, v0, Landroid/content/pm/ApplicationInfo;->flags:I
+    const-string/jumbo v5, "android"
+
+    const/16 v6, 0x40
+
+    invoke-virtual {v4, v5, v6, p2}, Lcom/android/server/pm/PackageManagerService;->getPackageInfo(Ljava/lang/String;II)Landroid/content/pm/PackageInfo;
+
+    move-result-object v1
+
+    if-eqz v2, :cond_1
+
+    iget-object v4, v2, Landroid/content/pm/PackageInfo;->signatures:[Landroid/content/pm/Signature;
+
+    if-eqz v4, :cond_1
+
+    iget-object v4, v1, Landroid/content/pm/PackageInfo;->signatures:[Landroid/content/pm/Signature;
+
+    const/4 v5, 0x0
+
+    aget-object v4, v4, v5
+
+    iget-object v5, v2, Landroid/content/pm/PackageInfo;->signatures:[Landroid/content/pm/Signature;
+
+    const/4 v6, 0x0
+
+    aget-object v5, v5, v6
+
+    invoke-virtual {v4, v5}, Landroid/content/pm/Signature;->equals(Ljava/lang/Object;)Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    and-int/lit8 v3, v3, 0x1
-
-    if-eqz v3, :cond_1
-
-    const/4 v2, 0x1
+    move-result v3
 
     :cond_1
-    return v2
+    return v3
 
     :catch_0
-    move-exception v1
+    move-exception v0
 
-    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     :cond_2
-    return v2
+    return v3
 .end method
 
 .method private isSystemServer(Landroid/content/Context;II)Z
@@ -885,7 +903,7 @@
 
     if-nez v5, :cond_0
 
-    invoke-virtual {p4}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getUserId()I
+    invoke-static {p3}, Landroid/os/UserHandle;->getUserId(I)I
 
     move-result v5
 
@@ -1004,147 +1022,102 @@
 .end method
 
 .method public isLicensed(Landroid/content/Context;II)Z
-    .locals 8
+    .locals 9
 
-    const/4 v7, 0x1
+    const/4 v8, 0x1
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/SdpServiceKeeper;->getPackageName(Landroid/content/Context;II)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
     invoke-static {p3}, Landroid/os/UserHandle;->getUserId(I)I
 
+    move-result v2
+
+    const-string/jumbo v3, "SdpServiceKeeper"
+
+    const-string/jumbo v4, "Check permission { Package : %s, PID : %d, UID : %d, UserId : %d }"
+
+    const/4 v5, 0x4
+
+    new-array v5, v5, [Ljava/lang/Object;
+
+    const/4 v6, 0x0
+
+    aput-object v0, v5, v6
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    aput-object v6, v5, v8
+
+    invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    const/4 v7, 0x2
+
+    aput-object v6, v5, v7
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    const/4 v7, 0x3
+
+    aput-object v6, v5, v7
+
+    invoke-static {v4, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-direct {p0, v0}, Lcom/android/server/SdpServiceKeeper;->isWhitelisted(Ljava/lang/String;)Z
+
     move-result v3
 
-    invoke-direct {p0, v3}, Lcom/android/server/SdpServiceKeeper;->getUserInfo(I)Landroid/content/pm/UserInfo;
+    if-eqz v3, :cond_0
 
-    move-result-object v2
+    const-string/jumbo v3, "SdpServiceKeeper"
 
-    const/4 v0, 0x0
+    const-string/jumbo v4, "Identified as whitelisted"
 
-    const-string/jumbo v4, "SdpServiceKeeper"
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "isLicensed {pid:"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v6, " uid:"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v6, " userid:"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v6, " doPkg:"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v6, "}"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-eqz v2, :cond_0
-
-    invoke-virtual {v2}, Landroid/content/pm/UserInfo;->isKnoxWorkspace()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1
+    return v8
 
     :cond_0
-    invoke-direct {p0, v1}, Lcom/android/server/SdpServiceKeeper;->isWhitelisted(Ljava/lang/String;)Z
+    invoke-direct {p0, v0, v2}, Lcom/android/server/SdpServiceKeeper;->isSystemApp(Ljava/lang/String;I)Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_2
+    if-eqz v3, :cond_1
 
-    const-string/jumbo v4, "SdpServiceKeeper"
+    const-string/jumbo v3, "SdpServiceKeeper"
 
-    const-string/jumbo v5, "White listed. Skip license activation"
+    const-string/jumbo v4, "Identified as system app"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v7
+    return v8
 
     :cond_1
-    invoke-virtual {v2}, Landroid/content/pm/UserInfo;->isManagedProfile()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    const-string/jumbo v4, "SdpServiceKeeper"
-
-    const-string/jumbo v5, "Managed profile user. Skip license activation"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v7
-
-    :cond_2
-    invoke-direct {p0, v1, v3}, Lcom/android/server/SdpServiceKeeper;->isSystemApp(Ljava/lang/String;I)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_3
-
-    const-string/jumbo v4, "SdpServiceKeeper"
-
-    const-string/jumbo v5, "System app. Skip license activation"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v7
-
-    :cond_3
-    const-string/jumbo v4, "SdpServiceKeeper"
-
-    const-string/jumbo v5, "Checking licesne permission"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
     invoke-direct {p0, p1}, Lcom/android/server/SdpServiceKeeper;->checkPermission(Landroid/content/Context;)Z
 
-    move-result v4
+    move-result v1
 
-    return v4
+    if-nez v1, :cond_2
+
+    const-string/jumbo v3, "SdpServiceKeeper"
+
+    const-string/jumbo v4, "License activation required"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_2
+    return v1
 .end method
 
 .method public isPrivileged(Landroid/content/Context;IILcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Z
@@ -1253,6 +1226,40 @@
 
     :cond_3
     return v9
+.end method
+
+.method public isSystemComponent(Landroid/content/Context;II)Z
+    .locals 2
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/SdpServiceKeeper;->getPackageName(Landroid/content/Context;II)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/SdpServiceKeeper;->isSystemServer(Landroid/content/Context;II)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    invoke-static {p3}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v1
+
+    invoke-direct {p0, v0, v1}, Lcom/android/server/SdpServiceKeeper;->isSystemApp(Ljava/lang/String;I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    :cond_0
+    const/4 v1, 0x1
+
+    return v1
+
+    :cond_1
+    const/4 v1, 0x0
+
+    return v1
 .end method
 
 .method public isSystemComponent(Landroid/content/Context;IILcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Z
@@ -1372,6 +1379,71 @@
 
     :cond_0
     return-object v3
+.end method
+
+.method public migratePolicy(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)Z
+    .locals 4
+
+    const/4 v1, 0x0
+
+    if-eqz p1, :cond_0
+
+    invoke-static {}, Lcom/android/server/KeyProtector;->getInstance()Lcom/android/server/KeyProtector;
+
+    move-result-object v0
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getAlias()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "_sdp_policy_hash"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
+
+    move-result v3
+
+    invoke-virtual {v0, v2, v3}, Lcom/android/server/KeyProtector;->migrateFromTimaKeyStore(Ljava/lang/String;I)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    const-string/jumbo v2, "SdpServiceKeeper"
+
+    const-string/jumbo v3, "Successfully migrated SDP policy!"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v1, 0x1
+
+    :cond_0
+    :goto_0
+    return v1
+
+    :cond_1
+    const-string/jumbo v2, "SdpServiceKeeper"
+
+    const-string/jumbo v3, "Failed to migrate SDP policy..."
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 .end method
 
 .method public removePolicy(Landroid/content/Context;IILcom/samsung/android/knox/sdp/core/SdpEngineInfo;)I

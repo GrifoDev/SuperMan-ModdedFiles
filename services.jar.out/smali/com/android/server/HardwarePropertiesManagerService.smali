@@ -3,6 +3,10 @@
 .source "HardwarePropertiesManagerService.java"
 
 
+# static fields
+.field private static mCfmsService:Landroid/os/ICustomFrequencyManager;
+
+
 # instance fields
 .field private final mContext:Landroid/content/Context;
 
@@ -123,29 +127,77 @@
 
     if-nez v6, :cond_1
 
-    invoke-virtual {v0, p1}, Landroid/app/admin/DevicePolicyManager;->isProfileOwnerApp(Ljava/lang/String;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_2
-
-    :cond_1
-    return-void
-
-    :cond_2
     invoke-virtual {v5, p1, v4}, Lcom/android/server/vr/VrManagerInternal;->isCurrentVrListener(Ljava/lang/String;I)Z
 
     move-result v6
 
-    if-nez v6, :cond_1
+    xor-int/lit8 v6, v6, 0x1
+
+    if-eqz v6, :cond_1
+
+    iget-object v6, p0, Lcom/android/server/HardwarePropertiesManagerService;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v7, "android.permission.DEVICE_POWER"
+
+    invoke-virtual {v6, v7}, Landroid/content/Context;->checkCallingOrSelfPermission(Ljava/lang/String;)I
+
+    move-result v6
+
+    if-eqz v6, :cond_1
 
     new-instance v6, Ljava/lang/SecurityException;
 
-    const-string/jumbo v7, "The caller is not a device or profile owner or bound VrListenerService."
+    const-string/jumbo v7, "The caller is not a device owner, bound VrListenerService, or holding the DEVICE_POWER permission."
 
     invoke-direct {v6, v7}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
 
     throw v6
+
+    :cond_1
+    return-void
+.end method
+
+.method private static declared-synchronized getService(Landroid/content/Context;)Landroid/os/ICustomFrequencyManager;
+    .locals 3
+
+    const-class v2, Lcom/android/server/HardwarePropertiesManagerService;
+
+    monitor-enter v2
+
+    :try_start_0
+    sget-object v1, Lcom/android/server/HardwarePropertiesManagerService;->mCfmsService:Landroid/os/ICustomFrequencyManager;
+
+    if-nez v1, :cond_0
+
+    const-string/jumbo v1, "CustomFrequencyManagerService"
+
+    invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {v0}, Landroid/os/ICustomFrequencyManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/ICustomFrequencyManager;
+
+    move-result-object v1
+
+    sput-object v1, Lcom/android/server/HardwarePropertiesManagerService;->mCfmsService:Landroid/os/ICustomFrequencyManager;
+
+    :cond_0
+    sget-object v1, Lcom/android/server/HardwarePropertiesManagerService;->mCfmsService:Landroid/os/ICustomFrequencyManager;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v2
+
+    return-object v1
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+
+    throw v1
 .end method
 
 .method private static native nativeGetCpuUsages()[Landroid/os/CpuUsageInfo;
@@ -196,7 +248,7 @@
 .end method
 
 .method public getDeviceTemperatures(Ljava/lang/String;II)[F
-    .locals 2
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/SecurityException;
@@ -205,27 +257,71 @@
 
     invoke-direct {p0, p1}, Lcom/android/server/HardwarePropertiesManagerService;->enforceHardwarePropertiesRetrievalAllowed(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lcom/android/server/HardwarePropertiesManagerService;->mLock:Ljava/lang/Object;
+    iget-object v2, p0, Lcom/android/server/HardwarePropertiesManagerService;->mContext:Landroid/content/Context;
 
-    monitor-enter v0
+    invoke-static {v2}, Lcom/android/server/HardwarePropertiesManagerService;->getService(Landroid/content/Context;)Landroid/os/ICustomFrequencyManager;
+
+    move-result-object v0
+
+    const/4 v2, 0x3
+
+    if-eq p2, v2, :cond_0
+
+    const/4 v2, 0x2
+
+    if-ne p2, v2, :cond_1
+
+    :cond_0
+    if-eqz v0, :cond_1
 
     :try_start_0
-    invoke-static {p2, p3}, Lcom/android/server/HardwarePropertiesManagerService;->nativeGetDeviceTemperatures(II)[F
+    iget-object v2, p0, Lcom/android/server/HardwarePropertiesManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v0, v2, p2, p3}, Landroid/os/ICustomFrequencyManager;->supportVRTemperaturesInformation(Ljava/lang/String;II)[F
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v1
+    move-result-object v2
 
-    monitor-exit v0
+    return-object v2
 
-    return-object v1
-
-    :catchall_0
+    :catch_0
     move-exception v1
 
-    monitor-exit v0
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
-    throw v1
+    const/4 v2, 0x0
+
+    new-array v2, v2, [F
+
+    return-object v2
+
+    :cond_1
+    iget-object v2, p0, Lcom/android/server/HardwarePropertiesManagerService;->mLock:Ljava/lang/Object;
+
+    monitor-enter v2
+
+    :try_start_1
+    invoke-static {p2, p3}, Lcom/android/server/HardwarePropertiesManagerService;->nativeGetDeviceTemperatures(II)[F
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    move-result-object v3
+
+    monitor-exit v2
+
+    return-object v3
+
+    :catchall_0
+    move-exception v3
+
+    monitor-exit v2
+
+    throw v3
 .end method
 
 .method public getFanSpeeds(Ljava/lang/String;)[F

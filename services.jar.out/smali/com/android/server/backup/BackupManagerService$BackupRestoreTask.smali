@@ -18,7 +18,7 @@
 .method public abstract execute()V
 .end method
 
-.method public abstract handleTimeout()V
+.method public abstract handleCancel(Z)V
 .end method
 
 .method public abstract operationComplete(J)V

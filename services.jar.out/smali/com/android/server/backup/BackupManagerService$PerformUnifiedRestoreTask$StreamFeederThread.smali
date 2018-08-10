@@ -27,6 +27,8 @@
 
 .field mEngineThread:Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask$EngineThread;
 
+.field private final mEphemeralOpToken:I
+
 .field mTransportPipes:[Landroid/os/ParcelFileDescriptor;
 
 .field final synthetic this$1:Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;
@@ -50,6 +52,14 @@
     const-string/jumbo v0, "StreamFeederThread"
 
     iput-object v0, p0, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask$StreamFeederThread;->TAG:Ljava/lang/String;
+
+    iget-object v0, p1, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    invoke-virtual {v0}, Lcom/android/server/backup/BackupManagerService;->generateToken()I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask$StreamFeederThread;->mEphemeralOpToken:I
 
     invoke-static {}, Landroid/os/ParcelFileDescriptor;->createPipe()[Landroid/os/ParcelFileDescriptor;
 
@@ -78,14 +88,22 @@
     return-void
 .end method
 
-.method public handleTimeout()V
-    .locals 5
+.method public handleCancel(Z)V
+    .locals 8
 
-    const/4 v4, 0x0
+    const/4 v7, 0x1
 
-    const/4 v3, 0x1
+    const/4 v6, 0x0
 
-    const/4 v2, 0x0
+    const/4 v5, 0x0
+
+    iget-object v0, p0, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask$StreamFeederThread;->this$1:Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;
+
+    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    iget v1, p0, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask$StreamFeederThread;->mEphemeralOpToken:I
+
+    invoke-static {v0, v1}, Lcom/android/server/backup/BackupManagerService;->-wrap19(Lcom/android/server/backup/BackupManagerService;I)V
 
     const-string/jumbo v0, "StreamFeederThread"
 
@@ -93,29 +111,53 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    iget-object v0, p0, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask$StreamFeederThread;->this$1:Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;
+
+    iget-object v1, p0, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask$StreamFeederThread;->this$1:Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;
+
+    invoke-static {v1}, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;->-get1(Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;)Landroid/app/backup/IBackupManagerMonitor;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask$StreamFeederThread;->this$1:Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;
+
+    invoke-static {v2}, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;->-get0(Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;)Landroid/content/pm/PackageInfo;
+
+    move-result-object v2
+
+    const/16 v3, 0x2d
+
+    const/4 v4, 0x2
+
+    invoke-static {v1, v3, v2, v4, v5}, Lcom/android/server/backup/BackupManagerService;->-wrap0(Landroid/app/backup/IBackupManagerMonitor;ILandroid/content/pm/PackageInfo;ILandroid/os/Bundle;)Landroid/app/backup/IBackupManagerMonitor;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;->-set2(Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;Landroid/app/backup/IBackupManagerMonitor;)Landroid/app/backup/IBackupManagerMonitor;
+
     iget-object v0, p0, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask$StreamFeederThread;->mEngineThread:Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask$EngineThread;
 
     invoke-virtual {v0}, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask$EngineThread;->handleTimeout()V
 
     iget-object v0, p0, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask$StreamFeederThread;->mEnginePipes:[Landroid/os/ParcelFileDescriptor;
 
-    aget-object v0, v0, v3
+    aget-object v0, v0, v7
 
     invoke-static {v0}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
     iget-object v0, p0, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask$StreamFeederThread;->mEnginePipes:[Landroid/os/ParcelFileDescriptor;
 
-    aput-object v4, v0, v3
+    aput-object v5, v0, v7
 
     iget-object v0, p0, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask$StreamFeederThread;->mEnginePipes:[Landroid/os/ParcelFileDescriptor;
 
-    aget-object v0, v0, v2
+    aget-object v0, v0, v6
 
     invoke-static {v0}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
     iget-object v0, p0, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask$StreamFeederThread;->mEnginePipes:[Landroid/os/ParcelFileDescriptor;
 
-    aput-object v4, v0, v2
+    aput-object v5, v0, v6
 
     return-void
 .end method
@@ -127,11 +169,11 @@
 .end method
 
 .method public run()V
-    .locals 23
+    .locals 25
 
-    sget-object v16, Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;->RUNNING_QUEUE:Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
+    sget-object v18, Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;->RUNNING_QUEUE:Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
 
-    const/16 v18, 0x0
+    const/16 v20, 0x0
 
     move-object/from16 v0, p0
 
@@ -159,19 +201,31 @@
 
     iget-object v4, v0, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask$StreamFeederThread;->this$1:Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;
 
-    invoke-static {v4}, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;->-get0(Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;)Landroid/content/pm/PackageInfo;
+    invoke-static {v4}, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;->-get1(Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;)Landroid/app/backup/IBackupManagerMonitor;
 
     move-result-object v6
 
-    const/4 v5, 0x0
+    move-object/from16 v0, p0
 
-    const/4 v7, 0x0
+    iget-object v4, v0, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask$StreamFeederThread;->this$1:Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;
+
+    invoke-static {v4}, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;->-get0(Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;)Landroid/content/pm/PackageInfo;
+
+    move-result-object v7
+
+    move-object/from16 v0, p0
+
+    iget v10, v0, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask$StreamFeederThread;->mEphemeralOpToken:I
+
+    const/4 v5, 0x0
 
     const/4 v8, 0x0
 
+    const/4 v9, 0x0
+
     move-object/from16 v4, p0
 
-    invoke-direct/range {v2 .. v8}, Lcom/android/server/backup/BackupManagerService$FullRestoreEngine;-><init>(Lcom/android/server/backup/BackupManagerService;Lcom/android/server/backup/BackupManagerService$BackupRestoreTask;Landroid/app/backup/IFullBackupRestoreObserver;Landroid/content/pm/PackageInfo;ZZ)V
+    invoke-direct/range {v2 .. v10}, Lcom/android/server/backup/BackupManagerService$FullRestoreEngine;-><init>(Lcom/android/server/backup/BackupManagerService;Lcom/android/server/backup/BackupManagerService$BackupRestoreTask;Landroid/app/backup/IFullBackupRestoreObserver;Landroid/app/backup/IBackupManagerMonitor;Landroid/content/pm/PackageInfo;ZZI)V
 
     move-object/from16 v0, p0
 
@@ -207,7 +261,7 @@
 
     const/4 v3, 0x1
 
-    aget-object v13, v2, v3
+    aget-object v15, v2, v3
 
     move-object/from16 v0, p0
 
@@ -215,7 +269,7 @@
 
     const/4 v3, 0x0
 
-    aget-object v19, v2, v3
+    aget-object v21, v2, v3
 
     move-object/from16 v0, p0
 
@@ -223,27 +277,29 @@
 
     const/4 v3, 0x1
 
-    aget-object v20, v2, v3
+    aget-object v22, v2, v3
 
-    const v10, 0x8000
+    const v12, 0x8000
 
-    new-array v9, v10, [B
+    new-array v11, v12, [B
 
-    new-instance v14, Ljava/io/FileOutputStream;
+    new-instance v16, Ljava/io/FileOutputStream;
 
-    invoke-virtual {v13}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
-
-    move-result-object v2
-
-    invoke-direct {v14, v2}, Ljava/io/FileOutputStream;-><init>(Ljava/io/FileDescriptor;)V
-
-    new-instance v22, Ljava/io/FileInputStream;
-
-    invoke-virtual/range {v19 .. v19}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
+    invoke-virtual {v15}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
 
     move-result-object v2
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v16
+
+    invoke-direct {v0, v2}, Ljava/io/FileOutputStream;-><init>(Ljava/io/FileDescriptor;)V
+
+    new-instance v24, Ljava/io/FileInputStream;
+
+    invoke-virtual/range {v21 .. v21}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
+
+    move-result-object v2
+
+    move-object/from16 v0, v24
 
     invoke-direct {v0, v2}, Ljava/io/FileInputStream;-><init>(Ljava/io/FileDescriptor;)V
 
@@ -261,24 +317,24 @@
 
     :cond_0
     :goto_0
-    if-nez v18, :cond_3
+    if-nez v20, :cond_3
 
     :try_start_0
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask$StreamFeederThread;->this$1:Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;
 
-    invoke-static {v2}, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;->-get1(Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;)Lcom/android/internal/backup/IBackupTransport;
+    invoke-static {v2}, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;->-get2(Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;)Lcom/android/internal/backup/IBackupTransport;
 
     move-result-object v2
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v22
 
     invoke-interface {v2, v0}, Lcom/android/internal/backup/IBackupTransport;->getNextFullRestoreDataChunk(Landroid/os/ParcelFileDescriptor;)I
 
-    move-result v17
+    move-result v19
 
-    if-lez v17, :cond_2
+    if-lez v19, :cond_2
 
     const-string/jumbo v2, "StreamFeederThread"
 
@@ -292,7 +348,7 @@
 
     move-result-object v3
 
-    move/from16 v0, v17
+    move/from16 v0, v19
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -304,37 +360,41 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    move/from16 v0, v17
+    move/from16 v0, v19
 
-    if-le v0, v10, :cond_1
+    if-le v0, v12, :cond_1
 
-    move/from16 v10, v17
+    move/from16 v12, v19
 
-    move/from16 v0, v17
+    move/from16 v0, v19
 
-    new-array v9, v0, [B
+    new-array v11, v0, [B
 
     :cond_1
-    move/from16 v21, v17
+    move/from16 v23, v19
 
     :goto_1
-    if-lez v21, :cond_0
+    if-lez v23, :cond_0
 
     const/4 v2, 0x0
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v24
 
-    move/from16 v1, v21
+    move/from16 v1, v23
 
-    invoke-virtual {v0, v9, v2, v1}, Ljava/io/FileInputStream;->read([BII)I
+    invoke-virtual {v0, v11, v2, v1}, Ljava/io/FileInputStream;->read([BII)I
 
-    move-result v15
+    move-result v17
 
     const/4 v2, 0x0
 
-    invoke-virtual {v14, v9, v2, v15}, Ljava/io/FileOutputStream;->write([BII)V
+    move-object/from16 v0, v16
 
-    sub-int v21, v21, v15
+    move/from16 v1, v17
+
+    invoke-virtual {v0, v11, v2, v1}, Ljava/io/FileOutputStream;->write([BII)V
+
+    sub-int v23, v23, v17
 
     const-string/jumbo v2, "StreamFeederThread"
 
@@ -348,7 +408,9 @@
 
     move-result-object v3
 
-    invoke-virtual {v3, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move/from16 v0, v17
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
@@ -358,7 +420,7 @@
 
     move-result-object v3
 
-    move/from16 v0, v21
+    move/from16 v0, v23
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -377,7 +439,7 @@
     goto :goto_1
 
     :catch_0
-    move-exception v11
+    move-exception v13
 
     :try_start_1
     const-string/jumbo v2, "StreamFeederThread"
@@ -416,7 +478,7 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    const/16 v18, -0x3eb
+    const/16 v20, -0x3eb
 
     move-object/from16 v0, p0
 
@@ -488,7 +550,7 @@
 
     iget-object v2, v0, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask$StreamFeederThread;->this$1:Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;
 
-    invoke-static {v2}, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;->-get1(Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;)Lcom/android/internal/backup/IBackupTransport;
+    invoke-static {v2}, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;->-get2(Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;)Lcom/android/internal/backup/IBackupTransport;
 
     move-result-object v2
 
@@ -517,18 +579,18 @@
 
     const/16 v2, -0x3e8
 
-    move/from16 v0, v18
+    move/from16 v0, v20
 
     if-ne v0, v2, :cond_b
 
-    sget-object v16, Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;->FINAL:Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
+    sget-object v18, Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;->FINAL:Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
 
     :goto_4
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask$StreamFeederThread;->this$1:Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
     invoke-virtual {v2, v0}, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;->executeNextState(Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;)V
 
@@ -544,7 +606,7 @@
     :cond_2
     const/4 v2, -0x1
 
-    move/from16 v0, v17
+    move/from16 v0, v19
 
     if-ne v0, v2, :cond_4
 
@@ -581,7 +643,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v18, 0x0
+    const/16 v20, 0x0
 
     :cond_3
     const-string/jumbo v2, "StreamFeederThread"
@@ -659,9 +721,9 @@
     :goto_6
     invoke-static {v3, v2}, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;->-set1(Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;Z)Z
 
-    if-nez v18, :cond_6
+    if-nez v20, :cond_6
 
-    sget-object v16, Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;->RESTORE_FINISHED:Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
+    sget-object v18, Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;->RESTORE_FINISHED:Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
 
     move-object/from16 v0, p0
 
@@ -689,14 +751,14 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;->-set2(Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;[B)[B
+    invoke-static {v2, v3}, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;->-set3(Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;[B)[B
 
     :goto_7
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask$StreamFeederThread;->this$1:Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
     invoke-virtual {v2, v0}, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;->executeNextState(Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;)V
 
@@ -722,7 +784,7 @@
 
     move-result-object v3
 
-    move/from16 v0, v17
+    move/from16 v0, v19
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -766,7 +828,7 @@
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_2
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    move/from16 v18, v17
+    move/from16 v20, v19
 
     goto/16 :goto_0
 
@@ -781,7 +843,7 @@
 
     iget-object v2, v0, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask$StreamFeederThread;->this$1:Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;
 
-    invoke-static {v2}, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;->-get1(Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;)Lcom/android/internal/backup/IBackupTransport;
+    invoke-static {v2}, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;->-get2(Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;)Lcom/android/internal/backup/IBackupTransport;
 
     move-result-object v2
 
@@ -810,16 +872,16 @@
 
     const/16 v2, -0x3e8
 
-    move/from16 v0, v18
+    move/from16 v0, v20
 
     if-ne v0, v2, :cond_7
 
-    sget-object v16, Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;->FINAL:Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
+    sget-object v18, Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;->FINAL:Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
 
     goto :goto_7
 
     :catch_1
-    move-exception v12
+    move-exception v14
 
     const-string/jumbo v2, "StreamFeederThread"
 
@@ -833,7 +895,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v12}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v14}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 
@@ -847,17 +909,17 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v18, -0x3e8
+    const/16 v20, -0x3e8
 
     goto :goto_8
 
     :cond_7
-    sget-object v16, Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;->RUNNING_QUEUE:Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
+    sget-object v18, Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;->RUNNING_QUEUE:Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
 
     goto/16 :goto_7
 
     :catch_2
-    move-exception v12
+    move-exception v14
 
     :try_start_6
     const-string/jumbo v2, "StreamFeederThread"
@@ -872,7 +934,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v12}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v14}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 
@@ -896,7 +958,7 @@
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
-    const/16 v18, -0x3e8
+    const/16 v20, -0x3e8
 
     move-object/from16 v0, p0
 
@@ -968,7 +1030,7 @@
 
     iget-object v2, v0, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask$StreamFeederThread;->this$1:Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;
 
-    invoke-static {v2}, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;->-get1(Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;)Lcom/android/internal/backup/IBackupTransport;
+    invoke-static {v2}, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;->-get2(Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;)Lcom/android/internal/backup/IBackupTransport;
 
     move-result-object v2
 
@@ -997,18 +1059,18 @@
 
     const/16 v2, -0x3e8
 
-    move/from16 v0, v18
+    move/from16 v0, v20
 
     if-ne v0, v2, :cond_9
 
-    sget-object v16, Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;->FINAL:Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
+    sget-object v18, Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;->FINAL:Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
 
     :goto_b
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask$StreamFeederThread;->this$1:Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
     invoke-virtual {v2, v0}, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;->executeNextState(Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;)V
 
@@ -1026,7 +1088,7 @@
     goto :goto_9
 
     :catch_3
-    move-exception v12
+    move-exception v14
 
     const-string/jumbo v2, "StreamFeederThread"
 
@@ -1040,7 +1102,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v12}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v14}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 
@@ -1054,12 +1116,12 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v18, -0x3e8
+    const/16 v20, -0x3e8
 
     goto :goto_a
 
     :cond_9
-    sget-object v16, Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;->RUNNING_QUEUE:Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
+    sget-object v18, Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;->RUNNING_QUEUE:Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
 
     goto :goto_b
 
@@ -1069,7 +1131,7 @@
     goto/16 :goto_2
 
     :catch_4
-    move-exception v12
+    move-exception v14
 
     const-string/jumbo v2, "StreamFeederThread"
 
@@ -1083,7 +1145,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v12}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v14}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 
@@ -1097,12 +1159,12 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v18, -0x3e8
+    const/16 v20, -0x3e8
 
     goto/16 :goto_3
 
     :cond_b
-    sget-object v16, Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;->RUNNING_QUEUE:Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
+    sget-object v18, Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;->RUNNING_QUEUE:Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
 
     goto/16 :goto_4
 
@@ -1174,9 +1236,9 @@
     :goto_c
     invoke-static {v4, v3}, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;->-set1(Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;Z)Z
 
-    if-nez v18, :cond_d
+    if-nez v20, :cond_d
 
-    sget-object v16, Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;->RESTORE_FINISHED:Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
+    sget-object v18, Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;->RESTORE_FINISHED:Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
 
     move-object/from16 v0, p0
 
@@ -1204,14 +1266,14 @@
 
     move-result-object v4
 
-    invoke-static {v3, v4}, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;->-set2(Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;[B)[B
+    invoke-static {v3, v4}, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;->-set3(Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;[B)[B
 
     :goto_d
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask$StreamFeederThread;->this$1:Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
     invoke-virtual {v3, v0}, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;->executeNextState(Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;)V
 
@@ -1234,7 +1296,7 @@
 
     iget-object v3, v0, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask$StreamFeederThread;->this$1:Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;
 
-    invoke-static {v3}, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;->-get1(Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;)Lcom/android/internal/backup/IBackupTransport;
+    invoke-static {v3}, Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;->-get2(Lcom/android/server/backup/BackupManagerService$PerformUnifiedRestoreTask;)Lcom/android/internal/backup/IBackupTransport;
 
     move-result-object v3
 
@@ -1263,16 +1325,16 @@
 
     const/16 v3, -0x3e8
 
-    move/from16 v0, v18
+    move/from16 v0, v20
 
     if-ne v0, v3, :cond_e
 
-    sget-object v16, Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;->FINAL:Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
+    sget-object v18, Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;->FINAL:Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
 
     goto :goto_d
 
     :catch_5
-    move-exception v12
+    move-exception v14
 
     const-string/jumbo v3, "StreamFeederThread"
 
@@ -1286,7 +1348,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v12}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v14}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
     move-result-object v5
 
@@ -1300,12 +1362,12 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v18, -0x3e8
+    const/16 v20, -0x3e8
 
     goto :goto_e
 
     :cond_e
-    sget-object v16, Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;->RUNNING_QUEUE:Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
+    sget-object v18, Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;->RUNNING_QUEUE:Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
 
     goto :goto_d
 .end method

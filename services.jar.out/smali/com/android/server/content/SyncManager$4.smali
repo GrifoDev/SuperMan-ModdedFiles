@@ -36,7 +36,7 @@
 
     iget-object v1, p0, Lcom/android/server/content/SyncManager$4;->this$0:Lcom/android/server/content/SyncManager;
 
-    invoke-static {v1}, Lcom/android/server/content/SyncManager;->-get3(Lcom/android/server/content/SyncManager;)Z
+    invoke-static {v1}, Lcom/android/server/content/SyncManager;->-get5(Lcom/android/server/content/SyncManager;)Z
 
     move-result v0
 
@@ -52,7 +52,7 @@
 
     iget-object v1, p0, Lcom/android/server/content/SyncManager$4;->this$0:Lcom/android/server/content/SyncManager;
 
-    invoke-static {v1}, Lcom/android/server/content/SyncManager;->-get3(Lcom/android/server/content/SyncManager;)Z
+    invoke-static {v1}, Lcom/android/server/content/SyncManager;->-get5(Lcom/android/server/content/SyncManager;)Z
 
     move-result v1
 
@@ -79,7 +79,7 @@
     :cond_0
     iget-object v1, p0, Lcom/android/server/content/SyncManager$4;->this$0:Lcom/android/server/content/SyncManager;
 
-    invoke-static {v1}, Lcom/android/server/content/SyncManager;->-wrap9(Lcom/android/server/content/SyncManager;)V
+    invoke-static {v1}, Lcom/android/server/content/SyncManager;->-wrap10(Lcom/android/server/content/SyncManager;)V
 
     :cond_1
     return-void

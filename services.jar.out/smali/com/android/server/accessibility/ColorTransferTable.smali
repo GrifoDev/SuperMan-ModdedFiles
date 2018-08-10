@@ -10,6 +10,10 @@
 
 .field private static final DEUTAN:I = 0x1
 
+.field private static final Deutan_severity:[D
+
+.field private static final Deutan_userParameter:[D
+
 .field public static final GREEN:I = 0x3
 
 .field public static final MAGENTA:I = 0x6
@@ -22,14 +26,242 @@
 
 .field private static final PROTAN:I = 0x0
 
+.field private static final Protan_severity:[D
+
+.field private static final Protan_userParameter:[D
+
 .field public static final RED:I = 0x1
 
 .field private static final TRITAN:I = 0x2
+
+.field private static final Tritan_severity:[D
+
+.field private static final Tritan_userParameter:[D
 
 .field public static final YELLOW:I = 0x2
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 2
+
+    const/16 v1, 0x19
+
+    new-array v0, v1, [D
+
+    fill-array-data v0, :array_0
+
+    sput-object v0, Lcom/android/server/accessibility/ColorTransferTable;->Protan_severity:[D
+
+    new-array v0, v1, [D
+
+    fill-array-data v0, :array_1
+
+    sput-object v0, Lcom/android/server/accessibility/ColorTransferTable;->Protan_userParameter:[D
+
+    new-array v0, v1, [D
+
+    fill-array-data v0, :array_2
+
+    sput-object v0, Lcom/android/server/accessibility/ColorTransferTable;->Deutan_severity:[D
+
+    new-array v0, v1, [D
+
+    fill-array-data v0, :array_3
+
+    sput-object v0, Lcom/android/server/accessibility/ColorTransferTable;->Deutan_userParameter:[D
+
+    new-array v0, v1, [D
+
+    fill-array-data v0, :array_4
+
+    sput-object v0, Lcom/android/server/accessibility/ColorTransferTable;->Tritan_severity:[D
+
+    new-array v0, v1, [D
+
+    fill-array-data v0, :array_5
+
+    sput-object v0, Lcom/android/server/accessibility/ColorTransferTable;->Tritan_userParameter:[D
+
+    return-void
+
+    nop
+
+    :array_0
+    .array-data 8
+        0x3fb999999999999aL    # 0.1
+        0x3fe0000000000000L    # 0.5
+        0x3fe0000000000000L    # 0.5
+        0x3fc999999999999aL    # 0.2
+        0x3fe0000000000000L    # 0.5
+        0x3fc999999999999aL    # 0.2
+        0x3fe0000000000000L    # 0.5
+        0x3fc999999999999aL    # 0.2
+        0x3fe0000000000000L    # 0.5
+        0x3fc999999999999aL    # 0.2
+        0x3fe0000000000000L    # 0.5
+        0x3fc999999999999aL    # 0.2
+        0x3fe0000000000000L    # 0.5
+        0x3fc999999999999aL    # 0.2
+        0x3fe0000000000000L    # 0.5
+        0x3ff0000000000000L    # 1.0
+        0x3ff0000000000000L    # 1.0
+        0x3ff0000000000000L    # 1.0
+        0x3ff0000000000000L    # 1.0
+        0x3ff0000000000000L    # 1.0
+        0x3ff0000000000000L    # 1.0
+        0x3ff0000000000000L    # 1.0
+        0x3ff0000000000000L    # 1.0
+        0x3ff0000000000000L    # 1.0
+        0x3ff0000000000000L    # 1.0
+    .end array-data
+
+    :array_1
+    .array-data 8
+        0x3fb999999999999aL    # 0.1
+        0x3fc999999999999aL    # 0.2
+        0x3fd999999999999aL    # 0.4
+        0x3fe0000000000000L    # 0.5
+        0x3fe0000000000000L    # 0.5
+        0x3fe3333333333333L    # 0.6
+        0x3fe3333333333333L    # 0.6
+        0x3fe6666666666666L    # 0.7
+        0x3fe6666666666666L    # 0.7
+        0x3fe999999999999aL    # 0.8
+        0x3fe999999999999aL    # 0.8
+        0x3feccccccccccccdL    # 0.9
+        0x3feccccccccccccdL    # 0.9
+        0x3ff0000000000000L    # 1.0
+        0x3ff0000000000000L    # 1.0
+        0x3fb999999999999aL    # 0.1
+        0x3fc999999999999aL    # 0.2
+        0x3fd3333333333333L    # 0.3
+        0x3fd999999999999aL    # 0.4
+        0x3fe0000000000000L    # 0.5
+        0x3fe3333333333333L    # 0.6
+        0x3fe6666666666666L    # 0.7
+        0x3fe999999999999aL    # 0.8
+        0x3feccccccccccccdL    # 0.9
+        0x3ff0000000000000L    # 1.0
+    .end array-data
+
+    :array_2
+    .array-data 8
+        0x3fb999999999999aL    # 0.1
+        0x3fb999999999999aL    # 0.1
+        0x3fb999999999999aL    # 0.1
+        0x3fc999999999999aL    # 0.2
+        0x3fd3333333333333L    # 0.3
+        0x3fd999999999999aL    # 0.4
+        0x3fe0000000000000L    # 0.5
+        0x3fe0000000000000L    # 0.5
+        0x3fe0000000000000L    # 0.5
+        0x3fe0000000000000L    # 0.5
+        0x3fe0000000000000L    # 0.5
+        0x3fe0000000000000L    # 0.5
+        0x3fe3333333333333L    # 0.6
+        0x3fe3333333333333L    # 0.6
+        0x3fe3333333333333L    # 0.6
+        0x3fe3333333333333L    # 0.6
+        0x3fe6666666666666L    # 0.7
+        0x3fe6666666666666L    # 0.7
+        0x3fe999999999999aL    # 0.8
+        0x3feccccccccccccdL    # 0.9
+        0x3feccccccccccccdL    # 0.9
+        0x3feccccccccccccdL    # 0.9
+        0x3ff0000000000000L    # 1.0
+        0x3ff0000000000000L    # 1.0
+        0x3ff0000000000000L    # 1.0
+    .end array-data
+
+    :array_3
+    .array-data 8
+        0x0
+        0x3fb999999999999aL    # 0.1
+        0x3fc999999999999aL    # 0.2
+        0x3fd3333333333333L    # 0.3
+        0x3fd999999999999aL    # 0.4
+        0x3fe0000000000000L    # 0.5
+        0x3fe0000000000000L    # 0.5
+        0x3fe3333333333333L    # 0.6
+        0x3fe6666666666666L    # 0.7
+        0x3fe999999999999aL    # 0.8
+        0x3feccccccccccccdL    # 0.9
+        0x3ff0000000000000L    # 1.0
+        0x0
+        0x3fb999999999999aL    # 0.1
+        0x3fc999999999999aL    # 0.2
+        0x3fd3333333333333L    # 0.3
+        0x3fd999999999999aL    # 0.4
+        0x3fe0000000000000L    # 0.5
+        0x3fe3333333333333L    # 0.6
+        0x3fe3333333333333L    # 0.6
+        0x3fe6666666666666L    # 0.7
+        0x3fe999999999999aL    # 0.8
+        0x3fe999999999999aL    # 0.8
+        0x3feccccccccccccdL    # 0.9
+        0x3ff0000000000000L    # 1.0
+    .end array-data
+
+    :array_4
+    .array-data 8
+        0x3fb999999999999aL    # 0.1
+        0x3fb999999999999aL    # 0.1
+        0x3fb999999999999aL    # 0.1
+        0x3fb999999999999aL    # 0.1
+        0x3fc999999999999aL    # 0.2
+        0x3fc999999999999aL    # 0.2
+        0x3fc999999999999aL    # 0.2
+        0x3fd3333333333333L    # 0.3
+        0x3fd999999999999aL    # 0.4
+        0x3fd999999999999aL    # 0.4
+        0x3fe0000000000000L    # 0.5
+        0x3fe0000000000000L    # 0.5
+        0x3fe3333333333333L    # 0.6
+        0x3fe3333333333333L    # 0.6
+        0x3fe6666666666666L    # 0.7
+        0x3fe6666666666666L    # 0.7
+        0x3fe999999999999aL    # 0.8
+        0x3fe999999999999aL    # 0.8
+        0x3feccccccccccccdL    # 0.9
+        0x3feccccccccccccdL    # 0.9
+        0x3feccccccccccccdL    # 0.9
+        0x3feccccccccccccdL    # 0.9
+        0x3feccccccccccccdL    # 0.9
+        0x3ff0000000000000L    # 1.0
+        0x3ff0000000000000L    # 1.0
+    .end array-data
+
+    :array_5
+    .array-data 8
+        0x0
+        0x3fb999999999999aL    # 0.1
+        0x3fc999999999999aL    # 0.2
+        0x3fd3333333333333L    # 0.3
+        0x3fd3333333333333L    # 0.3
+        0x3fd999999999999aL    # 0.4
+        0x3fe0000000000000L    # 0.5
+        0x3fe3333333333333L    # 0.6
+        0x3fe999999999999aL    # 0.8
+        0x3feccccccccccccdL    # 0.9
+        0x3feccccccccccccdL    # 0.9
+        0x3ff0000000000000L    # 1.0
+        0x0
+        0x3fd3333333333333L    # 0.3
+        0x3fe0000000000000L    # 0.5
+        0x3fe6666666666666L    # 0.7
+        0x3fe6666666666666L    # 0.7
+        0x3ff0000000000000L    # 1.0
+        0x3fc999999999999aL    # 0.2
+        0x3fd3333333333333L    # 0.3
+        0x3fe0000000000000L    # 0.5
+        0x3fe3333333333333L    # 0.6
+        0x3ff0000000000000L    # 1.0
+        0x3feccccccccccccdL    # 0.9
+        0x3ff0000000000000L    # 1.0
+    .end array-data
+.end method
+
 .method public constructor <init>()V
     .locals 0
 
@@ -12862,4 +13094,79 @@
     double-to-int v11, v2
 
     return v11
+.end method
+
+.method public getPredefinedValueForEachType(II)[D
+    .locals 6
+
+    const/4 v5, 0x1
+
+    const/4 v4, 0x0
+
+    const/4 v1, 0x2
+
+    new-array v0, v1, [D
+
+    add-int/lit8 v1, p1, -0x1
+
+    packed-switch v1, :pswitch_data_0
+
+    const/4 v1, 0x0
+
+    return-object v1
+
+    :pswitch_0
+    sget-object v1, Lcom/android/server/accessibility/ColorTransferTable;->Protan_severity:[D
+
+    aget-wide v2, v1, p2
+
+    aput-wide v2, v0, v4
+
+    sget-object v1, Lcom/android/server/accessibility/ColorTransferTable;->Protan_userParameter:[D
+
+    aget-wide v2, v1, p2
+
+    aput-wide v2, v0, v5
+
+    :goto_0
+    return-object v0
+
+    :pswitch_1
+    sget-object v1, Lcom/android/server/accessibility/ColorTransferTable;->Deutan_severity:[D
+
+    aget-wide v2, v1, p2
+
+    aput-wide v2, v0, v4
+
+    sget-object v1, Lcom/android/server/accessibility/ColorTransferTable;->Deutan_userParameter:[D
+
+    aget-wide v2, v1, p2
+
+    aput-wide v2, v0, v5
+
+    goto :goto_0
+
+    :pswitch_2
+    sget-object v1, Lcom/android/server/accessibility/ColorTransferTable;->Tritan_severity:[D
+
+    aget-wide v2, v1, p2
+
+    aput-wide v2, v0, v4
+
+    sget-object v1, Lcom/android/server/accessibility/ColorTransferTable;->Tritan_userParameter:[D
+
+    aget-wide v2, v1, p2
+
+    aput-wide v2, v0, v5
+
+    goto :goto_0
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+    .end packed-switch
 .end method

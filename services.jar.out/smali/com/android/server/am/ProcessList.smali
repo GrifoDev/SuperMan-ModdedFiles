@@ -10,8 +10,6 @@
 
 .field static final CACHED_APP_MIN_ADJ:I = 0x384
 
-.field static final EMPTY_APP_PERCENT:I
-
 .field static final FOREGROUND_APP_ADJ:I = 0x0
 
 .field static final HEAVY_WEIGHT_APP_ADJ:I = 0x190
@@ -25,10 +23,6 @@
 .field static final LMK_PROCREMOVE:B = 0x2t
 
 .field static final LMK_TARGET:B = 0x0t
-
-.field static final MAX_CACHED_APPS:I
-
-.field private static final MAX_EMPTY_APPS:I
 
 .field static final MAX_EMPTY_TIME:J = 0x1b7740L
 
@@ -98,11 +92,9 @@
 
 .field static final SCHED_GROUP_DEFAULT:I = 0x1
 
-.field static final SCHED_GROUP_FOREGROUND_BOOST:I = 0x5
+.field static final SCHED_GROUP_TOP_APP:I = 0x2
 
-.field static final SCHED_GROUP_MAX:I = 0x5
-
-.field static final SCHED_GROUP_MIN:I = -0x3
+.field static final SCHED_GROUP_TOP_APP_BOUND:I = 0x3
 
 .field static final SERVICE_ADJ:I = 0x1f4
 
@@ -110,29 +102,19 @@
 
 .field static final SYSTEM_ADJ:I = -0x384
 
-.field private static final TAG:Ljava/lang/String;
-
-.field static TRIM_CACHED_APPS:I = 0x0
-
-.field static final TRIM_CACHE_PERCENT:I
+.field private static final TAG:Ljava/lang/String; = "ActivityManager"
 
 .field static TRIM_CRITICAL_THRESHOLD:I = 0x0
-
-.field static TRIM_EMPTY_APPS:I = 0x0
-
-.field static final TRIM_EMPTY_PERCENT:I
-
-.field static final TRIM_ENABLE_MEMORY:J
 
 .field static TRIM_LOW_THRESHOLD:I = 0x0
 
 .field static final UNKNOWN_ADJ:I = 0x3e9
 
-.field static final USE_TRIM_SETTINGS:Z
-
 .field static final VISIBLE_APP_ADJ:I = 0x64
 
 .field static final VISIBLE_APP_LAYER_MAX:I = 0x63
+
+.field private static addBonusEFK:I
 
 .field private static final sFirstAwakePssTimes:[J
 
@@ -148,6 +130,8 @@
 
 .field private static final sTestSameAwakePssTimes:[J
 
+.field private static v_BonusEFK:I
+
 
 # instance fields
 .field private mCachedRestoreLevel:J
@@ -158,112 +142,24 @@
 
 .field private mHaveDisplaySize:Z
 
+.field private mIsDisplayChanged:Z
+
 .field private final mOomAdj:[I
 
 .field private final mOomMinFree:[I
 
 .field private final mOomMinFreeHigh:[I
 
-.field private final mOomMinFreeHigh32BitForDHA:[I
-
-.field private final mOomMinFreeHigh64BitForDHA:[I
-
 .field private final mOomMinFreeLow:[I
-
-.field private final mOomMinFreeLow32BitForDHA:[I
-
-.field private final mOomMinFreeLow64BitForDHA:[I
 
 .field private final mTotalMemMb:J
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .locals 3
 
-    const/16 v2, 0x64
-
-    const/16 v4, 0x11
-
-    const-string/jumbo v0, "ActivityManager"
-
-    sput-object v0, Lcom/android/server/am/ProcessList;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v0, "ro.sys.fw.bg_apps_limit"
-
-    const/16 v1, 0x20
-
-    invoke-static {v0, v1}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
-
-    move-result v0
-
-    sput v0, Lcom/android/server/am/ProcessList;->MAX_CACHED_APPS:I
-
-    const-string/jumbo v0, "ro.sys.fw.use_trim_settings"
-
-    const/4 v1, 0x1
-
-    invoke-static {v0, v1}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v0
-
-    sput-boolean v0, Lcom/android/server/am/ProcessList;->USE_TRIM_SETTINGS:Z
-
-    const-string/jumbo v0, "ro.sys.fw.empty_app_percent"
-
-    const/16 v1, 0x32
-
-    invoke-static {v0, v1}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
-
-    move-result v0
-
-    sput v0, Lcom/android/server/am/ProcessList;->EMPTY_APP_PERCENT:I
-
-    const-string/jumbo v0, "ro.sys.fw.trim_empty_percent"
-
-    invoke-static {v0, v2}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
-
-    move-result v0
-
-    sput v0, Lcom/android/server/am/ProcessList;->TRIM_EMPTY_PERCENT:I
-
-    const-string/jumbo v0, "ro.sys.fw.trim_cache_percent"
-
-    invoke-static {v0, v2}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
-
-    move-result v0
-
-    sput v0, Lcom/android/server/am/ProcessList;->TRIM_CACHE_PERCENT:I
-
-    const-string/jumbo v0, "ro.sys.fw.trim_enable_memory"
-
-    const-wide/32 v2, 0x40000000
-
-    invoke-static {v0, v2, v3}, Landroid/os/SystemProperties;->getLong(Ljava/lang/String;J)J
-
-    move-result-wide v0
-
-    sput-wide v0, Lcom/android/server/am/ProcessList;->TRIM_ENABLE_MEMORY:J
-
-    sget v0, Lcom/android/server/am/ProcessList;->MAX_CACHED_APPS:I
-
-    invoke-static {v0}, Lcom/android/server/am/ProcessList;->computeEmptyProcessLimit(I)I
-
-    move-result v0
-
-    sput v0, Lcom/android/server/am/ProcessList;->MAX_EMPTY_APPS:I
-
-    invoke-static {}, Lcom/android/server/am/ProcessList;->computeTrimEmptyApps()I
-
-    move-result v0
-
-    sput v0, Lcom/android/server/am/ProcessList;->TRIM_EMPTY_APPS:I
-
-    invoke-static {}, Lcom/android/server/am/ProcessList;->computeTrimCachedApps()I
-
-    move-result v0
-
-    sput v0, Lcom/android/server/am/ProcessList;->TRIM_CACHED_APPS:I
+    const/16 v2, 0x12
 
     const/4 v0, 0x3
 
@@ -273,39 +169,65 @@
 
     sput v0, Lcom/android/server/am/ProcessList;->TRIM_LOW_THRESHOLD:I
 
-    new-array v0, v4, [I
+    const-string/jumbo v0, "ro.config.add_bonusEFK"
+
+    const-string/jumbo v1, "-1"
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    sput v0, Lcom/android/server/am/ProcessList;->addBonusEFK:I
+
+    const-string/jumbo v0, "ro.config.v_bonusEFK"
+
+    const-string/jumbo v1, "0"
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    sput v0, Lcom/android/server/am/ProcessList;->v_BonusEFK:I
+
+    new-array v0, v2, [I
 
     fill-array-data v0, :array_0
 
     sput-object v0, Lcom/android/server/am/ProcessList;->sProcStateToProcMem:[I
 
-    new-array v0, v4, [J
+    new-array v0, v2, [J
 
     fill-array-data v0, :array_1
 
     sput-object v0, Lcom/android/server/am/ProcessList;->sFirstAwakePssTimes:[J
 
-    new-array v0, v4, [J
+    new-array v0, v2, [J
 
     fill-array-data v0, :array_2
 
     sput-object v0, Lcom/android/server/am/ProcessList;->sSameAwakePssTimes:[J
 
-    new-array v0, v4, [J
+    new-array v0, v2, [J
 
     fill-array-data v0, :array_3
 
     sput-object v0, Lcom/android/server/am/ProcessList;->sTestFirstAwakePssTimes:[J
 
-    new-array v0, v4, [J
+    new-array v0, v2, [J
 
     fill-array-data v0, :array_4
 
     sput-object v0, Lcom/android/server/am/ProcessList;->sTestSameAwakePssTimes:[J
 
     return-void
-
-    nop
 
     :array_0
     .array-data 4
@@ -315,6 +237,7 @@
         0x2
         0x2
         0x1
+        0x2
         0x2
         0x2
         0x2
@@ -341,6 +264,7 @@
         0x4e20
         0x4e20
         0x4e20
+        0x4e20
         0x7530
         0x7530
         0x7530
@@ -354,6 +278,7 @@
         0xdbba0
         0xdbba0
         0x1d4c0
+        0xdbba0
         0xdbba0
         0xdbba0
         0xdbba0
@@ -389,12 +314,14 @@
         0x1388
         0x1388
         0x1388
+        0x1388
     .end array-data
 
     :array_4
     .array-data 8
         0x3a98
         0x3a98
+        0x2710
         0x2710
         0x2710
         0x2710
@@ -416,9 +343,9 @@
 .method constructor <init>()V
     .locals 7
 
-    const/4 v6, 0x0
-
     const/4 v2, 0x6
+
+    const/4 v6, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -432,35 +359,11 @@
 
     fill-array-data v1, :array_1
 
-    iput-object v1, p0, Lcom/android/server/am/ProcessList;->mOomMinFreeLow32BitForDHA:[I
-
-    new-array v1, v2, [I
-
-    fill-array-data v1, :array_2
-
-    iput-object v1, p0, Lcom/android/server/am/ProcessList;->mOomMinFreeHigh32BitForDHA:[I
-
-    new-array v1, v2, [I
-
-    fill-array-data v1, :array_3
-
-    iput-object v1, p0, Lcom/android/server/am/ProcessList;->mOomMinFreeLow64BitForDHA:[I
-
-    new-array v1, v2, [I
-
-    fill-array-data v1, :array_4
-
-    iput-object v1, p0, Lcom/android/server/am/ProcessList;->mOomMinFreeHigh64BitForDHA:[I
-
-    new-array v1, v2, [I
-
-    fill-array-data v1, :array_5
-
     iput-object v1, p0, Lcom/android/server/am/ProcessList;->mOomMinFreeLow:[I
 
     new-array v1, v2, [I
 
-    fill-array-data v1, :array_6
+    fill-array-data v1, :array_2
 
     iput-object v1, p0, Lcom/android/server/am/ProcessList;->mOomMinFreeHigh:[I
 
@@ -510,46 +413,6 @@
 
     :array_1
     .array-data 4
-        0x2000
-        0x3000
-        0x4000
-        0x6000
-        0x7000
-        0x8000
-    .end array-data
-
-    :array_2
-    .array-data 4
-        0xc000
-        0xf000
-        0x12000
-        0x15000
-        0x18000
-        0x1e000
-    .end array-data
-
-    :array_3
-    .array-data 4
-        0x2000
-        0x3000
-        0x4000
-        0x6000
-        0x7000
-        0x8000
-    .end array-data
-
-    :array_4
-    .array-data 4
-        0x12000
-        0x16800
-        0x1b000
-        0x1f800
-        0x36ee8
-        0x4f588
-    .end array-data
-
-    :array_5
-    .array-data 4
         0x3000
         0x4800
         0x6000
@@ -558,7 +421,7 @@
         0xc000
     .end array-data
 
-    :array_6
+    :array_2
     .array-data 4
         0x12000
         0x16800
@@ -567,30 +430,6 @@
         0x24000
         0x2d000
     .end array-data
-.end method
-
-.method public static allowTrim()Z
-    .locals 4
-
-    invoke-static {}, Landroid/os/Process;->getTotalMemory()J
-
-    move-result-wide v0
-
-    sget-wide v2, Lcom/android/server/am/ProcessList;->TRIM_ENABLE_MEMORY:J
-
-    cmp-long v0, v0, v2
-
-    if-gez v0, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_0
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
 .end method
 
 .method public static appendRamKb(Ljava/lang/StringBuilder;J)V
@@ -693,25 +532,6 @@
 .method public static computeEmptyProcessLimit(I)I
     .locals 1
 
-    sget-boolean v0, Lcom/android/server/am/ProcessList;->USE_TRIM_SETTINGS:Z
-
-    if-eqz v0, :cond_0
-
-    invoke-static {}, Lcom/android/server/am/ProcessList;->allowTrim()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    sget v0, Lcom/android/server/am/ProcessList;->EMPTY_APP_PERCENT:I
-
-    mul-int/2addr v0, p0
-
-    div-int/lit8 v0, v0, 0x64
-
-    return v0
-
-    :cond_0
     div-int/lit8 v0, p0, 0x2
 
     return v0
@@ -749,72 +569,6 @@
     sget-object v0, Lcom/android/server/am/ProcessList;->sSameAwakePssTimes:[J
 
     goto :goto_0
-.end method
-
-.method public static computeTrimCachedApps()I
-    .locals 2
-
-    sget-boolean v0, Lcom/android/server/am/ProcessList;->USE_TRIM_SETTINGS:Z
-
-    if-eqz v0, :cond_0
-
-    invoke-static {}, Lcom/android/server/am/ProcessList;->allowTrim()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    sget v0, Lcom/android/server/am/ProcessList;->MAX_CACHED_APPS:I
-
-    sget v1, Lcom/android/server/am/ProcessList;->TRIM_CACHE_PERCENT:I
-
-    mul-int/2addr v0, v1
-
-    div-int/lit8 v0, v0, 0x64
-
-    return v0
-
-    :cond_0
-    sget v0, Lcom/android/server/am/ProcessList;->MAX_CACHED_APPS:I
-
-    sget v1, Lcom/android/server/am/ProcessList;->MAX_EMPTY_APPS:I
-
-    sub-int/2addr v0, v1
-
-    div-int/lit8 v0, v0, 0x3
-
-    return v0
-.end method
-
-.method public static computeTrimEmptyApps()I
-    .locals 2
-
-    sget-boolean v0, Lcom/android/server/am/ProcessList;->USE_TRIM_SETTINGS:Z
-
-    if-eqz v0, :cond_0
-
-    invoke-static {}, Lcom/android/server/am/ProcessList;->allowTrim()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    sget v0, Lcom/android/server/am/ProcessList;->MAX_EMPTY_APPS:I
-
-    sget v1, Lcom/android/server/am/ProcessList;->TRIM_EMPTY_PERCENT:I
-
-    mul-int/2addr v0, v1
-
-    div-int/lit8 v0, v0, 0x64
-
-    return v0
-
-    :cond_0
-    sget v0, Lcom/android/server/am/ProcessList;->MAX_EMPTY_APPS:I
-
-    div-int/lit8 v0, v0, 0x2
-
-    return v0
 .end method
 
 .method public static makeOomAdjString(I)Ljava/lang/String;
@@ -1042,99 +796,104 @@
     return-object v0
 
     :pswitch_0
-    const-string/jumbo v0, "N "
+    const-string/jumbo v0, "PER "
 
     goto :goto_0
 
     :pswitch_1
-    const-string/jumbo v0, "P "
+    const-string/jumbo v0, "PERU"
 
     goto :goto_0
 
     :pswitch_2
-    const-string/jumbo v0, "PU"
+    const-string/jumbo v0, "TOP "
 
     goto :goto_0
 
     :pswitch_3
-    const-string/jumbo v0, "T "
+    const-string/jumbo v0, "BFGS"
 
     goto :goto_0
 
     :pswitch_4
-    const-string/jumbo v0, "SB"
+    const-string/jumbo v0, "FGS "
 
     goto :goto_0
 
     :pswitch_5
-    const-string/jumbo v0, "SF"
+    const-string/jumbo v0, "TPSL"
 
     goto :goto_0
 
     :pswitch_6
-    const-string/jumbo v0, "TS"
+    const-string/jumbo v0, "IMPF"
 
     goto :goto_0
 
     :pswitch_7
-    const-string/jumbo v0, "IF"
+    const-string/jumbo v0, "IMPB"
 
     goto :goto_0
 
     :pswitch_8
-    const-string/jumbo v0, "IB"
+    const-string/jumbo v0, "TRNB"
 
     goto :goto_0
 
     :pswitch_9
-    const-string/jumbo v0, "BU"
+    const-string/jumbo v0, "BKUP"
 
     goto :goto_0
 
     :pswitch_a
-    const-string/jumbo v0, "HW"
+    const-string/jumbo v0, "HVY "
 
     goto :goto_0
 
     :pswitch_b
-    const-string/jumbo v0, "S "
+    const-string/jumbo v0, "SVC "
 
     goto :goto_0
 
     :pswitch_c
-    const-string/jumbo v0, "R "
+    const-string/jumbo v0, "RCVR"
 
     goto :goto_0
 
     :pswitch_d
-    const-string/jumbo v0, "HO"
+    const-string/jumbo v0, "HOME"
 
     goto :goto_0
 
     :pswitch_e
-    const-string/jumbo v0, "LA"
+    const-string/jumbo v0, "LAST"
 
     goto :goto_0
 
     :pswitch_f
-    const-string/jumbo v0, "CA"
+    const-string/jumbo v0, "CAC "
 
     goto :goto_0
 
     :pswitch_10
-    const-string/jumbo v0, "Ca"
+    const-string/jumbo v0, "CACC"
 
     goto :goto_0
 
     :pswitch_11
-    const-string/jumbo v0, "CE"
+    const-string/jumbo v0, "CEM "
+
+    goto :goto_0
+
+    :pswitch_12
+    const-string/jumbo v0, "NONE"
 
     goto :goto_0
 
     nop
 
     :pswitch_data_0
-    .packed-switch -0x1
+    .packed-switch 0x0
         :pswitch_0
         :pswitch_1
         :pswitch_2
@@ -1153,6 +912,7 @@
         :pswitch_f
         :pswitch_10
         :pswitch_11
+        :pswitch_12
     .end packed-switch
 .end method
 
@@ -1367,7 +1127,7 @@
 .end method
 
 .method private updateOomLevels(IIZ)V
-    .locals 26
+    .locals 27
 
     move-object/from16 v0, p0
 
@@ -1383,21 +1143,21 @@
 
     long-to-float v0, v0
 
-    move/from16 v21, v0
+    move/from16 v22, v0
 
-    const/high16 v22, 0x43af0000    # 350.0f
+    const/high16 v23, 0x43af0000    # 350.0f
 
-    div-float v20, v21, v22
+    div-float v21, v22, v23
 
-    const v11, 0x5dc00
+    const v12, 0x5dc00
 
-    const v10, 0xfa000
+    const v11, 0xfa000
 
     invoke-static {}, Landroid/app/ActivityManager;->isLowRamDeviceStatic()Z
 
-    move-result v21
+    move-result v22
 
-    if-nez v21, :cond_0
+    if-nez v22, :cond_0
 
     move-object/from16 v0, p0
 
@@ -1407,17 +1167,17 @@
 
     const-wide/16 v24, 0x600
 
-    cmp-long v21, v22, v24
+    cmp-long v22, v22, v24
 
-    if-gez v21, :cond_1
+    if-gez v22, :cond_1
 
-    mul-int v21, p1, p2
+    mul-int v22, p1, p2
 
-    const v22, 0xfa000
+    const v23, 0xfa000
 
-    move/from16 v0, v21
+    move/from16 v0, v22
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
     if-lt v0, v1, :cond_1
 
@@ -1436,32 +1196,18 @@
 
     long-to-float v0, v0
 
-    move/from16 v21, v0
-
-    const v22, 0x44b54000    # 1450.0f
-
-    div-float v20, v21, v22
-
-    const v11, 0x25800
-
-    const v10, 0x1fa400
-
-    :cond_1
-    mul-int v21, p1, p2
-
-    move/from16 v0, v21
-
-    int-to-float v0, v0
-
-    move/from16 v21, v0
-
-    int-to-float v0, v11
-
     move/from16 v22, v0
 
-    sub-float v21, v21, v22
+    const v23, 0x44b54000    # 1450.0f
 
-    sub-int v22, v10, v11
+    div-float v21, v22, v23
+
+    const v12, 0x25800
+
+    const v11, 0x1fa400
+
+    :cond_1
+    mul-int v22, p1, p2
 
     move/from16 v0, v22
 
@@ -1469,366 +1215,231 @@
 
     move/from16 v22, v0
 
-    div-float v19, v21, v22
+    int-to-float v0, v12
 
-    cmpl-float v21, v20, v19
+    move/from16 v23, v0
 
-    if-lez v21, :cond_6
+    sub-float v22, v22, v23
 
-    move/from16 v18, v20
+    sub-int v23, v11, v12
+
+    move/from16 v0, v23
+
+    int-to-float v0, v0
+
+    move/from16 v23, v0
+
+    div-float v20, v22, v23
+
+    cmpl-float v22, v21, v20
+
+    if-lez v22, :cond_5
+
+    move/from16 v19, v21
 
     :goto_0
-    const/16 v21, 0x0
+    const/16 v22, 0x0
 
-    cmpg-float v21, v18, v21
+    cmpg-float v22, v19, v22
 
-    if-gez v21, :cond_7
+    if-gez v22, :cond_6
 
-    const/16 v18, 0x0
+    const/16 v19, 0x0
 
     :cond_2
     :goto_1
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
-    move-result-object v21
+    move-result-object v22
 
-    const v22, 0x10e0009
+    const v23, 0x10e0079
 
-    invoke-virtual/range {v21 .. v22}, Landroid/content/res/Resources;->getInteger(I)I
+    invoke-virtual/range {v22 .. v23}, Landroid/content/res/Resources;->getInteger(I)I
 
-    move-result v13
+    move-result v14
 
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
-    move-result-object v21
+    move-result-object v22
 
-    const v22, 0x10e0008
+    const v23, 0x10e0078
 
-    invoke-virtual/range {v21 .. v22}, Landroid/content/res/Resources;->getInteger(I)I
+    invoke-virtual/range {v22 .. v23}, Landroid/content/res/Resources;->getInteger(I)I
 
-    move-result v12
+    move-result v13
 
-    sget-boolean v21, Lcom/android/server/am/DynamicHiddenApp;->FHA_ENABLE:Z
+    sget-boolean v22, Lcom/android/server/am/DynamicHiddenApp;->FHA_ENABLE:Z
 
-    if-nez v21, :cond_3
+    if-nez v22, :cond_3
 
-    sget v21, Lcom/android/server/am/DynamicHiddenApp;->mLMKScale:F
+    sget v22, Lcom/android/server/am/DynamicHiddenApp;->mLMKScale:F
 
-    const/high16 v22, -0x40800000    # -1.0f
+    const/high16 v23, -0x40800000    # -1.0f
 
-    cmpl-float v21, v21, v22
+    cmpl-float v22, v22, v23
 
-    if-eqz v21, :cond_3
+    if-eqz v22, :cond_3
 
-    sget v18, Lcom/android/server/am/DynamicHiddenApp;->mLMKScale:F
+    sget v19, Lcom/android/server/am/DynamicHiddenApp;->mLMKScale:F
 
     :cond_3
-    sget-boolean v21, Lcom/android/server/am/DynamicHiddenApp;->FHA_ENABLE:Z
+    sget-object v22, Landroid/os/Build;->SUPPORTED_64_BIT_ABIS:[Ljava/lang/String;
 
-    if-eqz v21, :cond_4
-
-    const/16 v21, 0x1
-
-    sput-boolean v21, Lcom/android/server/am/DynamicHiddenApp;->mb64bitLMKEnable:Z
-
-    :cond_4
-    sget-object v21, Landroid/os/Build;->SUPPORTED_64_BIT_ABIS:[Ljava/lang/String;
-
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     array-length v0, v0
 
-    move/from16 v21, v0
+    move/from16 v22, v0
 
-    if-lez v21, :cond_8
+    if-lez v22, :cond_7
 
-    sget-boolean v7, Lcom/android/server/am/DynamicHiddenApp;->mb64bitLMKEnable:Z
+    const/4 v8, 0x1
 
     :goto_2
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
     :goto_3
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/ProcessList;->mOomAdj:[I
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     array-length v0, v0
 
-    move/from16 v21, v0
+    move/from16 v22, v0
 
-    move/from16 v0, v21
+    move/from16 v0, v22
 
-    if-ge v6, v0, :cond_c
-
-    const/4 v8, 0x0
-
-    const/4 v5, 0x0
-
-    sget-boolean v21, Lcom/android/server/am/DynamicHiddenApp;->FHA_ENABLE:Z
-
-    if-eqz v21, :cond_a
+    if-ge v7, v0, :cond_9
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/ProcessList;->mOomMinFreeLow:[I
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    aget v8, v21, v6
+    aget v9, v22, v7
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/ProcessList;->mOomMinFreeHigh:[I
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    aget v5, v21, v6
+    aget v6, v22, v7
 
-    if-eqz v7, :cond_5
+    if-eqz v8, :cond_4
 
-    const/16 v21, 0x4
+    const/16 v22, 0x4
 
-    move/from16 v0, v21
+    move/from16 v0, v22
 
-    if-ne v6, v0, :cond_9
+    if-ne v7, v0, :cond_8
 
-    mul-int/lit8 v21, v5, 0x3
+    mul-int/lit8 v22, v6, 0x3
 
-    div-int/lit8 v5, v21, 0x2
+    div-int/lit8 v6, v22, 0x2
 
-    :cond_5
+    :cond_4
     :goto_4
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/ProcessList;->mOomMinFree:[I
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    int-to-float v0, v8
-
-    move/from16 v22, v0
-
-    sub-int v23, v5, v8
-
-    move/from16 v0, v23
-
-    int-to-float v0, v0
+    int-to-float v0, v9
 
     move/from16 v23, v0
 
-    mul-float v23, v23, v18
+    sub-int v24, v6, v9
 
-    add-float v22, v22, v23
+    move/from16 v0, v24
 
-    move/from16 v0, v22
+    int-to-float v0, v0
+
+    move/from16 v24, v0
+
+    mul-float v24, v24, v19
+
+    add-float v23, v23, v24
+
+    move/from16 v0, v23
 
     float-to-int v0, v0
 
-    move/from16 v22, v0
+    move/from16 v23, v0
 
-    aput v22, v21, v6
+    aput v23, v22, v7
 
-    add-int/lit8 v6, v6, 0x1
+    add-int/lit8 v7, v7, 0x1
 
     goto :goto_3
 
-    :cond_6
-    move/from16 v18, v19
+    :cond_5
+    move/from16 v19, v20
 
     goto/16 :goto_0
 
-    :cond_7
-    const/high16 v21, 0x3f800000    # 1.0f
+    :cond_6
+    const/high16 v22, 0x3f800000    # 1.0f
 
-    cmpl-float v21, v18, v21
+    cmpl-float v22, v19, v22
 
-    if-lez v21, :cond_2
+    if-lez v22, :cond_2
 
-    const/high16 v18, 0x3f800000    # 1.0f
+    const/high16 v19, 0x3f800000    # 1.0f
 
     goto/16 :goto_1
 
-    :cond_8
-    const/4 v7, 0x0
+    :cond_7
+    const/4 v8, 0x0
 
     goto :goto_2
 
+    :cond_8
+    const/16 v22, 0x5
+
+    move/from16 v0, v22
+
+    if-ne v7, v0, :cond_4
+
+    mul-int/lit8 v22, v6, 0x7
+
+    div-int/lit8 v6, v22, 0x4
+
+    goto :goto_4
+
     :cond_9
-    const/16 v21, 0x5
+    if-ltz v13, :cond_a
 
-    move/from16 v0, v21
-
-    if-ne v6, v0, :cond_5
-
-    mul-int/lit8 v21, v5, 0x7
-
-    div-int/lit8 v5, v21, 0x4
-
-    goto :goto_4
-
-    :cond_a
-    if-eqz v7, :cond_b
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/ProcessList;->mOomMinFreeLow64BitForDHA:[I
-
-    move-object/from16 v21, v0
-
-    aget v8, v21, v6
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/ProcessList;->mOomMinFreeHigh64BitForDHA:[I
-
-    move-object/from16 v21, v0
-
-    aget v5, v21, v6
-
-    goto :goto_4
-
-    :cond_b
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/ProcessList;->mOomMinFreeLow32BitForDHA:[I
-
-    move-object/from16 v21, v0
-
-    aget v8, v21, v6
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/ProcessList;->mOomMinFreeHigh32BitForDHA:[I
-
-    move-object/from16 v21, v0
-
-    aget v5, v21, v6
-
-    goto :goto_4
-
-    :cond_c
-    if-ltz v12, :cond_d
-
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
     :goto_5
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/ProcessList;->mOomAdj:[I
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     array-length v0, v0
-
-    move/from16 v21, v0
-
-    move/from16 v0, v21
-
-    if-ge v6, v0, :cond_d
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/ProcessList;->mOomMinFree:[I
-
-    move-object/from16 v21, v0
-
-    int-to-float v0, v12
 
     move/from16 v22, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/ProcessList;->mOomMinFree:[I
-
-    move-object/from16 v23, v0
-
-    aget v23, v23, v6
-
-    move/from16 v0, v23
-
-    int-to-float v0, v0
-
-    move/from16 v23, v0
-
-    mul-float v22, v22, v23
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/ProcessList;->mOomMinFree:[I
-
-    move-object/from16 v23, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/ProcessList;->mOomAdj:[I
-
-    move-object/from16 v24, v0
-
-    move-object/from16 v0, v24
-
-    array-length v0, v0
-
-    move/from16 v24, v0
-
-    add-int/lit8 v24, v24, -0x1
-
-    aget v23, v23, v24
-
-    move/from16 v0, v23
-
-    int-to-float v0, v0
-
-    move/from16 v23, v0
-
-    div-float v22, v22, v23
 
     move/from16 v0, v22
 
-    float-to-int v0, v0
-
-    move/from16 v22, v0
-
-    aput v22, v21, v6
-
-    add-int/lit8 v6, v6, 0x1
-
-    goto :goto_5
-
-    :cond_d
-    if-eqz v13, :cond_f
-
-    const/4 v6, 0x0
-
-    :goto_6
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/ProcessList;->mOomAdj:[I
-
-    move-object/from16 v21, v0
-
-    move-object/from16 v0, v21
-
-    array-length v0, v0
-
-    move/from16 v21, v0
-
-    move/from16 v0, v21
-
-    if-ge v6, v0, :cond_f
+    if-ge v7, v0, :cond_a
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/ProcessList;->mOomMinFree:[I
 
-    move-object/from16 v21, v0
-
-    aget v22, v21, v6
+    move-object/from16 v22, v0
 
     int-to-float v0, v13
 
@@ -1840,7 +1451,7 @@
 
     move-object/from16 v24, v0
 
-    aget v24, v24, v6
+    aget v24, v24, v7
 
     move/from16 v0, v24
 
@@ -1886,41 +1497,133 @@
 
     move/from16 v23, v0
 
-    add-int v22, v22, v23
+    aput v23, v22, v7
 
-    aput v22, v21, v6
+    add-int/lit8 v7, v7, 0x1
+
+    goto :goto_5
+
+    :cond_a
+    if-eqz v14, :cond_c
+
+    const/4 v7, 0x0
+
+    :goto_6
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessList;->mOomAdj:[I
+
+    move-object/from16 v22, v0
+
+    move-object/from16 v0, v22
+
+    array-length v0, v0
+
+    move/from16 v22, v0
+
+    move/from16 v0, v22
+
+    if-ge v7, v0, :cond_c
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/ProcessList;->mOomMinFree:[I
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    aget v21, v21, v6
+    aget v23, v22, v7
 
-    if-gez v21, :cond_e
+    int-to-float v0, v14
+
+    move/from16 v24, v0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/ProcessList;->mOomMinFree:[I
 
-    move-object/from16 v21, v0
+    move-object/from16 v25, v0
 
-    const/16 v22, 0x0
+    aget v25, v25, v7
 
-    aput v22, v21, v6
+    move/from16 v0, v25
 
-    :cond_e
-    add-int/lit8 v6, v6, 0x1
+    int-to-float v0, v0
+
+    move/from16 v25, v0
+
+    mul-float v24, v24, v25
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessList;->mOomMinFree:[I
+
+    move-object/from16 v25, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessList;->mOomAdj:[I
+
+    move-object/from16 v26, v0
+
+    move-object/from16 v0, v26
+
+    array-length v0, v0
+
+    move/from16 v26, v0
+
+    add-int/lit8 v26, v26, -0x1
+
+    aget v25, v25, v26
+
+    move/from16 v0, v25
+
+    int-to-float v0, v0
+
+    move/from16 v25, v0
+
+    div-float v24, v24, v25
+
+    move/from16 v0, v24
+
+    float-to-int v0, v0
+
+    move/from16 v24, v0
+
+    add-int v23, v23, v24
+
+    aput v23, v22, v7
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessList;->mOomMinFree:[I
+
+    move-object/from16 v22, v0
+
+    aget v22, v22, v7
+
+    if-gez v22, :cond_b
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessList;->mOomMinFree:[I
+
+    move-object/from16 v22, v0
+
+    const/16 v23, 0x0
+
+    aput v23, v22, v7
+
+    :cond_b
+    add-int/lit8 v7, v7, 0x1
 
     goto :goto_6
 
-    :cond_f
-    const/16 v21, 0x38a
+    :cond_c
+    const/16 v22, 0x38a
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v21
+    move/from16 v1, v22
 
     invoke-virtual {v0, v1}, Lcom/android/server/am/ProcessList;->getMemLevel(I)J
 
@@ -1940,237 +1643,348 @@
 
     iput-wide v0, v2, Lcom/android/server/am/ProcessList;->mCachedRestoreLevel:J
 
-    mul-int v21, p1, p2
+    mul-int v22, p1, p2
 
-    mul-int/lit8 v21, v21, 0x4
+    mul-int/lit8 v22, v22, 0x4
 
-    mul-int/lit8 v21, v21, 0x3
+    mul-int/lit8 v22, v22, 0x3
 
-    move/from16 v0, v21
+    move/from16 v0, v22
 
-    div-int/lit16 v15, v0, 0x400
+    div-int/lit16 v0, v0, 0x400
+
+    move/from16 v16, v0
 
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
-    move-result-object v21
+    move-result-object v22
 
-    const v22, 0x10e000b
+    const v23, 0x10e005f
 
-    invoke-virtual/range {v21 .. v22}, Landroid/content/res/Resources;->getInteger(I)I
+    invoke-virtual/range {v22 .. v23}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v18
+
+    invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
+
+    move-result-object v22
+
+    const v23, 0x10e005e
+
+    invoke-virtual/range {v22 .. v23}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v17
 
-    invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
+    if-ltz v17, :cond_d
 
-    move-result-object v21
+    move/from16 v16, v17
 
-    const v22, 0x10e000a
+    :cond_d
+    if-eqz v18, :cond_e
 
-    invoke-virtual/range {v21 .. v22}, Landroid/content/res/Resources;->getInteger(I)I
+    add-int v16, v16, v18
 
-    move-result v16
+    if-gez v16, :cond_e
 
-    if-ltz v16, :cond_10
+    const/16 v16, 0x0
 
-    move/from16 v15, v16
+    :cond_e
+    const/4 v4, 0x0
+
+    move-object/from16 v0, p0
+
+    iget-wide v0, v0, Lcom/android/server/am/ProcessList;->mTotalMemMb:J
+
+    move-wide/from16 v22, v0
+
+    const-wide/16 v24, 0xc00
+
+    cmp-long v22, v22, v24
+
+    if-ltz v22, :cond_f
+
+    invoke-static {}, Landroid/app/ActivityManager;->isLowRamDeviceStatic()Z
+
+    move-result v22
+
+    xor-int/lit8 v22, v22, 0x1
+
+    if-eqz v22, :cond_f
+
+    move-object/from16 v0, p0
+
+    iget-wide v0, v0, Lcom/android/server/am/ProcessList;->mTotalMemMb:J
+
+    move-wide/from16 v22, v0
+
+    const-wide/16 v24, 0x400
+
+    mul-long v22, v22, v24
+
+    move-wide/from16 v0, v22
+
+    long-to-double v0, v0
+
+    move-wide/from16 v22, v0
+
+    const-wide v24, 0x3f847ae147ae147bL    # 0.01
+
+    mul-double v22, v22, v24
+
+    move-wide/from16 v0, v22
+
+    double-to-int v4, v0
+
+    :cond_f
+    sget v22, Lcom/android/server/am/ProcessList;->addBonusEFK:I
+
+    const/16 v23, 0x1
+
+    move/from16 v0, v22
+
+    move/from16 v1, v23
+
+    if-ne v0, v1, :cond_11
+
+    move-object/from16 v0, p0
+
+    iget-wide v0, v0, Lcom/android/server/am/ProcessList;->mTotalMemMb:J
+
+    move-wide/from16 v22, v0
+
+    const-wide/16 v24, 0x400
+
+    mul-long v22, v22, v24
+
+    move-wide/from16 v0, v22
+
+    long-to-double v0, v0
+
+    move-wide/from16 v22, v0
+
+    const-wide v24, 0x3f847ae147ae147bL    # 0.01
+
+    mul-double v22, v22, v24
+
+    move-wide/from16 v0, v22
+
+    double-to-int v4, v0
 
     :cond_10
-    if-eqz v17, :cond_11
+    :goto_7
+    add-int v16, v16, v4
 
-    add-int v15, v15, v17
-
-    if-gez v15, :cond_11
-
-    const/4 v15, 0x0
-
-    :cond_11
-    const-string/jumbo v21, "none"
-
-    sget-object v22, Lcom/android/server/am/DynamicHiddenApp;->mLMKArray:Ljava/lang/String;
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v21
-
-    if-nez v21, :cond_12
-
-    sget-object v21, Lcom/android/server/am/DynamicHiddenApp;->mLMKArray:Ljava/lang/String;
-
-    const-string/jumbo v22, ","
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v9
-
-    sget-object v21, Lcom/android/server/am/ProcessList;->TAG:Ljava/lang/String;
-
-    new-instance v22, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v23, "updateOomLevels using LMKArray "
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
+    const-string/jumbo v22, "none"
 
     sget-object v23, Lcom/android/server/am/DynamicHiddenApp;->mLMKArray:Ljava/lang/String;
 
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result-object v22
+    move-result v22
 
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    if-nez v22, :cond_13
 
-    move-result-object v22
+    sget-object v22, Lcom/android/server/am/DynamicHiddenApp;->mLMKArray:Ljava/lang/String;
 
-    invoke-static/range {v21 .. v22}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v23, ","
 
-    const/4 v6, 0x0
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
-    :goto_7
+    move-result-object v10
+
+    sget-object v22, Lcom/android/server/am/ProcessList;->TAG:Ljava/lang/String;
+
+    new-instance v23, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v24, "updateOomLevels using LMKArray "
+
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v23
+
+    sget-object v24, Lcom/android/server/am/DynamicHiddenApp;->mLMKArray:Ljava/lang/String;
+
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v23
+
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v23
+
+    invoke-static/range {v22 .. v23}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v7, 0x0
+
+    :goto_8
     :try_start_0
-    array-length v0, v9
+    array-length v0, v10
 
-    move/from16 v21, v0
+    move/from16 v22, v0
 
-    move/from16 v0, v21
+    move/from16 v0, v22
 
-    if-ge v6, v0, :cond_12
+    if-ge v7, v0, :cond_13
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/ProcessList;->mOomMinFree:[I
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    aget-object v22, v9, v6
+    aget-object v23, v10, v7
 
-    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v23 .. v23}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v22
+    move-result v23
 
-    mul-int/lit8 v22, v22, 0x4
+    mul-int/lit8 v23, v23, 0x4
 
-    aput v22, v21, v6
+    aput v23, v22, v7
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    add-int/lit8 v6, v6, 0x1
+    add-int/lit8 v7, v7, 0x1
+
+    goto :goto_8
+
+    :cond_11
+    sget v22, Lcom/android/server/am/ProcessList;->addBonusEFK:I
+
+    const/16 v23, 0x2
+
+    move/from16 v0, v22
+
+    move/from16 v1, v23
+
+    if-ne v0, v1, :cond_12
+
+    sget v4, Lcom/android/server/am/ProcessList;->v_BonusEFK:I
+
+    goto :goto_7
+
+    :cond_12
+    sget v22, Lcom/android/server/am/ProcessList;->addBonusEFK:I
+
+    if-nez v22, :cond_10
+
+    const/4 v4, 0x0
 
     goto :goto_7
 
     :catch_0
-    move-exception v14
+    move-exception v15
 
-    sget-object v21, Lcom/android/server/am/ProcessList;->TAG:Ljava/lang/String;
+    sget-object v22, Lcom/android/server/am/ProcessList;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v22, "updateOomLevels, LMKArray NumberFormatException "
+    const-string/jumbo v23, "updateOomLevels, LMKArray NumberFormatException "
 
-    invoke-static/range {v21 .. v22}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v22 .. v23}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_12
-    if-eqz p3, :cond_14
+    :cond_13
+    if-eqz p3, :cond_15
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/ProcessList;->mOomAdj:[I
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     array-length v0, v0
 
-    move/from16 v21, v0
+    move/from16 v22, v0
 
-    mul-int/lit8 v21, v21, 0x2
+    mul-int/lit8 v22, v22, 0x2
 
-    add-int/lit8 v21, v21, 0x1
+    add-int/lit8 v22, v22, 0x1
 
-    mul-int/lit8 v21, v21, 0x4
+    mul-int/lit8 v22, v22, 0x4
 
-    invoke-static/range {v21 .. v21}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
+    invoke-static/range {v22 .. v22}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
 
-    move-result-object v4
+    move-result-object v5
 
-    const/16 v21, 0x0
+    const/16 v22, 0x0
 
-    move/from16 v0, v21
+    move/from16 v0, v22
 
-    invoke-virtual {v4, v0}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
+    invoke-virtual {v5, v0}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
-    :goto_8
+    :goto_9
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/ProcessList;->mOomAdj:[I
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     array-length v0, v0
 
-    move/from16 v21, v0
+    move/from16 v22, v0
 
-    move/from16 v0, v21
+    move/from16 v0, v22
 
-    if-ge v6, v0, :cond_13
+    if-ge v7, v0, :cond_14
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/ProcessList;->mOomMinFree:[I
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    aget v21, v21, v6
+    aget v22, v22, v7
 
-    move/from16 v0, v21
+    move/from16 v0, v22
 
     mul-int/lit16 v0, v0, 0x400
 
-    move/from16 v21, v0
+    move/from16 v22, v0
 
-    move/from16 v0, v21
+    move/from16 v0, v22
 
     div-int/lit16 v0, v0, 0x1000
 
-    move/from16 v21, v0
+    move/from16 v22, v0
 
-    move/from16 v0, v21
+    move/from16 v0, v22
 
-    invoke-virtual {v4, v0}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
+    invoke-virtual {v5, v0}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/ProcessList;->mOomAdj:[I
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    aget v21, v21, v6
+    aget v22, v22, v7
 
-    move/from16 v0, v21
+    move/from16 v0, v22
 
-    invoke-virtual {v4, v0}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
+    invoke-virtual {v5, v0}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    add-int/lit8 v6, v6, 0x1
+    add-int/lit8 v7, v7, 0x1
 
-    goto :goto_8
-
-    :cond_13
-    invoke-static {v4}, Lcom/android/server/am/ProcessList;->writeLmkd(Ljava/nio/ByteBuffer;)V
-
-    const-string/jumbo v21, "sys.sysctl.extra_free_kbytes"
-
-    invoke-static {v15}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v22
-
-    invoke-static/range {v21 .. v22}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
+    goto :goto_9
 
     :cond_14
+    invoke-static {v5}, Lcom/android/server/am/ProcessList;->writeLmkd(Ljava/nio/ByteBuffer;)V
+
+    const-string/jumbo v22, "sys.sysctl.extra_free_kbytes"
+
+    invoke-static/range {v16 .. v16}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v23
+
+    invoke-static/range {v22 .. v23}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_15
     return-void
 .end method
 
@@ -2266,29 +2080,34 @@
 
 # virtual methods
 .method applyDisplaySize(Lcom/android/server/wm/WindowManagerService;)V
-    .locals 4
+    .locals 5
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     iget-boolean v1, p0, Lcom/android/server/am/ProcessList;->mHaveDisplaySize:Z
 
-    if-nez v1, :cond_0
+    if-eqz v1, :cond_0
 
+    iget-boolean v1, p0, Lcom/android/server/am/ProcessList;->mIsDisplayChanged:Z
+
+    if-eqz v1, :cond_1
+
+    :cond_0
     new-instance v0, Landroid/graphics/Point;
 
     invoke-direct {v0}, Landroid/graphics/Point;-><init>()V
 
-    invoke-virtual {p1, v2, v0}, Lcom/android/server/wm/WindowManagerService;->getBaseDisplaySize(ILandroid/graphics/Point;)V
+    invoke-virtual {p1, v3, v0}, Lcom/android/server/wm/WindowManagerService;->getBaseDisplaySize(ILandroid/graphics/Point;)V
 
     iget v1, v0, Landroid/graphics/Point;->x:I
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     iget v1, v0, Landroid/graphics/Point;->y:I
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     iget v1, v0, Landroid/graphics/Point;->x:I
 
@@ -2302,12 +2121,68 @@
 
     iget v2, v0, Landroid/graphics/Point;->y:I
 
-    invoke-direct {p0, v1, v2, v3}, Lcom/android/server/am/ProcessList;->updateOomLevels(IIZ)V
+    invoke-direct {p0, v1, v2, v4}, Lcom/android/server/am/ProcessList;->updateOomLevels(IIZ)V
 
-    iput-boolean v3, p0, Lcom/android/server/am/ProcessList;->mHaveDisplaySize:Z
+    iget v1, v0, Landroid/graphics/Point;->x:I
+
+    iget v2, v0, Landroid/graphics/Point;->y:I
+
+    invoke-virtual {p0, v1, v2}, Lcom/android/server/am/ProcessList;->getCachedNumByRes(II)V
+
+    iput-boolean v4, p0, Lcom/android/server/am/ProcessList;->mHaveDisplaySize:Z
+
+    iput-boolean v3, p0, Lcom/android/server/am/ProcessList;->mIsDisplayChanged:Z
+
+    :cond_1
+    return-void
+.end method
+
+.method public getCachedNumByRes(II)V
+    .locals 3
+
+    mul-int v0, p1, p2
+
+    const v1, 0x384000
+
+    if-lt v0, v1, :cond_0
+
+    sget v0, Lcom/android/server/am/DynamicHiddenApp;->highRes_MaxCached:I
+
+    sput v0, Lcom/android/server/am/DynamicHiddenApp;->MAX_CACHED_APPS:I
+
+    :goto_0
+    sget-object v0, Lcom/android/server/am/ProcessList;->TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "change Max_Cached : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    sget v2, Lcom/android/server/am/DynamicHiddenApp;->MAX_CACHED_APPS:I
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
 
     :cond_0
-    return-void
+    sget v0, Lcom/android/server/am/DynamicHiddenApp;->normalRes_MaxCached:I
+
+    sput v0, Lcom/android/server/am/DynamicHiddenApp;->MAX_CACHED_APPS:I
+
+    goto :goto_0
 .end method
 
 .method getCachedRestoreThresholdKb()J
@@ -2369,12 +2244,12 @@
     return-wide v2
 .end method
 
-.method public setTrimCachedApps(I)V
-    .locals 0
+.method public getmIsDisplayChanged()Z
+    .locals 1
 
-    sput p1, Lcom/android/server/am/ProcessList;->TRIM_CACHED_APPS:I
+    iget-boolean v0, p0, Lcom/android/server/am/ProcessList;->mIsDisplayChanged:Z
 
-    return-void
+    return v0
 .end method
 
 .method public setTrimCriticalTH(I)V
@@ -2385,19 +2260,24 @@
     return-void
 .end method
 
-.method public setTrimEmptyApps(I)V
-    .locals 0
-
-    sput p1, Lcom/android/server/am/ProcessList;->TRIM_EMPTY_APPS:I
-
-    return-void
-.end method
-
 .method public setTrimLowlTH(I)V
     .locals 0
 
     sput p1, Lcom/android/server/am/ProcessList;->TRIM_LOW_THRESHOLD:I
 
+    return-void
+.end method
+
+.method public setmIsDisplayChanged(Z)V
+    .locals 1
+
+    if-eqz p1, :cond_0
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/server/am/ProcessList;->mIsDisplayChanged:Z
+
+    :cond_0
     return-void
 .end method
 

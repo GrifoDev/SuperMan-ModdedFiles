@@ -14,6 +14,14 @@
 # static fields
 .field private static final DEBUG:Z
 
+.field public static final INTENT_ACTION_GENERAL_SINGLE:Ljava/lang/String; = "com.samsung.android.providers.context.log.action.USE_APP_FEATURE_SURVEY"
+
+.field public static final MMFW_ERROR_LOGGING_FEATURE:Ljava/lang/String; = "MMER"
+
+.field public static final MMFW_INFO_LOGGING_FEATURE:Ljava/lang/String; = "MMIF"
+
+.field public static final MMFW_LOGGING_APPID:Ljava/lang/String; = "MMFW"
+
 .field private static final SERVICE_NAME:Ljava/lang/String; = "media_resource_monitor"
 
 .field private static final TAG:Ljava/lang/String; = "MediaResourceMonitor"
@@ -21,6 +29,8 @@
 
 # instance fields
 .field private final mMediaResourceMonitorImpl:Lcom/android/server/media/MediaResourceMonitorService$MediaResourceMonitorImpl;
+
+.field private mPackageManager:Landroid/content/pm/PackageManager;
 
 
 # direct methods
@@ -30,6 +40,22 @@
     sget-boolean v0, Lcom/android/server/media/MediaResourceMonitorService;->DEBUG:Z
 
     return v0
+.end method
+
+.method static synthetic -get1(Lcom/android/server/media/MediaResourceMonitorService;)Landroid/content/pm/PackageManager;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/media/MediaResourceMonitorService;->mPackageManager:Landroid/content/pm/PackageManager;
+
+    return-object v0
+.end method
+
+.method static synthetic -set0(Lcom/android/server/media/MediaResourceMonitorService;Landroid/content/pm/PackageManager;)Landroid/content/pm/PackageManager;
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/media/MediaResourceMonitorService;->mPackageManager:Landroid/content/pm/PackageManager;
+
+    return-object p1
 .end method
 
 .method static constructor <clinit>()V

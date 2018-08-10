@@ -41,6 +41,8 @@
 # instance fields
 .field public isSuspendedBefore:Ljava/lang/Boolean;
 
+.field private mHandlerThread:Landroid/os/HandlerThread;
+
 .field private mIntentReceiver:Landroid/content/BroadcastReceiver;
 
 .field private mMainThread:Lcom/android/server/DcmNextiPlayReadyService$MainThread;
@@ -175,51 +177,63 @@
 
     invoke-direct {v0, v1, v2}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;I)V
 
+    iput-object v0, p0, Lcom/android/server/DcmNextiPlayReadyService;->mHandlerThread:Landroid/os/HandlerThread;
+
+    iget-object v0, p0, Lcom/android/server/DcmNextiPlayReadyService;->mHandlerThread:Landroid/os/HandlerThread;
+
     invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V
+
+    iget-object v0, p0, Lcom/android/server/DcmNextiPlayReadyService;->mHandlerThread:Landroid/os/HandlerThread;
 
     invoke-virtual {v0}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Lcom/android/server/DcmNextiPlayReadyService;->mServiceLooper:Landroid/os/Looper;
+    iput-object v0, p0, Lcom/android/server/DcmNextiPlayReadyService;->mServiceLooper:Landroid/os/Looper;
 
-    new-instance v1, Lcom/android/server/DcmNextiPlayReadyService$ServiceHandler;
+    new-instance v0, Lcom/android/server/DcmNextiPlayReadyService$ServiceHandler;
 
-    iget-object v2, p0, Lcom/android/server/DcmNextiPlayReadyService;->mServiceLooper:Landroid/os/Looper;
+    iget-object v1, p0, Lcom/android/server/DcmNextiPlayReadyService;->mServiceLooper:Landroid/os/Looper;
 
-    invoke-direct {v1, p0, v2}, Lcom/android/server/DcmNextiPlayReadyService$ServiceHandler;-><init>(Lcom/android/server/DcmNextiPlayReadyService;Landroid/os/Looper;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/server/DcmNextiPlayReadyService$ServiceHandler;-><init>(Lcom/android/server/DcmNextiPlayReadyService;Landroid/os/Looper;)V
 
-    iput-object v1, p0, Lcom/android/server/DcmNextiPlayReadyService;->mServiceHandler:Lcom/android/server/DcmNextiPlayReadyService$ServiceHandler;
+    iput-object v0, p0, Lcom/android/server/DcmNextiPlayReadyService;->mServiceHandler:Lcom/android/server/DcmNextiPlayReadyService$ServiceHandler;
 
-    const-string/jumbo v1, "DcmNextiPlayReadyService"
+    const-string/jumbo v0, "DcmNextiPlayReadyService"
 
-    const-string/jumbo v2, "DcmNextiPlayReadyService oncreate call"
+    const-string/jumbo v1, "DcmNextiPlayReadyService oncreate call"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    new-instance v1, Landroid/content/IntentFilter;
+    new-instance v0, Landroid/content/IntentFilter;
 
-    invoke-direct {v1}, Landroid/content/IntentFilter;-><init>()V
+    invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
-    sput-object v1, Lcom/android/server/DcmNextiPlayReadyService;->mIntentFilter:Landroid/content/IntentFilter;
+    sput-object v0, Lcom/android/server/DcmNextiPlayReadyService;->mIntentFilter:Landroid/content/IntentFilter;
+
+    sget-object v0, Lcom/android/server/DcmNextiPlayReadyService;->mIntentFilter:Landroid/content/IntentFilter;
+
+    const-string/jumbo v1, "android.intent.action.NETWORK_SET_TIME"
+
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    sget-object v0, Lcom/android/server/DcmNextiPlayReadyService;->mIntentFilter:Landroid/content/IntentFilter;
+
+    const-string/jumbo v1, "android.net.conn.CONNECTIVITY_CHANGE"
+
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string/jumbo v0, "DcmNextiPlayReadyService"
+
+    const-string/jumbo v1, "DcmNextiPlayReadyService...register receiver"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/android/server/DcmNextiPlayReadyService;->mIntentReceiver:Landroid/content/BroadcastReceiver;
 
     sget-object v1, Lcom/android/server/DcmNextiPlayReadyService;->mIntentFilter:Landroid/content/IntentFilter;
 
-    const-string/jumbo v2, "android.net.conn.CONNECTIVITY_CHANGE"
-
-    invoke-virtual {v1, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    const-string/jumbo v1, "DcmNextiPlayReadyService"
-
-    const-string/jumbo v2, "DcmNextiPlayReadyService...register receiver"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v1, p0, Lcom/android/server/DcmNextiPlayReadyService;->mIntentReceiver:Landroid/content/BroadcastReceiver;
-
-    sget-object v2, Lcom/android/server/DcmNextiPlayReadyService;->mIntentFilter:Landroid/content/IntentFilter;
-
-    invoke-virtual {p0, v1, v2}, Lcom/android/server/DcmNextiPlayReadyService;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/DcmNextiPlayReadyService;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
     return-void
 .end method
@@ -333,6 +347,12 @@
 
     if-eqz v1, :cond_1
 
+    const-string/jumbo v1, "DcmNextiPlayReadyService"
+
+    const-string/jumbo v2, "Current action is boot complete time"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
     iput v3, v0, Landroid/os/Message;->what:I
 
     :cond_0
@@ -344,31 +364,6 @@
     return v3
 
     :cond_1
-    const-string/jumbo v1, "com.samsung.intent.action.NITZ_SET_TIME"
-
-    invoke-virtual {p1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    const-string/jumbo v1, "DcmNextiPlayReadyService"
-
-    const-string/jumbo v2, "Current action is nitz set time"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v1, 0x3
-
-    iput v1, v0, Landroid/os/Message;->what:I
-
-    goto :goto_0
-
-    :cond_2
     const-string/jumbo v1, "DcmNextiPlayReadyService"
 
     const-string/jumbo v2, "Code should not reach here"

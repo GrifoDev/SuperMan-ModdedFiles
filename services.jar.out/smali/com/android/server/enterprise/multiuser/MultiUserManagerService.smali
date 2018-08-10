@@ -181,6 +181,8 @@
     return v11
 
     :cond_0
+    const/4 v7, 0x1
+
     move-object/from16 v0, p0
 
     iget-object v11, v0, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
@@ -223,9 +225,6 @@
 
     iget-object v11, v0, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->mUserManager:Landroid/os/UserManager;
 
-    if-eqz v11, :cond_1
-
-    :cond_1
     move-object/from16 v0, p0
 
     iget-object v11, v0, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->mContext:Landroid/content/Context;
@@ -256,26 +255,16 @@
 
     move-result v11
 
-    if-eqz v11, :cond_4
+    xor-int/lit8 v11, v11, 0x1
 
-    :cond_2
-    invoke-static {v12, v13}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    if-eqz v11, :cond_2
 
-    :cond_3
-    if-eqz v7, :cond_6
-
-    const/4 v11, 0x1
-
-    :goto_0
-    return v11
-
-    :cond_4
     invoke-interface {v6}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v10
 
-    :cond_5
-    :goto_1
+    :cond_1
+    :goto_0
     invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v11
@@ -294,7 +283,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_1
 
     invoke-virtual {v3}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
@@ -322,7 +311,7 @@
 
     invoke-static {v11, v14}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_1
 
     const-string/jumbo v11, "com.android.settings"
 
@@ -330,18 +319,29 @@
 
     move-result v11
 
-    if-eqz v11, :cond_5
+    if-eqz v11, :cond_1
 
     iget v11, v9, Landroid/app/ActivityManager$RecentTaskInfo;->persistentId:I
 
     invoke-virtual {v2, v11}, Landroid/app/ActivityManager;->removeTask(I)Z
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_6
+    :cond_2
+    invoke-static {v12, v13}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    :cond_3
+    if-eqz v7, :cond_4
+
+    const/4 v11, 0x1
+
+    :goto_1
+    return v11
+
+    :cond_4
     const/4 v11, 0x0
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method public allowUserCreation(Lcom/samsung/android/knox/ContextInfo;Z)Z
@@ -514,7 +514,7 @@
 
     aput-object v6, v5, v7
 
-    const v6, 0x10409c1
+    const v6, 0x10405ac
 
     invoke-virtual {v4, v6, v5}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -636,17 +636,19 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    xor-int/lit8 v0, v2, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     if-eqz p2, :cond_0
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v2, v0, 0x1
+
+    if-eqz v2, :cond_0
+
+    const v2, 0x10405ab
+
+    invoke-static {v2}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
     :cond_0
-    :goto_1
     const-string/jumbo v2, "MultiUserManagerService"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -670,18 +672,6 @@
     invoke-static {v2, v3}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
 
     return v0
-
-    :cond_1
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :cond_2
-    const v2, 0x10409bf
-
-    invoke-static {v2}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
-
-    goto :goto_1
 .end method
 
 .method public isUserRemovalAllowed(Lcom/samsung/android/knox/ContextInfo;Z)Z
@@ -714,17 +704,19 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    xor-int/lit8 v0, v2, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     if-eqz p2, :cond_0
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v2, v0, 0x1
+
+    if-eqz v2, :cond_0
+
+    const v2, 0x10405ad
+
+    invoke-static {v2}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
     :cond_0
-    :goto_1
     const-string/jumbo v2, "MultiUserManagerService"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -748,18 +740,6 @@
     invoke-static {v2, v3}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
 
     return v0
-
-    :cond_1
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :cond_2
-    const v2, 0x10409c0
-
-    invoke-static {v2}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
-
-    goto :goto_1
 .end method
 
 .method public multipleUsersAllowed(Lcom/samsung/android/knox/ContextInfo;Z)I
@@ -801,35 +781,25 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    xor-int/lit8 v0, v3, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     if-eqz p2, :cond_1
 
-    if-eqz v0, :cond_4
+    xor-int/lit8 v3, v0, 0x1
+
+    if-eqz v3, :cond_1
+
+    const v3, 0x10405aa
+
+    invoke-static {v3}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
     :cond_1
-    :goto_1
     if-eqz v0, :cond_2
 
     const/4 v2, 0x1
 
     :cond_2
     return v2
-
-    :cond_3
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :cond_4
-    const v3, 0x10409be
-
-    invoke-static {v3}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
-
-    goto :goto_1
 .end method
 
 .method public multipleUsersSupported(Lcom/samsung/android/knox/ContextInfo;)Z
@@ -938,20 +908,17 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    xor-int/lit8 v4, v4, 0x1
 
-    :cond_1
-    :goto_0
-    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    if-eqz v4, :cond_1
 
-    return v0
-
-    :cond_2
     invoke-virtual {v1}, Landroid/content/pm/UserInfo;->isManagedProfile()Z
 
     move-result v4
 
-    if-nez v4, :cond_1
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_1
 
     invoke-virtual {p0, p1, v6}, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->isUserRemovalAllowed(Lcom/samsung/android/knox/ContextInfo;Z)Z
 
@@ -965,7 +932,10 @@
 
     move-result v0
 
-    goto :goto_0
+    :cond_1
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return v0
 .end method
 
 .method public systemReady()V

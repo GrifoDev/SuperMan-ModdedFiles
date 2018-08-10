@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1
+    accessFlags = 0x9
     name = "TypefaceSortByName"
 .end annotation
 
@@ -27,15 +27,9 @@
 .end annotation
 
 
-# instance fields
-.field final synthetic this$0:Lcom/android/server/enterprise/general/TypefaceFinder;
-
-
 # direct methods
-.method public constructor <init>(Lcom/android/server/enterprise/general/TypefaceFinder;)V
+.method public constructor <init>()V
     .locals 0
-
-    iput-object p1, p0, Lcom/android/server/enterprise/general/TypefaceFinder$TypefaceSortByName;->this$0:Lcom/android/server/enterprise/general/TypefaceFinder;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 

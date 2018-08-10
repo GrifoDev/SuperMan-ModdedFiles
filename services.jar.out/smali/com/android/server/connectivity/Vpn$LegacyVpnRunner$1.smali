@@ -93,13 +93,10 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    xor-int/lit8 v2, v2, 0x1
 
-    :cond_1
-    :goto_0
-    return-void
+    if-eqz v2, :cond_1
 
-    :cond_2
     :try_start_0
     iget-object v2, p0, Lcom/android/server/connectivity/Vpn$LegacyVpnRunner$1;->this$1:Lcom/android/server/connectivity/Vpn$LegacyVpnRunner;
 
@@ -121,7 +118,9 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    :cond_1
+    :goto_0
+    return-void
 
     :catch_0
     move-exception v0

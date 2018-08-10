@@ -15,15 +15,17 @@
 
 
 # instance fields
-.field public callback:Lcom/android/server/backup/BackupManagerService$BackupRestoreTask;
+.field final callback:Lcom/android/server/backup/BackupManagerService$BackupRestoreTask;
 
-.field public state:I
+.field state:I
 
 .field final synthetic this$0:Lcom/android/server/backup/BackupManagerService;
 
+.field final type:I
+
 
 # direct methods
-.method constructor <init>(Lcom/android/server/backup/BackupManagerService;ILcom/android/server/backup/BackupManagerService$BackupRestoreTask;)V
+.method constructor <init>(Lcom/android/server/backup/BackupManagerService;ILcom/android/server/backup/BackupManagerService$BackupRestoreTask;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/backup/BackupManagerService$Operation;->this$0:Lcom/android/server/backup/BackupManagerService;
@@ -33,6 +35,8 @@
     iput p2, p0, Lcom/android/server/backup/BackupManagerService$Operation;->state:I
 
     iput-object p3, p0, Lcom/android/server/backup/BackupManagerService$Operation;->callback:Lcom/android/server/backup/BackupManagerService$BackupRestoreTask;
+
+    iput p4, p0, Lcom/android/server/backup/BackupManagerService$Operation;->type:I
 
     return-void
 .end method

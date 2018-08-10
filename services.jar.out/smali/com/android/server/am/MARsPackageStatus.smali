@@ -53,27 +53,47 @@
 
 .field public forceStopTime:J
 
+.field public freezedReason:Ljava/lang/String;
+
+.field public freezedTime:J
+
 .field public hasAppIcon:Z
 
 .field public isAREsTriggeredReason:I
 
 .field public isActiveDeviceAdmin:Z
 
-.field public isAliveEmptyActivity:Z
+.field public isBoundAppWidget:Z
 
 .field public isCocktailBar:Z
 
+.field public isDataCleared:Z
+
 .field public isDeviceAdmin:Z
+
+.field public isForegroundService:Z
+
+.field public isFreezed:Z
 
 .field public isInBlackListTopActivity:Z
 
+.field public isNotificationListener:Z
+
+.field public isOngoingNotification:Z
+
 .field public isRemovableAdmin:Z
+
+.field public isReportedbyRestriction:Z
+
+.field public isReportedbyTrigger:Z
 
 .field public isSendPackageRestart:I
 
 .field public isSpecialChinaApp:Z
 
 .field public isSpecialChinaVideoApp:Z
+
+.field public isVpn:Z
 
 .field public lastUsedTime:J
 
@@ -87,19 +107,53 @@
 
 .field public restrictedFlag:I
 
+.field public restrictionCnt:I
+
+.field public restrictionCnt_Activity:I
+
+.field public restrictionCnt_Broadcast:I
+
+.field public restrictionCnt_Provider:I
+
+.field public restrictionCnt_Service:I
+
+.field public restrictionSkipCnt:I
+
+.field public restrictionSkipCnt_Activity:I
+
+.field public restrictionSkipCnt_Broadcast:I
+
+.field public restrictionSkipCnt_Provider:I
+
+.field public restrictionSkipCnt_Service:I
+
 .field public runningWidgets:I
 
 .field public sbike:I
 
+.field public sharedUidName:Ljava/lang/String;
+
 .field public skipReason:Ljava/lang/String;
 
+.field public skipRestrictionReason:Ljava/lang/String;
+
 .field public state:I
+
+.field public triggerCnt:I
+
+.field public triggerSkipCnt:I
 
 .field public uds:I
 
 .field public uid:I
 
+.field public unfreezedReason:Ljava/lang/String;
+
+.field public unfreezedTime:J
+
 .field public userId:I
+
+.field public versionName:Ljava/lang/String;
 
 
 # direct methods
@@ -117,20 +171,20 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Ljava/lang/String;IJII)V
+.method public constructor <init>(Landroid/content/Context;Ljava/lang/String;IJIILjava/lang/String;Ljava/lang/String;)V
     .locals 4
 
     const-wide/16 v2, 0x0
 
-    const/4 v1, 0x0
-
     const/4 v0, 0x0
+
+    const/4 v1, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput v0, p0, Lcom/android/server/am/MARsPackageStatus;->isSendPackageRestart:I
+    iput v1, p0, Lcom/android/server/am/MARsPackageStatus;->isSendPackageRestart:I
 
-    iput v0, p0, Lcom/android/server/am/MARsPackageStatus;->isAREsTriggeredReason:I
+    iput v1, p0, Lcom/android/server/am/MARsPackageStatus;->isAREsTriggeredReason:I
 
     iput-object p2, p0, Lcom/android/server/am/MARsPackageStatus;->name:Ljava/lang/String;
 
@@ -140,51 +194,105 @@
 
     iput p7, p0, Lcom/android/server/am/MARsPackageStatus;->uid:I
 
+    iput-object p8, p0, Lcom/android/server/am/MARsPackageStatus;->versionName:Ljava/lang/String;
+
+    iput-object p9, p0, Lcom/android/server/am/MARsPackageStatus;->sharedUidName:Ljava/lang/String;
+
     iput p3, p0, Lcom/android/server/am/MARsPackageStatus;->state:I
 
     iput-wide p4, p0, Lcom/android/server/am/MARsPackageStatus;->resetTime:J
 
-    iput-boolean v0, p0, Lcom/android/server/am/MARsPackageStatus;->needUpdateTime:Z
+    iput-boolean v1, p0, Lcom/android/server/am/MARsPackageStatus;->needUpdateTime:Z
 
-    iput v0, p0, Lcom/android/server/am/MARsPackageStatus;->restrictedFlag:I
+    iput v1, p0, Lcom/android/server/am/MARsPackageStatus;->restrictedFlag:I
 
-    iput-object v1, p0, Lcom/android/server/am/MARsPackageStatus;->appliedPolicies:Ljava/util/ArrayList;
+    iput-object v0, p0, Lcom/android/server/am/MARsPackageStatus;->appliedPolicies:Ljava/util/ArrayList;
 
-    iput v0, p0, Lcom/android/server/am/MARsPackageStatus;->autorun:I
+    iput v1, p0, Lcom/android/server/am/MARsPackageStatus;->autorun:I
 
     iput-wide v2, p0, Lcom/android/server/am/MARsPackageStatus;->lastUsedTime:J
 
     iput-wide v2, p0, Lcom/android/server/am/MARsPackageStatus;->forceStopTime:J
 
-    iput v0, p0, Lcom/android/server/am/MARsPackageStatus;->isSendPackageRestart:I
+    iput v1, p0, Lcom/android/server/am/MARsPackageStatus;->isSendPackageRestart:I
 
-    iput v0, p0, Lcom/android/server/am/MARsPackageStatus;->isAREsTriggeredReason:I
+    iput-boolean v1, p0, Lcom/android/server/am/MARsPackageStatus;->isFreezed:Z
 
-    iput-boolean v0, p0, Lcom/android/server/am/MARsPackageStatus;->hasAppIcon:Z
+    iput-wide v2, p0, Lcom/android/server/am/MARsPackageStatus;->freezedTime:J
 
-    iput v0, p0, Lcom/android/server/am/MARsPackageStatus;->runningWidgets:I
+    iput-wide v2, p0, Lcom/android/server/am/MARsPackageStatus;->unfreezedTime:J
 
-    iput-boolean v0, p0, Lcom/android/server/am/MARsPackageStatus;->isActiveDeviceAdmin:Z
+    iput-object v0, p0, Lcom/android/server/am/MARsPackageStatus;->freezedReason:Ljava/lang/String;
 
-    iput-boolean v0, p0, Lcom/android/server/am/MARsPackageStatus;->isDeviceAdmin:Z
+    iput-object v0, p0, Lcom/android/server/am/MARsPackageStatus;->unfreezedReason:Ljava/lang/String;
 
-    iput-boolean v0, p0, Lcom/android/server/am/MARsPackageStatus;->isRemovableAdmin:Z
+    iput v1, p0, Lcom/android/server/am/MARsPackageStatus;->isAREsTriggeredReason:I
 
-    iput-boolean v0, p0, Lcom/android/server/am/MARsPackageStatus;->isCocktailBar:Z
+    iput-boolean v1, p0, Lcom/android/server/am/MARsPackageStatus;->hasAppIcon:Z
 
-    iput-boolean v0, p0, Lcom/android/server/am/MARsPackageStatus;->isAliveEmptyActivity:Z
+    iput v1, p0, Lcom/android/server/am/MARsPackageStatus;->runningWidgets:I
 
-    iput-boolean v0, p0, Lcom/android/server/am/MARsPackageStatus;->isInBlackListTopActivity:Z
+    iput-boolean v1, p0, Lcom/android/server/am/MARsPackageStatus;->isActiveDeviceAdmin:Z
 
-    iput-object v1, p0, Lcom/android/server/am/MARsPackageStatus;->skipReason:Ljava/lang/String;
+    iput-boolean v1, p0, Lcom/android/server/am/MARsPackageStatus;->isDeviceAdmin:Z
 
-    iput-boolean v0, p0, Lcom/android/server/am/MARsPackageStatus;->isSpecialChinaApp:Z
+    iput-boolean v1, p0, Lcom/android/server/am/MARsPackageStatus;->isRemovableAdmin:Z
 
-    iput-boolean v0, p0, Lcom/android/server/am/MARsPackageStatus;->isSpecialChinaVideoApp:Z
+    iput-boolean v1, p0, Lcom/android/server/am/MARsPackageStatus;->isCocktailBar:Z
+
+    iput-boolean v1, p0, Lcom/android/server/am/MARsPackageStatus;->isInBlackListTopActivity:Z
+
+    iput-boolean v1, p0, Lcom/android/server/am/MARsPackageStatus;->isForegroundService:Z
+
+    iput-boolean v1, p0, Lcom/android/server/am/MARsPackageStatus;->isOngoingNotification:Z
+
+    iput-boolean v1, p0, Lcom/android/server/am/MARsPackageStatus;->isNotificationListener:Z
+
+    iput-boolean v1, p0, Lcom/android/server/am/MARsPackageStatus;->isBoundAppWidget:Z
+
+    iput-boolean v1, p0, Lcom/android/server/am/MARsPackageStatus;->isVpn:Z
+
+    iput-object v0, p0, Lcom/android/server/am/MARsPackageStatus;->skipReason:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/android/server/am/MARsPackageStatus;->skipRestrictionReason:Ljava/lang/String;
+
+    iput-boolean v1, p0, Lcom/android/server/am/MARsPackageStatus;->isSpecialChinaApp:Z
+
+    iput-boolean v1, p0, Lcom/android/server/am/MARsPackageStatus;->isSpecialChinaVideoApp:Z
 
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/server/am/MARsPackageStatus;->forceStopReason:I
+
+    iput v1, p0, Lcom/android/server/am/MARsPackageStatus;->triggerCnt:I
+
+    iput v1, p0, Lcom/android/server/am/MARsPackageStatus;->triggerSkipCnt:I
+
+    iput v1, p0, Lcom/android/server/am/MARsPackageStatus;->restrictionCnt:I
+
+    iput v1, p0, Lcom/android/server/am/MARsPackageStatus;->restrictionSkipCnt:I
+
+    iput v1, p0, Lcom/android/server/am/MARsPackageStatus;->restrictionCnt_Activity:I
+
+    iput v1, p0, Lcom/android/server/am/MARsPackageStatus;->restrictionCnt_Provider:I
+
+    iput v1, p0, Lcom/android/server/am/MARsPackageStatus;->restrictionCnt_Broadcast:I
+
+    iput v1, p0, Lcom/android/server/am/MARsPackageStatus;->restrictionCnt_Service:I
+
+    iput v1, p0, Lcom/android/server/am/MARsPackageStatus;->restrictionSkipCnt_Activity:I
+
+    iput v1, p0, Lcom/android/server/am/MARsPackageStatus;->restrictionSkipCnt_Provider:I
+
+    iput v1, p0, Lcom/android/server/am/MARsPackageStatus;->restrictionSkipCnt_Broadcast:I
+
+    iput v1, p0, Lcom/android/server/am/MARsPackageStatus;->restrictionSkipCnt_Service:I
+
+    iput-boolean v1, p0, Lcom/android/server/am/MARsPackageStatus;->isReportedbyTrigger:Z
+
+    iput-boolean v1, p0, Lcom/android/server/am/MARsPackageStatus;->isReportedbyRestriction:Z
+
+    iput-boolean v1, p0, Lcom/android/server/am/MARsPackageStatus;->isDataCleared:Z
 
     return-void
 .end method

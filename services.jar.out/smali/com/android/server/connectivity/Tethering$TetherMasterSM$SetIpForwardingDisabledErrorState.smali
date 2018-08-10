@@ -34,7 +34,9 @@
 .method public enter()V
     .locals 2
 
-    const-string/jumbo v0, "Tethering"
+    invoke-static {}, Lcom/android/server/connectivity/Tethering;->-get0()Ljava/lang/String;
+
+    move-result-object v0
 
     const-string/jumbo v1, "Error in setIpForwardingDisabled"
 

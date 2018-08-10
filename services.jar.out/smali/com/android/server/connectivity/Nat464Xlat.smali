@@ -6,14 +6,6 @@
 # static fields
 .field private static final CLAT_PREFIX:Ljava/lang/String; = "v4-"
 
-.field static final LOG_LEVEL_PROP:Ljava/lang/String; = "ro.debug_level"
-
-.field static final LOG_LEVEL_PROP_HIGH:Ljava/lang/String; = "0x4948"
-
-.field static final LOG_LEVEL_PROP_LOW:Ljava/lang/String; = "0x4f4c"
-
-.field static final LOG_LEVEL_PROP_MID:Ljava/lang/String; = "0x494d"
-
 .field private static final NETWORK_TYPES:[I
 
 .field private static final TAG:Ljava/lang/String; = "Nat464Xlat"
@@ -129,35 +121,6 @@
     const/4 v2, 0x0
 
     return-object v2
-.end method
-
-.method private static isDebugLevelNotLow()Z
-    .locals 3
-
-    const-string/jumbo v1, "ro.debug_level"
-
-    const-string/jumbo v2, "0x4f4c"
-
-    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "0x4f4c"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    const/4 v1, 0x0
-
-    return v1
-
-    :cond_0
-    const/4 v1, 0x1
-
-    return v1
 .end method
 
 .method private makeLinkProperties(Landroid/net/LinkAddress;)Landroid/net/LinkProperties;
@@ -300,127 +263,53 @@
 .end method
 
 .method public static requiresClat(Lcom/android/server/connectivity/NetworkAgentInfo;)Z
-    .locals 9
+    .locals 4
 
-    const/4 v4, 0x1
+    iget-object v3, p0, Lcom/android/server/connectivity/NetworkAgentInfo;->networkInfo:Landroid/net/NetworkInfo;
 
-    const/4 v5, 0x0
-
-    iget-object v6, p0, Lcom/android/server/connectivity/NetworkAgentInfo;->networkInfo:Landroid/net/NetworkInfo;
-
-    invoke-virtual {v6}, Landroid/net/NetworkInfo;->getType()I
-
-    move-result v3
-
-    iget-object v6, p0, Lcom/android/server/connectivity/NetworkAgentInfo;->networkInfo:Landroid/net/NetworkInfo;
-
-    invoke-virtual {v6}, Landroid/net/NetworkInfo;->isConnected()Z
-
-    move-result v0
-
-    iget-object v6, p0, Lcom/android/server/connectivity/NetworkAgentInfo;->linkProperties:Landroid/net/LinkProperties;
-
-    if-eqz v6, :cond_4
-
-    iget-object v6, p0, Lcom/android/server/connectivity/NetworkAgentInfo;->linkProperties:Landroid/net/LinkProperties;
-
-    invoke-virtual {v6}, Landroid/net/LinkProperties;->hasIPv4Address()Z
+    invoke-virtual {v3}, Landroid/net/NetworkInfo;->getType()I
 
     move-result v2
 
-    :goto_0
-    invoke-static {}, Lcom/android/server/connectivity/Nat464Xlat;->isDebugLevelNotLow()Z
+    iget-object v3, p0, Lcom/android/server/connectivity/NetworkAgentInfo;->networkInfo:Landroid/net/NetworkInfo;
 
-    move-result v6
+    invoke-virtual {v3}, Landroid/net/NetworkInfo;->isConnected()Z
 
-    if-eqz v6, :cond_0
+    move-result v0
 
-    const-string/jumbo v6, "Nat464Xlat"
+    iget-object v3, p0, Lcom/android/server/connectivity/NetworkAgentInfo;->linkProperties:Landroid/net/LinkProperties;
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    if-eqz v3, :cond_0
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    iget-object v3, p0, Lcom/android/server/connectivity/NetworkAgentInfo;->linkProperties:Landroid/net/LinkProperties;
 
-    const-string/jumbo v8, "requiresClat: netType="
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string/jumbo v8, ", connected="
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string/jumbo v8, ", hasIPv4Address="
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    const-string/jumbo v6, "persist.net.doxlat"
-
-    invoke-static {v6, v4}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {v3}, Landroid/net/LinkProperties;->hasIPv4Address()Z
 
     move-result v1
 
-    if-nez v1, :cond_1
+    :goto_0
+    if-eqz v0, :cond_1
 
-    const-string/jumbo v6, "Nat464Xlat"
+    xor-int/lit8 v3, v1, 0x1
 
-    const-string/jumbo v7, "Android Xlat is disabled"
+    if-eqz v3, :cond_1
 
-    invoke-static {v6, v7}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    sget-object v3, Lcom/android/server/connectivity/Nat464Xlat;->NETWORK_TYPES:[I
 
-    :cond_1
-    if-eqz v0, :cond_2
+    invoke-static {v3, v2}, Lcom/android/internal/util/ArrayUtils;->contains([II)Z
 
-    if-eqz v2, :cond_5
+    move-result v3
 
-    :cond_2
-    move v1, v5
-
-    :cond_3
     :goto_1
-    return v1
+    return v3
 
-    :cond_4
-    const/4 v2, 0x0
+    :cond_0
+    const/4 v1, 0x0
 
     goto :goto_0
 
-    :cond_5
-    sget-object v6, Lcom/android/server/connectivity/Nat464Xlat;->NETWORK_TYPES:[I
-
-    invoke-static {v6, v3}, Lcom/android/internal/util/ArrayUtils;->contains([II)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_2
-
-    if-eqz v3, :cond_3
-
-    move v1, v4
+    :cond_1
+    const/4 v3, 0x0
 
     goto :goto_1
 .end method
@@ -478,17 +367,17 @@
 
     iget-object v2, v2, Lcom/android/server/connectivity/NetworkAgentInfo;->clatd:Lcom/android/server/connectivity/Nat464Xlat;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     iget-boolean v2, p0, Lcom/android/server/connectivity/Nat464Xlat;->mIsRunning:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     iget-object v2, p0, Lcom/android/server/connectivity/Nat464Xlat;->mNetwork:Lcom/android/server/connectivity/NetworkAgentInfo;
 
     iget-object v2, v2, Lcom/android/server/connectivity/NetworkAgentInfo;->linkProperties:Landroid/net/LinkProperties;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     iget-object v2, p0, Lcom/android/server/connectivity/Nat464Xlat;->mNetwork:Lcom/android/server/connectivity/NetworkAgentInfo;
 
@@ -504,13 +393,10 @@
 
     move-result v2
 
+    xor-int/lit8 v2, v2, 0x1
+
     if-eqz v2, :cond_1
 
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
     const-string/jumbo v2, "Nat464Xlat"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -535,8 +421,6 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz p1, :cond_0
-
     invoke-virtual {p1}, Landroid/net/LinkProperties;->getStackedLinks()Ljava/util/List;
 
     move-result-object v2
@@ -545,12 +429,12 @@
 
     move-result-object v1
 
-    :cond_2
+    :cond_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -568,7 +452,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_0
 
     iget-object v2, p0, Lcom/android/server/connectivity/Nat464Xlat;->mNetwork:Lcom/android/server/connectivity/NetworkAgentInfo;
 
@@ -576,7 +460,8 @@
 
     invoke-virtual {v2, v0}, Landroid/net/LinkProperties;->addStackedLink(Landroid/net/LinkProperties;)Z
 
-    goto :goto_0
+    :cond_1
+    return-void
 .end method
 
 .method public interfaceLinkStateChanged(Ljava/lang/String;Z)V

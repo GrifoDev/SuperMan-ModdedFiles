@@ -73,11 +73,13 @@
         0x1 -> :sswitch_0
         0x2 -> :sswitch_0
         0x3 -> :sswitch_0
+        0x4 -> :sswitch_0
         0x3e8 -> :sswitch_0
         0x3e9 -> :sswitch_0
         0x3ea -> :sswitch_0
         0x3eb -> :sswitch_0
         0x3ed -> :sswitch_0
+        0x44c -> :sswitch_1
         0x7d0 -> :sswitch_2
         0x7d1 -> :sswitch_2
         0x7d2 -> :sswitch_0
@@ -98,6 +100,7 @@
         0x7f0 -> :sswitch_4
         0x7f2 -> :sswitch_3
         0x7f4 -> :sswitch_2
+        0x7f6 -> :sswitch_2
     .end sparse-switch
 .end method
 
@@ -110,7 +113,7 @@
 
     iget-object v8, p1, Landroid/view/WindowInfo;->token:Landroid/os/IBinder;
 
-    invoke-static {v7, v8}, Lcom/android/server/accessibility/AccessibilityManagerService;->-wrap18(Lcom/android/server/accessibility/AccessibilityManagerService;Landroid/os/IBinder;)I
+    invoke-static {v7, v8}, Lcom/android/server/accessibility/AccessibilityManagerService;->-wrap19(Lcom/android/server/accessibility/AccessibilityManagerService;Landroid/os/IBinder;)I
 
     move-result v6
 
@@ -153,11 +156,15 @@
 
     invoke-virtual {v5, v7}, Landroid/view/accessibility/AccessibilityWindowInfo;->setAnchorId(I)V
 
+    iget-boolean v7, p1, Landroid/view/WindowInfo;->inPictureInPicture:Z
+
+    invoke-virtual {v5, v7}, Landroid/view/accessibility/AccessibilityWindowInfo;->setPictureInPicture(Z)V
+
     iget-object v7, p0, Lcom/android/server/accessibility/AccessibilityManagerService$WindowsForAccessibilityCallback;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
     iget-object v8, p1, Landroid/view/WindowInfo;->parentToken:Landroid/os/IBinder;
 
-    invoke-static {v7, v8}, Lcom/android/server/accessibility/AccessibilityManagerService;->-wrap18(Lcom/android/server/accessibility/AccessibilityManagerService;Landroid/os/IBinder;)I
+    invoke-static {v7, v8}, Lcom/android/server/accessibility/AccessibilityManagerService;->-wrap19(Lcom/android/server/accessibility/AccessibilityManagerService;Landroid/os/IBinder;)I
 
     move-result v4
 
@@ -191,7 +198,7 @@
 
     iget-object v7, p0, Lcom/android/server/accessibility/AccessibilityManagerService$WindowsForAccessibilityCallback;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    invoke-static {v7, v2}, Lcom/android/server/accessibility/AccessibilityManagerService;->-wrap18(Lcom/android/server/accessibility/AccessibilityManagerService;Landroid/os/IBinder;)I
+    invoke-static {v7, v2}, Lcom/android/server/accessibility/AccessibilityManagerService;->-wrap19(Lcom/android/server/accessibility/AccessibilityManagerService;Landroid/os/IBinder;)I
 
     move-result v1
 
@@ -266,7 +273,7 @@
     :cond_1
     iget-object v5, p0, Lcom/android/server/accessibility/AccessibilityManagerService$WindowsForAccessibilityCallback;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    invoke-static {v5}, Lcom/android/server/accessibility/AccessibilityManagerService;->-get22(Lcom/android/server/accessibility/AccessibilityManagerService;)Lcom/android/server/accessibility/AccessibilityManagerService$SecurityPolicy;
+    invoke-static {v5}, Lcom/android/server/accessibility/AccessibilityManagerService;->-get23(Lcom/android/server/accessibility/AccessibilityManagerService;)Lcom/android/server/accessibility/AccessibilityManagerService$SecurityPolicy;
 
     move-result-object v5
 

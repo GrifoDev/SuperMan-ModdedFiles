@@ -89,7 +89,7 @@
 
     iget-object v1, p0, Lcom/android/server/am/MARsDBManager$SmartManagerObserver;->this$0:Lcom/android/server/am/MARsDBManager;
 
-    invoke-static {v1}, Lcom/android/server/am/MARsDBManager;->-wrap0(Lcom/android/server/am/MARsDBManager;)Ljava/util/ArrayList;
+    invoke-static {v1}, Lcom/android/server/am/MARsDBManager;->-wrap1(Lcom/android/server/am/MARsDBManager;)Ljava/util/ArrayList;
 
     move-result-object v1
 

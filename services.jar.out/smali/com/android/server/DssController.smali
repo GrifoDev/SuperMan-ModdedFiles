@@ -21,6 +21,9 @@
 .method public abstract addPackageData(Ljava/lang/String;FLjava/lang/String;)V
 .end method
 
+.method public abstract createDssOverrideConfiguration(Landroid/content/res/Configuration;Ljava/lang/String;)Landroid/content/res/Configuration;
+.end method
+
 .method public abstract createScaledConfiguration(Landroid/content/res/Configuration;Ljava/lang/String;)Landroid/content/res/Configuration;
 .end method
 
@@ -39,6 +42,12 @@
 .method public abstract getWhiteList()Ljava/lang/StringBuilder;
 .end method
 
+.method public abstract inverseScaleExistingConfiguration(Landroid/content/res/Configuration;Ljava/lang/String;)V
+.end method
+
+.method public abstract inverseScaleExistingMergedConfiguration(Landroid/util/MergedConfiguration;Ljava/lang/String;)V
+.end method
+
 .method public abstract isScaledApp(I)Z
 .end method
 
@@ -55,6 +64,9 @@
 .end method
 
 .method public abstract scaleExistingConfiguration(Landroid/content/res/Configuration;Ljava/lang/String;)V
+.end method
+
+.method public abstract scaleExistingMergedConfiguration(Landroid/util/MergedConfiguration;Ljava/lang/String;)V
 .end method
 
 .method public abstract setDssForPackage(Ljava/lang/String;F)V

@@ -62,7 +62,27 @@
 
     iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Lifecycle;->mService:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-    invoke-static {v0, p1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->-wrap12(Lcom/android/server/devicepolicy/DevicePolicyManagerService;I)V
+    invoke-virtual {v0, p1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->handleStartUser(I)V
+
+    return-void
+.end method
+
+.method public onStopUser(I)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Lifecycle;->mService:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
+
+    invoke-virtual {v0, p1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->handleStopUser(I)V
+
+    return-void
+.end method
+
+.method public onUnlockUser(I)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Lifecycle;->mService:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
+
+    invoke-virtual {v0, p1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->handleUnlockUser(I)V
 
     return-void
 .end method

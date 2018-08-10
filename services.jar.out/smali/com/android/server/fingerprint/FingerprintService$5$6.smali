@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/fingerprint/FingerprintService$5;->onRemoved(JII)V
+    value = Lcom/android/server/fingerprint/FingerprintService$5;->onRemoved(JIII)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -26,9 +26,11 @@
 
 .field final synthetic val$groupId:I
 
+.field final synthetic val$remaining:I
+
 
 # direct methods
-.method constructor <init>(Lcom/android/server/fingerprint/FingerprintService$5;JII)V
+.method constructor <init>(Lcom/android/server/fingerprint/FingerprintService$5;JIII)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/fingerprint/FingerprintService$5$6;->this$1:Lcom/android/server/fingerprint/FingerprintService$5;
@@ -39,6 +41,8 @@
 
     iput p5, p0, Lcom/android/server/fingerprint/FingerprintService$5$6;->val$groupId:I
 
+    iput p6, p0, Lcom/android/server/fingerprint/FingerprintService$5$6;->val$remaining:I
+
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -47,19 +51,21 @@
 
 # virtual methods
 .method public run()V
-    .locals 5
+    .locals 7
 
     iget-object v0, p0, Lcom/android/server/fingerprint/FingerprintService$5$6;->this$1:Lcom/android/server/fingerprint/FingerprintService$5;
 
-    iget-object v0, v0, Lcom/android/server/fingerprint/FingerprintService$5;->this$0:Lcom/android/server/fingerprint/FingerprintService;
+    iget-object v1, v0, Lcom/android/server/fingerprint/FingerprintService$5;->this$0:Lcom/android/server/fingerprint/FingerprintService;
 
     iget-wide v2, p0, Lcom/android/server/fingerprint/FingerprintService$5$6;->val$deviceId:J
 
-    iget v1, p0, Lcom/android/server/fingerprint/FingerprintService$5$6;->val$fingerId:I
+    iget v4, p0, Lcom/android/server/fingerprint/FingerprintService$5$6;->val$fingerId:I
 
-    iget v4, p0, Lcom/android/server/fingerprint/FingerprintService$5$6;->val$groupId:I
+    iget v5, p0, Lcom/android/server/fingerprint/FingerprintService$5$6;->val$groupId:I
 
-    invoke-virtual {v0, v2, v3, v1, v4}, Lcom/android/server/fingerprint/FingerprintService;->handleRemoved(JII)V
+    iget v6, p0, Lcom/android/server/fingerprint/FingerprintService$5$6;->val$remaining:I
+
+    invoke-virtual/range {v1 .. v6}, Lcom/android/server/fingerprint/FingerprintService;->handleRemoved(JIII)V
 
     return-void
 .end method

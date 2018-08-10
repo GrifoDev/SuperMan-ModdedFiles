@@ -96,6 +96,9 @@
 
     aget-object v4, v5, v6
 
+    if-eqz v4, :cond_2
+
+    :try_start_1
     invoke-static {v4}, Landroid/os/ServiceManager;->checkService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v3
@@ -112,16 +115,15 @@
 
     const/4 v10, 0x0
 
-    :try_start_1
     invoke-interface {v3, v8, v0, v9, v10}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_2
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
-    :goto_1
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
     :cond_2
+    :goto_1
     add-int/lit8 v6, v6, 0x1
 
     goto :goto_0
@@ -163,11 +165,11 @@
 
     goto :goto_1
 
+    :cond_3
+    return-object v11
+
     :catch_2
     move-exception v1
 
     goto :goto_1
-
-    :cond_3
-    return-object v11
 .end method

@@ -166,7 +166,7 @@
     :try_start_2
     const-string/jumbo v7, "DevicePolicyManagerService"
 
-    const-string/jumbo v8, "Error parsing device-owner file"
+    const-string/jumbo v8, "Error parsing owners information file"
 
     invoke-static {v7, v8, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_2

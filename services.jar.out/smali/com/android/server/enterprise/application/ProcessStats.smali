@@ -494,11 +494,9 @@
 
     invoke-virtual {v0, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v21
 
-    check-cast v4, Lcom/android/server/enterprise/application/ProcessStats$Stats;
-
-    move-object/from16 v21, v4
+    check-cast v21, Lcom/android/server/enterprise/application/ProcessStats$Stats;
 
     :goto_3
     if-eqz v21, :cond_a
@@ -1831,10 +1829,9 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    xor-int/lit8 v3, v3, 0x1
 
-    :goto_0
-    return-void
+    if-eqz v3, :cond_4
 
     :cond_3
     iput-object v2, p1, Lcom/android/server/enterprise/application/ProcessStats$Stats;->name:Ljava/lang/String;
@@ -1847,7 +1844,8 @@
 
     iput v3, p1, Lcom/android/server/enterprise/application/ProcessStats$Stats;->nameWidth:I
 
-    goto :goto_0
+    :cond_4
+    return-void
 .end method
 
 .method private printProcessCPU(Ljava/io/PrintWriter;Ljava/lang/String;ILjava/lang/String;IIIIIIII)V

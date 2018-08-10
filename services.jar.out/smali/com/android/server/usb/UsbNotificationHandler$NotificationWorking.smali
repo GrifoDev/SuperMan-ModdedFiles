@@ -493,7 +493,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_3
 
     iput-object v3, p0, Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;->mCurrentNoficationUnit:Lcom/android/server/usb/UsbNotificationHandler$NotificatoinUnit;
 
@@ -520,42 +520,19 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_1
 
     iget-object v6, p0, Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;->mCurrentNoficationUnit:Lcom/android/server/usb/UsbNotificationHandler$NotificatoinUnit;
 
     invoke-virtual {v6}, Lcom/android/server/usb/UsbNotificationHandler$NotificatoinUnit;->getNotificationStayed()Z
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result v6
 
+    xor-int/lit8 v6, v6, 0x1
+
     if-eqz v6, :cond_2
 
-    :goto_0
-    :try_start_2
-    monitor-exit v7
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
-
-    :goto_1
-    return-void
-
     :cond_1
-    iget-object v6, p0, Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;->this$0:Lcom/android/server/usb/UsbNotificationHandler;
-
-    invoke-static {v6}, Lcom/android/server/usb/UsbNotificationHandler;->-get0(Lcom/android/server/usb/UsbNotificationHandler;)Ljava/lang/String;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "unit is null"
-
-    invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_2
-    :try_start_3
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
@@ -622,7 +599,7 @@
 
     cmp-long v6, v4, v8
 
-    if-gez v6, :cond_3
+    if-gez v6, :cond_4
 
     iget-object v6, p0, Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;->this$0:Lcom/android/server/usb/UsbNotificationHandler;
 
@@ -637,6 +614,43 @@
     const/4 v10, 0x2
 
     invoke-static {v6, v10, v8, v9}, Lcom/android/server/usb/UsbNotificationHandler;->-wrap0(Lcom/android/server/usb/UsbNotificationHandler;III)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :cond_2
+    :goto_0
+    :try_start_2
+    monitor-exit v7
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+
+    :goto_1
+    return-void
+
+    :cond_3
+    iget-object v6, p0, Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;->this$0:Lcom/android/server/usb/UsbNotificationHandler;
+
+    invoke-static {v6}, Lcom/android/server/usb/UsbNotificationHandler;->-get0(Lcom/android/server/usb/UsbNotificationHandler;)Ljava/lang/String;
+
+    move-result-object v6
+
+    const-string/jumbo v7, "unit is null"
+
+    invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_4
+    :try_start_3
+    iget-object v6, p0, Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;->this$0:Lcom/android/server/usb/UsbNotificationHandler;
+
+    iget v8, p0, Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;->mId:I
+
+    const/4 v9, 0x2
+
+    const/4 v10, 0x0
+
+    invoke-static {v6, v9, v8, v10}, Lcom/android/server/usb/UsbNotificationHandler;->-wrap0(Lcom/android/server/usb/UsbNotificationHandler;III)V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
@@ -656,20 +670,4 @@
     move-exception v2
 
     goto :goto_1
-
-    :cond_3
-    :try_start_5
-    iget-object v6, p0, Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;->this$0:Lcom/android/server/usb/UsbNotificationHandler;
-
-    iget v8, p0, Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;->mId:I
-
-    const/4 v9, 0x2
-
-    const/4 v10, 0x0
-
-    invoke-static {v6, v9, v8, v10}, Lcom/android/server/usb/UsbNotificationHandler;->-wrap0(Lcom/android/server/usb/UsbNotificationHandler;III)V
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
-
-    goto :goto_0
 .end method

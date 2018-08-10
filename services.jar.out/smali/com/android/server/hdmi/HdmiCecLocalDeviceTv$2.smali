@@ -158,9 +158,7 @@
 
     const/4 v6, 0x0
 
-    const/4 v7, 0x1
-
-    invoke-virtual {v5, v6, v7}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->setSystemAudioMode(ZZ)V
+    invoke-virtual {v5, v6}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->setSystemAudioMode(Z)V
 
     goto :goto_2
 .end method

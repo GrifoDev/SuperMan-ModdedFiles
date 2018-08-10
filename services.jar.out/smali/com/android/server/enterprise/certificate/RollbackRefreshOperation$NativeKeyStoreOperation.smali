@@ -49,7 +49,7 @@
     .end annotation
 .end field
 
-.field private mKeystoreUid:I
+.field private mKeystoreType:I
 
 .field private mOperation:I
 
@@ -80,7 +80,7 @@
 
     iput p2, p0, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation$NativeKeyStoreOperation;->mOperation:I
 
-    iput p3, p0, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation$NativeKeyStoreOperation;->mKeystoreUid:I
+    iput p3, p0, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation$NativeKeyStoreOperation;->mKeystoreType:I
 
     iput-object p4, p0, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation$NativeKeyStoreOperation;->mAliases:Ljava/util/Set;
 
@@ -279,186 +279,342 @@
 
 # virtual methods
 .method protected varargs doInBackground([Ljava/lang/Integer;)Ljava/lang/Boolean;
-    .locals 13
+    .locals 17
 
-    const/4 v12, 0x1
+    const/4 v1, 0x0
 
-    const/4 v6, 0x0
+    aget-object v1, p1, v1
 
-    aget-object v6, p1, v6
+    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
 
-    invoke-virtual {v6}, Ljava/lang/Integer;->intValue()I
+    move-result v6
 
-    move-result v5
+    move-object/from16 v0, p0
 
-    iget v6, p0, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation$NativeKeyStoreOperation;->mOperation:I
+    iget v1, v0, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation$NativeKeyStoreOperation;->mOperation:I
 
-    packed-switch v6, :pswitch_data_0
+    packed-switch v1, :pswitch_data_0
 
     :goto_0
-    invoke-static {v12}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    const/4 v1, 0x1
 
-    move-result-object v6
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    return-object v6
+    move-result-object v1
+
+    return-object v1
 
     :pswitch_0
-    iget-object v6, p0, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation$NativeKeyStoreOperation;->this$0:Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;
+    move-object/from16 v0, p0
 
-    invoke-static {v6}, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;->-get2(Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;)Ljava/lang/Object;
+    iget-object v1, v0, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation$NativeKeyStoreOperation;->this$0:Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;
+
+    invoke-static {v1}, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;->-get2(Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;)Ljava/lang/Object;
+
+    move-result-object v14
+
+    monitor-enter v14
+
+    :try_start_0
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation$NativeKeyStoreOperation;->this$0:Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;
+
+    invoke-static {v1, v6}, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;->-wrap0(Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation$NativeKeyStoreOperation;->mCerts:Ljava/util/Map;
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v1}, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation$NativeKeyStoreOperation;->getPemMap(Ljava/util/Map;)Ljava/util/Map;
+
+    move-result-object v10
+
+    invoke-interface {v10}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v8
 
-    monitor-enter v8
-
-    :try_start_0
-    iget-object v6, p0, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation$NativeKeyStoreOperation;->this$0:Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;
-
-    invoke-static {v6, v5}, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;->-wrap0(Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;I)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_0
-
-    iget-object v6, p0, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation$NativeKeyStoreOperation;->mCerts:Ljava/util/Map;
-
-    invoke-direct {p0, v6}, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation$NativeKeyStoreOperation;->getPemMap(Ljava/util/Map;)Ljava/util/Map;
-
-    move-result-object v4
-
-    invoke-interface {v4}, Ljava/util/Map;->entrySet()Ljava/util/Set;
-
-    move-result-object v6
-
-    invoke-interface {v6}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v3
-
+    :cond_0
     :goto_1
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v6
+    move-result v1
 
-    if-eqz v6, :cond_0
+    if-eqz v1, :cond_3
 
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/util/Map$Entry;
-
-    iget-object v6, p0, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation$NativeKeyStoreOperation;->this$0:Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;
-
-    invoke-static {v6}, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;->-get1(Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;)Landroid/security/KeyStore;
-
-    move-result-object v9
-
-    invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Ljava/lang/String;
-
-    invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v7
 
-    check-cast v7, [B
+    check-cast v7, Ljava/util/Map$Entry;
 
-    iget v10, p0, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation$NativeKeyStoreOperation;->mKeystoreUid:I
+    move-object/from16 v0, p0
 
-    invoke-static {v10, v5}, Lcom/android/server/enterprise/utils/CertificateUtil;->convertStoreTypeToSystemUidAsUser(II)I
+    iget v1, v0, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation$NativeKeyStoreOperation;->mKeystoreType:I
 
-    move-result v10
+    const/4 v4, 0x4
 
-    const/4 v11, 0x1
+    if-ne v1, v4, :cond_2
 
-    invoke-virtual {v9, v6, v7, v10, v11}, Landroid/security/KeyStore;->put(Ljava/lang/String;[BII)Z
+    invoke-interface {v7}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/String;
+
+    invoke-static {v1}, Lcom/android/server/enterprise/utils/CertificateUtil;->splitCertTypeAlias(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v11
+
+    if-nez v11, :cond_1
+
+    const/4 v1, 0x0
+
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v1
+
+    monitor-exit v14
+
+    return-object v1
+
+    :cond_1
+    const/4 v1, 0x0
+
+    :try_start_1
+    aget-object v3, v11, v1
+
+    const/4 v1, 0x1
+
+    aget-object v2, v11, v1
+
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation$NativeKeyStoreOperation;->this$0:Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;
+
+    invoke-static {v1}, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;->-get0(Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;)Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-interface {v7}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, [B
+
+    const/4 v5, 0x1
+
+    invoke-static/range {v1 .. v6}, Lcom/android/server/enterprise/utils/CertificateUtil$KeyChainCRUD;->put(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;[BII)Z
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_1
 
     :catchall_0
-    move-exception v6
+    move-exception v1
 
-    monitor-exit v8
+    monitor-exit v14
 
-    throw v6
+    throw v1
 
-    :cond_0
-    monitor-exit v8
+    :cond_2
+    :try_start_2
+    move-object/from16 v0, p0
 
-    goto :goto_0
+    iget v1, v0, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation$NativeKeyStoreOperation;->mKeystoreType:I
 
-    :pswitch_1
-    iget-object v6, p0, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation$NativeKeyStoreOperation;->this$0:Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;
+    const/4 v4, 0x2
 
-    invoke-static {v6}, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;->-get2(Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;)Ljava/lang/Object;
+    if-ne v1, v4, :cond_0
 
-    move-result-object v7
+    move-object/from16 v0, p0
 
-    monitor-enter v7
+    iget-object v1, v0, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation$NativeKeyStoreOperation;->this$0:Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;
 
-    :try_start_1
-    iget-object v6, p0, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation$NativeKeyStoreOperation;->this$0:Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;
+    invoke-static {v1}, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;->-get1(Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;)Landroid/security/KeyStore;
 
-    invoke-static {v6, v5}, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;->-wrap0(Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;I)Z
+    move-result-object v5
 
-    move-result v6
-
-    if-eqz v6, :cond_1
-
-    iget-object v6, p0, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation$NativeKeyStoreOperation;->mAliases:Ljava/util/Set;
-
-    invoke-interface {v6}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {v7}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v1
 
+    check-cast v1, Ljava/lang/String;
+
+    invoke-interface {v7}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, [B
+
+    const/16 v15, 0x3f2
+
+    const/16 v16, 0x1
+
+    move/from16 v0, v16
+
+    invoke-virtual {v5, v1, v4, v15, v0}, Landroid/security/KeyStore;->put(Ljava/lang/String;[BII)Z
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    goto :goto_1
+
+    :cond_3
+    monitor-exit v14
+
+    goto/16 :goto_0
+
+    :pswitch_1
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation$NativeKeyStoreOperation;->this$0:Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;
+
+    invoke-static {v1}, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;->-get2(Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    monitor-enter v4
+
+    :try_start_3
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation$NativeKeyStoreOperation;->this$0:Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;
+
+    invoke-static {v1, v6}, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;->-wrap0(Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_7
+
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation$NativeKeyStoreOperation;->mAliases:Ljava/util/Set;
+
+    invoke-interface {v1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v13
+
+    :cond_4
     :goto_2
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v13}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v6
+    move-result v1
 
-    if-eqz v6, :cond_1
+    if-eqz v1, :cond_7
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v13}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v12
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v12, Ljava/lang/String;
 
-    invoke-direct {p0, v0}, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation$NativeKeyStoreOperation;->removeAliasSeparator(Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    move-result-object v0
+    invoke-direct {v0, v12}, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation$NativeKeyStoreOperation;->removeAliasSeparator(Ljava/lang/String;)Ljava/lang/String;
 
-    iget-object v6, p0, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation$NativeKeyStoreOperation;->this$0:Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;
+    move-result-object v12
 
-    invoke-static {v6}, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;->-get1(Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;)Landroid/security/KeyStore;
+    invoke-static {v12}, Lcom/android/server/enterprise/utils/CertificateUtil;->splitCertTypeAlias(Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v11
 
-    iget v8, p0, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation$NativeKeyStoreOperation;->mKeystoreUid:I
+    if-nez v11, :cond_5
 
-    invoke-static {v8, v5}, Lcom/android/server/enterprise/utils/CertificateUtil;->convertStoreTypeToSystemUidAsUser(II)I
+    const/4 v1, 0x0
 
-    move-result v8
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    invoke-virtual {v6, v0, v8}, Landroid/security/KeyStore;->delete(Ljava/lang/String;I)Z
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    move-result-object v1
+
+    monitor-exit v4
+
+    return-object v1
+
+    :cond_5
+    const/4 v1, 0x0
+
+    :try_start_4
+    aget-object v3, v11, v1
+
+    const/4 v1, 0x1
+
+    aget-object v2, v11, v1
+
+    move-object/from16 v0, p0
+
+    iget v1, v0, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation$NativeKeyStoreOperation;->mKeystoreType:I
+
+    const/4 v5, 0x4
+
+    if-ne v1, v5, :cond_6
+
+    new-instance v9, Lcom/android/server/enterprise/utils/CertificateUtil$KeyChainCRUD;
+
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation$NativeKeyStoreOperation;->this$0:Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;
+
+    invoke-static {v1}, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;->-get0(Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;)Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-direct {v9, v1, v6}, Lcom/android/server/enterprise/utils/CertificateUtil$KeyChainCRUD;-><init>(Landroid/content/Context;I)V
+
+    invoke-virtual {v9, v2, v3}, Lcom/android/server/enterprise/utils/CertificateUtil$KeyChainCRUD;->deleteCertificate(Ljava/lang/String;Ljava/lang/String;)Z
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
     goto :goto_2
 
     :catchall_1
-    move-exception v6
+    move-exception v1
 
-    monitor-exit v7
+    monitor-exit v4
 
-    throw v6
+    throw v1
 
-    :cond_1
-    monitor-exit v7
+    :cond_6
+    :try_start_5
+    move-object/from16 v0, p0
+
+    iget v1, v0, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation$NativeKeyStoreOperation;->mKeystoreType:I
+
+    const/4 v5, 0x2
+
+    if-ne v1, v5, :cond_4
+
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation$NativeKeyStoreOperation;->this$0:Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;
+
+    invoke-static {v1}, Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;->-get1(Lcom/android/server/enterprise/certificate/RollbackRefreshOperation;)Landroid/security/KeyStore;
+
+    move-result-object v1
+
+    const/16 v5, 0x3f2
+
+    invoke-virtual {v1, v12, v5}, Landroid/security/KeyStore;->delete(Ljava/lang/String;I)Z
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_1
+
+    goto :goto_2
+
+    :cond_7
+    monitor-exit v4
 
     goto/16 :goto_0
 

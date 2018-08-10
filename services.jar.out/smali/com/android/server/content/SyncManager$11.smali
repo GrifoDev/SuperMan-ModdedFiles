@@ -45,9 +45,7 @@
 
 # virtual methods
 .method public onServiceChanged(Landroid/content/SyncAdapterType;IZ)V
-    .locals 11
-
-    const-wide/16 v6, 0x0
+    .locals 7
 
     const/4 v1, 0x0
 
@@ -61,13 +59,11 @@
 
     const/4 v3, -0x3
 
-    const/4 v10, 0x0
+    const/4 v6, -0x2
 
     move-object v5, v1
 
-    move-wide v8, v6
-
-    invoke-virtual/range {v0 .. v10}, Lcom/android/server/content/SyncManager;->scheduleSync(Landroid/accounts/Account;IILjava/lang/String;Landroid/os/Bundle;JJZ)V
+    invoke-virtual/range {v0 .. v6}, Lcom/android/server/content/SyncManager;->scheduleSync(Landroid/accounts/Account;IILjava/lang/String;Landroid/os/Bundle;I)V
 
     :cond_0
     return-void

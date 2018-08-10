@@ -42,7 +42,7 @@
     return-void
 .end method
 
-.method public onUidGone(I)V
+.method public onUidGone(IZ)V
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -52,14 +52,23 @@
 
     iget-object v0, p0, Lcom/android/server/job/JobSchedulerService$2;->this$0:Lcom/android/server/job/JobSchedulerService;
 
-    const/16 v1, 0x10
+    const/16 v1, 0x11
 
     invoke-virtual {v0, p1, v1}, Lcom/android/server/job/JobSchedulerService;->updateUidState(II)V
 
+    if-eqz p2, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/job/JobSchedulerService$2;->this$0:Lcom/android/server/job/JobSchedulerService;
+
+    const-string/jumbo v1, "uid gone"
+
+    invoke-virtual {v0, p1, v1}, Lcom/android/server/job/JobSchedulerService;->cancelJobsForUid(ILjava/lang/String;)V
+
+    :cond_0
     return-void
 .end method
 
-.method public onUidIdle(I)V
+.method public onUidIdle(IZ)V
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -67,16 +76,19 @@
         }
     .end annotation
 
+    if-eqz p2, :cond_0
+
     iget-object v0, p0, Lcom/android/server/job/JobSchedulerService$2;->this$0:Lcom/android/server/job/JobSchedulerService;
 
-    const/4 v1, 0x0
+    const-string/jumbo v1, "app uid idle"
 
-    invoke-virtual {v0, p1, v1}, Lcom/android/server/job/JobSchedulerService;->cancelJobsForUid(IZ)V
+    invoke-virtual {v0, p1, v1}, Lcom/android/server/job/JobSchedulerService;->cancelJobsForUid(ILjava/lang/String;)V
 
+    :cond_0
     return-void
 .end method
 
-.method public onUidStateChanged(II)V
+.method public onUidStateChanged(IIJ)V
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {

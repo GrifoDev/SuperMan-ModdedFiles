@@ -17,6 +17,18 @@
 # instance fields
 .field final mAction:Ljava/lang/String;
 
+.field final mBackgroundCheckViolations:Landroid/util/ArrayMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/ArrayMap",
+            "<",
+            "Ljava/lang/String;",
+            "Lcom/android/server/am/BroadcastStats$ViolationEntry;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field mMaxDispatchTime:J
 
 .field final mPackages:Landroid/util/ArrayMap;
@@ -49,6 +61,12 @@
     invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/am/BroadcastStats$ActionEntry;->mPackages:Landroid/util/ArrayMap;
+
+    new-instance v0, Landroid/util/ArrayMap;
+
+    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
+
+    iput-object v0, p0, Lcom/android/server/am/BroadcastStats$ActionEntry;->mBackgroundCheckViolations:Landroid/util/ArrayMap;
 
     iput-object p1, p0, Lcom/android/server/am/BroadcastStats$ActionEntry;->mAction:Ljava/lang/String;
 

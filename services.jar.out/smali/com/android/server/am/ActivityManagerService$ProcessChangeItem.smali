@@ -17,8 +17,6 @@
 # static fields
 .field static final CHANGE_ACTIVITIES:I = 0x1
 
-.field static final CHANGE_PROCESS_STATE:I = 0x2
-
 
 # instance fields
 .field changes:I

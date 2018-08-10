@@ -23,13 +23,13 @@
 
 
 # instance fields
-.field private final mCallback:Lcom/android/server/LockSettingsStorage$Callback;
+.field private mCallback:Lcom/android/server/LockSettingsStorage$Callback;
 
 .field final synthetic this$0:Lcom/android/server/LockSettingsStorage;
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/server/LockSettingsStorage;Landroid/content/Context;Lcom/android/server/LockSettingsStorage$Callback;)V
+.method public constructor <init>(Lcom/android/server/LockSettingsStorage;Landroid/content/Context;)V
     .locals 3
 
     iput-object p1, p0, Lcom/android/server/LockSettingsStorage$DatabaseHelper;->this$0:Lcom/android/server/LockSettingsStorage;
@@ -45,8 +45,6 @@
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/android/server/LockSettingsStorage$DatabaseHelper;->setWriteAheadLoggingEnabled(Z)V
-
-    iput-object p3, p0, Lcom/android/server/LockSettingsStorage$DatabaseHelper;->mCallback:Lcom/android/server/LockSettingsStorage$Callback;
 
     return-void
 .end method
@@ -70,8 +68,13 @@
 
     iget-object v0, p0, Lcom/android/server/LockSettingsStorage$DatabaseHelper;->mCallback:Lcom/android/server/LockSettingsStorage$Callback;
 
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/LockSettingsStorage$DatabaseHelper;->mCallback:Lcom/android/server/LockSettingsStorage$Callback;
+
     invoke-interface {v0, p1}, Lcom/android/server/LockSettingsStorage$Callback;->initialize(Landroid/database/sqlite/SQLiteDatabase;)V
 
+    :cond_0
     return-void
 .end method
 
@@ -82,14 +85,19 @@
 
     const/4 v1, 0x1
 
-    if-ne p2, v1, :cond_0
+    if-eq p2, v1, :cond_0
 
-    const/4 v0, 0x2
+    const/4 v1, 0x2
+
+    if-ne p2, v1, :cond_1
 
     :cond_0
+    const/4 v0, 0x3
+
+    :cond_1
     const/4 v1, 0x3
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_2
 
     const-string/jumbo v1, "LockSettingsDB"
 
@@ -97,6 +105,14 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_1
+    :cond_2
+    return-void
+.end method
+
+.method public setCallback(Lcom/android/server/LockSettingsStorage$Callback;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/LockSettingsStorage$DatabaseHelper;->mCallback:Lcom/android/server/LockSettingsStorage$Callback;
+
     return-void
 .end method

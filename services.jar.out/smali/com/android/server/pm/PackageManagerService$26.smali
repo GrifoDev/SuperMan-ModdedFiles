@@ -3,12 +3,12 @@
 .source "PackageManagerService.java"
 
 # interfaces
-.implements Landroid/os/storage/MountServiceInternal$ExternalStorageMountPolicy;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/pm/PackageManagerService;->systemReady()V
+    value = Lcom/android/server/pm/PackageManagerService;->updateExternalMediaStatus(ZZ)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,12 +20,20 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/pm/PackageManagerService;
 
+.field final synthetic val$mediaStatus:Z
+
+.field final synthetic val$reportStatus:Z
+
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/PackageManagerService;)V
+.method constructor <init>(Lcom/android/server/pm/PackageManagerService;ZZ)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$26;->this$0:Lcom/android/server/pm/PackageManagerService;
+
+    iput-boolean p2, p0, Lcom/android/server/pm/PackageManagerService$26;->val$mediaStatus:Z
+
+    iput-boolean p3, p0, Lcom/android/server/pm/PackageManagerService$26;->val$reportStatus:Z
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -34,74 +42,39 @@
 
 
 # virtual methods
-.method public getMountMode(ILjava/lang/String;)I
-    .locals 4
+.method public run()V
+    .locals 5
 
-    const/4 v3, 0x1
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$26;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    const/4 v1, 0x0
+    iget-boolean v2, p0, Lcom/android/server/pm/PackageManagerService$26;->val$mediaStatus:Z
 
-    const/4 v2, -0x1
+    iget-boolean v3, p0, Lcom/android/server/pm/PackageManagerService$26;->val$reportStatus:Z
 
-    invoke-static {p1}, Landroid/os/Process;->isIsolated(I)Z
+    const/4 v4, 0x1
 
-    move-result v0
+    invoke-static {v1, v2, v3, v4}, Lcom/android/server/pm/PackageManagerService;->-wrap67(Lcom/android/server/pm/PackageManagerService;ZZZ)V
+    :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    if-eqz v0, :cond_0
+    :goto_0
+    return-void
 
-    return v1
+    :catch_0
+    move-exception v0
 
-    :cond_0
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$26;->this$0:Lcom/android/server/pm/PackageManagerService;
+    const-string/jumbo v1, "PackageManager"
 
-    const-string/jumbo v1, "android.permission.WRITE_MEDIA_STORAGE"
+    const-string/jumbo v2, "updateExternalMediaStatus RuntimeException"
 
-    invoke-virtual {v0, v1, p1}, Lcom/android/server/pm/PackageManagerService;->checkUidPermission(Ljava/lang/String;I)I
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    move-result v0
+    const-string/jumbo v1, "updateExternalMediaStatus runtime exception: is asec cmd timeout?"
 
-    if-nez v0, :cond_1
+    const/4 v2, 0x5
 
-    return v3
+    invoke-static {v2, v1}, Lcom/android/server/pm/PackageManagerService;->reportSettingsProblem(ILjava/lang/String;)V
 
-    :cond_1
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$26;->this$0:Lcom/android/server/pm/PackageManagerService;
-
-    const-string/jumbo v1, "android.permission.READ_EXTERNAL_STORAGE"
-
-    invoke-virtual {v0, v1, p1}, Lcom/android/server/pm/PackageManagerService;->checkUidPermission(Ljava/lang/String;I)I
-
-    move-result v0
-
-    if-ne v0, v2, :cond_2
-
-    return v3
-
-    :cond_2
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$26;->this$0:Lcom/android/server/pm/PackageManagerService;
-
-    const-string/jumbo v1, "android.permission.WRITE_EXTERNAL_STORAGE"
-
-    invoke-virtual {v0, v1, p1}, Lcom/android/server/pm/PackageManagerService;->checkUidPermission(Ljava/lang/String;I)I
-
-    move-result v0
-
-    if-ne v0, v2, :cond_3
-
-    const/4 v0, 0x2
-
-    return v0
-
-    :cond_3
-    const/4 v0, 0x3
-
-    return v0
-.end method
-
-.method public hasExternalStorage(ILjava/lang/String;)Z
-    .locals 1
-
-    const/4 v0, 0x1
-
-    return v0
+    goto :goto_0
 .end method

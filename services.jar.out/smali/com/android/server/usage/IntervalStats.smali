@@ -315,6 +315,79 @@
     return-void
 .end method
 
+.method updateChooserCounts(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 6
+
+    const/4 v5, 0x0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/usage/IntervalStats;->getOrCreateUsageStats(Ljava/lang/String;)Landroid/app/usage/UsageStats;
+
+    move-result-object v3
+
+    iget-object v4, v3, Landroid/app/usage/UsageStats;->mChooserCounts:Landroid/util/ArrayMap;
+
+    if-nez v4, :cond_0
+
+    new-instance v4, Landroid/util/ArrayMap;
+
+    invoke-direct {v4}, Landroid/util/ArrayMap;-><init>()V
+
+    iput-object v4, v3, Landroid/app/usage/UsageStats;->mChooserCounts:Landroid/util/ArrayMap;
+
+    :cond_0
+    iget-object v4, v3, Landroid/app/usage/UsageStats;->mChooserCounts:Landroid/util/ArrayMap;
+
+    invoke-virtual {v4, p3}, Landroid/util/ArrayMap;->indexOfKey(Ljava/lang/Object;)I
+
+    move-result v2
+
+    if-gez v2, :cond_1
+
+    new-instance v0, Landroid/util/ArrayMap;
+
+    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
+
+    iget-object v4, v3, Landroid/app/usage/UsageStats;->mChooserCounts:Landroid/util/ArrayMap;
+
+    invoke-virtual {v4, p3, v0}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    :goto_0
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    invoke-virtual {v0, p2, v4}, Landroid/util/ArrayMap;->getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Ljava/lang/Integer;
+
+    invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
+
+    move-result v1
+
+    add-int/lit8 v4, v1, 0x1
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    invoke-virtual {v0, p2, v4}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    return-void
+
+    :cond_1
+    iget-object v4, v3, Landroid/app/usage/UsageStats;->mChooserCounts:Landroid/util/ArrayMap;
+
+    invoke-virtual {v4, v2}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/util/ArrayMap;
+
+    goto :goto_0
+.end method
+
 .method updateConfigurationStats(Landroid/content/res/Configuration;J)V
     .locals 6
 

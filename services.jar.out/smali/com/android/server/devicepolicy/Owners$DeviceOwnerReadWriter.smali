@@ -153,11 +153,30 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Lcom/android/server/devicepolicy/Owners;->-set2(Lcom/android/server/devicepolicy/Owners;Landroid/app/admin/SystemUpdatePolicy;)Landroid/app/admin/SystemUpdatePolicy;
+    invoke-static {v2, v3}, Lcom/android/server/devicepolicy/Owners;->-set3(Lcom/android/server/devicepolicy/Owners;Landroid/app/admin/SystemUpdatePolicy;)Landroid/app/admin/SystemUpdatePolicy;
 
     goto :goto_0
 
     :cond_4
+    const-string/jumbo v2, "pending-ota-info"
+
+    invoke-virtual {p3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_5
+
+    iget-object v2, p0, Lcom/android/server/devicepolicy/Owners$DeviceOwnerReadWriter;->this$0:Lcom/android/server/devicepolicy/Owners;
+
+    invoke-static {p1}, Landroid/app/admin/SystemUpdateInfo;->readFromXml(Lorg/xmlpull/v1/XmlPullParser;)Landroid/app/admin/SystemUpdateInfo;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Lcom/android/server/devicepolicy/Owners;->-set2(Lcom/android/server/devicepolicy/Owners;Landroid/app/admin/SystemUpdateInfo;)Landroid/app/admin/SystemUpdateInfo;
+
+    goto :goto_0
+
+    :cond_5
     const-string/jumbo v2, "DevicePolicyManagerService"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -198,7 +217,7 @@
 
     iget-object v1, p0, Lcom/android/server/devicepolicy/Owners$DeviceOwnerReadWriter;->this$0:Lcom/android/server/devicepolicy/Owners;
 
-    invoke-static {v1}, Lcom/android/server/devicepolicy/Owners;->-get3(Lcom/android/server/devicepolicy/Owners;)Landroid/app/admin/SystemUpdatePolicy;
+    invoke-static {v1}, Lcom/android/server/devicepolicy/Owners;->-get4(Lcom/android/server/devicepolicy/Owners;)Landroid/app/admin/SystemUpdatePolicy;
 
     move-result-object v1
 
@@ -209,6 +228,14 @@
     return v0
 
     :cond_1
+    iget-object v1, p0, Lcom/android/server/devicepolicy/Owners$DeviceOwnerReadWriter;->this$0:Lcom/android/server/devicepolicy/Owners;
+
+    invoke-static {v1}, Lcom/android/server/devicepolicy/Owners;->-get3(Lcom/android/server/devicepolicy/Owners;)Landroid/app/admin/SystemUpdateInfo;
+
+    move-result-object v1
+
+    if-nez v1, :cond_0
+
     const/4 v0, 0x0
 
     goto :goto_0
@@ -267,7 +294,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/server/devicepolicy/Owners$DeviceOwnerReadWriter;->this$0:Lcom/android/server/devicepolicy/Owners;
 
-    invoke-static {v0}, Lcom/android/server/devicepolicy/Owners;->-get3(Lcom/android/server/devicepolicy/Owners;)Landroid/app/admin/SystemUpdatePolicy;
+    invoke-static {v0}, Lcom/android/server/devicepolicy/Owners;->-get4(Lcom/android/server/devicepolicy/Owners;)Landroid/app/admin/SystemUpdatePolicy;
 
     move-result-object v0
 
@@ -279,7 +306,7 @@
 
     iget-object v0, p0, Lcom/android/server/devicepolicy/Owners$DeviceOwnerReadWriter;->this$0:Lcom/android/server/devicepolicy/Owners;
 
-    invoke-static {v0}, Lcom/android/server/devicepolicy/Owners;->-get3(Lcom/android/server/devicepolicy/Owners;)Landroid/app/admin/SystemUpdatePolicy;
+    invoke-static {v0}, Lcom/android/server/devicepolicy/Owners;->-get4(Lcom/android/server/devicepolicy/Owners;)Landroid/app/admin/SystemUpdatePolicy;
 
     move-result-object v0
 
@@ -290,5 +317,24 @@
     invoke-interface {p1, v2, v0}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     :cond_1
+    iget-object v0, p0, Lcom/android/server/devicepolicy/Owners$DeviceOwnerReadWriter;->this$0:Lcom/android/server/devicepolicy/Owners;
+
+    invoke-static {v0}, Lcom/android/server/devicepolicy/Owners;->-get3(Lcom/android/server/devicepolicy/Owners;)Landroid/app/admin/SystemUpdateInfo;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/server/devicepolicy/Owners$DeviceOwnerReadWriter;->this$0:Lcom/android/server/devicepolicy/Owners;
+
+    invoke-static {v0}, Lcom/android/server/devicepolicy/Owners;->-get3(Lcom/android/server/devicepolicy/Owners;)Landroid/app/admin/SystemUpdateInfo;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "pending-ota-info"
+
+    invoke-virtual {v0, p1, v1}, Landroid/app/admin/SystemUpdateInfo;->writeToXml(Lorg/xmlpull/v1/XmlSerializer;Ljava/lang/String;)V
+
+    :cond_2
     return-void
 .end method

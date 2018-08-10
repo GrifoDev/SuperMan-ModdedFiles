@@ -1,5 +1,5 @@
 .class Lcom/android/server/location/GnssLocationProvider$10;
-.super Lcom/android/server/location/GnssNavigationMessageProvider;
+.super Lcom/android/server/location/GnssMeasurementsProvider;
 .source "GnssLocationProvider.java"
 
 
@@ -24,17 +24,17 @@
 
     iput-object p1, p0, Lcom/android/server/location/GnssLocationProvider$10;->this$0:Lcom/android/server/location/GnssLocationProvider;
 
-    invoke-direct {p0, p2}, Lcom/android/server/location/GnssNavigationMessageProvider;-><init>(Landroid/os/Handler;)V
+    invoke-direct {p0, p2}, Lcom/android/server/location/GnssMeasurementsProvider;-><init>(Landroid/os/Handler;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method protected isAvailableInPlatform()Z
+.method public isAvailableInPlatform()Z
     .locals 1
 
-    invoke-static {}, Lcom/android/server/location/GnssLocationProvider;->-wrap4()Z
+    invoke-static {}, Lcom/android/server/location/GnssLocationProvider;->-wrap3()Z
 
     move-result v0
 
@@ -58,7 +58,7 @@
 
     iget-object v0, p0, Lcom/android/server/location/GnssLocationProvider$10;->this$0:Lcom/android/server/location/GnssLocationProvider;
 
-    invoke-static {v0}, Lcom/android/server/location/GnssLocationProvider;->-wrap9(Lcom/android/server/location/GnssLocationProvider;)Z
+    invoke-static {v0}, Lcom/android/server/location/GnssLocationProvider;->-wrap16(Lcom/android/server/location/GnssLocationProvider;)Z
 
     move-result v0
 
@@ -70,7 +70,7 @@
 
     iget-object v0, p0, Lcom/android/server/location/GnssLocationProvider$10;->this$0:Lcom/android/server/location/GnssLocationProvider;
 
-    invoke-static {v0}, Lcom/android/server/location/GnssLocationProvider;->-wrap11(Lcom/android/server/location/GnssLocationProvider;)Z
+    invoke-static {v0}, Lcom/android/server/location/GnssLocationProvider;->-wrap19(Lcom/android/server/location/GnssLocationProvider;)Z
 
     return-void
 .end method

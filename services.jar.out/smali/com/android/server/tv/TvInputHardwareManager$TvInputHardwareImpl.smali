@@ -647,7 +647,7 @@
 
     move-object/from16 v29, v0
 
-    invoke-static/range {v29 .. v29}, Lcom/android/server/tv/TvInputHardwareManager;->-wrap5(Lcom/android/server/tv/TvInputHardwareManager;)V
+    invoke-static/range {v29 .. v29}, Lcom/android/server/tv/TvInputHardwareManager;->-wrap4(Lcom/android/server/tv/TvInputHardwareManager;)V
 
     move-object/from16 v0, p0
 
@@ -1394,155 +1394,142 @@
 .end method
 
 .method private updateAudioSinkLocked()Z
-    .locals 6
+    .locals 4
 
-    const/4 v3, 0x1
+    const/4 v3, 0x0
 
-    const/4 v2, 0x0
+    iget-object v2, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->mInfo:Landroid/media/tv/TvInputHardwareInfo;
 
-    iget-object v4, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->mInfo:Landroid/media/tv/TvInputHardwareInfo;
+    invoke-virtual {v2}, Landroid/media/tv/TvInputHardwareInfo;->getAudioType()I
 
-    invoke-virtual {v4}, Landroid/media/tv/TvInputHardwareInfo;->getAudioType()I
+    move-result v2
 
-    move-result v4
+    if-nez v2, :cond_0
 
-    if-nez v4, :cond_0
-
-    return v2
+    return v3
 
     :cond_0
     iget-object v1, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->mAudioSink:Ljava/util/List;
 
-    new-instance v4, Ljava/util/ArrayList;
+    new-instance v2, Ljava/util/ArrayList;
 
-    invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v4, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->mAudioSink:Ljava/util/List;
+    iput-object v2, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->mAudioSink:Ljava/util/List;
 
-    iget v4, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->mOverrideAudioType:I
+    iget v2, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->mOverrideAudioType:I
 
-    if-nez v4, :cond_2
+    if-nez v2, :cond_2
 
-    iget-object v4, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->mAudioSink:Ljava/util/List;
+    iget-object v2, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->mAudioSink:Ljava/util/List;
 
-    invoke-direct {p0, v4}, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->findAudioSinkFromAudioPolicy(Ljava/util/List;)V
+    invoke-direct {p0, v2}, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->findAudioSinkFromAudioPolicy(Ljava/util/List;)V
 
     :cond_1
     :goto_0
-    iget-object v4, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->mAudioSink:Ljava/util/List;
+    iget-object v2, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->mAudioSink:Ljava/util/List;
 
-    invoke-interface {v4}, Ljava/util/List;->size()I
+    invoke-interface {v2}, Ljava/util/List;->size()I
 
-    move-result v4
+    move-result v2
 
     invoke-interface {v1}, Ljava/util/List;->size()I
 
-    move-result v5
+    move-result v3
 
-    if-eq v4, v5, :cond_3
+    if-eq v2, v3, :cond_3
 
-    return v3
+    const/4 v2, 0x1
+
+    return v2
 
     :cond_2
-    iget v4, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->mOverrideAudioType:I
+    iget v2, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->mOverrideAudioType:I
 
-    iget-object v5, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->mOverrideAudioAddress:Ljava/lang/String;
+    iget-object v3, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->mOverrideAudioAddress:Ljava/lang/String;
 
-    invoke-direct {p0, v4, v5}, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->findAudioDevicePort(ILjava/lang/String;)Landroid/media/AudioDevicePort;
+    invoke-direct {p0, v2, v3}, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->findAudioDevicePort(ILjava/lang/String;)Landroid/media/AudioDevicePort;
 
     move-result-object v0
 
     if-eqz v0, :cond_1
 
-    iget-object v4, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->mAudioSink:Ljava/util/List;
+    iget-object v2, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->mAudioSink:Ljava/util/List;
 
-    invoke-interface {v4, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v2, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
     :cond_3
-    iget-object v4, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->mAudioSink:Ljava/util/List;
+    iget-object v2, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->mAudioSink:Ljava/util/List;
 
-    invoke-interface {v1, v4}, Ljava/util/List;->removeAll(Ljava/util/Collection;)Z
+    invoke-interface {v1, v2}, Ljava/util/List;->removeAll(Ljava/util/Collection;)Z
 
     invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
 
-    move-result v4
+    move-result v2
 
-    if-eqz v4, :cond_4
+    xor-int/lit8 v2, v2, 0x1
 
-    :goto_1
     return v2
-
-    :cond_4
-    move v2, v3
-
-    goto :goto_1
 .end method
 
 .method private updateAudioSourceLocked()Z
-    .locals 5
+    .locals 4
 
-    const/4 v1, 0x1
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    iget-object v2, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->mInfo:Landroid/media/tv/TvInputHardwareInfo;
 
-    iget-object v3, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->mInfo:Landroid/media/tv/TvInputHardwareInfo;
+    invoke-virtual {v2}, Landroid/media/tv/TvInputHardwareInfo;->getAudioType()I
 
-    invoke-virtual {v3}, Landroid/media/tv/TvInputHardwareInfo;->getAudioType()I
+    move-result v2
 
-    move-result v3
+    if-nez v2, :cond_0
 
-    if-nez v3, :cond_0
-
-    return v2
+    return v1
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->mAudioSource:Landroid/media/AudioDevicePort;
 
+    iget-object v2, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->mInfo:Landroid/media/tv/TvInputHardwareInfo;
+
+    invoke-virtual {v2}, Landroid/media/tv/TvInputHardwareInfo;->getAudioType()I
+
+    move-result v2
+
     iget-object v3, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->mInfo:Landroid/media/tv/TvInputHardwareInfo;
 
-    invoke-virtual {v3}, Landroid/media/tv/TvInputHardwareInfo;->getAudioType()I
-
-    move-result v3
-
-    iget-object v4, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->mInfo:Landroid/media/tv/TvInputHardwareInfo;
-
-    invoke-virtual {v4}, Landroid/media/tv/TvInputHardwareInfo;->getAudioAddress()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-direct {p0, v3, v4}, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->findAudioDevicePort(ILjava/lang/String;)Landroid/media/AudioDevicePort;
+    invoke-virtual {v3}, Landroid/media/tv/TvInputHardwareInfo;->getAudioAddress()Ljava/lang/String;
 
     move-result-object v3
 
-    iput-object v3, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->mAudioSource:Landroid/media/AudioDevicePort;
+    invoke-direct {p0, v2, v3}, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->findAudioDevicePort(ILjava/lang/String;)Landroid/media/AudioDevicePort;
 
-    iget-object v3, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->mAudioSource:Landroid/media/AudioDevicePort;
+    move-result-object v2
 
-    if-nez v3, :cond_3
+    iput-object v2, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->mAudioSource:Landroid/media/AudioDevicePort;
 
-    if-eqz v0, :cond_2
+    iget-object v2, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->mAudioSource:Landroid/media/AudioDevicePort;
+
+    if-nez v2, :cond_2
+
+    if-eqz v0, :cond_1
+
+    const/4 v1, 0x1
 
     :cond_1
     :goto_0
     return v1
 
     :cond_2
-    move v1, v2
+    iget-object v1, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->mAudioSource:Landroid/media/AudioDevicePort;
 
-    goto :goto_0
+    invoke-virtual {v1, v0}, Landroid/media/AudioDevicePort;->equals(Ljava/lang/Object;)Z
 
-    :cond_3
-    iget-object v3, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->mAudioSource:Landroid/media/AudioDevicePort;
+    move-result v1
 
-    invoke-virtual {v3, v0}, Landroid/media/AudioDevicePort;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    move v1, v2
+    xor-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 .end method
@@ -1838,7 +1825,7 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_6
 
     :goto_1
     monitor-exit v3
@@ -1869,35 +1856,10 @@
 
     move-result v4
 
-    if-eqz v4, :cond_6
+    xor-int/lit8 v4, v4, 0x1
 
-    :cond_5
-    :goto_2
-    if-nez v0, :cond_1
+    if-eqz v4, :cond_5
 
-    iget-object v4, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->this$0:Lcom/android/server/tv/TvInputHardwareManager;
-
-    invoke-static {v4}, Lcom/android/server/tv/TvInputHardwareManager;->-get3(Lcom/android/server/tv/TvInputHardwareManager;)Lcom/android/server/tv/TvInputHal;
-
-    move-result-object v4
-
-    iget-object v5, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->mInfo:Landroid/media/tv/TvInputHardwareInfo;
-
-    invoke-virtual {v5}, Landroid/media/tv/TvInputHardwareInfo;->getDeviceId()I
-
-    move-result v5
-
-    invoke-virtual {v4, v5, p1, p2}, Lcom/android/server/tv/TvInputHal;->addOrUpdateStream(ILandroid/view/Surface;Landroid/media/tv/TvStreamConfig;)I
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    iput-object p2, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->mActiveConfig:Landroid/media/tv/TvStreamConfig;
-
-    goto :goto_0
-
-    :cond_6
     iget-object v4, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->this$0:Lcom/android/server/tv/TvInputHardwareManager;
 
     invoke-static {v4}, Lcom/android/server/tv/TvInputHardwareManager;->-get3(Lcom/android/server/tv/TvInputHardwareManager;)Lcom/android/server/tv/TvInputHal;
@@ -1921,12 +1883,35 @@
     const/4 v4, 0x0
 
     iput-object v4, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->mActiveConfig:Landroid/media/tv/TvStreamConfig;
+
+    :cond_5
+    if-nez v0, :cond_1
+
+    iget-object v4, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->this$0:Lcom/android/server/tv/TvInputHardwareManager;
+
+    invoke-static {v4}, Lcom/android/server/tv/TvInputHardwareManager;->-get3(Lcom/android/server/tv/TvInputHardwareManager;)Lcom/android/server/tv/TvInputHal;
+
+    move-result-object v4
+
+    iget-object v5, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->mInfo:Landroid/media/tv/TvInputHardwareInfo;
+
+    invoke-virtual {v5}, Landroid/media/tv/TvInputHardwareInfo;->getDeviceId()I
+
+    move-result v5
+
+    invoke-virtual {v4, v5, p1, p2}, Lcom/android/server/tv/TvInputHal;->addOrUpdateStream(ILandroid/view/Surface;Landroid/media/tv/TvStreamConfig;)I
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    iput-object p2, p0, Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;->mActiveConfig:Landroid/media/tv/TvStreamConfig;
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_2
+    goto :goto_0
 
-    :cond_7
+    :cond_6
     move v1, v2
 
     goto :goto_1

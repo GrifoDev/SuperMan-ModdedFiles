@@ -32,126 +32,104 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 9
+    .locals 6
 
-    const/16 v8, 0xc8
+    const/4 v5, 0x0
 
-    const/16 v7, 0x64
-
-    const/4 v1, 0x1
-
-    const/4 v6, -0x1
-
-    const/4 v3, 0x0
+    const/4 v4, -0x1
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    const-string/jumbo v4, "com.sec.knox.SETUP_COMPLETE"
+    const-string/jumbo v2, "com.sec.knox.SETUP_COMPLETE"
 
-    invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_2
-
-    const-string/jumbo v4, "RCPPolicyProvider"
-
-    const-string/jumbo v5, "onReceive() KNOX SETUP COMPLETE"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v4, "userid"
-
-    invoke-virtual {p2, v4, v6}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-lt v2, v7, :cond_1
+    if-eqz v2, :cond_1
 
-    if-gt v2, v8, :cond_1
+    const-string/jumbo v2, "RCPPolicyProvider"
 
-    :goto_0
-    if-eqz v1, :cond_0
+    const-string/jumbo v3, "onReceive() KNOX SETUP COMPLETE"
 
-    iget-object v3, p0, Lcom/android/server/enterprise/storage/RCPPolicyProvider$1;->this$0:Lcom/android/server/enterprise/storage/RCPPolicyProvider;
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v3}, Lcom/android/server/enterprise/storage/RCPPolicyProvider;->-get1(Lcom/android/server/enterprise/storage/RCPPolicyProvider;)Landroid/content/Context;
+    const-string/jumbo v2, "userid"
 
-    move-result-object v3
+    invoke-virtual {p2, v2, v4}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    move-result v1
 
-    move-result-object v3
+    invoke-static {v1}, Lcom/android/server/enterprise/adapterlayer/PersonaManagerAdapter;->isValidKnoxId(I)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/server/enterprise/storage/RCPPolicyProvider$1;->this$0:Lcom/android/server/enterprise/storage/RCPPolicyProvider;
+
+    invoke-static {v2}, Lcom/android/server/enterprise/storage/RCPPolicyProvider;->-get1(Lcom/android/server/enterprise/storage/RCPPolicyProvider;)Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
 
     invoke-static {}, Lcom/android/server/enterprise/storage/RCPPolicyProvider;->-get0()Landroid/net/Uri;
 
-    move-result-object v4
+    move-result-object v3
 
-    const/4 v5, 0x0
-
-    invoke-virtual {v3, v4, v5}, Landroid/content/ContentResolver;->notifyChange(Landroid/net/Uri;Landroid/database/ContentObserver;)V
+    invoke-virtual {v2, v3, v5}, Landroid/content/ContentResolver;->notifyChange(Landroid/net/Uri;Landroid/database/ContentObserver;)V
 
     :cond_0
-    :goto_1
+    :goto_0
     return-void
 
     :cond_1
-    move v1, v3
+    const-string/jumbo v2, "android.intent.action.USER_REMOVED"
 
-    goto :goto_0
-
-    :cond_2
-    const-string/jumbo v4, "android.intent.action.USER_REMOVED"
-
-    invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    const-string/jumbo v4, "RCPPolicyProvider"
-
-    const-string/jumbo v5, "onReceive() USER REMOVED"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v4, "android.intent.extra.user_handle"
-
-    invoke-virtual {p2, v4, v6}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-lt v2, v7, :cond_3
+    if-eqz v2, :cond_0
 
-    if-gt v2, v8, :cond_3
+    const-string/jumbo v2, "RCPPolicyProvider"
 
-    :goto_2
-    if-eqz v1, :cond_0
+    const-string/jumbo v3, "onReceive() USER REMOVED"
 
-    iget-object v3, p0, Lcom/android/server/enterprise/storage/RCPPolicyProvider$1;->this$0:Lcom/android/server/enterprise/storage/RCPPolicyProvider;
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v3}, Lcom/android/server/enterprise/storage/RCPPolicyProvider;->-get1(Lcom/android/server/enterprise/storage/RCPPolicyProvider;)Landroid/content/Context;
+    const-string/jumbo v2, "android.intent.extra.user_handle"
 
-    move-result-object v3
+    invoke-virtual {p2, v2, v4}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    move-result v1
 
-    move-result-object v3
+    invoke-static {v1}, Lcom/android/server/enterprise/adapterlayer/PersonaManagerAdapter;->isValidKnoxId(I)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/server/enterprise/storage/RCPPolicyProvider$1;->this$0:Lcom/android/server/enterprise/storage/RCPPolicyProvider;
+
+    invoke-static {v2}, Lcom/android/server/enterprise/storage/RCPPolicyProvider;->-get1(Lcom/android/server/enterprise/storage/RCPPolicyProvider;)Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
 
     invoke-static {}, Lcom/android/server/enterprise/storage/RCPPolicyProvider;->-get0()Landroid/net/Uri;
 
-    move-result-object v4
+    move-result-object v3
 
-    const/4 v5, 0x0
+    invoke-virtual {v2, v3, v5}, Landroid/content/ContentResolver;->notifyChange(Landroid/net/Uri;Landroid/database/ContentObserver;)V
 
-    invoke-virtual {v3, v4, v5}, Landroid/content/ContentResolver;->notifyChange(Landroid/net/Uri;Landroid/database/ContentObserver;)V
-
-    goto :goto_1
-
-    :cond_3
-    move v1, v3
-
-    goto :goto_2
+    goto :goto_0
 .end method

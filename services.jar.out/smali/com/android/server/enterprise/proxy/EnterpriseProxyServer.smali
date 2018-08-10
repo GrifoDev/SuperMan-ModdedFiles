@@ -54,7 +54,7 @@
     .end annotation
 .end field
 
-.field private static sEnterpriseProxyServer:Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;
+.field private static volatile sEnterpriseProxyServer:Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;
 
 .field private static sProxyAuthenticationTypeCache:Ljava/util/concurrent/ConcurrentHashMap;
     .annotation system Ldalvik/annotation/Signature;
@@ -191,6 +191,10 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    const/4 v0, 0x0
+
+    sput-object v0, Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;->sEnterpriseProxyServer:Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;
+
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/lang/String;
@@ -212,6 +216,24 @@
     move-result-object v0
 
     sput-object v0, Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;->sAuthPriorities:Ljava/util/List;
+
+    new-instance v0, Ljava/util/concurrent/ConcurrentHashMap;
+
+    invoke-direct {v0}, Ljava/util/concurrent/ConcurrentHashMap;-><init>()V
+
+    sput-object v0, Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;->sAuthenticationStateCache:Ljava/util/concurrent/ConcurrentHashMap;
+
+    new-instance v0, Ljava/util/concurrent/ConcurrentHashMap;
+
+    invoke-direct {v0}, Ljava/util/concurrent/ConcurrentHashMap;-><init>()V
+
+    sput-object v0, Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;->sProxyAuthenticationTypeCache:Ljava/util/concurrent/ConcurrentHashMap;
+
+    new-instance v0, Ljava/util/concurrent/ConcurrentHashMap;
+
+    invoke-direct {v0}, Ljava/util/concurrent/ConcurrentHashMap;-><init>()V
+
+    sput-object v0, Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;->sProxyCredentialsCache:Ljava/util/concurrent/ConcurrentHashMap;
 
     return-void
 .end method
@@ -264,8 +286,6 @@
     invoke-direct {v1, p0, v2}, Lcom/android/server/enterprise/proxy/EnterpriseProxyServer$EnterpriseProxyHandler;-><init>(Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;Landroid/os/Looper;)V
 
     iput-object v1, p0, Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;->mHandler:Lcom/android/server/enterprise/proxy/EnterpriseProxyServer$EnterpriseProxyHandler;
-
-    invoke-direct {p0}, Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;->initCaches()V
 
     return-void
 .end method
@@ -522,22 +542,56 @@
 .end method
 
 .method public static getInstance(Landroid/content/Context;)Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;
-    .locals 1
+    .locals 4
 
+    sget-object v0, Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;->sEnterpriseProxyServer:Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;
+
+    if-nez v0, :cond_1
+
+    const-class v3, Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;
+
+    monitor-enter v3
+
+    :try_start_0
     sget-object v0, Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;->sEnterpriseProxyServer:Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;
 
     if-nez v0, :cond_0
 
-    new-instance v0, Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;
+    new-instance v1, Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;
 
-    invoke-direct {v0, p0}, Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, p0}, Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;-><init>(Landroid/content/Context;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    sput-object v0, Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;->sEnterpriseProxyServer:Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;
+    :try_start_1
+    sput-object v1, Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;->sEnterpriseProxyServer:Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    move-object v0, v1
 
     :cond_0
-    sget-object v0, Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;->sEnterpriseProxyServer:Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;
+    monitor-exit v3
 
-    return-object v0
+    :cond_1
+    sget-object v2, Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;->sEnterpriseProxyServer:Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;
+
+    return-object v2
+
+    :catchall_0
+    move-exception v2
+
+    :goto_0
+    monitor-exit v3
+
+    throw v2
+
+    :catchall_1
+    move-exception v2
+
+    move-object v0, v1
+
+    goto :goto_0
 .end method
 
 .method public static getLine(Ljava/io/InputStream;)Ljava/lang/String;
@@ -581,8 +635,6 @@
             Ljava/io/IOException;
         }
     .end annotation
-
-    const/4 v11, 0x0
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -639,9 +691,11 @@
     :cond_2
     if-eqz v4, :cond_5
 
-    mul-int/lit8 v5, p2, 0x2
+    int-to-long v8, p2
 
-    int-to-long v8, v5
+    const-wide/16 v10, 0x2
+
+    mul-long/2addr v8, v10
 
     cmp-long v5, v2, v8
 
@@ -675,6 +729,8 @@
     invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v10
+
+    const/4 v11, 0x0
 
     aput-object v10, v9, v11
 
@@ -1186,45 +1242,6 @@
     goto :goto_1
 .end method
 
-.method private initCaches()V
-    .locals 1
-
-    sget-object v0, Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;->sAuthenticationStateCache:Ljava/util/concurrent/ConcurrentHashMap;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Ljava/util/concurrent/ConcurrentHashMap;
-
-    invoke-direct {v0}, Ljava/util/concurrent/ConcurrentHashMap;-><init>()V
-
-    sput-object v0, Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;->sAuthenticationStateCache:Ljava/util/concurrent/ConcurrentHashMap;
-
-    :cond_0
-    sget-object v0, Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;->sProxyAuthenticationTypeCache:Ljava/util/concurrent/ConcurrentHashMap;
-
-    if-nez v0, :cond_1
-
-    new-instance v0, Ljava/util/concurrent/ConcurrentHashMap;
-
-    invoke-direct {v0}, Ljava/util/concurrent/ConcurrentHashMap;-><init>()V
-
-    sput-object v0, Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;->sProxyAuthenticationTypeCache:Ljava/util/concurrent/ConcurrentHashMap;
-
-    :cond_1
-    sget-object v0, Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;->sProxyCredentialsCache:Ljava/util/concurrent/ConcurrentHashMap;
-
-    if-nez v0, :cond_2
-
-    new-instance v0, Ljava/util/concurrent/ConcurrentHashMap;
-
-    invoke-direct {v0}, Ljava/util/concurrent/ConcurrentHashMap;-><init>()V
-
-    sput-object v0, Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;->sProxyCredentialsCache:Ljava/util/concurrent/ConcurrentHashMap;
-
-    :cond_2
-    return-void
-.end method
-
 .method private onCredentialsReceived(Lcom/android/server/enterprise/proxy/EnterpriseProxyServer$DialogReturnInformation;)V
     .locals 14
 
@@ -1271,20 +1288,17 @@
 
     check-cast v10, Ljava/util/List;
 
-    if-eqz v10, :cond_1
+    if-eqz v10, :cond_2
 
     invoke-interface {v10}, Ljava/util/List;->isEmpty()Z
 
     move-result v11
 
+    xor-int/lit8 v11, v11, 0x1
+
     if-eqz v11, :cond_2
 
-    :cond_1
-    :goto_0
-    return-void
-
-    :cond_2
-    if-nez v7, :cond_4
+    if-nez v7, :cond_3
 
     invoke-interface {v10, v12}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -1296,7 +1310,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_4
+    if-eqz v11, :cond_3
 
     const-string/jumbo v11, "EnterpriseProxyServer"
 
@@ -1308,12 +1322,12 @@
 
     move-result-object v9
 
-    :goto_1
+    :goto_0
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v11
 
-    if-eqz v11, :cond_3
+    if-eqz v11, :cond_1
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1329,19 +1343,21 @@
 
     invoke-interface {v11, v5}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_3
+    :cond_1
     sget-object v11, Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;->sAuthenticationStateCache:Ljava/util/concurrent/ConcurrentHashMap;
 
     invoke-virtual {v11, v6}, Ljava/util/concurrent/ConcurrentHashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    :cond_2
+    :goto_1
+    return-void
 
-    :cond_4
+    :cond_3
     const/4 v11, -0x2
 
-    if-ne v7, v11, :cond_1
+    if-ne v7, v11, :cond_2
 
     const-string/jumbo v11, "EnterpriseProxyServer"
 
@@ -1353,13 +1369,13 @@
 
     move-result-object v9
 
-    :cond_5
+    :cond_4
     :goto_2
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v11
 
-    if-eqz v11, :cond_6
+    if-eqz v11, :cond_5
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1371,7 +1387,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_4
 
     :try_start_0
     invoke-virtual {v2}, Ljava/net/Socket;->close()V
@@ -1385,12 +1401,32 @@
 
     goto :goto_2
 
-    :cond_6
+    :cond_5
     sget-object v11, Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;->sAuthenticationStateCache:Ljava/util/concurrent/ConcurrentHashMap;
 
     invoke-virtual {v11, v6}, Ljava/util/concurrent/ConcurrentHashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_1
+.end method
+
+.method private refreshCredentialsDialogFails()V
+    .locals 2
+
+    new-instance v0, Landroid/content/Intent;
+
+    const-string/jumbo v1, "com.samsung.android.knox.intent.action.PROXY_REFRESH_CREDENTIALS_DIALOG_INTERNAL"
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v1, "com.samsung.android.mdm"
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+
+    iget-object v1, p0, Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+
+    return-void
 .end method
 
 .method public static sendLine(Ljava/io/OutputStream;Ljava/lang/String;)V
@@ -1493,6 +1529,8 @@
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;->sProxyInfoCache:Landroid/net/ProxyInfo;
+
+    invoke-direct {p0}, Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;->refreshCredentialsDialogFails()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -1508,12 +1546,26 @@
     throw v0
 .end method
 
-.method public getPort()I
+.method public declared-synchronized getPort()I
     .locals 1
 
+    monitor-enter p0
+
+    :try_start_0
     iget v0, p0, Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;->mPort:I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
 
     return v0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
 .end method
 
 .method public isBound()Z
@@ -1547,7 +1599,7 @@
 
     new-instance v2, Lcom/android/server/enterprise/proxy/EnterpriseProxyServer$DialogReturnInformation;
 
-    invoke-direct {v2, p0, p1, p2}, Lcom/android/server/enterprise/proxy/EnterpriseProxyServer$DialogReturnInformation;-><init>(Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;Landroid/os/Bundle;Landroid/sec/enterprise/proxy/IProxyCredentialsCallback;)V
+    invoke-direct {v2, p1, p2}, Lcom/android/server/enterprise/proxy/EnterpriseProxyServer$DialogReturnInformation;-><init>(Landroid/os/Bundle;Landroid/sec/enterprise/proxy/IProxyCredentialsCallback;)V
 
     const/4 v3, 0x1
 

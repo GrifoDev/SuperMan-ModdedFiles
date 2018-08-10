@@ -23,6 +23,8 @@
 
 .field final installGrantPermissions:[Ljava/lang/String;
 
+.field final installReason:I
+
 .field final installerPackageName:Ljava/lang/String;
 
 .field instructionSets:[Ljava/lang/String;
@@ -43,7 +45,7 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/PackageManagerService$OriginInfo;Lcom/android/server/pm/PackageManagerService$MoveInfo;Landroid/content/pm/IPackageInstallObserver2;ILjava/lang/String;Ljava/lang/String;Landroid/os/UserHandle;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;I[[Ljava/security/cert/Certificate;)V
+.method constructor <init>(Lcom/android/server/pm/PackageManagerService$OriginInfo;Lcom/android/server/pm/PackageManagerService$MoveInfo;Landroid/content/pm/IPackageInstallObserver2;ILjava/lang/String;Ljava/lang/String;Landroid/os/UserHandle;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;I[[Ljava/security/cert/Certificate;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -73,6 +75,8 @@
     iput p12, p0, Lcom/android/server/pm/PackageManagerService$InstallArgs;->traceCookie:I
 
     iput-object p13, p0, Lcom/android/server/pm/PackageManagerService$InstallArgs;->certificates:[[Ljava/security/cert/Certificate;
+
+    iput p14, p0, Lcom/android/server/pm/PackageManagerService$InstallArgs;->installReason:I
 
     return-void
 .end method

@@ -14,8 +14,6 @@
 
 .field public static final AM_BROADCAST_DISCARD_FILTER:I = 0x7548
 
-.field public static final AM_CHANGE_USER_STATE:I = 0xf42a4
-
 .field public static final AM_CRASH:I = 0x7557
 
 .field public static final AM_CREATE_ACTIVITY:I = 0x7535
@@ -28,17 +26,15 @@
 
 .field public static final AM_DESTROY_SERVICE:I = 0x754f
 
+.field public static final AM_DISPLAY_ADDED:I = 0x1360f0
+
+.field public static final AM_DISPLAY_REMOVED:I = 0x1360f1
+
 .field public static final AM_DROP_PROCESS:I = 0x7551
 
 .field public static final AM_FAILED_TO_PAUSE:I = 0x753c
 
-.field public static final AM_FINISHBOOTING_BEGIN:I = 0xf42a7
-
-.field public static final AM_FINISHBOOTING_END:I = 0xf42a8
-
 .field public static final AM_FINISH_ACTIVITY:I = 0x7531
-
-.field public static final AM_FOCUSED_ACTIVITY:I = 0x755b
 
 .field public static final AM_FOCUSED_STACK:I = 0x755c
 
@@ -92,35 +88,41 @@
 
 .field public static final AM_SERVICE_CRASHED_TOO_MUCH:I = 0x7552
 
+.field public static final AM_SET_RESUMED_ACTIVITY:I = 0x755b
+
 .field public static final AM_START_USER:I = 0x133dc8
 
 .field public static final AM_STOP_ACTIVITY:I = 0x7560
+
+.field public static final AM_STOP_IDLE_SERVICE:I = 0x7568
 
 .field public static final AM_STOP_USER:I = 0x133dc9
 
 .field public static final AM_SWITCH_USER:I = 0x7559
 
-.field public static final AM_SYSTEMREADY_BEGIN:I = 0xf42a5
-
-.field public static final AM_SYSTEMREADY_END:I = 0xf42a6
-
 .field public static final AM_TASK_TO_FRONT:I = 0x7532
+
+.field public static final AM_UID_ACTIVE:I = 0x7566
+
+.field public static final AM_UID_IDLE:I = 0x7567
+
+.field public static final AM_UID_RUNNING:I = 0x7564
+
+.field public static final AM_UID_STOPPED:I = 0x7565
+
+.field public static final AM_USER_STATE_CHANGED:I = 0x7563
 
 .field public static final AM_WTF:I = 0x7558
 
 .field public static final BOOT_PROGRESS_AMS_READY:I = 0xbe0
+
+.field public static final BOOT_PROGRESS_AMS_STATE:I = 0xf42a4
 
 .field public static final BOOT_PROGRESS_ENABLE_SCREEN:I = 0xbea
 
 .field public static final CONFIGURATION_CHANGED:I = 0xa9f
 
 .field public static final CPU:I = 0xaa1
-
-.field public static final VS_CREATE_DISPLAY:I = 0x1339e2
-
-.field public static final VS_MOVE_TASK_TO_DISPLAY:I = 0x1339e1
-
-.field public static final VS_REMOVE_DISPLAY:I = 0x1339e3
 
 
 # direct methods
@@ -352,36 +354,6 @@
     aput-object v1, v0, v2
 
     const/16 v1, 0x7548
-
-    invoke-static {v1, v0}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
-
-    return-void
-.end method
-
-.method public static writeAmChangeUserState(ILjava/lang/String;Ljava/lang/String;)V
-    .locals 3
-
-    const/4 v0, 0x3
-
-    new-array v0, v0, [Ljava/lang/Object;
-
-    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    const/4 v2, 0x0
-
-    aput-object v1, v0, v2
-
-    const/4 v1, 0x1
-
-    aput-object p1, v0, v1
-
-    const/4 v1, 0x2
-
-    aput-object p2, v0, v1
-
-    const v1, 0xf42a4
 
     invoke-static {v1, v0}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
@@ -680,6 +652,42 @@
     return-void
 .end method
 
+.method public static writeAmDisplayAdded(ILjava/lang/String;)V
+    .locals 3
+
+    const/4 v0, 0x2
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const/4 v1, 0x1
+
+    aput-object p1, v0, v1
+
+    const v1, 0x1360f0
+
+    invoke-static {v1, v0}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
+
+    return-void
+.end method
+
+.method public static writeAmDisplayRemoved(I)V
+    .locals 1
+
+    const v0, 0x1360f1
+
+    invoke-static {v0, p0}, Landroid/util/EventLog;->writeEvent(II)I
+
+    return-void
+.end method
+
 .method public static writeAmDropProcess(I)V
     .locals 1
 
@@ -774,56 +782,6 @@
     return-void
 .end method
 
-.method public static writeAmFinishbootingBegin(Ljava/lang/String;)V
-    .locals 1
-
-    const v0, 0xf42a7
-
-    invoke-static {v0, p0}, Landroid/util/EventLog;->writeEvent(ILjava/lang/String;)I
-
-    return-void
-.end method
-
-.method public static writeAmFinishbootingEnd(Ljava/lang/String;)V
-    .locals 1
-
-    const v0, 0xf42a8
-
-    invoke-static {v0, p0}, Landroid/util/EventLog;->writeEvent(ILjava/lang/String;)I
-
-    return-void
-.end method
-
-.method public static writeAmFocusedActivity(ILjava/lang/String;Ljava/lang/String;)V
-    .locals 3
-
-    const/4 v0, 0x3
-
-    new-array v0, v0, [Ljava/lang/Object;
-
-    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    const/4 v2, 0x0
-
-    aput-object v1, v0, v2
-
-    const/4 v1, 0x1
-
-    aput-object p1, v0, v1
-
-    const/4 v1, 0x2
-
-    aput-object p2, v0, v1
-
-    const/16 v1, 0x755b
-
-    invoke-static {v1, v0}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
-
-    return-void
-.end method
-
 .method public static writeAmFocusedStack(IIILjava/lang/String;)V
     .locals 3
 
@@ -866,10 +824,10 @@
     return-void
 .end method
 
-.method public static writeAmKill(IILjava/lang/String;ILjava/lang/String;)V
+.method public static writeAmKill(IILjava/lang/String;IILjava/lang/String;)V
     .locals 3
 
-    const/4 v0, 0x5
+    const/4 v0, 0x6
 
     new-array v0, v0, [Ljava/lang/Object;
 
@@ -901,9 +859,17 @@
 
     aput-object v1, v0, v2
 
-    const/4 v1, 0x4
+    invoke-static {p4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    aput-object p4, v0, v1
+    move-result-object v1
+
+    const/4 v2, 0x4
+
+    aput-object v1, v0, v2
+
+    const/4 v1, 0x5
+
+    aput-object p5, v0, v1
 
     const/16 v1, 0x7547
 
@@ -1286,10 +1252,10 @@
     return-void
 .end method
 
-.method public static writeAmProcDied(IILjava/lang/String;)V
+.method public static writeAmProcDied(IILjava/lang/String;II)V
     .locals 3
 
-    const/4 v0, 0x3
+    const/4 v0, 0x5
 
     new-array v0, v0, [Ljava/lang/Object;
 
@@ -1312,6 +1278,22 @@
     const/4 v1, 0x2
 
     aput-object p2, v0, v1
+
+    invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const/4 v2, 0x3
+
+    aput-object v1, v0, v2
+
+    invoke-static {p4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const/4 v2, 0x4
+
+    aput-object v1, v0, v2
 
     const/16 v1, 0x753b
 
@@ -1820,6 +1802,36 @@
     return-void
 .end method
 
+.method public static writeAmSetResumedActivity(ILjava/lang/String;Ljava/lang/String;)V
+    .locals 3
+
+    const/4 v0, 0x3
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const/4 v1, 0x1
+
+    aput-object p1, v0, v1
+
+    const/4 v1, 0x2
+
+    aput-object p2, v0, v1
+
+    const/16 v1, 0x755b
+
+    invoke-static {v1, v0}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
+
+    return-void
+.end method
+
 .method public static writeAmStartUser(III)V
     .locals 3
 
@@ -1892,6 +1904,32 @@
     return-void
 .end method
 
+.method public static writeAmStopIdleService(ILjava/lang/String;)V
+    .locals 3
+
+    const/4 v0, 0x2
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const/4 v1, 0x1
+
+    aput-object p1, v0, v1
+
+    const/16 v1, 0x7568
+
+    invoke-static {v1, v0}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
+
+    return-void
+.end method
+
 .method public static writeAmStopUser(I)V
     .locals 1
 
@@ -1908,26 +1946,6 @@
     const/16 v0, 0x7559
 
     invoke-static {v0, p0}, Landroid/util/EventLog;->writeEvent(II)I
-
-    return-void
-.end method
-
-.method public static writeAmSystemreadyBegin(Ljava/lang/String;)V
-    .locals 1
-
-    const v0, 0xf42a5
-
-    invoke-static {v0, p0}, Landroid/util/EventLog;->writeEvent(ILjava/lang/String;)I
-
-    return-void
-.end method
-
-.method public static writeAmSystemreadyEnd(Ljava/lang/String;)V
-    .locals 1
-
-    const v0, 0xf42a6
-
-    invoke-static {v0, p0}, Landroid/util/EventLog;->writeEvent(ILjava/lang/String;)I
 
     return-void
 .end method
@@ -1956,6 +1974,76 @@
     aput-object v1, v0, v2
 
     const/16 v1, 0x7532
+
+    invoke-static {v1, v0}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
+
+    return-void
+.end method
+
+.method public static writeAmUidActive(I)V
+    .locals 1
+
+    const/16 v0, 0x7566
+
+    invoke-static {v0, p0}, Landroid/util/EventLog;->writeEvent(II)I
+
+    return-void
+.end method
+
+.method public static writeAmUidIdle(I)V
+    .locals 1
+
+    const/16 v0, 0x7567
+
+    invoke-static {v0, p0}, Landroid/util/EventLog;->writeEvent(II)I
+
+    return-void
+.end method
+
+.method public static writeAmUidRunning(I)V
+    .locals 1
+
+    const/16 v0, 0x7564
+
+    invoke-static {v0, p0}, Landroid/util/EventLog;->writeEvent(II)I
+
+    return-void
+.end method
+
+.method public static writeAmUidStopped(I)V
+    .locals 1
+
+    const/16 v0, 0x7565
+
+    invoke-static {v0, p0}, Landroid/util/EventLog;->writeEvent(II)I
+
+    return-void
+.end method
+
+.method public static writeAmUserStateChanged(II)V
+    .locals 3
+
+    const/4 v0, 0x2
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const/4 v2, 0x1
+
+    aput-object v1, v0, v2
+
+    const/16 v1, 0x7563
 
     invoke-static {v1, v0}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
@@ -2022,6 +2110,52 @@
     return-void
 .end method
 
+.method public static writeBootProgressAmsState(IIILjava/lang/String;Ljava/lang/String;)V
+    .locals 3
+
+    const/4 v0, 0x5
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const/4 v2, 0x1
+
+    aput-object v1, v0, v2
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const/4 v2, 0x2
+
+    aput-object v1, v0, v2
+
+    const/4 v1, 0x3
+
+    aput-object p3, v0, v1
+
+    const/4 v1, 0x4
+
+    aput-object p4, v0, v1
+
+    const v1, 0xf42a4
+
+    invoke-static {v1, v0}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
+
+    return-void
+.end method
+
 .method public static writeBootProgressEnableScreen(J)V
     .locals 2
 
@@ -2032,12 +2166,12 @@
     return-void
 .end method
 
-.method public static writeConfigurationChanged(Ljava/lang/String;)V
+.method public static writeConfigurationChanged(I)V
     .locals 1
 
     const/16 v0, 0xa9f
 
-    invoke-static {v0, p0}, Landroid/util/EventLog;->writeEvent(ILjava/lang/String;)I
+    invoke-static {v0, p0}, Landroid/util/EventLog;->writeEvent(II)I
 
     return-void
 .end method
@@ -2100,60 +2234,6 @@
     const/16 v1, 0xaa1
 
     invoke-static {v1, v0}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
-
-    return-void
-.end method
-
-.method public static writeVsCreateDisplay(I)V
-    .locals 1
-
-    const v0, 0x1339e2
-
-    invoke-static {v0, p0}, Landroid/util/EventLog;->writeEvent(II)I
-
-    return-void
-.end method
-
-.method public static writeVsMoveTaskToDisplay(ILjava/lang/String;I)V
-    .locals 3
-
-    const/4 v0, 0x3
-
-    new-array v0, v0, [Ljava/lang/Object;
-
-    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    const/4 v2, 0x0
-
-    aput-object v1, v0, v2
-
-    const/4 v1, 0x1
-
-    aput-object p1, v0, v1
-
-    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    const/4 v2, 0x2
-
-    aput-object v1, v0, v2
-
-    const v1, 0x1339e1
-
-    invoke-static {v1, v0}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
-
-    return-void
-.end method
-
-.method public static writeVsRemoveDisplay(I)V
-    .locals 1
-
-    const v0, 0x1339e3
-
-    invoke-static {v0, p0}, Landroid/util/EventLog;->writeEvent(II)I
 
     return-void
 .end method

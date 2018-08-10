@@ -22,19 +22,19 @@
 
 
 # instance fields
-.field public mCard:I
+.field public final mCard:I
 
-.field public mDevice:I
+.field public final mDevice:I
 
-.field public mDeviceClass:I
+.field public final mDeviceClass:I
 
 .field public mDeviceDescription:Ljava/lang/String;
 
 .field public mDeviceName:Ljava/lang/String;
 
-.field public mHasCapture:Z
+.field public final mHasCapture:Z
 
-.field public mHasPlayback:Z
+.field public final mHasPlayback:Z
 
 
 # direct methods

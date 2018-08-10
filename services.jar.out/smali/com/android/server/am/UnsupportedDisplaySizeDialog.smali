@@ -3,14 +3,6 @@
 .source "UnsupportedDisplaySizeDialog.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/server/am/UnsupportedDisplaySizeDialog$-void__init__com_android_server_am_ActivityManagerService_service_android_content_Context_context_android_content_pm_ApplicationInfo_appInfo_LambdaImpl0;
-    }
-.end annotation
-
-
 # instance fields
 .field private final mDialog:Landroid/app/AlertDialog;
 
@@ -43,7 +35,7 @@
 
     aput-object v1, v5, v6
 
-    const v6, 0x10403b5
+    const v6, 0x1040a95
 
     invoke-virtual {p2, v6, v5}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -65,7 +57,7 @@
 
     move-result-object v5
 
-    const v6, 0x1090175
+    const v6, 0x1090173
 
     invoke-virtual {v5, v6}, Landroid/app/AlertDialog$Builder;->setView(I)Landroid/app/AlertDialog$Builder;
 
@@ -101,7 +93,7 @@
 
     iget-object v5, p0, Lcom/android/server/am/UnsupportedDisplaySizeDialog;->mDialog:Landroid/app/AlertDialog;
 
-    const v6, 0x1020394
+    const v6, 0x10201ed
 
     invoke-virtual {v5, v6}, Landroid/app/AlertDialog;->findViewById(I)Landroid/view/View;
 
@@ -111,9 +103,9 @@
 
     invoke-virtual {v0, v8}, Landroid/widget/CheckBox;->setChecked(Z)V
 
-    new-instance v5, Lcom/android/server/am/UnsupportedDisplaySizeDialog$-void__init__com_android_server_am_ActivityManagerService_service_android_content_Context_context_android_content_pm_ApplicationInfo_appInfo_LambdaImpl0;
+    new-instance v5, Lcom/android/server/am/-$Lambda$FR3W4DSTdODBY_LnoYu7lDAj41U;
 
-    invoke-direct {v5, p0, p1}, Lcom/android/server/am/UnsupportedDisplaySizeDialog$-void__init__com_android_server_am_ActivityManagerService_service_android_content_Context_context_android_content_pm_ApplicationInfo_appInfo_LambdaImpl0;-><init>(Lcom/android/server/am/UnsupportedDisplaySizeDialog;Lcom/android/server/am/ActivityManagerService;)V
+    invoke-direct {v5, p0, p1}, Lcom/android/server/am/-$Lambda$FR3W4DSTdODBY_LnoYu7lDAj41U;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
     invoke-virtual {v0, v5}, Landroid/widget/CheckBox;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
@@ -122,7 +114,25 @@
 
 
 # virtual methods
-.method synthetic -com_android_server_am_UnsupportedDisplaySizeDialog_lambda$1(Lcom/android/server/am/ActivityManagerService;Landroid/widget/CompoundButton;Z)V
+.method public dismiss()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/am/UnsupportedDisplaySizeDialog;->mDialog:Landroid/app/AlertDialog;
+
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+
+    return-void
+.end method
+
+.method public getPackageName()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/am/UnsupportedDisplaySizeDialog;->mPackageName:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method synthetic lambda$-com_android_server_am_UnsupportedDisplaySizeDialog_2234(Lcom/android/server/am/ActivityManagerService;Landroid/widget/CompoundButton;Z)V
     .locals 2
 
     monitor-enter p1
@@ -152,24 +162,6 @@
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
     throw v0
-.end method
-
-.method public dismiss()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/am/UnsupportedDisplaySizeDialog;->mDialog:Landroid/app/AlertDialog;
-
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
-
-    return-void
-.end method
-
-.method public getPackageName()Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/am/UnsupportedDisplaySizeDialog;->mPackageName:Ljava/lang/String;
-
-    return-object v0
 .end method
 
 .method public show()V

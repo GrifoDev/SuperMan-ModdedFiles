@@ -32,13 +32,13 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 9
+    .locals 8
 
-    const/4 v8, 0x2
+    const/4 v7, 0x2
 
-    const/4 v7, 0x1
+    const/4 v6, 0x1
 
-    const/4 v6, 0x0
+    const/4 v5, 0x0
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -85,7 +85,7 @@
 
     move-result v4
 
-    if-ne v4, v7, :cond_2
+    if-ne v4, v6, :cond_2
 
     sget-object v4, Landroid/net/NetworkInfo$State;->CONNECTED:Landroid/net/NetworkInfo$State;
 
@@ -95,13 +95,7 @@
 
     if-eqz v4, :cond_2
 
-    const-string/jumbo v4, "DcmNextiPlayReadyService"
-
-    const-string/jumbo v5, "Current action is Wifi Connected"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    iput v8, v1, Landroid/os/Message;->what:I
+    iput v7, v1, Landroid/os/Message;->what:I
 
     :cond_1
     :goto_0
@@ -122,12 +116,6 @@
 
     if-nez v4, :cond_1
 
-    const-string/jumbo v4, "DcmNextiPlayReadyService"
-
-    const-string/jumbo v5, "Current action is mobile data Connected"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
     sget-object v4, Landroid/net/NetworkInfo$State;->SUSPENDED:Landroid/net/NetworkInfo$State;
 
     invoke-virtual {v3, v4}, Landroid/net/NetworkInfo$State;->equals(Ljava/lang/Object;)Z
@@ -136,15 +124,9 @@
 
     if-eqz v4, :cond_3
 
-    const-string/jumbo v4, "DcmNextiPlayReadyService"
-
-    const-string/jumbo v5, "Current action is Data suspended"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     iget-object v4, p0, Lcom/android/server/DcmNextiPlayReadyService$1;->this$0:Lcom/android/server/DcmNextiPlayReadyService;
 
-    invoke-static {v7}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {v6}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v5
 
@@ -171,20 +153,14 @@
 
     if-nez v4, :cond_4
 
-    const-string/jumbo v4, "DcmNextiPlayReadyService"
-
-    const-string/jumbo v5, "Current action is Data connected and previous action was not suspended"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    iput v8, v1, Landroid/os/Message;->what:I
+    iput v7, v1, Landroid/os/Message;->what:I
 
     goto :goto_0
 
     :cond_4
     iget-object v4, p0, Lcom/android/server/DcmNextiPlayReadyService$1;->this$0:Lcom/android/server/DcmNextiPlayReadyService;
 
-    invoke-static {v6}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v5
 
@@ -201,5 +177,30 @@
 
     if-nez v4, :cond_1
 
+    const-string/jumbo v4, "android.intent.action.NETWORK_SET_TIME"
+
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_6
+
+    const-string/jumbo v4, "DcmNextiPlayReadyService"
+
+    const-string/jumbo v5, "Current action is nitz set time"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v4, 0x3
+
+    iput v4, v1, Landroid/os/Message;->what:I
+
+    goto :goto_0
+
+    :cond_6
     return-void
 .end method

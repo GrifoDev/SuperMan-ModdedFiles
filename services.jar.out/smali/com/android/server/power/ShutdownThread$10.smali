@@ -1,35 +1,31 @@
-.class Lcom/android/server/power/ShutdownThread$10;
+.class final Lcom/android/server/power/ShutdownThread$10;
 .super Ljava/lang/Object;
 .source "ShutdownThread.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/power/ShutdownThread;->startShutdownDialog()V
+    value = Lcom/android/server/power/ShutdownThread;->createBeforeMConfirmDialog(Landroid/content/Context;Lcom/android/server/power/ShutdownThread$CloseDialogReceiver;)Landroid/app/Dialog;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x8
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/power/ShutdownThread;
-
-.field final synthetic val$continueSignal:Ljava/util/concurrent/CountDownLatch;
+.field final synthetic val$ctx:Landroid/content/Context;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/power/ShutdownThread;Ljava/util/concurrent/CountDownLatch;)V
+.method constructor <init>(Landroid/content/Context;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/server/power/ShutdownThread$10;->this$0:Lcom/android/server/power/ShutdownThread;
-
-    iput-object p2, p0, Lcom/android/server/power/ShutdownThread$10;->val$continueSignal:Ljava/util/concurrent/CountDownLatch;
+    iput-object p1, p0, Lcom/android/server/power/ShutdownThread$10;->val$ctx:Landroid/content/Context;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,22 +34,14 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 1
+.method public onClick(Landroid/content/DialogInterface;I)V
+    .locals 2
 
-    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get20()Lcom/android/server/power/ShutdownThread;
+    iget-object v0, p0, Lcom/android/server/power/ShutdownThread$10;->val$ctx:Landroid/content/Context;
 
-    move-result-object v0
+    const/4 v1, 0x1
 
-    invoke-static {v0}, Lcom/android/server/power/ShutdownThread;->-get8(Lcom/android/server/power/ShutdownThread;)Landroid/content/Context;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/android/server/power/ShutdownThread;->-wrap6(Landroid/content/Context;)V
-
-    iget-object v0, p0, Lcom/android/server/power/ShutdownThread$10;->val$continueSignal:Ljava/util/concurrent/CountDownLatch;
-
-    invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
+    invoke-static {v0, v1}, Lcom/android/server/power/ShutdownThread;->-wrap10(Landroid/content/Context;Z)V
 
     return-void
 .end method

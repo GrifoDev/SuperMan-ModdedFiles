@@ -40,7 +40,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1, p1}, Lcom/android/server/print/RemotePrintSpooler$OnCustomPrinterIconLoadedCaller;->onRemoteMethodResult(Ljava/lang/Object;I)V
+    invoke-static {v0, v1, p1}, Lcom/android/server/print/RemotePrintSpooler$OnCustomPrinterIconLoadedCaller;->-wrap0(Lcom/android/server/print/RemotePrintSpooler$OnCustomPrinterIconLoadedCaller;Ljava/lang/Object;I)V
 
     return-void
 .end method

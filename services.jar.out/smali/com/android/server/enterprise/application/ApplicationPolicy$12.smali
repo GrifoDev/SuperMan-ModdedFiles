@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/enterprise/application/ApplicationPolicy;->registerECContainerAddedListener()V
+    value = Lcom/android/server/enterprise/application/ApplicationPolicy;->registerLockedBootCompletedListener()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -36,15 +36,13 @@
 
     const-string/jumbo v0, "ApplicationPolicy"
 
-    const-string/jumbo v1, "registerECContainerAddedListener"
+    const-string/jumbo v1, "ACTION_LOCKED_BOOT_COMPLETED"
 
     invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->v(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v0, Lcom/android/server/enterprise/application/ApplicationPolicy$12$1;
+    iget-object v0, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$12;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
 
-    invoke-direct {v0, p0}, Lcom/android/server/enterprise/application/ApplicationPolicy$12$1;-><init>(Lcom/android/server/enterprise/application/ApplicationPolicy$12;)V
-
-    invoke-virtual {v0}, Lcom/android/server/enterprise/application/ApplicationPolicy$12$1;->start()V
+    invoke-static {v0}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap9(Lcom/android/server/enterprise/application/ApplicationPolicy;)V
 
     return-void
 .end method

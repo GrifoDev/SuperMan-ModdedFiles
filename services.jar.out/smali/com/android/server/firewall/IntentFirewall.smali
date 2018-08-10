@@ -1489,22 +1489,14 @@
     invoke-static {v0, v1, v2, v3}, Lcom/android/server/firewall/IntentFirewall;->logIntent(ILandroid/content/Intent;ILjava/lang/String;)V
 
     :cond_2
-    if-eqz v12, :cond_4
+    xor-int/lit8 v5, v12, 0x1
 
-    const/4 v5, 0x0
-
-    :goto_1
     return v5
 
     :cond_3
     add-int/lit8 v14, v14, 0x1
 
     goto :goto_0
-
-    :cond_4
-    const/4 v5, 0x1
-
-    goto :goto_1
 .end method
 
 .method public checkService(Landroid/content/ComponentName;Landroid/content/Intent;IILjava/lang/String;Landroid/content/pm/ApplicationInfo;)Z

@@ -116,7 +116,9 @@
     :catch_0
     move-exception v0
 
-    sget-boolean v2, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
+    invoke-static {}, Lcom/android/server/enterprise/sso/EnterpriseIdentity;->-get0()Z
+
+    move-result v2
 
     if-eqz v2, :cond_0
 
@@ -131,13 +133,15 @@
     :catch_1
     move-exception v1
 
-    sget-boolean v2, Lcom/samsung/android/knox/sso/common/GenericSSOConstants;->DEBUG:Z
+    invoke-static {}, Lcom/android/server/enterprise/sso/EnterpriseIdentity;->-get0()Z
+
+    move-result v2
 
     if-eqz v2, :cond_0
 
     const-string/jumbo v2, "EnterpriseIdentity"
 
-    const-string/jumbo v3, "In AuthenticationConfigDocument update: Exception"
+    const-string/jumbo v3, "In AuthenticationConfigDocument update: NullPointerException"
 
     invoke-static {v2, v3, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 

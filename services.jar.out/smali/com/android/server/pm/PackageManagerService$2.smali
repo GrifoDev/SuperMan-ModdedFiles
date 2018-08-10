@@ -113,7 +113,13 @@
 
     iget-object v3, p0, Lcom/android/server/pm/PackageManagerService$2;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    iget-object v5, v1, Lcom/android/server/pm/PackageSetting;->name:Ljava/lang/String;
+    new-instance v5, Landroid/content/pm/VersionedPackage;
+
+    iget-object v6, v1, Lcom/android/server/pm/PackageSetting;->name:Ljava/lang/String;
+
+    const/4 v7, -0x1
+
+    invoke-direct {v5, v6, v7}, Landroid/content/pm/VersionedPackage;-><init>(Ljava/lang/String;I)V
 
     new-instance v6, Landroid/content/pm/PackageManager$LegacyPackageDeleteObserver;
 
@@ -129,7 +135,15 @@
 
     const/4 v8, 0x2
 
-    invoke-virtual {v3, v5, v6, v7, v8}, Lcom/android/server/pm/PackageManagerService;->deletePackage(Ljava/lang/String;Landroid/content/pm/IPackageDeleteObserver2;II)V
+    invoke-virtual {v3, v5, v6, v7, v8}, Lcom/android/server/pm/PackageManagerService;->deletePackageVersioned(Landroid/content/pm/VersionedPackage;Landroid/content/pm/IPackageDeleteObserver2;II)V
+
+    invoke-static {}, Lcom/android/server/AttributeCache;->instance()Lcom/android/server/AttributeCache;
+
+    move-result-object v3
+
+    iget-object v5, v1, Lcom/android/server/pm/PackageSetting;->name:Ljava/lang/String;
+
+    invoke-virtual {v3, v5}, Lcom/android/server/AttributeCache;->removePackage(Ljava/lang/String;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -186,13 +200,13 @@
 
     move-result-object v0
 
+    sget-object v1, Lcom/android/server/pm/PackageManagerService;->sUserManager:Lcom/android/server/pm/UserManagerService;
+
+    invoke-virtual {v1, v0}, Lcom/android/server/pm/UserManagerService;->reconcileUsers(Ljava/lang/String;)V
+
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$2;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v1, v0}, Lcom/android/server/pm/PackageManagerService;->-wrap42(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;)V
-
-    iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$2;->this$0:Lcom/android/server/pm/PackageManagerService;
-
-    invoke-static {v1, v0}, Lcom/android/server/pm/PackageManagerService;->-wrap41(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;)V
+    invoke-static {v1, v0}, Lcom/android/server/pm/PackageManagerService;->-wrap52(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;)V
 
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$2;->this$0:Lcom/android/server/pm/PackageManagerService;
 
@@ -202,7 +216,7 @@
 
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$2;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v1, p1}, Lcom/android/server/pm/PackageManagerService;->-wrap36(Lcom/android/server/pm/PackageManagerService;Landroid/os/storage/VolumeInfo;)V
+    invoke-static {v1, p1}, Lcom/android/server/pm/PackageManagerService;->-wrap48(Lcom/android/server/pm/PackageManagerService;Landroid/os/storage/VolumeInfo;)V
 
     :cond_0
     :goto_0
@@ -228,7 +242,7 @@
 
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$2;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v1, v4}, Lcom/android/server/pm/PackageManagerService;->-set3(Lcom/android/server/pm/PackageManagerService;Z)Z
+    invoke-static {v1, v4}, Lcom/android/server/pm/PackageManagerService;->-set6(Lcom/android/server/pm/PackageManagerService;Z)Z
 
     const-string/jumbo v1, "PackageManager"
 
@@ -251,7 +265,7 @@
 
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$2;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v1, p1}, Lcom/android/server/pm/PackageManagerService;->-wrap53(Lcom/android/server/pm/PackageManagerService;Landroid/os/storage/VolumeInfo;)V
+    invoke-static {v1, p1}, Lcom/android/server/pm/PackageManagerService;->-wrap66(Lcom/android/server/pm/PackageManagerService;Landroid/os/storage/VolumeInfo;)V
 
     goto :goto_0
 
@@ -262,7 +276,7 @@
 
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$2;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v1, v3}, Lcom/android/server/pm/PackageManagerService;->-set3(Lcom/android/server/pm/PackageManagerService;Z)Z
+    invoke-static {v1, v3}, Lcom/android/server/pm/PackageManagerService;->-set6(Lcom/android/server/pm/PackageManagerService;Z)Z
 
     const-string/jumbo v1, "PackageManager"
 

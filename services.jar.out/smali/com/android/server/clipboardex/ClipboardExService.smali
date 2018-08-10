@@ -10,6 +10,7 @@
         Lcom/android/server/clipboardex/ClipboardExService$ClipBoardDataUiEventImp;,
         Lcom/android/server/clipboardex/ClipboardExService$ClipDataComparator;,
         Lcom/android/server/clipboardex/ClipboardExService$ClipboardEventListenerInfo;,
+        Lcom/android/server/clipboardex/ClipboardExService$ClipboardPolicyChangedListenerImpl;,
         Lcom/android/server/clipboardex/ClipboardExService$ISharedClipboardDataList;,
         Lcom/android/server/clipboardex/ClipboardExService$KNOXReceiver;
     }
@@ -17,7 +18,15 @@
 
 
 # static fields
+.field private static final EDGE_COMPONENT_NAME:Ljava/lang/String; = "com.samsung.android.app.clipboardedge"
+
+.field private static final EDGE_COMPONENT_PROVIDER:Ljava/lang/String; = "com.samsung.android.app.clipboardedge.edgepanel.ClipboardEdgePanelProvider"
+
 .field private static final TAG:Ljava/lang/String; = "ClipboardExService"
+
+.field private static final TMP_FILE_OWNER_CANONICAL_PATH:Ljava/lang/String; = "/data/data/com.samsung.clipboardsaveservice/files/"
+
+.field private static final TMP_FILE_SAVE_PATH:Ljava/lang/String; = "com.samsung.clipboardsaveservice/files/"
 
 .field private static sService:Landroid/content/IClipboard;
 
@@ -62,29 +71,23 @@
     .end annotation
 .end field
 
-.field private mClipboardPoliciesPerPersona:Ljava/util/HashMap;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/HashMap",
-            "<",
-            "Ljava/lang/Integer;",
-            "Landroid/sec/clipboard/data/ClipboardPolicy;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 .field private mClipboardUIManager:Landroid/sec/clipboard/ClipboardUIManager;
 
 .field private mContext:Landroid/content/Context;
 
 .field private mCurrentUserContext:Landroid/content/Context;
 
+.field private mDesktopModeManager:Lcom/samsung/android/desktopmode/SemDesktopModeManager;
+
 .field private mEnableFormatId:I
 
 .field private final mHandler:Landroid/os/Handler;
 
+.field private mIsDialogShowing:Z
+
 .field private mIsLogging:Z
+
+.field private mIsSupportingDeskopMode:Z
 
 .field private mPersonaManager:Lcom/samsung/android/knox/SemPersonaManager;
 
@@ -93,6 +96,17 @@
 .field private mSharedClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
 .field private mUm:Landroid/os/IUserManager;
+
+.field private final mUserChangedListeners:Landroid/os/RemoteCallbackList;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/os/RemoteCallbackList",
+            "<",
+            "Lcom/samsung/android/content/clipboard/IOnUserChangedListener;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field private mWorkingUiInterfaceList:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
@@ -263,7 +277,15 @@
     return-void
 .end method
 
-.method static synthetic -wrap6(Lcom/android/server/clipboardex/ClipboardExService;ILjava/lang/String;)V
+.method static synthetic -wrap6(Lcom/android/server/clipboardex/ClipboardExService;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/clipboardex/ClipboardExService;->notifyUserChanged(I)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap7(Lcom/android/server/clipboardex/ClipboardExService;ILjava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/clipboardex/ClipboardExService;->sendLoggingForCB(ILjava/lang/String;)V
@@ -271,7 +293,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap7(Lcom/android/server/clipboardex/ClipboardExService;Lcom/samsung/android/content/clipboard/data/SemClipData;)V
+.method static synthetic -wrap8(Lcom/android/server/clipboardex/ClipboardExService;Lcom/samsung/android/content/clipboard/data/SemClipData;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/clipboardex/ClipboardExService;->updateDataListChange(Lcom/samsung/android/content/clipboard/data/SemClipData;)V
@@ -294,11 +316,11 @@
 
     const/16 v8, 0x14
 
-    const/4 v7, 0x0
-
-    const/4 v6, -0x1
-
     const/4 v4, 0x0
+
+    const/4 v7, -0x1
+
+    const/4 v6, 0x0
 
     const/4 v5, 0x1
 
@@ -306,7 +328,7 @@
 
     new-instance v2, Lcom/android/server/clipboardex/ClipboardExService$ISharedClipboardDataList;
 
-    invoke-direct {v2, p0, v4}, Lcom/android/server/clipboardex/ClipboardExService$ISharedClipboardDataList;-><init>(Lcom/android/server/clipboardex/ClipboardExService;Lcom/android/server/clipboardex/ClipboardExService$ISharedClipboardDataList;)V
+    invoke-direct {v2, p0, v6}, Lcom/android/server/clipboardex/ClipboardExService$ISharedClipboardDataList;-><init>(Lcom/android/server/clipboardex/ClipboardExService;Lcom/android/server/clipboardex/ClipboardExService$ISharedClipboardDataList;)V
 
     iput-object v2, p0, Lcom/android/server/clipboardex/ClipboardExService;->clipPickerDataList:Lcom/android/server/clipboardex/ClipboardExService$ISharedClipboardDataList;
 
@@ -314,7 +336,7 @@
 
     iput-object v2, p0, Lcom/android/server/clipboardex/ClipboardExService;->KNOX_VERSION:Ljava/lang/String;
 
-    iput-boolean v7, p0, Lcom/android/server/clipboardex/ClipboardExService;->KNOX_PASTE_FLAG:Z
+    iput-boolean v4, p0, Lcom/android/server/clipboardex/ClipboardExService;->KNOX_PASTE_FLAG:Z
 
     new-instance v2, Ljava/util/ArrayList;
 
@@ -324,7 +346,7 @@
 
     new-instance v2, Lcom/android/server/clipboardex/ClipboardExService$ClipBoardDataUiEventImp;
 
-    invoke-direct {v2, p0, v4}, Lcom/android/server/clipboardex/ClipboardExService$ClipBoardDataUiEventImp;-><init>(Lcom/android/server/clipboardex/ClipboardExService;Lcom/android/server/clipboardex/ClipboardExService$ClipBoardDataUiEventImp;)V
+    invoke-direct {v2, p0, v6}, Lcom/android/server/clipboardex/ClipboardExService$ClipBoardDataUiEventImp;-><init>(Lcom/android/server/clipboardex/ClipboardExService;Lcom/android/server/clipboardex/ClipboardExService$ClipBoardDataUiEventImp;)V
 
     iput-object v2, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipBoardDataUiEventImp:Lcom/android/server/clipboardex/ClipboardExService$ClipBoardDataUiEventImp;
 
@@ -340,19 +362,39 @@
 
     iput-boolean v2, p0, Lcom/android/server/clipboardex/ClipboardExService;->mIsLogging:Z
 
-    iput v7, p0, Lcom/android/server/clipboardex/ClipboardExService;->mCallingId:I
+    invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
 
-    iput-object v4, p0, Lcom/android/server/clipboardex/ClipboardExService;->mUm:Landroid/os/IUserManager;
+    move-result-object v2
 
-    iput-object v4, p0, Lcom/android/server/clipboardex/ClipboardExService;->mPersonaManager:Lcom/samsung/android/knox/SemPersonaManager;
+    const-string/jumbo v3, "SEC_FLOATING_FEATURE_COMMON_SUPPORT_KNOX_DESKTOP"
 
-    iput-object v4, p0, Lcom/android/server/clipboardex/ClipboardExService;->mRCPManager:Lcom/samsung/android/knox/SemRemoteContentManager;
+    invoke-virtual {v2, v3}, Lcom/samsung/android/feature/SemFloatingFeature;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v2
+
+    iput-boolean v2, p0, Lcom/android/server/clipboardex/ClipboardExService;->mIsSupportingDeskopMode:Z
+
+    iput v4, p0, Lcom/android/server/clipboardex/ClipboardExService;->mCallingId:I
+
+    iput-object v6, p0, Lcom/android/server/clipboardex/ClipboardExService;->mDesktopModeManager:Lcom/samsung/android/desktopmode/SemDesktopModeManager;
+
+    iput-object v6, p0, Lcom/android/server/clipboardex/ClipboardExService;->mUm:Landroid/os/IUserManager;
+
+    iput-object v6, p0, Lcom/android/server/clipboardex/ClipboardExService;->mPersonaManager:Lcom/samsung/android/knox/SemPersonaManager;
+
+    iput-object v6, p0, Lcom/android/server/clipboardex/ClipboardExService;->mRCPManager:Lcom/samsung/android/knox/SemRemoteContentManager;
 
     new-instance v2, Landroid/os/RemoteCallbackList;
 
     invoke-direct {v2}, Landroid/os/RemoteCallbackList;-><init>()V
 
     iput-object v2, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipboardEventListeners:Landroid/os/RemoteCallbackList;
+
+    new-instance v2, Landroid/os/RemoteCallbackList;
+
+    invoke-direct {v2}, Landroid/os/RemoteCallbackList;-><init>()V
+
+    iput-object v2, p0, Lcom/android/server/clipboardex/ClipboardExService;->mUserChangedListeners:Landroid/os/RemoteCallbackList;
 
     iput v5, p0, Lcom/android/server/clipboardex/ClipboardExService;->MSG_SHOW_DIALOG:I
 
@@ -384,9 +426,11 @@
 
     iput-object p1, p0, Lcom/android/server/clipboardex/ClipboardExService;->mContext:Landroid/content/Context;
 
+    iput-boolean v4, p0, Lcom/android/server/clipboardex/ClipboardExService;->mIsDialogShowing:Z
+
     new-instance v2, Landroid/sec/clipboard/data/ClipboardDataMgr;
 
-    invoke-direct {v2, v8, p1, v7}, Landroid/sec/clipboard/data/ClipboardDataMgr;-><init>(ILandroid/content/Context;Z)V
+    invoke-direct {v2, v8, p1, v4}, Landroid/sec/clipboard/data/ClipboardDataMgr;-><init>(ILandroid/content/Context;Z)V
 
     iput-object v2, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
@@ -439,14 +483,6 @@
     check-cast v2, Lcom/samsung/android/knox/SemRemoteContentManager;
 
     iput-object v2, p0, Lcom/android/server/clipboardex/ClipboardExService;->mRCPManager:Lcom/samsung/android/knox/SemRemoteContentManager;
-
-    new-instance v2, Ljava/util/HashMap;
-
-    const/16 v3, 0x64
-
-    invoke-direct {v2, v3}, Ljava/util/HashMap;-><init>(I)V
-
-    iput-object v2, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipboardPoliciesPerPersona:Ljava/util/HashMap;
 
     new-instance v0, Landroid/content/IntentFilter;
 
@@ -518,7 +554,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v2, v3, v5, v4, v6}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
+    invoke-virtual {v2, v3, v5, v4, v7}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
 
     iget-object v2, p0, Lcom/android/server/clipboardex/ClipboardExService;->mContext:Landroid/content/Context;
 
@@ -534,7 +570,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v2, v3, v5, v4, v6}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
+    invoke-virtual {v2, v3, v5, v4, v7}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
 
     iget-object v2, p0, Lcom/android/server/clipboardex/ClipboardExService;->mContext:Landroid/content/Context;
 
@@ -566,7 +602,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v2, v3, v5, v4, v6}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
+    invoke-virtual {v2, v3, v5, v4, v7}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
 
     iget-object v2, p0, Lcom/android/server/clipboardex/ClipboardExService;->mContext:Landroid/content/Context;
 
@@ -582,69 +618,95 @@
 
     move-result-object v4
 
-    invoke-virtual {v2, v3, v5, v4, v6}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
+    invoke-virtual {v2, v3, v5, v4, v7}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
+
+    iget-object v2, p0, Lcom/android/server/clipboardex/ClipboardExService;->mContext:Landroid/content/Context;
+
+    invoke-static {v2}, Landroid/sec/clipboard/util/ClipboardPolicyObserver;->getInstance(Landroid/content/Context;)Landroid/sec/clipboard/util/ClipboardPolicyObserver;
+
+    move-result-object v2
+
+    new-instance v3, Lcom/android/server/clipboardex/ClipboardExService$ClipboardPolicyChangedListenerImpl;
+
+    invoke-direct {v3, p0, v6}, Lcom/android/server/clipboardex/ClipboardExService$ClipboardPolicyChangedListenerImpl;-><init>(Lcom/android/server/clipboardex/ClipboardExService;Lcom/android/server/clipboardex/ClipboardExService$ClipboardPolicyChangedListenerImpl;)V
+
+    invoke-virtual {v2, v3}, Landroid/sec/clipboard/util/ClipboardPolicyObserver;->registerClipboardPolicyChangeListener(Landroid/sec/clipboard/util/ClipboardPolicyObserver$ClipboardPolicyChangeListener;)V
+
+    invoke-direct {p0}, Lcom/android/server/clipboardex/ClipboardExService;->registerKnoxModeChangeObserver()V
 
     return-void
 .end method
 
 .method private ListChange(I)V
-    .locals 6
+    .locals 8
 
-    iget-object v5, p0, Lcom/android/server/clipboardex/ClipboardExService;->mWorkingUiInterfaceList:Ljava/util/ArrayList;
+    iget-object v7, p0, Lcom/android/server/clipboardex/ClipboardExService;->mWorkingUiInterfaceList:Ljava/util/ArrayList;
 
-    if-eqz v5, :cond_0
+    if-eqz v7, :cond_0
 
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
-    iget-object v5, p0, Lcom/android/server/clipboardex/ClipboardExService;->mWorkingUiInterfaceList:Ljava/util/ArrayList;
+    iget-object v7, p0, Lcom/android/server/clipboardex/ClipboardExService;->mWorkingUiInterfaceList:Ljava/util/ArrayList;
 
-    invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
 
-    move-result v3
+    move-result v5
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
     :goto_0
-    if-ge v1, v3, :cond_0
-
-    iget-object v5, p0, Lcom/android/server/clipboardex/ClipboardExService;->mWorkingUiInterfaceList:Ljava/util/ArrayList;
-
-    invoke-virtual {v5, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/sec/clipboard/IClipboardWorkingFormUiInterface;
+    if-ge v3, v5, :cond_0
 
     :try_start_0
-    invoke-interface {v4, p1}, Landroid/sec/clipboard/IClipboardWorkingFormUiInterface;->setClipboardDataListChange(I)V
+    iget-object v7, p0, Lcom/android/server/clipboardex/ClipboardExService;->mWorkingUiInterfaceList:Ljava/util/ArrayList;
+
+    invoke-virtual {v7, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v7
+
+    move-object v0, v7
+
+    check-cast v0, Landroid/sec/clipboard/IClipboardWorkingFormUiInterface;
+
+    move-object v6, v0
+
+    invoke-interface {v6, p1}, Landroid/sec/clipboard/IClipboardWorkingFormUiInterface;->setClipboardDataListChange(I)V
     :try_end_0
-    .catch Landroid/os/DeadObjectException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Landroid/os/DeadObjectException; {:try_start_0 .. :try_end_0} :catch_2
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_1
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     :catch_0
     move-exception v2
 
-    invoke-virtual {v2}, Landroid/os/RemoteException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/IndexOutOfBoundsException;->printStackTrace()V
 
     goto :goto_1
 
     :catch_1
-    move-exception v0
+    move-exception v4
 
-    invoke-virtual {v0}, Landroid/os/DeadObjectException;->printStackTrace()V
+    invoke-virtual {v4}, Landroid/os/RemoteException;->printStackTrace()V
 
-    iget-object v5, p0, Lcom/android/server/clipboardex/ClipboardExService;->mWorkingUiInterfaceList:Ljava/util/ArrayList;
+    goto :goto_1
 
-    invoke-virtual {v5, v4}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
+    :catch_2
+    move-exception v1
 
-    add-int/lit8 v1, v1, -0x1
+    invoke-virtual {v1}, Landroid/os/DeadObjectException;->printStackTrace()V
+
+    iget-object v7, p0, Lcom/android/server/clipboardex/ClipboardExService;->mWorkingUiInterfaceList:Ljava/util/ArrayList;
+
+    invoke-virtual {v7, v6}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
     add-int/lit8 v3, v3, -0x1
+
+    add-int/lit8 v5, v5, -0x1
 
     goto :goto_1
 
@@ -667,23 +729,20 @@
 
     move-result v6
 
-    const/16 v7, 0x64
+    invoke-static {v6}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
 
-    if-lt v6, v7, :cond_0
+    move-result v7
 
-    const/16 v7, 0xc2
+    if-nez v7, :cond_0
 
-    if-le v6, v7, :cond_1
-
-    :cond_0
     invoke-direct {p0}, Lcom/android/server/clipboardex/ClipboardExService;->loadSEContainer()V
 
-    :cond_1
+    :cond_0
     invoke-direct {p0, p2}, Lcom/android/server/clipboardex/ClipboardExService;->checkEquals(Lcom/samsung/android/content/clipboard/data/SemClipData;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_2
 
     const-string/jumbo v7, "ClipboardExService"
 
@@ -734,13 +793,13 @@
 
     move-result v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_1
 
     invoke-virtual {v5}, Lcom/samsung/android/content/clipboard/data/SemImageClipData;->getExtraDataPath()Ljava/lang/String;
 
     move-result-object v1
 
-    :cond_2
+    :cond_1
     invoke-direct {p0, v4, v1}, Lcom/android/server/clipboardex/ClipboardExService;->deleteTempFileFromClipboardSaveService(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
@@ -758,12 +817,12 @@
 
     goto :goto_0
 
-    :cond_3
+    :cond_2
     invoke-virtual {p2, p1}, Lcom/samsung/android/content/clipboard/data/SemClipData;->getAlternateClipData(I)Lcom/samsung/android/content/clipboard/data/SemClipData;
 
     move-result-object v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_3
 
     new-instance v7, Ljava/lang/Thread;
 
@@ -779,7 +838,7 @@
 
     return v7
 
-    :cond_4
+    :cond_3
     const-string/jumbo v7, "ClipboardExService"
 
     const-string/jumbo v8, "data is null"
@@ -828,11 +887,8 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    xor-int/lit8 v1, v4, 0x1
 
-    const/4 v1, 0x0
-
-    :goto_0
     const-string/jumbo v4, "ClipboardExService"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -858,20 +914,60 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_0
-    :goto_1
+    :goto_0
     return v1
-
-    :cond_1
-    const/4 v1, 0x1
-
-    goto :goto_0
 
     :catch_0
     move-exception v2
 
     invoke-virtual {v2}, Landroid/os/RemoteException;->printStackTrace()V
 
-    goto :goto_1
+    goto :goto_0
+.end method
+
+.method private checkCallerIsSystemOrSignature()Z
+    .locals 3
+
+    invoke-direct {p0}, Lcom/android/server/clipboardex/ClipboardExService;->isCallerSystemOrSignature()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    return v0
+
+    :cond_0
+    const-string/jumbo v0, "ClipboardExService"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Disallowed call for uid "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v0, 0x0
+
+    return v0
 .end method
 
 .method private checkEquals(Lcom/samsung/android/content/clipboard/data/SemClipData;)Z
@@ -938,21 +1034,18 @@
 
     move-result v1
 
-    const/16 v2, 0x64
+    invoke-static {v1}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
 
-    if-lt v1, v2, :cond_0
+    move-result v2
 
-    const/16 v2, 0xc2
+    if-nez v2, :cond_0
 
-    if-le v1, v2, :cond_1
-
-    :cond_0
     invoke-direct {p0}, Lcom/android/server/clipboardex/ClipboardExService;->loadSEContainer()V
 
-    :cond_1
+    :cond_0
     iget-object v2, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_1
 
     iget-object v2, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
@@ -985,7 +1078,7 @@
     :goto_0
     return-void
 
-    :cond_2
+    :cond_1
     const-string/jumbo v2, "ClipboardExService"
 
     const-string/jumbo v3, "clearDataList"
@@ -1104,17 +1197,17 @@
 
     iget-object v2, p0, Lcom/android/server/clipboardex/ClipboardExService;->mContext:Landroid/content/Context;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_2
 
-    const-string/jumbo v2, "com.samsung.clipboardsaveservice"
+    const-string/jumbo v2, "com.samsung.clipboardsaveservice/files/"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2
 
     new-instance v1, Landroid/os/Message;
 
@@ -1124,14 +1217,32 @@
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2
+
+    invoke-direct {p0, p1}, Lcom/android/server/clipboardex/ClipboardExService;->validateTmpFilePath(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
 
     const-string/jumbo v2, "path"
 
     invoke-virtual {v0, v2, p1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
+    :cond_0
+    invoke-direct {p0, p2}, Lcom/android/server/clipboardex/ClipboardExService;->validateTmpFilePath(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    const-string/jumbo v2, "extra_path"
+
+    invoke-virtual {v0, v2, p2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_1
     const/4 v2, 0x5
 
     iput v2, v1, Landroid/os/Message;->what:I
@@ -1142,7 +1253,7 @@
 
     invoke-virtual {v2, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    :cond_0
+    :cond_2
     return-void
 .end method
 
@@ -1671,9 +1782,9 @@
     goto :goto_0
 
     :cond_2
-    iget-object v4, v0, Landroid/content/pm/ApplicationInfo;->seinfo:Ljava/lang/String;
+    iget-object v4, v0, Landroid/content/pm/ApplicationInfo;->seInfo:Ljava/lang/String;
 
-    iget v1, v0, Landroid/content/pm/ApplicationInfo;->category:I
+    iget v1, v0, Landroid/content/pm/ApplicationInfo;->space:I
 
     const-string/jumbo v5, "ClipboardExService"
 
@@ -1801,6 +1912,49 @@
     return-object v1
 .end method
 
+.method private getUpdatedType(Lcom/samsung/android/content/clipboard/data/SemClipData;Lcom/samsung/android/content/clipboard/data/SemClipData;)I
+    .locals 6
+
+    invoke-virtual {p1}, Lcom/samsung/android/content/clipboard/data/SemClipData;->getClipId()Ljava/lang/String;
+
+    move-result-object v0
+
+    const/4 v1, 0x4
+
+    invoke-virtual {p2}, Lcom/samsung/android/content/clipboard/data/SemClipData;->getTimestamp()J
+
+    move-result-wide v2
+
+    invoke-virtual {p1}, Lcom/samsung/android/content/clipboard/data/SemClipData;->getTimestamp()J
+
+    move-result-wide v4
+
+    cmp-long v2, v2, v4
+
+    if-eqz v2, :cond_1
+
+    const/16 v1, 0x100
+
+    :cond_0
+    :goto_0
+    return v1
+
+    :cond_1
+    invoke-virtual {p2}, Lcom/samsung/android/content/clipboard/data/SemClipData;->isProtected()Z
+
+    move-result v2
+
+    invoke-virtual {p1}, Lcom/samsung/android/content/clipboard/data/SemClipData;->isProtected()Z
+
+    move-result v3
+
+    if-eq v2, v3, :cond_0
+
+    const/16 v1, 0x10
+
+    goto :goto_0
+.end method
+
 .method private getUserId()I
     .locals 4
 
@@ -1816,8 +1970,15 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-nez v2, :cond_0
 
+    invoke-static {v1}, Lcom/samsung/android/app/SemDualAppManager;->isDualAppId(I)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    :cond_0
     const/4 v1, 0x0
 
     const-string/jumbo v2, "ClipboardExService"
@@ -1826,11 +1987,11 @@
 
     invoke-static {v2, v3}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_0
+    :cond_1
     return v1
 .end method
 
-.method private isEnabled(I)Z
+.method private isAFWmode(I)Z
     .locals 14
 
     const-wide/16 v12, -0x1
@@ -1839,7 +2000,7 @@
 
     const-wide/16 v4, -0x1
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_1
 
     :try_start_0
     iget-object v8, p0, Lcom/android/server/clipboardex/ClipboardExService;->mUm:Landroid/os/IUserManager;
@@ -1875,11 +2036,6 @@
 
     move-result v2
 
-    if-eqz v3, :cond_2
-
-    move v6, v2
-
-    :goto_0
     const-string/jumbo v8, "ClipboardExService"
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -1940,26 +2096,26 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :goto_1
+    if-eqz v3, :cond_3
+
+    xor-int/lit8 v6, v2, 0x1
+
+    :cond_1
+    :goto_0
     cmp-long v8, v4, v12
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_2
 
     invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    :cond_1
-    :goto_2
+    :cond_2
+    :goto_1
     return v6
 
-    :cond_2
-    const/4 v6, 0x1
+    :cond_3
+    const/4 v6, 0x0
 
     goto :goto_0
-
-    :cond_3
-    const/4 v6, 0x1
-
-    goto :goto_1
 
     :catch_0
     move-exception v1
@@ -1977,11 +2133,11 @@
 
     cmp-long v8, v4, v12
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_2
 
     invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    goto :goto_2
+    goto :goto_1
 
     :catch_1
     move-exception v0
@@ -1999,11 +2155,11 @@
 
     cmp-long v8, v4, v12
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_2
 
     invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    goto :goto_2
+    goto :goto_1
 
     :catchall_0
     move-exception v8
@@ -2016,6 +2172,59 @@
 
     :cond_4
     throw v8
+.end method
+
+.method private isCallerSystemOrSignature()Z
+    .locals 2
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v0
+
+    invoke-direct {p0, v0}, Lcom/android/server/clipboardex/ClipboardExService;->isUidSystem(I)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    invoke-direct {p0, v0}, Lcom/android/server/clipboardex/ClipboardExService;->isUidSignature(I)Z
+
+    move-result v1
+
+    :goto_0
+    return v1
+
+    :cond_0
+    const/4 v1, 0x1
+
+    goto :goto_0
+.end method
+
+.method private isEnabled(I)Z
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/server/clipboardex/ClipboardExService;->isAFWmode(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {p1}, Lcom/samsung/android/app/SemDualAppManager;->isDualAppId(I)Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x0
+
+    return v0
+
+    :cond_0
+    const/4 v0, 0x1
+
+    return v0
 .end method
 
 .method private isKioskEnabled()Z
@@ -2052,69 +2261,30 @@
     return v0
 .end method
 
-.method private isKnoxKeyguardShowing()Z
-    .locals 6
+.method private isPackageInstalled(Ljava/lang/String;Landroid/content/pm/PackageManager;)Z
+    .locals 5
 
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+    const/4 v4, 0x1
 
-    move-result-wide v0
+    const/4 v3, 0x0
 
-    invoke-virtual {p0}, Lcom/android/server/clipboardex/ClipboardExService;->getPersonaId()I
+    const/4 v2, 0x1
 
-    move-result v2
+    :try_start_0
+    invoke-virtual {p2, p1, v2}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    const-string/jumbo v3, "ClipboardExService"
+    return v4
 
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "isKnoxKeyguardShowing getPersonaId "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/sec/clipboard/util/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    invoke-direct {p0}, Lcom/android/server/clipboardex/ClipboardExService;->getPersonaManager()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    iget-object v3, p0, Lcom/android/server/clipboardex/ClipboardExService;->mPersonaManager:Lcom/samsung/android/knox/SemPersonaManager;
-
-    invoke-virtual {v3, v2}, Lcom/samsung/android/knox/SemPersonaManager;->exists(I)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    iget-object v3, p0, Lcom/android/server/clipboardex/ClipboardExService;->mPersonaManager:Lcom/samsung/android/knox/SemPersonaManager;
-
-    invoke-virtual {v3, v2}, Lcom/samsung/android/knox/SemPersonaManager;->getKeyguardShowState(I)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const/4 v3, 0x1
+    :catch_0
+    move-exception v1
 
     return v3
 
-    :cond_0
-    const/4 v3, 0x0
+    :catch_1
+    move-exception v0
 
     return v3
 .end method
@@ -2323,200 +2493,552 @@
     return v3
 .end method
 
-.method private loadSEContainer()V
-    .locals 11
-
-    const/4 v10, 0x0
+.method private isUidSignature(I)Z
+    .locals 3
 
     const/4 v0, 0x0
 
-    :try_start_0
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    iget-object v1, p0, Lcom/android/server/clipboardex/ClipboardExService;->mContext:Landroid/content/Context;
 
-    move-result-object v7
+    invoke-virtual {v1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v1
+
+    const/16 v2, 0x3e8
+
+    invoke-virtual {v1, v2, p1}, Landroid/content/pm/PackageManager;->checkSignatures(II)I
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    return v0
+.end method
+
+.method private isUidSystem(I)Z
+    .locals 4
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    invoke-static {p1}, Landroid/os/UserHandle;->getAppId(I)I
+
+    move-result v0
+
+    const/16 v3, 0x3e8
+
+    if-eq v0, v3, :cond_0
+
+    if-nez p1, :cond_1
+
+    :cond_0
+    :goto_0
+    return v1
+
+    :cond_1
+    move v1, v2
+
+    goto :goto_0
+.end method
+
+.method private loadSEContainer()V
+    .locals 12
+
+    const/4 v11, 0x0
+
+    const/4 v1, 0x0
+
+    :try_start_0
+    iget-object v8, p0, Lcom/android/server/clipboardex/ClipboardExService;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v9, "activity"
+
+    invoke-virtual {v8, v9}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/ActivityManager;
 
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
     move-result v8
 
-    invoke-interface {v7, v8}, Landroid/app/IActivityManager;->getPackageFromAppProcesses(I)Ljava/lang/String;
+    invoke-virtual {v0, v8}, Landroid/app/ActivityManager;->getPackageFromAppProcesses(I)Ljava/lang/String;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v0
+    move-result-object v1
 
     :goto_0
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    invoke-direct {p0, v0}, Lcom/android/server/clipboardex/ClipboardExService;->getSEAMSCategory(Ljava/lang/String;)I
+    invoke-direct {p0, v1}, Lcom/android/server/clipboardex/ClipboardExService;->getSEAMSCategory(Ljava/lang/String;)I
 
-    move-result v1
+    move-result v2
 
-    if-gez v1, :cond_1
+    if-gez v2, :cond_1
 
-    const-string/jumbo v7, "ClipboardExService"
+    const-string/jumbo v8, "ClipboardExService"
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v9, "loadSEContainer, error getting SEAMS category value, cat: "
+    const-string/jumbo v10, "loadSEContainer, error getting SEAMS category value, cat: "
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-static {v7, v8}, Landroid/sec/clipboard/util/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/sec/clipboard/util/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     :goto_1
     return-void
 
     :catch_0
-    move-exception v2
+    move-exception v3
 
-    const-string/jumbo v7, "ClipboardExService"
+    const-string/jumbo v8, "ClipboardExService"
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v9, "Exception in getPackageNameFromAppProcesses : "
+    const-string/jumbo v10, "Exception in getPackageNameFromAppProcesses : "
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-static {v7, v8}, Landroid/sec/clipboard/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/sec/clipboard/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
     :cond_1
-    if-lez v1, :cond_3
+    if-lez v2, :cond_3
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v4
 
-    invoke-direct {p0, v1}, Lcom/android/server/clipboardex/ClipboardExService;->isSEContainerClipboardEnabled(I)I
+    invoke-direct {p0, v2}, Lcom/android/server/clipboardex/ClipboardExService;->isSEContainerClipboardEnabled(I)I
 
-    move-result v3
+    move-result v6
 
     invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    const/4 v7, 0x1
+    const/4 v8, 0x1
 
-    if-ne v3, v7, :cond_2
+    if-ne v6, v8, :cond_2
 
-    iget-object v7, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
+    iget-object v8, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
-    invoke-virtual {v7, v1}, Landroid/sec/clipboard/data/ClipboardDataMgr;->loadSEContainerDB(I)V
+    invoke-virtual {v8, v2}, Landroid/sec/clipboard/data/ClipboardDataMgr;->loadSEContainerDB(I)V
 
     goto :goto_1
 
     :cond_2
-    const-string/jumbo v7, "ClipboardExService"
+    const-string/jumbo v8, "ClipboardExService"
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v9, "loadSEContainter, cat:"
+    const-string/jumbo v10, "loadSEContainter, cat:"
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    const-string/jumbo v9, ", doesn\'t have clipboard enabled"
+    const-string/jumbo v10, ", doesn\'t have clipboard enabled"
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-static {v7, v8}, Landroid/sec/clipboard/util/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/sec/clipboard/util/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v7, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
+    iget-object v8, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
-    invoke-virtual {v7, v10}, Landroid/sec/clipboard/data/ClipboardDataMgr;->loadSEContainerDB(I)V
+    invoke-virtual {v8, v11}, Landroid/sec/clipboard/data/ClipboardDataMgr;->loadSEContainerDB(I)V
 
     goto :goto_1
 
     :cond_3
     invoke-virtual {p0}, Lcom/android/server/clipboardex/ClipboardExService;->getPersonaId()I
 
-    move-result v6
-
-    if-eqz v6, :cond_4
-
-    const/16 v7, 0x64
-
-    if-ge v6, v7, :cond_4
-
-    iget-object v7, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
-
-    invoke-virtual {v7, v6}, Landroid/sec/clipboard/data/ClipboardDataMgr;->isManagedProfile(I)Z
-
     move-result v7
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_4
+
+    invoke-static {v7}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
+
+    move-result v8
+
+    xor-int/lit8 v8, v8, 0x1
+
+    if-eqz v8, :cond_4
+
+    iget-object v8, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
+
+    invoke-virtual {v8, v7}, Landroid/sec/clipboard/data/ClipboardDataMgr;->isManagedProfile(I)Z
+
+    move-result v8
+
+    xor-int/lit8 v8, v8, 0x1
+
+    if-eqz v8, :cond_4
+
+    const-string/jumbo v8, "ClipboardExService"
+
+    const-string/jumbo v9, "loadSEContainer, before loadSECOntainerDB, isManagedProfile should have been false, cat :  userId + 1000"
+
+    invoke-static {v8, v9}, Landroid/sec/clipboard/util/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v8, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
+
+    add-int/lit16 v9, v7, 0x3e8
+
+    invoke-virtual {v8, v9}, Landroid/sec/clipboard/data/ClipboardDataMgr;->loadSEContainerDB(I)V
+
+    goto/16 :goto_1
 
     :cond_4
-    iget-object v7, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
+    const/16 v8, 0xa
 
-    invoke-virtual {v7, v1}, Landroid/sec/clipboard/data/ClipboardDataMgr;->loadSEContainerDB(I)V
+    if-lt v7, v8, :cond_5
 
-    goto :goto_1
+    const/16 v8, 0xc2
+
+    if-gt v7, v8, :cond_5
+
+    const-string/jumbo v8, "ClipboardExService"
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v10, "loadSEContainer, before loadSECOntainerDB, userId : "
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Landroid/sec/clipboard/util/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v8, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
+
+    add-int/lit16 v9, v7, 0x3e8
+
+    invoke-virtual {v8, v9}, Landroid/sec/clipboard/data/ClipboardDataMgr;->loadSEContainerDB(I)V
+
+    goto/16 :goto_1
 
     :cond_5
-    const-string/jumbo v7, "ClipboardExService"
+    iget-object v8, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
-    const-string/jumbo v8, "loadSEContainer, before loadSECOntainerDB, isManagedProfile should have been false, cat :  userId + 1000"
-
-    invoke-static {v7, v8}, Landroid/sec/clipboard/util/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v7, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
-
-    add-int/lit16 v8, v6, 0x3e8
-
-    invoke-virtual {v7, v8}, Landroid/sec/clipboard/data/ClipboardDataMgr;->loadSEContainerDB(I)V
+    invoke-virtual {v8, v2}, Landroid/sec/clipboard/data/ClipboardDataMgr;->loadSEContainerDB(I)V
 
     goto/16 :goto_1
 .end method
 
+.method private notifyFilterUpdated(I)V
+    .locals 12
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v4
+
+    :try_start_0
+    iget-object v8, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipboardEventListeners:Landroid/os/RemoteCallbackList;
+
+    monitor-enter v8
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :try_start_1
+    iget-object v7, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipboardEventListeners:Landroid/os/RemoteCallbackList;
+
+    invoke-virtual {v7}, Landroid/os/RemoteCallbackList;->beginBroadcast()I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    move-result v6
+
+    const/4 v2, 0x0
+
+    :goto_0
+    if-ge v2, v6, :cond_1
+
+    :try_start_2
+    iget-object v7, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipboardEventListeners:Landroid/os/RemoteCallbackList;
+
+    invoke-virtual {v7, v2}, Landroid/os/RemoteCallbackList;->getBroadcastCookie(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/server/clipboardex/ClipboardExService$ClipboardEventListenerInfo;
+
+    iget-object v7, p0, Lcom/android/server/clipboardex/ClipboardExService;->mAppOps:Landroid/app/AppOpsManager;
+
+    iget v9, v3, Lcom/android/server/clipboardex/ClipboardExService$ClipboardEventListenerInfo;->mUid:I
+
+    iget-object v10, v3, Lcom/android/server/clipboardex/ClipboardExService$ClipboardEventListenerInfo;->mPackageName:Ljava/lang/String;
+
+    const/16 v11, 0x1d
+
+    invoke-virtual {v7, v11, v9, v10}, Landroid/app/AppOpsManager;->checkOpNoThrow(IILjava/lang/String;)I
+
+    move-result v7
+
+    if-nez v7, :cond_0
+
+    iget-object v7, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipboardEventListeners:Landroid/os/RemoteCallbackList;
+
+    invoke-virtual {v7, v2}, Landroid/os/RemoteCallbackList;->getBroadcastItem(I)Landroid/os/IInterface;
+
+    move-result-object v7
+
+    check-cast v7, Lcom/samsung/android/content/clipboard/IOnClipboardEventListener;
+
+    invoke-interface {v7, p1}, Lcom/samsung/android/content/clipboard/IOnClipboardEventListener;->onUpdateFilter(I)V
+    :try_end_2
+    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_1
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    :cond_0
+    :goto_1
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    :try_start_3
+    iget-object v7, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipboardEventListeners:Landroid/os/RemoteCallbackList;
+
+    invoke-virtual {v7}, Landroid/os/RemoteCallbackList;->finishBroadcast()V
+
+    invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+
+    :try_start_4
+    monitor-exit v8
+    :try_end_4
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
+
+    :goto_2
+    return-void
+
+    :catchall_0
+    move-exception v7
+
+    :try_start_5
+    iget-object v9, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipboardEventListeners:Landroid/os/RemoteCallbackList;
+
+    invoke-virtual {v9}, Landroid/os/RemoteCallbackList;->finishBroadcast()V
+
+    invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v7
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_1
+
+    :catchall_1
+    move-exception v7
+
+    :try_start_6
+    monitor-exit v8
+
+    throw v7
+    :try_end_6
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_0
+
+    :catch_0
+    move-exception v1
+
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+
+    goto :goto_2
+
+    :catch_1
+    move-exception v0
+
+    goto :goto_1
+.end method
+
 .method private notifyListChange(ILcom/samsung/android/content/clipboard/data/SemClipData;)V
+    .locals 12
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v4
+
+    :try_start_0
+    iget-object v8, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipboardEventListeners:Landroid/os/RemoteCallbackList;
+
+    monitor-enter v8
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :try_start_1
+    iget-object v7, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipboardEventListeners:Landroid/os/RemoteCallbackList;
+
+    invoke-virtual {v7}, Landroid/os/RemoteCallbackList;->beginBroadcast()I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    move-result v6
+
+    const/4 v2, 0x0
+
+    :goto_0
+    if-ge v2, v6, :cond_1
+
+    :try_start_2
+    iget-object v7, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipboardEventListeners:Landroid/os/RemoteCallbackList;
+
+    invoke-virtual {v7, v2}, Landroid/os/RemoteCallbackList;->getBroadcastCookie(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/server/clipboardex/ClipboardExService$ClipboardEventListenerInfo;
+
+    iget-object v7, p0, Lcom/android/server/clipboardex/ClipboardExService;->mAppOps:Landroid/app/AppOpsManager;
+
+    iget v9, v3, Lcom/android/server/clipboardex/ClipboardExService$ClipboardEventListenerInfo;->mUid:I
+
+    iget-object v10, v3, Lcom/android/server/clipboardex/ClipboardExService$ClipboardEventListenerInfo;->mPackageName:Ljava/lang/String;
+
+    const/16 v11, 0x1d
+
+    invoke-virtual {v7, v11, v9, v10}, Landroid/app/AppOpsManager;->checkOpNoThrow(IILjava/lang/String;)I
+
+    move-result v7
+
+    if-nez v7, :cond_0
+
+    iget-object v7, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipboardEventListeners:Landroid/os/RemoteCallbackList;
+
+    invoke-virtual {v7, v2}, Landroid/os/RemoteCallbackList;->getBroadcastItem(I)Landroid/os/IInterface;
+
+    move-result-object v7
+
+    check-cast v7, Lcom/samsung/android/content/clipboard/IOnClipboardEventListener;
+
+    invoke-interface {v7, p1, p2}, Lcom/samsung/android/content/clipboard/IOnClipboardEventListener;->onClipboardEvent(ILcom/samsung/android/content/clipboard/data/SemClipData;)V
+    :try_end_2
+    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_1
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    :cond_0
+    :goto_1
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    :try_start_3
+    iget-object v7, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipboardEventListeners:Landroid/os/RemoteCallbackList;
+
+    invoke-virtual {v7}, Landroid/os/RemoteCallbackList;->finishBroadcast()V
+
+    invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+
+    :try_start_4
+    monitor-exit v8
+    :try_end_4
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
+
+    :goto_2
+    return-void
+
+    :catchall_0
+    move-exception v7
+
+    :try_start_5
+    iget-object v9, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipboardEventListeners:Landroid/os/RemoteCallbackList;
+
+    invoke-virtual {v9}, Landroid/os/RemoteCallbackList;->finishBroadcast()V
+
+    invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v7
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_1
+
+    :catchall_1
+    move-exception v7
+
+    :try_start_6
+    monitor-exit v8
+
+    throw v7
+    :try_end_6
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_0
+
+    :catch_0
+    move-exception v1
+
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+
+    goto :goto_2
+
+    :catch_1
+    move-exception v0
+
+    goto :goto_1
+.end method
+
+.method private notifyUserChanged(I)V
     .locals 10
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v2
 
-    iget-object v6, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipboardEventListeners:Landroid/os/RemoteCallbackList;
+    iget-object v6, p0, Lcom/android/server/clipboardex/ClipboardExService;->mUserChangedListeners:Landroid/os/RemoteCallbackList;
 
     invoke-virtual {v6}, Landroid/os/RemoteCallbackList;->beginBroadcast()I
 
@@ -2528,7 +3050,7 @@
     if-ge v1, v5, :cond_1
 
     :try_start_0
-    iget-object v6, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipboardEventListeners:Landroid/os/RemoteCallbackList;
+    iget-object v6, p0, Lcom/android/server/clipboardex/ClipboardExService;->mUserChangedListeners:Landroid/os/RemoteCallbackList;
 
     invoke-virtual {v6, v1}, Landroid/os/RemoteCallbackList;->getBroadcastCookie(I)Ljava/lang/Object;
 
@@ -2550,15 +3072,15 @@
 
     if-nez v6, :cond_0
 
-    iget-object v6, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipboardEventListeners:Landroid/os/RemoteCallbackList;
+    iget-object v6, p0, Lcom/android/server/clipboardex/ClipboardExService;->mUserChangedListeners:Landroid/os/RemoteCallbackList;
 
     invoke-virtual {v6, v1}, Landroid/os/RemoteCallbackList;->getBroadcastItem(I)Landroid/os/IInterface;
 
     move-result-object v6
 
-    check-cast v6, Lcom/samsung/android/content/clipboard/IOnClipboardEventListener;
+    check-cast v6, Lcom/samsung/android/content/clipboard/IOnUserChangedListener;
 
-    invoke-interface {v6, p1, p2}, Lcom/samsung/android/content/clipboard/IOnClipboardEventListener;->onClipboardEvent(ILcom/samsung/android/content/clipboard/data/SemClipData;)V
+    invoke-interface {v6, p1}, Lcom/samsung/android/content/clipboard/IOnUserChangedListener;->onUserChanged(I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -2570,7 +3092,7 @@
     goto :goto_0
 
     :cond_1
-    iget-object v6, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipboardEventListeners:Landroid/os/RemoteCallbackList;
+    iget-object v6, p0, Lcom/android/server/clipboardex/ClipboardExService;->mUserChangedListeners:Landroid/os/RemoteCallbackList;
 
     invoke-virtual {v6}, Landroid/os/RemoteCallbackList;->finishBroadcast()V
 
@@ -2581,7 +3103,7 @@
     :catchall_0
     move-exception v6
 
-    iget-object v7, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipboardEventListeners:Landroid/os/RemoteCallbackList;
+    iget-object v7, p0, Lcom/android/server/clipboardex/ClipboardExService;->mUserChangedListeners:Landroid/os/RemoteCallbackList;
 
     invoke-virtual {v7}, Landroid/os/RemoteCallbackList;->finishBroadcast()V
 
@@ -2884,43 +3406,26 @@
 .end method
 
 .method private registerKnoxModeChangeObserver()V
-    .locals 6
+    .locals 4
 
-    const-string/jumbo v3, "ClipboardExService"
+    const-string/jumbo v1, "ClipboardExService"
 
-    const-string/jumbo v4, "ClipboardExService.registerKnoxModeChangeObserver() Registered..."
+    const-string/jumbo v2, "ClipboardExService.registerKnoxModeChangeObserver() Registered..."
 
-    invoke-static {v3, v4}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     :try_start_0
-    const-string/jumbo v3, "persona"
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
-    invoke-static {v3}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    move-result-object v1
 
-    move-result-object v0
+    new-instance v2, Lcom/android/server/clipboardex/ClipboardExService$3;
 
-    invoke-static {v0}, Lcom/samsung/android/knox/ISemPersonaManager$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/knox/ISemPersonaManager;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/server/pm/PersonaManagerService;
-
-    if-nez v2, :cond_0
+    invoke-direct {v2, p0}, Lcom/android/server/clipboardex/ClipboardExService$3;-><init>(Lcom/android/server/clipboardex/ClipboardExService;)V
 
     const-string/jumbo v3, "ClipboardExService"
 
-    const-string/jumbo v4, "ClipboardExService.onKnoxModeChange() pms == null...  should not happened"
-
-    invoke-static {v3, v4}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_0
-    new-instance v3, Lcom/android/server/clipboardex/ClipboardExService$3;
-
-    invoke-direct {v3, p0}, Lcom/android/server/clipboardex/ClipboardExService$3;-><init>(Lcom/android/server/clipboardex/ClipboardExService;)V
-
-    invoke-virtual {v2, v3}, Lcom/android/server/pm/PersonaManagerService;->registerKnoxModeChangeObserver(Landroid/content/pm/IKnoxModeChangeObserver;)Z
+    invoke-interface {v1, v2, v3}, Landroid/app/IActivityManager;->registerUserSwitchObserver(Landroid/app/IUserSwitchObserver;Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -2928,35 +3433,35 @@
     return-void
 
     :catch_0
-    move-exception v1
+    move-exception v0
 
-    const-string/jumbo v3, "ClipboardExService"
+    const-string/jumbo v1, "ClipboardExService"
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, " Error during calling BMS.registerKnoxModeChangeObserver(): "
+    const-string/jumbo v3, " Error during calling BMS.registerKnoxModeChangeObserver(): "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-virtual {v1}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v3
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-static {v3, v4}, Landroid/sec/clipboard/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/sec/clipboard/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -3349,6 +3854,208 @@
     return-void
 .end method
 
+.method private validateTmpFilePath(Ljava/lang/String;)Z
+    .locals 7
+
+    const/4 v6, 0x0
+
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    return v6
+
+    :cond_0
+    :try_start_0
+    new-instance v1, Ljava/io/File;
+
+    invoke-direct {v1, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "/data/user/"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {p0}, Lcom/android/server/clipboardex/ClipboardExService;->getPersonaId()I
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "/"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "com.samsung.clipboardsaveservice/files/"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "ClipboardExService"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "filePath : "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, ", CanonicalPath ; "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v1}, Ljava/io/File;->getCanonicalPath()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/sec/clipboard/util/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v3, "ClipboardExService"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "TMP_FILE_OWNER_CANONICAL_PATH : /data/data/com.samsung.clipboardsaveservice/files/, knoxCanonicalPath ; "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/sec/clipboard/util/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v1}, Ljava/io/File;->getCanonicalPath()Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "/data/data/com.samsung.clipboardsaveservice/files/"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_1
+
+    invoke-virtual {v1}, Ljava/io/File;->getCanonicalPath()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v3
+
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_1
+
+    const-string/jumbo v3, "ClipboardExService"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "Wrong file -  CanonicalPath : "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v1}, Ljava/io/File;->getCanonicalPath()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/sec/clipboard/util/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    return v6
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v3, "ClipboardExService"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "Exception occured : "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v0}, Ljava/lang/Exception;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/sec/clipboard/util/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v6
+
+    :cond_1
+    const/4 v3, 0x1
+
+    return v3
+.end method
+
 
 # virtual methods
 .method public addClip(Landroid/content/ClipData;I)V
@@ -3358,6 +4065,8 @@
 
     move-result-object v0
 
+    if-eqz v0, :cond_0
+
     invoke-virtual {v0}, Lcom/samsung/android/content/clipboard/data/SemClipData;->getClipType()I
 
     move-result v1
@@ -3366,39 +4075,113 @@
 
     invoke-virtual {p0, v1, v0, v2, p2}, Lcom/android/server/clipboardex/ClipboardExService;->setData(ILcom/samsung/android/content/clipboard/data/SemClipData;ZI)I
 
+    :goto_0
     return-void
+
+    :cond_0
+    const-string/jumbo v1, "ClipboardExService"
+
+    const-string/jumbo v2, "addClip() - data is null"
+
+    invoke-static {v1, v2}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 .end method
 
 .method public addClipboardEventListener(Lcom/samsung/android/content/clipboard/IOnClipboardEventListener;Ljava/lang/String;)V
-    .locals 3
-
-    monitor-enter p0
+    .locals 5
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipboardEventListeners:Landroid/os/RemoteCallbackList;
+    iget-object v2, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipboardEventListeners:Landroid/os/RemoteCallbackList;
 
-    new-instance v1, Lcom/android/server/clipboardex/ClipboardExService$ClipboardEventListenerInfo;
+    monitor-enter v2
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :try_start_1
+    iget-object v1, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipboardEventListeners:Landroid/os/RemoteCallbackList;
+
+    new-instance v3, Lcom/android/server/clipboardex/ClipboardExService$ClipboardEventListenerInfo;
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v2
+    move-result v4
 
-    invoke-direct {v1, p0, v2, p2}, Lcom/android/server/clipboardex/ClipboardExService$ClipboardEventListenerInfo;-><init>(Lcom/android/server/clipboardex/ClipboardExService;ILjava/lang/String;)V
+    invoke-direct {v3, p0, v4, p2}, Lcom/android/server/clipboardex/ClipboardExService$ClipboardEventListenerInfo;-><init>(Lcom/android/server/clipboardex/ClipboardExService;ILjava/lang/String;)V
 
-    invoke-virtual {v0, p1, v1}, Landroid/os/RemoteCallbackList;->register(Landroid/os/IInterface;Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    invoke-virtual {v1, p1, v3}, Landroid/os/RemoteCallbackList;->register(Landroid/os/IInterface;Ljava/lang/Object;)Z
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    monitor-exit p0
+    :try_start_2
+    monitor-exit v2
 
+    :goto_0
     return-void
 
     :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+
+    throw v1
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+
+    :catch_0
     move-exception v0
 
-    monitor-exit p0
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    throw v0
+    goto :goto_0
+.end method
+
+.method public addUserChangedListener(Lcom/samsung/android/content/clipboard/IOnUserChangedListener;Ljava/lang/String;)V
+    .locals 5
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/server/clipboardex/ClipboardExService;->mUserChangedListeners:Landroid/os/RemoteCallbackList;
+
+    monitor-enter v2
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :try_start_1
+    iget-object v1, p0, Lcom/android/server/clipboardex/ClipboardExService;->mUserChangedListeners:Landroid/os/RemoteCallbackList;
+
+    new-instance v3, Lcom/android/server/clipboardex/ClipboardExService$ClipboardEventListenerInfo;
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v4
+
+    invoke-direct {v3, p0, v4, p2}, Lcom/android/server/clipboardex/ClipboardExService$ClipboardEventListenerInfo;-><init>(Lcom/android/server/clipboardex/ClipboardExService;ILjava/lang/String;)V
+
+    invoke-virtual {v1, p1, v3}, Landroid/os/RemoteCallbackList;->register(Landroid/os/IInterface;Ljava/lang/Object;)Z
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :try_start_2
+    monitor-exit v2
+
+    :goto_0
+    return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+
+    throw v1
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+
+    goto :goto_0
 .end method
 
 .method public deleteDir(Ljava/io/File;)V
@@ -3486,19 +4269,36 @@
 
     move-result v7
 
-    if-eqz v7, :cond_0
+    xor-int/lit8 v7, v7, 0x1
 
+    if-eqz v7, :cond_1
+
+    :cond_0
+    const-string/jumbo v7, "ClipboardExService"
+
+    const-string/jumbo v8, "getClipData() - Clipboard is not allowed to use."
+
+    invoke-static {v7, v8}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
+
+    return-object v12
+
+    :cond_1
     const/4 v2, 0x0
 
     const/4 v4, 0x0
 
+    :try_start_1
     invoke-virtual {p0}, Lcom/android/server/clipboardex/ClipboardExService;->isKnoxTwoEnabled()Z
 
     move-result v5
 
     iget-object v7, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_7
 
     iget-object v7, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
@@ -3506,11 +4306,11 @@
 
     move-result v1
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_2
 
     iget-object v7, p0, Lcom/android/server/clipboardex/ClipboardExService;->mSharedClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_2
 
     iget-object v7, p0, Lcom/android/server/clipboardex/ClipboardExService;->mSharedClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
@@ -3521,7 +4321,7 @@
     add-int v4, v1, v7
 
     :goto_0
-    if-lez v4, :cond_6
+    if-lez v4, :cond_7
 
     const/4 v0, 0x0
 
@@ -3533,14 +4333,14 @@
 
     move-result v7
 
-    if-nez v7, :cond_4
+    if-nez v7, :cond_5
 
     invoke-direct {p0}, Lcom/android/server/clipboardex/ClipboardExService;->loadSEContainer()V
 
     const/4 v3, 0x0
 
     :goto_1
-    if-ge v3, v1, :cond_3
+    if-ge v3, v1, :cond_4
 
     iget-object v7, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
@@ -3560,13 +4360,13 @@
 
     cmp-long v7, v8, v10
 
-    if-nez v7, :cond_2
+    if-nez v7, :cond_3
 
     iget-object v7, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
     invoke-virtual {v7, v3}, Landroid/sec/clipboard/data/ClipboardDataMgr;->getItem(I)Lcom/samsung/android/content/clipboard/data/SemClipData;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result-object v7
 
@@ -3574,44 +4374,30 @@
 
     return-object v7
 
-    :cond_0
-    :try_start_1
-    const-string/jumbo v7, "ClipboardExService"
-
-    const-string/jumbo v8, "getClipData() - Clipboard is not allowed to use."
-
-    invoke-static {v7, v8}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    monitor-exit p0
-
-    return-object v12
-
-    :cond_1
+    :cond_2
     move v4, v1
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
-    :cond_3
+    :cond_4
     monitor-exit p0
 
     return-object v12
 
-    :cond_4
-    if-eqz v5, :cond_5
+    :cond_5
+    if-eqz v5, :cond_6
 
     :try_start_2
     invoke-direct {p0}, Lcom/android/server/clipboardex/ClipboardExService;->isServiceCallFromOther()Z
 
     move-result v7
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_6
 
     const-string/jumbo v7, "ClipboardExService"
 
@@ -3625,8 +4411,8 @@
 
     return-object v12
 
-    :cond_5
-    if-eqz v5, :cond_7
+    :cond_6
+    if-eqz v5, :cond_8
 
     :try_start_3
     invoke-direct {p0, v5}, Lcom/android/server/clipboardex/ClipboardExService;->getLatestItemInternal(Z)Lcom/samsung/android/content/clipboard/data/SemClipData;
@@ -3640,7 +4426,7 @@
     invoke-static {v7, v8}, Landroid/sec/clipboard/util/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_2
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_7
 
     const-string/jumbo v7, "ClipboardExService"
 
@@ -3694,13 +4480,13 @@
 
     move-result-object v2
 
-    :cond_6
+    :cond_7
     :goto_3
     monitor-exit p0
 
     return-object v2
 
-    :cond_7
+    :cond_8
     if-lez v1, :cond_a
 
     :try_start_4
@@ -3708,15 +4494,12 @@
 
     move-result v6
 
-    const/16 v7, 0x64
+    invoke-static {v6}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
 
-    if-lt v6, v7, :cond_8
+    move-result v7
 
-    const/16 v7, 0xc2
+    if-nez v7, :cond_9
 
-    if-le v6, v7, :cond_9
-
-    :cond_8
     invoke-direct {p0}, Lcom/android/server/clipboardex/ClipboardExService;->loadSEContainer()V
 
     :cond_9
@@ -4276,7 +5059,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_0
 
     invoke-virtual {p0}, Lcom/android/server/clipboardex/ClipboardExService;->getPersonaId()I
 
@@ -4286,8 +5069,25 @@
 
     move-result v6
 
+    xor-int/lit8 v6, v6, 0x1
+
     if-eqz v6, :cond_1
 
+    :cond_0
+    const-string/jumbo v6, "ClipboardExService"
+
+    const-string/jumbo v7, "getClipData() - Clipboard is not allowed to use."
+
+    invoke-static {v6, v7}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
+
+    return-object v3
+
+    :cond_1
+    :try_start_1
     invoke-virtual {p0}, Lcom/android/server/clipboardex/ClipboardExService;->getCount()I
 
     move-result v5
@@ -4306,14 +5106,14 @@
 
     move-result v6
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_3
 
     invoke-direct {p0}, Lcom/android/server/clipboardex/ClipboardExService;->loadSEContainer()V
 
     const/4 v1, 0x0
 
     :goto_0
-    if-ge v1, v0, :cond_4
+    if-ge v1, v0, :cond_5
 
     iget-object v6, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
@@ -4333,7 +5133,7 @@
 
     cmp-long v6, v6, v8
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_2
 
     iget-object v6, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
@@ -4343,33 +5143,19 @@
 
     invoke-virtual {v3, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_0
+    :cond_2
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    :cond_1
-    const-string/jumbo v6, "ClipboardExService"
-
-    const-string/jumbo v7, "getClipData() - Clipboard is not allowed to use."
-
-    invoke-static {v6, v7}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit p0
-
-    return-object v3
-
-    :cond_2
+    :cond_3
     const/4 v2, 0x0
 
     :goto_1
-    if-ge v2, v5, :cond_4
+    if-ge v2, v5, :cond_5
 
-    if-ge v2, v0, :cond_3
+    if-ge v2, v0, :cond_4
 
-    :try_start_1
     iget-object v6, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
     invoke-virtual {v6, v2}, Landroid/sec/clipboard/data/ClipboardDataMgr;->getItem(I)Lcom/samsung/android/content/clipboard/data/SemClipData;
@@ -4383,7 +5169,7 @@
 
     goto :goto_1
 
-    :cond_3
+    :cond_4
     sub-int v4, v2, v0
 
     iget-object v6, p0, Lcom/android/server/clipboardex/ClipboardExService;->mSharedClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
@@ -4405,7 +5191,7 @@
 
     throw v6
 
-    :cond_4
+    :cond_5
     :try_start_2
     new-instance v6, Lcom/android/server/clipboardex/ClipboardExService$ClipDataComparator;
 
@@ -4443,7 +5229,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_0
 
     invoke-virtual {p0}, Lcom/android/server/clipboardex/ClipboardExService;->getPersonaId()I
 
@@ -4453,13 +5239,27 @@
 
     move-result v5
 
+    xor-int/lit8 v5, v5, 0x1
+
     if-eqz v5, :cond_1
 
+    :cond_0
+    const-string/jumbo v5, "ClipboardExService"
+
+    const-string/jumbo v6, "getCount() - Clipboard is not allowed to use."
+
+    invoke-static {v5, v6}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v5, 0x0
+
+    return v5
+
+    :cond_1
     invoke-virtual {p0, v4}, Lcom/android/server/clipboardex/ClipboardExService;->isClipboardShareAllowed(I)Z
 
     move-result v5
 
-    if-nez v5, :cond_3
+    if-nez v5, :cond_4
 
     invoke-direct {p0}, Lcom/android/server/clipboardex/ClipboardExService;->loadSEContainer()V
 
@@ -4468,7 +5268,7 @@
     const/4 v1, 0x0
 
     :goto_0
-    if-ge v1, v0, :cond_2
+    if-ge v1, v0, :cond_3
 
     iget-object v5, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
@@ -4488,27 +5288,16 @@
 
     cmp-long v5, v6, v8
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_2
 
     add-int/lit8 v3, v3, 0x1
 
-    :cond_0
+    :cond_2
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    :cond_1
-    const-string/jumbo v5, "ClipboardExService"
-
-    const-string/jumbo v6, "getCount() - Clipboard is not allowed to use."
-
-    invoke-static {v5, v6}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v5, 0x0
-
-    return v5
-
-    :cond_2
+    :cond_3
     const-string/jumbo v5, "ClipboardExService"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -4533,12 +5322,12 @@
 
     return v3
 
-    :cond_3
+    :cond_4
     invoke-virtual {p0}, Lcom/android/server/clipboardex/ClipboardExService;->isKnoxTwoEnabled()Z
 
     move-result v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_5
 
     iget-object v5, p0, Lcom/android/server/clipboardex/ClipboardExService;->mSharedClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
@@ -4582,45 +5371,59 @@
 
     return v5
 
-    :cond_4
+    :cond_5
+    return v0
+.end method
+
+.method public getFilter()I
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/clipboardex/ClipboardExService;->mEnableFormatId:I
+
     return v0
 .end method
 
 .method public getPersonaId()I
-    .locals 2
+    .locals 4
 
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
-    sget-boolean v1, Landroid/sec/clipboard/data/ClipboardConstants;->HAS_KNOX_FEATURE:Z
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    if-eqz v1, :cond_1
+    move-result-wide v0
+
+    sget-boolean v3, Landroid/sec/clipboard/data/ClipboardConstants;->HAS_KNOX_FEATURE:Z
+
+    if-eqz v3, :cond_1
 
     invoke-direct {p0}, Lcom/android/server/clipboardex/ClipboardExService;->getPersonaManager()Z
 
-    move-result v1
+    move-result v3
 
-    if-eqz v1, :cond_0
+    if-eqz v3, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/clipboardex/ClipboardExService;->mPersonaManager:Lcom/samsung/android/knox/SemPersonaManager;
+    iget-object v3, p0, Lcom/android/server/clipboardex/ClipboardExService;->mPersonaManager:Lcom/samsung/android/knox/SemPersonaManager;
 
-    invoke-virtual {v1}, Lcom/samsung/android/knox/SemPersonaManager;->getFocusedUser()I
+    invoke-virtual {v3}, Lcom/samsung/android/knox/SemPersonaManager;->getFocusedKnoxId()I
 
-    move-result v0
+    move-result v2
 
     :goto_0
-    return v0
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return v2
 
     :cond_0
     invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
 
-    move-result v0
+    move-result v2
 
     goto :goto_0
 
     :cond_1
     invoke-direct {p0}, Lcom/android/server/clipboardex/ClipboardExService;->getUserId()I
 
-    move-result v0
+    move-result v2
 
     goto :goto_0
 .end method
@@ -4689,117 +5492,172 @@
     return v0
 .end method
 
-.method isKnoxTwoEnabled()Z
-    .locals 8
-
-    const/4 v7, 0x0
-
-    invoke-static {}, Lcom/samsung/android/knox/SemPersonaManager;->getKnoxInfo()Landroid/os/Bundle;
-
-    move-result-object v1
-
-    const-string/jumbo v4, "2.0"
-
-    const-string/jumbo v5, "version"
-
-    invoke-virtual {v1, v5}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_2
-
-    invoke-direct {p0}, Lcom/android/server/clipboardex/ClipboardExService;->getPersonaManager()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_2
-
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-
-    move-result-wide v2
+.method public isKnoxKeyguardShowing()Z
+    .locals 4
 
     invoke-virtual {p0}, Lcom/android/server/clipboardex/ClipboardExService;->getPersonaId()I
 
     move-result v0
 
-    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    const-string/jumbo v1, "ClipboardExService"
 
-    const-string/jumbo v4, "ClipboardExService"
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v3, "isKnoxKeyguardShowing getPersonaId "
 
-    const-string/jumbo v6, "isKnoxTwoEnabled getPersonaId "
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    move-result-object v5
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    move-result-object v5
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v5
+    invoke-static {v1, v2}, Landroid/sec/clipboard/util/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v4, v5}, Landroid/sec/clipboard/util/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {p0}, Lcom/android/server/clipboardex/ClipboardExService;->getPersonaManager()Z
 
-    iget-object v4, p0, Lcom/android/server/clipboardex/ClipboardExService;->mPersonaManager:Lcom/samsung/android/knox/SemPersonaManager;
+    move-result v1
 
-    invoke-virtual {v4, v0}, Lcom/samsung/android/knox/SemPersonaManager;->exists(I)Z
+    if-eqz v1, :cond_0
 
-    move-result v4
+    iget-object v1, p0, Lcom/android/server/clipboardex/ClipboardExService;->mPersonaManager:Lcom/samsung/android/knox/SemPersonaManager;
 
-    if-nez v4, :cond_0
+    invoke-static {v0}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
 
-    const-string/jumbo v4, "ClipboardExService"
+    move-result v1
 
-    const-string/jumbo v5, "Current user is a USER, hence return false"
+    if-eqz v1, :cond_0
 
-    invoke-static {v4, v5}, Landroid/sec/clipboard/util/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
+    iget-object v1, p0, Lcom/android/server/clipboardex/ClipboardExService;->mPersonaManager:Lcom/samsung/android/knox/SemPersonaManager;
 
-    return v7
+    invoke-virtual {v1, v0}, Lcom/samsung/android/knox/SemPersonaManager;->getKeyguardShowState(I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const/4 v1, 0x1
+
+    return v1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    return v1
+.end method
+
+.method isKnoxTwoEnabled()Z
+    .locals 6
+
+    const/4 v5, 0x0
+
+    invoke-static {}, Lcom/samsung/android/knox/SemPersonaManager;->getKnoxInfo()Landroid/os/Bundle;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "2.0"
+
+    const-string/jumbo v3, "version"
+
+    invoke-virtual {v1, v3}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    invoke-direct {p0}, Lcom/android/server/clipboardex/ClipboardExService;->getPersonaManager()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    invoke-virtual {p0}, Lcom/android/server/clipboardex/ClipboardExService;->getPersonaId()I
+
+    move-result v0
+
+    const-string/jumbo v2, "ClipboardExService"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "isKnoxTwoEnabled getPersonaId "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/sec/clipboard/util/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v2, p0, Lcom/android/server/clipboardex/ClipboardExService;->mPersonaManager:Lcom/samsung/android/knox/SemPersonaManager;
+
+    invoke-virtual {v2, v0}, Lcom/samsung/android/knox/SemPersonaManager;->exists(I)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const-string/jumbo v2, "ClipboardExService"
+
+    const-string/jumbo v3, "Current user is a USER, hence return false"
+
+    invoke-static {v2, v3}, Landroid/sec/clipboard/util/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v5
 
     :cond_0
     invoke-static {v0}, Lcom/samsung/android/knox/SemPersonaManager;->isBBCContainer(I)Z
 
-    move-result v4
+    move-result v2
 
-    if-eqz v4, :cond_1
+    if-eqz v2, :cond_1
 
-    const-string/jumbo v4, "ClipboardExService"
+    const-string/jumbo v2, "ClipboardExService"
 
-    const-string/jumbo v5, "Current user is BBC, hence return false"
+    const-string/jumbo v3, "Current user is BBC, hence return false"
 
-    invoke-static {v4, v5}, Landroid/sec/clipboard/util/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/sec/clipboard/util/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v7
+    return v5
 
     :cond_1
-    const-string/jumbo v4, "ClipboardExService"
+    const-string/jumbo v2, "ClipboardExService"
 
-    const-string/jumbo v5, "Current user is a persona, hence return true"
+    const-string/jumbo v3, "Current user is a persona, hence return true"
 
-    invoke-static {v4, v5}, Landroid/sec/clipboard/util/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/sec/clipboard/util/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v4, 0x1
+    const/4 v2, 0x1
 
-    return v4
+    return v2
 
     :cond_2
-    const-string/jumbo v4, "ClipboardExService"
+    const-string/jumbo v2, "ClipboardExService"
 
-    const-string/jumbo v5, "\'ro.build.knox.container\' system property is not set to \'2.0\', hence return false"
+    const-string/jumbo v3, "\'ro.build.knox.container\' system property is not set to \'2.0\', hence return false"
 
-    invoke-static {v4, v5}, Landroid/sec/clipboard/util/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/sec/clipboard/util/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v7
+    return v5
 .end method
 
 .method public isPackageAllowed(I)Z
@@ -4828,26 +5686,15 @@
 .end method
 
 .method public isShowing()Z
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    iget-boolean v0, p0, Lcom/android/server/clipboardex/ClipboardExService;->mIsDialogShowing:Z
 
-    iget-object v1, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipboardUIManager:Landroid/sec/clipboard/ClipboardUIManager;
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipboardUIManager:Landroid/sec/clipboard/ClipboardUIManager;
-
-    invoke-virtual {v1}, Landroid/sec/clipboard/ClipboardUIManager;->isShowing()Z
-
-    move-result v0
-
-    :cond_0
     return v0
 .end method
 
@@ -4858,51 +5705,48 @@
 
     move-result v0
 
-    const/16 v1, 0x64
-
-    if-lt v0, v1, :cond_0
-
-    const/16 v1, 0xc2
-
-    if-le v0, v1, :cond_1
-
-    :cond_0
-    invoke-direct {p0}, Lcom/android/server/clipboardex/ClipboardExService;->loadSEContainer()V
-
-    :cond_1
-    return-void
-.end method
-
-.method public multiUserMode(ILjava/lang/String;)V
-    .locals 4
-
-    invoke-direct {p0, p1}, Lcom/android/server/clipboardex/ClipboardExService;->isEnabled(I)Z
+    invoke-static {v0}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    const-string/jumbo v1, "ClipboardExService"
+    invoke-direct {p0}, Lcom/android/server/clipboardex/ClipboardExService;->loadSEContainer()V
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    :cond_0
+    return-void
+.end method
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+.method public multiUserMode(ILjava/lang/String;)V
+    .locals 6
 
-    const-string/jumbo v3, "not enabled! multiUserMode : "
+    invoke-direct {p0, p1}, Lcom/android/server/clipboardex/ClipboardExService;->isEnabled(I)Z
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v3
 
-    move-result-object v2
+    if-nez v3, :cond_0
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string/jumbo v3, "ClipboardExService"
 
-    move-result-object v2
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v2
+    const-string/jumbo v5, "not enabled! multiUserMode : "
 
-    invoke-static {v1, v2}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
@@ -4912,84 +5756,98 @@
     :try_start_0
     invoke-virtual {p0}, Lcom/android/server/clipboardex/ClipboardExService;->isKnoxTwoEnabled()Z
 
-    move-result v1
+    move-result v3
 
-    if-eqz v1, :cond_1
+    if-eqz v3, :cond_1
 
     invoke-direct {p0}, Lcom/android/server/clipboardex/ClipboardExService;->getPersonaManager()Z
 
-    move-result v1
+    move-result v3
 
-    if-eqz v1, :cond_1
+    if-eqz v3, :cond_1
 
-    iget-object v1, p0, Lcom/android/server/clipboardex/ClipboardExService;->mPersonaManager:Lcom/samsung/android/knox/SemPersonaManager;
+    iget-object v3, p0, Lcom/android/server/clipboardex/ClipboardExService;->mPersonaManager:Lcom/samsung/android/knox/SemPersonaManager;
 
-    invoke-virtual {v1, p1}, Lcom/samsung/android/knox/SemPersonaManager;->exists(I)Z
+    invoke-virtual {v3, p1}, Lcom/samsung/android/knox/SemPersonaManager;->exists(I)Z
 
-    move-result v1
+    move-result v3
 
-    if-eqz v1, :cond_1
+    if-eqz v3, :cond_1
 
-    iget-object v1, p0, Lcom/android/server/clipboardex/ClipboardExService;->mPersonaManager:Lcom/samsung/android/knox/SemPersonaManager;
+    iget-object v3, p0, Lcom/android/server/clipboardex/ClipboardExService;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v1, p1}, Lcom/samsung/android/knox/SemPersonaManager;->getParentId(I)I
+    const-string/jumbo v4, "user"
 
-    move-result v0
-
-    const-string/jumbo v1, "ClipboardExService"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "multiUserMode parentId : "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v2
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    check-cast v2, Landroid/os/UserManager;
 
-    move-result-object v2
+    invoke-virtual {v2, p1}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
+    iget v0, v1, Landroid/content/pm/UserInfo;->profileGroupId:I
 
-    invoke-static {v1, v2}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v3, "ClipboardExService"
 
-    iget-object v1, p0, Lcom/android/server/clipboardex/ClipboardExService;->mSharedClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v1, v2, v0}, Landroid/sec/clipboard/data/ClipboardDataMgr;->replaceWithTargetForUser(Landroid/sec/clipboard/data/ClipboardDataMgr;I)V
+    const-string/jumbo v5, "multiUserMode parentId : "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v3, p0, Lcom/android/server/clipboardex/ClipboardExService;->mSharedClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
+
+    iget-object v4, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
+
+    invoke-virtual {v3, v4, v0}, Landroid/sec/clipboard/data/ClipboardDataMgr;->replaceWithTargetForUser(Landroid/sec/clipboard/data/ClipboardDataMgr;I)V
 
     :cond_1
-    iget-object v1, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
+    iget-object v3, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
-    invoke-virtual {v1, p1, p2}, Landroid/sec/clipboard/data/ClipboardDataMgr;->multiUserMode(ILjava/lang/String;)V
+    invoke-virtual {v3, p1, p2}, Landroid/sec/clipboard/data/ClipboardDataMgr;->multiUserMode(ILjava/lang/String;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
+    invoke-direct {p0, p1}, Lcom/android/server/clipboardex/ClipboardExService;->notifyUserChanged(I)V
+
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception v3
 
     monitor-exit p0
 
-    throw v1
+    throw v3
 .end method
 
-.method public pasteClip(Ljava/lang/String;)V
-    .locals 4
+.method public pasteClip(Ljava/lang/String;)Z
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
+
+    const/4 v4, 0x0
 
     monitor-enter p0
 
@@ -5008,7 +5866,7 @@
 
     monitor-exit p0
 
-    return-void
+    return v4
 
     :cond_0
     :try_start_1
@@ -5053,10 +5911,9 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    :goto_0
     monitor-exit p0
 
-    return-void
+    return v4
 
     :cond_2
     :try_start_2
@@ -5066,7 +5923,11 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_0
+    const/4 v1, 0x1
+
+    monitor-exit p0
+
+    return v1
 
     :catchall_0
     move-exception v1
@@ -5199,6 +6060,17 @@
 .method public removeAll()Z
     .locals 3
 
+    const/4 v2, 0x0
+
+    invoke-direct {p0}, Lcom/android/server/clipboardex/ClipboardExService;->checkCallerIsSystemOrSignature()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    return v2
+
+    :cond_0
     monitor-enter p0
 
     :try_start_0
@@ -5212,7 +6084,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     iget-object v1, p0, Lcom/android/server/clipboardex/ClipboardExService;->mSharedClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
@@ -5220,7 +6092,7 @@
 
     move-result v1
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_1
 
     iget-object v1, p0, Lcom/android/server/clipboardex/ClipboardExService;->mSharedClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
@@ -5230,8 +6102,8 @@
 
     or-int/2addr v0, v1
 
-    :cond_0
-    if-eqz v0, :cond_1
+    :cond_1
+    if-eqz v0, :cond_2
 
     const/4 v1, 0x3
 
@@ -5243,7 +6115,7 @@
 
     invoke-direct {p0, v1}, Lcom/android/server/clipboardex/ClipboardExService;->ListChange(I)V
 
-    :cond_1
+    :cond_2
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lcom/android/server/clipboardex/ClipboardExService;->KNOX_PASTE_FLAG:Z
@@ -5270,6 +6142,17 @@
         }
     .end annotation
 
+    invoke-direct {p0}, Lcom/android/server/clipboardex/ClipboardExService;->checkCallerIsSystemOrSignature()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const/4 v2, 0x0
+
+    return v2
+
+    :cond_0
     monitor-enter p0
 
     :try_start_0
@@ -5283,7 +6166,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1
 
     iget-object v2, p0, Lcom/android/server/clipboardex/ClipboardExService;->mSharedClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
@@ -5291,8 +6174,8 @@
 
     move-result v1
 
-    :cond_0
-    if-eqz v1, :cond_1
+    :cond_1
+    if-eqz v1, :cond_2
 
     const/4 v2, 0x2
 
@@ -5304,7 +6187,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :cond_1
+    :cond_2
     monitor-exit p0
 
     return v1
@@ -5318,27 +6201,83 @@
 .end method
 
 .method public removeClipboardEventListener(Lcom/samsung/android/content/clipboard/IOnClipboardEventListener;)V
-    .locals 1
-
-    monitor-enter p0
+    .locals 3
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipboardEventListeners:Landroid/os/RemoteCallbackList;
+    iget-object v2, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipboardEventListeners:Landroid/os/RemoteCallbackList;
 
-    invoke-virtual {v0, p1}, Landroid/os/RemoteCallbackList;->unregister(Landroid/os/IInterface;)Z
+    monitor-enter v2
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    monitor-exit p0
+    :try_start_1
+    iget-object v1, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipboardEventListeners:Landroid/os/RemoteCallbackList;
 
+    invoke-virtual {v1, p1}, Landroid/os/RemoteCallbackList;->unregister(Landroid/os/IInterface;)Z
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :try_start_2
+    monitor-exit v2
+
+    :goto_0
     return-void
 
     :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+
+    throw v1
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+
+    :catch_0
     move-exception v0
 
-    monitor-exit p0
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    throw v0
+    goto :goto_0
+.end method
+
+.method public removeUserChangedListener(Lcom/samsung/android/content/clipboard/IOnUserChangedListener;)V
+    .locals 3
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/server/clipboardex/ClipboardExService;->mUserChangedListeners:Landroid/os/RemoteCallbackList;
+
+    monitor-enter v2
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :try_start_1
+    iget-object v1, p0, Lcom/android/server/clipboardex/ClipboardExService;->mUserChangedListeners:Landroid/os/RemoteCallbackList;
+
+    invoke-virtual {v1, p1}, Landroid/os/RemoteCallbackList;->unregister(Landroid/os/IInterface;)Z
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :try_start_2
+    monitor-exit v2
+
+    :goto_0
+    return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+
+    throw v1
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+
+    goto :goto_0
 .end method
 
 .method public setClipData(ILcom/samsung/android/content/clipboard/data/SemClipData;Ljava/lang/String;I)I
@@ -5376,7 +6315,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_6
+    if-eqz v8, :cond_2
 
     invoke-virtual {p0}, Lcom/android/server/clipboardex/ClipboardExService;->getPersonaId()I
 
@@ -5386,8 +6325,22 @@
 
     move-result v8
 
-    if-eqz v8, :cond_6
+    xor-int/lit8 v8, v8, 0x1
 
+    if-eqz v8, :cond_3
+
+    :cond_2
+    const-string/jumbo v8, "ClipboardExService"
+
+    const-string/jumbo v9, "setClipData() - Clipboard is not allowed to use."
+
+    invoke-static {v8, v9}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v8, 0x4
+
+    return v8
+
+    :cond_3
     const-string/jumbo v8, "ClipboardExService"
 
     const-string/jumbo v9, "==================================================================="
@@ -5401,7 +6354,7 @@
     :try_start_0
     sget-boolean v8, Landroid/sec/clipboard/data/ClipboardConstants;->DEBUG:Z
 
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_4
 
     const-string/jumbo v8, "ClipboardExService"
 
@@ -5409,7 +6362,7 @@
 
     invoke-static {v8, v9}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_2
+    :cond_4
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v0
@@ -5422,7 +6375,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-eqz v8, :cond_3
+    if-eqz v8, :cond_5
 
     :try_start_1
     iget-object v8, p0, Lcom/android/server/clipboardex/ClipboardExService;->mContext:Landroid/content/Context;
@@ -5442,14 +6395,14 @@
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    :cond_3
+    :cond_5
     :goto_0
     :try_start_2
     invoke-direct {p0, p1, p2}, Lcom/android/server/clipboardex/ClipboardExService;->addData(ILcom/samsung/android/content/clipboard/data/SemClipData;)I
 
     move-result v8
 
-    if-nez v8, :cond_5
+    if-nez v8, :cond_7
 
     invoke-direct {p0, p3}, Lcom/android/server/clipboardex/ClipboardExService;->getSEAMSCategory(Ljava/lang/String;)I
 
@@ -5509,16 +6462,16 @@
 
     const/4 v8, 0x1
 
-    if-eq v7, v8, :cond_4
+    if-eq v7, v8, :cond_6
 
     invoke-direct {p0, p2, p3}, Lcom/android/server/clipboardex/ClipboardExService;->sendClipDataToOriginal(Lcom/samsung/android/content/clipboard/data/SemClipData;Ljava/lang/String;)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    :cond_4
+    :cond_6
     const/4 v6, 0x0
 
-    :cond_5
+    :cond_7
     monitor-exit p0
 
     const-string/jumbo v8, "ClipboardExService"
@@ -5544,17 +6497,6 @@
     invoke-static {v8, v9}, Landroid/sec/clipboard/util/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
     return v6
-
-    :cond_6
-    const-string/jumbo v8, "ClipboardExService"
-
-    const-string/jumbo v9, "setClipData() - Clipboard is not allowed to use."
-
-    invoke-static {v8, v9}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v8, 0x4
-
-    return v8
 
     :catch_0
     move-exception v3
@@ -5682,8 +6624,22 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    xor-int/lit8 v1, v1, 0x1
 
+    if-eqz v1, :cond_3
+
+    :cond_2
+    const-string/jumbo v1, "ClipboardExService"
+
+    const-string/jumbo v2, "setClipDataToSem() - Clipboard is not allowed to use."
+
+    invoke-static {v1, v2}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v1, 0x4
+
+    return v1
+
+    :cond_3
     iput p4, p0, Lcom/android/server/clipboardex/ClipboardExService;->mCallingId:I
 
     const-string/jumbo v1, "ClipboardExService"
@@ -5727,17 +6683,6 @@
 
     return v0
 
-    :cond_2
-    const-string/jumbo v1, "ClipboardExService"
-
-    const-string/jumbo v2, "setClipDataToSem() - Clipboard is not allowed to use."
-
-    invoke-static {v1, v2}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v1, 0x4
-
-    return v1
-
     :catchall_0
     move-exception v1
 
@@ -5757,16 +6702,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_0
-    if-nez p2, :cond_2
+    if-eqz v1, :cond_0
 
-    const/4 v1, 0x3
-
-    return v1
-
-    :cond_1
     const-string/jumbo v1, "ClipboardExService"
 
     const-string/jumbo v2, "disallow cross profile copy & paste!"
@@ -5775,7 +6714,14 @@
 
     return v0
 
-    :cond_2
+    :cond_0
+    if-nez p2, :cond_1
+
+    const/4 v1, 0x3
+
+    return v1
+
+    :cond_1
     invoke-virtual {p0}, Lcom/android/server/clipboardex/ClipboardExService;->getPersonaId()I
 
     move-result v1
@@ -5784,7 +6730,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2
 
     invoke-virtual {p0}, Lcom/android/server/clipboardex/ClipboardExService;->getPersonaId()I
 
@@ -5794,8 +6740,22 @@
 
     move-result v1
 
+    xor-int/lit8 v1, v1, 0x1
+
     if-eqz v1, :cond_3
 
+    :cond_2
+    const-string/jumbo v1, "ClipboardExService"
+
+    const-string/jumbo v2, "setData() - Clipboard is not allowed to use."
+
+    invoke-static {v1, v2}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v1, 0x4
+
+    return v1
+
+    :cond_3
     const-string/jumbo v1, "ClipboardExService"
 
     const-string/jumbo v2, "==================================================================="
@@ -5857,17 +6817,6 @@
     invoke-static {v1, v2}, Landroid/sec/clipboard/util/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
     return v0
-
-    :cond_3
-    const-string/jumbo v1, "ClipboardExService"
-
-    const-string/jumbo v2, "setData() - Clipboard is not allowed to use."
-
-    invoke-static {v1, v2}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v1, 0x4
-
-    return v1
 .end method
 
 .method public showDialog()V
@@ -5926,7 +6875,7 @@
 
     if-eqz v1, :cond_0
 
-    invoke-direct {p0}, Lcom/android/server/clipboardex/ClipboardExService;->isKnoxKeyguardShowing()Z
+    invoke-virtual {p0}, Lcom/android/server/clipboardex/ClipboardExService;->isKnoxKeyguardShowing()Z
 
     move-result v1
 
@@ -5939,18 +6888,15 @@
 
     move-result v0
 
-    const/16 v1, 0x64
+    invoke-static {v0}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
 
-    if-lt v0, v1, :cond_1
+    move-result v1
 
-    const/16 v1, 0xc2
+    if-nez v1, :cond_1
 
-    if-le v0, v1, :cond_2
-
-    :cond_1
     invoke-direct {p0}, Lcom/android/server/clipboardex/ClipboardExService;->loadSEContainer()V
 
-    :cond_2
+    :cond_1
     iput p1, p0, Lcom/android/server/clipboardex/ClipboardExService;->mEnableFormatId:I
 
     iput-object p2, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClPasteEvent:Landroid/sec/clipboard/IClipboardDataPasteEvent;
@@ -6064,114 +7010,152 @@
 .end method
 
 .method public updateClip(Ljava/lang/String;Lcom/samsung/android/content/clipboard/data/SemClipData;)Z
-    .locals 5
+    .locals 8
 
-    const/4 v4, -0x1
+    const/4 v7, 0x0
 
+    const/4 v6, -0x1
+
+    invoke-direct {p0}, Lcom/android/server/clipboardex/ClipboardExService;->checkCallerIsSystemOrSignature()Z
+
+    move-result v5
+
+    if-nez v5, :cond_0
+
+    return v7
+
+    :cond_0
     const/4 v1, -0x1
+
+    const/4 v2, 0x0
 
     const/4 v0, 0x0
 
     :goto_0
-    iget-object v3, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
+    iget-object v5, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
-    invoke-virtual {v3}, Landroid/sec/clipboard/data/ClipboardDataMgr;->size()I
+    invoke-virtual {v5}, Landroid/sec/clipboard/data/ClipboardDataMgr;->size()I
 
-    move-result v3
+    move-result v5
 
-    if-ge v0, v3, :cond_1
+    if-ge v0, v5, :cond_2
 
-    iget-object v3, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
+    iget-object v5, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
-    invoke-virtual {v3, v0}, Landroid/sec/clipboard/data/ClipboardDataMgr;->getItem(I)Lcom/samsung/android/content/clipboard/data/SemClipData;
+    invoke-virtual {v5, v0}, Landroid/sec/clipboard/data/ClipboardDataMgr;->getItem(I)Lcom/samsung/android/content/clipboard/data/SemClipData;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-virtual {v3}, Lcom/samsung/android/content/clipboard/data/SemClipData;->getClipId()Ljava/lang/String;
+    invoke-virtual {v5}, Lcom/samsung/android/content/clipboard/data/SemClipData;->getClipId()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-virtual {p1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v5
 
-    if-eqz v3, :cond_0
+    if-eqz v5, :cond_1
 
     move v1, v0
 
-    :cond_0
+    iget-object v5, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
+
+    invoke-virtual {v5, v0}, Landroid/sec/clipboard/data/ClipboardDataMgr;->getItem(I)Lcom/samsung/android/content/clipboard/data/SemClipData;
+
+    move-result-object v2
+
+    :cond_1
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    :cond_1
-    if-ne v1, v4, :cond_3
+    :cond_2
+    if-ne v1, v6, :cond_4
 
     const/4 v0, 0x0
 
     :goto_1
-    iget-object v3, p0, Lcom/android/server/clipboardex/ClipboardExService;->mSharedClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
+    iget-object v5, p0, Lcom/android/server/clipboardex/ClipboardExService;->mSharedClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
-    invoke-virtual {v3}, Landroid/sec/clipboard/data/ClipboardDataMgr;->size()I
+    invoke-virtual {v5}, Landroid/sec/clipboard/data/ClipboardDataMgr;->size()I
 
-    move-result v3
+    move-result v5
 
-    if-ge v0, v3, :cond_3
+    if-ge v0, v5, :cond_4
 
-    iget-object v3, p0, Lcom/android/server/clipboardex/ClipboardExService;->mSharedClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
+    iget-object v5, p0, Lcom/android/server/clipboardex/ClipboardExService;->mSharedClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
-    invoke-virtual {v3, v0}, Landroid/sec/clipboard/data/ClipboardDataMgr;->getItem(I)Lcom/samsung/android/content/clipboard/data/SemClipData;
+    invoke-virtual {v5, v0}, Landroid/sec/clipboard/data/ClipboardDataMgr;->getItem(I)Lcom/samsung/android/content/clipboard/data/SemClipData;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-virtual {v3}, Lcom/samsung/android/content/clipboard/data/SemClipData;->getClipId()Ljava/lang/String;
+    invoke-virtual {v5}, Lcom/samsung/android/content/clipboard/data/SemClipData;->getClipId()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-virtual {p1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v5
 
-    if-eqz v3, :cond_2
+    if-eqz v5, :cond_3
 
     move v1, v0
 
-    :cond_2
+    iget-object v5, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
+
+    invoke-virtual {v5, v0}, Landroid/sec/clipboard/data/ClipboardDataMgr;->getItem(I)Lcom/samsung/android/content/clipboard/data/SemClipData;
+
+    move-result-object v2
+
+    :cond_3
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    :cond_3
-    if-ne v1, v4, :cond_4
-
-    const/4 v3, 0x0
-
-    return v3
-
     :cond_4
-    iget-object v3, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
+    if-ne v1, v6, :cond_5
 
-    invoke-virtual {v3, v1, p2}, Landroid/sec/clipboard/data/ClipboardDataMgr;->updateData(ILcom/samsung/android/content/clipboard/data/SemClipData;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_5
-
-    iget-object v3, p0, Lcom/android/server/clipboardex/ClipboardExService;->mSharedClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
-
-    invoke-virtual {v3, v1, p2}, Landroid/sec/clipboard/data/ClipboardDataMgr;->updateData(ILcom/samsung/android/content/clipboard/data/SemClipData;)Z
-
-    move-result v2
+    return v7
 
     :cond_5
-    if-eqz v2, :cond_6
+    iget-object v5, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
-    const/4 v3, 0x4
+    invoke-virtual {v5, v1, p2}, Landroid/sec/clipboard/data/ClipboardDataMgr;->updateData(ILcom/samsung/android/content/clipboard/data/SemClipData;)Z
 
-    invoke-direct {p0, v3, p2}, Lcom/android/server/clipboardex/ClipboardExService;->notifyListChange(ILcom/samsung/android/content/clipboard/data/SemClipData;)V
+    move-result v3
+
+    if-nez v3, :cond_6
+
+    iget-object v5, p0, Lcom/android/server/clipboardex/ClipboardExService;->mSharedClipDataMgr:Landroid/sec/clipboard/data/ClipboardDataMgr;
+
+    invoke-virtual {v5, v1, p2}, Landroid/sec/clipboard/data/ClipboardDataMgr;->updateData(ILcom/samsung/android/content/clipboard/data/SemClipData;)Z
+
+    move-result v3
 
     :cond_6
-    return v2
+    if-eqz v3, :cond_7
+
+    invoke-direct {p0, p2, v2}, Lcom/android/server/clipboardex/ClipboardExService;->getUpdatedType(Lcom/samsung/android/content/clipboard/data/SemClipData;Lcom/samsung/android/content/clipboard/data/SemClipData;)I
+
+    move-result v4
+
+    invoke-direct {p0, v4, p2}, Lcom/android/server/clipboardex/ClipboardExService;->notifyListChange(ILcom/samsung/android/content/clipboard/data/SemClipData;)V
+
+    :cond_7
+    return v3
+.end method
+
+.method public updateDialogShowingState(Z)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    iput-boolean p1, p0, Lcom/android/server/clipboardex/ClipboardExService;->mIsDialogShowing:Z
+
+    return-void
 .end method
 
 .method public updateFilter(ILandroid/sec/clipboard/IClipboardDataPasteEvent;)V
@@ -6187,6 +7171,48 @@
     iput p1, p0, Lcom/android/server/clipboardex/ClipboardExService;->mEnableFormatId:I
 
     iput-object p2, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClPasteEvent:Landroid/sec/clipboard/IClipboardDataPasteEvent;
+
+    invoke-direct {p0, p1}, Lcom/android/server/clipboardex/ClipboardExService;->notifyFilterUpdated(I)V
+
+    invoke-virtual {p0}, Lcom/android/server/clipboardex/ClipboardExService;->isShowing()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/clipboardex/ClipboardExService;->mHandler:Landroid/os/Handler;
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
+
+    iget-object v0, p0, Lcom/android/server/clipboardex/ClipboardExService;->mHandler:Landroid/os/Handler;
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+
+    return-void
+.end method
+
+.method public updateFilterWithInputType(IILandroid/sec/clipboard/IClipboardDataPasteEvent;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    const/4 v1, 0x3
+
+    iput p1, p0, Lcom/android/server/clipboardex/ClipboardExService;->mEnableFormatId:I
+
+    iput-object p3, p0, Lcom/android/server/clipboardex/ClipboardExService;->mClPasteEvent:Landroid/sec/clipboard/IClipboardDataPasteEvent;
+
+    shl-int/lit8 p2, p2, 0x8
+
+    or-int/2addr p1, p2
+
+    invoke-direct {p0, p1}, Lcom/android/server/clipboardex/ClipboardExService;->notifyFilterUpdated(I)V
 
     invoke-virtual {p0}, Lcom/android/server/clipboardex/ClipboardExService;->isShowing()Z
 

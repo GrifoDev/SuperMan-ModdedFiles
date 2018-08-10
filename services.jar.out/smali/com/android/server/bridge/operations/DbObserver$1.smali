@@ -67,7 +67,7 @@
 
     iget-object v4, p0, Lcom/android/server/bridge/operations/DbObserver$1;->this$0:Lcom/android/server/bridge/operations/DbObserver;
 
-    invoke-static {v4}, Lcom/android/server/bridge/operations/DbObserver;->-get4(Lcom/android/server/bridge/operations/DbObserver;)I
+    invoke-static {v4}, Lcom/android/server/bridge/operations/DbObserver;->-get5(Lcom/android/server/bridge/operations/DbObserver;)I
 
     move-result v4
 
@@ -112,7 +112,7 @@
 
     iget-object v2, p0, Lcom/android/server/bridge/operations/DbObserver$1;->this$0:Lcom/android/server/bridge/operations/DbObserver;
 
-    invoke-static {v2}, Lcom/android/server/bridge/operations/DbObserver;->-get7(Lcom/android/server/bridge/operations/DbObserver;)Lcom/samsung/android/knox/SemRemoteContentManager;
+    invoke-static {v2}, Lcom/android/server/bridge/operations/DbObserver;->-get8(Lcom/android/server/bridge/operations/DbObserver;)Lcom/samsung/android/knox/SemRemoteContentManager;
 
     move-result-object v2
 
@@ -120,7 +120,7 @@
 
     iget-object v4, p0, Lcom/android/server/bridge/operations/DbObserver$1;->this$0:Lcom/android/server/bridge/operations/DbObserver;
 
-    invoke-static {v4}, Lcom/android/server/bridge/operations/DbObserver;->-get8(Lcom/android/server/bridge/operations/DbObserver;)I
+    invoke-static {v4}, Lcom/android/server/bridge/operations/DbObserver;->-get9(Lcom/android/server/bridge/operations/DbObserver;)I
 
     move-result v4
 
@@ -176,7 +176,7 @@
     :cond_1
     iget-object v2, p0, Lcom/android/server/bridge/operations/DbObserver$1;->this$0:Lcom/android/server/bridge/operations/DbObserver;
 
-    invoke-static {v2}, Lcom/android/server/bridge/operations/DbObserver;->-get4(Lcom/android/server/bridge/operations/DbObserver;)I
+    invoke-static {v2}, Lcom/android/server/bridge/operations/DbObserver;->-get5(Lcom/android/server/bridge/operations/DbObserver;)I
 
     move-result v2
 

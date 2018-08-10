@@ -17,6 +17,10 @@
 # static fields
 .field public static final DUMP_ACTIVITY_RESOLVERS:I = 0x4
 
+.field public static final DUMP_CHANGES:I = 0x400000
+
+.field public static final DUMP_COMPILER_STATS:I = 0x200000
+
 .field public static final DUMP_CONTENT_RESOLVERS:I = 0x20
 
 .field public static final DUMP_DEXOPT:I = 0x100000

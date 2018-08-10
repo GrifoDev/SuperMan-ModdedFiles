@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/am/BatteryStatsService;->setBatteryState(IIIIIIII)V
+    value = Lcom/android/server/am/BatteryStatsService;->setBatteryState(IIIIIIIIIII)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,6 +20,8 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/am/BatteryStatsService;
 
+.field final synthetic val$chargeFullUAh:I
+
 .field final synthetic val$chargeUAh:I
 
 .field final synthetic val$health:I
@@ -28,7 +30,11 @@
 
 .field final synthetic val$plugType:I
 
+.field final synthetic val$secCurrentEvent:I
+
 .field final synthetic val$secEvent:I
+
+.field final synthetic val$secOnline:I
 
 .field final synthetic val$status:I
 
@@ -38,7 +44,7 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/BatteryStatsService;IIIIIIII)V
+.method constructor <init>(Lcom/android/server/am/BatteryStatsService;IIIIIIIIIII)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/BatteryStatsService$1;->this$0:Lcom/android/server/am/BatteryStatsService;
@@ -57,7 +63,13 @@
 
     iput p8, p0, Lcom/android/server/am/BatteryStatsService$1;->val$chargeUAh:I
 
-    iput p9, p0, Lcom/android/server/am/BatteryStatsService$1;->val$secEvent:I
+    iput p9, p0, Lcom/android/server/am/BatteryStatsService$1;->val$chargeFullUAh:I
+
+    iput p10, p0, Lcom/android/server/am/BatteryStatsService$1;->val$secEvent:I
+
+    iput p11, p0, Lcom/android/server/am/BatteryStatsService$1;->val$secOnline:I
+
+    iput p12, p0, Lcom/android/server/am/BatteryStatsService$1;->val$secCurrentEvent:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -67,20 +79,20 @@
 
 # virtual methods
 .method public run()V
-    .locals 11
+    .locals 14
 
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService$1;->this$0:Lcom/android/server/am/BatteryStatsService;
 
-    iget-object v10, v0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
+    iget-object v13, v0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
-    monitor-enter v10
+    monitor-enter v13
 
     :try_start_0
     iget v0, p0, Lcom/android/server/am/BatteryStatsService$1;->val$plugType:I
 
     if-nez v0, :cond_0
 
-    const/4 v9, 0x1
+    const/4 v12, 0x1
 
     :goto_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService$1;->this$0:Lcom/android/server/am/BatteryStatsService;
@@ -91,7 +103,7 @@
 
     move-result v0
 
-    if-ne v0, v9, :cond_1
+    if-ne v0, v12, :cond_1
 
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService$1;->this$0:Lcom/android/server/am/BatteryStatsService;
 
@@ -111,23 +123,29 @@
 
     iget v7, p0, Lcom/android/server/am/BatteryStatsService$1;->val$chargeUAh:I
 
-    iget v8, p0, Lcom/android/server/am/BatteryStatsService$1;->val$secEvent:I
+    iget v8, p0, Lcom/android/server/am/BatteryStatsService$1;->val$chargeFullUAh:I
 
-    invoke-virtual/range {v0 .. v8}, Lcom/android/internal/os/BatteryStatsImpl;->setBatteryStateLocked(IIIIIIII)V
+    iget v9, p0, Lcom/android/server/am/BatteryStatsService$1;->val$secEvent:I
+
+    iget v10, p0, Lcom/android/server/am/BatteryStatsService$1;->val$secOnline:I
+
+    iget v11, p0, Lcom/android/server/am/BatteryStatsService$1;->val$secCurrentEvent:I
+
+    invoke-virtual/range {v0 .. v11}, Lcom/android/internal/os/BatteryStatsImpl;->setBatteryStateLocked(IIIIIIIIIII)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit v10
+    monitor-exit v13
 
     return-void
 
     :cond_0
-    const/4 v9, 0x0
+    const/4 v12, 0x0
 
     goto :goto_0
 
     :cond_1
-    monitor-exit v10
+    monitor-exit v13
 
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService$1;->this$0:Lcom/android/server/am/BatteryStatsService;
 
@@ -139,9 +157,9 @@
 
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService$1;->this$0:Lcom/android/server/am/BatteryStatsService;
 
-    iget-object v10, v0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
+    iget-object v13, v0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
-    monitor-enter v10
+    monitor-enter v13
 
     :try_start_1
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService$1;->this$0:Lcom/android/server/am/BatteryStatsService;
@@ -162,27 +180,33 @@
 
     iget v7, p0, Lcom/android/server/am/BatteryStatsService$1;->val$chargeUAh:I
 
-    iget v8, p0, Lcom/android/server/am/BatteryStatsService$1;->val$secEvent:I
+    iget v8, p0, Lcom/android/server/am/BatteryStatsService$1;->val$chargeFullUAh:I
 
-    invoke-virtual/range {v0 .. v8}, Lcom/android/internal/os/BatteryStatsImpl;->setBatteryStateLocked(IIIIIIII)V
+    iget v9, p0, Lcom/android/server/am/BatteryStatsService$1;->val$secEvent:I
+
+    iget v10, p0, Lcom/android/server/am/BatteryStatsService$1;->val$secOnline:I
+
+    iget v11, p0, Lcom/android/server/am/BatteryStatsService$1;->val$secCurrentEvent:I
+
+    invoke-virtual/range {v0 .. v11}, Lcom/android/internal/os/BatteryStatsImpl;->setBatteryStateLocked(IIIIIIIIIII)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    monitor-exit v10
+    monitor-exit v13
 
     return-void
 
     :catchall_0
     move-exception v0
 
-    monitor-exit v10
+    monitor-exit v13
 
     throw v0
 
     :catchall_1
     move-exception v0
 
-    monitor-exit v10
+    monitor-exit v13
 
     throw v0
 .end method

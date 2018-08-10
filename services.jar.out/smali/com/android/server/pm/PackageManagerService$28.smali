@@ -1,11 +1,14 @@
 .class Lcom/android/server/pm/PackageManagerService$28;
-.super Landroid/content/IIntentReceiver$Stub;
+.super Ljava/lang/Object;
 .source "PackageManagerService.java"
+
+# interfaces
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/pm/PackageManagerService;->unloadMediaPackages(Landroid/util/ArrayMap;[IZ)V
+    value = Lcom/android/server/pm/PackageManagerService;->loadPrivatePackages(Landroid/os/storage/VolumeInfo;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,95 +20,32 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/pm/PackageManagerService;
 
-.field final synthetic val$keys:Ljava/util/Set;
-
-.field final synthetic val$reportStatus:Z
+.field final synthetic val$vol:Landroid/os/storage/VolumeInfo;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/PackageManagerService;ZLjava/util/Set;)V
+.method constructor <init>(Lcom/android/server/pm/PackageManagerService;Landroid/os/storage/VolumeInfo;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$28;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    iput-boolean p2, p0, Lcom/android/server/pm/PackageManagerService$28;->val$reportStatus:Z
+    iput-object p2, p0, Lcom/android/server/pm/PackageManagerService$28;->val$vol:Landroid/os/storage/VolumeInfo;
 
-    iput-object p3, p0, Lcom/android/server/pm/PackageManagerService$28;->val$keys:Ljava/util/Set;
-
-    invoke-direct {p0}, Landroid/content/IIntentReceiver$Stub;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public performReceive(Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;ZZI)V
-    .locals 5
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    const/4 v1, 0x0
-
-    const-string/jumbo v0, "PackageManager"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "do force gc after sending broadcast : "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/Runtime;->gc()V
-
-    iget-object v2, p0, Lcom/android/server/pm/PackageManagerService$28;->this$0:Lcom/android/server/pm/PackageManagerService;
-
-    iget-boolean v0, p0, Lcom/android/server/pm/PackageManagerService$28;->val$reportStatus:Z
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_0
-    iget-object v3, p0, Lcom/android/server/pm/PackageManagerService$28;->val$keys:Ljava/util/Set;
-
-    const/4 v4, -0x1
-
-    invoke-static {v2, v0, v4, v3}, Lcom/android/server/pm/PackageManagerService;->-wrap55(Lcom/android/server/pm/PackageManagerService;IILjava/util/Set;)V
+.method public run()V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$28;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/pm/PackageManagerService;->setAvailableMountSync(Z)V
+    iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$28;->val$vol:Landroid/os/storage/VolumeInfo;
 
-    const-string/jumbo v0, "PackageManager"
-
-    const-string/jumbo v1, "setAvailableMountSync false"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/android/server/pm/PackageManagerService;->-wrap47(Lcom/android/server/pm/PackageManagerService;Landroid/os/storage/VolumeInfo;)V
 
     return-void
-
-    :cond_0
-    move v0, v1
-
-    goto :goto_0
 .end method

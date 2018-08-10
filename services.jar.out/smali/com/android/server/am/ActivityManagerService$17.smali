@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/am/ActivityManagerService;->appNotRespondingViaProvider(Landroid/os/IBinder;)V
+    value = Lcom/android/server/am/ActivityManagerService;->inputDispatchingTimedOut(Lcom/android/server/am/ProcessRecord;Lcom/android/server/am/ActivityRecord;Lcom/android/server/am/ActivityRecord;ZLjava/lang/String;)Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,16 +20,32 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/am/ActivityManagerService;
 
-.field final synthetic val$host:Lcom/android/server/am/ProcessRecord;
+.field final synthetic val$aboveSystem:Z
+
+.field final synthetic val$activity:Lcom/android/server/am/ActivityRecord;
+
+.field final synthetic val$annotation:Ljava/lang/String;
+
+.field final synthetic val$parent:Lcom/android/server/am/ActivityRecord;
+
+.field final synthetic val$proc:Lcom/android/server/am/ProcessRecord;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/ActivityManagerService;Lcom/android/server/am/ProcessRecord;)V
+.method constructor <init>(Lcom/android/server/am/ActivityManagerService;Lcom/android/server/am/ProcessRecord;Ljava/lang/String;Lcom/android/server/am/ActivityRecord;Lcom/android/server/am/ActivityRecord;Z)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$17;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    iput-object p2, p0, Lcom/android/server/am/ActivityManagerService$17;->val$host:Lcom/android/server/am/ProcessRecord;
+    iput-object p2, p0, Lcom/android/server/am/ActivityManagerService$17;->val$proc:Lcom/android/server/am/ProcessRecord;
+
+    iput-object p3, p0, Lcom/android/server/am/ActivityManagerService$17;->val$annotation:Ljava/lang/String;
+
+    iput-object p4, p0, Lcom/android/server/am/ActivityManagerService$17;->val$activity:Lcom/android/server/am/ActivityRecord;
+
+    iput-object p5, p0, Lcom/android/server/am/ActivityManagerService$17;->val$parent:Lcom/android/server/am/ActivityRecord;
+
+    iput-boolean p6, p0, Lcom/android/server/am/ActivityManagerService$17;->val$aboveSystem:Z
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -41,19 +57,36 @@
 .method public run()V
     .locals 6
 
-    const/4 v2, 0x0
+    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$17;->this$0:Lcom/android/server/am/ActivityManagerService;
 
+    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mBridge:Lcom/android/server/am/IActivityManagerServiceBridge;
+
+    iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$17;->val$proc:Lcom/android/server/am/ProcessRecord;
+
+    iget-object v2, p0, Lcom/android/server/am/ActivityManagerService$17;->val$annotation:Ljava/lang/String;
+
+    invoke-interface {v0, v1, v2}, Lcom/android/server/am/IActivityManagerServiceBridge;->skipReusedAppNotRespondingProc(Lcom/android/server/am/ProcessRecord;Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    return-void
+
+    :cond_0
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$17;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mAppErrors:Lcom/android/server/am/AppErrors;
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$17;->val$host:Lcom/android/server/am/ProcessRecord;
+    iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$17;->val$proc:Lcom/android/server/am/ProcessRecord;
 
-    const-string/jumbo v5, "ContentProvider not responding"
+    iget-object v2, p0, Lcom/android/server/am/ActivityManagerService$17;->val$activity:Lcom/android/server/am/ActivityRecord;
 
-    const/4 v4, 0x0
+    iget-object v3, p0, Lcom/android/server/am/ActivityManagerService$17;->val$parent:Lcom/android/server/am/ActivityRecord;
 
-    move-object v3, v2
+    iget-boolean v4, p0, Lcom/android/server/am/ActivityManagerService$17;->val$aboveSystem:Z
+
+    iget-object v5, p0, Lcom/android/server/am/ActivityManagerService$17;->val$annotation:Ljava/lang/String;
 
     invoke-virtual/range {v0 .. v5}, Lcom/android/server/am/AppErrors;->appNotResponding(Lcom/android/server/am/ProcessRecord;Lcom/android/server/am/ActivityRecord;Lcom/android/server/am/ActivityRecord;ZLjava/lang/String;)V
 

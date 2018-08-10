@@ -41,7 +41,7 @@
 
     iget-object v0, v0, Lcom/android/server/display/DisplayManagerService$LocalService;->this$0:Lcom/android/server/display/DisplayManagerService;
 
-    invoke-static {v0}, Lcom/android/server/display/DisplayManagerService;->-get7(Lcom/android/server/display/DisplayManagerService;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/display/DisplayManagerService;->-get8(Lcom/android/server/display/DisplayManagerService;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -56,7 +56,7 @@
 
     const/4 v3, 0x0
 
-    invoke-static {v0, v2, v3}, Lcom/android/server/display/DisplayManagerService;->-wrap25(Lcom/android/server/display/DisplayManagerService;II)V
+    invoke-static {v0, v2, v3}, Lcom/android/server/display/DisplayManagerService;->-wrap33(Lcom/android/server/display/DisplayManagerService;II)V
 
     iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$LocalService$2;->this$1:Lcom/android/server/display/DisplayManagerService$LocalService;
 

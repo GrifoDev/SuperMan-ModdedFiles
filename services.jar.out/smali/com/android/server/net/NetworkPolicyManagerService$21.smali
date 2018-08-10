@@ -32,17 +32,25 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .locals 2
+    .locals 3
 
-    iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService$21;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
+    const-string/jumbo v1, "NetworkPolicy"
+
+    const-string/jumbo v2, "mRestrictBgInLowPowerObserver"
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v1, p0, Lcom/android/server/net/NetworkPolicyManagerService$21;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
-    invoke-static {v1}, Lcom/android/server/net/NetworkPolicyManagerService;->-wrap4(Lcom/android/server/net/NetworkPolicyManagerService;)Ljava/util/List;
+    iget-object v1, v1, Lcom/android/server/net/NetworkPolicyManagerService;->mHandler:Landroid/os/Handler;
 
-    move-result-object v1
+    const/16 v2, 0x3ed
 
-    invoke-static {v0, v1}, Lcom/android/server/net/NetworkPolicyManagerService;->-set5(Lcom/android/server/net/NetworkPolicyManagerService;Ljava/util/List;)Ljava/util/List;
+    invoke-virtual {v1, v2}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
     return-void
 .end method

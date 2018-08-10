@@ -54,7 +54,7 @@
 
     iget-object v10, p0, Lcom/android/server/bridge/BridgeProxy$RCPPolicyChangedReceiver;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v10}, Lcom/android/server/bridge/BridgeProxy;->-get8(Lcom/android/server/bridge/BridgeProxy;)I
+    invoke-static {v10}, Lcom/android/server/bridge/BridgeProxy;->-get10(Lcom/android/server/bridge/BridgeProxy;)I
 
     move-result v10
 
@@ -79,7 +79,7 @@
     :cond_0
     const-string/jumbo v8, "RCPPolicyChangedReceiver"
 
-    const-string/jumbo v9, " onReceive RCP_POLICY_CHANGED intent OR intent.getAction() is null "
+    const-string/jumbo v9, " onReceive RCP_POLICY_CHANGED intent OR RCP_POLICY_CHANGED_SECURE intent OR intent.getAction() is null "
 
     invoke-static {v8, v9}, Lcom/android/server/bridge/BridgeProxy$BridgeLog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -96,8 +96,21 @@
 
     move-result v8
 
-    if-eqz v8, :cond_3
+    if-nez v8, :cond_2
 
+    const-string/jumbo v8, "com.samsung.knox.securefolder.intent.action.RCP_POLICY_CHANGED_SECURE"
+
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_4
+
+    :cond_2
     invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v8
@@ -108,7 +121,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_3
 
     const-string/jumbo v8, "personaId"
 
@@ -116,7 +129,7 @@
 
     move-result v3
 
-    if-eq v3, v11, :cond_2
+    if-eq v3, v11, :cond_3
 
     const-string/jumbo v8, "syncerList"
 
@@ -125,6 +138,16 @@
     move-result-object v6
 
     const/4 v2, 0x0
+
+    if-eqz v6, :cond_3
+
+    invoke-virtual {v6}, Ljava/util/ArrayList;->isEmpty()Z
+
+    move-result v8
+
+    xor-int/lit8 v8, v8, 0x1
+
+    if-eqz v8, :cond_3
 
     invoke-virtual {v6}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
@@ -135,7 +158,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_3
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -151,7 +174,7 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v8
@@ -162,7 +185,7 @@
 
     move-result-object v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_4
 
     const-string/jumbo v8, "personaId"
 
@@ -170,7 +193,7 @@
 
     move-result v3
 
-    if-eq v3, v11, :cond_3
+    if-eq v3, v11, :cond_4
 
     const-string/jumbo v8, "syncerList"
 
@@ -188,6 +211,16 @@
 
     const/4 v2, 0x0
 
+    if-eqz v7, :cond_4
+
+    invoke-virtual {v7}, Ljava/util/ArrayList;->isEmpty()Z
+
+    move-result v8
+
+    xor-int/lit8 v8, v8, 0x1
+
+    if-eqz v8, :cond_4
+
     invoke-virtual {v7}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -197,7 +230,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_3
+    if-eqz v8, :cond_4
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -211,6 +244,6 @@
 
     goto :goto_1
 
-    :cond_3
+    :cond_4
     return-void
 .end method

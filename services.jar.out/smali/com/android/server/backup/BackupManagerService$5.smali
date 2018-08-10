@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/backup/BackupManagerService;->dataChanged(Ljava/lang/String;)V
+    value = Lcom/android/server/backup/BackupManagerService;->beginFullBackup(Lcom/android/server/backup/FullBackupJob;)Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/backup/BackupManagerService;
 
-.field final synthetic val$packageName:Ljava/lang/String;
-
-.field final synthetic val$targets:Ljava/util/HashSet;
+.field final synthetic val$deferTime:J
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/backup/BackupManagerService;Ljava/lang/String;Ljava/util/HashSet;)V
+.method constructor <init>(Lcom/android/server/backup/BackupManagerService;J)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/backup/BackupManagerService$5;->this$0:Lcom/android/server/backup/BackupManagerService;
 
-    iput-object p2, p0, Lcom/android/server/backup/BackupManagerService$5;->val$packageName:Ljava/lang/String;
-
-    iput-object p3, p0, Lcom/android/server/backup/BackupManagerService$5;->val$targets:Ljava/util/HashSet;
+    iput-wide p2, p0, Lcom/android/server/backup/BackupManagerService$5;->val$deferTime:J
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,15 +39,15 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 4
 
     iget-object v0, p0, Lcom/android/server/backup/BackupManagerService$5;->this$0:Lcom/android/server/backup/BackupManagerService;
 
-    iget-object v1, p0, Lcom/android/server/backup/BackupManagerService$5;->val$packageName:Ljava/lang/String;
+    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService;->mContext:Landroid/content/Context;
 
-    iget-object v2, p0, Lcom/android/server/backup/BackupManagerService$5;->val$targets:Ljava/util/HashSet;
+    iget-wide v2, p0, Lcom/android/server/backup/BackupManagerService$5;->val$deferTime:J
 
-    invoke-static {v0, v1, v2}, Lcom/android/server/backup/BackupManagerService;->-wrap15(Lcom/android/server/backup/BackupManagerService;Ljava/lang/String;Ljava/util/HashSet;)V
+    invoke-static {v0, v2, v3}, Lcom/android/server/backup/FullBackupJob;->schedule(Landroid/content/Context;J)V
 
     return-void
 .end method

@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/accounts/AccountManagerService;->confirmCredentialsAsUser(Landroid/accounts/IAccountManagerResponse;Landroid/accounts/Account;Landroid/os/Bundle;ZI)V
+    value = Lcom/android/server/accounts/AccountManagerService;->finishSessionAsUser(Landroid/accounts/IAccountManagerResponse;Landroid/os/Bundle;ZLandroid/os/Bundle;I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,24 +17,24 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/accounts/AccountManagerService;
 
-.field final synthetic val$account:Landroid/accounts/Account;
+.field final synthetic val$accountType:Ljava/lang/String;
 
-.field final synthetic val$options:Landroid/os/Bundle;
+.field final synthetic val$decryptedBundle:Landroid/os/Bundle;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/accounts/AccountManagerService;Lcom/android/server/accounts/AccountManagerService;Lcom/android/server/accounts/AccountManagerService$UserAccounts;Landroid/accounts/IAccountManagerResponse;Ljava/lang/String;ZZLjava/lang/String;ZZLandroid/accounts/Account;Landroid/os/Bundle;)V
+.method constructor <init>(Lcom/android/server/accounts/AccountManagerService;Lcom/android/server/accounts/AccountManagerService;Lcom/android/server/accounts/AccountManagerService$UserAccounts;Landroid/accounts/IAccountManagerResponse;Ljava/lang/String;ZZLjava/lang/String;ZZLandroid/os/Bundle;Ljava/lang/String;)V
     .locals 11
 
     iput-object p2, p0, Lcom/android/server/accounts/AccountManagerService$11;->this$0:Lcom/android/server/accounts/AccountManagerService;
 
     move-object/from16 v0, p11
 
-    iput-object v0, p0, Lcom/android/server/accounts/AccountManagerService$11;->val$account:Landroid/accounts/Account;
+    iput-object v0, p0, Lcom/android/server/accounts/AccountManagerService$11;->val$decryptedBundle:Landroid/os/Bundle;
 
     move-object/from16 v0, p12
 
-    iput-object v0, p0, Lcom/android/server/accounts/AccountManagerService$11;->val$options:Landroid/os/Bundle;
+    iput-object v0, p0, Lcom/android/server/accounts/AccountManagerService$11;->val$accountType:Ljava/lang/String;
 
     move-object v1, p0
 
@@ -73,11 +73,11 @@
 
     iget-object v0, p0, Lcom/android/server/accounts/AccountManagerService$11;->mAuthenticator:Landroid/accounts/IAccountAuthenticator;
 
-    iget-object v1, p0, Lcom/android/server/accounts/AccountManagerService$11;->val$account:Landroid/accounts/Account;
+    iget-object v1, p0, Lcom/android/server/accounts/AccountManagerService$11;->mAccountType:Ljava/lang/String;
 
-    iget-object v2, p0, Lcom/android/server/accounts/AccountManagerService$11;->val$options:Landroid/os/Bundle;
+    iget-object v2, p0, Lcom/android/server/accounts/AccountManagerService$11;->val$decryptedBundle:Landroid/os/Bundle;
 
-    invoke-interface {v0, p0, v1, v2}, Landroid/accounts/IAccountAuthenticator;->confirmCredentials(Landroid/accounts/IAccountAuthenticatorResponse;Landroid/accounts/Account;Landroid/os/Bundle;)V
+    invoke-interface {v0, p0, v1, v2}, Landroid/accounts/IAccountAuthenticator;->finishSession(Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;Landroid/os/Bundle;)V
 
     return-void
 .end method
@@ -97,21 +97,21 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, ", confirmCredentials"
+    const-string/jumbo v1, ", finishSession"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    const-string/jumbo v1, ", "
+    const-string/jumbo v1, ", accountType "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/server/accounts/AccountManagerService$11;->val$account:Landroid/accounts/Account;
+    iget-object v1, p0, Lcom/android/server/accounts/AccountManagerService$11;->val$accountType:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 

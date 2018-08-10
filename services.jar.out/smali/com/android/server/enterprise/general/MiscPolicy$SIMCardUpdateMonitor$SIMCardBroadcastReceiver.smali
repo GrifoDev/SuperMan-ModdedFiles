@@ -251,7 +251,9 @@
 
     move-result-object v11
 
-    invoke-virtual {v11, v7}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    const-string/jumbo v12, "com.samsung.android.knox.permission.KNOX_INVENTORY"
+
+    invoke-virtual {v11, v7, v12}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
 
     new-instance v5, Landroid/content/Intent;
 
@@ -293,7 +295,9 @@
 
     move-result-object v11
 
-    invoke-virtual {v11, v5}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    const-string/jumbo v12, "android.permission.sec.MDM_SECURITY"
+
+    invoke-virtual {v11, v5, v12}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
 
     new-instance v6, Landroid/content/Intent;
 
@@ -335,7 +339,9 @@
 
     move-result-object v11
 
-    invoke-virtual {v11, v6}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    const-string/jumbo v12, "android.permission.sec.MDM_SECURITY"
+
+    invoke-virtual {v11, v6, v12}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
 
     :cond_0
     :goto_0
@@ -418,12 +424,13 @@
 
     move-result v11
 
-    if-eqz v11, :cond_3
+    xor-int/lit8 v11, v11, 0x1
 
-    :cond_2
+    if-eqz v11, :cond_2
+
     const-string/jumbo v11, "SimChangeOperation"
 
-    const-string/jumbo v12, "3"
+    const-string/jumbo v12, "2"
 
     const-string/jumbo v13, "/data/system/SimCard.dat"
 
@@ -466,7 +473,9 @@
 
     move-result-object v11
 
-    invoke-virtual {v11, v7}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    const-string/jumbo v12, "com.samsung.android.knox.permission.KNOX_INVENTORY"
+
+    invoke-virtual {v11, v7, v12}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
 
     new-instance v5, Landroid/content/Intent;
 
@@ -508,7 +517,9 @@
 
     move-result-object v11
 
-    invoke-virtual {v11, v5}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    const-string/jumbo v12, "android.permission.sec.MDM_SECURITY"
+
+    invoke-virtual {v11, v5, v12}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
 
     new-instance v6, Landroid/content/Intent;
 
@@ -550,7 +561,9 @@
 
     move-result-object v11
 
-    invoke-virtual {v11, v6}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    const-string/jumbo v12, "android.permission.sec.MDM_SECURITY"
+
+    invoke-virtual {v11, v6, v12}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -589,11 +602,11 @@
 
     goto/16 :goto_0
 
-    :cond_3
+    :cond_2
     :try_start_1
     const-string/jumbo v11, "SimChangeOperation"
 
-    const-string/jumbo v12, "2"
+    const-string/jumbo v12, "3"
 
     const-string/jumbo v13, "/data/system/SimCard.dat"
 

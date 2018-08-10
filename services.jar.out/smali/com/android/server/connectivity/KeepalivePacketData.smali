@@ -88,13 +88,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
+
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Lcom/android/server/connectivity/KeepalivePacketData;->dstAddress:Ljava/net/InetAddress;
 
     instance-of v0, v0, Ljava/net/Inet4Address;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     sget v0, Landroid/system/OsConstants;->ETH_P_IP:I
 
@@ -105,37 +107,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_2
 
     invoke-static {p4}, Landroid/net/util/IpUtils;->isValidUdpOrTcpPort(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    xor-int/lit8 v0, v0, 0x1
 
-    return-void
+    if-eqz v0, :cond_5
 
     :cond_2
-    iget-object v0, p0, Lcom/android/server/connectivity/KeepalivePacketData;->dstAddress:Ljava/net/InetAddress;
-
-    instance-of v0, v0, Ljava/net/Inet6Address;
-
-    if-eqz v0, :cond_3
-
-    sget v0, Landroid/system/OsConstants;->ETH_P_IPV6:I
-
-    iput v0, p0, Lcom/android/server/connectivity/KeepalivePacketData;->protocol:I
-
-    goto :goto_0
-
-    :cond_3
-    new-instance v0, Lcom/android/server/connectivity/KeepalivePacketData$InvalidPacketException;
-
-    invoke-direct {v0, v2}, Lcom/android/server/connectivity/KeepalivePacketData$InvalidPacketException;-><init>(I)V
-
-    throw v0
-
-    :cond_4
     new-instance v0, Lcom/android/server/connectivity/KeepalivePacketData$InvalidPacketException;
 
     const/16 v1, -0x16
@@ -143,6 +125,29 @@
     invoke-direct {v0, v1}, Lcom/android/server/connectivity/KeepalivePacketData$InvalidPacketException;-><init>(I)V
 
     throw v0
+
+    :cond_3
+    iget-object v0, p0, Lcom/android/server/connectivity/KeepalivePacketData;->dstAddress:Ljava/net/InetAddress;
+
+    instance-of v0, v0, Ljava/net/Inet6Address;
+
+    if-eqz v0, :cond_4
+
+    sget v0, Landroid/system/OsConstants;->ETH_P_IPV6:I
+
+    iput v0, p0, Lcom/android/server/connectivity/KeepalivePacketData;->protocol:I
+
+    goto :goto_0
+
+    :cond_4
+    new-instance v0, Lcom/android/server/connectivity/KeepalivePacketData$InvalidPacketException;
+
+    invoke-direct {v0, v2}, Lcom/android/server/connectivity/KeepalivePacketData$InvalidPacketException;-><init>(I)V
+
+    throw v0
+
+    :cond_5
+    return-void
 .end method
 
 .method public static nattKeepalivePacket(Ljava/net/InetAddress;ILjava/net/InetAddress;I)Lcom/android/server/connectivity/KeepalivePacketData;
@@ -161,19 +166,9 @@
 
     instance-of v0, p2, Ljava/net/Inet4Address;
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/16 v0, 0x1194
-
-    if-eq p3, v0, :cond_1
-
-    new-instance v0, Lcom/android/server/connectivity/KeepalivePacketData$InvalidPacketException;
-
-    const/16 v1, -0x16
-
-    invoke-direct {v0, v1}, Lcom/android/server/connectivity/KeepalivePacketData$InvalidPacketException;-><init>(I)V
-
-    throw v0
+    if-eqz v0, :cond_1
 
     :cond_0
     new-instance v0, Lcom/android/server/connectivity/KeepalivePacketData$InvalidPacketException;
@@ -185,6 +180,19 @@
     throw v0
 
     :cond_1
+    const/16 v0, 0x1194
+
+    if-eq p3, v0, :cond_2
+
+    new-instance v0, Lcom/android/server/connectivity/KeepalivePacketData$InvalidPacketException;
+
+    const/16 v1, -0x16
+
+    invoke-direct {v0, v1}, Lcom/android/server/connectivity/KeepalivePacketData$InvalidPacketException;-><init>(I)V
+
+    throw v0
+
+    :cond_2
     const/16 v8, 0x1d
 
     invoke-static {v8}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;

@@ -49,6 +49,8 @@
     .end annotation
 .end field
 
+.field private volatile mLastProbeTimeMs:J
+
 .field private mLinkProperties:Landroid/net/LinkProperties;
     .annotation build Lcom/android/internal/annotations/GuardedBy;
         value = "mLock"
@@ -57,15 +59,15 @@
 
 .field private final mLock:Ljava/lang/Object;
 
+.field private final mMetricsLog:Landroid/net/metrics/IpConnectivityLog;
+
+.field private final mMultinetworkPolicyTracker:Landroid/net/util/MultinetworkPolicyTracker;
+
 .field private final mNetlinkSocketObserver:Landroid/net/ip/IpReachabilityMonitor$NetlinkSocketObserver;
 
 .field private final mObserverThread:Ljava/lang/Thread;
 
-.field private mRunning:Z
-    .annotation build Lcom/android/internal/annotations/GuardedBy;
-        value = "mLock"
-    .end annotation
-.end field
+.field private volatile mRunning:Z
 
 .field private final mWakeLock:Landroid/os/PowerManager$WakeLock;
 
@@ -95,6 +97,14 @@
     return-object v0
 .end method
 
+.method static synthetic -get3(Landroid/net/ip/IpReachabilityMonitor;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/net/ip/IpReachabilityMonitor;->mRunning:Z
+
+    return v0
+.end method
+
 .method static synthetic -set0(Landroid/net/ip/IpReachabilityMonitor;Z)Z
     .locals 0
 
@@ -113,17 +123,7 @@
     return v0
 .end method
 
-.method static synthetic -wrap1(Landroid/net/ip/IpReachabilityMonitor;)Z
-    .locals 1
-
-    invoke-direct {p0}, Landroid/net/ip/IpReachabilityMonitor;->stillRunning()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic -wrap2(Landroid/net/ip/IpReachabilityMonitor;Ljava/lang/String;)V
+.method static synthetic -wrap1(Landroid/net/ip/IpReachabilityMonitor;Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1}, Landroid/net/ip/IpReachabilityMonitor;->handleNeighborLost(Ljava/lang/String;)V
@@ -132,6 +132,16 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Landroid/net/ip/IpReachabilityMonitor$Callback;)V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-direct {p0, p1, p2, p3, v0}, Landroid/net/ip/IpReachabilityMonitor;-><init>(Landroid/content/Context;Ljava/lang/String;Landroid/net/ip/IpReachabilityMonitor$Callback;Landroid/net/util/MultinetworkPolicyTracker;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Landroid/net/ip/IpReachabilityMonitor$Callback;Landroid/net/util/MultinetworkPolicyTracker;)V
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -146,6 +156,12 @@
     invoke-direct {v3}, Ljava/lang/Object;-><init>()V
 
     iput-object v3, p0, Landroid/net/ip/IpReachabilityMonitor;->mLock:Ljava/lang/Object;
+
+    new-instance v3, Landroid/net/metrics/IpConnectivityLog;
+
+    invoke-direct {v3}, Landroid/net/metrics/IpConnectivityLog;-><init>()V
+
+    iput-object v3, p0, Landroid/net/ip/IpReachabilityMonitor;->mMetricsLog:Landroid/net/metrics/IpConnectivityLog;
 
     new-instance v3, Landroid/net/LinkProperties;
 
@@ -215,6 +231,8 @@
 
     iput-object p3, p0, Landroid/net/ip/IpReachabilityMonitor;->mCallback:Landroid/net/ip/IpReachabilityMonitor$Callback;
 
+    iput-object p4, p0, Landroid/net/ip/IpReachabilityMonitor;->mMultinetworkPolicyTracker:Landroid/net/util/MultinetworkPolicyTracker;
+
     new-instance v3, Landroid/net/ip/IpReachabilityMonitor$NetlinkSocketObserver;
 
     const/4 v4, 0x0
@@ -269,6 +287,28 @@
     invoke-direct {v3, v4, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw v3
+.end method
+
+.method private avoidingBadLinks()Z
+    .locals 1
+
+    iget-object v0, p0, Landroid/net/ip/IpReachabilityMonitor;->mMultinetworkPolicyTracker:Landroid/net/util/MultinetworkPolicyTracker;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/net/ip/IpReachabilityMonitor;->mMultinetworkPolicyTracker:Landroid/net/util/MultinetworkPolicyTracker;
+
+    invoke-virtual {v0}, Landroid/net/util/MultinetworkPolicyTracker;->getAvoidBadWifi()Z
+
+    move-result v0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x1
+
+    goto :goto_0
 .end method
 
 .method private describeWatchList()Ljava/lang/String;
@@ -465,7 +505,7 @@
     return v0
 .end method
 
-.method private getProbeWakeLockDuration()J
+.method private static getProbeWakeLockDuration()J
     .locals 8
 
     const-wide/16 v2, 0x3
@@ -511,7 +551,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_3
+    if-eqz v9, :cond_4
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -592,11 +632,24 @@
 
     :cond_2
     :try_start_1
+    invoke-direct {p0}, Landroid/net/ip/IpReachabilityMonitor;->avoidingBadLinks()Z
+
+    move-result v9
+
+    if-nez v9, :cond_3
+
+    instance-of v9, v4, Ljava/net/Inet6Address;
+
+    xor-int/lit8 v9, v9, 0x1
+
+    if-eqz v9, :cond_0
+
+    :cond_3
     invoke-virtual {v8, v4}, Landroid/net/LinkProperties;->removeDnsServer(Ljava/net/InetAddress;)Z
 
     goto :goto_0
 
-    :cond_3
+    :cond_4
     iget-object v9, p0, Landroid/net/ip/IpReachabilityMonitor;->mLinkProperties:Landroid/net/LinkProperties;
 
     invoke-static {v9, v8}, Landroid/net/LinkProperties;->compareProvisioning(Landroid/net/LinkProperties;Landroid/net/LinkProperties;)Landroid/net/LinkProperties$ProvisioningChange;
@@ -610,10 +663,6 @@
     sget-object v9, Landroid/net/LinkProperties$ProvisioningChange;->LOST_PROVISIONING:Landroid/net/LinkProperties$ProvisioningChange;
 
     if-ne v1, v9, :cond_5
-
-    iget-object v9, p0, Landroid/net/ip/IpReachabilityMonitor;->mInterfaceName:Ljava/lang/String;
-
-    invoke-static {v9}, Landroid/net/metrics/IpReachabilityEvent;->logProvisioningLost(Ljava/lang/String;)V
 
     new-instance v9, Ljava/lang/StringBuilder;
 
@@ -639,22 +688,16 @@
 
     iget-object v9, p0, Landroid/net/ip/IpReachabilityMonitor;->mCallback:Landroid/net/ip/IpReachabilityMonitor$Callback;
 
-    if-eqz v9, :cond_4
+    if-eqz v9, :cond_5
 
     iget-object v9, p0, Landroid/net/ip/IpReachabilityMonitor;->mCallback:Landroid/net/ip/IpReachabilityMonitor$Callback;
 
     invoke-interface {v9, v4, v5}, Landroid/net/ip/IpReachabilityMonitor$Callback;->notifyLost(Ljava/net/InetAddress;Ljava/lang/String;)V
 
-    :cond_4
-    :goto_2
-    return-void
-
     :cond_5
-    iget-object v9, p0, Landroid/net/ip/IpReachabilityMonitor;->mInterfaceName:Ljava/lang/String;
+    invoke-direct {p0, v1}, Landroid/net/ip/IpReachabilityMonitor;->logNudFailed(Landroid/net/LinkProperties$ProvisioningChange;)V
 
-    invoke-static {v9}, Landroid/net/metrics/IpReachabilityEvent;->logNudFailed(Ljava/lang/String;)V
-
-    goto :goto_2
+    return-void
 .end method
 
 .method private static isOnLink(Ljava/util/List;Ljava/net/InetAddress;)Z
@@ -748,498 +791,178 @@
     throw v0
 .end method
 
-.method private static probeNeighbor(ILjava/net/InetAddress;)I
-    .locals 21
+.method private logEvent(II)V
+    .locals 4
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    and-int/lit16 v1, p2, 0xff
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    or-int v0, p1, v1
 
-    const-string/jumbo v5, "probing ip="
+    iget-object v1, p0, Landroid/net/ip/IpReachabilityMonitor;->mMetricsLog:Landroid/net/metrics/IpConnectivityLog;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v2, p0, Landroid/net/ip/IpReachabilityMonitor;->mInterfaceName:Ljava/lang/String;
 
-    move-result-object v4
+    new-instance v3, Landroid/net/metrics/IpReachabilityEvent;
 
-    invoke-virtual/range {p1 .. p1}, Ljava/net/InetAddress;->getHostAddress()Ljava/lang/String;
+    invoke-direct {v3, v0}, Landroid/net/metrics/IpReachabilityEvent;-><init>(I)V
 
-    move-result-object v5
+    invoke-virtual {v1, v2, v3}, Landroid/net/metrics/IpConnectivityLog;->log(Ljava/lang/String;Landroid/os/Parcelable;)Z
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    return-void
+.end method
 
-    move-result-object v4
+.method private logNudFailed(Landroid/net/LinkProperties$ProvisioningChange;)V
+    .locals 10
 
-    const-string/jumbo v5, "%"
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-wide v6
 
-    move-result-object v4
+    iget-wide v8, p0, Landroid/net/ip/IpReachabilityMonitor;->mLastProbeTimeMs:J
 
-    move/from16 v0, p0
+    sub-long v0, v6, v8
 
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-static {}, Landroid/net/ip/IpReachabilityMonitor;->getProbeWakeLockDuration()J
 
-    move-result-object v4
+    move-result-wide v6
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    cmp-long v5, v0, v6
 
-    move-result-object v16
+    if-gez v5, :cond_0
+
+    const/4 v3, 0x1
+
+    :goto_0
+    sget-object v5, Landroid/net/LinkProperties$ProvisioningChange;->LOST_PROVISIONING:Landroid/net/LinkProperties$ProvisioningChange;
+
+    if-ne p1, v5, :cond_1
 
     const/4 v4, 0x1
 
-    const/16 v5, 0x10
+    :goto_1
+    invoke-static {v3, v4}, Landroid/net/metrics/IpReachabilityEvent;->nudFailureEventType(ZZ)I
 
-    const/4 v6, 0x0
+    move-result v2
 
-    move-object/from16 v0, p1
+    iget-object v5, p0, Landroid/net/ip/IpReachabilityMonitor;->mMetricsLog:Landroid/net/metrics/IpConnectivityLog;
 
-    move/from16 v1, p0
+    iget-object v6, p0, Landroid/net/ip/IpReachabilityMonitor;->mInterfaceName:Ljava/lang/String;
 
-    invoke-static {v4, v0, v5, v1, v6}, Landroid/net/netlink/RtNetlinkNeighborMessage;->newNewNeighborMessage(ILjava/net/InetAddress;SI[B)[B
+    new-instance v7, Landroid/net/metrics/IpReachabilityEvent;
+
+    invoke-direct {v7, v2}, Landroid/net/metrics/IpReachabilityEvent;-><init>(I)V
+
+    invoke-virtual {v5, v6, v7}, Landroid/net/metrics/IpConnectivityLog;->log(Ljava/lang/String;Landroid/os/Parcelable;)Z
+
+    return-void
+
+    :cond_0
+    const/4 v3, 0x0
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v4, 0x0
+
+    goto :goto_1
+.end method
+
+.method private static probeNeighbor(ILjava/net/InetAddress;)I
+    .locals 6
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "probing ip="
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    sget v4, Landroid/system/OsConstants;->EPROTO:I
+    invoke-virtual {p1}, Ljava/net/InetAddress;->getHostAddress()Ljava/lang/String;
 
-    neg-int v15, v4
+    move-result-object v4
 
-    const/16 v19, 0x0
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/16 v17, 0x0
+    move-result-object v3
+
+    const-string/jumbo v4, "%"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    const/4 v3, 0x1
+
+    const/16 v4, 0x10
+
+    const/4 v5, 0x0
+
+    invoke-static {v3, p1, v4, p0, v5}, Landroid/net/netlink/RtNetlinkNeighborMessage;->newNewNeighborMessage(ILjava/net/InetAddress;SI[B)[B
+
+    move-result-object v1
 
     :try_start_0
-    new-instance v2, Landroid/net/netlink/NetlinkSocket;
+    sget v3, Landroid/system/OsConstants;->NETLINK_ROUTE:I
 
-    sget v4, Landroid/system/OsConstants;->NETLINK_ROUTE:I
-
-    invoke-direct {v2, v4}, Landroid/net/netlink/NetlinkSocket;-><init>(I)V
+    invoke-static {v3, v1}, Landroid/net/netlink/NetlinkSocket;->sendOneShotKernelMessage(I[B)V
     :try_end_0
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_6
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    .catch Landroid/system/ErrnoException; {:try_start_0 .. :try_end_0} :catch_0
 
-    const-wide/16 v8, 0x12c
+    const/4 v3, 0x0
 
-    :try_start_1
-    invoke-virtual {v2}, Landroid/net/netlink/NetlinkSocket;->connectToKernel()V
-
-    array-length v5, v3
-
-    const/4 v4, 0x0
-
-    const-wide/16 v6, 0x12c
-
-    invoke-virtual/range {v2 .. v7}, Landroid/net/netlink/NetlinkSocket;->sendMessage([BIIJ)Z
-
-    const-wide/16 v4, 0x12c
-
-    invoke-virtual {v2, v4, v5}, Landroid/net/netlink/NetlinkSocket;->recvMessage(J)Ljava/nio/ByteBuffer;
-
-    move-result-object v10
-
-    invoke-static {v10}, Landroid/net/netlink/NetlinkMessage;->parse(Ljava/nio/ByteBuffer;)Landroid/net/netlink/NetlinkMessage;
-
-    move-result-object v18
-
-    if-eqz v18, :cond_3
-
-    move-object/from16 v0, v18
-
-    instance-of v4, v0, Landroid/net/netlink/NetlinkErrorMessage;
-
-    if-eqz v4, :cond_3
-
-    move-object/from16 v0, v18
-
-    check-cast v0, Landroid/net/netlink/NetlinkErrorMessage;
-
-    move-object v4, v0
-
-    invoke-virtual {v4}, Landroid/net/netlink/NetlinkErrorMessage;->getNlMsgError()Landroid/net/netlink/StructNlMsgErr;
-
-    move-result-object v4
-
-    if-eqz v4, :cond_3
-
-    move-object/from16 v0, v18
-
-    check-cast v0, Landroid/net/netlink/NetlinkErrorMessage;
-
-    move-object v4, v0
-
-    invoke-virtual {v4}, Landroid/net/netlink/NetlinkErrorMessage;->getNlMsgError()Landroid/net/netlink/StructNlMsgErr;
-
-    move-result-object v4
-
-    iget v15, v4, Landroid/net/netlink/StructNlMsgErr;->error:I
-
-    if-eqz v15, :cond_0
-
-    const-string/jumbo v4, "IpReachabilityMonitor"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "Error "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    move-object/from16 v0, v16
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v6, ", errmsg="
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual/range {v18 .. v18}, Landroid/net/netlink/NetlinkMessage;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_1
-    .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_2
-
-    :cond_0
-    :goto_0
-    if-eqz v2, :cond_1
-
-    :try_start_2
-    invoke-virtual {v2}, Landroid/net/netlink/NetlinkSocket;->close()V
-    :try_end_2
-    .catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_2} :catch_3
-    .catch Landroid/system/ErrnoException; {:try_start_2 .. :try_end_2} :catch_0
-    .catch Ljava/io/InterruptedIOException; {:try_start_2 .. :try_end_2} :catch_2
-    .catch Ljava/net/SocketException; {:try_start_2 .. :try_end_2} :catch_5
-
-    :cond_1
-    :goto_1
-    if-eqz v19, :cond_2
-
-    :try_start_3
-    throw v19
-    :try_end_3
-    .catch Landroid/system/ErrnoException; {:try_start_3 .. :try_end_3} :catch_0
-    .catch Ljava/io/InterruptedIOException; {:try_start_3 .. :try_end_3} :catch_2
-    .catch Ljava/net/SocketException; {:try_start_3 .. :try_end_3} :catch_5
+    return v3
 
     :catch_0
-    move-exception v11
+    move-exception v0
 
-    const-string/jumbo v4, "IpReachabilityMonitor"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "Error "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    move-object/from16 v0, v16
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5, v11}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    iget v4, v11, Landroid/system/ErrnoException;->errno:I
-
-    neg-int v15, v4
-
-    :cond_2
-    :goto_2
-    return v15
-
-    :cond_3
-    if-nez v18, :cond_5
-
-    const/4 v4, 0x0
-
-    :try_start_4
-    invoke-virtual {v10, v4}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    const-string/jumbo v3, "IpReachabilityMonitor"
 
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, "raw bytes: "
+    const-string/jumbo v5, "Error "
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
-    invoke-static {v10}, Landroid/net/netlink/NetlinkConstants;->hexify(Ljava/nio/ByteBuffer;)Ljava/lang/String;
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v4
+
+    const-string/jumbo v5, ": "
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v14
+    move-result-object v4
 
-    :goto_3
-    const-string/jumbo v4, "IpReachabilityMonitor"
+    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    iget v3, v0, Landroid/system/ErrnoException;->errno:I
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    neg-int v3, v3
 
-    const-string/jumbo v6, "Error "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    move-object/from16 v0, v16
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v6, ", errmsg="
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_4
-    .catch Ljava/lang/Throwable; {:try_start_4 .. :try_end_4} :catch_1
-    .catchall {:try_start_4 .. :try_end_4} :catchall_2
-
-    goto :goto_0
-
-    :catch_1
-    move-exception v4
-
-    :goto_4
-    :try_start_5
-    throw v4
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
-
-    :catchall_0
-    move-exception v5
-
-    move-object/from16 v20, v5
-
-    move-object v5, v4
-
-    move-object/from16 v4, v20
-
-    :goto_5
-    if-eqz v2, :cond_4
-
-    :try_start_6
-    invoke-virtual {v2}, Landroid/net/netlink/NetlinkSocket;->close()V
-    :try_end_6
-    .catch Ljava/lang/Throwable; {:try_start_6 .. :try_end_6} :catch_4
-    .catch Landroid/system/ErrnoException; {:try_start_6 .. :try_end_6} :catch_0
-    .catch Ljava/io/InterruptedIOException; {:try_start_6 .. :try_end_6} :catch_2
-    .catch Ljava/net/SocketException; {:try_start_6 .. :try_end_6} :catch_5
-
-    :cond_4
-    :goto_6
-    if-eqz v5, :cond_7
-
-    :try_start_7
-    throw v5
-    :try_end_7
-    .catch Landroid/system/ErrnoException; {:try_start_7 .. :try_end_7} :catch_0
-    .catch Ljava/io/InterruptedIOException; {:try_start_7 .. :try_end_7} :catch_2
-    .catch Ljava/net/SocketException; {:try_start_7 .. :try_end_7} :catch_5
-
-    :catch_2
-    move-exception v12
-
-    const-string/jumbo v4, "IpReachabilityMonitor"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "Error "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    move-object/from16 v0, v16
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    sget v4, Landroid/system/OsConstants;->ETIMEDOUT:I
-
-    neg-int v15, v4
-
-    goto :goto_2
-
-    :cond_5
-    :try_start_8
-    invoke-virtual/range {v18 .. v18}, Landroid/net/netlink/NetlinkMessage;->toString()Ljava/lang/String;
-    :try_end_8
-    .catch Ljava/lang/Throwable; {:try_start_8 .. :try_end_8} :catch_1
-    .catchall {:try_start_8 .. :try_end_8} :catchall_2
-
-    move-result-object v14
-
-    goto :goto_3
-
-    :catch_3
-    move-exception v19
-
-    goto/16 :goto_1
-
-    :catch_4
-    move-exception v6
-
-    if-nez v5, :cond_6
-
-    move-object v5, v6
-
-    goto :goto_6
-
-    :cond_6
-    if-eq v5, v6, :cond_4
-
-    :try_start_9
-    invoke-virtual {v5, v6}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
-    :try_end_9
-    .catch Landroid/system/ErrnoException; {:try_start_9 .. :try_end_9} :catch_0
-    .catch Ljava/io/InterruptedIOException; {:try_start_9 .. :try_end_9} :catch_2
-    .catch Ljava/net/SocketException; {:try_start_9 .. :try_end_9} :catch_5
-
-    goto :goto_6
-
-    :catch_5
-    move-exception v13
-
-    const-string/jumbo v4, "IpReachabilityMonitor"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "Error "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    move-object/from16 v0, v16
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5, v13}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    sget v4, Landroid/system/OsConstants;->EIO:I
-
-    neg-int v15, v4
-
-    goto/16 :goto_2
-
-    :cond_7
-    :try_start_a
-    throw v4
-    :try_end_a
-    .catch Landroid/system/ErrnoException; {:try_start_a .. :try_end_a} :catch_0
-    .catch Ljava/io/InterruptedIOException; {:try_start_a .. :try_end_a} :catch_2
-    .catch Ljava/net/SocketException; {:try_start_a .. :try_end_a} :catch_5
-
-    :catchall_1
-    move-exception v4
-
-    move-object/from16 v5, v19
-
-    move-object/from16 v2, v17
-
-    goto :goto_5
-
-    :catchall_2
-    move-exception v4
-
-    move-object/from16 v5, v19
-
-    goto :goto_5
-
-    :catch_6
-    move-exception v4
-
-    move-object/from16 v2, v17
-
-    goto :goto_4
-.end method
-
-.method private stillRunning()Z
-    .locals 2
-
-    iget-object v0, p0, Landroid/net/ip/IpReachabilityMonitor;->mLock:Ljava/lang/Object;
-
-    monitor-enter v0
-
-    :try_start_0
-    iget-boolean v1, p0, Landroid/net/ip/IpReachabilityMonitor;->mRunning:Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit v0
-
-    return v1
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-
-    throw v1
+    return v3
 .end method
 
 
@@ -1283,42 +1006,38 @@
 .method public probeAll()V
     .locals 8
 
-    new-instance v0, Ljava/util/HashSet;
-
-    invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
-
     iget-object v5, p0, Landroid/net/ip/IpReachabilityMonitor;->mLock:Ljava/lang/Object;
 
     monitor-enter v5
 
     :try_start_0
+    new-instance v0, Ljava/util/ArrayList;
+
     iget-object v4, p0, Landroid/net/ip/IpReachabilityMonitor;->mIpWatchList:Ljava/util/Map;
 
     invoke-interface {v4}, Ljava/util/Map;->keySet()Ljava/util/Set;
 
     move-result-object v4
 
-    invoke-interface {v0, v4}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
+    invoke-direct {v0, v4}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit v5
 
-    invoke-interface {v0}, Ljava/util/Set;->isEmpty()Z
+    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
     move-result v4
 
     if-nez v4, :cond_0
 
-    invoke-direct {p0}, Landroid/net/ip/IpReachabilityMonitor;->stillRunning()Z
-
-    move-result v4
+    iget-boolean v4, p0, Landroid/net/ip/IpReachabilityMonitor;->mRunning:Z
 
     if-eqz v4, :cond_0
 
     iget-object v4, p0, Landroid/net/ip/IpReachabilityMonitor;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    invoke-direct {p0}, Landroid/net/ip/IpReachabilityMonitor;->getProbeWakeLockDuration()J
+    invoke-static {}, Landroid/net/ip/IpReachabilityMonitor;->getProbeWakeLockDuration()J
 
     move-result-wide v6
 
@@ -1342,13 +1061,17 @@
 
     check-cast v2, Ljava/net/InetAddress;
 
-    invoke-direct {p0}, Landroid/net/ip/IpReachabilityMonitor;->stillRunning()Z
-
-    move-result v4
+    iget-boolean v4, p0, Landroid/net/ip/IpReachabilityMonitor;->mRunning:Z
 
     if-nez v4, :cond_2
 
     :cond_1
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+
+    move-result-wide v4
+
+    iput-wide v4, p0, Landroid/net/ip/IpReachabilityMonitor;->mLastProbeTimeMs:J
+
     return-void
 
     :catchall_0
@@ -1365,28 +1088,19 @@
 
     move-result v1
 
-    iget-object v4, p0, Landroid/net/ip/IpReachabilityMonitor;->mInterfaceName:Ljava/lang/String;
+    const/16 v4, 0x100
 
-    invoke-static {v4, v1}, Landroid/net/metrics/IpReachabilityEvent;->logProbeEvent(Ljava/lang/String;I)V
+    invoke-direct {p0, v4, v1}, Landroid/net/ip/IpReachabilityMonitor;->logEvent(II)V
 
     goto :goto_0
 .end method
 
 .method public stop()V
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Landroid/net/ip/IpReachabilityMonitor;->mLock:Ljava/lang/Object;
+    const/4 v0, 0x0
 
-    monitor-enter v0
-
-    const/4 v1, 0x0
-
-    :try_start_0
-    iput-boolean v1, p0, Landroid/net/ip/IpReachabilityMonitor;->mRunning:Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit v0
+    iput-boolean v0, p0, Landroid/net/ip/IpReachabilityMonitor;->mRunning:Z
 
     invoke-virtual {p0}, Landroid/net/ip/IpReachabilityMonitor;->clearLinkProperties()V
 
@@ -1395,13 +1109,6 @@
     invoke-static {v0}, Landroid/net/ip/IpReachabilityMonitor$NetlinkSocketObserver;->-wrap0(Landroid/net/ip/IpReachabilityMonitor$NetlinkSocketObserver;)V
 
     return-void
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-
-    throw v1
 .end method
 
 .method public updateLinkProperties(Landroid/net/LinkProperties;)V

@@ -3,12 +3,12 @@
 .source "HdmiControlService.java"
 
 # interfaces
-.implements Lcom/android/server/hdmi/HdmiCecLocalDevice$PendingActionClearedCallback;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/hdmi/HdmiControlService;->disableHdmiControlService()V
+    value = Lcom/android/server/hdmi/HdmiControlService;->setControlEnabled(Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,24 +34,12 @@
 
 
 # virtual methods
-.method public onCleared(Lcom/android/server/hdmi/HdmiCecLocalDevice;)V
-    .locals 2
+.method public run()V
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$5;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
-    invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->-wrap8(Lcom/android/server/hdmi/HdmiControlService;)V
-
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$5;->this$0:Lcom/android/server/hdmi/HdmiControlService;
-
-    invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->-get4(Lcom/android/server/hdmi/HdmiControlService;)Lcom/android/server/hdmi/HdmiCecController;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/android/server/hdmi/HdmiControlService$5$1;
-
-    invoke-direct {v1, p0}, Lcom/android/server/hdmi/HdmiControlService$5$1;-><init>(Lcom/android/server/hdmi/HdmiControlService$5;)V
-
-    invoke-virtual {v0, v1}, Lcom/android/server/hdmi/HdmiCecController;->flush(Ljava/lang/Runnable;)V
+    invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->-wrap10(Lcom/android/server/hdmi/HdmiControlService;)V
 
     return-void
 .end method

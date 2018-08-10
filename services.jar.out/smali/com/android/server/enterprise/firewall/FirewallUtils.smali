@@ -2128,7 +2128,7 @@
 
     move-result v12
 
-    if-eqz v12, :cond_15
+    if-eqz v12, :cond_14
 
     const/4 v12, 0x0
 
@@ -2140,7 +2140,9 @@
 
     if-ne v12, v13, :cond_13
 
-    if-eqz v9, :cond_15
+    xor-int/lit8 v12, v9, 0x1
+
+    if-nez v12, :cond_14
 
     :cond_13
     invoke-virtual {v5}, Ljava/lang/String;->length()I
@@ -2155,19 +2157,21 @@
 
     const/16 v13, 0x2d
 
-    if-ne v12, v13, :cond_14
+    if-ne v12, v13, :cond_15
 
-    if-eqz v2, :cond_15
+    xor-int/lit8 v12, v2, 0x1
+
+    if-eqz v12, :cond_15
 
     :cond_14
-    add-int/lit8 v10, v10, 0x1
-
-    goto :goto_5
-
-    :cond_15
     const/4 v10, 0x0
 
     return v10
+
+    :cond_15
+    add-int/lit8 v10, v10, 0x1
+
+    goto :goto_5
 
     :cond_16
     const/4 v10, 0x1

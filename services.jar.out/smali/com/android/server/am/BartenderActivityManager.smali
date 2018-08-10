@@ -95,7 +95,7 @@
     move v5, v6
 
     :goto_0
-    if-ge v5, v7, :cond_3
+    if-ge v5, v7, :cond_4
 
     aget-object v4, v0, v5
 
@@ -109,8 +109,16 @@
 
     move-result v8
 
-    if-eqz v8, :cond_2
+    xor-int/lit8 v8, v8, 0x1
 
+    if-eqz v8, :cond_3
+
+    :cond_2
+    add-int/lit8 v5, v5, 0x1
+
+    goto :goto_0
+
+    :cond_3
     invoke-virtual {v4}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
 
     move-result-object v8
@@ -127,17 +135,12 @@
 
     return v5
 
-    :cond_2
-    add-int/lit8 v5, v5, 0x1
-
-    goto :goto_0
-
     :catch_0
     move-exception v1
 
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
-    :cond_3
+    :cond_4
     return v6
 .end method
 
@@ -167,49 +170,68 @@
 
     iget-boolean v0, p1, Lcom/android/server/am/ProcessRecord;->slowCached:Z
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    return v2
 
     :cond_0
     if-eqz p3, :cond_1
 
     iget-boolean v0, p1, Lcom/android/server/am/ProcessRecord;->slowAbnormal:Z
 
-    if-eqz v0, :cond_3
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_1
+
+    return v2
 
     :cond_1
     iget v0, p1, Lcom/android/server/am/ProcessRecord;->setAdj:I
 
     const/16 v1, 0x1f4
 
-    if-ge v0, v1, :cond_4
+    if-ge v0, v1, :cond_2
 
     return v2
 
     :cond_2
-    return v2
+    iget-object v1, p0, Lcom/android/server/am/BartenderActivityManager;->mAm:Lcom/android/server/am/ActivityManagerService;
 
-    :cond_3
-    return v2
+    monitor-enter v1
 
-    :cond_4
+    :try_start_0
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForLockedSection()V
+
     iget-object v0, p0, Lcom/android/server/am/BartenderActivityManager;->mAm:Lcom/android/server/am/ActivityManagerService;
 
     iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mHomeProcess:Lcom/android/server/am/ProcessRecord;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-ne p1, v0, :cond_5
+    if-ne p1, v0, :cond_3
+
+    monitor-exit v1
+
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
     return v2
 
-    :cond_5
+    :cond_3
+    monitor-exit v1
+
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
+
     iget-object v0, p1, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_4
 
     iget-object v0, p1, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
 
     iget-object v0, v0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_4
 
     iget-object v0, p1, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
 
@@ -219,36 +241,66 @@
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_4
 
     return v2
 
-    :cond_6
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
+
+    throw v0
+
+    :cond_4
     const/4 v0, 0x1
 
     return v0
 .end method
 
-.method static prepareManager(Lcom/android/server/am/ActivityManagerService;)V
-    .locals 1
+.method static declared-synchronized prepareManager(Lcom/android/server/am/ActivityManagerService;)V
+    .locals 2
 
+    const-class v1, Lcom/android/server/am/BartenderActivityManager;
+
+    monitor-enter v1
+
+    :try_start_0
     sget-object v0, Lcom/android/server/am/BartenderActivityManager;->manager:Lcom/android/server/am/BartenderActivityManager;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     if-nez v0, :cond_0
 
     if-nez p0, :cond_1
 
     :cond_0
+    monitor-exit v1
+
     return-void
 
     :cond_1
+    :try_start_1
     new-instance v0, Lcom/android/server/am/BartenderActivityManager;
 
     invoke-direct {v0, p0}, Lcom/android/server/am/BartenderActivityManager;-><init>(Lcom/android/server/am/ActivityManagerService;)V
 
     sput-object v0, Lcom/android/server/am/BartenderActivityManager;->manager:Lcom/android/server/am/BartenderActivityManager;
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    monitor-exit v1
 
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
 

@@ -1,4 +1,4 @@
-.class public Lcom/android/server/job/controllers/TimeController;
+.class public final Lcom/android/server/job/controllers/TimeController;
 .super Lcom/android/server/job/controllers/StateController;
 .source "TimeController.java"
 
@@ -107,7 +107,7 @@
 .end method
 
 .method private canStopTrackingJobLocked(Lcom/android/server/job/controllers/JobStatus;)Z
-    .locals 3
+    .locals 4
 
     const/4 v0, 0x1
 
@@ -121,7 +121,9 @@
 
     iget v2, p1, Lcom/android/server/job/controllers/JobStatus;->satisfiedConstraints:I
 
-    and-int/lit8 v2, v2, 0x2
+    const/high16 v3, -0x80000000
+
+    and-int/2addr v2, v3
 
     if-eqz v2, :cond_2
 
@@ -134,7 +136,9 @@
 
     iget v2, p1, Lcom/android/server/job/controllers/JobStatus;->satisfiedConstraints:I
 
-    and-int/lit8 v2, v2, 0x4
+    const/high16 v3, 0x40000000    # 2.0f
+
+    and-int/2addr v2, v3
 
     if-eqz v2, :cond_3
 
@@ -306,7 +310,7 @@
     goto :goto_0
 
     :cond_2
-    const/4 v10, 0x2
+    const/high16 v10, -0x80000000
 
     invoke-virtual {v1, v10}, Lcom/android/server/job/controllers/JobStatus;->isConstraintSatisfied(I)Z
 
@@ -872,6 +876,10 @@
     :cond_5
     invoke-interface {v7, p1}, Ljava/util/ListIterator;->add(Ljava/lang/Object;)V
 
+    const/16 v1, 0x20
+
+    invoke-virtual {p1, v1}, Lcom/android/server/job/controllers/JobStatus;->setTrackingController(I)V
+
     invoke-virtual {p1}, Lcom/android/server/job/controllers/JobStatus;->hasTimingDelayConstraint()Z
 
     move-result v1
@@ -918,6 +926,14 @@
 
 .method public maybeStopTrackingJobLocked(Lcom/android/server/job/controllers/JobStatus;Lcom/android/server/job/controllers/JobStatus;Z)V
     .locals 1
+
+    const/16 v0, 0x20
+
+    invoke-virtual {p1, v0}, Lcom/android/server/job/controllers/JobStatus;->clearTrackingController(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/server/job/controllers/TimeController;->mTrackedJobs:Ljava/util/List;
 

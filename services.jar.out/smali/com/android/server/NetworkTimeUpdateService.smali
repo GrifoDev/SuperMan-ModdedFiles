@@ -283,7 +283,7 @@
 
     move-result-object v1
 
-    const v2, 0x10e007b
+    const v2, 0x10e0094
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -299,7 +299,7 @@
 
     move-result-object v1
 
-    const v2, 0x10e007c
+    const v2, 0x10e0095
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -315,7 +315,7 @@
 
     move-result-object v1
 
-    const v2, 0x10e007d
+    const v2, 0x10e0096
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -329,7 +329,7 @@
 
     move-result-object v1
 
-    const v2, 0x10e007e
+    const v2, 0x10e0097
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -394,7 +394,11 @@
 
     iget-boolean v0, p0, Lcom/android/server/NetworkTimeUpdateService;->mNtpSetByMDM:Z
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    return-void
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/NetworkTimeUpdateService;->mWakeLock:Landroid/os/PowerManager$WakeLock;
@@ -410,9 +414,6 @@
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
 
-    return-void
-
-    :cond_1
     return-void
 
     :catchall_0
@@ -456,7 +457,15 @@
 
     iget-boolean v6, p0, Lcom/android/server/NetworkTimeUpdateService;->mNtpSetByMDM:Z
 
-    if-eqz v6, :cond_7
+    xor-int/lit8 v6, v6, 0x1
+
+    if-eqz v6, :cond_0
+
+    iget-wide v6, p0, Lcom/android/server/NetworkTimeUpdateService;->mPollingIntervalMs:J
+
+    invoke-direct {p0, v6, v7}, Lcom/android/server/NetworkTimeUpdateService;->resetAlarm(J)V
+
+    return-void
 
     :cond_0
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -477,7 +486,7 @@
 
     cmp-long v6, v4, v6
 
-    if-ltz v6, :cond_8
+    if-ltz v6, :cond_7
 
     :cond_1
     :goto_0
@@ -511,7 +520,7 @@
 
     cmp-long v6, v6, v8
 
-    if-gez v6, :cond_9
+    if-gez v6, :cond_8
 
     iget-object v6, p0, Lcom/android/server/NetworkTimeUpdateService;->mTime:Landroid/util/TrustedTime;
 
@@ -569,13 +578,6 @@
     return-void
 
     :cond_7
-    iget-wide v6, p0, Lcom/android/server/NetworkTimeUpdateService;->mPollingIntervalMs:J
-
-    invoke-direct {p0, v6, v7}, Lcom/android/server/NetworkTimeUpdateService;->resetAlarm(J)V
-
-    return-void
-
-    :cond_8
     const/4 v6, 0x1
 
     if-eq p1, v6, :cond_1
@@ -584,7 +586,7 @@
 
     goto :goto_0
 
-    :cond_9
+    :cond_8
     iget v6, p0, Lcom/android/server/NetworkTimeUpdateService;->mTryAgainCounter:I
 
     add-int/lit8 v6, v6, 0x1
@@ -593,24 +595,24 @@
 
     iget v6, p0, Lcom/android/server/NetworkTimeUpdateService;->mTryAgainTimesMax:I
 
-    if-ltz v6, :cond_a
+    if-ltz v6, :cond_9
 
     iget v6, p0, Lcom/android/server/NetworkTimeUpdateService;->mTryAgainCounter:I
 
     iget v7, p0, Lcom/android/server/NetworkTimeUpdateService;->mTryAgainTimesMax:I
 
-    if-gt v6, v7, :cond_c
+    if-gt v6, v7, :cond_b
 
-    :cond_a
+    :cond_9
     iget-wide v6, p0, Lcom/android/server/NetworkTimeUpdateService;->mPollingIntervalShorterMs:J
 
     invoke-direct {p0, v6, v7}, Lcom/android/server/NetworkTimeUpdateService;->resetAlarm(J)V
 
-    :cond_b
+    :cond_a
     :goto_1
     return-void
 
-    :cond_c
+    :cond_b
     iput v10, p0, Lcom/android/server/NetworkTimeUpdateService;->mTryAgainCounter:I
 
     iget-wide v6, p0, Lcom/android/server/NetworkTimeUpdateService;->mPollingIntervalMs:J
@@ -619,7 +621,7 @@
 
     iget-boolean v6, p0, Lcom/android/server/NetworkTimeUpdateService;->mBootCompleted:Z
 
-    if-eqz v6, :cond_b
+    if-eqz v6, :cond_a
 
     iget-object v6, p0, Lcom/android/server/NetworkTimeUpdateService;->mContext:Landroid/content/Context;
 
@@ -629,7 +631,9 @@
 
     invoke-direct {v7, v8}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v6, v7}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    const-string/jumbo v8, "com.samsung.android.knox.permission.KNOX_DATE_TIME"
+
+    invoke-virtual {v6, v7, v8}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
 
     iget-object v6, p0, Lcom/android/server/NetworkTimeUpdateService;->mContext:Landroid/content/Context;
 
@@ -639,7 +643,9 @@
 
     invoke-direct {v7, v8}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v6, v7}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    const-string/jumbo v8, "android.permission.sec.MDM_DATE_TIME"
+
+    invoke-virtual {v6, v7, v8}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
 
     goto :goto_1
 .end method
@@ -765,63 +771,13 @@
 
     iget-object v0, p0, Lcom/android/server/NetworkTimeUpdateService;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v1, "android.permission.DUMP"
+    const-string/jumbo v1, "NetworkTimeUpdateService"
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->checkCallingOrSelfPermission(Ljava/lang/String;)I
+    invoke-static {v0, v1, p2}, Lcom/android/internal/util/DumpUtils;->checkDumpPermission(Landroid/content/Context;Ljava/lang/String;Ljava/io/PrintWriter;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v1, "Permission Denial: can\'t dump NetworkTimeUpdateService from from pid="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string/jumbo v1, ", uid="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string/jumbo v1, " without permission "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "android.permission.DUMP"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    if-nez v0, :cond_0
 
     return-void
 

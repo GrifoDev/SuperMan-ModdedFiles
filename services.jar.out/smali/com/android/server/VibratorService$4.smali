@@ -36,7 +36,7 @@
 
     iget-object v0, p0, Lcom/android/server/VibratorService$4;->this$0:Lcom/android/server/VibratorService;
 
-    invoke-static {v0}, Lcom/android/server/VibratorService;->-wrap5(Lcom/android/server/VibratorService;)V
+    invoke-static {v0}, Lcom/android/server/VibratorService;->-wrap9(Lcom/android/server/VibratorService;)V
 
     iget-object v0, p0, Lcom/android/server/VibratorService$4;->this$0:Lcom/android/server/VibratorService;
 

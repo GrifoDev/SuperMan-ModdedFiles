@@ -44,7 +44,7 @@
 
     iget-object v0, p0, Lcom/android/server/ConnectivityService$3;->this$0:Lcom/android/server/ConnectivityService;
 
-    invoke-static {v0}, Lcom/android/server/ConnectivityService;->-get0(Lcom/android/server/ConnectivityService;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/server/ConnectivityService;->-get1(Lcom/android/server/ConnectivityService;)Landroid/content/Context;
 
     move-result-object v0
 

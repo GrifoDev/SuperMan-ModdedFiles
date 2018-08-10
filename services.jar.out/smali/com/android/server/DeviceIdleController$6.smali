@@ -1,9 +1,6 @@
 .class Lcom/android/server/DeviceIdleController$6;
-.super Ljava/lang/Object;
+.super Landroid/content/BroadcastReceiver;
 .source "DeviceIdleController.java"
-
-# interfaces
-.implements Landroid/hardware/display/DisplayManager$DisplayListener;
 
 
 # annotations
@@ -27,50 +24,61 @@
 
     iput-object p1, p0, Lcom/android/server/DeviceIdleController$6;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onDisplayAdded(I)V
-    .locals 0
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 5
 
-    return-void
-.end method
+    const/16 v4, 0x8
 
-.method public onDisplayChanged(I)V
-    .locals 2
+    const-string/jumbo v0, "android.os.action.DEVICE_IDLE_MODE_CHANGED"
 
-    if-nez p1, :cond_0
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/DeviceIdleController$6;->this$0:Lcom/android/server/DeviceIdleController;
+
+    iget-object v0, v0, Lcom/android/server/DeviceIdleController;->mHandler:Lcom/android/server/DeviceIdleController$MyHandler;
 
     iget-object v1, p0, Lcom/android/server/DeviceIdleController$6;->this$0:Lcom/android/server/DeviceIdleController;
 
-    monitor-enter v1
+    invoke-static {v1}, Lcom/android/server/DeviceIdleController;->-get1(Lcom/android/server/DeviceIdleController;)Lcom/android/server/DeviceIdleController$Constants;
 
-    :try_start_0
-    iget-object v0, p0, Lcom/android/server/DeviceIdleController$6;->this$0:Lcom/android/server/DeviceIdleController;
+    move-result-object v1
 
-    invoke-virtual {v0}, Lcom/android/server/DeviceIdleController;->updateDisplayLocked()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    iget-wide v2, v1, Lcom/android/server/DeviceIdleController$Constants;->MIN_DEEP_MAINTENANCE_TIME:J
 
-    monitor-exit v1
+    invoke-virtual {v0, v4, v2, v3}, Lcom/android/server/DeviceIdleController$MyHandler;->sendEmptyMessageDelayed(IJ)Z
+
+    :goto_0
+    return-void
 
     :cond_0
-    return-void
+    iget-object v0, p0, Lcom/android/server/DeviceIdleController$6;->this$0:Lcom/android/server/DeviceIdleController;
 
-    :catchall_0
-    move-exception v0
+    iget-object v0, v0, Lcom/android/server/DeviceIdleController;->mHandler:Lcom/android/server/DeviceIdleController$MyHandler;
 
-    monitor-exit v1
+    iget-object v1, p0, Lcom/android/server/DeviceIdleController$6;->this$0:Lcom/android/server/DeviceIdleController;
 
-    throw v0
-.end method
+    invoke-static {v1}, Lcom/android/server/DeviceIdleController;->-get1(Lcom/android/server/DeviceIdleController;)Lcom/android/server/DeviceIdleController$Constants;
 
-.method public onDisplayRemoved(I)V
-    .locals 0
+    move-result-object v1
 
-    return-void
+    iget-wide v2, v1, Lcom/android/server/DeviceIdleController$Constants;->MIN_LIGHT_MAINTENANCE_TIME:J
+
+    invoke-virtual {v0, v4, v2, v3}, Lcom/android/server/DeviceIdleController$MyHandler;->sendEmptyMessageDelayed(IJ)Z
+
+    goto :goto_0
 .end method

@@ -44,7 +44,7 @@
 
     iget-object v1, p0, Lcom/android/server/UiModeManagerService$2;->this$0:Lcom/android/server/UiModeManagerService;
 
-    invoke-static {v1, v0}, Lcom/android/server/UiModeManagerService;->-wrap2(Lcom/android/server/UiModeManagerService;I)V
+    invoke-static {v1, v0}, Lcom/android/server/UiModeManagerService;->-wrap3(Lcom/android/server/UiModeManagerService;I)V
 
     return-void
 .end method

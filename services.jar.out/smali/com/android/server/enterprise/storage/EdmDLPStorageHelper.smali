@@ -6,7 +6,7 @@
 # static fields
 .field private static final MAX_LOG_NUM:I = 0x33
 
-.field private static final TAG:Ljava/lang/String; = "EdmDLPStorageHelper"
+.field private static final TAG:Ljava/lang/String; = "DLP_EdmDLPStorageHelper"
 
 .field private static final TYPE_CONFIG:I = 0x2
 
@@ -278,7 +278,7 @@
 
     :goto_1
     :try_start_2
-    const-string/jumbo v5, "EdmDLPStorageHelper"
+    const-string/jumbo v5, "DLP_EdmDLPStorageHelper"
 
     new-instance v6, Ljava/lang/StringBuilder;
 
@@ -302,7 +302,7 @@
 
     move-result-object v6
 
-    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Lcom/samsung/android/knox/dlp/log/DLPLog;->e(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
@@ -350,6 +350,135 @@
     move-exception v4
 
     goto :goto_1
+.end method
+
+.method private isConfigEnabled([Ljava/lang/String;I)I
+    .locals 7
+
+    new-instance v1, Landroid/content/ContentValues;
+
+    invoke-direct {v1}, Landroid/content/ContentValues;-><init>()V
+
+    const-string/jumbo v4, "userid"
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    invoke-virtual {v1, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    const-string/jumbo v4, "type"
+
+    const/4 v5, 0x2
+
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    invoke-virtual {v1, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    const/4 v0, 0x0
+
+    const/4 v2, 0x0
+
+    :try_start_0
+    iget-object v4, p0, Lcom/android/server/enterprise/storage/EdmDLPStorageHelper;->mEdmStorageProviderBase:Lcom/android/server/enterprise/storage/EdmStorageProviderBase;
+
+    const-string/jumbo v5, "IRMServiceInformationTable"
+
+    const/4 v6, 0x0
+
+    invoke-virtual {v4, v5, p1, v1, v6}, Lcom/android/server/enterprise/storage/EdmStorageProviderBase;->getCursor(Ljava/lang/String;[Ljava/lang/String;Landroid/content/ContentValues;Ljava/lang/String;)Landroid/database/Cursor;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    :cond_0
+    :goto_0
+    invoke-interface {v0}, Landroid/database/Cursor;->moveToNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    const/4 v4, 0x0
+
+    invoke-interface {v0, v4}, Landroid/database/Cursor;->getInt(I)I
+    :try_end_0
+    .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v4
+
+    const/4 v5, 0x1
+
+    if-ne v4, v5, :cond_0
+
+    const/4 v2, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    if-eqz v0, :cond_2
+
+    invoke-interface {v0}, Landroid/database/Cursor;->close()V
+
+    :goto_1
+    const/4 v0, 0x0
+
+    :cond_2
+    return v2
+
+    :catch_0
+    move-exception v3
+
+    :try_start_1
+    const-string/jumbo v4, "DLP_EdmDLPStorageHelper"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "Exception occurred accessing Enterprise db "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v3}, Landroid/database/SQLException;->getMessage()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Lcom/samsung/android/knox/dlp/log/DLPLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    if-eqz v0, :cond_2
+
+    invoke-interface {v0}, Landroid/database/Cursor;->close()V
+
+    goto :goto_1
+
+    :catchall_0
+    move-exception v4
+
+    if-eqz v0, :cond_3
+
+    invoke-interface {v0}, Landroid/database/Cursor;->close()V
+
+    const/4 v0, 0x0
+
+    :cond_3
+    throw v4
 .end method
 
 
@@ -426,7 +555,7 @@
     :catch_0
     move-exception v1
 
-    const-string/jumbo v2, "EdmDLPStorageHelper"
+    const-string/jumbo v2, "DLP_EdmDLPStorageHelper"
 
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -446,7 +575,7 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Lcom/samsung/android/knox/dlp/log/DLPLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
 .end method
@@ -466,7 +595,7 @@
 
     const/4 v10, 0x0
 
-    if-eqz p2, :cond_7
+    if-eqz p2, :cond_6
 
     invoke-interface/range {p2 .. p2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
@@ -478,7 +607,7 @@
 
     move-result v16
 
-    if-eqz v16, :cond_7
+    if-eqz v16, :cond_6
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -535,7 +664,9 @@
 
     move-result v16
 
-    if-nez v16, :cond_0
+    xor-int/lit8 v16, v16, 0x1
+
+    if-eqz v16, :cond_0
 
     new-instance v16, Ljava/lang/StringBuilder;
 
@@ -768,10 +899,17 @@
 
     move-result v16
 
-    if-eqz v16, :cond_5
+    xor-int/lit8 v16, v16, 0x1
+
+    if-eqz v16, :cond_4
+
+    const-string/jumbo v16, "data_text2"
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v4, v0, v11}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_4
-    :goto_2
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/storage/EdmDLPStorageHelper;->mEdmStorageProviderBase:Lcom/android/server/enterprise/storage/EdmStorageProviderBase;
@@ -792,30 +930,21 @@
 
     cmp-long v16, v12, v16
 
-    if-lez v16, :cond_6
+    if-lez v16, :cond_5
 
     const/16 v16, 0x1
 
-    :goto_3
+    :goto_2
     or-int v10, v10, v16
 
     goto/16 :goto_0
 
     :cond_5
-    const-string/jumbo v16, "data_text2"
-
-    move-object/from16 v0, v16
-
-    invoke-virtual {v4, v0, v11}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+    const/16 v16, 0x0
 
     goto :goto_2
 
     :cond_6
-    const/16 v16, 0x0
-
-    goto :goto_3
-
-    :cond_7
     return v10
 .end method
 
@@ -1015,7 +1144,7 @@
     move-exception v16
 
     :try_start_1
-    const-string/jumbo v17, "EdmDLPStorageHelper"
+    const-string/jumbo v17, "DLP_EdmDLPStorageHelper"
 
     new-instance v18, Ljava/lang/StringBuilder;
 
@@ -1039,7 +1168,7 @@
 
     move-result-object v18
 
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v17 .. v18}, Lcom/samsung/android/knox/dlp/log/DLPLog;->e(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -1203,128 +1332,12 @@
 
     invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    if-nez v13, :cond_8
+    if-nez v13, :cond_d
 
-    if-eqz v12, :cond_d
+    xor-int/lit8 v17, v12, 0x1
 
-    :cond_8
-    if-eqz v13, :cond_f
+    if-eqz v17, :cond_d
 
-    :goto_2
-    invoke-interface {v7}, Landroid/database/Cursor;->moveToNext()Z
-
-    move-result v17
-
-    if-eqz v17, :cond_f
-
-    new-instance v17, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v17 .. v17}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v18, " "
-
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v17
-
-    const/16 v18, 0x0
-
-    move/from16 v0, v18
-
-    invoke-interface {v7, v0}, Landroid/database/Cursor;->getInt(I)I
-
-    move-result v18
-
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v17
-
-    const-string/jumbo v18, "    "
-
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v17
-
-    const/16 v18, 0x1
-
-    move/from16 v0, v18
-
-    invoke-interface {v7, v0}, Landroid/database/Cursor;->getInt(I)I
-
-    move-result v18
-
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v17
-
-    const-string/jumbo v18, "           "
-
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v17
-
-    const/16 v18, 0x2
-
-    move/from16 v0, v18
-
-    invoke-interface {v7, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
-
-    move-result-object v18
-
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v17
-
-    invoke-virtual/range {v17 .. v17}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v17
-
-    move-object/from16 v0, p2
-
-    move-object/from16 v1, v17
-
-    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-    :try_end_2
-    .catch Landroid/database/SQLException; {:try_start_2 .. :try_end_2} :catch_0
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    goto :goto_2
-
-    :catchall_0
-    move-exception v17
-
-    if-eqz v5, :cond_9
-
-    invoke-interface {v5}, Landroid/database/Cursor;->close()V
-
-    const/4 v5, 0x0
-
-    :cond_9
-    if-eqz v7, :cond_a
-
-    invoke-interface {v7}, Landroid/database/Cursor;->close()V
-
-    const/4 v7, 0x0
-
-    :cond_a
-    if-eqz v6, :cond_b
-
-    invoke-interface {v6}, Landroid/database/Cursor;->close()V
-
-    const/4 v6, 0x0
-
-    :cond_b
-    if-eqz v14, :cond_c
-
-    invoke-interface {v14}, Landroid/database/Cursor;->close()V
-
-    const/4 v14, 0x0
-
-    :cond_c
-    throw v17
-
-    :cond_d
-    :try_start_3
     const-string/jumbo v17, "  Cursor is null"
 
     move-object/from16 v0, p2
@@ -1333,7 +1346,7 @@
 
     invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    :cond_e
+    :cond_8
     const/16 v17, 0x3
 
     move/from16 v0, v17
@@ -1398,20 +1411,20 @@
 
     invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    if-eqz v14, :cond_14
+    if-eqz v14, :cond_13
 
     invoke-interface {v14}, Landroid/database/Cursor;->getCount()I
 
     move-result v17
 
-    if-eqz v17, :cond_14
+    if-eqz v17, :cond_13
 
-    :goto_3
+    :goto_2
     invoke-interface {v14}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v17
 
-    if-eqz v17, :cond_10
+    if-eqz v17, :cond_f
 
     new-instance v17, Ljava/lang/StringBuilder;
 
@@ -1480,18 +1493,135 @@
     move-object/from16 v1, v17
 
     invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    :try_end_2
+    .catch Landroid/database/SQLException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    goto :goto_2
+
+    :catchall_0
+    move-exception v17
+
+    if-eqz v5, :cond_9
+
+    invoke-interface {v5}, Landroid/database/Cursor;->close()V
+
+    const/4 v5, 0x0
+
+    :cond_9
+    if-eqz v7, :cond_a
+
+    invoke-interface {v7}, Landroid/database/Cursor;->close()V
+
+    const/4 v7, 0x0
+
+    :cond_a
+    if-eqz v6, :cond_b
+
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+
+    const/4 v6, 0x0
+
+    :cond_b
+    if-eqz v14, :cond_c
+
+    invoke-interface {v14}, Landroid/database/Cursor;->close()V
+
+    const/4 v14, 0x0
+
+    :cond_c
+    throw v17
+
+    :cond_d
+    if-eqz v13, :cond_e
+
+    :goto_3
+    :try_start_3
+    invoke-interface {v7}, Landroid/database/Cursor;->moveToNext()Z
+
+    move-result v17
+
+    if-eqz v17, :cond_e
+
+    new-instance v17, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v17 .. v17}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v18, " "
+
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v17
+
+    const/16 v18, 0x0
+
+    move/from16 v0, v18
+
+    invoke-interface {v7, v0}, Landroid/database/Cursor;->getInt(I)I
+
+    move-result v18
+
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v17
+
+    const-string/jumbo v18, "    "
+
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v17
+
+    const/16 v18, 0x1
+
+    move/from16 v0, v18
+
+    invoke-interface {v7, v0}, Landroid/database/Cursor;->getInt(I)I
+
+    move-result v18
+
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v17
+
+    const-string/jumbo v18, "           "
+
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v17
+
+    const/16 v18, 0x2
+
+    move/from16 v0, v18
+
+    invoke-interface {v7, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v18
+
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v17
+
+    invoke-virtual/range {v17 .. v17}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v17
+
+    move-object/from16 v0, p2
+
+    move-object/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     goto :goto_3
 
-    :cond_f
-    if-eqz v12, :cond_e
+    :cond_e
+    if-eqz v12, :cond_8
 
     :goto_4
     invoke-interface {v6}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v17
 
-    if-eqz v17, :cond_e
+    if-eqz v17, :cond_8
 
     new-instance v17, Ljava/lang/StringBuilder;
 
@@ -1563,41 +1693,41 @@
 
     goto :goto_4
 
-    :cond_10
+    :cond_f
     invoke-virtual/range {p2 .. p2}, Ljava/io/PrintWriter;->println()V
     :try_end_3
     .catch Landroid/database/SQLException; {:try_start_3 .. :try_end_3} :catch_0
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     :goto_5
-    if-eqz v5, :cond_11
+    if-eqz v5, :cond_10
 
     invoke-interface {v5}, Landroid/database/Cursor;->close()V
 
     const/4 v5, 0x0
 
-    :cond_11
-    if-eqz v7, :cond_12
+    :cond_10
+    if-eqz v7, :cond_11
 
     invoke-interface {v7}, Landroid/database/Cursor;->close()V
 
     const/4 v7, 0x0
 
-    :cond_12
-    if-eqz v6, :cond_13
+    :cond_11
+    if-eqz v6, :cond_12
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     const/4 v6, 0x0
 
-    :cond_13
+    :cond_12
     if-eqz v14, :cond_3
 
     invoke-interface {v14}, Landroid/database/Cursor;->close()V
 
     goto/16 :goto_1
 
-    :cond_14
+    :cond_13
     :try_start_4
     const-string/jumbo v17, "  Cursor is null"
 
@@ -1760,7 +1890,7 @@
     move-exception v7
 
     :try_start_5
-    const-string/jumbo v9, "EdmDLPStorageHelper"
+    const-string/jumbo v9, "DLP_EdmDLPStorageHelper"
 
     new-instance v10, Ljava/lang/StringBuilder;
 
@@ -1784,7 +1914,7 @@
 
     move-result-object v10
 
-    invoke-static {v9, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v9, v10}, Lcom/samsung/android/knox/dlp/log/DLPLog;->e(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
@@ -1852,7 +1982,7 @@
 
     const/4 v15, 0x0
 
-    const-string/jumbo v17, "EdmDLPStorageHelper"
+    const-string/jumbo v17, "DLP_EdmDLPStorageHelper"
 
     new-instance v18, Ljava/lang/StringBuilder;
 
@@ -1878,7 +2008,7 @@
 
     move-result-object v18
 
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v17 .. v18}, Lcom/samsung/android/knox/dlp/log/DLPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     const/16 v17, 0x7
 
@@ -2215,176 +2345,6 @@
 
     invoke-virtual {v5, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    const-string/jumbo v17, "EdmDLPStorageHelper"
-
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v19, "Create: "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const/16 v19, 0x0
-
-    aget-boolean v19, v4, v19
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, " Open: "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const/16 v19, 0x1
-
-    aget-boolean v19, v4, v19
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v18
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v17, "EdmDLPStorageHelper"
-
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v19, "Rename: "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const/16 v19, 0x2
-
-    aget-boolean v19, v4, v19
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, " Expired: "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const/16 v19, 0x3
-
-    aget-boolean v19, v4, v19
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v18
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v17, "EdmDLPStorageHelper"
-
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v19, "Unauthorized: "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const/16 v19, 0x4
-
-    aget-boolean v19, v4, v19
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v18
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v17, "EdmDLPStorageHelper"
-
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v19, "Audit Integer: "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v18
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v17, "EdmDLPStorageHelper"
-
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v19, "NetworkAccess: "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const/16 v19, 0x0
-
-    aget-boolean v19, v15, v19
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, " ClipboardAccess: "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const/16 v19, 0x1
-
-    aget-boolean v19, v15, v19
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v18
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
     if-lez v10, :cond_2
 
     const-string/jumbo v17, "ExpiryAfter"
@@ -2410,7 +2370,7 @@
     move-exception v16
 
     :try_start_1
-    const-string/jumbo v17, "EdmDLPStorageHelper"
+    const-string/jumbo v17, "DLP_EdmDLPStorageHelper"
 
     new-instance v18, Ljava/lang/StringBuilder;
 
@@ -2434,7 +2394,7 @@
 
     move-result-object v18
 
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v17 .. v18}, Lcom/samsung/android/knox/dlp/log/DLPLog;->e(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -2458,33 +2418,27 @@
 .end method
 
 .method public getPolicyConfigOwners()Landroid/util/SparseLongArray;
-    .locals 10
+    .locals 9
 
-    const/4 v9, 0x2
+    const/4 v8, 0x2
 
-    const/4 v8, 0x1
+    const/4 v7, 0x1
 
-    const/4 v7, 0x0
-
-    const-string/jumbo v5, "EdmDLPStorageHelper"
-
-    const-string/jumbo v6, "getPolicyConfigOwners called !"
-
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const/4 v6, 0x0
 
     new-instance v3, Landroid/util/SparseLongArray;
 
     invoke-direct {v3}, Landroid/util/SparseLongArray;-><init>()V
 
-    new-array v0, v9, [Ljava/lang/String;
+    new-array v0, v8, [Ljava/lang/String;
 
     const-string/jumbo v5, "userid"
 
-    aput-object v5, v0, v7
+    aput-object v5, v0, v6
 
     const-string/jumbo v5, "adminUid"
 
-    aput-object v5, v0, v8
+    aput-object v5, v0, v7
 
     new-instance v2, Landroid/content/ContentValues;
 
@@ -2492,7 +2446,7 @@
 
     const-string/jumbo v5, "type"
 
-    invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v6
 
@@ -2543,7 +2497,7 @@
     move-exception v4
 
     :try_start_1
-    const-string/jumbo v5, "EdmDLPStorageHelper"
+    const-string/jumbo v5, "DLP_EdmDLPStorageHelper"
 
     new-instance v6, Ljava/lang/StringBuilder;
 
@@ -2567,7 +2521,7 @@
 
     move-result-object v6
 
-    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Lcom/samsung/android/knox/dlp/log/DLPLog;->e(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -2657,26 +2611,27 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    xor-int/lit8 v6, v6, 0x1
+
+    if-nez v6, :cond_1
 
     :cond_0
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3
 
     invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    xor-int/lit8 v6, v6, 0x1
+
+    if-eqz v6, :cond_3
 
     :cond_1
-    return-object v5
-
-    :cond_2
     new-instance v5, Ljava/util/ArrayList;
 
     invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_2
 
     new-instance v4, Landroid/os/Bundle;
 
@@ -2695,7 +2650,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_2
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2711,8 +2666,8 @@
 
     goto :goto_0
 
-    :cond_3
-    if-eqz v2, :cond_1
+    :cond_2
+    if-eqz v2, :cond_3
 
     new-instance v4, Landroid/os/Bundle;
 
@@ -2731,7 +2686,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_3
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2746,6 +2701,9 @@
     invoke-interface {v5, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
+
+    :cond_3
+    return-object v5
 .end method
 
 .method public getWhitelistApps(Lcom/samsung/android/knox/ContextInfo;I)Ljava/util/List;
@@ -2875,100 +2833,23 @@
 .end method
 
 .method public isActivated(I)I
-    .locals 8
+    .locals 3
 
-    const/4 v7, 0x1
+    const/4 v1, 0x1
 
-    const/4 v5, 0x0
+    new-array v0, v1, [Ljava/lang/String;
 
-    new-array v1, v7, [Ljava/lang/String;
-
-    const-string/jumbo v4, "data_int1"
-
-    aput-object v4, v1, v5
-
-    new-instance v3, Landroid/content/ContentValues;
-
-    invoke-direct {v3}, Landroid/content/ContentValues;-><init>()V
-
-    const-string/jumbo v4, "userid"
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    invoke-virtual {v3, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
-
-    const-string/jumbo v4, "type"
-
-    const/4 v5, 0x2
-
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    invoke-virtual {v3, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    const-string/jumbo v1, "data_int1"
 
     const/4 v2, 0x0
 
-    const/4 v0, 0x0
+    aput-object v1, v0, v2
 
-    :try_start_0
-    iget-object v4, p0, Lcom/android/server/enterprise/storage/EdmDLPStorageHelper;->mEdmStorageProviderBase:Lcom/android/server/enterprise/storage/EdmStorageProviderBase;
+    invoke-direct {p0, v0, p1}, Lcom/android/server/enterprise/storage/EdmDLPStorageHelper;->isConfigEnabled([Ljava/lang/String;I)I
 
-    const-string/jumbo v5, "IRMServiceInformationTable"
+    move-result v1
 
-    const/4 v6, 0x0
-
-    invoke-virtual {v4, v5, v1, v3, v6}, Lcom/android/server/enterprise/storage/EdmStorageProviderBase;->getCursor(Ljava/lang/String;[Ljava/lang/String;Landroid/content/ContentValues;Ljava/lang/String;)Landroid/database/Cursor;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_1
-
-    :cond_0
-    :goto_0
-    invoke-interface {v2}, Landroid/database/Cursor;->moveToNext()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v4}, Landroid/database/Cursor;->getInt(I)I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v4
-
-    if-ne v4, v7, :cond_0
-
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    if-eqz v2, :cond_2
-
-    invoke-interface {v2}, Landroid/database/Cursor;->close()V
-
-    const/4 v2, 0x0
-
-    :cond_2
-    return v0
-
-    :catchall_0
-    move-exception v4
-
-    if-eqz v2, :cond_3
-
-    invoke-interface {v2}, Landroid/database/Cursor;->close()V
-
-    const/4 v2, 0x0
-
-    :cond_3
-    throw v4
+    return v1
 .end method
 
 .method public isListAppsContainsDLPPackageInfo(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Ljava/lang/String;)Z
@@ -3056,7 +2937,7 @@
     move-exception v3
 
     :try_start_1
-    const-string/jumbo v4, "EdmDLPStorageHelper"
+    const-string/jumbo v4, "DLP_EdmDLPStorageHelper"
 
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -3080,7 +2961,7 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Lcom/samsung/android/knox/dlp/log/DLPLog;->e(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -3104,146 +2985,29 @@
 .end method
 
 .method public isLocked(I)I
-    .locals 9
+    .locals 3
 
-    const/4 v8, 0x1
+    const/4 v1, 0x1
 
-    const/4 v6, 0x0
+    new-array v0, v1, [Ljava/lang/String;
 
-    new-array v0, v8, [Ljava/lang/String;
+    const-string/jumbo v1, "data_int2"
 
-    const-string/jumbo v5, "data_int2"
+    const/4 v2, 0x0
 
-    aput-object v5, v0, v6
+    aput-object v1, v0, v2
 
-    new-instance v2, Landroid/content/ContentValues;
+    invoke-direct {p0, v0, p1}, Lcom/android/server/enterprise/storage/EdmDLPStorageHelper;->isConfigEnabled([Ljava/lang/String;I)I
 
-    invoke-direct {v2}, Landroid/content/ContentValues;-><init>()V
+    move-result v1
 
-    const-string/jumbo v5, "userid"
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v6
-
-    invoke-virtual {v2, v5, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
-
-    const-string/jumbo v5, "type"
-
-    const/4 v6, 0x2
-
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v6
-
-    invoke-virtual {v2, v5, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
-
-    const/4 v1, 0x0
-
-    const/4 v3, 0x0
-
-    :try_start_0
-    iget-object v5, p0, Lcom/android/server/enterprise/storage/EdmDLPStorageHelper;->mEdmStorageProviderBase:Lcom/android/server/enterprise/storage/EdmStorageProviderBase;
-
-    const-string/jumbo v6, "IRMServiceInformationTable"
-
-    const/4 v7, 0x0
-
-    invoke-virtual {v5, v6, v0, v2, v7}, Lcom/android/server/enterprise/storage/EdmStorageProviderBase;->getCursor(Ljava/lang/String;[Ljava/lang/String;Landroid/content/ContentValues;Ljava/lang/String;)Landroid/database/Cursor;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_1
-
-    :cond_0
-    :goto_0
-    invoke-interface {v1}, Landroid/database/Cursor;->moveToNext()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_1
-
-    const/4 v5, 0x0
-
-    invoke-interface {v1, v5}, Landroid/database/Cursor;->getInt(I)I
-    :try_end_0
-    .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v5
-
-    if-ne v5, v8, :cond_0
-
-    const/4 v3, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    if-eqz v1, :cond_2
-
-    invoke-interface {v1}, Landroid/database/Cursor;->close()V
-
-    :goto_1
-    const/4 v1, 0x0
-
-    :cond_2
-    return v3
-
-    :catch_0
-    move-exception v4
-
-    :try_start_1
-    const-string/jumbo v5, "EdmDLPStorageHelper"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v7, "Exception occurred accessing Enterprise db "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v4}, Landroid/database/SQLException;->getMessage()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    if-eqz v1, :cond_2
-
-    invoke-interface {v1}, Landroid/database/Cursor;->close()V
-
-    goto :goto_1
-
-    :catchall_0
-    move-exception v5
-
-    if-eqz v1, :cond_3
-
-    invoke-interface {v1}, Landroid/database/Cursor;->close()V
-
-    const/4 v1, 0x0
-
-    :cond_3
-    throw v5
+    return v1
 .end method
 
 .method public removeDBEntries(J)I
     .locals 5
 
-    const-string/jumbo v2, "EdmDLPStorageHelper"
+    const-string/jumbo v2, "DLP_EdmDLPStorageHelper"
 
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -3263,7 +3027,7 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Lcom/samsung/android/knox/dlp/log/DLPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     new-instance v0, Landroid/content/ContentValues;
 
@@ -3402,7 +3166,7 @@
     move-exception v6
 
     :try_start_1
-    const-string/jumbo v7, "EdmDLPStorageHelper"
+    const-string/jumbo v7, "DLP_EdmDLPStorageHelper"
 
     new-instance v8, Ljava/lang/StringBuilder;
 
@@ -3426,7 +3190,7 @@
 
     move-result-object v8
 
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Lcom/samsung/android/knox/dlp/log/DLPLog;->e(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -3634,11 +3398,11 @@
 
     if-nez p2, :cond_0
 
-    const-string/jumbo v15, "EdmDLPStorageHelper"
+    const-string/jumbo v15, "DLP_EdmDLPStorageHelper"
 
     const-string/jumbo v16, "setDefaultPolicy() defaultPolicy is null"
 
-    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v15 .. v16}, Lcom/samsung/android/knox/dlp/log/DLPLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
     const/4 v14, 0x0
 
@@ -3683,7 +3447,7 @@
 
     invoke-virtual {v3, v0, v15}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    const-string/jumbo v15, "EdmDLPStorageHelper"
+    const-string/jumbo v15, "DLP_EdmDLPStorageHelper"
 
     new-instance v16, Ljava/lang/StringBuilder;
 
@@ -3705,7 +3469,7 @@
 
     move-result-object v16
 
-    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v15 .. v16}, Lcom/samsung/android/knox/dlp/log/DLPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_1
     const-string/jumbo v15, "Lock"
@@ -3741,7 +3505,7 @@
 
     invoke-virtual {v3, v0, v15}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    const-string/jumbo v15, "EdmDLPStorageHelper"
+    const-string/jumbo v15, "DLP_EdmDLPStorageHelper"
 
     new-instance v16, Ljava/lang/StringBuilder;
 
@@ -3763,7 +3527,7 @@
 
     move-result-object v16
 
-    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v15 .. v16}, Lcom/samsung/android/knox/dlp/log/DLPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_2
     const-string/jumbo v15, "ExpiryAfter"
@@ -3794,7 +3558,7 @@
 
     invoke-virtual {v3, v15, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    const-string/jumbo v15, "EdmDLPStorageHelper"
+    const-string/jumbo v15, "DLP_EdmDLPStorageHelper"
 
     new-instance v16, Ljava/lang/StringBuilder;
 
@@ -3816,12 +3580,12 @@
 
     move-result-object v16
 
-    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v15 .. v16}, Lcom/samsung/android/knox/dlp/log/DLPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_3
     const/16 v15, 0x10e
 
-    invoke-static {v15}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxVersionSupported(I)Z
+    invoke-static {v15}, Lcom/android/server/enterprise/adapterlayer/PersonaManagerAdapter;->isKnoxVersionSupported(I)Z
 
     move-result v15
 
@@ -3849,7 +3613,7 @@
 
     invoke-virtual {v3, v15, v7}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v15, "EdmDLPStorageHelper"
+    const-string/jumbo v15, "DLP_EdmDLPStorageHelper"
 
     new-instance v16, Ljava/lang/StringBuilder;
 
@@ -3871,13 +3635,13 @@
 
     move-result-object v16
 
-    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v15 .. v16}, Lcom/samsung/android/knox/dlp/log/DLPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_4
     :goto_3
     const/16 v15, 0x118
 
-    invoke-static {v15}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxVersionSupported(I)Z
+    invoke-static {v15}, Lcom/android/server/enterprise/adapterlayer/PersonaManagerAdapter;->isKnoxVersionSupported(I)Z
 
     move-result v15
 
@@ -3905,7 +3669,7 @@
 
     invoke-virtual {v3, v15, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v15, "EdmDLPStorageHelper"
+    const-string/jumbo v15, "DLP_EdmDLPStorageHelper"
 
     new-instance v16, Ljava/lang/StringBuilder;
 
@@ -3927,13 +3691,13 @@
 
     move-result-object v16
 
-    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v15 .. v16}, Lcom/samsung/android/knox/dlp/log/DLPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_5
     :goto_4
     const/16 v15, 0x118
 
-    invoke-static {v15}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxVersionSupported(I)Z
+    invoke-static {v15}, Lcom/android/server/enterprise/adapterlayer/PersonaManagerAdapter;->isKnoxVersionSupported(I)Z
 
     move-result v15
 
@@ -3967,7 +3731,7 @@
 
     invoke-virtual {v3, v15, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    const-string/jumbo v15, "EdmDLPStorageHelper"
+    const-string/jumbo v15, "DLP_EdmDLPStorageHelper"
 
     new-instance v16, Ljava/lang/StringBuilder;
 
@@ -3989,7 +3753,7 @@
 
     move-result-object v16
 
-    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v15 .. v16}, Lcom/samsung/android/knox/dlp/log/DLPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_6
     :goto_5
@@ -4070,7 +3834,7 @@
 
     invoke-virtual {v3, v15, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    const-string/jumbo v15, "EdmDLPStorageHelper"
+    const-string/jumbo v15, "DLP_EdmDLPStorageHelper"
 
     new-instance v16, Ljava/lang/StringBuilder;
 
@@ -4100,19 +3864,7 @@
 
     move-result-object v16
 
-    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v16
-
-    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v15, "EdmDLPStorageHelper"
-
-    new-instance v16, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v17, "setDLPConfig:Policy Integer: "
+    const-string/jumbo v17, " setDLPConfig:Policy Integer: "
 
     invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -4128,7 +3880,7 @@
 
     move-result-object v16
 
-    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v15 .. v16}, Lcom/samsung/android/knox/dlp/log/DLPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_8
     invoke-virtual {v3}, Landroid/content/ContentValues;->size()I
@@ -4150,7 +3902,7 @@
     move-result v14
 
     :goto_8
-    const-string/jumbo v15, "EdmDLPStorageHelper"
+    const-string/jumbo v15, "DLP_EdmDLPStorageHelper"
 
     new-instance v16, Ljava/lang/StringBuilder;
 
@@ -4172,7 +3924,7 @@
 
     move-result-object v16
 
-    invoke-static/range {v15 .. v16}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v15 .. v16}, Lcom/samsung/android/knox/dlp/log/DLPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     new-instance v15, Ljava/lang/StringBuilder;
 
@@ -4213,29 +3965,29 @@
     goto/16 :goto_2
 
     :cond_b
-    const-string/jumbo v15, "EdmDLPStorageHelper"
+    const-string/jumbo v15, "DLP_EdmDLPStorageHelper"
 
     const-string/jumbo v16, "Knox version not supported for extension"
 
-    invoke-static/range {v15 .. v16}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v15 .. v16}, Lcom/samsung/android/knox/dlp/log/DLPLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
     goto/16 :goto_3
 
     :cond_c
-    const-string/jumbo v15, "EdmDLPStorageHelper"
+    const-string/jumbo v15, "DLP_EdmDLPStorageHelper"
 
     const-string/jumbo v16, "Knox version not supported for domains list"
 
-    invoke-static/range {v15 .. v16}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v15 .. v16}, Lcom/samsung/android/knox/dlp/log/DLPLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
     goto/16 :goto_4
 
     :cond_d
-    const-string/jumbo v15, "EdmDLPStorageHelper"
+    const-string/jumbo v15, "DLP_EdmDLPStorageHelper"
 
     const-string/jumbo v16, "Knox version not supported for DLP Audit events."
 
-    invoke-static/range {v15 .. v16}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v15 .. v16}, Lcom/samsung/android/knox/dlp/log/DLPLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
     goto/16 :goto_5
 

@@ -17,15 +17,9 @@
 # static fields
 .field public static final ENCRYPT:Ljava/lang/String; = "encrypt"
 
-.field public static final ENC_META_CHECK:Ljava/lang/String; = "encMetaCheck"
-
-.field public static final KNOX_REVERT_SS:Ljava/lang/String; = "knoxRevertSS"
-
 .field public static final MOUNT:Ljava/lang/String; = "mount"
 
 .field public static final PASSWORD:Ljava/lang/String; = "password"
-
-.field public static final SS_MIGRATION:Ljava/lang/String; = "ssMigration"
 
 .field public static final UNMOUNT:Ljava/lang/String; = "unmount"
 

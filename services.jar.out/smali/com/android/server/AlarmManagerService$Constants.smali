@@ -226,7 +226,7 @@
     :try_start_2
     const-string/jumbo v1, "AlarmManager"
 
-    const-string/jumbo v3, "Bad device idle settings"
+    const-string/jumbo v3, "Bad alarm manager settings"
 
     invoke-static {v1, v3, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_2

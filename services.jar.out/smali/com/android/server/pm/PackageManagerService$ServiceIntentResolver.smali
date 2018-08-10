@@ -446,126 +446,203 @@
 .end method
 
 .method protected newResult(Landroid/content/pm/PackageParser$ServiceIntentInfo;II)Landroid/content/pm/ResolveInfo;
-    .locals 9
+    .locals 12
 
-    const/4 v8, 0x0
+    const/4 v11, 0x0
 
-    sget-object v5, Lcom/android/server/pm/PackageManagerService;->sUserManager:Lcom/android/server/pm/UserManagerService;
+    sget-object v8, Lcom/android/server/pm/PackageManagerService;->sUserManager:Lcom/android/server/pm/UserManagerService;
 
-    invoke-virtual {v5, p3}, Lcom/android/server/pm/UserManagerService;->exists(I)Z
+    invoke-virtual {v8, p3}, Lcom/android/server/pm/UserManagerService;->exists(I)Z
 
-    move-result v5
+    move-result v8
 
-    if-nez v5, :cond_0
+    if-nez v8, :cond_0
 
-    return-object v8
+    return-object v11
 
     :cond_0
     move-object v0, p1
 
-    iget-object v5, p0, Lcom/android/server/pm/PackageManagerService$ServiceIntentResolver;->this$0:Lcom/android/server/pm/PackageManagerService;
+    iget-object v8, p0, Lcom/android/server/pm/PackageManagerService$ServiceIntentResolver;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    iget-object v5, v5, Lcom/android/server/pm/PackageManagerService;->mSettings:Lcom/android/server/pm/Settings;
+    iget-object v8, v8, Lcom/android/server/pm/PackageManagerService;->mSettings:Lcom/android/server/pm/Settings;
 
-    iget-object v6, p1, Landroid/content/pm/PackageParser$ServiceIntentInfo;->service:Landroid/content/pm/PackageParser$Service;
+    iget-object v9, p1, Landroid/content/pm/PackageParser$ServiceIntentInfo;->service:Landroid/content/pm/PackageParser$Service;
 
-    iget-object v6, v6, Landroid/content/pm/PackageParser$Service;->info:Landroid/content/pm/ServiceInfo;
+    iget-object v9, v9, Landroid/content/pm/PackageParser$Service;->info:Landroid/content/pm/ServiceInfo;
 
-    iget v7, p0, Lcom/android/server/pm/PackageManagerService$ServiceIntentResolver;->mFlags:I
+    iget v10, p0, Lcom/android/server/pm/PackageManagerService$ServiceIntentResolver;->mFlags:I
 
-    invoke-virtual {v5, v6, v7, p3}, Lcom/android/server/pm/Settings;->isEnabledAndMatchLPr(Landroid/content/pm/ComponentInfo;II)Z
+    invoke-virtual {v8, v9, v10, p3}, Lcom/android/server/pm/Settings;->isEnabledAndMatchLPr(Landroid/content/pm/ComponentInfo;II)Z
 
-    move-result v5
+    move-result v8
 
-    if-nez v5, :cond_1
+    if-nez v8, :cond_1
 
-    return-object v8
+    return-object v11
 
     :cond_1
-    iget-object v3, p1, Landroid/content/pm/PackageParser$ServiceIntentInfo;->service:Landroid/content/pm/PackageParser$Service;
+    iget-object v5, p1, Landroid/content/pm/PackageParser$ServiceIntentInfo;->service:Landroid/content/pm/PackageParser$Service;
 
-    iget-object v5, v3, Landroid/content/pm/PackageParser$Service;->owner:Landroid/content/pm/PackageParser$Package;
+    iget-object v8, v5, Landroid/content/pm/PackageParser$Service;->owner:Landroid/content/pm/PackageParser$Package;
 
-    iget-object v1, v5, Landroid/content/pm/PackageParser$Package;->mExtras:Ljava/lang/Object;
+    iget-object v3, v8, Landroid/content/pm/PackageParser$Package;->mExtras:Ljava/lang/Object;
 
-    check-cast v1, Lcom/android/server/pm/PackageSetting;
+    check-cast v3, Lcom/android/server/pm/PackageSetting;
 
-    if-nez v1, :cond_2
+    if-nez v3, :cond_2
 
-    return-object v8
+    return-object v11
 
     :cond_2
-    iget v5, p0, Lcom/android/server/pm/PackageManagerService$ServiceIntentResolver;->mFlags:I
+    invoke-virtual {v3, p3}, Lcom/android/server/pm/PackageSetting;->readUserState(I)Landroid/content/pm/PackageUserState;
 
-    invoke-virtual {v1, p3}, Lcom/android/server/pm/PackageSetting;->readUserState(I)Landroid/content/pm/PackageUserState;
+    move-result-object v7
+
+    iget v8, p0, Lcom/android/server/pm/PackageManagerService$ServiceIntentResolver;->mFlags:I
+
+    invoke-static {v5, v8, v7, p3}, Landroid/content/pm/PackageParser;->generateServiceInfo(Landroid/content/pm/PackageParser$Service;ILandroid/content/pm/PackageUserState;I)Landroid/content/pm/ServiceInfo;
 
     move-result-object v6
 
-    invoke-static {v3, v5, v6, p3}, Landroid/content/pm/PackageParser;->generateServiceInfo(Landroid/content/pm/PackageParser$Service;ILandroid/content/pm/PackageUserState;I)Landroid/content/pm/ServiceInfo;
+    if-nez v6, :cond_3
 
-    move-result-object v4
-
-    if-nez v4, :cond_3
-
-    return-object v8
+    return-object v11
 
     :cond_3
-    new-instance v2, Landroid/content/pm/ResolveInfo;
+    iget v8, p0, Lcom/android/server/pm/PackageManagerService$ServiceIntentResolver;->mFlags:I
 
-    invoke-direct {v2}, Landroid/content/pm/ResolveInfo;-><init>()V
+    const/high16 v9, 0x1000000
 
-    iput-object v4, v2, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
+    and-int/2addr v8, v9
 
-    iget v5, p0, Lcom/android/server/pm/PackageManagerService$ServiceIntentResolver;->mFlags:I
+    if-eqz v8, :cond_4
 
-    and-int/lit8 v5, v5, 0x40
+    const/4 v2, 0x1
 
-    if-eqz v5, :cond_4
+    :goto_0
+    iget v8, p0, Lcom/android/server/pm/PackageManagerService$ServiceIntentResolver;->mFlags:I
 
-    iput-object p1, v2, Landroid/content/pm/ResolveInfo;->filter:Landroid/content/IntentFilter;
+    const/high16 v9, 0x800000
+
+    and-int/2addr v8, v9
+
+    if-eqz v8, :cond_5
+
+    const/4 v1, 0x1
+
+    :goto_1
+    if-eqz v2, :cond_7
+
+    invoke-virtual {p1}, Landroid/content/pm/PackageParser$ServiceIntentInfo;->isVisibleToInstantApp()Z
+
+    move-result v8
+
+    if-nez v8, :cond_6
+
+    iget-boolean v8, v7, Landroid/content/pm/PackageUserState;->instantApp:Z
+
+    :goto_2
+    xor-int/lit8 v8, v8, 0x1
+
+    if-eqz v8, :cond_7
+
+    return-object v11
 
     :cond_4
+    const/4 v2, 0x0
+
+    goto :goto_0
+
+    :cond_5
+    const/4 v1, 0x0
+
+    goto :goto_1
+
+    :cond_6
+    const/4 v8, 0x1
+
+    goto :goto_2
+
+    :cond_7
+    if-nez v1, :cond_8
+
+    iget-boolean v8, v7, Landroid/content/pm/PackageUserState;->instantApp:Z
+
+    if-eqz v8, :cond_8
+
+    return-object v11
+
+    :cond_8
+    iget-boolean v8, v7, Landroid/content/pm/PackageUserState;->instantApp:Z
+
+    if-eqz v8, :cond_9
+
+    invoke-virtual {v3}, Lcom/android/server/pm/PackageSetting;->isUpdateAvailable()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_9
+
+    return-object v11
+
+    :cond_9
+    new-instance v4, Landroid/content/pm/ResolveInfo;
+
+    invoke-direct {v4}, Landroid/content/pm/ResolveInfo;-><init>()V
+
+    iput-object v6, v4, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
+
+    iget v8, p0, Lcom/android/server/pm/PackageManagerService$ServiceIntentResolver;->mFlags:I
+
+    and-int/lit8 v8, v8, 0x40
+
+    if-eqz v8, :cond_a
+
+    iput-object p1, v4, Landroid/content/pm/ResolveInfo;->filter:Landroid/content/IntentFilter;
+
+    :cond_a
     invoke-virtual {p1}, Landroid/content/pm/PackageParser$ServiceIntentInfo;->getPriority()I
 
-    move-result v5
+    move-result v8
 
-    iput v5, v2, Landroid/content/pm/ResolveInfo;->priority:I
+    iput v8, v4, Landroid/content/pm/ResolveInfo;->priority:I
 
-    iget-object v5, v3, Landroid/content/pm/PackageParser$Service;->owner:Landroid/content/pm/PackageParser$Package;
+    iget-object v8, v5, Landroid/content/pm/PackageParser$Service;->owner:Landroid/content/pm/PackageParser$Package;
 
-    iget v5, v5, Landroid/content/pm/PackageParser$Package;->mPreferredOrder:I
+    iget v8, v8, Landroid/content/pm/PackageParser$Package;->mPreferredOrder:I
 
-    iput v5, v2, Landroid/content/pm/ResolveInfo;->preferredOrder:I
+    iput v8, v4, Landroid/content/pm/ResolveInfo;->preferredOrder:I
 
-    iput p2, v2, Landroid/content/pm/ResolveInfo;->match:I
+    iput p2, v4, Landroid/content/pm/ResolveInfo;->match:I
 
-    iget-boolean v5, p1, Landroid/content/pm/PackageParser$ServiceIntentInfo;->hasDefault:Z
+    iget-boolean v8, p1, Landroid/content/pm/PackageParser$ServiceIntentInfo;->hasDefault:Z
 
-    iput-boolean v5, v2, Landroid/content/pm/ResolveInfo;->isDefault:Z
+    iput-boolean v8, v4, Landroid/content/pm/ResolveInfo;->isDefault:Z
 
-    iget v5, p1, Landroid/content/pm/PackageParser$ServiceIntentInfo;->labelRes:I
+    iget v8, p1, Landroid/content/pm/PackageParser$ServiceIntentInfo;->labelRes:I
 
-    iput v5, v2, Landroid/content/pm/ResolveInfo;->labelRes:I
+    iput v8, v4, Landroid/content/pm/ResolveInfo;->labelRes:I
 
-    iget-object v5, p1, Landroid/content/pm/PackageParser$ServiceIntentInfo;->nonLocalizedLabel:Ljava/lang/CharSequence;
+    iget-object v8, p1, Landroid/content/pm/PackageParser$ServiceIntentInfo;->nonLocalizedLabel:Ljava/lang/CharSequence;
 
-    iput-object v5, v2, Landroid/content/pm/ResolveInfo;->nonLocalizedLabel:Ljava/lang/CharSequence;
+    iput-object v8, v4, Landroid/content/pm/ResolveInfo;->nonLocalizedLabel:Ljava/lang/CharSequence;
 
-    iget v5, p1, Landroid/content/pm/PackageParser$ServiceIntentInfo;->icon:I
+    iget v8, p1, Landroid/content/pm/PackageParser$ServiceIntentInfo;->icon:I
 
-    iput v5, v2, Landroid/content/pm/ResolveInfo;->icon:I
+    iput v8, v4, Landroid/content/pm/ResolveInfo;->icon:I
 
-    iget-object v5, v2, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
+    iget-object v8, v4, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
-    iget-object v5, v5, Landroid/content/pm/ServiceInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v8, v8, Landroid/content/pm/ServiceInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    invoke-virtual {v5}, Landroid/content/pm/ApplicationInfo;->isSystemApp()Z
+    invoke-virtual {v8}, Landroid/content/pm/ApplicationInfo;->isSystemApp()Z
 
-    move-result v5
+    move-result v8
 
-    iput-boolean v5, v2, Landroid/content/pm/ResolveInfo;->system:Z
+    iput-boolean v8, v4, Landroid/content/pm/ResolveInfo;->system:Z
 
-    return-object v2
+    return-object v4
 .end method
 
 .method protected bridge synthetic newResult(Landroid/content/IntentFilter;II)Ljava/lang/Object;
@@ -827,7 +904,7 @@
         }
     .end annotation
 
-    invoke-static {}, Lcom/android/server/pm/PackageManagerService;->-get11()Ljava/util/Comparator;
+    invoke-static {}, Lcom/android/server/pm/PackageManagerService;->-get16()Ljava/util/Comparator;
 
     move-result-object v0
 

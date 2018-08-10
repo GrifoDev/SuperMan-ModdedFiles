@@ -1,11 +1,14 @@
 .class Lcom/android/server/devicepolicy/DevicePolicyManagerService$9;
-.super Landroid/content/BroadcastReceiver;
+.super Ljava/lang/Object;
 .source "DevicePolicyManagerService.java"
+
+# interfaces
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/devicepolicy/DevicePolicyManagerService;->getRemoveWarning(Landroid/content/ComponentName;Landroid/os/RemoteCallback;I)V
+    value = Lcom/android/server/devicepolicy/DevicePolicyManagerService;->uninstallPackageWithActiveAdmins(Ljava/lang/String;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,36 +20,70 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-.field final synthetic val$result:Landroid/os/RemoteCallback;
+.field final synthetic val$packageActiveAdmins:Ljava/util/List;
+
+.field final synthetic val$packageName:Ljava/lang/String;
+
+.field final synthetic val$userId:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;Landroid/os/RemoteCallback;)V
+.method constructor <init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;Ljava/util/List;ILjava/lang/String;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$9;->this$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-    iput-object p2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$9;->val$result:Landroid/os/RemoteCallback;
+    iput-object p2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$9;->val$packageActiveAdmins:Ljava/util/List;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    iput p3, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$9;->val$userId:I
+
+    iput-object p4, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$9;->val$packageName:Ljava/lang/String;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 2
+.method public run()V
+    .locals 5
 
-    iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$9;->val$result:Landroid/os/RemoteCallback;
+    iget-object v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$9;->val$packageActiveAdmins:Ljava/util/List;
 
-    const/4 v1, 0x0
-
-    invoke-virtual {p0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$9;->getResultExtras(Z)Landroid/os/Bundle;
+    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/os/RemoteCallback;->sendResult(Landroid/os/Bundle;)V
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/content/ComponentName;
+
+    iget-object v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$9;->this$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
+
+    iget v3, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$9;->val$userId:I
+
+    invoke-static {v2, v0, v3}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->-wrap15(Lcom/android/server/devicepolicy/DevicePolicyManagerService;Landroid/content/ComponentName;I)V
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$9;->this$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
+
+    iget-object v3, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$9;->val$packageName:Ljava/lang/String;
+
+    iget v4, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$9;->val$userId:I
+
+    invoke-static {v2, v3, v4}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->-wrap22(Lcom/android/server/devicepolicy/DevicePolicyManagerService;Ljava/lang/String;I)V
 
     return-void
 .end method

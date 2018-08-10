@@ -223,7 +223,7 @@
 
     move-result-object v15
 
-    invoke-interface {v13, v15}, Landroid/security/IKeyChainService;->installCaCertificate([B)V
+    invoke-interface {v13, v15}, Landroid/security/IKeyChainService;->installCaCertificate([B)Ljava/lang/String;
     :try_end_3
     .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_0
     .catch Ljava/security/cert/CertificateException; {:try_start_3 .. :try_end_3} :catch_2

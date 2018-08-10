@@ -43,11 +43,11 @@
 
     const/4 v2, 0x0
 
-    invoke-static {v1, v2}, Lcom/android/server/display/DisplayPowerState;->-set5(Lcom/android/server/display/DisplayPowerState;Z)Z
+    invoke-static {v1, v2}, Lcom/android/server/display/DisplayPowerState;->-set4(Lcom/android/server/display/DisplayPowerState;Z)Z
 
     iget-object v1, p0, Lcom/android/server/display/DisplayPowerState$3;->this$0:Lcom/android/server/display/DisplayPowerState;
 
-    invoke-static {v1}, Lcom/android/server/display/DisplayPowerState;->-get12(Lcom/android/server/display/DisplayPowerState;)I
+    invoke-static {v1}, Lcom/android/server/display/DisplayPowerState;->-get9(Lcom/android/server/display/DisplayPowerState;)I
 
     move-result v1
 
@@ -55,7 +55,7 @@
 
     iget-object v1, p0, Lcom/android/server/display/DisplayPowerState$3;->this$0:Lcom/android/server/display/DisplayPowerState;
 
-    invoke-static {v1}, Lcom/android/server/display/DisplayPowerState;->-get5(Lcom/android/server/display/DisplayPowerState;)F
+    invoke-static {v1}, Lcom/android/server/display/DisplayPowerState;->-get4(Lcom/android/server/display/DisplayPowerState;)F
 
     move-result v1
 
@@ -67,20 +67,20 @@
 
     iget-object v1, p0, Lcom/android/server/display/DisplayPowerState$3;->this$0:Lcom/android/server/display/DisplayPowerState;
 
-    invoke-static {v1}, Lcom/android/server/display/DisplayPowerState;->-get11(Lcom/android/server/display/DisplayPowerState;)I
+    invoke-static {v1}, Lcom/android/server/display/DisplayPowerState;->-get8(Lcom/android/server/display/DisplayPowerState;)I
 
     move-result v0
 
     :goto_0
     iget-object v1, p0, Lcom/android/server/display/DisplayPowerState$3;->this$0:Lcom/android/server/display/DisplayPowerState;
 
-    invoke-static {v1}, Lcom/android/server/display/DisplayPowerState;->-get10(Lcom/android/server/display/DisplayPowerState;)Lcom/android/server/display/DisplayPowerState$PhotonicModulator;
+    invoke-static {v1}, Lcom/android/server/display/DisplayPowerState;->-get7(Lcom/android/server/display/DisplayPowerState;)Lcom/android/server/display/DisplayPowerState$PhotonicModulator;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/server/display/DisplayPowerState$3;->this$0:Lcom/android/server/display/DisplayPowerState;
 
-    invoke-static {v2}, Lcom/android/server/display/DisplayPowerState;->-get12(Lcom/android/server/display/DisplayPowerState;)I
+    invoke-static {v2}, Lcom/android/server/display/DisplayPowerState;->-get9(Lcom/android/server/display/DisplayPowerState;)I
 
     move-result v2
 
@@ -105,7 +105,7 @@
     :cond_0
     iget-object v1, p0, Lcom/android/server/display/DisplayPowerState$3;->this$0:Lcom/android/server/display/DisplayPowerState;
 
-    invoke-static {v1, v3}, Lcom/android/server/display/DisplayPowerState;->-set4(Lcom/android/server/display/DisplayPowerState;Z)Z
+    invoke-static {v1, v3}, Lcom/android/server/display/DisplayPowerState;->-set3(Lcom/android/server/display/DisplayPowerState;Z)Z
 
     iget-object v1, p0, Lcom/android/server/display/DisplayPowerState$3;->this$0:Lcom/android/server/display/DisplayPowerState;
 

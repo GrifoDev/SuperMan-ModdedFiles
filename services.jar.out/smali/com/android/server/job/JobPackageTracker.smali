@@ -221,126 +221,180 @@
 .end method
 
 .method public dumpHistory(Ljava/io/PrintWriter;Ljava/lang/String;I)Z
-    .locals 11
+    .locals 15
 
-    const/4 v9, 0x0
+    iget-object v12, p0, Lcom/android/server/job/JobPackageTracker;->mEventIndices:Lcom/android/internal/util/RingBufferIndices;
 
-    iget-object v8, p0, Lcom/android/server/job/JobPackageTracker;->mEventIndices:Lcom/android/internal/util/RingBufferIndices;
+    invoke-virtual {v12}, Lcom/android/internal/util/RingBufferIndices;->size()I
 
-    invoke-virtual {v8}, Lcom/android/internal/util/RingBufferIndices;->size()I
+    move-result v10
 
-    move-result v6
+    if-gtz v10, :cond_0
 
-    if-gtz v6, :cond_0
+    const/4 v12, 0x0
 
-    return v9
+    return v12
 
     :cond_0
-    const-string/jumbo v8, "  Job history:"
+    const-string/jumbo v12, "  Job history"
 
-    invoke-virtual {p1, v8}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v12}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string/jumbo v12, " at "
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v12}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v8
+
+    new-instance v12, Ljava/text/SimpleDateFormat;
+
+    const-string/jumbo v13, "yyyy-MM-dd HH:mm:ss.SSS"
+
+    invoke-direct {v12, v13}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V
+
+    new-instance v13, Ljava/util/Date;
+
+    invoke-direct {v13, v8, v9}, Ljava/util/Date;-><init>(J)V
+
+    invoke-virtual {v12, v13}, Ljava/text/SimpleDateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
+
+    move-result-object v12
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v12}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string/jumbo v12, ":"
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v12}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    move-result-wide v4
+    move-result-wide v6
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
     :goto_0
-    if-ge v1, v6, :cond_3
+    if-ge v3, v10, :cond_3
 
-    iget-object v8, p0, Lcom/android/server/job/JobPackageTracker;->mEventIndices:Lcom/android/internal/util/RingBufferIndices;
+    iget-object v12, p0, Lcom/android/server/job/JobPackageTracker;->mEventIndices:Lcom/android/internal/util/RingBufferIndices;
 
-    invoke-virtual {v8, v1}, Lcom/android/internal/util/RingBufferIndices;->indexOf(I)I
+    invoke-virtual {v12, v3}, Lcom/android/internal/util/RingBufferIndices;->indexOf(I)I
 
-    move-result v2
+    move-result v4
 
-    iget-object v8, p0, Lcom/android/server/job/JobPackageTracker;->mEventUids:[I
+    iget-object v12, p0, Lcom/android/server/job/JobPackageTracker;->mEventUids:[I
 
-    aget v7, v8, v2
+    aget v11, v12, v4
 
-    const/4 v8, -0x1
+    const/4 v12, -0x1
 
-    if-eq p3, v8, :cond_2
+    move/from16 v0, p3
 
-    invoke-static {p3}, Landroid/os/UserHandle;->getAppId(I)I
+    if-eq v0, v12, :cond_2
 
-    move-result v8
+    invoke-static {v11}, Landroid/os/UserHandle;->getAppId(I)I
 
-    if-eq p3, v8, :cond_2
+    move-result v12
+
+    move/from16 v0, p3
+
+    if-eq v0, v12, :cond_2
 
     :cond_1
     :goto_1
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     :cond_2
-    iget-object v8, p0, Lcom/android/server/job/JobPackageTracker;->mEventCmds:[I
+    iget-object v12, p0, Lcom/android/server/job/JobPackageTracker;->mEventCmds:[I
 
-    aget v0, v8, v2
+    aget v2, v12, v4
 
-    if-eqz v0, :cond_1
+    if-eqz v2, :cond_1
 
-    iget-object v8, p0, Lcom/android/server/job/JobPackageTracker;->mEventCmds:[I
+    iget-object v12, p0, Lcom/android/server/job/JobPackageTracker;->mEventCmds:[I
 
-    aget v8, v8, v2
+    aget v12, v12, v4
 
-    packed-switch v8, :pswitch_data_0
+    packed-switch v12, :pswitch_data_0
 
-    const-string/jumbo v3, "   ??"
+    const-string/jumbo v5, "   ??"
 
     :goto_2
-    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    iget-object v8, p0, Lcom/android/server/job/JobPackageTracker;->mEventTimes:[J
+    iget-object v12, p0, Lcom/android/server/job/JobPackageTracker;->mEventTimes:[J
 
-    aget-wide v8, v8, v2
+    aget-wide v12, v12, v4
 
-    sub-long/2addr v8, v4
+    sub-long/2addr v12, v6
 
-    const/16 v10, 0x13
+    const/16 v14, 0x13
 
-    invoke-static {v8, v9, p1, v10}, Landroid/util/TimeUtils;->formatDuration(JLjava/io/PrintWriter;I)V
+    move-object/from16 v0, p1
 
-    const-string/jumbo v8, " "
+    invoke-static {v12, v13, v0, v14}, Landroid/util/TimeUtils;->formatDuration(JLjava/io/PrintWriter;I)V
 
-    invoke-virtual {p1, v8}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    const-string/jumbo v12, " "
 
-    invoke-virtual {p1, v3}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    move-object/from16 v0, p1
 
-    const-string/jumbo v8, ": "
+    invoke-virtual {v0, v12}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    invoke-virtual {p1, v8}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    move-object/from16 v0, p1
 
-    invoke-static {p1, v7}, Landroid/os/UserHandle;->formatUid(Ljava/io/PrintWriter;I)V
+    invoke-virtual {v0, v5}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string/jumbo v8, " "
+    const-string/jumbo v12, ": "
 
-    invoke-virtual {p1, v8}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    move-object/from16 v0, p1
 
-    iget-object v8, p0, Lcom/android/server/job/JobPackageTracker;->mEventTags:[Ljava/lang/String;
+    invoke-virtual {v0, v12}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    aget-object v8, v8, v2
+    move-object/from16 v0, p1
 
-    invoke-virtual {p1, v8}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-static {v0, v11}, Landroid/os/UserHandle;->formatUid(Ljava/io/PrintWriter;I)V
+
+    const-string/jumbo v12, " "
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v12}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-object v12, p0, Lcom/android/server/job/JobPackageTracker;->mEventTags:[Ljava/lang/String;
+
+    aget-object v12, v12, v4
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v12}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     goto :goto_1
 
     :pswitch_0
-    const-string/jumbo v3, "START"
+    const-string/jumbo v5, "START"
 
     goto :goto_2
 
     :pswitch_1
-    const-string/jumbo v3, " STOP"
+    const-string/jumbo v5, " STOP"
 
     goto :goto_2
 
     :cond_3
-    const/4 v8, 0x1
+    const/4 v12, 0x1
 
-    return v8
+    return v12
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -387,6 +441,8 @@
     :goto_0
     if-nez v0, :cond_1
 
+    if-nez v1, :cond_1
+
     const/4 v10, 0x0
 
     return v10
@@ -401,6 +457,10 @@
 
     move-result-wide v2
 
+    const-wide/16 v8, 0x0
+
+    if-eqz v0, :cond_2
+
     invoke-virtual {v0, v2, v3}, Lcom/android/server/job/JobPackageTracker$PackageEntry;->getActiveTime(J)J
 
     move-result-wide v10
@@ -409,15 +469,20 @@
 
     move-result-wide v12
 
-    add-long v8, v10, v12
+    add-long/2addr v10, v12
 
+    const-wide/16 v12, 0x0
+
+    add-long v8, v12, v10
+
+    :cond_2
     iget-object v10, p0, Lcom/android/server/job/JobPackageTracker;->mCurDataSet:Lcom/android/server/job/JobPackageTracker$DataSet;
 
     invoke-virtual {v10, v2, v3}, Lcom/android/server/job/JobPackageTracker$DataSet;->getTotalTime(J)J
 
     move-result-wide v4
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3
 
     invoke-virtual {v1, v2, v3}, Lcom/android/server/job/JobPackageTracker$PackageEntry;->getActiveTime(J)J
 
@@ -443,7 +508,7 @@
 
     add-long/2addr v4, v10
 
-    :cond_2
+    :cond_3
     long-to-float v10, v8
 
     long-to-float v11, v4
@@ -459,6 +524,8 @@
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v0
+
+    iput-wide v0, p1, Lcom/android/server/job/controllers/JobStatus;->madeActive:J
 
     invoke-virtual {p0, v0, v1}, Lcom/android/server/job/JobPackageTracker;->rebatchIfNeeded(J)V
 
@@ -539,7 +606,7 @@
     return-void
 .end method
 
-.method public noteInactive(Lcom/android/server/job/controllers/JobStatus;)V
+.method public noteInactive(Lcom/android/server/job/controllers/JobStatus;Ljava/lang/String;)V
     .locals 5
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
@@ -571,7 +638,29 @@
 
     move-result v2
 
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
     invoke-virtual {p1}, Lcom/android/server/job/controllers/JobStatus;->getBatteryName()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
 
@@ -627,6 +716,8 @@
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v0
+
+    iput-wide v0, p1, Lcom/android/server/job/controllers/JobStatus;->madePending:J
 
     invoke-virtual {p0, v0, v1}, Lcom/android/server/job/JobPackageTracker;->rebatchIfNeeded(J)V
 

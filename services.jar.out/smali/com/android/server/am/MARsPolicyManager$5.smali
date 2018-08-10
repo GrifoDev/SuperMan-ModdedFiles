@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/am/MARsPolicyManager;->registerDefaultInputMethodChanged()V
+    value = Lcom/android/server/am/MARsPolicyManager;->registerEnabledCocktailBarChanged()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -32,65 +32,11 @@
 
 # virtual methods
 .method public onChange(ZLandroid/net/Uri;)V
-    .locals 2
-
-    sget-boolean v0, Lcom/android/server/am/MARsPolicyManager;->DEBUG_MARs:Z
-
-    if-eqz v0, :cond_0
-
-    const-string/jumbo v0, "MARsPolicyManager"
-
-    const-string/jumbo v1, "onChange - DEFAULT_INPUT_METHOD!"
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/server/am/MARsPolicyManager$5;->this$0:Lcom/android/server/am/MARsPolicyManager;
-
-    iget-object v1, p0, Lcom/android/server/am/MARsPolicyManager$5;->this$0:Lcom/android/server/am/MARsPolicyManager;
-
-    iget-object v1, v1, Lcom/android/server/am/MARsPolicyManager;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getUserId()I
-
-    move-result v1
-
-    invoke-static {v0, v1}, Lcom/android/server/am/MARsPolicyManager;->-wrap5(Lcom/android/server/am/MARsPolicyManager;I)V
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/am/MARsPolicyManager$5;->this$0:Lcom/android/server/am/MARsPolicyManager;
 
-    iget-object v0, v0, Lcom/android/server/am/MARsPolicyManager;->mContext:Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/server/am/MARsPolicyManager;->-wrap0(Lcom/android/server/am/MARsPolicyManager;)V
 
-    invoke-virtual {v0}, Landroid/content/Context;->getUserId()I
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/server/am/MARsPolicyManager$5;->this$0:Lcom/android/server/am/MARsPolicyManager;
-
-    iget v0, v0, Lcom/android/server/am/MARsPolicyManager;->SecureFolderUserId:I
-
-    const/16 v1, 0x96
-
-    if-lt v0, v1, :cond_1
-
-    iget-object v0, p0, Lcom/android/server/am/MARsPolicyManager$5;->this$0:Lcom/android/server/am/MARsPolicyManager;
-
-    iget v0, v0, Lcom/android/server/am/MARsPolicyManager;->SecureFolderUserId:I
-
-    const/16 v1, 0xa0
-
-    if-gt v0, v1, :cond_1
-
-    iget-object v0, p0, Lcom/android/server/am/MARsPolicyManager$5;->this$0:Lcom/android/server/am/MARsPolicyManager;
-
-    iget-object v1, p0, Lcom/android/server/am/MARsPolicyManager$5;->this$0:Lcom/android/server/am/MARsPolicyManager;
-
-    iget v1, v1, Lcom/android/server/am/MARsPolicyManager;->SecureFolderUserId:I
-
-    invoke-static {v0, v1}, Lcom/android/server/am/MARsPolicyManager;->-wrap5(Lcom/android/server/am/MARsPolicyManager;I)V
-
-    :cond_1
     return-void
 .end method

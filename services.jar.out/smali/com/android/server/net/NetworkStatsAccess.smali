@@ -25,19 +25,19 @@
 
     const/4 v9, 0x1
 
-    const/4 v6, 0x0
+    const/4 v8, 0x0
 
-    const-class v7, Landroid/app/admin/DevicePolicyManagerInternal;
+    const-class v6, Landroid/app/admin/DevicePolicyManagerInternal;
 
-    invoke-static {v7}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-static {v6}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/app/admin/DevicePolicyManagerInternal;
 
-    const-string/jumbo v7, "phone"
+    const-string/jumbo v6, "phone"
 
-    invoke-virtual {p0, v7}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v5
 
@@ -47,18 +47,18 @@
 
     invoke-virtual {v5, p2}, Landroid/telephony/TelephonyManager;->checkCarrierPrivilegesForPackage(Ljava/lang/String;)I
 
-    move-result v7
+    move-result v6
 
-    if-ne v7, v9, :cond_1
+    if-ne v6, v9, :cond_1
 
     const/4 v2, 0x1
 
     :goto_0
     if-eqz v0, :cond_3
 
-    const/4 v7, -0x2
+    const/4 v6, -0x2
 
-    invoke-virtual {v0, p1, v7}, Landroid/app/admin/DevicePolicyManagerInternal;->isActiveAdminWithPolicy(II)Z
+    invoke-virtual {v0, p1, v6}, Landroid/app/admin/DevicePolicyManagerInternal;->isActiveAdminWithPolicy(II)Z
 
     move-result v3
 
@@ -69,11 +69,11 @@
 
     invoke-static {p1}, Landroid/os/UserHandle;->getAppId(I)I
 
-    move-result v7
+    move-result v6
 
-    const/16 v8, 0x3e8
+    const/16 v7, 0x3e8
 
-    if-ne v7, v8, :cond_4
+    if-ne v6, v7, :cond_4
 
     :cond_0
     const/4 v6, 0x3
@@ -102,13 +102,13 @@
 
     if-nez v1, :cond_5
 
-    const-string/jumbo v7, "android.permission.READ_NETWORK_USAGE_HISTORY"
+    const-string/jumbo v6, "android.permission.READ_NETWORK_USAGE_HISTORY"
 
-    invoke-virtual {p0, v7}, Landroid/content/Context;->checkCallingOrSelfPermission(Ljava/lang/String;)I
+    invoke-virtual {p0, v6}, Landroid/content/Context;->checkCallingOrSelfPermission(Ljava/lang/String;)I
 
-    move-result v7
+    move-result v6
 
-    if-nez v7, :cond_6
+    if-nez v6, :cond_6
 
     :cond_5
     const/4 v6, 0x2
@@ -118,9 +118,9 @@
     :cond_6
     if-eqz v0, :cond_7
 
-    const/4 v7, -0x1
+    const/4 v6, -0x1
 
-    invoke-virtual {v0, p1, v7}, Landroid/app/admin/DevicePolicyManagerInternal;->isActiveAdminWithPolicy(II)Z
+    invoke-virtual {v0, p1, v6}, Landroid/app/admin/DevicePolicyManagerInternal;->isActiveAdminWithPolicy(II)Z
 
     move-result v4
 
@@ -130,12 +130,12 @@
     return v9
 
     :cond_7
-    move v4, v6
+    const/4 v4, 0x0
 
     goto :goto_2
 
     :cond_8
-    return v6
+    return v8
 .end method
 
 .method private static hasAppOpsPermission(Landroid/content/Context;ILjava/lang/String;)Z

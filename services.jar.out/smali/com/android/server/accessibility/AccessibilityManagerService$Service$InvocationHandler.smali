@@ -17,6 +17,10 @@
 # static fields
 .field public static final MSG_CLEAR_ACCESSIBILITY_CACHE:I = 0x2
 
+.field private static final MSG_ON_ACCESSIBILITY_BUTTON_AVAILABILITY_CHANGED:I = 0x8
+
+.field private static final MSG_ON_ACCESSIBILITY_BUTTON_CLICKED:I = 0x7
+
 .field public static final MSG_ON_GESTURE:I = 0x1
 
 .field private static final MSG_ON_MAGNIFICATION_CHANGED:I = 0x5
@@ -64,51 +68,51 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 11
+    .locals 12
 
-    iget v7, p1, Landroid/os/Message;->what:I
+    iget v8, p1, Landroid/os/Message;->what:I
 
-    packed-switch v7, :pswitch_data_0
+    packed-switch v8, :pswitch_data_0
 
     :pswitch_0
-    new-instance v8, Ljava/lang/IllegalArgumentException;
+    new-instance v9, Ljava/lang/IllegalArgumentException;
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v10, "Unknown message: "
+    const-string/jumbo v11, "Unknown message: "
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v9, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-direct {v8, v9}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v9, v10}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v8
+    throw v9
 
     :pswitch_1
-    iget v3, p1, Landroid/os/Message;->arg1:I
+    iget v4, p1, Landroid/os/Message;->arg1:I
 
-    iget-object v8, p0, Lcom/android/server/accessibility/AccessibilityManagerService$Service$InvocationHandler;->this$1:Lcom/android/server/accessibility/AccessibilityManagerService$Service;
+    iget-object v9, p0, Lcom/android/server/accessibility/AccessibilityManagerService$Service$InvocationHandler;->this$1:Lcom/android/server/accessibility/AccessibilityManagerService$Service;
 
-    invoke-static {v8, v3}, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->-wrap2(Lcom/android/server/accessibility/AccessibilityManagerService$Service;I)V
+    invoke-static {v9, v4}, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->-wrap5(Lcom/android/server/accessibility/AccessibilityManagerService$Service;I)V
 
     :goto_0
     return-void
 
     :pswitch_2
-    iget-object v8, p0, Lcom/android/server/accessibility/AccessibilityManagerService$Service$InvocationHandler;->this$1:Lcom/android/server/accessibility/AccessibilityManagerService$Service;
+    iget-object v9, p0, Lcom/android/server/accessibility/AccessibilityManagerService$Service$InvocationHandler;->this$1:Lcom/android/server/accessibility/AccessibilityManagerService$Service;
 
-    invoke-static {v8}, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->-wrap1(Lcom/android/server/accessibility/AccessibilityManagerService$Service;)V
+    invoke-static {v9}, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->-wrap4(Lcom/android/server/accessibility/AccessibilityManagerService$Service;)V
 
     goto :goto_0
 
@@ -117,50 +121,74 @@
 
     check-cast v0, Lcom/android/internal/os/SomeArgs;
 
-    iget-object v4, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+    iget-object v5, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
-    check-cast v4, Landroid/graphics/Region;
+    check-cast v5, Landroid/graphics/Region;
 
-    iget-object v8, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+    iget-object v9, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
 
-    check-cast v8, Ljava/lang/Float;
+    check-cast v9, Ljava/lang/Float;
 
-    invoke-virtual {v8}, Ljava/lang/Float;->floatValue()F
+    invoke-virtual {v9}, Ljava/lang/Float;->floatValue()F
 
-    move-result v5
+    move-result v6
 
-    iget-object v8, v0, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
+    iget-object v9, v0, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
 
-    check-cast v8, Ljava/lang/Float;
+    check-cast v9, Ljava/lang/Float;
 
-    invoke-virtual {v8}, Ljava/lang/Float;->floatValue()F
-
-    move-result v1
-
-    iget-object v8, v0, Lcom/android/internal/os/SomeArgs;->arg4:Ljava/lang/Object;
-
-    check-cast v8, Ljava/lang/Float;
-
-    invoke-virtual {v8}, Ljava/lang/Float;->floatValue()F
+    invoke-virtual {v9}, Ljava/lang/Float;->floatValue()F
 
     move-result v2
 
-    iget-object v8, p0, Lcom/android/server/accessibility/AccessibilityManagerService$Service$InvocationHandler;->this$1:Lcom/android/server/accessibility/AccessibilityManagerService$Service;
+    iget-object v9, v0, Lcom/android/internal/os/SomeArgs;->arg4:Ljava/lang/Object;
 
-    invoke-static {v8, v4, v5, v1, v2}, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->-wrap3(Lcom/android/server/accessibility/AccessibilityManagerService$Service;Landroid/graphics/Region;FFF)V
+    check-cast v9, Ljava/lang/Float;
+
+    invoke-virtual {v9}, Ljava/lang/Float;->floatValue()F
+
+    move-result v3
+
+    iget-object v9, p0, Lcom/android/server/accessibility/AccessibilityManagerService$Service$InvocationHandler;->this$1:Lcom/android/server/accessibility/AccessibilityManagerService$Service;
+
+    invoke-static {v9, v5, v6, v2, v3}, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->-wrap6(Lcom/android/server/accessibility/AccessibilityManagerService$Service;Landroid/graphics/Region;FFF)V
 
     goto :goto_0
 
     :pswitch_4
-    iget v6, p1, Landroid/os/Message;->arg1:I
+    iget v7, p1, Landroid/os/Message;->arg1:I
 
-    iget-object v8, p0, Lcom/android/server/accessibility/AccessibilityManagerService$Service$InvocationHandler;->this$1:Lcom/android/server/accessibility/AccessibilityManagerService$Service;
+    iget-object v9, p0, Lcom/android/server/accessibility/AccessibilityManagerService$Service$InvocationHandler;->this$1:Lcom/android/server/accessibility/AccessibilityManagerService$Service;
 
-    invoke-static {v8, v6}, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->-wrap4(Lcom/android/server/accessibility/AccessibilityManagerService$Service;I)V
+    invoke-static {v9, v7}, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->-wrap7(Lcom/android/server/accessibility/AccessibilityManagerService$Service;I)V
 
     goto :goto_0
 
-    nop
+    :pswitch_5
+    iget-object v9, p0, Lcom/android/server/accessibility/AccessibilityManagerService$Service$InvocationHandler;->this$1:Lcom/android/server/accessibility/AccessibilityManagerService$Service;
+
+    invoke-static {v9}, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->-wrap2(Lcom/android/server/accessibility/AccessibilityManagerService$Service;)V
+
+    goto :goto_0
+
+    :pswitch_6
+    iget v9, p1, Landroid/os/Message;->arg1:I
+
+    if-eqz v9, :cond_0
+
+    const/4 v1, 0x1
+
+    :goto_1
+    iget-object v9, p0, Lcom/android/server/accessibility/AccessibilityManagerService$Service$InvocationHandler;->this$1:Lcom/android/server/accessibility/AccessibilityManagerService$Service;
+
+    invoke-static {v9, v1}, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->-wrap1(Lcom/android/server/accessibility/AccessibilityManagerService$Service;Z)V
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_1
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -170,7 +198,49 @@
         :pswitch_0
         :pswitch_3
         :pswitch_4
+        :pswitch_5
+        :pswitch_6
     .end packed-switch
+.end method
+
+.method public notifyAccessibilityButtonAvailabilityChangedLocked(Z)V
+    .locals 4
+
+    const/4 v2, 0x0
+
+    if-eqz p1, :cond_0
+
+    const/4 v1, 0x1
+
+    :goto_0
+    const/16 v3, 0x8
+
+    invoke-virtual {p0, v3, v1, v2}, Lcom/android/server/accessibility/AccessibilityManagerService$Service$InvocationHandler;->obtainMessage(III)Landroid/os/Message;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+
+    return-void
+
+    :cond_0
+    move v1, v2
+
+    goto :goto_0
+.end method
+
+.method public notifyAccessibilityButtonClickedLocked()V
+    .locals 2
+
+    const/4 v1, 0x7
+
+    invoke-virtual {p0, v1}, Lcom/android/server/accessibility/AccessibilityManagerService$Service$InvocationHandler;->obtainMessage(I)Landroid/os/Message;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+
+    return-void
 .end method
 
 .method public notifyMagnificationChangedLocked(Landroid/graphics/Region;FFF)V

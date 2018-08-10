@@ -1,4 +1,4 @@
-.class Lcom/android/server/TextServicesManagerService$TextServicesMonitor;
+.class final Lcom/android/server/TextServicesManagerService$TextServicesMonitor;
 .super Lcom/android/internal/content/PackageMonitor;
 .source "TextServicesManagerService.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x12
     name = "TextServicesMonitor"
 .end annotation
 

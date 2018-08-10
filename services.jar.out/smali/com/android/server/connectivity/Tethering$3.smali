@@ -52,7 +52,7 @@
 
     const/4 v3, 0x1
 
-    invoke-static {v0, v1, v3, v2}, Lcom/android/server/connectivity/Tethering;->-wrap9(Lcom/android/server/connectivity/Tethering;IZLandroid/os/ResultReceiver;)V
+    invoke-static {v0, v1, v3, v2}, Lcom/android/server/connectivity/Tethering;->-wrap10(Lcom/android/server/connectivity/Tethering;IZLandroid/os/ResultReceiver;)V
 
     :goto_0
     return-void
@@ -62,7 +62,7 @@
 
     iget-object v1, p0, Lcom/android/server/connectivity/Tethering$3;->val$receiver:Landroid/os/ResultReceiver;
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/connectivity/Tethering;->-wrap12(Lcom/android/server/connectivity/Tethering;Landroid/os/ResultReceiver;I)V
+    invoke-static {v0, v1, p1}, Lcom/android/server/connectivity/Tethering;->-wrap14(Lcom/android/server/connectivity/Tethering;Landroid/os/ResultReceiver;I)V
 
     goto :goto_0
 .end method

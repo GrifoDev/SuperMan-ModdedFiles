@@ -370,8 +370,6 @@
 
     const/16 v1, 0x3e8
 
-    if-eq v0, v1, :cond_0
-
     :cond_0
     iget-boolean v1, p0, Lcom/android/server/connectivity/KeepaliveTracker$KeepaliveInfo;->isStarted:Z
 

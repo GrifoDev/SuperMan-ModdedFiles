@@ -38,7 +38,7 @@
 
     iget-object v1, v0, Lcom/android/server/usb/UsbHostManager$3;->this$0:Lcom/android/server/usb/UsbHostManager;
 
-    invoke-static {v1}, Lcom/android/server/usb/UsbHostManager;->-get4(Lcom/android/server/usb/UsbHostManager;)Ljava/lang/Object;
+    invoke-static {v1}, Lcom/android/server/usb/UsbHostManager;->-get2(Lcom/android/server/usb/UsbHostManager;)Ljava/lang/Object;
 
     move-result-object v19
 
@@ -101,29 +101,13 @@
 
     move-result-object v15
 
-    invoke-static {}, Lcom/android/server/usb/UsbHostManager;->-get1()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/usb/UsbHostManager;->-get0()Ljava/lang/String;
 
     move-result-object v1
 
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/usb/UsbHostManager$3;->this$0:Lcom/android/server/usb/UsbHostManager;
-
-    move-object/from16 v20, v0
-
-    invoke-static/range {v20 .. v20}, Lcom/android/server/usb/UsbHostManager;->-get0(Lcom/android/server/usb/UsbHostManager;)Ljava/lang/String;
-
-    move-result-object v20
-
-    move-object/from16 v0, v20
-
-    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
 
     const-string/jumbo v20, "onUEvent(device) :: action = "
 
@@ -217,7 +201,7 @@
 
     move-result-object v6
 
-    invoke-static {v1, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v6}, Lcom/android/server/utils/sysfwutil/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -302,29 +286,13 @@
     move-exception v13
 
     :try_start_3
-    invoke-static {}, Lcom/android/server/usb/UsbHostManager;->-get1()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/usb/UsbHostManager;->-get0()Ljava/lang/String;
 
     move-result-object v1
 
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/usb/UsbHostManager$3;->this$0:Lcom/android/server/usb/UsbHostManager;
-
-    move-object/from16 v20, v0
-
-    invoke-static/range {v20 .. v20}, Lcom/android/server/usb/UsbHostManager;->-get0(Lcom/android/server/usb/UsbHostManager;)Ljava/lang/String;
-
-    move-result-object v20
-
-    move-object/from16 v0, v20
-
-    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
 
     const-string/jumbo v20, "ArrayIndexOutOfBoundsException "
 
@@ -342,7 +310,7 @@
 
     move-result-object v6
 
-    invoke-static {v1, v6}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v6}, Lcom/android/server/utils/sysfwutil/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
@@ -359,29 +327,13 @@
     move-exception v14
 
     :try_start_4
-    invoke-static {}, Lcom/android/server/usb/UsbHostManager;->-get1()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/usb/UsbHostManager;->-get0()Ljava/lang/String;
 
     move-result-object v1
 
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/usb/UsbHostManager$3;->this$0:Lcom/android/server/usb/UsbHostManager;
-
-    move-object/from16 v20, v0
-
-    invoke-static/range {v20 .. v20}, Lcom/android/server/usb/UsbHostManager;->-get0(Lcom/android/server/usb/UsbHostManager;)Ljava/lang/String;
-
-    move-result-object v20
-
-    move-object/from16 v0, v20
-
-    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
 
     const-string/jumbo v20, "Could not parse state or devPath from event "
 
@@ -401,7 +353,7 @@
 
     move-result-object v6
 
-    invoke-static {v1, v6}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v6}, Lcom/android/server/utils/sysfwutil/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 

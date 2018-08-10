@@ -19,11 +19,37 @@
 
 
 # instance fields
+.field channels:Landroid/util/ArrayMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/ArrayMap",
+            "<",
+            "Ljava/lang/String;",
+            "Landroid/app/NotificationChannel;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field groups:Ljava/util/Map;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Landroid/app/NotificationChannelGroup;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field importance:I
 
 .field pkg:Ljava/lang/String;
 
 .field priority:I
+
+.field showBadge:Z
 
 .field uid:I
 
@@ -59,6 +85,22 @@
     iput v0, p0, Lcom/android/server/notification/RankingHelper$Record;->priority:I
 
     iput v1, p0, Lcom/android/server/notification/RankingHelper$Record;->visibility:I
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/server/notification/RankingHelper$Record;->showBadge:Z
+
+    new-instance v0, Landroid/util/ArrayMap;
+
+    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
+
+    iput-object v0, p0, Lcom/android/server/notification/RankingHelper$Record;->channels:Landroid/util/ArrayMap;
+
+    new-instance v0, Ljava/util/concurrent/ConcurrentHashMap;
+
+    invoke-direct {v0}, Ljava/util/concurrent/ConcurrentHashMap;-><init>()V
+
+    iput-object v0, p0, Lcom/android/server/notification/RankingHelper$Record;->groups:Ljava/util/Map;
 
     return-void
 .end method

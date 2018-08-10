@@ -43,7 +43,7 @@
 
     iget-object v4, p0, Lcom/android/server/BatteryService$3;->this$0:Lcom/android/server/BatteryService;
 
-    invoke-static {v4}, Lcom/android/server/BatteryService;->-get18(Lcom/android/server/BatteryService;)Ljava/lang/Object;
+    invoke-static {v4}, Lcom/android/server/BatteryService;->-get19(Lcom/android/server/BatteryService;)Ljava/lang/Object;
 
     move-result-object v5
 
@@ -52,7 +52,7 @@
     :try_start_0
     iget-object v4, p0, Lcom/android/server/BatteryService$3;->this$0:Lcom/android/server/BatteryService;
 
-    invoke-static {v4}, Lcom/android/server/BatteryService;->-get7(Lcom/android/server/BatteryService;)Landroid/os/BatteryProperties;
+    invoke-static {v4}, Lcom/android/server/BatteryService;->-get8(Lcom/android/server/BatteryService;)Landroid/os/BatteryProperties;
 
     move-result-object v4
 
@@ -62,7 +62,7 @@
 
     iget-object v4, p0, Lcom/android/server/BatteryService$3;->this$0:Lcom/android/server/BatteryService;
 
-    invoke-static {v4}, Lcom/android/server/BatteryService;->-get14(Lcom/android/server/BatteryService;)J
+    invoke-static {v4}, Lcom/android/server/BatteryService;->-get15(Lcom/android/server/BatteryService;)J
 
     move-result-wide v6
 
@@ -72,7 +72,7 @@
 
     iget-object v4, p0, Lcom/android/server/BatteryService$3;->this$0:Lcom/android/server/BatteryService;
 
-    invoke-static {v4}, Lcom/android/server/BatteryService;->-get14(Lcom/android/server/BatteryService;)J
+    invoke-static {v4}, Lcom/android/server/BatteryService;->-get15(Lcom/android/server/BatteryService;)J
 
     move-result-wide v6
 
@@ -94,7 +94,7 @@
 
     iget-object v7, p0, Lcom/android/server/BatteryService$3;->this$0:Lcom/android/server/BatteryService;
 
-    invoke-static {v7}, Lcom/android/server/BatteryService;->-get14(Lcom/android/server/BatteryService;)J
+    invoke-static {v7}, Lcom/android/server/BatteryService;->-get15(Lcom/android/server/BatteryService;)J
 
     move-result-wide v8
 
@@ -155,7 +155,7 @@
     :cond_1
     iget-object v4, p0, Lcom/android/server/BatteryService$3;->this$0:Lcom/android/server/BatteryService;
 
-    invoke-static {v4}, Lcom/android/server/BatteryService;->-get19(Lcom/android/server/BatteryService;)Ljava/lang/Object;
+    invoke-static {v4}, Lcom/android/server/BatteryService;->-get20(Lcom/android/server/BatteryService;)Ljava/lang/Object;
 
     move-result-object v5
 
@@ -166,13 +166,13 @@
 
     iget-object v6, p0, Lcom/android/server/BatteryService$3;->this$0:Lcom/android/server/BatteryService;
 
-    invoke-static {v6}, Lcom/android/server/BatteryService;->-wrap6(Lcom/android/server/BatteryService;)J
+    invoke-static {v6}, Lcom/android/server/BatteryService;->-wrap7(Lcom/android/server/BatteryService;)J
 
     move-result-wide v6
 
     add-long/2addr v6, v2
 
-    invoke-static {v4, v6, v7}, Lcom/android/server/BatteryService;->-set11(Lcom/android/server/BatteryService;J)J
+    invoke-static {v4, v6, v7}, Lcom/android/server/BatteryService;->-set12(Lcom/android/server/BatteryService;J)J
 
     iget-object v4, p0, Lcom/android/server/BatteryService$3;->this$0:Lcom/android/server/BatteryService;
 
@@ -180,11 +180,11 @@
 
     iget-object v7, p0, Lcom/android/server/BatteryService$3;->this$0:Lcom/android/server/BatteryService;
 
-    invoke-static {v7}, Lcom/android/server/BatteryService;->-get27(Lcom/android/server/BatteryService;)J
+    invoke-static {v7}, Lcom/android/server/BatteryService;->-get29(Lcom/android/server/BatteryService;)J
 
     move-result-wide v8
 
-    invoke-static {v4, v6, v8, v9}, Lcom/android/server/BatteryService;->-wrap1(Lcom/android/server/BatteryService;Ljava/lang/String;J)I
+    invoke-static {v4, v6, v8, v9}, Lcom/android/server/BatteryService;->-wrap2(Lcom/android/server/BatteryService;Ljava/lang/String;J)I
 
     invoke-static {}, Lcom/android/server/BatteryService;->-get0()Z
 
@@ -198,7 +198,7 @@
 
     iget-object v7, p0, Lcom/android/server/BatteryService$3;->this$0:Lcom/android/server/BatteryService;
 
-    invoke-static {v7}, Lcom/android/server/BatteryService;->-get27(Lcom/android/server/BatteryService;)J
+    invoke-static {v7}, Lcom/android/server/BatteryService;->-get29(Lcom/android/server/BatteryService;)J
 
     move-result-wide v8
 
@@ -206,7 +206,7 @@
 
     div-long/2addr v8, v10
 
-    invoke-static {v4, v6, v8, v9}, Lcom/android/server/BatteryService;->-wrap1(Lcom/android/server/BatteryService;Ljava/lang/String;J)I
+    invoke-static {v4, v6, v8, v9}, Lcom/android/server/BatteryService;->-wrap2(Lcom/android/server/BatteryService;Ljava/lang/String;J)I
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 

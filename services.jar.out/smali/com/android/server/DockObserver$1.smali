@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 2
+    .locals 1
 
     iget v0, p1, Landroid/os/Message;->what:I
 
@@ -44,27 +44,12 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/server/DockObserver$1;->this$0:Lcom/android/server/DockObserver;
 
-    iget-object v1, p0, Lcom/android/server/DockObserver$1;->this$0:Lcom/android/server/DockObserver;
-
-    invoke-static {v1}, Lcom/android/server/DockObserver;->-get5(Lcom/android/server/DockObserver;)I
-
-    move-result v1
-
-    invoke-static {v0, v1}, Lcom/android/server/DockObserver;->-wrap0(Lcom/android/server/DockObserver;I)Z
+    invoke-static {v0}, Lcom/android/server/DockObserver;->-wrap0(Lcom/android/server/DockObserver;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/DockObserver$1;->this$0:Lcom/android/server/DockObserver;
-
-    invoke-static {v0}, Lcom/android/server/DockObserver;->-get6(Lcom/android/server/DockObserver;)I
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    :cond_0
     iget-object v0, p0, Lcom/android/server/DockObserver$1;->this$0:Lcom/android/server/DockObserver;
 
     invoke-static {v0}, Lcom/android/server/DockObserver;->-wrap2(Lcom/android/server/DockObserver;)V
@@ -72,7 +57,7 @@
     :goto_1
     iget-object v0, p0, Lcom/android/server/DockObserver$1;->this$0:Lcom/android/server/DockObserver;
 
-    invoke-static {v0}, Lcom/android/server/DockObserver;->-get9(Lcom/android/server/DockObserver;)Landroid/os/PowerManager$WakeLock;
+    invoke-static {v0}, Lcom/android/server/DockObserver;->-get8(Lcom/android/server/DockObserver;)Landroid/os/PowerManager$WakeLock;
 
     move-result-object v0
 
@@ -80,21 +65,7 @@
 
     goto :goto_0
 
-    :cond_1
-    iget-object v0, p0, Lcom/android/server/DockObserver$1;->this$0:Lcom/android/server/DockObserver;
-
-    iget-object v1, p0, Lcom/android/server/DockObserver$1;->this$0:Lcom/android/server/DockObserver;
-
-    invoke-static {v1}, Lcom/android/server/DockObserver;->-get6(Lcom/android/server/DockObserver;)I
-
-    move-result v1
-
-    invoke-static {v0, v1}, Lcom/android/server/DockObserver;->-wrap0(Lcom/android/server/DockObserver;I)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
+    :cond_0
     iget-object v0, p0, Lcom/android/server/DockObserver$1;->this$0:Lcom/android/server/DockObserver;
 
     invoke-static {v0}, Lcom/android/server/DockObserver;->-wrap1(Lcom/android/server/DockObserver;)V

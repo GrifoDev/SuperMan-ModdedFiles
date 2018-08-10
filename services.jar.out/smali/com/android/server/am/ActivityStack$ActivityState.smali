@@ -27,22 +27,76 @@
 .field private static final synthetic $VALUES:[Lcom/android/server/am/ActivityStack$ActivityState;
 
 .field public static final enum DESTROYED:Lcom/android/server/am/ActivityStack$ActivityState;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/android/server/am/ActivityStack$ActivityState;"
+        }
+    .end annotation
+.end field
 
 .field public static final enum DESTROYING:Lcom/android/server/am/ActivityStack$ActivityState;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/android/server/am/ActivityStack$ActivityState;"
+        }
+    .end annotation
+.end field
 
 .field public static final enum FINISHING:Lcom/android/server/am/ActivityStack$ActivityState;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/android/server/am/ActivityStack$ActivityState;"
+        }
+    .end annotation
+.end field
 
 .field public static final enum INITIALIZING:Lcom/android/server/am/ActivityStack$ActivityState;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/android/server/am/ActivityStack$ActivityState;"
+        }
+    .end annotation
+.end field
 
 .field public static final enum PAUSED:Lcom/android/server/am/ActivityStack$ActivityState;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/android/server/am/ActivityStack$ActivityState;"
+        }
+    .end annotation
+.end field
 
 .field public static final enum PAUSING:Lcom/android/server/am/ActivityStack$ActivityState;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/android/server/am/ActivityStack$ActivityState;"
+        }
+    .end annotation
+.end field
 
 .field public static final enum RESUMED:Lcom/android/server/am/ActivityStack$ActivityState;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/android/server/am/ActivityStack$ActivityState;"
+        }
+    .end annotation
+.end field
 
 .field public static final enum STOPPED:Lcom/android/server/am/ActivityStack$ActivityState;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/android/server/am/ActivityStack$ActivityState;"
+        }
+    .end annotation
+.end field
 
 .field public static final enum STOPPING:Lcom/android/server/am/ActivityStack$ActivityState;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/android/server/am/ActivityStack$ActivityState;"
+        }
+    .end annotation
+.end field
 
 
 # direct methods

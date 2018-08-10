@@ -28,11 +28,13 @@
 
 .field final mUri:Landroid/app/job/JobInfo$TriggerContentUri;
 
+.field final mUserId:I
+
 .field final synthetic this$0:Lcom/android/server/job/controllers/ContentObserverController;
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/server/job/controllers/ContentObserverController;Landroid/os/Handler;Landroid/app/job/JobInfo$TriggerContentUri;)V
+.method public constructor <init>(Lcom/android/server/job/controllers/ContentObserverController;Landroid/os/Handler;Landroid/app/job/JobInfo$TriggerContentUri;I)V
     .locals 1
 
     iput-object p1, p0, Lcom/android/server/job/controllers/ContentObserverController$ObserverInstance;->this$0:Lcom/android/server/job/controllers/ContentObserverController;
@@ -46,6 +48,8 @@
     iput-object v0, p0, Lcom/android/server/job/controllers/ContentObserverController$ObserverInstance;->mJobs:Landroid/util/ArraySet;
 
     iput-object p3, p0, Lcom/android/server/job/controllers/ContentObserverController$ObserverInstance;->mUri:Landroid/app/job/JobInfo$TriggerContentUri;
+
+    iput p4, p0, Lcom/android/server/job/controllers/ContentObserverController$ObserverInstance;->mUserId:I
 
     return-void
 .end method

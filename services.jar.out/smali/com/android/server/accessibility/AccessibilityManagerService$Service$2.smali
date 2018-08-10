@@ -20,12 +20,16 @@
 # instance fields
 .field final synthetic this$1:Lcom/android/server/accessibility/AccessibilityManagerService$Service;
 
+.field final synthetic val$userState:Lcom/android/server/accessibility/AccessibilityManagerService$UserState;
+
 
 # direct methods
-.method constructor <init>(Lcom/android/server/accessibility/AccessibilityManagerService$Service;)V
+.method constructor <init>(Lcom/android/server/accessibility/AccessibilityManagerService$Service;Lcom/android/server/accessibility/AccessibilityManagerService$UserState;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$Service$2;->this$1:Lcom/android/server/accessibility/AccessibilityManagerService$Service;
+
+    iput-object p2, p0, Lcom/android/server/accessibility/AccessibilityManagerService$Service$2;->val$userState:Lcom/android/server/accessibility/AccessibilityManagerService$UserState;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,9 +47,15 @@
 
     iget-object v1, v1, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->mComponentName:Landroid/content/ComponentName;
 
-    iget-object v2, p0, Lcom/android/server/accessibility/AccessibilityManagerService$Service$2;->this$1:Lcom/android/server/accessibility/AccessibilityManagerService$Service;
+    iget-object v2, p0, Lcom/android/server/accessibility/AccessibilityManagerService$Service$2;->val$userState:Lcom/android/server/accessibility/AccessibilityManagerService$UserState;
 
-    iget-object v2, v2, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->mService:Landroid/os/IBinder;
+    invoke-static {v2}, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->-get2(Lcom/android/server/accessibility/AccessibilityManagerService$UserState;)Landroid/accessibilityservice/IAccessibilityServiceClient;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Landroid/accessibilityservice/IAccessibilityServiceClient;->asBinder()Landroid/os/IBinder;
+
+    move-result-object v2
 
     invoke-virtual {v0, v1, v2}, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
 

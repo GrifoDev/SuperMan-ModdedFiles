@@ -64,7 +64,7 @@
 
     iget-object v3, v0, Lcom/android/server/InputMethodManagerService;->mCaller:Lcom/android/internal/os/HandlerCaller;
 
-    invoke-static {}, Lcom/android/server/InputMethodManagerService;->-get8()Z
+    invoke-static {}, Lcom/android/server/InputMethodManagerService;->-get9()Z
 
     move-result v0
 

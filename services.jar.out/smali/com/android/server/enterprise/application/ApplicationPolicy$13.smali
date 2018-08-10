@@ -1,11 +1,11 @@
 .class Lcom/android/server/enterprise/application/ApplicationPolicy$13;
-.super Ljava/lang/Thread;
+.super Landroid/content/BroadcastReceiver;
 .source "ApplicationPolicy.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/enterprise/application/ApplicationPolicy;->reapplyRuntimePermissions(I)V
+    value = Lcom/android/server/enterprise/application/ApplicationPolicy;->registerUserUnlockedListener()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,178 +17,107 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
 
-.field final synthetic val$userId:I
-
 
 # direct methods
-.method constructor <init>(Lcom/android/server/enterprise/application/ApplicationPolicy;I)V
+.method constructor <init>(Lcom/android/server/enterprise/application/ApplicationPolicy;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$13;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
 
-    iput p2, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$13;->val$userId:I
-
-    invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 11
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 4
 
-    :try_start_0
-    invoke-static {}, Lcom/android/server/pm/UserManagerService;->getInstance()Lcom/android/server/pm/UserManagerService;
+    const/16 v3, -0x2710
 
-    move-result-object v8
+    const-string/jumbo v1, "android.intent.action.USER_UNLOCKED"
 
-    iget v9, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$13;->val$userId:I
-
-    invoke-virtual {v8, v9}, Lcom/android/server/pm/UserManagerService;->exists(I)Z
-
-    move-result v8
-
-    if-nez v8, :cond_0
-
-    const-string/jumbo v8, "ApplicationPolicy"
-
-    const-string/jumbo v9, "User removed"
-
-    invoke-static {v8, v9}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    return-void
-
-    :cond_0
-    const/4 v4, 0x0
-
-    iget-object v8, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$13;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
-
-    invoke-static {v8}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap5(Lcom/android/server/enterprise/application/ApplicationPolicy;)Lcom/samsung/android/knox/SemPersonaManager;
-
-    move-result-object v8
-
-    if-eqz v8, :cond_1
-
-    iget-object v8, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$13;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
-
-    invoke-static {v8}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap5(Lcom/android/server/enterprise/application/ApplicationPolicy;)Lcom/samsung/android/knox/SemPersonaManager;
-
-    move-result-object v8
-
-    iget v9, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$13;->val$userId:I
-
-    invoke-virtual {v8, v9}, Lcom/samsung/android/knox/SemPersonaManager;->exists(I)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_1
-
-    const/4 v4, 0x1
-
-    :cond_1
-    iget-object v8, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$13;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
-
-    invoke-static {v8}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-get4(Lcom/android/server/enterprise/application/ApplicationPolicy;)Landroid/content/pm/PackageManager;
-
-    move-result-object v8
-
-    iget v9, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$13;->val$userId:I
-
-    invoke-virtual {v8, v4, v9}, Landroid/content/pm/PackageManager;->applyRuntimePermissionsForAllApplications(II)Z
-
-    const/4 v8, 0x2
-
-    new-array v7, v8, [Ljava/lang/String;
-
-    const-string/jumbo v8, "adminUid"
-
-    const/4 v9, 0x0
-
-    aput-object v8, v7, v9
-
-    const-string/jumbo v8, "packageName"
-
-    const/4 v9, 0x1
-
-    aput-object v8, v7, v9
-
-    iget-object v8, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$13;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
-
-    invoke-static {v8}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-get1(Lcom/android/server/enterprise/application/ApplicationPolicy;)Lcom/android/server/enterprise/storage/EdmStorageProvider;
-
-    move-result-object v8
-
-    const-string/jumbo v9, "ApplicationRuntimePermissions"
-
-    iget v10, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$13;->val$userId:I
-
-    invoke-virtual {v8, v9, v7, v10}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getValuesListAsUser(Ljava/lang/String;[Ljava/lang/String;I)Ljava/util/List;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_2
-
-    invoke-interface {v3}, Ljava/util/List;->isEmpty()Z
-
-    move-result v8
-
-    if-eqz v8, :cond_3
-
-    :cond_2
-    :goto_0
-    return-void
-
-    :cond_3
-    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v2
 
-    :goto_1
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v1
 
-    if-eqz v8, :cond_2
+    if-eqz v1, :cond_0
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    iget-object v1, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$13;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
 
-    move-result-object v1
+    invoke-static {v1}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap9(Lcom/android/server/enterprise/application/ApplicationPolicy;)V
 
-    check-cast v1, Landroid/content/ContentValues;
+    const-string/jumbo v1, "ApplicationPolicy"
 
-    const-string/jumbo v8, "adminUid"
+    const-string/jumbo v2, "user unlocked - refreshWidgetStatus"
 
-    invoke-virtual {v1, v8}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
+    invoke-static {v1, v2}, Lcom/android/server/enterprise/log/Log;->v(Ljava/lang/String;Ljava/lang/String;)V
 
-    move-result-object v8
+    const-string/jumbo v1, "android.intent.extra.user_handle"
 
-    invoke-virtual {v8}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {p2, v1, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v0
 
-    const-string/jumbo v8, "packageName"
+    if-eq v0, v3, :cond_1
 
-    invoke-virtual {v1, v8}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
+    const-string/jumbo v1, "ApplicationPolicy"
 
-    move-result-object v6
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    iget-object v8, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$13;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
+    const-string/jumbo v3, "calling refreshWidgetStatus for userId "
 
-    move-result v9
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v8, v9, v6}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap4(Lcom/android/server/enterprise/application/ApplicationPolicy;ILjava/lang/String;)Z
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    move-result-object v2
 
-    goto :goto_1
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    :catch_0
-    move-exception v5
+    move-result-object v2
 
-    invoke-virtual {v5}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v1, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$13;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
+
+    invoke-static {v1, v0}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap17(Lcom/android/server/enterprise/application/ApplicationPolicy;I)V
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    const-string/jumbo v1, "ApplicationPolicy"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "could not call refreshWidgetStatus due to USER_NULL userId "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
 .end method

@@ -61,17 +61,17 @@
 .end method
 
 .method protected varargs doInBackground([Ljava/lang/String;)Ljava/lang/Void;
-    .locals 5
+    .locals 6
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
     const/4 v2, 0x0
 
     aget-object v1, p1, v2
 
-    invoke-static {v4}, Lcom/android/server/enterprise/firewall/FirewallPolicy;->-set0([Ljava/net/InetAddress;)[Ljava/net/InetAddress;
+    invoke-static {v5}, Lcom/android/server/enterprise/firewall/FirewallPolicy;->-set0([Ljava/net/InetAddress;)[Ljava/net/InetAddress;
 
     :try_start_0
     invoke-static {v1}, Ljava/net/InetAddress;->getAllByName(Ljava/lang/String;)[Ljava/net/InetAddress;
@@ -84,7 +84,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :goto_0
-    iput-boolean v3, p0, Lcom/android/server/enterprise/firewall/FirewallPolicy$HostnameResolver;->mFinishResolving:Z
+    iput-boolean v4, p0, Lcom/android/server/enterprise/firewall/FirewallPolicy$HostnameResolver;->mFinishResolving:Z
 
     iget-object v2, p0, Lcom/android/server/enterprise/firewall/FirewallPolicy$HostnameResolver;->this$0:Lcom/android/server/enterprise/firewall/FirewallPolicy;
 
@@ -107,13 +107,17 @@
 
     monitor-exit v3
 
-    return-object v4
+    return-object v5
 
     :catch_0
     move-exception v0
 
     :try_start_2
-    invoke-virtual {v0}, Ljava/net/UnknownHostException;->printStackTrace()V
+    const-string/jumbo v2, "FirewallPolicy"
+
+    const-string/jumbo v3, "HostnameResolver.doInBackground() - Couldn\'t create user context"
+
+    invoke-static {v2, v3, v0}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
@@ -122,7 +126,7 @@
     :catchall_0
     move-exception v2
 
-    iput-boolean v3, p0, Lcom/android/server/enterprise/firewall/FirewallPolicy$HostnameResolver;->mFinishResolving:Z
+    iput-boolean v4, p0, Lcom/android/server/enterprise/firewall/FirewallPolicy$HostnameResolver;->mFinishResolving:Z
 
     throw v2
 

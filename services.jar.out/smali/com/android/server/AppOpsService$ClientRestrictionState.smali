@@ -16,12 +16,6 @@
     name = "ClientRestrictionState"
 .end annotation
 
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/server/AppOpsService$ClientRestrictionState$-void_binderDied__LambdaImpl0;
-    }
-.end annotation
-
 
 # instance fields
 .field perUserExcludedPackages:Landroid/util/SparseArray;
@@ -111,16 +105,6 @@
 
 
 # virtual methods
-.method synthetic -com_android_server_AppOpsService$ClientRestrictionState_lambda$1(I)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/AppOpsService$ClientRestrictionState;->this$0:Lcom/android/server/AppOpsService;
-
-    invoke-static {v0, p1}, Lcom/android/server/AppOpsService;->-wrap0(Lcom/android/server/AppOpsService;I)V
-
-    return-void
-.end method
-
 .method public binderDied()V
     .locals 9
 
@@ -187,9 +171,9 @@
 
     iget-object v6, v6, Lcom/android/server/AppOpsService;->mHandler:Landroid/os/Handler;
 
-    new-instance v8, Lcom/android/server/AppOpsService$ClientRestrictionState$-void_binderDied__LambdaImpl0;
+    new-instance v8, Lcom/android/server/-$Lambda$pxHDwRy_8WGgaOZHQ9e3tJlXPqU;
 
-    invoke-direct {v8, p0, v0}, Lcom/android/server/AppOpsService$ClientRestrictionState$-void_binderDied__LambdaImpl0;-><init>(Lcom/android/server/AppOpsService$ClientRestrictionState;I)V
+    invoke-direct {v8, v0, p0}, Lcom/android/server/-$Lambda$pxHDwRy_8WGgaOZHQ9e3tJlXPqU;-><init>(ILjava/lang/Object;)V
 
     invoke-virtual {v6, v8}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
@@ -235,20 +219,20 @@
 .method public hasRestriction(ILjava/lang/String;I)Z
     .locals 5
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    iget-object v4, p0, Lcom/android/server/AppOpsService$ClientRestrictionState;->perUserRestrictions:Landroid/util/SparseArray;
+    iget-object v2, p0, Lcom/android/server/AppOpsService$ClientRestrictionState;->perUserRestrictions:Landroid/util/SparseArray;
 
-    if-nez v4, :cond_0
+    if-nez v2, :cond_0
 
-    return v2
+    return v3
 
     :cond_0
-    iget-object v4, p0, Lcom/android/server/AppOpsService$ClientRestrictionState;->perUserRestrictions:Landroid/util/SparseArray;
+    iget-object v2, p0, Lcom/android/server/AppOpsService$ClientRestrictionState;->perUserRestrictions:Landroid/util/SparseArray;
 
-    invoke-virtual {v4, p3}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {v2, p3}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -256,26 +240,26 @@
 
     if-nez v1, :cond_1
 
-    return v2
+    return v3
 
     :cond_1
-    aget-boolean v4, v1, p1
+    aget-boolean v2, v1, p1
 
-    if-nez v4, :cond_2
-
-    return v2
-
-    :cond_2
-    iget-object v4, p0, Lcom/android/server/AppOpsService$ClientRestrictionState;->perUserExcludedPackages:Landroid/util/SparseArray;
-
-    if-nez v4, :cond_3
+    if-nez v2, :cond_2
 
     return v3
 
-    :cond_3
-    iget-object v4, p0, Lcom/android/server/AppOpsService$ClientRestrictionState;->perUserExcludedPackages:Landroid/util/SparseArray;
+    :cond_2
+    iget-object v2, p0, Lcom/android/server/AppOpsService$ClientRestrictionState;->perUserExcludedPackages:Landroid/util/SparseArray;
 
-    invoke-virtual {v4, p3}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    if-nez v2, :cond_3
+
+    return v4
+
+    :cond_3
+    iget-object v2, p0, Lcom/android/server/AppOpsService$ClientRestrictionState;->perUserExcludedPackages:Landroid/util/SparseArray;
+
+    invoke-virtual {v2, p3}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -283,22 +267,16 @@
 
     if-nez v0, :cond_4
 
-    return v3
+    return v4
 
     :cond_4
     invoke-static {v0, p2}, Lcom/android/internal/util/ArrayUtils;->contains([Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v2
 
-    if-eqz v4, :cond_5
+    xor-int/lit8 v2, v2, 0x1
 
-    :goto_0
     return v2
-
-    :cond_5
-    move v2, v3
-
-    goto :goto_0
 .end method
 
 .method public isDefault()Z
@@ -330,6 +308,16 @@
     goto :goto_0
 .end method
 
+.method synthetic lambda$-com_android_server_AppOpsService$ClientRestrictionState_111967(I)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/AppOpsService$ClientRestrictionState;->this$0:Lcom/android/server/AppOpsService;
+
+    invoke-static {v0, p1}, Lcom/android/server/AppOpsService;->-wrap0(Lcom/android/server/AppOpsService;I)V
+
+    return-void
+.end method
+
 .method public removeUser(I)V
     .locals 2
 
@@ -354,6 +342,25 @@
     iput-object v1, p0, Lcom/android/server/AppOpsService$ClientRestrictionState;->perUserExcludedPackages:Landroid/util/SparseArray;
 
     :cond_0
+    iget-object v0, p0, Lcom/android/server/AppOpsService$ClientRestrictionState;->perUserRestrictions:Landroid/util/SparseArray;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/server/AppOpsService$ClientRestrictionState;->perUserRestrictions:Landroid/util/SparseArray;
+
+    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->remove(I)V
+
+    iget-object v0, p0, Lcom/android/server/AppOpsService$ClientRestrictionState;->perUserRestrictions:Landroid/util/SparseArray;
+
+    invoke-virtual {v0}, Landroid/util/SparseArray;->size()I
+
+    move-result v0
+
+    if-gtz v0, :cond_1
+
+    iput-object v1, p0, Lcom/android/server/AppOpsService$ClientRestrictionState;->perUserRestrictions:Landroid/util/SparseArray;
+
+    :cond_1
     return-void
 .end method
 
@@ -379,7 +386,7 @@
     :cond_0
     iget-object v3, p0, Lcom/android/server/AppOpsService$ClientRestrictionState;->perUserRestrictions:Landroid/util/SparseArray;
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_6
 
     iget-object v3, p0, Lcom/android/server/AppOpsService$ClientRestrictionState;->perUserRestrictions:Landroid/util/SparseArray;
 
@@ -393,7 +400,7 @@
 
     if-eqz p2, :cond_1
 
-    const/16 v3, 0x41
+    const/16 v3, 0x47
 
     new-array v2, v3, [Z
 
@@ -428,7 +435,7 @@
     const/4 v0, 0x1
 
     :cond_3
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_6
 
     invoke-static {p3}, Lcom/android/internal/util/ArrayUtils;->isEmpty([Ljava/lang/Object;)Z
 
@@ -438,13 +445,20 @@
 
     if-nez v3, :cond_4
 
-    if-eqz v1, :cond_6
+    xor-int/lit8 v3, v1, 0x1
+
+    if-eqz v3, :cond_4
+
+    new-instance v3, Landroid/util/SparseArray;
+
+    invoke-direct {v3}, Landroid/util/SparseArray;-><init>()V
+
+    iput-object v3, p0, Lcom/android/server/AppOpsService$ClientRestrictionState;->perUserExcludedPackages:Landroid/util/SparseArray;
 
     :cond_4
-    :goto_0
     iget-object v3, p0, Lcom/android/server/AppOpsService$ClientRestrictionState;->perUserExcludedPackages:Landroid/util/SparseArray;
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_6
 
     iget-object v3, p0, Lcom/android/server/AppOpsService$ClientRestrictionState;->perUserExcludedPackages:Landroid/util/SparseArray;
 
@@ -458,23 +472,11 @@
 
     move-result v3
 
-    if-eqz v3, :cond_7
+    xor-int/lit8 v3, v3, 0x1
 
-    :cond_5
-    :goto_1
-    return v0
+    if-eqz v3, :cond_6
 
-    :cond_6
-    new-instance v3, Landroid/util/SparseArray;
-
-    invoke-direct {v3}, Landroid/util/SparseArray;-><init>()V
-
-    iput-object v3, p0, Lcom/android/server/AppOpsService$ClientRestrictionState;->perUserExcludedPackages:Landroid/util/SparseArray;
-
-    goto :goto_0
-
-    :cond_7
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_7
 
     iget-object v3, p0, Lcom/android/server/AppOpsService$ClientRestrictionState;->perUserExcludedPackages:Landroid/util/SparseArray;
 
@@ -486,20 +488,21 @@
 
     move-result v3
 
-    if-gtz v3, :cond_8
+    if-gtz v3, :cond_5
 
     iput-object v4, p0, Lcom/android/server/AppOpsService$ClientRestrictionState;->perUserExcludedPackages:Landroid/util/SparseArray;
 
-    :cond_8
-    :goto_2
+    :cond_5
+    :goto_0
     const/4 v0, 0x1
 
-    goto :goto_1
+    :cond_6
+    return v0
 
-    :cond_9
+    :cond_7
     iget-object v3, p0, Lcom/android/server/AppOpsService$ClientRestrictionState;->perUserExcludedPackages:Landroid/util/SparseArray;
 
     invoke-virtual {v3, p4, p3}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    goto :goto_2
+    goto :goto_0
 .end method

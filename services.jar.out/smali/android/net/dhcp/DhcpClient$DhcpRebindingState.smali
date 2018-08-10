@@ -42,7 +42,7 @@
 
     iget-object v0, p0, Landroid/net/dhcp/DhcpClient$DhcpRebindingState;->this$0:Landroid/net/dhcp/DhcpClient;
 
-    invoke-static {v0}, Landroid/net/dhcp/DhcpClient;->-get27(Landroid/net/dhcp/DhcpClient;)Ljava/io/FileDescriptor;
+    invoke-static {v0}, Landroid/net/dhcp/DhcpClient;->-get28(Landroid/net/dhcp/DhcpClient;)Ljava/io/FileDescriptor;
 
     move-result-object v0
 
@@ -70,7 +70,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/net/dhcp/DhcpClient;->-wrap14(Landroid/net/dhcp/DhcpClient;Lcom/android/internal/util/IState;)V
+    invoke-virtual {v0, v1}, Landroid/net/dhcp/DhcpClient;->transitionTo(Lcom/android/internal/util/IState;)V
 
     :cond_0
     return-void

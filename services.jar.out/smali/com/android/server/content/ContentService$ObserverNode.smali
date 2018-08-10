@@ -239,7 +239,7 @@
 .end method
 
 .method private collectMyObserversLocked(ZLandroid/database/IContentObserver;ZIILjava/util/ArrayList;)V
-    .locals 8
+    .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z",
@@ -252,13 +252,15 @@
         }
     .end annotation
 
+    const/4 v8, -0x1
+
     iget-object v5, p0, Lcom/android/server/content/ContentService$ObserverNode;->mObservers:Ljava/util/ArrayList;
 
     invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
-    if-nez p2, :cond_3
+    if-nez p2, :cond_1
 
     const/4 v3, 0x0
 
@@ -282,73 +284,57 @@
 
     move-result-object v5
 
-    if-ne v5, v3, :cond_4
+    if-ne v5, v3, :cond_2
 
     const/4 v4, 0x1
 
     :goto_2
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_3
 
-    if-eqz p3, :cond_2
+    xor-int/lit8 v5, p3, 0x1
+
+    if-eqz v5, :cond_3
 
     :cond_0
-    const/4 v5, -0x1
-
-    if-eq p5, v5, :cond_1
-
-    invoke-static {v1}, Lcom/android/server/content/ContentService$ObserverNode$ObserverEntry;->-get0(Lcom/android/server/content/ContentService$ObserverNode$ObserverEntry;)I
-
-    move-result v5
-
-    const/4 v6, -0x1
-
-    if-ne v5, v6, :cond_5
-
-    :cond_1
     :goto_3
-    if-eqz p1, :cond_6
-
-    and-int/lit8 v5, p4, 0x2
-
-    if-eqz v5, :cond_7
-
-    iget-boolean v5, v1, Lcom/android/server/content/ContentService$ObserverNode$ObserverEntry;->notifyForDescendants:Z
-
-    if-eqz v5, :cond_7
-
-    :cond_2
-    :goto_4
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
-    :cond_3
+    :cond_1
     invoke-interface {p2}, Landroid/database/IContentObserver;->asBinder()Landroid/os/IBinder;
 
     move-result-object v3
 
     goto :goto_0
 
-    :cond_4
+    :cond_2
     const/4 v4, 0x0
 
     goto :goto_2
 
-    :cond_5
+    :cond_3
+    if-eq p5, v8, :cond_4
+
     invoke-static {v1}, Lcom/android/server/content/ContentService$ObserverNode$ObserverEntry;->-get0(Lcom/android/server/content/ContentService$ObserverNode$ObserverEntry;)I
 
     move-result v5
 
-    if-ne p5, v5, :cond_2
+    if-ne v5, v8, :cond_6
 
-    goto :goto_3
+    :cond_4
+    :goto_4
+    if-eqz p1, :cond_7
 
-    :cond_6
+    and-int/lit8 v5, p4, 0x2
+
+    if-eqz v5, :cond_5
+
     iget-boolean v5, v1, Lcom/android/server/content/ContentService$ObserverNode$ObserverEntry;->notifyForDescendants:Z
 
-    if-eqz v5, :cond_2
+    if-nez v5, :cond_0
 
-    :cond_7
+    :cond_5
     new-instance v5, Lcom/android/server/content/ContentService$ObserverCall;
 
     iget-object v6, v1, Lcom/android/server/content/ContentService$ObserverNode$ObserverEntry;->observer:Landroid/database/IContentObserver;
@@ -363,7 +349,23 @@
 
     invoke-virtual {p6, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    goto :goto_3
+
+    :cond_6
+    invoke-static {v1}, Lcom/android/server/content/ContentService$ObserverNode$ObserverEntry;->-get0(Lcom/android/server/content/ContentService$ObserverNode$ObserverEntry;)I
+
+    move-result v5
+
+    if-ne p5, v5, :cond_0
+
     goto :goto_4
+
+    :cond_7
+    iget-boolean v5, v1, Lcom/android/server/content/ContentService$ObserverNode$ObserverEntry;->notifyForDescendants:Z
+
+    if-nez v5, :cond_5
+
+    goto :goto_3
 
     :cond_8
     return-void

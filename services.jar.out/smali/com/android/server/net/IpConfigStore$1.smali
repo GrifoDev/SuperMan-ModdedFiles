@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public onWriteCalled(Ljava/io/DataOutputStream;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -61,13 +61,11 @@
 
     if-ge v0, v1, :cond_0
 
-    iget-object v2, p0, Lcom/android/server/net/IpConfigStore$1;->this$0:Lcom/android/server/net/IpConfigStore;
-
     iget-object v1, p0, Lcom/android/server/net/IpConfigStore$1;->val$networks:Landroid/util/SparseArray;
 
     invoke-virtual {v1, v0}, Landroid/util/SparseArray;->keyAt(I)I
 
-    move-result v3
+    move-result v2
 
     iget-object v1, p0, Lcom/android/server/net/IpConfigStore$1;->val$networks:Landroid/util/SparseArray;
 
@@ -77,7 +75,7 @@
 
     check-cast v1, Landroid/net/IpConfiguration;
 
-    invoke-static {v2, p1, v3, v1}, Lcom/android/server/net/IpConfigStore;->-wrap0(Lcom/android/server/net/IpConfigStore;Ljava/io/DataOutputStream;ILandroid/net/IpConfiguration;)Z
+    invoke-static {p1, v2, v1}, Lcom/android/server/net/IpConfigStore;->writeConfig(Ljava/io/DataOutputStream;ILandroid/net/IpConfiguration;)Z
 
     add-int/lit8 v0, v0, 0x1
 

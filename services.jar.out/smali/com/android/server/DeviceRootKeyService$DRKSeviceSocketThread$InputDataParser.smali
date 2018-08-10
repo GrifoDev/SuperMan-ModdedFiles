@@ -15,6 +15,10 @@
 
 
 # instance fields
+.field private mBigData:Ljava/lang/String;
+
+.field private mBigDataType:I
+
 .field private mCommandID:S
 
 .field private mEnableTlv:Z
@@ -36,33 +40,37 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;)V
-    .locals 2
+    .locals 3
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    const/4 v0, -0x1
+    const/4 v1, -0x1
 
     iput-object p1, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->this$1:Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-byte v0, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mVersion:B
+    iput-byte v1, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mVersion:B
 
-    iput-short v0, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mCommandID:S
+    iput-short v1, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mCommandID:S
 
-    iput v0, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mKeyType:I
+    iput v1, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mKeyType:I
 
-    iput v0, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mTlvTag:I
+    iput v1, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mTlvTag:I
 
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mEnableTlv:Z
 
-    iput-object v1, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mServiceName:Ljava/lang/String;
+    iput-object v2, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mServiceName:Ljava/lang/String;
 
-    iput-object v1, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mTlvValue:[B
+    iput-object v2, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mTlvValue:[B
 
-    iput-object v1, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mRawData:[B
+    iput-object v2, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mRawData:[B
+
+    iput-object v2, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mBigData:Ljava/lang/String;
+
+    iput v1, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mBigDataType:I
 
     return-void
 .end method
@@ -132,119 +140,123 @@
 
 # virtual methods
 .method public ParserData([B)Z
-    .locals 12
+    .locals 14
 
-    const/4 v11, 0x3
+    const/4 v13, 0x3
 
-    const/16 v10, 0xc
+    const/16 v12, 0xc
 
-    const/4 v9, 0x4
+    const/4 v11, 0x4
 
-    const/4 v8, 0x1
+    const/4 v10, 0x1
 
-    const/4 v7, 0x0
+    const/4 v9, 0x0
 
-    const/4 v4, 0x2
+    const/4 v5, 0x2
 
-    new-array v1, v4, [B
+    new-array v1, v5, [B
 
-    new-array v0, v9, [B
+    new-array v0, v11, [B
 
-    array-length v4, p1
+    array-length v5, p1
 
-    if-ge v4, v10, :cond_0
+    if-ge v5, v12, :cond_0
 
-    return v7
+    return v9
 
     :cond_0
-    aget-byte v4, p1, v7
+    aget-byte v5, p1, v9
 
-    iput-byte v4, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mVersion:B
+    iput-byte v5, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mVersion:B
 
-    const/4 v4, 0x2
+    const/4 v5, 0x2
 
-    invoke-static {p1, v8, v1, v7, v4}, Ljava/lang/System;->arraycopy([BI[BII)V
+    invoke-static {p1, v10, v1, v9, v5}, Ljava/lang/System;->arraycopy([BI[BII)V
 
     invoke-direct {p0, v1}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->ByteArrayToShort([B)S
 
-    move-result v4
+    move-result v5
 
-    iput-short v4, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mCommandID:S
+    iput-short v5, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mCommandID:S
 
-    const-string/jumbo v4, "DeviceRootKeyServiceSocket"
+    iget-object v5, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->this$1:Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    iget-object v5, v5, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->this$0:Lcom/android/server/DeviceRootKeyService;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v6, "DRKServSocket"
 
-    const-string/jumbo v6, "Version : "
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v5
+    const-string/jumbo v8, "Version : "
 
-    iget-byte v6, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mVersion:B
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v7
 
-    move-result-object v5
+    iget-byte v8, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mVersion:B
 
-    const-string/jumbo v6, ", CommandID : "
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v7
 
-    move-result-object v5
+    const-string/jumbo v8, ", CommandID : "
 
-    iget-short v6, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mCommandID:S
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v7
 
-    move-result-object v5
+    iget-short v8, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mCommandID:S
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-static {v4, v5}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    iget-short v4, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mCommandID:S
+    move-result-object v7
 
-    packed-switch v4, :pswitch_data_0
+    invoke-static {v5, v6, v7}, Lcom/android/server/DeviceRootKeyService;->-wrap5(Lcom/android/server/DeviceRootKeyService;Ljava/lang/String;Ljava/lang/String;)V
 
-    return v7
+    iget-short v5, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mCommandID:S
+
+    packed-switch v5, :pswitch_data_0
+
+    return v9
 
     :pswitch_0
-    invoke-static {p1, v11, v0, v7, v9}, Ljava/lang/System;->arraycopy([BI[BII)V
+    invoke-static {p1, v13, v0, v9, v11}, Ljava/lang/System;->arraycopy([BI[BII)V
 
     invoke-direct {p0, v0}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->ByteArrayToInt([B)I
 
-    move-result v4
+    move-result v5
 
-    iput v4, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mKeyType:I
+    iput v5, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mKeyType:I
 
-    return v8
+    return v10
 
     :pswitch_1
-    const/4 v4, 0x7
+    const/4 v5, 0x7
 
-    aget-byte v4, p1, v4
+    aget-byte v5, p1, v5
 
-    if-ne v4, v8, :cond_1
+    if-ne v5, v10, :cond_1
 
-    iput-boolean v8, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mEnableTlv:Z
+    iput-boolean v10, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mEnableTlv:Z
 
     :goto_0
-    invoke-static {p1, v11, v0, v7, v9}, Ljava/lang/System;->arraycopy([BI[BII)V
+    invoke-static {p1, v13, v0, v9, v11}, Ljava/lang/System;->arraycopy([BI[BII)V
 
     invoke-direct {p0, v0}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->ByteArrayToInt([B)I
 
-    move-result v4
+    move-result v5
 
-    iput v4, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mKeyType:I
+    iput v5, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mKeyType:I
 
-    const/16 v4, 0x8
+    const/16 v5, 0x8
 
-    invoke-static {p1, v4, v0, v7, v9}, Ljava/lang/System;->arraycopy([BI[BII)V
+    invoke-static {p1, v5, v0, v9, v11}, Ljava/lang/System;->arraycopy([BI[BII)V
 
     invoke-direct {p0, v0}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->ByteArrayToInt([B)I
 
@@ -252,55 +264,82 @@
 
     new-array v3, v2, [B
 
-    invoke-static {p1, v10, v3, v7, v2}, Ljava/lang/System;->arraycopy([BI[BII)V
+    invoke-static {p1, v12, v3, v9, v2}, Ljava/lang/System;->arraycopy([BI[BII)V
 
-    new-instance v4, Ljava/lang/String;
+    new-instance v5, Ljava/lang/String;
 
-    invoke-direct {v4, v3}, Ljava/lang/String;-><init>([B)V
+    invoke-direct {v5, v3}, Ljava/lang/String;-><init>([B)V
 
-    iput-object v4, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mServiceName:Ljava/lang/String;
+    iput-object v5, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mServiceName:Ljava/lang/String;
 
-    return v8
+    return v10
 
     :cond_1
-    iput-boolean v7, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mEnableTlv:Z
+    iput-boolean v9, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mEnableTlv:Z
 
     goto :goto_0
 
     :pswitch_2
-    return v8
+    return v10
 
     :pswitch_3
-    invoke-static {p1, v11, v0, v7, v9}, Ljava/lang/System;->arraycopy([BI[BII)V
+    invoke-static {p1, v13, v0, v9, v11}, Ljava/lang/System;->arraycopy([BI[BII)V
 
     invoke-direct {p0, v0}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->ByteArrayToInt([B)I
 
-    move-result v4
+    move-result v5
 
-    iput v4, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mTlvTag:I
+    iput v5, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mTlvTag:I
 
-    const/16 v4, 0x8
+    const/16 v5, 0x8
 
-    invoke-static {p1, v4, v0, v7, v9}, Ljava/lang/System;->arraycopy([BI[BII)V
+    invoke-static {p1, v5, v0, v9, v11}, Ljava/lang/System;->arraycopy([BI[BII)V
 
     invoke-direct {p0, v0}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->ByteArrayToInt([B)I
 
     move-result v2
 
-    new-array v4, v2, [B
+    new-array v5, v2, [B
 
-    iput-object v4, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mTlvValue:[B
+    iput-object v5, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mTlvValue:[B
 
-    iget-object v4, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mTlvValue:[B
+    iget-object v5, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mTlvValue:[B
 
-    invoke-static {p1, v10, v4, v7, v2}, Ljava/lang/System;->arraycopy([BI[BII)V
+    invoke-static {p1, v12, v5, v9, v2}, Ljava/lang/System;->arraycopy([BI[BII)V
 
-    return v8
+    return v10
 
     :pswitch_4
-    const/16 v4, 0x8
+    const/16 v5, 0x8
 
-    invoke-static {p1, v4, v0, v7, v9}, Ljava/lang/System;->arraycopy([BI[BII)V
+    invoke-static {p1, v5, v0, v9, v11}, Ljava/lang/System;->arraycopy([BI[BII)V
+
+    invoke-direct {p0, v0}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->ByteArrayToInt([B)I
+
+    move-result v2
+
+    new-array v5, v2, [B
+
+    iput-object v5, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mRawData:[B
+
+    iget-object v5, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mRawData:[B
+
+    invoke-static {p1, v12, v5, v9, v2}, Ljava/lang/System;->arraycopy([BI[BII)V
+
+    return v10
+
+    :pswitch_5
+    invoke-static {p1, v13, v0, v9, v11}, Ljava/lang/System;->arraycopy([BI[BII)V
+
+    invoke-direct {p0, v0}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->ByteArrayToInt([B)I
+
+    move-result v5
+
+    iput v5, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mBigDataType:I
+
+    const/16 v5, 0x8
+
+    invoke-static {p1, v5, v0, v9, v11}, Ljava/lang/System;->arraycopy([BI[BII)V
 
     invoke-direct {p0, v0}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->ByteArrayToInt([B)I
 
@@ -308,15 +347,15 @@
 
     new-array v4, v2, [B
 
-    iput-object v4, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mRawData:[B
+    invoke-static {p1, v12, v4, v9, v2}, Ljava/lang/System;->arraycopy([BI[BII)V
 
-    iget-object v4, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mRawData:[B
+    new-instance v5, Ljava/lang/String;
 
-    invoke-static {p1, v10, v4, v7, v2}, Ljava/lang/System;->arraycopy([BI[BII)V
+    invoke-direct {v5, v4}, Ljava/lang/String;-><init>([B)V
 
-    return v8
+    iput-object v5, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mBigData:Ljava/lang/String;
 
-    nop
+    return v10
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -327,7 +366,27 @@
         :pswitch_2
         :pswitch_3
         :pswitch_4
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_5
     .end packed-switch
+.end method
+
+.method public getBigData()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mBigData:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public getBigDataType()I
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mBigDataType:I
+
+    return v0
 .end method
 
 .method public getCommandId()S

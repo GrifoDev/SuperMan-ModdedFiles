@@ -61,9 +61,9 @@
 
     move-result-object v2
 
-    const-string/jumbo v3, "onDaemonConnected - connected to netd"
+    const-string/jumbo v3, "NetdCallbackReceiver.onDaemonConnected() - connected to netd"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     const/4 v2, 0x1
 
@@ -109,9 +109,9 @@
 
     move-result-object v2
 
-    const-string/jumbo v3, "Exception occurred setting system PID"
+    const-string/jumbo v3, "NetdCallbackReceiver.onDaemonConnected() - Exception occurred setting system PID"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 .end method
@@ -125,13 +125,21 @@
 
     move-result-object v1
 
-    const-string/jumbo v2, "onDaemonDisconnected - disconnected from netd"
+    const-string/jumbo v2, "NetdCallbackReceiver.onDaemonDisconnected() - disconnected from netd"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-boolean v1, p0, Lcom/android/server/enterprise/firewall/DomainFilter$NetdCallbackReceiver;->mConnected:Z
 
     if-eqz v1, :cond_0
+
+    invoke-static {}, Lcom/android/server/enterprise/firewall/DomainFilter;->-get0()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "NetdCallbackReceiver.onDaemonDisconnected() - Scheduling ScheduleReInitializationOfDaemonCache"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     new-instance v0, Ljava/util/Timer;
 
@@ -162,32 +170,6 @@
 
     packed-switch p1, :pswitch_data_0
 
-    invoke-static {}, Lcom/android/server/enterprise/firewall/DomainFilter;->-get0()Ljava/lang/String;
-
-    move-result-object v12
-
-    new-instance v13, Ljava/lang/StringBuilder;
-
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v14, "Invalid code "
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    move/from16 v0, p1
-
-    invoke-virtual {v13, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v13
-
-    invoke-static {v12, v13}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
     :cond_0
     :goto_0
     const/4 v12, 0x1
@@ -201,7 +183,7 @@
 
     const/4 v13, 0x7
 
-    if-lt v12, v13, :cond_7
+    if-lt v12, v13, :cond_0
 
     const/4 v12, 0x3
 
@@ -248,7 +230,7 @@
 
     move-result-object v12
 
-    const-string/jumbo v13, "Error parsing uid to int"
+    const-string/jumbo v13, "onEvent() - Error parsing uid to int"
 
     invoke-static {v12, v13}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -263,7 +245,7 @@
 
     move-result-object v12
 
-    const-string/jumbo v13, "Error parsing pid to int"
+    const-string/jumbo v13, "onEvent() - Error parsing pid to int"
 
     invoke-static {v12, v13}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -276,23 +258,19 @@
 
     new-instance v3, Lcom/android/server/enterprise/firewall/DomainFilter$BlockReport;
 
-    move-object/from16 v0, p0
+    const/4 v12, 0x2
 
-    iget-object v12, v0, Lcom/android/server/enterprise/firewall/DomainFilter$NetdCallbackReceiver;->this$0:Lcom/android/server/enterprise/firewall/DomainFilter;
+    aget-object v12, p3, v12
 
-    const/4 v13, 0x2
+    const/4 v13, 0x3
 
     aget-object v13, p3, v13
 
-    const/4 v14, 0x3
+    const/4 v14, 0x5
 
     aget-object v14, p3, v14
 
-    const/4 v15, 0x5
-
-    aget-object v15, p3, v15
-
-    invoke-direct {v3, v12, v13, v14, v15}, Lcom/android/server/enterprise/firewall/DomainFilter$BlockReport;-><init>(Lcom/android/server/enterprise/firewall/DomainFilter;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v3, v12, v13, v14}, Lcom/android/server/enterprise/firewall/DomainFilter$BlockReport;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     const/4 v7, 0x0
 
@@ -592,16 +570,7 @@
 
     goto :goto_5
 
-    :cond_7
-    invoke-static {}, Lcom/android/server/enterprise/firewall/DomainFilter;->-get0()Ljava/lang/String;
-
-    move-result-object v12
-
-    const-string/jumbo v13, "invalid number of arguments "
-
-    invoke-static {v12, v13}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_0
+    nop
 
     :pswitch_data_0
     .packed-switch 0x320

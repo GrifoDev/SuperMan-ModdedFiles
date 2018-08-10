@@ -1,6 +1,9 @@
-.class Lcom/android/server/pm/ShortcutService$2;
-.super Lcom/android/internal/content/PackageMonitor;
+.class final Lcom/android/server/pm/ShortcutService$2;
+.super Ljava/lang/Object;
 .source "ShortcutService.java"
+
+# interfaces
+.implements Ljava/util/function/Predicate;
 
 
 # annotations
@@ -9,80 +12,52 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x8
     name = null
 .end annotation
 
-
-# instance fields
-.field final synthetic this$0:Lcom/android/server/pm/ShortcutService;
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Ljava/util/function/Predicate",
+        "<",
+        "Landroid/content/pm/PackageInfo;",
+        ">;"
+    }
+.end annotation
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/ShortcutService;)V
+.method constructor <init>()V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/server/pm/ShortcutService$2;->this$0:Lcom/android/server/pm/ShortcutService;
-
-    invoke-direct {p0}, Lcom/android/internal/content/PackageMonitor;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onPackageAdded(Ljava/lang/String;I)V
-    .locals 2
+.method public test(Landroid/content/pm/PackageInfo;)Z
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/pm/ShortcutService$2;->this$0:Lcom/android/server/pm/ShortcutService;
+    invoke-static {p1}, Lcom/android/server/pm/ShortcutService;->-wrap0(Landroid/content/pm/PackageInfo;)Z
 
-    invoke-virtual {p0}, Lcom/android/server/pm/ShortcutService$2;->getChangingUserId()I
+    move-result v0
 
-    move-result v1
+    xor-int/lit8 v0, v0, 0x1
 
-    invoke-static {v0, p1, v1}, Lcom/android/server/pm/ShortcutService;->-wrap1(Lcom/android/server/pm/ShortcutService;Ljava/lang/String;I)V
-
-    return-void
+    return v0
 .end method
 
-.method public onPackageDataCleared(Ljava/lang/String;I)V
-    .locals 2
+.method public bridge synthetic test(Ljava/lang/Object;)Z
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/pm/ShortcutService$2;->this$0:Lcom/android/server/pm/ShortcutService;
+    check-cast p1, Landroid/content/pm/PackageInfo;
 
-    invoke-virtual {p0}, Lcom/android/server/pm/ShortcutService$2;->getChangingUserId()I
+    invoke-virtual {p0, p1}, Lcom/android/server/pm/ShortcutService$2;->test(Landroid/content/pm/PackageInfo;)Z
 
-    move-result v1
+    move-result v0
 
-    invoke-static {v0, p1, v1}, Lcom/android/server/pm/ShortcutService;->-wrap2(Lcom/android/server/pm/ShortcutService;Ljava/lang/String;I)V
-
-    return-void
-.end method
-
-.method public onPackageRemoved(Ljava/lang/String;I)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/pm/ShortcutService$2;->this$0:Lcom/android/server/pm/ShortcutService;
-
-    invoke-virtual {p0}, Lcom/android/server/pm/ShortcutService$2;->getChangingUserId()I
-
-    move-result v1
-
-    invoke-static {v0, p1, v1}, Lcom/android/server/pm/ShortcutService;->-wrap3(Lcom/android/server/pm/ShortcutService;Ljava/lang/String;I)V
-
-    return-void
-.end method
-
-.method public onPackageUpdateFinished(Ljava/lang/String;I)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/pm/ShortcutService$2;->this$0:Lcom/android/server/pm/ShortcutService;
-
-    invoke-virtual {p0}, Lcom/android/server/pm/ShortcutService$2;->getChangingUserId()I
-
-    move-result v1
-
-    invoke-static {v0, p1, v1}, Lcom/android/server/pm/ShortcutService;->-wrap4(Lcom/android/server/pm/ShortcutService;Ljava/lang/String;I)V
-
-    return-void
+    return v0
 .end method

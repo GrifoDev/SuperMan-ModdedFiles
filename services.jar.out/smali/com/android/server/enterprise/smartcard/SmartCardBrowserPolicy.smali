@@ -112,29 +112,55 @@
 .end method
 
 .method private broadcastIntentAsUser(ZII)V
-    .locals 5
+    .locals 6
 
     new-instance v0, Landroid/content/Intent;
 
-    const-string/jumbo v1, "edm.intent.action.smartcard.browser.authentication"
+    const-string/jumbo v4, "edm.intent.action.smartcard.browser.authentication"
 
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v1, "edm.intent.extra.smartcard.authentication.enabled"
+    const-string/jumbo v4, "com.sec.android.app.sbrowser"
 
-    invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    invoke-virtual {v0, v4}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v4, "edm.intent.extra.smartcard.authentication.enabled"
+
+    invoke-virtual {v0, v4, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+
+    new-instance v1, Landroid/content/Intent;
+
+    const-string/jumbo v4, "edm.intent.action.smartcard.browser.authentication"
+
+    invoke-direct {v1, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v4, "com.android.chrome"
+
+    invoke-virtual {v1, v4}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v4, "edm.intent.extra.smartcard.authentication.enabled"
+
+    invoke-virtual {v1, v4, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v2
 
-    iget-object v1, p0, Lcom/android/server/enterprise/smartcard/SmartCardBrowserPolicy;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Lcom/android/server/enterprise/smartcard/SmartCardBrowserPolicy;->mContext:Landroid/content/Context;
 
-    new-instance v4, Landroid/os/UserHandle;
+    new-instance v5, Landroid/os/UserHandle;
 
-    invoke-direct {v4, p3}, Landroid/os/UserHandle;-><init>(I)V
+    invoke-direct {v5, p3}, Landroid/os/UserHandle;-><init>(I)V
 
-    invoke-virtual {v1, v0, v4}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+    invoke-virtual {v4, v0, v5}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+
+    iget-object v4, p0, Lcom/android/server/enterprise/smartcard/SmartCardBrowserPolicy;->mContext:Landroid/content/Context;
+
+    new-instance v5, Landroid/os/UserHandle;
+
+    invoke-direct {v5, p3}, Landroid/os/UserHandle;-><init>(I)V
+
+    invoke-virtual {v4, v1, v5}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 

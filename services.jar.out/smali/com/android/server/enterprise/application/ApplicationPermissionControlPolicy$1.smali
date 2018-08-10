@@ -47,5 +47,11 @@
 
     invoke-virtual {v0}, Lcom/android/server/enterprise/application/ApplicationPermissionControlPolicy;->loadApplicationPermissionControlList()V
 
+    iget-object v0, p0, Lcom/android/server/enterprise/application/ApplicationPermissionControlPolicy$1;->this$0:Lcom/android/server/enterprise/application/ApplicationPermissionControlPolicy;
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/application/ApplicationPermissionControlPolicy;->-wrap0(Lcom/android/server/enterprise/application/ApplicationPermissionControlPolicy;Z)V
+
     return-void
 .end method

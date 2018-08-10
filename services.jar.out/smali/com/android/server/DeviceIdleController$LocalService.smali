@@ -1,4 +1,4 @@
-.class public final Lcom/android/server/DeviceIdleController$LocalService;
+.class public Lcom/android/server/DeviceIdleController$LocalService;
 .super Ljava/lang/Object;
 .source "DeviceIdleController.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x11
+    accessFlags = 0x1
     name = "LocalService"
 .end annotation
 
@@ -31,6 +31,28 @@
 
 
 # virtual methods
+.method public addPowerSaveTempWhitelistApp(ILjava/lang/String;JIZLjava/lang/String;)V
+    .locals 9
+
+    iget-object v1, p0, Lcom/android/server/DeviceIdleController$LocalService;->this$0:Lcom/android/server/DeviceIdleController;
+
+    move v2, p1
+
+    move-object v3, p2
+
+    move-wide v4, p3
+
+    move v6, p5
+
+    move v7, p6
+
+    move-object/from16 v8, p7
+
+    invoke-virtual/range {v1 .. v8}, Lcom/android/server/DeviceIdleController;->addPowerSaveTempWhitelistAppInternal(ILjava/lang/String;JIZLjava/lang/String;)V
+
+    return-void
+.end method
+
 .method public addPowerSaveTempWhitelistAppDirect(IJZLjava/lang/String;)V
     .locals 8
 
@@ -51,8 +73,8 @@
     return-void
 .end method
 
-.method public addPowerSaveWhitelistExceptIdle(Ljava/util/ArrayList;)V
-    .locals 9
+.method public addSystemPowerSaveWhiteList(Ljava/util/ArrayList;)V
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -63,117 +85,34 @@
         }
     .end annotation
 
-    iget-object v6, p0, Lcom/android/server/DeviceIdleController$LocalService;->this$0:Lcom/android/server/DeviceIdleController;
-
-    monitor-enter v6
-
-    const/4 v4, 0x0
-
-    if-nez p1, :cond_0
-
-    monitor-exit v6
-
-    return-void
-
-    :cond_0
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
     :goto_0
-    :try_start_0
     invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
 
-    move-result v5
+    move-result v2
 
-    if-ge v2, v5, :cond_2
+    if-ge v0, v2, :cond_1
 
-    invoke-virtual {p1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {p1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v1
 
-    check-cast v3, Ljava/lang/String;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    check-cast v1, Ljava/lang/String;
 
-    if-eqz v3, :cond_1
+    if-eqz v1, :cond_0
 
-    :try_start_1
-    iget-object v5, p0, Lcom/android/server/DeviceIdleController$LocalService;->this$0:Lcom/android/server/DeviceIdleController;
+    iget-object v2, p0, Lcom/android/server/DeviceIdleController$LocalService;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-virtual {v5}, Lcom/android/server/DeviceIdleController;->getContext()Landroid/content/Context;
+    invoke-virtual {v2, v1}, Lcom/android/server/DeviceIdleController;->addSystemPowerSaveWhitelistInternal(Ljava/lang/String;)Z
 
-    move-result-object v5
-
-    invoke-virtual {v5}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v5
-
-    const v7, 0xa200
-
-    invoke-virtual {v5, v3, v7}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
-
-    move-result-object v0
-
-    iget-object v5, p0, Lcom/android/server/DeviceIdleController$LocalService;->this$0:Lcom/android/server/DeviceIdleController;
-
-    invoke-static {v5}, Lcom/android/server/DeviceIdleController;->-get4(Lcom/android/server/DeviceIdleController;)Landroid/util/ArrayMap;
-
-    move-result-object v5
-
-    iget-object v7, v0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
-
-    iget v8, v0, Landroid/content/pm/ApplicationInfo;->uid:I
-
-    invoke-static {v8}, Landroid/os/UserHandle;->getAppId(I)I
-
-    move-result v8
-
-    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v8
-
-    invoke-virtual {v5, v7, v8}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_1
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    const/4 v4, 0x1
-
-    :cond_1
-    :goto_1
-    add-int/lit8 v2, v2, 0x1
+    :cond_0
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    :cond_2
-    if-eqz v4, :cond_3
-
-    :try_start_2
-    iget-object v5, p0, Lcom/android/server/DeviceIdleController$LocalService;->this$0:Lcom/android/server/DeviceIdleController;
-
-    invoke-static {v5}, Lcom/android/server/DeviceIdleController;->-wrap3(Lcom/android/server/DeviceIdleController;)V
-
-    iget-object v5, p0, Lcom/android/server/DeviceIdleController$LocalService;->this$0:Lcom/android/server/DeviceIdleController;
-
-    invoke-static {v5}, Lcom/android/server/DeviceIdleController;->-wrap2(Lcom/android/server/DeviceIdleController;)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    :cond_3
-    monitor-exit v6
-
+    :cond_1
     return-void
-
-    :catchall_0
-    move-exception v5
-
-    monitor-exit v6
-
-    throw v5
-
-    :catch_0
-    move-exception v1
-
-    goto :goto_1
 .end method
 
 .method public getNotificationWhitelistDuration()J
@@ -202,8 +141,20 @@
     return-object v0
 .end method
 
-.method public removePowerSaveWhitelistExceptIdle(Ljava/util/ArrayList;)V
-    .locals 5
+.method public isAppOnWhitelist(I)Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/DeviceIdleController$LocalService;->this$0:Lcom/android/server/DeviceIdleController;
+
+    invoke-virtual {v0, p1}, Lcom/android/server/DeviceIdleController;->isAppOnWhitelistInternal(I)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public removeSystemPowerSaveWhiteList(Ljava/util/ArrayList;)V
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -214,28 +165,14 @@
         }
     .end annotation
 
-    iget-object v4, p0, Lcom/android/server/DeviceIdleController$LocalService;->this$0:Lcom/android/server/DeviceIdleController;
-
-    monitor-enter v4
-
-    const/4 v2, 0x0
-
-    if-nez p1, :cond_0
-
-    monitor-exit v4
-
-    return-void
-
-    :cond_0
     const/4 v0, 0x0
 
     :goto_0
-    :try_start_0
     invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
 
-    move-result v3
+    move-result v2
 
-    if-ge v0, v3, :cond_2
+    if-ge v0, v2, :cond_1
 
     invoke-virtual {p1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -243,51 +180,19 @@
 
     check-cast v1, Ljava/lang/String;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
-    iget-object v3, p0, Lcom/android/server/DeviceIdleController$LocalService;->this$0:Lcom/android/server/DeviceIdleController;
+    iget-object v2, p0, Lcom/android/server/DeviceIdleController$LocalService;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-static {v3}, Lcom/android/server/DeviceIdleController;->-get4(Lcom/android/server/DeviceIdleController;)Landroid/util/ArrayMap;
+    invoke-virtual {v2, v1}, Lcom/android/server/DeviceIdleController;->removeSystemPowerSaveWhitelistInternal(Ljava/lang/String;)Z
 
-    move-result-object v3
-
-    invoke-virtual {v3, v1}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_1
-
-    const/4 v2, 0x1
-
-    :cond_1
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    :cond_2
-    if-eqz v2, :cond_3
-
-    iget-object v3, p0, Lcom/android/server/DeviceIdleController$LocalService;->this$0:Lcom/android/server/DeviceIdleController;
-
-    invoke-static {v3}, Lcom/android/server/DeviceIdleController;->-wrap3(Lcom/android/server/DeviceIdleController;)V
-
-    iget-object v3, p0, Lcom/android/server/DeviceIdleController$LocalService;->this$0:Lcom/android/server/DeviceIdleController;
-
-    invoke-static {v3}, Lcom/android/server/DeviceIdleController;->-wrap2(Lcom/android/server/DeviceIdleController;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    :cond_3
-    monitor-exit v4
-
+    :cond_1
     return-void
-
-    :catchall_0
-    move-exception v3
-
-    monitor-exit v4
-
-    throw v3
 .end method
 
 .method public setAlarmsActive(Z)V

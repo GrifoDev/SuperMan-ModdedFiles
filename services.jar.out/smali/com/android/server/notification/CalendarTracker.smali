@@ -467,16 +467,19 @@
 
     move-result-object v8
 
+    if-eqz v8, :cond_0
+
     :try_start_0
     invoke-interface {v8}, Landroid/database/Cursor;->getCount()I
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_4
 
+    :cond_0
     sget-boolean v2, Lcom/android/server/notification/CalendarTracker;->DEBUG:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     const-string/jumbo v2, "ConditionProviders.CT"
 
@@ -486,14 +489,17 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :cond_0
+    :cond_1
     const/4 v2, 0x1
+
+    if-eqz v8, :cond_2
 
     invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
+    :cond_2
     sget-boolean v3, Lcom/android/server/notification/CalendarTracker;->DEBUG:Z
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_3
 
     const-string/jumbo v3, "ConditionProviders.CT"
 
@@ -525,19 +531,21 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_1
+    :cond_3
     return v2
 
-    :cond_2
+    :cond_4
     const/4 v14, 0x0
 
     :goto_0
+    if-eqz v8, :cond_7
+
     :try_start_1
     invoke-interface {v8}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_7
 
     const/4 v2, 0x0
 
@@ -567,7 +575,7 @@
 
     sget-boolean v2, Lcom/android/server/notification/CalendarTracker;->DEBUG:Z
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_5
 
     const-string/jumbo v2, "ConditionProviders.CT"
 
@@ -617,14 +625,14 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_3
+    :cond_5
     move/from16 v0, p2
 
     int-to-long v2, v0
 
     cmp-long v2, v12, v2
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_6
 
     move-object/from16 v0, p3
 
@@ -634,7 +642,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_6
 
     move v9, v10
 
@@ -643,17 +651,20 @@
 
     goto :goto_0
 
-    :cond_4
+    :cond_6
     const/4 v9, 0x0
 
     goto :goto_1
 
-    :cond_5
+    :cond_7
+    if-eqz v8, :cond_8
+
     invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
+    :cond_8
     sget-boolean v2, Lcom/android/server/notification/CalendarTracker;->DEBUG:Z
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_9
 
     const-string/jumbo v2, "ConditionProviders.CT"
 
@@ -685,17 +696,20 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_6
+    :cond_9
     return v14
 
     :catchall_0
     move-exception v2
 
+    if-eqz v8, :cond_a
+
     invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
+    :cond_a
     sget-boolean v3, Lcom/android/server/notification/CalendarTracker;->DEBUG:Z
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_b
 
     const-string/jumbo v3, "ConditionProviders.CT"
 
@@ -727,7 +741,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_7
+    :cond_b
     throw v2
 .end method
 

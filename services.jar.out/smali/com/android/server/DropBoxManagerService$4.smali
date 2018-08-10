@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/DropBoxManagerService;->onStart()V
+    value = Lcom/android/server/DropBoxManagerService;->onBootPhase(I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

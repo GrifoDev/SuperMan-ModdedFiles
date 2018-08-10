@@ -210,7 +210,7 @@
 
 # virtual methods
 .method hideNotification(I)V
-    .locals 2
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/usb/MtpNotificationManager;->mContext:Landroid/content/Context;
 
@@ -222,9 +222,13 @@
 
     check-cast v0, Landroid/app/NotificationManager;
 
-    const-string/jumbo v1, "UsbMtpNotificationManager"
+    invoke-static {p1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    invoke-virtual {v0, v1, p1}, Landroid/app/NotificationManager;->cancel(Ljava/lang/String;I)V
+    move-result-object v1
+
+    const/16 v2, 0x19
+
+    invoke-virtual {v0, v1, v2}, Landroid/app/NotificationManager;->cancel(Ljava/lang/String;I)V
 
     return-void
 .end method
@@ -256,13 +260,13 @@
 
     aput-object v8, v7, v9
 
-    const v8, 0x10405fa
+    const v8, 0x1040ab5
 
     invoke-virtual {v5, v8, v7}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v6
 
-    const v7, 0x10405fb
+    const v7, 0x1040ab4
 
     invoke-virtual {v5, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -272,7 +276,9 @@
 
     iget-object v8, p0, Lcom/android/server/usb/MtpNotificationManager;->mContext:Landroid/content/Context;
 
-    invoke-direct {v7, v8}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
+    sget-object v9, Lcom/android/internal/notification/SystemNotificationChannels;->USB:Ljava/lang/String;
+
+    invoke-direct {v7, v8, v9}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
     invoke-virtual {v7, v6}, Landroid/app/Notification$Builder;->setContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
@@ -282,7 +288,7 @@
 
     move-result-object v7
 
-    const v8, 0x1080892
+    const v8, 0x108093b
 
     invoke-virtual {v7, v8}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -344,15 +350,19 @@
 
     check-cast v7, Landroid/app/NotificationManager;
 
-    const-string/jumbo v8, "UsbMtpNotificationManager"
-
     invoke-virtual {p1}, Landroid/hardware/usb/UsbDevice;->getDeviceId()I
 
-    move-result v9
+    move-result v8
 
-    sget-object v10, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+    invoke-static {v8}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    invoke-virtual {v7, v8, v9, v3, v10}, Landroid/app/NotificationManager;->notifyAsUser(Ljava/lang/String;ILandroid/app/Notification;Landroid/os/UserHandle;)V
+    move-result-object v8
+
+    sget-object v9, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+
+    const/16 v10, 0x19
+
+    invoke-virtual {v7, v8, v10, v3, v9}, Landroid/app/NotificationManager;->notifyAsUser(Ljava/lang/String;ILandroid/app/Notification;Landroid/os/UserHandle;)V
 
     const-string/jumbo v7, "UsbMtpNotificationManager"
 

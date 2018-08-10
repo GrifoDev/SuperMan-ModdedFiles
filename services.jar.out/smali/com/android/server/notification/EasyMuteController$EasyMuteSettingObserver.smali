@@ -31,42 +31,6 @@
 
 
 # virtual methods
-.method observe()V
-    .locals 3
-
-    const/4 v2, 0x0
-
-    iget-object v1, p0, Lcom/android/server/notification/EasyMuteController$EasyMuteSettingObserver;->this$0:Lcom/android/server/notification/EasyMuteController;
-
-    invoke-static {v1}, Lcom/android/server/notification/EasyMuteController;->-get1(Lcom/android/server/notification/EasyMuteController;)Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "master_motion"
-
-    invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
-
-    const-string/jumbo v1, "motion_overturn"
-
-    invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
-
-    invoke-virtual {p0}, Lcom/android/server/notification/EasyMuteController$EasyMuteSettingObserver;->update()V
-
-    return-void
-.end method
-
 .method public onChange(Z)V
     .locals 0
 
@@ -76,48 +40,50 @@
 .end method
 
 .method public update()V
-    .locals 5
+    .locals 6
 
-    const/4 v2, 0x0
+    const/4 v5, -0x2
+
+    const/4 v4, 0x0
 
     const/4 v1, 0x0
 
-    iget-object v3, p0, Lcom/android/server/notification/EasyMuteController$EasyMuteSettingObserver;->this$0:Lcom/android/server/notification/EasyMuteController;
+    iget-object v2, p0, Lcom/android/server/notification/EasyMuteController$EasyMuteSettingObserver;->this$0:Lcom/android/server/notification/EasyMuteController;
 
-    invoke-static {v3}, Lcom/android/server/notification/EasyMuteController;->-get1(Lcom/android/server/notification/EasyMuteController;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/server/notification/EasyMuteController;->-get1(Lcom/android/server/notification/EasyMuteController;)Landroid/content/Context;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v3
+    move-result-object v2
 
-    const-string/jumbo v4, "master_motion"
+    const-string/jumbo v3, "master_motion"
 
-    invoke-static {v3, v4, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v2, v3, v4, v5}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_1
 
     const/4 v0, 0x1
 
     :goto_0
     if-eqz v0, :cond_0
 
-    iget-object v3, p0, Lcom/android/server/notification/EasyMuteController$EasyMuteSettingObserver;->this$0:Lcom/android/server/notification/EasyMuteController;
+    iget-object v2, p0, Lcom/android/server/notification/EasyMuteController$EasyMuteSettingObserver;->this$0:Lcom/android/server/notification/EasyMuteController;
 
-    invoke-static {v3}, Lcom/android/server/notification/EasyMuteController;->-get1(Lcom/android/server/notification/EasyMuteController;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/server/notification/EasyMuteController;->-get1(Lcom/android/server/notification/EasyMuteController;)Landroid/content/Context;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v3
+    move-result-object v2
 
-    const-string/jumbo v4, "motion_overturn"
+    const-string/jumbo v3, "motion_overturn"
 
-    invoke-static {v3, v4, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v2, v3, v4, v5}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
 
     move-result v2
 
@@ -134,7 +100,7 @@
     return-void
 
     :cond_1
-    move v0, v2
+    const/4 v0, 0x0
 
     goto :goto_0
 

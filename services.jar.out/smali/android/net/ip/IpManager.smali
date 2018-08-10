@@ -8,7 +8,9 @@
     value = {
         Landroid/net/ip/IpManager$Callback;,
         Landroid/net/ip/IpManager$LoggingCallbackWrapper;,
+        Landroid/net/ip/IpManager$MessageHandlingLogger;,
         Landroid/net/ip/IpManager$ProvisioningConfiguration;,
+        Landroid/net/ip/IpManager$RunningState;,
         Landroid/net/ip/IpManager$StartedState;,
         Landroid/net/ip/IpManager$StoppedState;,
         Landroid/net/ip/IpManager$StoppingState;,
@@ -24,8 +26,6 @@
 
 .field private static final CMD_CONFIRM:I = 0x3
 
-.field private static final CMD_RENEW:I = 0xc
-
 .field private static final CMD_SET_MULTICAST_FILTER:I = 0x8
 
 .field private static final CMD_START:I = 0x2
@@ -40,6 +40,8 @@
 
 .field public static final DUMP_ARG:Ljava/lang/String; = "ipmanager"
 
+.field public static final DUMP_ARG_CONFIRM:Ljava/lang/String; = "confirm"
+
 .field private static final EVENT_COMPLETED_RELEASE_PACKET:I = 0xb
 
 .field private static final EVENT_DHCPACTION_TIMEOUT:I = 0xa
@@ -51,6 +53,8 @@
 .field private static final EVENT_PROVISIONING_TIMEOUT:I = 0x9
 
 .field private static final MAX_LOG_RECORDS:I = 0x1f4
+
+.field private static final MAX_PACKET_RECORDS:I = 0x64
 
 .field private static final NO_CALLBACKS:Z = false
 
@@ -81,6 +85,8 @@
 
 .field private mConfiguration:Landroid/net/ip/IpManager$ProvisioningConfiguration;
 
+.field private final mConnectivityPacketLog:Landroid/util/LocalLog;
+
 .field private final mContext:Landroid/content/Context;
 
 .field private final mDhcpActionTimeoutAlarm:Lcom/android/internal/util/WakeupMessage;
@@ -99,7 +105,13 @@
 
 .field private final mLocalLog:Landroid/util/LocalLog;
 
+.field private final mMetricsLog:Landroid/net/metrics/IpConnectivityLog;
+
+.field private final mMsgStateLogger:Landroid/net/ip/IpManager$MessageHandlingLogger;
+
 .field private mMulticastFiltering:Z
+
+.field private final mMultinetworkPolicyTracker:Landroid/net/util/MultinetworkPolicyTracker;
 
 .field private final mNetlinkTracker:Lcom/android/server/net/NetlinkTracker;
 
@@ -108,6 +120,8 @@
 .field private final mNwService:Landroid/os/INetworkManagementService;
 
 .field private final mProvisioningTimeoutAlarm:Lcom/android/internal/util/WakeupMessage;
+
+.field private final mRunningState:Lcom/android/internal/util/State;
 
 .field private mStartTimeMillis:J
 
@@ -139,7 +153,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get10(Landroid/net/ip/IpManager;)Z
+.method static synthetic -get10(Landroid/net/ip/IpManager;)Landroid/net/ip/IpManager$MessageHandlingLogger;
+    .locals 1
+
+    iget-object v0, p0, Landroid/net/ip/IpManager;->mMsgStateLogger:Landroid/net/ip/IpManager$MessageHandlingLogger;
+
+    return-object v0
+.end method
+
+.method static synthetic -get11(Landroid/net/ip/IpManager;)Z
     .locals 1
 
     iget-boolean v0, p0, Landroid/net/ip/IpManager;->mMulticastFiltering:Z
@@ -147,18 +169,10 @@
     return v0
 .end method
 
-.method static synthetic -get11(Landroid/net/ip/IpManager;)Ljava/net/NetworkInterface;
+.method static synthetic -get12(Landroid/net/ip/IpManager;)Ljava/net/NetworkInterface;
     .locals 1
 
     iget-object v0, p0, Landroid/net/ip/IpManager;->mNetworkInterface:Ljava/net/NetworkInterface;
-
-    return-object v0
-.end method
-
-.method static synthetic -get12(Landroid/net/ip/IpManager;)Landroid/os/INetworkManagementService;
-    .locals 1
-
-    iget-object v0, p0, Landroid/net/ip/IpManager;->mNwService:Landroid/os/INetworkManagementService;
 
     return-object v0
 .end method
@@ -171,7 +185,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get14(Landroid/net/ip/IpManager;)J
+.method static synthetic -get14(Landroid/net/ip/IpManager;)Lcom/android/internal/util/State;
+    .locals 1
+
+    iget-object v0, p0, Landroid/net/ip/IpManager;->mRunningState:Lcom/android/internal/util/State;
+
+    return-object v0
+.end method
+
+.method static synthetic -get15(Landroid/net/ip/IpManager;)J
     .locals 2
 
     iget-wide v0, p0, Landroid/net/ip/IpManager;->mStartTimeMillis:J
@@ -179,7 +201,7 @@
     return-wide v0
 .end method
 
-.method static synthetic -get15(Landroid/net/ip/IpManager;)Lcom/android/internal/util/State;
+.method static synthetic -get16(Landroid/net/ip/IpManager;)Lcom/android/internal/util/State;
     .locals 1
 
     iget-object v0, p0, Landroid/net/ip/IpManager;->mStartedState:Lcom/android/internal/util/State;
@@ -187,7 +209,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get16(Landroid/net/ip/IpManager;)Lcom/android/internal/util/State;
+.method static synthetic -get17(Landroid/net/ip/IpManager;)Lcom/android/internal/util/State;
     .locals 1
 
     iget-object v0, p0, Landroid/net/ip/IpManager;->mStoppedState:Lcom/android/internal/util/State;
@@ -195,7 +217,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get17(Landroid/net/ip/IpManager;)Lcom/android/internal/util/State;
+.method static synthetic -get18(Landroid/net/ip/IpManager;)Lcom/android/internal/util/State;
     .locals 1
 
     iget-object v0, p0, Landroid/net/ip/IpManager;->mStoppingState:Lcom/android/internal/util/State;
@@ -203,7 +225,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get18(Landroid/net/ip/IpManager;)Ljava/lang/String;
+.method static synthetic -get19(Landroid/net/ip/IpManager;)Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Landroid/net/ip/IpManager;->mTag:Ljava/lang/String;
@@ -219,10 +241,10 @@
     return-object v0
 .end method
 
-.method static synthetic -get3(Landroid/net/ip/IpManager;)Landroid/content/Context;
+.method static synthetic -get3(Landroid/net/ip/IpManager;)Landroid/util/LocalLog;
     .locals 1
 
-    iget-object v0, p0, Landroid/net/ip/IpManager;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Landroid/net/ip/IpManager;->mConnectivityPacketLog:Landroid/util/LocalLog;
 
     return-object v0
 .end method
@@ -460,7 +482,23 @@
     return v0
 .end method
 
-.method static synthetic -wrap10(Landroid/net/ip/IpManager;I)V
+.method static synthetic -wrap10(Landroid/net/ip/IpManager;)V
+    .locals 0
+
+    invoke-direct {p0}, Landroid/net/ip/IpManager;->handleProvisioningFailure()V
+
+    return-void
+.end method
+
+.method static synthetic -wrap11(Landroid/net/ip/IpManager;Ljava/lang/String;[Ljava/lang/Object;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Landroid/net/ip/IpManager;->logError(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap12(Landroid/net/ip/IpManager;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Landroid/net/ip/IpManager;->recordMetric(I)V
@@ -468,7 +506,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap11(Landroid/net/ip/IpManager;)V
+.method static synthetic -wrap13(Landroid/net/ip/IpManager;)V
     .locals 0
 
     invoke-direct {p0}, Landroid/net/ip/IpManager;->resetLinkProperties()V
@@ -476,10 +514,10 @@
     return-void
 .end method
 
-.method static synthetic -wrap12(Landroid/net/ip/IpManager;Lcom/android/internal/util/IState;)V
+.method static synthetic -wrap14(Landroid/net/ip/IpManager;)V
     .locals 0
 
-    invoke-virtual {p0, p1}, Landroid/net/ip/IpManager;->transitionTo(Lcom/android/internal/util/IState;)V
+    invoke-direct {p0}, Landroid/net/ip/IpManager;->stopAllIP()V
 
     return-void
 .end method
@@ -504,18 +542,20 @@
     return v0
 .end method
 
-.method static synthetic -wrap4(Landroid/net/ip/IpManager;)V
+.method static synthetic -wrap4(Landroid/net/ip/IpManager;)Z
+    .locals 1
+
+    invoke-direct {p0}, Landroid/net/ip/IpManager;->startIpReachabilityMonitor()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic -wrap5(Landroid/net/ip/IpManager;)V
     .locals 0
 
     invoke-direct {p0}, Landroid/net/ip/IpManager;->clearIPv4Address()V
-
-    return-void
-.end method
-
-.method static synthetic -wrap5(Landroid/net/ip/IpManager;Landroid/os/Message;)V
-    .locals 0
-
-    invoke-virtual {p0, p1}, Landroid/net/ip/IpManager;->deferMessage(Landroid/os/Message;)V
 
     return-void
 .end method
@@ -528,7 +568,15 @@
     return-void
 .end method
 
-.method static synthetic -wrap7(Landroid/net/ip/IpManager;)V
+.method static synthetic -wrap7(Landroid/net/ip/IpManager;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Landroid/net/ip/IpManager;->doImmediateProvisioningFailure(I)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap8(Landroid/net/ip/IpManager;)V
     .locals 0
 
     invoke-direct {p0}, Landroid/net/ip/IpManager;->handleIPv4Failure()V
@@ -536,18 +584,10 @@
     return-void
 .end method
 
-.method static synthetic -wrap8(Landroid/net/ip/IpManager;Landroid/net/DhcpResults;)V
+.method static synthetic -wrap9(Landroid/net/ip/IpManager;Landroid/net/DhcpResults;)V
     .locals 0
 
     invoke-direct {p0, p1}, Landroid/net/ip/IpManager;->handleIPv4Success(Landroid/net/DhcpResults;)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap9(Landroid/net/ip/IpManager;)V
-    .locals 0
-
-    invoke-direct {p0}, Landroid/net/ip/IpManager;->handleProvisioningFailure()V
 
     return-void
 .end method
@@ -620,481 +660,471 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Landroid/net/ip/IpManager$Callback;Landroid/os/INetworkManagementService;)V
-    .locals 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
         }
     .end annotation
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-class v2, Landroid/net/ip/IpManager;
+    const-class v1, Landroid/net/ip/IpManager;
 
-    invoke-virtual {v2}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
 
     move-result-object v1
 
-    const-string/jumbo v2, "."
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    move-result-object v1
+    const-string/jumbo v1, "."
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-direct {p0, v1}, Lcom/android/internal/util/StateMachine;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    new-instance v1, Landroid/net/ip/IpManager$StoppedState;
+    move-result-object v0
 
-    invoke-direct {v1, p0}, Landroid/net/ip/IpManager$StoppedState;-><init>(Landroid/net/ip/IpManager;)V
+    invoke-direct {p0, v0}, Lcom/android/internal/util/StateMachine;-><init>(Ljava/lang/String;)V
 
-    iput-object v1, p0, Landroid/net/ip/IpManager;->mStoppedState:Lcom/android/internal/util/State;
+    new-instance v0, Landroid/net/ip/IpManager$StoppedState;
 
-    new-instance v1, Landroid/net/ip/IpManager$StoppingState;
+    invoke-direct {v0, p0}, Landroid/net/ip/IpManager$StoppedState;-><init>(Landroid/net/ip/IpManager;)V
 
-    invoke-direct {v1, p0}, Landroid/net/ip/IpManager$StoppingState;-><init>(Landroid/net/ip/IpManager;)V
+    iput-object v0, p0, Landroid/net/ip/IpManager;->mStoppedState:Lcom/android/internal/util/State;
 
-    iput-object v1, p0, Landroid/net/ip/IpManager;->mStoppingState:Lcom/android/internal/util/State;
+    new-instance v0, Landroid/net/ip/IpManager$StoppingState;
 
-    new-instance v1, Landroid/net/ip/IpManager$StartedState;
+    invoke-direct {v0, p0}, Landroid/net/ip/IpManager$StoppingState;-><init>(Landroid/net/ip/IpManager;)V
 
-    invoke-direct {v1, p0}, Landroid/net/ip/IpManager$StartedState;-><init>(Landroid/net/ip/IpManager;)V
+    iput-object v0, p0, Landroid/net/ip/IpManager;->mStoppingState:Lcom/android/internal/util/State;
 
-    iput-object v1, p0, Landroid/net/ip/IpManager;->mStartedState:Lcom/android/internal/util/State;
+    new-instance v0, Landroid/net/ip/IpManager$StartedState;
+
+    invoke-direct {v0, p0}, Landroid/net/ip/IpManager$StartedState;-><init>(Landroid/net/ip/IpManager;)V
+
+    iput-object v0, p0, Landroid/net/ip/IpManager;->mStartedState:Lcom/android/internal/util/State;
+
+    new-instance v0, Landroid/net/ip/IpManager$RunningState;
+
+    invoke-direct {v0, p0}, Landroid/net/ip/IpManager$RunningState;-><init>(Landroid/net/ip/IpManager;)V
+
+    iput-object v0, p0, Landroid/net/ip/IpManager;->mRunningState:Lcom/android/internal/util/State;
+
+    new-instance v0, Landroid/net/metrics/IpConnectivityLog;
+
+    invoke-direct {v0}, Landroid/net/metrics/IpConnectivityLog;-><init>()V
+
+    iput-object v0, p0, Landroid/net/ip/IpManager;->mMetricsLog:Landroid/net/metrics/IpConnectivityLog;
 
     invoke-virtual {p0}, Landroid/net/ip/IpManager;->getName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Landroid/net/ip/IpManager;->mTag:Ljava/lang/String;
+    iput-object v0, p0, Landroid/net/ip/IpManager;->mTag:Ljava/lang/String;
 
     iput-object p1, p0, Landroid/net/ip/IpManager;->mContext:Landroid/content/Context;
 
     iput-object p2, p0, Landroid/net/ip/IpManager;->mInterfaceName:Ljava/lang/String;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "v4-"
+    const-string/jumbo v1, "v4-"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Landroid/net/ip/IpManager;->mClatInterfaceName:Ljava/lang/String;
+    iput-object v0, p0, Landroid/net/ip/IpManager;->mClatInterfaceName:Ljava/lang/String;
 
-    new-instance v1, Landroid/net/ip/IpManager$LoggingCallbackWrapper;
+    new-instance v0, Landroid/net/ip/IpManager$LoggingCallbackWrapper;
 
-    invoke-direct {v1, p0, p3}, Landroid/net/ip/IpManager$LoggingCallbackWrapper;-><init>(Landroid/net/ip/IpManager;Landroid/net/ip/IpManager$Callback;)V
+    invoke-direct {v0, p0, p3}, Landroid/net/ip/IpManager$LoggingCallbackWrapper;-><init>(Landroid/net/ip/IpManager;Landroid/net/ip/IpManager$Callback;)V
 
-    iput-object v1, p0, Landroid/net/ip/IpManager;->mCallback:Landroid/net/ip/IpManager$Callback;
+    iput-object v0, p0, Landroid/net/ip/IpManager;->mCallback:Landroid/net/ip/IpManager$Callback;
 
     iput-object p4, p0, Landroid/net/ip/IpManager;->mNwService:Landroid/os/INetworkManagementService;
 
-    new-instance v1, Landroid/net/ip/IpManager$2;
+    new-instance v0, Landroid/util/LocalLog;
 
-    iget-object v2, p0, Landroid/net/ip/IpManager;->mInterfaceName:Ljava/lang/String;
+    const/16 v1, 0x1f4
 
-    new-instance v3, Landroid/net/ip/IpManager$1;
+    invoke-direct {v0, v1}, Landroid/util/LocalLog;-><init>(I)V
 
-    invoke-direct {v3, p0}, Landroid/net/ip/IpManager$1;-><init>(Landroid/net/ip/IpManager;)V
+    iput-object v0, p0, Landroid/net/ip/IpManager;->mLocalLog:Landroid/util/LocalLog;
 
-    invoke-direct {v1, p0, v2, v3}, Landroid/net/ip/IpManager$2;-><init>(Landroid/net/ip/IpManager;Ljava/lang/String;Lcom/android/server/net/NetlinkTracker$Callback;)V
+    new-instance v0, Landroid/util/LocalLog;
 
-    iput-object v1, p0, Landroid/net/ip/IpManager;->mNetlinkTracker:Lcom/android/server/net/NetlinkTracker;
+    const/16 v1, 0x64
 
-    invoke-direct {p0}, Landroid/net/ip/IpManager;->resetLinkProperties()V
+    invoke-direct {v0, v1}, Landroid/util/LocalLog;-><init>(I)V
 
-    new-instance v1, Lcom/android/internal/util/WakeupMessage;
+    iput-object v0, p0, Landroid/net/ip/IpManager;->mConnectivityPacketLog:Landroid/util/LocalLog;
 
-    iget-object v2, p0, Landroid/net/ip/IpManager;->mContext:Landroid/content/Context;
+    new-instance v0, Landroid/net/ip/IpManager$MessageHandlingLogger;
+
+    const/4 v1, 0x0
+
+    invoke-direct {v0, v1}, Landroid/net/ip/IpManager$MessageHandlingLogger;-><init>(Landroid/net/ip/IpManager$MessageHandlingLogger;)V
+
+    iput-object v0, p0, Landroid/net/ip/IpManager;->mMsgStateLogger:Landroid/net/ip/IpManager$MessageHandlingLogger;
+
+    new-instance v0, Landroid/net/ip/IpManager$2;
+
+    iget-object v1, p0, Landroid/net/ip/IpManager;->mInterfaceName:Ljava/lang/String;
+
+    new-instance v2, Landroid/net/ip/IpManager$1;
+
+    invoke-direct {v2, p0}, Landroid/net/ip/IpManager$1;-><init>(Landroid/net/ip/IpManager;)V
+
+    invoke-direct {v0, p0, v1, v2}, Landroid/net/ip/IpManager$2;-><init>(Landroid/net/ip/IpManager;Ljava/lang/String;Lcom/android/server/net/NetlinkTracker$Callback;)V
+
+    iput-object v0, p0, Landroid/net/ip/IpManager;->mNetlinkTracker:Lcom/android/server/net/NetlinkTracker;
+
+    new-instance v0, Landroid/net/LinkProperties;
+
+    invoke-direct {v0}, Landroid/net/LinkProperties;-><init>()V
+
+    iput-object v0, p0, Landroid/net/ip/IpManager;->mLinkProperties:Landroid/net/LinkProperties;
+
+    iget-object v0, p0, Landroid/net/ip/IpManager;->mLinkProperties:Landroid/net/LinkProperties;
+
+    iget-object v1, p0, Landroid/net/ip/IpManager;->mInterfaceName:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Landroid/net/LinkProperties;->setInterfaceName(Ljava/lang/String;)V
+
+    new-instance v0, Landroid/net/util/MultinetworkPolicyTracker;
+
+    iget-object v1, p0, Landroid/net/ip/IpManager;->mContext:Landroid/content/Context;
 
     invoke-virtual {p0}, Landroid/net/ip/IpManager;->getHandler()Landroid/os/Handler;
 
-    move-result-object v3
+    move-result-object v2
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v3, Landroid/net/ip/-$Lambda$Ew7nO2XMmp8bwulVlFTiHphyunQ;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3, p0}, Landroid/net/ip/-$Lambda$Ew7nO2XMmp8bwulVlFTiHphyunQ;-><init>(Ljava/lang/Object;)V
 
-    iget-object v5, p0, Landroid/net/ip/IpManager;->mTag:Ljava/lang/String;
+    invoke-direct {v0, v1, v2, v3}, Landroid/net/util/MultinetworkPolicyTracker;-><init>(Landroid/content/Context;Landroid/os/Handler;Ljava/lang/Runnable;)V
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iput-object v0, p0, Landroid/net/ip/IpManager;->mMultinetworkPolicyTracker:Landroid/net/util/MultinetworkPolicyTracker;
 
-    move-result-object v4
+    new-instance v0, Lcom/android/internal/util/WakeupMessage;
 
-    const-string/jumbo v5, ".EVENT_PROVISIONING_TIMEOUT"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    const/16 v5, 0x9
-
-    invoke-direct {v1, v2, v3, v4, v5}, Lcom/android/internal/util/WakeupMessage;-><init>(Landroid/content/Context;Landroid/os/Handler;Ljava/lang/String;I)V
-
-    iput-object v1, p0, Landroid/net/ip/IpManager;->mProvisioningTimeoutAlarm:Lcom/android/internal/util/WakeupMessage;
-
-    new-instance v1, Lcom/android/internal/util/WakeupMessage;
-
-    iget-object v2, p0, Landroid/net/ip/IpManager;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Landroid/net/ip/IpManager;->mContext:Landroid/content/Context;
 
     invoke-virtual {p0}, Landroid/net/ip/IpManager;->getHandler()Landroid/os/Handler;
 
+    move-result-object v2
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v4, p0, Landroid/net/ip/IpManager;->mTag:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     move-result-object v3
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    const-string/jumbo v4, ".EVENT_PROVISIONING_TIMEOUT"
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v5, p0, Landroid/net/ip/IpManager;->mTag:Ljava/lang/String;
+    move-result-object v3
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
-    const-string/jumbo v5, ".EVENT_DHCPACTION_TIMEOUT"
+    const/16 v4, 0x9
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/internal/util/WakeupMessage;-><init>(Landroid/content/Context;Landroid/os/Handler;Ljava/lang/String;I)V
 
-    move-result-object v4
+    iput-object v0, p0, Landroid/net/ip/IpManager;->mProvisioningTimeoutAlarm:Lcom/android/internal/util/WakeupMessage;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    new-instance v0, Lcom/android/internal/util/WakeupMessage;
 
-    move-result-object v4
+    iget-object v1, p0, Landroid/net/ip/IpManager;->mContext:Landroid/content/Context;
 
-    const/16 v5, 0xa
+    invoke-virtual {p0}, Landroid/net/ip/IpManager;->getHandler()Landroid/os/Handler;
 
-    invoke-direct {v1, v2, v3, v4, v5}, Lcom/android/internal/util/WakeupMessage;-><init>(Landroid/content/Context;Landroid/os/Handler;Ljava/lang/String;I)V
+    move-result-object v2
 
-    iput-object v1, p0, Landroid/net/ip/IpManager;->mDhcpActionTimeoutAlarm:Lcom/android/internal/util/WakeupMessage;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Landroid/net/ip/IpManager;->mStoppedState:Lcom/android/internal/util/State;
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {p0, v1}, Landroid/net/ip/IpManager;->addState(Lcom/android/internal/util/State;)V
+    iget-object v4, p0, Landroid/net/ip/IpManager;->mTag:Ljava/lang/String;
 
-    iget-object v1, p0, Landroid/net/ip/IpManager;->mStartedState:Lcom/android/internal/util/State;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0, v1}, Landroid/net/ip/IpManager;->addState(Lcom/android/internal/util/State;)V
+    move-result-object v3
 
-    iget-object v1, p0, Landroid/net/ip/IpManager;->mStoppingState:Lcom/android/internal/util/State;
+    const-string/jumbo v4, ".EVENT_DHCPACTION_TIMEOUT"
 
-    invoke-virtual {p0, v1}, Landroid/net/ip/IpManager;->addState(Lcom/android/internal/util/State;)V
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Landroid/net/ip/IpManager;->mStoppedState:Lcom/android/internal/util/State;
+    move-result-object v3
 
-    invoke-virtual {p0, v1}, Landroid/net/ip/IpManager;->setInitialState(Lcom/android/internal/util/State;)V
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    new-instance v1, Landroid/util/LocalLog;
+    move-result-object v3
 
-    const/16 v2, 0x1f4
+    const/16 v4, 0xa
 
-    invoke-direct {v1, v2}, Landroid/util/LocalLog;-><init>(I)V
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/internal/util/WakeupMessage;-><init>(Landroid/content/Context;Landroid/os/Handler;Ljava/lang/String;I)V
 
-    iput-object v1, p0, Landroid/net/ip/IpManager;->mLocalLog:Landroid/util/LocalLog;
+    iput-object v0, p0, Landroid/net/ip/IpManager;->mDhcpActionTimeoutAlarm:Lcom/android/internal/util/WakeupMessage;
 
-    iget-object v1, p0, Landroid/net/ip/IpManager;->mTag:Ljava/lang/String;
+    invoke-direct {p0}, Landroid/net/ip/IpManager;->configureAndStartStateMachine()V
 
-    const-string/jumbo v2, "ipmanager start"
+    invoke-direct {p0}, Landroid/net/ip/IpManager;->startStateMachineUpdaters()V
 
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-super {p0}, Lcom/android/internal/util/StateMachine;->start()V
-
-    :try_start_0
-    iget-object v1, p0, Landroid/net/ip/IpManager;->mNwService:Landroid/os/INetworkManagementService;
-
-    iget-object v2, p0, Landroid/net/ip/IpManager;->mNetlinkTracker:Lcom/android/server/net/NetlinkTracker;
-
-    invoke-interface {v1, v2}, Landroid/os/INetworkManagementService;->registerObserver(Landroid/net/INetworkManagementEventObserver;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
     return-void
+.end method
 
-    :catch_0
-    move-exception v0
+.method private static addAllReachableDnsServers(Landroid/net/LinkProperties;Ljava/lang/Iterable;)V
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/net/LinkProperties;",
+            "Ljava/lang/Iterable",
+            "<",
+            "Ljava/net/InetAddress;",
+            ">;)V"
+        }
+    .end annotation
 
-    iget-object v1, p0, Landroid/net/ip/IpManager;->mTag:Ljava/lang/String;
+    invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    :cond_0
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    const-string/jumbo v3, "Couldn\'t register NetlinkTracker: "
+    move-result v2
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-eqz v2, :cond_1
 
-    move-result-object v2
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    invoke-virtual {v0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v3
+    check-cast v0, Ljava/net/InetAddress;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/net/InetAddress;->isAnyLocalAddress()Z
 
-    move-result-object v2
+    move-result v2
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    if-nez v2, :cond_0
 
-    move-result-object v2
+    invoke-virtual {p0, v0}, Landroid/net/LinkProperties;->isReachable(Ljava/net/InetAddress;)Z
 
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {p0, v0}, Landroid/net/LinkProperties;->addDnsServer(Ljava/net/InetAddress;)Z
 
     goto :goto_0
+
+    :cond_1
+    return-void
 .end method
 
 .method private assembleLinkProperties()Landroid/net/LinkProperties;
-    .locals 9
+    .locals 7
 
-    new-instance v3, Landroid/net/LinkProperties;
+    new-instance v1, Landroid/net/LinkProperties;
 
-    invoke-direct {v3}, Landroid/net/LinkProperties;-><init>()V
+    invoke-direct {v1}, Landroid/net/LinkProperties;-><init>()V
 
-    iget-object v6, p0, Landroid/net/ip/IpManager;->mInterfaceName:Ljava/lang/String;
+    iget-object v4, p0, Landroid/net/ip/IpManager;->mInterfaceName:Ljava/lang/String;
 
-    invoke-virtual {v3, v6}, Landroid/net/LinkProperties;->setInterfaceName(Ljava/lang/String;)V
+    invoke-virtual {v1, v4}, Landroid/net/LinkProperties;->setInterfaceName(Ljava/lang/String;)V
 
-    iget-object v6, p0, Landroid/net/ip/IpManager;->mNetlinkTracker:Lcom/android/server/net/NetlinkTracker;
+    iget-object v4, p0, Landroid/net/ip/IpManager;->mNetlinkTracker:Lcom/android/server/net/NetlinkTracker;
 
-    invoke-virtual {v6}, Lcom/android/server/net/NetlinkTracker;->getLinkProperties()Landroid/net/LinkProperties;
+    invoke-virtual {v4}, Lcom/android/server/net/NetlinkTracker;->getLinkProperties()Landroid/net/LinkProperties;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v2}, Landroid/net/LinkProperties;->getLinkAddresses()Ljava/util/List;
-
-    move-result-object v6
-
-    invoke-virtual {v3, v6}, Landroid/net/LinkProperties;->setLinkAddresses(Ljava/util/Collection;)V
-
-    invoke-virtual {v2}, Landroid/net/LinkProperties;->getRoutes()Ljava/util/List;
-
-    move-result-object v6
-
-    invoke-interface {v6}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v5
-
-    :goto_0
-    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_0
-
-    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-virtual {v0}, Landroid/net/LinkProperties;->getLinkAddresses()Ljava/util/List;
 
     move-result-object v4
 
-    check-cast v4, Landroid/net/RouteInfo;
+    invoke-virtual {v1, v4}, Landroid/net/LinkProperties;->setLinkAddresses(Ljava/util/Collection;)V
 
-    invoke-virtual {v3, v4}, Landroid/net/LinkProperties;->addRoute(Landroid/net/RouteInfo;)Z
+    invoke-virtual {v0}, Landroid/net/LinkProperties;->getRoutes()Ljava/util/List;
+
+    move-result-object v4
+
+    invoke-interface {v4}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
+
+    :goto_0
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/net/RouteInfo;
+
+    invoke-virtual {v1, v2}, Landroid/net/LinkProperties;->addRoute(Landroid/net/RouteInfo;)Z
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {v2}, Landroid/net/LinkProperties;->getDnsServers()Ljava/util/List;
-
-    move-result-object v6
-
-    invoke-interface {v6}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    :cond_1
-    :goto_1
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_2
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/net/InetAddress;
-
-    invoke-virtual {v3, v0}, Landroid/net/LinkProperties;->isReachable(Ljava/net/InetAddress;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_1
-
-    invoke-virtual {v3, v0}, Landroid/net/LinkProperties;->addDnsServer(Ljava/net/InetAddress;)Z
-
-    goto :goto_1
-
-    :cond_2
-    iget-object v6, p0, Landroid/net/ip/IpManager;->mDhcpResults:Landroid/net/DhcpResults;
-
-    if-eqz v6, :cond_6
-
-    iget-object v6, p0, Landroid/net/ip/IpManager;->mDhcpResults:Landroid/net/DhcpResults;
-
-    iget-object v7, p0, Landroid/net/ip/IpManager;->mInterfaceName:Ljava/lang/String;
-
-    invoke-virtual {v6, v7}, Landroid/net/DhcpResults;->getRoutes(Ljava/lang/String;)Ljava/util/List;
-
-    move-result-object v6
-
-    invoke-interface {v6}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v5
-
-    :goto_2
-    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_3
-
-    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-virtual {v0}, Landroid/net/LinkProperties;->getDnsServers()Ljava/util/List;
 
     move-result-object v4
 
-    check-cast v4, Landroid/net/RouteInfo;
+    invoke-static {v1, v4}, Landroid/net/ip/IpManager;->addAllReachableDnsServers(Landroid/net/LinkProperties;Ljava/lang/Iterable;)V
 
-    invoke-virtual {v3, v4}, Landroid/net/LinkProperties;->addRoute(Landroid/net/RouteInfo;)Z
+    iget-object v4, p0, Landroid/net/ip/IpManager;->mDhcpResults:Landroid/net/DhcpResults;
 
-    goto :goto_2
+    if-eqz v4, :cond_2
+
+    iget-object v4, p0, Landroid/net/ip/IpManager;->mDhcpResults:Landroid/net/DhcpResults;
+
+    iget-object v5, p0, Landroid/net/ip/IpManager;->mInterfaceName:Ljava/lang/String;
+
+    invoke-virtual {v4, v5}, Landroid/net/DhcpResults;->getRoutes(Ljava/lang/String;)Ljava/util/List;
+
+    move-result-object v4
+
+    invoke-interface {v4}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
+
+    :goto_1
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/net/RouteInfo;
+
+    invoke-virtual {v1, v2}, Landroid/net/LinkProperties;->addRoute(Landroid/net/RouteInfo;)Z
+
+    goto :goto_1
+
+    :cond_1
+    iget-object v4, p0, Landroid/net/ip/IpManager;->mDhcpResults:Landroid/net/DhcpResults;
+
+    iget-object v4, v4, Landroid/net/DhcpResults;->dnsServers:Ljava/util/ArrayList;
+
+    invoke-static {v1, v4}, Landroid/net/ip/IpManager;->addAllReachableDnsServers(Landroid/net/LinkProperties;Ljava/lang/Iterable;)V
+
+    iget-object v4, p0, Landroid/net/ip/IpManager;->mDhcpResults:Landroid/net/DhcpResults;
+
+    iget-object v4, v4, Landroid/net/DhcpResults;->domains:Ljava/lang/String;
+
+    invoke-virtual {v1, v4}, Landroid/net/LinkProperties;->setDomains(Ljava/lang/String;)V
+
+    iget-object v4, p0, Landroid/net/ip/IpManager;->mDhcpResults:Landroid/net/DhcpResults;
+
+    iget v4, v4, Landroid/net/DhcpResults;->mtu:I
+
+    if-eqz v4, :cond_2
+
+    iget-object v4, p0, Landroid/net/ip/IpManager;->mDhcpResults:Landroid/net/DhcpResults;
+
+    iget v4, v4, Landroid/net/DhcpResults;->mtu:I
+
+    invoke-virtual {v1, v4}, Landroid/net/LinkProperties;->setMtu(I)V
+
+    :cond_2
+    iget-object v4, p0, Landroid/net/ip/IpManager;->mTcpBufferSizes:Ljava/lang/String;
+
+    invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_3
+
+    iget-object v4, p0, Landroid/net/ip/IpManager;->mTcpBufferSizes:Ljava/lang/String;
+
+    invoke-virtual {v1, v4}, Landroid/net/LinkProperties;->setTcpBufferSizes(Ljava/lang/String;)V
 
     :cond_3
-    iget-object v6, p0, Landroid/net/ip/IpManager;->mDhcpResults:Landroid/net/DhcpResults;
+    iget-object v4, p0, Landroid/net/ip/IpManager;->mHttpProxy:Landroid/net/ProxyInfo;
 
-    iget-object v6, v6, Landroid/net/DhcpResults;->dnsServers:Ljava/util/ArrayList;
+    if-eqz v4, :cond_4
 
-    invoke-interface {v6}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    iget-object v4, p0, Landroid/net/ip/IpManager;->mHttpProxy:Landroid/net/ProxyInfo;
 
-    move-result-object v1
+    invoke-virtual {v1, v4}, Landroid/net/LinkProperties;->setHttpProxy(Landroid/net/ProxyInfo;)V
 
     :cond_4
-    :goto_3
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    sget-boolean v4, Landroid/net/ip/IpManager;->VDBG:Z
 
-    move-result v6
+    if-eqz v4, :cond_5
 
-    if-eqz v6, :cond_5
+    iget-object v4, p0, Landroid/net/ip/IpManager;->mTag:Ljava/lang/String;
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    check-cast v0, Ljava/net/InetAddress;
+    const-string/jumbo v6, "newLp{"
 
-    invoke-virtual {v3, v0}, Landroid/net/LinkProperties;->isReachable(Ljava/net/InetAddress;)Z
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result v6
+    move-result-object v5
 
-    if-eqz v6, :cond_4
+    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v0}, Landroid/net/LinkProperties;->addDnsServer(Ljava/net/InetAddress;)Z
+    move-result-object v5
 
-    goto :goto_3
+    const-string/jumbo v6, "}"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_5
-    iget-object v6, p0, Landroid/net/ip/IpManager;->mDhcpResults:Landroid/net/DhcpResults;
-
-    iget-object v6, v6, Landroid/net/DhcpResults;->domains:Ljava/lang/String;
-
-    invoke-virtual {v3, v6}, Landroid/net/LinkProperties;->setDomains(Ljava/lang/String;)V
-
-    iget-object v6, p0, Landroid/net/ip/IpManager;->mDhcpResults:Landroid/net/DhcpResults;
-
-    iget v6, v6, Landroid/net/DhcpResults;->mtu:I
-
-    if-eqz v6, :cond_6
-
-    iget-object v6, p0, Landroid/net/ip/IpManager;->mDhcpResults:Landroid/net/DhcpResults;
-
-    iget v6, v6, Landroid/net/DhcpResults;->mtu:I
-
-    invoke-virtual {v3, v6}, Landroid/net/LinkProperties;->setMtu(I)V
-
-    :cond_6
-    iget-object v6, p0, Landroid/net/ip/IpManager;->mTcpBufferSizes:Ljava/lang/String;
-
-    invoke-static {v6}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v6
-
-    if-nez v6, :cond_7
-
-    iget-object v6, p0, Landroid/net/ip/IpManager;->mTcpBufferSizes:Ljava/lang/String;
-
-    invoke-virtual {v3, v6}, Landroid/net/LinkProperties;->setTcpBufferSizes(Ljava/lang/String;)V
-
-    :cond_7
-    iget-object v6, p0, Landroid/net/ip/IpManager;->mHttpProxy:Landroid/net/ProxyInfo;
-
-    if-eqz v6, :cond_8
-
-    iget-object v6, p0, Landroid/net/ip/IpManager;->mHttpProxy:Landroid/net/ProxyInfo;
-
-    invoke-virtual {v3, v6}, Landroid/net/LinkProperties;->setHttpProxy(Landroid/net/ProxyInfo;)V
-
-    :cond_8
-    sget-boolean v6, Landroid/net/ip/IpManager;->VDBG:Z
-
-    if-eqz v6, :cond_9
-
-    iget-object v6, p0, Landroid/net/ip/IpManager;->mTag:Ljava/lang/String;
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v8, "newLp{"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string/jumbo v8, "}"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_9
-    return-object v3
+    return-object v1
 .end method
 
 .method public static buildProvisioningConfiguration()Landroid/net/ip/IpManager$ProvisioningConfiguration$Builder;
@@ -1108,7 +1138,7 @@
 .end method
 
 .method private clearIPv4Address()V
-    .locals 5
+    .locals 6
 
     :try_start_0
     new-instance v1, Landroid/net/InterfaceConfiguration;
@@ -1138,55 +1168,88 @@
     :catch_0
     move-exception v0
 
-    iget-object v2, p0, Landroid/net/ip/IpManager;->mTag:Ljava/lang/String;
+    const-string/jumbo v2, "Failed to clear IPv4 address on interface %s: %s"
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    const/4 v3, 0x2
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "ALERT: Failed to clear IPv4 address on interface "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
+    new-array v3, v3, [Ljava/lang/Object;
 
     iget-object v4, p0, Landroid/net/ip/IpManager;->mInterfaceName:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/4 v5, 0x0
 
-    move-result-object v3
+    aput-object v4, v3, v5
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const/4 v4, 0x1
 
-    move-result-object v3
+    aput-object v0, v3, v4
 
-    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-direct {p0, v2, v3}, Landroid/net/ip/IpManager;->logError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto :goto_0
 .end method
 
-.method private static compareProvisioning(Landroid/net/LinkProperties;Landroid/net/LinkProperties;)Landroid/net/LinkProperties$ProvisioningChange;
-    .locals 3
-
-    invoke-static {p0}, Landroid/net/ip/IpManager;->isProvisioned(Landroid/net/LinkProperties;)Z
-
-    move-result v2
+.method private compareProvisioning(Landroid/net/LinkProperties;Landroid/net/LinkProperties;)Landroid/net/LinkProperties$ProvisioningChange;
+    .locals 7
 
     invoke-static {p1}, Landroid/net/ip/IpManager;->isProvisioned(Landroid/net/LinkProperties;)Z
 
+    move-result v5
+
+    invoke-static {p2}, Landroid/net/ip/IpManager;->isProvisioned(Landroid/net/LinkProperties;)Z
+
     move-result v1
 
-    if-nez v2, :cond_0
+    if-nez v5, :cond_0
 
     if-eqz v1, :cond_0
 
     sget-object v0, Landroid/net/LinkProperties$ProvisioningChange;->GAINED_PROVISIONING:Landroid/net/LinkProperties$ProvisioningChange;
 
     :goto_0
+    invoke-virtual {p1}, Landroid/net/LinkProperties;->isIPv6Provisioned()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_3
+
+    invoke-virtual {p2}, Landroid/net/LinkProperties;->isIPv6Provisioned()Z
+
+    move-result v6
+
+    xor-int/lit8 v3, v6, 0x1
+
+    :goto_1
+    invoke-virtual {p1}, Landroid/net/LinkProperties;->hasIPv4Address()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_4
+
+    invoke-virtual {p2}, Landroid/net/LinkProperties;->hasIPv4Address()Z
+
+    move-result v6
+
+    xor-int/lit8 v2, v6, 0x1
+
+    :goto_2
+    invoke-virtual {p1}, Landroid/net/LinkProperties;->hasIPv6DefaultRoute()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_5
+
+    invoke-virtual {p2}, Landroid/net/LinkProperties;->hasIPv6DefaultRoute()Z
+
+    move-result v6
+
+    xor-int/lit8 v4, v6, 0x1
+
+    :goto_3
     return-object v0
 
     :cond_0
-    if-eqz v2, :cond_1
+    if-eqz v5, :cond_1
 
     if-eqz v1, :cond_1
 
@@ -1195,9 +1258,15 @@
     goto :goto_0
 
     :cond_1
-    if-nez v2, :cond_2
+    if-nez v5, :cond_2
 
-    if-eqz v1, :cond_3
+    xor-int/lit8 v6, v1, 0x1
+
+    if-eqz v6, :cond_2
+
+    sget-object v0, Landroid/net/LinkProperties$ProvisioningChange;->STILL_NOT_PROVISIONED:Landroid/net/LinkProperties$ProvisioningChange;
+
+    goto :goto_0
 
     :cond_2
     sget-object v0, Landroid/net/LinkProperties$ProvisioningChange;->LOST_PROVISIONING:Landroid/net/LinkProperties$ProvisioningChange;
@@ -1205,13 +1274,57 @@
     goto :goto_0
 
     :cond_3
-    sget-object v0, Landroid/net/LinkProperties$ProvisioningChange;->STILL_NOT_PROVISIONED:Landroid/net/LinkProperties$ProvisioningChange;
+    const/4 v3, 0x0
 
-    goto :goto_0
+    goto :goto_1
+
+    :cond_4
+    const/4 v2, 0x0
+
+    goto :goto_2
+
+    :cond_5
+    const/4 v4, 0x0
+
+    goto :goto_3
+.end method
+
+.method private configureAndStartStateMachine()V
+    .locals 2
+
+    iget-object v0, p0, Landroid/net/ip/IpManager;->mStoppedState:Lcom/android/internal/util/State;
+
+    invoke-virtual {p0, v0}, Landroid/net/ip/IpManager;->addState(Lcom/android/internal/util/State;)V
+
+    iget-object v0, p0, Landroid/net/ip/IpManager;->mStartedState:Lcom/android/internal/util/State;
+
+    invoke-virtual {p0, v0}, Landroid/net/ip/IpManager;->addState(Lcom/android/internal/util/State;)V
+
+    iget-object v0, p0, Landroid/net/ip/IpManager;->mRunningState:Lcom/android/internal/util/State;
+
+    iget-object v1, p0, Landroid/net/ip/IpManager;->mStartedState:Lcom/android/internal/util/State;
+
+    invoke-virtual {p0, v0, v1}, Landroid/net/ip/IpManager;->addState(Lcom/android/internal/util/State;Lcom/android/internal/util/State;)V
+
+    iget-object v0, p0, Landroid/net/ip/IpManager;->mStoppingState:Lcom/android/internal/util/State;
+
+    invoke-virtual {p0, v0}, Landroid/net/ip/IpManager;->addState(Lcom/android/internal/util/State;)V
+
+    iget-object v0, p0, Landroid/net/ip/IpManager;->mStoppedState:Lcom/android/internal/util/State;
+
+    invoke-virtual {p0, v0}, Landroid/net/ip/IpManager;->setInitialState(Lcom/android/internal/util/State;)V
+
+    invoke-super {p0}, Lcom/android/internal/util/StateMachine;->start()V
+
+    return-void
 .end method
 
 .method private dispatchCallback(Landroid/net/LinkProperties$ProvisioningChange;Landroid/net/LinkProperties;)V
-    .locals 2
+    .locals 4
+
+    const/4 v3, 0x2
+
+    const/4 v2, 0x1
 
     invoke-static {}, Landroid/net/ip/IpManager;->-getandroid-net-LinkProperties$ProvisioningChangeSwitchesValues()[I
 
@@ -1255,13 +1368,15 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
-    const/4 v0, 0x1
-
-    invoke-direct {p0, v0}, Landroid/net/ip/IpManager;->recordMetric(I)V
+    invoke-direct {p0, v2}, Landroid/net/ip/IpManager;->recordMetric(I)V
 
     iget-object v0, p0, Landroid/net/ip/IpManager;->mCallback:Landroid/net/ip/IpManager$Callback;
 
     invoke-virtual {v0, p2}, Landroid/net/ip/IpManager$Callback;->onProvisioningSuccess(Landroid/net/LinkProperties;)V
+
+    iget-object v0, p0, Landroid/net/ip/IpManager;->mCallback:Landroid/net/ip/IpManager$Callback;
+
+    invoke-virtual {v0, v2}, Landroid/net/ip/IpManager$Callback;->onSemLog(I)V
 
     goto :goto_0
 
@@ -1277,13 +1392,15 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
-    const/4 v0, 0x2
-
-    invoke-direct {p0, v0}, Landroid/net/ip/IpManager;->recordMetric(I)V
+    invoke-direct {p0, v3}, Landroid/net/ip/IpManager;->recordMetric(I)V
 
     iget-object v0, p0, Landroid/net/ip/IpManager;->mCallback:Landroid/net/ip/IpManager$Callback;
 
     invoke-virtual {v0, p2}, Landroid/net/ip/IpManager$Callback;->onProvisioningFailure(Landroid/net/LinkProperties;)V
+
+    iget-object v0, p0, Landroid/net/ip/IpManager;->mCallback:Landroid/net/ip/IpManager$Callback;
+
+    invoke-virtual {v0, v3}, Landroid/net/ip/IpManager$Callback;->onSemLog(I)V
 
     goto :goto_0
 
@@ -1296,8 +1413,57 @@
     .end packed-switch
 .end method
 
-.method private getNetworkInterface()V
+.method private doImmediateProvisioningFailure(I)V
     .locals 3
+
+    sget-boolean v0, Landroid/net/ip/IpManager;->DBG:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/net/ip/IpManager;->mTag:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "onProvisioningFailure(): "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    invoke-direct {p0, p1}, Landroid/net/ip/IpManager;->recordMetric(I)V
+
+    iget-object v0, p0, Landroid/net/ip/IpManager;->mCallback:Landroid/net/ip/IpManager$Callback;
+
+    new-instance v1, Landroid/net/LinkProperties;
+
+    iget-object v2, p0, Landroid/net/ip/IpManager;->mLinkProperties:Landroid/net/LinkProperties;
+
+    invoke-direct {v1, v2}, Landroid/net/LinkProperties;-><init>(Landroid/net/LinkProperties;)V
+
+    invoke-virtual {v0, v1}, Landroid/net/ip/IpManager$Callback;->onProvisioningFailure(Landroid/net/LinkProperties;)V
+
+    iget-object v0, p0, Landroid/net/ip/IpManager;->mCallback:Landroid/net/ip/IpManager$Callback;
+
+    invoke-virtual {v0, p1}, Landroid/net/ip/IpManager$Callback;->onSemLog(I)V
+
+    return-void
+.end method
+
+.method private getNetworkInterface()V
+    .locals 4
 
     :try_start_0
     iget-object v1, p0, Landroid/net/ip/IpManager;->mInterfaceName:Ljava/lang/String;
@@ -1317,11 +1483,17 @@
     :catch_0
     move-exception v0
 
-    iget-object v1, p0, Landroid/net/ip/IpManager;->mTag:Ljava/lang/String;
+    const-string/jumbo v1, "Failed to get interface object: %s"
 
-    const-string/jumbo v2, "ALERT: Failed to get interface object: "
+    const/4 v2, 0x1
 
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    new-array v2, v2, [Ljava/lang/Object;
+
+    const/4 v3, 0x0
+
+    aput-object v0, v2, v3
+
+    invoke-direct {p0, v1, v2}, Landroid/net/ip/IpManager;->logError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto :goto_0
 .end method
@@ -1524,35 +1696,77 @@
     return v0
 .end method
 
+.method private varargs logError(Ljava/lang/String;[Ljava/lang/Object;)V
+    .locals 3
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "ERROR "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {p1, p2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    iget-object v1, p0, Landroid/net/ip/IpManager;->mTag:Ljava/lang/String;
+
+    invoke-static {v1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v1, p0, Landroid/net/ip/IpManager;->mLocalLog:Landroid/util/LocalLog;
+
+    invoke-virtual {v1, v0}, Landroid/util/LocalLog;->log(Ljava/lang/String;)V
+
+    return-void
+.end method
+
 .method private recordMetric(I)V
     .locals 6
 
-    iget-wide v0, p0, Landroid/net/ip/IpManager;->mStartTimeMillis:J
+    iget-wide v2, p0, Landroid/net/ip/IpManager;->mStartTimeMillis:J
 
-    const-wide/16 v2, 0x0
+    const-wide/16 v4, 0x0
 
-    cmp-long v0, v0, v2
+    cmp-long v2, v2, v4
 
-    if-gtz v0, :cond_0
+    if-gtz v2, :cond_0
 
-    iget-object v0, p0, Landroid/net/ip/IpManager;->mTag:Ljava/lang/String;
+    iget-object v2, p0, Landroid/net/ip/IpManager;->mTag:Ljava/lang/String;
 
-    const-string/jumbo v1, "Start time undefined!"
+    const-string/jumbo v3, "Start time undefined!"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    iget-object v0, p0, Landroid/net/ip/IpManager;->mInterfaceName:Ljava/lang/String;
-
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v2
 
     iget-wide v4, p0, Landroid/net/ip/IpManager;->mStartTimeMillis:J
 
-    sub-long/2addr v2, v4
+    sub-long v0, v2, v4
 
-    invoke-static {p1, v0, v2, v3}, Landroid/net/metrics/IpManagerEvent;->logEvent(ILjava/lang/String;J)V
+    iget-object v2, p0, Landroid/net/ip/IpManager;->mMetricsLog:Landroid/net/metrics/IpConnectivityLog;
+
+    iget-object v3, p0, Landroid/net/ip/IpManager;->mInterfaceName:Ljava/lang/String;
+
+    new-instance v4, Landroid/net/metrics/IpManagerEvent;
+
+    invoke-direct {v4, p1, v0, v1}, Landroid/net/metrics/IpManagerEvent;-><init>(IJ)V
+
+    invoke-virtual {v2, v3, v4}, Landroid/net/metrics/IpConnectivityLog;->log(Ljava/lang/String;Landroid/os/Parcelable;)Z
 
     return-void
 .end method
@@ -1592,7 +1806,11 @@
 .end method
 
 .method private setIPv4Address(Landroid/net/LinkAddress;)Z
-    .locals 4
+    .locals 6
+
+    const/4 v5, 0x1
+
+    const/4 v4, 0x0
 
     new-instance v1, Landroid/net/InterfaceConfiguration;
 
@@ -1621,22 +1839,20 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_0
-    const/4 v2, 0x1
-
-    return v2
+    return v5
 
     :catch_0
     move-exception v0
 
-    iget-object v2, p0, Landroid/net/ip/IpManager;->mTag:Ljava/lang/String;
+    const-string/jumbo v2, "IPv4 configuration failed: %s"
 
-    const-string/jumbo v3, "IPv4 configuration failed: "
+    new-array v3, v5, [Ljava/lang/Object;
 
-    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    aput-object v0, v3, v4
 
-    const/4 v2, 0x0
+    invoke-direct {p0, v2, v3}, Landroid/net/ip/IpManager;->logError(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    return v2
+    return v4
 .end method
 
 .method private setLinkProperties(Landroid/net/LinkProperties;)Landroid/net/LinkProperties$ProvisioningChange;
@@ -1662,7 +1878,7 @@
     :cond_1
     iget-object v1, p0, Landroid/net/ip/IpManager;->mLinkProperties:Landroid/net/LinkProperties;
 
-    invoke-static {v1, p1}, Landroid/net/ip/IpManager;->compareProvisioning(Landroid/net/LinkProperties;Landroid/net/LinkProperties;)Landroid/net/LinkProperties$ProvisioningChange;
+    invoke-direct {p0, v1, p1}, Landroid/net/ip/IpManager;->compareProvisioning(Landroid/net/LinkProperties;Landroid/net/LinkProperties;)Landroid/net/LinkProperties$ProvisioningChange;
 
     move-result-object v0
 
@@ -1685,129 +1901,81 @@
 .end method
 
 .method private startIPv4()Z
-    .locals 6
+    .locals 2
 
-    const/4 v5, 0x0
+    iget-object v0, p0, Landroid/net/ip/IpManager;->mConfiguration:Landroid/net/ip/IpManager$ProvisioningConfiguration;
 
-    iget-object v2, p0, Landroid/net/ip/IpManager;->mConfiguration:Landroid/net/ip/IpManager$ProvisioningConfiguration;
+    iget-object v0, v0, Landroid/net/ip/IpManager$ProvisioningConfiguration;->mStaticIpConfig:Landroid/net/StaticIpConfiguration;
 
-    iget-object v2, v2, Landroid/net/ip/IpManager$ProvisioningConfiguration;->mStaticIpConfig:Landroid/net/StaticIpConfiguration;
+    if-eqz v0, :cond_1
 
-    if-eqz v2, :cond_3
+    iget-object v0, p0, Landroid/net/ip/IpManager;->mConfiguration:Landroid/net/ip/IpManager$ProvisioningConfiguration;
 
-    iget-object v2, p0, Landroid/net/ip/IpManager;->mConfiguration:Landroid/net/ip/IpManager$ProvisioningConfiguration;
+    iget-object v0, v0, Landroid/net/ip/IpManager$ProvisioningConfiguration;->mStaticIpConfig:Landroid/net/StaticIpConfiguration;
 
-    iget-object v2, v2, Landroid/net/ip/IpManager$ProvisioningConfiguration;->mStaticIpConfig:Landroid/net/StaticIpConfiguration;
+    iget-object v0, v0, Landroid/net/StaticIpConfiguration;->ipAddress:Landroid/net/LinkAddress;
 
-    iget-object v2, v2, Landroid/net/StaticIpConfiguration;->ipAddress:Landroid/net/LinkAddress;
+    invoke-direct {p0, v0}, Landroid/net/ip/IpManager;->setIPv4Address(Landroid/net/LinkAddress;)Z
 
-    invoke-direct {p0, v2}, Landroid/net/ip/IpManager;->setIPv4Address(Landroid/net/LinkAddress;)Z
+    move-result v0
 
-    move-result v2
+    if-eqz v0, :cond_0
 
-    if-eqz v2, :cond_1
+    new-instance v0, Landroid/net/DhcpResults;
 
-    new-instance v2, Landroid/net/DhcpResults;
+    iget-object v1, p0, Landroid/net/ip/IpManager;->mConfiguration:Landroid/net/ip/IpManager$ProvisioningConfiguration;
 
-    iget-object v3, p0, Landroid/net/ip/IpManager;->mConfiguration:Landroid/net/ip/IpManager$ProvisioningConfiguration;
+    iget-object v1, v1, Landroid/net/ip/IpManager$ProvisioningConfiguration;->mStaticIpConfig:Landroid/net/StaticIpConfiguration;
 
-    iget-object v3, v3, Landroid/net/ip/IpManager$ProvisioningConfiguration;->mStaticIpConfig:Landroid/net/StaticIpConfiguration;
+    invoke-direct {v0, v1}, Landroid/net/DhcpResults;-><init>(Landroid/net/StaticIpConfiguration;)V
 
-    invoke-direct {v2, v3}, Landroid/net/DhcpResults;-><init>(Landroid/net/StaticIpConfiguration;)V
+    invoke-direct {p0, v0}, Landroid/net/ip/IpManager;->handleIPv4Success(Landroid/net/DhcpResults;)V
 
-    invoke-direct {p0, v2}, Landroid/net/ip/IpManager;->handleIPv4Success(Landroid/net/DhcpResults;)V
+    :goto_0
+    const/4 v0, 0x1
+
+    return v0
 
     :cond_0
-    :goto_0
-    const/4 v2, 0x1
+    const/4 v0, 0x0
 
-    return v2
+    return v0
 
     :cond_1
-    sget-boolean v2, Landroid/net/ip/IpManager;->VDBG:Z
+    iget-object v0, p0, Landroid/net/ip/IpManager;->mContext:Landroid/content/Context;
 
-    if-eqz v2, :cond_2
+    iget-object v1, p0, Landroid/net/ip/IpManager;->mInterfaceName:Ljava/lang/String;
 
-    iget-object v2, p0, Landroid/net/ip/IpManager;->mTag:Ljava/lang/String;
+    invoke-static {v0, p0, v1}, Landroid/net/dhcp/DhcpClient;->makeDhcpClient(Landroid/content/Context;Lcom/android/internal/util/StateMachine;Ljava/lang/String;)Landroid/net/dhcp/DhcpClient;
 
-    const-string/jumbo v3, "onProvisioningFailure()"
+    move-result-object v0
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    iput-object v0, p0, Landroid/net/ip/IpManager;->mDhcpClient:Landroid/net/dhcp/DhcpClient;
+
+    iget-object v0, p0, Landroid/net/ip/IpManager;->mDhcpClient:Landroid/net/dhcp/DhcpClient;
+
+    invoke-virtual {v0}, Landroid/net/dhcp/DhcpClient;->registerForPreDhcpNotification()V
+
+    iget-object v0, p0, Landroid/net/ip/IpManager;->mConfiguration:Landroid/net/ip/IpManager$ProvisioningConfiguration;
+
+    iget-object v0, v0, Landroid/net/ip/IpManager$ProvisioningConfiguration;->mBssid:Ljava/lang/String;
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Landroid/net/ip/IpManager;->mDhcpClient:Landroid/net/dhcp/DhcpClient;
+
+    iget-object v1, p0, Landroid/net/ip/IpManager;->mConfiguration:Landroid/net/ip/IpManager$ProvisioningConfiguration;
+
+    iget-object v1, v1, Landroid/net/ip/IpManager$ProvisioningConfiguration;->mBssid:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Landroid/net/dhcp/DhcpClient;->registerPreRequestBssid(Ljava/lang/String;)V
 
     :cond_2
-    const/4 v2, 0x2
+    iget-object v0, p0, Landroid/net/ip/IpManager;->mDhcpClient:Landroid/net/dhcp/DhcpClient;
 
-    invoke-direct {p0, v2}, Landroid/net/ip/IpManager;->recordMetric(I)V
+    const v1, 0x30001
 
-    iget-object v2, p0, Landroid/net/ip/IpManager;->mCallback:Landroid/net/ip/IpManager$Callback;
-
-    new-instance v3, Landroid/net/LinkProperties;
-
-    iget-object v4, p0, Landroid/net/ip/IpManager;->mLinkProperties:Landroid/net/LinkProperties;
-
-    invoke-direct {v3, v4}, Landroid/net/LinkProperties;-><init>(Landroid/net/LinkProperties;)V
-
-    invoke-virtual {v2, v3}, Landroid/net/ip/IpManager$Callback;->onProvisioningFailure(Landroid/net/LinkProperties;)V
-
-    return v5
-
-    :cond_3
-    iget-object v2, p0, Landroid/net/ip/IpManager;->mContext:Landroid/content/Context;
-
-    iget-object v3, p0, Landroid/net/ip/IpManager;->mInterfaceName:Ljava/lang/String;
-
-    invoke-static {v2, p0, v3}, Landroid/net/dhcp/DhcpClient;->makeDhcpClient(Landroid/content/Context;Lcom/android/internal/util/StateMachine;Ljava/lang/String;)Landroid/net/dhcp/DhcpClient;
-
-    move-result-object v2
-
-    iput-object v2, p0, Landroid/net/ip/IpManager;->mDhcpClient:Landroid/net/dhcp/DhcpClient;
-
-    iget-object v2, p0, Landroid/net/ip/IpManager;->mDhcpClient:Landroid/net/dhcp/DhcpClient;
-
-    invoke-virtual {v2}, Landroid/net/dhcp/DhcpClient;->registerForPreDhcpNotification()V
-
-    iget-object v2, p0, Landroid/net/ip/IpManager;->mConfiguration:Landroid/net/ip/IpManager$ProvisioningConfiguration;
-
-    iget-object v2, v2, Landroid/net/ip/IpManager$ProvisioningConfiguration;->mBssid:Ljava/lang/String;
-
-    if-eqz v2, :cond_4
-
-    iget-object v2, p0, Landroid/net/ip/IpManager;->mDhcpClient:Landroid/net/dhcp/DhcpClient;
-
-    iget-object v3, p0, Landroid/net/ip/IpManager;->mConfiguration:Landroid/net/ip/IpManager$ProvisioningConfiguration;
-
-    iget-object v3, v3, Landroid/net/ip/IpManager$ProvisioningConfiguration;->mBssid:Ljava/lang/String;
-
-    invoke-virtual {v2, v3}, Landroid/net/dhcp/DhcpClient;->registerPreRequestBssid(Ljava/lang/String;)V
-
-    :cond_4
-    iget-object v2, p0, Landroid/net/ip/IpManager;->mDhcpClient:Landroid/net/dhcp/DhcpClient;
-
-    const v3, 0x30001
-
-    invoke-virtual {v2, v3}, Landroid/net/dhcp/DhcpClient;->sendMessage(I)V
-
-    iget-object v2, p0, Landroid/net/ip/IpManager;->mConfiguration:Landroid/net/ip/IpManager$ProvisioningConfiguration;
-
-    iget v2, v2, Landroid/net/ip/IpManager$ProvisioningConfiguration;->mProvisioningTimeoutMs:I
-
-    if-lez v2, :cond_0
-
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
-
-    move-result-wide v2
-
-    iget-object v4, p0, Landroid/net/ip/IpManager;->mConfiguration:Landroid/net/ip/IpManager$ProvisioningConfiguration;
-
-    iget v4, v4, Landroid/net/ip/IpManager$ProvisioningConfiguration;->mProvisioningTimeoutMs:I
-
-    int-to-long v4, v4
-
-    add-long v0, v2, v4
-
-    iget-object v2, p0, Landroid/net/ip/IpManager;->mProvisioningTimeoutAlarm:Lcom/android/internal/util/WakeupMessage;
-
-    invoke-virtual {v2, v0, v1}, Lcom/android/internal/util/WakeupMessage;->schedule(J)V
+    invoke-virtual {v0, v1}, Landroid/net/dhcp/DhcpClient;->sendMessage(I)V
 
     goto :goto_0
 .end method
@@ -1842,56 +2010,178 @@
     :catch_0
     move-exception v0
 
-    iget-object v2, p0, Landroid/net/ip/IpManager;->mTag:Ljava/lang/String;
+    const-string/jumbo v2, "Unable to change interface settings: %s"
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-array v3, v6, [Ljava/lang/Object;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    aput-object v0, v3, v5
 
-    const-string/jumbo v4, "Unable to change interface settings: "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {p0, v2, v3}, Landroid/net/ip/IpManager;->logError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     return v5
 
     :catch_1
     move-exception v1
 
-    iget-object v2, p0, Landroid/net/ip/IpManager;->mTag:Ljava/lang/String;
+    const-string/jumbo v2, "Unable to change interface settings: %s"
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-array v3, v6, [Ljava/lang/Object;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    aput-object v1, v3, v5
 
-    const-string/jumbo v4, "Unable to change interface settings: "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {p0, v2, v3}, Landroid/net/ip/IpManager;->logError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     return v5
+.end method
+
+.method private startIpReachabilityMonitor()Z
+    .locals 9
+
+    const/4 v8, 0x0
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    :try_start_0
+    new-instance v3, Landroid/net/ip/IpReachabilityMonitor;
+
+    iget-object v4, p0, Landroid/net/ip/IpManager;->mContext:Landroid/content/Context;
+
+    iget-object v5, p0, Landroid/net/ip/IpManager;->mInterfaceName:Ljava/lang/String;
+
+    new-instance v6, Landroid/net/ip/IpManager$3;
+
+    invoke-direct {v6, p0}, Landroid/net/ip/IpManager$3;-><init>(Landroid/net/ip/IpManager;)V
+
+    iget-object v7, p0, Landroid/net/ip/IpManager;->mMultinetworkPolicyTracker:Landroid/net/util/MultinetworkPolicyTracker;
+
+    invoke-direct {v3, v4, v5, v6, v7}, Landroid/net/ip/IpReachabilityMonitor;-><init>(Landroid/content/Context;Ljava/lang/String;Landroid/net/ip/IpReachabilityMonitor$Callback;Landroid/net/util/MultinetworkPolicyTracker;)V
+
+    iput-object v3, p0, Landroid/net/ip/IpManager;->mIpReachabilityMonitor:Landroid/net/ip/IpReachabilityMonitor;
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    iget-object v3, p0, Landroid/net/ip/IpManager;->mIpReachabilityMonitor:Landroid/net/ip/IpReachabilityMonitor;
+
+    if-eqz v3, :cond_0
+
+    :goto_1
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v3, "IpReachabilityMonitor failure: %s"
+
+    new-array v4, v1, [Ljava/lang/Object;
+
+    aput-object v0, v4, v2
+
+    invoke-direct {p0, v3, v4}, Landroid/net/ip/IpManager;->logError(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    iput-object v8, p0, Landroid/net/ip/IpManager;->mIpReachabilityMonitor:Landroid/net/ip/IpReachabilityMonitor;
+
+    goto :goto_0
+
+    :cond_0
+    move v1, v2
+
+    goto :goto_1
+.end method
+
+.method private startStateMachineUpdaters()V
+    .locals 4
+
+    :try_start_0
+    iget-object v1, p0, Landroid/net/ip/IpManager;->mNwService:Landroid/os/INetworkManagementService;
+
+    iget-object v2, p0, Landroid/net/ip/IpManager;->mNetlinkTracker:Lcom/android/server/net/NetlinkTracker;
+
+    invoke-interface {v1, v2}, Landroid/os/INetworkManagementService;->registerObserver(Landroid/net/INetworkManagementEventObserver;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    iget-object v1, p0, Landroid/net/ip/IpManager;->mMultinetworkPolicyTracker:Landroid/net/util/MultinetworkPolicyTracker;
+
+    invoke-virtual {v1}, Landroid/net/util/MultinetworkPolicyTracker;->start()V
+
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "Couldn\'t register NetlinkTracker: %s"
+
+    const/4 v2, 0x1
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    const/4 v3, 0x0
+
+    aput-object v0, v2, v3
+
+    invoke-direct {p0, v1, v2}, Landroid/net/ip/IpManager;->logError(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    goto :goto_0
+.end method
+
+.method private stopAllIP()V
+    .locals 5
+
+    const/4 v4, 0x1
+
+    const/4 v3, 0x0
+
+    :try_start_0
+    iget-object v1, p0, Landroid/net/ip/IpManager;->mNwService:Landroid/os/INetworkManagementService;
+
+    iget-object v2, p0, Landroid/net/ip/IpManager;->mInterfaceName:Ljava/lang/String;
+
+    invoke-interface {v1, v2}, Landroid/os/INetworkManagementService;->disableIpv6(Ljava/lang/String;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    :try_start_1
+    iget-object v1, p0, Landroid/net/ip/IpManager;->mNwService:Landroid/os/INetworkManagementService;
+
+    iget-object v2, p0, Landroid/net/ip/IpManager;->mInterfaceName:Ljava/lang/String;
+
+    invoke-interface {v1, v2}, Landroid/os/INetworkManagementService;->clearInterfaceAddresses(Ljava/lang/String;)V
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+
+    :goto_1
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "Failed to disable IPv6: %s"
+
+    new-array v2, v4, [Ljava/lang/Object;
+
+    aput-object v0, v2, v3
+
+    invoke-direct {p0, v1, v2}, Landroid/net/ip/IpManager;->logError(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    goto :goto_0
+
+    :catch_1
+    move-exception v0
+
+    const-string/jumbo v1, "Failed to clear addresses: %s"
+
+    new-array v2, v4, [Ljava/lang/Object;
+
+    aput-object v0, v2, v3
+
+    invoke-direct {p0, v1, v2}, Landroid/net/ip/IpManager;->logError(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    goto :goto_1
 .end method
 
 
@@ -1917,63 +2207,269 @@
 .end method
 
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .locals 3
+    .locals 6
 
-    new-instance v1, Lcom/android/internal/util/IndentingPrintWriter;
+    const/4 v5, 0x0
 
-    const-string/jumbo v2, "  "
+    if-eqz p3, :cond_0
 
-    invoke-direct {v1, p2, v2}, Lcom/android/internal/util/IndentingPrintWriter;-><init>(Ljava/io/Writer;Ljava/lang/String;)V
+    array-length v4, p3
 
-    const-string/jumbo v2, "APF dump:"
+    if-lez v4, :cond_0
 
-    invoke-virtual {v1, v2}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+    const-string/jumbo v4, "confirm"
 
-    invoke-virtual {v1}, Lcom/android/internal/util/IndentingPrintWriter;->increaseIndent()V
+    aget-object v5, p3, v5
 
-    iget-object v0, p0, Landroid/net/ip/IpManager;->mApfFilter:Landroid/net/apf/ApfFilter;
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-eqz v0, :cond_0
+    move-result v4
 
-    invoke-virtual {v0, v1}, Landroid/net/apf/ApfFilter;->dump(Lcom/android/internal/util/IndentingPrintWriter;)V
+    if-eqz v4, :cond_0
 
-    :goto_0
-    invoke-virtual {v1}, Lcom/android/internal/util/IndentingPrintWriter;->decreaseIndent()V
-
-    invoke-virtual {v1}, Lcom/android/internal/util/IndentingPrintWriter;->println()V
-
-    const-string/jumbo v2, "StateMachine dump:"
-
-    invoke-virtual {v1, v2}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
-
-    invoke-virtual {v1}, Lcom/android/internal/util/IndentingPrintWriter;->increaseIndent()V
-
-    iget-object v2, p0, Landroid/net/ip/IpManager;->mLocalLog:Landroid/util/LocalLog;
-
-    invoke-virtual {v2}, Landroid/util/LocalLog;->readOnlyLocalLog()Landroid/util/LocalLog$ReadOnlyLocalLog;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1, v1, p3}, Landroid/util/LocalLog$ReadOnlyLocalLog;->dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-
-    invoke-virtual {v1}, Lcom/android/internal/util/IndentingPrintWriter;->decreaseIndent()V
+    invoke-virtual {p0}, Landroid/net/ip/IpManager;->confirmConfiguration()V
 
     return-void
 
     :cond_0
-    const-string/jumbo v2, "No apf support"
+    iget-object v1, p0, Landroid/net/ip/IpManager;->mApfFilter:Landroid/net/apf/ApfFilter;
 
-    invoke-virtual {v1, v2}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+    iget-object v2, p0, Landroid/net/ip/IpManager;->mConfiguration:Landroid/net/ip/IpManager$ProvisioningConfiguration;
 
-    goto :goto_0
+    if-eqz v2, :cond_1
+
+    iget-object v0, v2, Landroid/net/ip/IpManager$ProvisioningConfiguration;->mApfCapabilities:Landroid/net/apf/ApfCapabilities;
+
+    :goto_0
+    new-instance v3, Lcom/android/internal/util/IndentingPrintWriter;
+
+    const-string/jumbo v4, "  "
+
+    invoke-direct {v3, p2, v4}, Lcom/android/internal/util/IndentingPrintWriter;-><init>(Ljava/io/Writer;Ljava/lang/String;)V
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v5, p0, Landroid/net/ip/IpManager;->mTag:Ljava/lang/String;
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, " APF dump:"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+
+    invoke-virtual {v3}, Lcom/android/internal/util/IndentingPrintWriter;->increaseIndent()V
+
+    if-eqz v1, :cond_2
+
+    invoke-virtual {v1, v3}, Landroid/net/apf/ApfFilter;->dump(Lcom/android/internal/util/IndentingPrintWriter;)V
+
+    :goto_1
+    invoke-virtual {v3}, Lcom/android/internal/util/IndentingPrintWriter;->decreaseIndent()V
+
+    invoke-virtual {v3}, Lcom/android/internal/util/IndentingPrintWriter;->println()V
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v5, p0, Landroid/net/ip/IpManager;->mTag:Ljava/lang/String;
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, " current ProvisioningConfiguration:"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+
+    invoke-virtual {v3}, Lcom/android/internal/util/IndentingPrintWriter;->increaseIndent()V
+
+    const-string/jumbo v4, "N/A"
+
+    invoke-static {v2, v4}, Ljava/util/Objects;->toString(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+
+    invoke-virtual {v3}, Lcom/android/internal/util/IndentingPrintWriter;->decreaseIndent()V
+
+    invoke-virtual {v3}, Lcom/android/internal/util/IndentingPrintWriter;->println()V
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v5, p0, Landroid/net/ip/IpManager;->mTag:Ljava/lang/String;
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, " StateMachine dump:"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+
+    invoke-virtual {v3}, Lcom/android/internal/util/IndentingPrintWriter;->increaseIndent()V
+
+    iget-object v4, p0, Landroid/net/ip/IpManager;->mLocalLog:Landroid/util/LocalLog;
+
+    invoke-virtual {v4}, Landroid/util/LocalLog;->readOnlyLocalLog()Landroid/util/LocalLog$ReadOnlyLocalLog;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p1, v3, p3}, Landroid/util/LocalLog$ReadOnlyLocalLog;->dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
+
+    invoke-virtual {v3}, Lcom/android/internal/util/IndentingPrintWriter;->decreaseIndent()V
+
+    invoke-virtual {v3}, Lcom/android/internal/util/IndentingPrintWriter;->println()V
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v5, p0, Landroid/net/ip/IpManager;->mTag:Ljava/lang/String;
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, " connectivity packet log:"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+
+    invoke-virtual {v3}, Lcom/android/internal/util/IndentingPrintWriter;->println()V
+
+    const-string/jumbo v4, "Debug with python and scapy via:"
+
+    invoke-virtual {v3, v4}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+
+    const-string/jumbo v4, "shell$ python"
+
+    invoke-virtual {v3, v4}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+
+    const-string/jumbo v4, ">>> from scapy import all as scapy"
+
+    invoke-virtual {v3, v4}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+
+    const-string/jumbo v4, ">>> scapy.Ether(\"<paste_hex_string>\".decode(\"hex\")).show2()"
+
+    invoke-virtual {v3, v4}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+
+    invoke-virtual {v3}, Lcom/android/internal/util/IndentingPrintWriter;->println()V
+
+    invoke-virtual {v3}, Lcom/android/internal/util/IndentingPrintWriter;->increaseIndent()V
+
+    iget-object v4, p0, Landroid/net/ip/IpManager;->mConnectivityPacketLog:Landroid/util/LocalLog;
+
+    invoke-virtual {v4}, Landroid/util/LocalLog;->readOnlyLocalLog()Landroid/util/LocalLog$ReadOnlyLocalLog;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p1, v3, p3}, Landroid/util/LocalLog$ReadOnlyLocalLog;->dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
+
+    invoke-virtual {v3}, Lcom/android/internal/util/IndentingPrintWriter;->decreaseIndent()V
+
+    return-void
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto/16 :goto_0
+
+    :cond_2
+    const-string/jumbo v4, "No active ApfFilter; "
+
+    invoke-virtual {v3, v4}, Lcom/android/internal/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
+
+    if-nez v2, :cond_3
+
+    const-string/jumbo v4, "IpManager not yet started."
+
+    invoke-virtual {v3, v4}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+
+    goto/16 :goto_1
+
+    :cond_3
+    if-eqz v0, :cond_4
+
+    iget v4, v0, Landroid/net/apf/ApfCapabilities;->apfVersionSupported:I
+
+    if-nez v4, :cond_5
+
+    :cond_4
+    const-string/jumbo v4, "Hardware does not support APF."
+
+    invoke-virtual {v3, v4}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+
+    goto/16 :goto_1
+
+    :cond_5
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "ApfFilter not yet started, APF capabilities: "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+
+    goto/16 :goto_1
 .end method
 
 .method protected getLogRecString(Landroid/os/Message;)Ljava/lang/String;
     .locals 6
 
-    const-string/jumbo v3, "%s/%d %d %d %s"
+    const-string/jumbo v3, "%s/%d %d %d %s [%s]"
 
-    const/4 v2, 0x5
+    const/4 v2, 0x6
 
     new-array v4, v2, [Ljava/lang/Object;
 
@@ -2028,6 +2524,12 @@
 
     aput-object v2, v4, v5
 
+    iget-object v2, p0, Landroid/net/ip/IpManager;->mMsgStateLogger:Landroid/net/ip/IpManager$MessageHandlingLogger;
+
+    const/4 v5, 0x5
+
+    aput-object v2, v4, v5
+
     invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
@@ -2073,6 +2575,10 @@
     invoke-static {v2, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
+    iget-object v2, p0, Landroid/net/ip/IpManager;->mMsgStateLogger:Landroid/net/ip/IpManager$MessageHandlingLogger;
+
+    invoke-virtual {v2}, Landroid/net/ip/IpManager$MessageHandlingLogger;->reset()V
+
     return-object v0
 
     :cond_1
@@ -2121,6 +2627,18 @@
     return-object v0
 .end method
 
+.method synthetic lambda$-android_net_ip_IpManager_20264()V
+    .locals 2
+
+    iget-object v0, p0, Landroid/net/ip/IpManager;->mLocalLog:Landroid/util/LocalLog;
+
+    const-string/jumbo v1, "OBSERVED AvoidBadWifi changed"
+
+    invoke-virtual {v0, v1}, Landroid/util/LocalLog;->log(Ljava/lang/String;)V
+
+    return-void
+.end method
+
 .method protected onQuitting()V
     .locals 1
 
@@ -2132,20 +2650,27 @@
 .end method
 
 .method protected recordLogRec(Landroid/os/Message;)Z
-    .locals 2
+    .locals 3
 
-    iget v0, p1, Landroid/os/Message;->what:I
+    iget v1, p1, Landroid/os/Message;->what:I
 
-    const/4 v1, 0x5
+    const/4 v2, 0x5
 
-    if-eq v0, v1, :cond_0
+    if-eq v1, v2, :cond_1
 
     const/4 v0, 0x1
 
     :goto_0
-    return v0
+    if-nez v0, :cond_0
+
+    iget-object v1, p0, Landroid/net/ip/IpManager;->mMsgStateLogger:Landroid/net/ip/IpManager$MessageHandlingLogger;
+
+    invoke-virtual {v1}, Landroid/net/ip/IpManager$MessageHandlingLogger;->reset()V
 
     :cond_0
+    return v0
+
+    :cond_1
     const/4 v0, 0x0
 
     goto :goto_0
@@ -2196,9 +2721,13 @@
 .end method
 
 .method public shutdown()V
-    .locals 0
+    .locals 1
 
     invoke-virtual {p0}, Landroid/net/ip/IpManager;->stop()V
+
+    iget-object v0, p0, Landroid/net/ip/IpManager;->mMultinetworkPolicyTracker:Landroid/net/util/MultinetworkPolicyTracker;
+
+    invoke-virtual {v0}, Landroid/net/util/MultinetworkPolicyTracker;->shutdown()V
 
     invoke-virtual {p0}, Landroid/net/ip/IpManager;->quit()V
 
@@ -2253,22 +2782,6 @@
     invoke-direct {v0, p1}, Landroid/net/ip/IpManager$ProvisioningConfiguration;-><init>(Landroid/net/ip/IpManager$ProvisioningConfiguration;)V
 
     const/4 v1, 0x2
-
-    invoke-virtual {p0, v1, v0}, Landroid/net/ip/IpManager;->sendMessage(ILjava/lang/Object;)V
-
-    return-void
-.end method
-
-.method public startProvisioningRoaming(Landroid/net/ip/IpManager$ProvisioningConfiguration;)V
-    .locals 2
-
-    invoke-direct {p0}, Landroid/net/ip/IpManager;->getNetworkInterface()V
-
-    new-instance v0, Landroid/net/ip/IpManager$ProvisioningConfiguration;
-
-    invoke-direct {v0, p1}, Landroid/net/ip/IpManager$ProvisioningConfiguration;-><init>(Landroid/net/ip/IpManager$ProvisioningConfiguration;)V
-
-    const/16 v1, 0xc
 
     invoke-virtual {p0, v1, v0}, Landroid/net/ip/IpManager;->sendMessage(ILjava/lang/Object;)V
 

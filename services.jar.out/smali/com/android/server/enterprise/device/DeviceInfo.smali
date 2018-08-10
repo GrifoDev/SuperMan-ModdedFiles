@@ -759,18 +759,10 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    xor-int/lit8 v5, v5, 0x1
 
-    :cond_0
-    :goto_1
-    return-void
+    if-eqz v5, :cond_0
 
-    :cond_1
-    move v3, v5
-
-    goto :goto_0
-
-    :cond_2
     invoke-interface {v4, v9}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v1
@@ -830,7 +822,14 @@
     :try_end_0
     .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_1
+    :cond_0
+    :goto_1
+    return-void
+
+    :cond_1
+    move v3, v5
+
+    goto :goto_0
 
     :catch_0
     move-exception v2
@@ -1517,8 +1516,6 @@
 .method private isWifiStateEnabled()Z
     .locals 3
 
-    const/4 v0, 0x0
-
     iget-object v1, p0, Lcom/android/server/enterprise/device/DeviceInfo;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     if-nez v1, :cond_0
@@ -1540,7 +1537,9 @@
 
     if-nez v1, :cond_1
 
-    return v0
+    const/4 v1, 0x0
+
+    return v1
 
     :cond_1
     iget-object v1, p0, Lcom/android/server/enterprise/device/DeviceInfo;->mWifiManager:Landroid/net/wifi/WifiManager;
@@ -1555,8 +1554,13 @@
 
     const/4 v0, 0x1
 
-    :cond_2
+    :goto_0
     return v0
+
+    :cond_2
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method private logDataCall(J)Z
@@ -1624,7 +1628,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_7
 
     const-string/jumbo v3, "ROAMING"
 
@@ -1641,7 +1645,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_4
 
     iget-object v4, p0, Lcom/android/server/enterprise/device/DeviceInfo;->mDataCallLogLastNetType:Ljava/lang/String;
 
@@ -1649,9 +1653,16 @@
 
     move-result v4
 
-    if-eqz v4, :cond_6
+    xor-int/lit8 v4, v4, 0x1
 
-    :goto_1
+    if-eqz v4, :cond_5
+
+    :cond_4
+    iput-wide v8, p0, Lcom/android/server/enterprise/device/DeviceInfo;->mDataCallLogLastTime:J
+
+    iput-wide v8, p0, Lcom/android/server/enterprise/device/DeviceInfo;->mDataCallLogLastValue:J
+
+    :cond_5
     iput-object v3, p0, Lcom/android/server/enterprise/device/DeviceInfo;->mDataCallLogLastStatus:Ljava/lang/String;
 
     const-string/jumbo v4, "UNKNOWN"
@@ -1660,11 +1671,11 @@
 
     move-result v4
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_6
 
     iput-object v2, p0, Lcom/android/server/enterprise/device/DeviceInfo;->mDataCallLogLastNetType:Ljava/lang/String;
 
-    :cond_4
+    :cond_6
     iget-wide v4, p0, Lcom/android/server/enterprise/device/DeviceInfo;->mDataCallLogLastValue:J
 
     add-long/2addr v4, p1
@@ -1755,23 +1766,20 @@
 
     return v4
 
-    :cond_5
+    :cond_7
     const-string/jumbo v3, "NORMAL"
 
     goto/16 :goto_0
-
-    :cond_6
-    iput-wide v8, p0, Lcom/android/server/enterprise/device/DeviceInfo;->mDataCallLogLastTime:J
-
-    iput-wide v8, p0, Lcom/android/server/enterprise/device/DeviceInfo;->mDataCallLogLastValue:J
-
-    goto :goto_1
 .end method
 
 .method private updateDataStatisticsUsage()J
     .locals 14
 
     const-wide/16 v12, 0x0
+
+    const-wide/16 v8, 0x0
+
+    const-wide/16 v4, 0x0
 
     const-wide/16 v2, 0x0
 
@@ -2295,66 +2303,41 @@
 .method public dataUsageTimerActivation(Lcom/samsung/android/knox/ContextInfo;)V
     .locals 6
 
-    const/4 v1, 0x1
+    iget-boolean v1, p0, Lcom/android/server/enterprise/device/DeviceInfo;->mWifiStatsEnabled:Z
 
-    iget-boolean v2, p0, Lcom/android/server/enterprise/device/DeviceInfo;->mWifiStatsEnabled:Z
+    if-nez v1, :cond_1
 
-    if-nez v2, :cond_2
+    iget-boolean v1, p0, Lcom/android/server/enterprise/device/DeviceInfo;->mDataStatsEnabled:Z
 
-    iget-boolean v2, p0, Lcom/android/server/enterprise/device/DeviceInfo;->mDataStatsEnabled:Z
+    if-nez v1, :cond_1
 
-    if-nez v2, :cond_2
+    iget-boolean v1, p0, Lcom/android/server/enterprise/device/DeviceInfo;->mDataLogEnabled:Z
 
-    iget-boolean v2, p0, Lcom/android/server/enterprise/device/DeviceInfo;->mDataLogEnabled:Z
-
-    if-nez v2, :cond_2
+    if-nez v1, :cond_1
 
     invoke-direct {p0}, Lcom/android/server/enterprise/device/DeviceInfo;->getEDM()Lcom/samsung/android/knox/EnterpriseDeviceManager;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Lcom/samsung/android/knox/EnterpriseDeviceManager;->getPhoneRestrictionPolicy()Lcom/samsung/android/knox/restriction/PhoneRestrictionPolicy;
+    invoke-virtual {v1}, Lcom/samsung/android/knox/EnterpriseDeviceManager;->getPhoneRestrictionPolicy()Lcom/samsung/android/knox/restriction/PhoneRestrictionPolicy;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Lcom/samsung/android/knox/restriction/PhoneRestrictionPolicy;->getDataCallLimitEnabled()Z
+    invoke-virtual {v1}, Lcom/samsung/android/knox/restriction/PhoneRestrictionPolicy;->getDataCallLimitEnabled()Z
 
     move-result v0
 
     :goto_0
-    if-eqz v0, :cond_0
-
-    iget-boolean v2, p0, Lcom/android/server/enterprise/device/DeviceInfo;->mDataUsageTimerActivated:Z
-
-    if-eqz v2, :cond_3
-
-    :cond_0
-    if-nez v0, :cond_1
+    if-eqz v0, :cond_2
 
     iget-boolean v1, p0, Lcom/android/server/enterprise/device/DeviceInfo;->mDataUsageTimerActivated:Z
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
 
-    const/4 v1, 0x0
+    if-eqz v1, :cond_2
 
-    iput-boolean v1, p0, Lcom/android/server/enterprise/device/DeviceInfo;->mDataUsageTimerActivated:Z
+    const/4 v1, 0x1
 
-    iget-object v1, p0, Lcom/android/server/enterprise/device/DeviceInfo;->mDataUsageEventsHandler:Landroid/os/Handler;
-
-    iget-object v2, p0, Lcom/android/server/enterprise/device/DeviceInfo;->mDataStatisticsUpdateRun:Ljava/lang/Runnable;
-
-    invoke-virtual {v1, v2}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
-
-    :cond_1
-    :goto_1
-    return-void
-
-    :cond_2
-    move v0, v1
-
-    goto :goto_0
-
-    :cond_3
     iput-boolean v1, p0, Lcom/android/server/enterprise/device/DeviceInfo;->mDataUsageTimerActivated:Z
 
     invoke-direct {p0}, Lcom/android/server/enterprise/device/DeviceInfo;->dataUsageValuesUpdate()V
@@ -2368,6 +2351,32 @@
     int-to-long v4, v3
 
     invoke-virtual {v1, v2, v4, v5}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    :cond_0
+    :goto_1
+    return-void
+
+    :cond_1
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    if-nez v0, :cond_0
+
+    iget-boolean v1, p0, Lcom/android/server/enterprise/device/DeviceInfo;->mDataUsageTimerActivated:Z
+
+    if-eqz v1, :cond_0
+
+    const/4 v1, 0x0
+
+    iput-boolean v1, p0, Lcom/android/server/enterprise/device/DeviceInfo;->mDataUsageTimerActivated:Z
+
+    iget-object v1, p0, Lcom/android/server/enterprise/device/DeviceInfo;->mDataUsageEventsHandler:Landroid/os/Handler;
+
+    iget-object v2, p0, Lcom/android/server/enterprise/device/DeviceInfo;->mDataStatisticsUpdateRun:Ljava/lang/Runnable;
+
+    invoke-virtual {v1, v2}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
     goto :goto_1
 .end method
@@ -2711,109 +2720,17 @@
 .end method
 
 .method public getCellTowerRSSI(Lcom/samsung/android/knox/ContextInfo;)Ljava/lang/String;
-    .locals 8
+    .locals 2
 
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/device/DeviceInfo;->enforceOwnerOnlyAndDeviceInventoryPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
-    const/16 v5, 0x63
-
-    iget-object v6, p0, Lcom/android/server/enterprise/device/DeviceInfo;->mTelMgr:Landroid/telephony/TelephonyManager;
-
-    if-eqz v6, :cond_2
-
-    iget-object v6, p0, Lcom/android/server/enterprise/device/DeviceInfo;->mTelMgr:Landroid/telephony/TelephonyManager;
-
-    invoke-virtual {v6}, Landroid/telephony/TelephonyManager;->getPhoneType()I
-
-    move-result v6
-
-    const/4 v7, 0x2
-
-    if-ne v6, v7, :cond_0
+    const/16 v0, 0x63
 
     invoke-direct {p0}, Lcom/android/server/enterprise/device/DeviceInfo;->updateSignalStrength()V
 
-    sget-object v6, Lcom/android/server/enterprise/device/DeviceInfo;->mSignalStrength:Ljava/lang/String;
+    sget-object v1, Lcom/android/server/enterprise/device/DeviceInfo;->mSignalStrength:Ljava/lang/String;
 
-    return-object v6
-
-    :cond_0
-    iget-object v6, p0, Lcom/android/server/enterprise/device/DeviceInfo;->mTelMgr:Landroid/telephony/TelephonyManager;
-
-    invoke-virtual {v6}, Landroid/telephony/TelephonyManager;->getCellLocation()Landroid/telephony/CellLocation;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/telephony/gsm/GsmCellLocation;
-
-    if-eqz v0, :cond_2
-
-    invoke-virtual {v0}, Landroid/telephony/gsm/GsmCellLocation;->getCid()I
-
-    move-result v1
-
-    const/4 v6, -0x1
-
-    if-eq v1, v6, :cond_2
-
-    iget-object v6, p0, Lcom/android/server/enterprise/device/DeviceInfo;->mTelMgr:Landroid/telephony/TelephonyManager;
-
-    invoke-virtual {v6}, Landroid/telephony/TelephonyManager;->getNeighboringCellInfo()Ljava/util/List;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_3
-
-    invoke-interface {v2}, Ljava/util/List;->size()I
-
-    move-result v6
-
-    if-lez v6, :cond_3
-
-    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v4
-
-    :cond_1
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_2
-
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/telephony/NeighboringCellInfo;
-
-    invoke-virtual {v3}, Landroid/telephony/NeighboringCellInfo;->getCid()I
-
-    move-result v6
-
-    if-ne v6, v1, :cond_1
-
-    invoke-virtual {v3}, Landroid/telephony/NeighboringCellInfo;->getRssi()I
-
-    move-result v5
-
-    :cond_2
-    invoke-static {v5}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v6
-
-    return-object v6
-
-    :cond_3
-    const-string/jumbo v6, "DeviceInfo"
-
-    const-string/jumbo v7, "Could not retrieve NeighboringCellInfo"
-
-    invoke-static {v6, v7}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
-
-    sget-object v6, Lcom/android/server/enterprise/device/DeviceInfo;->mSignalStrength:Ljava/lang/String;
-
-    return-object v6
+    return-object v1
 .end method
 
 .method public getDataCallLog(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Ljava/util/List;
@@ -4669,9 +4586,20 @@
 
     const/16 v2, 0x18
 
-    if-lt v1, v2, :cond_0
+    if-gt v1, v2, :cond_8
 
     const-string/jumbo v0, "NOUGAT"
+
+    goto :goto_0
+
+    :cond_8
+    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v2, 0x1a
+
+    if-gt v1, v2, :cond_0
+
+    const-string/jumbo v0, "OREO"
 
     goto :goto_0
 .end method
@@ -5444,6 +5372,8 @@
     return v1
 
     :cond_0
+    const/4 v0, 0x1
+
     iget-object v1, p0, Lcom/android/server/enterprise/device/DeviceInfo;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
     const-string/jumbo v2, "success"

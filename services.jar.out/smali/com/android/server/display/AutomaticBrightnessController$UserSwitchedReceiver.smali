@@ -80,7 +80,7 @@
 
     iget-object v0, p0, Lcom/android/server/display/AutomaticBrightnessController$UserSwitchedReceiver;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
 
-    invoke-static {v0}, Lcom/android/server/display/AutomaticBrightnessController;->-get13(Lcom/android/server/display/AutomaticBrightnessController;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/display/AutomaticBrightnessController;->-get15(Lcom/android/server/display/AutomaticBrightnessController;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -91,13 +91,13 @@
 
     const/4 v2, 0x1
 
-    invoke-static {v0, v2}, Lcom/android/server/display/AutomaticBrightnessController;->-set10(Lcom/android/server/display/AutomaticBrightnessController;Z)Z
+    invoke-static {v0, v2}, Lcom/android/server/display/AutomaticBrightnessController;->-set11(Lcom/android/server/display/AutomaticBrightnessController;Z)Z
 
     iget-object v0, p0, Lcom/android/server/display/AutomaticBrightnessController$UserSwitchedReceiver;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
 
     const/4 v2, 0x0
 
-    invoke-static {v0, v2}, Lcom/android/server/display/AutomaticBrightnessController;->-wrap7(Lcom/android/server/display/AutomaticBrightnessController;Z)V
+    invoke-static {v0, v2}, Lcom/android/server/display/AutomaticBrightnessController;->-wrap6(Lcom/android/server/display/AutomaticBrightnessController;Z)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

@@ -9,3 +9,6 @@
 
 .method public abstract release()V
 .end method
+
+.method public abstract writeToProto(Landroid/util/proto/ProtoOutputStream;J)V
+.end method

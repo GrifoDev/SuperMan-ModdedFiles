@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/bridge/BridgeProxy;->initBadgeDataAndObserver(I)V
+    value = Lcom/android/server/bridge/BridgeProxy;->initDBObserver(I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

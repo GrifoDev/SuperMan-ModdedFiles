@@ -31,9 +31,23 @@
 .end method
 
 .method constructor <init>(Lcom/android/server/pm/SettingBase;)V
-    .locals 2
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    new-instance v0, Lcom/android/server/pm/PermissionsState;
+
+    invoke-direct {v0}, Lcom/android/server/pm/PermissionsState;-><init>()V
+
+    iput-object v0, p0, Lcom/android/server/pm/SettingBase;->mPermissionsState:Lcom/android/server/pm/PermissionsState;
+
+    invoke-direct {p0, p1}, Lcom/android/server/pm/SettingBase;->doCopy(Lcom/android/server/pm/SettingBase;)V
+
+    return-void
+.end method
+
+.method private doCopy(Lcom/android/server/pm/SettingBase;)V
+    .locals 2
 
     iget v0, p1, Lcom/android/server/pm/SettingBase;->pkgFlags:I
 
@@ -43,19 +57,25 @@
 
     iput v0, p0, Lcom/android/server/pm/SettingBase;->pkgPrivateFlags:I
 
-    new-instance v0, Lcom/android/server/pm/PermissionsState;
+    iget-object v0, p0, Lcom/android/server/pm/SettingBase;->mPermissionsState:Lcom/android/server/pm/PermissionsState;
 
     iget-object v1, p1, Lcom/android/server/pm/SettingBase;->mPermissionsState:Lcom/android/server/pm/PermissionsState;
 
-    invoke-direct {v0, v1}, Lcom/android/server/pm/PermissionsState;-><init>(Lcom/android/server/pm/PermissionsState;)V
-
-    iput-object v0, p0, Lcom/android/server/pm/SettingBase;->mPermissionsState:Lcom/android/server/pm/PermissionsState;
+    invoke-virtual {v0, v1}, Lcom/android/server/pm/PermissionsState;->copyFrom(Lcom/android/server/pm/PermissionsState;)V
 
     return-void
 .end method
 
 
 # virtual methods
+.method public copyFrom(Lcom/android/server/pm/SettingBase;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/pm/SettingBase;->doCopy(Lcom/android/server/pm/SettingBase;)V
+
+    return-void
+.end method
+
 .method public getPermissionsState()Lcom/android/server/pm/PermissionsState;
     .locals 1
 
@@ -79,7 +99,7 @@
 .method setPrivateFlags(I)V
     .locals 1
 
-    and-int/lit16 v0, p1, 0x40c
+    and-int/lit16 v0, p1, 0x20c
 
     iput v0, p0, Lcom/android/server/pm/SettingBase;->pkgPrivateFlags:I
 

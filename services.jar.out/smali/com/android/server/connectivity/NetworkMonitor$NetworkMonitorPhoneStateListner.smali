@@ -36,7 +36,15 @@
 
     packed-switch p1, :pswitch_data_0
 
-    invoke-static {}, Lcom/android/server/connectivity/NetworkMonitor;->-get0()Ljava/lang/String;
+    iget-object v0, p0, Lcom/android/server/connectivity/NetworkMonitor$NetworkMonitorPhoneStateListner;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
+
+    invoke-static {v0}, Lcom/android/server/connectivity/NetworkMonitor;->-get27(Lcom/android/server/connectivity/NetworkMonitor;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {}, Lcom/android/server/connectivity/NetworkMonitor;->-get1()Ljava/lang/String;
 
     move-result-object v0
 
@@ -44,7 +52,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "Smart detection is disabled ("
+    const-string/jumbo v2, "onCallStateChanged - Smart detection is disabled ("
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -70,17 +78,26 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/server/connectivity/NetworkMonitor;->-set19(Lcom/android/server/connectivity/NetworkMonitor;Z)Z
+    invoke-static {v0, v1}, Lcom/android/server/connectivity/NetworkMonitor;->-set23(Lcom/android/server/connectivity/NetworkMonitor;Z)Z
 
+    :cond_0
     :goto_0
     return-void
 
     :pswitch_0
-    invoke-static {}, Lcom/android/server/connectivity/NetworkMonitor;->-get0()Ljava/lang/String;
+    iget-object v0, p0, Lcom/android/server/connectivity/NetworkMonitor$NetworkMonitorPhoneStateListner;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
+
+    invoke-static {v0}, Lcom/android/server/connectivity/NetworkMonitor;->-get27(Lcom/android/server/connectivity/NetworkMonitor;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {}, Lcom/android/server/connectivity/NetworkMonitor;->-get1()Ljava/lang/String;
 
     move-result-object v0
 
-    const-string/jumbo v1, "Smart detection is enabled"
+    const-string/jumbo v1, "onCallStateChanged - Smart detection is enabled"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -88,7 +105,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Lcom/android/server/connectivity/NetworkMonitor;->-set19(Lcom/android/server/connectivity/NetworkMonitor;Z)Z
+    invoke-static {v0, v1}, Lcom/android/server/connectivity/NetworkMonitor;->-set23(Lcom/android/server/connectivity/NetworkMonitor;Z)Z
 
     goto :goto_0
 

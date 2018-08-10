@@ -3,12 +3,12 @@
 .source "ShutdownThread.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/power/ShutdownThread;->createBeforeMConfirmDialog(Landroid/content/Context;IILcom/android/server/power/ShutdownThread$CloseDialogReceiver;)Landroid/app/Dialog;
+    value = Lcom/android/server/power/ShutdownThread;->animateDismiss()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,15 +17,9 @@
 .end annotation
 
 
-# instance fields
-.field final synthetic val$ctx:Landroid/content/Context;
-
-
 # direct methods
-.method constructor <init>(Landroid/content/Context;)V
+.method constructor <init>()V
     .locals 0
-
-    iput-object p1, p0, Lcom/android/server/power/ShutdownThread$9;->val$ctx:Landroid/content/Context;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -34,14 +28,22 @@
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
+.method public run()V
     .locals 2
 
-    iget-object v0, p0, Lcom/android/server/power/ShutdownThread$9;->val$ctx:Landroid/content/Context;
+    const-string/jumbo v0, "ShutdownThread"
 
-    const/4 v1, 0x1
+    const-string/jumbo v1, "dismiss shutdownConfirmByBixby"
 
-    invoke-static {v0, v1}, Lcom/android/server/power/ShutdownThread;->-wrap2(Landroid/content/Context;Z)V
+    invoke-static {v0, v1}, Lcom/android/server/power/ShutdownThread$Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-wrap11()V
+
+    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get24()Landroid/app/Dialog;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
     return-void
 .end method

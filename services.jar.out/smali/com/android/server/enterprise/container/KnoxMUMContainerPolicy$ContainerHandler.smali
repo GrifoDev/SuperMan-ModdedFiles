@@ -19,15 +19,15 @@
 
 .field public static final MSG_ACTION_PACKAGE_REMOVED:I = 0x7
 
-.field public static final MSG_KLMS_LICENSE_UPDATE:I = 0x2
+.field public static final MSG_LICENSE_STATE_CHANGED:I = 0xb
 
 .field public static final MSG_REMOVE_ORPHANED_CONTAINERS:I = 0x4
+
+.field public static final MSG_SHOW_KNOX_SECURITY_TOAST:I = 0x8
 
 .field public static final MSG_START_MIGRATION_WIZARD:I = 0x5
 
 .field public static final MSG_START_SETUP_WIZARD:I = 0x1
-
-.field public static final MSG_UPDATE_CONTAINER_CREATION_STATUS:I = 0x3
 
 
 # instance fields
@@ -48,1514 +48,949 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 43
+    .locals 20
 
     move-object/from16 v0, p1
 
-    iget v2, v0, Landroid/os/Message;->what:I
+    iget v1, v0, Landroid/os/Message;->what:I
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v1, :pswitch_data_0
 
     :cond_0
     :goto_0
+    :pswitch_0
     return-void
 
-    :pswitch_0
-    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get1()Ljava/lang/String;
+    :pswitch_1
+    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get0()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    const-string/jumbo v9, "ContainerHandler.MSG_START_SETUP_WIZARD is called ..."
+    const-string/jumbo v2, "ContainerHandler.MSG_START_SETUP_WIZARD is called ..."
 
-    invoke-static {v2, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :try_start_0
     move-object/from16 v0, p1
 
-    iget-object v0, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object v14, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    move-object/from16 v29, v0
+    check-cast v14, Lcom/samsung/android/knox/container/ContainerCreationParams;
 
-    check-cast v29, Lcom/samsung/android/knox/container/ContainerCreationParams;
+    invoke-virtual {v14}, Lcom/samsung/android/knox/container/ContainerCreationParams;->getConfigurationType()Lcom/samsung/android/knox/container/KnoxConfigurationType;
 
-    invoke-virtual/range {v29 .. v29}, Lcom/samsung/android/knox/container/ContainerCreationParams;->getConfigurationType()Lcom/samsung/android/knox/container/KnoxConfigurationType;
+    move-result-object v16
 
-    move-result-object v41
+    const/4 v13, 0x0
 
-    const/16 v26, 0x0
+    move-object/from16 v0, v16
 
-    move-object/from16 v0, v41
+    instance-of v1, v0, Lcom/samsung/android/knox/container/BBCConfigurationType;
 
-    instance-of v2, v0, Lcom/samsung/android/knox/container/BBCConfigurationType;
+    if-nez v1, :cond_4
 
-    if-nez v2, :cond_2
+    invoke-virtual/range {v16 .. v16}, Lcom/samsung/android/knox/container/KnoxConfigurationType;->getName()Ljava/lang/String;
 
-    new-instance v26, Landroid/content/Intent;
+    move-result-object v1
 
-    const-string/jumbo v2, "com.sec.knox.start.SETUP_WIZARD"
+    const-string/jumbo v2, "knox-b2b"
 
-    move-object/from16 v0, v26
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    move-result v1
 
-    move-object/from16 v0, v41
+    if-eqz v1, :cond_3
 
-    instance-of v2, v0, Lcom/samsung/android/knox/container/SecureFolderConfigurationType;
+    new-instance v13, Landroid/content/Intent;
 
-    if-eqz v2, :cond_1
+    const-string/jumbo v1, "android.app.action.PROVISION_MANAGED_PROFILE"
 
-    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get1()Ljava/lang/String;
+    invoke-direct {v13, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    :goto_1
+    invoke-virtual {v14}, Lcom/samsung/android/knox/container/ContainerCreationParams;->getAdminParam()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get0()Ljava/lang/String;
+
+    move-result-object v1
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Handle Message: AdminPackageName: "
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    const-string/jumbo v9, "Secure folder SetupWizard started"
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v2, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v2
 
-    const-string/jumbo v2, "com.samsung.knox.securefolder"
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-object/from16 v0, v26
+    move-result-object v2
 
-    invoke-virtual {v0, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :goto_1
-    const-string/jumbo v2, "creation_params"
+    const-string/jumbo v1, "android.app.extra.PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME"
 
-    move-object/from16 v0, v26
+    invoke-virtual {v13, v1, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    move-object/from16 v1, v29
+    const-string/jumbo v1, "com.samsung.knox.container.configType"
 
-    invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
+    invoke-virtual/range {v16 .. v16}, Lcom/samsung/android/knox/container/KnoxConfigurationType;->getName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v13, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const/4 v7, 0x0
+
+    if-eqz v3, :cond_1
+
+    invoke-virtual {v3}, Ljava/lang/String;->isEmpty()Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_1
+
+    :try_start_1
+    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get5()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v3, v2}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+    :try_end_1
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+
+    move-result-object v7
+
+    :cond_1
+    :goto_2
+    if-eqz v7, :cond_2
+
+    :try_start_2
+    iget v1, v7, Landroid/content/pm/ApplicationInfo;->icon:I
+
+    if-eqz v1, :cond_2
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "android.resource://"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "/"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget v2, v7, Landroid/content/pm/ApplicationInfo;->icon:I
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v19
+
+    const-string/jumbo v1, "android.app.extra.PROVISIONING_LOGO_URI"
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v13, v1, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
+
+    :cond_2
+    const-string/jumbo v1, "android.app.extra.PROVISIONING_MAIN_COLOR"
+
+    const-string/jumbo v2, "#3D6DCC"
+
+    invoke-static {v2}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
+
+    move-result v2
+
+    invoke-virtual {v13, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    :goto_3
+    const-string/jumbo v1, "creation_params"
+
+    invoke-virtual {v13, v1, v14}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
     invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get5()Landroid/content/Context;
 
-    move-result-object v2
+    move-result-object v1
 
-    new-instance v9, Landroid/os/UserHandle;
+    invoke-virtual {v1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+    move-result-object v1
 
-    move-result v10
+    invoke-virtual {v13, v1}, Landroid/content/Intent;->resolveActivity(Landroid/content/pm/PackageManager;)Landroid/content/ComponentName;
 
-    invoke-direct {v9, v10}, Landroid/os/UserHandle;-><init>(I)V
+    move-result-object v1
 
-    move-object/from16 v0, v26
+    if-eqz v1, :cond_5
 
-    invoke-virtual {v2, v0, v9}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get5()Landroid/content/Context;
 
-    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get1()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v10, "createContainer: intent from User:"
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
+    new-instance v2, Landroid/os/UserHandle;
 
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
-    move-result v10
+    move-result v4
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-direct {v2, v4}, Landroid/os/UserHandle;-><init>(I)V
 
-    move-result-object v9
+    invoke-virtual {v1, v13, v2}, Landroid/content/Context;->startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
-    const-string/jumbo v10, " with requestid: "
+    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get0()Ljava/lang/String;
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v9
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v29 .. v29}, Lcom/samsung/android/knox/container/ContainerCreationParams;->getRequestId()I
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result v10
+    const-string/jumbo v4, "createContainer: intent from User:"
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v2
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
-    move-result-object v9
+    move-result v4
 
-    invoke-static {v2, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v4, " "
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v4, "with requestid: "
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v14}, Lcom/samsung/android/knox/container/ContainerCreationParams;->getRequestId()I
+
+    move-result v4
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
     goto/16 :goto_0
 
     :catch_0
-    move-exception v21
+    move-exception v12
 
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v12}, Ljava/lang/Exception;->printStackTrace()V
 
     goto/16 :goto_0
 
-    :cond_1
-    :try_start_1
-    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get1()Ljava/lang/String;
+    :cond_3
+    :try_start_3
+    invoke-virtual/range {v16 .. v16}, Lcom/samsung/android/knox/container/KnoxConfigurationType;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "knox-b2b-com"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    new-instance v13, Landroid/content/Intent;
+
+    const-string/jumbo v1, "android.app.action.PROVISION_MANAGED_DEVICE"
+
+    invoke-direct {v13, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    goto/16 :goto_1
+
+    :catch_1
+    move-exception v11
+
+    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get0()Ljava/lang/String;
+
+    move-result-object v1
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Package \'"
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    const-string/jumbo v9, "Knox SetupWizard started"
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v2, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v2
 
-    const-string/jumbo v2, "com.sec.knox.knoxsetupwizardclient"
+    const-string/jumbo v4, "\' is not found"
 
-    move-object/from16 v0, v26
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+    move-result-object v2
 
-    goto :goto_1
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    :cond_2
-    new-instance v26, Landroid/content/Intent;
+    move-result-object v2
 
-    const-string/jumbo v2, "com.sec.knox.install.BBC_CONTAINER"
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-object/from16 v0, v26
+    goto/16 :goto_2
 
-    invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    :cond_4
+    new-instance v13, Landroid/content/Intent;
 
-    const-string/jumbo v2, "com.samsung.android.bbc.bbcagent"
+    const-string/jumbo v1, "com.sec.knox.install.BBC_CONTAINER"
 
-    move-object/from16 v0, v26
+    invoke-direct {v13, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    const-string/jumbo v1, "com.samsung.android.bbc.bbcagent"
 
-    goto :goto_1
+    invoke-virtual {v13, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
-    :pswitch_1
+    goto/16 :goto_3
+
+    :cond_5
+    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get0()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "Device provisioning is not enabled"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
+
+    goto/16 :goto_0
+
+    :pswitch_2
+    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get0()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "ContainerHandler.MSG_START_MIGRATION_WIZARD is called ..."
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :try_start_4
     move-object/from16 v0, p1
 
-    iget-object v0, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object v14, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    move-object/from16 v30, v0
+    check-cast v14, Lcom/samsung/android/knox/container/ContainerCreationParams;
 
-    check-cast v30, [Ljava/lang/Integer;
+    new-instance v13, Landroid/content/Intent;
 
-    const/4 v2, 0x0
+    const-string/jumbo v1, "com.sec.knox.start.MIGRATION_WIZARD"
 
-    aget-object v2, v30, v2
+    invoke-direct {v13, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+    const-string/jumbo v1, "com.sec.knox.containeragent"
 
-    move-result v5
+    invoke-virtual {v13, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
-    const/4 v2, 0x1
+    const-string/jumbo v1, "creation_params"
 
-    aget-object v2, v30, v2
+    invoke-virtual {v13, v1, v14}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get5()Landroid/content/Context;
+
+    move-result-object v1
+
+    new-instance v2, Landroid/os/UserHandle;
+
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
     move-result v4
 
-    const/4 v2, 0x2
+    invoke-direct {v2, v4}, Landroid/os/UserHandle;-><init>(I)V
 
-    aget-object v2, v30, v2
+    invoke-virtual {v1, v13, v2}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get0()Ljava/lang/String;
 
-    move-result v7
+    move-result-object v1
 
-    const/4 v2, 0x3
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    aget-object v2, v30, v2
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+    const-string/jumbo v4, "createContainer: intent from User:"
 
-    move-result v6
-
-    const/4 v2, 0x4
-
-    aget-object v2, v30, v2
-
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
-
-    move-result v8
-
-    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get0()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_3
-
-    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get1()Ljava/lang/String;
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v10, "creation status: reqId - "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    const-string/jumbo v10, ", containerId -"
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    const-string/jumbo v10, ", adminUid-"
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    const-string/jumbo v10, ", creatorUid-"
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v2, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_3
-    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get5()Landroid/content/Context;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v6}, Landroid/content/pm/PackageManager;->getPackagesForUid(I)[Ljava/lang/String;
-
-    move-result-object v35
-
-    if-eqz v35, :cond_5
-
-    const/4 v2, 0x0
-
-    move-object/from16 v0, v35
-
-    array-length v10, v0
-
-    move v9, v2
-
-    :goto_2
-    if-ge v9, v10, :cond_6
-
-    aget-object v3, v35, v9
-
-    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get1()Ljava/lang/String;
-
-    move-result-object v2
-
-    new-instance v11, Ljava/lang/StringBuilder;
-
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v12, "Sending creation update to package "
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-static {v2, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
-
-    invoke-static/range {v2 .. v8}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-wrap13(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;Ljava/lang/String;IIIII)V
-
-    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get12()Lcom/samsung/android/knox/IEnterpriseContainerCallback;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_4
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
-
-    invoke-static/range {v2 .. v7}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-wrap12(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;Ljava/lang/String;IIII)V
-
-    :cond_4
-    add-int/lit8 v2, v9, 0x1
-
-    move v9, v2
-
-    goto :goto_2
-
-    :cond_5
-    move-object/from16 v0, p0
-
-    iget-object v9, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
-
-    const/4 v10, 0x0
-
-    move v11, v4
-
-    move v12, v5
-
-    move v13, v6
-
-    move v14, v7
-
-    move v15, v8
-
-    invoke-static/range {v9 .. v15}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-wrap13(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;Ljava/lang/String;IIIII)V
-
-    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get12()Lcom/samsung/android/knox/IEnterpriseContainerCallback;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_6
-
-    move-object/from16 v0, p0
-
-    iget-object v9, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
-
-    const/4 v10, 0x0
-
-    move v11, v4
-
-    move v12, v5
-
-    move v13, v6
-
-    move v14, v7
-
-    invoke-static/range {v9 .. v14}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-wrap12(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;Ljava/lang/String;IIII)V
-
-    :cond_6
-    if-lez v4, :cond_a
-
-    if-ne v7, v6, :cond_a
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
-
-    invoke-static {v2}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get7(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;)Lcom/android/server/enterprise/storage/EdmStorageProvider;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v4}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getMUMContainerOwnerUid(I)I
-
-    move-result v13
-
-    if-lez v13, :cond_a
-
-    if-eq v13, v6, :cond_a
-
-    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get5()Landroid/content/Context;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v13}, Landroid/content/pm/PackageManager;->getPackagesForUid(I)[Ljava/lang/String;
-
-    move-result-object v36
-
-    if-eqz v36, :cond_9
-
-    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get0()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_7
-
-    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get1()Ljava/lang/String;
-
-    move-result-object v2
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v10, "Sending creation update to app uid: "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v2, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_7
-    const/4 v2, 0x0
-
-    move-object/from16 v0, v36
-
-    array-length v0, v0
-
-    move/from16 v42, v0
-
-    :goto_3
-    move/from16 v0, v42
-
-    if-ge v2, v0, :cond_a
-
-    aget-object v3, v36, v2
-
-    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get0()Z
-
-    move-result v9
-
-    if-eqz v9, :cond_8
-
-    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get1()Ljava/lang/String;
-
-    move-result-object v9
-
-    new-instance v10, Ljava/lang/StringBuilder;
-
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v11, "Sending creation update to package "
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_8
-    move-object/from16 v0, p0
-
-    iget-object v9, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
-
-    move-object v10, v3
-
-    move v11, v4
-
-    move v12, v5
-
-    move v14, v7
-
-    move v15, v8
-
-    invoke-static/range {v9 .. v15}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-wrap13(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;Ljava/lang/String;IIIII)V
-
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_3
-
-    :cond_9
-    move-object/from16 v0, p0
-
-    iget-object v9, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
-
-    const/4 v10, 0x0
-
-    move v11, v4
-
-    move v12, v5
-
-    move v14, v7
-
-    move v15, v8
-
-    invoke-static/range {v9 .. v15}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-wrap13(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;Ljava/lang/String;IIIII)V
-
-    :cond_a
-    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get12()Lcom/samsung/android/knox/IEnterpriseContainerCallback;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_0
-
-    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get1()Ljava/lang/String;
-
-    move-result-object v2
-
-    const-string/jumbo v9, "create callback found, updating callback.."
-
-    invoke-static {v2, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v38, 0x3ea
-
-    new-instance v19, Landroid/os/Bundle;
-
-    invoke-direct/range {v19 .. v19}, Landroid/os/Bundle;-><init>()V
-
-    if-lez v4, :cond_b
-
-    const/16 v38, 0x3e9
-
-    const-string/jumbo v2, "containerid"
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v2, v4}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-
-    :goto_4
-    :try_start_2
-    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get12()Lcom/samsung/android/knox/IEnterpriseContainerCallback;
-
-    move-result-object v2
-
-    move/from16 v0, v38
-
-    move-object/from16 v1, v19
-
-    invoke-interface {v2, v0, v1}, Lcom/samsung/android/knox/IEnterpriseContainerCallback;->updateStatus(ILandroid/os/Bundle;)V
-    :try_end_2
-    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_1
-
-    :goto_5
-    const/4 v2, 0x0
-
-    invoke-static {v2}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-set2(Lcom/samsung/android/knox/IEnterpriseContainerCallback;)Lcom/samsung/android/knox/IEnterpriseContainerCallback;
-
-    goto/16 :goto_0
-
-    :cond_b
-    const/16 v2, -0x3f9
-
-    if-ne v4, v2, :cond_c
-
-    const/16 v38, 0x3f8
-
-    const-string/jumbo v2, "containerid"
-
-    const/4 v9, 0x1
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v2, v9}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-
-    const-string/jumbo v2, "requestid"
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v2, v5}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-
-    goto :goto_4
-
-    :cond_c
-    const-string/jumbo v2, "containerid"
-
-    const/4 v9, 0x1
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v2, v9}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-
-    goto :goto_4
-
-    :catch_1
-    move-exception v20
-
-    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get1()Ljava/lang/String;
-
-    move-result-object v2
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v10, "Exception:"
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-static/range {v20 .. v20}, Landroid/util/Log;->getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v2, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_5
-
-    :pswitch_2
-    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get1()Ljava/lang/String;
-
-    move-result-object v2
-
-    const-string/jumbo v9, "MSG_REMOVE_ORPHANED_CONTAINERS received"
-
-    invoke-static {v2, v9}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v33, 0x0
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
-
-    invoke-static {v2}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-wrap5(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;)Lcom/samsung/android/knox/SemPersonaManager;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_d
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
-
-    invoke-static {v2}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-wrap5(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;)Lcom/samsung/android/knox/SemPersonaManager;
-
-    move-result-object v2
-
-    const/4 v9, 0x1
-
-    invoke-virtual {v2, v9}, Lcom/samsung/android/knox/SemPersonaManager;->getPersonas(Z)Ljava/util/List;
-
-    move-result-object v33
-
-    :cond_d
-    if-eqz v33, :cond_0
-
-    invoke-interface/range {v33 .. v33}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v25
-
-    :cond_e
-    :goto_6
-    invoke-interface/range {v25 .. v25}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    invoke-interface/range {v25 .. v25}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v24
-
-    check-cast v24, Lcom/samsung/android/knox/SemPersonaInfo;
-
-    move-object/from16 v0, v24
-
-    iget v0, v0, Lcom/samsung/android/knox/SemPersonaInfo;->id:I
-
-    move/from16 v23, v0
-
-    const/16 v31, 0x0
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
-
-    invoke-static {v2}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-wrap5(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;)Lcom/samsung/android/knox/SemPersonaManager;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_f
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
-
-    invoke-static {v2}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-wrap5(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;)Lcom/samsung/android/knox/SemPersonaManager;
-
-    move-result-object v2
-
-    move/from16 v0, v23
-
-    invoke-virtual {v2, v0}, Lcom/samsung/android/knox/SemPersonaManager;->getStateManager(I)Lcom/samsung/android/knox/SemPersonaManager$StateManager;
-
-    move-result-object v2
-
-    sget-object v9, Lcom/samsung/android/knox/SemPersonaState;->CREATING:Lcom/samsung/android/knox/SemPersonaState;
-
-    invoke-virtual {v2, v9}, Lcom/samsung/android/knox/SemPersonaManager$StateManager;->inState(Lcom/samsung/android/knox/SemPersonaState;)Z
-
-    move-result v31
-
-    :cond_f
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
-
-    invoke-static {v2}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get7(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;)Lcom/android/server/enterprise/storage/EdmStorageProvider;
-
-    move-result-object v2
-
-    move-object/from16 v0, v24
-
-    iget v9, v0, Lcom/samsung/android/knox/SemPersonaInfo;->id:I
-
-    invoke-virtual {v2, v9}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getMUMContainerOwnerUid(I)I
-
-    move-result v13
-
-    if-lez v13, :cond_10
-
-    if-eqz v31, :cond_e
-
-    :cond_10
-    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get1()Ljava/lang/String;
-
-    move-result-object v2
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v10, "Orphan container removing: "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    move-object/from16 v0, v24
-
-    iget v10, v0, Lcom/samsung/android/knox/SemPersonaInfo;->id:I
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v2, v9}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
-
-    move-object/from16 v0, v24
-
-    iget v9, v0, Lcom/samsung/android/knox/SemPersonaInfo;->id:I
-
-    const/4 v10, 0x1
-
-    invoke-static {v2, v9, v10}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-wrap7(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;IZ)I
-
-    goto :goto_6
-
-    :pswitch_3
-    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get1()Ljava/lang/String;
-
-    move-result-object v2
-
-    const-string/jumbo v9, "ContainerHandler.MSG_START_MIGRATION_WIZARD is called ..."
-
-    invoke-static {v2, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :try_start_3
-    move-object/from16 v0, p1
-
-    iget-object v0, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    move-object/from16 v29, v0
-
-    check-cast v29, Lcom/samsung/android/knox/container/ContainerCreationParams;
-
-    new-instance v26, Landroid/content/Intent;
-
-    const-string/jumbo v2, "com.sec.knox.start.MIGRATION_WIZARD"
-
-    move-object/from16 v0, v26
-
-    invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const-string/jumbo v2, "com.sec.knox.containeragent"
-
-    move-object/from16 v0, v26
-
-    invoke-virtual {v0, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
-
-    const-string/jumbo v2, "creation_params"
-
-    move-object/from16 v0, v26
-
-    move-object/from16 v1, v29
-
-    invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
-
-    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get5()Landroid/content/Context;
-
-    move-result-object v2
-
-    new-instance v9, Landroid/os/UserHandle;
 
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
-    move-result v10
+    move-result v4
 
-    invoke-direct {v9, v10}, Landroid/os/UserHandle;-><init>(I)V
-
-    move-object/from16 v0, v26
-
-    invoke-virtual {v2, v0, v9}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
-
-    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get1()Ljava/lang/String;
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    const-string/jumbo v4, " with requestid: "
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v10, "createContainer: intent from User:"
+    move-result-object v2
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14}, Lcom/samsung/android/knox/container/ContainerCreationParams;->getRequestId()I
 
-    move-result-object v9
+    move-result v4
 
-    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result v10
+    move-result-object v2
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v2
 
-    const-string/jumbo v10, " with requestid: "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual/range {v29 .. v29}, Lcom/samsung/android/knox/container/ContainerCreationParams;->getRequestId()I
-
-    move-result v10
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v2, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_2
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_4
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_2
 
     goto/16 :goto_0
 
     :catch_2
-    move-exception v21
+    move-exception v12
 
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v12}, Ljava/lang/Exception;->printStackTrace()V
 
     goto/16 :goto_0
 
-    :pswitch_4
-    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get1()Ljava/lang/String;
+    :pswitch_3
+    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get0()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "MSG_LICENSE_STATE_CHANGED received"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
+
+    move-result-object v10
+
+    const-string/jumbo v1, "packageName"
+
+    invoke-virtual {v10, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get0()Ljava/lang/String;
+
+    move-result-object v1
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "package: "
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    const-string/jumbo v9, "MSG_KLMS_LICENSE_UPDATE received"
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v2, v9}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v2
 
-    move-object/from16 v0, p1
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    iget v0, v0, Landroid/os/Message;->arg1:I
+    move-result-object v2
 
-    move/from16 v16, v0
-
-    move-object/from16 v0, p1
-
-    iget v0, v0, Landroid/os/Message;->arg2:I
-
-    move/from16 v17, v0
-
-    const/16 v34, 0x0
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
+    iget-object v1, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
 
-    invoke-static {v2}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-wrap5(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;)Lcom/samsung/android/knox/SemPersonaManager;
+    invoke-static {v1}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-wrap1(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;)Landroid/os/UserManager;
 
-    move-result-object v2
+    move-result-object v1
 
-    if-eqz v2, :cond_11
+    invoke-virtual {v1}, Landroid/os/UserManager;->getUsers()Ljava/util/List;
 
-    move-object/from16 v0, p0
+    move-result-object v15
 
-    iget-object v2, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
-
-    invoke-static {v2}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-wrap5(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;)Lcom/samsung/android/knox/SemPersonaManager;
-
-    move-result-object v2
-
-    const/4 v9, 0x1
-
-    invoke-virtual {v2, v9}, Lcom/samsung/android/knox/SemPersonaManager;->getPersonas(Z)Ljava/util/List;
-
-    move-result-object v34
-
-    :cond_11
-    if-eqz v34, :cond_1a
-
-    const/16 v39, 0x0
-
-    const-string/jumbo v2, "persona"
-
-    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v40
-
-    check-cast v40, Lcom/android/server/pm/PersonaManagerService;
-
-    invoke-interface/range {v34 .. v34}, Ljava/util/List;->size()I
-
-    move-result v2
-
-    new-array v0, v2, [I
-
-    move-object/from16 v32, v0
-
-    const/16 v27, 0x0
-
-    invoke-interface/range {v34 .. v34}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v25
-
-    :cond_12
-    :goto_7
-    invoke-interface/range {v25 .. v25}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_18
-
-    invoke-interface/range {v25 .. v25}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v24
-
-    check-cast v24, Lcom/samsung/android/knox/SemPersonaInfo;
-
-    move-object/from16 v0, v24
-
-    iget-boolean v2, v0, Lcom/samsung/android/knox/SemPersonaInfo;->isUserManaged:Z
-
-    if-nez v2, :cond_12
-
-    const/16 v18, 0x0
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
-
-    invoke-static {v2}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-wrap5(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;)Lcom/samsung/android/knox/SemPersonaManager;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_13
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
-
-    invoke-static {v2}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-wrap5(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;)Lcom/samsung/android/knox/SemPersonaManager;
-
-    move-result-object v2
-
-    move-object/from16 v0, v24
-
-    iget v9, v0, Lcom/samsung/android/knox/SemPersonaInfo;->id:I
-
-    invoke-virtual {v2, v9}, Lcom/samsung/android/knox/SemPersonaManager;->getStateManager(I)Lcom/samsung/android/knox/SemPersonaManager$StateManager;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/samsung/android/knox/SemPersonaManager$StateManager;->getState()Lcom/samsung/android/knox/SemPersonaState;
+    invoke-interface {v15}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v18
 
-    :cond_13
-    const/16 v37, 0x0
+    :cond_6
+    :goto_4
+    invoke-interface/range {v18 .. v18}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-interface/range {v18 .. v18}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v17
+
+    check-cast v17, Landroid/content/pm/UserInfo;
+
+    move-object/from16 v0, v17
+
+    iget v1, v0, Landroid/content/pm/UserInfo;->id:I
+
+    invoke-static {v1}, Lcom/samsung/android/knox/SemPersonaManager;->isDoEnabled(I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_8
 
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
+    iget-object v1, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
 
-    invoke-static {v2}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-wrap5(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;)Lcom/samsung/android/knox/SemPersonaManager;
+    invoke-static {v1}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-wrap0(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;)Landroid/app/admin/DevicePolicyManager;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/app/admin/DevicePolicyManager;->getDeviceOwnerComponentOnAnyUser()Landroid/content/ComponentName;
+
+    move-result-object v9
+
+    :goto_5
+    if-eqz v9, :cond_6
+
+    invoke-virtual {v9}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_6
+
+    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get0()Ljava/lang/String;
+
+    move-result-object v1
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "handle license activation / validation / deactivation for user: "
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    if-eqz v2, :cond_14
+    move-object/from16 v0, v17
+
+    iget v4, v0, Landroid/content/pm/UserInfo;->id:I
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual/range {v17 .. v17}, Landroid/content/pm/UserInfo;->isPremiumContainer()Z
+
+    move-result v1
+
+    if-nez v1, :cond_9
 
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
+    iget-object v1, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
 
-    invoke-static {v2}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-wrap5(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;)Lcom/samsung/android/knox/SemPersonaManager;
+    invoke-static {v1, v3}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-wrap2(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;Ljava/lang/String;)Z
 
-    move-result-object v2
+    move-result v1
 
-    move-object/from16 v0, v24
-
-    iget v9, v0, Lcom/samsung/android/knox/SemPersonaInfo;->id:I
-
-    invoke-virtual {v2, v9}, Lcom/samsung/android/knox/SemPersonaManager;->getStateManager(I)Lcom/samsung/android/knox/SemPersonaManager$StateManager;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/samsung/android/knox/SemPersonaManager$StateManager;->getPreviousState()Lcom/samsung/android/knox/SemPersonaState;
-
-    move-result-object v37
-
-    :cond_14
-    move-object/from16 v0, v24
-
-    iget v2, v0, Lcom/samsung/android/knox/SemPersonaInfo;->id:I
-
-    move/from16 v0, v17
-
-    if-ne v2, v0, :cond_17
-
-    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get1()Ljava/lang/String;
-
-    move-result-object v2
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v10, "persona id matched!! - container_id - "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    move-object/from16 v0, v24
-
-    iget v10, v0, Lcom/samsung/android/knox/SemPersonaInfo;->id:I
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    const-string/jumbo v10, " code "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    move/from16 v0, v16
-
-    invoke-virtual {v9, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v2, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v2, 0x5a
-
-    move/from16 v0, v16
-
-    if-ne v0, v2, :cond_16
-
-    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get1()Ljava/lang/String;
-
-    move-result-object v2
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v10, "currentState for persona- "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    move-object/from16 v0, v24
-
-    iget v10, v0, Lcom/samsung/android/knox/SemPersonaInfo;->id:I
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    const-string/jumbo v10, " is "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v9, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    const-string/jumbo v10, " previousState= "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    move-object/from16 v0, v37
-
-    invoke-virtual {v9, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v2, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    if-eqz v1, :cond_9
 
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
+    iget-object v1, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
 
-    invoke-static {v2}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-wrap5(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;)Lcom/samsung/android/knox/SemPersonaManager;
+    invoke-static {v1, v3}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-wrap3(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;Ljava/lang/String;)Z
 
-    move-result-object v2
+    move-result v1
 
-    if-eqz v2, :cond_15
+    if-eqz v1, :cond_9
+
+    move-object/from16 v0, v17
+
+    iget v1, v0, Landroid/content/pm/UserInfo;->id:I
+
+    invoke-static {v1}, Lcom/samsung/android/knox/SemPersonaManager;->isDoEnabled(I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_7
+
+    const/4 v1, 0x1
+
+    invoke-static {v1}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-set0(Z)Z
+
+    :cond_7
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
+
+    move-object/from16 v0, v17
+
+    iget v2, v0, Landroid/content/pm/UserInfo;->id:I
+
+    const-string/jumbo v5, "LICENSE_ACTIVATION"
+
+    const/4 v4, 0x0
+
+    const/4 v6, 0x0
+
+    invoke-static/range {v1 .. v6}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-wrap19(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;ILjava/lang/String;Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ProvisioningState;Ljava/lang/String;I)V
+
+    :goto_6
+    new-instance v8, Landroid/os/Bundle;
+
+    invoke-direct {v8}, Landroid/os/Bundle;-><init>()V
+
+    const-string/jumbo v1, "android.intent.extra.user_handle"
+
+    move-object/from16 v0, v17
+
+    iget v2, v0, Landroid/content/pm/UserInfo;->id:I
+
+    invoke-virtual {v8, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+
+    const-string/jumbo v1, "knox.container.proxy.EXTRA_PACKAGE_NAME"
+
+    invoke-virtual {v8, v1, v3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string/jumbo v1, "knox.container.proxy.POLICY_KNOX_LICENSE_STATE_CHANGE"
+
+    invoke-static {v1, v8}, Lcom/samsung/android/knox/ContainerProxy;->sendPolicyUpdate(Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
+
+    goto/16 :goto_4
+
+    :cond_8
+    move-object/from16 v0, v17
+
+    iget v1, v0, Landroid/content/pm/UserInfo;->id:I
+
+    invoke-static {v1}, Lcom/samsung/android/knox/SemPersonaManager;->getAdminComponentName(I)Landroid/content/ComponentName;
+
+    move-result-object v9
+
+    goto/16 :goto_5
+
+    :cond_9
+    invoke-virtual/range {v17 .. v17}, Landroid/content/pm/UserInfo;->isPremiumContainer()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_c
 
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
+    iget-object v1, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
 
-    invoke-static {v2}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-wrap5(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;)Lcom/samsung/android/knox/SemPersonaManager;
+    invoke-static {v1, v3}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-wrap2(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;Ljava/lang/String;)Z
 
-    move-result-object v2
+    move-result v1
 
-    move-object/from16 v0, v24
-
-    iget v9, v0, Lcom/samsung/android/knox/SemPersonaInfo;->id:I
-
-    invoke-virtual {v2, v9}, Lcom/samsung/android/knox/SemPersonaManager;->getStateManager(I)Lcom/samsung/android/knox/SemPersonaManager$StateManager;
-
-    move-result-object v2
-
-    sget-object v9, Landroid/content/pm/PersonaNewEvent;->LICENSE_UNLOCK:Landroid/content/pm/PersonaNewEvent;
-
-    invoke-virtual {v2, v9}, Lcom/samsung/android/knox/SemPersonaManager$StateManager;->fireEvent(Landroid/content/pm/PersonaNewEvent;)Lcom/samsung/android/knox/SemPersonaState;
-
-    :cond_15
-    if-eqz v40, :cond_12
-
-    move-object/from16 v0, v40
-
-    move-object/from16 v1, v24
-
-    invoke-virtual {v0, v1}, Lcom/android/server/pm/PersonaManagerService;->handleSuperUnlockPersona(Lcom/samsung/android/knox/SemPersonaInfo;)Z
-
-    move-result v39
-
-    if-eqz v39, :cond_12
-
-    add-int/lit8 v28, v27, 0x1
-
-    move-object/from16 v0, v24
-
-    iget v2, v0, Lcom/samsung/android/knox/SemPersonaInfo;->id:I
-
-    aput v2, v32, v27
-
-    move/from16 v27, v28
-
-    goto/16 :goto_7
-
-    :cond_16
-    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get1()Ljava/lang/String;
-
-    move-result-object v2
-
-    const-string/jumbo v9, "setting persona state to KLMS_LOCKED"
-
-    invoke-static {v2, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    if-eqz v1, :cond_a
 
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
+    iget-object v1, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
 
-    invoke-static {v2}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-wrap5(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;)Lcom/samsung/android/knox/SemPersonaManager;
+    invoke-static {v1, v3}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-wrap3(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;Ljava/lang/String;)Z
 
-    move-result-object v2
+    move-result v1
 
-    if-eqz v2, :cond_12
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_c
+
+    :cond_a
+    move-object/from16 v0, v17
+
+    iget v1, v0, Landroid/content/pm/UserInfo;->id:I
+
+    invoke-static {v1}, Lcom/samsung/android/knox/SemPersonaManager;->isDoEnabled(I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_b
 
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
+    iget-object v1, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
 
-    invoke-static {v2}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-wrap5(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;)Lcom/samsung/android/knox/SemPersonaManager;
+    invoke-static {v1, v3}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-wrap2(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;Ljava/lang/String;)Z
 
-    move-result-object v2
+    move-result v1
 
-    move-object/from16 v0, v24
+    xor-int/lit8 v1, v1, 0x1
 
-    iget v9, v0, Lcom/samsung/android/knox/SemPersonaInfo;->id:I
+    if-eqz v1, :cond_b
 
-    invoke-virtual {v2, v9}, Lcom/samsung/android/knox/SemPersonaManager;->getStateManager(I)Lcom/samsung/android/knox/SemPersonaManager$StateManager;
+    const/4 v1, 0x0
 
-    move-result-object v2
+    invoke-static {v1}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-set0(Z)Z
 
-    sget-object v9, Landroid/content/pm/PersonaNewEvent;->LICENSE_LOCK:Landroid/content/pm/PersonaNewEvent;
+    :cond_b
+    move-object/from16 v0, p0
 
-    invoke-virtual {v2, v9}, Lcom/samsung/android/knox/SemPersonaManager$StateManager;->fireEvent(Landroid/content/pm/PersonaNewEvent;)Lcom/samsung/android/knox/SemPersonaState;
+    iget-object v1, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
 
-    goto/16 :goto_7
+    move-object/from16 v0, v17
 
-    :cond_17
-    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get1()Ljava/lang/String;
+    iget v2, v0, Landroid/content/pm/UserInfo;->id:I
 
-    move-result-object v2
+    const-string/jumbo v5, "LICENSE_DEACTIVATION"
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    const/4 v4, 0x0
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    const/4 v6, 0x0
 
-    const-string/jumbo v10, "persona id unmatched!! - container_id - "
+    invoke-static/range {v1 .. v6}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-wrap19(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;ILjava/lang/String;Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ProvisioningState;Ljava/lang/String;I)V
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    goto :goto_6
 
-    move-result-object v9
+    :cond_c
+    invoke-virtual/range {v17 .. v17}, Landroid/content/pm/UserInfo;->isPremiumContainer()Z
 
-    move-object/from16 v0, v24
+    move-result v1
 
-    iget v10, v0, Lcom/samsung/android/knox/SemPersonaInfo;->id:I
+    if-nez v1, :cond_d
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get2()Z
 
-    move-result-object v9
+    move-result v1
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    xor-int/lit8 v1, v1, 0x1
 
-    move-result-object v9
+    if-eqz v1, :cond_d
 
-    invoke-static {v2, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-object/from16 v0, v17
 
-    goto/16 :goto_7
+    iget v1, v0, Landroid/content/pm/UserInfo;->id:I
 
-    :cond_18
-    if-lez v27, :cond_0
+    invoke-static {v1}, Lcom/samsung/android/knox/SemPersonaManager;->isDoEnabled(I)Z
 
-    const/16 v22, 0x0
+    move-result v1
 
-    const/16 v22, 0x0
+    if-eqz v1, :cond_d
 
-    :goto_8
-    move/from16 v0, v22
+    move-object/from16 v0, p0
 
-    move/from16 v1, v27
+    iget-object v1, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
 
-    if-ge v0, v1, :cond_0
+    invoke-static {v1, v3}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-wrap2(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;Ljava/lang/String;)Z
 
-    :try_start_4
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    move-result v1
 
-    move-result-object v2
+    if-eqz v1, :cond_d
 
-    aget v9, v32, v22
+    const/4 v1, 0x1
 
-    invoke-interface {v2, v9}, Landroid/app/IActivityManager;->startUserInBackground(I)Z
+    invoke-static {v1}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-set0(Z)Z
 
-    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get0()Z
+    move-object/from16 v0, p0
 
-    move-result v2
+    iget-object v1, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
 
-    if-eqz v2, :cond_19
+    move-object/from16 v0, v17
 
-    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get1()Ljava/lang/String;
+    iget v2, v0, Landroid/content/pm/UserInfo;->id:I
 
-    move-result-object v2
+    const-string/jumbo v5, "LICENSE_ACTIVATION"
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    const/4 v4, 0x0
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    const/4 v6, 0x0
 
-    const-string/jumbo v10, "Starting contaienr "
+    invoke-static/range {v1 .. v6}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-wrap19(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;ILjava/lang/String;Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ProvisioningState;Ljava/lang/String;I)V
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    goto/16 :goto_6
 
-    move-result-object v9
+    :cond_d
+    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get0()Ljava/lang/String;
 
-    aget v10, v32, v22
+    move-result-object v1
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v10, " in background after reboot"
+    const-string/jumbo v4, "License state does not change for package: "
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v2, v9}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_4
-    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_3
-
-    :cond_19
-    add-int/lit8 v22, v22, 0x1
-
-    goto :goto_8
-
-    :catch_3
-    move-exception v21
-
-    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get1()Ljava/lang/String;
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v10, "failed to start User "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    aget v10, v32, v22
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    const-string/jumbo v10, " in Background:"
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v9, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v2, v9}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_0
-
-    :cond_1a
-    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get1()Ljava/lang/String;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    const-string/jumbo v9, "persona list is null"
+    const-string/jumbo v4, " in user "
 
-    invoke-static {v2, v9}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    move-object/from16 v0, v17
+
+    iget v4, v0, Landroid/content/pm/UserInfo;->id:I
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_4
+
+    :pswitch_4
+    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get5()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get5()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v4, 0x1040488
+
+    invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    const/4 v4, 0x0
+
+    invoke-static {v1, v2, v4}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/widget/Toast;->show()V
 
     goto/16 :goto_0
 
     :pswitch_5
     move-object/from16 v0, p0
 
-    iget-object v9, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
+    iget-object v2, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
 
     move-object/from16 v0, p1
 
-    iget-object v2, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object v1, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v2, Ljava/lang/String;
+    check-cast v1, Ljava/lang/String;
 
     move-object/from16 v0, p1
 
-    iget v10, v0, Landroid/os/Message;->arg1:I
+    iget v4, v0, Landroid/os/Message;->arg1:I
 
-    invoke-static {v9, v2, v10}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-wrap9(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;Ljava/lang/String;I)V
+    invoke-static {v2, v1, v4}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-wrap12(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;Ljava/lang/String;I)V
 
     goto/16 :goto_0
 
     :pswitch_6
     move-object/from16 v0, p0
 
-    iget-object v9, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
+    iget-object v2, v0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$ContainerHandler;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
 
     move-object/from16 v0, p1
 
-    iget-object v2, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object v1, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v2, Ljava/lang/String;
+    check-cast v1, Ljava/lang/String;
 
     move-object/from16 v0, p1
 
-    iget v10, v0, Landroid/os/Message;->arg1:I
+    iget v4, v0, Landroid/os/Message;->arg1:I
 
-    invoke-static {v9, v2, v10}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-wrap10(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;Ljava/lang/String;I)V
+    invoke-static {v2, v1, v4}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-wrap13(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;Ljava/lang/String;I)V
 
     goto/16 :goto_0
 
     :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_0
-        :pswitch_4
         :pswitch_1
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
         :pswitch_2
-        :pswitch_3
         :pswitch_5
         :pswitch_6
+        :pswitch_4
+        :pswitch_0
+        :pswitch_0
+        :pswitch_3
     .end packed-switch
 .end method

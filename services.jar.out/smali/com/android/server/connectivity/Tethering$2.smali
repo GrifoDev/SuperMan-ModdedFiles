@@ -76,7 +76,7 @@
 
     iget-object v2, p0, Lcom/android/server/connectivity/Tethering$2;->val$receiver:Landroid/os/ResultReceiver;
 
-    invoke-static {v1, v2, v0}, Lcom/android/server/connectivity/Tethering;->-wrap12(Lcom/android/server/connectivity/Tethering;Landroid/os/ResultReceiver;I)V
+    invoke-static {v1, v2, v0}, Lcom/android/server/connectivity/Tethering;->-wrap14(Lcom/android/server/connectivity/Tethering;Landroid/os/ResultReceiver;I)V
 
     iget-boolean v1, p0, Lcom/android/server/connectivity/Tethering$2;->val$enable:Z
 
@@ -84,7 +84,7 @@
 
     iget-object v1, p0, Lcom/android/server/connectivity/Tethering$2;->this$0:Lcom/android/server/connectivity/Tethering;
 
-    invoke-static {v1}, Lcom/android/server/connectivity/Tethering;->-wrap3(Lcom/android/server/connectivity/Tethering;)Z
+    invoke-virtual {v1}, Lcom/android/server/connectivity/Tethering;->isTetherProvisioningRequired()Z
 
     move-result v1
 
@@ -94,7 +94,7 @@
 
     const/4 v2, 0x2
 
-    invoke-static {v1, v2}, Lcom/android/server/connectivity/Tethering;->-wrap11(Lcom/android/server/connectivity/Tethering;I)V
+    invoke-static {v1, v2}, Lcom/android/server/connectivity/Tethering;->-wrap13(Lcom/android/server/connectivity/Tethering;I)V
 
     :cond_0
     iget-object v1, p0, Lcom/android/server/connectivity/Tethering$2;->val$adapter:Landroid/bluetooth/BluetoothAdapter;

@@ -1,4 +1,4 @@
-.class Lcom/android/server/job/JobStore$ReadJobMapFromDiskRunnable;
+.class final Lcom/android/server/job/JobStore$ReadJobMapFromDiskRunnable;
 .super Ljava/lang/Object;
 .source "JobStore.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x12
     name = "ReadJobMapFromDiskRunnable"
 .end annotation
 
@@ -97,7 +97,7 @@
     invoke-virtual {p1, v3}, Landroid/app/job/JobInfo$Builder;->setRequiredNetworkType(I)Landroid/app/job/JobInfo$Builder;
 
     :cond_0
-    const-string/jumbo v1, "unmetered"
+    const-string/jumbo v1, "metered"
 
     invoke-interface {p2, v2, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -105,12 +105,12 @@
 
     if-eqz v0, :cond_1
 
-    const/4 v1, 0x2
+    const/4 v1, 0x4
 
     invoke-virtual {p1, v1}, Landroid/app/job/JobInfo$Builder;->setRequiredNetworkType(I)Landroid/app/job/JobInfo$Builder;
 
     :cond_1
-    const-string/jumbo v1, "not-roaming"
+    const-string/jumbo v1, "unmetered"
 
     invoke-interface {p2, v2, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -118,12 +118,12 @@
 
     if-eqz v0, :cond_2
 
-    const/4 v1, 0x3
+    const/4 v1, 0x2
 
     invoke-virtual {p1, v1}, Landroid/app/job/JobInfo$Builder;->setRequiredNetworkType(I)Landroid/app/job/JobInfo$Builder;
 
     :cond_2
-    const-string/jumbo v1, "idle"
+    const-string/jumbo v1, "not-roaming"
 
     invoke-interface {p2, v2, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -131,10 +131,12 @@
 
     if-eqz v0, :cond_3
 
-    invoke-virtual {p1, v3}, Landroid/app/job/JobInfo$Builder;->setRequiresDeviceIdle(Z)Landroid/app/job/JobInfo$Builder;
+    const/4 v1, 0x3
+
+    invoke-virtual {p1, v1}, Landroid/app/job/JobInfo$Builder;->setRequiredNetworkType(I)Landroid/app/job/JobInfo$Builder;
 
     :cond_3
-    const-string/jumbo v1, "charging"
+    const-string/jumbo v1, "idle"
 
     invoke-interface {p2, v2, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -142,9 +144,20 @@
 
     if-eqz v0, :cond_4
 
-    invoke-virtual {p1, v3}, Landroid/app/job/JobInfo$Builder;->setRequiresCharging(Z)Landroid/app/job/JobInfo$Builder;
+    invoke-virtual {p1, v3}, Landroid/app/job/JobInfo$Builder;->setRequiresDeviceIdle(Z)Landroid/app/job/JobInfo$Builder;
 
     :cond_4
+    const-string/jumbo v1, "charging"
+
+    invoke-interface {p2, v2, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_5
+
+    invoke-virtual {p1, v3}, Landroid/app/job/JobInfo$Builder;->setRequiresCharging(Z)Landroid/app/job/JobInfo$Builder;
+
+    :cond_5
     return-void
 .end method
 
@@ -197,11 +210,7 @@
 
     if-eqz v20, :cond_0
 
-    invoke-static/range {v20 .. v20}, Ljava/lang/Long;->valueOf(Ljava/lang/String;)Ljava/lang/Long;
-
-    move-result-object v21
-
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/Long;->longValue()J
+    invoke-static/range {v20 .. v20}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v10
 
@@ -232,11 +241,7 @@
 
     if-eqz v20, :cond_1
 
-    invoke-static/range {v20 .. v20}, Ljava/lang/Long;->valueOf(Ljava/lang/String;)Ljava/lang/Long;
-
-    move-result-object v21
-
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/Long;->longValue()J
+    invoke-static/range {v20 .. v20}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v6
 
@@ -279,11 +284,7 @@
 
     if-eqz v1, :cond_0
 
-    invoke-static {v1}, Ljava/lang/Long;->valueOf(Ljava/lang/String;)Ljava/lang/Long;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/Long;->longValue()J
+    invoke-static {v1}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v2
 
@@ -750,11 +751,7 @@
 
     move-result-object v29
 
-    invoke-static/range {v29 .. v29}, Ljava/lang/Long;->valueOf(Ljava/lang/String;)Ljava/lang/Long;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/Long;->longValue()J
+    invoke-static/range {v29 .. v29}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v30
 
@@ -1170,93 +1167,105 @@
 
 # virtual methods
 .method public run()V
-    .locals 9
+    .locals 12
 
     :try_start_0
-    iget-object v6, p0, Lcom/android/server/job/JobStore$ReadJobMapFromDiskRunnable;->this$0:Lcom/android/server/job/JobStore;
+    iget-object v10, p0, Lcom/android/server/job/JobStore$ReadJobMapFromDiskRunnable;->this$0:Lcom/android/server/job/JobStore;
 
-    invoke-static {v6}, Lcom/android/server/job/JobStore;->-get0(Lcom/android/server/job/JobStore;)Landroid/util/AtomicFile;
+    invoke-static {v10}, Lcom/android/server/job/JobStore;->-get0(Lcom/android/server/job/JobStore;)Landroid/util/AtomicFile;
 
-    move-result-object v6
+    move-result-object v10
 
-    invoke-virtual {v6}, Landroid/util/AtomicFile;->openRead()Ljava/io/FileInputStream;
+    invoke-virtual {v10}, Landroid/util/AtomicFile;->openRead()Ljava/io/FileInputStream;
 
-    move-result-object v3
+    move-result-object v4
 
-    iget-object v6, p0, Lcom/android/server/job/JobStore$ReadJobMapFromDiskRunnable;->this$0:Lcom/android/server/job/JobStore;
+    iget-object v10, p0, Lcom/android/server/job/JobStore$ReadJobMapFromDiskRunnable;->this$0:Lcom/android/server/job/JobStore;
 
-    iget-object v7, v6, Lcom/android/server/job/JobStore;->mLock:Ljava/lang/Object;
+    iget-object v11, v10, Lcom/android/server/job/JobStore;->mLock:Ljava/lang/Object;
 
-    monitor-enter v7
+    monitor-enter v11
     :try_end_0
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_2
 
     :try_start_1
-    invoke-direct {p0, v3}, Lcom/android/server/job/JobStore$ReadJobMapFromDiskRunnable;->readJobMapImpl(Ljava/io/FileInputStream;)Ljava/util/List;
-
-    move-result-object v5
-
-    if-eqz v5, :cond_0
-
-    const/4 v4, 0x0
-
-    :goto_0
-    invoke-interface {v5}, Ljava/util/List;->size()I
-
-    move-result v6
-
-    if-ge v4, v6, :cond_0
-
-    iget-object v8, p0, Lcom/android/server/job/JobStore$ReadJobMapFromDiskRunnable;->jobSet:Lcom/android/server/job/JobStore$JobSet;
-
-    invoke-interface {v5, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-direct {p0, v4}, Lcom/android/server/job/JobStore$ReadJobMapFromDiskRunnable;->readJobMapImpl(Ljava/io/FileInputStream;)Ljava/util/List;
 
     move-result-object v6
 
-    check-cast v6, Lcom/android/server/job/controllers/JobStatus;
+    if-eqz v6, :cond_0
 
-    invoke-virtual {v8, v6}, Lcom/android/server/job/JobStore$JobSet;->add(Lcom/android/server/job/controllers/JobStatus;)Z
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+
+    move-result-wide v8
+
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
+
+    move-result-object v0
+
+    const/4 v5, 0x0
+
+    :goto_0
+    invoke-interface {v6}, Ljava/util/List;->size()I
+
+    move-result v10
+
+    if-ge v5, v10, :cond_0
+
+    invoke-interface {v6, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v7
+
+    check-cast v7, Lcom/android/server/job/controllers/JobStatus;
+
+    invoke-virtual {v7, v0}, Lcom/android/server/job/controllers/JobStatus;->prepareLocked(Landroid/app/IActivityManager;)V
+
+    iput-wide v8, v7, Lcom/android/server/job/controllers/JobStatus;->enqueueTime:J
+
+    iget-object v10, p0, Lcom/android/server/job/JobStore$ReadJobMapFromDiskRunnable;->jobSet:Lcom/android/server/job/JobStore$JobSet;
+
+    invoke-virtual {v10, v7}, Lcom/android/server/job/JobStore$JobSet;->add(Lcom/android/server/job/controllers/JobStatus;)Z
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v5, v5, 0x1
 
     goto :goto_0
 
     :cond_0
     :try_start_2
-    monitor-exit v7
+    monitor-exit v11
 
-    invoke-virtual {v3}, Ljava/io/FileInputStream;->close()V
+    invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
 
     :goto_1
     return-void
 
     :catchall_0
-    move-exception v6
+    move-exception v10
 
-    monitor-exit v7
+    monitor-exit v11
 
-    throw v6
+    throw v10
     :try_end_2
     .catch Ljava/io/FileNotFoundException; {:try_start_2 .. :try_end_2} :catch_0
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_2 .. :try_end_2} :catch_1
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_2
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
     goto :goto_1
 
     :catch_1
-    move-exception v2
+    move-exception v3
 
     goto :goto_1
 
     :catch_2
-    move-exception v1
+    move-exception v2
 
     goto :goto_1
 .end method

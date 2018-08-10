@@ -46,7 +46,7 @@
 
     move-result-object v1
 
-    const v2, 0x10405c1
+    const v2, 0x1040625
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -74,8 +74,6 @@
 .method public onPackageDeleted(Ljava/lang/String;ILjava/lang/String;)V
     .locals 8
 
-    const/4 v2, 0x0
-
     const/4 v0, 0x1
 
     if-ne v0, p2, :cond_0
@@ -96,7 +94,9 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageInstallerService$PackageDeleteObserverAdapter;->mNotification:Landroid/app/Notification;
 
-    invoke-virtual {v7, p1, v2, v0}, Landroid/app/NotificationManager;->notify(Ljava/lang/String;ILandroid/app/Notification;)V
+    const/16 v1, 0x15
+
+    invoke-virtual {v7, p1, v1, v0}, Landroid/app/NotificationManager;->notify(Ljava/lang/String;ILandroid/app/Notification;)V
 
     :cond_0
     new-instance v3, Landroid/content/Intent;

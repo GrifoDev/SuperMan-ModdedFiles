@@ -27,7 +27,7 @@
 .method public abstract interceptKeyBeforeQueueing(Landroid/view/KeyEvent;I)I
 .end method
 
-.method public abstract interceptKeyBeforeQuickAccess(IFF)V
+.method public abstract interceptKeyBeforeQuickAccess(IFF)Z
 .end method
 
 .method public abstract interceptMotionBeforeQueueingNonInteractive(JI)I

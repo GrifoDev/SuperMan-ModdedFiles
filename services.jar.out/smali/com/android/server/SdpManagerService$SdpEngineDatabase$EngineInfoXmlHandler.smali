@@ -117,7 +117,7 @@
 
     if-lez v21, :cond_9
 
-    const/16 v18, 0x1
+    const/16 v18, 0x0
 
     :try_start_0
     invoke-direct/range {p0 .. p1}, Lcom/android/server/SdpManagerService$SdpEngineDatabase$EngineInfoXmlHandler;->getEngineInfoXmlFile(I)Landroid/util/XmlMoreAtomicFile;
@@ -144,9 +144,13 @@
 
     invoke-interface {v0, v1, v6}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
 
-    const-string/jumbo v3, ""
+    invoke-static {}, Lcom/android/server/SdpManagerService;->-get0()Ljava/lang/String;
 
-    const-string/jumbo v10, ""
+    move-result-object v3
+
+    invoke-static {}, Lcom/android/server/SdpManagerService;->-get0()Ljava/lang/String;
+
+    move-result-object v10
 
     const/4 v4, -0x1
 
@@ -519,7 +523,7 @@
 
     move-object/from16 v1, v24
 
-    invoke-static {v6, v0, v12, v1}, Lcom/android/server/SdpManagerService;->-wrap13(Lcom/android/server/SdpManagerService;Ljava/lang/String;Ljava/lang/Exception;Ljava/lang/String;)V
+    invoke-static {v6, v0, v12, v1}, Lcom/android/server/SdpManagerService;->-wrap30(Lcom/android/server/SdpManagerService;Ljava/lang/String;Ljava/lang/Exception;Ljava/lang/String;)V
 
     if-eqz v14, :cond_1
 
@@ -720,7 +724,41 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_0
+
+    const-string/jumbo v3, "SdpManagerService"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "Can\'t make directory - "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    new-instance v3, Ljava/io/IOException;
+
+    invoke-direct {v3}, Ljava/io/IOException;-><init>()V
+
+    throw v3
 
     :cond_0
     new-instance v2, Ljava/io/File;
@@ -760,39 +798,6 @@
     invoke-direct {v3, v2}, Landroid/util/XmlMoreAtomicFile;-><init>(Ljava/io/File;)V
 
     return-object v3
-
-    :cond_1
-    const-string/jumbo v3, "SdpManagerService"
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "Can\'t make directory - "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    new-instance v3, Ljava/io/IOException;
-
-    invoke-direct {v3}, Ljava/io/IOException;-><init>()V
-
-    throw v3
 .end method
 
 .method private removeEngineInfoLocked(Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;)V
@@ -1041,6 +1046,8 @@
     :catch_0
     move-exception v2
 
+    invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
+
     return v9
 
     :catch_1
@@ -1061,11 +1068,9 @@
 
     const-string/jumbo v12, "Failed to update engine info..."
 
-    invoke-static {v10, v11, v3, v12}, Lcom/android/server/SdpManagerService;->-wrap13(Lcom/android/server/SdpManagerService;Ljava/lang/String;Ljava/lang/Exception;Ljava/lang/String;)V
+    invoke-static {v10, v11, v3, v12}, Lcom/android/server/SdpManagerService;->-wrap30(Lcom/android/server/SdpManagerService;Ljava/lang/String;Ljava/lang/Exception;Ljava/lang/String;)V
 
     invoke-virtual {v3}, Ljava/lang/Exception;->printStackTrace()V
-
-    if-eqz v5, :cond_3
 
     if-eqz v6, :cond_3
 

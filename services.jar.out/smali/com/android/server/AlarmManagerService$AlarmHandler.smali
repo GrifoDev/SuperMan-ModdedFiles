@@ -80,7 +80,7 @@
 
     iget-object v0, p0, Lcom/android/server/AlarmManagerService$AlarmHandler;->this$0:Lcom/android/server/AlarmManagerService;
 
-    invoke-static {v0}, Lcom/android/server/AlarmManagerService;->-wrap10(Lcom/android/server/AlarmManagerService;)V
+    invoke-static {v0}, Lcom/android/server/AlarmManagerService;->-wrap11(Lcom/android/server/AlarmManagerService;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -143,7 +143,7 @@
     :pswitch_1
     iget-object v0, p0, Lcom/android/server/AlarmManagerService$AlarmHandler;->this$0:Lcom/android/server/AlarmManagerService;
 
-    invoke-static {v0}, Lcom/android/server/AlarmManagerService;->-wrap8(Lcom/android/server/AlarmManagerService;)V
+    invoke-static {v0}, Lcom/android/server/AlarmManagerService;->-wrap9(Lcom/android/server/AlarmManagerService;)V
 
     goto :goto_0
 

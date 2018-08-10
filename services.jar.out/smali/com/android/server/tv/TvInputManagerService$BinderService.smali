@@ -150,7 +150,7 @@
 
     const-string/jumbo v2, "acquireTvInputHardware"
 
-    invoke-static {v0, v1, v4, p4, v2}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v0, v1, v4, p4, v2}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v5
 
@@ -202,7 +202,7 @@
 
     const-string/jumbo v7, "addBlockedRating"
 
-    invoke-static {v4, v5, v6, p2, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v4, v5, v6, p2, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v2
 
@@ -224,7 +224,7 @@
     :try_start_1
     iget-object v4, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v4, v2}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
+    invoke-static {v4, v2}, Lcom/android/server/tv/TvInputManagerService;->-wrap5(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
 
     move-result-object v3
 
@@ -316,7 +316,7 @@
 
     move/from16 v0, p4
 
-    invoke-static {v2, v3, v6, v0, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v2, v3, v6, v0, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v7
 
@@ -336,7 +336,7 @@
     :try_start_1
     iget-object v2, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v2, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
+    invoke-static {v2, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap5(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
 
     move-result-object v13
 
@@ -515,7 +515,7 @@
 
     const-string/jumbo v7, "createOverlayView"
 
-    invoke-static {v5, v6, v0, p4, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v5, v6, v0, p4, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v4
 
@@ -537,7 +537,7 @@
     :try_start_1
     iget-object v5, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v5, p1, v0, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap1(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
+    invoke-static {v5, p1, v0, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap0(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
 
     move-result-object v5
 
@@ -608,7 +608,7 @@
 
     move/from16 v0, p5
 
-    invoke-static {v3, v5, v10, v0, v6}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v3, v5, v10, v0, v6}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v11
 
@@ -642,14 +642,44 @@
 
     if-eq v0, v3, :cond_0
 
-    if-eqz p3, :cond_1
+    xor-int/lit8 v3, p3, 0x1
+
+    if-eqz v3, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x0
+
+    move-object/from16 v3, p1
+
+    move-object/from16 v4, p2
+
+    move/from16 v7, p4
+
+    invoke-static/range {v2 .. v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap16(Lcom/android/server/tv/TvInputManagerService;Landroid/media/tv/ITvInputClient;Ljava/lang/String;Landroid/os/IBinder;Landroid/view/InputChannel;I)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :try_start_2
+    monitor-exit v19
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+
+    invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return-void
 
     :cond_0
+    :try_start_3
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v3, v11}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
+    invoke-static {v3, v11}, Lcom/android/server/tv/TvInputManagerService;->-wrap5(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
 
     move-result-object v18
 
@@ -665,7 +695,7 @@
 
     check-cast v16, Lcom/android/server/tv/TvInputManagerService$TvInputState;
 
-    if-nez v16, :cond_2
+    if-nez v16, :cond_1
 
     const-string/jumbo v3, "TvInputManagerService"
 
@@ -705,36 +735,7 @@
 
     move/from16 v7, p4
 
-    invoke-static/range {v2 .. v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap17(Lcom/android/server/tv/TvInputManagerService;Landroid/media/tv/ITvInputClient;Ljava/lang/String;Landroid/os/IBinder;Landroid/view/InputChannel;I)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    :try_start_2
-    monitor-exit v19
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
-
-    invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return-void
-
-    :cond_1
-    :try_start_3
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
-
-    const/4 v5, 0x0
-
-    const/4 v6, 0x0
-
-    move-object/from16 v3, p1
-
-    move-object/from16 v4, p2
-
-    move/from16 v7, p4
-
-    invoke-static/range {v2 .. v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap17(Lcom/android/server/tv/TvInputManagerService;Landroid/media/tv/ITvInputClient;Ljava/lang/String;Landroid/os/IBinder;Landroid/view/InputChannel;I)V
+    invoke-static/range {v2 .. v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap16(Lcom/android/server/tv/TvInputManagerService;Landroid/media/tv/ITvInputClient;Ljava/lang/String;Landroid/os/IBinder;Landroid/view/InputChannel;I)V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
@@ -747,7 +748,7 @@
 
     return-void
 
-    :cond_2
+    :cond_1
     :try_start_5
     invoke-static/range {v16 .. v16}, Lcom/android/server/tv/TvInputManagerService$TvInputState;->-get0(Lcom/android/server/tv/TvInputManagerService$TvInputState;)Landroid/media/tv/TvInputInfo;
 
@@ -767,7 +768,7 @@
 
     check-cast v17, Lcom/android/server/tv/TvInputManagerService$ServiceState;
 
-    if-nez v17, :cond_3
+    if-nez v17, :cond_2
 
     new-instance v17, Lcom/android/server/tv/TvInputManagerService$ServiceState;
 
@@ -797,12 +798,12 @@
 
     invoke-interface {v3, v5, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_3
+    :cond_2
     invoke-static/range {v17 .. v17}, Lcom/android/server/tv/TvInputManagerService$ServiceState;->-get6(Lcom/android/server/tv/TvInputManagerService$ServiceState;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_3
 
     move-object/from16 v0, p0
 
@@ -818,7 +819,7 @@
 
     move/from16 v7, p4
 
-    invoke-static/range {v2 .. v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap17(Lcom/android/server/tv/TvInputManagerService;Landroid/media/tv/ITvInputClient;Ljava/lang/String;Landroid/os/IBinder;Landroid/view/InputChannel;I)V
+    invoke-static/range {v2 .. v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap16(Lcom/android/server/tv/TvInputManagerService;Landroid/media/tv/ITvInputClient;Ljava/lang/String;Landroid/os/IBinder;Landroid/view/InputChannel;I)V
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
@@ -831,7 +832,7 @@
 
     return-void
 
-    :cond_4
+    :cond_3
     :try_start_7
     new-instance v4, Landroid/os/Binder;
 
@@ -877,7 +878,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_4
 
     move-object/from16 v0, p0
 
@@ -887,7 +888,7 @@
 
     move-result-object v5
 
-    invoke-static {v3, v5, v4, v11}, Lcom/android/server/tv/TvInputManagerService;->-wrap12(Lcom/android/server/tv/TvInputManagerService;Landroid/media/tv/ITvInputService;Landroid/os/IBinder;I)V
+    invoke-static {v3, v5, v4, v11}, Lcom/android/server/tv/TvInputManagerService;->-wrap11(Lcom/android/server/tv/TvInputManagerService;Landroid/media/tv/ITvInputService;Landroid/os/IBinder;I)V
     :try_end_7
     .catchall {:try_start_7 .. :try_end_7} :catchall_0
 
@@ -901,7 +902,7 @@
 
     return-void
 
-    :cond_5
+    :cond_4
     :try_start_9
     move-object/from16 v0, p0
 
@@ -911,7 +912,7 @@
 
     move-result-object v5
 
-    invoke-static {v3, v5, v11}, Lcom/android/server/tv/TvInputManagerService;->-wrap21(Lcom/android/server/tv/TvInputManagerService;Landroid/content/ComponentName;I)V
+    invoke-static {v3, v5, v11}, Lcom/android/server/tv/TvInputManagerService;->-wrap20(Lcom/android/server/tv/TvInputManagerService;Landroid/content/ComponentName;I)V
     :try_end_9
     .catchall {:try_start_9 .. :try_end_9} :catchall_0
 
@@ -950,7 +951,7 @@
 
     const-string/jumbo v8, "dispatchSurfaceChanged"
 
-    invoke-static {v6, v7, v0, p5, v8}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v6, v7, v0, p5, v8}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v4
 
@@ -972,13 +973,13 @@
     :try_start_1
     iget-object v6, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v6, p1, v0, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap5(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Lcom/android/server/tv/TvInputManagerService$SessionState;
+    invoke-static {v6, p1, v0, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap4(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Lcom/android/server/tv/TvInputManagerService$SessionState;
 
     move-result-object v5
 
     iget-object v6, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v6, v5}, Lcom/android/server/tv/TvInputManagerService;->-wrap2(Lcom/android/server/tv/TvInputManagerService;Lcom/android/server/tv/TvInputManagerService$SessionState;)Landroid/media/tv/ITvInputSession;
+    invoke-static {v6, v5}, Lcom/android/server/tv/TvInputManagerService;->-wrap1(Lcom/android/server/tv/TvInputManagerService;Lcom/android/server/tv/TvInputManagerService$SessionState;)Landroid/media/tv/ITvInputSession;
 
     move-result-object v6
 
@@ -998,7 +999,7 @@
 
     const/16 v9, 0x3e8
 
-    invoke-static {v6, v8, v9, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap1(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
+    invoke-static {v6, v8, v9, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap0(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
 
     move-result-object v6
 
@@ -1074,53 +1075,17 @@
 
     move-result-object v22
 
-    const-string/jumbo v23, "android.permission.DUMP"
-
-    invoke-virtual/range {v22 .. v23}, Landroid/content/Context;->checkCallingOrSelfPermission(Ljava/lang/String;)I
-
-    move-result v22
-
-    if-eqz v22, :cond_0
-
-    new-instance v22, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v23, "Permission Denial: can\'t dump TvInputManager from pid="
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v23
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    const-string/jumbo v23, ", uid="
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
-
-    move-result v23
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v22
+    const-string/jumbo v23, "TvInputManagerService"
 
     move-object/from16 v0, v22
 
-    invoke-virtual {v15, v0}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+    move-object/from16 v1, v23
+
+    invoke-static {v0, v1, v15}, Lcom/android/internal/util/DumpUtils;->checkDumpPermission(Landroid/content/Context;Ljava/lang/String;Ljava/io/PrintWriter;)Z
+
+    move-result v22
+
+    if-nez v22, :cond_0
 
     return-void
 
@@ -1289,7 +1254,7 @@
 
     move/from16 v1, v20
 
-    invoke-static {v0, v1}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
+    invoke-static {v0, v1}, Lcom/android/server/tv/TvInputManagerService;->-wrap5(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
 
     move-result-object v21
 
@@ -2542,7 +2507,7 @@
 
     const-string/jumbo v6, "getAvailableTvStreamConfigList"
 
-    invoke-static {v4, v5, v0, p2, v6}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v4, v5, v0, p2, v6}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v1
 
@@ -2595,7 +2560,7 @@
 
     const-string/jumbo v9, "getBlockedRatings"
 
-    invoke-static {v6, v7, v8, p1, v9}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v6, v7, v8, p1, v9}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v4
 
@@ -2617,7 +2582,7 @@
     :try_start_1
     iget-object v6, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v6, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
+    invoke-static {v6, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap5(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
 
     move-result-object v5
 
@@ -2683,7 +2648,7 @@
 .end method
 
 .method public getDvbDeviceList()Ljava/util/List;
-    .locals 12
+    .locals 25
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -2700,119 +2665,354 @@
         }
     .end annotation
 
-    const/4 v8, 0x0
+    move-object/from16 v0, p0
 
-    iget-object v9, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
+    iget-object v0, v0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v9}, Lcom/android/server/tv/TvInputManagerService;->-get0(Lcom/android/server/tv/TvInputManagerService;)Landroid/content/Context;
+    move-object/from16 v18, v0
 
-    move-result-object v9
+    invoke-static/range {v18 .. v18}, Lcom/android/server/tv/TvInputManagerService;->-get0(Lcom/android/server/tv/TvInputManagerService;)Landroid/content/Context;
 
-    const-string/jumbo v10, "android.permission.DVB_DEVICE"
+    move-result-object v18
 
-    invoke-virtual {v9, v10}, Landroid/content/Context;->checkCallingPermission(Ljava/lang/String;)I
+    const-string/jumbo v19, "android.permission.DVB_DEVICE"
 
-    move-result v9
+    invoke-virtual/range {v18 .. v19}, Landroid/content/Context;->checkCallingPermission(Ljava/lang/String;)I
 
-    if-eqz v9, :cond_0
+    move-result v18
 
-    new-instance v8, Ljava/lang/SecurityException;
+    if-eqz v18, :cond_0
 
-    const-string/jumbo v9, "Requires DVB_DEVICE permission"
+    new-instance v18, Ljava/lang/SecurityException;
 
-    invoke-direct {v8, v9}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+    const-string/jumbo v19, "Requires DVB_DEVICE permission"
 
-    throw v8
+    invoke-direct/range {v18 .. v19}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+
+    throw v18
 
     :cond_0
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v6
+    move-result-wide v16
 
     :try_start_0
-    new-instance v3, Ljava/util/ArrayList;
+    new-instance v7, Ljava/util/ArrayList;
 
-    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
 
-    new-instance v1, Ljava/io/File;
+    new-instance v5, Ljava/io/File;
 
-    const-string/jumbo v9, "/dev"
+    const-string/jumbo v18, "/dev"
 
-    invoke-direct {v1, v9}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    move-object/from16 v0, v18
 
-    invoke-virtual {v1}, Ljava/io/File;->list()[Ljava/lang/String;
+    invoke-direct {v5, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    move-result-object v9
+    const/4 v10, 0x0
 
-    array-length v10, v9
+    invoke-virtual {v5}, Ljava/io/File;->list()[Ljava/lang/String;
+
+    move-result-object v19
+
+    const/16 v18, 0x0
+
+    move-object/from16 v0, v19
+
+    array-length v0, v0
+
+    move/from16 v20, v0
 
     :goto_0
-    if-ge v8, v10, :cond_2
+    move/from16 v0, v18
 
-    aget-object v4, v9, v8
+    move/from16 v1, v20
 
-    invoke-static {}, Lcom/android/server/tv/TvInputManagerService;->-get6()Ljava/util/regex/Pattern;
+    if-ge v0, v1, :cond_3
 
-    move-result-object v11
+    aget-object v11, v19, v18
 
-    invoke-virtual {v11, v4}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
+    invoke-static {}, Lcom/android/server/tv/TvInputManagerService;->-get7()Ljava/util/regex/Pattern;
 
-    move-result-object v5
+    move-result-object v21
 
-    invoke-virtual {v5}, Ljava/util/regex/Matcher;->find()Z
+    move-object/from16 v0, v21
 
-    move-result v11
+    invoke-virtual {v0, v11}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
 
-    if-eqz v11, :cond_1
+    move-result-object v15
 
-    const/4 v11, 0x1
+    invoke-virtual {v15}, Ljava/util/regex/Matcher;->find()Z
 
-    invoke-virtual {v5, v11}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
+    move-result v21
 
-    move-result-object v11
+    if-eqz v21, :cond_1
 
-    invoke-static {v11}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    const/16 v21, 0x1
 
-    move-result v0
+    move/from16 v0, v21
 
-    const/4 v11, 0x2
+    invoke-virtual {v15, v0}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
 
-    invoke-virtual {v5, v11}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
+    move-result-object v21
 
-    move-result-object v11
+    invoke-static/range {v21 .. v21}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    invoke-static {v11}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    move-result v3
 
-    move-result v2
+    const/16 v21, 0x2
 
-    new-instance v11, Landroid/media/tv/DvbDeviceInfo;
+    move/from16 v0, v21
 
-    invoke-direct {v11, v0, v2}, Landroid/media/tv/DvbDeviceInfo;-><init>(II)V
+    invoke-virtual {v15, v0}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
 
-    invoke-virtual {v3, v11}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-result-object v21
+
+    invoke-static/range {v21 .. v21}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v6
+
+    new-instance v21, Landroid/media/tv/DvbDeviceInfo;
+
+    move-object/from16 v0, v21
+
+    invoke-direct {v0, v3, v6}, Landroid/media/tv/DvbDeviceInfo;-><init>(II)V
+
+    move-object/from16 v0, v21
+
+    invoke-virtual {v7, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     :cond_1
-    add-int/lit8 v8, v8, 0x1
+    const-string/jumbo v21, "dvb"
+
+    move-object/from16 v0, v21
+
+    invoke-static {v0, v11}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result v21
+
+    if-eqz v21, :cond_2
+
+    const/4 v10, 0x1
+
+    :cond_2
+    add-int/lit8 v18, v18, 0x1
 
     goto :goto_0
 
-    :cond_2
-    invoke-static {v3}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
+    :cond_3
+    if-nez v10, :cond_4
+
+    invoke-static {v7}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result-object v8
+    move-result-object v18
 
-    invoke-static {v6, v7}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static/range {v16 .. v17}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return-object v8
+    return-object v18
+
+    :cond_4
+    :try_start_1
+    new-instance v9, Ljava/io/File;
+
+    const-string/jumbo v18, "/dev/dvb"
+
+    move-object/from16 v0, v18
+
+    invoke-direct {v9, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    new-instance v8, Ljava/util/ArrayList;
+
+    invoke-direct {v8}, Ljava/util/ArrayList;-><init>()V
+
+    invoke-virtual {v9}, Ljava/io/File;->list()[Ljava/lang/String;
+
+    move-result-object v20
+
+    const/16 v18, 0x0
+
+    move-object/from16 v0, v20
+
+    array-length v0, v0
+
+    move/from16 v21, v0
+
+    move/from16 v19, v18
+
+    :goto_1
+    move/from16 v0, v19
+
+    move/from16 v1, v21
+
+    if-ge v0, v1, :cond_7
+
+    aget-object v13, v20, v19
+
+    invoke-static {}, Lcom/android/server/tv/TvInputManagerService;->-get6()Ljava/util/regex/Pattern;
+
+    move-result-object v18
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v13}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/util/regex/Matcher;->find()Z
+
+    move-result v18
+
+    if-eqz v18, :cond_6
+
+    const/16 v18, 0x1
+
+    move/from16 v0, v18
+
+    invoke-virtual {v4, v0}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
+
+    move-result-object v18
+
+    invoke-static/range {v18 .. v18}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v3
+
+    new-instance v2, Ljava/io/File;
+
+    new-instance v18, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v22, "/dev/dvb/"
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v22
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v18
+
+    move-object/from16 v0, v18
+
+    invoke-direct {v2, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v2}, Ljava/io/File;->list()[Ljava/lang/String;
+
+    move-result-object v22
+
+    const/16 v18, 0x0
+
+    move-object/from16 v0, v22
+
+    array-length v0, v0
+
+    move/from16 v23, v0
+
+    :goto_2
+    move/from16 v0, v18
+
+    move/from16 v1, v23
+
+    if-ge v0, v1, :cond_6
+
+    aget-object v12, v22, v18
+
+    invoke-static {}, Lcom/android/server/tv/TvInputManagerService;->-get8()Ljava/util/regex/Pattern;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    invoke-virtual {v0, v12}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Ljava/util/regex/Matcher;->find()Z
+
+    move-result v24
+
+    if-eqz v24, :cond_5
+
+    const/16 v24, 0x1
+
+    move/from16 v0, v24
+
+    invoke-virtual {v14, v0}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
+
+    move-result-object v24
+
+    invoke-static/range {v24 .. v24}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v6
+
+    new-instance v24, Landroid/media/tv/DvbDeviceInfo;
+
+    move-object/from16 v0, v24
+
+    invoke-direct {v0, v3, v6}, Landroid/media/tv/DvbDeviceInfo;-><init>(II)V
+
+    move-object/from16 v0, v24
+
+    invoke-virtual {v8, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :cond_5
+    add-int/lit8 v18, v18, 0x1
+
+    goto :goto_2
+
+    :cond_6
+    add-int/lit8 v18, v19, 0x1
+
+    move/from16 v19, v18
+
+    goto/16 :goto_1
+
+    :cond_7
+    invoke-virtual {v8}, Ljava/util/ArrayList;->isEmpty()Z
+
+    move-result v18
+
+    if-eqz v18, :cond_8
+
+    invoke-static {v7}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    move-result-object v18
+
+    :goto_3
+    invoke-static/range {v16 .. v17}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return-object v18
+
+    :cond_8
+    :try_start_2
+    invoke-static {v8}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    move-result-object v18
+
+    goto :goto_3
 
     :catchall_0
-    move-exception v8
+    move-exception v18
 
-    invoke-static {v6, v7}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static/range {v16 .. v17}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v8
+    throw v18
 .end method
 
 .method public getHardwareList()Ljava/util/List;
@@ -2905,7 +3105,7 @@
 
     const-string/jumbo v7, "getTvContentRatingSystemList"
 
-    invoke-static {v4, v5, v6, p1, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v4, v5, v6, p1, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v2
 
@@ -2927,7 +3127,7 @@
     :try_start_1
     iget-object v4, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v4, v2}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
+    invoke-static {v4, v2}, Lcom/android/server/tv/TvInputManagerService;->-wrap5(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
 
     move-result-object v3
 
@@ -2981,7 +3181,7 @@
 
     const-string/jumbo v9, "getTvInputInfo"
 
-    invoke-static {v6, v7, v8, p2, v9}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v6, v7, v8, p2, v9}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v2
 
@@ -3003,7 +3203,7 @@
     :try_start_1
     iget-object v7, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v7, v2}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
+    invoke-static {v7, v2}, Lcom/android/server/tv/TvInputManagerService;->-wrap5(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
 
     move-result-object v4
 
@@ -3083,7 +3283,7 @@
 
     const-string/jumbo v10, "getTvInputList"
 
-    invoke-static {v7, v8, v9, p1, v10}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v7, v8, v9, p1, v10}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v3
 
@@ -3105,7 +3305,7 @@
     :try_start_1
     iget-object v7, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v7, v3}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
+    invoke-static {v7, v3}, Lcom/android/server/tv/TvInputManagerService;->-wrap5(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
 
     move-result-object v6
 
@@ -3191,7 +3391,7 @@
 
     const-string/jumbo v8, "getTvInputState"
 
-    invoke-static {v5, v6, v7, p2, v8}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v5, v6, v7, p2, v8}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v2
 
@@ -3213,7 +3413,7 @@
     :try_start_1
     iget-object v5, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v5, v2}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
+    invoke-static {v5, v2}, Lcom/android/server/tv/TvInputManagerService;->-wrap5(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
 
     move-result-object v4
 
@@ -3286,7 +3486,7 @@
 
     const-string/jumbo v7, "isParentalControlsEnabled"
 
-    invoke-static {v4, v5, v6, p1, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v4, v5, v6, p1, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v2
 
@@ -3308,7 +3508,7 @@
     :try_start_1
     iget-object v4, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v4, v2}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
+    invoke-static {v4, v2}, Lcom/android/server/tv/TvInputManagerService;->-wrap5(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
 
     move-result-object v3
 
@@ -3364,7 +3564,7 @@
 
     const-string/jumbo v7, "isRatingBlocked"
 
-    invoke-static {v4, v5, v6, p2, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v4, v5, v6, p2, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v2
 
@@ -3386,7 +3586,7 @@
     :try_start_1
     iget-object v4, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v4, v2}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
+    invoke-static {v4, v2}, Lcom/android/server/tv/TvInputManagerService;->-wrap5(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
 
     move-result-object v3
 
@@ -3461,7 +3661,7 @@
 
     const-string/jumbo v8, "isSingleSessionActive"
 
-    invoke-static {v6, v7, v0, p1, v8}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v6, v7, v0, p1, v8}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v1
 
@@ -3479,7 +3679,7 @@
     :try_start_1
     iget-object v6, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v6, v1}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
+    invoke-static {v6, v1}, Lcom/android/server/tv/TvInputManagerService;->-wrap5(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
 
     move-result-object v5
 
@@ -3595,228 +3795,457 @@
 .end method
 
 .method public openDvbDevice(Landroid/media/tv/DvbDeviceInfo;I)Landroid/os/ParcelFileDescriptor;
-    .locals 9
+    .locals 25
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v8, 0x2
+    move-object/from16 v0, p0
 
-    iget-object v4, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
+    iget-object v13, v0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v4}, Lcom/android/server/tv/TvInputManagerService;->-get0(Lcom/android/server/tv/TvInputManagerService;)Landroid/content/Context;
+    invoke-static {v13}, Lcom/android/server/tv/TvInputManagerService;->-get0(Lcom/android/server/tv/TvInputManagerService;)Landroid/content/Context;
 
-    move-result-object v4
+    move-result-object v13
 
-    const-string/jumbo v5, "android.permission.DVB_DEVICE"
+    const-string/jumbo v16, "android.permission.DVB_DEVICE"
 
-    invoke-virtual {v4, v5}, Landroid/content/Context;->checkCallingPermission(Ljava/lang/String;)I
+    move-object/from16 v0, v16
 
-    move-result v4
+    invoke-virtual {v13, v0}, Landroid/content/Context;->checkCallingPermission(Ljava/lang/String;)I
 
-    if-eqz v4, :cond_0
+    move-result v13
 
-    new-instance v4, Ljava/lang/SecurityException;
+    if-eqz v13, :cond_0
 
-    const-string/jumbo v5, "Requires DVB_DEVICE permission"
+    new-instance v13, Ljava/lang/SecurityException;
 
-    invoke-direct {v4, v5}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+    const-string/jumbo v16, "Requires DVB_DEVICE permission"
 
-    throw v4
+    move-object/from16 v0, v16
+
+    invoke-direct {v13, v0}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+
+    throw v13
 
     :cond_0
+    new-instance v4, Ljava/io/File;
+
+    const-string/jumbo v13, "/dev"
+
+    invoke-direct {v4, v13}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    const/4 v6, 0x0
+
+    invoke-virtual {v4}, Ljava/io/File;->list()[Ljava/lang/String;
+
+    move-result-object v18
+
+    const/4 v13, 0x0
+
+    move-object/from16 v0, v18
+
+    array-length v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v17, v13
+
+    :goto_0
+    move/from16 v0, v17
+
+    move/from16 v1, v19
+
+    if-ge v0, v1, :cond_3
+
+    aget-object v9, v18, v17
+
+    const-string/jumbo v13, "dvb"
+
+    invoke-static {v13, v9}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result v13
+
+    if-eqz v13, :cond_2
+
+    new-instance v7, Ljava/io/File;
+
+    const-string/jumbo v13, "/dev/dvb"
+
+    invoke-direct {v7, v13}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v7}, Ljava/io/File;->list()[Ljava/lang/String;
+
+    move-result-object v20
+
+    const/4 v13, 0x0
+
+    move-object/from16 v0, v20
+
+    array-length v0, v0
+
+    move/from16 v21, v0
+
+    move/from16 v16, v13
+
+    :goto_1
+    move/from16 v0, v16
+
+    move/from16 v1, v21
+
+    if-ge v0, v1, :cond_2
+
+    aget-object v11, v20, v16
+
+    invoke-static {}, Lcom/android/server/tv/TvInputManagerService;->-get6()Ljava/util/regex/Pattern;
+
+    move-result-object v13
+
+    invoke-virtual {v13, v11}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/util/regex/Matcher;->find()Z
+
+    move-result v13
+
+    if-eqz v13, :cond_1
+
+    new-instance v2, Ljava/io/File;
+
+    new-instance v13, Ljava/lang/StringBuilder;
+
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v22, "/dev/dvb/"
+
+    move-object/from16 v0, v22
+
+    invoke-virtual {v13, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-direct {v2, v13}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v2}, Ljava/io/File;->list()[Ljava/lang/String;
+
+    move-result-object v22
+
+    const/4 v13, 0x0
+
+    move-object/from16 v0, v22
+
+    array-length v0, v0
+
+    move/from16 v23, v0
+
+    :goto_2
+    move/from16 v0, v23
+
+    if-ge v13, v0, :cond_1
+
+    aget-object v10, v22, v13
+
+    invoke-static {}, Lcom/android/server/tv/TvInputManagerService;->-get8()Ljava/util/regex/Pattern;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    invoke-virtual {v0, v10}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Ljava/util/regex/Matcher;->find()Z
+
+    move-result v24
+
+    if-eqz v24, :cond_4
+
+    const/4 v6, 0x1
+
+    :cond_1
+    if-eqz v6, :cond_5
+
+    :cond_2
+    if-eqz v6, :cond_6
+
+    :cond_3
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v2
+    move-result-wide v14
 
     packed-switch p2, :pswitch_data_0
 
     :try_start_0
-    new-instance v4, Ljava/lang/IllegalArgumentException;
+    new-instance v13, Ljava/lang/IllegalArgumentException;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v16, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "Invalid DVB device: "
+    const-string/jumbo v17, "Invalid DVB device: "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v16
 
-    invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v16
 
-    move-result-object v5
+    move/from16 v1, p2
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v16
 
-    invoke-direct {v4, v5}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw v4
+    move-result-object v16
+
+    move-object/from16 v0, v16
+
+    invoke-direct {v13, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v13
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :catchall_0
-    move-exception v4
+    move-exception v13
 
-    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v4
+    throw v13
+
+    :cond_4
+    add-int/lit8 v13, v13, 0x1
+
+    goto :goto_2
+
+    :cond_5
+    add-int/lit8 v13, v16, 0x1
+
+    move/from16 v16, v13
+
+    goto/16 :goto_1
+
+    :cond_6
+    add-int/lit8 v13, v17, 0x1
+
+    move/from16 v17, v13
+
+    goto/16 :goto_0
 
     :pswitch_0
+    if-eqz v6, :cond_7
+
     :try_start_1
-    const-string/jumbo v4, "/dev/dvb%d.demux%d"
+    const-string/jumbo v13, "/dev/dvb/adapter%d/demux%d"
 
-    const/4 v5, 0x2
+    :goto_3
+    const/16 v16, 0x2
 
-    new-array v5, v5, [Ljava/lang/Object;
+    move/from16 v0, v16
 
-    invoke-virtual {p1}, Landroid/media/tv/DvbDeviceInfo;->getAdapterId()I
+    new-array v0, v0, [Ljava/lang/Object;
 
-    move-result v6
+    move-object/from16 v16, v0
 
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-virtual/range {p1 .. p1}, Landroid/media/tv/DvbDeviceInfo;->getAdapterId()I
 
-    move-result-object v6
+    move-result v17
 
-    const/4 v7, 0x0
+    invoke-static/range {v17 .. v17}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    aput-object v6, v5, v7
+    move-result-object v17
 
-    invoke-virtual {p1}, Landroid/media/tv/DvbDeviceInfo;->getDeviceId()I
+    const/16 v18, 0x0
 
-    move-result v6
+    aput-object v17, v16, v18
 
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-virtual/range {p1 .. p1}, Landroid/media/tv/DvbDeviceInfo;->getDeviceId()I
 
-    move-result-object v6
+    move-result v17
 
-    const/4 v7, 0x1
+    invoke-static/range {v17 .. v17}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    aput-object v6, v5, v7
+    move-result-object v17
 
-    invoke-static {v4, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    const/16 v18, 0x1
+
+    aput-object v17, v16, v18
+
+    move-object/from16 v0, v16
+
+    invoke-static {v13, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    move-result-object v0
+    move-result-object v5
 
-    :goto_0
+    :goto_4
     :try_start_2
-    new-instance v5, Ljava/io/File;
+    new-instance v16, Ljava/io/File;
 
-    invoke-direct {v5, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    move-object/from16 v0, v16
 
-    if-ne v8, p2, :cond_1
+    invoke-direct {v0, v5}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    const/high16 v4, 0x30000000
+    const/4 v13, 0x2
 
-    :goto_1
-    invoke-static {v5, v4}, Landroid/os/ParcelFileDescriptor;->open(Ljava/io/File;I)Landroid/os/ParcelFileDescriptor;
+    move/from16 v0, p2
+
+    if-ne v13, v0, :cond_a
+
+    const/high16 v13, 0x30000000
+
+    :goto_5
+    move-object/from16 v0, v16
+
+    invoke-static {v0, v13}, Landroid/os/ParcelFileDescriptor;->open(Ljava/io/File;I)Landroid/os/ParcelFileDescriptor;
     :try_end_2
     .catch Ljava/io/FileNotFoundException; {:try_start_2 .. :try_end_2} :catch_0
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    move-result-object v4
+    move-result-object v13
 
-    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return-object v4
+    return-object v13
+
+    :cond_7
+    :try_start_3
+    const-string/jumbo v13, "/dev/dvb%d.demux%d"
+
+    goto :goto_3
 
     :pswitch_1
-    :try_start_3
-    const-string/jumbo v4, "/dev/dvb%d.dvr%d"
+    if-eqz v6, :cond_8
 
-    const/4 v5, 0x2
+    const-string/jumbo v13, "/dev/dvb/adapter%d/dvr%d"
 
-    new-array v5, v5, [Ljava/lang/Object;
+    :goto_6
+    const/16 v16, 0x2
 
-    invoke-virtual {p1}, Landroid/media/tv/DvbDeviceInfo;->getAdapterId()I
+    move/from16 v0, v16
 
-    move-result v6
+    new-array v0, v0, [Ljava/lang/Object;
 
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-object/from16 v16, v0
 
-    move-result-object v6
+    invoke-virtual/range {p1 .. p1}, Landroid/media/tv/DvbDeviceInfo;->getAdapterId()I
 
-    const/4 v7, 0x0
+    move-result v17
 
-    aput-object v6, v5, v7
+    invoke-static/range {v17 .. v17}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-virtual {p1}, Landroid/media/tv/DvbDeviceInfo;->getDeviceId()I
+    move-result-object v17
 
-    move-result v6
+    const/16 v18, 0x0
 
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    aput-object v17, v16, v18
 
-    move-result-object v6
+    invoke-virtual/range {p1 .. p1}, Landroid/media/tv/DvbDeviceInfo;->getDeviceId()I
 
-    const/4 v7, 0x1
+    move-result v17
 
-    aput-object v6, v5, v7
+    invoke-static/range {v17 .. v17}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v4, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v17
 
-    move-result-object v0
+    const/16 v18, 0x1
 
-    goto :goto_0
+    aput-object v17, v16, v18
+
+    move-object/from16 v0, v16
+
+    invoke-static {v13, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v5
+
+    goto :goto_4
+
+    :cond_8
+    const-string/jumbo v13, "/dev/dvb%d.dvr%d"
+
+    goto :goto_6
 
     :pswitch_2
-    const-string/jumbo v4, "/dev/dvb%d.frontend%d"
+    if-eqz v6, :cond_9
 
-    const/4 v5, 0x2
+    const-string/jumbo v13, "/dev/dvb/adapter%d/frontend%d"
 
-    new-array v5, v5, [Ljava/lang/Object;
+    :goto_7
+    const/16 v16, 0x2
 
-    invoke-virtual {p1}, Landroid/media/tv/DvbDeviceInfo;->getAdapterId()I
+    move/from16 v0, v16
 
-    move-result v6
+    new-array v0, v0, [Ljava/lang/Object;
 
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-object/from16 v16, v0
 
-    move-result-object v6
+    invoke-virtual/range {p1 .. p1}, Landroid/media/tv/DvbDeviceInfo;->getAdapterId()I
 
-    const/4 v7, 0x0
+    move-result v17
 
-    aput-object v6, v5, v7
+    invoke-static/range {v17 .. v17}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-virtual {p1}, Landroid/media/tv/DvbDeviceInfo;->getDeviceId()I
+    move-result-object v17
 
-    move-result v6
+    const/16 v18, 0x0
 
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    aput-object v17, v16, v18
 
-    move-result-object v6
+    invoke-virtual/range {p1 .. p1}, Landroid/media/tv/DvbDeviceInfo;->getDeviceId()I
 
-    const/4 v7, 0x1
+    move-result v17
 
-    aput-object v6, v5, v7
+    invoke-static/range {v17 .. v17}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v4, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v17
+
+    const/16 v18, 0x1
+
+    aput-object v17, v16, v18
+
+    move-object/from16 v0, v16
+
+    invoke-static {v13, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v5
+
+    goto :goto_4
+
+    :cond_9
+    const-string/jumbo v13, "/dev/dvb%d.frontend%d"
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    move-result-object v0
+    goto :goto_7
 
-    goto :goto_0
+    :cond_a
+    const/high16 v13, 0x10000000
 
-    :cond_1
-    const/high16 v4, 0x10000000
-
-    goto :goto_1
+    goto :goto_5
 
     :catch_0
-    move-exception v1
+    move-exception v8
 
-    const/4 v4, 0x0
+    const/4 v13, 0x0
 
-    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return-object v4
+    return-object v13
 
     nop
 
@@ -3843,7 +4272,7 @@
 
     const-string/jumbo v8, "registerCallback"
 
-    invoke-static {v5, v6, v7, p2, v8}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v5, v6, v7, p2, v8}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v1
 
@@ -3865,7 +4294,7 @@
     :try_start_1
     iget-object v5, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v5, v1}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
+    invoke-static {v5, v1}, Lcom/android/server/tv/TvInputManagerService;->-wrap5(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
 
     move-result-object v4
 
@@ -3950,7 +4379,7 @@
 
     const-string/jumbo v7, "relayoutOverlayView"
 
-    invoke-static {v5, v6, v0, p3, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v5, v6, v0, p3, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v4
 
@@ -3972,7 +4401,7 @@
     :try_start_1
     iget-object v5, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v5, p1, v0, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap1(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
+    invoke-static {v5, p1, v0, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap0(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
 
     move-result-object v5
 
@@ -4039,7 +4468,7 @@
 
     const-string/jumbo v6, "releaseSession"
 
-    invoke-static {v4, v5, v0, p2, v6}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v4, v5, v0, p2, v6}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v1
 
@@ -4061,7 +4490,7 @@
     :try_start_1
     iget-object v4, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v4, p1, v0, v1}, Lcom/android/server/tv/TvInputManagerService;->-wrap14(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)V
+    invoke-static {v4, p1, v0, v1}, Lcom/android/server/tv/TvInputManagerService;->-wrap13(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -4133,7 +4562,7 @@
 
     const-string/jumbo v6, "releaseTvInputHardware"
 
-    invoke-static {v4, v5, v0, p3, v6}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v4, v5, v0, p3, v6}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v1
 
@@ -4177,7 +4606,7 @@
 
     const-string/jumbo v7, "removeBlockedRating"
 
-    invoke-static {v4, v5, v6, p2, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v4, v5, v6, p2, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v2
 
@@ -4199,7 +4628,7 @@
     :try_start_1
     iget-object v4, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v4, v2}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
+    invoke-static {v4, v2}, Lcom/android/server/tv/TvInputManagerService;->-wrap5(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
 
     move-result-object v3
 
@@ -4257,7 +4686,7 @@
 
     const-string/jumbo v7, "removeOverlayView"
 
-    invoke-static {v5, v6, v0, p2, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v5, v6, v0, p2, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v4
 
@@ -4279,7 +4708,7 @@
     :try_start_1
     iget-object v5, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v5, p1, v0, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap1(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
+    invoke-static {v5, p1, v0, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap0(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
 
     move-result-object v5
 
@@ -4331,6 +4760,135 @@
     throw v5
 .end method
 
+.method public requestChannelBrowsable(Landroid/net/Uri;I)V
+    .locals 16
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/tv/TvInputManagerService$BinderService;->getCallingPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v4
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v3
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
+
+    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+
+    move-result v13
+
+    const-string/jumbo v14, "requestChannelBrowsable"
+
+    move/from16 v0, p2
+
+    invoke-static {v12, v13, v3, v0, v14}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+
+    move-result v11
+
+    :try_start_0
+    new-instance v8, Landroid/content/Intent;
+
+    const-string/jumbo v12, "android.media.tv.action.CHANNEL_BROWSABLE_REQUESTED"
+
+    invoke-direct {v8, v12}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
+
+    invoke-virtual {v12}, Lcom/android/server/tv/TvInputManagerService;->getContext()Landroid/content/Context;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v12
+
+    const/4 v13, 0x0
+
+    invoke-virtual {v12, v8, v13}, Landroid/content/pm/PackageManager;->queryBroadcastReceivers(Landroid/content/Intent;I)Ljava/util/List;
+
+    move-result-object v9
+
+    if-eqz v9, :cond_0
+
+    invoke-interface {v9}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v7
+
+    :goto_0
+    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v12
+
+    if-eqz v12, :cond_0
+
+    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/content/pm/ResolveInfo;
+
+    iget-object v12, v6, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-object v10, v12, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+
+    const-string/jumbo v12, "android.media.tv.extra.CHANNEL_ID"
+
+    invoke-static/range {p1 .. p1}, Landroid/content/ContentUris;->parseId(Landroid/net/Uri;)J
+
+    move-result-wide v14
+
+    invoke-virtual {v8, v12, v14, v15}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
+
+    const-string/jumbo v12, "android.media.tv.extra.PACKAGE_NAME"
+
+    invoke-virtual {v8, v12, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    invoke-virtual {v8, v10}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
+
+    invoke-virtual {v12}, Lcom/android/server/tv/TvInputManagerService;->getContext()Landroid/content/Context;
+
+    move-result-object v12
+
+    new-instance v13, Landroid/os/UserHandle;
+
+    invoke-direct {v13, v11}, Landroid/os/UserHandle;-><init>(I)V
+
+    invoke-virtual {v12, v8, v13}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v12
+
+    invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v12
+
+    :cond_0
+    invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return-void
+.end method
+
 .method public selectTrack(Landroid/os/IBinder;ILjava/lang/String;I)V
     .locals 8
 
@@ -4346,7 +4904,7 @@
 
     const-string/jumbo v7, "selectTrack"
 
-    invoke-static {v5, v6, v0, p4, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v5, v6, v0, p4, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v4
 
@@ -4368,7 +4926,7 @@
     :try_start_1
     iget-object v5, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v5, p1, v0, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap1(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
+    invoke-static {v5, p1, v0, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap0(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
 
     move-result-object v5
 
@@ -4435,7 +4993,7 @@
 
     const-string/jumbo v7, "sendAppPrivateCommand"
 
-    invoke-static {v5, v6, v0, p4, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v5, v6, v0, p4, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v4
 
@@ -4457,7 +5015,7 @@
     :try_start_1
     iget-object v5, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v5, p1, v0, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap1(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
+    invoke-static {v5, p1, v0, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap0(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
 
     move-result-object v5
 
@@ -4509,6 +5067,267 @@
     throw v5
 .end method
 
+.method public sendTvInputNotifyIntent(Landroid/content/Intent;I)V
+    .locals 10
+
+    const-wide/16 v8, 0x0
+
+    const-wide/16 v6, -0x1
+
+    iget-object v3, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
+
+    invoke-static {v3}, Lcom/android/server/tv/TvInputManagerService;->-get0(Lcom/android/server/tv/TvInputManagerService;)Landroid/content/Context;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "android.permission.NOTIFY_TV_INPUTS"
+
+    invoke-virtual {v3, v4}, Landroid/content/Context;->checkCallingPermission(Ljava/lang/String;)I
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    new-instance v3, Ljava/lang/SecurityException;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "The caller: "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-direct {p0}, Lcom/android/server/tv/TvInputManagerService$BinderService;->getCallingPackageName()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, " doesn\'t have permission: "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, "android.permission.NOTIFY_TV_INPUTS"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-direct {v3, v4}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+
+    throw v3
+
+    :cond_0
+    invoke-virtual {p1}, Landroid/content/Intent;->getPackage()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    new-instance v3, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v4, "Must specify package name to notify."
+
+    invoke-direct {v3, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v3
+
+    :cond_1
+    invoke-virtual {p1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "android.media.tv.action.PREVIEW_PROGRAM_BROWSABLE_DISABLED"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    const-string/jumbo v3, "android.media.tv.extra.PREVIEW_PROGRAM_ID"
+
+    invoke-virtual {p1, v3, v6, v7}, Landroid/content/Intent;->getLongExtra(Ljava/lang/String;J)J
+
+    move-result-wide v4
+
+    cmp-long v3, v4, v8
+
+    if-gez v3, :cond_6
+
+    new-instance v3, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v4, "Invalid preview program ID."
+
+    invoke-direct {v3, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v3
+
+    :cond_2
+    const-string/jumbo v4, "android.media.tv.action.WATCH_NEXT_PROGRAM_BROWSABLE_DISABLED"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_3
+
+    const-string/jumbo v3, "android.media.tv.extra.WATCH_NEXT_PROGRAM_ID"
+
+    invoke-virtual {p1, v3, v6, v7}, Landroid/content/Intent;->getLongExtra(Ljava/lang/String;J)J
+
+    move-result-wide v4
+
+    cmp-long v3, v4, v8
+
+    if-gez v3, :cond_6
+
+    new-instance v3, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v4, "Invalid watch next program ID."
+
+    invoke-direct {v3, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v3
+
+    :cond_3
+    const-string/jumbo v4, "android.media.tv.action.PREVIEW_PROGRAM_ADDED_TO_WATCH_NEXT"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_5
+
+    const-string/jumbo v3, "android.media.tv.extra.PREVIEW_PROGRAM_ID"
+
+    invoke-virtual {p1, v3, v6, v7}, Landroid/content/Intent;->getLongExtra(Ljava/lang/String;J)J
+
+    move-result-wide v4
+
+    cmp-long v3, v4, v8
+
+    if-gez v3, :cond_4
+
+    new-instance v3, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v4, "Invalid preview program ID."
+
+    invoke-direct {v3, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v3
+
+    :cond_4
+    const-string/jumbo v3, "android.media.tv.extra.WATCH_NEXT_PROGRAM_ID"
+
+    invoke-virtual {p1, v3, v6, v7}, Landroid/content/Intent;->getLongExtra(Ljava/lang/String;J)J
+
+    move-result-wide v4
+
+    cmp-long v3, v4, v8
+
+    if-gez v3, :cond_6
+
+    new-instance v3, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v4, "Invalid watch next program ID."
+
+    invoke-direct {v3, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v3
+
+    :cond_5
+    new-instance v3, Ljava/lang/IllegalArgumentException;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "Invalid TV input notifying action: "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {p1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-direct {v3, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v3
+
+    :cond_6
+    iget-object v3, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
+
+    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+
+    move-result v4
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v5
+
+    const-string/jumbo v6, "sendTvInputNotifyIntent"
+
+    invoke-static {v3, v4, v5, p2, v6}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+
+    move-result v2
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v0
+
+    :try_start_0
+    iget-object v3, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
+
+    invoke-virtual {v3}, Lcom/android/server/tv/TvInputManagerService;->getContext()Landroid/content/Context;
+
+    move-result-object v3
+
+    new-instance v4, Landroid/os/UserHandle;
+
+    invoke-direct {v4, v2}, Landroid/os/UserHandle;-><init>(I)V
+
+    invoke-virtual {v3, p1, v4}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return-void
+
+    :catchall_0
+    move-exception v3
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v3
+.end method
+
 .method public setCaptionEnabled(Landroid/os/IBinder;ZI)V
     .locals 8
 
@@ -4524,7 +5343,7 @@
 
     const-string/jumbo v7, "setCaptionEnabled"
 
-    invoke-static {v5, v6, v0, p3, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v5, v6, v0, p3, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v4
 
@@ -4546,7 +5365,7 @@
     :try_start_1
     iget-object v5, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v5, p1, v0, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap1(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
+    invoke-static {v5, p1, v0, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap0(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
 
     move-result-object v5
 
@@ -4613,7 +5432,7 @@
 
     const-string/jumbo v8, "setMainSession"
 
-    invoke-static {v6, v7, v0, p2, v8}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v6, v7, v0, p2, v8}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v4
 
@@ -4635,7 +5454,7 @@
     :try_start_1
     iget-object v6, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v6, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
+    invoke-static {v6, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap5(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
 
     move-result-object v5
 
@@ -4670,7 +5489,7 @@
 
     const/4 v8, 0x1
 
-    invoke-static {v6, p1, v8, v0, p2}, Lcom/android/server/tv/TvInputManagerService;->-wrap18(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;ZII)V
+    invoke-static {v6, p1, v8, v0, p2}, Lcom/android/server/tv/TvInputManagerService;->-wrap17(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;ZII)V
 
     :cond_1
     if-eqz v1, :cond_2
@@ -4681,7 +5500,7 @@
 
     const/16 v9, 0x3e8
 
-    invoke-static {v6, v1, v8, v9, p2}, Lcom/android/server/tv/TvInputManagerService;->-wrap18(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;ZII)V
+    invoke-static {v6, v1, v8, v9, p2}, Lcom/android/server/tv/TvInputManagerService;->-wrap17(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;ZII)V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
@@ -4730,7 +5549,7 @@
 
     const-string/jumbo v7, "setParentalControlsEnabled"
 
-    invoke-static {v4, v5, v6, p2, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v4, v5, v6, p2, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v2
 
@@ -4752,7 +5571,7 @@
     :try_start_1
     iget-object v4, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v4, v2}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
+    invoke-static {v4, v2}, Lcom/android/server/tv/TvInputManagerService;->-wrap5(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
 
     move-result-object v3
 
@@ -4806,7 +5625,7 @@
 
     const-string/jumbo v8, "setSurface"
 
-    invoke-static {v6, v7, v0, p3, v8}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v6, v7, v0, p3, v8}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v4
 
@@ -4828,7 +5647,7 @@
     :try_start_1
     iget-object v6, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v6, p1, v0, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap5(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Lcom/android/server/tv/TvInputManagerService$SessionState;
+    invoke-static {v6, p1, v0, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap4(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Lcom/android/server/tv/TvInputManagerService$SessionState;
 
     move-result-object v5
 
@@ -4840,7 +5659,7 @@
 
     iget-object v6, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v6, v5}, Lcom/android/server/tv/TvInputManagerService;->-wrap2(Lcom/android/server/tv/TvInputManagerService;Lcom/android/server/tv/TvInputManagerService$SessionState;)Landroid/media/tv/ITvInputSession;
+    invoke-static {v6, v5}, Lcom/android/server/tv/TvInputManagerService;->-wrap1(Lcom/android/server/tv/TvInputManagerService;Lcom/android/server/tv/TvInputManagerService$SessionState;)Landroid/media/tv/ITvInputSession;
 
     move-result-object v6
 
@@ -4875,7 +5694,7 @@
 
     const/16 v9, 0x3e8
 
-    invoke-static {v6, v8, v9, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap1(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
+    invoke-static {v6, v8, v9, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap0(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
 
     move-result-object v6
 
@@ -4943,7 +5762,7 @@
 
     const-string/jumbo v10, "setVolume"
 
-    invoke-static {v8, v9, v2, p3, v10}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v8, v9, v2, p3, v10}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v6
 
@@ -4965,13 +5784,13 @@
     :try_start_1
     iget-object v8, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v8, p1, v2, v6}, Lcom/android/server/tv/TvInputManagerService;->-wrap5(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Lcom/android/server/tv/TvInputManagerService$SessionState;
+    invoke-static {v8, p1, v2, v6}, Lcom/android/server/tv/TvInputManagerService;->-wrap4(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Lcom/android/server/tv/TvInputManagerService$SessionState;
 
     move-result-object v7
 
     iget-object v8, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v8, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap2(Lcom/android/server/tv/TvInputManagerService;Lcom/android/server/tv/TvInputManagerService$SessionState;)Landroid/media/tv/ITvInputSession;
+    invoke-static {v8, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap1(Lcom/android/server/tv/TvInputManagerService;Lcom/android/server/tv/TvInputManagerService$SessionState;)Landroid/media/tv/ITvInputSession;
 
     move-result-object v8
 
@@ -4991,7 +5810,7 @@
 
     const/16 v11, 0x3e8
 
-    invoke-static {v8, v10, v11, v6}, Lcom/android/server/tv/TvInputManagerService;->-wrap1(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
+    invoke-static {v8, v10, v11, v6}, Lcom/android/server/tv/TvInputManagerService;->-wrap0(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
 
     move-result-object v10
 
@@ -5073,7 +5892,7 @@
 
     const-string/jumbo v7, "startRecording"
 
-    invoke-static {v5, v6, v0, p3, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v5, v6, v0, p3, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v4
 
@@ -5095,7 +5914,7 @@
     :try_start_1
     iget-object v5, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v5, p1, v0, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap1(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
+    invoke-static {v5, p1, v0, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap0(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
 
     move-result-object v5
 
@@ -5162,7 +5981,7 @@
 
     const-string/jumbo v7, "stopRecording"
 
-    invoke-static {v5, v6, v0, p2, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v5, v6, v0, p2, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v4
 
@@ -5184,7 +6003,7 @@
     :try_start_1
     iget-object v5, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v5, p1, v0, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap1(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
+    invoke-static {v5, p1, v0, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap0(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
 
     move-result-object v5
 
@@ -5251,7 +6070,7 @@
 
     const-string/jumbo v7, "timeShiftEnablePositionTracking"
 
-    invoke-static {v5, v6, v0, p3, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v5, v6, v0, p3, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v4
 
@@ -5273,7 +6092,7 @@
     :try_start_1
     iget-object v5, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v5, p1, v0, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap1(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
+    invoke-static {v5, p1, v0, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap0(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
 
     move-result-object v5
 
@@ -5340,7 +6159,7 @@
 
     const-string/jumbo v7, "timeShiftPause"
 
-    invoke-static {v5, v6, v0, p2, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v5, v6, v0, p2, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v4
 
@@ -5362,7 +6181,7 @@
     :try_start_1
     iget-object v5, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v5, p1, v0, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap1(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
+    invoke-static {v5, p1, v0, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap0(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
 
     move-result-object v5
 
@@ -5429,7 +6248,7 @@
 
     const-string/jumbo v7, "timeShiftPlay"
 
-    invoke-static {v5, v6, v0, p3, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v5, v6, v0, p3, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v4
 
@@ -5451,7 +6270,7 @@
     :try_start_1
     iget-object v5, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v5, p1, v0, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap1(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
+    invoke-static {v5, p1, v0, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap0(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
 
     move-result-object v5
 
@@ -5518,7 +6337,7 @@
 
     const-string/jumbo v7, "timeShiftResume"
 
-    invoke-static {v5, v6, v0, p2, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v5, v6, v0, p2, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v4
 
@@ -5540,7 +6359,7 @@
     :try_start_1
     iget-object v5, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v5, p1, v0, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap1(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
+    invoke-static {v5, p1, v0, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap0(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
 
     move-result-object v5
 
@@ -5607,7 +6426,7 @@
 
     const-string/jumbo v7, "timeShiftSeekTo"
 
-    invoke-static {v5, v6, v0, p4, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v5, v6, v0, p4, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v4
 
@@ -5629,7 +6448,7 @@
     :try_start_1
     iget-object v5, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v5, p1, v0, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap1(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
+    invoke-static {v5, p1, v0, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap0(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
 
     move-result-object v5
 
@@ -5696,7 +6515,7 @@
 
     const-string/jumbo v7, "timeShiftSetPlaybackParams"
 
-    invoke-static {v5, v6, v0, p3, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v5, v6, v0, p3, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v4
 
@@ -5718,7 +6537,7 @@
     :try_start_1
     iget-object v5, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v5, p1, v0, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap1(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
+    invoke-static {v5, p1, v0, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap0(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
 
     move-result-object v5
 
@@ -5787,7 +6606,7 @@
 
     move/from16 v0, p4
 
-    invoke-static {v10, v11, v3, v0, v12}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v10, v11, v3, v0, v12}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v5
 
@@ -5809,7 +6628,7 @@
     :try_start_1
     iget-object v10, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v10, p1, v3, v5}, Lcom/android/server/tv/TvInputManagerService;->-wrap1(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
+    invoke-static {v10, p1, v3, v5}, Lcom/android/server/tv/TvInputManagerService;->-wrap0(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
 
     move-result-object v10
 
@@ -5842,7 +6661,7 @@
     :try_start_3
     iget-object v10, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v10, v5}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
+    invoke-static {v10, v5}, Lcom/android/server/tv/TvInputManagerService;->-wrap5(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
 
     move-result-object v9
 
@@ -5994,7 +6813,7 @@
 
     const-string/jumbo v7, "unblockContent"
 
-    invoke-static {v5, v6, v0, p3, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v5, v6, v0, p3, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v4
 
@@ -6016,7 +6835,7 @@
     :try_start_1
     iget-object v5, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v5, p1, v0, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap1(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
+    invoke-static {v5, p1, v0, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap0(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;II)Landroid/media/tv/ITvInputSession;
 
     move-result-object v5
 
@@ -6083,7 +6902,7 @@
 
     const-string/jumbo v7, "unregisterCallback"
 
-    invoke-static {v4, v5, v6, p2, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v4, v5, v6, p2, v7}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v2
 
@@ -6105,7 +6924,7 @@
     :try_start_1
     iget-object v4, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v4, v2}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
+    invoke-static {v4, v2}, Lcom/android/server/tv/TvInputManagerService;->-wrap5(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
 
     move-result-object v3
 
@@ -6163,6 +6982,20 @@
 
     if-nez v6, :cond_0
 
+    iget-object v6, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
+
+    invoke-static {v6}, Lcom/android/server/tv/TvInputManagerService;->-get0(Lcom/android/server/tv/TvInputManagerService;)Landroid/content/Context;
+
+    move-result-object v6
+
+    const-string/jumbo v7, "android.permission.WRITE_SECURE_SETTINGS"
+
+    invoke-virtual {v6, v7}, Landroid/content/Context;->checkCallingPermission(Ljava/lang/String;)I
+
+    move-result v6
+
+    if-eqz v6, :cond_0
+
     new-instance v6, Ljava/lang/IllegalArgumentException;
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -6210,7 +7043,7 @@
 
     const-string/jumbo v9, "updateTvInputInfo"
 
-    invoke-static {v6, v7, v8, p2, v9}, Lcom/android/server/tv/TvInputManagerService;->-wrap7(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
+    invoke-static {v6, v7, v8, p2, v9}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;IIILjava/lang/String;)I
 
     move-result v4
 
@@ -6232,13 +7065,13 @@
     :try_start_1
     iget-object v6, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v6, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap6(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
+    invoke-static {v6, v4}, Lcom/android/server/tv/TvInputManagerService;->-wrap5(Lcom/android/server/tv/TvInputManagerService;I)Lcom/android/server/tv/TvInputManagerService$UserState;
 
     move-result-object v5
 
     iget-object v6, p0, Lcom/android/server/tv/TvInputManagerService$BinderService;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v6, v5, p1}, Lcom/android/server/tv/TvInputManagerService;->-wrap22(Lcom/android/server/tv/TvInputManagerService;Lcom/android/server/tv/TvInputManagerService$UserState;Landroid/media/tv/TvInputInfo;)V
+    invoke-static {v6, v5, p1}, Lcom/android/server/tv/TvInputManagerService;->-wrap21(Lcom/android/server/tv/TvInputManagerService;Lcom/android/server/tv/TvInputManagerService$UserState;Landroid/media/tv/TvInputInfo;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 

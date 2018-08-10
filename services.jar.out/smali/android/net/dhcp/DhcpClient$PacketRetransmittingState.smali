@@ -60,9 +60,11 @@
 .method public exit()V
     .locals 1
 
+    invoke-super {p0}, Landroid/net/dhcp/DhcpClient$LoggingState;->exit()V
+
     iget-object v0, p0, Landroid/net/dhcp/DhcpClient$PacketRetransmittingState;->this$0:Landroid/net/dhcp/DhcpClient;
 
-    invoke-static {v0}, Landroid/net/dhcp/DhcpClient;->-get15(Landroid/net/dhcp/DhcpClient;)Lcom/android/internal/util/WakeupMessage;
+    invoke-static {v0}, Landroid/net/dhcp/DhcpClient;->-get14(Landroid/net/dhcp/DhcpClient;)Lcom/android/internal/util/WakeupMessage;
 
     move-result-object v0
 
@@ -70,7 +72,7 @@
 
     iget-object v0, p0, Landroid/net/dhcp/DhcpClient$PacketRetransmittingState;->this$0:Landroid/net/dhcp/DhcpClient;
 
-    invoke-static {v0}, Landroid/net/dhcp/DhcpClient;->-get26(Landroid/net/dhcp/DhcpClient;)Lcom/android/internal/util/WakeupMessage;
+    invoke-static {v0}, Landroid/net/dhcp/DhcpClient;->-get27(Landroid/net/dhcp/DhcpClient;)Lcom/android/internal/util/WakeupMessage;
 
     move-result-object v0
 
@@ -82,7 +84,7 @@
 .method protected initTimer()V
     .locals 1
 
-    const/16 v0, 0x7d0
+    const/16 v0, 0x3e8
 
     iput v0, p0, Landroid/net/dhcp/DhcpClient$PacketRetransmittingState;->mTimer:I
 
@@ -96,7 +98,7 @@
 
     iget-object v2, p0, Landroid/net/dhcp/DhcpClient$PacketRetransmittingState;->this$0:Landroid/net/dhcp/DhcpClient;
 
-    invoke-static {v2}, Landroid/net/dhcp/DhcpClient;->-get18(Landroid/net/dhcp/DhcpClient;)Ljava/util/Random;
+    invoke-static {v2}, Landroid/net/dhcp/DhcpClient;->-get19(Landroid/net/dhcp/DhcpClient;)Ljava/util/Random;
 
     move-result-object v2
 
@@ -132,7 +134,7 @@
 
     iget-object v2, p0, Landroid/net/dhcp/DhcpClient$PacketRetransmittingState;->this$0:Landroid/net/dhcp/DhcpClient;
 
-    invoke-static {v2}, Landroid/net/dhcp/DhcpClient;->-get26(Landroid/net/dhcp/DhcpClient;)Lcom/android/internal/util/WakeupMessage;
+    invoke-static {v2}, Landroid/net/dhcp/DhcpClient;->-get27(Landroid/net/dhcp/DhcpClient;)Lcom/android/internal/util/WakeupMessage;
 
     move-result-object v2
 
@@ -192,7 +194,7 @@
 .method protected scheduleKick()V
     .locals 8
 
-    const v7, 0x1f400
+    const v7, 0xfa000
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
@@ -210,7 +212,7 @@
 
     iget-object v6, p0, Landroid/net/dhcp/DhcpClient$PacketRetransmittingState;->this$0:Landroid/net/dhcp/DhcpClient;
 
-    invoke-static {v6}, Landroid/net/dhcp/DhcpClient;->-get15(Landroid/net/dhcp/DhcpClient;)Lcom/android/internal/util/WakeupMessage;
+    invoke-static {v6}, Landroid/net/dhcp/DhcpClient;->-get14(Landroid/net/dhcp/DhcpClient;)Lcom/android/internal/util/WakeupMessage;
 
     move-result-object v6
 

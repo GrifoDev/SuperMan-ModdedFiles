@@ -320,11 +320,11 @@
     const/4 v14, 0x0
 
     :goto_2
-    if-ge v14, v10, :cond_d
+    if-ge v14, v10, :cond_c
 
     aget-object v3, p7, v14
 
-    if-eqz v3, :cond_d
+    if-eqz v3, :cond_c
 
     if-eqz p3, :cond_0
 
@@ -400,16 +400,52 @@
 
     move-result v5
 
-    if-eqz v5, :cond_6
+    xor-int/lit8 v5, v5, 0x1
+
+    if-eqz v5, :cond_5
+
+    if-eqz p3, :cond_1
+
+    const-string/jumbo v5, "IntentResolver"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "  Filter is not from package "
+
+    invoke-virtual {v6, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v8, "; skipping"
+
+    invoke-virtual {v6, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_3
 
     :cond_5
     invoke-virtual {v3}, Landroid/content/IntentFilter;->getAutoVerify()Z
 
     move-result v5
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_6
 
-    if-eqz p3, :cond_7
+    if-eqz p3, :cond_6
 
     const-string/jumbo v5, "IntentResolver"
 
@@ -448,7 +484,7 @@
     :goto_4
     move/from16 v0, v21
 
-    if-ge v0, v11, :cond_7
+    if-ge v0, v11, :cond_6
 
     const-string/jumbo v5, "IntentResolver"
 
@@ -487,41 +523,6 @@
     goto :goto_4
 
     :cond_6
-    if-eqz p3, :cond_1
-
-    const-string/jumbo v5, "IntentResolver"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v8, "  Filter is not from package "
-
-    invoke-virtual {v6, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v8, "; skipping"
-
-    invoke-virtual {v6, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_3
-
-    :cond_7
     move-object/from16 v0, p0
 
     move-object/from16 v1, p8
@@ -530,7 +531,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_8
+    if-nez v5, :cond_7
 
     if-eqz p3, :cond_1
 
@@ -542,7 +543,7 @@
 
     goto/16 :goto_3
 
-    :cond_8
+    :cond_7
     const-string/jumbo v9, "IntentResolver"
 
     move-object/from16 v5, p5
@@ -555,9 +556,9 @@
 
     move-result v17
 
-    if-ltz v17, :cond_c
+    if-ltz v17, :cond_b
 
-    if-eqz p3, :cond_9
+    if-eqz p3, :cond_8
 
     const-string/jumbo v5, "IntentResolver"
 
@@ -601,8 +602,8 @@
 
     invoke-static {v5, v6}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_9
-    if-eqz p4, :cond_a
+    :cond_8
+    if-eqz p4, :cond_9
 
     const-string/jumbo v5, "android.intent.category.DEFAULT"
 
@@ -610,9 +611,9 @@
 
     move-result v5
 
-    if-eqz v5, :cond_b
+    if-eqz v5, :cond_a
 
-    :cond_a
+    :cond_9
     move-object/from16 v0, p0
 
     move/from16 v1, v17
@@ -649,12 +650,12 @@
 
     goto/16 :goto_3
 
-    :cond_b
+    :cond_a
     const/4 v13, 0x1
 
     goto/16 :goto_3
 
-    :cond_c
+    :cond_b
     if-eqz p3, :cond_1
 
     packed-switch v17, :pswitch_data_0
@@ -708,16 +709,16 @@
 
     goto :goto_5
 
-    :cond_d
-    if-eqz p3, :cond_e
+    :cond_c
+    if-eqz p3, :cond_d
 
-    if-eqz v13, :cond_e
+    if-eqz v13, :cond_d
 
     invoke-interface/range {p8 .. p8}, Ljava/util/List;->size()I
 
     move-result v5
 
-    if-nez v5, :cond_f
+    if-nez v5, :cond_e
 
     const-string/jumbo v5, "IntentResolver"
 
@@ -725,18 +726,18 @@
 
     invoke-static {v5, v6}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_e
+    :cond_d
     :goto_6
     return-void
 
-    :cond_f
+    :cond_e
     invoke-interface/range {p8 .. p8}, Ljava/util/List;->size()I
 
     move-result v5
 
     const/4 v6, 0x1
 
-    if-le v5, v6, :cond_e
+    if-le v5, v6, :cond_d
 
     const-string/jumbo v5, "IntentResolver"
 
@@ -745,8 +746,6 @@
     invoke-static {v5, v6}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_6
-
-    nop
 
     :pswitch_data_0
     .packed-switch -0x4
@@ -1921,7 +1920,7 @@
 
     move/from16 v0, v17
 
-    if-ge v13, v0, :cond_e
+    if-ge v13, v0, :cond_c
 
     move-object/from16 v0, p5
 
@@ -1935,142 +1934,24 @@
 
     const/4 v14, 0x0
 
-    if-eqz p8, :cond_0
+    if-eqz p8, :cond_5
 
-    if-eqz p7, :cond_6
-
-    :cond_0
-    const/4 v10, 0x0
-
-    :goto_1
-    if-ge v10, v4, :cond_d
-
-    aget-object v7, v5, v10
-
-    if-eqz v7, :cond_d
-
-    if-eqz p6, :cond_1
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, p6
-
-    invoke-virtual {v0, v1, v7}, Lcom/android/server/IntentResolver;->isPackageForFilter(Ljava/lang/String;Landroid/content/IntentFilter;)Z
-
-    move-result v17
+    xor-int/lit8 v17, p7, 0x1
 
     if-eqz v17, :cond_5
 
-    :cond_1
-    if-eqz p3, :cond_2
-
-    invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, p3
-
-    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    const/16 p3, 0x0
-
-    :cond_2
-    if-nez v14, :cond_3
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v6}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    move-object/from16 v0, p5
-
-    invoke-virtual {v0, v13}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
-
-    move-result-object v17
-
-    check-cast v17, Ljava/lang/String;
-
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, v17
-
-    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    const-string/jumbo v17, ":"
-
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, v17
-
-    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    const/4 v14, 0x1
-
-    :cond_3
-    const/4 v15, 0x1
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, p1
-
-    invoke-virtual {v0, v1, v9, v7}, Lcom/android/server/IntentResolver;->dumpFilter(Ljava/io/PrintWriter;Ljava/lang/String;Landroid/content/IntentFilter;)V
-
-    if-eqz p7, :cond_5
-
-    if-nez v16, :cond_4
-
-    new-instance v16, Landroid/util/PrintWriterPrinter;
-
-    move-object/from16 v0, v16
-
-    move-object/from16 v1, p1
-
-    invoke-direct {v0, v1}, Landroid/util/PrintWriterPrinter;-><init>(Ljava/io/PrintWriter;)V
-
-    :cond_4
-    new-instance v17, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v17 .. v17}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v17
-
-    const-string/jumbo v18, "  "
-
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v17
-
-    invoke-virtual/range {v17 .. v17}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v17
-
-    move-object/from16 v0, v16
-
-    move-object/from16 v1, v17
-
-    invoke-virtual {v7, v0, v1}, Landroid/content/IntentFilter;->dump(Landroid/util/Printer;Ljava/lang/String;)V
-
-    :cond_5
-    add-int/lit8 v10, v10, 0x1
-
-    goto :goto_1
-
-    :cond_6
     invoke-virtual {v8}, Landroid/util/ArrayMap;->clear()V
 
     const/4 v10, 0x0
 
-    :goto_2
-    if-ge v10, v4, :cond_a
+    :goto_1
+    if-ge v10, v4, :cond_2
 
     aget-object v7, v5, v10
 
-    if-eqz v7, :cond_a
+    if-eqz v7, :cond_2
 
-    if-eqz p6, :cond_7
+    if-eqz p6, :cond_0
 
     move-object/from16 v0, p0
 
@@ -2080,9 +1961,16 @@
 
     move-result v17
 
-    if-eqz v17, :cond_8
+    xor-int/lit8 v17, v17, 0x1
 
-    :cond_7
+    if-eqz v17, :cond_0
+
+    :goto_2
+    add-int/lit8 v10, v10, 0x1
+
+    goto :goto_1
+
+    :cond_0
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v7}, Lcom/android/server/IntentResolver;->filterToLabel(Landroid/content/IntentFilter;)Ljava/lang/Object;
@@ -2093,7 +1981,7 @@
 
     move-result v11
 
-    if-gez v11, :cond_9
+    if-gez v11, :cond_1
 
     new-instance v17, Landroid/util/MutableInt;
 
@@ -2105,13 +1993,9 @@
 
     invoke-virtual {v8, v12, v0}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_8
-    :goto_3
-    add-int/lit8 v10, v10, 0x1
-
     goto :goto_2
 
-    :cond_9
+    :cond_1
     invoke-virtual {v8, v11}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
 
     move-result-object v17
@@ -2132,21 +2016,21 @@
 
     iput v0, v1, Landroid/util/MutableInt;->value:I
 
-    goto :goto_3
+    goto :goto_2
 
-    :cond_a
+    :cond_2
     const/4 v10, 0x0
 
-    :goto_4
+    :goto_3
     invoke-virtual {v8}, Landroid/util/ArrayMap;->size()I
 
     move-result v17
 
     move/from16 v0, v17
 
-    if-ge v10, v0, :cond_d
+    if-ge v10, v0, :cond_b
 
-    if-eqz p3, :cond_b
+    if-eqz p3, :cond_3
 
     invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
@@ -2158,8 +2042,8 @@
 
     const/16 p3, 0x0
 
-    :cond_b
-    if-nez v14, :cond_c
+    :cond_3
+    if-nez v14, :cond_4
 
     move-object/from16 v0, p1
 
@@ -2189,7 +2073,7 @@
 
     const/4 v14, 0x1
 
-    :cond_c
+    :cond_4
     const/4 v15, 0x1
 
     invoke-virtual {v8, v10}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
@@ -2220,14 +2104,138 @@
 
     add-int/lit8 v10, v10, 0x1
 
+    goto :goto_3
+
+    :cond_5
+    const/4 v10, 0x0
+
+    :goto_4
+    if-ge v10, v4, :cond_b
+
+    aget-object v7, v5, v10
+
+    if-eqz v7, :cond_b
+
+    if-eqz p6, :cond_7
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p6
+
+    invoke-virtual {v0, v1, v7}, Lcom/android/server/IntentResolver;->isPackageForFilter(Ljava/lang/String;Landroid/content/IntentFilter;)Z
+
+    move-result v17
+
+    xor-int/lit8 v17, v17, 0x1
+
+    if-eqz v17, :cond_7
+
+    :cond_6
+    :goto_5
+    add-int/lit8 v10, v10, 0x1
+
     goto :goto_4
 
-    :cond_d
+    :cond_7
+    if-eqz p3, :cond_8
+
+    invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, p3
+
+    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const/16 p3, 0x0
+
+    :cond_8
+    if-nez v14, :cond_9
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v6}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    move-object/from16 v0, p5
+
+    invoke-virtual {v0, v13}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
+
+    move-result-object v17
+
+    check-cast v17, Ljava/lang/String;
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string/jumbo v17, ":"
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const/4 v14, 0x1
+
+    :cond_9
+    const/4 v15, 0x1
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    invoke-virtual {v0, v1, v9, v7}, Lcom/android/server/IntentResolver;->dumpFilter(Ljava/io/PrintWriter;Ljava/lang/String;Landroid/content/IntentFilter;)V
+
+    if-eqz p7, :cond_6
+
+    if-nez v16, :cond_a
+
+    new-instance v16, Landroid/util/PrintWriterPrinter;
+
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, p1
+
+    invoke-direct {v0, v1}, Landroid/util/PrintWriterPrinter;-><init>(Ljava/io/PrintWriter;)V
+
+    :cond_a
+    new-instance v17, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v17 .. v17}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v17
+
+    const-string/jumbo v18, "  "
+
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v17
+
+    invoke-virtual/range {v17 .. v17}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v17
+
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v17
+
+    invoke-virtual {v7, v0, v1}, Landroid/content/IntentFilter;->dump(Landroid/util/Printer;Ljava/lang/String;)V
+
+    goto :goto_5
+
+    :cond_b
     add-int/lit8 v13, v13, 0x1
 
     goto/16 :goto_0
 
-    :cond_e
+    :cond_c
     return v15
 .end method
 
@@ -2252,6 +2260,19 @@
     invoke-direct {v0, p0, v1}, Lcom/android/server/IntentResolver$IteratorWrapper;-><init>(Lcom/android/server/IntentResolver;Ljava/util/Iterator;)V
 
     return-object v0
+.end method
+
+.method protected filterResults(Ljava/util/List;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<TR;>;)V"
+        }
+    .end annotation
+
+    return-void
 .end method
 
 .method public filterSet()Ljava/util/Set;
@@ -2971,6 +2992,10 @@
     :cond_a
     move-object/from16 v0, p0
 
+    invoke-virtual {v0, v10}, Lcom/android/server/IntentResolver;->filterResults(Ljava/util/List;)V
+
+    move-object/from16 v0, p0
+
     invoke-virtual {v0, v10}, Lcom/android/server/IntentResolver;->sortResults(Ljava/util/List;)V
 
     if-eqz v5, :cond_f
@@ -3245,6 +3270,8 @@
     goto :goto_0
 
     :cond_1
+    invoke-virtual {p0, v9}, Lcom/android/server/IntentResolver;->filterResults(Ljava/util/List;)V
+
     invoke-virtual {p0, v9}, Lcom/android/server/IntentResolver;->sortResults(Ljava/util/List;)V
 
     return-object v9

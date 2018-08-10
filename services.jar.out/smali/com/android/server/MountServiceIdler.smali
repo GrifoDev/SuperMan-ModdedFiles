@@ -213,7 +213,7 @@
     const/4 v2, 0x1
 
     :try_start_0
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
     move-result-object v3
 
@@ -224,7 +224,7 @@
     :goto_0
     iput-object p1, p0, Lcom/android/server/MountServiceIdler;->mJobParams:Landroid/app/job/JobParameters;
 
-    sget-object v1, Lcom/android/server/MountService;->sSelf:Lcom/android/server/MountService;
+    sget-object v1, Lcom/android/server/StorageManagerService;->sSelf:Lcom/android/server/StorageManagerService;
 
     if-eqz v1, :cond_0
 
@@ -243,7 +243,7 @@
 
     iget-object v3, p0, Lcom/android/server/MountServiceIdler;->mFinishCallback:Ljava/lang/Runnable;
 
-    invoke-virtual {v1, v3}, Lcom/android/server/MountService;->runIdleMaintenance(Ljava/lang/Runnable;)V
+    invoke-virtual {v1, v3}, Lcom/android/server/StorageManagerService;->runIdleMaintenance(Ljava/lang/Runnable;)V
 
     :cond_0
     if-eqz v1, :cond_1

@@ -12,17 +12,7 @@
 
 
 # static fields
-.field public static final ACTION_MIGRATION_COMPLETE:Ljava/lang/String; = "com.sec.knox.migrationagent.MIGRATION_COMPLETE"
-
-.field public static final ACTION_MIGRATION_FAIL:Ljava/lang/String; = "com.sec.enterprise.knox.VPN_MIGRAION_FAIL"
-
-.field public static final ACTION_MIGRATION_RETRY:Ljava/lang/String; = "com.sec.enterprise.knox.VPN_MIGRAION_RETRY"
-
-.field public static final ACTION_MIGRATION_START:Ljava/lang/String; = "com.sec.knox.migrationagent.START_VPN_MIGRATION"
-
 .field public static final ACTION_VPN_INTERFACE_STATUS_INTERNAL:Ljava/lang/String; = "com.samsung.android.knox.intent.action.INTERFACE_STATUS_INTERNAL"
-
-.field public static final ACTION_VPN_MIGRATION_COMPLETE:Ljava/lang/String; = "com.sec.enterprise.knox.VPN_MIGRATION_COMPLETE"
 
 .field public static final ACTION_VPN_RETRY_INTERNAL:Ljava/lang/String; = "com.samsung.android.knox.intent.action.VPN_RETRY_INTERNAL"
 
@@ -57,6 +47,8 @@
 .field public static final CALLER_FRAMEWORK:Ljava/lang/String; = "1000"
 
 .field public static final CALLER_MEDIA:Ljava/lang/String; = "1013"
+
+.field protected static final CAPTIVE_PORTAL_APP_PACKAGE_NAME:Ljava/lang/String; = "com.android.captiveportallogin"
 
 .field public static final CHAINED_APPLICATION_DEFAULT_USER_ID:I = 0x0
 
@@ -108,6 +100,8 @@
 
 .field public static final DNS_CONF_FILE_PATH:Ljava/lang/String; = "/data/system/dnsproperties.ini"
 
+.field protected static final DOWNLOAD_MANAGER_MARK:Ljava/lang/String; = "498"
+
 .field public static final DOWNLOAD_PACKAGE_NAME:Ljava/lang/String; = "com.android.providers.downloads"
 
 .field public static final EMAIL_PACKAGE_LIST:[Ljava/lang/String;
@@ -115,18 +109,6 @@
 .field public static final ENABLE_IPV6:I = 0x1
 
 .field public static final EXTRA_ACTION_INTERNAL:Ljava/lang/String; = "com.samsung.android.knox.intent.extra.ACTION_INTERNAL"
-
-.field public static final EXTRA_ADMIN_PKG_NAME:Ljava/lang/String; = "admin_package_name"
-
-.field public static final EXTRA_CONTAINER_PKG_COUNT:Ljava/lang/String; = "knox_1_apk_count"
-
-.field public static final EXTRA_NEW_ADMIN_ID:Ljava/lang/String; = "admin_uid"
-
-.field public static final EXTRA_NEW_CONTAINER_ID:Ljava/lang/String; = "knox_2_container_id"
-
-.field public static final EXTRA_OLD_ADMIN_ID:Ljava/lang/String; = "admin_uid"
-
-.field public static final EXTRA_OLD_CONTAINER_ID:Ljava/lang/String; = "knox_1_container_id"
 
 .field public static final EXTRA_PROFILE_NAME_INTERNAL:Ljava/lang/String; = "com.samsung.android.knox.intent.extra.PROFILE_NAME_INTERNAL"
 
@@ -147,6 +129,8 @@
 .field public static final FIPS_MODE:I = 0x1
 
 .field public static final INTENT_CONTAINER_ADMIN_CHANGED_ACTION:Ljava/lang/String; = "enterprise.container.admin.changed"
+
+.field public static final INTENT_UCM_REFRESH_DONE:Ljava/lang/String; = "com.samsung.android.knox.intent.action.UCM_REFRESH_DONE"
 
 .field public static final INVALID_CONTAINER_ID:I = 0x0
 
@@ -214,6 +198,18 @@
 
 .field public static final KNOX_VPN_BASE_MARK:I = 0x65
 
+.field public static final KNOX_VPN_INTERFACE_NONE:I = 0x0
+
+.field public static final KNOX_VPN_INTERFACE_TYPE_INTERNAL:Ljava/lang/String; = "virtual_address_type"
+
+.field public static final KNOX_VPN_INTERFACE_V4:I = 0x1
+
+.field public static final KNOX_VPN_INTERFACE_V46:I = 0x3
+
+.field public static final KNOX_VPN_INTERFACE_V6:I = 0x2
+
+.field protected static final KNOX_VPN_PROXY_PACKAGE_NAME:Ljava/lang/String; = "com.knox.vpn.proxyhandler"
+
 .field public static final MAKE_PROXY_REQUEST:I = 0x3
 
 .field public static final MAX_DNS_SERVERS:I = 0x4
@@ -221,28 +217,6 @@
 .field public static final MAX_KNOX_NETWORK_NET_ID:I = 0x1f4
 
 .field public static final META_MARK_ENABLED_PROPERTY:Ljava/lang/String; = "net.vpn.markbase"
-
-.field public static final MIGRATION_AGENT_FIXED_VERSION:Ljava/lang/String; = "4.0"
-
-.field public static final MIGRATION_AGENT_PACKAGE_NAME:Ljava/lang/String; = "com.sec.knox.containeragent"
-
-.field public static final MIGRATION_DONE:I = 0x1
-
-.field public static final MIGRATION_ERROR:Ljava/lang/String; = "vpn_migration_error"
-
-.field public static final MIGRATION_FAIL:I = 0x3
-
-.field public static final MIGRATION_INVALID:I = 0x5
-
-.field public static final MIGRATION_IN_PROCESSING:I = 0x2
-
-.field public static final MIGRATION_LIMIT_TRYING:I = 0x3
-
-.field public static final MIGRATION_NEED:I = 0x0
-
-.field public static final MIGRATION_NOT_NEED:I = 0x4
-
-.field public static final MIGRATION_STATUS:Ljava/lang/String; = "vpn_migration_status"
 
 .field public static final MIN_KNOX_NETWORK_NET_ID:I = 0x64
 
@@ -266,11 +240,7 @@
 
 .field public static final PACKAGE_UID:I = -0x1
 
-.field public static final PERMISSION_MIGRATION_RECEIVE:Ljava/lang/String; = "com.sec.knox.migrationagent.permission.RECEIVE_MIGRATION"
-
 .field public static final PER_APP_VPN:I = 0x1
-
-.field public static final PREFIX_MIGRATION_LOCATION:Ljava/lang/String; = "/data/system/knoxvpn_"
 
 .field public static final PROFILENAME_MAX_LENGTH:I = 0x80
 
@@ -331,8 +301,6 @@
 .field public static final VENDOR_BIND_ACTION:Ljava/lang/String; = ".BIND_SERVICE"
 
 .field public static final VPN_DIALOG_PKG:Ljava/lang/String; = "com.android.vpndialogs"
-
-.field public static final VPN_PROP_MIGRATION_VERSION:Ljava/lang/String; = "net.vpn.migration.version"
 
 .field public static final VPN_PROP_PROXY_EMAIL:Ljava/lang/String; = "net.vpn.proxy.email."
 

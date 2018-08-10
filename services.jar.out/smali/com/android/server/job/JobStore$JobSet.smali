@@ -1,4 +1,4 @@
-.class Lcom/android/server/job/JobStore$JobSet;
+.class final Lcom/android/server/job/JobStore$JobSet;
 .super Ljava/lang/Object;
 .source "JobStore.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x18
     name = "JobSet"
 .end annotation
 
@@ -451,7 +451,7 @@
 
     iget-object v3, p0, Lcom/android/server/job/JobStore$JobSet;->mJobs:Landroid/util/SparseArray;
 
-    invoke-virtual {v3, v0}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {v3, v0}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -473,8 +473,6 @@
 .method public remove(Lcom/android/server/job/controllers/JobStatus;)Z
     .locals 4
 
-    const/4 v0, 0x0
-
     invoke-virtual {p1}, Lcom/android/server/job/controllers/JobStatus;->getUid()I
 
     move-result v2
@@ -487,27 +485,75 @@
 
     check-cast v1, Landroid/util/ArraySet;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     invoke-virtual {v1, p1}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
 
     move-result v0
 
-    :cond_0
-    if-eqz v0, :cond_1
+    :goto_0
+    if-eqz v0, :cond_0
 
     invoke-virtual {v1}, Landroid/util/ArraySet;->size()I
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_0
 
     iget-object v3, p0, Lcom/android/server/job/JobStore$JobSet;->mJobs:Landroid/util/SparseArray;
 
     invoke-virtual {v3, v2}, Landroid/util/SparseArray;->remove(I)V
 
-    :cond_1
+    :cond_0
     return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public removeJobsOfNonUsers([I)V
+    .locals 3
+
+    iget-object v2, p0, Lcom/android/server/job/JobStore$JobSet;->mJobs:Landroid/util/SparseArray;
+
+    invoke-virtual {v2}, Landroid/util/SparseArray;->size()I
+
+    move-result v2
+
+    add-int/lit8 v0, v2, -0x1
+
+    :goto_0
+    if-ltz v0, :cond_1
+
+    iget-object v2, p0, Lcom/android/server/job/JobStore$JobSet;->mJobs:Landroid/util/SparseArray;
+
+    invoke-virtual {v2, v0}, Landroid/util/SparseArray;->keyAt(I)I
+
+    move-result v2
+
+    invoke-static {v2}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v1
+
+    invoke-static {p1, v1}, Lcom/android/internal/util/ArrayUtils;->contains([II)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/server/job/JobStore$JobSet;->mJobs:Landroid/util/SparseArray;
+
+    invoke-virtual {v2, v0}, Landroid/util/SparseArray;->removeAt(I)V
+
+    :cond_0
+    add-int/lit8 v0, v0, -0x1
+
+    goto :goto_0
+
+    :cond_1
+    return-void
 .end method
 
 .method public size()I

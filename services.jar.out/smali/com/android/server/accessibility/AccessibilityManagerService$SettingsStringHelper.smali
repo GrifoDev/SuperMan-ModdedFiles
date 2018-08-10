@@ -51,7 +51,7 @@
 
     iput-object p2, p0, Lcom/android/server/accessibility/AccessibilityManagerService$SettingsStringHelper;->mSettingsName:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/android/server/accessibility/AccessibilityManagerService;->-get10(Lcom/android/server/accessibility/AccessibilityManagerService;)Landroid/content/Context;
+    invoke-static {p1}, Lcom/android/server/accessibility/AccessibilityManagerService;->-get8(Lcom/android/server/accessibility/AccessibilityManagerService;)Landroid/content/Context;
 
     move-result-object v3
 

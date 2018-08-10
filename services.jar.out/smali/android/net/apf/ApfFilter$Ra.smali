@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x0
     name = "Ra"
 .end annotation
 
@@ -100,226 +100,359 @@
 
 # direct methods
 .method constructor <init>(Landroid/net/apf/ApfFilter;[BI)V
-    .locals 9
-
-    const/4 v8, 0x2
-
-    const/4 v6, 0x4
-
-    const/4 v7, 0x0
+    .locals 12
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/net/apf/ApfFilter$InvalidRaException;
+        }
+    .end annotation
 
     iput-object p1, p0, Landroid/net/apf/ApfFilter$Ra;->this$0:Landroid/net/apf/ApfFilter;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v3, Ljava/util/ArrayList;
+    new-instance v7, Ljava/util/ArrayList;
 
-    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v3, p0, Landroid/net/apf/ApfFilter$Ra;->mNonLifetimes:Ljava/util/ArrayList;
+    iput-object v7, p0, Landroid/net/apf/ApfFilter$Ra;->mNonLifetimes:Ljava/util/ArrayList;
 
-    new-instance v3, Ljava/util/ArrayList;
+    new-instance v7, Ljava/util/ArrayList;
 
-    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v3, p0, Landroid/net/apf/ApfFilter$Ra;->mPrefixOptionOffsets:Ljava/util/ArrayList;
+    iput-object v7, p0, Landroid/net/apf/ApfFilter$Ra;->mPrefixOptionOffsets:Ljava/util/ArrayList;
 
-    new-instance v3, Ljava/util/ArrayList;
+    new-instance v7, Ljava/util/ArrayList;
 
-    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v3, p0, Landroid/net/apf/ApfFilter$Ra;->mRdnssOptionOffsets:Ljava/util/ArrayList;
+    iput-object v7, p0, Landroid/net/apf/ApfFilter$Ra;->mRdnssOptionOffsets:Ljava/util/ArrayList;
+
+    const/4 v7, 0x0
 
     iput v7, p0, Landroid/net/apf/ApfFilter$Ra;->seenCount:I
 
-    invoke-static {p3}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
+    const/16 v7, 0x46
 
-    move-result-object v3
+    if-ge p3, v7, :cond_0
 
-    invoke-static {p2, v7, p3}, Ljava/nio/ByteBuffer;->wrap([BII)Ljava/nio/ByteBuffer;
+    new-instance v7, Landroid/net/apf/ApfFilter$InvalidRaException;
 
-    move-result-object v4
+    const-string/jumbo v8, "Not an ICMP6 router advertisement"
 
-    invoke-virtual {v3, v4}, Ljava/nio/ByteBuffer;->put(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;
+    invoke-direct {v7, v8}, Landroid/net/apf/ApfFilter$InvalidRaException;-><init>(Ljava/lang/String;)V
 
-    move-result-object v3
+    throw v7
 
-    iput-object v3, p0, Landroid/net/apf/ApfFilter$Ra;->mPacket:Ljava/nio/ByteBuffer;
+    :cond_0
+    invoke-static {p2, p3}, Ljava/util/Arrays;->copyOf([BI)[B
 
-    iget-object v3, p0, Landroid/net/apf/ApfFilter$Ra;->mPacket:Ljava/nio/ByteBuffer;
+    move-result-object v7
 
-    invoke-virtual {v3}, Ljava/nio/ByteBuffer;->clear()Ljava/nio/Buffer;
+    invoke-static {v7}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
-    invoke-static {}, Landroid/net/apf/ApfFilter;->-wrap0()J
+    move-result-object v7
 
-    move-result-wide v4
+    iput-object v7, p0, Landroid/net/apf/ApfFilter$Ra;->mPacket:Ljava/nio/ByteBuffer;
 
-    iput-wide v4, p0, Landroid/net/apf/ApfFilter$Ra;->mLastSeen:J
+    invoke-virtual {p1}, Landroid/net/apf/ApfFilter;->currentTimeSeconds()J
 
-    const/16 v3, 0x38
+    move-result-wide v8
 
-    invoke-direct {p0, v7, v3, v8}, Landroid/net/apf/ApfFilter$Ra;->addNonLifetime(III)I
+    iput-wide v8, p0, Landroid/net/apf/ApfFilter$Ra;->mLastSeen:J
 
-    move-result v0
+    iget-object v7, p0, Landroid/net/apf/ApfFilter$Ra;->mPacket:Ljava/nio/ByteBuffer;
 
-    const/16 v3, 0x3c
+    const/16 v8, 0xc
 
-    invoke-direct {p0, v0, v3, v8}, Landroid/net/apf/ApfFilter$Ra;->addNonLifetime(III)I
+    invoke-static {v7, v8}, Landroid/net/apf/ApfFilter;->-wrap0(Ljava/nio/ByteBuffer;I)I
 
-    move-result v0
+    move-result v7
 
-    iget-object v3, p0, Landroid/net/apf/ApfFilter$Ra;->mPacket:Ljava/nio/ByteBuffer;
+    sget v8, Landroid/system/OsConstants;->ETH_P_IPV6:I
 
-    const/16 v4, 0x46
+    if-ne v7, v8, :cond_1
 
-    invoke-virtual {v3, v4}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    iget-object v7, p0, Landroid/net/apf/ApfFilter$Ra;->mPacket:Ljava/nio/ByteBuffer;
+
+    const/16 v8, 0x14
+
+    invoke-static {v7, v8}, Landroid/net/apf/ApfFilter;->-wrap1(Ljava/nio/ByteBuffer;I)I
+
+    move-result v7
+
+    sget v8, Landroid/system/OsConstants;->IPPROTO_ICMPV6:I
+
+    if-eq v7, v8, :cond_2
+
+    :cond_1
+    new-instance v7, Landroid/net/apf/ApfFilter$InvalidRaException;
+
+    const-string/jumbo v8, "Not an ICMP6 router advertisement"
+
+    invoke-direct {v7, v8}, Landroid/net/apf/ApfFilter$InvalidRaException;-><init>(Ljava/lang/String;)V
+
+    throw v7
+
+    :cond_2
+    iget-object v7, p0, Landroid/net/apf/ApfFilter$Ra;->mPacket:Ljava/nio/ByteBuffer;
+
+    const/16 v8, 0x36
+
+    invoke-static {v7, v8}, Landroid/net/apf/ApfFilter;->-wrap1(Ljava/nio/ByteBuffer;I)I
+
+    move-result v7
+
+    const/16 v8, 0x86
+
+    if-ne v7, v8, :cond_1
+
+    new-instance v0, Landroid/net/metrics/RaEvent$Builder;
+
+    invoke-direct {v0}, Landroid/net/metrics/RaEvent$Builder;-><init>()V
+
+    const/4 v7, 0x0
+
+    const/16 v8, 0x38
+
+    const/4 v9, 0x2
+
+    invoke-direct {p0, v7, v8, v9}, Landroid/net/apf/ApfFilter$Ra;->addNonLifetime(III)I
+
+    move-result v1
+
+    const/16 v7, 0x3c
+
+    const/4 v8, 0x2
+
+    invoke-direct {p0, v1, v7, v8}, Landroid/net/apf/ApfFilter$Ra;->addNonLifetime(III)I
+
+    move-result v1
+
+    iget-object v7, p0, Landroid/net/apf/ApfFilter$Ra;->mPacket:Ljava/nio/ByteBuffer;
+
+    const/16 v8, 0x3c
+
+    invoke-static {v7, v8}, Landroid/net/apf/ApfFilter;->-wrap0(Ljava/nio/ByteBuffer;I)I
+
+    move-result v7
+
+    int-to-long v8, v7
+
+    invoke-virtual {v0, v8, v9}, Landroid/net/metrics/RaEvent$Builder;->updateRouterLifetime(J)Landroid/net/metrics/RaEvent$Builder;
+
+    iget-object v7, p0, Landroid/net/apf/ApfFilter$Ra;->mPacket:Ljava/nio/ByteBuffer;
+
+    const/16 v8, 0x46
+
+    invoke-virtual {v7, v8}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     :goto_0
-    iget-object v3, p0, Landroid/net/apf/ApfFilter$Ra;->mPacket:Ljava/nio/ByteBuffer;
+    iget-object v7, p0, Landroid/net/apf/ApfFilter$Ra;->mPacket:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v3}, Ljava/nio/ByteBuffer;->hasRemaining()Z
+    invoke-virtual {v7}, Ljava/nio/ByteBuffer;->hasRemaining()Z
 
-    move-result v3
+    move-result v7
 
-    if-eqz v3, :cond_1
+    if-eqz v7, :cond_4
 
-    iget-object v3, p0, Landroid/net/apf/ApfFilter$Ra;->mPacket:Ljava/nio/ByteBuffer;
+    iget-object v7, p0, Landroid/net/apf/ApfFilter$Ra;->mPacket:Ljava/nio/ByteBuffer;
 
-    iget-object v4, p0, Landroid/net/apf/ApfFilter$Ra;->mPacket:Ljava/nio/ByteBuffer;
+    invoke-virtual {v7}, Ljava/nio/ByteBuffer;->position()I
 
-    invoke-virtual {v4}, Ljava/nio/ByteBuffer;->position()I
+    move-result v6
 
-    move-result v4
+    iget-object v7, p0, Landroid/net/apf/ApfFilter$Ra;->mPacket:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v3, v4}, Ljava/nio/ByteBuffer;->get(I)B
+    invoke-static {v7, v6}, Landroid/net/apf/ApfFilter;->-wrap1(Ljava/nio/ByteBuffer;I)I
 
-    move-result v3
+    move-result v5
 
-    and-int/lit16 v2, v3, 0xff
+    iget-object v7, p0, Landroid/net/apf/ApfFilter$Ra;->mPacket:Ljava/nio/ByteBuffer;
 
-    iget-object v3, p0, Landroid/net/apf/ApfFilter$Ra;->mPacket:Ljava/nio/ByteBuffer;
+    add-int/lit8 v8, v6, 0x1
 
-    iget-object v4, p0, Landroid/net/apf/ApfFilter$Ra;->mPacket:Ljava/nio/ByteBuffer;
+    invoke-static {v7, v8}, Landroid/net/apf/ApfFilter;->-wrap1(Ljava/nio/ByteBuffer;I)I
 
-    invoke-virtual {v4}, Ljava/nio/ByteBuffer;->position()I
+    move-result v7
 
-    move-result v4
+    mul-int/lit8 v4, v7, 0x8
 
-    add-int/lit8 v4, v4, 0x1
-
-    invoke-virtual {v3, v4}, Ljava/nio/ByteBuffer;->get(I)B
-
-    move-result v3
-
-    and-int/lit16 v3, v3, 0xff
-
-    mul-int/lit8 v1, v3, 0x8
-
-    sparse-switch v2, :sswitch_data_0
+    sparse-switch v5, :sswitch_data_0
 
     :goto_1
-    if-gtz v1, :cond_0
+    if-gtz v4, :cond_3
 
-    new-instance v3, Ljava/lang/IllegalArgumentException;
+    new-instance v7, Landroid/net/apf/ApfFilter$InvalidRaException;
 
-    const-string/jumbo v4, "Invalid option length opt=%d len=%d"
+    const-string/jumbo v8, "Invalid option length opt=%d len=%d"
 
-    new-array v5, v8, [Ljava/lang/Object;
+    const/4 v9, 0x2
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    new-array v9, v9, [Ljava/lang/Object;
 
-    move-result-object v6
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    aput-object v6, v5, v7
+    move-result-object v10
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/4 v11, 0x0
 
-    move-result-object v6
-
-    const/4 v7, 0x1
-
-    aput-object v6, v5, v7
-
-    invoke-static {v4, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-direct {v3, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v3
-
-    :sswitch_0
-    invoke-direct {p0, v0, v6, v6}, Landroid/net/apf/ApfFilter$Ra;->addNonLifetime(III)I
-
-    move-result v0
-
-    const/16 v3, 0x8
-
-    invoke-direct {p0, v0, v3, v6}, Landroid/net/apf/ApfFilter$Ra;->addNonLifetime(III)I
-
-    move-result v0
-
-    iget-object v3, p0, Landroid/net/apf/ApfFilter$Ra;->mPrefixOptionOffsets:Ljava/util/ArrayList;
-
-    iget-object v4, p0, Landroid/net/apf/ApfFilter$Ra;->mPacket:Ljava/nio/ByteBuffer;
-
-    invoke-virtual {v4}, Ljava/nio/ByteBuffer;->position()I
-
-    move-result v4
+    aput-object v10, v9, v11
 
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object v10
 
-    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    const/4 v11, 0x1
+
+    aput-object v10, v9, v11
+
+    invoke-static {v8, v9}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-direct {v7, v8}, Landroid/net/apf/ApfFilter$InvalidRaException;-><init>(Ljava/lang/String;)V
+
+    throw v7
+
+    :sswitch_0
+    const/4 v7, 0x4
+
+    const/4 v8, 0x4
+
+    invoke-direct {p0, v1, v7, v8}, Landroid/net/apf/ApfFilter$Ra;->addNonLifetime(III)I
+
+    move-result v1
+
+    iget-object v7, p0, Landroid/net/apf/ApfFilter$Ra;->mPacket:Ljava/nio/ByteBuffer;
+
+    add-int/lit8 v8, v6, 0x4
+
+    invoke-static {v7, v8}, Landroid/net/apf/ApfFilter;->-wrap2(Ljava/nio/ByteBuffer;I)J
+
+    move-result-wide v2
+
+    invoke-virtual {v0, v2, v3}, Landroid/net/metrics/RaEvent$Builder;->updatePrefixValidLifetime(J)Landroid/net/metrics/RaEvent$Builder;
+
+    const/16 v7, 0x8
+
+    const/4 v8, 0x4
+
+    invoke-direct {p0, v1, v7, v8}, Landroid/net/apf/ApfFilter$Ra;->addNonLifetime(III)I
+
+    move-result v1
+
+    iget-object v7, p0, Landroid/net/apf/ApfFilter$Ra;->mPacket:Ljava/nio/ByteBuffer;
+
+    add-int/lit8 v8, v6, 0x8
+
+    invoke-static {v7, v8}, Landroid/net/apf/ApfFilter;->-wrap2(Ljava/nio/ByteBuffer;I)J
+
+    move-result-wide v2
+
+    invoke-virtual {v0, v2, v3}, Landroid/net/metrics/RaEvent$Builder;->updatePrefixPreferredLifetime(J)Landroid/net/metrics/RaEvent$Builder;
+
+    iget-object v7, p0, Landroid/net/apf/ApfFilter$Ra;->mPrefixOptionOffsets:Ljava/util/ArrayList;
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 
     :sswitch_1
-    iget-object v3, p0, Landroid/net/apf/ApfFilter$Ra;->mRdnssOptionOffsets:Ljava/util/ArrayList;
+    iget-object v7, p0, Landroid/net/apf/ApfFilter$Ra;->mRdnssOptionOffsets:Ljava/util/ArrayList;
 
-    iget-object v4, p0, Landroid/net/apf/ApfFilter$Ra;->mPacket:Ljava/nio/ByteBuffer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-virtual {v4}, Ljava/nio/ByteBuffer;->position()I
+    move-result-object v8
 
-    move-result v4
+    invoke-virtual {v7, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-direct {p0, v1}, Landroid/net/apf/ApfFilter$Ra;->addNonLifetimeU32(I)I
 
-    move-result-object v4
+    move-result v1
 
-    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    iget-object v7, p0, Landroid/net/apf/ApfFilter$Ra;->mPacket:Ljava/nio/ByteBuffer;
 
-    :sswitch_2
-    invoke-direct {p0, v0, v6, v6}, Landroid/net/apf/ApfFilter$Ra;->addNonLifetime(III)I
+    add-int/lit8 v8, v6, 0x4
 
-    move-result v0
+    invoke-static {v7, v8}, Landroid/net/apf/ApfFilter;->-wrap2(Ljava/nio/ByteBuffer;I)J
+
+    move-result-wide v2
+
+    invoke-virtual {v0, v2, v3}, Landroid/net/metrics/RaEvent$Builder;->updateRdnssLifetime(J)Landroid/net/metrics/RaEvent$Builder;
 
     goto :goto_1
 
-    :cond_0
-    iget-object v3, p0, Landroid/net/apf/ApfFilter$Ra;->mPacket:Ljava/nio/ByteBuffer;
+    :sswitch_2
+    invoke-direct {p0, v1}, Landroid/net/apf/ApfFilter$Ra;->addNonLifetimeU32(I)I
 
-    iget-object v4, p0, Landroid/net/apf/ApfFilter$Ra;->mPacket:Ljava/nio/ByteBuffer;
+    move-result v1
 
-    invoke-virtual {v4}, Ljava/nio/ByteBuffer;->position()I
+    iget-object v7, p0, Landroid/net/apf/ApfFilter$Ra;->mPacket:Ljava/nio/ByteBuffer;
 
-    move-result v4
+    add-int/lit8 v8, v6, 0x4
 
-    add-int/2addr v4, v1
+    invoke-static {v7, v8}, Landroid/net/apf/ApfFilter;->-wrap2(Ljava/nio/ByteBuffer;I)J
 
-    invoke-virtual {v3, v4}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    move-result-wide v2
+
+    invoke-virtual {v0, v2, v3}, Landroid/net/metrics/RaEvent$Builder;->updateRouteInfoLifetime(J)Landroid/net/metrics/RaEvent$Builder;
+
+    goto :goto_1
+
+    :sswitch_3
+    invoke-direct {p0, v1}, Landroid/net/apf/ApfFilter$Ra;->addNonLifetimeU32(I)I
+
+    move-result v1
+
+    iget-object v7, p0, Landroid/net/apf/ApfFilter$Ra;->mPacket:Ljava/nio/ByteBuffer;
+
+    add-int/lit8 v8, v6, 0x4
+
+    invoke-static {v7, v8}, Landroid/net/apf/ApfFilter;->-wrap2(Ljava/nio/ByteBuffer;I)J
+
+    move-result-wide v2
+
+    invoke-virtual {v0, v2, v3}, Landroid/net/metrics/RaEvent$Builder;->updateDnsslLifetime(J)Landroid/net/metrics/RaEvent$Builder;
+
+    goto/16 :goto_1
+
+    :cond_3
+    iget-object v7, p0, Landroid/net/apf/ApfFilter$Ra;->mPacket:Ljava/nio/ByteBuffer;
+
+    add-int v8, v6, v4
+
+    invoke-virtual {v7, v8}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     goto/16 :goto_0
 
-    :cond_1
-    invoke-direct {p0, v0, v7, v7}, Landroid/net/apf/ApfFilter$Ra;->addNonLifetime(III)I
+    :cond_4
+    const/4 v7, 0x0
+
+    const/4 v8, 0x0
+
+    invoke-direct {p0, v1, v7, v8}, Landroid/net/apf/ApfFilter$Ra;->addNonLifetime(III)I
 
     invoke-virtual {p0, p2, p3}, Landroid/net/apf/ApfFilter$Ra;->minLifetime([BI)J
 
-    move-result-wide v4
+    move-result-wide v8
 
-    iput-wide v4, p0, Landroid/net/apf/ApfFilter$Ra;->mMinLifetime:J
+    iput-wide v8, p0, Landroid/net/apf/ApfFilter$Ra;->mMinLifetime:J
+
+    invoke-static {p1}, Landroid/net/apf/ApfFilter;->-get1(Landroid/net/apf/ApfFilter;)Landroid/net/metrics/IpConnectivityLog;
+
+    move-result-object v7
+
+    invoke-virtual {v0}, Landroid/net/metrics/RaEvent$Builder;->build()Landroid/net/metrics/RaEvent;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Landroid/net/metrics/IpConnectivityLog;->log(Landroid/os/Parcelable;)Z
 
     return-void
 
@@ -328,7 +461,7 @@
         0x3 -> :sswitch_0
         0x18 -> :sswitch_2
         0x19 -> :sswitch_1
-        0x1f -> :sswitch_2
+        0x1f -> :sswitch_3
     .end sparse-switch
 .end method
 
@@ -431,6 +564,18 @@
     return v0
 .end method
 
+.method private addNonLifetimeU32(I)I
+    .locals 1
+
+    const/4 v0, 0x4
+
+    invoke-direct {p0, p1, v0, v0}, Landroid/net/apf/ApfFilter$Ra;->addNonLifetime(III)I
+
+    move-result v0
+
+    return v0
+.end method
+
 .method private prefixOptionToString(Ljava/lang/StringBuffer;I)V
     .locals 10
 
@@ -444,11 +589,7 @@
 
     add-int/lit8 v7, p2, 0x2
 
-    invoke-virtual {v6, v7}, Ljava/nio/ByteBuffer;->get(I)B
-
-    move-result v6
-
-    invoke-direct {p0, v6}, Landroid/net/apf/ApfFilter$Ra;->uint8(B)I
+    invoke-static {v6, v7}, Landroid/net/apf/ApfFilter;->-wrap1(Ljava/nio/ByteBuffer;I)I
 
     move-result v0
 
@@ -456,21 +597,17 @@
 
     add-int/lit8 v7, p2, 0x4
 
-    invoke-virtual {v6, v7}, Ljava/nio/ByteBuffer;->getInt(I)I
+    invoke-static {v6, v7}, Landroid/net/apf/ApfFilter;->-wrap2(Ljava/nio/ByteBuffer;I)J
 
-    move-result v6
-
-    int-to-long v4, v6
+    move-result-wide v4
 
     iget-object v6, p0, Landroid/net/apf/ApfFilter$Ra;->mPacket:Ljava/nio/ByteBuffer;
 
     add-int/lit8 v7, p2, 0x8
 
-    invoke-virtual {v6, v7}, Ljava/nio/ByteBuffer;->getInt(I)I
+    invoke-static {v6, v7}, Landroid/net/apf/ApfFilter;->-wrap2(Ljava/nio/ByteBuffer;I)J
 
-    move-result v6
-
-    int-to-long v2, v6
+    move-result-wide v2
 
     const-string/jumbo v6, "%s/%d %ds/%ds "
 
@@ -522,11 +659,7 @@
 
     add-int/lit8 v6, p2, 0x1
 
-    invoke-virtual {v5, v6}, Ljava/nio/ByteBuffer;->get(I)B
-
-    move-result v5
-
-    invoke-direct {p0, v5}, Landroid/net/apf/ApfFilter$Ra;->uint8(B)I
+    invoke-static {v5, v6}, Landroid/net/apf/ApfFilter;->-wrap1(Ljava/nio/ByteBuffer;I)I
 
     move-result v5
 
@@ -543,11 +676,7 @@
 
     add-int/lit8 v6, p2, 0x4
 
-    invoke-virtual {v5, v6}, Ljava/nio/ByteBuffer;->getInt(I)I
-
-    move-result v5
-
-    invoke-direct {p0, v5}, Landroid/net/apf/ApfFilter$Ra;->uint32(I)J
+    invoke-static {v5, v6}, Landroid/net/apf/ApfFilter;->-wrap2(Ljava/nio/ByteBuffer;I)J
 
     move-result-wide v0
 
@@ -600,34 +729,6 @@
     return-void
 .end method
 
-.method private uint16(S)I
-    .locals 1
-
-    const v0, 0xffff
-
-    and-int/2addr v0, p1
-
-    return v0
-.end method
-
-.method private uint32(I)J
-    .locals 2
-
-    and-int/lit8 v0, p1, -0x1
-
-    int-to-long v0, v0
-
-    return-wide v0
-.end method
-
-.method private uint8(B)I
-    .locals 1
-
-    and-int/lit16 v0, p1, 0xff
-
-    return v0
-.end method
-
 
 # virtual methods
 .method currentLifetime()J
@@ -635,7 +736,9 @@
 
     iget-wide v0, p0, Landroid/net/apf/ApfFilter$Ra;->mMinLifetime:J
 
-    invoke-static {}, Landroid/net/apf/ApfFilter;->-wrap0()J
+    iget-object v2, p0, Landroid/net/apf/ApfFilter$Ra;->this$0:Landroid/net/apf/ApfFilter;
+
+    invoke-virtual {v2}, Landroid/net/apf/ApfFilter;->currentTimeSeconds()J
 
     move-result-wide v2
 
@@ -672,7 +775,7 @@
 
     iget-object v8, p0, Landroid/net/apf/ApfFilter$Ra;->this$0:Landroid/net/apf/ApfFilter;
 
-    invoke-static {v8}, Landroid/net/apf/ApfFilter;->-wrap1(Landroid/net/apf/ApfFilter;)J
+    invoke-static {v8}, Landroid/net/apf/ApfFilter;->-wrap3(Landroid/net/apf/ApfFilter;)J
 
     move-result-wide v8
 
@@ -1058,9 +1161,7 @@
 .end method
 
 .method minLifetime([BI)J
-    .locals 12
-
-    const-wide/16 v10, 0x1
+    .locals 11
 
     const-wide v4, 0x7fffffffffffffffL
 
@@ -1160,7 +1261,7 @@
 
     move-result-object v9
 
-    invoke-virtual {v9, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v9
 
@@ -1173,21 +1274,13 @@
     throw v8
 
     :pswitch_1
-    invoke-virtual {v0, v3}, Ljava/nio/ByteBuffer;->getShort(I)S
+    invoke-static {v0, v3}, Landroid/net/apf/ApfFilter;->-wrap0(Ljava/nio/ByteBuffer;I)I
 
     move-result v8
 
     int-to-long v6, v8
 
     :goto_2
-    mul-int/lit8 v8, v2, 0x8
-
-    shl-long v8, v10, v8
-
-    sub-long/2addr v8, v10
-
-    and-long/2addr v6, v8
-
     invoke-static {v4, v5, v6, v7}, Ljava/lang/Math;->min(JJ)J
 
     move-result-wide v4
@@ -1195,18 +1288,14 @@
     goto :goto_1
 
     :pswitch_2
-    invoke-virtual {v0, v3}, Ljava/nio/ByteBuffer;->getInt(I)I
+    invoke-static {v0, v3}, Landroid/net/apf/ApfFilter;->-wrap2(Ljava/nio/ByteBuffer;I)J
 
-    move-result v8
-
-    int-to-long v6, v8
+    move-result-wide v6
 
     goto :goto_2
 
     :cond_1
     return-wide v4
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x2
@@ -1254,11 +1343,7 @@
 
     const/16 v7, 0x3c
 
-    invoke-virtual {v6, v7}, Ljava/nio/ByteBuffer;->getShort(I)S
-
-    move-result v6
-
-    invoke-direct {p0, v6}, Landroid/net/apf/ApfFilter$Ra;->uint16(S)I
+    invoke-static {v6, v7}, Landroid/net/apf/ApfFilter;->-wrap0(Ljava/nio/ByteBuffer;I)I
 
     move-result v6
 

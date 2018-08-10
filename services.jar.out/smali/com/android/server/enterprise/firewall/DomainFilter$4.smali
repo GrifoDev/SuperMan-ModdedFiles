@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
+    .locals 4
 
     iget-object v2, p0, Lcom/android/server/enterprise/firewall/DomainFilter$4;->this$0:Lcom/android/server/enterprise/firewall/DomainFilter;
 
@@ -58,7 +58,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1
 
     iget-object v2, p0, Lcom/android/server/enterprise/firewall/DomainFilter$4;->this$0:Lcom/android/server/enterprise/firewall/DomainFilter;
 
@@ -66,16 +66,26 @@
 
     move-result v2
 
+    xor-int/lit8 v2, v2, 0x1
+
     if-eqz v2, :cond_1
+
+    iget-object v2, p0, Lcom/android/server/enterprise/firewall/DomainFilter$4;->this$0:Lcom/android/server/enterprise/firewall/DomainFilter;
+
+    invoke-static {v2, v0}, Lcom/android/server/enterprise/firewall/DomainFilter;->-wrap5(Lcom/android/server/enterprise/firewall/DomainFilter;Ljava/lang/String;)V
 
     :cond_0
     :goto_0
     return-void
 
     :cond_1
-    iget-object v2, p0, Lcom/android/server/enterprise/firewall/DomainFilter$4;->this$0:Lcom/android/server/enterprise/firewall/DomainFilter;
+    invoke-static {}, Lcom/android/server/enterprise/firewall/DomainFilter;->-get0()Ljava/lang/String;
 
-    invoke-static {v2, v0}, Lcom/android/server/enterprise/firewall/DomainFilter;->-wrap5(Lcom/android/server/enterprise/firewall/DomainFilter;Ljava/lang/String;)V
+    move-result-object v2
+
+    const-string/jumbo v3, "mPortalFilterReceiver.onReceive() - invalid host"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method

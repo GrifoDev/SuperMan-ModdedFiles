@@ -650,24 +650,24 @@
     goto :goto_0
 .end method
 
-.method public newHolder(Lcom/android/server/am/ContentProviderConnection;)Landroid/app/IActivityManager$ContentProviderHolder;
+.method public newHolder(Lcom/android/server/am/ContentProviderConnection;)Landroid/app/ContentProviderHolder;
     .locals 2
 
-    new-instance v0, Landroid/app/IActivityManager$ContentProviderHolder;
+    new-instance v0, Landroid/app/ContentProviderHolder;
 
     iget-object v1, p0, Lcom/android/server/am/ContentProviderRecord;->info:Landroid/content/pm/ProviderInfo;
 
-    invoke-direct {v0, v1}, Landroid/app/IActivityManager$ContentProviderHolder;-><init>(Landroid/content/pm/ProviderInfo;)V
+    invoke-direct {v0, v1}, Landroid/app/ContentProviderHolder;-><init>(Landroid/content/pm/ProviderInfo;)V
 
     iget-object v1, p0, Lcom/android/server/am/ContentProviderRecord;->provider:Landroid/content/IContentProvider;
 
-    iput-object v1, v0, Landroid/app/IActivityManager$ContentProviderHolder;->provider:Landroid/content/IContentProvider;
+    iput-object v1, v0, Landroid/app/ContentProviderHolder;->provider:Landroid/content/IContentProvider;
 
     iget-boolean v1, p0, Lcom/android/server/am/ContentProviderRecord;->noReleaseNeeded:Z
 
-    iput-boolean v1, v0, Landroid/app/IActivityManager$ContentProviderHolder;->noReleaseNeeded:Z
+    iput-boolean v1, v0, Landroid/app/ContentProviderHolder;->noReleaseNeeded:Z
 
-    iput-object p1, v0, Landroid/app/IActivityManager$ContentProviderHolder;->connection:Landroid/os/IBinder;
+    iput-object p1, v0, Landroid/app/ContentProviderHolder;->connection:Landroid/os/IBinder;
 
     return-object v0
 .end method

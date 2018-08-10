@@ -24,7 +24,7 @@
 
 .field private static final KNOX_CERTENROL_PERMISSION:Ljava/lang/String; = "com.sec.enterprise.knox.permission.KNOX_CERTENROLL"
 
-.field private static final KNOX_CERTENROL_PERMISSION_NEW:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_CERTENROLL"
+.field private static final KNOX_CERTENROL_PERMISSION_NEW:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_CERTIFICATE_ENROLLMENT"
 
 .field private static final PACKAGENAME:Ljava/lang/String; = "com.samsung.android.certenrolservice"
 
@@ -81,8 +81,6 @@
 
 .field private receiver:Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy$EnterpriseCEPpolicyReciever;
 
-.field private receiverOld:Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy$EnterpriseCEPpolicyReciever;
-
 
 # direct methods
 .method static synthetic -get0()Z
@@ -117,7 +115,27 @@
     return-object v0
 .end method
 
-.method static synthetic -wrap0(Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;Ljava/util/HashMap;ILjava/lang/String;IZ)V
+.method static synthetic -wrap0(Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;)Z
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->isDelegatedAppSupported()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic -wrap1(Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;I)I
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->getDelegatorUid(I)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic -wrap2(Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;Ljava/util/HashMap;ILjava/lang/String;IZ)V
     .locals 0
 
     invoke-direct/range {p0 .. p5}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->bindServiceAndCallPending(Ljava/util/HashMap;ILjava/lang/String;IZ)V
@@ -125,18 +143,26 @@
     return-void
 .end method
 
-.method static synthetic -wrap1(Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;I)V
+.method static synthetic -wrap3(Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
     .locals 0
 
-    invoke-direct/range {p0 .. p6}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->sendBroadcastToAgentStatus(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;I)V
+    invoke-direct/range {p0 .. p7}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->sendBroadcastToAgentStatus(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
 
     return-void
 .end method
 
-.method static synthetic -wrap2(Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;Ljava/lang/String;IILjava/lang/String;)V
+.method static synthetic -wrap4(Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;Ljava/lang/String;IILjava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->sendBroadcastToCEPAgent(Ljava/lang/String;IILjava/lang/String;)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap5(Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
+    .locals 0
+
+    invoke-direct/range {p0 .. p7}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->sendBroadcastToDelegatedAgentStatus(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
 
     return-void
 .end method
@@ -183,8 +209,6 @@
     iput-object v1, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->mEDM:Lcom/samsung/android/knox/EnterpriseDeviceManager;
 
     iput-object v1, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->receiver:Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy$EnterpriseCEPpolicyReciever;
-
-    iput-object v1, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->receiverOld:Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy$EnterpriseCEPpolicyReciever;
 
     iput-object v1, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->manager:Lcom/samsung/android/knox/ucm/configurator/IUniversalCredentialManager;
 
@@ -1306,7 +1330,7 @@
 
     aput-object v3, v2, v4
 
-    const-string/jumbo v3, "com.samsung.android.knox.permission.KNOX_CERTENROLL"
+    const-string/jumbo v3, "com.samsung.android.knox.permission.KNOX_CERTIFICATE_ENROLLMENT"
 
     const/4 v4, 0x1
 
@@ -1322,6 +1346,66 @@
 
     :cond_1
     return-void
+.end method
+
+.method private enforcePermissionIfCallerIsDelegated(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
+    .locals 3
+
+    invoke-direct {p0}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->isDelegatedAppSupported()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    invoke-direct {p0}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->getEDM()Lcom/samsung/android/knox/EnterpriseDeviceManager;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "com.sec.enterprise.knox.permission.KNOX_CERTENROLL"
+
+    invoke-virtual {v1, v2}, Lcom/samsung/android/knox/EnterpriseDeviceManager;->getAdminContextIfCallerInCertWhiteList(Ljava/lang/String;)Lcom/samsung/android/knox/ContextInfo;
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    invoke-direct {p0}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->getEDM()Lcom/samsung/android/knox/EnterpriseDeviceManager;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "com.samsung.android.knox.permission.KNOX_CERTIFICATE_ENROLLMENT"
+
+    invoke-virtual {v1, v2}, Lcom/samsung/android/knox/EnterpriseDeviceManager;->getAdminContextIfCallerInCertWhiteList(Ljava/lang/String;)Lcom/samsung/android/knox/ContextInfo;
+
+    move-result-object v0
+
+    :cond_0
+    if-nez v0, :cond_1
+
+    sget-object v1, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v2, "enforcePermissionIfCallerIsDelegated delegation context == null"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-direct {p0, p1}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->enforcePermission(Lcom/samsung/android/knox/ContextInfo;)V
+
+    :goto_0
+    return-object p1
+
+    :cond_1
+    sget-object v1, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v2, "caller is delegaed and admin has proper permision for delegation KNOX_CERTENROL_PERMISSION"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :cond_2
+    invoke-direct {p0, p1}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->enforcePermission(Lcom/samsung/android/knox/ContextInfo;)V
+
+    goto :goto_0
 .end method
 
 .method private static ensureNotOnMainThread(Landroid/content/Context;)V
@@ -1463,66 +1547,7 @@
     return-object v5
 .end method
 
-.method private getCredentialStorage(Landroid/os/Bundle;)Lcom/samsung/android/knox/ucm/configurator/CredentialStorage;
-    .locals 2
-
-    new-instance v0, Lcom/samsung/android/knox/ucm/configurator/CredentialStorage;
-
-    invoke-direct {v0}, Lcom/samsung/android/knox/ucm/configurator/CredentialStorage;-><init>()V
-
-    const-string/jumbo v1, "com.sec.enterprise.intent.extra.UCM_CS_MANUFACTURER"
-
-    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/samsung/android/knox/ucm/configurator/CredentialStorage;->manufacturer:Ljava/lang/String;
-
-    const-string/jumbo v1, "com.sec.enterprise.intent.extra.UCM_CS_NAME"
-
-    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/samsung/android/knox/ucm/configurator/CredentialStorage;->name:Ljava/lang/String;
-
-    const-string/jumbo v1, "com.sec.enterprise.intent.extra.UCM_CS_PACKAGENAME"
-
-    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/samsung/android/knox/ucm/configurator/CredentialStorage;->packageName:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method private getEDM()Lcom/samsung/android/knox/EnterpriseDeviceManager;
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->mEDM:Lcom/samsung/android/knox/EnterpriseDeviceManager;
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v1, "enterprise_policy_new"
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/samsung/android/knox/EnterpriseDeviceManager;
-
-    iput-object v0, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->mEDM:Lcom/samsung/android/knox/EnterpriseDeviceManager;
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->mEDM:Lcom/samsung/android/knox/EnterpriseDeviceManager;
-
-    return-object v0
-.end method
-
-.method private getPackageInfoOfAdmin(I)Ljava/lang/String;
+.method private getCallerPackageName(I)Ljava/lang/String;
     .locals 4
 
     const/4 v0, 0x0
@@ -1560,6 +1585,263 @@
     aget-object v0, v2, v3
 
     :cond_0
+    return-object v0
+.end method
+
+.method private getCredentialStorage(Landroid/os/Bundle;)Lcom/samsung/android/knox/ucm/configurator/CredentialStorage;
+    .locals 2
+
+    new-instance v0, Lcom/samsung/android/knox/ucm/configurator/CredentialStorage;
+
+    invoke-direct {v0}, Lcom/samsung/android/knox/ucm/configurator/CredentialStorage;-><init>()V
+
+    const-string/jumbo v1, "com.sec.enterprise.intent.extra.UCM_CS_MANUFACTURER"
+
+    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/samsung/android/knox/ucm/configurator/CredentialStorage;->manufacturer:Ljava/lang/String;
+
+    const-string/jumbo v1, "com.sec.enterprise.intent.extra.UCM_CS_NAME"
+
+    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/samsung/android/knox/ucm/configurator/CredentialStorage;->name:Ljava/lang/String;
+
+    const-string/jumbo v1, "com.sec.enterprise.intent.extra.UCM_CS_PACKAGENAME"
+
+    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/samsung/android/knox/ucm/configurator/CredentialStorage;->packageName:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method private getDelegatorUid(I)I
+    .locals 12
+
+    const/4 v11, 0x0
+
+    invoke-direct {p0}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->isDelegatedAppSupported()Z
+
+    move-result v8
+
+    if-nez v8, :cond_0
+
+    return v11
+
+    :cond_0
+    sget-object v8, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v10, "getDelegatorUid : "
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-direct {p0, p1}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->getCallerPackageName(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {p1}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v6
+
+    if-eqz v3, :cond_1
+
+    invoke-virtual {v3}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_2
+
+    :cond_1
+    return v11
+
+    :cond_2
+    sget-boolean v8, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->DBG:Z
+
+    if-eqz v8, :cond_3
+
+    sget-object v8, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v10, "getCallerPackageName : "
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_3
+    const/4 v8, 0x1
+
+    new-array v4, v8, [Ljava/lang/String;
+
+    const-string/jumbo v8, "adminUid"
+
+    aput-object v8, v4, v11
+
+    new-instance v5, Landroid/content/ContentValues;
+
+    invoke-direct {v5}, Landroid/content/ContentValues;-><init>()V
+
+    const-string/jumbo v8, "packageName"
+
+    invoke-virtual {v5, v8, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-static {v11, v6}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getAdminLUIDWhereIn(II)Ljava/lang/String;
+
+    move-result-object v8
+
+    const-string/jumbo v9, "#SelectClause#"
+
+    invoke-virtual {v5, v8, v9}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v8, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    const-string/jumbo v9, "CertificateWhiteListTable"
+
+    invoke-virtual {v8, v9, v4, v5}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getValues(Ljava/lang/String;[Ljava/lang/String;Landroid/content/ContentValues;)Ljava/util/List;
+
+    move-result-object v7
+
+    if-eqz v7, :cond_8
+
+    invoke-interface {v7}, Ljava/util/List;->size()I
+
+    move-result v8
+
+    if-lez v8, :cond_8
+
+    sget-object v8, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v9, "caller is delegated"
+
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v1, 0x0
+
+    :goto_0
+    invoke-interface {v7}, Ljava/util/List;->size()I
+
+    move-result v8
+
+    if-ge v1, v8, :cond_7
+
+    invoke-interface {v7, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/content/ContentValues;
+
+    if-eqz v0, :cond_6
+
+    const-string/jumbo v8, "adminUid"
+
+    invoke-virtual {v0, v8}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    if-nez v2, :cond_5
+
+    sget-boolean v8, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->DBG:Z
+
+    if-eqz v8, :cond_4
+
+    sget-object v8, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v9, "integer is null"
+
+    invoke-static {v8, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_4
+    return v11
+
+    :cond_5
+    sget-object v8, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v9, "delegatorUid : delegatorUid"
+
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+
+    move-result v8
+
+    return v8
+
+    :cond_6
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_7
+    return v11
+
+    :cond_8
+    sget-object v8, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v9, "caller is not delegated"
+
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v11
+.end method
+
+.method private getEDM()Lcom/samsung/android/knox/EnterpriseDeviceManager;
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->mEDM:Lcom/samsung/android/knox/EnterpriseDeviceManager;
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v1, "enterprise_policy_new"
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/samsung/android/knox/EnterpriseDeviceManager;
+
+    iput-object v0, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->mEDM:Lcom/samsung/android/knox/EnterpriseDeviceManager;
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->mEDM:Lcom/samsung/android/knox/EnterpriseDeviceManager;
+
     return-object v0
 .end method
 
@@ -1734,109 +2016,247 @@
 .end method
 
 .method private insertOrUpdateDB(IILjava/lang/String;)V
-    .locals 7
+    .locals 8
 
-    const/4 v6, -0x1
+    const/4 v7, -0x1
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     new-instance v0, Landroid/content/ContentValues;
 
     invoke-direct {v0}, Landroid/content/ContentValues;-><init>()V
 
-    if-eq p1, v6, :cond_0
+    if-eq p1, v7, :cond_0
 
     :try_start_0
-    const-string/jumbo v4, "cepAgentUid"
+    const-string/jumbo v5, "cepAgentUid"
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v0, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    invoke-virtual {v0, v5, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
     :cond_0
-    if-eq p2, v6, :cond_1
+    if-eq p2, v7, :cond_1
 
-    const-string/jumbo v4, "containerID"
+    const-string/jumbo v5, "containerID"
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v0, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    invoke-virtual {v0, v5, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
     :cond_1
     if-eqz p3, :cond_2
 
-    const-string/jumbo v4, "protocol"
+    const-string/jumbo v5, "protocol"
 
-    invoke-virtual {v0, v4, p3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v5, p3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_2
+    invoke-direct {p0, p1}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->getDelegatorUid(I)I
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    const-string/jumbo v5, "cepDelegatorUid"
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v0, v5, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    :cond_3
     new-instance v1, Landroid/content/ContentValues;
 
     invoke-direct {v1}, Landroid/content/ContentValues;-><init>()V
 
-    if-eq p1, v6, :cond_3
+    if-eq p1, v7, :cond_4
 
-    const-string/jumbo v4, "cepAgentUid"
+    const-string/jumbo v5, "cepAgentUid"
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v1, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    invoke-virtual {v1, v5, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    :cond_3
-    if-eq p2, v6, :cond_4
+    :cond_4
+    if-eq p2, v7, :cond_5
 
-    const-string/jumbo v4, "containerID"
+    const-string/jumbo v5, "containerID"
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v1, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
-
-    :cond_4
-    if-eqz p3, :cond_5
-
-    const-string/jumbo v4, "protocol"
-
-    invoke-virtual {v1, v4, p3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v1, v5, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
     :cond_5
-    iget-object v4, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    if-eqz p3, :cond_6
 
-    const-string/jumbo v5, "EnterpriseCertEnrollPolicy"
+    const-string/jumbo v5, "protocol"
 
-    invoke-virtual {v4, v5, v0, v1}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->put(Ljava/lang/String;Landroid/content/ContentValues;Landroid/content/ContentValues;)Z
+    invoke-virtual {v1, v5, p3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    move-result v3
+    :cond_6
+    if-eqz v2, :cond_7
 
-    if-nez v3, :cond_6
+    const-string/jumbo v5, "cepDelegatorUid"
 
-    sget-boolean v4, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->DBG:Z
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    if-eqz v4, :cond_6
+    move-result-object v6
 
-    sget-object v4, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
+    invoke-virtual {v1, v5, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    const-string/jumbo v5, "insertOrUpdateDB - DB operation failed"
+    :cond_7
+    iget-object v5, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v6, "EnterpriseCertEnrollPolicy"
+
+    invoke-virtual {v5, v6, v0, v1}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->put(Ljava/lang/String;Landroid/content/ContentValues;Landroid/content/ContentValues;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_8
+
+    sget-boolean v5, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->DBG:Z
+
+    if-eqz v5, :cond_8
+
+    sget-object v5, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v6, "insertOrUpdateDB - DB operation failed"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_6
+    :cond_8
     :goto_0
     return-void
 
     :catch_0
-    move-exception v2
+    move-exception v3
 
-    invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v3}, Ljava/lang/Exception;->printStackTrace()V
+
+    goto :goto_0
+.end method
+
+.method private isCallerDelegatedInUCM(Lcom/samsung/android/knox/ContextInfo;Landroid/os/Bundle;)Z
+    .locals 5
+
+    const/4 v1, 0x0
+
+    sget-object v2, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v3, "In isCallerDelegatedInUCM..."
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-nez p2, :cond_0
+
+    sget-object v2, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v3, "credentialStorageBundle is null!"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v1
+
+    :cond_0
+    :try_start_0
+    invoke-direct {p0}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->getUCMService()Lcom/samsung/android/knox/ucm/configurator/IUniversalCredentialManager;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_1
+
+    iget-object v2, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->manager:Lcom/samsung/android/knox/ucm/configurator/IUniversalCredentialManager;
+
+    invoke-direct {p0, p2}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->getCredentialStorage(Landroid/os/Bundle;)Lcom/samsung/android/knox/ucm/configurator/CredentialStorage;
+
+    move-result-object v3
+
+    const/16 v4, 0x6b
+
+    invoke-interface {v2, p1, v3, v4}, Lcom/samsung/android/knox/ucm/configurator/IUniversalCredentialManager;->isCallerDelegated(Lcom/samsung/android/knox/ContextInfo;Lcom/samsung/android/knox/ucm/configurator/CredentialStorage;I)Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    :goto_0
+    sget-object v2, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Result: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v1
+
+    :cond_1
+    :try_start_1
+    sget-object v2, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v3, "UCM service not found!"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    sget-object v2, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Exception: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method
@@ -2230,6 +2650,52 @@
     goto :goto_0
 .end method
 
+.method private isDelegatedAppSupported()Z
+    .locals 5
+
+    const/4 v4, 0x0
+
+    invoke-static {}, Lcom/samsung/android/knox/EnterpriseKnoxManager;->getInstance()Lcom/samsung/android/knox/EnterpriseKnoxManager;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {v1}, Lcom/samsung/android/knox/EnterpriseKnoxManager;->getVersion()Lcom/samsung/android/knox/EnterpriseKnoxManager$EnterpriseKnoxSdkVersion;
+
+    move-result-object v0
+
+    sget-object v2, Lcom/samsung/android/knox/EnterpriseKnoxManager$EnterpriseKnoxSdkVersion;->KNOX_ENTERPRISE_SDK_VERSION_2_8:Lcom/samsung/android/knox/EnterpriseKnoxManager$EnterpriseKnoxSdkVersion;
+
+    invoke-virtual {v0, v2}, Lcom/samsung/android/knox/EnterpriseKnoxManager$EnterpriseKnoxSdkVersion;->compareTo(Ljava/lang/Enum;)I
+
+    move-result v2
+
+    if-ltz v2, :cond_0
+
+    const/4 v2, 0x1
+
+    return v2
+
+    :cond_0
+    sget-object v2, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v3, "isDelegatedAppSupported false"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v4
+
+    :cond_1
+    sget-object v2, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v3, "isDelegatedAppSupported false"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v4
+.end method
+
 .method private isUCMAllowedAndManaged(Lcom/samsung/android/knox/ContextInfo;Landroid/os/Bundle;)Z
     .locals 1
 
@@ -2237,9 +2703,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->isCredentialStorageManaged(Lcom/samsung/android/knox/ContextInfo;Landroid/os/Bundle;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->isCallerDelegatedInUCM(Lcom/samsung/android/knox/ContextInfo;Landroid/os/Bundle;)Z
 
     move-result v0
 
@@ -2247,6 +2719,11 @@
     return v0
 
     :cond_0
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_1
     const/4 v0, 0x0
 
     goto :goto_0
@@ -2291,9 +2768,7 @@
 .end method
 
 .method private registerEnterpriseSCEPpolicyReciever()V
-    .locals 11
-
-    const/4 v4, 0x0
+    .locals 6
 
     sget-boolean v0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->DBG:Z
 
@@ -2312,48 +2787,6 @@
 
     iput-object v0, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->receiver:Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy$EnterpriseCEPpolicyReciever;
 
-    new-instance v0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy$EnterpriseCEPpolicyReciever;
-
-    invoke-direct {v0, p0}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy$EnterpriseCEPpolicyReciever;-><init>(Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;)V
-
-    iput-object v0, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->receiverOld:Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy$EnterpriseCEPpolicyReciever;
-
-    new-instance v3, Landroid/content/IntentFilter;
-
-    invoke-direct {v3}, Landroid/content/IntentFilter;-><init>()V
-
-    const-string/jumbo v0, "android.intent.action.PACKAGE_FULLY_REMOVED"
-
-    invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    const-string/jumbo v0, "android.intent.action.PACKAGE_REMOVED"
-
-    invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    const-string/jumbo v0, "package"
-
-    invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addDataScheme(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->mContext:Landroid/content/Context;
-
-    iget-object v1, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->receiver:Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy$EnterpriseCEPpolicyReciever;
-
-    sget-object v2, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
-
-    move-object v5, v4
-
-    invoke-virtual/range {v0 .. v5}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
-
-    iget-object v0, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->mContext:Landroid/content/Context;
-
-    iget-object v1, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->receiverOld:Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy$EnterpriseCEPpolicyReciever;
-
-    sget-object v2, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
-
-    move-object v5, v4
-
-    invoke-virtual/range {v0 .. v5}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
-
     new-instance v3, Landroid/content/IntentFilter;
 
     invoke-direct {v3}, Landroid/content/IntentFilter;-><init>()V
@@ -2362,38 +2795,22 @@
 
     invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    iget-object v5, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->mContext:Landroid/content/Context;
 
-    iget-object v6, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->receiver:Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy$EnterpriseCEPpolicyReciever;
+    iget-object v1, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->receiver:Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy$EnterpriseCEPpolicyReciever;
 
-    sget-object v7, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+    sget-object v2, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
-    const-string/jumbo v9, "com.samsung.android.knox.permission.KNOX_CERTENROLL_INTERNAL"
+    const-string/jumbo v4, "com.samsung.android.knox.permission.KNOX_CERTENROLL_INTERNAL"
 
-    move-object v8, v3
+    const/4 v5, 0x0
 
-    move-object v10, v4
-
-    invoke-virtual/range {v5 .. v10}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
-
-    iget-object v5, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->mContext:Landroid/content/Context;
-
-    iget-object v6, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->receiverOld:Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy$EnterpriseCEPpolicyReciever;
-
-    sget-object v7, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
-
-    const-string/jumbo v9, "com.sec.enterprise.knox.permission.KNOX_CERTENROLL_INTERNAL"
-
-    move-object v8, v3
-
-    move-object v10, v4
-
-    invoke-virtual/range {v5 .. v10}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
+    invoke-virtual/range {v0 .. v5}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
     return-void
 .end method
 
-.method private sendBroadcastToAgentStatus(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;I)V
+.method private sendBroadcastToAgentStatus(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
     .locals 13
 
     iget-object v10, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->mContext:Landroid/content/Context;
@@ -2415,9 +2832,9 @@
 
     invoke-direct {v3, v10}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    move/from16 v0, p6
+    move/from16 v0, p7
 
-    invoke-direct {p0, v0}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->getPackageInfoOfAdmin(I)Ljava/lang/String;
+    invoke-direct {p0, v0}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->getCallerPackageName(I)Ljava/lang/String;
 
     move-result-object v10
 
@@ -2449,15 +2866,21 @@
 
     invoke-virtual {v3, v10, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
+    const-string/jumbo v10, "com.samsung.extra.knox.certenroll.KEYSTORE_TYPE"
+
+    move-object/from16 v0, p6
+
+    invoke-virtual {v3, v10, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
     new-instance v6, Landroid/content/Intent;
 
     const-string/jumbo v10, "com.samsung.action.knox.certenroll.CEP_CERT_ENROLL_STATUS"
 
     invoke-direct {v6, v10}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    move/from16 v0, p6
+    move/from16 v0, p7
 
-    invoke-direct {p0, v0}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->getPackageInfoOfAdmin(I)Ljava/lang/String;
+    invoke-direct {p0, v0}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->getCallerPackageName(I)Ljava/lang/String;
 
     move-result-object v10
 
@@ -2489,13 +2912,19 @@
 
     invoke-virtual {v6, v10, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
+    const-string/jumbo v10, "com.samsung.extra.knox.certenroll.KEYSTORE_TYPE"
+
+    move-object/from16 v0, p6
+
+    invoke-virtual {v6, v10, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v4
 
     new-instance v9, Landroid/os/UserHandle;
 
-    invoke-static/range {p6 .. p6}, Landroid/os/UserHandle;->getUserId(I)I
+    invoke-static/range {p7 .. p7}, Landroid/os/UserHandle;->getUserId(I)I
 
     move-result v10
 
@@ -2503,7 +2932,7 @@
 
     iget-object v10, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v11, "com.samsung.android.knox.permission.KNOX_CERTENROLL"
+    const-string/jumbo v11, "com.samsung.android.knox.permission.KNOX_CERTIFICATE_ENROLLMENT"
 
     invoke-virtual {v10, v3, v9, v11}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;)V
 
@@ -2643,7 +3072,7 @@
 
     move-result-object v11
 
-    move/from16 v0, p6
+    move/from16 v0, p7
 
     invoke-virtual {v11, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -2975,7 +3404,7 @@
 
     invoke-virtual {v2, p1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    invoke-direct {p0, p2}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->getPackageInfoOfAdmin(I)Ljava/lang/String;
+    invoke-direct {p0, p2}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->getCallerPackageName(I)Ljava/lang/String;
 
     move-result-object v4
 
@@ -3009,7 +3438,7 @@
 
     iget-object v4, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v5, "com.samsung.android.knox.permission.KNOX_CERTENROLL"
+    const-string/jumbo v5, "com.samsung.android.knox.permission.KNOX_CERTIFICATE_ENROLLMENT"
 
     invoke-virtual {v4, v2, v3, v5}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;)V
 
@@ -3062,6 +3491,147 @@
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
+    return-void
+.end method
+
+.method private sendBroadcastToDelegatedAgentStatus(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
+    .locals 8
+
+    iget-object v5, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->mContext:Landroid/content/Context;
+
+    if-nez v5, :cond_0
+
+    sget-object v5, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v6, " SendBroadcastToDelegatedMDMAgent mContext is null----- "
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
+    new-instance v2, Landroid/content/Intent;
+
+    const-string/jumbo v5, "com.samsung.android.knox.intent.CEP_CERT_ENROLL_STATUS"
+
+    invoke-direct {v2, v5}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    invoke-direct {p0, p7}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->getCallerPackageName(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v2, v5}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v5, "com.samsung.extra.knox.certenroll.CERT_HASH"
+
+    invoke-virtual {v2, v5, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v5, "com.samsung.extra.knox.certenroll.TRANSACTION_ID"
+
+    invoke-virtual {v2, v5, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v5, "com.samsung.extra.knox.certenroll.STATUS"
+
+    invoke-virtual {v2, v5, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    const-string/jumbo v5, "com.samsung.extra.knox.certenroll.ALIAS"
+
+    invoke-virtual {v2, v5, p4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v5, "com.samsung.extra.knox.certenroll.REFERENCE_NUMBER"
+
+    invoke-virtual {v2, v5, p5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v5, "com.samsung.extra.knox.certenroll.KEYSTORE_TYPE"
+
+    invoke-virtual {v2, v5, p6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    new-instance v3, Landroid/content/Intent;
+
+    const-string/jumbo v5, "com.samsung.action.knox.certenroll.CEP_CERT_ENROLL_STATUS"
+
+    invoke-direct {v3, v5}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    invoke-direct {p0, p7}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->getCallerPackageName(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v3, v5}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v5, "com.samsung.extra.knox.certenroll.CERT_HASH"
+
+    invoke-virtual {v3, v5, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v5, "com.samsung.extra.knox.certenroll.TRANSACTION_ID"
+
+    invoke-virtual {v3, v5, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v5, "com.samsung.extra.knox.certenroll.STATUS"
+
+    invoke-virtual {v3, v5, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    const-string/jumbo v5, "com.samsung.extra.knox.certenroll.ALIAS"
+
+    invoke-virtual {v3, v5, p4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v5, "com.samsung.extra.knox.certenroll.REFERENCE_NUMBER"
+
+    invoke-virtual {v3, v5, p5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v5, "com.samsung.extra.knox.certenroll.KEYSTORE_TYPE"
+
+    invoke-virtual {v3, v5, p6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v0
+
+    new-instance v4, Landroid/os/UserHandle;
+
+    invoke-static {p7}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v5
+
+    invoke-direct {v4, v5}, Landroid/os/UserHandle;-><init>(I)V
+
+    iget-object v5, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5, v2, v4}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+
+    iget-object v5, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5, v3, v4}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    sget-object v5, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v6, " SendBroadcastToDelegatedMDMAgent ----- "
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    sget-object v5, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, " SCEP Intent Calling UserId / UID : "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, p7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     return-void
 .end method
 
@@ -3356,7 +3926,9 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    invoke-direct {p0, p1}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->enforcePermission(Lcom/samsung/android/knox/ContextInfo;)V
+    invoke-direct {p0, p1}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->enforcePermissionIfCallerIsDelegated(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
+
+    move-result-object p1
 
     if-eqz p1, :cond_1
 
@@ -3375,7 +3947,9 @@
 .method public deleteUserCertificate(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Ljava/lang/String;)I
     .locals 3
 
-    invoke-direct {p0, p1}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->enforcePermission(Lcom/samsung/android/knox/ContextInfo;)V
+    invoke-direct {p0, p1}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->enforcePermissionIfCallerIsDelegated(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
+
+    move-result-object p1
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->getCEPService(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Lcom/samsung/android/knox/keystore/ICertEnrollmentService;
 
@@ -3406,7 +3980,7 @@
 .end method
 
 .method public enrollUserCertificate(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Lcom/samsung/android/knox/keystore/EnrollmentProfile;Ljava/util/List;Ljava/lang/String;)Ljava/lang/String;
-    .locals 21
+    .locals 23
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -3423,17 +3997,21 @@
         }
     .end annotation
 
-    invoke-direct/range {p0 .. p1}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->enforcePermission(Lcom/samsung/android/knox/ContextInfo;)V
+    move-object/from16 v17, p1
+
+    invoke-direct/range {p0 .. p1}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->enforcePermissionIfCallerIsDelegated(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
+
+    move-result-object p1
 
     invoke-direct/range {p0 .. p2}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->getCEPService(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Lcom/samsung/android/knox/keystore/ICertEnrollmentService;
 
-    move-result-object v18
+    move-result-object v20
 
-    const/16 v17, 0x0
+    const/16 v19, 0x0
 
     const/4 v7, -0x3
 
-    if-eqz p3, :cond_6
+    if-eqz p3, :cond_5
 
     move-object/from16 v0, p3
 
@@ -3465,7 +4043,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_2
 
     sget-object v4, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
 
@@ -3473,7 +4051,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v17, 0x1
+    const/16 v19, 0x1
 
     const/16 v7, -0x136
 
@@ -3490,7 +4068,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_3
 
     sget-object v4, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
 
@@ -3498,12 +4076,12 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v17, 0x1
+    const/16 v19, 0x1
 
     const/16 v7, -0x138
 
     :goto_1
-    if-nez v17, :cond_0
+    if-nez v19, :cond_0
 
     move-object/from16 v0, p0
 
@@ -3515,7 +4093,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_4
 
     sget-object v4, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
 
@@ -3549,64 +4127,67 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v17, 0x1
+    const/16 v19, 0x1
 
     const/16 v7, -0x135
 
     :cond_0
     :goto_2
-    if-eqz v18, :cond_1
+    if-eqz v20, :cond_6
 
-    if-eqz v17, :cond_7
+    xor-int/lit8 v4, v19, 0x1
 
-    :cond_1
-    :goto_3
-    new-instance v19, Ljava/security/SecureRandom;
-
-    invoke-direct/range {v19 .. v19}, Ljava/security/SecureRandom;-><init>()V
-
-    invoke-virtual/range {v19 .. v19}, Ljava/security/SecureRandom;->nextInt()I
-
-    move-result v20
-
-    if-eqz p3, :cond_2
+    if-eqz v4, :cond_6
 
     move-object/from16 v0, p3
 
-    iget-object v4, v0, Lcom/samsung/android/knox/keystore/EnrollmentProfile;->certificateAlias:Ljava/lang/String;
+    iget-object v4, v0, Lcom/samsung/android/knox/keystore/EnrollmentProfile;->csrExtra:Landroid/os/Bundle;
 
-    if-nez v4, :cond_8
+    if-nez v4, :cond_1
 
-    :cond_2
-    const-string/jumbo v8, ""
+    new-instance v4, Landroid/os/Bundle;
 
-    :goto_4
-    if-eqz v17, :cond_9
+    invoke-direct {v4}, Landroid/os/Bundle;-><init>()V
 
-    const-string/jumbo v5, ""
+    move-object/from16 v0, p3
 
-    const-string/jumbo v6, ""
+    iput-object v4, v0, Lcom/samsung/android/knox/keystore/EnrollmentProfile;->csrExtra:Landroid/os/Bundle;
 
-    invoke-static/range {v20 .. v20}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    :cond_1
+    move-object/from16 v0, p3
 
-    move-result-object v9
+    iget-object v4, v0, Lcom/samsung/android/knox/keystore/EnrollmentProfile;->csrExtra:Landroid/os/Bundle;
 
+    const-string/jumbo v5, "UID"
+
+    move-object/from16 v0, v17
+
+    iget v6, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v4, v5, v6}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+
+    :try_start_0
     move-object/from16 v0, p1
 
-    iget v10, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    iget v4, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    move-object/from16 v4, p0
+    move-object/from16 v0, v20
 
-    invoke-direct/range {v4 .. v10}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->sendBroadcastToAgentStatus(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;I)V
+    move-object/from16 v1, p3
 
-    :goto_5
-    invoke-static/range {v20 .. v20}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    move-object/from16 v2, p4
+
+    move-object/from16 v3, p5
+
+    invoke-interface {v0, v1, v2, v3, v4}, Lcom/samsung/android/knox/keystore/ICertEnrollmentService;->enrollUserCertificate(Lcom/samsung/android/knox/keystore/EnrollmentProfile;Ljava/util/List;Ljava/lang/String;I)Ljava/lang/String;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v4
 
     return-object v4
 
-    :cond_3
+    :cond_2
     sget-object v4, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -3647,7 +4228,7 @@
 
     goto/16 :goto_0
 
-    :cond_4
+    :cond_3
     sget-object v4, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -3688,7 +4269,7 @@
 
     goto/16 :goto_1
 
-    :cond_5
+    :cond_4
     sget-object v4, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -3723,73 +4304,101 @@
 
     goto/16 :goto_2
 
-    :cond_6
+    :cond_5
     sget-object v4, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
 
     const-string/jumbo v5, "enrollmentProfile is null"
 
     invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v17, 0x1
+    const/16 v19, 0x1
 
     goto/16 :goto_2
 
-    :cond_7
-    :try_start_0
-    move-object/from16 v0, p1
-
-    iget v4, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, p3
-
-    move-object/from16 v2, p4
-
-    move-object/from16 v3, p5
-
-    invoke-interface {v0, v1, v2, v3, v4}, Lcom/samsung/android/knox/keystore/ICertEnrollmentService;->enrollUserCertificate(Lcom/samsung/android/knox/keystore/EnrollmentProfile;Ljava/util/List;Ljava/lang/String;I)Ljava/lang/String;
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v4
-
-    return-object v4
-
     :catch_0
-    move-exception v16
+    move-exception v18
 
     sget-object v4, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
 
     const-string/jumbo v5, "Exception in handlePreAdminRemoval:"
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
     invoke-static {v4, v5, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    const/16 v17, 0x1
+    const/16 v19, 0x1
 
-    goto/16 :goto_3
+    :cond_6
+    new-instance v21, Ljava/security/SecureRandom;
+
+    invoke-direct/range {v21 .. v21}, Ljava/security/SecureRandom;-><init>()V
+
+    invoke-virtual/range {v21 .. v21}, Ljava/security/SecureRandom;->nextInt()I
+
+    move-result v22
+
+    if-eqz p3, :cond_7
+
+    move-object/from16 v0, p3
+
+    iget-object v4, v0, Lcom/samsung/android/knox/keystore/EnrollmentProfile;->certificateAlias:Ljava/lang/String;
+
+    if-nez v4, :cond_8
+
+    :cond_7
+    const-string/jumbo v8, ""
+
+    :goto_3
+    if-eqz v19, :cond_9
+
+    const-string/jumbo v5, ""
+
+    const-string/jumbo v6, ""
+
+    invoke-static/range {v22 .. v22}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v9
+
+    const-string/jumbo v10, ""
+
+    move-object/from16 v0, p1
+
+    iget v11, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    move-object/from16 v4, p0
+
+    invoke-direct/range {v4 .. v11}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->sendBroadcastToAgentStatus(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
+
+    :goto_4
+    invoke-static/range {v22 .. v22}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    return-object v4
 
     :cond_8
     move-object/from16 v0, p3
 
     iget-object v8, v0, Lcom/samsung/android/knox/keystore/EnrollmentProfile;->certificateAlias:Ljava/lang/String;
 
-    goto/16 :goto_4
+    goto :goto_3
 
     :cond_9
     const-string/jumbo v10, ""
 
     const-string/jumbo v11, ""
 
-    invoke-static/range {v20 .. v20}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-static/range {v22 .. v22}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v14
 
+    const-string/jumbo v15, ""
+
     move-object/from16 v0, p1
 
-    iget v15, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    iget v0, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    move/from16 v16, v0
 
     const/16 v12, -0x259
 
@@ -3797,15 +4406,17 @@
 
     move-object v13, v8
 
-    invoke-direct/range {v9 .. v15}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->sendBroadcastToAgentStatus(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;I)V
+    invoke-direct/range {v9 .. v16}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->sendBroadcastToAgentStatus(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
 
-    goto/16 :goto_5
+    goto :goto_4
 .end method
 
 .method public getCertEnrollmentStatus(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Ljava/lang/String;)I
     .locals 3
 
-    invoke-direct {p0, p1}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->enforcePermission(Lcom/samsung/android/knox/ContextInfo;)V
+    invoke-direct {p0, p1}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->enforcePermissionIfCallerIsDelegated(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
+
+    move-result-object p1
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->getCEPService(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Lcom/samsung/android/knox/keystore/ICertEnrollmentService;
 
@@ -3838,7 +4449,9 @@
 .method public isEnrollCertServiceActivated(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Z
     .locals 2
 
-    invoke-direct {p0, p1}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->enforcePermission(Lcom/samsung/android/knox/ContextInfo;)V
+    invoke-direct {p0, p1}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->enforcePermissionIfCallerIsDelegated(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
+
+    move-result-object p1
 
     invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
 
@@ -4063,7 +4676,7 @@
 .end method
 
 .method public renewUserCertificate(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)Ljava/lang/String;
-    .locals 14
+    .locals 15
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -4078,24 +4691,28 @@
         }
     .end annotation
 
-    invoke-direct {p0, p1}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->enforcePermission(Lcom/samsung/android/knox/ContextInfo;)V
+    invoke-direct/range {p0 .. p1}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->enforcePermissionIfCallerIsDelegated(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
+
+    move-result-object p1
 
     invoke-direct/range {p0 .. p2}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->getCEPService(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Lcom/samsung/android/knox/keystore/ICertEnrollmentService;
 
-    move-result-object v11
+    move-result-object v12
 
-    const/4 v10, 0x0
+    const/4 v11, 0x0
 
-    if-eqz v11, :cond_0
+    if-eqz v12, :cond_0
 
     :try_start_0
-    iget v2, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    move-object/from16 v0, p1
+
+    iget v2, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
     move-object/from16 v0, p3
 
     move-object/from16 v1, p4
 
-    invoke-interface {v11, v0, v1, v2}, Lcom/samsung/android/knox/keystore/ICertEnrollmentService;->renewUserCertificate(Ljava/lang/String;Ljava/util/List;I)Ljava/lang/String;
+    invoke-interface {v12, v0, v1, v2}, Lcom/samsung/android/knox/keystore/ICertEnrollmentService;->renewUserCertificate(Ljava/lang/String;Ljava/util/List;I)Ljava/lang/String;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -4104,26 +4721,26 @@
     return-object v2
 
     :catch_0
-    move-exception v9
+    move-exception v10
 
     sget-object v2, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
 
     const-string/jumbo v3, "Exception in handlePreAdminRemoval:"
 
-    invoke-static {v2, v3, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v2, v3, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    const/4 v10, 0x1
+    const/4 v11, 0x1
 
     :cond_0
-    new-instance v12, Ljava/security/SecureRandom;
+    new-instance v13, Ljava/security/SecureRandom;
 
-    invoke-direct {v12}, Ljava/security/SecureRandom;-><init>()V
+    invoke-direct {v13}, Ljava/security/SecureRandom;-><init>()V
 
-    invoke-virtual {v12}, Ljava/security/SecureRandom;->nextInt()I
+    invoke-virtual {v13}, Ljava/security/SecureRandom;->nextInt()I
 
-    move-result v13
+    move-result v14
 
-    if-eqz v10, :cond_1
+    if-eqz v11, :cond_1
 
     const-string/jumbo v3, ""
 
@@ -4131,20 +4748,24 @@
 
     const-string/jumbo v6, ""
 
-    invoke-static {v13}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-static {v14}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v7
 
-    iget v8, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    const-string/jumbo v8, ""
+
+    move-object/from16 v0, p1
+
+    iget v9, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
     const/4 v5, -0x3
 
     move-object v2, p0
 
-    invoke-direct/range {v2 .. v8}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->sendBroadcastToAgentStatus(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;I)V
+    invoke-direct/range {v2 .. v9}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->sendBroadcastToAgentStatus(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
 
     :goto_0
-    invoke-static {v13}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-static {v14}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -4157,17 +4778,21 @@
 
     const-string/jumbo v6, ""
 
-    invoke-static {v13}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-static {v14}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v7
 
-    iget v8, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    const-string/jumbo v8, ""
+
+    move-object/from16 v0, p1
+
+    iget v9, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
     const/16 v5, -0x259
 
     move-object v2, p0
 
-    invoke-direct/range {v2 .. v8}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->sendBroadcastToAgentStatus(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;I)V
+    invoke-direct/range {v2 .. v9}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->sendBroadcastToAgentStatus(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
 
     goto :goto_0
 .end method

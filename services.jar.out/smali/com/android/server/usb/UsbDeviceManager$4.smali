@@ -32,43 +32,37 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
+    .locals 4
 
-    const-string/jumbo v0, "UsbDeviceManager"
+    const-string/jumbo v2, "plugged"
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    const/4 v3, -0x1
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {p2, v2, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
+    move-result v0
+
+    const/4 v2, 0x2
+
+    if-ne v0, v2, :cond_0
+
+    const/4 v1, 0x1
+
+    :goto_0
     iget-object v2, p0, Lcom/android/server/usb/UsbDeviceManager$4;->this$0:Lcom/android/server/usb/UsbDeviceManager;
 
-    invoke-static {v2}, Lcom/android/server/usb/UsbDeviceManager;->-get0(Lcom/android/server/usb/UsbDeviceManager;)Ljava/lang/String;
+    invoke-static {v2}, Lcom/android/server/usb/UsbDeviceManager;->-get11(Lcom/android/server/usb/UsbDeviceManager;)Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/16 v3, 0x9
 
-    move-result-object v1
-
-    const-string/jumbo v2, "mPolicyReceiver :: MTP_DISABLED"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v0, p0, Lcom/android/server/usb/UsbDeviceManager$4;->this$0:Lcom/android/server/usb/UsbDeviceManager;
-
-    invoke-static {v0}, Lcom/android/server/usb/UsbDeviceManager;->-get12(Lcom/android/server/usb/UsbDeviceManager;)Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->-wrap4(Lcom/android/server/usb/UsbDeviceManager$UsbHandler;)V
+    invoke-virtual {v2, v3, v1}, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->sendMessage(IZ)V
 
     return-void
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
 .end method

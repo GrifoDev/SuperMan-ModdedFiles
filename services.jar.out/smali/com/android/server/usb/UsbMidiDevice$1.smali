@@ -66,7 +66,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_3
 
     const/4 v1, 0x1
 
@@ -82,7 +82,7 @@
 
     move-result v5
 
-    if-lez v5, :cond_5
+    if-lez v5, :cond_4
 
     const/4 v1, 0x1
 
@@ -95,7 +95,7 @@
 
     monitor-enter v6
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_5
 
     :try_start_0
     iget-object v5, p0, Lcom/android/server/usb/UsbMidiDevice$1;->this$0:Lcom/android/server/usb/UsbMidiDevice;
@@ -104,46 +104,47 @@
 
     move-result v5
 
-    if-eqz v5, :cond_6
+    xor-int/lit8 v5, v5, 0x1
+
+    if-eqz v5, :cond_5
+
+    iget-object v5, p0, Lcom/android/server/usb/UsbMidiDevice$1;->this$0:Lcom/android/server/usb/UsbMidiDevice;
+
+    invoke-static {v5}, Lcom/android/server/usb/UsbMidiDevice;->-wrap0(Lcom/android/server/usb/UsbMidiDevice;)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_2
-    if-nez v1, :cond_3
+    :goto_2
+    monitor-exit v6
 
+    return-void
+
+    :cond_3
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_4
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_1
+
+    :cond_5
+    if-nez v1, :cond_2
+
+    :try_start_1
     iget-object v5, p0, Lcom/android/server/usb/UsbMidiDevice$1;->this$0:Lcom/android/server/usb/UsbMidiDevice;
 
     invoke-static {v5}, Lcom/android/server/usb/UsbMidiDevice;->-get1(Lcom/android/server/usb/UsbMidiDevice;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_2
 
     iget-object v5, p0, Lcom/android/server/usb/UsbMidiDevice$1;->this$0:Lcom/android/server/usb/UsbMidiDevice;
 
     invoke-static {v5}, Lcom/android/server/usb/UsbMidiDevice;->-wrap1(Lcom/android/server/usb/UsbMidiDevice;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    :cond_3
-    :goto_2
-    monitor-exit v6
-
-    return-void
-
-    :cond_4
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_0
-
-    :cond_5
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_1
-
-    :cond_6
-    :try_start_1
-    iget-object v5, p0, Lcom/android/server/usb/UsbMidiDevice$1;->this$0:Lcom/android/server/usb/UsbMidiDevice;
-
-    invoke-static {v5}, Lcom/android/server/usb/UsbMidiDevice;->-wrap0(Lcom/android/server/usb/UsbMidiDevice;)Z
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 

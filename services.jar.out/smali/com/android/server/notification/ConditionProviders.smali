@@ -716,7 +716,7 @@
 
     check-cast v2, Lcom/android/server/notification/ConditionProviders$ConditionRecord;
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_1
 
     iget-object v3, v2, Lcom/android/server/notification/ConditionProviders$ConditionRecord;->component:Landroid/content/ComponentName;
 
@@ -724,9 +724,17 @@
 
     move-result v3
 
+    xor-int/lit8 v3, v3, 0x1
+
     if-eqz v3, :cond_1
 
     :cond_0
+    :goto_1
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_1
     const-string/jumbo v3, "      "
 
     invoke-virtual {p1, v3}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -739,7 +747,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     const-string/jumbo v3, "        ("
 
@@ -753,10 +761,14 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :cond_1
-    add-int/lit8 v1, v1, 0x1
+    goto :goto_1
 
-    goto :goto_0
+    :catchall_0
+    move-exception v3
+
+    monitor-exit v4
+
+    throw v3
 
     :cond_2
     monitor-exit v4
@@ -771,7 +783,7 @@
 
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_2
     iget-object v3, p0, Lcom/android/server/notification/ConditionProviders;->mSystemConditionProviders:Landroid/util/ArraySet;
 
     invoke-virtual {v3}, Landroid/util/ArraySet;->size()I
@@ -792,14 +804,7 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
-
-    :catchall_0
-    move-exception v3
-
-    monitor-exit v4
-
-    throw v3
+    goto :goto_2
 
     :cond_3
     return-void
@@ -881,7 +886,9 @@
     return-object v3
 
     :cond_0
-    iget-object v2, p0, Lcom/android/server/notification/ConditionProviders;->mServices:Ljava/util/ArrayList;
+    invoke-virtual {p0}, Lcom/android/server/notification/ConditionProviders;->getServices()Ljava/util/List;
+
+    move-result-object v2
 
     invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
@@ -949,7 +956,7 @@
 
     iput-object v1, v0, Lcom/android/server/notification/ManagedServices$Config;->settingsAction:Ljava/lang/String;
 
-    const v1, 0x1040480
+    const v1, 0x10401dc
 
     iput v1, v0, Lcom/android/server/notification/ManagedServices$Config;->clientLabel:I
 
@@ -1281,6 +1288,77 @@
     invoke-interface {v1}, Lcom/android/server/notification/ConditionProviders$Callback;->onBootComplete()V
 
     :cond_1
+    return-void
+.end method
+
+.method public onPackagesChanged(Z[Ljava/lang/String;)V
+    .locals 8
+
+    const/4 v3, 0x0
+
+    if-eqz p1, :cond_0
+
+    invoke-static {}, Landroid/app/NotificationManager;->getService()Landroid/app/INotificationManager;
+
+    move-result-object v1
+
+    if-eqz p2, :cond_0
+
+    array-length v4, p2
+
+    if-lez v4, :cond_0
+
+    array-length v4, p2
+
+    :goto_0
+    if-ge v3, v4, :cond_0
+
+    aget-object v2, p2, v3
+
+    :try_start_0
+    invoke-interface {v1, v2}, Landroid/app/INotificationManager;->removeAutomaticZenRules(Ljava/lang/String;)Z
+
+    const/4 v5, 0x0
+
+    invoke-interface {v1, v2, v5}, Landroid/app/INotificationManager;->setNotificationPolicyAccessGranted(Ljava/lang/String;Z)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_1
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    iget-object v5, p0, Lcom/android/server/notification/ConditionProviders;->TAG:Ljava/lang/String;
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "Failed to clean up rules for "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_1
+
+    :cond_0
+    invoke-super {p0, p1, p2}, Lcom/android/server/notification/ManagedServices;->onPackagesChanged(Z[Ljava/lang/String;)V
+
     return-void
 .end method
 

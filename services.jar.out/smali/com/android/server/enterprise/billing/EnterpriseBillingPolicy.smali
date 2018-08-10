@@ -15,8 +15,6 @@
 
 
 # static fields
-.field private static final CONTAINER_USERID_START:I = 0x64
-
 .field private static final INTENT_CONTAINER_ADMIN_CHANGED_ACTION:Ljava/lang/String; = "enterprise.container.admin.changed"
 
 .field private static final INVALID_ADMIN_UID:I = 0x0
@@ -125,7 +123,7 @@
     :try_start_1
     iget-object v3, p0, Lcom/android/server/enterprise/billing/EnterpriseBillingPolicy;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v4, "com.samsung.android.knox.permission.KNOX_ENTERPRISE_BILLING_NOMDM"
+    const-string/jumbo v4, "com.samsung.android.knox.permission.KNOX_EBILLING_NOMDM"
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->checkCallingOrSelfPermission(Ljava/lang/String;)I
     :try_end_1
@@ -149,7 +147,7 @@
 
     new-instance v3, Ljava/lang/SecurityException;
 
-    const-string/jumbo v4, "Permission denied - missing KNOX_ENTERPRISE_BILLING_NOMDM permission"
+    const-string/jumbo v4, "Permission denied - missing com.sec.enterprise.knox.permission.KNOX_ENTERPRISE_BILLING_NOMDM or com.samsung.android.knox.permission.KNOX_EBILLING_NOMDM permission"
 
     invoke-direct {v3, v4}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
 
@@ -207,7 +205,7 @@
 
     aput-object v3, v2, v4
 
-    const-string/jumbo v3, "com.samsung.android.knox.permission.KNOX_ENTERPRISE_BILLING"
+    const-string/jumbo v3, "com.samsung.android.knox.permission.KNOX_EBILLING"
 
     const/4 v4, 0x1
 
@@ -1019,9 +1017,49 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_0
+
+    invoke-direct {p0, p1}, Lcom/android/server/enterprise/billing/EnterpriseBillingPolicy;->enforceActiveAdminEnterpriseBillingPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
+
+    iget-object v1, p0, Lcom/android/server/enterprise/billing/EnterpriseBillingPolicy;->ebpInternal:Lcom/android/server/enterprise/billing/EnterpriseBillingPolicyInternal;
+
+    invoke-virtual {v1, p1, p2}, Lcom/android/server/enterprise/billing/EnterpriseBillingPolicyInternal;->disableProfileForApps(Lcom/samsung/android/knox/ContextInfo;Ljava/util/List;)Z
+
+    move-result v0
+
+    :goto_0
+    const-string/jumbo v1, "EnterpriseBillingPolicy"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "disableProfileForApps - end - "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
+
+    return v0
 
     :cond_0
+    :try_start_1
     const-string/jumbo v1, "EnterpriseBillingPolicy"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1053,47 +1091,8 @@
     move-result-object v2
 
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_0
-    const-string/jumbo v1, "EnterpriseBillingPolicy"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "disableProfileForApps - end - "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit p0
-
-    return v0
-
-    :cond_1
-    :try_start_1
-    invoke-direct {p0, p1}, Lcom/android/server/enterprise/billing/EnterpriseBillingPolicy;->enforceActiveAdminEnterpriseBillingPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
-
-    iget-object v1, p0, Lcom/android/server/enterprise/billing/EnterpriseBillingPolicy;->ebpInternal:Lcom/android/server/enterprise/billing/EnterpriseBillingPolicyInternal;
-
-    invoke-virtual {v1, p1, p2}, Lcom/android/server/enterprise/billing/EnterpriseBillingPolicyInternal;->disableProfileForApps(Lcom/samsung/android/knox/ContextInfo;Ljava/util/List;)Z
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    move-result v0
 
     goto :goto_0
 
@@ -1330,9 +1329,49 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_0
+
+    invoke-direct {p0, p1}, Lcom/android/server/enterprise/billing/EnterpriseBillingPolicy;->enforceActiveAdminEnterpriseBillingPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
+
+    iget-object v1, p0, Lcom/android/server/enterprise/billing/EnterpriseBillingPolicy;->ebpInternal:Lcom/android/server/enterprise/billing/EnterpriseBillingPolicyInternal;
+
+    invoke-virtual {v1, p1, p2, p3}, Lcom/android/server/enterprise/billing/EnterpriseBillingPolicyInternal;->enableProfileForApps(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Ljava/util/List;)Z
+
+    move-result v0
+
+    :goto_0
+    const-string/jumbo v1, "EnterpriseBillingPolicy"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "enableProfileForApps - end - "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
+
+    return v0
 
     :cond_0
+    :try_start_1
     const-string/jumbo v1, "EnterpriseBillingPolicy"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1374,47 +1413,8 @@
     move-result-object v2
 
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_0
-    const-string/jumbo v1, "EnterpriseBillingPolicy"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "enableProfileForApps - end - "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit p0
-
-    return v0
-
-    :cond_1
-    :try_start_1
-    invoke-direct {p0, p1}, Lcom/android/server/enterprise/billing/EnterpriseBillingPolicy;->enforceActiveAdminEnterpriseBillingPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
-
-    iget-object v1, p0, Lcom/android/server/enterprise/billing/EnterpriseBillingPolicy;->ebpInternal:Lcom/android/server/enterprise/billing/EnterpriseBillingPolicyInternal;
-
-    invoke-virtual {v1, p1, p2, p3}, Lcom/android/server/enterprise/billing/EnterpriseBillingPolicyInternal;->enableProfileForApps(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Ljava/util/List;)Z
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    move-result v0
 
     goto :goto_0
 

@@ -18,7 +18,7 @@
 
 .field static final MORE_DEBUG:Z = false
 
-.field static final SOCKET_TIMEOUT_MILLIS:J = 0x3a98L
+.field static final SOCKET_TIMEOUT_MILLIS:J = 0x2710L
 
 .field static final TAG:Ljava/lang/String; = "NativeCrashListener"
 
@@ -130,7 +130,7 @@
 
     invoke-direct {v4, v10}, Ljava/io/ByteArrayOutputStream;-><init>(I)V
 
-    const-wide/16 v10, 0x3a98
+    const-wide/16 v10, 0x2710
 
     :try_start_0
     invoke-static {v10, v11}, Landroid/system/StructTimeval;->fromMillis(J)Landroid/system/StructTimeval;
@@ -180,7 +180,7 @@
 
     move-result v8
 
-    if-lez v5, :cond_6
+    if-lez v5, :cond_7
 
     iget-object v10, p0, Lcom/android/server/am/NativeCrashListener;->mAm:Lcom/android/server/am/ActivityManagerService;
 
@@ -206,11 +206,96 @@
     :try_start_2
     monitor-exit v11
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_6
 
     iget-boolean v10, v6, Lcom/android/server/am/ProcessRecord;->persistent:Z
 
-    if-eqz v10, :cond_3
+    if-eqz v10, :cond_4
+
+    const/16 v10, 0x8
+
+    new-array v11, v10, [Ljava/lang/Object;
+
+    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+
+    move-result v10
+
+    invoke-static {v10}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v10
+
+    const/4 v12, 0x0
+
+    aput-object v10, v11, v12
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v10
+
+    invoke-static {v10}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v10
+
+    invoke-static {v10}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v10
+
+    const/4 v12, 0x1
+
+    aput-object v10, v11, v12
+
+    iget-object v10, v6, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    const/4 v12, 0x2
+
+    aput-object v10, v11, v12
+
+    if-nez v6, :cond_1
+
+    const/4 v10, -0x1
+
+    :goto_0
+    invoke-static {v10}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v10
+
+    const/4 v12, 0x3
+
+    aput-object v10, v11, v12
+
+    const-string/jumbo v10, "Native crash"
+
+    const/4 v12, 0x4
+
+    aput-object v10, v11, v12
+
+    invoke-static {v8}, Landroid/system/Os;->strsignal(I)Ljava/lang/String;
+
+    move-result-object v10
+
+    const/4 v12, 0x5
+
+    aput-object v10, v11, v12
+
+    const-string/jumbo v10, "unknown"
+
+    const/4 v12, 0x6
+
+    aput-object v10, v11, v12
+
+    const/4 v10, 0x0
+
+    invoke-static {v10}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v10
+
+    const/4 v12, 0x7
+
+    aput-object v10, v11, v12
+
+    const/16 v10, 0x7557
+
+    invoke-static {v10, v11}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
     return-void
 
@@ -232,19 +317,26 @@
 
     invoke-static {v10, v11, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :goto_0
+    :goto_1
     return-void
 
     :cond_1
-    const/4 v10, 0x0
-
     :try_start_3
-    invoke-virtual {v4, v0, v10, v1}, Ljava/io/ByteArrayOutputStream;->write([BII)V
+    iget-object v10, v6, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
+
+    iget v10, v10, Landroid/content/pm/ApplicationInfo;->flags:I
+
+    goto :goto_0
 
     :cond_2
-    if-lez v1, :cond_4
+    const/4 v10, 0x0
+
+    invoke-virtual {v4, v0, v10, v1}, Ljava/io/ByteArrayOutputStream;->write([BII)V
 
     :cond_3
+    if-lez v1, :cond_5
+
+    :cond_4
     array-length v10, v0
 
     const/4 v11, 0x0
@@ -253,13 +345,13 @@
 
     move-result v1
 
-    if-lez v1, :cond_2
+    if-lez v1, :cond_3
 
     add-int/lit8 v10, v1, -0x1
 
     aget-byte v10, v0, v10
 
-    if-nez v10, :cond_1
+    if-nez v10, :cond_2
 
     add-int/lit8 v10, v1, -0x1
 
@@ -267,7 +359,7 @@
 
     invoke-virtual {v4, v0, v11, v10}, Ljava/io/ByteArrayOutputStream;->write([BII)V
 
-    :cond_4
+    :cond_5
     iget-object v11, p0, Lcom/android/server/am/NativeCrashListener;->mAm:Lcom/android/server/am/ActivityManagerService;
 
     monitor-enter v11
@@ -308,7 +400,7 @@
 
     invoke-virtual {v10}, Lcom/android/server/am/NativeCrashListener$NativeCrashReporter;->start()V
 
-    goto :goto_0
+    goto :goto_1
 
     :catchall_1
     move-exception v10
@@ -319,7 +411,7 @@
 
     throw v10
 
-    :cond_5
+    :cond_6
     const-string/jumbo v10, "NativeCrashListener"
 
     new-instance v11, Ljava/lang/StringBuilder;
@@ -342,9 +434,9 @@
 
     invoke-static {v10, v11}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_6
+    :cond_7
     const-string/jumbo v10, "NativeCrashListener"
 
     const-string/jumbo v11, "Bogus pid!"
@@ -353,101 +445,95 @@
     :try_end_5
     .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_0
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method public run()V
-    .locals 11
+    .locals 10
 
-    const/4 v8, 0x1
+    const/4 v7, 0x1
 
-    new-array v0, v8, [B
+    new-array v0, v7, [B
 
-    new-instance v7, Ljava/io/File;
+    new-instance v6, Ljava/io/File;
 
-    const-string/jumbo v8, "/data/system/ndebugsocket"
+    const-string/jumbo v7, "/data/system/ndebugsocket"
 
-    invoke-direct {v7, v8}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v6, v7}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v7}, Ljava/io/File;->exists()Z
+    invoke-virtual {v6}, Ljava/io/File;->exists()Z
 
-    move-result v8
+    move-result v7
 
-    if-eqz v8, :cond_0
+    if-eqz v7, :cond_0
 
-    invoke-virtual {v7}, Ljava/io/File;->delete()Z
+    invoke-virtual {v6}, Ljava/io/File;->delete()Z
 
     :cond_0
     :try_start_0
-    sget v8, Landroid/system/OsConstants;->AF_UNIX:I
+    sget v7, Landroid/system/OsConstants;->AF_UNIX:I
 
-    sget v9, Landroid/system/OsConstants;->SOCK_STREAM:I
+    sget v8, Landroid/system/OsConstants;->SOCK_STREAM:I
 
-    const/4 v10, 0x0
+    const/4 v9, 0x0
 
-    invoke-static {v8, v9, v10}, Landroid/system/Os;->socket(III)Ljava/io/FileDescriptor;
+    invoke-static {v7, v8, v9}, Landroid/system/Os;->socket(III)Ljava/io/FileDescriptor;
+
+    move-result-object v4
+
+    const-string/jumbo v7, "/data/system/ndebugsocket"
+
+    invoke-static {v7}, Landroid/system/UnixSocketAddress;->createFileSystem(Ljava/lang/String;)Landroid/system/UnixSocketAddress;
 
     move-result-object v5
 
-    const-string/jumbo v8, "/data/system/ndebugsocket"
+    invoke-static {v4, v5}, Landroid/system/Os;->bind(Ljava/io/FileDescriptor;Ljava/net/SocketAddress;)V
 
-    invoke-static {v8}, Landroid/system/UnixSocketAddress;->createFileSystem(Ljava/lang/String;)Landroid/system/UnixSocketAddress;
+    const/4 v7, 0x1
 
-    move-result-object v6
+    invoke-static {v4, v7}, Landroid/system/Os;->listen(Ljava/io/FileDescriptor;I)V
 
-    invoke-static {v5, v6}, Landroid/system/Os;->bind(Ljava/io/FileDescriptor;Ljava/net/SocketAddress;)V
+    const-string/jumbo v7, "/data/system/ndebugsocket"
 
-    const/4 v8, 0x1
+    const/16 v8, 0x1ff
 
-    invoke-static {v5, v8}, Landroid/system/Os;->listen(Ljava/io/FileDescriptor;I)V
+    invoke-static {v7, v8}, Landroid/system/Os;->chmod(Ljava/lang/String;I)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_5
 
     :cond_1
     :goto_0
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    const/4 v8, 0x0
+    const/4 v7, 0x0
 
     :try_start_1
-    invoke-static {v5, v8}, Landroid/system/Os;->accept(Ljava/io/FileDescriptor;Ljava/net/InetSocketAddress;)Ljava/io/FileDescriptor;
+    invoke-static {v4, v7}, Landroid/system/Os;->accept(Ljava/io/FileDescriptor;Ljava/net/InetSocketAddress;)Ljava/io/FileDescriptor;
 
-    move-result-object v4
+    move-result-object v3
 
-    if-eqz v4, :cond_2
+    if-eqz v3, :cond_2
 
-    sget v8, Landroid/system/OsConstants;->SOL_SOCKET:I
-
-    sget v9, Landroid/system/OsConstants;->SO_PEERCRED:I
-
-    invoke-static {v4, v8, v9}, Landroid/system/Os;->getsockoptUcred(Ljava/io/FileDescriptor;II)Landroid/system/StructUcred;
-
-    move-result-object v1
-
-    iget v8, v1, Landroid/system/StructUcred;->uid:I
-
-    if-nez v8, :cond_2
-
-    invoke-virtual {p0, v4}, Lcom/android/server/am/NativeCrashListener;->consumeNativeCrashData(Ljava/io/FileDescriptor;)V
+    invoke-virtual {p0, v3}, Lcom/android/server/am/NativeCrashListener;->consumeNativeCrashData(Ljava/io/FileDescriptor;)V
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_2
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :cond_2
-    if-eqz v4, :cond_1
+    if-eqz v3, :cond_1
 
-    const/4 v8, 0x0
+    const/4 v7, 0x0
 
-    const/4 v9, 0x1
+    const/4 v8, 0x1
 
     :try_start_2
-    invoke-static {v4, v0, v8, v9}, Landroid/system/Os;->write(Ljava/io/FileDescriptor;[BII)I
+    invoke-static {v3, v0, v7, v8}, Landroid/system/Os;->write(Ljava/io/FileDescriptor;[BII)I
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
 
     :goto_1
     :try_start_3
-    invoke-static {v4}, Landroid/system/Os;->close(Ljava/io/FileDescriptor;)V
+    invoke-static {v3}, Landroid/system/Os;->close(Ljava/io/FileDescriptor;)V
     :try_end_3
     .catch Landroid/system/ErrnoException; {:try_start_3 .. :try_end_3} :catch_0
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_5
@@ -455,41 +541,41 @@
     goto :goto_0
 
     :catch_0
-    move-exception v2
+    move-exception v1
 
     goto :goto_0
 
     :catch_1
-    move-exception v3
+    move-exception v2
 
     goto :goto_1
 
     :catch_2
-    move-exception v3
+    move-exception v2
 
     :try_start_4
-    const-string/jumbo v8, "NativeCrashListener"
+    const-string/jumbo v7, "NativeCrashListener"
 
-    const-string/jumbo v9, "Error handling connection"
+    const-string/jumbo v8, "Error handling connection"
 
-    invoke-static {v8, v9, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v7, v8, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    if-eqz v4, :cond_1
+    if-eqz v3, :cond_1
 
-    const/4 v8, 0x0
+    const/4 v7, 0x0
 
-    const/4 v9, 0x1
+    const/4 v8, 0x1
 
     :try_start_5
-    invoke-static {v4, v0, v8, v9}, Landroid/system/Os;->write(Ljava/io/FileDescriptor;[BII)I
+    invoke-static {v3, v0, v7, v8}, Landroid/system/Os;->write(Ljava/io/FileDescriptor;[BII)I
     :try_end_5
     .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_4
 
     :goto_2
     :try_start_6
-    invoke-static {v4}, Landroid/system/Os;->close(Ljava/io/FileDescriptor;)V
+    invoke-static {v3}, Landroid/system/Os;->close(Ljava/io/FileDescriptor;)V
     :try_end_6
     .catch Landroid/system/ErrnoException; {:try_start_6 .. :try_end_6} :catch_3
     .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_5
@@ -497,32 +583,32 @@
     goto :goto_0
 
     :catch_3
-    move-exception v2
+    move-exception v1
 
     goto :goto_0
 
     :catch_4
-    move-exception v3
+    move-exception v2
 
     goto :goto_2
 
     :catchall_0
-    move-exception v8
+    move-exception v7
 
-    if-eqz v4, :cond_3
+    if-eqz v3, :cond_3
 
-    const/4 v9, 0x0
+    const/4 v8, 0x0
 
-    const/4 v10, 0x1
+    const/4 v9, 0x1
 
     :try_start_7
-    invoke-static {v4, v0, v9, v10}, Landroid/system/Os;->write(Ljava/io/FileDescriptor;[BII)I
+    invoke-static {v3, v0, v8, v9}, Landroid/system/Os;->write(Ljava/io/FileDescriptor;[BII)I
     :try_end_7
     .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_6
 
     :goto_3
     :try_start_8
-    invoke-static {v4}, Landroid/system/Os;->close(Ljava/io/FileDescriptor;)V
+    invoke-static {v3}, Landroid/system/Os;->close(Ljava/io/FileDescriptor;)V
     :try_end_8
     .catch Landroid/system/ErrnoException; {:try_start_8 .. :try_end_8} :catch_7
     .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_5
@@ -530,28 +616,28 @@
     :cond_3
     :goto_4
     :try_start_9
-    throw v8
+    throw v7
     :try_end_9
     .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_9} :catch_5
 
     :catch_5
-    move-exception v3
+    move-exception v2
 
-    const-string/jumbo v8, "NativeCrashListener"
+    const-string/jumbo v7, "NativeCrashListener"
 
-    const-string/jumbo v9, "Unable to init native debug socket!"
+    const-string/jumbo v8, "Unable to init native debug socket!"
 
-    invoke-static {v8, v9, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v7, v8, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     return-void
 
     :catch_6
-    move-exception v3
+    move-exception v2
 
     goto :goto_3
 
     :catch_7
-    move-exception v2
+    move-exception v1
 
     goto :goto_4
 .end method

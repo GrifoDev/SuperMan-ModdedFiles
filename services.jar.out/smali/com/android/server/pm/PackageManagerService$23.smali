@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/pm/PackageManagerService;->restoreDefaultApps([BI)V
+    value = Lcom/android/server/pm/PackageManagerService;->restorePermissionGrants([BI)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -52,9 +52,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$23;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    iget-object v0, v0, Lcom/android/server/pm/PackageManagerService;->mSettings:Lcom/android/server/pm/Settings;
-
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/pm/Settings;->readDefaultAppsLPw(Lorg/xmlpull/v1/XmlPullParser;I)V
+    invoke-static {v0, p1, p2}, Lcom/android/server/pm/PackageManagerService;->-wrap51(Lcom/android/server/pm/PackageManagerService;Lorg/xmlpull/v1/XmlPullParser;I)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

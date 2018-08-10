@@ -30,17 +30,7 @@
     return v0
 .end method
 
-.method static synthetic -wrap1(Lcom/android/server/updates/ConfigUpdateInstallReceiver;II)Z
-    .locals 1
-
-    invoke-direct {p0, p1, p2}, Lcom/android/server/updates/ConfigUpdateInstallReceiver;->verifyVersion(II)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic -wrap2(Lcom/android/server/updates/ConfigUpdateInstallReceiver;Landroid/content/Context;Landroid/content/Intent;)[B
+.method static synthetic -wrap1(Lcom/android/server/updates/ConfigUpdateInstallReceiver;Landroid/content/Context;Landroid/content/Intent;)[B
     .locals 1
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/updates/ConfigUpdateInstallReceiver;->getAltContent(Landroid/content/Context;Landroid/content/Intent;)[B
@@ -50,7 +40,7 @@
     return-object v0
 .end method
 
-.method static synthetic -wrap3(Lcom/android/server/updates/ConfigUpdateInstallReceiver;)[B
+.method static synthetic -wrap2(Lcom/android/server/updates/ConfigUpdateInstallReceiver;)[B
     .locals 1
 
     invoke-direct {p0}, Lcom/android/server/updates/ConfigUpdateInstallReceiver;->getCurrentContent()[B
@@ -60,7 +50,7 @@
     return-object v0
 .end method
 
-.method static synthetic -wrap4(Lcom/android/server/updates/ConfigUpdateInstallReceiver;)I
+.method static synthetic -wrap3(Lcom/android/server/updates/ConfigUpdateInstallReceiver;)I
     .locals 1
 
     invoke-direct {p0}, Lcom/android/server/updates/ConfigUpdateInstallReceiver;->getCurrentVersion()I
@@ -70,7 +60,7 @@
     return v0
 .end method
 
-.method static synthetic -wrap5(Lcom/android/server/updates/ConfigUpdateInstallReceiver;Landroid/content/Intent;)I
+.method static synthetic -wrap4(Lcom/android/server/updates/ConfigUpdateInstallReceiver;Landroid/content/Intent;)I
     .locals 1
 
     invoke-direct {p0, p1}, Lcom/android/server/updates/ConfigUpdateInstallReceiver;->getVersionFromIntent(Landroid/content/Intent;)I
@@ -80,7 +70,7 @@
     return v0
 .end method
 
-.method static synthetic -wrap6([B)Ljava/lang/String;
+.method static synthetic -wrap5([B)Ljava/lang/String;
     .locals 1
 
     invoke-static {p0}, Lcom/android/server/updates/ConfigUpdateInstallReceiver;->getCurrentHash([B)Ljava/lang/String;
@@ -90,7 +80,7 @@
     return-object v0
 .end method
 
-.method static synthetic -wrap7(Lcom/android/server/updates/ConfigUpdateInstallReceiver;Landroid/content/Intent;)Ljava/lang/String;
+.method static synthetic -wrap6(Lcom/android/server/updates/ConfigUpdateInstallReceiver;Landroid/content/Intent;)Ljava/lang/String;
     .locals 1
 
     invoke-direct {p0, p1}, Lcom/android/server/updates/ConfigUpdateInstallReceiver;->getRequiredHashFromIntent(Landroid/content/Intent;)Ljava/lang/String;
@@ -394,22 +384,6 @@
     return v0
 .end method
 
-.method private verifyVersion(II)Z
-    .locals 1
-
-    if-ge p1, p2, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_0
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
 
 # virtual methods
 .method protected install([BI)V
@@ -461,6 +435,22 @@
     .locals 0
 
     return-void
+.end method
+
+.method protected verifyVersion(II)Z
+    .locals 1
+
+    if-ge p1, p2, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method protected writeUpdate(Ljava/io/File;Ljava/io/File;[B)V

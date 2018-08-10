@@ -82,7 +82,7 @@
 
     const/4 v1, -0x2
 
-    invoke-static {v0, v1}, Lcom/android/server/backup/BackupManagerService;->-wrap17(Lcom/android/server/backup/BackupManagerService;I)V
+    invoke-static {v0, v1}, Lcom/android/server/backup/BackupManagerService;->-wrap20(Lcom/android/server/backup/BackupManagerService;I)V
 
     :goto_0
     return-void
@@ -92,7 +92,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/server/backup/BackupManagerService;->-wrap17(Lcom/android/server/backup/BackupManagerService;I)V
+    invoke-static {v0, v1}, Lcom/android/server/backup/BackupManagerService;->-wrap20(Lcom/android/server/backup/BackupManagerService;I)V
 
     goto :goto_0
 .end method
@@ -123,7 +123,7 @@
 
     const/4 v1, -0x2
 
-    invoke-static {v0, v1}, Lcom/android/server/backup/BackupManagerService;->-wrap18(Lcom/android/server/backup/BackupManagerService;I)V
+    invoke-static {v0, v1}, Lcom/android/server/backup/BackupManagerService;->-wrap21(Lcom/android/server/backup/BackupManagerService;I)V
 
     :goto_0
     return-void
@@ -133,7 +133,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/server/backup/BackupManagerService;->-wrap18(Lcom/android/server/backup/BackupManagerService;I)V
+    invoke-static {v0, v1}, Lcom/android/server/backup/BackupManagerService;->-wrap21(Lcom/android/server/backup/BackupManagerService;I)V
 
     goto :goto_0
 .end method
@@ -215,7 +215,7 @@
 
     iget-object v0, p0, Lcom/android/server/backup/BackupManagerService$EdmFullObserver;->this$0:Lcom/android/server/backup/BackupManagerService;
 
-    invoke-static {v0, v2}, Lcom/android/server/backup/BackupManagerService;->-wrap17(Lcom/android/server/backup/BackupManagerService;I)V
+    invoke-static {v0, v2}, Lcom/android/server/backup/BackupManagerService;->-wrap20(Lcom/android/server/backup/BackupManagerService;I)V
 
     :goto_0
     return-void
@@ -223,7 +223,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/server/backup/BackupManagerService$EdmFullObserver;->this$0:Lcom/android/server/backup/BackupManagerService;
 
-    invoke-static {v0, v2}, Lcom/android/server/backup/BackupManagerService;->-wrap18(Lcom/android/server/backup/BackupManagerService;I)V
+    invoke-static {v0, v2}, Lcom/android/server/backup/BackupManagerService;->-wrap21(Lcom/android/server/backup/BackupManagerService;I)V
 
     goto :goto_0
 .end method

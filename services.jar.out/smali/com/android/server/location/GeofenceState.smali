@@ -126,73 +126,73 @@
 .end method
 
 .method public processLocation(Landroid/location/Location;)I
-    .locals 9
+    .locals 8
 
-    const/4 v8, 0x2
+    const/4 v7, 0x2
 
-    const/4 v3, 0x0
+    const/4 v6, 0x1
 
-    const/4 v2, 0x1
+    iget-object v2, p0, Lcom/android/server/location/GeofenceState;->mLocation:Landroid/location/Location;
 
-    iget-object v4, p0, Lcom/android/server/location/GeofenceState;->mLocation:Landroid/location/Location;
+    invoke-virtual {v2, p1}, Landroid/location/Location;->distanceTo(Landroid/location/Location;)F
 
-    invoke-virtual {v4, p1}, Landroid/location/Location;->distanceTo(Landroid/location/Location;)F
+    move-result v2
+
+    float-to-double v2, v2
+
+    iput-wide v2, p0, Lcom/android/server/location/GeofenceState;->mDistanceToCenter:D
+
+    iget v1, p0, Lcom/android/server/location/GeofenceState;->mState:I
+
+    iget-wide v2, p0, Lcom/android/server/location/GeofenceState;->mDistanceToCenter:D
+
+    iget-object v4, p0, Lcom/android/server/location/GeofenceState;->mFence:Landroid/location/Geofence;
+
+    invoke-virtual {v4}, Landroid/location/Geofence;->getRadius()F
+
+    move-result v4
+
+    invoke-virtual {p1}, Landroid/location/Location;->getAccuracy()F
+
+    move-result v5
+
+    invoke-static {v4, v5}, Ljava/lang/Math;->max(FF)F
 
     move-result v4
 
     float-to-double v4, v4
 
-    iput-wide v4, p0, Lcom/android/server/location/GeofenceState;->mDistanceToCenter:D
+    cmpg-double v2, v2, v4
 
-    iget v1, p0, Lcom/android/server/location/GeofenceState;->mState:I
+    if-gtz v2, :cond_0
 
-    iget-wide v4, p0, Lcom/android/server/location/GeofenceState;->mDistanceToCenter:D
-
-    iget-object v6, p0, Lcom/android/server/location/GeofenceState;->mFence:Landroid/location/Geofence;
-
-    invoke-virtual {v6}, Landroid/location/Geofence;->getRadius()F
-
-    move-result v6
-
-    invoke-virtual {p1}, Landroid/location/Location;->getAccuracy()F
-
-    move-result v7
-
-    invoke-static {v6, v7}, Ljava/lang/Math;->max(FF)F
-
-    move-result v6
-
-    float-to-double v6, v6
-
-    cmpg-double v4, v4, v6
-
-    if-gtz v4, :cond_0
-
-    move v0, v2
+    const/4 v0, 0x1
 
     :goto_0
     if-eqz v0, :cond_1
 
-    iput v2, p0, Lcom/android/server/location/GeofenceState;->mState:I
+    iput v6, p0, Lcom/android/server/location/GeofenceState;->mState:I
 
-    if-eq v1, v2, :cond_2
+    if-eq v1, v6, :cond_2
 
-    return v2
+    return v6
 
     :cond_0
-    move v0, v3
+    const/4 v0, 0x0
 
     goto :goto_0
 
     :cond_1
-    iput v8, p0, Lcom/android/server/location/GeofenceState;->mState:I
+    iput v7, p0, Lcom/android/server/location/GeofenceState;->mState:I
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v6, :cond_2
 
-    return v8
+    return v7
 
     :cond_2
-    return v3
+    const/4 v2, 0x0
+
+    return v2
 .end method
 
 .method public toString()Ljava/lang/String;

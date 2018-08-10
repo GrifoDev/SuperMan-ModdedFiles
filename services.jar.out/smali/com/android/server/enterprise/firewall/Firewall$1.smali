@@ -32,7 +32,31 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
+    .locals 4
+
+    invoke-static {}, Lcom/android/server/enterprise/firewall/Firewall;->-get0()Ljava/lang/String;
+
+    move-result-object v1
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "onReceive "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     const-string/jumbo v1, "android.net.conn.CONNECTIVITY_CHANGE"
 
@@ -60,7 +84,7 @@
 
     iget-object v1, p0, Lcom/android/server/enterprise/firewall/Firewall$1;->this$0:Lcom/android/server/enterprise/firewall/Firewall;
 
-    invoke-static {v1}, Lcom/android/server/enterprise/firewall/Firewall;->-wrap3(Lcom/android/server/enterprise/firewall/Firewall;)V
+    invoke-static {v1}, Lcom/android/server/enterprise/firewall/Firewall;->-wrap4(Lcom/android/server/enterprise/firewall/Firewall;)V
 
     :cond_0
     return-void

@@ -37,13 +37,13 @@
 
     const/high16 v12, 0x10000000
 
-    const v11, 0x104042e
+    const v11, 0x1040978
 
     const/4 v4, 0x0
 
-    const/4 v3, 0x0
-
     const/4 v10, 0x1
+
+    const/4 v3, 0x0
 
     new-instance v2, Landroid/content/Intent;
 
@@ -71,9 +71,11 @@
 
     new-instance v0, Landroid/app/Notification$Builder;
 
-    invoke-direct {v0, p0}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
+    sget-object v1, Lcom/android/internal/notification/SystemNotificationChannels;->DEVELOPER:Ljava/lang/String;
 
-    const v1, 0x1080873
+    invoke-direct {v0, p0, v1}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;Ljava/lang/String;)V
+
+    const v1, 0x108091c
 
     invoke-virtual {v0, v1}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -87,15 +89,11 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v10}, Landroid/app/Notification$Builder;->setPriority(I)Landroid/app/Notification$Builder;
-
-    move-result-object v0
-
     invoke-virtual {v0, v7}, Landroid/app/Notification$Builder;->setContentIntent(Landroid/app/PendingIntent;)Landroid/app/Notification$Builder;
 
     move-result-object v0
 
-    const v1, 0x106005a
+    const v1, 0x10601bc
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getColor(I)I
 
@@ -109,7 +107,7 @@
 
     if-ne p1, v0, :cond_1
 
-    const v0, 0x104042d
+    const v0, 0x104097e
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -132,7 +130,7 @@
     :cond_1
     if-ne p1, v10, :cond_2
 
-    const v0, 0x104042b
+    const v0, 0x1040a14
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -153,7 +151,7 @@
 
     new-instance v0, Landroid/content/Intent;
 
-    const-string/jumbo v1, "com.android.server.action.BUGREPORT_SHARING_ACCEPTED"
+    const-string/jumbo v1, "com.android.server.action.REMOTE_BUGREPORT_SHARING_ACCEPTED"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
@@ -165,7 +163,7 @@
 
     new-instance v0, Landroid/content/Intent;
 
-    const-string/jumbo v1, "com.android.server.action.BUGREPORT_SHARING_DECLINED"
+    const-string/jumbo v1, "com.android.server.action.REMOTE_BUGREPORT_SHARING_DECLINED"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
@@ -177,7 +175,7 @@
 
     new-instance v0, Landroid/app/Notification$Action$Builder;
 
-    const v1, 0x1040430
+    const v1, 0x104027f
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -195,7 +193,7 @@
 
     new-instance v1, Landroid/app/Notification$Action$Builder;
 
-    const v3, 0x104042f
+    const v3, 0x1040977
 
     invoke-virtual {p0, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -211,7 +209,7 @@
 
     move-result-object v0
 
-    const v1, 0x104042c
+    const v1, 0x1040979
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

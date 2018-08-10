@@ -34,12 +34,20 @@
 
 
 # virtual methods
-.method public onLowPowerModeChanged(Z)V
+.method public getServiceType()I
+    .locals 1
+
+    const/4 v0, 0x2
+
+    return v0
+.end method
+
+.method public onLowPowerModeChanged(Landroid/os/PowerSaveState;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/VibratorService$3;->this$0:Lcom/android/server/VibratorService;
 
-    invoke-static {v0}, Lcom/android/server/VibratorService;->-wrap5(Lcom/android/server/VibratorService;)V
+    invoke-static {v0}, Lcom/android/server/VibratorService;->-wrap9(Lcom/android/server/VibratorService;)V
 
     return-void
 .end method

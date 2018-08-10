@@ -15,19 +15,11 @@
 
 
 # static fields
-.field public static final CHANGE_ECRYPTFS_PASSWORD:I = 0x8
-
 .field private static final COMMAND_BASE:I = 0x0
 
 .field public static final ENCRYPT:I = 0x4
 
-.field public static final ENC_META_CHECK:I = 0x5
-
-.field public static final KNOX_REVERT_SS:I = 0xb
-
 .field public static final MOUNT_ECRYPTFS_STORAGE:I = 0x6
-
-.field public static final MOUNT_PATH_STATUS:I = 0x9
 
 .field public static final PASSWORD:I = 0x1
 

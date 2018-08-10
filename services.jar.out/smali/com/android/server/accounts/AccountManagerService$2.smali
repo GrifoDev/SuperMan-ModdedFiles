@@ -1,11 +1,11 @@
 .class Lcom/android/server/accounts/AccountManagerService$2;
-.super Landroid/content/BroadcastReceiver;
+.super Lcom/android/internal/content/PackageMonitor;
 .source "AccountManagerService.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/accounts/AccountManagerService;-><init>(Landroid/content/Context;Landroid/content/pm/PackageManager;Lcom/android/server/accounts/IAccountAuthenticatorCache;)V
+    value = Lcom/android/server/accounts/AccountManagerService;-><init>(Lcom/android/server/accounts/AccountManagerService$Injector;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,48 +24,33 @@
 
     iput-object p1, p0, Lcom/android/server/accounts/AccountManagerService$2;->this$0:Lcom/android/server/accounts/AccountManagerService;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-direct {p0}, Lcom/android/internal/content/PackageMonitor;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+.method public onPackageAdded(Ljava/lang/String;I)V
     .locals 2
 
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    iget-object v0, p0, Lcom/android/server/accounts/AccountManagerService$2;->this$0:Lcom/android/server/accounts/AccountManagerService;
 
-    move-result-object v0
+    const/4 v1, 0x1
 
-    const-string/jumbo v1, "android.intent.action.USER_REMOVED"
+    invoke-static {v0, p2, v1}, Lcom/android/server/accounts/AccountManagerService;->-wrap11(Lcom/android/server/accounts/AccountManagerService;IZ)V
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    iget-object v1, p0, Lcom/android/server/accounts/AccountManagerService$2;->this$0:Lcom/android/server/accounts/AccountManagerService;
-
-    invoke-static {v1, p2}, Lcom/android/server/accounts/AccountManagerService;->-wrap12(Lcom/android/server/accounts/AccountManagerService;Landroid/content/Intent;)V
-
-    :cond_0
-    :goto_0
     return-void
+.end method
 
-    :cond_1
-    const-string/jumbo v1, "android.intent.action.USER_ADDED"
+.method public onPackageUpdateFinished(Ljava/lang/String;I)V
+    .locals 2
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    iget-object v0, p0, Lcom/android/server/accounts/AccountManagerService$2;->this$0:Lcom/android/server/accounts/AccountManagerService;
 
-    move-result v1
+    const/4 v1, 0x1
 
-    if-eqz v1, :cond_0
+    invoke-static {v0, p2, v1}, Lcom/android/server/accounts/AccountManagerService;->-wrap11(Lcom/android/server/accounts/AccountManagerService;IZ)V
 
-    iget-object v1, p0, Lcom/android/server/accounts/AccountManagerService$2;->this$0:Lcom/android/server/accounts/AccountManagerService;
-
-    invoke-static {v1, p2}, Lcom/android/server/accounts/AccountManagerService;->-wrap11(Lcom/android/server/accounts/AccountManagerService;Landroid/content/Intent;)V
-
-    goto :goto_0
+    return-void
 .end method

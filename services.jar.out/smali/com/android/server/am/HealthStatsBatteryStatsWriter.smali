@@ -2196,19 +2196,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
 
-    const/16 v24, 0x2
-
-    move-object/from16 v0, p3
-
-    move/from16 v1, v24
-
-    invoke-virtual {v0, v1}, Landroid/os/BatteryStats$Uid;->getCpuPowerMaUs(I)J
-
-    move-result-wide v24
-
-    const-wide/16 v26, 0x3e8
-
-    div-long v24, v24, v26
+    const-wide/16 v24, 0x0
 
     const/16 v26, 0x2750
 

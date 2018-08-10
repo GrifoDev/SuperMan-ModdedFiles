@@ -38,7 +38,7 @@
     .locals 6
 
     :try_start_0
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
     move-result-object v3
 
@@ -50,7 +50,7 @@
 
     iget-object v3, p0, Lcom/android/server/pm/UserManagerService$4;->this$0:Lcom/android/server/pm/UserManagerService;
 
-    invoke-static {v3}, Lcom/android/server/pm/UserManagerService;->-get7(Lcom/android/server/pm/UserManagerService;)Ljava/lang/Object;
+    invoke-static {v3}, Lcom/android/server/pm/UserManagerService;->-get6(Lcom/android/server/pm/UserManagerService;)Ljava/lang/Object;
 
     move-result-object v4
 
@@ -81,7 +81,7 @@
 
     const-string/jumbo v3, "UserManagerService"
 
-    const-string/jumbo v4, "Unable to access ActivityManagerNative"
+    const-string/jumbo v4, "Unable to access ActivityManagerService"
 
     invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 

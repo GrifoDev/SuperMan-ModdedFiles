@@ -1177,7 +1177,9 @@
 
     iget-boolean v8, p0, Lcom/android/server/accessibility/TouchExplorer;->mTouchExplorationInProgress:Z
 
-    if-nez v8, :cond_0
+    xor-int/lit8 v8, v8, 0x1
+
+    if-eqz v8, :cond_0
 
     iget-object v8, p0, Lcom/android/server/accessibility/TouchExplorer;->mSendHoverEnterAndMoveDelayed:Lcom/android/server/accessibility/TouchExplorer$SendHoverEnterAndMoveDelayed;
 
@@ -1839,80 +1841,110 @@
 
     invoke-virtual {p1, p2}, Landroid/view/MotionEvent;->setAction(I)V
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    const/4 v1, -0x1
+    const/4 v2, -0x1
 
-    if-ne p3, v1, :cond_3
+    if-ne p3, v2, :cond_3
 
-    move-object v0, p1
+    move-object v1, p1
 
     :goto_0
     if-nez p2, :cond_4
 
-    invoke-virtual {v0}, Landroid/view/MotionEvent;->getEventTime()J
+    invoke-virtual {v1}, Landroid/view/MotionEvent;->getEventTime()J
 
     move-result-wide v2
 
-    invoke-virtual {v0, v2, v3}, Landroid/view/MotionEvent;->setDownTime(J)V
+    invoke-virtual {v1, v2, v3}, Landroid/view/MotionEvent;->setDownTime(J)V
 
     :goto_1
-    iget v1, p0, Lcom/android/server/accessibility/TouchExplorer;->mLongPressingPointerId:I
+    iget v2, p0, Lcom/android/server/accessibility/TouchExplorer;->mLongPressingPointerId:I
 
-    if-ltz v1, :cond_0
+    if-ltz v2, :cond_0
 
-    iget v1, p0, Lcom/android/server/accessibility/TouchExplorer;->mLongPressingPointerDeltaX:I
-
-    neg-int v1, v1
-
-    iget v2, p0, Lcom/android/server/accessibility/TouchExplorer;->mLongPressingPointerDeltaY:I
+    iget v2, p0, Lcom/android/server/accessibility/TouchExplorer;->mLongPressingPointerDeltaX:I
 
     neg-int v2, v2
 
-    invoke-direct {p0, v0, v1, v2}, Lcom/android/server/accessibility/TouchExplorer;->offsetEvent(Landroid/view/MotionEvent;II)Landroid/view/MotionEvent;
+    iget v3, p0, Lcom/android/server/accessibility/TouchExplorer;->mLongPressingPointerDeltaY:I
 
-    move-result-object v0
+    neg-int v3, v3
+
+    invoke-direct {p0, v1, v2, v3}, Lcom/android/server/accessibility/TouchExplorer;->offsetEvent(Landroid/view/MotionEvent;II)Landroid/view/MotionEvent;
+
+    move-result-object v1
 
     :cond_0
-    const/high16 v1, 0x40000000    # 2.0f
+    const/high16 v2, 0x40000000    # 2.0f
 
-    or-int/2addr p4, v1
+    or-int/2addr p4, v2
 
-    iget-object v1, p0, Lcom/android/server/accessibility/TouchExplorer;->mNext:Lcom/android/server/accessibility/EventStreamTransformation;
+    iget-object v2, p0, Lcom/android/server/accessibility/TouchExplorer;->mNext:Lcom/android/server/accessibility/EventStreamTransformation;
 
-    if-eqz v1, :cond_1
+    if-eqz v2, :cond_1
 
-    iget-object v1, p0, Lcom/android/server/accessibility/TouchExplorer;->mNext:Lcom/android/server/accessibility/EventStreamTransformation;
+    iget-object v2, p0, Lcom/android/server/accessibility/TouchExplorer;->mNext:Lcom/android/server/accessibility/EventStreamTransformation;
 
-    invoke-interface {v1, v0, v4, p4}, Lcom/android/server/accessibility/EventStreamTransformation;->onMotionEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
+    invoke-interface {v2, v1, v4, p4}, Lcom/android/server/accessibility/EventStreamTransformation;->onMotionEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
 
     :cond_1
-    iget-object v1, p0, Lcom/android/server/accessibility/TouchExplorer;->mInjectedPointerTracker:Lcom/android/server/accessibility/TouchExplorer$InjectedPointerTracker;
+    iget-object v2, p0, Lcom/android/server/accessibility/TouchExplorer;->mInjectedPointerTracker:Lcom/android/server/accessibility/TouchExplorer$InjectedPointerTracker;
 
-    invoke-virtual {v1, v0}, Lcom/android/server/accessibility/TouchExplorer$InjectedPointerTracker;->onMotionEvent(Landroid/view/MotionEvent;)V
+    invoke-virtual {v2, v1}, Lcom/android/server/accessibility/TouchExplorer$InjectedPointerTracker;->onMotionEvent(Landroid/view/MotionEvent;)V
 
-    if-eq v0, p1, :cond_2
+    if-eq v1, p1, :cond_2
 
-    invoke-virtual {v0}, Landroid/view/MotionEvent;->recycle()V
+    invoke-virtual {v1}, Landroid/view/MotionEvent;->recycle()V
 
     :cond_2
     return-void
 
     :cond_3
+    :try_start_0
     invoke-virtual {p1, p3}, Landroid/view/MotionEvent;->split(I)Landroid/view/MotionEvent;
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v0
+    move-result-object v1
 
     goto :goto_0
 
-    :cond_4
-    iget-object v1, p0, Lcom/android/server/accessibility/TouchExplorer;->mInjectedPointerTracker:Lcom/android/server/accessibility/TouchExplorer$InjectedPointerTracker;
+    :catch_0
+    move-exception v0
 
-    invoke-virtual {v1}, Lcom/android/server/accessibility/TouchExplorer$InjectedPointerTracker;->getLastInjectedDownEventTime()J
+    const-string/jumbo v2, "TouchExplorer"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "sendMotionEvent: Failed to split motion event: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_4
+    iget-object v2, p0, Lcom/android/server/accessibility/TouchExplorer;->mInjectedPointerTracker:Lcom/android/server/accessibility/TouchExplorer$InjectedPointerTracker;
+
+    invoke-virtual {v2}, Lcom/android/server/accessibility/TouchExplorer$InjectedPointerTracker;->getLastInjectedDownEventTime()J
 
     move-result-wide v2
 
-    invoke-virtual {v0, v2, v3}, Landroid/view/MotionEvent;->setDownTime(J)V
+    invoke-virtual {v1, v2, v3}, Landroid/view/MotionEvent;->setDownTime(J)V
 
     goto :goto_1
 .end method
@@ -2207,6 +2239,43 @@
     invoke-virtual {v4}, Lcom/android/server/accessibility/TouchExplorer$SendAccessibilityEventDelayed;->forceSendAndRemove()V
 
     :cond_2
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/accessibility/TouchExplorer;->mAms:Lcom/android/server/accessibility/AccessibilityManagerService;
+
+    move-object/from16 v0, p0
+
+    iget v5, v0, Lcom/android/server/accessibility/TouchExplorer;->mLastTouchedWindowId:I
+
+    invoke-virtual {v4, v5}, Lcom/android/server/accessibility/AccessibilityManagerService;->isLastExploreWindowIsSIPType(I)Z
+
+    move-result v4
+
+    if-nez v4, :cond_3
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/accessibility/TouchExplorer;->mAms:Lcom/android/server/accessibility/AccessibilityManagerService;
+
+    sget-object v5, Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;->ACTION_CLICK:Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;
+
+    invoke-virtual {v4, v5}, Lcom/android/server/accessibility/AccessibilityManagerService;->performActionOnAccessibilityFocusedItem(Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_3
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :cond_3
+    const-string/jumbo v4, "TouchExplorer"
+
+    const-string/jumbo v5, "ACTION_CLICK failed. Dispatching motion events to simulate click."
+
+    invoke-static {v4, v5}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getActionIndex()I
 
     move-result v23
@@ -2233,13 +2302,13 @@
 
     move-result v24
 
-    if-nez v24, :cond_3
+    if-nez v24, :cond_4
 
     const/4 v4, 0x1
 
     return v4
 
-    :cond_3
+    :cond_4
     const/4 v4, 0x1
 
     new-array v10, v4, [Landroid/view/MotionEvent$PointerProperties;
@@ -2340,7 +2409,7 @@
 
     move/from16 v0, v24
 
-    if-ne v0, v4, :cond_4
+    if-ne v0, v4, :cond_5
 
     const/16 v25, 0x1
 
@@ -2361,7 +2430,7 @@
 
     return v4
 
-    :cond_4
+    :cond_5
     const/16 v25, 0x0
 
     goto :goto_0
@@ -2581,26 +2650,37 @@
 .method public onMotionEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
     .locals 3
 
+    const/16 v0, 0x2002
+
+    invoke-virtual {p1, v0}, Landroid/view/MotionEvent;->isFromSource(I)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
     const/16 v0, 0x1002
 
     invoke-virtual {p1, v0}, Landroid/view/MotionEvent;->isFromSource(I)Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
+    if-eqz v0, :cond_2
+
+    :cond_0
     iget-object v0, p0, Lcom/android/server/accessibility/TouchExplorer;->mNext:Lcom/android/server/accessibility/EventStreamTransformation;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/server/accessibility/TouchExplorer;->mNext:Lcom/android/server/accessibility/EventStreamTransformation;
 
     invoke-interface {v0, p1, p2, p3}, Lcom/android/server/accessibility/EventStreamTransformation;->onMotionEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
 
-    :cond_0
+    :cond_1
     return-void
 
-    :cond_1
+    :cond_2
     iget-object v0, p0, Lcom/android/server/accessibility/TouchExplorer;->mReceivedPointerTracker:Lcom/android/server/accessibility/TouchExplorer$ReceivedPointerTracker;
 
     invoke-virtual {v0, p2}, Lcom/android/server/accessibility/TouchExplorer$ReceivedPointerTracker;->onMotionEvent(Landroid/view/MotionEvent;)V
@@ -2611,24 +2691,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     return-void
 
-    :cond_2
+    :cond_3
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v0
 
     const/4 v1, 0x3
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_4
 
     invoke-direct {p0, p1, p3}, Lcom/android/server/accessibility/TouchExplorer;->clear(Landroid/view/MotionEvent;I)V
 
     return-void
 
-    :cond_3
+    :cond_4
     iget v0, p0, Lcom/android/server/accessibility/TouchExplorer;->mCurrentState:I
 
     packed-switch v0, :pswitch_data_0

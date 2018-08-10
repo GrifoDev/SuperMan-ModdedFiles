@@ -19,9 +19,13 @@
 
 .field private nHotness:[I
 
+.field private packageName:Ljava/lang/String;
+
 .field skipPackage:Z
 
 .field final synthetic this$0:Lcom/android/server/am/DynamicHiddenApp;
+
+.field private uid:I
 
 
 # direct methods
@@ -48,6 +52,12 @@
 
     iput-object v0, p0, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->isHotness:[Z
 
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->packageName:Ljava/lang/String;
+
+    iput v1, p0, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->uid:I
+
     iput-boolean v1, p0, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->skipPackage:Z
 
     iget-object v0, p0, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->nHotness:[I
@@ -57,6 +67,8 @@
     aput v1, v0, p2
 
     return-void
+
+    nop
 
     :array_0
     .array-data 1
@@ -97,6 +109,22 @@
     iget-object v0, p0, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->isHotness:[Z
 
     aget-boolean v0, v0, p1
+
+    return v0
+.end method
+
+.method getPackageName()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->packageName:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method getUid()I
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->uid:I
 
     return v0
 .end method
@@ -145,6 +173,22 @@
     iget-object v0, p0, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->isHotness:[Z
 
     aput-boolean p1, v0, p2
+
+    return-void
+.end method
+
+.method setPackageName(Ljava/lang/String;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->packageName:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method setUid(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->uid:I
 
     return-void
 .end method

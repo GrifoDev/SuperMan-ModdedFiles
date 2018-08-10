@@ -18,6 +18,10 @@
 .end annotation
 
 
+# static fields
+.field private static final TAG:Ljava/lang/String; = "GlobalSortComp"
+
+
 # direct methods
 .method public constructor <init>()V
     .locals 0
@@ -38,7 +42,7 @@
 
     if-nez v0, :cond_0
 
-    new-instance v0, Ljava/lang/IllegalStateException;
+    const-string/jumbo v0, "GlobalSortComp"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -58,9 +62,11 @@
 
     move-result-object v1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-static {v0, v1}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
-    throw v0
+    const/4 v0, 0x1
+
+    return v0
 
     :cond_0
     invoke-virtual {p2}, Lcom/android/server/notification/NotificationRecord;->getGlobalSortKey()Ljava/lang/String;
@@ -69,7 +75,7 @@
 
     if-nez v0, :cond_1
 
-    new-instance v0, Ljava/lang/IllegalStateException;
+    const-string/jumbo v0, "GlobalSortComp"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -89,9 +95,11 @@
 
     move-result-object v1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-static {v0, v1}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
-    throw v0
+    const/4 v0, -0x1
+
+    return v0
 
     :cond_1
     invoke-virtual {p1}, Lcom/android/server/notification/NotificationRecord;->getGlobalSortKey()Ljava/lang/String;

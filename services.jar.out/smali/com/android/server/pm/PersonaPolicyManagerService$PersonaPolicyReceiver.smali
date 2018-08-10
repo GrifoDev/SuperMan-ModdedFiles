@@ -74,46 +74,27 @@
 
     if-eqz v6, :cond_0
 
-    iget-object v6, p0, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaPolicyReceiver;->this$0:Lcom/android/server/pm/PersonaPolicyManagerService;
-
-    invoke-static {v6}, Lcom/android/server/pm/PersonaPolicyManagerService;->-wrap0(Lcom/android/server/pm/PersonaPolicyManagerService;)Lcom/android/server/pm/PersonaManagerService;
-
-    move-result-object v6
-
-    if-eqz v6, :cond_0
-
-    iget-object v6, p0, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaPolicyReceiver;->this$0:Lcom/android/server/pm/PersonaPolicyManagerService;
-
-    invoke-static {v6}, Lcom/android/server/pm/PersonaPolicyManagerService;->-wrap0(Lcom/android/server/pm/PersonaPolicyManagerService;)Lcom/android/server/pm/PersonaManagerService;
-
-    move-result-object v6
-
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
-
-    move-result v7
-
-    invoke-virtual {v6, v7}, Lcom/android/server/pm/PersonaManagerService;->exists(I)Z
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    invoke-static {v6}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
 
-    :cond_0
-    :goto_0
-    return-void
+    move-result v6
 
-    :cond_1
+    if-nez v6, :cond_0
+
     invoke-virtual {p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
     move-result-object v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_1
 
     invoke-virtual {v4}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
 
     move-result-object v2
 
-    :goto_1
+    :goto_0
     const-string/jumbo v6, "android.intent.extra.UID"
 
     invoke-virtual {p2, v6, v9}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
@@ -134,13 +115,7 @@
 
     if-eqz v6, :cond_0
 
-    iget-object v6, p0, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaPolicyReceiver;->this$0:Lcom/android/server/pm/PersonaPolicyManagerService;
-
-    invoke-static {v6}, Lcom/android/server/pm/PersonaPolicyManagerService;->-wrap0(Lcom/android/server/pm/PersonaPolicyManagerService;)Lcom/android/server/pm/PersonaManagerService;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v5}, Lcom/android/server/pm/PersonaManagerService;->exists(I)Z
+    invoke-static {v5}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
 
     move-result v6
 
@@ -206,10 +181,11 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    :cond_0
+    return-void
 
-    :cond_2
+    :cond_1
     const/4 v2, 0x0
 
-    goto :goto_1
+    goto :goto_0
 .end method

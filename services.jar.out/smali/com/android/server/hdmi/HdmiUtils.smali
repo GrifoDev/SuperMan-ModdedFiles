@@ -422,48 +422,6 @@
     return v0
 .end method
 
-.method static languageToInt(Ljava/lang/String;)I
-    .locals 3
-
-    invoke-virtual {p0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
-
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->charAt(I)C
-
-    move-result v1
-
-    and-int/lit16 v1, v1, 0xff
-
-    shl-int/lit8 v1, v1, 0x10
-
-    const/4 v2, 0x1
-
-    invoke-virtual {v0, v2}, Ljava/lang/String;->charAt(I)C
-
-    move-result v2
-
-    and-int/lit16 v2, v2, 0xff
-
-    shl-int/lit8 v2, v2, 0x8
-
-    or-int/2addr v1, v2
-
-    const/4 v2, 0x2
-
-    invoke-virtual {v0, v2}, Ljava/lang/String;->charAt(I)C
-
-    move-result v2
-
-    and-int/lit16 v2, v2, 0xff
-
-    or-int/2addr v1, v2
-
-    return v1
-.end method
-
 .method static mergeToUnmodifiableList(Ljava/util/List;Ljava/util/List;)Ljava/util/List;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;

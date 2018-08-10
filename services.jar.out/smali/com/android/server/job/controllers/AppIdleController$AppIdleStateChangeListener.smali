@@ -1,4 +1,4 @@
-.class Lcom/android/server/job/controllers/AppIdleController$AppIdleStateChangeListener;
+.class final Lcom/android/server/job/controllers/AppIdleController$AppIdleStateChangeListener;
 .super Landroid/app/usage/UsageStatsManagerInternal$AppIdleStateChangeListener;
 .source "AppIdleController.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x12
     name = "AppIdleStateChangeListener"
 .end annotation
 

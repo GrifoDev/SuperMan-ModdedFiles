@@ -78,7 +78,7 @@
 
     iget-object v0, p0, Lcom/android/server/input/InputManagerService$InputFilterHost;->this$0:Lcom/android/server/input/InputManagerService;
 
-    invoke-static {v0}, Lcom/android/server/input/InputManagerService;->-get4(Lcom/android/server/input/InputManagerService;)J
+    invoke-static {v0}, Lcom/android/server/input/InputManagerService;->-get9(Lcom/android/server/input/InputManagerService;)J
 
     move-result-wide v0
 

@@ -910,6 +910,25 @@
     return-wide v0
 .end method
 
+.method public getPredefinedServerityAndUserParameter(II)[D
+    .locals 3
+
+    const/4 v2, 0x0
+
+    iget-object v1, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
+
+    invoke-virtual {v1, p2, p1}, Lcom/android/server/accessibility/ColorTransferTable;->getPredefinedValueForEachType(II)[D
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    return-object v0
+
+    :cond_0
+    return-object v2
+.end method
+
 .method public getRGBCMY(D)[I
     .locals 9
 
@@ -933,1065 +952,1121 @@
 .end method
 
 .method public getRGBCMY(IIDD)[I
-    .locals 11
-
-    const/4 v8, 0x0
+    .locals 13
 
     const/4 v10, 0x0
 
-    const/4 v9, 0x0
+    const/4 v12, 0x0
 
-    const/16 v0, 0xc
+    const/4 v11, 0x0
 
-    new-array v9, v0, [I
+    const/16 v2, 0xc
+
+    new-array v11, v2, [I
+
+    const-string/jumbo v2, "CVDCalculator"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "getRGBCMY "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, ", CVDType : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, ", Severity : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    move-wide/from16 v0, p3
+
+    invoke-virtual {v3, v0, v1}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, ", user : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    move-wide/from16 v0, p5
+
+    invoke-virtual {v3, v0, v1}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     if-nez p1, :cond_2
 
     if-eqz p2, :cond_0
 
-    const/4 v0, 0x1
+    const/4 v2, 0x1
 
-    if-ne p2, v0, :cond_1
+    if-ne p2, v2, :cond_1
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
+    iget-object v2, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
 
-    const/4 v1, 0x1
+    const/4 v3, 0x1
 
-    const/4 v2, 0x1
+    const/4 v4, 0x1
 
-    move v3, p2
+    move v5, p2
 
-    move-wide v4, p3
+    move-wide/from16 v6, p3
 
-    move-wide/from16 v6, p5
+    move-wide/from16 v8, p5
 
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_DMC(IIIDD)I
-
-    move-result v8
-
-    iget-object v0, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
-
-    const/4 v1, 0x4
-
-    const/4 v2, 0x1
-
-    move v3, p2
-
-    move-wide v4, p3
-
-    move-wide/from16 v6, p5
-
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_DMC(IIIDD)I
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_DMC(IIIDD)I
 
     move-result v10
 
-    mul-int/lit16 v0, v8, 0x100
+    iget-object v2, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
 
-    add-int/2addr v0, v10
+    const/4 v3, 0x4
 
-    const/4 v1, 0x0
+    const/4 v4, 0x1
 
-    aput v0, v9, v1
+    move v5, p2
 
-    iget-object v0, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
+    move-wide/from16 v6, p3
 
-    const/4 v1, 0x1
+    move-wide/from16 v8, p5
 
-    const/4 v2, 0x3
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_DMC(IIIDD)I
 
-    move v3, p2
+    move-result v12
 
-    move-wide v4, p3
+    mul-int/lit16 v2, v10, 0x100
 
-    move-wide/from16 v6, p5
+    add-int/2addr v2, v12
 
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_DMC(IIIDD)I
+    const/4 v3, 0x0
 
-    move-result v8
+    aput v2, v11, v3
 
-    iget-object v0, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
+    iget-object v2, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
 
-    const/4 v1, 0x4
+    const/4 v3, 0x1
 
-    const/4 v2, 0x3
+    const/4 v4, 0x3
 
-    move v3, p2
+    move v5, p2
 
-    move-wide v4, p3
+    move-wide/from16 v6, p3
 
-    move-wide/from16 v6, p5
+    move-wide/from16 v8, p5
 
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_DMC(IIIDD)I
-
-    move-result v10
-
-    mul-int/lit16 v0, v8, 0x100
-
-    add-int/2addr v0, v10
-
-    const/4 v1, 0x1
-
-    aput v0, v9, v1
-
-    iget-object v0, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
-
-    const/4 v1, 0x1
-
-    const/4 v2, 0x5
-
-    move v3, p2
-
-    move-wide v4, p3
-
-    move-wide/from16 v6, p5
-
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_DMC(IIIDD)I
-
-    move-result v8
-
-    iget-object v0, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
-
-    const/4 v1, 0x4
-
-    const/4 v2, 0x5
-
-    move v3, p2
-
-    move-wide v4, p3
-
-    move-wide/from16 v6, p5
-
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_DMC(IIIDD)I
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_DMC(IIIDD)I
 
     move-result v10
 
-    mul-int/lit16 v0, v8, 0x100
+    iget-object v2, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
 
-    add-int/2addr v0, v10
+    const/4 v3, 0x4
 
-    const/4 v1, 0x2
+    const/4 v4, 0x3
 
-    aput v0, v9, v1
+    move v5, p2
 
-    iget-object v0, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
+    move-wide/from16 v6, p3
 
-    const/4 v1, 0x3
+    move-wide/from16 v8, p5
 
-    const/4 v2, 0x1
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_DMC(IIIDD)I
 
-    move v3, p2
+    move-result v12
 
-    move-wide v4, p3
+    mul-int/lit16 v2, v10, 0x100
 
-    move-wide/from16 v6, p5
+    add-int/2addr v2, v12
 
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_DMC(IIIDD)I
+    const/4 v3, 0x1
 
-    move-result v8
+    aput v2, v11, v3
 
-    iget-object v0, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
+    iget-object v2, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
 
-    const/4 v1, 0x6
+    const/4 v3, 0x1
 
-    const/4 v2, 0x1
+    const/4 v4, 0x5
 
-    move v3, p2
+    move v5, p2
 
-    move-wide v4, p3
+    move-wide/from16 v6, p3
 
-    move-wide/from16 v6, p5
+    move-wide/from16 v8, p5
 
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_DMC(IIIDD)I
-
-    move-result v10
-
-    mul-int/lit16 v0, v8, 0x100
-
-    add-int/2addr v0, v10
-
-    const/4 v1, 0x3
-
-    aput v0, v9, v1
-
-    iget-object v0, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
-
-    const/4 v1, 0x3
-
-    const/4 v2, 0x3
-
-    move v3, p2
-
-    move-wide v4, p3
-
-    move-wide/from16 v6, p5
-
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_DMC(IIIDD)I
-
-    move-result v8
-
-    iget-object v0, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
-
-    const/4 v1, 0x6
-
-    const/4 v2, 0x3
-
-    move v3, p2
-
-    move-wide v4, p3
-
-    move-wide/from16 v6, p5
-
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_DMC(IIIDD)I
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_DMC(IIIDD)I
 
     move-result v10
 
-    mul-int/lit16 v0, v8, 0x100
+    iget-object v2, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
 
-    add-int/2addr v0, v10
+    const/4 v3, 0x4
 
-    const/4 v1, 0x4
+    const/4 v4, 0x5
 
-    aput v0, v9, v1
+    move v5, p2
 
-    iget-object v0, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
+    move-wide/from16 v6, p3
 
-    const/4 v1, 0x3
+    move-wide/from16 v8, p5
 
-    const/4 v2, 0x5
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_DMC(IIIDD)I
 
-    move v3, p2
+    move-result v12
 
-    move-wide v4, p3
+    mul-int/lit16 v2, v10, 0x100
 
-    move-wide/from16 v6, p5
+    add-int/2addr v2, v12
 
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_DMC(IIIDD)I
+    const/4 v3, 0x2
 
-    move-result v8
+    aput v2, v11, v3
 
-    iget-object v0, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
+    iget-object v2, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
 
-    const/4 v1, 0x6
+    const/4 v3, 0x3
 
-    const/4 v2, 0x5
+    const/4 v4, 0x1
 
-    move v3, p2
+    move v5, p2
 
-    move-wide v4, p3
+    move-wide/from16 v6, p3
 
-    move-wide/from16 v6, p5
+    move-wide/from16 v8, p5
 
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_DMC(IIIDD)I
-
-    move-result v10
-
-    mul-int/lit16 v0, v8, 0x100
-
-    add-int/2addr v0, v10
-
-    const/4 v1, 0x5
-
-    aput v0, v9, v1
-
-    iget-object v0, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
-
-    const/4 v1, 0x5
-
-    const/4 v2, 0x1
-
-    move v3, p2
-
-    move-wide v4, p3
-
-    move-wide/from16 v6, p5
-
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_DMC(IIIDD)I
-
-    move-result v8
-
-    iget-object v0, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
-
-    const/4 v1, 0x2
-
-    const/4 v2, 0x1
-
-    move v3, p2
-
-    move-wide v4, p3
-
-    move-wide/from16 v6, p5
-
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_DMC(IIIDD)I
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_DMC(IIIDD)I
 
     move-result v10
 
-    mul-int/lit16 v0, v8, 0x100
+    iget-object v2, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
 
-    add-int/2addr v0, v10
+    const/4 v3, 0x6
 
-    const/4 v1, 0x6
+    const/4 v4, 0x1
 
-    aput v0, v9, v1
+    move v5, p2
 
-    iget-object v0, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
+    move-wide/from16 v6, p3
 
-    const/4 v1, 0x5
+    move-wide/from16 v8, p5
 
-    const/4 v2, 0x3
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_DMC(IIIDD)I
 
-    move v3, p2
+    move-result v12
 
-    move-wide v4, p3
+    mul-int/lit16 v2, v10, 0x100
 
-    move-wide/from16 v6, p5
+    add-int/2addr v2, v12
 
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_DMC(IIIDD)I
+    const/4 v3, 0x3
 
-    move-result v8
+    aput v2, v11, v3
 
-    iget-object v0, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
+    iget-object v2, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
 
-    const/4 v1, 0x2
+    const/4 v3, 0x3
 
-    const/4 v2, 0x3
+    const/4 v4, 0x3
 
-    move v3, p2
+    move v5, p2
 
-    move-wide v4, p3
+    move-wide/from16 v6, p3
 
-    move-wide/from16 v6, p5
+    move-wide/from16 v8, p5
 
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_DMC(IIIDD)I
-
-    move-result v10
-
-    mul-int/lit16 v0, v8, 0x100
-
-    add-int/2addr v0, v10
-
-    const/4 v1, 0x7
-
-    aput v0, v9, v1
-
-    iget-object v0, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
-
-    const/4 v1, 0x5
-
-    const/4 v2, 0x5
-
-    move v3, p2
-
-    move-wide v4, p3
-
-    move-wide/from16 v6, p5
-
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_DMC(IIIDD)I
-
-    move-result v8
-
-    iget-object v0, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
-
-    const/4 v1, 0x2
-
-    const/4 v2, 0x5
-
-    move v3, p2
-
-    move-wide v4, p3
-
-    move-wide/from16 v6, p5
-
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_DMC(IIIDD)I
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_DMC(IIIDD)I
 
     move-result v10
 
-    mul-int/lit16 v0, v8, 0x100
+    iget-object v2, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
 
-    add-int/2addr v0, v10
+    const/4 v3, 0x6
 
-    const/16 v1, 0x8
+    const/4 v4, 0x3
 
-    aput v0, v9, v1
+    move v5, p2
 
-    const/16 v0, 0xff
+    move-wide/from16 v6, p3
 
-    const/16 v1, 0x9
+    move-wide/from16 v8, p5
 
-    aput v0, v9, v1
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_DMC(IIIDD)I
 
-    const/16 v0, 0xff
+    move-result v12
 
-    const/16 v1, 0xa
+    mul-int/lit16 v2, v10, 0x100
 
-    aput v0, v9, v1
+    add-int/2addr v2, v12
 
-    const/16 v0, 0xff
+    const/4 v3, 0x4
 
-    const/16 v1, 0xb
+    aput v2, v11, v3
 
-    aput v0, v9, v1
+    iget-object v2, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
+
+    const/4 v3, 0x3
+
+    const/4 v4, 0x5
+
+    move v5, p2
+
+    move-wide/from16 v6, p3
+
+    move-wide/from16 v8, p5
+
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_DMC(IIIDD)I
+
+    move-result v10
+
+    iget-object v2, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
+
+    const/4 v3, 0x6
+
+    const/4 v4, 0x5
+
+    move v5, p2
+
+    move-wide/from16 v6, p3
+
+    move-wide/from16 v8, p5
+
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_DMC(IIIDD)I
+
+    move-result v12
+
+    mul-int/lit16 v2, v10, 0x100
+
+    add-int/2addr v2, v12
+
+    const/4 v3, 0x5
+
+    aput v2, v11, v3
+
+    iget-object v2, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
+
+    const/4 v3, 0x5
+
+    const/4 v4, 0x1
+
+    move v5, p2
+
+    move-wide/from16 v6, p3
+
+    move-wide/from16 v8, p5
+
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_DMC(IIIDD)I
+
+    move-result v10
+
+    iget-object v2, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
+
+    const/4 v3, 0x2
+
+    const/4 v4, 0x1
+
+    move v5, p2
+
+    move-wide/from16 v6, p3
+
+    move-wide/from16 v8, p5
+
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_DMC(IIIDD)I
+
+    move-result v12
+
+    mul-int/lit16 v2, v10, 0x100
+
+    add-int/2addr v2, v12
+
+    const/4 v3, 0x6
+
+    aput v2, v11, v3
+
+    iget-object v2, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
+
+    const/4 v3, 0x5
+
+    const/4 v4, 0x3
+
+    move v5, p2
+
+    move-wide/from16 v6, p3
+
+    move-wide/from16 v8, p5
+
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_DMC(IIIDD)I
+
+    move-result v10
+
+    iget-object v2, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
+
+    const/4 v3, 0x2
+
+    const/4 v4, 0x3
+
+    move v5, p2
+
+    move-wide/from16 v6, p3
+
+    move-wide/from16 v8, p5
+
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_DMC(IIIDD)I
+
+    move-result v12
+
+    mul-int/lit16 v2, v10, 0x100
+
+    add-int/2addr v2, v12
+
+    const/4 v3, 0x7
+
+    aput v2, v11, v3
+
+    iget-object v2, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
+
+    const/4 v3, 0x5
+
+    const/4 v4, 0x5
+
+    move v5, p2
+
+    move-wide/from16 v6, p3
+
+    move-wide/from16 v8, p5
+
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_DMC(IIIDD)I
+
+    move-result v10
+
+    iget-object v2, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
+
+    const/4 v3, 0x2
+
+    const/4 v4, 0x5
+
+    move v5, p2
+
+    move-wide/from16 v6, p3
+
+    move-wide/from16 v8, p5
+
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_DMC(IIIDD)I
+
+    move-result v12
+
+    mul-int/lit16 v2, v10, 0x100
+
+    add-int/2addr v2, v12
+
+    const/16 v3, 0x8
+
+    aput v2, v11, v3
+
+    const/16 v2, 0xff
+
+    const/16 v3, 0x9
+
+    aput v2, v11, v3
+
+    const/16 v2, 0xff
+
+    const/16 v3, 0xa
+
+    aput v2, v11, v3
+
+    const/16 v2, 0xff
+
+    const/16 v3, 0xb
+
+    aput v2, v11, v3
 
     :goto_0
-    return-object v9
+    return-object v11
 
     :cond_1
-    const/4 v0, 0x2
+    const/4 v2, 0x2
 
-    if-eq p2, v0, :cond_0
+    if-eq p2, v2, :cond_0
 
-    const v0, 0xff00
+    const v2, 0xff00
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
-    const/16 v0, 0xff
+    const/16 v2, 0xff
 
-    const/4 v1, 0x1
+    const/4 v3, 0x1
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
-    const/16 v0, 0xff
+    const/16 v2, 0xff
 
-    const/4 v1, 0x2
+    const/4 v3, 0x2
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
-    const/16 v0, 0xff
+    const/16 v2, 0xff
 
-    const/4 v1, 0x3
+    const/4 v3, 0x3
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
-    const v0, 0xff00
+    const v2, 0xff00
 
-    const/4 v1, 0x4
+    const/4 v3, 0x4
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
-    const/16 v0, 0xff
+    const/16 v2, 0xff
 
-    const/4 v1, 0x5
+    const/4 v3, 0x5
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
-    const/16 v0, 0xff
+    const/16 v2, 0xff
 
-    const/4 v1, 0x6
+    const/4 v3, 0x6
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
-    const/16 v0, 0xff
+    const/16 v2, 0xff
 
-    const/4 v1, 0x7
+    const/4 v3, 0x7
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
-    const v0, 0xff00
+    const v2, 0xff00
 
-    const/16 v1, 0x8
+    const/16 v3, 0x8
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
-    const/16 v0, 0xff
+    const/16 v2, 0xff
 
-    const/16 v1, 0x9
+    const/16 v3, 0x9
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
-    const/16 v0, 0xff
+    const/16 v2, 0xff
 
-    const/16 v1, 0xa
+    const/16 v3, 0xa
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
-    const/16 v0, 0xff
+    const/16 v2, 0xff
 
-    const/16 v1, 0xb
+    const/16 v3, 0xb
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
     goto :goto_0
 
     :cond_2
-    const/4 v0, 0x1
+    const/4 v2, 0x1
 
-    if-ne p1, v0, :cond_6
+    if-ne p1, v2, :cond_6
 
     if-eqz p2, :cond_3
 
-    const/4 v0, 0x1
+    const/4 v2, 0x1
 
-    if-ne p2, v0, :cond_4
+    if-ne p2, v2, :cond_4
 
     :cond_3
-    iget-object v0, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
+    iget-object v2, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
 
-    const/4 v1, 0x1
+    const/4 v3, 0x1
 
-    const/4 v2, 0x1
+    const/4 v4, 0x1
 
-    move v3, p2
+    move v5, p2
 
-    move-wide v4, p3
+    move-wide/from16 v6, p3
 
-    move-wide/from16 v6, p5
+    move-wide/from16 v8, p5
 
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_Hybrid(IIIDD)I
-
-    move-result v8
-
-    iget-object v0, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
-
-    const/4 v1, 0x4
-
-    const/4 v2, 0x1
-
-    move v3, p2
-
-    move-wide v4, p3
-
-    move-wide/from16 v6, p5
-
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_Hybrid(IIIDD)I
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_Hybrid(IIIDD)I
 
     move-result v10
 
-    mul-int/lit16 v0, v8, 0x100
+    iget-object v2, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
 
-    add-int/2addr v0, v10
+    const/4 v3, 0x4
 
-    const/4 v1, 0x0
+    const/4 v4, 0x1
 
-    aput v0, v9, v1
+    move v5, p2
 
-    iget-object v0, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
+    move-wide/from16 v6, p3
 
-    const/4 v1, 0x1
+    move-wide/from16 v8, p5
 
-    const/4 v2, 0x3
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_Hybrid(IIIDD)I
 
-    move v3, p2
+    move-result v12
 
-    move-wide v4, p3
+    mul-int/lit16 v2, v10, 0x100
 
-    move-wide/from16 v6, p5
+    add-int/2addr v2, v12
 
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_Hybrid(IIIDD)I
+    const/4 v3, 0x0
 
-    move-result v8
+    aput v2, v11, v3
 
-    iget-object v0, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
+    iget-object v2, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
 
-    const/4 v1, 0x4
+    const/4 v3, 0x1
 
-    const/4 v2, 0x3
+    const/4 v4, 0x3
 
-    move v3, p2
+    move v5, p2
 
-    move-wide v4, p3
+    move-wide/from16 v6, p3
 
-    move-wide/from16 v6, p5
+    move-wide/from16 v8, p5
 
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_Hybrid(IIIDD)I
-
-    move-result v10
-
-    mul-int/lit16 v0, v8, 0x100
-
-    add-int/2addr v0, v10
-
-    const/4 v1, 0x1
-
-    aput v0, v9, v1
-
-    iget-object v0, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
-
-    const/4 v1, 0x1
-
-    const/4 v2, 0x5
-
-    move v3, p2
-
-    move-wide v4, p3
-
-    move-wide/from16 v6, p5
-
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_Hybrid(IIIDD)I
-
-    move-result v8
-
-    iget-object v0, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
-
-    const/4 v1, 0x4
-
-    const/4 v2, 0x5
-
-    move v3, p2
-
-    move-wide v4, p3
-
-    move-wide/from16 v6, p5
-
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_Hybrid(IIIDD)I
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_Hybrid(IIIDD)I
 
     move-result v10
 
-    mul-int/lit16 v0, v8, 0x100
+    iget-object v2, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
 
-    add-int/2addr v0, v10
+    const/4 v3, 0x4
 
-    const/4 v1, 0x2
+    const/4 v4, 0x3
 
-    aput v0, v9, v1
+    move v5, p2
 
-    iget-object v0, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
+    move-wide/from16 v6, p3
 
-    const/4 v1, 0x3
+    move-wide/from16 v8, p5
 
-    const/4 v2, 0x1
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_Hybrid(IIIDD)I
 
-    move v3, p2
+    move-result v12
 
-    move-wide v4, p3
+    mul-int/lit16 v2, v10, 0x100
 
-    move-wide/from16 v6, p5
+    add-int/2addr v2, v12
 
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_Hybrid(IIIDD)I
+    const/4 v3, 0x1
 
-    move-result v8
+    aput v2, v11, v3
 
-    iget-object v0, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
+    iget-object v2, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
 
-    const/4 v1, 0x6
+    const/4 v3, 0x1
 
-    const/4 v2, 0x1
+    const/4 v4, 0x5
 
-    move v3, p2
+    move v5, p2
 
-    move-wide v4, p3
+    move-wide/from16 v6, p3
 
-    move-wide/from16 v6, p5
+    move-wide/from16 v8, p5
 
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_Hybrid(IIIDD)I
-
-    move-result v10
-
-    mul-int/lit16 v0, v8, 0x100
-
-    add-int/2addr v0, v10
-
-    const/4 v1, 0x3
-
-    aput v0, v9, v1
-
-    iget-object v0, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
-
-    const/4 v1, 0x3
-
-    const/4 v2, 0x3
-
-    move v3, p2
-
-    move-wide v4, p3
-
-    move-wide/from16 v6, p5
-
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_Hybrid(IIIDD)I
-
-    move-result v8
-
-    iget-object v0, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
-
-    const/4 v1, 0x6
-
-    const/4 v2, 0x3
-
-    move v3, p2
-
-    move-wide v4, p3
-
-    move-wide/from16 v6, p5
-
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_Hybrid(IIIDD)I
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_Hybrid(IIIDD)I
 
     move-result v10
 
-    mul-int/lit16 v0, v8, 0x100
+    iget-object v2, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
 
-    add-int/2addr v0, v10
+    const/4 v3, 0x4
 
-    const/4 v1, 0x4
+    const/4 v4, 0x5
 
-    aput v0, v9, v1
+    move v5, p2
 
-    iget-object v0, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
+    move-wide/from16 v6, p3
 
-    const/4 v1, 0x3
+    move-wide/from16 v8, p5
 
-    const/4 v2, 0x5
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_Hybrid(IIIDD)I
 
-    move v3, p2
+    move-result v12
 
-    move-wide v4, p3
+    mul-int/lit16 v2, v10, 0x100
 
-    move-wide/from16 v6, p5
+    add-int/2addr v2, v12
 
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_Hybrid(IIIDD)I
+    const/4 v3, 0x2
 
-    move-result v8
+    aput v2, v11, v3
 
-    iget-object v0, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
+    iget-object v2, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
 
-    const/4 v1, 0x6
+    const/4 v3, 0x3
 
-    const/4 v2, 0x5
+    const/4 v4, 0x1
 
-    move v3, p2
+    move v5, p2
 
-    move-wide v4, p3
+    move-wide/from16 v6, p3
 
-    move-wide/from16 v6, p5
+    move-wide/from16 v8, p5
 
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_Hybrid(IIIDD)I
-
-    move-result v10
-
-    mul-int/lit16 v0, v8, 0x100
-
-    add-int/2addr v0, v10
-
-    const/4 v1, 0x5
-
-    aput v0, v9, v1
-
-    iget-object v0, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
-
-    const/4 v1, 0x5
-
-    const/4 v2, 0x1
-
-    move v3, p2
-
-    move-wide v4, p3
-
-    move-wide/from16 v6, p5
-
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_Hybrid(IIIDD)I
-
-    move-result v8
-
-    iget-object v0, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
-
-    const/4 v1, 0x2
-
-    const/4 v2, 0x1
-
-    move v3, p2
-
-    move-wide v4, p3
-
-    move-wide/from16 v6, p5
-
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_Hybrid(IIIDD)I
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_Hybrid(IIIDD)I
 
     move-result v10
 
-    mul-int/lit16 v0, v8, 0x100
+    iget-object v2, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
 
-    add-int/2addr v0, v10
+    const/4 v3, 0x6
 
-    const/4 v1, 0x6
+    const/4 v4, 0x1
 
-    aput v0, v9, v1
+    move v5, p2
 
-    iget-object v0, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
+    move-wide/from16 v6, p3
 
-    const/4 v1, 0x5
+    move-wide/from16 v8, p5
 
-    const/4 v2, 0x3
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_Hybrid(IIIDD)I
 
-    move v3, p2
+    move-result v12
 
-    move-wide v4, p3
+    mul-int/lit16 v2, v10, 0x100
 
-    move-wide/from16 v6, p5
+    add-int/2addr v2, v12
 
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_Hybrid(IIIDD)I
+    const/4 v3, 0x3
 
-    move-result v8
+    aput v2, v11, v3
 
-    iget-object v0, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
+    iget-object v2, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
 
-    const/4 v1, 0x2
+    const/4 v3, 0x3
 
-    const/4 v2, 0x3
+    const/4 v4, 0x3
 
-    move v3, p2
+    move v5, p2
 
-    move-wide v4, p3
+    move-wide/from16 v6, p3
 
-    move-wide/from16 v6, p5
+    move-wide/from16 v8, p5
 
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_Hybrid(IIIDD)I
-
-    move-result v10
-
-    mul-int/lit16 v0, v8, 0x100
-
-    add-int/2addr v0, v10
-
-    const/4 v1, 0x7
-
-    aput v0, v9, v1
-
-    iget-object v0, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
-
-    const/4 v1, 0x5
-
-    const/4 v2, 0x5
-
-    move v3, p2
-
-    move-wide v4, p3
-
-    move-wide/from16 v6, p5
-
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_Hybrid(IIIDD)I
-
-    move-result v8
-
-    iget-object v0, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
-
-    const/4 v1, 0x2
-
-    const/4 v2, 0x5
-
-    move v3, p2
-
-    move-wide v4, p3
-
-    move-wide/from16 v6, p5
-
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_Hybrid(IIIDD)I
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_Hybrid(IIIDD)I
 
     move-result v10
 
-    mul-int/lit16 v0, v8, 0x100
+    iget-object v2, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
 
-    add-int/2addr v0, v10
+    const/4 v3, 0x6
 
-    const/16 v1, 0x8
+    const/4 v4, 0x3
 
-    aput v0, v9, v1
+    move v5, p2
 
-    const-wide/high16 v0, 0x4024000000000000L    # 10.0
+    move-wide/from16 v6, p3
 
-    mul-double/2addr v0, p3
+    move-wide/from16 v8, p5
 
-    invoke-static {v0, v1}, Ljava/lang/Math;->round(D)J
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_Hybrid(IIIDD)I
 
-    move-result-wide v0
+    move-result v12
 
-    long-to-int v0, v0
+    mul-int/lit16 v2, v10, 0x100
 
-    const/4 v1, 0x6
+    add-int/2addr v2, v12
 
-    if-ge v0, v1, :cond_5
+    const/4 v3, 0x4
 
-    const/16 v0, 0xcc
+    aput v2, v11, v3
 
-    const/16 v1, 0x9
+    iget-object v2, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
 
-    aput v0, v9, v1
+    const/4 v3, 0x3
 
-    const/16 v0, 0xcc
+    const/4 v4, 0x5
 
-    const/16 v1, 0xa
+    move v5, p2
 
-    aput v0, v9, v1
+    move-wide/from16 v6, p3
 
-    const/16 v0, 0xcc
+    move-wide/from16 v8, p5
 
-    const/16 v1, 0xb
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_Hybrid(IIIDD)I
 
-    aput v0, v9, v1
+    move-result v10
+
+    iget-object v2, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
+
+    const/4 v3, 0x6
+
+    const/4 v4, 0x5
+
+    move v5, p2
+
+    move-wide/from16 v6, p3
+
+    move-wide/from16 v8, p5
+
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_Hybrid(IIIDD)I
+
+    move-result v12
+
+    mul-int/lit16 v2, v10, 0x100
+
+    add-int/2addr v2, v12
+
+    const/4 v3, 0x5
+
+    aput v2, v11, v3
+
+    iget-object v2, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
+
+    const/4 v3, 0x5
+
+    const/4 v4, 0x1
+
+    move v5, p2
+
+    move-wide/from16 v6, p3
+
+    move-wide/from16 v8, p5
+
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_Hybrid(IIIDD)I
+
+    move-result v10
+
+    iget-object v2, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
+
+    const/4 v3, 0x2
+
+    const/4 v4, 0x1
+
+    move v5, p2
+
+    move-wide/from16 v6, p3
+
+    move-wide/from16 v8, p5
+
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_Hybrid(IIIDD)I
+
+    move-result v12
+
+    mul-int/lit16 v2, v10, 0x100
+
+    add-int/2addr v2, v12
+
+    const/4 v3, 0x6
+
+    aput v2, v11, v3
+
+    iget-object v2, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
+
+    const/4 v3, 0x5
+
+    const/4 v4, 0x3
+
+    move v5, p2
+
+    move-wide/from16 v6, p3
+
+    move-wide/from16 v8, p5
+
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_Hybrid(IIIDD)I
+
+    move-result v10
+
+    iget-object v2, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
+
+    const/4 v3, 0x2
+
+    const/4 v4, 0x3
+
+    move v5, p2
+
+    move-wide/from16 v6, p3
+
+    move-wide/from16 v8, p5
+
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_Hybrid(IIIDD)I
+
+    move-result v12
+
+    mul-int/lit16 v2, v10, 0x100
+
+    add-int/2addr v2, v12
+
+    const/4 v3, 0x7
+
+    aput v2, v11, v3
+
+    iget-object v2, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
+
+    const/4 v3, 0x5
+
+    const/4 v4, 0x5
+
+    move v5, p2
+
+    move-wide/from16 v6, p3
+
+    move-wide/from16 v8, p5
+
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_Hybrid(IIIDD)I
+
+    move-result v10
+
+    iget-object v2, p0, Lcom/android/server/accessibility/CVDCalculator;->mColorTransferTable:Lcom/android/server/accessibility/ColorTransferTable;
+
+    const/4 v3, 0x2
+
+    const/4 v4, 0x5
+
+    move v5, p2
+
+    move-wide/from16 v6, p3
+
+    move-wide/from16 v8, p5
+
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/accessibility/ColorTransferTable;->getColorTransferValue_Hybrid(IIIDD)I
+
+    move-result v12
+
+    mul-int/lit16 v2, v10, 0x100
+
+    add-int/2addr v2, v12
+
+    const/16 v3, 0x8
+
+    aput v2, v11, v3
+
+    const-wide/high16 v2, 0x4024000000000000L    # 10.0
+
+    mul-double v2, v2, p3
+
+    invoke-static {v2, v3}, Ljava/lang/Math;->round(D)J
+
+    move-result-wide v2
+
+    long-to-int v2, v2
+
+    const/4 v3, 0x6
+
+    if-ge v2, v3, :cond_5
+
+    const/16 v2, 0xcc
+
+    const/16 v3, 0x9
+
+    aput v2, v11, v3
+
+    const/16 v2, 0xcc
+
+    const/16 v3, 0xa
+
+    aput v2, v11, v3
+
+    const/16 v2, 0xcc
+
+    const/16 v3, 0xb
+
+    aput v2, v11, v3
 
     goto/16 :goto_0
 
     :cond_4
-    const/4 v0, 0x2
+    const/4 v2, 0x2
 
-    if-eq p2, v0, :cond_3
+    if-eq p2, v2, :cond_3
 
-    const v0, 0xff00
+    const v2, 0xff00
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
-    const/16 v0, 0xff
+    const/16 v2, 0xff
 
-    const/4 v1, 0x1
+    const/4 v3, 0x1
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
-    const/16 v0, 0xff
+    const/16 v2, 0xff
 
-    const/4 v1, 0x2
+    const/4 v3, 0x2
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
-    const/16 v0, 0xff
+    const/16 v2, 0xff
 
-    const/4 v1, 0x3
+    const/4 v3, 0x3
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
-    const v0, 0xff00
+    const v2, 0xff00
 
-    const/4 v1, 0x4
+    const/4 v3, 0x4
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
-    const/16 v0, 0xff
+    const/16 v2, 0xff
 
-    const/4 v1, 0x5
+    const/4 v3, 0x5
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
-    const/16 v0, 0xff
+    const/16 v2, 0xff
 
-    const/4 v1, 0x6
+    const/4 v3, 0x6
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
-    const/16 v0, 0xff
+    const/16 v2, 0xff
 
-    const/4 v1, 0x7
+    const/4 v3, 0x7
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
-    const v0, 0xff00
+    const v2, 0xff00
 
-    const/16 v1, 0x8
+    const/16 v3, 0x8
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
-    const/16 v0, 0xff
+    const/16 v2, 0xff
 
-    const/16 v1, 0x9
+    const/16 v3, 0x9
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
-    const/16 v0, 0xff
+    const/16 v2, 0xff
 
-    const/16 v1, 0xa
+    const/16 v3, 0xa
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
-    const/16 v0, 0xff
+    const/16 v2, 0xff
 
-    const/16 v1, 0xb
+    const/16 v3, 0xb
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
     goto/16 :goto_0
 
     :cond_5
-    const/16 v0, 0xff
+    const/16 v2, 0xff
 
-    const/16 v1, 0x9
+    const/16 v3, 0x9
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
-    const/16 v0, 0xff
+    const/16 v2, 0xff
 
-    const/16 v1, 0xa
+    const/16 v3, 0xa
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
-    const/16 v0, 0xff
+    const/16 v2, 0xff
 
-    const/16 v1, 0xb
+    const/16 v3, 0xb
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
     goto/16 :goto_0
 
     :cond_6
-    const v0, 0xff00
+    const v2, 0xff00
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
-    const/16 v0, 0xff
+    const/16 v2, 0xff
 
-    const/4 v1, 0x1
+    const/4 v3, 0x1
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
-    const/16 v0, 0xff
+    const/16 v2, 0xff
 
-    const/4 v1, 0x2
+    const/4 v3, 0x2
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
-    const/16 v0, 0xff
+    const/16 v2, 0xff
 
-    const/4 v1, 0x3
+    const/4 v3, 0x3
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
-    const v0, 0xff00
+    const v2, 0xff00
 
-    const/4 v1, 0x4
+    const/4 v3, 0x4
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
-    const/16 v0, 0xff
+    const/16 v2, 0xff
 
-    const/4 v1, 0x5
+    const/4 v3, 0x5
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
-    const/16 v0, 0xff
+    const/16 v2, 0xff
 
-    const/4 v1, 0x6
+    const/4 v3, 0x6
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
-    const/16 v0, 0xff
+    const/16 v2, 0xff
 
-    const/4 v1, 0x7
+    const/4 v3, 0x7
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
-    const v0, 0xff00
+    const v2, 0xff00
 
-    const/16 v1, 0x8
+    const/16 v3, 0x8
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
-    const/16 v0, 0xff
+    const/16 v2, 0xff
 
-    const/16 v1, 0x9
+    const/16 v3, 0x9
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
-    const/16 v0, 0xff
+    const/16 v2, 0xff
 
-    const/16 v1, 0xa
+    const/16 v3, 0xa
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
-    const/16 v0, 0xff
+    const/16 v2, 0xff
 
-    const/16 v1, 0xb
+    const/16 v3, 0xb
 
-    aput v0, v9, v1
+    aput v2, v11, v3
 
     goto/16 :goto_0
 .end method

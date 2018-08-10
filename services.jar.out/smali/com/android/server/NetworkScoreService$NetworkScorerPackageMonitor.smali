@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field final mRegisteredPackage:Ljava/lang/String;
+.field final mPackageToWatch:Ljava/lang/String;
 
 .field final synthetic this$0:Lcom/android/server/NetworkScoreService;
 
@@ -28,7 +28,7 @@
 
     invoke-direct {p0}, Lcom/android/internal/content/PackageMonitor;-><init>()V
 
-    iput-object p2, p0, Lcom/android/server/NetworkScoreService$NetworkScorerPackageMonitor;->mRegisteredPackage:Ljava/lang/String;
+    iput-object p2, p0, Lcom/android/server/NetworkScoreService$NetworkScorerPackageMonitor;->mPackageToWatch:Ljava/lang/String;
 
     return-void
 .end method
@@ -42,29 +42,24 @@
 .end method
 
 .method private evaluateBinding(Ljava/lang/String;Z)V
-    .locals 5
+    .locals 4
 
-    const/4 v4, 0x0
-
-    iget-object v1, p0, Lcom/android/server/NetworkScoreService$NetworkScorerPackageMonitor;->mRegisteredPackage:Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/server/NetworkScoreService$NetworkScorerPackageMonitor;->mPackageToWatch:Ljava/lang/String;
 
     invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-nez v1, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/NetworkScoreService$NetworkScorerPackageMonitor;->this$0:Lcom/android/server/NetworkScoreService;
+    return-void
 
-    invoke-static {v1}, Lcom/android/server/NetworkScoreService;->-get0(Lcom/android/server/NetworkScoreService;)Landroid/content/Context;
+    :cond_0
+    invoke-static {}, Lcom/android/server/NetworkScoreService;->-get0()Z
 
-    move-result-object v1
+    move-result v1
 
-    invoke-static {v1}, Landroid/net/NetworkScorerAppManager;->getActiveScorer(Landroid/content/Context;)Landroid/net/NetworkScorerAppManager$NetworkScorerAppData;
-
-    move-result-object v0
-
-    if-nez v0, :cond_1
+    if-eqz v1, :cond_1
 
     const-string/jumbo v1, "NetworkScoreService"
 
@@ -72,19 +67,100 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "Package "
+    const-string/jumbo v3, "Evaluating binding for: "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    iget-object v3, p0, Lcom/android/server/NetworkScoreService$NetworkScorerPackageMonitor;->mRegisteredPackage:Ljava/lang/String;
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, ", forceUnbind="
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    const-string/jumbo v3, " is no longer valid, disabling scoring."
+    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    iget-object v1, p0, Lcom/android/server/NetworkScoreService$NetworkScorerPackageMonitor;->this$0:Lcom/android/server/NetworkScoreService;
+
+    invoke-static {v1}, Lcom/android/server/NetworkScoreService;->-get2(Lcom/android/server/NetworkScoreService;)Lcom/android/server/NetworkScorerAppManager;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/server/NetworkScorerAppManager;->getActiveScorer()Landroid/net/NetworkScorerAppData;
+
+    move-result-object v0
+
+    if-nez v0, :cond_3
+
+    invoke-static {}, Lcom/android/server/NetworkScoreService;->-get0()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    const-string/jumbo v1, "NetworkScoreService"
+
+    const-string/jumbo v2, "No active scorers available."
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_2
+    iget-object v1, p0, Lcom/android/server/NetworkScoreService$NetworkScorerPackageMonitor;->this$0:Lcom/android/server/NetworkScoreService;
+
+    invoke-static {v1}, Lcom/android/server/NetworkScoreService;->-wrap1(Lcom/android/server/NetworkScoreService;)V
+
+    :goto_0
+    return-void
+
+    :cond_3
+    if-eqz p2, :cond_4
+
+    iget-object v1, p0, Lcom/android/server/NetworkScoreService$NetworkScorerPackageMonitor;->this$0:Lcom/android/server/NetworkScoreService;
+
+    invoke-static {v1}, Lcom/android/server/NetworkScoreService;->-wrap2(Lcom/android/server/NetworkScoreService;)V
+
+    :cond_4
+    invoke-static {}, Lcom/android/server/NetworkScoreService;->-get0()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_5
+
+    const-string/jumbo v1, "NetworkScoreService"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Binding to "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v0}, Landroid/net/NetworkScorerAppData;->getRecommendationServiceComponent()Landroid/content/ComponentName;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " if needed."
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -94,38 +170,12 @@
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    :cond_5
     iget-object v1, p0, Lcom/android/server/NetworkScoreService$NetworkScorerPackageMonitor;->this$0:Lcom/android/server/NetworkScoreService;
 
-    invoke-static {v1, v4}, Lcom/android/server/NetworkScoreService;->-wrap0(Lcom/android/server/NetworkScoreService;Ljava/lang/String;)Z
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
-    iget-object v1, v0, Landroid/net/NetworkScorerAppManager$NetworkScorerAppData;->mScoringServiceClassName:Ljava/lang/String;
-
-    if-nez v1, :cond_2
-
-    iget-object v1, p0, Lcom/android/server/NetworkScoreService$NetworkScorerPackageMonitor;->this$0:Lcom/android/server/NetworkScoreService;
-
-    invoke-static {v1}, Lcom/android/server/NetworkScoreService;->-wrap3(Lcom/android/server/NetworkScoreService;)V
-
-    goto :goto_0
-
-    :cond_2
-    if-eqz p2, :cond_3
-
-    iget-object v1, p0, Lcom/android/server/NetworkScoreService$NetworkScorerPackageMonitor;->this$0:Lcom/android/server/NetworkScoreService;
-
-    invoke-static {v1}, Lcom/android/server/NetworkScoreService;->-wrap3(Lcom/android/server/NetworkScoreService;)V
-
-    :cond_3
-    iget-object v1, p0, Lcom/android/server/NetworkScoreService$NetworkScorerPackageMonitor;->this$0:Lcom/android/server/NetworkScoreService;
-
-    invoke-static {v1, v0}, Lcom/android/server/NetworkScoreService;->-wrap1(Lcom/android/server/NetworkScoreService;Landroid/net/NetworkScorerAppManager$NetworkScorerAppData;)V
+    invoke-static {v1, v0}, Lcom/android/server/NetworkScoreService;->-wrap0(Lcom/android/server/NetworkScoreService;Landroid/net/NetworkScorerAppData;)V
 
     goto :goto_0
 .end method

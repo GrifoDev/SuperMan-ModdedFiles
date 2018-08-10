@@ -51,7 +51,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/server/am/MARsDBManager$SmartManagerExcludedAppObserver;->this$0:Lcom/android/server/am/MARsDBManager;
 
-    invoke-static {v0}, Lcom/android/server/am/MARsDBManager;->-wrap4(Lcom/android/server/am/MARsDBManager;)V
+    invoke-static {v0}, Lcom/android/server/am/MARsDBManager;->-wrap9(Lcom/android/server/am/MARsDBManager;)V
 
     return-void
 .end method

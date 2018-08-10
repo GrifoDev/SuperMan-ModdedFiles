@@ -42,31 +42,70 @@
     :try_start_0
     iget-object v6, p0, Lcom/android/server/bridge/BridgeProxy$1;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v6}, Lcom/android/server/bridge/BridgeProxy;->-get8(Lcom/android/server/bridge/BridgeProxy;)I
+    invoke-static {v6}, Lcom/android/server/bridge/BridgeProxy;->-get10(Lcom/android/server/bridge/BridgeProxy;)I
 
     move-result v6
 
-    if-nez v6, :cond_4
+    if-nez v6, :cond_3
 
     iget-object v6, p0, Lcom/android/server/bridge/BridgeProxy$1;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v6}, Lcom/android/server/bridge/BridgeProxy;->-get13(Lcom/android/server/bridge/BridgeProxy;)Lcom/samsung/android/knox/SemPersonaManager;
+    invoke-static {v6}, Lcom/android/server/bridge/BridgeProxy;->-get25(Lcom/android/server/bridge/BridgeProxy;)Landroid/os/UserManager;
 
     move-result-object v6
 
-    invoke-virtual {v6}, Lcom/samsung/android/knox/SemPersonaManager;->getPersonas()Ljava/util/List;
+    const/4 v7, 0x0
+
+    invoke-virtual {v6, v7}, Landroid/os/UserManager;->getUsers(Z)Ljava/util/List;
 
     move-result-object v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1
 
     invoke-interface {v4}, Ljava/util/List;->isEmpty()Z
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    xor-int/lit8 v6, v6, 0x1
+
+    if-eqz v6, :cond_1
+
+    const/4 v3, 0x0
+
+    invoke-interface {v4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v5
 
     :cond_0
+    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_1
+
+    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/content/pm/UserInfo;
+
+    if-eqz v3, :cond_0
+
+    iget-boolean v6, v3, Landroid/content/pm/UserInfo;->partial:Z
+
+    if-nez v6, :cond_0
+
+    invoke-virtual {v3}, Landroid/content/pm/UserInfo;->isEnabled()Z
+
+    move-result v6
+
+    xor-int/lit8 v6, v6, 0x1
+
+    if-nez v6, :cond_0
+
+    const/4 v2, 0x1
+
+    :cond_1
     :goto_0
     invoke-static {}, Lcom/android/server/bridge/BridgeProxy;->-get1()Ljava/lang/String;
 
@@ -94,7 +133,7 @@
 
     iget-object v8, p0, Lcom/android/server/bridge/BridgeProxy$1;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v8}, Lcom/android/server/bridge/BridgeProxy;->-get8(Lcom/android/server/bridge/BridgeProxy;)I
+    invoke-static {v8}, Lcom/android/server/bridge/BridgeProxy;->-get10(Lcom/android/server/bridge/BridgeProxy;)I
 
     move-result v8
 
@@ -108,7 +147,7 @@
 
     invoke-static {v6, v7}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2
 
     new-instance v0, Landroid/content/Intent;
 
@@ -126,13 +165,13 @@
 
     iget-object v6, p0, Lcom/android/server/bridge/BridgeProxy$1;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v6}, Lcom/android/server/bridge/BridgeProxy;->-get5(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
+    invoke-static {v6}, Lcom/android/server/bridge/BridgeProxy;->-get7(Lcom/android/server/bridge/BridgeProxy;)Landroid/content/Context;
 
     move-result-object v6
 
     iget-object v7, p0, Lcom/android/server/bridge/BridgeProxy$1;->this$0:Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-static {v7}, Lcom/android/server/bridge/BridgeProxy;->-get7(Lcom/android/server/bridge/BridgeProxy;)Landroid/os/UserHandle;
+    invoke-static {v7}, Lcom/android/server/bridge/BridgeProxy;->-get9(Lcom/android/server/bridge/BridgeProxy;)Landroid/os/UserHandle;
 
     move-result-object v7
 
@@ -143,52 +182,14 @@
     const/4 v7, 0x0
 
     invoke-static {v6, v7}, Lcom/android/server/bridge/BridgeProxy;->-wrap13(Lcom/android/server/bridge/BridgeProxy;Z)V
-
-    :cond_1
-    :goto_1
-    return-void
-
-    :cond_2
-    const/4 v3, 0x0
-
-    invoke-interface {v4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v5
-
-    :cond_3
-    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_0
-
-    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/samsung/android/knox/SemPersonaInfo;
-
-    if-eqz v3, :cond_3
-
-    iget-boolean v6, v3, Lcom/samsung/android/knox/SemPersonaInfo;->partial:Z
-
-    if-nez v6, :cond_3
-
-    iget-boolean v6, v3, Lcom/samsung/android/knox/SemPersonaInfo;->removePersona:Z
-
-    if-nez v6, :cond_3
-
-    iget-boolean v6, v3, Lcom/samsung/android/knox/SemPersonaInfo;->setupComplete:Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    if-eqz v6, :cond_3
+    :cond_2
+    :goto_1
+    return-void
 
-    const/4 v2, 0x1
-
-    goto :goto_0
-
-    :cond_4
+    :cond_3
     const/4 v2, 0x1
 
     goto :goto_0

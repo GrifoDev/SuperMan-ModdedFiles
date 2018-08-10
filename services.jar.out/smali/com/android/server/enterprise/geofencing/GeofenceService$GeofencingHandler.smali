@@ -87,7 +87,9 @@
 
     move-result v7
 
-    if-nez v7, :cond_0
+    xor-int/lit8 v7, v7, 0x1
+
+    if-eqz v7, :cond_0
 
     new-instance v2, Landroid/content/Intent;
 

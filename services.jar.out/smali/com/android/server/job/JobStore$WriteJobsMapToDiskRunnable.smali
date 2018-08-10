@@ -1,4 +1,4 @@
-.class Lcom/android/server/job/JobStore$WriteJobsMapToDiskRunnable;
+.class final Lcom/android/server/job/JobStore$WriteJobsMapToDiskRunnable;
 .super Ljava/lang/Object;
 .source "JobStore.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x12
     name = "WriteJobsMapToDiskRunnable"
 .end annotation
 
@@ -275,7 +275,7 @@
 
     invoke-interface {p1, v2, v0}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-virtual {p2}, Lcom/android/server/job/controllers/JobStatus;->hasConnectivityConstraint()Z
+    invoke-virtual {p2}, Lcom/android/server/job/controllers/JobStatus;->needsAnyConnectivity()Z
 
     move-result v0
 
@@ -290,11 +290,26 @@
     invoke-interface {p1, v2, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     :cond_0
-    invoke-virtual {p2}, Lcom/android/server/job/controllers/JobStatus;->hasUnmeteredConstraint()Z
+    invoke-virtual {p2}, Lcom/android/server/job/controllers/JobStatus;->needsMeteredConnectivity()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
+
+    const-string/jumbo v0, "metered"
+
+    invoke-static {v3}, Ljava/lang/Boolean;->toString(Z)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-interface {p1, v2, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    :cond_1
+    invoke-virtual {p2}, Lcom/android/server/job/controllers/JobStatus;->needsUnmeteredConnectivity()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
 
     const-string/jumbo v0, "unmetered"
 
@@ -304,12 +319,12 @@
 
     invoke-interface {p1, v2, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    :cond_1
-    invoke-virtual {p2}, Lcom/android/server/job/controllers/JobStatus;->hasNotRoamingConstraint()Z
+    :cond_2
+    invoke-virtual {p2}, Lcom/android/server/job/controllers/JobStatus;->needsNonRoamingConnectivity()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     const-string/jumbo v0, "not-roaming"
 
@@ -319,12 +334,12 @@
 
     invoke-interface {p1, v2, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    :cond_2
+    :cond_3
     invoke-virtual {p2}, Lcom/android/server/job/controllers/JobStatus;->hasIdleConstraint()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     const-string/jumbo v0, "idle"
 
@@ -334,12 +349,12 @@
 
     invoke-interface {p1, v2, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    :cond_3
+    :cond_4
     invoke-virtual {p2}, Lcom/android/server/job/controllers/JobStatus;->hasChargingConstraint()Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
     const-string/jumbo v0, "charging"
 
@@ -349,7 +364,22 @@
 
     invoke-interface {p1, v2, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    :cond_4
+    :cond_5
+    invoke-virtual {p2}, Lcom/android/server/job/controllers/JobStatus;->hasBatteryNotLowConstraint()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_6
+
+    const-string/jumbo v0, "battery-not-low"
+
+    invoke-static {v3}, Ljava/lang/Boolean;->toString(Z)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-interface {p1, v2, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    :cond_6
     const-string/jumbo v0, "constraints"
 
     invoke-interface {p1, v2, v0}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
@@ -642,7 +672,11 @@
 
     invoke-direct {p0, v6, v5}, Lcom/android/server/job/JobStore$WriteJobsMapToDiskRunnable;->writeExecutionCriteriaToXml(Lorg/xmlpull/v1/XmlSerializer;Lcom/android/server/job/controllers/JobStatus;)V
 
-    invoke-virtual {v5}, Lcom/android/server/job/controllers/JobStatus;->getExtras()Landroid/os/PersistableBundle;
+    invoke-virtual {v5}, Lcom/android/server/job/controllers/JobStatus;->getJob()Landroid/app/job/JobInfo;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Landroid/app/job/JobInfo;->getExtras()Landroid/os/PersistableBundle;
 
     move-result-object v7
 

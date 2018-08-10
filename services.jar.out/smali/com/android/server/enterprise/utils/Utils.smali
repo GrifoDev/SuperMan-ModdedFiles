@@ -488,33 +488,33 @@
     :catchall_2
     move-exception v8
 
-    move-object v9, v10
-
     move-object v0, v1
+
+    move-object v9, v10
 
     goto :goto_5
 
     :catchall_3
     move-exception v8
 
-    move-object v9, v10
-
     move-object v4, v5
 
     move-object v0, v1
+
+    move-object v9, v10
 
     goto :goto_5
 
     :catchall_4
     move-exception v8
 
-    move-object v9, v10
-
     move-object v6, v7
 
     move-object v4, v5
 
     move-object v0, v1
+
+    move-object v9, v10
 
     goto :goto_5
 
@@ -1787,33 +1787,33 @@
     :catchall_2
     move-exception v7
 
-    move-object v8, v9
-
     move-object v0, v1
+
+    move-object v8, v9
 
     goto :goto_5
 
     :catchall_3
     move-exception v7
 
-    move-object v8, v9
-
     move-object v3, v4
 
     move-object v0, v1
+
+    move-object v8, v9
 
     goto :goto_5
 
     :catchall_4
     move-exception v7
 
-    move-object v8, v9
-
     move-object v5, v6
 
     move-object v3, v4
 
     move-object v0, v1
+
+    move-object v8, v9
 
     goto :goto_5
 

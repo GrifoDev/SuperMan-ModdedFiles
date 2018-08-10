@@ -1,14 +1,11 @@
 .class Lcom/android/server/pm/PackageManagerService$24;
-.super Ljava/lang/Object;
+.super Landroid/database/ContentObserver;
 .source "PackageManagerService.java"
-
-# interfaces
-.implements Lcom/android/server/pm/PackageManagerService$BlobXmlRestorer;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/pm/PackageManagerService;->restoreIntentFilterVerification([BI)V
+    value = Lcom/android/server/pm/PackageManagerService;->systemReady()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,58 +17,61 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/pm/PackageManagerService;
 
+.field final synthetic val$resolver:Landroid/content/ContentResolver;
+
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/PackageManagerService;)V
+.method constructor <init>(Lcom/android/server/pm/PackageManagerService;Landroid/os/Handler;Landroid/content/ContentResolver;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$24;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    iput-object p3, p0, Lcom/android/server/pm/PackageManagerService$24;->val$resolver:Landroid/content/ContentResolver;
+
+    invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public apply(Lorg/xmlpull/v1/XmlPullParser;I)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Lorg/xmlpull/v1/XmlPullParserException;,
-            Ljava/io/IOException;
-        }
-    .end annotation
+.method public onChange(Z)V
+    .locals 5
 
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$24;->this$0:Lcom/android/server/pm/PackageManagerService;
+    const/4 v1, 0x0
 
-    iget-object v1, v0, Lcom/android/server/pm/PackageManagerService;->mPackages:Landroid/util/ArrayMap;
+    const/4 v0, 0x1
 
-    monitor-enter v1
+    iget-object v2, p0, Lcom/android/server/pm/PackageManagerService$24;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    :try_start_0
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$24;->this$0:Lcom/android/server/pm/PackageManagerService;
+    iget-object v3, p0, Lcom/android/server/pm/PackageManagerService$24;->val$resolver:Landroid/content/ContentResolver;
 
-    iget-object v0, v0, Lcom/android/server/pm/PackageManagerService;->mSettings:Lcom/android/server/pm/Settings;
+    const-string/jumbo v4, "enable_ephemeral_feature"
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/pm/Settings;->readAllDomainVerificationsLPr(Lorg/xmlpull/v1/XmlPullParser;I)V
+    invoke-static {v3, v4, v0}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$24;->this$0:Lcom/android/server/pm/PackageManagerService;
+    move-result v3
 
-    iget-object v0, v0, Lcom/android/server/pm/PackageManagerService;->mSettings:Lcom/android/server/pm/Settings;
+    if-eqz v3, :cond_0
 
-    invoke-virtual {v0}, Lcom/android/server/pm/Settings;->writeLPr()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    iget-object v3, p0, Lcom/android/server/pm/PackageManagerService$24;->val$resolver:Landroid/content/ContentResolver;
 
-    monitor-exit v1
+    const-string/jumbo v4, "instant_apps_enabled"
+
+    invoke-static {v3, v4, v0}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v3
+
+    if-nez v3, :cond_1
+
+    :cond_0
+    :goto_0
+    invoke-static {v2, v0}, Lcom/android/server/pm/PackageManagerService;->-set3(Lcom/android/server/pm/PackageManagerService;Z)Z
 
     return-void
 
-    :catchall_0
-    move-exception v0
+    :cond_1
+    move v0, v1
 
-    monitor-exit v1
-
-    throw v0
+    goto :goto_0
 .end method

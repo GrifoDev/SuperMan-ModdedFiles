@@ -19,6 +19,8 @@
 
 .field public strExtras:Ljava/lang/String;
 
+.field public strIsDataCleared:Ljava/lang/String;
+
 .field public strIsSMFreezed:Ljava/lang/String;
 
 .field public strPkgName:Ljava/lang/String;
@@ -95,7 +97,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/server/am/MARsDBManager;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+.method public constructor <init>(Lcom/android/server/am/MARsDBManager;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/MARsDBManager$SMDBValue;->this$0:Lcom/android/server/am/MARsDBManager;
@@ -115,6 +117,8 @@
     iput-object p7, p0, Lcom/android/server/am/MARsDBManager$SMDBValue;->strAutoRun:Ljava/lang/String;
 
     iput-object p8, p0, Lcom/android/server/am/MARsDBManager$SMDBValue;->strUserId:Ljava/lang/String;
+
+    iput-object p9, p0, Lcom/android/server/am/MARsDBManager$SMDBValue;->strIsDataCleared:Ljava/lang/String;
 
     return-void
 .end method

@@ -929,68 +929,75 @@
 .end method
 
 .method public update(ZII)Z
-    .locals 6
+    .locals 5
 
-    const/4 v5, 0x4
-
-    const/4 v2, 0x1
+    const/4 v4, 0x4
 
     const/4 v1, 0x0
 
-    iget-object v3, p0, Lcom/android/server/power/WirelessChargerDetector;->mLock:Ljava/lang/Object;
+    iget-object v2, p0, Lcom/android/server/power/WirelessChargerDetector;->mLock:Ljava/lang/Object;
 
-    monitor-enter v3
+    monitor-enter v2
 
     :try_start_0
     iget-boolean v0, p0, Lcom/android/server/power/WirelessChargerDetector;->mPoweredWirelessly:Z
 
     if-eqz p1, :cond_2
 
-    if-ne p2, v5, :cond_2
+    if-ne p2, v4, :cond_2
 
-    const/4 v4, 0x1
+    const/4 v3, 0x1
 
-    iput-boolean v4, p0, Lcom/android/server/power/WirelessChargerDetector;->mPoweredWirelessly:Z
+    iput-boolean v3, p0, Lcom/android/server/power/WirelessChargerDetector;->mPoweredWirelessly:Z
 
-    const/4 v4, 0x1
+    const/4 v3, 0x1
 
-    iput-boolean v4, p0, Lcom/android/server/power/WirelessChargerDetector;->mMustUpdateRestPosition:Z
+    iput-boolean v3, p0, Lcom/android/server/power/WirelessChargerDetector;->mMustUpdateRestPosition:Z
 
     invoke-direct {p0}, Lcom/android/server/power/WirelessChargerDetector;->startDetectionLocked()V
 
     :cond_0
     :goto_0
-    iget-boolean v4, p0, Lcom/android/server/power/WirelessChargerDetector;->mPoweredWirelessly:Z
+    iget-boolean v3, p0, Lcom/android/server/power/WirelessChargerDetector;->mPoweredWirelessly:Z
+
+    if-eqz v3, :cond_1
+
+    xor-int/lit8 v3, v0, 0x1
+
+    if-eqz v3, :cond_1
+
+    const/16 v3, 0x5f
+
+    if-ge p3, v3, :cond_1
+
+    iget-boolean v1, p0, Lcom/android/server/power/WirelessChargerDetector;->mAtRest:Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-eqz v4, :cond_1
-
-    if-eqz v0, :cond_4
+    xor-int/lit8 v1, v1, 0x1
 
     :cond_1
-    :goto_1
-    monitor-exit v3
+    monitor-exit v2
 
     return v1
 
     :cond_2
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
     :try_start_1
-    iput-boolean v4, p0, Lcom/android/server/power/WirelessChargerDetector;->mPoweredWirelessly:Z
+    iput-boolean v3, p0, Lcom/android/server/power/WirelessChargerDetector;->mPoweredWirelessly:Z
 
-    iget-boolean v4, p0, Lcom/android/server/power/WirelessChargerDetector;->mAtRest:Z
+    iget-boolean v3, p0, Lcom/android/server/power/WirelessChargerDetector;->mAtRest:Z
 
-    if-eqz v4, :cond_0
+    if-eqz v3, :cond_0
 
     if-eqz p2, :cond_3
 
-    if-eq p2, v5, :cond_3
+    if-eq p2, v4, :cond_3
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    iput-boolean v4, p0, Lcom/android/server/power/WirelessChargerDetector;->mMustUpdateRestPosition:Z
+    iput-boolean v3, p0, Lcom/android/server/power/WirelessChargerDetector;->mMustUpdateRestPosition:Z
 
     invoke-direct {p0}, Lcom/android/server/power/WirelessChargerDetector;->clearAtRestLocked()V
     :try_end_1
@@ -1001,28 +1008,163 @@
     :catchall_0
     move-exception v1
 
-    monitor-exit v3
+    monitor-exit v2
 
     throw v1
 
     :cond_3
     :try_start_2
     invoke-direct {p0}, Lcom/android/server/power/WirelessChargerDetector;->startDetectionLocked()V
-
-    goto :goto_0
-
-    :cond_4
-    const/16 v4, 0x5f
-
-    if-ge p3, v4, :cond_1
-
-    iget-boolean v4, p0, Lcom/android/server/power/WirelessChargerDetector;->mAtRest:Z
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    if-nez v4, :cond_1
+    goto :goto_0
+.end method
 
-    move v1, v2
+.method public writeToProto(Landroid/util/proto/ProtoOutputStream;J)V
+    .locals 14
 
-    goto :goto_1
+    invoke-virtual/range {p1 .. p3}, Landroid/util/proto/ProtoOutputStream;->start(J)J
+
+    move-result-wide v6
+
+    iget-object v9, p0, Lcom/android/server/power/WirelessChargerDetector;->mLock:Ljava/lang/Object;
+
+    monitor-enter v9
+
+    :try_start_0
+    iget-boolean v8, p0, Lcom/android/server/power/WirelessChargerDetector;->mPoweredWirelessly:Z
+
+    const-wide v10, 0x10d00000001L
+
+    invoke-virtual {p1, v10, v11, v8}, Landroid/util/proto/ProtoOutputStream;->write(JZ)V
+
+    iget-boolean v8, p0, Lcom/android/server/power/WirelessChargerDetector;->mAtRest:Z
+
+    const-wide v10, 0x10d00000002L
+
+    invoke-virtual {p1, v10, v11, v8}, Landroid/util/proto/ProtoOutputStream;->write(JZ)V
+
+    const-wide v10, 0x11100000003L
+
+    invoke-virtual {p1, v10, v11}, Landroid/util/proto/ProtoOutputStream;->start(J)J
+
+    move-result-wide v4
+
+    iget v8, p0, Lcom/android/server/power/WirelessChargerDetector;->mRestX:F
+
+    const-wide v10, 0x10200000001L
+
+    invoke-virtual {p1, v10, v11, v8}, Landroid/util/proto/ProtoOutputStream;->write(JF)V
+
+    iget v8, p0, Lcom/android/server/power/WirelessChargerDetector;->mRestY:F
+
+    const-wide v10, 0x10200000002L
+
+    invoke-virtual {p1, v10, v11, v8}, Landroid/util/proto/ProtoOutputStream;->write(JF)V
+
+    iget v8, p0, Lcom/android/server/power/WirelessChargerDetector;->mRestZ:F
+
+    const-wide v10, 0x10200000003L
+
+    invoke-virtual {p1, v10, v11, v8}, Landroid/util/proto/ProtoOutputStream;->write(JF)V
+
+    invoke-virtual {p1, v4, v5}, Landroid/util/proto/ProtoOutputStream;->end(J)V
+
+    iget-boolean v8, p0, Lcom/android/server/power/WirelessChargerDetector;->mDetectionInProgress:Z
+
+    const-wide v10, 0x10d00000004L
+
+    invoke-virtual {p1, v10, v11, v8}, Landroid/util/proto/ProtoOutputStream;->write(JZ)V
+
+    iget-wide v10, p0, Lcom/android/server/power/WirelessChargerDetector;->mDetectionStartTime:J
+
+    const-wide v12, 0x10400000005L
+
+    invoke-virtual {p1, v12, v13, v10, v11}, Landroid/util/proto/ProtoOutputStream;->write(JJ)V
+
+    iget-boolean v8, p0, Lcom/android/server/power/WirelessChargerDetector;->mMustUpdateRestPosition:Z
+
+    const-wide v10, 0x10d00000006L
+
+    invoke-virtual {p1, v10, v11, v8}, Landroid/util/proto/ProtoOutputStream;->write(JZ)V
+
+    iget v8, p0, Lcom/android/server/power/WirelessChargerDetector;->mTotalSamples:I
+
+    const-wide v10, 0x10300000007L
+
+    invoke-virtual {p1, v10, v11, v8}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+
+    iget v8, p0, Lcom/android/server/power/WirelessChargerDetector;->mMovingSamples:I
+
+    const-wide v10, 0x10300000008L
+
+    invoke-virtual {p1, v10, v11, v8}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+
+    const-wide v10, 0x11100000009L
+
+    invoke-virtual {p1, v10, v11}, Landroid/util/proto/ProtoOutputStream;->start(J)J
+
+    move-result-wide v0
+
+    iget v8, p0, Lcom/android/server/power/WirelessChargerDetector;->mFirstSampleX:F
+
+    const-wide v10, 0x10200000001L
+
+    invoke-virtual {p1, v10, v11, v8}, Landroid/util/proto/ProtoOutputStream;->write(JF)V
+
+    iget v8, p0, Lcom/android/server/power/WirelessChargerDetector;->mFirstSampleY:F
+
+    const-wide v10, 0x10200000002L
+
+    invoke-virtual {p1, v10, v11, v8}, Landroid/util/proto/ProtoOutputStream;->write(JF)V
+
+    iget v8, p0, Lcom/android/server/power/WirelessChargerDetector;->mFirstSampleZ:F
+
+    const-wide v10, 0x10200000003L
+
+    invoke-virtual {p1, v10, v11, v8}, Landroid/util/proto/ProtoOutputStream;->write(JF)V
+
+    invoke-virtual {p1, v0, v1}, Landroid/util/proto/ProtoOutputStream;->end(J)V
+
+    const-wide v10, 0x1110000000aL
+
+    invoke-virtual {p1, v10, v11}, Landroid/util/proto/ProtoOutputStream;->start(J)J
+
+    move-result-wide v2
+
+    iget v8, p0, Lcom/android/server/power/WirelessChargerDetector;->mLastSampleX:F
+
+    const-wide v10, 0x10200000001L
+
+    invoke-virtual {p1, v10, v11, v8}, Landroid/util/proto/ProtoOutputStream;->write(JF)V
+
+    iget v8, p0, Lcom/android/server/power/WirelessChargerDetector;->mLastSampleY:F
+
+    const-wide v10, 0x10200000002L
+
+    invoke-virtual {p1, v10, v11, v8}, Landroid/util/proto/ProtoOutputStream;->write(JF)V
+
+    iget v8, p0, Lcom/android/server/power/WirelessChargerDetector;->mLastSampleZ:F
+
+    const-wide v10, 0x10200000003L
+
+    invoke-virtual {p1, v10, v11, v8}, Landroid/util/proto/ProtoOutputStream;->write(JF)V
+
+    invoke-virtual {p1, v2, v3}, Landroid/util/proto/ProtoOutputStream;->end(J)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v9
+
+    invoke-virtual {p1, v6, v7}, Landroid/util/proto/ProtoOutputStream;->end(J)V
+
+    return-void
+
+    :catchall_0
+    move-exception v8
+
+    monitor-exit v9
+
+    throw v8
 .end method

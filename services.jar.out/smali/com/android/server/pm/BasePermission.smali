@@ -124,6 +124,23 @@
     return v0
 .end method
 
+.method public isInstant()Z
+    .locals 2
+
+    const/4 v0, 0x0
+
+    iget v1, p0, Lcom/android/server/pm/BasePermission;->protectionLevel:I
+
+    and-int/lit16 v1, v1, 0x1000
+
+    if-eqz v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    return v0
+.end method
+
 .method public isRuntime()Z
     .locals 2
 
@@ -142,6 +159,23 @@
     const/4 v0, 0x0
 
     goto :goto_0
+.end method
+
+.method public isRuntimeOnly()Z
+    .locals 2
+
+    const/4 v0, 0x0
+
+    iget v1, p0, Lcom/android/server/pm/BasePermission;->protectionLevel:I
+
+    and-int/lit16 v1, v1, 0x2000
+
+    if-eqz v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    return v0
 .end method
 
 .method public setGids([IZ)V

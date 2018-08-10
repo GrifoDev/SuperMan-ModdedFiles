@@ -7,5 +7,5 @@
 .method public abstract requestReconsideration(Lcom/android/server/notification/RankingReconsideration;)V
 .end method
 
-.method public abstract requestSort()V
+.method public abstract requestSort(Z)V
 .end method

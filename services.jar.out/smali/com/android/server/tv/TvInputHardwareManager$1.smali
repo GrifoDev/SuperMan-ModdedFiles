@@ -36,7 +36,7 @@
 
     iget-object v0, p0, Lcom/android/server/tv/TvInputHardwareManager$1;->this$0:Lcom/android/server/tv/TvInputHardwareManager;
 
-    invoke-static {v0, p1, p2}, Lcom/android/server/tv/TvInputHardwareManager;->-wrap4(Lcom/android/server/tv/TvInputHardwareManager;Landroid/content/Context;Landroid/content/Intent;)V
+    invoke-static {v0, p1, p2}, Lcom/android/server/tv/TvInputHardwareManager;->-wrap3(Lcom/android/server/tv/TvInputHardwareManager;Landroid/content/Context;Landroid/content/Intent;)V
 
     return-void
 .end method

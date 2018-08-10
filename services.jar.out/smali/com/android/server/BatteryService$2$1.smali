@@ -20,12 +20,16 @@
 # instance fields
 .field final synthetic this$1:Lcom/android/server/BatteryService$2;
 
+.field final synthetic val$otgEnable:Z
+
 
 # direct methods
-.method constructor <init>(Lcom/android/server/BatteryService$2;)V
+.method constructor <init>(Lcom/android/server/BatteryService$2;Z)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/BatteryService$2$1;->this$1:Lcom/android/server/BatteryService$2;
+
+    iput-boolean p2, p0, Lcom/android/server/BatteryService$2$1;->val$otgEnable:Z
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -41,41 +45,57 @@
 
     iget-object v0, v0, Lcom/android/server/BatteryService$2;->this$0:Lcom/android/server/BatteryService;
 
-    invoke-static {v0}, Lcom/android/server/BatteryService;->-get18(Lcom/android/server/BatteryService;)Ljava/lang/Object;
+    iget-boolean v1, p0, Lcom/android/server/BatteryService$2$1;->val$otgEnable:Z
 
-    move-result-object v1
+    invoke-virtual {v0, v1}, Lcom/android/server/BatteryService;->setOTGEnableDisable(Z)Z
 
-    monitor-enter v1
+    move-result v0
 
-    :try_start_0
-    iget-object v0, p0, Lcom/android/server/BatteryService$2$1;->this$1:Lcom/android/server/BatteryService$2;
+    if-eqz v0, :cond_0
 
-    iget-object v0, v0, Lcom/android/server/BatteryService$2;->this$0:Lcom/android/server/BatteryService;
-
-    const/4 v2, 0x1
-
-    invoke-static {v0, v2}, Lcom/android/server/BatteryService;->-set12(Lcom/android/server/BatteryService;Z)Z
-
-    iget-object v0, p0, Lcom/android/server/BatteryService$2$1;->this$1:Lcom/android/server/BatteryService$2;
-
-    iget-object v0, v0, Lcom/android/server/BatteryService$2;->this$0:Lcom/android/server/BatteryService;
-
-    invoke-static {v0}, Lcom/android/server/BatteryService;->-get15(Lcom/android/server/BatteryService;)Lcom/android/server/BatteryService$Led;
+    invoke-static {}, Lcom/android/server/BatteryService;->-get1()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/server/BatteryService$Led;->updateLightsLocked()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    monitor-exit v1
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
+    const-string/jumbo v2, "success to set otgEnable as "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-boolean v2, p0, Lcom/android/server/BatteryService$2$1;->val$otgEnable:Z
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/android/server/BatteryService$2$1;->this$1:Lcom/android/server/BatteryService$2;
+
+    iget-object v0, v0, Lcom/android/server/BatteryService$2;->this$0:Lcom/android/server/BatteryService;
+
+    invoke-static {v0}, Lcom/android/server/BatteryService;->-wrap11(Lcom/android/server/BatteryService;)V
+
+    :goto_0
     return-void
 
-    :catchall_0
-    move-exception v0
+    :cond_0
+    invoke-static {}, Lcom/android/server/BatteryService;->-get1()Ljava/lang/String;
 
-    monitor-exit v1
+    move-result-object v0
 
-    throw v0
+    const-string/jumbo v1, "fail to set otgEnable"
+
+    invoke-static {v0, v1}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 .end method

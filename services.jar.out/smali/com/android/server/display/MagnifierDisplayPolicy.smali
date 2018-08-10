@@ -57,6 +57,8 @@
 
 .field private mIsHoverZoom:Z
 
+.field private mIsPeekViewMode:Z
+
 .field private mLastDisplayInfo:Lcom/android/server/display/MagnifierDisplayPolicy$DisplayInfo;
 
 .field private mOnSizeChangeListener:Ljava/util/ArrayList;
@@ -186,7 +188,7 @@
 
     move-result-object v0
 
-    const v1, 0x105039b
+    const v1, 0x1050027
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -210,7 +212,7 @@
 
     move-result-object v0
 
-    const v1, 0x105039a
+    const v1, 0x1050026
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2254,67 +2256,107 @@
 .end method
 
 .method public updateSettings(IIF)V
-    .locals 4
+    .locals 6
 
+    iget v4, p0, Lcom/android/server/display/MagnifierDisplayPolicy;->mScale:F
+
+    cmpl-float v4, v4, p3
+
+    if-eqz v4, :cond_1
+
+    const/4 v0, 0x1
+
+    :goto_0
+    iget v4, p0, Lcom/android/server/display/MagnifierDisplayPolicy;->mFixedWidth:I
+
+    if-ne v4, p1, :cond_0
+
+    iget v4, p0, Lcom/android/server/display/MagnifierDisplayPolicy;->mFixedHeight:I
+
+    if-eq v4, p2, :cond_2
+
+    :cond_0
+    const/4 v1, 0x1
+
+    :goto_1
     iput p1, p0, Lcom/android/server/display/MagnifierDisplayPolicy;->mFixedWidth:I
 
     iput p2, p0, Lcom/android/server/display/MagnifierDisplayPolicy;->mFixedHeight:I
 
     iput p3, p0, Lcom/android/server/display/MagnifierDisplayPolicy;->mScale:F
 
-    iget v2, p0, Lcom/android/server/display/MagnifierDisplayPolicy;->mFixedWidth:I
+    iget v4, p0, Lcom/android/server/display/MagnifierDisplayPolicy;->mFixedWidth:I
 
-    int-to-float v2, v2
+    int-to-float v4, v4
 
-    iget v3, p0, Lcom/android/server/display/MagnifierDisplayPolicy;->mScale:F
+    iget v5, p0, Lcom/android/server/display/MagnifierDisplayPolicy;->mScale:F
 
-    div-float/2addr v2, v3
+    div-float/2addr v4, v5
 
-    float-to-int v2, v2
+    float-to-int v4, v4
 
-    int-to-float v2, v2
+    int-to-float v4, v4
 
-    iput v2, p0, Lcom/android/server/display/MagnifierDisplayPolicy;->mCropWidth:F
+    iput v4, p0, Lcom/android/server/display/MagnifierDisplayPolicy;->mCropWidth:F
 
-    iget v2, p0, Lcom/android/server/display/MagnifierDisplayPolicy;->mFixedHeight:I
+    iget v4, p0, Lcom/android/server/display/MagnifierDisplayPolicy;->mFixedHeight:I
 
-    int-to-float v2, v2
+    int-to-float v4, v4
 
-    iget v3, p0, Lcom/android/server/display/MagnifierDisplayPolicy;->mScale:F
+    iget v5, p0, Lcom/android/server/display/MagnifierDisplayPolicy;->mScale:F
 
-    div-float/2addr v2, v3
+    div-float/2addr v4, v5
 
-    float-to-int v2, v2
+    float-to-int v4, v4
 
-    int-to-float v2, v2
+    int-to-float v4, v4
 
-    iput v2, p0, Lcom/android/server/display/MagnifierDisplayPolicy;->mCropHeight:F
+    iput v4, p0, Lcom/android/server/display/MagnifierDisplayPolicy;->mCropHeight:F
 
-    iget-object v2, p0, Lcom/android/server/display/MagnifierDisplayPolicy;->mOnSizeChangeListener:Ljava/util/ArrayList;
+    if-eqz v0, :cond_3
 
-    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    xor-int/lit8 v4, v1, 0x1
 
-    move-result-object v1
+    if-eqz v4, :cond_3
 
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    return-void
 
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/server/display/MagnifierDisplayPolicy$OnSizeChangeListener;
-
-    const/4 v2, 0x0
-
-    invoke-interface {v0, v2}, Lcom/android/server/display/MagnifierDisplayPolicy$OnSizeChangeListener;->onSizeChanged(Z)V
+    :cond_1
+    const/4 v0, 0x0
 
     goto :goto_0
 
-    :cond_0
+    :cond_2
+    const/4 v1, 0x0
+
+    goto :goto_1
+
+    :cond_3
+    iget-object v4, p0, Lcom/android/server/display/MagnifierDisplayPolicy;->mOnSizeChangeListener:Ljava/util/ArrayList;
+
+    invoke-interface {v4}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
+
+    :goto_2
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_4
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/server/display/MagnifierDisplayPolicy$OnSizeChangeListener;
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v4}, Lcom/android/server/display/MagnifierDisplayPolicy$OnSizeChangeListener;->onSizeChanged(Z)V
+
+    goto :goto_2
+
+    :cond_4
     return-void
 .end method

@@ -179,16 +179,18 @@
 .end method
 
 .method public forget(Landroid/net/wifi/WifiConfiguration;)Z
-    .locals 3
+    .locals 4
 
     :try_start_0
     sget-object v1, Lcom/android/server/enterprise/adapterlayer/WifiManagerAdapter;->mWifiService:Landroid/net/wifi/IWifiManager;
 
     iget v2, p1, Landroid/net/wifi/WifiConfiguration;->networkId:I
 
-    invoke-interface {v1, v2}, Landroid/net/wifi/IWifiManager;->removeNetworkByMDM(I)Z
+    const/4 v3, 0x1
+
+    invoke-interface {v1, v3, v2}, Landroid/net/wifi/IWifiManager;->semRemoveNetwork(II)Z
     :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
@@ -224,9 +226,11 @@
     :try_start_0
     sget-object v1, Lcom/android/server/enterprise/adapterlayer/WifiManagerAdapter;->mWifiService:Landroid/net/wifi/IWifiManager;
 
-    invoke-interface {v1, p1}, Landroid/net/wifi/IWifiManager;->saveNetworkByMDM(Landroid/net/wifi/WifiConfiguration;)I
+    const/4 v2, 0x1
+
+    invoke-interface {v1, v2, p1}, Landroid/net/wifi/IWifiManager;->semAddOrUpdateNetwork(ILandroid/net/wifi/WifiConfiguration;)I
     :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 

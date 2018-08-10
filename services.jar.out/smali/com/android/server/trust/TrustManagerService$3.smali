@@ -44,7 +44,7 @@
 
     iget-object v0, p0, Lcom/android/server/trust/TrustManagerService$3;->this$0:Lcom/android/server/trust/TrustManagerService;
 
-    invoke-static {v0, p1}, Lcom/android/server/trust/TrustManagerService;->-wrap8(Lcom/android/server/trust/TrustManagerService;Ljava/lang/String;)V
+    invoke-static {v0, p1}, Lcom/android/server/trust/TrustManagerService;->-wrap9(Lcom/android/server/trust/TrustManagerService;Ljava/lang/String;)V
 
     return-void
 .end method

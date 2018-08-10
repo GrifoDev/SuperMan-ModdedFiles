@@ -78,7 +78,7 @@
 
     iput-object v0, p0, Lcom/android/server/enterprise/apn/ApnSettingsPolicy;->mEDM:Lcom/samsung/android/knox/EnterpriseDeviceManager;
 
-    const-string/jumbo v0, "18"
+    const-string/jumbo v0, "22"
 
     invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
@@ -2844,9 +2844,12 @@
     throw v2
 .end method
 
-.method public getPreferredApn(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/net/apn/ApnSettings;
+.method public declared-synchronized getPreferredApn(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/net/apn/ApnSettings;
     .locals 11
 
+    monitor-enter p0
+
+    :try_start_0
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/apn/ApnSettingsPolicy;->enforceOwnerOnlyAndApnPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
     const/4 v6, 0x0
@@ -2858,8 +2861,10 @@
     const-string/jumbo v1, "getPreferredApn():"
 
     invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lcom/android/server/enterprise/apn/ApnSettingsPolicy;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -2947,25 +2952,30 @@
     if-lez v0, :cond_0
 
     invoke-virtual {p0, p1, v8, v9}, Lcom/android/server/enterprise/apn/ApnSettingsPolicy;->getApnSettings(Lcom/samsung/android/knox/ContextInfo;J)Lcom/samsung/android/knox/net/apn/ApnSettings;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     move-result-object v6
 
     :cond_0
     if-eqz v7, :cond_1
 
+    :try_start_2
     invoke-interface {v7}, Landroid/database/Cursor;->close()V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     :cond_1
     :goto_0
+    monitor-exit p0
+
     return-object v6
 
     :catch_0
     move-exception v10
 
-    :try_start_1
+    :try_start_3
     const-string/jumbo v0, "ApnSettingsPolicyService"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2987,24 +2997,37 @@
     move-result-object v1
 
     invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     if-eqz v7, :cond_1
 
+    :try_start_4
     invoke-interface {v7}, Landroid/database/Cursor;->close()V
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     goto :goto_0
 
     :catchall_0
     move-exception v0
 
+    monitor-exit p0
+
+    throw v0
+
+    :catchall_1
+    move-exception v0
+
     if-eqz v7, :cond_2
 
+    :try_start_5
     invoke-interface {v7}, Landroid/database/Cursor;->close()V
 
     :cond_2
     throw v0
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
 .end method
 
 .method public notifyToAddSystemService(Ljava/lang/String;Landroid/os/IBinder;)V

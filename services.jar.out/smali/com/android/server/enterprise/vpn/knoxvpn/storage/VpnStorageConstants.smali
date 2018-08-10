@@ -36,6 +36,12 @@
 
 .field public static final ENTERPRISE_VPN_CONTAINER_STATE:Ljava/lang/String; = "containerVpnState"
 
+.field public static final ENTERPRISE_VPN_EXEMPT_PACKAGE:Ljava/lang/String; = "packageName"
+
+.field public static final ENTERPRISE_VPN_EXEMPT_TABLE:Ljava/lang/String; = "vpnExemptInfo"
+
+.field public static final ENTERPRISE_VPN_EXEMPT_UID:Ljava/lang/String; = "packageUid"
+
 .field public static final ENTERPRISE_VPN_IPV6:Ljava/lang/String; = "ipv6"
 
 .field public static final ENTERPRISE_VPN_PACKAGE_TABLE:Ljava/lang/String; = "VpnPackageInfo"

@@ -48,20 +48,12 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayHandler;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
-    invoke-static {v0}, Lcom/android/server/display/WifiDisplayAdapter;->-wrap8(Lcom/android/server/display/WifiDisplayAdapter;)V
-
-    goto :goto_0
-
-    :pswitch_1
-    iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayHandler;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
-
-    invoke-static {v0}, Lcom/android/server/display/WifiDisplayAdapter;->-wrap9(Lcom/android/server/display/WifiDisplayAdapter;)V
+    invoke-static {v0}, Lcom/android/server/display/WifiDisplayAdapter;->-wrap2(Lcom/android/server/display/WifiDisplayAdapter;)V
 
     goto :goto_0
 
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
-        :pswitch_1
     .end packed-switch
 .end method

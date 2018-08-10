@@ -372,39 +372,15 @@
 
     invoke-direct/range {v0 .. v7}, Lcom/android/server/notification/ScheduleCalendar;->isInSchedule(IJJJ)Z
 
-    move-result v8
+    move-result v0
+
+    :goto_0
+    return v0
 
     :cond_3
-    if-eqz v8, :cond_4
+    move v0, v8
 
-    iget-object v0, p0, Lcom/android/server/notification/ScheduleCalendar;->mSchedule:Landroid/service/notification/ZenModeConfig$ScheduleInfo;
-
-    iget-boolean v0, v0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->exitAtAlarm:Z
-
-    if-eqz v0, :cond_4
-
-    iget-object v0, p0, Lcom/android/server/notification/ScheduleCalendar;->mSchedule:Landroid/service/notification/ZenModeConfig$ScheduleInfo;
-
-    iget-wide v0, v0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->nextAlarm:J
-
-    const-wide/16 v2, 0x0
-
-    cmp-long v0, v0, v2
-
-    if-eqz v0, :cond_4
-
-    iget-object v0, p0, Lcom/android/server/notification/ScheduleCalendar;->mSchedule:Landroid/service/notification/ZenModeConfig$ScheduleInfo;
-
-    iget-wide v0, v0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->nextAlarm:J
-
-    cmp-long v0, p1, v0
-
-    if-ltz v0, :cond_4
-
-    return v9
-
-    :cond_4
-    return v8
+    goto :goto_0
 .end method
 
 .method public maybeSetNextAlarm(JJ)V
@@ -465,6 +441,41 @@
     invoke-virtual {v0, p1}, Ljava/util/Calendar;->setTimeZone(Ljava/util/TimeZone;)V
 
     return-void
+.end method
+
+.method public shouldExitForAlarm(J)Z
+    .locals 7
+
+    const/4 v0, 0x0
+
+    iget-object v1, p0, Lcom/android/server/notification/ScheduleCalendar;->mSchedule:Landroid/service/notification/ZenModeConfig$ScheduleInfo;
+
+    iget-boolean v1, v1, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->exitAtAlarm:Z
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/server/notification/ScheduleCalendar;->mSchedule:Landroid/service/notification/ZenModeConfig$ScheduleInfo;
+
+    iget-wide v2, v1, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->nextAlarm:J
+
+    const-wide/16 v4, 0x0
+
+    cmp-long v1, v2, v4
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/server/notification/ScheduleCalendar;->mSchedule:Landroid/service/notification/ZenModeConfig$ScheduleInfo;
+
+    iget-wide v2, v1, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->nextAlarm:J
+
+    cmp-long v1, p1, v2
+
+    if-ltz v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    return v0
 .end method
 
 .method public toString()Ljava/lang/String;

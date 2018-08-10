@@ -693,9 +693,11 @@
 
     invoke-virtual {p1}, Ljava/io/File;->list()[Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v1
 
-    array-length v4, v4
+    if-eqz v1, :cond_0
+
+    array-length v4, v1
 
     if-nez v4, :cond_1
 
@@ -732,10 +734,6 @@
     return-void
 
     :cond_1
-    invoke-virtual {p1}, Ljava/io/File;->list()[Ljava/lang/String;
-
-    move-result-object v1
-
     array-length v4, v1
 
     :goto_1
@@ -900,197 +898,205 @@
 .end method
 
 .method private formatIfEmptyOrCorrupted(Ljava/io/File;)V
-    .locals 13
+    .locals 18
 
-    const/high16 v12, 0x10000
-
-    const/4 v8, 0x0
+    const/4 v11, 0x0
 
     :try_start_0
-    new-instance v9, Ljava/io/RandomAccessFile;
+    new-instance v12, Ljava/io/RandomAccessFile;
 
-    const-string/jumbo v10, "rwd"
+    const-string/jumbo v13, "rwd"
 
-    invoke-direct {v9, p1, v10}, Ljava/io/RandomAccessFile;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    move-object/from16 v0, p1
+
+    invoke-direct {v12, v0, v13}, Ljava/io/RandomAccessFile;-><init>(Ljava/io/File;Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const/high16 v10, 0x10000
+    const/high16 v13, 0x10000
 
     :try_start_1
-    new-array v0, v10, [B
+    new-array v2, v13, [B
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    const/4 v6, 0x0
+    const/4 v9, 0x0
 
-    const/4 v4, 0x0
+    const-wide/16 v6, 0x0
 
-    const/4 v7, 0x0
+    const/4 v10, 0x0
 
-    const/4 v5, 0x0
+    const/4 v8, 0x0
 
     :goto_0
-    invoke-virtual {v9, v0}, Ljava/io/RandomAccessFile;->read([B)I
+    invoke-virtual {v12, v2}, Ljava/io/RandomAccessFile;->read([B)I
 
-    move-result v6
+    move-result v9
 
-    if-lez v6, :cond_1
+    if-lez v9, :cond_1
 
-    const/4 v7, 0x0
+    const/4 v10, 0x0
 
-    add-int/lit8 v10, v6, -0x1
+    add-int/lit8 v13, v9, -0x1
 
-    aget-byte v10, v0, v10
+    aget-byte v13, v2, v13
 
-    if-nez v10, :cond_6
+    if-nez v13, :cond_6
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
     :goto_1
-    if-ge v1, v6, :cond_1
+    if-ge v3, v9, :cond_1
 
-    aget-byte v10, v0, v1
+    aget-byte v13, v2, v3
 
-    const/16 v11, 0xa
+    const/16 v14, 0xa
 
-    if-ne v10, v11, :cond_0
+    if-ne v13, v14, :cond_0
 
-    move v7, v1
+    move v10, v3
 
     :cond_0
-    aget-byte v10, v0, v1
+    aget-byte v13, v2, v3
 
-    if-nez v10, :cond_5
+    if-nez v13, :cond_5
 
-    const/4 v5, 0x1
+    const/4 v8, 0x1
 
     :cond_1
-    if-eqz v5, :cond_2
+    if-eqz v8, :cond_2
 
-    mul-int v10, v4, v12
+    const-wide/32 v14, 0x10000
 
-    add-int/2addr v10, v7
+    mul-long/2addr v14, v6
 
-    int-to-long v10, v10
+    int-to-long v0, v10
 
-    invoke-virtual {v9, v10, v11}, Ljava/io/RandomAccessFile;->setLength(J)V
+    move-wide/from16 v16, v0
+
+    add-long v14, v14, v16
+
+    invoke-virtual {v12, v14, v15}, Ljava/io/RandomAccessFile;->setLength(J)V
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_4
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     :cond_2
-    if-eqz v9, :cond_3
+    if-eqz v12, :cond_3
 
     :try_start_2
-    invoke-virtual {v9}, Ljava/io/RandomAccessFile;->close()V
+    invoke-virtual {v12}, Ljava/io/RandomAccessFile;->close()V
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
 
     :cond_3
     :goto_2
-    move-object v8, v9
+    move-object v11, v12
 
     :cond_4
     :goto_3
     return-void
 
     :cond_5
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
     :cond_6
-    add-int/lit8 v4, v4, 0x1
+    const-wide/16 v14, 0x1
+
+    add-long/2addr v6, v14
 
     goto :goto_0
 
     :catch_0
-    move-exception v2
+    move-exception v4
 
-    const-string/jumbo v10, "CircularBuffer"
+    const-string/jumbo v13, "CircularBuffer"
 
-    const-string/jumbo v11, "formatIfEmptyOrCorrupted.IOException"
+    const-string/jumbo v14, "formatIfEmptyOrCorrupted.IOException"
 
-    invoke-static {v10, v11}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v13, v14}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_2
 
     :catch_1
-    move-exception v3
+    move-exception v5
 
     :goto_4
     :try_start_3
-    const-string/jumbo v10, "CircularBuffer"
+    const-string/jumbo v13, "CircularBuffer"
 
-    const-string/jumbo v11, "formatIfEmptyOrCorrupted.Exception"
+    const-string/jumbo v14, "formatIfEmptyOrCorrupted.Exception"
 
-    invoke-static {v10, v11}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v13, v14}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    iget-object v10, p0, Lcom/android/server/enterprise/auditlog/CircularBuffer;->mPendingIntentErrors:Ljava/util/List;
+    move-object/from16 v0, p0
 
-    invoke-interface {v10, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    iget-object v13, v0, Lcom/android/server/enterprise/auditlog/CircularBuffer;->mPendingIntentErrors:Ljava/util/List;
+
+    invoke-interface {v13, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    if-eqz v8, :cond_4
+    if-eqz v11, :cond_4
 
     :try_start_4
-    invoke-virtual {v8}, Ljava/io/RandomAccessFile;->close()V
+    invoke-virtual {v11}, Ljava/io/RandomAccessFile;->close()V
     :try_end_4
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_2
 
     goto :goto_3
 
     :catch_2
-    move-exception v2
+    move-exception v4
 
-    const-string/jumbo v10, "CircularBuffer"
+    const-string/jumbo v13, "CircularBuffer"
 
-    const-string/jumbo v11, "formatIfEmptyOrCorrupted.IOException"
+    const-string/jumbo v14, "formatIfEmptyOrCorrupted.IOException"
 
-    invoke-static {v10, v11}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v13, v14}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_3
 
     :catchall_0
-    move-exception v10
+    move-exception v13
 
     :goto_5
-    if-eqz v8, :cond_7
+    if-eqz v11, :cond_7
 
     :try_start_5
-    invoke-virtual {v8}, Ljava/io/RandomAccessFile;->close()V
+    invoke-virtual {v11}, Ljava/io/RandomAccessFile;->close()V
     :try_end_5
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_3
 
     :cond_7
     :goto_6
-    throw v10
+    throw v13
 
     :catch_3
-    move-exception v2
+    move-exception v4
 
-    const-string/jumbo v11, "CircularBuffer"
+    const-string/jumbo v14, "CircularBuffer"
 
-    const-string/jumbo v12, "formatIfEmptyOrCorrupted.IOException"
+    const-string/jumbo v15, "formatIfEmptyOrCorrupted.IOException"
 
-    invoke-static {v11, v12}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v14, v15}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_6
 
     :catchall_1
-    move-exception v10
+    move-exception v13
 
-    move-object v8, v9
+    move-object v11, v12
 
     goto :goto_5
 
     :catch_4
-    move-exception v3
+    move-exception v5
 
-    move-object v8, v9
+    move-object v11, v12
 
     goto :goto_4
 .end method
@@ -2054,8 +2060,6 @@
 .method public getCurrentLogFileSize()I
     .locals 6
 
-    const/16 v1, 0x64
-
     iget-wide v2, p0, Lcom/android/server/enterprise/auditlog/CircularBuffer;->mCircularBufferSize:J
 
     const-wide/16 v4, 0x64
@@ -2068,7 +2072,11 @@
 
     long-to-int v0, v2
 
-    if-le v0, v1, :cond_0
+    const/16 v2, 0x64
+
+    if-le v0, v2, :cond_0
+
+    const/16 v1, 0x64
 
     :goto_0
     return v1

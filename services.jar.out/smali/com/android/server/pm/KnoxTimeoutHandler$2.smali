@@ -1,11 +1,11 @@
 .class Lcom/android/server/pm/KnoxTimeoutHandler$2;
-.super Landroid/content/pm/ISystemPersonaObserver$Stub;
+.super Landroid/app/UserSwitchObserver;
 .source "KnoxTimeoutHandler.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/pm/KnoxTimeoutHandler;->registerSystemPersonaObserver()V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/server/pm/KnoxTimeoutHandler;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,65 +24,45 @@
 
     iput-object p1, p0, Lcom/android/server/pm/KnoxTimeoutHandler$2;->this$0:Lcom/android/server/pm/KnoxTimeoutHandler;
 
-    invoke-direct {p0}, Landroid/content/pm/ISystemPersonaObserver$Stub;-><init>()V
+    invoke-direct {p0}, Landroid/app/UserSwitchObserver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onKnoxContainerLaunch(I)V
-    .locals 3
+.method public onForegroundProfileSwitch(I)V
+    .locals 4
 
-    const-string/jumbo v0, "KnoxTimeoutHandler"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "switching event received for "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const/4 v3, 0x1
 
     iget-object v0, p0, Lcom/android/server/pm/KnoxTimeoutHandler$2;->this$0:Lcom/android/server/pm/KnoxTimeoutHandler;
 
-    invoke-static {v0, p1}, Lcom/android/server/pm/KnoxTimeoutHandler;->-set0(Lcom/android/server/pm/KnoxTimeoutHandler;I)I
+    invoke-static {v0}, Lcom/android/server/pm/KnoxTimeoutHandler;->-get5(Lcom/android/server/pm/KnoxTimeoutHandler;)Landroid/os/Handler;
 
-    return-void
-.end method
+    move-result-object v0
 
-.method public onPersonaActive(I)V
-    .locals 0
+    invoke-virtual {v0, v3}, Landroid/os/Handler;->removeMessages(I)V
 
-    return-void
-.end method
+    iget-object v0, p0, Lcom/android/server/pm/KnoxTimeoutHandler$2;->this$0:Lcom/android/server/pm/KnoxTimeoutHandler;
 
-.method public onRemovePersona(I)V
-    .locals 0
+    invoke-static {v0}, Lcom/android/server/pm/KnoxTimeoutHandler;->-get5(Lcom/android/server/pm/KnoxTimeoutHandler;)Landroid/os/Handler;
 
-    return-void
-.end method
+    move-result-object v0
 
-.method public onResetPersona(I)V
-    .locals 0
+    iget-object v1, p0, Lcom/android/server/pm/KnoxTimeoutHandler$2;->this$0:Lcom/android/server/pm/KnoxTimeoutHandler;
 
-    return-void
-.end method
+    invoke-static {v1}, Lcom/android/server/pm/KnoxTimeoutHandler;->-get5(Lcom/android/server/pm/KnoxTimeoutHandler;)Landroid/os/Handler;
 
-.method public onStateChange(ILcom/samsung/android/knox/SemPersonaState;Lcom/samsung/android/knox/SemPersonaState;)V
-    .locals 0
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v3, p1, v2}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
     return-void
 .end method

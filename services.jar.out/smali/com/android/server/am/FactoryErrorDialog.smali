@@ -31,7 +31,7 @@
 
     invoke-virtual {p0, v3}, Lcom/android/server/am/FactoryErrorDialog;->setCancelable(Z)V
 
-    const v1, 0x10402ed
+    const v1, 0x104034f
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -41,7 +41,7 @@
 
     invoke-virtual {p0, p2}, Lcom/android/server/am/FactoryErrorDialog;->setMessage(Ljava/lang/CharSequence;)V
 
-    const v1, 0x10402f0
+    const v1, 0x1040352
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

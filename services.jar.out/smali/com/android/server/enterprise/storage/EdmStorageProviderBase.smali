@@ -150,6 +150,22 @@
 
     move-result-object v4
 
+    if-eqz v4, :cond_0
+
+    const-string/jumbo v4, "adminUid"
+
+    invoke-virtual {p1, v4}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_0
+
+    const-string/jumbo v4, "containerID"
+
+    invoke-virtual {p1, v4}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
+
+    move-result-object v4
+
     invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
@@ -193,15 +209,15 @@
 
     const/4 v6, 0x0
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_4
 
-    if-eqz p2, :cond_5
+    if-eqz p2, :cond_4
 
     invoke-virtual {p1}, Landroid/content/ContentValues;->size()I
 
     move-result v5
 
-    if-lez v5, :cond_5
+    if-lez v5, :cond_4
 
     invoke-virtual {p1}, Landroid/content/ContentValues;->valueSet()Ljava/util/Set;
 
@@ -222,7 +238,7 @@
 
     move-result v12
 
-    if-eqz v12, :cond_4
+    if-eqz v12, :cond_3
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -260,11 +276,14 @@
 
     move-result v12
 
-    if-eqz v12, :cond_2
+    xor-int/lit8 v12, v12, 0x1
+
+    if-eqz v12, :cond_0
+
+    const-string/jumbo v0, "=?"
 
     :cond_0
-    :goto_1
-    if-nez v1, :cond_3
+    if-nez v1, :cond_2
 
     invoke-virtual {p2, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -272,7 +291,7 @@
 
     invoke-virtual {v12, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :goto_2
+    :goto_1
     if-nez v2, :cond_1
 
     invoke-interface {v10, v9}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -283,11 +302,6 @@
     goto :goto_0
 
     :cond_2
-    const-string/jumbo v0, "=?"
-
-    goto :goto_1
-
-    :cond_3
     const-string/jumbo v12, " AND "
 
     invoke-virtual {p2, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -300,14 +314,14 @@
 
     invoke-virtual {v12, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_2
+    goto :goto_1
 
-    :cond_4
+    :cond_3
     invoke-interface {v10}, Ljava/util/List;->size()I
 
     move-result v11
 
-    if-lez v11, :cond_5
+    if-lez v11, :cond_4
 
     new-array v12, v11, [Ljava/lang/String;
 
@@ -317,7 +331,7 @@
 
     check-cast v6, [Ljava/lang/String;
 
-    :cond_5
+    :cond_4
     return-object v6
 .end method
 
@@ -365,9 +379,11 @@
     throw v1
 
     :cond_0
-    const/16 v1, 0x64
+    invoke-static {p0}, Lcom/android/server/enterprise/adapterlayer/PersonaManagerAdapter;->isValidKnoxId(I)Z
 
-    if-lt p0, v1, :cond_1
+    move-result v1
+
+    if-eqz v1, :cond_1
 
     const/4 p0, 0x0
 
@@ -467,6 +483,14 @@
 
     move-result-object v2
 
+    if-eqz v2, :cond_2
+
+    const-string/jumbo v2, "containerID"
+
+    invoke-virtual {p1, v2}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
+
+    move-result-object v2
+
     invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
@@ -482,6 +506,14 @@
     invoke-virtual {p1, v2}, Landroid/content/ContentValues;->containsKey(Ljava/lang/String;)Z
 
     move-result v2
+
+    if-eqz v2, :cond_1
+
+    const-string/jumbo v2, "userID"
+
+    invoke-virtual {p1, v2}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
+
+    move-result-object v2
 
     if-eqz v2, :cond_1
 
@@ -525,9 +557,11 @@
     return-wide v0
 
     :cond_1
-    const/16 v0, 0x64
+    invoke-static {p1}, Lcom/android/server/enterprise/adapterlayer/PersonaManagerAdapter;->isValidKnoxId(I)Z
 
-    if-ge p1, v0, :cond_0
+    move-result v0
+
+    if-nez v0, :cond_0
 
     int-to-long v0, p1
 

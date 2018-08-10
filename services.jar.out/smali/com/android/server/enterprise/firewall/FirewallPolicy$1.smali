@@ -34,6 +34,32 @@
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
 
+    const-string/jumbo v1, "FirewallPolicy"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Received intent: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+
     const-string/jumbo v1, "android.intent.action.BOOT_COMPLETED"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -48,7 +74,7 @@
 
     iget-object v1, p0, Lcom/android/server/enterprise/firewall/FirewallPolicy$1;->this$0:Lcom/android/server/enterprise/firewall/FirewallPolicy;
 
-    invoke-static {v1}, Lcom/android/server/enterprise/firewall/FirewallPolicy;->-wrap4(Lcom/android/server/enterprise/firewall/FirewallPolicy;)V
+    invoke-static {v1}, Lcom/android/server/enterprise/firewall/FirewallPolicy;->-wrap3(Lcom/android/server/enterprise/firewall/FirewallPolicy;)V
 
     invoke-static {}, Lcom/android/server/enterprise/firewall/FirewallPolicy;->-get0()Z
 
@@ -90,12 +116,6 @@
     if-eqz v1, :cond_2
 
     :cond_1
-    const-string/jumbo v1, "FirewallPolicy"
-
-    const-string/jumbo v2, "Received intent: android.intent.action.BOOT_COMPLETED or android.intent.action.USER_ADDED"
-
-    invoke-static {v1, v2}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
     :try_start_0
     iget-object v1, p0, Lcom/android/server/enterprise/firewall/FirewallPolicy$1;->this$0:Lcom/android/server/enterprise/firewall/FirewallPolicy;
 
@@ -120,7 +140,7 @@
 
     const-string/jumbo v1, "FirewallPolicy"
 
-    const-string/jumbo v2, "Exception: "
+    const-string/jumbo v2, "mBootReceiver.onReceive() - mBootReceiver exception: "
 
     invoke-static {v1, v2, v0}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 

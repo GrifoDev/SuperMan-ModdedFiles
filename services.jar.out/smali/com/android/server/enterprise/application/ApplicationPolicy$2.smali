@@ -113,7 +113,7 @@
 
     iget-object v2, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$2;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
 
-    invoke-static {v2}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-get3(Lcom/android/server/enterprise/application/ApplicationPolicy;)Ljava/util/Map;
+    invoke-static {v2}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-get2(Lcom/android/server/enterprise/application/ApplicationPolicy;)Ljava/util/Map;
 
     move-result-object v2
 
@@ -187,7 +187,7 @@
 
     iget-object v2, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$2;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
 
-    invoke-static {v2}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-get3(Lcom/android/server/enterprise/application/ApplicationPolicy;)Ljava/util/Map;
+    invoke-static {v2}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-get2(Lcom/android/server/enterprise/application/ApplicationPolicy;)Ljava/util/Map;
 
     move-result-object v2
 

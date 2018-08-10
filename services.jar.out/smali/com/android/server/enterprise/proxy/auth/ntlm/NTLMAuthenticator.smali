@@ -309,7 +309,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_0
 
     const/4 v2, 0x1
 
@@ -321,18 +321,21 @@
 
     move-result v2
 
+    xor-int/lit8 v2, v2, 0x1
+
     if-eqz v2, :cond_1
-
-    array-length v2, v0
-
-    if-le v2, v4, :cond_0
-
-    aget-object v1, v0, v4
 
     :cond_0
     return-object v1
 
     :cond_1
+    array-length v2, v0
+
+    if-le v2, v4, :cond_2
+
+    aget-object v1, v0, v4
+
+    :cond_2
     return-object v1
 .end method
 
@@ -673,7 +676,7 @@
 
     :cond_2
     :goto_1
-    if-eqz v13, :cond_6
+    if-eqz v13, :cond_5
 
     :try_start_3
     throw v13
@@ -695,7 +698,7 @@
     invoke-static {v12, v13}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_3
-    if-eqz v10, :cond_a
+    if-eqz v10, :cond_9
 
     const/4 v12, 0x0
 
@@ -728,12 +731,9 @@
 
     move-result v12
 
-    if-eqz v12, :cond_5
-
-    const/4 v10, 0x0
+    xor-int/lit8 v10, v12, 0x1
 
     :cond_4
-    :goto_5
     invoke-virtual {v8}, Ljava/lang/String;->length()I
     :try_end_4
     .catch Ljava/lang/Throwable; {:try_start_4 .. :try_end_4} :catch_5
@@ -745,17 +745,12 @@
 
     goto :goto_0
 
-    :cond_5
-    const/4 v10, 0x1
-
-    goto :goto_5
-
     :catch_1
     move-exception v13
 
     goto :goto_1
 
-    :cond_6
+    :cond_5
     move-object v3, v4
 
     goto :goto_3
@@ -763,7 +758,7 @@
     :catch_2
     move-exception v12
 
-    :goto_6
+    :goto_5
     :try_start_5
     throw v12
     :try_end_5
@@ -778,8 +773,8 @@
 
     move-object/from16 v12, v16
 
-    :goto_7
-    if-eqz v3, :cond_7
+    :goto_6
+    if-eqz v3, :cond_6
 
     :try_start_6
     invoke-virtual {v3}, Ljava/net/Socket;->close()V
@@ -787,9 +782,9 @@
     .catch Ljava/lang/Throwable; {:try_start_6 .. :try_end_6} :catch_4
     .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_3
 
-    :cond_7
-    :goto_8
-    if-eqz v13, :cond_9
+    :cond_6
+    :goto_7
+    if-eqz v13, :cond_8
 
     :try_start_7
     throw v13
@@ -802,25 +797,25 @@
     :catch_4
     move-exception v14
 
-    if-nez v13, :cond_8
+    if-nez v13, :cond_7
 
     move-object v13, v14
 
-    goto :goto_8
+    goto :goto_7
 
-    :cond_8
-    if-eq v13, v14, :cond_7
+    :cond_7
+    if-eq v13, v14, :cond_6
 
     invoke-virtual {v13, v14}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
-    goto :goto_8
+    goto :goto_7
 
-    :cond_9
+    :cond_8
     throw v12
     :try_end_7
     .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_3
 
-    :cond_a
+    :cond_9
     const/4 v12, -0x1
 
     goto :goto_4
@@ -828,19 +823,19 @@
     :catchall_1
     move-exception v12
 
-    goto :goto_7
+    goto :goto_6
 
     :catchall_2
     move-exception v12
 
     move-object v3, v4
 
-    goto :goto_7
+    goto :goto_6
 
     :catch_5
     move-exception v12
 
     move-object v3, v4
 
-    goto :goto_6
+    goto :goto_5
 .end method

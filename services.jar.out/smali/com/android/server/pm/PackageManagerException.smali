@@ -65,7 +65,7 @@
     throw v0
 .end method
 
-.method public static from(Lcom/android/internal/os/InstallerConnection$InstallerException;)Lcom/android/server/pm/PackageManagerException;
+.method public static from(Lcom/android/server/pm/Installer$InstallerException;)Lcom/android/server/pm/PackageManagerException;
     .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -75,11 +75,11 @@
 
     new-instance v0, Lcom/android/server/pm/PackageManagerException;
 
-    invoke-virtual {p0}, Lcom/android/internal/os/InstallerConnection$InstallerException;->getMessage()Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/android/server/pm/Installer$InstallerException;->getMessage()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {p0}, Lcom/android/internal/os/InstallerConnection$InstallerException;->getCause()Ljava/lang/Throwable;
+    invoke-virtual {p0}, Lcom/android/server/pm/Installer$InstallerException;->getCause()Ljava/lang/Throwable;
 
     move-result-object v2
 

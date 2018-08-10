@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 3
+    .locals 4
 
     iget v1, p1, Landroid/os/Message;->what:I
 
@@ -40,9 +40,21 @@
 
     check-cast v0, Landroid/view/accessibility/AccessibilityEvent;
 
-    iget-object v2, p0, Lcom/android/server/accessibility/AccessibilityManagerService$Service$1;->this$1:Lcom/android/server/accessibility/AccessibilityManagerService$Service;
+    iget v3, p1, Landroid/os/Message;->arg1:I
 
-    invoke-static {v2, v1, v0}, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->-wrap0(Lcom/android/server/accessibility/AccessibilityManagerService$Service;ILandroid/view/accessibility/AccessibilityEvent;)V
+    if-eqz v3, :cond_0
+
+    const/4 v2, 0x1
+
+    :goto_0
+    iget-object v3, p0, Lcom/android/server/accessibility/AccessibilityManagerService$Service$1;->this$1:Lcom/android/server/accessibility/AccessibilityManagerService$Service;
+
+    invoke-static {v3, v1, v0, v2}, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->-wrap3(Lcom/android/server/accessibility/AccessibilityManagerService$Service;ILandroid/view/accessibility/AccessibilityEvent;Z)V
 
     return-void
+
+    :cond_0
+    const/4 v2, 0x0
+
+    goto :goto_0
 .end method

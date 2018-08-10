@@ -8,13 +8,16 @@
     value = {
         Lcom/android/server/hdmi/HdmiCecController$1;,
         Lcom/android/server/hdmi/HdmiCecController$2;,
-        Lcom/android/server/hdmi/HdmiCecController$AllocateAddressCallback;
+        Lcom/android/server/hdmi/HdmiCecController$AllocateAddressCallback;,
+        Lcom/android/server/hdmi/HdmiCecController$MessageHistoryRecord;
     }
 .end annotation
 
 
 # static fields
 .field private static final EMPTY_BODY:[B
+
+.field private static final MAX_CEC_MESSAGE_HISTORY:I = 0x14
 
 .field private static final NUM_LOGICAL_ADDRESS:I = 0x10
 
@@ -37,12 +40,23 @@
     .end annotation
 .end field
 
-.field private volatile mNativePtr:J
-
-.field private final mRemoteDeviceAddressPredicate:Lcom/android/internal/util/Predicate;
+.field private final mMessageHistory:Ljava/util/concurrent/ArrayBlockingQueue;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/android/internal/util/Predicate",
+            "Ljava/util/concurrent/ArrayBlockingQueue",
+            "<",
+            "Lcom/android/server/hdmi/HdmiCecController$MessageHistoryRecord;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private volatile mNativePtr:J
+
+.field private final mRemoteDeviceAddressPredicate:Ljava/util/function/Predicate;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/function/Predicate",
             "<",
             "Ljava/lang/Integer;",
             ">;"
@@ -52,10 +66,10 @@
 
 .field private final mService:Lcom/android/server/hdmi/HdmiControlService;
 
-.field private final mSystemAudioAddressPredicate:Lcom/android/internal/util/Predicate;
+.field private final mSystemAudioAddressPredicate:Ljava/util/function/Predicate;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/android/internal/util/Predicate",
+            "Ljava/util/function/Predicate",
             "<",
             "Ljava/lang/Integer;",
             ">;"
@@ -148,7 +162,7 @@
 .end method
 
 .method private constructor <init>(Lcom/android/server/hdmi/HdmiControlService;)V
-    .locals 1
+    .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -156,13 +170,13 @@
 
     invoke-direct {v0, p0}, Lcom/android/server/hdmi/HdmiCecController$1;-><init>(Lcom/android/server/hdmi/HdmiCecController;)V
 
-    iput-object v0, p0, Lcom/android/server/hdmi/HdmiCecController;->mRemoteDeviceAddressPredicate:Lcom/android/internal/util/Predicate;
+    iput-object v0, p0, Lcom/android/server/hdmi/HdmiCecController;->mRemoteDeviceAddressPredicate:Ljava/util/function/Predicate;
 
     new-instance v0, Lcom/android/server/hdmi/HdmiCecController$2;
 
     invoke-direct {v0, p0}, Lcom/android/server/hdmi/HdmiCecController$2;-><init>(Lcom/android/server/hdmi/HdmiCecController;)V
 
-    iput-object v0, p0, Lcom/android/server/hdmi/HdmiCecController;->mSystemAudioAddressPredicate:Lcom/android/internal/util/Predicate;
+    iput-object v0, p0, Lcom/android/server/hdmi/HdmiCecController;->mSystemAudioAddressPredicate:Ljava/util/function/Predicate;
 
     new-instance v0, Landroid/util/SparseArray;
 
@@ -170,8 +184,47 @@
 
     iput-object v0, p0, Lcom/android/server/hdmi/HdmiCecController;->mLocalDevices:Landroid/util/SparseArray;
 
+    new-instance v0, Ljava/util/concurrent/ArrayBlockingQueue;
+
+    const/16 v1, 0x14
+
+    invoke-direct {v0, v1}, Ljava/util/concurrent/ArrayBlockingQueue;-><init>(I)V
+
+    iput-object v0, p0, Lcom/android/server/hdmi/HdmiCecController;->mMessageHistory:Ljava/util/concurrent/ArrayBlockingQueue;
+
     iput-object p1, p0, Lcom/android/server/hdmi/HdmiCecController;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
+    return-void
+.end method
+
+.method private addMessageToHistory(ZLcom/android/server/hdmi/HdmiCecMessage;)V
+    .locals 2
+    .annotation runtime Lcom/android/server/hdmi/HdmiAnnotations$ServiceThreadOnly;
+    .end annotation
+
+    invoke-direct {p0}, Lcom/android/server/hdmi/HdmiCecController;->assertRunOnServiceThread()V
+
+    new-instance v0, Lcom/android/server/hdmi/HdmiCecController$MessageHistoryRecord;
+
+    invoke-direct {v0, p0, p1, p2}, Lcom/android/server/hdmi/HdmiCecController$MessageHistoryRecord;-><init>(Lcom/android/server/hdmi/HdmiCecController;ZLcom/android/server/hdmi/HdmiCecMessage;)V
+
+    iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecController;->mMessageHistory:Ljava/util/concurrent/ArrayBlockingQueue;
+
+    invoke-virtual {v1, v0}, Ljava/util/concurrent/ArrayBlockingQueue;->offer(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecController;->mMessageHistory:Ljava/util/concurrent/ArrayBlockingQueue;
+
+    invoke-virtual {v1}, Ljava/util/concurrent/ArrayBlockingQueue;->poll()Ljava/lang/Object;
+
+    iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecController;->mMessageHistory:Ljava/util/concurrent/ArrayBlockingQueue;
+
+    invoke-virtual {v1, v0}, Ljava/util/concurrent/ArrayBlockingQueue;->offer(Ljava/lang/Object;)Z
+
+    :cond_0
     return-void
 .end method
 
@@ -299,9 +352,9 @@
 
     const/16 v9, 0xf
 
-    const/4 v11, 0x1
-
     const/4 v8, 0x3
+
+    const/4 v11, 0x1
 
     invoke-direct {p0}, Lcom/android/server/hdmi/HdmiCecController;->assertRunOnIoThread()V
 
@@ -318,7 +371,7 @@
 
     move-result v7
 
-    if-ne p1, v7, :cond_2
+    if-ne p1, v7, :cond_4
 
     move v6, v3
 
@@ -328,54 +381,42 @@
     const/4 v3, 0x0
 
     :goto_1
-    if-ge v3, v10, :cond_4
+    if-ge v3, v10, :cond_2
 
     add-int v7, v6, v3
 
-    rem-int/lit8 v1, v7, 0x10
+    rem-int/lit8 v2, v7, 0x10
 
-    if-eq v1, v9, :cond_6
+    if-eq v2, v9, :cond_6
 
-    invoke-static {v1}, Lcom/android/server/hdmi/HdmiUtils;->getTypeFromAddress(I)I
+    invoke-static {v2}, Lcom/android/server/hdmi/HdmiUtils;->getTypeFromAddress(I)I
 
     move-result v7
 
     if-ne p1, v7, :cond_6
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
     const/4 v4, 0x0
 
     :goto_2
-    if-ge v4, v8, :cond_3
+    if-ge v4, v8, :cond_1
 
-    invoke-direct {p0, v1, v1, v11}, Lcom/android/server/hdmi/HdmiCecController;->sendPollMessage(III)Z
+    invoke-direct {p0, v2, v2, v11}, Lcom/android/server/hdmi/HdmiCecController;->sendPollMessage(III)Z
 
     move-result v7
 
-    if-nez v7, :cond_1
+    if-eqz v7, :cond_5
 
-    add-int/lit8 v2, v2, 0x1
+    const/4 v0, 0x1
 
     :cond_1
-    add-int/lit8 v4, v4, 0x1
+    if-nez v0, :cond_6
 
-    goto :goto_2
+    move v5, v2
 
     :cond_2
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_0
-
-    :cond_3
-    mul-int/lit8 v7, v2, 0x2
-
-    if-le v7, v8, :cond_6
-
-    move v5, v1
-
-    :cond_4
-    move v0, v5
+    move v1, v5
 
     const-string/jumbo v7, "New logical address for device [%d]: [preferred:%d, assigned:%d]"
 
@@ -395,7 +436,7 @@
 
     aput-object v9, v8, v11
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v9
 
@@ -405,16 +446,26 @@
 
     invoke-static {v7, v8}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    if-eqz p3, :cond_5
+    if-eqz p3, :cond_3
 
     new-instance v7, Lcom/android/server/hdmi/HdmiCecController$4;
 
-    invoke-direct {v7, p0, p3, p1, v0}, Lcom/android/server/hdmi/HdmiCecController$4;-><init>(Lcom/android/server/hdmi/HdmiCecController;Lcom/android/server/hdmi/HdmiCecController$AllocateAddressCallback;II)V
+    invoke-direct {v7, p0, p3, p1, v1}, Lcom/android/server/hdmi/HdmiCecController$4;-><init>(Lcom/android/server/hdmi/HdmiCecController;Lcom/android/server/hdmi/HdmiCecController$AllocateAddressCallback;II)V
 
     invoke-direct {p0, v7}, Lcom/android/server/hdmi/HdmiCecController;->runOnServiceThread(Ljava/lang/Runnable;)V
 
-    :cond_5
+    :cond_3
     return-void
+
+    :cond_4
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_0
+
+    :cond_5
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_2
 
     :cond_6
     add-int/lit8 v3, v3, 0x1
@@ -494,6 +545,10 @@
     new-array v2, v2, [Ljava/lang/Object;
 
     invoke-static {v1, v2}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    const/4 v1, 0x1
+
+    invoke-direct {p0, v1, v0}, Lcom/android/server/hdmi/HdmiCecController;->addMessageToHistory(ZLcom/android/server/hdmi/HdmiCecMessage;)V
 
     invoke-direct {p0, v0}, Lcom/android/server/hdmi/HdmiCecController;->onReceiveCommand(Lcom/android/server/hdmi/HdmiCecMessage;)V
 
@@ -604,6 +659,9 @@
 .method private static native nativeClearLogicalAddress(J)V
 .end method
 
+.method private static native nativeEnableAudioReturnChannel(JIZ)V
+.end method
+
 .method private static native nativeGetPhysicalAddress(J)I
 .end method
 
@@ -625,10 +683,10 @@
 .method private static native nativeSendCecCommand(JII[B)I
 .end method
 
-.method private static native nativeSetAudioReturnChannel(JIZ)V
+.method private static native nativeSetLanguage(JLjava/lang/String;)V
 .end method
 
-.method private static native nativeSetOption(JII)V
+.method private static native nativeSetOption(JIZ)V
 .end method
 
 .method private onReceiveCommand(Lcom/android/server/hdmi/HdmiCecMessage;)V
@@ -684,7 +742,7 @@
 
     packed-switch v4, :pswitch_data_0
 
-    iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecController;->mRemoteDeviceAddressPredicate:Lcom/android/internal/util/Predicate;
+    iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecController;->mRemoteDeviceAddressPredicate:Ljava/util/function/Predicate;
 
     :goto_0
     const/high16 v5, 0x30000
@@ -706,7 +764,7 @@
 
     move-result-object v5
 
-    invoke-interface {v2, v5}, Lcom/android/internal/util/Predicate;->apply(Ljava/lang/Object;)Z
+    invoke-interface {v2, v5}, Ljava/util/function/Predicate;->test(Ljava/lang/Object;)Z
 
     move-result v5
 
@@ -724,7 +782,7 @@
     goto :goto_1
 
     :pswitch_0
-    iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecController;->mSystemAudioAddressPredicate:Lcom/android/internal/util/Predicate;
+    iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecController;->mSystemAudioAddressPredicate:Ljava/util/function/Predicate;
 
     goto :goto_0
 
@@ -740,7 +798,7 @@
 
     move-result-object v5
 
-    invoke-interface {v2, v5}, Lcom/android/internal/util/Predicate;->apply(Ljava/lang/Object;)Z
+    invoke-interface {v2, v5}, Ljava/util/function/Predicate;->test(Ljava/lang/Object;)Z
 
     move-result v5
 
@@ -873,40 +931,71 @@
 .end method
 
 .method private sendPollMessage(III)Z
-    .locals 5
+    .locals 8
     .annotation runtime Lcom/android/server/hdmi/HdmiAnnotations$IoThreadOnly;
     .end annotation
 
-    const/4 v4, 0x0
+    const/4 v7, 0x1
+
+    const/4 v6, 0x0
 
     invoke-direct {p0}, Lcom/android/server/hdmi/HdmiCecController;->assertRunOnIoThread()V
 
     const/4 v0, 0x0
 
     :goto_0
-    if-ge v0, p3, :cond_1
+    if-ge v0, p3, :cond_2
 
     iget-wide v2, p0, Lcom/android/server/hdmi/HdmiCecController;->mNativePtr:J
 
-    sget-object v1, Lcom/android/server/hdmi/HdmiCecController;->EMPTY_BODY:[B
+    sget-object v4, Lcom/android/server/hdmi/HdmiCecController;->EMPTY_BODY:[B
 
-    invoke-static {v2, v3, p1, p2, v1}, Lcom/android/server/hdmi/HdmiCecController;->nativeSendCecCommand(JII[B)I
+    invoke-static {v2, v3, p1, p2, v4}, Lcom/android/server/hdmi/HdmiCecController;->nativeSendCecCommand(JII[B)I
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    const/4 v1, 0x1
-
-    return v1
+    return v7
 
     :cond_0
+    if-eq v1, v7, :cond_1
+
+    const-string/jumbo v2, "Failed to send a polling message(%d->%d) with return code %d"
+
+    const/4 v3, 0x3
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    aput-object v4, v3, v6
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    aput-object v4, v3, v7
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    const/4 v5, 0x2
+
+    aput-object v4, v3, v5
+
+    invoke-static {v2, v3}, Lcom/android/server/hdmi/HdmiLogger;->warning(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    :cond_1
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    :cond_1
-    return v4
+    :cond_2
+    return v6
 .end method
 
 
@@ -947,7 +1036,7 @@
     return v0
 
     :cond_0
-    const/4 v0, -0x1
+    const/4 v0, 0x2
 
     return v0
 .end method
@@ -1023,56 +1112,56 @@
 .end method
 
 .method dump(Lcom/android/internal/util/IndentingPrintWriter;)V
-    .locals 3
+    .locals 6
 
     const/4 v0, 0x0
 
     :goto_0
-    iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecController;->mLocalDevices:Landroid/util/SparseArray;
+    iget-object v4, p0, Lcom/android/server/hdmi/HdmiCecController;->mLocalDevices:Landroid/util/SparseArray;
 
-    invoke-virtual {v1}, Landroid/util/SparseArray;->size()I
+    invoke-virtual {v4}, Landroid/util/SparseArray;->size()I
 
-    move-result v1
+    move-result v4
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v4, :cond_0
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "HdmiCecLocalDevice #"
+    const-string/jumbo v5, "HdmiCecLocalDevice #"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v4
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v4
 
-    const-string/jumbo v2, ":"
+    const-string/jumbo v5, ":"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v4
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v4
 
-    invoke-virtual {p1, v1}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, v4}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
     invoke-virtual {p1}, Lcom/android/internal/util/IndentingPrintWriter;->increaseIndent()V
 
-    iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecController;->mLocalDevices:Landroid/util/SparseArray;
+    iget-object v4, p0, Lcom/android/server/hdmi/HdmiCecController;->mLocalDevices:Landroid/util/SparseArray;
 
-    invoke-virtual {v1, v0}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v4, v0}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v4
 
-    check-cast v1, Lcom/android/server/hdmi/HdmiCecLocalDevice;
+    check-cast v4, Lcom/android/server/hdmi/HdmiCecLocalDevice;
 
-    invoke-virtual {v1, p1}, Lcom/android/server/hdmi/HdmiCecLocalDevice;->dump(Lcom/android/internal/util/IndentingPrintWriter;)V
+    invoke-virtual {v4, p1}, Lcom/android/server/hdmi/HdmiCecLocalDevice;->dump(Lcom/android/internal/util/IndentingPrintWriter;)V
 
     invoke-virtual {p1}, Lcom/android/internal/util/IndentingPrintWriter;->decreaseIndent()V
 
@@ -1081,6 +1170,58 @@
     goto :goto_0
 
     :cond_0
+    const-string/jumbo v4, "CEC message history:"
+
+    invoke-virtual {p1, v4}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+
+    invoke-virtual {p1}, Lcom/android/internal/util/IndentingPrintWriter;->increaseIndent()V
+
+    new-instance v3, Ljava/text/SimpleDateFormat;
+
+    const-string/jumbo v4, "yyyy-MM-dd HH:mm:ss"
+
+    invoke-direct {v3, v4}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V
+
+    iget-object v4, p0, Lcom/android/server/hdmi/HdmiCecController;->mMessageHistory:Ljava/util/concurrent/ArrayBlockingQueue;
+
+    invoke-interface {v4}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :goto_1
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/server/hdmi/HdmiCecController$MessageHistoryRecord;
+
+    invoke-virtual {v1, p1, v3}, Lcom/android/server/hdmi/HdmiCecController$MessageHistoryRecord;->dump(Lcom/android/internal/util/IndentingPrintWriter;Ljava/text/SimpleDateFormat;)V
+
+    goto :goto_1
+
+    :cond_1
+    invoke-virtual {p1}, Lcom/android/internal/util/IndentingPrintWriter;->decreaseIndent()V
+
+    return-void
+.end method
+
+.method enableAudioReturnChannel(IZ)V
+    .locals 2
+    .annotation runtime Lcom/android/server/hdmi/HdmiAnnotations$ServiceThreadOnly;
+    .end annotation
+
+    invoke-direct {p0}, Lcom/android/server/hdmi/HdmiCecController;->assertRunOnServiceThread()V
+
+    iget-wide v0, p0, Lcom/android/server/hdmi/HdmiCecController;->mNativePtr:J
+
+    invoke-static {v0, v1, p1, p2}, Lcom/android/server/hdmi/HdmiCecController;->nativeEnableAudioReturnChannel(JIZ)V
+
     return-void
 .end method
 
@@ -1308,6 +1449,10 @@
 
     invoke-direct {p0}, Lcom/android/server/hdmi/HdmiCecController;->assertRunOnServiceThread()V
 
+    const/4 v0, 0x0
+
+    invoke-direct {p0, v0, p1}, Lcom/android/server/hdmi/HdmiCecController;->addMessageToHistory(ZLcom/android/server/hdmi/HdmiCecMessage;)V
+
     new-instance v0, Lcom/android/server/hdmi/HdmiCecController$7;
 
     invoke-direct {v0, p0, p1, p2}, Lcom/android/server/hdmi/HdmiCecController$7;-><init>(Lcom/android/server/hdmi/HdmiCecController;Lcom/android/server/hdmi/HdmiCecMessage;Lcom/android/server/hdmi/HdmiControlService$SendMessageCallback;)V
@@ -1317,28 +1462,37 @@
     return-void
 .end method
 
-.method setAudioReturnChannel(IZ)V
+.method setLanguage(Ljava/lang/String;)V
     .locals 2
     .annotation runtime Lcom/android/server/hdmi/HdmiAnnotations$ServiceThreadOnly;
     .end annotation
 
     invoke-direct {p0}, Lcom/android/server/hdmi/HdmiCecController;->assertRunOnServiceThread()V
 
+    invoke-static {p1}, Lsun/util/locale/LanguageTag;->isLanguage(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
     iget-wide v0, p0, Lcom/android/server/hdmi/HdmiCecController;->mNativePtr:J
 
-    invoke-static {v0, v1, p1, p2}, Lcom/android/server/hdmi/HdmiCecController;->nativeSetAudioReturnChannel(JIZ)V
+    invoke-static {v0, v1, p1}, Lcom/android/server/hdmi/HdmiCecController;->nativeSetLanguage(JLjava/lang/String;)V
 
     return-void
 .end method
 
-.method setOption(II)V
+.method setOption(IZ)V
     .locals 4
     .annotation runtime Lcom/android/server/hdmi/HdmiAnnotations$ServiceThreadOnly;
     .end annotation
 
     invoke-direct {p0}, Lcom/android/server/hdmi/HdmiCecController;->assertRunOnServiceThread()V
 
-    const-string/jumbo v0, "setOption: [flag:%d, value:%d]"
+    const-string/jumbo v0, "setOption: [flag:%d, enabled:%b]"
 
     const/4 v1, 0x2
 
@@ -1352,7 +1506,7 @@
 
     aput-object v2, v1, v3
 
-    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v2
 
@@ -1364,7 +1518,7 @@
 
     iget-wide v0, p0, Lcom/android/server/hdmi/HdmiCecController;->mNativePtr:J
 
-    invoke-static {v0, v1, p1, p2}, Lcom/android/server/hdmi/HdmiCecController;->nativeSetOption(JII)V
+    invoke-static {v0, v1, p1, p2}, Lcom/android/server/hdmi/HdmiCecController;->nativeSetOption(JIZ)V
 
     return-void
 .end method

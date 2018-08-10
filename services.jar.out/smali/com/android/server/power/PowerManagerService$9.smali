@@ -35,25 +35,29 @@
 
 # virtual methods
 .method public onSContextChanged(Landroid/hardware/scontext/SContextEvent;)V
-    .locals 7
+    .locals 13
 
-    const/16 v6, 0x2e
+    const/16 v4, 0x2e
 
-    const/4 v5, 0x0
+    const/4 v3, 0x0
 
-    iget-object v1, p1, Landroid/hardware/scontext/SContextEvent;->scontext:Landroid/hardware/scontext/SContext;
+    iget-object v10, p1, Landroid/hardware/scontext/SContextEvent;->scontext:Landroid/hardware/scontext/SContext;
 
-    invoke-virtual {v1}, Landroid/hardware/scontext/SContext;->getType()I
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    move-result v3
+    move-result-wide v8
 
-    if-ne v3, v6, :cond_0
+    invoke-virtual {v10}, Landroid/hardware/scontext/SContext;->getType()I
+
+    move-result v1
+
+    if-ne v1, v4, :cond_0
 
     invoke-virtual {p1}, Landroid/hardware/scontext/SContextEvent;->getWirelessChargingDetectionContext()Landroid/hardware/scontext/SContextWirelessChargingDetection;
 
-    move-result-object v2
+    move-result-object v11
 
-    invoke-virtual {v2}, Landroid/hardware/scontext/SContextWirelessChargingDetection;->getAction()I
+    invoke-virtual {v11}, Landroid/hardware/scontext/SContextWirelessChargingDetection;->getAction()I
 
     move-result v0
 
@@ -64,76 +68,173 @@
     return-void
 
     :pswitch_0
-    const-string/jumbo v3, "PowerManagerService"
+    const-string/jumbo v1, "PowerManagerService"
 
-    const-string/jumbo v4, "WirelessChargerSContextListener : No Move"
+    const-string/jumbo v2, "WirelessChargerSContextListener : No Move"
 
-    invoke-static {v3, v4}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v3, p0, Lcom/android/server/power/PowerManagerService$9;->this$0:Lcom/android/server/power/PowerManagerService;
+    iget-object v1, p0, Lcom/android/server/power/PowerManagerService$9;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    iput-boolean v5, v3, Lcom/android/server/power/PowerManagerService;->mIsDeviceMoving:Z
+    iput-boolean v3, v1, Lcom/android/server/power/PowerManagerService;->mIsDeviceMoving:Z
 
     goto :goto_0
 
     :pswitch_1
-    const-string/jumbo v3, "PowerManagerService"
+    const-string/jumbo v1, "PowerManagerService"
 
-    const-string/jumbo v4, "WirelessChargerSContextListener : Move"
+    const-string/jumbo v2, "WirelessChargerSContextListener : Move"
 
-    invoke-static {v3, v4}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v3, p0, Lcom/android/server/power/PowerManagerService$9;->this$0:Lcom/android/server/power/PowerManagerService;
+    iget-object v1, p0, Lcom/android/server/power/PowerManagerService$9;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    const/4 v4, 0x1
+    const/4 v2, 0x1
 
-    iput-boolean v4, v3, Lcom/android/server/power/PowerManagerService;->mIsDeviceMoving:Z
+    iput-boolean v2, v1, Lcom/android/server/power/PowerManagerService;->mIsDeviceMoving:Z
 
-    iget-object v3, p0, Lcom/android/server/power/PowerManagerService$9;->this$0:Lcom/android/server/power/PowerManagerService;
+    iget-object v1, p0, Lcom/android/server/power/PowerManagerService$9;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    iget-boolean v3, v3, Lcom/android/server/power/PowerManagerService;->mIsWirelessChargerSContextRegistered:Z
+    iget-boolean v1, v1, Lcom/android/server/power/PowerManagerService;->mIsWirelessChargerSContextRegistered:Z
 
-    if-eqz v3, :cond_0
+    if-eqz v1, :cond_0
 
-    iget-object v3, p0, Lcom/android/server/power/PowerManagerService$9;->this$0:Lcom/android/server/power/PowerManagerService;
+    iget-object v1, p0, Lcom/android/server/power/PowerManagerService$9;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    invoke-static {v3}, Lcom/android/server/power/PowerManagerService;->-get2(Lcom/android/server/power/PowerManagerService;)Landroid/os/BatteryManagerInternal;
+    invoke-static {v1}, Lcom/android/server/power/PowerManagerService;->-get4(Lcom/android/server/power/PowerManagerService;)Landroid/os/BatteryManagerInternal;
 
-    move-result-object v3
+    move-result-object v1
 
-    const/4 v4, 0x4
+    const/4 v2, 0x4
 
-    invoke-virtual {v3, v4}, Landroid/os/BatteryManagerInternal;->isPowered(I)Z
+    invoke-virtual {v1, v2}, Landroid/os/BatteryManagerInternal;->isPowered(I)Z
 
-    move-result v3
+    move-result v1
 
-    if-nez v3, :cond_0
+    xor-int/lit8 v1, v1, 0x1
 
-    const-string/jumbo v3, "PowerManagerService"
+    if-eqz v1, :cond_0
 
-    const-string/jumbo v4, "SContextListener : Unregister SContextListener"
+    const-string/jumbo v1, "PowerManagerService"
 
-    invoke-static {v3, v4}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v2, "SContextListener : Unregister SContextListener"
 
-    iget-object v3, p0, Lcom/android/server/power/PowerManagerService$9;->this$0:Lcom/android/server/power/PowerManagerService;
+    invoke-static {v1, v2}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v3, v3, Lcom/android/server/power/PowerManagerService;->mWirelessChargerSContextManager:Landroid/hardware/scontext/SContextManager;
+    iget-object v1, p0, Lcom/android/server/power/PowerManagerService$9;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    iget-object v4, p0, Lcom/android/server/power/PowerManagerService$9;->this$0:Lcom/android/server/power/PowerManagerService;
+    iget-object v1, v1, Lcom/android/server/power/PowerManagerService;->mWirelessChargerSContextManager:Landroid/hardware/scontext/SContextManager;
 
-    invoke-static {v4}, Lcom/android/server/power/PowerManagerService;->-get59(Lcom/android/server/power/PowerManagerService;)Landroid/hardware/scontext/SContextListener;
+    iget-object v2, p0, Lcom/android/server/power/PowerManagerService$9;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    move-result-object v4
+    invoke-static {v2}, Lcom/android/server/power/PowerManagerService;->-get65(Lcom/android/server/power/PowerManagerService;)Landroid/hardware/scontext/SContextListener;
 
-    invoke-virtual {v3, v4, v6}, Landroid/hardware/scontext/SContextManager;->unregisterListener(Landroid/hardware/scontext/SContextListener;I)V
+    move-result-object v2
 
-    iget-object v3, p0, Lcom/android/server/power/PowerManagerService$9;->this$0:Lcom/android/server/power/PowerManagerService;
+    invoke-virtual {v1, v2, v4}, Landroid/hardware/scontext/SContextManager;->unregisterListener(Landroid/hardware/scontext/SContextListener;I)V
 
-    iput-boolean v5, v3, Lcom/android/server/power/PowerManagerService;->mIsWirelessChargerSContextRegistered:Z
+    iget-object v1, p0, Lcom/android/server/power/PowerManagerService$9;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    goto :goto_0
+    iput-boolean v3, v1, Lcom/android/server/power/PowerManagerService;->mIsWirelessChargerSContextRegistered:Z
 
-    nop
+    iget-object v1, p0, Lcom/android/server/power/PowerManagerService$9;->this$0:Lcom/android/server/power/PowerManagerService;
+
+    invoke-static {v1}, Lcom/android/server/power/PowerManagerService;->-get40(Lcom/android/server/power/PowerManagerService;)Ljava/lang/Object;
+
+    move-result-object v12
+
+    monitor-enter v12
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/power/PowerManagerService$9;->this$0:Lcom/android/server/power/PowerManagerService;
+
+    invoke-static {v1}, Lcom/android/server/power/PowerManagerService;->-get47(Lcom/android/server/power/PowerManagerService;)J
+
+    move-result-wide v2
+
+    sub-long v2, v8, v2
+
+    const-wide/16 v4, 0x12c
+
+    cmp-long v1, v2, v4
+
+    if-gez v1, :cond_1
+
+    const-string/jumbo v1, "PowerManagerService"
+
+    const-string/jumbo v2, "WirelessChargerSContextListener : received move lately"
+
+    invoke-static {v1, v2}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v1, p0, Lcom/android/server/power/PowerManagerService$9;->this$0:Lcom/android/server/power/PowerManagerService;
+
+    const-wide/16 v2, 0x0
+
+    invoke-static {v1, v2, v3}, Lcom/android/server/power/PowerManagerService;->-set24(Lcom/android/server/power/PowerManagerService;J)J
+
+    iget-object v1, p0, Lcom/android/server/power/PowerManagerService$9;->this$0:Lcom/android/server/power/PowerManagerService;
+
+    invoke-static {v1}, Lcom/android/server/power/PowerManagerService;->-get19(Lcom/android/server/power/PowerManagerService;)I
+
+    move-result v2
+
+    or-int/lit8 v2, v2, 0x40
+
+    invoke-static {v1, v2}, Lcom/android/server/power/PowerManagerService;->-set11(Lcom/android/server/power/PowerManagerService;I)I
+
+    iget-object v1, p0, Lcom/android/server/power/PowerManagerService$9;->this$0:Lcom/android/server/power/PowerManagerService;
+
+    const-string/jumbo v2, " powered change"
+
+    invoke-static {v1, v2}, Lcom/android/server/power/PowerManagerService;->-set31(Lcom/android/server/power/PowerManagerService;Ljava/lang/String;)Ljava/lang/String;
+
+    iget-object v1, p0, Lcom/android/server/power/PowerManagerService$9;->this$0:Lcom/android/server/power/PowerManagerService;
+
+    const/16 v2, 0xb
+
+    invoke-static {v1, v2}, Lcom/android/server/power/PowerManagerService;->-set20(Lcom/android/server/power/PowerManagerService;I)I
+
+    iget-object v1, p0, Lcom/android/server/power/PowerManagerService$9;->this$0:Lcom/android/server/power/PowerManagerService;
+
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v2
+
+    const-string/jumbo v4, "android.server.power:POWER"
+
+    iget-object v5, p0, Lcom/android/server/power/PowerManagerService$9;->this$0:Lcom/android/server/power/PowerManagerService;
+
+    invoke-static {v5}, Lcom/android/server/power/PowerManagerService;->-get10(Lcom/android/server/power/PowerManagerService;)Landroid/content/Context;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
+
+    move-result-object v6
+
+    const/16 v5, 0x3e8
+
+    const/16 v7, 0x3e8
+
+    invoke-static/range {v1 .. v7}, Lcom/android/server/power/PowerManagerService;->-wrap9(Lcom/android/server/power/PowerManagerService;JLjava/lang/String;ILjava/lang/String;I)Z
+
+    iget-object v1, p0, Lcom/android/server/power/PowerManagerService$9;->this$0:Lcom/android/server/power/PowerManagerService;
+
+    invoke-static {v1}, Lcom/android/server/power/PowerManagerService;->-wrap69(Lcom/android/server/power/PowerManagerService;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_1
+    monitor-exit v12
+
+    goto/16 :goto_0
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v12
+
+    throw v1
 
     :pswitch_data_0
     .packed-switch 0x0

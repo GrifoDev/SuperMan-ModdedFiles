@@ -3,12 +3,12 @@
 .source "InputMethodManagerService.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/content/DialogInterface$OnCancelListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/InputMethodManagerService;->setInputMethodLocked(Ljava/lang/String;I)V
+    value = Lcom/android/server/InputMethodManagerService;->showInputMethodMenu(Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,20 +34,30 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 2
+.method public onCancel(Landroid/content/DialogInterface;)V
+    .locals 3
 
     const-string/jumbo v0, "InputMethodManagerService"
 
-    const-string/jumbo v1, "setSpellCheckerEnabled"
+    const-string/jumbo v1, "showInputMethodMenu : Switching dialog cancel"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService$5;->this$0:Lcom/android/server/InputMethodManagerService;
 
-    const/4 v1, 0x0
+    iget-object v0, v0, Lcom/android/server/InputMethodManagerService;->mContext:Landroid/content/Context;
 
-    invoke-static {v0, v1}, Lcom/android/server/InputMethodManagerService;->-wrap10(Lcom/android/server/InputMethodManagerService;Z)V
+    new-instance v1, Landroid/content/Intent;
+
+    const-string/jumbo v2, "com.android.server.inputmethodmanagerservice.SWITCHING_DIALOG_CANCEL"
+
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+
+    iget-object v0, p0, Lcom/android/server/InputMethodManagerService$5;->this$0:Lcom/android/server/InputMethodManagerService;
+
+    invoke-virtual {v0}, Lcom/android/server/InputMethodManagerService;->hideInputMethodMenu()V
 
     return-void
 .end method

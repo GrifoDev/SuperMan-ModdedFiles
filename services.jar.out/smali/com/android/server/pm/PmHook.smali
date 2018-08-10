@@ -106,146 +106,12 @@
     return-void
 .end method
 
-.method static final checkZippedPackage(Landroid/content/pm/PackageParser$Package;)Z
-    .locals 11
-
-    const/4 v10, 0x1
-
-    const/4 v4, 0x0
-
-    invoke-virtual {p0}, Landroid/content/pm/PackageParser$Package;->isSystemApp()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    invoke-virtual {p0}, Landroid/content/pm/PackageParser$Package;->isUpdatedSystemApp()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    :cond_0
-    return v4
-
-    :cond_1
-    const/4 v3, 0x2
-
-    new-array v1, v3, [Ljava/io/File;
-
-    new-instance v3, Ljava/io/File;
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v6, p0, Landroid/content/pm/PackageParser$Package;->codePath:Ljava/lang/String;
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v6, "/oat"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    const-string/jumbo v6, "arm"
-
-    invoke-direct {v3, v5, v6}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
-
-    aput-object v3, v1, v4
-
-    new-instance v3, Ljava/io/File;
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v6, p0, Landroid/content/pm/PackageParser$Package;->codePath:Ljava/lang/String;
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v6, "/oat"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    const-string/jumbo v6, "arm64"
-
-    invoke-direct {v3, v5, v6}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
-
-    aput-object v3, v1, v10
-
-    array-length v6, v1
-
-    move v5, v4
-
-    :goto_0
-    if-ge v5, v6, :cond_0
-
-    aget-object v0, v1, v5
-
-    if-eqz v0, :cond_3
-
-    invoke-virtual {v0}, Ljava/io/File;->isDirectory()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_3
-
-    invoke-virtual {v0}, Ljava/io/File;->list()[Ljava/lang/String;
-
-    move-result-object v7
-
-    array-length v8, v7
-
-    move v3, v4
-
-    :goto_1
-    if-ge v3, v8, :cond_3
-
-    aget-object v2, v7, v3
-
-    if-eqz v2, :cond_2
-
-    const-string/jumbo v9, ".xz"
-
-    invoke-virtual {v2, v9}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
-
-    move-result v9
-
-    if-eqz v9, :cond_2
-
-    return v10
-
-    :cond_2
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_1
-
-    :cond_3
-    add-int/lit8 v3, v5, 0x1
-
-    move v5, v3
-
-    goto :goto_0
-.end method
-
-.method static final enableDisableApplicationLog(Ljava/lang/String;II)V
+.method static final enableDisableApplicationLog(Ljava/lang/String;Ljava/lang/String;II)V
     .locals 10
+
+    const/4 v2, 0x3
+
+    const/4 v1, 0x2
 
     const/4 v0, 0x1
 
@@ -253,8 +119,13 @@
 
     move-result-wide v8
 
-    if-ne p1, v0, :cond_1
+    if-nez p1, :cond_4
 
+    if-eq p2, v0, :cond_0
+
+    if-nez p2, :cond_2
+
+    :cond_0
     :try_start_0
     invoke-static {}, Landroid/os/Process;->myPid()I
 
@@ -292,23 +163,24 @@
 
     const/4 v2, 0x1
 
-    move v6, p2
+    move v6, p3
 
     invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :cond_0
+    :cond_1
     :goto_0
     invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     return-void
 
-    :cond_1
-    const/4 v0, 0x2
+    :cond_2
+    if-eq p2, v1, :cond_3
 
-    if-ne p1, v0, :cond_0
+    if-ne p2, v2, :cond_1
 
+    :cond_3
     :try_start_1
     invoke-static {}, Landroid/os/Process;->myPid()I
 
@@ -346,7 +218,7 @@
 
     const/4 v2, 0x1
 
-    move v6, p2
+    move v6, p3
 
     invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
     :try_end_1
@@ -360,6 +232,125 @@
     invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     throw v0
+
+    :cond_4
+    if-eq p2, v0, :cond_5
+
+    if-nez p2, :cond_6
+
+    :cond_5
+    :try_start_2
+    invoke-static {}, Landroid/os/Process;->myPid()I
+
+    move-result v3
+
+    const-string/jumbo v4, "PackageManagerService"
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "Component "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "/"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " has been enabled."
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    const/4 v0, 0x5
+
+    const/4 v1, 0x5
+
+    const/4 v2, 0x1
+
+    move v6, p3
+
+    invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
+
+    goto :goto_0
+
+    :cond_6
+    if-eq p2, v1, :cond_7
+
+    if-ne p2, v2, :cond_1
+
+    :cond_7
+    invoke-static {}, Landroid/os/Process;->myPid()I
+
+    move-result v3
+
+    const-string/jumbo v4, "PackageManagerService"
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "Component "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "/"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " has been disabled."
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    const/4 v0, 0x5
+
+    const/4 v1, 0x5
+
+    const/4 v2, 0x1
+
+    move v6, p3
+
+    invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    goto/16 :goto_0
 .end method
 
 .method static final installFailLog(Landroid/content/Context;Landroid/content/pm/PackageInfoLite;Ljava/lang/String;I)V
@@ -368,8 +359,6 @@
     iget-object v0, p1, Landroid/content/pm/PackageInfoLite;->packageName:Ljava/lang/String;
 
     invoke-static {v0, p3}, Lcom/android/server/pm/PmHook;->auditLogInstallFail(Ljava/lang/String;I)V
-
-    invoke-static {p0, p1, p2}, Lcom/android/server/pm/PmHook;->sendInstallFailLogToContextware(Landroid/content/Context;Landroid/content/pm/PackageInfoLite;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -380,8 +369,6 @@
     iget-object v0, p1, Landroid/content/pm/PackageParser$Package;->packageName:Ljava/lang/String;
 
     invoke-static {v0, p3}, Lcom/android/server/pm/PmHook;->auditLogInstallFail(Ljava/lang/String;I)V
-
-    invoke-static {p0, p1, p2}, Lcom/android/server/pm/PmHook;->sendInstallFailLogToContextware(Landroid/content/Context;Landroid/content/pm/PackageParser$Package;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -428,156 +415,6 @@
     move v6, p1
 
     invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
-
-    return-void
-.end method
-
-.method static final performBootDexoptForce(Ljava/util/ArrayList;Landroid/util/ArraySet;)V
-    .locals 7
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/ArrayList",
-            "<",
-            "Landroid/content/pm/PackageParser$Package;",
-            ">;",
-            "Landroid/util/ArraySet",
-            "<",
-            "Landroid/content/pm/PackageParser$Package;",
-            ">;)V"
-        }
-    .end annotation
-
-    const/4 v4, 0x1
-
-    new-array v0, v4, [Ljava/lang/String;
-
-    const-string/jumbo v4, "com.eg.android.AlipayGphone"
-
-    const/4 v5, 0x0
-
-    aput-object v4, v0, v5
-
-    invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
-
-    move-result-object v1
-
-    invoke-virtual {p1}, Landroid/util/ArraySet;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    :cond_0
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/content/pm/PackageParser$Package;
-
-    iget-object v4, v3, Landroid/content/pm/PackageParser$Package;->packageName:Ljava/lang/String;
-
-    invoke-interface {v1, v4}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    const-string/jumbo v4, "PM_HOOK"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "Adding forceDexopt app "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {p0}, Ljava/util/ArrayList;->size()I
-
-    move-result v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v6, ": "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    iget-object v6, v3, Landroid/content/pm/PackageParser$Package;->packageName:Ljava/lang/String;
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {p0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    invoke-interface {v2}, Ljava/util/Iterator;->remove()V
-
-    goto :goto_0
-
-    :cond_1
-    return-void
-.end method
-
-.method static final sendInstallFailLogToContextware(Landroid/content/Context;Landroid/content/pm/PackageInfoLite;Ljava/lang/String;)V
-    .locals 6
-
-    const-string/jumbo v1, "android.intent.action.PACKAGE_INSTALL_FAILED"
-
-    iget-object v2, p1, Landroid/content/pm/PackageInfoLite;->packageName:Ljava/lang/String;
-
-    iget v3, p1, Landroid/content/pm/PackageInfoLite;->versionCode:I
-
-    const/4 v4, 0x0
-
-    move-object v0, p0
-
-    move-object v5, p2
-
-    invoke-static/range {v0 .. v5}, Lcom/android/server/pm/PmHook;->sendLogToContextware(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method static final sendInstallFailLogToContextware(Landroid/content/Context;Landroid/content/pm/PackageParser$Package;Ljava/lang/String;)V
-    .locals 6
-
-    const-string/jumbo v1, "android.intent.action.PACKAGE_INSTALL_FAILED"
-
-    iget-object v2, p1, Landroid/content/pm/PackageParser$Package;->packageName:Ljava/lang/String;
-
-    iget v3, p1, Landroid/content/pm/PackageParser$Package;->mVersionCode:I
-
-    iget-object v4, p1, Landroid/content/pm/PackageParser$Package;->mVersionName:Ljava/lang/String;
-
-    move-object v0, p0
-
-    move-object v5, p2
-
-    invoke-static/range {v0 .. v5}, Lcom/android/server/pm/PmHook;->sendLogToContextware(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method static final sendLogToContextware(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V
-    .locals 0
 
     return-void
 .end method

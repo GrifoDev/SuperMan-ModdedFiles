@@ -28,6 +28,14 @@
 
 
 # direct methods
+.method static synthetic -wrap0(Lcom/android/server/print/RemotePrintSpooler$SetPrintJobStateCaller;Ljava/lang/Object;I)V
+    .locals 0
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/print/RemotePrintSpooler$SetPrintJobStateCaller;->onRemoteMethodResult(Ljava/lang/Object;I)V
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 2
 

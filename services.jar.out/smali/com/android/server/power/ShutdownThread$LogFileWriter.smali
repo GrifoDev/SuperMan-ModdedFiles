@@ -21,14 +21,24 @@
 
 
 # instance fields
+.field private file:Ljava/io/File;
+
 .field private fos:Ljava/io/FileOutputStream;
+
+.field private latestfile:Ljava/io/File;
+
+.field private latestfos:Ljava/io/FileOutputStream;
 
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 4
+    .locals 5
+
+    const/4 v2, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object v2, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->latestfos:Ljava/io/FileOutputStream;
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/power/ShutdownThread$LogFileWriter;->generateFilename(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -37,7 +47,7 @@
     if-eqz v1, :cond_0
 
     :try_start_0
-    new-instance v2, Ljava/io/FileOutputStream;
+    new-instance v2, Ljava/io/File;
 
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -55,9 +65,75 @@
 
     move-result-object v3
 
-    invoke-direct {v2, v3}, Ljava/io/FileOutputStream;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    iput-object v2, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->file:Ljava/io/File;
+
+    new-instance v2, Ljava/io/FileOutputStream;
+
+    iget-object v3, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->file:Ljava/io/File;
+
+    invoke-direct {v2, v3}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
 
     iput-object v2, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->fos:Ljava/io/FileOutputStream;
+
+    new-instance v2, Ljava/io/File;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "latest_"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, ".txt"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-direct {v2, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    iput-object v2, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->latestfile:Ljava/io/File;
+
+    new-instance v2, Ljava/io/FileOutputStream;
+
+    iget-object v3, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->latestfile:Ljava/io/File;
+
+    invoke-direct {v2, v3}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
+
+    iput-object v2, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->latestfos:Ljava/io/FileOutputStream;
+
+    iget-object v2, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->file:Ljava/io/File;
+
+    const/4 v3, 0x1
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v2, v3, v4}, Ljava/io/File;->setReadable(ZZ)Z
+
+    iget-object v2, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->latestfile:Ljava/io/File;
+
+    const/4 v3, 0x1
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v2, v3, v4}, Ljava/io/File;->setReadable(ZZ)Z
     :try_end_0
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -317,9 +393,18 @@
     iget-object v1, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->fos:Ljava/io/FileOutputStream;
 
     invoke-virtual {v1}, Ljava/io/FileOutputStream;->flush()V
+
+    iget-object v1, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->latestfos:Ljava/io/FileOutputStream;
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->latestfos:Ljava/io/FileOutputStream;
+
+    invoke-virtual {v1}, Ljava/io/FileOutputStream;->flush()V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
+    :cond_1
     :goto_0
     return-void
 
@@ -357,14 +442,31 @@
     const/4 v1, 0x0
 
     iput-object v1, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->fos:Ljava/io/FileOutputStream;
+
+    iget-object v1, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->latestfos:Ljava/io/FileOutputStream;
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->latestfos:Ljava/io/FileOutputStream;
+
+    invoke-virtual {v1}, Ljava/io/FileOutputStream;->flush()V
+
+    iget-object v1, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->latestfos:Ljava/io/FileOutputStream;
+
+    invoke-virtual {v1}, Ljava/io/FileOutputStream;->close()V
+
+    const/4 v1, 0x0
+
+    iput-object v1, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->latestfos:Ljava/io/FileOutputStream;
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    :cond_1
     :try_start_1
     iget-object v1, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->fos:Ljava/io/FileOutputStream;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
     iget-object v1, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->fos:Ljava/io/FileOutputStream;
 
@@ -373,10 +475,23 @@
     const/4 v1, 0x0
 
     iput-object v1, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->fos:Ljava/io/FileOutputStream;
+
+    :cond_2
+    iget-object v1, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->latestfos:Ljava/io/FileOutputStream;
+
+    if-eqz v1, :cond_3
+
+    iget-object v1, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->latestfos:Ljava/io/FileOutputStream;
+
+    invoke-virtual {v1}, Ljava/io/FileOutputStream;->close()V
+
+    const/4 v1, 0x0
+
+    iput-object v1, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->latestfos:Ljava/io/FileOutputStream;
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
-    :cond_1
+    :cond_3
     :goto_0
     return-void
 
@@ -406,7 +521,7 @@
     :try_start_3
     iget-object v1, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->fos:Ljava/io/FileOutputStream;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_4
 
     iget-object v1, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->fos:Ljava/io/FileOutputStream;
 
@@ -415,6 +530,19 @@
     const/4 v1, 0x0
 
     iput-object v1, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->fos:Ljava/io/FileOutputStream;
+
+    :cond_4
+    iget-object v1, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->latestfos:Ljava/io/FileOutputStream;
+
+    if-eqz v1, :cond_3
+
+    iget-object v1, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->latestfos:Ljava/io/FileOutputStream;
+
+    invoke-virtual {v1}, Ljava/io/FileOutputStream;->close()V
+
+    const/4 v1, 0x0
+
+    iput-object v1, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->latestfos:Ljava/io/FileOutputStream;
     :try_end_3
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_2
 
@@ -437,7 +565,7 @@
     :try_start_4
     iget-object v2, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->fos:Ljava/io/FileOutputStream;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_5
 
     iget-object v2, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->fos:Ljava/io/FileOutputStream;
 
@@ -446,10 +574,23 @@
     const/4 v2, 0x0
 
     iput-object v2, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->fos:Ljava/io/FileOutputStream;
+
+    :cond_5
+    iget-object v2, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->latestfos:Ljava/io/FileOutputStream;
+
+    if-eqz v2, :cond_6
+
+    iget-object v2, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->latestfos:Ljava/io/FileOutputStream;
+
+    invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
+
+    const/4 v2, 0x0
+
+    iput-object v2, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->latestfos:Ljava/io/FileOutputStream;
     :try_end_4
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_3
 
-    :cond_2
+    :cond_6
     :goto_1
     throw v1
 
@@ -491,9 +632,9 @@
 
     move-result-object v1
 
-    const-string/jumbo v3, "%02d-%02d %02d:%02d:%02d %s\n"
+    const-string/jumbo v3, "%02d-%02d %02d:%02d:%02d.%03d %s: %s\n"
 
-    const/4 v4, 0x6
+    const/16 v4, 0x8
 
     new-array v4, v4, [Ljava/lang/Object;
 
@@ -563,7 +704,25 @@
 
     aput-object v5, v4, v6
 
-    aput-object p2, v4, v8
+    const/16 v5, 0xe
+
+    invoke-virtual {v1, v5}, Ljava/util/Calendar;->get(I)I
+
+    move-result v5
+
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    aput-object v5, v4, v8
+
+    const/4 v5, 0x6
+
+    aput-object p1, v4, v5
+
+    const/4 v5, 0x7
+
+    aput-object p2, v4, v5
 
     invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -583,9 +742,26 @@
     move-result-object v4
 
     invoke-virtual {v3, v4}, Ljava/io/FileOutputStream;->write([B)V
+
+    iget-object v3, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->latestfos:Ljava/io/FileOutputStream;
+
+    if-eqz v3, :cond_1
+
+    iget-object v3, p0, Lcom/android/server/power/ShutdownThread$LogFileWriter;->latestfos:Ljava/io/FileOutputStream;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/String;->getBytes()[B
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/io/FileOutputStream;->write([B)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
+    :cond_1
     :goto_0
     return-void
 

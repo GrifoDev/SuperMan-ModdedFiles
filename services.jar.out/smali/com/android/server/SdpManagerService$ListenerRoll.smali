@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x1a
     name = "ListenerRoll"
 .end annotation
 
@@ -26,14 +26,10 @@
     .end annotation
 .end field
 
-.field final synthetic this$0:Lcom/android/server/SdpManagerService;
-
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/SdpManagerService;)V
+.method private constructor <init>()V
     .locals 1
-
-    iput-object p1, p0, Lcom/android/server/SdpManagerService$ListenerRoll;->this$0:Lcom/android/server/SdpManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -46,10 +42,10 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/SdpManagerService;Lcom/android/server/SdpManagerService$ListenerRoll;)V
+.method synthetic constructor <init>(Lcom/android/server/SdpManagerService$ListenerRoll;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService$ListenerRoll;-><init>(Lcom/android/server/SdpManagerService;)V
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService$ListenerRoll;-><init>()V
 
     return-void
 .end method

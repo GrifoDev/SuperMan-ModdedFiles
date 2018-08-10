@@ -4,6 +4,10 @@
 
 
 # static fields
+.field private static final FP_ERROR_VIBRATE_PATTERN:[J
+
+.field private static final FP_SUCCESS_VIBRATE_PATTERN:[J
+
 .field private static sInstance:Lcom/android/server/fingerprint/FingerprintUtils;
 
 .field private static final sInstanceLock:Ljava/lang/Object;
@@ -30,6 +34,22 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    const/4 v0, 0x4
+
+    new-array v0, v0, [J
+
+    fill-array-data v0, :array_0
+
+    sput-object v0, Lcom/android/server/fingerprint/FingerprintUtils;->FP_ERROR_VIBRATE_PATTERN:[J
+
+    const/4 v0, 0x2
+
+    new-array v0, v0, [J
+
+    fill-array-data v0, :array_1
+
+    sput-object v0, Lcom/android/server/fingerprint/FingerprintUtils;->FP_SUCCESS_VIBRATE_PATTERN:[J
+
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +57,20 @@
     sput-object v0, Lcom/android/server/fingerprint/FingerprintUtils;->sInstanceLock:Ljava/lang/Object;
 
     return-void
+
+    :array_0
+    .array-data 8
+        0x0
+        0x1e
+        0x64
+        0x1e
+    .end array-data
+
+    :array_1
+    .array-data 8
+        0x0
+        0x1e
+    .end array-data
 .end method
 
 .method private constructor <init>()V
@@ -125,6 +159,137 @@
     monitor-exit p0
 
     throw v1
+.end method
+
+.method public static semGetSignatureHash([B)Ljava/lang/String;
+    .locals 10
+
+    const-string/jumbo v4, ""
+
+    :try_start_0
+    const-string/jumbo v7, "SHA-256"
+
+    invoke-static {v7}, Ljava/security/MessageDigest;->getInstance(Ljava/lang/String;)Ljava/security/MessageDigest;
+
+    move-result-object v6
+
+    invoke-virtual {v6, p0}, Ljava/security/MessageDigest;->update([B)V
+
+    invoke-virtual {v6}, Ljava/security/MessageDigest;->digest()[B
+
+    move-result-object v0
+
+    new-instance v5, Ljava/lang/StringBuffer;
+
+    invoke-direct {v5}, Ljava/lang/StringBuffer;-><init>()V
+
+    const/4 v3, 0x0
+
+    :goto_0
+    array-length v7, v0
+
+    if-ge v3, v7, :cond_0
+
+    aget-byte v7, v0, v3
+
+    and-int/lit16 v7, v7, 0xff
+
+    add-int/lit16 v7, v7, 0x100
+
+    const/16 v8, 0x10
+
+    invoke-static {v7, v8}, Ljava/lang/Integer;->toString(II)Ljava/lang/String;
+
+    move-result-object v7
+
+    const/4 v8, 0x1
+
+    invoke-virtual {v7, v8}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v5, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {v5}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    :try_end_0
+    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v4
+
+    :goto_1
+    sget-boolean v7, Lcom/android/server/fingerprint/FingerprintService;->DEBUG:Z
+
+    if-eqz v7, :cond_1
+
+    const-string/jumbo v7, "FingerprintService"
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "semGetSignatureHash: "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    return-object v4
+
+    :catch_0
+    move-exception v1
+
+    const/4 v4, 0x0
+
+    goto :goto_1
+
+    :catch_1
+    move-exception v2
+
+    const/4 v4, 0x0
+
+    goto :goto_1
+.end method
+
+.method public static semHasPrivilegedAttr(Landroid/os/Bundle;I)Z
+    .locals 2
+
+    const/4 v1, 0x0
+
+    if-eqz p0, :cond_0
+
+    const-string/jumbo v0, "privileged_attr"
+
+    invoke-virtual {p0, v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+
+    move-result v0
+
+    and-int/2addr v0, p1
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    return v0
+
+    :cond_0
+    return v1
 .end method
 
 .method public static vibrateFingerprintError(Landroid/content/Context;)V
@@ -273,6 +438,36 @@
     move-result-object v0
 
     invoke-virtual {v0, p2, p3, p4, p5}, Lcom/android/server/fingerprint/FingerprintsUserState;->semAddFingerprint(IILjava/lang/CharSequence;I)V
+
+    return-void
+.end method
+
+.method public semGetTouchCount(Landroid/content/Context;)I
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-direct {p0, p1, v0}, Lcom/android/server/fingerprint/FingerprintUtils;->getStateForUser(Landroid/content/Context;I)Lcom/android/server/fingerprint/FingerprintsUserState;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/server/fingerprint/FingerprintsUserState;->semGetTouchCount()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public semSaveTouchCount(Landroid/content/Context;I)V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-direct {p0, p1, v0}, Lcom/android/server/fingerprint/FingerprintUtils;->getStateForUser(Landroid/content/Context;I)Lcom/android/server/fingerprint/FingerprintsUserState;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p2}, Lcom/android/server/fingerprint/FingerprintsUserState;->semSaveTouchCount(I)V
 
     return-void
 .end method

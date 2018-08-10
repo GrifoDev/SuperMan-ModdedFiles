@@ -159,11 +159,11 @@
 
     iget-object v3, p0, Lcom/android/server/enterprise/ucm/UniversalCredentialManagerService$1;->this$0:Lcom/android/server/enterprise/ucm/UniversalCredentialManagerService;
 
-    invoke-static {v3}, Lcom/android/server/enterprise/ucm/UniversalCredentialManagerService;->-wrap15(Lcom/android/server/enterprise/ucm/UniversalCredentialManagerService;)V
+    invoke-static {v3}, Lcom/android/server/enterprise/ucm/UniversalCredentialManagerService;->-wrap14(Lcom/android/server/enterprise/ucm/UniversalCredentialManagerService;)V
 
     iget-object v3, p0, Lcom/android/server/enterprise/ucm/UniversalCredentialManagerService$1;->this$0:Lcom/android/server/enterprise/ucm/UniversalCredentialManagerService;
 
-    invoke-static {v3}, Lcom/android/server/enterprise/ucm/UniversalCredentialManagerService;->-wrap14(Lcom/android/server/enterprise/ucm/UniversalCredentialManagerService;)V
+    invoke-static {v3}, Lcom/android/server/enterprise/ucm/UniversalCredentialManagerService;->-wrap13(Lcom/android/server/enterprise/ucm/UniversalCredentialManagerService;)V
 
     goto :goto_0
 

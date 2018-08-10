@@ -3,12 +3,12 @@
 .source "DeviceIdleController.java"
 
 # interfaces
-.implements Landroid/app/AlarmManager$OnAlarmListener;
+.implements Landroid/location/LocationListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/DeviceIdleController;->initializeDeepAlarmListener()V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/server/DeviceIdleController;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,8 +34,8 @@
 
 
 # virtual methods
-.method public onAlarm()V
-    .locals 3
+.method public onLocationChanged(Landroid/location/Location;)V
+    .locals 2
 
     iget-object v1, p0, Lcom/android/server/DeviceIdleController$9;->this$0:Lcom/android/server/DeviceIdleController;
 
@@ -44,9 +44,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/DeviceIdleController$9;->this$0:Lcom/android/server/DeviceIdleController;
 
-    const-string/jumbo v2, "s:alarm"
-
-    invoke-virtual {v0, v2}, Lcom/android/server/DeviceIdleController;->stepIdleStateLocked(Ljava/lang/String;)V
+    invoke-virtual {v0, p1}, Lcom/android/server/DeviceIdleController;->receivedGpsLocationLocked(Landroid/location/Location;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -60,4 +58,22 @@
     monitor-exit v1
 
     throw v0
+.end method
+
+.method public onProviderDisabled(Ljava/lang/String;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onProviderEnabled(Ljava/lang/String;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onStatusChanged(Ljava/lang/String;ILandroid/os/Bundle;)V
+    .locals 0
+
+    return-void
 .end method

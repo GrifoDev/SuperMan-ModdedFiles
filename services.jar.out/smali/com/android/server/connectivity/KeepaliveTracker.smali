@@ -448,25 +448,23 @@
 
     iget-boolean v5, v2, Lcom/android/server/connectivity/KeepaliveTracker$KeepaliveInfo;->isStarted:Z
 
-    if-eqz v5, :cond_3
+    xor-int/lit8 v5, v5, 0x1
 
-    :cond_1
-    iput-boolean v7, v2, Lcom/android/server/connectivity/KeepaliveTracker$KeepaliveInfo;->isStarted:Z
+    if-eqz v5, :cond_1
 
-    if-nez v3, :cond_2
-
-    :cond_2
-    invoke-virtual {p0, p1, v4, v3}, Lcom/android/server/connectivity/KeepaliveTracker;->handleStopKeepalive(Lcom/android/server/connectivity/NetworkAgentInfo;II)V
-
-    :goto_1
-    return-void
-
-    :cond_3
     const/4 v5, 0x1
 
     iput-boolean v5, v2, Lcom/android/server/connectivity/KeepaliveTracker$KeepaliveInfo;->isStarted:Z
 
     invoke-virtual {v2, v4, v3}, Lcom/android/server/connectivity/KeepaliveTracker$KeepaliveInfo;->notifyMessenger(II)V
+
+    :goto_1
+    return-void
+
+    :cond_1
+    iput-boolean v7, v2, Lcom/android/server/connectivity/KeepaliveTracker$KeepaliveInfo;->isStarted:Z
+
+    invoke-virtual {p0, p1, v4, v3}, Lcom/android/server/connectivity/KeepaliveTracker;->handleStopKeepalive(Lcom/android/server/connectivity/NetworkAgentInfo;II)V
 
     goto :goto_1
 

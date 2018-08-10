@@ -18,13 +18,13 @@
 # static fields
 .field private static final D:Z = true
 
+.field private static final DEFAULT_MIN_INTERVAL_MS:J = 0x1b7740L
+
 .field private static final MAX_AGE_NANOS:J = 0x45d964b800L
 
 .field private static final MAX_INTERVAL_MS:J = 0x6ddd00L
 
 .field private static final MAX_SPEED_M_S:I = 0x64
-
-.field private static final MIN_INTERVAL_MS:J = 0xea60L
 
 .field private static final MSG_UPDATE_FENCES:I = 0x1
 
@@ -37,6 +37,8 @@
 .field private final mBlacklist:Lcom/android/server/location/LocationBlacklist;
 
 .field private final mContext:Landroid/content/Context;
+
+.field private mEffectiveMinIntervalMs:J
 
 .field private mFences:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -63,10 +65,20 @@
 
 .field private mReceivingLocationUpdates:Z
 
+.field private mResolver:Landroid/content/ContentResolver;
+
 .field private final mWakeLock:Landroid/os/PowerManager$WakeLock;
 
 
 # direct methods
+.method static synthetic -get0(Lcom/android/server/location/GeofenceManager;)Ljava/lang/Object;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/location/GeofenceManager;->mLock:Ljava/lang/Object;
+
+    return-object v0
+.end method
+
 .method static synthetic -wrap0(Lcom/android/server/location/GeofenceManager;)V
     .locals 0
 
@@ -75,8 +87,18 @@
     return-void
 .end method
 
+.method static synthetic -wrap1(Lcom/android/server/location/GeofenceManager;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/server/location/GeofenceManager;->updateMinInterval()V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Lcom/android/server/location/LocationBlacklist;)V
-    .locals 3
+    .locals 6
+
+    const/4 v5, 0x1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -130,9 +152,7 @@
 
     const-string/jumbo v1, "GeofenceManager"
 
-    const/4 v2, 0x1
-
-    invoke-virtual {v0, v2, v1}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
+    invoke-virtual {v0, v5, v1}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
 
     move-result-object v1
 
@@ -146,52 +166,78 @@
 
     iput-object p2, p0, Lcom/android/server/location/GeofenceManager;->mBlacklist:Lcom/android/server/location/LocationBlacklist;
 
+    iget-object v1, p0, Lcom/android/server/location/GeofenceManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/server/location/GeofenceManager;->mResolver:Landroid/content/ContentResolver;
+
+    invoke-direct {p0}, Lcom/android/server/location/GeofenceManager;->updateMinInterval()V
+
+    iget-object v1, p0, Lcom/android/server/location/GeofenceManager;->mResolver:Landroid/content/ContentResolver;
+
+    const-string/jumbo v2, "location_background_throttle_proximity_alert_interval_ms"
+
+    invoke-static {v2}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v2
+
+    new-instance v3, Lcom/android/server/location/GeofenceManager$1;
+
+    iget-object v4, p0, Lcom/android/server/location/GeofenceManager;->mHandler:Lcom/android/server/location/GeofenceManager$GeofenceHandler;
+
+    invoke-direct {v3, p0, v4}, Lcom/android/server/location/GeofenceManager$1;-><init>(Lcom/android/server/location/GeofenceManager;Landroid/os/Handler;)V
+
+    const/4 v4, -0x1
+
+    invoke-virtual {v1, v2, v5, v3, v4}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
+
     return-void
 .end method
 
 .method private getFreshLocationLocked()Landroid/location/Location;
-    .locals 8
+    .locals 9
 
-    const/4 v1, 0x0
+    const/4 v8, 0x0
 
-    iget-boolean v4, p0, Lcom/android/server/location/GeofenceManager;->mReceivingLocationUpdates:Z
+    iget-boolean v1, p0, Lcom/android/server/location/GeofenceManager;->mReceivingLocationUpdates:Z
 
-    if-eqz v4, :cond_1
+    if-eqz v1, :cond_1
 
     iget-object v0, p0, Lcom/android/server/location/GeofenceManager;->mLastLocationUpdate:Landroid/location/Location;
 
     :goto_0
     if-nez v0, :cond_0
 
-    iget-object v4, p0, Lcom/android/server/location/GeofenceManager;->mFences:Ljava/util/List;
+    iget-object v1, p0, Lcom/android/server/location/GeofenceManager;->mFences:Ljava/util/List;
 
-    invoke-interface {v4}, Ljava/util/List;->isEmpty()Z
+    invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
 
-    move-result v4
+    move-result v1
 
-    if-eqz v4, :cond_2
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/server/location/GeofenceManager;->mLocationManager:Landroid/location/LocationManager;
+
+    invoke-virtual {v1}, Landroid/location/LocationManager;->getLastLocation()Landroid/location/Location;
+
+    move-result-object v0
 
     :cond_0
-    :goto_1
-    if-nez v0, :cond_3
+    if-nez v0, :cond_2
 
-    return-object v1
+    return-object v8
 
     :cond_1
-    move-object v0, v1
+    const/4 v0, 0x0
 
     goto :goto_0
 
     :cond_2
-    iget-object v4, p0, Lcom/android/server/location/GeofenceManager;->mLocationManager:Landroid/location/LocationManager;
-
-    invoke-virtual {v4}, Landroid/location/LocationManager;->getLastLocation()Landroid/location/Location;
-
-    move-result-object v0
-
-    goto :goto_1
-
-    :cond_3
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtimeNanos()J
 
     move-result-wide v2
@@ -204,13 +250,13 @@
 
     const-wide v6, 0x45d964b800L
 
-    cmp-long v4, v4, v6
+    cmp-long v1, v4, v6
 
-    if-lez v4, :cond_4
+    if-lez v1, :cond_3
 
-    return-object v1
+    return-object v8
 
-    :cond_4
+    :cond_3
     return-object v0
 .end method
 
@@ -676,7 +722,17 @@
 
     const-wide v24, 0x415b774000000000L    # 7200000.0
 
-    const-wide v26, 0x40ed4c0000000000L    # 60000.0
+    move-object/from16 v0, p0
+
+    iget-wide v0, v0, Lcom/android/server/location/GeofenceManager;->mEffectiveMinIntervalMs:J
+
+    move-wide/from16 v26, v0
+
+    move-wide/from16 v0, v26
+
+    long-to-double v0, v0
+
+    move-wide/from16 v26, v0
 
     const-wide v28, 0x408f400000000000L    # 1000.0
 
@@ -904,12 +960,14 @@
     goto :goto_3
 
     :cond_8
-    const-wide/32 v12, 0xea60
+    :try_start_2
+    move-object/from16 v0, p0
+
+    iget-wide v12, v0, Lcom/android/server/location/GeofenceManager;->mEffectiveMinIntervalMs:J
 
     goto/16 :goto_1
 
     :cond_9
-    :try_start_2
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/server/location/GeofenceManager;->mReceivingLocationUpdates:Z
@@ -983,6 +1041,24 @@
     goto :goto_4
 
     :cond_b
+    return-void
+.end method
+
+.method private updateMinInterval()V
+    .locals 4
+
+    iget-object v0, p0, Lcom/android/server/location/GeofenceManager;->mResolver:Landroid/content/ContentResolver;
+
+    const-string/jumbo v1, "location_background_throttle_interval_ms"
+
+    const-wide/32 v2, 0x1b7740
+
+    invoke-static {v0, v1, v2, v3}, Landroid/provider/Settings$Global;->getLong(Landroid/content/ContentResolver;Ljava/lang/String;J)J
+
+    move-result-wide v0
+
+    iput-wide v0, p0, Lcom/android/server/location/GeofenceManager;->mEffectiveMinIntervalMs:J
+
     return-void
 .end method
 

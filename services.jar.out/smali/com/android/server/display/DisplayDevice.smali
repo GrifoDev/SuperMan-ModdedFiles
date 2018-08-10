@@ -249,6 +249,14 @@
 .method public abstract getDisplayDeviceInfoLocked()Lcom/android/server/display/DisplayDeviceInfo;
 .end method
 
+.method public final getDisplaySurfaceLocked()Landroid/view/Surface;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/display/DisplayDevice;->mCurrentSurface:Landroid/view/Surface;
+
+    return-object v0
+.end method
+
 .method public final getDisplayTokenLocked()Landroid/os/IBinder;
     .locals 1
 
@@ -275,6 +283,9 @@
     iget-object v0, p0, Lcom/android/server/display/DisplayDevice;->mUniqueId:Ljava/lang/String;
 
     return-object v0
+.end method
+
+.method public abstract hasStableUniqueId()Z
 .end method
 
 .method public performTraversalInTransactionLocked()V
@@ -382,7 +393,7 @@
     goto :goto_4
 .end method
 
-.method public requestColorTransformAndModeInTransactionLocked(II)V
+.method public requestDisplayModesInTransactionLocked(II)V
     .locals 0
 
     return-void
@@ -422,9 +433,10 @@
 
     iget-object v0, p0, Lcom/android/server/display/DisplayDevice;->mCurrentLayerStackRect:Landroid/graphics/Rect;
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_4
 
     :cond_0
+    :goto_0
     iput p1, p0, Lcom/android/server/display/DisplayDevice;->mCurrentOrientation:I
 
     iget-object v0, p0, Lcom/android/server/display/DisplayDevice;->mCurrentLayerStackRect:Landroid/graphics/Rect;
@@ -461,17 +473,19 @@
 
     invoke-static {v0, p1, p2, p3}, Landroid/view/SurfaceControl;->setDisplayProjection(Landroid/os/IBinder;ILandroid/graphics/Rect;Landroid/graphics/Rect;)V
 
-    :goto_0
+    :cond_3
     return-void
 
-    :cond_3
+    :cond_4
     iget-object v0, p0, Lcom/android/server/display/DisplayDevice;->mCurrentLayerStackRect:Landroid/graphics/Rect;
 
     invoke-virtual {v0, p2}, Landroid/graphics/Rect;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
+
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Lcom/android/server/display/DisplayDevice;->mCurrentDisplayRect:Landroid/graphics/Rect;
 
@@ -483,7 +497,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_3
 
     goto :goto_0
 .end method

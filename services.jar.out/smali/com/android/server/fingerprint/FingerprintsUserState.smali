@@ -6,7 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/server/fingerprint/FingerprintsUserState$1;
+        Lcom/android/server/fingerprint/FingerprintsUserState$1;,
+        Lcom/android/server/fingerprint/FingerprintsUserState$2;
     }
 .end annotation
 
@@ -14,13 +15,15 @@
 # static fields
 .field private static final ATTR_DEVICE_ID:Ljava/lang/String; = "deviceId"
 
-.field public static final ATTR_EXT_DUPLICATED_CNT:Ljava/lang/String; = "duplicatedCount"
+.field private static final ATTR_EXT_DUPLICATED_CNT:Ljava/lang/String; = "duplicatedCount"
 
 .field private static final ATTR_FINGER_ID:Ljava/lang/String; = "fingerId"
 
 .field private static final ATTR_GROUP_ID:Ljava/lang/String; = "groupId"
 
 .field private static final ATTR_NAME:Ljava/lang/String; = "name"
+
+.field private static final FINGERPRINT_EXT_FILE:Ljava/lang/String; = "settings_fingerprint_ext.xml"
 
 .field private static final FINGERPRINT_FILE:Ljava/lang/String; = "settings_fingerprint.xml"
 
@@ -51,6 +54,12 @@
     .end annotation
 .end field
 
+.field private mSemFileExt:Ljava/io/File;
+
+.field private mSemTouchCount:I
+
+.field private final mSemWriteSateRunnable:Ljava/lang/Runnable;
+
 .field private final mWriteStateRunnable:Ljava/lang/Runnable;
 
 
@@ -63,8 +72,16 @@
     return-void
 .end method
 
+.method static synthetic -wrap1(Lcom/android/server/fingerprint/FingerprintsUserState;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/server/fingerprint/FingerprintsUserState;->semDoWriteState()V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;I)V
-    .locals 1
+    .locals 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -79,6 +96,12 @@
     invoke-direct {v0, p0}, Lcom/android/server/fingerprint/FingerprintsUserState$1;-><init>(Lcom/android/server/fingerprint/FingerprintsUserState;)V
 
     iput-object v0, p0, Lcom/android/server/fingerprint/FingerprintsUserState;->mWriteStateRunnable:Ljava/lang/Runnable;
+
+    new-instance v0, Lcom/android/server/fingerprint/FingerprintsUserState$2;
+
+    invoke-direct {v0, p0}, Lcom/android/server/fingerprint/FingerprintsUserState$2;-><init>(Lcom/android/server/fingerprint/FingerprintsUserState;)V
+
+    iput-object v0, p0, Lcom/android/server/fingerprint/FingerprintsUserState;->mSemWriteSateRunnable:Ljava/lang/Runnable;
 
     invoke-static {p2}, Lcom/android/server/fingerprint/FingerprintsUserState;->getFileForUser(I)Ljava/io/File;
 
@@ -97,6 +120,23 @@
 
     monitor-exit p0
 
+    if-nez p2, :cond_0
+
+    new-instance v0, Ljava/io/File;
+
+    invoke-static {p2}, Landroid/os/Environment;->getUserSystemDirectory(I)Ljava/io/File;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "settings_fingerprint_ext.xml"
+
+    invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    iput-object v0, p0, Lcom/android/server/fingerprint/FingerprintsUserState;->mSemFileExt:Ljava/io/File;
+
+    invoke-direct {p0}, Lcom/android/server/fingerprint/FingerprintsUserState;->semReadStateSyncLocked()V
+
+    :cond_0
     return-void
 
     :catchall_0
@@ -304,7 +344,7 @@
 
     const-string/jumbo v9, "Failed to write settings, restoring backup"
 
-    invoke-static {v8, v9, v7}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v8, v9, v7}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     invoke-virtual {v1, v5}, Landroid/util/AtomicFile;->failWrite(Ljava/io/FileOutputStream;)V
 
@@ -473,7 +513,7 @@
 
     aput-object v8, v7, v9
 
-    const v8, 0x10401f8
+    const v8, 0x1040369
 
     invoke-virtual {v6, v8, v7}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -495,7 +535,7 @@
 
     const-string/jumbo v7, "getUniqueName, NameNotFoundException"
 
-    invoke-static {v6, v7}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
@@ -841,7 +881,7 @@
 
     const-string/jumbo v5, "No fingerprint state"
 
-    invoke-static {v4, v5}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
@@ -889,6 +929,181 @@
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/fingerprint/FingerprintsUserState;->mWriteStateRunnable:Ljava/lang/Runnable;
+
+    invoke-static {v0}, Landroid/os/AsyncTask;->execute(Ljava/lang/Runnable;)V
+
+    return-void
+.end method
+
+.method private semDoWriteState()V
+    .locals 5
+
+    new-instance v0, Landroid/util/AtomicFile;
+
+    iget-object v3, p0, Lcom/android/server/fingerprint/FingerprintsUserState;->mSemFileExt:Ljava/io/File;
+
+    invoke-direct {v0, v3}, Landroid/util/AtomicFile;-><init>(Ljava/io/File;)V
+
+    const/4 v1, 0x0
+
+    :try_start_0
+    invoke-virtual {v0}, Landroid/util/AtomicFile;->startWrite()Ljava/io/FileOutputStream;
+
+    move-result-object v1
+
+    iget v3, p0, Lcom/android/server/fingerprint/FingerprintsUserState;->mSemTouchCount:I
+
+    invoke-static {v3}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/String;->getBytes()[B
+
+    move-result-object v3
+
+    invoke-virtual {v1, v3}, Ljava/io/FileOutputStream;->write([B)V
+
+    invoke-virtual {v0, v1}, Landroid/util/AtomicFile;->finishWrite(Ljava/io/FileOutputStream;)V
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-static {v1}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v2
+
+    :try_start_1
+    const-string/jumbo v3, "FingerprintState"
+
+    const-string/jumbo v4, "Failed to write settings, restoring backup"
+
+    invoke-static {v3, v4, v2}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    invoke-virtual {v0, v1}, Landroid/util/AtomicFile;->failWrite(Ljava/io/FileOutputStream;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    invoke-static {v1}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v3
+
+    invoke-static {v1}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
+
+    throw v3
+.end method
+
+.method private semReadStateSyncLocked()V
+    .locals 8
+
+    iget-object v6, p0, Lcom/android/server/fingerprint/FingerprintsUserState;->mSemFileExt:Ljava/io/File;
+
+    invoke-virtual {v6}, Ljava/io/File;->exists()Z
+
+    move-result v6
+
+    if-nez v6, :cond_0
+
+    return-void
+
+    :cond_0
+    :try_start_0
+    new-instance v3, Ljava/io/FileInputStream;
+
+    iget-object v6, p0, Lcom/android/server/fingerprint/FingerprintsUserState;->mSemFileExt:Ljava/io/File;
+
+    invoke-direct {v3, v6}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+    :try_end_0
+    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :try_start_1
+    invoke-virtual {v3}, Ljava/io/FileInputStream;->available()I
+
+    move-result v5
+
+    new-array v0, v5, [B
+
+    invoke-virtual {v3, v0}, Ljava/io/FileInputStream;->read([B)I
+
+    move-result v6
+
+    if-lez v6, :cond_1
+
+    new-instance v4, Ljava/lang/String;
+
+    invoke-direct {v4, v0}, Ljava/lang/String;-><init>([B)V
+
+    invoke-static {v4}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v6
+
+    iput v6, p0, Lcom/android/server/fingerprint/FingerprintsUserState;->mSemTouchCount:I
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :goto_0
+    invoke-static {v3}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
+
+    :goto_1
+    return-void
+
+    :catch_0
+    move-exception v2
+
+    const-string/jumbo v6, "FingerprintState"
+
+    const-string/jumbo v7, "No fingerprint state"
+
+    invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_1
+    const/4 v6, 0x0
+
+    :try_start_2
+    iput v6, p0, Lcom/android/server/fingerprint/FingerprintsUserState;->mSemTouchCount:I
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    goto :goto_0
+
+    :catch_1
+    move-exception v1
+
+    :try_start_3
+    const-string/jumbo v6, "FingerprintState"
+
+    const-string/jumbo v7, "semReadStateSyncLocked"
+
+    invoke-static {v6, v7, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    invoke-static {v3}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
+
+    goto :goto_1
+
+    :catchall_0
+    move-exception v6
+
+    invoke-static {v3}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
+
+    throw v6
+.end method
+
+.method private semScheduleWriteStateLocked()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/fingerprint/FingerprintsUserState;->mSemWriteSateRunnable:Ljava/lang/Runnable;
 
     invoke-static {v0}, Landroid/os/AsyncTask;->execute(Ljava/lang/Runnable;)V
 
@@ -1161,4 +1376,22 @@
     monitor-exit p0
 
     throw v0
+.end method
+
+.method public semGetTouchCount()I
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/fingerprint/FingerprintsUserState;->mSemTouchCount:I
+
+    return v0
+.end method
+
+.method public semSaveTouchCount(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/server/fingerprint/FingerprintsUserState;->mSemTouchCount:I
+
+    invoke-direct {p0}, Lcom/android/server/fingerprint/FingerprintsUserState;->semScheduleWriteStateLocked()V
+
+    return-void
 .end method

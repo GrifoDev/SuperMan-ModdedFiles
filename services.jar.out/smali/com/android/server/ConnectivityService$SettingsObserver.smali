@@ -82,7 +82,9 @@
 .method public onChange(Z)V
     .locals 2
 
-    const-string/jumbo v0, "ConnectivityService"
+    invoke-static {}, Lcom/android/server/ConnectivityService;->-get0()Ljava/lang/String;
+
+    move-result-object v0
 
     const-string/jumbo v1, "Should never be reached."
 
@@ -138,7 +140,7 @@
 
     move-result-object v1
 
-    invoke-static {v1}, Lcom/android/server/ConnectivityService;->-wrap20(Ljava/lang/String;)V
+    invoke-static {v1}, Lcom/android/server/ConnectivityService;->-wrap24(Ljava/lang/String;)V
 
     goto :goto_0
 .end method

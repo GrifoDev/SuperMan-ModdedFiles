@@ -15,6 +15,10 @@
 
 
 # static fields
+.field private static final DISMISS_DIALOG_TIMEOUT_MS:I = 0x2710
+
+.field private static final MSG_DISMISS_DIALOG:I = 0x2
+
 .field private static final MSG_START_USER:I = 0x1
 
 .field private static final TAG:Ljava/lang/String; = "ActivityManagerUserSwitchingDialog"
@@ -76,7 +80,7 @@
 
     move-result-object v4
 
-    const v5, 0x1090176
+    const v5, 0x1090174
 
     const/4 v6, 0x0
 
@@ -100,7 +104,7 @@
 
     aput-object v5, v4, v7
 
-    const v5, 0x104053c
+    const v5, 0x1040add
 
     invoke-virtual {v1, v5, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -151,13 +155,43 @@
     return-void
 
     :cond_1
+    invoke-static {p2}, Landroid/os/UserManager;->isDeviceInDemoMode(Landroid/content/Context;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_3
+
+    invoke-virtual {p3}, Landroid/content/pm/UserInfo;->isDemo()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    const v4, 0x104028c
+
+    invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    goto :goto_0
+
+    :cond_2
+    const v4, 0x104028d
+
+    invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    goto :goto_0
+
+    :cond_3
     new-array v4, v8, [Ljava/lang/Object;
 
     iget-object v5, p4, Landroid/content/pm/UserInfo;->name:Ljava/lang/String;
 
     aput-object v5, v4, v7
 
-    const v5, 0x104053b
+    const v5, 0x1040ae0
 
     invoke-virtual {v1, v5, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -168,6 +202,51 @@
 
 
 # virtual methods
+.method public dismiss()V
+    .locals 3
+
+    monitor-enter p0
+
+    :try_start_0
+    invoke-super {p0}, Landroid/app/AlertDialog;->dismiss()V
+
+    invoke-virtual {p0}, Lcom/android/server/am/UserSwitchingDialog;->getWindow()Landroid/view/Window;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p0}, Landroid/view/ViewTreeObserver;->removeOnWindowShownListener(Landroid/view/ViewTreeObserver$OnWindowShownListener;)V
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/server/am/UserSwitchingDialog;->mHandler:Landroid/os/Handler;
+
+    const/4 v2, 0x2
+
+    invoke-virtual {v1, v2}, Landroid/os/Handler;->removeMessages(I)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
+
+    return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit p0
+
+    throw v1
+.end method
+
 .method public onWindowShown()V
     .locals 0
 
@@ -212,65 +291,62 @@
 
     invoke-virtual {v1, v2, v4, v5}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
+    iget-object v1, p0, Lcom/android/server/am/UserSwitchingDialog;->mHandler:Landroid/os/Handler;
+
+    iget-object v2, p0, Lcom/android/server/am/UserSwitchingDialog;->mHandler:Landroid/os/Handler;
+
+    const/4 v3, 0x2
+
+    invoke-virtual {v2, v3}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+
+    move-result-object v2
+
+    const-wide/16 v4, 0x2710
+
+    invoke-virtual {v1, v2, v4, v5}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
+
     return-void
 .end method
 
 .method startUser()V
-    .locals 3
+    .locals 2
 
     monitor-enter p0
 
     :try_start_0
-    iget-boolean v1, p0, Lcom/android/server/am/UserSwitchingDialog;->mStartedUser:Z
+    iget-boolean v0, p0, Lcom/android/server/am/UserSwitchingDialog;->mStartedUser:Z
 
-    if-nez v1, :cond_1
+    if-nez v0, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/am/UserSwitchingDialog;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object v0, p0, Lcom/android/server/am/UserSwitchingDialog;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v1, v1, Lcom/android/server/am/ActivityManagerService;->mUserController:Lcom/android/server/am/UserController;
+    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mUserController:Lcom/android/server/am/UserController;
 
-    iget v2, p0, Lcom/android/server/am/UserSwitchingDialog;->mUserId:I
+    iget v1, p0, Lcom/android/server/am/UserSwitchingDialog;->mUserId:I
 
-    invoke-virtual {v1, v2, p0}, Lcom/android/server/am/UserController;->startUserInForeground(ILandroid/app/Dialog;)Z
+    invoke-virtual {v0, v1}, Lcom/android/server/am/UserController;->startUserInForeground(I)V
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/server/am/UserSwitchingDialog;->mStartedUser:Z
+
+    iget-object v0, p0, Lcom/android/server/am/UserSwitchingDialog;->mHandler:Landroid/os/Handler;
 
     const/4 v1, 0x1
 
-    iput-boolean v1, p0, Lcom/android/server/am/UserSwitchingDialog;->mStartedUser:Z
-
-    invoke-virtual {p0}, Lcom/android/server/am/UserSwitchingDialog;->getWindow()Landroid/view/Window;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/view/Window;->getDecorView()Landroid/view/View;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p0}, Landroid/view/ViewTreeObserver;->removeOnWindowShownListener(Landroid/view/ViewTreeObserver$OnWindowShownListener;)V
-
-    :cond_0
-    iget-object v1, p0, Lcom/android/server/am/UserSwitchingDialog;->mHandler:Landroid/os/Handler;
-
-    const/4 v2, 0x1
-
-    invoke-virtual {v1, v2}, Landroid/os/Handler;->removeMessages(I)V
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :cond_1
+    :cond_0
     monitor-exit p0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception v0
 
     monitor-exit p0
 
-    throw v1
+    throw v0
 .end method

@@ -131,17 +131,15 @@
 
     if-eqz p2, :cond_0
 
-    invoke-static {}, Lcom/android/internal/telephony/DeviceReportingSecurityChecker;->getStatus()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
     new-instance v0, Landroid/content/Intent;
 
     const-string/jumbo v1, "diagandroid.app.ApplicationState"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v1, "com.tmobile.pr.mytmobile"
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
     const-string/jumbo v1, "ApplicationPackageName"
 
@@ -188,16 +186,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
-    invoke-static {}, Lcom/android/internal/telephony/DeviceReportingSecurityChecker;->getStatus()Z
-
-    move-result v1
+    xor-int/lit8 v1, v1, 0x1
 
     if-eqz v1, :cond_0
 
@@ -206,6 +195,10 @@
     const-string/jumbo v1, "diagandroid.app.ApplicationState"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v1, "com.tmobile.pr.mytmobile"
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
     const-string/jumbo v1, "ApplicationPackageName"
 
@@ -227,7 +220,8 @@
 
     invoke-virtual {p0, v0, v1, v2}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;)V
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method public static disableIntentBroadcast()V
@@ -653,22 +647,19 @@
 
     sget-boolean v0, Lcom/android/server/am/AppStateBroadcaster;->sBroadcastEnabled:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2
 
     invoke-static {p1}, Lcom/android/server/am/AppStateBroadcaster;->isPackageNameNull(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
-    sget-object v0, Lcom/android/server/am/AppStateBroadcaster;->sLastFocusAppName:Ljava/lang/String;
+    xor-int/lit8 v0, v0, 0x1
 
     if-eqz v0, :cond_2
+
+    sget-object v0, Lcom/android/server/am/AppStateBroadcaster;->sLastFocusAppName:Ljava/lang/String;
+
+    if-eqz v0, :cond_0
 
     sget-object v0, Lcom/android/server/am/AppStateBroadcaster;->sLastFocusAppName:Ljava/lang/String;
 
@@ -676,12 +667,14 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_2
+    if-eqz v0, :cond_2
+
+    :cond_0
     sget-object v0, Lcom/android/server/am/AppStateBroadcaster;->sLastFocusAppName:Ljava/lang/String;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_1
 
     sget-object v0, Lcom/android/server/am/AppStateBroadcaster;->sLastFocusAppName:Ljava/lang/String;
 
@@ -689,14 +682,15 @@
 
     invoke-static {p0, v0, v1}, Lcom/android/server/am/AppStateBroadcaster;->broadcastAppState(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_3
+    :cond_1
     const-string/jumbo v0, "FOCUS_GAIN"
 
     invoke-static {p0, p1, v0}, Lcom/android/server/am/AppStateBroadcaster;->broadcastAppState(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
     sput-object p1, Lcom/android/server/am/AppStateBroadcaster;->sLastFocusAppName:Ljava/lang/String;
 
-    goto :goto_0
+    :cond_2
+    return-void
 .end method
 
 .method public static sendApplicationFocusLoss(Landroid/content/Context;Ljava/lang/String;)V
@@ -712,13 +706,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v0, :cond_0
 
-    :cond_1
     sget-object v0, Lcom/android/server/am/AppStateBroadcaster;->sLastFocusAppName:Ljava/lang/String;
 
     if-eqz v0, :cond_0
@@ -737,7 +728,8 @@
 
     sput-object v1, Lcom/android/server/am/AppStateBroadcaster;->sLastFocusAppName:Ljava/lang/String;
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method public static sendApplicationStart(Landroid/content/Context;Ljava/lang/String;I)V
@@ -751,16 +743,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v0, :cond_0
 
-    :cond_1
     invoke-static {p0, p1, p2}, Lcom/android/server/am/AppStateBroadcaster;->packageRunning(Landroid/content/Context;Ljava/lang/String;I)V
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method public static sendApplicationStop(Landroid/content/Context;Ljava/lang/String;II)V
@@ -774,13 +764,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v0, :cond_0
 
-    :cond_1
     if-ltz p3, :cond_0
 
     sget-object v0, Lcom/android/server/am/AppStateBroadcaster;->APP_TERM_REASONS:[Ljava/lang/String;
@@ -791,7 +778,8 @@
 
     invoke-static {p0, p1, p2, p3}, Lcom/android/server/am/AppStateBroadcaster;->packageStopped(Landroid/content/Context;Ljava/lang/String;II)V
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method private static stripPackageName(Ljava/lang/String;)Ljava/lang/String;

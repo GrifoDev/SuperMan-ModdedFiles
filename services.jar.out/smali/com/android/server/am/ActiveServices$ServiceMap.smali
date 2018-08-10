@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/ActiveServices$ServiceMap;
+.class final Lcom/android/server/am/ActiveServices$ServiceMap;
 .super Landroid/os/Handler;
 .source "ActiveServices.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x10
     name = "ServiceMap"
 .end annotation
 
@@ -17,8 +17,24 @@
 # static fields
 .field static final MSG_BG_START_TIMEOUT:I = 0x1
 
+.field static final MSG_UPDATE_FOREGROUND_APPS:I = 0x2
+
 
 # instance fields
+.field final mActiveForegroundApps:Landroid/util/ArrayMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/ArrayMap",
+            "<",
+            "Ljava/lang/String;",
+            "Lcom/android/server/am/ActiveServices$ActiveForegroundApp;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field mActiveForegroundAppsChanged:Z
+
 .field final mDelayedStartList:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -102,6 +118,12 @@
 
     iput-object v0, p0, Lcom/android/server/am/ActiveServices$ServiceMap;->mStartingBackground:Ljava/util/ArrayList;
 
+    new-instance v0, Landroid/util/ArrayMap;
+
+    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
+
+    iput-object v0, p0, Lcom/android/server/am/ActiveServices$ServiceMap;->mActiveForegroundApps:Landroid/util/ArrayMap;
+
     iput p3, p0, Lcom/android/server/am/ActiveServices$ServiceMap;->mUserId:I
 
     return-void
@@ -109,7 +131,7 @@
 
 
 # virtual methods
-.method ensureNotStartingBackground(Lcom/android/server/am/ServiceRecord;)V
+.method ensureNotStartingBackgroundLocked(Lcom/android/server/am/ServiceRecord;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/am/ActiveServices$ServiceMap;->mStartingBackground:Ljava/util/ArrayList;
@@ -120,7 +142,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/server/am/ActiveServices$ServiceMap;->rescheduleDelayedStarts()V
+    invoke-virtual {p0}, Lcom/android/server/am/ActiveServices$ServiceMap;->rescheduleDelayedStartsLocked()V
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/am/ActiveServices$ServiceMap;->mDelayedStartList:Ljava/util/ArrayList;
@@ -129,9 +151,6 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
-
-    :cond_1
     return-void
 .end method
 
@@ -155,7 +174,7 @@
     :try_start_0
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForLockedSection()V
 
-    invoke-virtual {p0}, Lcom/android/server/am/ActiveServices$ServiceMap;->rescheduleDelayedStarts()V
+    invoke-virtual {p0}, Lcom/android/server/am/ActiveServices$ServiceMap;->rescheduleDelayedStartsLocked()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -174,13 +193,21 @@
 
     throw v0
 
+    :pswitch_1
+    iget-object v0, p0, Lcom/android/server/am/ActiveServices$ServiceMap;->this$0:Lcom/android/server/am/ActiveServices;
+
+    invoke-virtual {v0, p0}, Lcom/android/server/am/ActiveServices;->updateForegroundApps(Lcom/android/server/am/ActiveServices$ServiceMap;)V
+
+    goto :goto_0
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method
 
-.method rescheduleDelayedStarts()V
+.method rescheduleDelayedStartsLocked()V
     .locals 20
 
     const/4 v4, 0x1

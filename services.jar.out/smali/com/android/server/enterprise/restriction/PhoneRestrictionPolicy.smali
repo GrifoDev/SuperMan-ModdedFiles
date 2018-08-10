@@ -13,6 +13,7 @@
         Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$2;,
         Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$3;,
         Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$4;,
+        Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$5;,
         Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$SmsMmsDeliveryHandler;
     }
 .end annotation
@@ -61,6 +62,8 @@
 
 .field private mKeyguardManager:Landroid/app/KeyguardManager;
 
+.field private final mReceiver:Landroid/content/BroadcastReceiver;
+
 .field private mSimDBProxy:Lcom/android/server/enterprise/restriction/SimDBProxy;
 
 .field private mSimLockBroadcast:Landroid/content/BroadcastReceiver;
@@ -78,6 +81,8 @@
 .field private mSubMgr:Landroid/telephony/SubscriptionManager;
 
 .field private mTelMgr:Landroid/telephony/TelephonyManager;
+
+.field private preAdminRemoval_rcsEnabled:Z
 
 
 # direct methods
@@ -161,190 +166,208 @@
     return-void
 .end method
 
+.method static synthetic -wrap3(Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->updateSystemUIMonitor(I)V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 4
+    .locals 5
+
+    const/4 v4, 0x0
 
     const/4 v3, 0x0
 
-    const/4 v2, 0x0
-
     invoke-direct {p0}, Lcom/samsung/android/knox/restriction/IPhoneRestrictionPolicy$Stub;-><init>()V
 
-    iput-object v3, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEDM:Lcom/samsung/android/knox/EnterpriseDeviceManager;
+    iput-object v4, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEDM:Lcom/samsung/android/knox/EnterpriseDeviceManager;
 
-    iput-boolean v2, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mDataLimitEnabled:Z
+    iput-boolean v3, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mDataLimitEnabled:Z
 
-    iput-boolean v2, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mDataCheckboxPreviousState:Z
+    iput-boolean v3, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mDataCheckboxPreviousState:Z
 
-    new-instance v1, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$SmsMmsDeliveryHandler;
+    new-instance v2, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$SmsMmsDeliveryHandler;
 
-    invoke-direct {v1, p0, v3}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$SmsMmsDeliveryHandler;-><init>(Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$SmsMmsDeliveryHandler;)V
+    invoke-direct {v2, p0, v4}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$SmsMmsDeliveryHandler;-><init>(Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$SmsMmsDeliveryHandler;)V
 
-    iput-object v1, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSmsMmsDeliveryHandler:Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$SmsMmsDeliveryHandler;
+    iput-object v2, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSmsMmsDeliveryHandler:Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$SmsMmsDeliveryHandler;
 
-    iput-boolean v2, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mIsPhoneShuttingDown:Z
+    iput-boolean v3, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mIsPhoneShuttingDown:Z
 
-    new-instance v1, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$1;
+    const/4 v2, 0x1
 
-    invoke-direct {v1, p0}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$1;-><init>(Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;)V
+    iput-boolean v2, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->preAdminRemoval_rcsEnabled:Z
 
-    iput-object v1, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
+    new-instance v2, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$1;
 
-    new-instance v1, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$2;
+    invoke-direct {v2, p0}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$1;-><init>(Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;)V
 
-    invoke-direct {v1, p0}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$2;-><init>(Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;)V
+    iput-object v2, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    iput-object v1, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSimLockBroadcast:Landroid/content/BroadcastReceiver;
+    new-instance v2, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$2;
 
-    new-instance v1, Landroid/os/Handler;
+    invoke-direct {v2, p0}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$2;-><init>(Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;)V
 
-    invoke-direct {v1}, Landroid/os/Handler;-><init>()V
+    iput-object v2, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
-    iput-object v1, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSimPinHandler:Landroid/os/Handler;
+    new-instance v2, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$3;
 
-    new-instance v1, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$3;
+    invoke-direct {v2, p0}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$3;-><init>(Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;)V
 
-    invoke-direct {v1, p0}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$3;-><init>(Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;)V
+    iput-object v2, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSimLockBroadcast:Landroid/content/BroadcastReceiver;
 
-    iput-object v1, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSimPinBind:Ljava/lang/Runnable;
+    new-instance v2, Landroid/os/Handler;
 
-    new-instance v1, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$4;
+    invoke-direct {v2}, Landroid/os/Handler;-><init>()V
 
-    invoke-direct {v1, p0}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$4;-><init>(Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;)V
+    iput-object v2, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSimPinHandler:Landroid/os/Handler;
 
-    iput-object v1, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSimPinServiceConn:Landroid/content/ServiceConnection;
+    new-instance v2, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$4;
 
-    const-string/jumbo v1, "PhoneRestrictionPolicy"
+    invoke-direct {v2, p0}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$4;-><init>(Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;)V
 
-    const-string/jumbo v2, " >>> PhoneRestrictionPolicy.PhoneRestrictionPolicy()"
+    iput-object v2, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSimPinBind:Ljava/lang/Runnable;
 
-    invoke-static {v1, v2}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
+    new-instance v2, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$5;
+
+    invoke-direct {v2, p0}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$5;-><init>(Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;)V
+
+    iput-object v2, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSimPinServiceConn:Landroid/content/ServiceConnection;
+
+    const-string/jumbo v2, "PhoneRestrictionPolicy"
+
+    const-string/jumbo v3, " >>> PhoneRestrictionPolicy.PhoneRestrictionPolicy()"
+
+    invoke-static {v2, v3}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
 
     iput-object p1, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mContext:Landroid/content/Context;
 
-    new-instance v1, Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    new-instance v2, Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    iget-object v2, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mContext:Landroid/content/Context;
 
-    invoke-direct {v1, v2}, Lcom/android/server/enterprise/storage/EdmStorageProvider;-><init>(Landroid/content/Context;)V
+    invoke-direct {v2, v3}, Lcom/android/server/enterprise/storage/EdmStorageProvider;-><init>(Landroid/content/Context;)V
 
-    iput-object v1, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    iput-object v2, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    invoke-virtual {p0, v3}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->getDataCallLimitEnabled(Lcom/samsung/android/knox/ContextInfo;)Z
+    invoke-virtual {p0, v4}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->getDataCallLimitEnabled(Lcom/samsung/android/knox/ContextInfo;)Z
 
-    move-result v1
+    move-result v2
 
-    iput-boolean v1, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mDataLimitEnabled:Z
+    iput-boolean v2, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mDataLimitEnabled:Z
 
     invoke-direct {p0}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->getDataCheckboxState()Z
 
-    move-result v1
+    move-result v2
 
-    iput-boolean v1, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mDataCheckboxPreviousState:Z
+    iput-boolean v2, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mDataCheckboxPreviousState:Z
 
-    iget-object v1, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v2, "phone"
+    const-string/jumbo v3, "phone"
 
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v2
 
-    check-cast v1, Landroid/telephony/TelephonyManager;
+    check-cast v2, Landroid/telephony/TelephonyManager;
 
-    iput-object v1, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mTelMgr:Landroid/telephony/TelephonyManager;
-
-    new-instance v0, Landroid/content/IntentFilter;
-
-    invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
-
-    const-string/jumbo v1, "android.intent.action.BOOT_COMPLETED"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    const-string/jumbo v1, "android.intent.action.ACTION_SHUTDOWN"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    const-string/jumbo v1, "android.intent.action.REBOOT"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    const-string/jumbo v1, "com.samsung.android.knox.intent.action.PHONE_READY_INTERNAL"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    const-string/jumbo v1, "edm.intent.action.PHONE_READY"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    iget-object v1, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mContext:Landroid/content/Context;
-
-    iget-object v2, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
-
-    invoke-virtual {v1, v2, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
-
-    iget-object v1, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mContext:Landroid/content/Context;
-
-    invoke-static {v1}, Lcom/android/server/enterprise/restriction/SimDBProxy;->getInstance(Landroid/content/Context;)Lcom/android/server/enterprise/restriction/SimDBProxy;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSimDBProxy:Lcom/android/server/enterprise/restriction/SimDBProxy;
-
-    iget-object v1, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v2, "telephony_subscription_service"
-
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/telephony/SubscriptionManager;
-
-    iput-object v1, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSubMgr:Landroid/telephony/SubscriptionManager;
+    iput-object v2, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mTelMgr:Landroid/telephony/TelephonyManager;
 
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
-    const-string/jumbo v1, "com.samsung.android.knox.intent.action.PHONE_READY_INTERNAL"
+    const-string/jumbo v2, "android.intent.action.BOOT_COMPLETED"
 
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    const-string/jumbo v1, "edm.intent.action.PHONE_READY"
+    const-string/jumbo v2, "android.intent.action.ACTION_SHUTDOWN"
 
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    const-string/jumbo v1, "android.intent.action.BOOT_COMPLETED"
+    const-string/jumbo v2, "android.intent.action.REBOOT"
 
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    const-string/jumbo v1, "android.intent.action.ACTION_SUBINFO_RECORD_UPDATED"
+    const-string/jumbo v2, "com.samsung.android.knox.intent.action.PHONE_READY_INTERNAL"
 
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    const-string/jumbo v1, "android.intent.action.SIM_STATE_CHANGED"
+    const-string/jumbo v2, "edm.intent.action.PHONE_READY"
 
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    iget-object v1, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mContext:Landroid/content/Context;
 
-    iget-object v2, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSimLockBroadcast:Landroid/content/BroadcastReceiver;
+    iget-object v3, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {v1, v2, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    invoke-virtual {v2, v3, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    iget-object v1, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v2, "keyguard"
+    invoke-static {v2}, Lcom/android/server/enterprise/restriction/SimDBProxy;->getInstance(Landroid/content/Context;)Lcom/android/server/enterprise/restriction/SimDBProxy;
 
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v1
+    iput-object v2, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSimDBProxy:Lcom/android/server/enterprise/restriction/SimDBProxy;
 
-    check-cast v1, Landroid/app/KeyguardManager;
+    iget-object v2, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mContext:Landroid/content/Context;
 
-    iput-object v1, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mKeyguardManager:Landroid/app/KeyguardManager;
+    const-string/jumbo v3, "telephony_subscription_service"
+
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/telephony/SubscriptionManager;
+
+    iput-object v2, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSubMgr:Landroid/telephony/SubscriptionManager;
+
+    new-instance v0, Landroid/content/IntentFilter;
+
+    invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
+
+    const-string/jumbo v2, "com.samsung.android.knox.intent.action.PHONE_READY_INTERNAL"
+
+    invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string/jumbo v2, "edm.intent.action.PHONE_READY"
+
+    invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string/jumbo v2, "android.intent.action.BOOT_COMPLETED"
+
+    invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string/jumbo v2, "android.intent.action.ACTION_SUBINFO_RECORD_UPDATED"
+
+    invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string/jumbo v2, "android.intent.action.SIM_STATE_CHANGED"
+
+    invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    iget-object v2, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mContext:Landroid/content/Context;
+
+    iget-object v3, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSimLockBroadcast:Landroid/content/BroadcastReceiver;
+
+    invoke-virtual {v2, v3, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+
+    new-instance v1, Landroid/content/IntentFilter;
+
+    const-string/jumbo v2, "com.samsung.android.knox.intent.action.KNOXFRAMEWORK_SYSTEMUI_UPDATE_INTENT_INTERNAL"
+
+    invoke-direct {v1, v2}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+
+    iget-object v2, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mContext:Landroid/content/Context;
+
+    iget-object v3, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mReceiver:Landroid/content/BroadcastReceiver;
+
+    invoke-virtual {v2, v3, v1}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
     return-void
 .end method
@@ -505,123 +528,113 @@
 .end method
 
 .method private declared-synchronized deliveryBlockedMsgs(I)V
-    .locals 21
+    .locals 23
 
     monitor-enter p0
 
     :try_start_0
-    const-string/jumbo v18, "PhoneRestrictionPolicy"
+    const-string/jumbo v2, "PhoneRestrictionPolicy"
 
-    const-string/jumbo v19, " >>>> deliveryBlockedMsgs"
+    const-string/jumbo v4, " >>>> deliveryBlockedMsgs"
 
-    invoke-static/range {v18 .. v19}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v2, v4}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v18, 0x5
+    const/4 v2, 0x5
 
-    move/from16 v0, v18
+    new-array v10, v2, [Ljava/lang/String;
 
-    new-array v4, v0, [Ljava/lang/String;
+    const-string/jumbo v2, "smsMmsBlockedRowId"
 
-    const-string/jumbo v18, "smsMmsBlockedRowId"
+    const/4 v4, 0x0
 
-    const/16 v19, 0x0
+    aput-object v2, v10, v4
 
-    aput-object v18, v4, v19
+    const-string/jumbo v2, "smsMmsSendType"
 
-    const-string/jumbo v18, "smsMmsSendType"
+    const/4 v4, 0x1
 
-    const/16 v19, 0x1
+    aput-object v2, v10, v4
 
-    aput-object v18, v4, v19
+    const-string/jumbo v2, "smsMmsPdu"
 
-    const-string/jumbo v18, "smsMmsPdu"
+    const/4 v4, 0x2
 
-    const/16 v19, 0x2
+    aput-object v2, v10, v4
 
-    aput-object v18, v4, v19
+    const-string/jumbo v2, "smsMmsTimeStamp"
 
-    const-string/jumbo v18, "smsMmsTimeStamp"
+    const/4 v4, 0x3
 
-    const/16 v19, 0x3
+    aput-object v2, v10, v4
 
-    aput-object v18, v4, v19
+    const-string/jumbo v2, "smsMmsOrigAddress"
 
-    const-string/jumbo v18, "smsMmsOrigAddress"
+    const/4 v4, 0x4
 
-    const/16 v19, 0x4
-
-    aput-object v18, v4, v19
+    aput-object v2, v10, v4
 
     if-nez p1, :cond_0
 
-    const-string/jumbo v17, "1"
+    const-string/jumbo v22, "1"
 
     :goto_0
-    new-instance v16, Landroid/content/ContentValues;
+    new-instance v21, Landroid/content/ContentValues;
 
-    invoke-direct/range {v16 .. v16}, Landroid/content/ContentValues;-><init>()V
+    invoke-direct/range {v21 .. v21}, Landroid/content/ContentValues;-><init>()V
 
-    const-string/jumbo v18, "smsMmsType"
+    const-string/jumbo v2, "smsMmsType"
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v21
 
-    move-object/from16 v1, v18
+    move-object/from16 v1, v22
 
-    move-object/from16 v2, v17
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v2, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    iget-object v2, v0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    move-object/from16 v18, v0
+    const-string/jumbo v4, "SMSMMSBlockedDelivery"
 
-    const-string/jumbo v19, "SMSMMSBlockedDelivery"
+    move-object/from16 v0, v21
 
-    move-object/from16 v0, v18
+    invoke-virtual {v2, v4, v10, v0}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getValuesList(Ljava/lang/String;[Ljava/lang/String;Landroid/content/ContentValues;)Ljava/util/List;
 
-    move-object/from16 v1, v19
+    move-result-object v20
 
-    move-object/from16 v2, v16
+    const-string/jumbo v2, "PhoneRestrictionPolicy"
 
-    invoke-virtual {v0, v1, v4, v2}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getValuesList(Ljava/lang/String;[Ljava/lang/String;Landroid/content/ContentValues;)Ljava/util/List;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v18, "PhoneRestrictionPolicy"
+    const-string/jumbo v5, "cvList size "
 
-    new-instance v19, Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v4
 
-    const-string/jumbo v20, "cvList size "
+    invoke-interface/range {v20 .. v20}, Ljava/util/List;->size()I
 
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v5
 
-    move-result-object v19
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-interface {v15}, Ljava/util/List;->size()I
+    move-result-object v4
 
-    move-result v20
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v19
+    invoke-static {v2, v4}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-static/range {v18 .. v19}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
-
-    invoke-interface {v15}, Ljava/util/List;->isEmpty()Z
+    invoke-interface/range {v20 .. v20}, Ljava/util/List;->isEmpty()Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result v18
+    move-result v2
 
-    if-eqz v18, :cond_1
+    if-eqz v2, :cond_1
 
     monitor-exit p0
 
@@ -629,42 +642,40 @@
 
     :cond_0
     :try_start_1
-    const-string/jumbo v17, "0"
+    const-string/jumbo v22, "0"
 
     goto :goto_0
 
     :cond_1
-    invoke-interface {v15}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface/range {v20 .. v20}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v14
+    move-result-object v19
 
     :cond_2
     :goto_1
-    invoke-interface {v14}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v18
+    move-result v2
 
-    if-eqz v18, :cond_b
+    if-eqz v2, :cond_d
 
-    invoke-interface {v14}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v13
+    move-result-object v18
 
-    check-cast v13, Landroid/content/ContentValues;
+    check-cast v18, Landroid/content/ContentValues;
 
     move-object/from16 v0, p0
 
-    iget-boolean v0, v0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mIsPhoneShuttingDown:Z
+    iget-boolean v2, v0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mIsPhoneShuttingDown:Z
 
-    move/from16 v18, v0
+    if-eqz v2, :cond_3
 
-    if-eqz v18, :cond_3
+    const-string/jumbo v2, "PhoneRestrictionPolicy"
 
-    const-string/jumbo v18, "PhoneRestrictionPolicy"
+    const-string/jumbo v4, "Phone is shutting down ...quitting"
 
-    const-string/jumbo v19, "Phone is shutting down ...quitting"
-
-    invoke-static/range {v18 .. v19}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v2, v4}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -674,33 +685,27 @@
 
     :cond_3
     :try_start_2
-    new-instance v7, Landroid/content/Intent;
+    new-instance v3, Landroid/content/Intent;
 
-    invoke-direct {v7}, Landroid/content/Intent;-><init>()V
+    invoke-direct {v3}, Landroid/content/Intent;-><init>()V
 
-    new-instance v8, Landroid/content/Intent;
+    if-nez p1, :cond_8
 
-    invoke-direct {v8}, Landroid/content/Intent;-><init>()V
-
-    if-nez p1, :cond_7
-
-    const/16 v18, 0x0
+    const/4 v2, 0x0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v18
+    invoke-virtual {v0, v2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->isBlockSmsWithStorageEnabled(Lcom/samsung/android/knox/ContextInfo;)Z
 
-    invoke-virtual {v0, v1}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->isBlockSmsWithStorageEnabled(Lcom/samsung/android/knox/ContextInfo;)Z
+    move-result v2
 
-    move-result v18
+    if-eqz v2, :cond_4
 
-    if-eqz v18, :cond_4
+    const-string/jumbo v2, "PhoneRestrictionPolicy"
 
-    const-string/jumbo v18, "PhoneRestrictionPolicy"
+    const-string/jumbo v4, "Block SMS with storage applies... quitting"
 
-    const-string/jumbo v19, "Block SMS with storage applies... quitting"
-
-    invoke-static/range {v18 .. v19}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v2, v4}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
@@ -710,430 +715,365 @@
 
     :cond_4
     :try_start_3
-    const-string/jumbo v18, "smsMmsOrigAddress"
+    const-string/jumbo v2, "smsMmsOrigAddress"
 
     move-object/from16 v0, v18
 
-    invoke-virtual {v13, v0}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v2}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v14
 
-    const/16 v18, 0x0
+    const/4 v2, 0x0
 
-    const/16 v19, 0x1
+    const/4 v4, 0x1
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v18
+    invoke-virtual {v0, v2, v4}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->getEmergencyCallOnly(Lcom/samsung/android/knox/ContextInfo;Z)Z
 
-    move/from16 v2, v19
+    move-result v2
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->getEmergencyCallOnly(Lcom/samsung/android/knox/ContextInfo;Z)Z
+    if-nez v2, :cond_5
 
-    move-result v18
-
-    if-nez v18, :cond_6
-
-    const/16 v18, 0x0
+    const/4 v2, 0x0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v18
+    invoke-virtual {v0, v2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->isIncomingSmsAllowed(Lcom/samsung/android/knox/ContextInfo;)Z
 
-    invoke-virtual {v0, v1}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->isIncomingSmsAllowed(Lcom/samsung/android/knox/ContextInfo;)Z
+    move-result v2
 
-    move-result v18
+    xor-int/lit8 v2, v2, 0x1
 
-    if-eqz v18, :cond_6
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v9}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->canIncomingSms(Ljava/lang/String;)Z
-
-    move-result v18
-
-    if-eqz v18, :cond_6
-
-    const-string/jumbo v18, "com.samsung.android.knox.intent.action.SEND_BLOCKED_SMS_INTERNAL"
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v7, v0}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
-
-    const-string/jumbo v18, "edm.intent.action.internal.RESTRICTION_SEND_BLOCKED_SMS"
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v8, v0}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
-
-    :goto_2
-    const-string/jumbo v18, "smsMmsBlockedRowId"
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v13, v0}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v18
+    if-nez v2, :cond_5
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v18
+    invoke-virtual {v0, v14}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->canIncomingSms(Ljava/lang/String;)Z
 
-    invoke-direct {v0, v1}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->deleteMessageFromStorageProvider(Ljava/lang/String;)V
+    move-result v2
 
-    const-string/jumbo v18, "smsMmsPdu"
+    xor-int/lit8 v2, v2, 0x1
 
-    move-object/from16 v0, v18
-
-    invoke-virtual {v13, v0}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v6
-
-    if-eqz v6, :cond_2
-
-    invoke-static {v6}, Lcom/android/internal/util/HexDump;->hexStringToByteArray(Ljava/lang/String;)[B
-
-    move-result-object v10
-
-    const/4 v11, -0x1
-
-    const-string/jumbo v18, "smsMmsSendType"
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v13, v0}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
-
-    move-result-object v12
-
-    if-eqz v12, :cond_5
-
-    invoke-virtual {v12}, Ljava/lang/Integer;->intValue()I
-
-    move-result v11
+    if-eqz v2, :cond_6
 
     :cond_5
-    const-string/jumbo v18, "com.samsung.android.knox.intent.extra.PDU_INTERNAL"
+    const-string/jumbo v2, "PhoneRestrictionPolicy"
+
+    const-string/jumbo v4, "Other incoming SMS policies apply... delete message and continue"
+
+    invoke-static {v2, v4}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string/jumbo v2, "smsMmsBlockedRowId"
 
     move-object/from16 v0, v18
 
-    invoke-virtual {v7, v0, v10}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[B)Landroid/content/Intent;
+    invoke-virtual {v0, v2}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
-    const-string/jumbo v18, "extra_pdu"
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v8, v0, v10}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[B)Landroid/content/Intent;
-
-    const-string/jumbo v18, "com.samsung.android.knox.intent.extra.SEND_TYPE_INTERNAL"
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v7, v0, v11}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
-
-    const-string/jumbo v18, "send_type"
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v8, v0, v11}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+    move-result-object v2
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mContext:Landroid/content/Context;
-
-    move-object/from16 v18, v0
-
-    const-string/jumbo v19, "com.samsung.android.knox.permission.KNOX_RECEIVE_BLOCKED_SMS_MMS_INTERNAL"
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v19
-
-    invoke-virtual {v0, v7, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mContext:Landroid/content/Context;
-
-    move-object/from16 v18, v0
-
-    const-string/jumbo v19, "android.permission.sec.RECEIVE_BLOCKED_SMS_MMS"
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v19
-
-    invoke-virtual {v0, v8, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
+    invoke-direct {v0, v2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->deleteMessageFromStorageProvider(Ljava/lang/String;)V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    const-wide/16 v18, 0x1f4
+    goto :goto_1
 
+    :catchall_0
+    move-exception v2
+
+    monitor-exit p0
+
+    throw v2
+
+    :cond_6
     :try_start_4
-    invoke-static/range {v18 .. v19}, Ljava/lang/Thread;->sleep(J)V
+    const-string/jumbo v2, "com.samsung.android.knox.intent.action.SEND_BLOCKED_SMS_INTERNAL"
+
+    invoke-virtual {v3, v2}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+
+    :goto_2
+    const-string/jumbo v2, "smsMmsBlockedRowId"
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v2}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->deleteMessageFromStorageProvider(Ljava/lang/String;)V
+
+    const-string/jumbo v2, "smsMmsPdu"
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v2}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v12
+
+    if-eqz v12, :cond_2
+
+    invoke-static {v12}, Lcom/android/internal/util/HexDump;->hexStringToByteArray(Ljava/lang/String;)[B
+
+    move-result-object v15
+
+    const/16 v16, -0x1
+
+    const-string/jumbo v2, "smsMmsSendType"
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v2}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
+
+    move-result-object v17
+
+    if-eqz v17, :cond_7
+
+    invoke-virtual/range {v17 .. v17}, Ljava/lang/Integer;->intValue()I
+
+    move-result v16
+
+    :cond_7
+    const-string/jumbo v2, "com.samsung.android.knox.intent.extra.PDU_INTERNAL"
+
+    invoke-virtual {v3, v2, v15}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[B)Landroid/content/Intent;
+
+    const-string/jumbo v2, "com.samsung.android.knox.intent.extra.SEND_TYPE_INTERNAL"
+
+    move/from16 v0, v16
+
+    invoke-virtual {v3, v2, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    new-instance v13, Ljava/lang/Object;
+
+    invoke-direct {v13}, Ljava/lang/Object;-><init>()V
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v4, "com.samsung.android.knox.permission.KNOX_RECEIVE_BLOCKED_SMS_MMS_INTERNAL"
+
+    new-instance v5, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$6;
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v5, v0, v13}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$6;-><init>(Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;Ljava/lang/Object;)V
+
+    const/4 v6, 0x0
+
+    const/4 v7, -0x1
+
+    const/4 v8, 0x0
+
+    const/4 v9, 0x0
+
+    invoke-virtual/range {v2 .. v9}, Landroid/content/Context;->sendOrderedBroadcast(Landroid/content/Intent;Ljava/lang/String;Landroid/content/BroadcastReceiver;Landroid/os/Handler;ILjava/lang/String;Landroid/os/Bundle;)V
     :try_end_4
-    .catch Ljava/lang/InterruptedException; {:try_start_4 .. :try_end_4} :catch_0
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
+
+    :try_start_5
+    monitor-enter v13
+    :try_end_5
+    .catch Ljava/lang/InterruptedException; {:try_start_5 .. :try_end_5} :catch_0
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+
+    const-wide/16 v4, 0x1f4
+
+    :try_start_6
+    invoke-virtual {v13, v4, v5}, Ljava/lang/Object;->wait(J)V
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_1
+
+    :try_start_7
+    monitor-exit v13
+    :try_end_7
+    .catch Ljava/lang/InterruptedException; {:try_start_7 .. :try_end_7} :catch_0
+    .catchall {:try_start_7 .. :try_end_7} :catchall_0
 
     goto/16 :goto_1
 
     :catch_0
-    move-exception v5
+    move-exception v11
 
-    :try_start_5
-    const-string/jumbo v18, "PhoneRestrictionPolicy"
+    :try_start_8
+    const-string/jumbo v2, "PhoneRestrictionPolicy"
 
-    const-string/jumbo v19, ""
+    const-string/jumbo v4, ""
 
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v19
-
-    invoke-static {v0, v1, v5}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+    invoke-static {v2, v4, v11}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
     goto/16 :goto_1
 
-    :catchall_0
-    move-exception v18
-
-    monitor-exit p0
-
-    throw v18
-
-    :cond_6
-    :try_start_6
-    const-string/jumbo v18, "PhoneRestrictionPolicy"
-
-    const-string/jumbo v19, "Other incoming SMS policies apply... delete message and continue"
-
-    invoke-static/range {v18 .. v19}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
-
-    const-string/jumbo v18, "smsMmsBlockedRowId"
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v13, v0}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v18
+    :cond_8
+    const/4 v2, 0x0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v18
+    invoke-virtual {v0, v2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->isBlockMmsWithStorageEnabled(Lcom/samsung/android/knox/ContextInfo;)Z
 
-    invoke-direct {v0, v1}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->deleteMessageFromStorageProvider(Ljava/lang/String;)V
+    move-result v2
 
-    goto/16 :goto_1
+    if-eqz v2, :cond_9
 
-    :cond_7
-    const/16 v18, 0x0
+    const-string/jumbo v2, "PhoneRestrictionPolicy"
 
-    move-object/from16 v0, p0
+    const-string/jumbo v4, "Block MMS with storage applies... quitting"
 
-    move-object/from16 v1, v18
-
-    invoke-virtual {v0, v1}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->isBlockMmsWithStorageEnabled(Lcom/samsung/android/knox/ContextInfo;)Z
-
-    move-result v18
-
-    if-eqz v18, :cond_8
-
-    const-string/jumbo v18, "PhoneRestrictionPolicy"
-
-    const-string/jumbo v19, "Block MMS with storage applies... quitting"
-
-    invoke-static/range {v18 .. v19}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_0
+    invoke-static {v2, v4}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_0
 
     monitor-exit p0
 
     return-void
 
-    :cond_8
-    const/16 v18, 0x0
-
-    const/16 v19, 0x1
-
-    :try_start_7
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v18
-
-    move/from16 v2, v19
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->getEmergencyCallOnly(Lcom/samsung/android/knox/ContextInfo;Z)Z
-
-    move-result v18
-
-    if-nez v18, :cond_a
-
-    const/16 v18, 0x0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v18
-
-    invoke-virtual {v0, v1}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->isIncomingMmsAllowed(Lcom/samsung/android/knox/ContextInfo;)Z
-
-    move-result v18
-
-    if-eqz v18, :cond_a
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mTelMgr:Landroid/telephony/TelephonyManager;
-
-    move-object/from16 v18, v0
-
-    invoke-virtual/range {v18 .. v18}, Landroid/telephony/TelephonyManager;->isNetworkRoaming()Z
-
-    move-result v18
-
-    if-eqz v18, :cond_9
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEDM:Lcom/samsung/android/knox/EnterpriseDeviceManager;
-
-    move-object/from16 v18, v0
-
-    invoke-virtual/range {v18 .. v18}, Lcom/samsung/android/knox/EnterpriseDeviceManager;->getRoamingPolicy()Lcom/samsung/android/knox/restriction/RoamingPolicy;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Lcom/samsung/android/knox/restriction/RoamingPolicy;->isRoamingPushEnabled()Z
-
-    move-result v18
-
-    if-eqz v18, :cond_a
-
     :cond_9
+    const/4 v2, 0x0
+
+    const/4 v4, 0x1
+
+    :try_start_9
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEDM:Lcom/samsung/android/knox/EnterpriseDeviceManager;
+    invoke-virtual {v0, v2, v4}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->getEmergencyCallOnly(Lcom/samsung/android/knox/ContextInfo;Z)Z
 
-    move-object/from16 v18, v0
+    move-result v2
 
-    invoke-virtual/range {v18 .. v18}, Lcom/samsung/android/knox/EnterpriseDeviceManager;->getPhoneRestrictionPolicy()Lcom/samsung/android/knox/restriction/PhoneRestrictionPolicy;
+    if-nez v2, :cond_b
 
-    move-result-object v18
+    const/4 v2, 0x0
 
-    invoke-virtual/range {v18 .. v18}, Lcom/samsung/android/knox/restriction/PhoneRestrictionPolicy;->isWapPushAllowed()Z
+    move-object/from16 v0, p0
 
-    move-result v18
+    invoke-virtual {v0, v2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->isIncomingMmsAllowed(Lcom/samsung/android/knox/ContextInfo;)Z
 
-    if-eqz v18, :cond_a
+    move-result v2
 
-    const-string/jumbo v18, "com.samsung.android.knox.intent.extra.TIME_STAMP_INTERNAL"
+    xor-int/lit8 v2, v2, 0x1
 
-    const-string/jumbo v19, "smsMmsTimeStamp"
+    if-nez v2, :cond_b
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, p0
 
-    invoke-virtual {v13, v0}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
+    iget-object v2, v0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mTelMgr:Landroid/telephony/TelephonyManager;
 
-    move-result-object v19
+    invoke-virtual {v2}, Landroid/telephony/TelephonyManager;->isNetworkRoaming()Z
 
-    move-object/from16 v0, v18
+    move-result v2
 
-    move-object/from16 v1, v19
+    if-eqz v2, :cond_a
 
-    invoke-virtual {v7, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    move-object/from16 v0, p0
 
-    const-string/jumbo v18, "extra_time_stamp"
+    iget-object v2, v0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEDM:Lcom/samsung/android/knox/EnterpriseDeviceManager;
 
-    const-string/jumbo v19, "smsMmsTimeStamp"
+    invoke-virtual {v2}, Lcom/samsung/android/knox/EnterpriseDeviceManager;->getRoamingPolicy()Lcom/samsung/android/knox/restriction/RoamingPolicy;
 
-    move-object/from16 v0, v19
+    move-result-object v2
 
-    invoke-virtual {v13, v0}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/samsung/android/knox/restriction/RoamingPolicy;->isRoamingPushEnabled()Z
 
-    move-result-object v19
+    move-result v2
 
-    move-object/from16 v0, v18
+    xor-int/lit8 v2, v2, 0x1
 
-    move-object/from16 v1, v19
-
-    invoke-virtual {v8, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    const-string/jumbo v18, "com.samsung.android.knox.intent.extra.ORIG_ADDRESS_INTERNAL"
-
-    const-string/jumbo v19, "smsMmsOrigAddress"
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v13, v0}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v19
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v19
-
-    invoke-virtual {v7, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    const-string/jumbo v18, "extra_orig_address"
-
-    const-string/jumbo v19, "smsMmsTimeStamp"
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v13, v0}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v19
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v19
-
-    invoke-virtual {v8, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    const-string/jumbo v18, "com.samsung.android.knox.intent.action.SEND_BLOCKED_MMS_INTERNAL"
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v7, v0}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
-
-    const-string/jumbo v18, "edm.intent.action.internal.RESTRICTION_SEND_BLOCKED_MMS"
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v8, v0}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
-
-    goto/16 :goto_2
+    if-nez v2, :cond_b
 
     :cond_a
-    const-string/jumbo v18, "PhoneRestrictionPolicy"
+    move-object/from16 v0, p0
 
-    const-string/jumbo v19, "Other incoming MMS policies apply... delete message and continue"
+    iget-object v2, v0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEDM:Lcom/samsung/android/knox/EnterpriseDeviceManager;
 
-    invoke-static/range {v18 .. v19}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v2}, Lcom/samsung/android/knox/EnterpriseDeviceManager;->getPhoneRestrictionPolicy()Lcom/samsung/android/knox/restriction/PhoneRestrictionPolicy;
 
-    const-string/jumbo v18, "smsMmsBlockedRowId"
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/samsung/android/knox/restriction/PhoneRestrictionPolicy;->isWapPushAllowed()Z
+
+    move-result v2
+
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_c
+
+    :cond_b
+    const-string/jumbo v2, "PhoneRestrictionPolicy"
+
+    const-string/jumbo v4, "Other incoming MMS policies apply... delete message and continue"
+
+    invoke-static {v2, v4}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string/jumbo v2, "smsMmsBlockedRowId"
 
     move-object/from16 v0, v18
 
-    invoke-virtual {v13, v0}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v2}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v2
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v18
-
-    invoke-direct {v0, v1}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->deleteMessageFromStorageProvider(Ljava/lang/String;)V
+    invoke-direct {v0, v2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->deleteMessageFromStorageProvider(Ljava/lang/String;)V
 
     goto/16 :goto_1
 
-    :cond_b
-    const-string/jumbo v18, "PhoneRestrictionPolicy"
+    :cond_c
+    const-string/jumbo v2, "com.samsung.android.knox.intent.extra.TIME_STAMP_INTERNAL"
 
-    const-string/jumbo v19, " deliveryBlockedMsgs >>>> "
+    const-string/jumbo v4, "smsMmsTimeStamp"
 
-    invoke-static/range {v18 .. v19}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_0
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v4}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v2, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v2, "com.samsung.android.knox.intent.extra.ORIG_ADDRESS_INTERNAL"
+
+    const-string/jumbo v4, "smsMmsOrigAddress"
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v4}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v2, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v2, "com.samsung.android.knox.intent.action.SEND_BLOCKED_MMS_INTERNAL"
+
+    invoke-virtual {v3, v2}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+    :try_end_9
+    .catchall {:try_start_9 .. :try_end_9} :catchall_0
+
+    goto/16 :goto_2
+
+    :catchall_1
+    move-exception v2
+
+    :try_start_a
+    monitor-exit v13
+
+    throw v2
+    :try_end_a
+    .catch Ljava/lang/InterruptedException; {:try_start_a .. :try_end_a} :catch_0
+    .catchall {:try_start_a .. :try_end_a} :catchall_0
+
+    :cond_d
+    :try_start_b
+    const-string/jumbo v2, "PhoneRestrictionPolicy"
+
+    const-string/jumbo v4, " deliveryBlockedMsgs >>>> "
+
+    invoke-static {v2, v4}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_b
+    .catchall {:try_start_b .. :try_end_b} :catchall_0
 
     monitor-exit p0
 
@@ -1402,6 +1342,31 @@
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEDM:Lcom/samsung/android/knox/EnterpriseDeviceManager;
+
+    return-object v0
+.end method
+
+.method private getKeyguardManager()Landroid/app/KeyguardManager;
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mKeyguardManager:Landroid/app/KeyguardManager;
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v1, "keyguard"
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/KeyguardManager;
+
+    iput-object v0, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mKeyguardManager:Landroid/app/KeyguardManager;
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mKeyguardManager:Landroid/app/KeyguardManager;
 
     return-object v0
 .end method
@@ -1678,6 +1643,10 @@
 
     move-result-object v8
 
+    invoke-direct/range {p0 .. p1}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->removeWhiteSpaces(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p1
+
     move-object/from16 v0, p1
 
     invoke-virtual {v8, v0}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
@@ -1768,6 +1737,37 @@
     return v12
 .end method
 
+.method private isRCSFeature(I)Z
+    .locals 1
+
+    const/4 v0, 0x1
+
+    if-ne p1, v0, :cond_0
+
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method private isRCSSupportedModel()Z
+    .locals 2
+
+    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "CscFeature_IMS_EnableRCSe"
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method private isSimLocked(I)Z
     .locals 6
 
@@ -1812,6 +1812,129 @@
     goto :goto_0
 .end method
 
+.method private logError(I)V
+    .locals 2
+
+    sparse-switch p1, :sswitch_data_0
+
+    :goto_0
+    return-void
+
+    :sswitch_0
+    const-string/jumbo v0, "PhoneRestrictionPolicy"
+
+    const-string/jumbo v1, "lockUnlockCorporateSimCard invalid pincode"
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :sswitch_1
+    const-string/jumbo v0, "PhoneRestrictionPolicy"
+
+    const-string/jumbo v1, "lockUnlockCorporateSimCard Sim pin already locked"
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :sswitch_2
+    const-string/jumbo v0, "PhoneRestrictionPolicy"
+
+    const-string/jumbo v1, "lockUnlockCorporateSimCard Sim pin already unlocked"
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :sswitch_3
+    const-string/jumbo v0, "PhoneRestrictionPolicy"
+
+    const-string/jumbo v1, "lockUnlockCorporateSimCard Sim pin blocked by puk"
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :sswitch_4
+    const-string/jumbo v0, "PhoneRestrictionPolicy"
+
+    const-string/jumbo v1, "lockUnlockCorporateSimCard Sim pin exceeded max retries"
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :sswitch_5
+    const-string/jumbo v0, "PhoneRestrictionPolicy"
+
+    const-string/jumbo v1, "lockUnlockCorporateSimCard Sim not ready"
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :sswitch_6
+    const-string/jumbo v0, "PhoneRestrictionPolicy"
+
+    const-string/jumbo v1, "lockUnlockCorporateSimCard Sim pin database error"
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :sswitch_7
+    const-string/jumbo v0, "PhoneRestrictionPolicy"
+
+    const-string/jumbo v1, "lockUnlockCorporateSimCard Sim pin already locked by admin"
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :sswitch_8
+    const-string/jumbo v0, "PhoneRestrictionPolicy"
+
+    const-string/jumbo v1, "lockUnlockCorporateSimCard Sim pin owned by another admin"
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :sswitch_9
+    const-string/jumbo v0, "PhoneRestrictionPolicy"
+
+    const-string/jumbo v1, "lockUnlockCorporateSimCard Sim not inserted"
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :sswitch_a
+    const-string/jumbo v0, "PhoneRestrictionPolicy"
+
+    const-string/jumbo v1, "lockUnlockCorporateSimCard Sim pin unknown"
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :sswitch_data_0
+    .sparse-switch
+        0x2 -> :sswitch_0
+        0x4 -> :sswitch_1
+        0x5 -> :sswitch_2
+        0x6 -> :sswitch_3
+        0x8 -> :sswitch_4
+        0x9 -> :sswitch_5
+        0xa -> :sswitch_6
+        0xb -> :sswitch_7
+        0xc -> :sswitch_8
+        0xd -> :sswitch_9
+        0x64 -> :sswitch_a
+    .end sparse-switch
+.end method
+
 .method private putDataCheckboxState(Z)Z
     .locals 3
 
@@ -1828,6 +1951,25 @@
     move-result v0
 
     return v0
+.end method
+
+.method private removeWhiteSpaces(Ljava/lang/String;)Ljava/lang/String;
+    .locals 3
+
+    if-eqz p1, :cond_0
+
+    const-string/jumbo v1, "\\s+"
+
+    const-string/jumbo v2, ""
+
+    invoke-virtual {p1, v1, v2}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+
+    :cond_0
+    return-object p1
 .end method
 
 .method private restorePacketDataNetworkSetting()Z
@@ -1981,20 +2123,28 @@
     goto :goto_0
 .end method
 
-.method private unlockAllSimCards()V
+.method private declared-synchronized unlockAllSimCards()V
     .locals 13
 
+    monitor-enter p0
+
+    :try_start_0
     iget-object v10, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSimDBProxy:Lcom/android/server/enterprise/restriction/SimDBProxy;
 
     invoke-virtual {v10}, Lcom/android/server/enterprise/restriction/SimDBProxy;->hasAnySimcard()Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v0
 
     if-nez v0, :cond_0
 
+    monitor-exit p0
+
     return-void
 
     :cond_0
+    :try_start_1
     iget-object v10, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSubMgr:Landroid/telephony/SubscriptionManager;
 
     invoke-virtual {v10}, Landroid/telephony/SubscriptionManager;->getActiveSubscriptionInfoList()Ljava/util/List;
@@ -2015,7 +2165,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_4
+    if-eqz v10, :cond_5
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2033,7 +2183,7 @@
 
     move-result v10
 
-    invoke-static {v10}, Landroid/telephony/SubscriptionManager;->getSimStateForSlotIdx(I)I
+    invoke-static {v10}, Landroid/telephony/SubscriptionManager;->getSimStateForSlotIndex(I)I
 
     move-result v10
 
@@ -2044,6 +2194,42 @@
     const/4 v3, 0x1
 
     :goto_1
+    invoke-virtual {v6}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
+
+    move-result v8
+
+    const-string/jumbo v10, "PhoneRestrictionPolicy"
+
+    new-instance v11, Ljava/lang/StringBuilder;
+
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v12, "unlockAllSimCards Got iccId = "
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    const-string/jumbo v12, " for subscriptionId = "
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-static {v10, v11}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
     invoke-virtual {v6}, Landroid/telephony/SubscriptionInfo;->getIccId()Ljava/lang/String;
 
     move-result-object v10
@@ -2058,10 +2244,6 @@
 
     if-eqz v4, :cond_3
 
-    invoke-virtual {v6}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
-
-    move-result v8
-
     invoke-virtual {p0, v2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->getPinCode(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
@@ -2069,8 +2251,17 @@
     if-eqz v5, :cond_1
 
     invoke-virtual {p0, v5, v8}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->supplyPinReportResultForSubscriber(Ljava/lang/String;I)Z
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
+
+    :catchall_0
+    move-exception v10
+
+    monitor-exit p0
+
+    throw v10
 
     :cond_2
     const/4 v3, 0x0
@@ -2085,7 +2276,21 @@
     goto :goto_0
 
     :cond_4
-    if-eqz v1, :cond_5
+    :try_start_2
+    const-string/jumbo v10, "PhoneRestrictionPolicy"
+
+    const-string/jumbo v11, "unlockAllSimCards subInfoList list is null"
+
+    invoke-static {v10, v11}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_5
+    invoke-direct {p0}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->getKeyguardManager()Landroid/app/KeyguardManager;
+
+    if-eqz v1, :cond_6
+
+    iget-object v10, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mKeyguardManager:Landroid/app/KeyguardManager;
+
+    if-eqz v10, :cond_6
 
     iget-object v10, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mKeyguardManager:Landroid/app/KeyguardManager;
 
@@ -2093,13 +2298,10 @@
 
     move-result v10
 
+    xor-int/lit8 v10, v10, 0x1
+
     if-eqz v10, :cond_6
 
-    :cond_5
-    :goto_2
-    return-void
-
-    :cond_6
     iget-object v10, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mContext:Landroid/content/Context;
 
     new-instance v11, Landroid/content/Intent;
@@ -2109,8 +2311,13 @@
     invoke-direct {v11, v12}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v10, v11}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_2
+    :cond_6
+    monitor-exit p0
+
+    return-void
 .end method
 
 .method private updateDateAndCounters()V
@@ -2663,6 +2870,14 @@
     return-void
 .end method
 
+.method private updateSystemUIMonitor(I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->setLockedIccIdsSystemUI(I)V
+
+    return-void
+.end method
+
 .method private validatePinCode(Ljava/lang/String;)Z
     .locals 4
 
@@ -2753,6 +2968,10 @@
     return v5
 
     :cond_2
+    invoke-direct {p0, p2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->removeWhiteSpaces(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p2
+
     const-string/jumbo v5, "|"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
@@ -2844,6 +3063,10 @@
     return v5
 
     :cond_2
+    invoke-direct {p0, p2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->removeWhiteSpaces(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p2
+
     const-string/jumbo v5, "|"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
@@ -2935,6 +3158,10 @@
     return v5
 
     :cond_2
+    invoke-direct {p0, p2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->removeWhiteSpaces(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p2
+
     const-string/jumbo v5, "|"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
@@ -3022,6 +3249,10 @@
     return v1
 
     :cond_2
+    invoke-direct {p0, p2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->removeWhiteSpaces(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p2
+
     const-string/jumbo v1, "|"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
@@ -3617,6 +3848,10 @@
     return v5
 
     :cond_2
+    invoke-direct {p0, p2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->removeWhiteSpaces(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p2
+
     const-string/jumbo v5, "|"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
@@ -3708,6 +3943,10 @@
     return v5
 
     :cond_2
+    invoke-direct {p0, p2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->removeWhiteSpaces(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p2
+
     const-string/jumbo v5, "|"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
@@ -3799,6 +4038,10 @@
     return v5
 
     :cond_2
+    invoke-direct {p0, p2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->removeWhiteSpaces(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p2
+
     const-string/jumbo v5, "|"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
@@ -3886,6 +4129,10 @@
     return v1
 
     :cond_2
+    invoke-direct {p0, p2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->removeWhiteSpaces(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p2
+
     const-string/jumbo v1, "|"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
@@ -4470,10 +4717,23 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    xor-int/lit8 v5, v5, 0x1
+
+    if-eqz v5, :cond_0
+
+    iget-object v5, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSmsMmsDeliveryHandler:Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$SmsMmsDeliveryHandler;
+
+    const/4 v6, 0x1
+
+    invoke-static {v5, v6}, Landroid/os/Message;->obtain(Landroid/os/Handler;I)Landroid/os/Message;
+
+    move-result-object v2
+
+    iget-object v5, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSmsMmsDeliveryHandler:Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$SmsMmsDeliveryHandler;
+
+    invoke-virtual {v5, v2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$SmsMmsDeliveryHandler;->sendMessage(Landroid/os/Message;)Z
 
     :cond_0
-    :goto_0
     invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
 
     move-result v4
@@ -4508,30 +4768,15 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_1
-    :goto_1
+    :goto_0
     return v3
-
-    :cond_2
-    iget-object v5, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSmsMmsDeliveryHandler:Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$SmsMmsDeliveryHandler;
-
-    const/4 v6, 0x1
-
-    invoke-static {v5, v6}, Landroid/os/Message;->obtain(Landroid/os/Handler;I)Landroid/os/Message;
-
-    move-result-object v2
-
-    iget-object v5, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSmsMmsDeliveryHandler:Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$SmsMmsDeliveryHandler;
-
-    invoke-virtual {v5, v2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$SmsMmsDeliveryHandler;->sendMessage(Landroid/os/Message;)Z
-
-    goto :goto_0
 
     :catch_0
     move-exception v0
 
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    goto :goto_1
+    goto :goto_0
 .end method
 
 .method public blockSmsWithStorage(Lcom/samsung/android/knox/ContextInfo;Z)Z
@@ -4563,10 +4808,21 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    xor-int/lit8 v5, v5, 0x1
+
+    if-eqz v5, :cond_0
+
+    iget-object v5, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSmsMmsDeliveryHandler:Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$SmsMmsDeliveryHandler;
+
+    invoke-static {v5, v9}, Landroid/os/Message;->obtain(Landroid/os/Handler;I)Landroid/os/Message;
+
+    move-result-object v2
+
+    iget-object v5, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSmsMmsDeliveryHandler:Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$SmsMmsDeliveryHandler;
+
+    invoke-virtual {v5, v2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$SmsMmsDeliveryHandler;->sendMessage(Landroid/os/Message;)Z
 
     :cond_0
-    :goto_0
     invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
 
     move-result v4
@@ -4601,28 +4857,15 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_1
-    :goto_1
+    :goto_0
     return v3
-
-    :cond_2
-    iget-object v5, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSmsMmsDeliveryHandler:Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$SmsMmsDeliveryHandler;
-
-    invoke-static {v5, v9}, Landroid/os/Message;->obtain(Landroid/os/Handler;I)Landroid/os/Message;
-
-    move-result-object v2
-
-    iget-object v5, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSmsMmsDeliveryHandler:Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$SmsMmsDeliveryHandler;
-
-    invoke-virtual {v5, v2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$SmsMmsDeliveryHandler;->sendMessage(Landroid/os/Message;)Z
-
-    goto :goto_0
 
     :catch_0
     move-exception v0
 
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    goto :goto_1
+    goto :goto_0
 .end method
 
 .method public canIncomingCall(Ljava/lang/String;)Z
@@ -4668,7 +4911,13 @@
 
     move-result v11
 
-    if-eqz v11, :cond_7
+    xor-int/lit8 v11, v11, 0x1
+
+    if-eqz v11, :cond_2
+
+    const/4 v11, 0x0
+
+    return v11
 
     :cond_2
     const-string/jumbo v11, "incomingPattern"
@@ -4687,7 +4936,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_8
+    if-eqz v11, :cond_7
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
@@ -4785,7 +5034,7 @@
     invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     :goto_0
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_8
 
     move v7, v10
 
@@ -4814,11 +5063,6 @@
 
     return v7
 
-    :cond_7
-    const/4 v11, 0x0
-
-    return v11
-
     :catchall_0
     move-exception v11
 
@@ -4826,12 +5070,12 @@
 
     throw v11
 
-    :cond_8
+    :cond_7
     const/4 v10, 0x1
 
     goto :goto_0
 
-    :cond_9
+    :cond_8
     const/4 v7, 0x0
 
     goto :goto_1
@@ -5460,162 +5704,170 @@
 .end method
 
 .method public changeSimPinCode(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
-    .locals 10
+    .locals 11
 
-    const/4 v9, -0x1
+    const/16 v9, 0x9
+
+    const/4 v10, -0x1
 
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->enforceOwnerOnlyAndPhonePermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
     move-result-object p1
 
-    iget v5, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    iget v6, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
     invoke-direct {p0, p3}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->validatePinCode(Ljava/lang/String;)Z
 
-    move-result v6
+    move-result v7
 
-    if-eqz v6, :cond_0
+    if-eqz v7, :cond_0
 
     invoke-direct {p0, p4}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->validatePinCode(Ljava/lang/String;)Z
 
-    move-result v6
+    move-result v7
 
-    if-eqz v6, :cond_0
+    xor-int/lit8 v7, v7, 0x1
 
+    if-eqz v7, :cond_1
+
+    :cond_0
+    const/4 v7, 0x2
+
+    return v7
+
+    :cond_1
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v6
+    move-result v7
 
-    if-eqz v6, :cond_1
+    if-eqz v7, :cond_3
 
     invoke-static {}, Landroid/telephony/SubscriptionManager;->getDefaultSubscriptionId()I
 
     move-result v1
 
-    iget-object v6, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSubMgr:Landroid/telephony/SubscriptionManager;
+    iget-object v7, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSubMgr:Landroid/telephony/SubscriptionManager;
 
-    invoke-virtual {v6, v1}, Landroid/telephony/SubscriptionManager;->getActiveSubscriptionInfo(I)Landroid/telephony/SubscriptionInfo;
+    invoke-virtual {v7, v1}, Landroid/telephony/SubscriptionManager;->getActiveSubscriptionInfo(I)Landroid/telephony/SubscriptionInfo;
 
-    move-result-object v6
+    move-result-object v4
 
-    invoke-virtual {v6}, Landroid/telephony/SubscriptionInfo;->getIccId()Ljava/lang/String;
+    if-nez v4, :cond_2
+
+    return v9
+
+    :cond_2
+    invoke-virtual {v4}, Landroid/telephony/SubscriptionInfo;->getIccId()Ljava/lang/String;
 
     move-result-object p2
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_3
 
-    const-string/jumbo v6, "PhoneRestrictionPolicy"
+    const-string/jumbo v7, "PhoneRestrictionPolicy"
 
-    const-string/jumbo v7, "lockUnlockCorporateSimCard Sim not inserted"
+    const-string/jumbo v8, "lockUnlockCorporateSimCard Sim not inserted"
 
-    invoke-static {v6, v7}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v7, v8}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v6, 0x9
-
-    return v6
-
-    :cond_0
-    const/4 v6, 0x2
-
-    return v6
-
-    :cond_1
-    invoke-direct {p0, p2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->getSimSubId(Ljava/lang/String;)I
-
-    move-result v4
-
-    const-string/jumbo v6, "PhoneRestrictionPolicy"
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v8, "lockUnlockCorporateSimCard Sim subscription ID "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    if-ne v4, v9, :cond_2
-
-    const/16 v6, 0xd
-
-    return v6
-
-    :cond_2
-    invoke-direct {p0, v4}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->isSimLocked(I)Z
-
-    move-result v6
-
-    if-nez v6, :cond_3
-
-    const/4 v6, 0x5
-
-    return v6
+    return v9
 
     :cond_3
-    iget-object v6, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSimDBProxy:Lcom/android/server/enterprise/restriction/SimDBProxy;
+    invoke-direct {p0, p2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->getSimSubId(Ljava/lang/String;)I
 
-    invoke-virtual {v6, p2}, Lcom/android/server/enterprise/restriction/SimDBProxy;->getAdminBySimcard(Ljava/lang/String;)I
+    move-result v5
+
+    const-string/jumbo v7, "PhoneRestrictionPolicy"
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "lockUnlockCorporateSimCard Sim subscription ID "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    if-ne v5, v10, :cond_4
+
+    const/16 v7, 0xd
+
+    return v7
+
+    :cond_4
+    invoke-direct {p0, v5}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->isSimLocked(I)Z
+
+    move-result v7
+
+    if-nez v7, :cond_5
+
+    const/4 v7, 0x5
+
+    return v7
+
+    :cond_5
+    iget-object v7, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSimDBProxy:Lcom/android/server/enterprise/restriction/SimDBProxy;
+
+    invoke-virtual {v7, p2}, Lcom/android/server/enterprise/restriction/SimDBProxy;->getAdminBySimcard(Ljava/lang/String;)I
 
     move-result v3
 
-    if-eq v3, v9, :cond_4
+    if-eq v3, v10, :cond_6
 
-    if-eq v3, v5, :cond_4
+    if-eq v3, v6, :cond_6
 
-    const/16 v6, 0xc
+    const/16 v7, 0xc
 
-    return v6
+    return v7
 
-    :cond_4
-    invoke-direct {p0, v4, p3, p4}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->changeSimPinCodeService(ILjava/lang/String;Ljava/lang/String;)I
+    :cond_6
+    invoke-direct {p0, v5, p3, p4}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->changeSimPinCodeService(ILjava/lang/String;Ljava/lang/String;)I
 
     move-result v2
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_8
 
     const/4 v0, 0x1
 
     invoke-virtual {p0, p2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->isSimLockedByAdmin(Ljava/lang/String;)Z
 
-    move-result v6
+    move-result v7
 
-    if-nez v6, :cond_5
+    if-nez v7, :cond_7
 
-    iget-object v6, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSimDBProxy:Lcom/android/server/enterprise/restriction/SimDBProxy;
+    iget-object v7, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSimDBProxy:Lcom/android/server/enterprise/restriction/SimDBProxy;
 
-    invoke-virtual {v6, v5, p2, p4}, Lcom/android/server/enterprise/restriction/SimDBProxy;->addSimcard(ILjava/lang/String;Ljava/lang/String;)Z
+    invoke-virtual {v7, v6, p2, p4}, Lcom/android/server/enterprise/restriction/SimDBProxy;->addSimcard(ILjava/lang/String;Ljava/lang/String;)Z
 
     move-result v0
 
     :goto_0
-    if-nez v0, :cond_6
+    if-nez v0, :cond_8
 
-    const/16 v6, 0xa
+    const/16 v7, 0xa
 
-    return v6
+    return v7
 
-    :cond_5
-    iget-object v6, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSimDBProxy:Lcom/android/server/enterprise/restriction/SimDBProxy;
+    :cond_7
+    iget-object v7, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSimDBProxy:Lcom/android/server/enterprise/restriction/SimDBProxy;
 
-    invoke-virtual {v6, v5, p2, p4}, Lcom/android/server/enterprise/restriction/SimDBProxy;->setPincode(ILjava/lang/String;Ljava/lang/String;)Z
+    invoke-virtual {v7, v6, p2, p4}, Lcom/android/server/enterprise/restriction/SimDBProxy;->setPincode(ILjava/lang/String;Ljava/lang/String;)Z
 
     move-result v0
 
     goto :goto_0
 
-    :cond_6
+    :cond_8
     return v2
 .end method
 
@@ -5850,24 +6102,27 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    xor-int/lit8 v1, v1, 0x1
 
-    const/4 v0, 0x1
+    if-eqz v1, :cond_2
+
+    :cond_0
+    if-eqz p1, :cond_1
+
+    const v1, 0x1040254
+
+    invoke-static {v1}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
+
+    :cond_1
+    const/4 v0, 0x0
 
     :goto_0
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     return v0
 
-    :cond_0
-    if-eqz p1, :cond_1
-
-    const v1, 0x10409f7
-
-    invoke-static {v1}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
-
-    :cond_1
-    const/4 v0, 0x0
+    :cond_2
+    const/4 v0, 0x1
 
     goto :goto_0
 .end method
@@ -6131,30 +6386,135 @@
     return v3
 .end method
 
+.method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
+    .locals 6
+
+    const/4 v5, 0x1
+
+    const/4 v4, 0x0
+
+    iget-object v1, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v2, "android.permission.DUMP"
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->checkCallingOrSelfPermission(Ljava/lang/String;)I
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Permission Denial: can\'t dump "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-class v2, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;
+
+    invoke-virtual {v2}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    return-void
+
+    :cond_0
+    new-instance v0, Lcom/android/server/enterprise/utils/EnterpriseDumpHelper;
+
+    iget-object v1, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mContext:Landroid/content/Context;
+
+    invoke-direct {v0, v1}, Lcom/android/server/enterprise/utils/EnterpriseDumpHelper;-><init>(Landroid/content/Context;)V
+
+    const-string/jumbo v1, "SimTable"
+
+    const/4 v2, 0x2
+
+    new-array v2, v2, [Ljava/lang/String;
+
+    const-string/jumbo v3, "adminUid"
+
+    aput-object v3, v2, v4
+
+    const-string/jumbo v3, "SimIccId"
+
+    aput-object v3, v2, v5
+
+    invoke-virtual {v0, p2, v1, v2}, Lcom/android/server/enterprise/utils/EnterpriseDumpHelper;->dumpTable(Ljava/io/PrintWriter;Ljava/lang/String;[Ljava/lang/String;)V
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "RCSEnabled : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    invoke-virtual {p0, v2, v5, v4}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->isRCSEnabled(Lcom/samsung/android/knox/ContextInfo;IZ)Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {}, Ljava/lang/System;->lineSeparator()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->write(Ljava/lang/String;)V
+
+    return-void
+.end method
+
 .method public enableLimitNumberOfCalls(Lcom/samsung/android/knox/ContextInfo;Z)Z
     .locals 12
 
-    const/4 v8, 0x0
+    const/4 v10, 0x0
 
-    const-string/jumbo v9, "PhoneRestrictionPolicy"
+    const-string/jumbo v8, "PhoneRestrictionPolicy"
 
-    const-string/jumbo v10, " >>>> enableLimitNumberOfCalls "
+    const-string/jumbo v9, " >>>> enableLimitNumberOfCalls "
 
-    invoke-static {v9, v10}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v8, v9}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->enforceOwnerOnlyAndPhonePermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
     move-result-object p1
 
-    iget-object v9, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mTelMgr:Landroid/telephony/TelephonyManager;
+    iget-object v8, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mTelMgr:Landroid/telephony/TelephonyManager;
 
-    invoke-virtual {v9}, Landroid/telephony/TelephonyManager;->isVoiceCapable()Z
+    invoke-virtual {v8}, Landroid/telephony/TelephonyManager;->isVoiceCapable()Z
 
-    move-result v9
+    move-result v8
 
-    if-nez v9, :cond_0
+    if-nez v8, :cond_0
 
-    return v8
+    return v10
 
     :cond_0
     const/4 v3, 0x1
@@ -6163,19 +6523,88 @@
 
     invoke-virtual {p0, p1}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->isLimitNumberOfCallsEnabled(Lcom/samsung/android/knox/ContextInfo;)Z
 
-    move-result v9
+    move-result v8
 
-    if-eqz v9, :cond_3
+    xor-int/lit8 v8, v8, 0x1
+
+    if-eqz v8, :cond_1
+
+    invoke-virtual {p0, p1}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->resetCallsCount(Lcom/samsung/android/knox/ContextInfo;)Z
+
+    invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
+
+    move-result-object v0
+
+    const/16 v8, 0xb
+
+    invoke-virtual {v0, v8, v10}, Ljava/util/Calendar;->set(II)V
+
+    const/16 v8, 0xc
+
+    invoke-virtual {v0, v8, v10}, Ljava/util/Calendar;->set(II)V
+
+    const/16 v8, 0xd
+
+    invoke-virtual {v0, v8, v10}, Ljava/util/Calendar;->set(II)V
+
+    const/16 v8, 0xe
+
+    invoke-virtual {v0, v8, v10}, Ljava/util/Calendar;->set(II)V
+
+    invoke-virtual {v0}, Ljava/util/Calendar;->getTimeInMillis()J
+
+    move-result-wide v6
+
+    iget-object v8, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    const-string/jumbo v9, "dateDay"
+
+    invoke-static {v6, v7}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v8, v9, v10}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putGenericValue(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
+    iget-object v8, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    const-string/jumbo v9, "dateWeek"
+
+    invoke-static {v6, v7}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v8, v9, v10}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putGenericValue(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v3
+
+    :goto_0
+    if-eqz v3, :cond_4
+
+    iget-object v8, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    const-string/jumbo v9, "dateMonth"
+
+    invoke-static {v6, v7}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v8, v9, v10}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putGenericValue(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v3
 
     :cond_1
-    :goto_0
+    :goto_1
     const-string/jumbo v8, "PhoneRestrictionPolicy"
 
     const-string/jumbo v9, "enableLimitNumberOfCalls  >>>>>"
 
     invoke-static {v8, v9}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_5
 
     iget-object v8, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
@@ -6189,7 +6618,7 @@
 
     move-result v4
 
-    :goto_1
+    :goto_2
     invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
 
     move-result v5
@@ -6224,112 +6653,42 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_2
-    :goto_2
+    :goto_3
     return v4
 
     :cond_3
-    invoke-virtual {p0, p1}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->resetCallsCount(Lcom/samsung/android/knox/ContextInfo;)Z
-
-    invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
-
-    move-result-object v0
-
-    const/16 v9, 0xb
-
-    invoke-virtual {v0, v9, v8}, Ljava/util/Calendar;->set(II)V
-
-    const/16 v9, 0xc
-
-    invoke-virtual {v0, v9, v8}, Ljava/util/Calendar;->set(II)V
-
-    const/16 v9, 0xd
-
-    invoke-virtual {v0, v9, v8}, Ljava/util/Calendar;->set(II)V
-
-    const/16 v9, 0xe
-
-    invoke-virtual {v0, v9, v8}, Ljava/util/Calendar;->set(II)V
-
-    invoke-virtual {v0}, Ljava/util/Calendar;->getTimeInMillis()J
-
-    move-result-wide v6
-
-    iget-object v9, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
-
-    const-string/jumbo v10, "dateDay"
-
-    invoke-static {v6, v7}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-virtual {v9, v10, v11}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putGenericValue(Ljava/lang/String;Ljava/lang/String;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    iget-object v8, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
-
-    const-string/jumbo v9, "dateWeek"
-
-    invoke-static {v6, v7}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-virtual {v8, v9, v10}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putGenericValue(Ljava/lang/String;Ljava/lang/String;)Z
-
-    move-result v3
-
-    :goto_3
-    if-eqz v3, :cond_5
-
-    iget-object v8, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
-
-    const-string/jumbo v9, "dateMonth"
-
-    invoke-static {v6, v7}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-virtual {v8, v9, v10}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putGenericValue(Ljava/lang/String;Ljava/lang/String;)Z
-
-    move-result v3
-
-    goto/16 :goto_0
-
-    :cond_4
-    move v3, v8
-
-    goto :goto_3
-
-    :cond_5
     const/4 v3, 0x0
 
-    goto/16 :goto_0
+    goto :goto_0
 
-    :cond_6
-    const/4 v4, 0x0
+    :cond_4
+    const/4 v3, 0x0
 
     goto :goto_1
+
+    :cond_5
+    const/4 v4, 0x0
+
+    goto :goto_2
 
     :catch_0
     move-exception v1
 
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
-    goto :goto_2
+    goto :goto_3
 .end method
 
 .method public enableLimitNumberOfSms(Lcom/samsung/android/knox/ContextInfo;Z)Z
     .locals 12
 
-    const/4 v8, 0x0
+    const/4 v10, 0x0
 
-    const-string/jumbo v9, "PhoneRestrictionPolicy"
+    const-string/jumbo v8, "PhoneRestrictionPolicy"
 
-    const-string/jumbo v10, " >>>> enableLimitNumberOfSMS "
+    const-string/jumbo v9, " >>>> enableLimitNumberOfSMS "
 
-    invoke-static {v9, v10}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v8, v9}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->enforceOwnerOnlyAndPhonePermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
@@ -6341,19 +6700,88 @@
 
     invoke-virtual {p0, p1}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->isLimitNumberOfSmsEnabled(Lcom/samsung/android/knox/ContextInfo;)Z
 
-    move-result v9
+    move-result v8
 
-    if-eqz v9, :cond_2
+    xor-int/lit8 v8, v8, 0x1
+
+    if-eqz v8, :cond_0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->resetSmsCount(Lcom/samsung/android/knox/ContextInfo;)Z
+
+    invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
+
+    move-result-object v0
+
+    const/16 v8, 0xb
+
+    invoke-virtual {v0, v8, v10}, Ljava/util/Calendar;->set(II)V
+
+    const/16 v8, 0xc
+
+    invoke-virtual {v0, v8, v10}, Ljava/util/Calendar;->set(II)V
+
+    const/16 v8, 0xd
+
+    invoke-virtual {v0, v8, v10}, Ljava/util/Calendar;->set(II)V
+
+    const/16 v8, 0xe
+
+    invoke-virtual {v0, v8, v10}, Ljava/util/Calendar;->set(II)V
+
+    invoke-virtual {v0}, Ljava/util/Calendar;->getTimeInMillis()J
+
+    move-result-wide v6
+
+    iget-object v8, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    const-string/jumbo v9, "smsDateDay"
+
+    invoke-static {v6, v7}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v8, v9, v10}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putGenericValue(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    iget-object v8, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    const-string/jumbo v9, "smsDateWeek"
+
+    invoke-static {v6, v7}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v8, v9, v10}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putGenericValue(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v3
+
+    :goto_0
+    if-eqz v3, :cond_3
+
+    iget-object v8, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    const-string/jumbo v9, "smsDateMonth"
+
+    invoke-static {v6, v7}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v8, v9, v10}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putGenericValue(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v3
 
     :cond_0
-    :goto_0
+    :goto_1
     const-string/jumbo v8, "PhoneRestrictionPolicy"
 
     const-string/jumbo v9, "enableLimitNumberOfSMS  >>>>>"
 
     invoke-static {v8, v9}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_4
 
     iget-object v8, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
@@ -6367,7 +6795,7 @@
 
     move-result v4
 
-    :goto_1
+    :goto_2
     invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
 
     move-result v5
@@ -6402,100 +6830,30 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_1
-    :goto_2
+    :goto_3
     return v4
 
     :cond_2
-    invoke-virtual {p0, p1}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->resetSmsCount(Lcom/samsung/android/knox/ContextInfo;)Z
-
-    invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
-
-    move-result-object v0
-
-    const/16 v9, 0xb
-
-    invoke-virtual {v0, v9, v8}, Ljava/util/Calendar;->set(II)V
-
-    const/16 v9, 0xc
-
-    invoke-virtual {v0, v9, v8}, Ljava/util/Calendar;->set(II)V
-
-    const/16 v9, 0xd
-
-    invoke-virtual {v0, v9, v8}, Ljava/util/Calendar;->set(II)V
-
-    const/16 v9, 0xe
-
-    invoke-virtual {v0, v9, v8}, Ljava/util/Calendar;->set(II)V
-
-    invoke-virtual {v0}, Ljava/util/Calendar;->getTimeInMillis()J
-
-    move-result-wide v6
-
-    iget-object v9, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
-
-    const-string/jumbo v10, "smsDateDay"
-
-    invoke-static {v6, v7}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-virtual {v9, v10, v11}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putGenericValue(Ljava/lang/String;Ljava/lang/String;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_3
-
-    iget-object v8, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
-
-    const-string/jumbo v9, "smsDateWeek"
-
-    invoke-static {v6, v7}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-virtual {v8, v9, v10}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putGenericValue(Ljava/lang/String;Ljava/lang/String;)Z
-
-    move-result v3
-
-    :goto_3
-    if-eqz v3, :cond_4
-
-    iget-object v8, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
-
-    const-string/jumbo v9, "smsDateMonth"
-
-    invoke-static {v6, v7}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-virtual {v8, v9, v10}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putGenericValue(Ljava/lang/String;Ljava/lang/String;)Z
-
-    move-result v3
-
-    goto/16 :goto_0
-
-    :cond_3
-    move v3, v8
-
-    goto :goto_3
-
-    :cond_4
     const/4 v3, 0x0
 
-    goto/16 :goto_0
+    goto :goto_0
 
-    :cond_5
-    const/4 v4, 0x0
+    :cond_3
+    const/4 v3, 0x0
 
     goto :goto_1
+
+    :cond_4
+    const/4 v4, 0x0
+
+    goto :goto_2
 
     :catch_0
     move-exception v1
 
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
-    goto :goto_2
+    goto :goto_3
 .end method
 
 .method public getDataCallLimitEnabled(Lcom/samsung/android/knox/ContextInfo;)Z
@@ -6591,46 +6949,29 @@
 .method public getEmergencyCallOnly(Lcom/samsung/android/knox/ContextInfo;Z)Z
     .locals 11
 
-    const/4 v9, 0x0
+    const/4 v8, 0x0
 
-    iget-object v7, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mContext:Landroid/content/Context;
-
-    invoke-static {v7, p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->isManagedProfileUser(Landroid/content/Context;Lcom/samsung/android/knox/ContextInfo;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_0
-
-    const-string/jumbo v7, "PhoneRestrictionPolicy"
-
-    const-string/jumbo v8, " getEmergencyCallOnly calls from Profile return default value"
-
-    invoke-static {v7, v8}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    return v9
-
-    :cond_0
     iget-object v7, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mTelMgr:Landroid/telephony/TelephonyManager;
 
     invoke-virtual {v7}, Landroid/telephony/TelephonyManager;->isVoiceCapable()Z
 
     move-result v7
 
-    if-nez v7, :cond_1
+    if-nez v7, :cond_0
 
-    return v9
+    return v8
 
-    :cond_1
+    :cond_0
     const/4 v5, 0x0
 
-    if-nez p2, :cond_6
+    if-nez p2, :cond_5
 
     :try_start_0
     invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
 
     move-result v6
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_1
 
     new-instance v2, Lcom/samsung/android/knox/ContextInfo;
 
@@ -6642,8 +6983,8 @@
 
     move-object p1, v2
 
-    :cond_2
-    if-nez v6, :cond_3
+    :cond_1
+    if-nez v6, :cond_2
 
     iget v7, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
@@ -6651,9 +6992,9 @@
 
     move-result v7
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_4
 
-    :cond_3
+    :cond_2
     new-instance v7, Ljava/lang/SecurityException;
 
     const-string/jumbo v8, "Operation supported only on owner space"
@@ -6669,7 +7010,7 @@
 
     const/4 v5, 0x0
 
-    :cond_4
+    :cond_3
     :goto_0
     const-string/jumbo v7, "PhoneRestrictionPolicy"
 
@@ -6695,11 +7036,11 @@
 
     return v5
 
-    :cond_5
+    :cond_4
     :try_start_1
     iget v7, p1, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
 
-    if-gtz v7, :cond_3
+    if-gtz v7, :cond_2
 
     iget-object v7, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
@@ -6715,7 +7056,7 @@
 
     goto :goto_0
 
-    :cond_6
+    :cond_5
     iget-object v7, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
     const-string/jumbo v8, "PHONERESTRICTION"
@@ -6730,12 +7071,12 @@
 
     move-result-object v1
 
-    :cond_7
+    :cond_6
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_3
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -6749,7 +7090,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_7
+    if-eqz v7, :cond_6
 
     const/4 v7, 0x1
 
@@ -6923,16 +7264,54 @@
     const-wide/16 v2, 0x0
 
     :goto_0
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2
 
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    xor-int/lit8 v6, v6, 0x1
+
+    if-eqz v6, :cond_2
+
+    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
 
     :cond_0
-    return-wide v2
+    :goto_1
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_2
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Ljava/lang/Long;
+
+    invoke-virtual {v6}, Ljava/lang/Long;->longValue()J
+
+    move-result-wide v4
+
+    cmp-long v6, v4, v10
+
+    if-eqz v6, :cond_0
+
+    cmp-long v6, v4, v2
+
+    if-ltz v6, :cond_1
+
+    cmp-long v6, v2, v10
+
+    if-nez v6, :cond_0
+
+    :cond_1
+    move-wide v2, v4
+
+    goto :goto_1
 
     :pswitch_1
     iget-object v6, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
@@ -6964,45 +7343,8 @@
 
     goto :goto_0
 
-    :cond_1
-    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
     :cond_2
-    :goto_1
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_0
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Ljava/lang/Long;
-
-    invoke-virtual {v6}, Ljava/lang/Long;->longValue()J
-
-    move-result-wide v4
-
-    cmp-long v6, v4, v10
-
-    if-eqz v6, :cond_2
-
-    cmp-long v6, v4, v2
-
-    if-ltz v6, :cond_3
-
-    cmp-long v6, v2, v10
-
-    if-nez v6, :cond_2
-
-    :cond_3
-    move-wide v2, v4
-
-    goto :goto_1
+    return-wide v2
 
     nop
 
@@ -7052,16 +7394,54 @@
     const/4 v1, 0x0
 
     :goto_0
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3
 
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_3
+
+    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
 
     :cond_1
-    return v1
+    :goto_1
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_3
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/Integer;
+
+    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+
+    move-result v4
+
+    if-lt v4, v1, :cond_2
+
+    if-nez v1, :cond_1
+
+    :cond_2
+    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+
+    move-result v1
+
+    goto :goto_1
 
     :pswitch_1
     iget-object v4, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
@@ -7093,45 +7473,8 @@
 
     goto :goto_0
 
-    :cond_2
-    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v3
-
     :cond_3
-    :goto_1
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1
-
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/Integer;
-
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
-
-    move-result v4
-
-    if-eqz v4, :cond_3
-
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
-
-    move-result v4
-
-    if-lt v4, v1, :cond_4
-
-    if-nez v1, :cond_3
-
-    :cond_4
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
-
-    move-result v1
-
-    goto :goto_1
+    return v1
 
     nop
 
@@ -7170,16 +7513,54 @@
     const/4 v1, 0x0
 
     :goto_0
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2
 
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_2
+
+    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
 
     :cond_0
-    return v1
+    :goto_1
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/Integer;
+
+    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+
+    move-result v4
+
+    if-lt v4, v1, :cond_1
+
+    if-nez v1, :cond_0
+
+    :cond_1
+    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+
+    move-result v1
+
+    goto :goto_1
 
     :pswitch_1
     iget-object v4, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
@@ -7211,45 +7592,8 @@
 
     goto :goto_0
 
-    :cond_1
-    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v3
-
     :cond_2
-    :goto_1
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/Integer;
-
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
-
-    move-result v4
-
-    if-eqz v4, :cond_2
-
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
-
-    move-result v4
-
-    if-lt v4, v1, :cond_3
-
-    if-nez v1, :cond_2
-
-    :cond_3
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
-
-    move-result v1
-
-    goto :goto_1
+    return v1
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -7297,16 +7641,54 @@
     const/4 v1, 0x0
 
     :goto_0
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3
 
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_3
+
+    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
 
     :cond_1
-    return v1
+    :goto_1
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_3
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/Integer;
+
+    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+
+    move-result v4
+
+    if-lt v4, v1, :cond_2
+
+    if-nez v1, :cond_1
+
+    :cond_2
+    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+
+    move-result v1
+
+    goto :goto_1
 
     :pswitch_1
     iget-object v4, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
@@ -7338,45 +7720,8 @@
 
     goto :goto_0
 
-    :cond_2
-    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v3
-
     :cond_3
-    :goto_1
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1
-
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/Integer;
-
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
-
-    move-result v4
-
-    if-eqz v4, :cond_3
-
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
-
-    move-result v4
-
-    if-lt v4, v1, :cond_4
-
-    if-nez v1, :cond_3
-
-    :cond_4
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
-
-    move-result v1
-
-    goto :goto_1
+    return v1
 
     nop
 
@@ -7415,16 +7760,54 @@
     const/4 v1, 0x0
 
     :goto_0
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2
 
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_2
+
+    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
 
     :cond_0
-    return v1
+    :goto_1
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/Integer;
+
+    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+
+    move-result v4
+
+    if-lt v4, v1, :cond_1
+
+    if-nez v1, :cond_0
+
+    :cond_1
+    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+
+    move-result v1
+
+    goto :goto_1
 
     :pswitch_1
     iget-object v4, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
@@ -7456,45 +7839,8 @@
 
     goto :goto_0
 
-    :cond_1
-    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v3
-
     :cond_2
-    :goto_1
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/Integer;
-
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
-
-    move-result v4
-
-    if-eqz v4, :cond_2
-
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
-
-    move-result v4
-
-    if-lt v4, v1, :cond_3
-
-    if-nez v1, :cond_2
-
-    :cond_3
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
-
-    move-result v1
-
-    goto :goto_1
+    return v1
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -7727,16 +8073,17 @@
 
     if-eq v2, v7, :cond_2
 
-    if-eqz v5, :cond_3
+    xor-int/lit8 v7, v5, 0x1
 
-    :cond_2
-    iget-object v7, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSimDBProxy:Lcom/android/server/enterprise/restriction/SimDBProxy;
+    if-eqz v7, :cond_2
 
-    invoke-virtual {v7, p1}, Lcom/android/server/enterprise/restriction/SimDBProxy;->getPincode(Ljava/lang/String;)Ljava/lang/String;
+    new-instance v7, Ljava/lang/SecurityException;
 
-    move-result-object v7
+    const-string/jumbo v8, "Can only be called by System, Phone or System UI"
 
-    return-object v7
+    invoke-direct {v7, v8}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+
+    throw v7
 
     :catch_0
     move-exception v3
@@ -7749,39 +8096,18 @@
 
     goto :goto_0
 
-    :cond_3
-    new-instance v7, Ljava/lang/SecurityException;
+    :cond_2
+    iget-object v7, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSimDBProxy:Lcom/android/server/enterprise/restriction/SimDBProxy;
 
-    const-string/jumbo v8, "Can only be called by System, Phone or System UI"
+    invoke-virtual {v7, p1}, Lcom/android/server/enterprise/restriction/SimDBProxy;->getPincode(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-direct {v7, v8}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+    move-result-object v7
 
-    throw v7
+    return-object v7
 .end method
 
 .method public isBlockMmsWithStorageEnabled(Lcom/samsung/android/knox/ContextInfo;)Z
     .locals 4
-
-    iget-object v1, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mContext:Landroid/content/Context;
-
-    invoke-static {v1, p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->isManagedProfileUser(Landroid/content/Context;Lcom/samsung/android/knox/ContextInfo;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    const-string/jumbo v1, "PhoneRestrictionPolicy"
-
-    const-string/jumbo v2, " isBlockMmsWithStorageEnabled calls from Profile return default value"
-
-    invoke-static {v1, v2}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    const/4 v1, 0x0
-
-    return v1
-
-    :cond_0
-    invoke-direct {p0, p1}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->enforcePhoneAppOrOwnerOnlyAndPhonePermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
     iget-object v1, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
@@ -7808,27 +8134,6 @@
 
 .method public isBlockSmsWithStorageEnabled(Lcom/samsung/android/knox/ContextInfo;)Z
     .locals 4
-
-    iget-object v1, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mContext:Landroid/content/Context;
-
-    invoke-static {v1, p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->isManagedProfileUser(Landroid/content/Context;Lcom/samsung/android/knox/ContextInfo;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    const-string/jumbo v1, "PhoneRestrictionPolicy"
-
-    const-string/jumbo v2, " isBlockSmsWithStorageEnabled calls from Profile return default value"
-
-    invoke-static {v1, v2}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    const/4 v1, 0x0
-
-    return v1
-
-    :cond_0
-    invoke-direct {p0, p1}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->enforcePhoneAppOrOwnerOnlyAndPhonePermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
     iget-object v1, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
@@ -7993,7 +8298,7 @@
 
     invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    const v4, 0x1040a01
+    const v4, 0x1040090
 
     invoke-static {v4}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -8006,7 +8311,7 @@
 
     invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    const v4, 0x1040a02
+    const v4, 0x10402ee
 
     invoke-static {v4}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -8077,27 +8382,8 @@
 .end method
 
 .method public isIncomingSmsAllowed(Lcom/samsung/android/knox/ContextInfo;)Z
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mContext:Landroid/content/Context;
-
-    invoke-static {v0, p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->isManagedProfileUser(Landroid/content/Context;Lcom/samsung/android/knox/ContextInfo;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const-string/jumbo v0, "PhoneRestrictionPolicy"
-
-    const-string/jumbo v1, " isIncomingSmsAllowed calls from Profile return default value"
-
-    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_0
     const-string/jumbo v0, "allowIncomingSms"
 
     invoke-direct {p0, v0}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->getSmsMmsAllowed(Ljava/lang/String;)Z
@@ -8235,27 +8521,8 @@
 .end method
 
 .method public isOutgoingSmsAllowed(Lcom/samsung/android/knox/ContextInfo;)Z
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mContext:Landroid/content/Context;
-
-    invoke-static {v0, p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->isManagedProfileUser(Landroid/content/Context;Lcom/samsung/android/knox/ContextInfo;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const-string/jumbo v0, "PhoneRestrictionPolicy"
-
-    const-string/jumbo v1, " isOutgoingSmsAllowed calls from Profile return default value"
-
-    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_0
     const-string/jumbo v0, "allowOutgoingSms"
 
     invoke-direct {p0, v0}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->getSmsMmsAllowed(Ljava/lang/String;)Z
@@ -8263,6 +8530,119 @@
     move-result v0
 
     return v0
+.end method
+
+.method public isRCSEnabled(Lcom/samsung/android/knox/ContextInfo;IZ)Z
+    .locals 8
+
+    const/4 v7, 0x1
+
+    const/4 v6, 0x0
+
+    invoke-direct {p0, p2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->isRCSFeature(I)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    const-string/jumbo v3, "PhoneRestrictionPolicy"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "isRCSEnabled(): allowed. not support feature = "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    return v7
+
+    :cond_0
+    invoke-direct {p0}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->isRCSSupportedModel()Z
+
+    move-result v3
+
+    if-nez v3, :cond_1
+
+    const-string/jumbo v3, "PhoneRestrictionPolicy"
+
+    const-string/jumbo v4, "isRCSEnabled(): this device doesn\'t support rcs feature."
+
+    invoke-static {v3, v4}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    return v6
+
+    :cond_1
+    iget-object v3, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    const-string/jumbo v4, "PHONERESTRICTION"
+
+    const-string/jumbo v5, "enableRCS"
+
+    invoke-virtual {v3, v4, v5}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getIntList(Ljava/lang/String;Ljava/lang/String;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :cond_2
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_4
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Integer;
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v3
+
+    if-ltz v3, :cond_2
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v3
+
+    and-int/2addr v3, p2
+
+    if-eq v3, p2, :cond_2
+
+    const-string/jumbo v3, "PhoneRestrictionPolicy"
+
+    const-string/jumbo v4, "isRCSEnabled(): disallowed by EDM"
+
+    invoke-static {v3, v4}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    if-eqz p3, :cond_3
+
+    const v3, 0x10408c6
+
+    invoke-static {v3}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
+
+    :cond_3
+    return v6
+
+    :cond_4
+    return v7
 .end method
 
 .method public isSimLockedByAdmin(Ljava/lang/String;)Z
@@ -8291,15 +8671,16 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_1
-    const/4 v1, 0x0
+    if-eqz v1, :cond_1
+
+    const/4 v1, 0x1
 
     return v1
 
-    :cond_2
-    const/4 v1, 0x1
+    :cond_1
+    const/4 v1, 0x0
 
     return v1
 .end method
@@ -8396,34 +8777,46 @@
 .end method
 
 .method public declared-synchronized lockUnlockCorporateSimCard(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Ljava/lang/String;Z)I
-    .locals 15
+    .locals 17
 
     monitor-enter p0
 
     :try_start_0
-    const-string/jumbo v12, "PhoneRestrictionPolicy"
+    const-string/jumbo v14, "PhoneRestrictionPolicy"
 
-    new-instance v13, Ljava/lang/StringBuilder;
+    new-instance v15, Ljava/lang/StringBuilder;
 
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v14, "lockUnlockCorporateSimCard lock "
+    const-string/jumbo v16, "lockUnlockCorporateSimCard lock "
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v15
 
     move/from16 v0, p4
 
-    invoke-virtual {v13, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v15, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v15
 
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string/jumbo v16, " iccId "
 
-    move-result-object v13
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v12, v13}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    move-result-object v15
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v15, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-static {v14, v15}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-direct/range {p0 .. p1}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->enforceOwnerOnlyAndPhonePermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
@@ -8431,421 +8824,529 @@
 
     move-object/from16 v0, p1
 
-    iget v10, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    iget v12, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    move-object/from16 v0, p3
+    move-object/from16 v0, p0
 
-    invoke-direct {p0, v0}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->validatePinCode(Ljava/lang/String;)Z
+    move-object/from16 v1, p3
 
-    move-result v12
+    invoke-direct {v0, v1}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->validatePinCode(Ljava/lang/String;)Z
 
-    if-nez v12, :cond_0
+    move-result v14
 
-    const-string/jumbo v12, "PhoneRestrictionPolicy"
+    if-nez v14, :cond_0
 
-    const-string/jumbo v13, "lockUnlockCorporateSimCard invalid pincode"
+    const/4 v14, 0x2
 
-    invoke-static {v12, v13}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v14}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->logError(I)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const/4 v12, 0x2
+    const/4 v14, 0x2
 
     monitor-exit p0
 
-    return v12
+    return v14
 
     :cond_0
     :try_start_1
-    const-string/jumbo v12, "PhoneRestrictionPolicy"
+    const-string/jumbo v14, "PhoneRestrictionPolicy"
 
-    const-string/jumbo v13, "lockUnlockCorporateSimCard valid pincode"
+    const-string/jumbo v15, "lockUnlockCorporateSimCard valid pincode"
 
-    invoke-static {v12, v13}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v14, v15}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-static/range {p2 .. p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v12
+    move-result v14
 
-    if-eqz v12, :cond_1
+    if-eqz v14, :cond_2
 
     invoke-static {}, Landroid/telephony/SubscriptionManager;->getDefaultSubscriptionId()I
 
-    move-result v3
+    move-result v4
 
-    iget-object v12, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSubMgr:Landroid/telephony/SubscriptionManager;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v12, v3}, Landroid/telephony/SubscriptionManager;->getActiveSubscriptionInfo(I)Landroid/telephony/SubscriptionInfo;
+    iget-object v14, v0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSubMgr:Landroid/telephony/SubscriptionManager;
 
-    move-result-object v12
-
-    invoke-virtual {v12}, Landroid/telephony/SubscriptionInfo;->getIccId()Ljava/lang/String;
-
-    move-result-object p2
-
-    if-nez p2, :cond_1
-
-    const-string/jumbo v12, "PhoneRestrictionPolicy"
-
-    const-string/jumbo v13, "lockUnlockCorporateSimCard Sim not inserted"
-
-    invoke-static {v12, v13}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v14, v4}, Landroid/telephony/SubscriptionManager;->getActiveSubscriptionInfo(I)Landroid/telephony/SubscriptionInfo;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    const/16 v12, 0x9
+    move-result-object v10
+
+    if-nez v10, :cond_1
+
+    const/16 v14, 0x9
 
     monitor-exit p0
 
-    return v12
+    return v14
 
     :cond_1
     :try_start_2
-    move-object/from16 v0, p2
+    invoke-virtual {v10}, Landroid/telephony/SubscriptionInfo;->getIccId()Ljava/lang/String;
 
-    invoke-direct {p0, v0}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->getSimSubId(Ljava/lang/String;)I
+    move-result-object p2
 
-    move-result v9
+    if-nez p2, :cond_2
 
-    const-string/jumbo v12, "PhoneRestrictionPolicy"
+    const/16 v14, 0x9
 
-    new-instance v13, Ljava/lang/StringBuilder;
+    move-object/from16 v0, p0
 
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v14, "lockUnlockCorporateSimCard Sim subscription ID "
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v13
-
-    invoke-static {v12, v13}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v0, v14}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->logError(I)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    const/4 v12, -0x1
-
-    if-ne v9, v12, :cond_2
-
-    const/16 v12, 0xd
+    const/16 v14, 0x9
 
     monitor-exit p0
 
-    return v12
+    return v14
 
     :cond_2
     :try_start_3
-    iget-object v12, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSimDBProxy:Lcom/android/server/enterprise/restriction/SimDBProxy;
+    move-object/from16 v0, p0
 
-    move-object/from16 v0, p2
+    move-object/from16 v1, p2
 
-    invoke-virtual {v12, v0}, Lcom/android/server/enterprise/restriction/SimDBProxy;->getAdminBySimcard(Ljava/lang/String;)I
-
-    move-result v8
-
-    const-string/jumbo v12, "PhoneRestrictionPolicy"
-
-    new-instance v13, Ljava/lang/StringBuilder;
-
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v14, "lockUnlockCorporateSimCard Sim owner "
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v13
-
-    invoke-static {v12, v13}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    invoke-direct {p0, v9}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->isSimLocked(I)Z
-
-    move-result v6
-
-    const-string/jumbo v12, "PhoneRestrictionPolicy"
-
-    new-instance v13, Ljava/lang/StringBuilder;
-
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v14, "lockUnlockCorporateSimCard isSimLocked  "
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v13
-
-    invoke-static {v12, v13}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    if-eqz p4, :cond_b
-
-    if-eqz v6, :cond_5
-
-    const/4 v12, -0x1
-
-    if-ne v8, v12, :cond_3
-
-    const/4 v12, 0x4
-
-    monitor-exit p0
-
-    return v12
-
-    :cond_3
-    if-ne v8, v10, :cond_4
-
-    const/16 v12, 0xb
-
-    monitor-exit p0
-
-    return v12
-
-    :cond_4
-    if-eq v8, v10, :cond_6
-
-    const/16 v12, 0xc
-
-    monitor-exit p0
-
-    return v12
-
-    :cond_5
-    const/4 v12, -0x1
-
-    if-ne v8, v12, :cond_9
-
-    :cond_6
-    :goto_0
-    :try_start_4
-    move/from16 v0, p4
-
-    move-object/from16 v1, p3
-
-    invoke-direct {p0, v9, v0, v1}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->setSubIdLockEnabled(IZLjava/lang/String;)I
-
-    move-result v7
-
-    if-nez v7, :cond_11
-
-    const/4 v2, 0x1
-
-    if-eqz p4, :cond_10
-
-    const/4 v12, -0x1
-
-    if-ne v8, v12, :cond_f
-
-    iget-object v12, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSimDBProxy:Lcom/android/server/enterprise/restriction/SimDBProxy;
-
-    move-object/from16 v0, p2
-
-    move-object/from16 v1, p3
-
-    invoke-virtual {v12, v10, v0, v1}, Lcom/android/server/enterprise/restriction/SimDBProxy;->addSimcard(ILjava/lang/String;Ljava/lang/String;)Z
-
-    move-result v2
-
-    :cond_7
-    :goto_1
-    invoke-static/range {p1 .. p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
+    invoke-direct {v0, v1}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->getSimSubId(Ljava/lang/String;)I
 
     move-result v11
 
-    invoke-direct {p0, v11}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->setLockedIccIdsSystemUI(I)V
+    const-string/jumbo v14, "PhoneRestrictionPolicy"
 
-    if-eqz v2, :cond_8
+    new-instance v15, Ljava/lang/StringBuilder;
 
-    if-nez v11, :cond_8
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
 
-    new-instance v5, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;
+    const-string/jumbo v16, "lockUnlockCorporateSimCard Sim subscription ID "
 
-    iget-object v12, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mContext:Landroid/content/Context;
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v5, v12}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;-><init>(Landroid/content/Context;)V
+    move-result-object v15
+
+    invoke-virtual {v15, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-static {v14, v15}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    const/4 v14, -0x1
+
+    if-ne v11, v14, :cond_3
+
+    const/16 v14, 0xd
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v14}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->logError(I)V
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    const/16 v14, 0xd
+
+    monitor-exit p0
+
+    return v14
+
+    :cond_3
+    :try_start_4
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSimDBProxy:Lcom/android/server/enterprise/restriction/SimDBProxy;
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v14, v0}, Lcom/android/server/enterprise/restriction/SimDBProxy;->getAdminBySimcard(Ljava/lang/String;)I
+
+    move-result v9
+
+    const-string/jumbo v14, "PhoneRestrictionPolicy"
+
+    new-instance v15, Ljava/lang/StringBuilder;
+
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v16, "lockUnlockCorporateSimCard Sim owner "
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-static {v14, v15}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v11}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->isSimLocked(I)Z
+
+    move-result v7
+
+    const-string/jumbo v14, "PhoneRestrictionPolicy"
+
+    new-instance v15, Ljava/lang/StringBuilder;
+
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v16, "lockUnlockCorporateSimCard isSimLocked  "
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15, v7}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-static {v14, v15}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    if-eqz p4, :cond_c
+
+    if-eqz v7, :cond_6
+
+    const/4 v14, -0x1
+
+    if-ne v9, v14, :cond_4
+
+    const/4 v14, 0x4
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v14}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->logError(I)V
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    :try_start_5
-    const-string/jumbo v12, "PhoneRestriction"
+    const/4 v14, 0x4
 
-    const-string/jumbo v13, "lockUnlockCorporateSimCard"
+    monitor-exit p0
+
+    return v14
+
+    :cond_4
+    if-ne v9, v12, :cond_5
+
+    const/16 v14, 0xb
+
+    :try_start_5
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v14}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->logError(I)V
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+
+    const/16 v14, 0xb
+
+    monitor-exit p0
+
+    return v14
+
+    :cond_5
+    if-eq v9, v12, :cond_7
+
+    const/16 v14, 0xc
+
+    :try_start_6
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v14}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->logError(I)V
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
+
+    const/16 v14, 0xc
+
+    monitor-exit p0
+
+    return v14
+
+    :cond_6
+    const/4 v14, -0x1
+
+    if-ne v9, v14, :cond_a
+
+    :cond_7
+    :goto_0
+    :try_start_7
+    move-object/from16 v0, p0
+
+    move/from16 v1, p4
+
+    move-object/from16 v2, p3
+
+    invoke-direct {v0, v11, v1, v2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->setSubIdLockEnabled(IZLjava/lang/String;)I
+
+    move-result v8
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v8}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->logError(I)V
+
+    if-nez v8, :cond_12
+
+    const/4 v3, 0x1
+
+    if-eqz p4, :cond_11
+
+    const/4 v14, -0x1
+
+    if-ne v9, v14, :cond_10
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSimDBProxy:Lcom/android/server/enterprise/restriction/SimDBProxy;
+
+    move-object/from16 v0, p2
+
+    move-object/from16 v1, p3
+
+    invoke-virtual {v14, v12, v0, v1}, Lcom/android/server/enterprise/restriction/SimDBProxy;->addSimcard(ILjava/lang/String;Ljava/lang/String;)Z
+
+    move-result v3
+
+    :cond_8
+    :goto_1
+    invoke-static/range {p1 .. p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
+
+    move-result v13
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v13}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->setLockedIccIdsSystemUI(I)V
+
+    if-eqz v3, :cond_9
+
+    if-nez v13, :cond_9
+
+    new-instance v6, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mContext:Landroid/content/Context;
+
+    invoke-direct {v6, v14}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;-><init>(Landroid/content/Context;)V
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_0
+
+    :try_start_8
+    const-string/jumbo v14, "PhoneRestriction"
+
+    const-string/jumbo v15, "lockUnlockCorporateSimCard"
 
     move-object/from16 v0, p3
 
     move/from16 v1, p4
 
-    invoke-virtual {v5, v12, v13, v0, v1}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;->SetStringAndBooleanTypePolicy(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)I
+    invoke-virtual {v6, v14, v15, v0, v1}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;->SetStringAndBooleanTypePolicy(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)I
 
-    const-string/jumbo v12, "PhoneRestrictionPolicy"
+    const-string/jumbo v14, "PhoneRestrictionPolicy"
 
-    const-string/jumbo v13, "enableLimitNumberOfCalls calling gearPolicyManager  "
+    const-string/jumbo v15, "enableLimitNumberOfCalls calling gearPolicyManager  "
 
-    invoke-static {v12, v13}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_5
-    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_0
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+    invoke-static {v14, v15}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_8
+    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_0
+    .catchall {:try_start_8 .. :try_end_8} :catchall_0
 
-    :cond_8
+    :cond_9
     :goto_2
-    if-nez v2, :cond_11
+    if-nez v3, :cond_12
 
-    const/16 v12, 0xa
+    const/16 v14, 0xa
+
+    :try_start_9
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v14}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->logError(I)V
+    :try_end_9
+    .catchall {:try_start_9 .. :try_end_9} :catchall_0
+
+    const/16 v14, 0xa
 
     monitor-exit p0
 
-    return v12
+    return v14
 
-    :cond_9
-    if-ne v8, v10, :cond_a
+    :cond_a
+    if-ne v9, v12, :cond_b
 
-    :try_start_6
-    iget-object v12, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSimDBProxy:Lcom/android/server/enterprise/restriction/SimDBProxy;
+    :try_start_a
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSimDBProxy:Lcom/android/server/enterprise/restriction/SimDBProxy;
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v12, v10, v0}, Lcom/android/server/enterprise/restriction/SimDBProxy;->removeSimcard(ILjava/lang/String;)Z
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_0
+    invoke-virtual {v14, v12, v0}, Lcom/android/server/enterprise/restriction/SimDBProxy;->removeSimcard(ILjava/lang/String;)Z
+    :try_end_a
+    .catchall {:try_start_a .. :try_end_a} :catchall_0
 
     goto :goto_0
 
     :catchall_0
-    move-exception v12
+    move-exception v14
 
     monitor-exit p0
 
-    throw v12
-
-    :cond_a
-    if-eq v8, v10, :cond_6
-
-    const/16 v12, 0xc
-
-    monitor-exit p0
-
-    return v12
+    throw v14
 
     :cond_b
-    if-eqz v6, :cond_c
+    if-eq v9, v12, :cond_7
 
-    const/4 v12, -0x1
+    const/16 v14, 0xc
 
-    if-eq v8, v12, :cond_6
+    :try_start_b
+    move-object/from16 v0, p0
 
-    if-eq v8, v10, :cond_6
+    invoke-direct {v0, v14}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->logError(I)V
+    :try_end_b
+    .catchall {:try_start_b .. :try_end_b} :catchall_0
 
-    if-eq v8, v10, :cond_6
-
-    const/16 v12, 0xc
+    const/16 v14, 0xc
 
     monitor-exit p0
 
-    return v12
+    return v14
 
     :cond_c
-    const/4 v12, -0x1
+    if-eqz v7, :cond_d
 
-    if-ne v8, v12, :cond_d
+    const/4 v14, -0x1
 
-    const/4 v12, 0x5
+    if-eq v9, v14, :cond_7
+
+    if-eq v9, v12, :cond_7
+
+    if-eq v9, v12, :cond_7
+
+    const/16 v14, 0xc
+
+    :try_start_c
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v14}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->logError(I)V
+    :try_end_c
+    .catchall {:try_start_c .. :try_end_c} :catchall_0
+
+    const/16 v14, 0xc
 
     monitor-exit p0
 
-    return v12
+    return v14
 
     :cond_d
-    if-ne v8, v10, :cond_e
+    const/4 v14, 0x5
 
-    :try_start_7
-    iget-object v12, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSimDBProxy:Lcom/android/server/enterprise/restriction/SimDBProxy;
+    :try_start_d
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v14}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->logError(I)V
+    :try_end_d
+    .catchall {:try_start_d .. :try_end_d} :catchall_0
+
+    const/4 v14, -0x1
+
+    if-ne v9, v14, :cond_e
+
+    const/4 v14, 0x5
+
+    monitor-exit p0
+
+    return v14
+
+    :cond_e
+    if-ne v9, v12, :cond_f
+
+    :try_start_e
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSimDBProxy:Lcom/android/server/enterprise/restriction/SimDBProxy;
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v12, v10, v0}, Lcom/android/server/enterprise/restriction/SimDBProxy;->removeSimcard(ILjava/lang/String;)Z
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_0
+    invoke-virtual {v14, v12, v0}, Lcom/android/server/enterprise/restriction/SimDBProxy;->removeSimcard(ILjava/lang/String;)Z
+    :try_end_e
+    .catchall {:try_start_e .. :try_end_e} :catchall_0
 
-    const/4 v12, 0x5
-
-    monitor-exit p0
-
-    return v12
-
-    :cond_e
-    if-eq v8, v10, :cond_6
-
-    const/4 v12, 0x5
+    const/4 v14, 0x5
 
     monitor-exit p0
 
-    return v12
+    return v14
 
     :cond_f
-    :try_start_8
-    iget-object v12, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSimDBProxy:Lcom/android/server/enterprise/restriction/SimDBProxy;
+    if-eq v9, v12, :cond_7
+
+    const/4 v14, 0x5
+
+    monitor-exit p0
+
+    return v14
+
+    :cond_10
+    :try_start_f
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSimDBProxy:Lcom/android/server/enterprise/restriction/SimDBProxy;
 
     move-object/from16 v0, p2
 
     move-object/from16 v1, p3
 
-    invoke-virtual {v12, v10, v0, v1}, Lcom/android/server/enterprise/restriction/SimDBProxy;->setPincode(ILjava/lang/String;Ljava/lang/String;)Z
+    invoke-virtual {v14, v12, v0, v1}, Lcom/android/server/enterprise/restriction/SimDBProxy;->setPincode(ILjava/lang/String;Ljava/lang/String;)Z
 
-    move-result v2
+    move-result v3
 
-    goto :goto_1
+    goto/16 :goto_1
 
-    :cond_10
-    const/4 v12, -0x1
+    :cond_11
+    const/4 v14, -0x1
 
-    if-eq v8, v12, :cond_7
+    if-eq v9, v14, :cond_8
 
-    iget-object v12, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSimDBProxy:Lcom/android/server/enterprise/restriction/SimDBProxy;
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSimDBProxy:Lcom/android/server/enterprise/restriction/SimDBProxy;
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v12, v10, v0}, Lcom/android/server/enterprise/restriction/SimDBProxy;->removeSimcard(ILjava/lang/String;)Z
+    invoke-virtual {v14, v12, v0}, Lcom/android/server/enterprise/restriction/SimDBProxy;->removeSimcard(ILjava/lang/String;)Z
 
-    move-result v2
+    move-result v3
 
-    goto :goto_1
+    goto/16 :goto_1
 
     :catch_0
-    move-exception v4
+    move-exception v5
 
-    invoke-virtual {v4}, Ljava/lang/Exception;->printStackTrace()V
-    :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_0
+    invoke-virtual {v5}, Ljava/lang/Exception;->printStackTrace()V
+    :try_end_f
+    .catchall {:try_start_f .. :try_end_f} :catchall_0
 
     goto :goto_2
 
-    :cond_11
+    :cond_12
     monitor-exit p0
 
-    return v7
+    return v8
 .end method
 
 .method public notifyToAddSystemService(Ljava/lang/String;Landroid/os/IBinder;)V
@@ -8861,31 +9362,91 @@
 .end method
 
 .method public onAdminRemoved(I)V
-    .locals 3
+    .locals 6
+
+    const/4 v5, 0x0
+
+    new-instance v2, Lcom/samsung/android/knox/ContextInfo;
+
+    invoke-direct {v2, p1, v5}, Lcom/samsung/android/knox/ContextInfo;-><init>(II)V
+
+    invoke-static {v2}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
+
+    move-result v1
 
     invoke-virtual {p0}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->updateDataLimitState()V
 
-    iget-object v1, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSmsMmsDeliveryHandler:Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$SmsMmsDeliveryHandler;
+    iget-object v2, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSmsMmsDeliveryHandler:Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$SmsMmsDeliveryHandler;
 
-    const/4 v2, 0x2
+    const/4 v3, 0x2
 
-    invoke-static {v1, v2}, Landroid/os/Message;->obtain(Landroid/os/Handler;I)Landroid/os/Message;
+    invoke-static {v2, v3}, Landroid/os/Message;->obtain(Landroid/os/Handler;I)Landroid/os/Message;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSmsMmsDeliveryHandler:Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$SmsMmsDeliveryHandler;
+    iget-object v2, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSmsMmsDeliveryHandler:Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$SmsMmsDeliveryHandler;
 
-    invoke-virtual {v1, v0}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$SmsMmsDeliveryHandler;->sendMessage(Landroid/os/Message;)Z
+    invoke-virtual {v2, v0}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$SmsMmsDeliveryHandler;->sendMessage(Landroid/os/Message;)Z
 
-    iget-object v1, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSimDBProxy:Lcom/android/server/enterprise/restriction/SimDBProxy;
+    iget-object v2, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSimDBProxy:Lcom/android/server/enterprise/restriction/SimDBProxy;
 
-    invoke-virtual {v1, p1}, Lcom/android/server/enterprise/restriction/SimDBProxy;->removeSimcardsByAdmin(I)Z
+    invoke-virtual {v2, p1}, Lcom/android/server/enterprise/restriction/SimDBProxy;->removeSimcardsByAdmin(I)Z
 
+    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
+
+    move-result v2
+
+    if-ne v1, v2, :cond_0
+
+    invoke-direct {p0, v1}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->updateSystemUIMonitor(I)V
+
+    :cond_0
+    iget-object v2, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v3, "content://com.sec.knox.provider2/PhoneRestrictionPolicy/isRCSEnabled"
+
+    invoke-static {v3}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Lcom/android/server/enterprise/content/SecContentProvider;->notifyPolicyChangesAllUser(Landroid/content/Context;Landroid/net/Uri;)V
+
+    iget-boolean v2, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->preAdminRemoval_rcsEnabled:Z
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x1
+
+    invoke-virtual {p0, v3, v4, v5}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->isRCSEnabled(Lcom/samsung/android/knox/ContextInfo;IZ)Z
+
+    move-result v3
+
+    if-eq v2, v3, :cond_1
+
+    const-string/jumbo v2, "PhoneRestrictionPolicy"
+
+    const-string/jumbo v3, "onAdminRemoved() - try to change rcs status because diffrent mdm status"
+
+    invoke-static {v2, v3}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_1
     return-void
 .end method
 
 .method public onPreAdminRemoval(I)V
-    .locals 0
+    .locals 3
+
+    const/4 v0, 0x0
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    invoke-virtual {p0, v0, v1, v2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->isRCSEnabled(Lcom/samsung/android/knox/ContextInfo;IZ)Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->preAdminRemoval_rcsEnabled:Z
 
     return-void
 .end method
@@ -9642,10 +10203,77 @@
 
     iget-boolean v9, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mDataLimitEnabled:Z
 
-    if-eqz v9, :cond_4
+    xor-int/lit8 v9, v9, 0x1
+
+    if-eqz v9, :cond_0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->resetDataCallLimitCounter(Lcom/samsung/android/knox/ContextInfo;)Z
+
+    invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
+
+    move-result-object v0
+
+    const/16 v9, 0xb
+
+    invoke-virtual {v0, v9, v10}, Ljava/util/Calendar;->set(II)V
+
+    const/16 v9, 0xc
+
+    invoke-virtual {v0, v9, v10}, Ljava/util/Calendar;->set(II)V
+
+    const/16 v9, 0xd
+
+    invoke-virtual {v0, v9, v10}, Ljava/util/Calendar;->set(II)V
+
+    const/16 v9, 0xe
+
+    invoke-virtual {v0, v9, v10}, Ljava/util/Calendar;->set(II)V
+
+    invoke-virtual {v0}, Ljava/util/Calendar;->getTimeInMillis()J
+
+    move-result-wide v4
+
+    iget-object v9, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    const-string/jumbo v10, "dataCallDateDay"
+
+    invoke-static {v4, v5}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v9, v10, v11}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putGenericValue(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v3
+
+    iget-object v9, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    const-string/jumbo v10, "dataCallDateWeek"
+
+    invoke-static {v4, v5}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v9, v10, v11}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putGenericValue(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v9
+
+    and-int/2addr v3, v9
+
+    iget-object v9, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    const-string/jumbo v10, "dataCallDateMonth"
+
+    invoke-static {v4, v5}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v9, v10, v11}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putGenericValue(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v9
+
+    and-int/2addr v3, v9
 
     :cond_0
-    :goto_0
     iget-object v9, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
     iget v10, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
@@ -9726,84 +10354,15 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_3
-    :goto_1
+    :goto_0
     return v3
-
-    :cond_4
-    invoke-virtual {p0, p1}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->resetDataCallLimitCounter(Lcom/samsung/android/knox/ContextInfo;)Z
-
-    invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
-
-    move-result-object v0
-
-    const/16 v9, 0xb
-
-    invoke-virtual {v0, v9, v10}, Ljava/util/Calendar;->set(II)V
-
-    const/16 v9, 0xc
-
-    invoke-virtual {v0, v9, v10}, Ljava/util/Calendar;->set(II)V
-
-    const/16 v9, 0xd
-
-    invoke-virtual {v0, v9, v10}, Ljava/util/Calendar;->set(II)V
-
-    const/16 v9, 0xe
-
-    invoke-virtual {v0, v9, v10}, Ljava/util/Calendar;->set(II)V
-
-    invoke-virtual {v0}, Ljava/util/Calendar;->getTimeInMillis()J
-
-    move-result-wide v4
-
-    iget-object v9, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
-
-    const-string/jumbo v10, "dataCallDateDay"
-
-    invoke-static {v4, v5}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-virtual {v9, v10, v11}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putGenericValue(Ljava/lang/String;Ljava/lang/String;)Z
-
-    move-result v3
-
-    iget-object v9, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
-
-    const-string/jumbo v10, "dataCallDateWeek"
-
-    invoke-static {v4, v5}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-virtual {v9, v10, v11}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putGenericValue(Ljava/lang/String;Ljava/lang/String;)Z
-
-    move-result v9
-
-    and-int/2addr v3, v9
-
-    iget-object v9, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
-
-    const-string/jumbo v10, "dataCallDateMonth"
-
-    invoke-static {v4, v5}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-virtual {v9, v10, v11}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putGenericValue(Ljava/lang/String;Ljava/lang/String;)Z
-
-    move-result v9
-
-    and-int/2addr v3, v9
-
-    goto/16 :goto_0
 
     :catch_0
     move-exception v1
 
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
-    goto :goto_1
+    goto :goto_0
 .end method
 
 .method public setDisclaimerText(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Z
@@ -10005,6 +10564,10 @@
     return v6
 
     :cond_0
+    invoke-direct {p0, p2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->removeWhiteSpaces(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p2
+
     iget-object v4, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
     iget v5, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
@@ -10084,6 +10647,10 @@
     return v6
 
     :cond_0
+    invoke-direct {p0, p2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->removeWhiteSpaces(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p2
+
     iget-object v4, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
     iget v5, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
@@ -10163,6 +10730,10 @@
     return v6
 
     :cond_0
+    invoke-direct {p0, p2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->removeWhiteSpaces(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p2
+
     iget-object v4, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
     iget v5, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
@@ -10222,6 +10793,10 @@
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->enforceOwnerOnlyAndPhonePermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
     move-result-object p1
+
+    invoke-direct {p0, p2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->removeWhiteSpaces(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p2
 
     iget-object v4, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
@@ -10419,7 +10994,7 @@
     return v2
 
     :cond_4
-    move v1, v2
+    const/4 v1, 0x0
 
     goto :goto_0
 .end method
@@ -10484,7 +11059,7 @@
     return v2
 
     :cond_3
-    move v1, v2
+    const/4 v1, 0x0
 
     goto :goto_0
 .end method
@@ -10560,7 +11135,7 @@
     return v2
 
     :cond_4
-    move v1, v2
+    const/4 v1, 0x0
 
     goto :goto_0
 .end method
@@ -10625,7 +11200,7 @@
     return v2
 
     :cond_3
-    move v1, v2
+    const/4 v1, 0x0
 
     goto :goto_0
 .end method
@@ -10656,6 +11231,10 @@
     return v6
 
     :cond_0
+    invoke-direct {p0, p2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->removeWhiteSpaces(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p2
+
     iget-object v4, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
     iget v5, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
@@ -10735,6 +11314,10 @@
     return v6
 
     :cond_0
+    invoke-direct {p0, p2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->removeWhiteSpaces(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p2
+
     iget-object v4, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
     iget v5, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
@@ -10814,6 +11397,10 @@
     return v6
 
     :cond_0
+    invoke-direct {p0, p2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->removeWhiteSpaces(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p2
+
     iget-object v4, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
     iget v5, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
@@ -10874,6 +11461,10 @@
 
     move-result-object p1
 
+    invoke-direct {p0, p2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->removeWhiteSpaces(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p2
+
     iget-object v4, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
     iget v5, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
@@ -10923,6 +11514,160 @@
     move-exception v0
 
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+
+    goto :goto_0
+.end method
+
+.method public setRCSEnabled(Lcom/samsung/android/knox/ContextInfo;IZ)I
+    .locals 9
+
+    const/4 v4, 0x0
+
+    invoke-direct {p0, p1}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->enforceOwnerOnlyAndPhonePermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
+
+    move-result-object p1
+
+    invoke-direct {p0, p2}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->isRCSFeature(I)Z
+
+    move-result v5
+
+    if-nez v5, :cond_0
+
+    const-string/jumbo v4, "PhoneRestrictionPolicy"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "setRCSEnabled(): failed. not support feature = "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    const/4 v4, -0x1
+
+    return v4
+
+    :cond_0
+    invoke-direct {p0}, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->isRCSSupportedModel()Z
+
+    move-result v5
+
+    if-nez v5, :cond_1
+
+    const-string/jumbo v4, "PhoneRestrictionPolicy"
+
+    const-string/jumbo v5, "setRCSEnabled(): failed. not support device. "
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    const/4 v4, -0x3
+
+    return v4
+
+    :cond_1
+    const/4 v2, 0x1
+
+    const/16 v3, 0xff
+
+    :try_start_0
+    iget-object v5, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    iget v6, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    const-string/jumbo v7, "PHONERESTRICTION"
+
+    const-string/jumbo v8, "enableRCS"
+
+    invoke-virtual {v5, v6, v7, v8}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getInt(ILjava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
+
+    move-result v3
+
+    :goto_0
+    if-gez v3, :cond_2
+
+    const/16 v3, 0xff
+
+    :cond_2
+    if-eqz p3, :cond_4
+
+    or-int/2addr v3, p2
+
+    :goto_1
+    :try_start_1
+    iget-object v5, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    iget v6, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    const-string/jumbo v7, "PHONERESTRICTION"
+
+    const-string/jumbo v8, "enableRCS"
+
+    invoke-virtual {v5, v6, v7, v8, v3}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putInt(ILjava/lang/String;Ljava/lang/String;I)Z
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+
+    move-result v2
+
+    :goto_2
+    if-eqz v2, :cond_3
+
+    iget-object v5, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v6, "content://com.sec.knox.provider2/PhoneRestrictionPolicy/isRCSEnabled"
+
+    invoke-static {v6}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Lcom/android/server/enterprise/content/SecContentProvider;->notifyPolicyChangesAllUser(Landroid/content/Context;Landroid/net/Uri;)V
+
+    :cond_3
+    if-eqz v2, :cond_5
+
+    :goto_3
+    return v4
+
+    :cond_4
+    not-int v5, p2
+
+    and-int/2addr v3, v5
+
+    goto :goto_1
+
+    :catch_0
+    move-exception v0
+
+    const/4 v2, 0x0
+
+    const-string/jumbo v5, "PhoneRestrictionPolicy"
+
+    const-string/jumbo v6, "setRCSEnabled(): failed. unexpected exception"
+
+    invoke-static {v5, v6, v0}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    goto :goto_2
+
+    :cond_5
+    const/4 v4, -0x2
+
+    goto :goto_3
+
+    :catch_1
+    move-exception v1
 
     goto :goto_0
 .end method
@@ -11074,7 +11819,17 @@
 .end method
 
 .method public systemReady()V
-    .locals 0
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v1, "content://com.sec.knox.provider2/PhoneRestrictionPolicy/isRCSEnabled"
+
+    invoke-static {v1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/content/SecContentProvider;->notifyPolicyChangesAllUser(Landroid/content/Context;Landroid/net/Uri;)V
 
     return-void
 .end method

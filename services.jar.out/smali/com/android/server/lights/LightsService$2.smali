@@ -1,5 +1,5 @@
 .class Lcom/android/server/lights/LightsService$2;
-.super Lcom/android/server/lights/LightsManager;
+.super Landroid/os/Handler;
 .source "LightsService.java"
 
 
@@ -24,30 +24,21 @@
 
     iput-object p1, p0, Lcom/android/server/lights/LightsService$2;->this$0:Lcom/android/server/lights/LightsService;
 
-    invoke-direct {p0}, Lcom/android/server/lights/LightsManager;-><init>()V
+    invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public getLight(I)Lcom/android/server/lights/Light;
+.method public handleMessage(Landroid/os/Message;)V
     .locals 1
 
-    const/16 v0, 0xe
+    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    if-ge p1, v0, :cond_0
+    check-cast v0, Lcom/android/server/lights/LightsService$LightImpl;
 
-    iget-object v0, p0, Lcom/android/server/lights/LightsService$2;->this$0:Lcom/android/server/lights/LightsService;
+    invoke-static {v0}, Lcom/android/server/lights/LightsService$LightImpl;->-wrap1(Lcom/android/server/lights/LightsService$LightImpl;)V
 
-    iget-object v0, v0, Lcom/android/server/lights/LightsService;->mLights:[Lcom/android/server/lights/LightsService$LightImpl;
-
-    aget-object v0, v0, p1
-
-    return-object v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    return-object v0
+    return-void
 .end method

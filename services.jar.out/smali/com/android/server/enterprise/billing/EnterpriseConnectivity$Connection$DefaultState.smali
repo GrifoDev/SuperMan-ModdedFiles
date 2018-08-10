@@ -118,7 +118,7 @@
 
     iget-object v1, p0, Lcom/android/server/enterprise/billing/EnterpriseConnectivity$Connection$DefaultState;->this$1:Lcom/android/server/enterprise/billing/EnterpriseConnectivity$Connection;
 
-    invoke-static {v1}, Lcom/android/server/enterprise/billing/EnterpriseConnectivity$Connection;->-wrap24(Lcom/android/server/enterprise/billing/EnterpriseConnectivity$Connection;)V
+    invoke-static {v1}, Lcom/android/server/enterprise/billing/EnterpriseConnectivity$Connection;->-wrap23(Lcom/android/server/enterprise/billing/EnterpriseConnectivity$Connection;)V
 
     goto :goto_0
 

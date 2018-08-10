@@ -159,30 +159,22 @@
 
     move-result-object v8
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_0
 
     invoke-interface {v8}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    if-eqz v8, :cond_0
-
-    invoke-interface {v8}, Landroid/database/Cursor;->close()V
+    if-eqz v0, :cond_3
 
     :cond_0
-    const/4 v8, 0x0
-
-    :goto_0
-    return-void
-
-    :cond_1
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_1
 
     invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
-    :cond_2
+    :cond_1
     const/4 v8, 0x0
 
     sget-object v1, Lcom/android/server/enterprise/billing/EnterpriseBillingPolicyStorageHelper;->TYPES:[Ljava/lang/String;
@@ -191,8 +183,8 @@
 
     move v0, v11
 
-    :goto_1
-    if-ge v0, v2, :cond_3
+    :goto_0
+    if-ge v0, v2, :cond_2
 
     aget-object v9, v1, v0
 
@@ -214,16 +206,27 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_3
+    :cond_2
     const-string/jumbo v0, "EnterpriseBillingPolicyStorage"
 
     const-string/jumbo v1, "Inserted first time record into \'eapn_mapping_table\' Table"
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    :goto_1
+    return-void
+
+    :cond_3
+    if-eqz v8, :cond_4
+
+    invoke-interface {v8}, Landroid/database/Cursor;->close()V
+
+    :cond_4
+    const/4 v8, 0x0
+
+    goto :goto_1
 .end method
 
 .method private addProfile(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)I

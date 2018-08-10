@@ -25,6 +25,8 @@
 
 .field maskedByQuietProfile:Z
 
+.field maskedBySuperLocked:Z
+
 .field maskedBySuspendedPackage:Z
 
 .field tag:I
@@ -186,11 +188,45 @@
 
     iget-boolean v0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;->maskedBySuspendedPackage:Z
 
+    if-nez v0, :cond_0
+
+    iget-boolean v0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;->maskedBySuperLocked:Z
+
     :goto_0
     return v0
 
     :cond_0
     const/4 v0, 0x1
+
+    goto :goto_0
+.end method
+
+.method public semIsHidden(Landroid/content/pm/PackageManager;I)Z
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;->getUserId()I
+
+    move-result v0
+
+    if-ne v0, p2, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;->id:Lcom/android/server/appwidget/AppWidgetServiceImpl$ProviderId;
+
+    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl$ProviderId;->componentName:Landroid/content/ComponentName;
+
+    invoke-virtual {v0}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/content/pm/PackageManager;->isHidden(Ljava/lang/String;)Z
+
+    move-result v0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method
@@ -221,6 +257,26 @@
     iget-boolean v0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;->maskedByQuietProfile:Z
 
     iput-boolean p1, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;->maskedByQuietProfile:Z
+
+    if-eq p1, v0, :cond_0
+
+    const/4 v1, 0x1
+
+    :goto_0
+    return v1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
+.end method
+
+.method public setMaskedBySuperProfileLocked(Z)Z
+    .locals 2
+
+    iget-boolean v0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;->maskedBySuperLocked:Z
+
+    iput-boolean p1, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;->maskedBySuperLocked:Z
 
     if-eq p1, v0, :cond_0
 

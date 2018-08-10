@@ -1,5 +1,5 @@
 .class Lcom/android/server/accessibility/AccessibilityManagerService$2;
-.super Landroid/content/pm/IKnoxModeChangeObserver$Stub;
+.super Landroid/app/IUserSwitchObserver$Stub;
 .source "AccessibilityManagerService.java"
 
 
@@ -24,14 +24,14 @@
 
     iput-object p1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$2;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    invoke-direct {p0}, Landroid/content/pm/IKnoxModeChangeObserver$Stub;-><init>()V
+    invoke-direct {p0}, Landroid/app/IUserSwitchObserver$Stub;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onKnoxModeChange(I)V
+.method public onForegroundProfileSwitch(I)V
     .locals 4
 
     const-string/jumbo v1, "AccessibilityManagerService"
@@ -56,9 +56,11 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v1, 0x64
+    invoke-static {p1}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
 
-    if-lt p1, v1, :cond_1
+    move-result v1
+
+    if-eqz v1, :cond_1
 
     const-string/jumbo v1, "AccessibilityManagerService"
 
@@ -70,7 +72,7 @@
 
     const/4 v2, 0x1
 
-    invoke-static {v1, v2}, Lcom/android/server/accessibility/AccessibilityManagerService;->-set4(Lcom/android/server/accessibility/AccessibilityManagerService;Z)Z
+    invoke-static {v1, v2}, Lcom/android/server/accessibility/AccessibilityManagerService;->-set3(Lcom/android/server/accessibility/AccessibilityManagerService;Z)Z
 
     iget-object v1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$2;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
@@ -95,7 +97,30 @@
 
     const/4 v2, 0x0
 
-    invoke-static {v1, v2}, Lcom/android/server/accessibility/AccessibilityManagerService;->-set4(Lcom/android/server/accessibility/AccessibilityManagerService;Z)Z
+    invoke-static {v1, v2}, Lcom/android/server/accessibility/AccessibilityManagerService;->-set3(Lcom/android/server/accessibility/AccessibilityManagerService;Z)Z
 
     goto :goto_0
+.end method
+
+.method public onLockedBootComplete(I)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onUserSwitchComplete(I)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    return-void
+.end method
+
+.method public onUserSwitching(ILandroid/os/IRemoteCallback;)V
+    .locals 0
+
+    return-void
 .end method

@@ -58,7 +58,7 @@
 .method public onStateChange(ILcom/samsung/android/knox/SemPersonaState;Lcom/samsung/android/knox/SemPersonaState;)V
     .locals 3
 
-    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get1()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get0()Ljava/lang/String;
 
     move-result-object v0
 
@@ -104,7 +104,7 @@
 
     iget-object v0, p0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$5;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
 
-    invoke-static {v0}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get8(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->-get9(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;)Landroid/os/Handler;
 
     move-result-object v0
 

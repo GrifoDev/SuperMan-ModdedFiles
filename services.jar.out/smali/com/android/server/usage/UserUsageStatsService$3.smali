@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/usage/UserUsageStatsService;->queryEvents(JJ)Landroid/app/usage/UsageEvents;
+    value = Lcom/android/server/usage/UserUsageStatsService;->queryEvents(JJZ)Landroid/app/usage/UsageEvents;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -36,9 +36,11 @@
 
 .field final synthetic val$names:Landroid/util/ArraySet;
 
+.field final synthetic val$obfuscateInstantApps:Z
+
 
 # direct methods
-.method constructor <init>(Lcom/android/server/usage/UserUsageStatsService;JJLandroid/util/ArraySet;)V
+.method constructor <init>(Lcom/android/server/usage/UserUsageStatsService;JJZLandroid/util/ArraySet;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/usage/UserUsageStatsService$3;->this$0:Lcom/android/server/usage/UserUsageStatsService;
@@ -47,7 +49,9 @@
 
     iput-wide p4, p0, Lcom/android/server/usage/UserUsageStatsService$3;->val$endTime:J
 
-    iput-object p6, p0, Lcom/android/server/usage/UserUsageStatsService$3;->val$names:Landroid/util/ArraySet;
+    iput-boolean p6, p0, Lcom/android/server/usage/UserUsageStatsService$3;->val$obfuscateInstantApps:Z
+
+    iput-object p7, p0, Lcom/android/server/usage/UserUsageStatsService$3;->val$names:Landroid/util/ArraySet;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -99,7 +103,7 @@
     move v1, v3
 
     :goto_0
-    if-ge v1, v2, :cond_4
+    if-ge v1, v2, :cond_5
 
     iget-object v4, p1, Lcom/android/server/usage/IntervalStats;->events:Landroid/app/usage/TimeSparseArray;
 
@@ -124,6 +128,15 @@
 
     check-cast v0, Landroid/app/usage/UsageEvents$Event;
 
+    iget-boolean v4, p0, Lcom/android/server/usage/UserUsageStatsService$3;->val$obfuscateInstantApps:Z
+
+    if-eqz v4, :cond_3
+
+    invoke-virtual {v0}, Landroid/app/usage/UsageEvents$Event;->getObfuscatedIfInstantApp()Landroid/app/usage/UsageEvents$Event;
+
+    move-result-object v0
+
+    :cond_3
     iget-object v4, p0, Lcom/android/server/usage/UserUsageStatsService$3;->val$names:Landroid/util/ArraySet;
 
     iget-object v5, v0, Landroid/app/usage/UsageEvents$Event;->mPackage:Ljava/lang/String;
@@ -132,7 +145,7 @@
 
     iget-object v4, v0, Landroid/app/usage/UsageEvents$Event;->mClass:Ljava/lang/String;
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_4
 
     iget-object v4, p0, Lcom/android/server/usage/UserUsageStatsService$3;->val$names:Landroid/util/ArraySet;
 
@@ -140,13 +153,13 @@
 
     invoke-virtual {v4, v5}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
-    :cond_3
+    :cond_4
     invoke-interface {p3, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    :cond_4
+    :cond_5
     return-void
 .end method

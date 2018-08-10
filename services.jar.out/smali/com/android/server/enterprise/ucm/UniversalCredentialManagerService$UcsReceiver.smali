@@ -221,7 +221,7 @@
 
     move-result-object v10
 
-    const-string/jumbo v11, "com.samsung.android.knox.permission.KNOX_UCM_ESE"
+    const-string/jumbo v11, "com.samsung.android.knox.permission.KNOX_UCM_ESE_MGMT"
 
     invoke-virtual {v10, v11, v3}, Landroid/content/pm/PackageManager;->checkPermission(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -251,7 +251,7 @@
 
     invoke-direct {v11, v12}, Landroid/os/UserHandle;-><init>(I)V
 
-    const-string/jumbo v12, "com.samsung.android.knox.permission.KNOX_UCM_ESE"
+    const-string/jumbo v12, "com.samsung.android.knox.permission.KNOX_UCM_ESE_MGMT"
 
     invoke-virtual {v10, v2, v11, v12}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;)V
 
@@ -268,7 +268,7 @@
 
     move-result-object v10
 
-    const-string/jumbo v11, "com.samsung.android.knox.permission.KNOX_UCM_OTHER"
+    const-string/jumbo v11, "com.samsung.android.knox.permission.KNOX_UCM_OTHER_MGMT"
 
     invoke-virtual {v10, v11, v3}, Landroid/content/pm/PackageManager;->checkPermission(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -298,7 +298,7 @@
 
     invoke-direct {v11, v12}, Landroid/os/UserHandle;-><init>(I)V
 
-    const-string/jumbo v12, "com.samsung.android.knox.permission.KNOX_UCM_OTHER"
+    const-string/jumbo v12, "com.samsung.android.knox.permission.KNOX_UCM_OTHER_MGMT"
 
     invoke-virtual {v10, v2, v11, v12}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;)V
     :try_end_0

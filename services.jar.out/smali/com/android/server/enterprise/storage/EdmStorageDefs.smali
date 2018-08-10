@@ -38,6 +38,20 @@
 
 .field public static final ALLOW_BLUETOOTH_ACCESS:Ljava/lang/String; = "allowBTAccess"
 
+.field public static final APM_ENFORCED_TABLE:Ljava/lang/String; = "APM_EnforcedTable"
+
+.field public static final APM_PACKAGE_NAME:Ljava/lang/String; = "apm_packageName"
+
+.field public static final APM_SIGNATURE:Ljava/lang/String; = "apm_signature"
+
+.field public static final APM_STATUS:Ljava/lang/String; = "apm_status"
+
+.field public static final APM_STATUSTABLE:Ljava/lang/String; = "APM_StatusTable"
+
+.field public static final APM_USERID:Ljava/lang/String; = "apm_userId"
+
+.field public static final APM_WHITELIST_TABLE:Ljava/lang/String; = "APM_WhitelistTable"
+
 .field public static final APP_API:Ljava/lang/String; = "APPLICATION"
 
 .field public static final APP_COMPONENT:Ljava/lang/String; = "component"
@@ -96,6 +110,8 @@
 
 .field public static final APP_PERMISSION_TABLE:Ljava/lang/String; = "APPLICATION_PERMISSION"
 
+.field public static final APP_PKGNAME_AVR_WHITELIST_MASK:I = 0x20000000
+
 .field public static final APP_PKGNAME_CLEARCACHE_BLACKLIST_MASK:I = 0x8000
 
 .field public static final APP_PKGNAME_CLEARCACHE_WHITELIST_MASK:I = 0x10000
@@ -110,11 +126,19 @@
 
 .field public static final APP_PKGNAME_DOZEMODE_WHITELIST_MASK:I = 0x1000000
 
+.field public static final APP_PKGNAME_EXTERNAL_STORAGE_BLACKLIST_MASK:I = 0x10000000
+
+.field public static final APP_PKGNAME_EXTERNAL_STORAGE_WHITELIST_MASK:I = 0x8000000
+
 .field public static final APP_PKGNAME_FOCUSMONITORING_LIST_MASK:I = 0x800000
 
 .field public static final APP_PKGNAME_INSTALLATION_BLACKLIST_MASK:I = 0x4
 
 .field public static final APP_PKGNAME_INSTALLATION_WHITELIST_MASK:I = 0x8
+
+.field public static final APP_PKGNAME_INSTALLER_BLACKLIST_MASK:I = 0x4000000
+
+.field public static final APP_PKGNAME_INSTALLER_WHITELIST_MASK:I = 0x2000000
 
 .field public static final APP_PKGNAME_NOTIFICATION_BLACKLIST_MASK:I = 0x100
 
@@ -424,6 +448,8 @@
 
 .field public static final CEP_CONTAINERID:Ljava/lang/String; = "containerID"
 
+.field public static final CEP_DELEGATOR_UID:Ljava/lang/String; = "cepDelegatorUid"
+
 .field public static final CEP_PROTOCOL:Ljava/lang/String; = "protocol"
 
 .field public static final CEP_TABLE:Ljava/lang/String; = "EnterpriseCertEnrollPolicy"
@@ -520,6 +546,8 @@
 
 .field public static final CONTAINER_TABLE:Ljava/lang/String; = "CONTAINER"
 
+.field public static final CSR_PROFILE_TABLE:Ljava/lang/String; = "CSRProfileTable"
+
 .field public static final CURRENT_FINGERPRINT:Ljava/lang/String; = "fpCurrent"
 
 .field public static final DATA_CALL_LOG_API:Ljava/lang/String; = "DATACALLLOG"
@@ -565,6 +593,36 @@
 .field public static final DEVICE_WIFI_RECEIVED:Ljava/lang/String; = "deviceWifiReceived"
 
 .field public static final DEVICE_WIFI_SENT:Ljava/lang/String; = "deviceWifiSent"
+
+.field public static final DEX_API:Ljava/lang/String; = "DEX_POLICY"
+
+.field public static final DEX_APPLICATION_BLACK_LIST:Ljava/lang/String; = "dexApplicationBlackList"
+
+.field public static final DEX_APPLICATION_DISABLE_LIST:Ljava/lang/String; = "dexApplicationDisableList"
+
+.field public static final DEX_APPLICATION_WHITE_LIST:Ljava/lang/String; = "dexApplicationWhiteList"
+
+.field public static final DEX_APP_CONTROL_STATE:Ljava/lang/String; = "controlStateOnDex"
+
+.field public static final DEX_DISABLED:Ljava/lang/String; = "dexDisabled"
+
+.field public static final DEX_ETHERNETONLY_APPLIED:Ljava/lang/String; = "ethernetOnlyApplied"
+
+.field public static final DEX_ETHERNETONLY_ENABLED:Ljava/lang/String; = "ethernetOnlyEnabled"
+
+.field public static final DEX_PREV_BT_TETHERING:Ljava/lang/String; = "prevBtTethering"
+
+.field public static final DEX_PREV_CELLDATA:Ljava/lang/String; = "prevCellularData"
+
+.field public static final DEX_PREV_USB_TETHERING:Ljava/lang/String; = "prevUsbTethering"
+
+.field public static final DEX_PREV_WIFI:Ljava/lang/String; = "prevWifi"
+
+.field public static final DEX_PREV_WIFI_TETHERING:Ljava/lang/String; = "prevWifiTethering"
+
+.field public static final DEX_SCREENTIMEOUT_CHANGE_ALLOWED:Ljava/lang/String; = "screenTimeoutChangeAllowed"
+
+.field public static final DEX_USE_DEXSTATION_MAC_ADDRESS:Ljava/lang/String; = "useDexStationMacAddress"
 
 .field public static final DIRECTION:Ljava/lang/String; = "direction"
 
@@ -1020,6 +1078,14 @@
 
 .field public static final GLOBALPROXY_AUTH_USERNAME:Ljava/lang/String; = "username"
 
+.field public static final GRANT_ALIAS:Ljava/lang/String; = "alias"
+
+.field public static final GRANT_ALLOW:Ljava/lang/String; = "allow"
+
+.field public static final GRANT_TABLE:Ljava/lang/String; = "CCMCertGrantTable"
+
+.field public static final GRANT_UID:Ljava/lang/String; = "callingUid"
+
 .field public static final HIDE_NAVIGATION_BAR_MASK:I = 0x2
 
 .field public static final HIDE_STATUS_BAR_MASK:I = 0x1
@@ -1118,6 +1184,8 @@
 
 .field public static final KNOX_CUSTOM_AUTO_CALL_PICKUP_STATE:Ljava/lang/String; = "autoCallPickupState"
 
+.field public static final KNOX_CUSTOM_AUTO_SHUT_DOWN_STATE:Ljava/lang/String; = "AutoShutDownState"
+
 .field public static final KNOX_CUSTOM_AUTO_START_UP_STATE:Ljava/lang/String; = "AutoStartUpState"
 
 .field public static final KNOX_CUSTOM_BATTERY_LEVEL_COLOUR_ITEMS:Ljava/lang/String; = "batteryLevelColourItems"
@@ -1135,6 +1203,8 @@
 .field public static final KNOX_CUSTOM_CHECK_COVER_POPUP_STATE:Ljava/lang/String; = "checkCoverPopupState"
 
 .field public static final KNOX_CUSTOM_DEVICE_SPEAKER_ENABLE:Ljava/lang/String; = "deviceSpeakerEnabledState"
+
+.field public static final KNOX_CUSTOM_DEX_FOREGROUND_MODE_LIST:Ljava/lang/String; = "dexForegroundModeList"
 
 .field public static final KNOX_CUSTOM_ETHERNET_CONNECTION_TYPE:Ljava/lang/String; = "ethernetConnectionType"
 
@@ -1158,13 +1228,21 @@
 
 .field public static final KNOX_CUSTOM_GEAR_NOTIFICATION_STATE:Ljava/lang/String; = "gearNotificationState"
 
+.field public static final KNOX_CUSTOM_GESTURE_AIR_COMMAND:Ljava/lang/String; = "gestureAirCommand"
+
+.field public static final KNOX_CUSTOM_HARD_KEY_INTENT_MODE:Ljava/lang/String; = "hardKeyIntentMode"
+
 .field public static final KNOX_CUSTOM_INFRARED_STATE:Ljava/lang/String; = "infraredState"
 
 .field public static final KNOX_CUSTOM_INPUT_RESTRICTION_STATE:Ljava/lang/String; = "inputRestrictionState"
 
 .field public static final KNOX_CUSTOM_KEYBOARD_MODE:Ljava/lang/String; = "keyboardMode"
 
+.field public static final KNOX_CUSTOM_LOADING_LOGO_PATH:Ljava/lang/String; = "loadingLogoPath"
+
 .field public static final KNOX_CUSTOM_LOCK_SCREEN_ITEMS:Ljava/lang/String; = "lockScreenItems"
+
+.field public static final KNOX_CUSTOM_LOCK_SCREEN_OVERRIDE_MODE:Ljava/lang/String; = "lockScreenOverrideMode"
 
 .field public static final KNOX_CUSTOM_LTE_SETTING_STATE:Ljava/lang/String; = "LTESettingState"
 
@@ -1175,6 +1253,8 @@
 .field public static final KNOX_CUSTOM_MULTI_STATUS_BAR_TEXT_SIZE:Ljava/lang/String; = "statusBarTextSize"
 
 .field public static final KNOX_CUSTOM_MULTI_STATUS_BAR_TEXT_STYLE:Ljava/lang/String; = "statusBarTextStyle"
+
+.field public static final KNOX_CUSTOM_MULTI_WINDOW_DYNAMIC_ENABLED:Ljava/lang/String; = "multiWindowDynamicEnabled"
 
 .field public static final KNOX_CUSTOM_MULTI_WINDOW_FIXED:Ljava/lang/String; = "multiWindowFixed"
 
@@ -1316,9 +1396,15 @@
 
 .field public static final KNOX_FEATURE_TYPE_BLUETOOTH:Ljava/lang/String; = "Bluetooth"
 
+.field public static final KNOX_FEATURE_TYPE_EXT_STORAGE:Ljava/lang/String; = "ExternalStorage"
+
 .field public static final KNOX_FEATURE_TYPE_NFC:Ljava/lang/String; = "NFC"
 
 .field public static final KNOX_FEATURE_TYPE_PBAP:Ljava/lang/String; = "PBAP"
+
+.field public static final KNOX_FEATURE_TYPE_SECURE_KEYPAD:Ljava/lang/String; = "KEYPAD"
+
+.field public static final KNOX_FEATURE_TYPE_SWITCHING:Ljava/lang/String; = "LAYOUT_SWITCH"
 
 .field public static final KNOX_FEATURE_TYPE_USB:Ljava/lang/String; = "USB"
 
@@ -1341,6 +1427,8 @@
 .field public static final KNOX_SETTINGS_OPTIONS_TABLE:Ljava/lang/String; = "KnoxSettingsOptionsTable"
 
 .field public static final KNOX_SETTINGS_SINGLE_NAME:Ljava/lang/String; = "MySinglePackageName"
+
+.field public static final Key_LENGTH:Ljava/lang/String; = "keylength"
 
 .field public static final LICENSE_INFO_INSTANCE_ID:Ljava/lang/String; = "instanceId"
 
@@ -1514,6 +1602,8 @@
 
 .field public static final PASSWORD_MIN_CHARACTER_CHANGE:Ljava/lang/String; = "passwordMinimumCharacterChangeUpdatingPasswordLength"
 
+.field public static final PASSWORD_MULTIFACTOR_AUTH_ENABLED:Ljava/lang/String; = "multifactorAuthEnabled"
+
 .field public static final PASSWORD_OWNER_HISTORY:Ljava/lang/String; = "passwordOwnerHistory"
 
 .field public static final PASSWORD_PATTERN_OWNER:Ljava/lang/String; = "passwordPatternOwner"
@@ -1575,6 +1665,8 @@
 .field public static final PHONE_RESTRICTION_ALLOW_OUTGOING_SMS:Ljava/lang/String; = "allowOutgoingSms"
 
 .field public static final PHONE_RESTRICTION_ALLOW_OUTGOING_SMS_DEFAULT:Z = true
+
+.field public static final PHONE_RESTRICTION_ALLOW_RCS:Ljava/lang/String; = "enableRCS"
 
 .field public static final PHONE_RESTRICTION_API:Ljava/lang/String; = "PHONERESTRICTION"
 
@@ -2052,6 +2144,8 @@
 
 .field public static final RESTRICTION_USB_DEBUGGING_ENABLED_DEFAULT:Z = true
 
+.field public static final RESTRICTION_USB_INTERFACE_EXCEPTION_MASK:Ljava/lang/String; = "UsbExceptionMask"
+
 .field public static final RESTRICTION_USB_KIES_ENABLED:Ljava/lang/String; = "usbKiesEnabled"
 
 .field public static final RESTRICTION_USB_KIES_ENABLED_DEFAULT:Z = true
@@ -2144,6 +2238,8 @@
 
 .field public static final SE_ANDROID_TABLE:Ljava/lang/String; = "SE_ANDROID_TABLE"
 
+.field public static final SHAREDDEVICE_ADMIN_PKG:Ljava/lang/String; = "adminPkg"
+
 .field public static final SHAREDDEVICE_ADMIN_UID:Ljava/lang/String; = "adminUid"
 
 .field public static final SHAREDDEVICE_API:Ljava/lang/String; = "SHAREDDEVICE"
@@ -2226,6 +2322,8 @@
 
 .field public static final STATUS:Ljava/lang/String; = "status"
 
+.field public static final SUBJECT:Ljava/lang/String; = "subject"
+
 .field public static final SYSPROP_PREFIX:Ljava/lang/String; = "sys.edm."
 
 .field public static final SYSPROP_TLS_SEC_LEVEL:Ljava/lang/String; = "tls-sec-level"
@@ -2233,6 +2331,8 @@
 .field public static final TARGET_IP_ADDRESS:Ljava/lang/String; = "targetIpAddress"
 
 .field public static final TARGET_PORT_NUMBER:Ljava/lang/String; = "targetPortNumber"
+
+.field public static final TEMPLATE_NAME:Ljava/lang/String; = "template"
 
 .field public static final TIMA_KEYSTORE_CALLER_PKGNAME:Ljava/lang/String; = "pkgName"
 

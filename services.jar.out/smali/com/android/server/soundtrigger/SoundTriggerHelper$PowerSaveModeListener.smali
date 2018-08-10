@@ -49,15 +49,7 @@
     return-void
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/soundtrigger/SoundTriggerHelper$PowerSaveModeListener;->this$0:Lcom/android/server/soundtrigger/SoundTriggerHelper;
-
-    invoke-static {v1}, Lcom/android/server/soundtrigger/SoundTriggerHelper;->-get1(Lcom/android/server/soundtrigger/SoundTriggerHelper;)Landroid/os/PowerManager;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/os/PowerManager;->isPowerSaveMode()Z
-
-    move-result v0
+    const/4 v0, 0x0
 
     iget-object v1, p0, Lcom/android/server/soundtrigger/SoundTriggerHelper$PowerSaveModeListener;->this$0:Lcom/android/server/soundtrigger/SoundTriggerHelper;
 

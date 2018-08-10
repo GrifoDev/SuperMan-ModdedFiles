@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 8
+    .locals 7
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -46,108 +46,68 @@
 
     if-eqz v0, :cond_0
 
-    const-string/jumbo v5, "com.sec.knox.action.KNOX_LAYOUT_CHANGED"
+    const-string/jumbo v4, "com.sec.knox.action.KNOX_LAYOUT_CHANGED"
 
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_0
+    if-eqz v4, :cond_0
 
     invoke-static {}, Lcom/android/server/RCPManagerService;->-get2()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    const-string/jumbo v6, "Received com.sec.knox.action.KNOX_LAYOUT_CHANGED"
+    const-string/jumbo v5, "Received com.sec.knox.action.KNOX_LAYOUT_CHANGED"
 
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v5, "android.intent.extra.user_handle"
+    const-string/jumbo v4, "android.intent.extra.user_handle"
 
-    const/4 v6, -0x1
+    const/4 v5, -0x1
 
-    invoke-virtual {p2, v5, v6}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p2, v4, v5}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v2
 
-    const-string/jumbo v5, "persona"
+    iget-object v4, p0, Lcom/android/server/RCPManagerService$KnoxLayoutChangeReceiver;->this$0:Lcom/android/server/RCPManagerService;
 
-    invoke-virtual {p1, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {v4}, Lcom/android/server/RCPManagerService;->-get6(Lcom/android/server/RCPManagerService;)Landroid/os/UserManager;
 
     move-result-object v4
 
-    check-cast v4, Lcom/samsung/android/knox/SemPersonaManager;
-
-    invoke-virtual {v4, v2}, Lcom/samsung/android/knox/SemPersonaManager;->getPersonaInfo(I)Lcom/samsung/android/knox/SemPersonaInfo;
+    invoke-virtual {v4, v2}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
 
     move-result-object v3
 
     if-eqz v3, :cond_0
 
-    iget-boolean v5, v3, Lcom/samsung/android/knox/SemPersonaInfo;->lightWeightContainer:Z
+    invoke-virtual {v3}, Landroid/content/pm/UserInfo;->isLightWeightContainer()Z
 
-    if-eqz v5, :cond_1
+    move-result v4
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v4, :cond_0
 
-    :cond_1
-    invoke-static {}, Lcom/android/server/RCPManagerService;->-get2()Ljava/lang/String;
+    const-string/jumbo v4, "action"
 
-    move-result-object v5
+    const-string/jumbo v5, "RequestUpdateBadgeCount"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v4, v5}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v4, "userid"
 
-    const-string/jumbo v7, "Persona ID : "
+    invoke-virtual {v1, v4, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v7, " , isLightWeightContainer : "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    iget-boolean v7, v3, Lcom/samsung/android/knox/SemPersonaInfo;->lightWeightContainer:Z
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v5, "action"
-
-    const-string/jumbo v6, "RequestUpdateBadgeCount"
-
-    invoke-virtual {v1, v5, v6}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    const-string/jumbo v5, "userid"
-
-    invoke-virtual {v1, v5, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-
-    iget-object v5, p0, Lcom/android/server/RCPManagerService$KnoxLayoutChangeReceiver;->this$0:Lcom/android/server/RCPManagerService;
+    iget-object v4, p0, Lcom/android/server/RCPManagerService$KnoxLayoutChangeReceiver;->this$0:Lcom/android/server/RCPManagerService;
 
     invoke-virtual {p1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v5
 
-    const/4 v7, 0x0
+    const/4 v6, 0x0
 
-    invoke-virtual {v5, v6, v7, v1}, Lcom/android/server/RCPManagerService;->exchangeData(Ljava/lang/String;ILandroid/os/Bundle;)Landroid/os/Bundle;
+    invoke-virtual {v4, v5, v6, v1}, Lcom/android/server/RCPManagerService;->exchangeData(Ljava/lang/String;ILandroid/os/Bundle;)Landroid/os/Bundle;
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method

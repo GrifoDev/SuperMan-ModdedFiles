@@ -32,63 +32,45 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 14
+    .locals 6
 
-    invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    const-string/jumbo v1, "android.intent.action.TIME_SET"
+    const-string/jumbo v4, "android.intent.extra.user_handle"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p0}, Lcom/android/server/am/MARsTrigger$8;->getSendingUserId()I
 
-    move-result v1
+    move-result v5
+
+    invoke-virtual {p2, v4, v5}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v3
+
+    const-string/jumbo v4, "android.intent.extra.REPLACING"
+
+    const/4 v5, 0x0
+
+    invoke-virtual {p2, v4, v5}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result v2
+
+    invoke-virtual {p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
+
+    move-result-object v1
 
     if-eqz v1, :cond_0
 
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+    iget-object v4, p0, Lcom/android/server/am/MARsTrigger$8;->this$0:Lcom/android/server/am/MARsTrigger;
 
-    move-result-wide v8
+    iget-object v4, v4, Lcom/android/server/am/MARsTrigger;->mHandlerManager:Lcom/android/server/am/MARsHandler;
 
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+    invoke-virtual {v1}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
 
-    move-result-wide v6
+    move-result-object v5
 
-    iget-object v1, p0, Lcom/android/server/am/MARsTrigger$8;->this$0:Lcom/android/server/am/MARsTrigger;
-
-    invoke-static {v1}, Lcom/android/server/am/MARsTrigger;->-get4(Lcom/android/server/am/MARsTrigger;)J
-
-    move-result-wide v10
-
-    iget-object v1, p0, Lcom/android/server/am/MARsTrigger$8;->this$0:Lcom/android/server/am/MARsTrigger;
-
-    invoke-static {v1}, Lcom/android/server/am/MARsTrigger;->-get5(Lcom/android/server/am/MARsTrigger;)J
-
-    move-result-wide v12
-
-    sub-long v12, v6, v12
-
-    add-long v4, v10, v12
-
-    sub-long v2, v8, v4
-
-    iget-object v1, p0, Lcom/android/server/am/MARsTrigger$8;->this$0:Lcom/android/server/am/MARsTrigger;
-
-    iget-object v1, v1, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
-
-    invoke-virtual {v1, v2, v3}, Lcom/android/server/am/MARsPolicyManager;->onAppUsedForTimeChanged(J)V
-
-    iget-object v1, p0, Lcom/android/server/am/MARsTrigger$8;->this$0:Lcom/android/server/am/MARsTrigger;
-
-    invoke-static {v1, v8, v9}, Lcom/android/server/am/MARsTrigger;->-set3(Lcom/android/server/am/MARsTrigger;J)J
-
-    iget-object v1, p0, Lcom/android/server/am/MARsTrigger$8;->this$0:Lcom/android/server/am/MARsTrigger;
-
-    invoke-static {v1, v6, v7}, Lcom/android/server/am/MARsTrigger;->-set4(Lcom/android/server/am/MARsTrigger;J)J
-
-    iget-object v1, p0, Lcom/android/server/am/MARsTrigger$8;->this$0:Lcom/android/server/am/MARsTrigger;
-
-    invoke-static {v1, v8, v9}, Lcom/android/server/am/MARsTrigger;->-set2(Lcom/android/server/am/MARsTrigger;J)J
+    invoke-virtual {v4, v5, v0, v2, v3}, Lcom/android/server/am/MARsHandler;->sendPkgStatusChangedMsgToMainHandler(Ljava/lang/String;Ljava/lang/String;ZI)V
 
     :cond_0
     return-void

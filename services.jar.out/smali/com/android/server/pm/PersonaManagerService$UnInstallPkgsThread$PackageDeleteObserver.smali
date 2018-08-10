@@ -40,10 +40,6 @@
 
     const/4 v0, 0x1
 
-    const-string/jumbo v1, "packageDeleted"
-
-    invoke-static {v1}, Lcom/android/server/pm/PersonaManagerService;->-wrap13(Ljava/lang/String;)I
-
     monitor-enter p0
 
     const/4 v1, 0x1

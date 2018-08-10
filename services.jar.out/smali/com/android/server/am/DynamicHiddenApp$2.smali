@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/am/DynamicHiddenApp;->dhaProcessesLocked(Ljava/util/ArrayList;Lcom/android/server/am/ProcessRecord;)V
+    value = Lcom/android/server/am/DynamicHiddenApp;->getTopHotProcess()Landroid/util/ArrayMap;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -21,8 +21,11 @@
         "Ljava/lang/Object;",
         "Ljava/util/Comparator",
         "<",
-        "Lcom/android/server/am/ProcessRecord;",
-        ">;"
+        "Ljava/util/Map$Entry",
+        "<",
+        "Ljava/lang/String;",
+        "Lcom/android/server/am/DynamicHiddenApp$HotnessValue;",
+        ">;>;"
     }
 .end annotation
 
@@ -44,46 +47,61 @@
 
 
 # virtual methods
-.method public compare(Lcom/android/server/am/ProcessRecord;Lcom/android/server/am/ProcessRecord;)I
-    .locals 2
+.method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
+    .locals 1
 
-    iget v0, p1, Lcom/android/server/am/ProcessRecord;->hotnessAdj:I
+    check-cast p1, Ljava/util/Map$Entry;
 
-    iget v1, p2, Lcom/android/server/am/ProcessRecord;->hotnessAdj:I
+    check-cast p2, Ljava/util/Map$Entry;
 
-    if-ge v0, v1, :cond_0
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/am/DynamicHiddenApp$2;->compare(Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I
 
-    const/4 v0, -0x1
-
-    return v0
-
-    :cond_0
-    iget v0, p1, Lcom/android/server/am/ProcessRecord;->hotnessAdj:I
-
-    iget v1, p2, Lcom/android/server/am/ProcessRecord;->hotnessAdj:I
-
-    if-le v0, v1, :cond_1
-
-    const/4 v0, 0x1
-
-    return v0
-
-    :cond_1
-    const/4 v0, 0x0
+    move-result v0
 
     return v0
 .end method
 
-.method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 1
+.method public compare(Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map$Entry",
+            "<",
+            "Ljava/lang/String;",
+            "Lcom/android/server/am/DynamicHiddenApp$HotnessValue;",
+            ">;",
+            "Ljava/util/Map$Entry",
+            "<",
+            "Ljava/lang/String;",
+            "Lcom/android/server/am/DynamicHiddenApp$HotnessValue;",
+            ">;)I"
+        }
+    .end annotation
 
-    check-cast p1, Lcom/android/server/am/ProcessRecord;
+    const/4 v2, 0x0
 
-    check-cast p2, Lcom/android/server/am/ProcessRecord;
+    invoke-interface {p2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/server/am/DynamicHiddenApp$2;->compare(Lcom/android/server/am/ProcessRecord;Lcom/android/server/am/ProcessRecord;)I
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;
+
+    invoke-virtual {v0, v2}, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->getHotness(I)I
+
+    move-result v1
+
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;
+
+    invoke-virtual {v0, v2}, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->getHotness(I)I
 
     move-result v0
+
+    sub-int v0, v1, v0
 
     return v0
 .end method

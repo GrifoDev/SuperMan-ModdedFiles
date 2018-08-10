@@ -38,7 +38,7 @@
 .method public run()V
     .locals 5
 
-    invoke-static {}, Lcom/android/server/audio/MediaFocusControl;->-get0()Ljava/lang/Object;
+    invoke-static {}, Lcom/android/server/audio/MediaFocusControl;->-get1()Ljava/lang/Object;
 
     move-result-object v2
 
@@ -47,7 +47,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/audio/MediaFocusControl$1;->this$0:Lcom/android/server/audio/MediaFocusControl;
 
-    invoke-static {v1}, Lcom/android/server/audio/MediaFocusControl;->-get3(Lcom/android/server/audio/MediaFocusControl;)Ljava/util/Stack;
+    invoke-static {v1}, Lcom/android/server/audio/MediaFocusControl;->-get5(Lcom/android/server/audio/MediaFocusControl;)Ljava/util/Stack;
 
     move-result-object v1
 
@@ -69,7 +69,7 @@
 
     iget-object v1, p0, Lcom/android/server/audio/MediaFocusControl$1;->this$0:Lcom/android/server/audio/MediaFocusControl;
 
-    invoke-static {v1}, Lcom/android/server/audio/MediaFocusControl;->-get3(Lcom/android/server/audio/MediaFocusControl;)Ljava/util/Stack;
+    invoke-static {v1}, Lcom/android/server/audio/MediaFocusControl;->-get5(Lcom/android/server/audio/MediaFocusControl;)Ljava/util/Stack;
 
     move-result-object v1
 

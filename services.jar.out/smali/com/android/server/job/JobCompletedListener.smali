@@ -4,5 +4,5 @@
 
 
 # virtual methods
-.method public abstract onJobCompleted(Lcom/android/server/job/controllers/JobStatus;Z)V
+.method public abstract onJobCompletedLocked(Lcom/android/server/job/controllers/JobStatus;Z)V
 .end method

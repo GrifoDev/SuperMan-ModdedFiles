@@ -10,19 +10,17 @@
 
 .field public static final BBCCONTAINER:I = 0x3
 
-.field public static final BBC_SHARED_APPS_CATEGORY:I = 0x1f5
+.field public static final BBC_SHARED_APPS_SPACE:I = 0x1f5
 
-.field public static final FIXMO_CATEGORY_NUMBER:I = 0x6a
-
-.field public static final KNOXCONTAINER_START_CATEGORY:I = 0x1
+.field public static final KNOXCONTAINER_START_SPACE:I = 0x1
 
 .field public static final MYCONTAINER:I = 0x2
 
 .field public static final NONE:I = 0x0
 
-.field public static final OTHER_CONTAINER_END_CATEGORY:I = 0x2bc
+.field public static final OTHER_CONTAINER_END_SPACE:I = 0x2bc
 
-.field public static final OTHER_CONTAINER_START_CATEGORY:I = 0x66
+.field public static final OTHER_CONTAINER_START_SPACE:I = 0x66
 
 .field public static final REMOVE_BBCCONTAINER_TYPE:I = 0x6
 
@@ -77,6 +75,116 @@
 
     monitor-enter v37
 
+    :try_start_0
+    sget-boolean v36, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v36, :cond_0
+
+    sget-object v36, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v38, "SEAMSContainer"
+
+    const-string/jumbo v39, "addEntryToMac_begin"
+
+    move-object/from16 v0, v36
+
+    move-object/from16 v1, v38
+
+    move-object/from16 v2, v39
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    sget-object v36, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v38, "SEAMSContainer"
+
+    new-instance v39, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v39 .. v39}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v40, "packageName: "
+
+    invoke-virtual/range {v39 .. v40}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v39
+
+    move-object/from16 v0, v39
+
+    move-object/from16 v1, p2
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v39
+
+    const-string/jumbo v40, ", seinfo: "
+
+    invoke-virtual/range {v39 .. v40}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v39
+
+    move-object/from16 v0, v39
+
+    move-object/from16 v1, p3
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v39
+
+    const-string/jumbo v40, ", space: "
+
+    invoke-virtual/range {v39 .. v40}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v39
+
+    move-object/from16 v0, v39
+
+    move-object/from16 v1, p4
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v39
+
+    const-string/jumbo v40, ", appType: "
+
+    invoke-virtual/range {v39 .. v40}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v39
+
+    move-object/from16 v0, v39
+
+    move/from16 v1, p5
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v39
+
+    const-string/jumbo v40, ", agent: "
+
+    invoke-virtual/range {v39 .. v40}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v39
+
+    move-object/from16 v0, v39
+
+    move/from16 v1, p6
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v39
+
+    invoke-virtual/range {v39 .. v39}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v39
+
+    move-object/from16 v0, v36
+
+    move-object/from16 v1, v38
+
+    move-object/from16 v2, v39
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
     const/16 v17, 0x0
 
     const/16 v18, 0x0
@@ -85,7 +193,6 @@
 
     const/16 v35, 0x0
 
-    :try_start_0
     invoke-static {}, Lcom/android/server/SEAMSContainer;->getBbcEnabled()I
 
     move-result v35
@@ -107,13 +214,52 @@
 
     move-result v36
 
-    if-eqz v36, :cond_8
+    if-eqz v36, :cond_b
 
+    sget-boolean v36, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v36, :cond_1
+
+    sget-object v36, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v38, "SEAMSContainer"
+
+    new-instance v39, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v39 .. v39}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v40, "macPermFile exists "
+
+    invoke-virtual/range {v39 .. v40}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v39
+
+    invoke-virtual/range {p0 .. p0}, Ljava/io/File;->getPath()Ljava/lang/String;
+
+    move-result-object v40
+
+    invoke-virtual/range {v39 .. v40}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v39
+
+    invoke-virtual/range {v39 .. v39}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v39
+
+    move-object/from16 v0, v36
+
+    move-object/from16 v1, v38
+
+    move-object/from16 v2, v39
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_1
     invoke-virtual/range {p0 .. p0}, Ljava/io/File;->canWrite()Z
 
     move-result v36
 
-    if-nez v36, :cond_0
+    if-nez v36, :cond_2
 
     const/16 v36, 0x1
 
@@ -123,7 +269,7 @@
 
     invoke-virtual {v0, v1}, Ljava/io/File;->setWritable(Z)Z
 
-    :cond_0
+    :cond_2
     move-object/from16 v0, p0
 
     invoke-virtual {v5, v0}, Ljavax/xml/parsers/DocumentBuilder;->parse(Ljava/io/File;)Lorg/w3c/dom/Document;
@@ -211,22 +357,22 @@
 
     move/from16 v0, v36
 
-    if-eq v4, v0, :cond_1
+    if-eq v4, v0, :cond_3
 
     const/16 v36, 0x2
 
     move/from16 v0, v36
 
-    if-ne v4, v0, :cond_a
+    if-ne v4, v0, :cond_e
 
-    :cond_1
+    :cond_3
     const/16 v36, 0x2
 
     move/from16 v0, p5
 
     move/from16 v1, v36
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_4
 
     const/16 v36, 0x4
 
@@ -234,9 +380,9 @@
 
     move/from16 v1, v36
 
-    if-ne v0, v1, :cond_b
+    if-ne v0, v1, :cond_f
 
-    :cond_2
+    :cond_4
     :try_start_3
     const-string/jumbo v31, "service"
 
@@ -266,7 +412,7 @@
 
     invoke-interface {v0, v1, v2}, Lorg/w3c/dom/Element;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v36, "category"
+    const-string/jumbo v36, "space"
 
     const-string/jumbo v38, "1023"
 
@@ -278,7 +424,7 @@
 
     invoke-interface {v0, v1, v2}, Lorg/w3c/dom/Element;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v36, "allowcategory"
+    const-string/jumbo v36, "allowSpace"
 
     const-string/jumbo v38, "0,701-1023"
 
@@ -290,7 +436,7 @@
 
     invoke-interface {v0, v1, v2}, Lorg/w3c/dom/Element;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v36, "containerallowcategory"
+    const-string/jumbo v36, "containerAllowSpace"
 
     move-object/from16 v0, v19
 
@@ -300,8 +446,27 @@
 
     invoke-interface {v0, v1, v2}, Lorg/w3c/dom/Element;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_3
+    :cond_5
     :goto_1
+    sget-boolean v36, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v36, :cond_6
+
+    sget-object v36, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v38, "SEAMSContainer"
+
+    const-string/jumbo v39, "addentrytomac - done with preparing entry"
+
+    move-object/from16 v0, v36
+
+    move-object/from16 v1, v38
+
+    move-object/from16 v2, v39
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_6
     invoke-static/range {p1 .. p2}, Lcom/android/server/pm/SELinuxMMAC;->findMacPermEntry(Ljava/lang/String;Ljava/lang/String;)Landroid/content/pm/ApplicationInfo;
 
     move-result-object v25
@@ -330,17 +495,17 @@
 
     move-result-object v3
 
-    if-eqz v25, :cond_4
+    if-eqz v25, :cond_7
 
     const/16 v36, 0x2
 
     move/from16 v0, v36
 
-    if-ne v4, v0, :cond_10
+    if-ne v4, v0, :cond_14
 
     move-object/from16 v0, v25
 
-    iget-object v0, v0, Landroid/content/pm/ApplicationInfo;->seinfo:Ljava/lang/String;
+    iget-object v0, v0, Landroid/content/pm/ApplicationInfo;->seInfo:Ljava/lang/String;
 
     move-object/from16 v36, v0
 
@@ -354,9 +519,9 @@
 
     move-result v36
 
-    if-eqz v36, :cond_10
+    if-eqz v36, :cond_14
 
-    :cond_4
+    :cond_7
     const-string/jumbo v36, "signature"
 
     move-object/from16 v0, v28
@@ -379,7 +544,7 @@
 
     invoke-interface {v0, v1, v2}, Lorg/w3c/dom/Element;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v36, "category"
+    const-string/jumbo v36, "space"
 
     const-string/jumbo v38, "1023"
 
@@ -391,7 +556,7 @@
 
     invoke-interface {v0, v1, v2}, Lorg/w3c/dom/Element;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v36, "allowcategory"
+    const-string/jumbo v36, "allowSpace"
 
     const-string/jumbo v38, "0,701-1023"
 
@@ -403,9 +568,27 @@
 
     invoke-interface {v0, v1, v2}, Lorg/w3c/dom/Element;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_5
+    sget-boolean v36, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v36, :cond_8
+
+    sget-object v36, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v38, "SEAMSContainer"
+
+    const-string/jumbo v39, "addEntryToMac seandroidinfo = null"
+
+    move-object/from16 v0, v36
+
+    move-object/from16 v1, v38
+
+    move-object/from16 v2, v39
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_8
     :goto_2
-    if-nez v17, :cond_6
+    if-nez v17, :cond_9
 
     move-object/from16 v0, v28
 
@@ -429,7 +612,7 @@
 
     invoke-interface {v0, v1}, Lorg/w3c/dom/Element;->appendChild(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;
 
-    :cond_6
+    :cond_9
     invoke-interface {v6}, Lorg/w3c/dom/Document;->getDocumentElement()Lorg/w3c/dom/Element;
 
     move-result-object v36
@@ -446,7 +629,7 @@
 
     const/16 v30, 0x0
 
-    if-eqz v18, :cond_1e
+    if-eqz v18, :cond_23
 
     new-instance v30, Ljavax/xml/transform/dom/DOMSource;
 
@@ -475,7 +658,7 @@
 
     move-result v36
 
-    if-eqz v36, :cond_7
+    if-eqz v36, :cond_a
 
     const/16 v36, 0x0
 
@@ -492,22 +675,67 @@
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_5
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    :cond_7
+    :cond_a
     const/16 v36, 0x0
 
     monitor-exit v37
 
     return v36
 
-    :cond_8
+    :cond_b
     :try_start_4
+    sget-boolean v36, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v36, :cond_c
+
+    sget-object v36, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v38, "SEAMSContainer"
+
+    new-instance v39, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v39 .. v39}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v40, "addEntryToMac,"
+
+    invoke-virtual/range {v39 .. v40}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v39
+
+    invoke-virtual/range {p0 .. p0}, Ljava/io/File;->getPath()Ljava/lang/String;
+
+    move-result-object v40
+
+    invoke-virtual/range {v39 .. v40}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v39
+
+    const-string/jumbo v40, " does not exist, creating file"
+
+    invoke-virtual/range {v39 .. v40}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v39
+
+    invoke-virtual/range {v39 .. v39}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v39
+
+    move-object/from16 v0, v36
+
+    move-object/from16 v1, v38
+
+    move-object/from16 v2, v39
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_c
     invoke-virtual/range {p0 .. p0}, Ljava/io/File;->createNewFile()Z
 
     invoke-virtual/range {p0 .. p0}, Ljava/io/File;->canWrite()Z
 
     move-result v36
 
-    if-nez v36, :cond_9
+    if-nez v36, :cond_d
 
     const/16 v36, 0x1
 
@@ -517,7 +745,7 @@
 
     invoke-virtual {v0, v1}, Ljava/io/File;->setWritable(Z)Z
 
-    :cond_9
+    :cond_d
     invoke-virtual {v5}, Ljavax/xml/parsers/DocumentBuilder;->newDocument()Lorg/w3c/dom/Document;
 
     move-result-object v6
@@ -614,7 +842,7 @@
 
     invoke-direct/range {v39 .. v39}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v40, "category: "
+    const-string/jumbo v40, "space: "
 
     invoke-virtual/range {v39 .. v40}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -659,12 +887,12 @@
 
     return v36
 
-    :cond_a
+    :cond_e
     const/16 v36, 0x3
 
     move/from16 v0, v36
 
-    if-eq v4, v0, :cond_1
+    if-eq v4, v0, :cond_3
 
     :try_start_7
     sget-object v36, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
@@ -712,14 +940,14 @@
 
     return v36
 
-    :cond_b
+    :cond_f
     const/16 v36, 0x1
 
     move/from16 v0, p5
 
     move/from16 v1, v36
 
-    if-eq v0, v1, :cond_c
+    if-eq v0, v1, :cond_10
 
     const/16 v36, 0x3
 
@@ -727,9 +955,9 @@
 
     move/from16 v1, v36
 
-    if-ne v0, v1, :cond_e
+    if-ne v0, v1, :cond_12
 
-    :cond_c
+    :cond_10
     :try_start_8
     const-string/jumbo v31, "service"
 
@@ -759,7 +987,7 @@
 
     invoke-interface {v0, v1, v2}, Lorg/w3c/dom/Element;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v36, "category"
+    const-string/jumbo v36, "space"
 
     move-object/from16 v0, v19
 
@@ -779,9 +1007,9 @@
 
     move-result v36
 
-    if-eqz v36, :cond_d
+    if-eqz v36, :cond_11
 
-    const-string/jumbo v36, "allowcategory"
+    const-string/jumbo v36, "allowSpace"
 
     const-string/jumbo v38, "0,701-1023"
 
@@ -794,7 +1022,7 @@
     invoke-interface {v0, v1, v2}, Lorg/w3c/dom/Element;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
     :goto_5
-    if-eqz p6, :cond_3
+    if-eqz p6, :cond_5
 
     const-string/jumbo v36, "agent"
 
@@ -866,9 +1094,9 @@
 
     throw v36
 
-    :cond_d
+    :cond_11
     :try_start_a
-    const-string/jumbo v36, "allowcategory"
+    const-string/jumbo v36, "allowSpace"
 
     new-instance v38, Ljava/lang/StringBuilder;
 
@@ -949,14 +1177,14 @@
 
     goto/16 :goto_4
 
-    :cond_e
+    :cond_12
     const/16 v36, 0x5
 
     move/from16 v0, p5
 
     move/from16 v1, v36
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_5
 
     :try_start_c
     sget-object v36, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
@@ -1001,7 +1229,7 @@
 
     invoke-interface {v0, v1, v2}, Lorg/w3c/dom/Element;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v36, "bbccategory"
+    const-string/jumbo v36, "bbcSpace"
 
     move-object/from16 v0, v19
 
@@ -1021,9 +1249,9 @@
 
     move/from16 v1, v38
 
-    if-ne v0, v1, :cond_f
+    if-ne v0, v1, :cond_13
 
-    const-string/jumbo v36, "bbcallowcategory"
+    const-string/jumbo v36, "bbcAllowSpace"
 
     new-instance v38, Ljava/lang/StringBuilder;
 
@@ -1076,7 +1304,7 @@
 
     invoke-interface {v0, v1, v2}, Lorg/w3c/dom/Element;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    if-eqz p6, :cond_3
+    if-eqz p6, :cond_5
 
     const-string/jumbo v36, "agent"
 
@@ -1141,9 +1369,9 @@
 
     goto/16 :goto_4
 
-    :cond_f
+    :cond_13
     :try_start_e
-    const-string/jumbo v36, "bbcallowcategory"
+    const-string/jumbo v36, "bbcAllowSpace"
 
     new-instance v38, Ljava/lang/StringBuilder;
 
@@ -1224,20 +1452,20 @@
 
     goto/16 :goto_4
 
-    :cond_10
+    :cond_14
     const/16 v36, 0x1
 
     move/from16 v0, v36
 
-    if-eq v4, v0, :cond_11
+    if-eq v4, v0, :cond_15
 
     const/16 v36, 0x2
 
     move/from16 v0, v36
 
-    if-ne v4, v0, :cond_12
+    if-ne v4, v0, :cond_16
 
-    :cond_11
+    :cond_15
     :try_start_10
     const-string/jumbo v36, "signature"
 
@@ -1253,13 +1481,13 @@
 
     move/from16 v0, v36
 
-    if-ne v4, v0, :cond_14
+    if-ne v4, v0, :cond_18
 
     const-string/jumbo v36, "value"
 
     move-object/from16 v0, v25
 
-    iget-object v0, v0, Landroid/content/pm/ApplicationInfo;->bbcseinfo:Ljava/lang/String;
+    iget-object v0, v0, Landroid/content/pm/ApplicationInfo;->bbcseInfo:Ljava/lang/String;
 
     move-object/from16 v38, v0
 
@@ -1271,11 +1499,11 @@
 
     invoke-interface {v0, v1, v2}, Lorg/w3c/dom/Element;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v36, "category"
+    const-string/jumbo v36, "space"
 
     move-object/from16 v0, v25
 
-    iget v0, v0, Landroid/content/pm/ApplicationInfo;->category:I
+    iget v0, v0, Landroid/content/pm/ApplicationInfo;->space:I
 
     move/from16 v38, v0
 
@@ -1291,11 +1519,11 @@
 
     invoke-interface {v0, v1, v2}, Lorg/w3c/dom/Element;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v36, "allowcategory"
+    const-string/jumbo v36, "allowSpace"
 
     move-object/from16 v0, v25
 
-    iget-object v0, v0, Landroid/content/pm/ApplicationInfo;->allowCategory:Ljava/lang/String;
+    iget-object v0, v0, Landroid/content/pm/ApplicationInfo;->allowSpace:Ljava/lang/String;
 
     move-object/from16 v38, v0
 
@@ -1307,11 +1535,11 @@
 
     invoke-interface {v0, v1, v2}, Lorg/w3c/dom/Element;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v36, "bbccategory"
+    const-string/jumbo v36, "bbcSpace"
 
     move-object/from16 v0, v25
 
-    iget v0, v0, Landroid/content/pm/ApplicationInfo;->bbccategory:I
+    iget v0, v0, Landroid/content/pm/ApplicationInfo;->bbcSpace:I
 
     move/from16 v38, v0
 
@@ -1327,11 +1555,11 @@
 
     invoke-interface {v0, v1, v2}, Lorg/w3c/dom/Element;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v36, "bbcallowcategory"
+    const-string/jumbo v36, "bbcAllowSpace"
 
     move-object/from16 v0, v25
 
-    iget-object v0, v0, Landroid/content/pm/ApplicationInfo;->bbcallowCategory:Ljava/lang/String;
+    iget-object v0, v0, Landroid/content/pm/ApplicationInfo;->bbcAllowSpace:Ljava/lang/String;
 
     move-object/from16 v38, v0
 
@@ -1350,19 +1578,19 @@
 
     move/from16 v1, v36
 
-    if-ne v0, v1, :cond_13
+    if-ne v0, v1, :cond_17
 
     move-object/from16 v0, v25
 
-    iget-object v0, v0, Landroid/content/pm/ApplicationInfo;->allowContainerCategory:Ljava/lang/String;
+    iget-object v0, v0, Landroid/content/pm/ApplicationInfo;->allowContainerSpace:Ljava/lang/String;
 
     move-object/from16 v36, v0
 
-    if-eqz v36, :cond_15
+    if-eqz v36, :cond_19
 
     move-object/from16 v0, v25
 
-    iget-object v0, v0, Landroid/content/pm/ApplicationInfo;->allowContainerCategory:Ljava/lang/String;
+    iget-object v0, v0, Landroid/content/pm/ApplicationInfo;->allowContainerSpace:Ljava/lang/String;
 
     move-object/from16 v36, v0
 
@@ -1374,13 +1602,13 @@
 
     move-result v36
 
-    if-eqz v36, :cond_15
+    if-eqz v36, :cond_19
 
     sget-object v36, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
 
     const-string/jumbo v38, "SEAMSContainer"
 
-    const-string/jumbo v39, "addEntryToMac, same allowContainerCategory already exists for this package, return true and continue with next step"
+    const-string/jumbo v39, "addEntryToMac, same allowContainerSpace already exists for this package, return true and continue with next step"
 
     move-object/from16 v0, v36
 
@@ -1403,14 +1631,14 @@
 
     return v36
 
-    :cond_12
+    :cond_16
     const/16 v36, 0x3
 
     move/from16 v0, v36
 
-    if-eq v4, v0, :cond_11
+    if-eq v4, v0, :cond_15
 
-    :cond_13
+    :cond_17
     :goto_8
     const/16 v16, 0x0
 
@@ -1424,7 +1652,7 @@
 
     move/from16 v1, v36
 
-    if-ge v0, v1, :cond_5
+    if-ge v0, v1, :cond_8
 
     move-object/from16 v0, v27
 
@@ -1454,7 +1682,7 @@
 
     move-result v36
 
-    if-eqz v36, :cond_1d
+    if-eqz v36, :cond_22
 
     move-object/from16 v0, v29
 
@@ -1464,13 +1692,13 @@
 
     move-result-object v15
 
-    if-eqz v15, :cond_16
+    if-eqz v15, :cond_1a
 
     const/16 v36, 0x1
 
     move/from16 v0, v36
 
-    if-ne v4, v0, :cond_16
+    if-ne v4, v0, :cond_1a
 
     sget-object v36, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
 
@@ -1499,13 +1727,13 @@
 
     return v36
 
-    :cond_14
+    :cond_18
     :try_start_12
     const-string/jumbo v36, "value"
 
     move-object/from16 v0, v25
 
-    iget-object v0, v0, Landroid/content/pm/ApplicationInfo;->seinfo:Ljava/lang/String;
+    iget-object v0, v0, Landroid/content/pm/ApplicationInfo;->seInfo:Ljava/lang/String;
 
     move-object/from16 v38, v0
 
@@ -1517,11 +1745,11 @@
 
     invoke-interface {v0, v1, v2}, Lorg/w3c/dom/Element;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v36, "category"
+    const-string/jumbo v36, "space"
 
     move-object/from16 v0, v25
 
-    iget v0, v0, Landroid/content/pm/ApplicationInfo;->category:I
+    iget v0, v0, Landroid/content/pm/ApplicationInfo;->space:I
 
     move/from16 v38, v0
 
@@ -1537,11 +1765,11 @@
 
     invoke-interface {v0, v1, v2}, Lorg/w3c/dom/Element;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v36, "allowcategory"
+    const-string/jumbo v36, "allowSpace"
 
     move-object/from16 v0, v25
 
-    iget-object v0, v0, Landroid/content/pm/ApplicationInfo;->allowCategory:Ljava/lang/String;
+    iget-object v0, v0, Landroid/content/pm/ApplicationInfo;->allowSpace:Ljava/lang/String;
 
     move-object/from16 v38, v0
 
@@ -1555,12 +1783,12 @@
 
     goto/16 :goto_7
 
-    :cond_15
-    const-string/jumbo v36, "category"
+    :cond_19
+    const-string/jumbo v36, "space"
 
     move-object/from16 v0, v25
 
-    iget v0, v0, Landroid/content/pm/ApplicationInfo;->category:I
+    iget v0, v0, Landroid/content/pm/ApplicationInfo;->space:I
 
     move/from16 v38, v0
 
@@ -1576,11 +1804,11 @@
 
     invoke-interface {v0, v1, v2}, Lorg/w3c/dom/Element;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v36, "allowcategory"
+    const-string/jumbo v36, "allowSpace"
 
     move-object/from16 v0, v25
 
-    iget-object v0, v0, Landroid/content/pm/ApplicationInfo;->allowCategory:Ljava/lang/String;
+    iget-object v0, v0, Landroid/content/pm/ApplicationInfo;->allowSpace:Ljava/lang/String;
 
     move-object/from16 v38, v0
 
@@ -1594,14 +1822,14 @@
 
     goto/16 :goto_8
 
-    :cond_16
-    if-eqz v15, :cond_17
+    :cond_1a
+    if-eqz v15, :cond_1b
 
     const/16 v36, 0x2
 
     move/from16 v0, v36
 
-    if-ne v4, v0, :cond_17
+    if-ne v4, v0, :cond_1b
 
     const/16 v36, 0x3
 
@@ -1609,11 +1837,11 @@
 
     move/from16 v1, v36
 
-    if-ne v0, v1, :cond_17
+    if-ne v0, v1, :cond_1b
 
     const-string/jumbo v36, "1023"
 
-    const-string/jumbo v38, "category"
+    const-string/jumbo v38, "space"
 
     move-object/from16 v0, v38
 
@@ -1629,16 +1857,18 @@
 
     move-result v36
 
-    if-eqz v36, :cond_18
+    xor-int/lit8 v36, v36, 0x1
 
-    :cond_17
-    if-eqz v15, :cond_19
+    if-nez v36, :cond_1c
+
+    :cond_1b
+    if-eqz v15, :cond_1d
 
     const/16 v36, 0x3
 
     move/from16 v0, v36
 
-    if-ne v4, v0, :cond_19
+    if-ne v4, v0, :cond_1d
 
     const/16 v36, 0x5
 
@@ -1646,9 +1876,9 @@
 
     move/from16 v1, v36
 
-    if-ne v0, v1, :cond_19
+    if-ne v0, v1, :cond_1d
 
-    :cond_18
+    :cond_1c
     sget-object v36, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
 
     const-string/jumbo v38, "SEAMSContainer"
@@ -1676,14 +1906,14 @@
 
     return v36
 
-    :cond_19
-    if-eqz v15, :cond_1c
+    :cond_1d
+    if-eqz v15, :cond_20
 
     const/16 v36, 0x2
 
     move/from16 v0, v36
 
-    if-ne v4, v0, :cond_1c
+    if-ne v4, v0, :cond_20
 
     const/16 v36, 0x4
 
@@ -1691,10 +1921,10 @@
 
     move/from16 v1, v36
 
-    if-ne v0, v1, :cond_1c
+    if-ne v0, v1, :cond_20
 
     :try_start_13
-    const-string/jumbo v36, "containerallowcategory"
+    const-string/jumbo v36, "containerAllowSpace"
 
     move-object/from16 v0, v36
 
@@ -1702,7 +1932,7 @@
 
     move-result-object v36
 
-    if-nez v36, :cond_1a
+    if-nez v36, :cond_1e
 
     sget-object v36, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
 
@@ -1731,9 +1961,9 @@
 
     return v36
 
-    :cond_1a
+    :cond_1e
     :try_start_14
-    const-string/jumbo v36, "containerallowcategory"
+    const-string/jumbo v36, "containerAllowSpace"
 
     move-object/from16 v0, v36
 
@@ -1749,7 +1979,7 @@
 
     move-result v36
 
-    if-eqz v36, :cond_1b
+    if-eqz v36, :cond_1f
 
     sget-object v36, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
 
@@ -1818,7 +2048,7 @@
 
     return v36
 
-    :cond_1b
+    :cond_1f
     :try_start_15
     new-instance v36, Ljava/lang/StringBuilder;
 
@@ -1842,7 +2072,7 @@
 
     move-result-object v36
 
-    const-string/jumbo v38, "containerallowcategory"
+    const-string/jumbo v38, "containerAllowSpace"
 
     move-object/from16 v0, v38
 
@@ -1862,7 +2092,7 @@
 
     move-result-object v20
 
-    const-string/jumbo v36, "containerallowcategory"
+    const-string/jumbo v36, "containerAllowSpace"
 
     move-object/from16 v0, v36
 
@@ -1874,7 +2104,7 @@
 
     goto/16 :goto_2
 
-    :cond_1c
+    :cond_20
     move-object/from16 v0, v27
 
     move/from16 v1, v16
@@ -1889,16 +2119,53 @@
 
     invoke-interface {v0, v1}, Lorg/w3c/dom/Node;->appendChild(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;
 
+    sget-boolean v36, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v36, :cond_21
+
+    sget-object v36, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v38, "SEAMSContainer"
+
+    new-instance v39, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v39 .. v39}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v40, "addEntryToMac, signature match found. Appending elem of ContainerType:"
+
+    invoke-virtual/range {v39 .. v40}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v39
+
+    move-object/from16 v0, v39
+
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v39
+
+    invoke-virtual/range {v39 .. v39}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v39
+
+    move-object/from16 v0, v36
+
+    move-object/from16 v1, v38
+
+    move-object/from16 v2, v39
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_21
     const/16 v17, 0x1
 
     goto/16 :goto_2
 
-    :cond_1d
+    :cond_22
     add-int/lit8 v16, v16, 0x1
 
     goto/16 :goto_9
 
-    :cond_1e
+    :cond_23
     new-instance v30, Ljavax/xml/transform/dom/DOMSource;
 
     move-object/from16 v0, v30
@@ -1918,10 +2185,49 @@
 .end method
 
 .method private static checkCategory(Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 6
+    .locals 7
 
     const/4 v3, 0x0
 
+    sget-boolean v2, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v2, :cond_0
+
+    sget-object v2, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v4, "SEAMSContainer"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "checkCategory: existingContAllowSpace="
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, ", newSpace="
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v2, v4, v5}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
     const-string/jumbo v2, ","
 
     invoke-virtual {p0, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
@@ -1933,7 +2239,7 @@
     move v2, v3
 
     :goto_0
-    if-ge v2, v4, :cond_1
+    if-ge v2, v4, :cond_2
 
     aget-object v1, v0, v2
 
@@ -1941,34 +2247,67 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_1
 
     const/4 v2, 0x1
 
     return v2
 
-    :cond_0
+    :cond_1
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     return v3
 .end method
 
 .method public static checkCategoryRange(Ljava/lang/String;III)I
-    .locals 12
+    .locals 10
 
-    const/4 v11, 0x4
-
-    const/4 v10, 0x2
-
-    const/16 v9, 0x6a
-
-    const/4 v8, 0x1
+    const/4 v9, 0x1
 
     const/4 v5, 0x0
 
+    sget-boolean v4, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v4, :cond_0
+
+    sget-object v4, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v6, "SEAMSContainer"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "checkCategory: existingContAllowSpace="
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    const-string/jumbo v8, ", startRange="
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v4, v6, v7}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
     const-string/jumbo v4, ","
 
     invoke-virtual {p0, v4}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
@@ -1981,7 +2320,7 @@
     move v4, v5
 
     :goto_0
-    if-ge v4, v6, :cond_7
+    if-ge v4, v6, :cond_6
 
     aget-object v2, v0, v4
 
@@ -2019,82 +2358,7 @@
 
     if-gt v7, p2, :cond_2
 
-    :cond_0
-    :goto_1
-    const/4 v7, 0x0
-
-    aget-object v7, v3, v7
-
-    invoke-static {v7}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v7
-
-    if-ne v9, v7, :cond_4
-
-    const/4 v7, 0x1
-
-    aget-object v7, v3, v7
-
-    invoke-static {v7}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v7
-
-    if-ne v9, v7, :cond_4
-
-    if-eq p3, v10, :cond_1
-
-    if-ne p3, v11, :cond_4
-
     :cond_1
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_0
-
-    :cond_2
-    const/4 v7, 0x1
-
-    aget-object v7, v3, v7
-
-    invoke-static {v7}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v7
-
-    if-lt v7, p1, :cond_3
-
-    const/4 v7, 0x1
-
-    aget-object v7, v3, v7
-
-    invoke-static {v7}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v7
-
-    if-le v7, p2, :cond_0
-
-    :cond_3
-    const/4 v7, 0x0
-
-    aget-object v7, v3, v7
-
-    invoke-static {v7}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v7
-
-    if-ge v7, p1, :cond_1
-
-    const/4 v7, 0x1
-
-    aget-object v7, v3, v7
-
-    invoke-static {v7}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v7
-
-    if-le v7, p2, :cond_1
-
-    goto :goto_1
-
-    :cond_4
     sget-object v4, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
 
     const-string/jumbo v5, "SEAMSContainer"
@@ -2103,7 +2367,7 @@
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "Found other container category:"
+    const-string/jumbo v7, "Found other container space:"
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2129,32 +2393,68 @@
 
     invoke-virtual {v4, v5, v6}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
 
-    return v8
+    return v9
+
+    :cond_2
+    const/4 v7, 0x1
+
+    aget-object v7, v3, v7
+
+    invoke-static {v7}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v7
+
+    if-lt v7, p1, :cond_3
+
+    const/4 v7, 0x1
+
+    aget-object v7, v3, v7
+
+    invoke-static {v7}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v7
+
+    if-le v7, p2, :cond_1
+
+    :cond_3
+    const/4 v7, 0x0
+
+    aget-object v7, v3, v7
+
+    invoke-static {v7}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v7
+
+    if-ge v7, p1, :cond_4
+
+    const/4 v7, 0x1
+
+    aget-object v7, v3, v7
+
+    invoke-static {v7}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v7
+
+    if-gt v7, p2, :cond_1
+
+    :cond_4
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_0
 
     :cond_5
     invoke-static {v2}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v7
 
-    if-lt v7, p1, :cond_1
+    if-lt v7, p1, :cond_4
 
     invoke-static {v2}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v7
 
-    if-gt v7, p2, :cond_1
+    if-gt v7, p2, :cond_4
 
-    invoke-static {v2}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v7
-
-    if-ne v7, v9, :cond_6
-
-    if-eq p3, v10, :cond_1
-
-    if-eq p3, v11, :cond_1
-
-    :cond_6
     sget-object v4, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
 
     const-string/jumbo v5, "SEAMSContainer"
@@ -2163,7 +2463,7 @@
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "Found other container category:"
+    const-string/jumbo v7, "Found other container space:"
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2191,7 +2491,7 @@
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return v8
+    return v9
 
     :catch_0
     move-exception v1
@@ -2208,7 +2508,7 @@
 
     return v4
 
-    :cond_7
+    :cond_6
     sget-object v4, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
 
     const-string/jumbo v6, "SEAMSContainer"
@@ -2250,11 +2550,11 @@
 
     const/4 v2, 0x6
 
-    if-ne p3, v2, :cond_7
+    if-ne p3, v2, :cond_9
 
     :cond_1
     :goto_0
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_6
 
     invoke-interface {v0}, Lorg/w3c/dom/Element;->getTagName()Ljava/lang/String;
 
@@ -2266,7 +2566,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_7
 
     const-string/jumbo v2, "name"
 
@@ -2278,9 +2578,9 @@
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_7
 
-    const-string/jumbo v2, "category"
+    const-string/jumbo v2, "space"
 
     invoke-interface {v0, v2}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
@@ -2292,7 +2592,7 @@
 
     if-nez v2, :cond_2
 
-    const-string/jumbo v2, "bbccategory"
+    const-string/jumbo v2, "bbcSpace"
 
     invoke-interface {v0, v2}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
@@ -2302,7 +2602,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_7
 
     :cond_2
     const-string/jumbo v2, "agent"
@@ -2340,16 +2640,29 @@
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_7
 
     :cond_4
-    move-object v1, v0
+    sget-boolean v2, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v2, :cond_5
+
+    sget-object v2, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v3, "SEAMSContainer"
+
+    const-string/jumbo v4, "checkContainerIDEntryExists, Match found..returning elem"
+
+    invoke-virtual {v2, v3, v4}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_5
+    move-object v1, v0
+
+    :cond_6
     :goto_1
     return-object v1
 
-    :cond_6
+    :cond_7
     invoke-interface {v0}, Lorg/w3c/dom/Element;->getNextSibling()Lorg/w3c/dom/Node;
 
     move-result-object v0
@@ -2358,9 +2671,15 @@
 
     goto :goto_0
 
-    :cond_7
-    :goto_2
-    if-eqz v0, :cond_5
+    :cond_8
+    invoke-interface {v0}, Lorg/w3c/dom/Element;->getNextSibling()Lorg/w3c/dom/Node;
+
+    move-result-object v0
+
+    check-cast v0, Lorg/w3c/dom/Element;
+
+    :cond_9
+    if-eqz v0, :cond_6
 
     invoke-interface {v0}, Lorg/w3c/dom/Element;->getTagName()Ljava/lang/String;
 
@@ -2372,7 +2691,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_9
+    if-nez v2, :cond_8
 
     const-string/jumbo v2, "name"
 
@@ -2384,21 +2703,9 @@
 
     move-result v2
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_8
 
-    const-string/jumbo v2, "category"
-
-    invoke-interface {v0, v2}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_8
-
-    const-string/jumbo v2, "bbccategory"
+    const-string/jumbo v2, "space"
 
     invoke-interface {v0, v2}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
@@ -2408,27 +2715,31 @@
 
     move-result v2
 
-    if-eqz v2, :cond_9
+    if-nez v2, :cond_a
 
-    :cond_8
+    const-string/jumbo v2, "bbcSpace"
+
+    invoke-interface {v0, v2}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_8
+
+    :cond_a
     const-string/jumbo v2, "agent"
 
     invoke-interface {v0, v2}, Lorg/w3c/dom/Element;->hasAttribute(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_a
+    xor-int/lit8 v2, v2, 0x1
 
-    :cond_9
-    invoke-interface {v0}, Lorg/w3c/dom/Element;->getNextSibling()Lorg/w3c/dom/Node;
+    if-eqz v2, :cond_8
 
-    move-result-object v0
-
-    check-cast v0, Lorg/w3c/dom/Element;
-
-    goto :goto_2
-
-    :cond_a
     const-string/jumbo v2, "seinfo"
 
     invoke-interface {v0, v2}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
@@ -2441,8 +2752,23 @@
 
     move-result v2
 
-    if-nez v2, :cond_9
+    xor-int/lit8 v2, v2, 0x1
 
+    if-eqz v2, :cond_8
+
+    sget-boolean v2, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v2, :cond_b
+
+    sget-object v2, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v3, "SEAMSContainer"
+
+    const-string/jumbo v4, "checkContainerIDEntryExists, Match found..returning elem"
+
+    invoke-virtual {v2, v3, v4}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_b
     move-object v1, v0
 
     goto :goto_1
@@ -2475,7 +2801,7 @@
     const/4 v1, 0x0
 
     :goto_0
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2
 
     invoke-interface {v0}, Lorg/w3c/dom/Element;->getTagName()Ljava/lang/String;
 
@@ -2487,7 +2813,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_3
 
     const-string/jumbo v2, "name"
 
@@ -2499,7 +2825,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3
 
     const-string/jumbo v2, "agent"
 
@@ -2507,18 +2833,10 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    xor-int/lit8 v2, v2, 0x1
 
-    :cond_1
-    invoke-interface {v0}, Lorg/w3c/dom/Element;->getNextSibling()Lorg/w3c/dom/Node;
+    if-eqz v2, :cond_3
 
-    move-result-object v0
-
-    check-cast v0, Lorg/w3c/dom/Element;
-
-    goto :goto_0
-
-    :cond_2
     const-string/jumbo v2, "seinfo"
 
     invoke-interface {v0, v2}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
@@ -2531,12 +2849,36 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    xor-int/lit8 v2, v2, 0x1
 
+    if-eqz v2, :cond_3
+
+    sget-boolean v2, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v2, :cond_1
+
+    sget-object v2, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v3, "SEAMSContainer"
+
+    const-string/jumbo v4, "checkTrustedEntryExists, Match found..returning elem"
+
+    invoke-virtual {v2, v3, v4}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_1
     move-object v1, v0
 
-    :cond_3
+    :cond_2
     return-object v1
+
+    :cond_3
+    invoke-interface {v0}, Lorg/w3c/dom/Element;->getNextSibling()Lorg/w3c/dom/Node;
+
+    move-result-object v0
+
+    check-cast v0, Lorg/w3c/dom/Element;
+
+    goto :goto_0
 .end method
 
 .method protected static getBbcEnabled()I
@@ -2605,9 +2947,48 @@
 
     monitor-enter v16
 
+    :try_start_0
+    sget-boolean v15, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v15, :cond_0
+
+    sget-object v15, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v17, "SEAMSContainer"
+
+    new-instance v18, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v19, "getSignatureEntryFromMac packageName = "
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, p1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v18
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v18
+
+    invoke-virtual {v15, v0, v1}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
+    const/4 v12, 0x0
+
     const/4 v11, 0x0
 
-    :try_start_0
     invoke-static {}, Ljavax/xml/parsers/DocumentBuilderFactory;->newInstance()Ljavax/xml/parsers/DocumentBuilderFactory;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -2625,8 +3006,25 @@
 
     move-result v15
 
-    if-eqz v15, :cond_0
+    if-eqz v15, :cond_3
 
+    sget-boolean v15, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v15, :cond_1
+
+    sget-object v15, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v17, "SEAMSContainer"
+
+    const-string/jumbo v18, "macpermfile exists"
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v18
+
+    invoke-virtual {v15, v0, v1}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_1
     move-object/from16 v0, p0
 
     invoke-virtual {v2, v0}, Ljavax/xml/parsers/DocumentBuilder;->parse(Ljava/io/File;)Lorg/w3c/dom/Document;
@@ -2665,6 +3063,55 @@
 
     const/4 v10, 0x0
 
+    sget-boolean v15, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v15, :cond_2
+
+    sget-object v15, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v17, "SEAMSContainer"
+
+    const-string/jumbo v18, "Looking for matching entry in /data/security/<container>/mac_permissions.xml"
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v18
+
+    invoke-virtual {v15, v0, v1}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    sget-object v15, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v17, "SEAMSContainer"
+
+    new-instance v18, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v19, "the signer length is "
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    invoke-interface {v13}, Lorg/w3c/dom/NodeList;->getLength()I
+
+    move-result v19
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v18
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v18
+
+    invoke-virtual {v15, v0, v1}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_2
     const/4 v6, 0x0
 
     :goto_0
@@ -2672,7 +3119,7 @@
 
     move-result v15
 
-    if-ge v6, v15, :cond_3
+    if-ge v6, v15, :cond_6
 
     invoke-interface {v13, v6}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
 
@@ -2687,7 +3134,7 @@
     check-cast v7, Lorg/w3c/dom/Element;
 
     :goto_1
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_5
 
     invoke-interface {v7}, Lorg/w3c/dom/Element;->getTagName()Ljava/lang/String;
 
@@ -2701,7 +3148,7 @@
 
     move-result v15
 
-    if-nez v15, :cond_1
+    if-nez v15, :cond_4
 
     const-string/jumbo v15, "name"
 
@@ -2715,7 +3162,7 @@
 
     move-result v15
 
-    if-eqz v15, :cond_1
+    if-eqz v15, :cond_4
 
     const-string/jumbo v15, "signature"
 
@@ -2730,7 +3177,7 @@
 
     return-object v12
 
-    :cond_0
+    :cond_3
     :try_start_2
     sget-object v15, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
 
@@ -2779,7 +3226,7 @@
 
     return-object v15
 
-    :cond_1
+    :cond_4
     :try_start_3
     invoke-interface {v7}, Lorg/w3c/dom/Element;->getNextSibling()Lorg/w3c/dom/Node;
 
@@ -2792,7 +3239,7 @@
 
     goto :goto_1
 
-    :cond_2
+    :cond_5
     add-int/lit8 v6, v6, 0x1
 
     goto :goto_0
@@ -2805,7 +3252,7 @@
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    :cond_3
+    :cond_6
     const/4 v15, 0x0
 
     monitor-exit v16
@@ -3034,9 +3481,28 @@
 
     monitor-enter v21
 
+    :try_start_0
+    sget-boolean v20, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v20, :cond_0
+
+    sget-object v20, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v22, "SEAMSContainer"
+
+    const-string/jumbo v23, "Entered isContainerEmpty in SEAMSContainer"
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v22
+
+    move-object/from16 v2, v23
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
     const/16 v16, 0x0
 
-    :try_start_0
     invoke-static {}, Ljavax/xml/parsers/DocumentBuilderFactory;->newInstance()Ljavax/xml/parsers/DocumentBuilderFactory;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -3054,8 +3520,27 @@
 
     move-result v20
 
+    if-eqz v20, :cond_5
+
+    sget-boolean v20, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
     if-eqz v20, :cond_1
 
+    sget-object v20, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v22, "SEAMSContainer"
+
+    const-string/jumbo v23, "macpermfile exists"
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v22
+
+    move-object/from16 v2, v23
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_1
     move-object/from16 v0, p0
 
     invoke-virtual {v5, v0}, Ljavax/xml/parsers/DocumentBuilder;->parse(Ljava/io/File;)Lorg/w3c/dom/Document;
@@ -3100,6 +3585,64 @@
 
     const/4 v15, 0x0
 
+    sget-boolean v20, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v20, :cond_2
+
+    sget-object v20, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v22, "SEAMSContainer"
+
+    new-instance v23, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v24, "the signer length is "
+
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v23
+
+    invoke-interface/range {v18 .. v18}, Lorg/w3c/dom/NodeList;->getLength()I
+
+    move-result v24
+
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v23
+
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v23
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v22
+
+    move-object/from16 v2, v23
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_2
+    sget-boolean v20, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v20, :cond_3
+
+    sget-object v20, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v22, "SEAMSContainer"
+
+    const-string/jumbo v23, "Check if there is a package name match"
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v22
+
+    move-object/from16 v2, v23
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_3
     invoke-interface/range {v18 .. v18}, Lorg/w3c/dom/NodeList;->getLength()I
 
     move-result v20
@@ -3110,7 +3653,7 @@
 
     move/from16 v1, v22
 
-    if-ne v0, v1, :cond_7
+    if-ne v0, v1, :cond_d
 
     const/16 v20, 0x0
 
@@ -3138,7 +3681,7 @@
 
     move-result v20
 
-    if-eqz v20, :cond_6
+    if-eqz v20, :cond_c
 
     const-string/jumbo v20, "service"
 
@@ -3156,7 +3699,7 @@
 
     move/from16 v1, v22
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_6
 
     const/16 v20, 0x1
 
@@ -3164,7 +3707,7 @@
 
     move/from16 v1, v20
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_4
 
     invoke-interface/range {v17 .. v17}, Lorg/w3c/dom/NodeList;->getLength()I
 
@@ -3176,9 +3719,9 @@
 
     move/from16 v1, v22
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_6
 
-    :cond_0
+    :cond_4
     sget-object v20, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
 
     const-string/jumbo v22, "SEAMSContainer"
@@ -3205,7 +3748,7 @@
 
     return v20
 
-    :cond_1
+    :cond_5
     :try_start_2
     sget-object v20, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
 
@@ -3259,7 +3802,7 @@
 
     return v20
 
-    :cond_2
+    :cond_6
     const/4 v4, 0x0
 
     const/4 v3, 0x0
@@ -3274,7 +3817,7 @@
 
     move/from16 v0, v20
 
-    if-ge v12, v0, :cond_4
+    if-ge v12, v0, :cond_a
 
     move-object/from16 v0, v17
 
@@ -3284,6 +3827,49 @@
 
     check-cast v4, Lorg/w3c/dom/Element;
 
+    sget-boolean v20, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v20, :cond_7
+
+    sget-object v20, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v22, "SEAMSContainer"
+
+    new-instance v23, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v24, "isContainerEmpty, curElem name: "
+
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v23
+
+    const-string/jumbo v24, "name"
+
+    move-object/from16 v0, v24
+
+    invoke-interface {v4, v0}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v24
+
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v23
+
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v23
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v22
+
+    move-object/from16 v2, v23
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_7
     const-string/jumbo v20, "name"
 
     move-object/from16 v0, v20
@@ -3297,6 +3883,28 @@
     move-object/from16 v1, p1
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v20
+
+    if-eqz v20, :cond_9
+
+    sget-boolean v20, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v20, :cond_8
+
+    sget-object v20, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v22, "SEAMSContainer"
+
+    const-string/jumbo v23, "isContainerEmpty, agent packagename with generic_mdm seinfo"
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v22
+
+    move-object/from16 v2, v23
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_3
     .catch Lorg/xml/sax/SAXException; {:try_start_3 .. :try_end_3} :catch_3
     .catch Ljavax/xml/parsers/ParserConfigurationException; {:try_start_3 .. :try_end_3} :catch_2
@@ -3304,29 +3912,26 @@
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    move-result v20
-
-    if-eqz v20, :cond_3
-
+    :cond_8
     add-int/lit8 v3, v3, 0x1
 
-    :cond_3
+    :cond_9
     add-int/lit8 v12, v12, 0x1
 
     goto :goto_0
 
-    :cond_4
+    :cond_a
     const/16 v20, 0x2
 
     move/from16 v0, v20
 
-    if-eq v3, v0, :cond_5
+    if-eq v3, v0, :cond_b
 
     const/16 v20, 0x1
 
     move/from16 v0, v20
 
-    if-ne v3, v0, :cond_8
+    if-ne v3, v0, :cond_e
 
     const/16 v20, 0x1
 
@@ -3334,16 +3939,16 @@
 
     move/from16 v1, v20
 
-    if-ne v0, v1, :cond_8
+    if-ne v0, v1, :cond_e
 
-    :cond_5
+    :cond_b
     const/16 v20, 0x1
 
     monitor-exit v21
 
     return v20
 
-    :cond_6
+    :cond_c
     :try_start_4
     sget-object v20, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
 
@@ -3371,7 +3976,7 @@
 
     return v20
 
-    :cond_7
+    :cond_d
     :try_start_5
     sget-object v20, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
 
@@ -3405,7 +4010,7 @@
     :try_start_6
     invoke-virtual {v8}, Ljava/lang/Exception;->printStackTrace()V
 
-    :cond_8
+    :cond_e
     :goto_1
     sget-object v20, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
 
@@ -3534,11 +4139,40 @@
     goto :goto_1
 
     :cond_2
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4
 
-    return-object v2
+    sget-boolean v4, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v4, :cond_3
+
+    sget-object v4, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v5, "SEAMSContainer"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "removeCategory, return: "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v4, v5, v6}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_3
+    return-object v2
+
+    :cond_4
     sget-object v4, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
 
     const-string/jumbo v5, "SEAMSContainer"
@@ -3557,11 +4191,30 @@
 
     monitor-enter v29
 
+    :try_start_0
+    sget-boolean v28, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v28, :cond_0
+
+    sget-object v28, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v30, "SEAMSContainer"
+
+    const-string/jumbo v31, "removeEntryFromMac_begin"
+
+    move-object/from16 v0, v28
+
+    move-object/from16 v1, v30
+
+    move-object/from16 v2, v31
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
     const/4 v15, 0x0
 
     const/16 v21, 0x0
 
-    :try_start_0
     invoke-static {}, Ljavax/xml/parsers/DocumentBuilderFactory;->newInstance()Ljavax/xml/parsers/DocumentBuilderFactory;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -3606,13 +4259,32 @@
 
     move-result v28
 
-    if-eqz v28, :cond_7
+    if-eqz v28, :cond_e
 
+    sget-boolean v28, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v28, :cond_1
+
+    sget-object v28, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v30, "SEAMSContainer"
+
+    const-string/jumbo v31, "macpermfile exists"
+
+    move-object/from16 v0, v28
+
+    move-object/from16 v1, v30
+
+    move-object/from16 v2, v31
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_1
     invoke-virtual/range {p0 .. p0}, Ljava/io/File;->canWrite()Z
 
     move-result v28
 
-    if-nez v28, :cond_0
+    if-nez v28, :cond_2
 
     const/16 v28, 0x1
 
@@ -3622,7 +4294,7 @@
 
     invoke-virtual {v0, v1}, Ljava/io/File;->setWritable(Z)Z
 
-    :cond_0
+    :cond_2
     move-object/from16 v0, p0
 
     invoke-virtual {v5, v0}, Ljavax/xml/parsers/DocumentBuilder;->parse(Ljava/io/File;)Lorg/w3c/dom/Document;
@@ -3671,6 +4343,59 @@
 
     const/16 v19, 0x0
 
+    sget-boolean v28, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v28, :cond_3
+
+    sget-object v28, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v30, "SEAMSContainer"
+
+    const-string/jumbo v31, "Looking for matching entry in /data/security/<container>/mac_permissions.xml"
+
+    move-object/from16 v0, v28
+
+    move-object/from16 v1, v30
+
+    move-object/from16 v2, v31
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    sget-object v28, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v30, "SEAMSContainer"
+
+    new-instance v31, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v31 .. v31}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v32, "the signer length is "
+
+    invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v31
+
+    invoke-interface/range {v23 .. v23}, Lorg/w3c/dom/NodeList;->getLength()I
+
+    move-result v32
+
+    invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v31
+
+    invoke-virtual/range {v31 .. v31}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v31
+
+    move-object/from16 v0, v28
+
+    move-object/from16 v1, v30
+
+    move-object/from16 v2, v31
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_3
     const/4 v14, 0x0
 
     :goto_0
@@ -3680,7 +4405,7 @@
 
     move/from16 v0, v28
 
-    if-ge v14, v0, :cond_4
+    if-ge v14, v0, :cond_9
 
     move-object/from16 v0, v23
 
@@ -3708,13 +4433,52 @@
 
     move-result v28
 
-    if-eqz v28, :cond_13
+    if-eqz v28, :cond_1d
 
+    sget-boolean v28, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v28, :cond_4
+
+    sget-object v28, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v30, "SEAMSContainer"
+
+    new-instance v31, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v31 .. v31}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v32, "matched signature found "
+
+    invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v31
+
+    move-object/from16 v0, v31
+
+    move-object/from16 v1, p1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v31
+
+    invoke-virtual/range {v31 .. v31}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v31
+
+    move-object/from16 v0, v28
+
+    move-object/from16 v1, v30
+
+    move-object/from16 v2, v31
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_4
     const/16 v28, 0x2
 
     move/from16 v0, v28
 
-    if-ne v4, v0, :cond_8
+    if-ne v4, v0, :cond_f
 
     const/16 v28, 0x3
 
@@ -3722,11 +4486,11 @@
 
     move/from16 v1, v28
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_5
 
-    if-nez p4, :cond_8
+    if-nez p4, :cond_f
 
-    :cond_1
+    :cond_5
     move-object/from16 v0, v24
 
     move-object/from16 v1, p2
@@ -3740,7 +4504,7 @@
     move-result-object v19
 
     :goto_1
-    if-eqz v19, :cond_d
+    if-eqz v19, :cond_14
 
     const/16 v28, 0x1
 
@@ -3748,7 +4512,7 @@
 
     move/from16 v1, v28
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_6
 
     const/16 v28, 0x3
 
@@ -3756,30 +4520,10 @@
 
     move/from16 v1, v28
 
-    if-ne v0, v1, :cond_c
+    if-ne v0, v1, :cond_13
 
-    :cond_2
-    const-string/jumbo v28, "category"
-
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, v28
-
-    invoke-interface {v0, v1}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v28
-
-    move-object/from16 v0, v28
-
-    move-object/from16 v1, p3
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v28
-
-    if-nez v28, :cond_3
-
-    const-string/jumbo v28, "bbccategory"
+    :cond_6
+    const-string/jumbo v28, "space"
 
     move-object/from16 v0, v19
 
@@ -3797,9 +4541,88 @@
 
     move-result v28
 
-    if-eqz v28, :cond_f
+    if-nez v28, :cond_7
 
-    :cond_3
+    const-string/jumbo v28, "bbcSpace"
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v28
+
+    invoke-interface {v0, v1}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v28
+
+    move-object/from16 v0, v28
+
+    move-object/from16 v1, p3
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v28
+
+    if-eqz v28, :cond_17
+
+    :cond_7
+    sget-boolean v28, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v28, :cond_8
+
+    sget-object v28, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v30, "SEAMSContainer"
+
+    new-instance v31, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v31 .. v31}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v32, "removeEntryFromMac, "
+
+    invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v31
+
+    invoke-interface/range {v19 .. v19}, Lorg/w3c/dom/Element;->getTagName()Ljava/lang/String;
+
+    move-result-object v32
+
+    invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v31
+
+    const-string/jumbo v32, " match found for "
+
+    invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v31
+
+    move-object/from16 v0, v31
+
+    move-object/from16 v1, p2
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v31
+
+    const-string/jumbo v32, "..deleting elem"
+
+    invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v31
+
+    invoke-virtual/range {v31 .. v31}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v31
+
+    move-object/from16 v0, v28
+
+    move-object/from16 v1, v30
+
+    move-object/from16 v2, v31
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_8
     move-object/from16 v0, v23
 
     invoke-interface {v0, v14}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
@@ -3814,9 +4637,9 @@
 
     const/4 v15, 0x1
 
-    :cond_4
+    :cond_9
     :goto_2
-    if-eqz v15, :cond_14
+    if-eqz v15, :cond_1e
 
     const-string/jumbo v28, "service"
 
@@ -3832,7 +4655,7 @@
 
     move-result v28
 
-    if-nez v28, :cond_5
+    if-nez v28, :cond_a
 
     move-object/from16 v0, v17
 
@@ -3840,7 +4663,26 @@
 
     invoke-interface {v0, v1}, Lorg/w3c/dom/Element;->removeChild(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;
 
-    :cond_5
+    :cond_a
+    sget-boolean v28, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v28, :cond_b
+
+    sget-object v28, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v30, "SEAMSContainer"
+
+    const-string/jumbo v31, "removeEntryFromMac, Match found..deleted elem...writing to file"
+
+    move-object/from16 v0, v28
+
+    move-object/from16 v1, v30
+
+    move-object/from16 v2, v31
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_b
     invoke-interface {v6}, Lorg/w3c/dom/Document;->getDocumentElement()Lorg/w3c/dom/Element;
 
     move-result-object v28
@@ -3877,12 +4719,31 @@
 
     invoke-virtual {v0, v1, v2}, Ljavax/xml/transform/Transformer;->transform(Ljavax/xml/transform/Source;Ljavax/xml/transform/Result;)V
 
+    sget-boolean v28, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v28, :cond_c
+
+    sget-object v28, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v30, "SEAMSContainer"
+
+    const-string/jumbo v31, " removeEntryFromMac, entry removed from mac_permissions.xml"
+
+    move-object/from16 v0, v28
+
+    move-object/from16 v1, v30
+
+    move-object/from16 v2, v31
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_c
     :goto_3
     invoke-virtual/range {p0 .. p0}, Ljava/io/File;->canWrite()Z
 
     move-result v28
 
-    if-eqz v28, :cond_6
+    if-eqz v28, :cond_d
 
     const/16 v28, 0x0
 
@@ -3899,7 +4760,7 @@
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_2
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    :cond_6
+    :cond_d
     :goto_4
     monitor-exit v29
 
@@ -3917,7 +4778,7 @@
 
     invoke-direct/range {v31 .. v31}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v32, "category: "
+    const-string/jumbo v32, "space: "
 
     invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3962,7 +4823,7 @@
 
     return v28
 
-    :cond_7
+    :cond_e
     :try_start_5
     sget-object v28, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
 
@@ -4017,12 +4878,12 @@
 
     return v28
 
-    :cond_8
+    :cond_f
     const/16 v28, 0x3
 
     move/from16 v0, v28
 
-    if-ne v4, v0, :cond_9
+    if-ne v4, v0, :cond_10
 
     const/16 v28, 0x5
 
@@ -4030,7 +4891,7 @@
 
     move/from16 v1, v28
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_5
 
     const/16 v28, 0x6
 
@@ -4038,10 +4899,10 @@
 
     move/from16 v1, v28
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_5
 
-    :cond_9
-    if-eqz p4, :cond_a
+    :cond_10
+    if-eqz p4, :cond_11
 
     const/16 v28, 0x6
 
@@ -4049,9 +4910,9 @@
 
     move/from16 v1, v28
 
-    if-ne v0, v1, :cond_b
+    if-ne v0, v1, :cond_12
 
-    :cond_a
+    :cond_11
     :try_start_6
     move-object/from16 v0, v24
 
@@ -4067,7 +4928,7 @@
 
     goto/16 :goto_1
 
-    :cond_b
+    :cond_12
     move-object/from16 v0, v24
 
     move-object/from16 v1, p2
@@ -4078,16 +4939,16 @@
 
     goto/16 :goto_1
 
-    :cond_c
+    :cond_13
     const/16 v28, 0x5
 
     move/from16 v0, p4
 
     move/from16 v1, v28
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_6
 
-    if-eqz p4, :cond_2
+    if-eqz p4, :cond_6
 
     const/16 v28, 0x6
 
@@ -4095,10 +4956,10 @@
 
     move/from16 v1, v28
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_6
 
-    :cond_d
-    if-eqz v19, :cond_12
+    :cond_14
+    if-eqz v19, :cond_1c
 
     const/16 v28, 0x4
 
@@ -4106,7 +4967,7 @@
 
     move/from16 v1, v28
 
-    if-eq v0, v1, :cond_e
+    if-eq v0, v1, :cond_15
 
     const/16 v28, 0x2
 
@@ -4114,14 +4975,14 @@
 
     move/from16 v1, v28
 
-    if-ne v0, v1, :cond_12
+    if-ne v0, v1, :cond_1c
 
-    :cond_e
+    :cond_15
     const/16 v28, 0x2
 
     move/from16 v0, v28
 
-    if-ne v4, v0, :cond_11
+    if-ne v4, v0, :cond_1a
 
     const/16 v28, 0x4
 
@@ -4129,9 +4990,9 @@
 
     move/from16 v1, v28
 
-    if-ne v0, v1, :cond_11
+    if-ne v0, v1, :cond_1a
 
-    const-string/jumbo v28, "containerallowcategory"
+    const-string/jumbo v28, "containerAllowSpace"
 
     move-object/from16 v0, v19
 
@@ -4149,8 +5010,67 @@
 
     move-result v28
 
-    if-eqz v28, :cond_10
+    if-eqz v28, :cond_18
 
+    sget-boolean v28, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v28, :cond_16
+
+    sget-object v28, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v30, "SEAMSContainer"
+
+    new-instance v31, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v31 .. v31}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v32, "removeEntryFromMac, "
+
+    invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v31
+
+    invoke-interface/range {v19 .. v19}, Lorg/w3c/dom/Element;->getTagName()Ljava/lang/String;
+
+    move-result-object v32
+
+    invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v31
+
+    const-string/jumbo v32, " match found for "
+
+    invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v31
+
+    move-object/from16 v0, v31
+
+    move-object/from16 v1, p2
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v31
+
+    const-string/jumbo v32, "..deleting elem"
+
+    invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v31
+
+    invoke-virtual/range {v31 .. v31}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v31
+
+    move-object/from16 v0, v28
+
+    move-object/from16 v1, v30
+
+    move-object/from16 v2, v31
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_16
     move-object/from16 v0, v23
 
     invoke-interface {v0, v14}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
@@ -4167,7 +5087,7 @@
 
     goto/16 :goto_2
 
-    :cond_f
+    :cond_17
     sget-object v28, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
 
     const-string/jumbo v30, "SEAMSContainer"
@@ -4215,9 +5135,28 @@
 
     return v28
 
-    :cond_10
+    :cond_18
     :try_start_7
-    const-string/jumbo v28, "containerallowcategory"
+    sget-boolean v28, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v28, :cond_19
+
+    sget-object v28, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v30, "SEAMSContainer"
+
+    const-string/jumbo v31, "it is for Generic Trusted with partial space match"
+
+    move-object/from16 v0, v28
+
+    move-object/from16 v1, v30
+
+    move-object/from16 v2, v31
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_19
+    const-string/jumbo v28, "containerAllowSpace"
 
     move-object/from16 v0, v19
 
@@ -4235,9 +5174,9 @@
 
     move-result-object v16
 
-    if-eqz v16, :cond_13
+    if-eqz v16, :cond_1d
 
-    const-string/jumbo v28, "containerallowcategory"
+    const-string/jumbo v28, "containerAllowSpace"
 
     move-object/from16 v0, v19
 
@@ -4251,13 +5190,72 @@
 
     goto/16 :goto_2
 
-    :cond_11
+    :cond_1a
     const/16 v28, 0x1
 
     move/from16 v0, v28
 
-    if-ne v4, v0, :cond_13
+    if-ne v4, v0, :cond_1d
 
+    sget-boolean v28, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v28, :cond_1b
+
+    sget-object v28, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v30, "SEAMSContainer"
+
+    new-instance v31, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v31 .. v31}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v32, "removeEntryFromMac, "
+
+    invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v31
+
+    invoke-interface/range {v19 .. v19}, Lorg/w3c/dom/Element;->getTagName()Ljava/lang/String;
+
+    move-result-object v32
+
+    invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v31
+
+    const-string/jumbo v32, " match found for "
+
+    invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v31
+
+    move-object/from16 v0, v31
+
+    move-object/from16 v1, p2
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v31
+
+    const-string/jumbo v32, "..deleting elem"
+
+    invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v31
+
+    invoke-virtual/range {v31 .. v31}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v31
+
+    move-object/from16 v0, v28
+
+    move-object/from16 v1, v30
+
+    move-object/from16 v2, v31
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_1b
     move-object/from16 v0, v23
 
     invoke-interface {v0, v14}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
@@ -4274,7 +5272,7 @@
 
     goto/16 :goto_2
 
-    :cond_12
+    :cond_1c
     sget-object v28, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
 
     const-string/jumbo v30, "SEAMSContainer"
@@ -4322,12 +5320,12 @@
 
     return v28
 
-    :cond_13
+    :cond_1d
     add-int/lit8 v14, v14, 0x1
 
     goto/16 :goto_0
 
-    :cond_14
+    :cond_1e
     :try_start_8
     sget-object v28, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
 
@@ -4434,13 +5432,32 @@
 
     monitor-enter v36
 
+    :try_start_0
+    sget-boolean v35, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v35, :cond_0
+
+    sget-object v35, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v37, "SEAMSContainer"
+
+    const-string/jumbo v38, "updateEntryToMac_begin"
+
+    move-object/from16 v0, v35
+
+    move-object/from16 v1, v37
+
+    move-object/from16 v2, v38
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
     const/4 v15, 0x0
 
     const/16 v16, 0x0
 
     const/16 v34, 0x0
 
-    :try_start_0
     invoke-static {}, Lcom/android/server/SEAMSContainer;->getBbcEnabled()I
 
     move-result v34
@@ -4462,13 +5479,52 @@
 
     move-result v35
 
-    if-eqz v35, :cond_3
+    if-eqz v35, :cond_6
 
+    sget-boolean v35, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v35, :cond_1
+
+    sget-object v35, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v37, "SEAMSContainer"
+
+    new-instance v38, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v38 .. v38}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v39, "macPermFile exists "
+
+    invoke-virtual/range {v38 .. v39}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v38
+
+    invoke-virtual/range {p0 .. p0}, Ljava/io/File;->getPath()Ljava/lang/String;
+
+    move-result-object v39
+
+    invoke-virtual/range {v38 .. v39}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v38
+
+    invoke-virtual/range {v38 .. v38}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v38
+
+    move-object/from16 v0, v35
+
+    move-object/from16 v1, v37
+
+    move-object/from16 v2, v38
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_1
     invoke-virtual/range {p0 .. p0}, Ljava/io/File;->canWrite()Z
 
     move-result v35
 
-    if-nez v35, :cond_0
+    if-nez v35, :cond_2
 
     const/16 v35, 0x1
 
@@ -4478,7 +5534,7 @@
 
     invoke-virtual {v0, v1}, Ljava/io/File;->setWritable(Z)Z
 
-    :cond_0
+    :cond_2
     move-object/from16 v0, p0
 
     invoke-virtual {v4, v0}, Ljavax/xml/parsers/DocumentBuilder;->parse(Ljava/io/File;)Lorg/w3c/dom/Document;
@@ -4544,7 +5600,7 @@
 
     move/from16 v1, v35
 
-    if-ne v0, v1, :cond_6
+    if-ne v0, v1, :cond_a
 
     const-string/jumbo v29, "service"
 
@@ -4574,7 +5630,7 @@
 
     invoke-interface {v0, v1, v2}, Lorg/w3c/dom/Element;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v35, "bbccategory"
+    const-string/jumbo v35, "bbcSpace"
 
     move-object/from16 v0, v17
 
@@ -4594,9 +5650,9 @@
 
     move-result v35
 
-    if-eqz v35, :cond_5
+    if-eqz v35, :cond_9
 
-    const-string/jumbo v35, "bbcallowcategory"
+    const-string/jumbo v35, "bbcAllowSpace"
 
     new-instance v37, Ljava/lang/StringBuilder;
 
@@ -4649,7 +5705,7 @@
 
     invoke-interface {v0, v1, v2}, Lorg/w3c/dom/Element;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    if-eqz p7, :cond_1
+    if-eqz p7, :cond_3
 
     const-string/jumbo v35, "agent"
 
@@ -4665,7 +5721,26 @@
 
     invoke-interface {v0, v1, v2}, Lorg/w3c/dom/Element;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_1
+    :cond_3
+    sget-boolean v35, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v35, :cond_4
+
+    sget-object v35, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v37, "SEAMSContainer"
+
+    const-string/jumbo v38, "updateEntryToMac - done with preparing entry"
+
+    move-object/from16 v0, v35
+
+    move-object/from16 v1, v37
+
+    move-object/from16 v2, v38
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_4
     invoke-static/range {p1 .. p2}, Lcom/android/server/pm/SELinuxMMAC;->findMacPermEntry(Ljava/lang/String;Ljava/lang/String;)Landroid/content/pm/ApplicationInfo;
 
     move-result-object v23
@@ -4708,7 +5783,7 @@
 
     move-object/from16 v0, v23
 
-    iget-object v0, v0, Landroid/content/pm/ApplicationInfo;->bbcseinfo:Ljava/lang/String;
+    iget-object v0, v0, Landroid/content/pm/ApplicationInfo;->bbcseInfo:Ljava/lang/String;
 
     move-object/from16 v37, v0
 
@@ -4720,11 +5795,11 @@
 
     invoke-interface {v0, v1, v2}, Lorg/w3c/dom/Element;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v35, "category"
+    const-string/jumbo v35, "space"
 
     move-object/from16 v0, v23
 
-    iget v0, v0, Landroid/content/pm/ApplicationInfo;->category:I
+    iget v0, v0, Landroid/content/pm/ApplicationInfo;->space:I
 
     move/from16 v37, v0
 
@@ -4740,11 +5815,11 @@
 
     invoke-interface {v0, v1, v2}, Lorg/w3c/dom/Element;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v35, "allowcategory"
+    const-string/jumbo v35, "allowSpace"
 
     move-object/from16 v0, v23
 
-    iget-object v0, v0, Landroid/content/pm/ApplicationInfo;->allowCategory:Ljava/lang/String;
+    iget-object v0, v0, Landroid/content/pm/ApplicationInfo;->allowSpace:Ljava/lang/String;
 
     move-object/from16 v37, v0
 
@@ -4756,11 +5831,11 @@
 
     invoke-interface {v0, v1, v2}, Lorg/w3c/dom/Element;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v35, "bbccategory"
+    const-string/jumbo v35, "bbcSpace"
 
     move-object/from16 v0, v23
 
-    iget v0, v0, Landroid/content/pm/ApplicationInfo;->bbccategory:I
+    iget v0, v0, Landroid/content/pm/ApplicationInfo;->bbcSpace:I
 
     move/from16 v37, v0
 
@@ -4776,11 +5851,11 @@
 
     invoke-interface {v0, v1, v2}, Lorg/w3c/dom/Element;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v35, "bbcallowcategory"
+    const-string/jumbo v35, "bbcAllowSpace"
 
     move-object/from16 v0, v23
 
-    iget-object v0, v0, Landroid/content/pm/ApplicationInfo;->bbcallowCategory:Ljava/lang/String;
+    iget-object v0, v0, Landroid/content/pm/ApplicationInfo;->bbcAllowSpace:Ljava/lang/String;
 
     move-object/from16 v37, v0
 
@@ -4801,7 +5876,7 @@
 
     move/from16 v0, v35
 
-    if-ge v14, v0, :cond_a
+    if-ge v14, v0, :cond_e
 
     move-object/from16 v0, v25
 
@@ -4829,7 +5904,7 @@
 
     move-result v35
 
-    if-eqz v35, :cond_e
+    if-eqz v35, :cond_13
 
     move-object/from16 v0, v27
 
@@ -4839,13 +5914,13 @@
 
     move-result-object v12
 
-    if-eqz v12, :cond_d
+    if-eqz v12, :cond_11
 
     const-string/jumbo v18, ""
 
     const/16 v31, 0x0
 
-    const-string/jumbo v35, "bbcallowcategory"
+    const-string/jumbo v35, "bbcAllowSpace"
 
     move-object/from16 v0, v35
 
@@ -4853,7 +5928,7 @@
 
     move-result-object v13
 
-    if-eqz p8, :cond_8
+    if-eqz p8, :cond_c
 
     sget-object v35, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
 
@@ -4890,7 +5965,7 @@
 
     move/from16 v1, v37
 
-    if-ge v0, v1, :cond_9
+    if-ge v0, v1, :cond_d
 
     aget-object v30, v31, v35
 
@@ -4902,7 +5977,7 @@
 
     invoke-direct/range {v40 .. v40}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v41, "updateEntryToMac, removeFlag is true tmpAllowCategory = "
+    const-string/jumbo v41, "updateEntryToMac, removeFlag is true tmpAllowSpace = "
 
     invoke-virtual/range {v40 .. v41}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -4916,7 +5991,7 @@
 
     move-result-object v40
 
-    const-string/jumbo v41, ",allowCategory = "
+    const-string/jumbo v41, ",allowSpace = "
 
     invoke-virtual/range {v40 .. v41}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -4946,7 +6021,7 @@
 
     move-result v38
 
-    if-nez v38, :cond_2
+    if-nez v38, :cond_5
 
     move-object/from16 v0, v30
 
@@ -4956,9 +6031,9 @@
 
     move-result v38
 
-    if-eqz v38, :cond_7
+    if-eqz v38, :cond_b
 
-    :cond_2
+    :cond_5
     sget-object v38, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
 
     const-string/jumbo v39, "SEAMSContainer"
@@ -4967,7 +6042,7 @@
 
     invoke-direct/range {v40 .. v40}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v41, "updateEntryToMac, removeFlag is true skip tmpAllowCategory = "
+    const-string/jumbo v41, "updateEntryToMac, removeFlag is true skip tmpAllowSpace = "
 
     invoke-virtual/range {v40 .. v41}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -4981,7 +6056,7 @@
 
     move-result-object v40
 
-    const-string/jumbo v41, ",allowCategory = "
+    const-string/jumbo v41, ",allowSpace = "
 
     invoke-virtual/range {v40 .. v41}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -5006,14 +6081,59 @@
 
     goto :goto_3
 
-    :cond_3
+    :cond_6
+    sget-boolean v35, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v35, :cond_7
+
+    sget-object v35, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v37, "SEAMSContainer"
+
+    new-instance v38, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v38 .. v38}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v39, "updateEntryToMac,"
+
+    invoke-virtual/range {v38 .. v39}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v38
+
+    invoke-virtual/range {p0 .. p0}, Ljava/io/File;->getPath()Ljava/lang/String;
+
+    move-result-object v39
+
+    invoke-virtual/range {v38 .. v39}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v38
+
+    const-string/jumbo v39, " does not exist, creating file"
+
+    invoke-virtual/range {v38 .. v39}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v38
+
+    invoke-virtual/range {v38 .. v38}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v38
+
+    move-object/from16 v0, v35
+
+    move-object/from16 v1, v37
+
+    move-object/from16 v2, v38
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_7
     invoke-virtual/range {p0 .. p0}, Ljava/io/File;->createNewFile()Z
 
     invoke-virtual/range {p0 .. p0}, Ljava/io/File;->canWrite()Z
 
     move-result v35
 
-    if-nez v35, :cond_4
+    if-nez v35, :cond_8
 
     const/16 v35, 0x1
 
@@ -5023,7 +6143,7 @@
 
     invoke-virtual {v0, v1}, Ljava/io/File;->setWritable(Z)Z
 
-    :cond_4
+    :cond_8
     invoke-virtual {v4}, Ljavax/xml/parsers/DocumentBuilder;->newDocument()Lorg/w3c/dom/Document;
 
     move-result-object v5
@@ -5078,9 +6198,9 @@
 
     return v35
 
-    :cond_5
+    :cond_9
     :try_start_3
-    const-string/jumbo v35, "bbcallowcategory"
+    const-string/jumbo v35, "bbcAllowSpace"
 
     new-instance v37, Ljava/lang/StringBuilder;
 
@@ -5152,7 +6272,7 @@
 
     throw v35
 
-    :cond_6
+    :cond_a
     :try_start_5
     sget-object v35, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
 
@@ -5201,7 +6321,7 @@
 
     return v35
 
-    :cond_7
+    :cond_b
     :try_start_6
     new-instance v38, Ljava/lang/StringBuilder;
 
@@ -5280,7 +6400,7 @@
 
     goto/16 :goto_5
 
-    :cond_8
+    :cond_c
     :try_start_8
     new-instance v35, Ljava/lang/StringBuilder;
 
@@ -5348,8 +6468,8 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_9
-    const-string/jumbo v35, "bbcallowcategory"
+    :cond_d
+    const-string/jumbo v35, "bbcAllowSpace"
 
     move-object/from16 v0, v35
 
@@ -5359,9 +6479,9 @@
 
     const/4 v15, 0x1
 
-    :cond_a
+    :cond_e
     :goto_6
-    if-nez v15, :cond_b
+    if-nez v15, :cond_f
 
     move-object/from16 v0, v26
 
@@ -5385,7 +6505,7 @@
 
     invoke-interface {v0, v1}, Lorg/w3c/dom/Element;->appendChild(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;
 
-    :cond_b
+    :cond_f
     invoke-interface {v5}, Lorg/w3c/dom/Document;->getDocumentElement()Lorg/w3c/dom/Element;
 
     move-result-object v35
@@ -5402,7 +6522,7 @@
 
     const/16 v28, 0x0
 
-    if-eqz v16, :cond_f
+    if-eqz v16, :cond_14
 
     new-instance v28, Ljavax/xml/transform/dom/DOMSource;
 
@@ -5431,7 +6551,7 @@
 
     move-result v35
 
-    if-eqz v35, :cond_c
+    if-eqz v35, :cond_10
 
     const/16 v35, 0x0
 
@@ -5448,14 +6568,14 @@
     .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_3
     .catchall {:try_start_8 .. :try_end_8} :catchall_0
 
-    :cond_c
+    :cond_10
     const/16 v35, 0x0
 
     monitor-exit v36
 
     return v35
 
-    :cond_d
+    :cond_11
     :try_start_9
     move-object/from16 v0, v25
 
@@ -5469,16 +6589,35 @@
 
     invoke-interface {v0, v1}, Lorg/w3c/dom/Node;->appendChild(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;
 
+    sget-boolean v35, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v35, :cond_12
+
+    sget-object v35, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v37, "SEAMSContainer"
+
+    const-string/jumbo v38, "updateEntryToMac, signature match found. Appending elem of ContainerType:"
+
+    move-object/from16 v0, v35
+
+    move-object/from16 v1, v37
+
+    move-object/from16 v2, v38
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_12
     const/4 v15, 0x1
 
     goto :goto_6
 
-    :cond_e
+    :cond_13
     add-int/lit8 v14, v14, 0x1
 
     goto/16 :goto_2
 
-    :cond_f
+    :cond_14
     new-instance v28, Ljavax/xml/transform/dom/DOMSource;
 
     move-object/from16 v0, v28
@@ -5687,18 +6826,47 @@
 
     move-result-object v8
 
+    sget-boolean v1, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v1, :cond_1
+
+    sget-object v1, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v2, "SEAMSContainer"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "the added seapp context line is "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v2, v3}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_1
     :goto_0
     invoke-virtual {v10}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
 
     move-result-object v15
 
-    if-eqz v15, :cond_3
+    if-eqz v15, :cond_4
 
     invoke-virtual {v8, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2
 
     move-object/from16 v0, v17
 
@@ -5755,7 +6923,7 @@
 
     return v1
 
-    :cond_1
+    :cond_2
     :try_start_4
     invoke-virtual/range {v17 .. v17}, Ljava/io/PrintWriter;->close()V
 
@@ -5765,7 +6933,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3
 
     sget-object v1, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
 
@@ -5799,14 +6967,14 @@
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_8
     .catchall {:try_start_4 .. :try_end_4} :catchall_2
 
-    :cond_2
+    :cond_3
     const/4 v1, 0x0
 
     monitor-exit p0
 
     return v1
 
-    :cond_3
+    :cond_4
     :try_start_5
     move-object/from16 v0, v17
 
@@ -5822,7 +6990,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_5
 
     sget-object v1, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
 
@@ -5860,7 +7028,7 @@
 
     return v1
 
-    :cond_4
+    :cond_5
     :try_start_6
     move-object/from16 v0, v18
 
@@ -5868,7 +7036,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_7
+    if-nez v1, :cond_8
 
     sget-object v1, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
 
@@ -5945,15 +7113,15 @@
     :try_end_7
     .catchall {:try_start_7 .. :try_end_7} :catchall_0
 
-    if-eqz v9, :cond_5
+    if-eqz v9, :cond_6
 
     :try_start_8
     invoke-virtual {v9}, Ljava/io/BufferedReader;->close()V
 
     const/4 v9, 0x0
 
-    :cond_5
-    if-eqz v16, :cond_6
+    :cond_6
+    if-eqz v16, :cond_7
 
     invoke-virtual/range {v16 .. v16}, Ljava/io/PrintWriter;->close()V
     :try_end_8
@@ -5962,7 +7130,7 @@
 
     const/16 v16, 0x0
 
-    :cond_6
+    :cond_7
     :goto_3
     :try_start_9
     sget-object v1, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
@@ -6005,8 +7173,8 @@
 
     throw v1
 
-    :cond_7
-    if-eqz v10, :cond_9
+    :cond_8
+    if-eqz v10, :cond_a
 
     :try_start_b
     invoke-virtual {v10}, Ljava/io/BufferedReader;->close()V
@@ -6017,7 +7185,7 @@
     const/4 v9, 0x0
 
     :goto_5
-    if-eqz v17, :cond_8
+    if-eqz v17, :cond_9
 
     :try_start_c
     invoke-virtual/range {v17 .. v17}, Ljava/io/PrintWriter;->close()V
@@ -6111,12 +7279,12 @@
 
     goto/16 :goto_2
 
-    :cond_8
+    :cond_9
     move-object/from16 v16, v17
 
     goto :goto_6
 
-    :cond_9
+    :cond_a
     move-object v9, v10
 
     goto :goto_5
@@ -6355,14 +7523,27 @@
 .end method
 
 .method protected getMDMID()Lcom/android/server/pm/SELinuxMMAC$MDMID;
-    .locals 8
+    .locals 9
 
-    const/4 v5, 0x0
+    const/4 v8, 0x0
 
     const/4 v7, 0x0
 
     const/4 v1, 0x0
 
+    sget-boolean v4, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v4, :cond_0
+
+    sget-object v4, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v5, "SEAMSContainer"
+
+    const-string/jumbo v6, "entered getMDMID"
+
+    invoke-virtual {v4, v5, v6}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v3
@@ -6385,7 +7566,7 @@
 
     iget-object v4, v1, Lcom/android/server/pm/SELinuxMMAC$MDMID;->packageName:Ljava/lang/String;
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_1
 
     sget-object v4, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
 
@@ -6397,22 +7578,22 @@
 
     return-object v7
 
-    :cond_0
+    :cond_1
     iget-object v4, v1, Lcom/android/server/pm/SELinuxMMAC$MDMID;->packageName:Ljava/lang/String;
 
     invoke-static {v4}, Lcom/android/server/SEAMSContainer;->getSignatureFromPackage(Ljava/lang/String;)Ljava/util/ArrayList;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v4
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_3
 
-    :cond_1
+    :cond_2
     sget-object v4, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
 
     const-string/jumbo v5, "SEAMSContainer"
@@ -6423,8 +7604,8 @@
 
     return-object v7
 
-    :cond_2
-    invoke-virtual {v0, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    :cond_3
+    invoke-virtual {v0, v8}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v4
 
@@ -6546,19 +7727,58 @@
 .end method
 
 .method public loadContainerSetting(Ljava/lang/String;IZ)I
-    .locals 4
+    .locals 5
 
+    sget-boolean v1, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v1, :cond_0
+
+    sget-object v1, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v2, "SEAMSContainer"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "loadContainerSetting_begin packageName = "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "containerID = "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v2, v3}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
     const/4 v0, -0x1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
     invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
-    :cond_0
+    :cond_1
     sget-object v1, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
 
     const-string/jumbo v2, "SEAMSContainer"
@@ -6569,7 +7789,20 @@
 
     return v0
 
-    :cond_1
+    :cond_2
+    sget-boolean v1, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v1, :cond_3
+
+    sget-object v1, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v2, "SEAMSContainer"
+
+    const-string/jumbo v3, "loadContainerSetting, before calling updateAppInfo"
+
+    invoke-virtual {v1, v2, v3}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_3
     const-string/jumbo v1, "package"
 
     invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -6586,11 +7819,24 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_5
 
+    sget-boolean v1, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v1, :cond_4
+
+    sget-object v1, Lcom/android/server/SEAMSContainer;->mSKLog:Lcom/android/server/SKLogger;
+
+    const-string/jumbo v2, "SEAMSContainer"
+
+    const-string/jumbo v3, "loadContainerSetting, done with updateAppInfoForPackage"
+
+    invoke-virtual {v1, v2, v3}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_4
     const/4 v0, 0x0
 
-    :cond_2
+    :cond_5
     return v0
 .end method
 

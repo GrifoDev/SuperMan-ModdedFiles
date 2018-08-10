@@ -24,10 +24,14 @@
 
 .field private static final FILE_MST_POWER_ON_OFF:Ljava/lang/String; = "/sys/class/mstldo/mst_drv/transmit"
 
+.field private static final SPAY_TUI_CMD_QSEE_START_SECURE_UI:I = 0x90190
+
 .field private static final TAG:Ljava/lang/String; = "PaymentManagerService"
 
 
 # instance fields
+.field public SET_QSEE_SECURE_UI:Z
+
 .field private mNative:Lcom/android/server/spay/PaymentTZNative;
 
 .field private mTAId:I
@@ -48,6 +52,10 @@
     .locals 7
 
     invoke-direct {p0}, Landroid/spay/ITAController$Stub;-><init>()V
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/server/spay/TAController;->SET_QSEE_SECURE_UI:Z
 
     sget-boolean v0, Lcom/android/server/spay/TAController;->DEBUG:Z
 
@@ -858,68 +866,83 @@
 .end method
 
 .method public processTACommand(Landroid/spay/TACommandRequest;)Landroid/spay/TACommandResponse;
-    .locals 3
+    .locals 4
 
-    const-string/jumbo v0, "processTACommand"
+    const-string/jumbo v1, "processTACommand"
 
-    invoke-static {v0}, Lcom/android/server/spay/PaymentManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
+    invoke-static {v1}, Lcom/android/server/spay/PaymentManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
 
-    sget-boolean v0, Lcom/android/server/spay/TAController;->DEBUG:Z
+    sget-boolean v1, Lcom/android/server/spay/TAController;->DEBUG:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    const-string/jumbo v0, "PaymentManagerService"
+    const-string/jumbo v1, "PaymentManagerService"
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "TAController::processTACommand: request = "
+    const-string/jumbo v3, "TAController::processTACommand: request = "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v2, "; request.mCommandId = "
+    const-string/jumbo v3, "; request.mCommandId = "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    iget v2, p1, Landroid/spay/TACommandRequest;->mCommandId:I
+    iget v3, p1, Landroid/spay/TACommandRequest;->mCommandId:I
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v2, "; this.mTAId = "
+    const-string/jumbo v3, "; this.mTAId = "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    iget v2, p0, Lcom/android/server/spay/TAController;->mTAId:I
+    iget v3, p0, Lcom/android/server/spay/TAController;->mTAId:I
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/spay/TAController;->mNative:Lcom/android/server/spay/PaymentTZNative;
+    iget v1, p1, Landroid/spay/TACommandRequest;->mCommandId:I
 
-    invoke-virtual {v0, p1}, Lcom/android/server/spay/PaymentTZNative;->processTACommand(Landroid/spay/TACommandRequest;)Landroid/spay/TACommandResponse;
+    const v2, 0x90190
+
+    if-ne v1, v2, :cond_1
+
+    const/4 v1, 0x1
+
+    iput-boolean v1, p0, Lcom/android/server/spay/TAController;->SET_QSEE_SECURE_UI:Z
+
+    :cond_1
+    iget-object v1, p0, Lcom/android/server/spay/TAController;->mNative:Lcom/android/server/spay/PaymentTZNative;
+
+    invoke-virtual {v1, p1}, Lcom/android/server/spay/PaymentTZNative;->processTACommand(Landroid/spay/TACommandRequest;)Landroid/spay/TACommandResponse;
 
     move-result-object v0
+
+    const/4 v1, 0x0
+
+    iput-boolean v1, p0, Lcom/android/server/spay/TAController;->SET_QSEE_SECURE_UI:Z
 
     return-object v0
 .end method
@@ -947,6 +970,10 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/server/spay/TAController;->SET_QSEE_SECURE_UI:Z
+
     iget-object v0, p0, Lcom/android/server/spay/TAController;->mNative:Lcom/android/server/spay/PaymentTZNative;
 
     invoke-virtual {v0}, Lcom/android/server/spay/PaymentTZNative;->unloadTA()V

@@ -27,16 +27,20 @@
 .end method
 
 .method private getScaledImage(Landroid/graphics/Bitmap;FF)Landroid/graphics/Bitmap;
-    .locals 10
+    .locals 14
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    const/4 v1, 0x0
+    const/16 v11, 0x16
 
-    const/high16 v6, 0x42400000    # 48.0f
+    const/16 v10, 0x19
+
+    const/16 v9, 0x30
+
+    const/16 v8, 0x30
 
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
 
@@ -48,35 +52,41 @@
 
     const/high16 v0, 0x41b00000    # 22.0f
 
-    mul-float/2addr v0, p2
+    mul-float v0, v0, p2
 
-    div-float/2addr v0, v6
+    const/high16 v1, 0x42400000    # 48.0f
 
-    int-to-float v2, v3
+    div-float/2addr v0, v1
 
-    div-float v8, v0, v2
+    int-to-float v1, v3
+
+    div-float v12, v0, v1
 
     const/high16 v0, 0x41c80000    # 25.0f
 
-    mul-float/2addr v0, p3
+    mul-float v0, v0, p3
 
-    div-float/2addr v0, v6
+    const/high16 v1, 0x42400000    # 48.0f
 
-    int-to-float v2, v4
+    div-float/2addr v0, v1
 
-    div-float v9, v0, v2
+    int-to-float v1, v4
+
+    div-float v13, v0, v1
 
     new-instance v5, Landroid/graphics/Matrix;
 
     invoke-direct {v5}, Landroid/graphics/Matrix;-><init>()V
 
-    invoke-virtual {v5, v8, v9}, Landroid/graphics/Matrix;->postScale(FF)Z
+    invoke-virtual {v5, v12, v13}, Landroid/graphics/Matrix;->postScale(FF)Z
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x0
 
     const/4 v6, 0x1
 
     move-object v0, p1
-
-    move v2, v1
 
     invoke-static/range {v0 .. v6}, Landroid/graphics/Bitmap;->createBitmap(Landroid/graphics/Bitmap;IIIILandroid/graphics/Matrix;Z)Landroid/graphics/Bitmap;
 

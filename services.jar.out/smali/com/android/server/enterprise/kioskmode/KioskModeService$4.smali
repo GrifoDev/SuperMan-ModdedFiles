@@ -114,7 +114,7 @@
 
     iget-object v4, p0, Lcom/android/server/enterprise/kioskmode/KioskModeService$4;->this$0:Lcom/android/server/enterprise/kioskmode/KioskModeService;
 
-    invoke-static {v4, v3}, Lcom/android/server/enterprise/kioskmode/KioskModeService;->-wrap9(Lcom/android/server/enterprise/kioskmode/KioskModeService;I)V
+    invoke-static {v4, v3}, Lcom/android/server/enterprise/kioskmode/KioskModeService;->-wrap8(Lcom/android/server/enterprise/kioskmode/KioskModeService;I)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -162,7 +162,7 @@
 
     iget-object v4, p0, Lcom/android/server/enterprise/kioskmode/KioskModeService$4;->this$0:Lcom/android/server/enterprise/kioskmode/KioskModeService;
 
-    invoke-static {v4, v3}, Lcom/android/server/enterprise/kioskmode/KioskModeService;->-wrap9(Lcom/android/server/enterprise/kioskmode/KioskModeService;I)V
+    invoke-static {v4, v3}, Lcom/android/server/enterprise/kioskmode/KioskModeService;->-wrap8(Lcom/android/server/enterprise/kioskmode/KioskModeService;I)V
 
     return-void
 
@@ -179,16 +179,14 @@
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    xor-int/lit8 v4, v4, 0x1
 
-    :cond_3
-    :goto_0
-    return-void
+    if-eqz v4, :cond_3
 
-    :cond_4
     iget-object v4, p0, Lcom/android/server/enterprise/kioskmode/KioskModeService$4;->this$0:Lcom/android/server/enterprise/kioskmode/KioskModeService;
 
-    invoke-static {v4, v3}, Lcom/android/server/enterprise/kioskmode/KioskModeService;->-wrap9(Lcom/android/server/enterprise/kioskmode/KioskModeService;I)V
+    invoke-static {v4, v3}, Lcom/android/server/enterprise/kioskmode/KioskModeService;->-wrap8(Lcom/android/server/enterprise/kioskmode/KioskModeService;I)V
 
-    goto :goto_0
+    :cond_3
+    return-void
 .end method

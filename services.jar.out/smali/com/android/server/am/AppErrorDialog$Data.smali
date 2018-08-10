@@ -15,11 +15,15 @@
 
 
 # instance fields
+.field isRestartableForService:Z
+
 .field proc:Lcom/android/server/am/ProcessRecord;
 
 .field repeating:Z
 
 .field result:Lcom/android/server/am/AppErrorResult;
+
+.field suggestCode:I
 
 .field task:Lcom/android/server/am/TaskRecord;
 

@@ -36,7 +36,7 @@
 
     iget v0, p1, Landroid/os/Message;->what:I
 
-    sparse-switch v0, :sswitch_data_0
+    packed-switch v0, :pswitch_data_0
 
     const-string/jumbo v0, "FingerprintService"
 
@@ -65,7 +65,7 @@
     :goto_0
     return-void
 
-    :sswitch_0
+    :pswitch_0
     iget-object v0, p0, Lcom/android/server/fingerprint/FingerprintService$1;->this$0:Lcom/android/server/fingerprint/FingerprintService;
 
     iget v1, p1, Landroid/os/Message;->arg1:I
@@ -74,30 +74,8 @@
 
     goto :goto_0
 
-    :sswitch_1
-    iget-object v0, p0, Lcom/android/server/fingerprint/FingerprintService$1;->this$0:Lcom/android/server/fingerprint/FingerprintService;
-
-    invoke-static {v0}, Lcom/android/server/fingerprint/FingerprintService;->-wrap8(Lcom/android/server/fingerprint/FingerprintService;)V
-
-    goto :goto_0
-
-    :sswitch_2
-    iget-object v0, p0, Lcom/android/server/fingerprint/FingerprintService$1;->this$0:Lcom/android/server/fingerprint/FingerprintService;
-
-    iget v1, p1, Landroid/os/Message;->arg1:I
-
-    const/4 v2, -0x1
-
-    invoke-static {v0, v2, v1}, Lcom/android/server/fingerprint/FingerprintService;->-wrap2(Lcom/android/server/fingerprint/FingerprintService;II)I
-
-    goto :goto_0
-
-    nop
-
-    :sswitch_data_0
-    .sparse-switch
-        0xa -> :sswitch_0
-        0xb -> :sswitch_2
-        0x2711 -> :sswitch_1
-    .end sparse-switch
+    :pswitch_data_0
+    .packed-switch 0xa
+        :pswitch_0
+    .end packed-switch
 .end method

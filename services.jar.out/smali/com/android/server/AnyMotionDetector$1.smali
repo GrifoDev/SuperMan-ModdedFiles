@@ -41,13 +41,15 @@
 .end method
 
 .method public onSensorChanged(Landroid/hardware/SensorEvent;)V
-    .locals 9
+    .locals 10
+
+    const/4 v9, 0x0
 
     const/4 v0, -0x1
 
     iget-object v2, p0, Lcom/android/server/AnyMotionDetector$1;->this$0:Lcom/android/server/AnyMotionDetector;
 
-    invoke-static {v2}, Lcom/android/server/AnyMotionDetector;->-get1(Lcom/android/server/AnyMotionDetector;)Ljava/lang/Object;
+    invoke-static {v2}, Lcom/android/server/AnyMotionDetector;->-get2(Lcom/android/server/AnyMotionDetector;)Ljava/lang/Object;
 
     move-result-object v7
 
@@ -82,7 +84,7 @@
 
     iget-object v2, p0, Lcom/android/server/AnyMotionDetector$1;->this$0:Lcom/android/server/AnyMotionDetector;
 
-    invoke-static {v2}, Lcom/android/server/AnyMotionDetector;->-get3(Lcom/android/server/AnyMotionDetector;)Lcom/android/server/AnyMotionDetector$RunningSignalStats;
+    invoke-static {v2}, Lcom/android/server/AnyMotionDetector;->-get5(Lcom/android/server/AnyMotionDetector;)Lcom/android/server/AnyMotionDetector$RunningSignalStats;
 
     move-result-object v2
 
@@ -90,7 +92,7 @@
 
     iget-object v2, p0, Lcom/android/server/AnyMotionDetector$1;->this$0:Lcom/android/server/AnyMotionDetector;
 
-    invoke-static {v2}, Lcom/android/server/AnyMotionDetector;->-get3(Lcom/android/server/AnyMotionDetector;)Lcom/android/server/AnyMotionDetector$RunningSignalStats;
+    invoke-static {v2}, Lcom/android/server/AnyMotionDetector;->-get5(Lcom/android/server/AnyMotionDetector;)Lcom/android/server/AnyMotionDetector$RunningSignalStats;
 
     move-result-object v2
 
@@ -100,7 +102,7 @@
 
     iget-object v3, p0, Lcom/android/server/AnyMotionDetector$1;->this$0:Lcom/android/server/AnyMotionDetector;
 
-    invoke-static {v3}, Lcom/android/server/AnyMotionDetector;->-get2(Lcom/android/server/AnyMotionDetector;)I
+    invoke-static {v3}, Lcom/android/server/AnyMotionDetector;->-get4(Lcom/android/server/AnyMotionDetector;)I
 
     move-result v3
 
@@ -120,6 +122,24 @@
     const/4 v2, -0x1
 
     if-eq v0, v2, :cond_1
+
+    iget-object v2, p0, Lcom/android/server/AnyMotionDetector$1;->this$0:Lcom/android/server/AnyMotionDetector;
+
+    invoke-static {v2}, Lcom/android/server/AnyMotionDetector;->-get1(Lcom/android/server/AnyMotionDetector;)Landroid/os/Handler;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/server/AnyMotionDetector$1;->this$0:Lcom/android/server/AnyMotionDetector;
+
+    invoke-static {v3}, Lcom/android/server/AnyMotionDetector;->-get7(Lcom/android/server/AnyMotionDetector;)Ljava/lang/Runnable;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+
+    iget-object v2, p0, Lcom/android/server/AnyMotionDetector$1;->this$0:Lcom/android/server/AnyMotionDetector;
+
+    invoke-static {v2, v9}, Lcom/android/server/AnyMotionDetector;->-set2(Lcom/android/server/AnyMotionDetector;Z)Z
 
     iget-object v2, p0, Lcom/android/server/AnyMotionDetector$1;->this$0:Lcom/android/server/AnyMotionDetector;
 

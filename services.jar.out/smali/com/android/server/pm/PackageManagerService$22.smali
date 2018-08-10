@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/pm/PackageManagerService;->restorePreferredActivities([BI)V
+    value = Lcom/android/server/pm/PackageManagerService;->restoreIntentFilterVerification([BI)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -54,7 +54,13 @@
 
     iget-object v0, v0, Lcom/android/server/pm/PackageManagerService;->mSettings:Lcom/android/server/pm/Settings;
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/pm/Settings;->readPreferredActivitiesLPw(Lorg/xmlpull/v1/XmlPullParser;I)V
+    invoke-virtual {v0, p1, p2}, Lcom/android/server/pm/Settings;->readAllDomainVerificationsLPr(Lorg/xmlpull/v1/XmlPullParser;I)V
+
+    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$22;->this$0:Lcom/android/server/pm/PackageManagerService;
+
+    iget-object v0, v0, Lcom/android/server/pm/PackageManagerService;->mSettings:Lcom/android/server/pm/Settings;
+
+    invoke-virtual {v0}, Lcom/android/server/pm/Settings;->writeLPr()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

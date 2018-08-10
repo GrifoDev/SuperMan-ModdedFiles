@@ -1,4 +1,4 @@
-.class public Lcom/android/server/job/controllers/AppIdleController;
+.class public final Lcom/android/server/job/controllers/AppIdleController;
 .super Lcom/android/server/job/controllers/StateController;
 .source "AppIdleController.java"
 
@@ -168,66 +168,58 @@
 .end method
 
 .method public maybeStartTrackingJobLocked(Lcom/android/server/job/controllers/JobStatus;Lcom/android/server/job/controllers/JobStatus;)V
-    .locals 7
+    .locals 5
 
-    const/4 v3, 0x1
+    iget-boolean v2, p0, Lcom/android/server/job/controllers/AppIdleController;->mInitializedParoleOn:Z
 
-    const/4 v2, 0x0
+    if-nez v2, :cond_0
 
-    iget-boolean v4, p0, Lcom/android/server/job/controllers/AppIdleController;->mInitializedParoleOn:Z
+    const/4 v2, 0x1
 
-    if-nez v4, :cond_0
+    iput-boolean v2, p0, Lcom/android/server/job/controllers/AppIdleController;->mInitializedParoleOn:Z
 
-    iput-boolean v3, p0, Lcom/android/server/job/controllers/AppIdleController;->mInitializedParoleOn:Z
+    iget-object v2, p0, Lcom/android/server/job/controllers/AppIdleController;->mUsageStatsInternal:Landroid/app/usage/UsageStatsManagerInternal;
 
-    iget-object v4, p0, Lcom/android/server/job/controllers/AppIdleController;->mUsageStatsInternal:Landroid/app/usage/UsageStatsManagerInternal;
+    invoke-virtual {v2}, Landroid/app/usage/UsageStatsManagerInternal;->isAppIdleParoleOn()Z
 
-    invoke-virtual {v4}, Landroid/app/usage/UsageStatsManagerInternal;->isAppIdleParoleOn()Z
+    move-result v2
 
-    move-result v4
-
-    iput-boolean v4, p0, Lcom/android/server/job/controllers/AppIdleController;->mAppIdleParoleOn:Z
+    iput-boolean v2, p0, Lcom/android/server/job/controllers/AppIdleController;->mAppIdleParoleOn:Z
 
     :cond_0
     invoke-virtual {p1}, Lcom/android/server/job/controllers/JobStatus;->getSourcePackageName()Ljava/lang/String;
 
     move-result-object v1
 
-    iget-boolean v4, p0, Lcom/android/server/job/controllers/AppIdleController;->mAppIdleParoleOn:Z
+    iget-boolean v2, p0, Lcom/android/server/job/controllers/AppIdleController;->mAppIdleParoleOn:Z
 
-    if-nez v4, :cond_1
+    if-nez v2, :cond_1
 
-    iget-object v4, p0, Lcom/android/server/job/controllers/AppIdleController;->mUsageStatsInternal:Landroid/app/usage/UsageStatsManagerInternal;
+    iget-object v2, p0, Lcom/android/server/job/controllers/AppIdleController;->mUsageStatsInternal:Landroid/app/usage/UsageStatsManagerInternal;
 
     invoke-virtual {p1}, Lcom/android/server/job/controllers/JobStatus;->getSourceUid()I
 
-    move-result v5
+    move-result v3
 
     invoke-virtual {p1}, Lcom/android/server/job/controllers/JobStatus;->getSourceUserId()I
 
-    move-result v6
+    move-result v4
 
-    invoke-virtual {v4, v1, v5, v6}, Landroid/app/usage/UsageStatsManagerInternal;->isAppIdle(Ljava/lang/String;II)Z
+    invoke-virtual {v2, v1, v3, v4}, Landroid/app/usage/UsageStatsManagerInternal;->isAppIdle(Ljava/lang/String;II)Z
 
     move-result v0
 
     :goto_0
-    if-eqz v0, :cond_2
+    xor-int/lit8 v2, v0, 0x1
 
-    :goto_1
     invoke-virtual {p1, v2}, Lcom/android/server/job/controllers/JobStatus;->setAppNotIdleConstraintSatisfied(Z)Z
 
     return-void
 
     :cond_1
-    move v0, v2
+    const/4 v0, 0x0
 
     goto :goto_0
-
-    :cond_2
-    move v2, v3
-
-    goto :goto_1
 .end method
 
 .method public maybeStopTrackingJobLocked(Lcom/android/server/job/controllers/JobStatus;Lcom/android/server/job/controllers/JobStatus;Z)V

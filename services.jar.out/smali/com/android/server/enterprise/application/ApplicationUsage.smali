@@ -42,7 +42,7 @@
 
 .field private static mStatsLock:Ljava/lang/Object;
 
-.field private static mUsageHandler:Landroid/os/Handler;
+.field private static volatile mUsageHandler:Landroid/os/Handler;
 
 
 # instance fields
@@ -50,72 +50,82 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    new-instance v0, Ljava/util/HashMap;
+
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+
+    sput-object v0, Lcom/android/server/enterprise/application/ApplicationUsage;->appForeGroundStats:Ljava/util/Map;
+
+    new-instance v0, Ljava/util/HashMap;
+
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+
+    sput-object v0, Lcom/android/server/enterprise/application/ApplicationUsage;->appBackGroundStats:Ljava/util/Map;
+
+    new-instance v0, Ljava/lang/Object;
+
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+
+    sput-object v0, Lcom/android/server/enterprise/application/ApplicationUsage;->mStatsLock:Ljava/lang/Object;
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 3
+    .locals 4
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    sget-object v1, Lcom/android/server/enterprise/application/ApplicationUsage;->appForeGroundStats:Ljava/util/Map;
-
-    if-nez v1, :cond_0
-
-    new-instance v1, Ljava/util/HashMap;
-
-    invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
-
-    sput-object v1, Lcom/android/server/enterprise/application/ApplicationUsage;->appForeGroundStats:Ljava/util/Map;
-
-    :cond_0
-    sget-object v1, Lcom/android/server/enterprise/application/ApplicationUsage;->appBackGroundStats:Ljava/util/Map;
-
-    if-nez v1, :cond_1
-
-    new-instance v1, Ljava/util/HashMap;
-
-    invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
-
-    sput-object v1, Lcom/android/server/enterprise/application/ApplicationUsage;->appBackGroundStats:Ljava/util/Map;
-
-    :cond_1
     iput-object p1, p0, Lcom/android/server/enterprise/application/ApplicationUsage;->mContext:Landroid/content/Context;
 
-    sget-object v1, Lcom/android/server/enterprise/application/ApplicationUsage;->mStatsLock:Ljava/lang/Object;
+    sget-object v0, Lcom/android/server/enterprise/application/ApplicationUsage;->mUsageHandler:Landroid/os/Handler;
 
-    if-nez v1, :cond_2
+    if-nez v0, :cond_1
 
-    new-instance v1, Ljava/lang/Object;
+    monitor-enter p0
 
-    invoke-direct {v1}, Ljava/lang/Object;-><init>()V
+    :try_start_0
+    sget-object v0, Lcom/android/server/enterprise/application/ApplicationUsage;->mUsageHandler:Landroid/os/Handler;
 
-    sput-object v1, Lcom/android/server/enterprise/application/ApplicationUsage;->mStatsLock:Ljava/lang/Object;
+    if-nez v0, :cond_0
 
-    :cond_2
-    sget-object v1, Lcom/android/server/enterprise/application/ApplicationUsage;->mUsageHandler:Landroid/os/Handler;
+    new-instance v1, Landroid/os/HandlerThread;
 
-    if-nez v1, :cond_3
+    const-string/jumbo v2, "MDMAppUsageHandlerThread"
 
-    new-instance v0, Landroid/os/HandlerThread;
+    const/16 v3, 0xa
 
-    const-string/jumbo v1, "MDMAppUsageHandlerThread"
+    invoke-direct {v1, v2, v3}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;I)V
 
-    const/16 v2, 0xa
+    invoke-virtual {v1}, Landroid/os/HandlerThread;->start()V
 
-    invoke-direct {v0, v1, v2}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;I)V
+    new-instance v2, Lcom/android/server/enterprise/application/ApplicationUsage$UsageHandler;
 
-    invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V
+    invoke-virtual {v1}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
 
-    new-instance v1, Lcom/android/server/enterprise/application/ApplicationUsage$UsageHandler;
+    move-result-object v3
 
-    invoke-virtual {v0}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
+    invoke-direct {v2, p0, v3}, Lcom/android/server/enterprise/application/ApplicationUsage$UsageHandler;-><init>(Lcom/android/server/enterprise/application/ApplicationUsage;Landroid/os/Looper;)V
 
-    move-result-object v2
+    sput-object v2, Lcom/android/server/enterprise/application/ApplicationUsage;->mUsageHandler:Landroid/os/Handler;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-direct {v1, p0, v2}, Lcom/android/server/enterprise/application/ApplicationUsage$UsageHandler;-><init>(Lcom/android/server/enterprise/application/ApplicationUsage;Landroid/os/Looper;)V
+    :cond_0
+    monitor-exit p0
 
-    sput-object v1, Lcom/android/server/enterprise/application/ApplicationUsage;->mUsageHandler:Landroid/os/Handler;
-
-    :cond_3
+    :cond_1
     return-void
+
+    :catchall_0
+    move-exception v2
+
+    monitor-exit p0
+
+    throw v2
 .end method
 
 .method private calculateAvgPerMonth(ILjava/lang/String;I)I
@@ -1348,25 +1358,16 @@
 
     move-result-object v8
 
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_2
 
     invoke-virtual {v8}, Ljava/util/HashMap;->isEmpty()Z
 
     move-result v10
 
+    xor-int/lit8 v10, v10, 0x1
+
     if-eqz v10, :cond_2
 
-    :cond_0
-    if-eqz v0, :cond_1
-
-    invoke-direct {p0, v0, v3, p1}, Lcom/android/server/enterprise/application/ApplicationUsage;->filterUnInstalledApps([Lcom/samsung/android/knox/application/AppInfoLastUsage;II)[Lcom/samsung/android/knox/application/AppInfoLastUsage;
-
-    move-result-object v1
-
-    :cond_1
-    return-object v1
-
-    :cond_2
     invoke-virtual {v8}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
 
     move-result-object v6
@@ -1385,13 +1386,13 @@
 
     move-result-object v5
 
-    :cond_3
+    :cond_0
     :goto_0
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v10
 
-    if-eqz v10, :cond_0
+    if-eqz v10, :cond_2
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1405,7 +1406,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_4
+    if-eqz v10, :cond_1
 
     const-string/jumbo v10, ":"
 
@@ -1422,7 +1423,7 @@
     move-result v9
 
     :goto_1
-    if-ne v9, p1, :cond_3
+    if-ne v9, p1, :cond_0
 
     invoke-virtual {v8, v4}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1444,7 +1445,7 @@
 
     goto :goto_0
 
-    :cond_4
+    :cond_1
     const/4 v10, 0x1
 
     new-array v7, v10, [Ljava/lang/String;
@@ -1463,6 +1464,19 @@
     invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
 
     return-object v12
+
+    :cond_2
+    if-eqz v0, :cond_3
+
+    :try_start_1
+    invoke-direct {p0, v0, v3, p1}, Lcom/android/server/enterprise/application/ApplicationUsage;->filterUnInstalledApps([Lcom/samsung/android/knox/application/AppInfoLastUsage;II)[Lcom/samsung/android/knox/application/AppInfoLastUsage;
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+
+    move-result-object v1
+
+    :cond_3
+    return-object v1
 .end method
 
 .method public getAvgNoAppUsagePerMonth(I)[Lcom/samsung/android/knox/application/AppInfoLastUsage;

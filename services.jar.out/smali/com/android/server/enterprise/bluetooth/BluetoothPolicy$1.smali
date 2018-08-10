@@ -32,97 +32,99 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 5
+    .locals 6
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    const-string/jumbo v2, "android.bluetooth.adapter.action.STATE_CHANGED"
+    const-string/jumbo v3, "android.bluetooth.adapter.action.STATE_CHANGED"
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_2
+    if-eqz v3, :cond_2
 
-    const-string/jumbo v2, "android.bluetooth.adapter.extra.STATE"
+    const-string/jumbo v3, "android.bluetooth.adapter.extra.STATE"
 
-    const/high16 v3, -0x80000000
+    const/high16 v4, -0x80000000
 
-    invoke-virtual {p2, v2, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
-
-    move-result v1
-
-    const/16 v2, 0xa
-
-    if-ne v1, v2, :cond_1
-
-    iget-object v2, p0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy$1;->this$0:Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;
-
-    invoke-static {v2}, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->-get3(Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;)Z
+    invoke-virtual {p2, v3, v4}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    const/16 v3, 0xa
 
-    const-string/jumbo v2, "BluetoothPolicyService"
+    if-ne v2, v3, :cond_1
 
-    const-string/jumbo v3, "***** Restarting Bluetooth *****"
+    iget-object v3, p0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy$1;->this$0:Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;
 
-    invoke-static {v2, v3}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v3}, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->-get3(Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;)Z
 
-    iget-object v2, p0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy$1;->this$0:Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;
+    move-result v3
 
-    invoke-static {v2, v4}, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->-set0(Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;Z)Z
+    if-eqz v3, :cond_1
+
+    const-string/jumbo v3, "BluetoothPolicyService"
+
+    const-string/jumbo v4, "***** Restarting Bluetooth *****"
+
+    invoke-static {v3, v4}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v3, p0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy$1;->this$0:Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;
+
+    invoke-static {v3, v5}, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->-set0(Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;Z)Z
 
     invoke-static {}, Landroid/bluetooth/BluetoothAdapter;->getDefaultAdapter()Landroid/bluetooth/BluetoothAdapter;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2}, Landroid/bluetooth/BluetoothAdapter;->enable()Z
+    invoke-virtual {v3}, Landroid/bluetooth/BluetoothAdapter;->enable()Z
 
     :cond_0
     :goto_0
     return-void
 
     :cond_1
-    const/16 v2, 0xc
+    const/16 v3, 0xc
 
-    if-ne v1, v2, :cond_0
+    if-ne v2, v3, :cond_0
 
-    iget-object v2, p0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy$1;->this$0:Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;
+    iget-object v3, p0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy$1;->this$0:Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;
 
-    invoke-virtual {v2, v4}, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->isDesktopConnectivityEnabled(Z)Z
+    invoke-virtual {v3, v5}, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->isDesktopConnectivityEnabled(Z)Z
 
-    move-result v2
+    move-result v3
 
-    if-nez v2, :cond_0
+    if-nez v3, :cond_0
 
-    iget-object v2, p0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy$1;->this$0:Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;
+    iget-object v3, p0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy$1;->this$0:Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;
 
-    invoke-static {v2}, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->-wrap0(Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;)V
+    invoke-static {v3}, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->-wrap0(Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;)V
 
     goto :goto_0
 
     :cond_2
-    const-string/jumbo v2, "com.samsung.android.knox.intent.action.KNOXFRAMEWORK_SYSTEMUI_UPDATE_INTENT_INTERNAL"
+    const-string/jumbo v3, "com.samsung.android.knox.intent.action.KNOXFRAMEWORK_SYSTEMUI_UPDATE_INTENT_INTERNAL"
 
-    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    iget-object v2, p0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy$1;->this$0:Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;
-
-    invoke-virtual {p1}, Landroid/content/Context;->getUserId()I
+    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    invoke-static {v2, v3}, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->-wrap1(Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;I)V
+    if-eqz v3, :cond_0
+
+    const-string/jumbo v3, "com.samsung.android.knox.intent.extra.USER_ID_INTERNAL"
+
+    invoke-virtual {p2, v3, v5}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v1
+
+    iget-object v3, p0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy$1;->this$0:Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;
+
+    invoke-static {v3, v1}, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->-wrap1(Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;I)V
 
     goto :goto_0
 .end method

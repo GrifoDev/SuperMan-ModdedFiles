@@ -46,6 +46,14 @@
 
     if-eqz v0, :cond_0
 
+    iget-object v0, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow$2;->this$0:Lcom/android/server/accessibility/SamsungMagnifierWindow;
+
+    invoke-virtual {v0}, Lcom/android/server/accessibility/SamsungMagnifierWindow;->isShowWindow()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
     invoke-static {}, Lcom/android/server/accessibility/SamsungMagnifierWindow;->-get0()Ljava/lang/String;
 
     move-result-object v0
@@ -62,7 +70,7 @@
 
     iget-object v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow$2;->this$0:Lcom/android/server/accessibility/SamsungMagnifierWindow;
 
-    invoke-static {v2}, Lcom/android/server/accessibility/SamsungMagnifierWindow;->-get2(Lcom/android/server/accessibility/SamsungMagnifierWindow;)Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+    invoke-static {v2}, Lcom/android/server/accessibility/SamsungMagnifierWindow;->-get4(Lcom/android/server/accessibility/SamsungMagnifierWindow;)Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
 
     move-result-object v2
 
@@ -84,7 +92,7 @@
 
     iget-object v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow$2;->this$0:Lcom/android/server/accessibility/SamsungMagnifierWindow;
 
-    invoke-static {v2}, Lcom/android/server/accessibility/SamsungMagnifierWindow;->-get2(Lcom/android/server/accessibility/SamsungMagnifierWindow;)Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+    invoke-static {v2}, Lcom/android/server/accessibility/SamsungMagnifierWindow;->-get4(Lcom/android/server/accessibility/SamsungMagnifierWindow;)Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
 
     move-result-object v2
 
@@ -118,7 +126,7 @@
 
     iget-object v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow$2;->this$0:Lcom/android/server/accessibility/SamsungMagnifierWindow;
 
-    invoke-static {v2}, Lcom/android/server/accessibility/SamsungMagnifierWindow;->-get2(Lcom/android/server/accessibility/SamsungMagnifierWindow;)Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+    invoke-static {v2}, Lcom/android/server/accessibility/SamsungMagnifierWindow;->-get4(Lcom/android/server/accessibility/SamsungMagnifierWindow;)Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
 
     move-result-object v2
 
@@ -144,7 +152,7 @@
 
     iget-object v2, p0, Lcom/android/server/accessibility/SamsungMagnifierWindow$2;->this$0:Lcom/android/server/accessibility/SamsungMagnifierWindow;
 
-    invoke-static {v2}, Lcom/android/server/accessibility/SamsungMagnifierWindow;->-get2(Lcom/android/server/accessibility/SamsungMagnifierWindow;)Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
+    invoke-static {v2}, Lcom/android/server/accessibility/SamsungMagnifierWindow;->-get4(Lcom/android/server/accessibility/SamsungMagnifierWindow;)Lcom/android/server/accessibility/SamsungMagnifierWindow$MagnifierWindowPolicy;
 
     move-result-object v2
 

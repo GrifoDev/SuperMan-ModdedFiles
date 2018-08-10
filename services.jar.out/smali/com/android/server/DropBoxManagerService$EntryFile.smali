@@ -183,11 +183,7 @@
     iput v2, p0, Lcom/android/server/DropBoxManagerService$EntryFile;->flags:I
 
     :try_start_0
-    invoke-static {v3}, Ljava/lang/Long;->valueOf(Ljava/lang/String;)Ljava/lang/Long;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/Long;->longValue()J
+    invoke-static {v3}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 

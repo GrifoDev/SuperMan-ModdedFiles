@@ -73,6 +73,10 @@
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    const/high16 v1, 0x1000000
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
     const-string/jumbo v1, "edm.intent.extra.smartcard.authentication.enabled"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
@@ -197,7 +201,9 @@
 
     move-result v11
 
-    if-nez v11, :cond_0
+    xor-int/lit8 v11, v11, 0x1
+
+    if-eqz v11, :cond_0
 
     invoke-interface {v10}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 

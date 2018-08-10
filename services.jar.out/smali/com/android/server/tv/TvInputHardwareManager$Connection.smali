@@ -38,6 +38,26 @@
 
 
 # direct methods
+.method static synthetic -wrap0(Lcom/android/server/tv/TvInputHardwareManager$Connection;)I
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/server/tv/TvInputHardwareManager$Connection;->getConfigsLengthLocked()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic -wrap1(Lcom/android/server/tv/TvInputHardwareManager$Connection;)I
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/server/tv/TvInputHardwareManager$Connection;->getInputStateLocked()I
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public constructor <init>(Lcom/android/server/tv/TvInputHardwareManager;Landroid/media/tv/TvInputHardwareInfo;)V
     .locals 1
 
@@ -58,6 +78,67 @@
     iput-object p2, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mHardwareInfo:Landroid/media/tv/TvInputHardwareInfo;
 
     return-void
+.end method
+
+.method private getConfigsLengthLocked()I
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mConfigs:[Landroid/media/tv/TvStreamConfig;
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mConfigs:[Landroid/media/tv/TvStreamConfig;
+
+    array-length v0, v0
+
+    goto :goto_0
+.end method
+
+.method private getInputStateLocked()I
+    .locals 3
+
+    const/4 v2, 0x0
+
+    invoke-direct {p0}, Lcom/android/server/tv/TvInputHardwareManager$Connection;->getConfigsLengthLocked()I
+
+    move-result v0
+
+    if-lez v0, :cond_0
+
+    return v2
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mHardwareInfo:Landroid/media/tv/TvInputHardwareInfo;
+
+    invoke-virtual {v1}, Landroid/media/tv/TvInputHardwareInfo;->getCableConnectionStatus()I
+
+    move-result v1
+
+    packed-switch v1, :pswitch_data_0
+
+    const/4 v1, 0x1
+
+    return v1
+
+    :pswitch_0
+    return v2
+
+    :pswitch_1
+    const/4 v1, 0x2
+
+    return v1
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_0
+        :pswitch_1
+    .end packed-switch
 .end method
 
 

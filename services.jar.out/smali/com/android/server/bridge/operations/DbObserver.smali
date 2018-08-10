@@ -52,6 +52,12 @@
 
 .field private mHandler:Landroid/os/Handler;
 
+.field private mHandlerThread:Landroid/os/HandlerThread;
+
+.field private mIgnoreCalendarChanges:Z
+
+.field private mIgnoreContactChanges:Z
+
 .field private mNo_of_contact_last_synced:I
 
 .field private mNo_of_events_last_synced:I
@@ -98,10 +104,10 @@
     return-object v0
 .end method
 
-.method static synthetic -get4(Lcom/android/server/bridge/operations/DbObserver;)I
+.method static synthetic -get4(Lcom/android/server/bridge/operations/DbObserver;)Z
     .locals 1
 
-    iget v0, p0, Lcom/android/server/bridge/operations/DbObserver;->mNo_of_contact_last_synced:I
+    iget-boolean v0, p0, Lcom/android/server/bridge/operations/DbObserver;->mIgnoreContactChanges:Z
 
     return v0
 .end method
@@ -109,7 +115,7 @@
 .method static synthetic -get5(Lcom/android/server/bridge/operations/DbObserver;)I
     .locals 1
 
-    iget v0, p0, Lcom/android/server/bridge/operations/DbObserver;->mNo_of_events_last_synced:I
+    iget v0, p0, Lcom/android/server/bridge/operations/DbObserver;->mNo_of_contact_last_synced:I
 
     return v0
 .end method
@@ -117,12 +123,20 @@
 .method static synthetic -get6(Lcom/android/server/bridge/operations/DbObserver;)I
     .locals 1
 
+    iget v0, p0, Lcom/android/server/bridge/operations/DbObserver;->mNo_of_events_last_synced:I
+
+    return v0
+.end method
+
+.method static synthetic -get7(Lcom/android/server/bridge/operations/DbObserver;)I
+    .locals 1
+
     iget v0, p0, Lcom/android/server/bridge/operations/DbObserver;->mNo_of_tasks_last_synced:I
 
     return v0
 .end method
 
-.method static synthetic -get7(Lcom/android/server/bridge/operations/DbObserver;)Lcom/samsung/android/knox/SemRemoteContentManager;
+.method static synthetic -get8(Lcom/android/server/bridge/operations/DbObserver;)Lcom/samsung/android/knox/SemRemoteContentManager;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/bridge/operations/DbObserver;->mRCPManager:Lcom/samsung/android/knox/SemRemoteContentManager;
@@ -130,7 +144,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get8(Lcom/android/server/bridge/operations/DbObserver;)I
+.method static synthetic -get9(Lcom/android/server/bridge/operations/DbObserver;)I
     .locals 1
 
     iget v0, p0, Lcom/android/server/bridge/operations/DbObserver;->mUserId:I
@@ -273,17 +287,17 @@
 
     const-wide/16 v4, 0x0
 
-    const/4 v0, 0x0
+    const/4 v3, 0x0
 
     const/4 v2, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/bridge/operations/DbObserver;->TAG:Ljava/lang/String;
+    iput-object v3, p0, Lcom/android/server/bridge/operations/DbObserver;->TAG:Ljava/lang/String;
 
-    iput-object v0, p0, Lcom/android/server/bridge/operations/DbObserver;->mContext:Landroid/content/Context;
+    iput-object v3, p0, Lcom/android/server/bridge/operations/DbObserver;->mContext:Landroid/content/Context;
 
-    iput-object v0, p0, Lcom/android/server/bridge/operations/DbObserver;->mRCPManager:Lcom/samsung/android/knox/SemRemoteContentManager;
+    iput-object v3, p0, Lcom/android/server/bridge/operations/DbObserver;->mRCPManager:Lcom/samsung/android/knox/SemRemoteContentManager;
 
     const-wide/16 v0, 0x3e8
 
@@ -292,6 +306,10 @@
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/server/bridge/operations/DbObserver;->mUserId:I
+
+    iput-object v3, p0, Lcom/android/server/bridge/operations/DbObserver;->mHandler:Landroid/os/Handler;
+
+    iput-object v3, p0, Lcom/android/server/bridge/operations/DbObserver;->mHandlerThread:Landroid/os/HandlerThread;
 
     iput-wide v4, p0, Lcom/android/server/bridge/operations/DbObserver;->mContact_last_synced_timeStamp:J
 
@@ -302,6 +320,10 @@
     iput v2, p0, Lcom/android/server/bridge/operations/DbObserver;->mNo_of_events_last_synced:I
 
     iput v2, p0, Lcom/android/server/bridge/operations/DbObserver;->mNo_of_tasks_last_synced:I
+
+    iput-boolean v2, p0, Lcom/android/server/bridge/operations/DbObserver;->mIgnoreCalendarChanges:Z
+
+    iput-boolean v2, p0, Lcom/android/server/bridge/operations/DbObserver;->mIgnoreContactChanges:Z
 
     new-instance v0, Lcom/android/server/bridge/operations/DbObserver$1;
 
@@ -349,9 +371,27 @@
 
     iput p2, p0, Lcom/android/server/bridge/operations/DbObserver;->mUserId:I
 
+    new-instance v0, Landroid/os/HandlerThread;
+
+    const-string/jumbo v1, "DbObserver"
+
+    invoke-direct {v0, v1}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;)V
+
+    iput-object v0, p0, Lcom/android/server/bridge/operations/DbObserver;->mHandlerThread:Landroid/os/HandlerThread;
+
+    iget-object v0, p0, Lcom/android/server/bridge/operations/DbObserver;->mHandlerThread:Landroid/os/HandlerThread;
+
+    invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V
+
     new-instance v0, Landroid/os/Handler;
 
-    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
+    iget-object v1, p0, Lcom/android/server/bridge/operations/DbObserver;->mHandlerThread:Landroid/os/HandlerThread;
+
+    invoke-virtual {v1}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
     iput-object v0, p0, Lcom/android/server/bridge/operations/DbObserver;->mHandler:Landroid/os/Handler;
 
@@ -1708,6 +1748,10 @@
 
     iput v0, p0, Lcom/android/server/bridge/operations/DbObserver;->mNo_of_tasks_last_synced:I
 
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/server/bridge/operations/DbObserver;->mIgnoreCalendarChanges:Z
+
     return-void
 .end method
 
@@ -1772,6 +1816,10 @@
 
     iput v0, p0, Lcom/android/server/bridge/operations/DbObserver;->mNo_of_contact_last_synced:I
 
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/server/bridge/operations/DbObserver;->mIgnoreContactChanges:Z
+
     return-void
 .end method
 
@@ -1780,9 +1828,31 @@
 
     iget-object v0, p0, Lcom/android/server/bridge/operations/DbObserver;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v1, "Calendar onChange startCalendarSync"
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Calendar onChange IgnoreCalendarChanges : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-boolean v2, p0, Lcom/android/server/bridge/operations/DbObserver;->mIgnoreCalendarChanges:Z
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-boolean v0, p0, Lcom/android/server/bridge/operations/DbObserver;->mIgnoreCalendarChanges:Z
+
+    if-nez v0, :cond_0
 
     iget-object v1, p0, Lcom/android/server/bridge/operations/DbObserver;->mCalendarRunnable:Ljava/lang/Runnable;
 
@@ -1807,6 +1877,7 @@
 
     monitor-exit v1
 
+    :cond_0
     return-void
 
     :catchall_0
@@ -1900,6 +1971,69 @@
     if-eqz v0, :cond_0
 
     invoke-direct {p0}, Lcom/android/server/bridge/operations/DbObserver;->registerCalendarObserver()V
+
+    goto :goto_0
+.end method
+
+.method public setIgnoreChanges(Ljava/lang/String;Z)V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/bridge/operations/DbObserver;->TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "setIgnoreChanges ProviderName : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, " , IgnoreChanges : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v0, "Contacts"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iput-boolean p2, p0, Lcom/android/server/bridge/operations/DbObserver;->mIgnoreContactChanges:Z
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    const-string/jumbo v0, "Calendar"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iput-boolean p2, p0, Lcom/android/server/bridge/operations/DbObserver;->mIgnoreCalendarChanges:Z
 
     goto :goto_0
 .end method

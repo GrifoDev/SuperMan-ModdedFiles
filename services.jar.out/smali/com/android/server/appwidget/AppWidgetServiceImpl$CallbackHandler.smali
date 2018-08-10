@@ -46,122 +46,176 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 10
+    .locals 24
 
-    iget v1, p1, Landroid/os/Message;->what:I
+    move-object/from16 v0, p1
 
-    packed-switch v1, :pswitch_data_0
+    iget v3, v0, Landroid/os/Message;->what:I
+
+    packed-switch v3, :pswitch_data_0
 
     :goto_0
     return-void
 
     :pswitch_0
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    move-object/from16 v0, p1
 
-    check-cast v0, Lcom/android/internal/os/SomeArgs;
+    iget-object v2, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    iget-object v2, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+    check-cast v2, Lcom/android/internal/os/SomeArgs;
 
-    check-cast v2, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;
+    iget-object v4, v2, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
-    iget-object v3, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+    check-cast v4, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;
 
-    check-cast v3, Lcom/android/internal/appwidget/IAppWidgetHost;
+    iget-object v5, v2, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
 
-    iget-object v5, v0, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
+    check-cast v5, Lcom/android/internal/appwidget/IAppWidgetHost;
 
-    check-cast v5, Landroid/widget/RemoteViews;
+    iget-object v7, v2, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
 
-    iget-object v1, v0, Lcom/android/internal/os/SomeArgs;->arg4:Ljava/lang/Object;
+    check-cast v7, Landroid/widget/RemoteViews;
 
-    check-cast v1, Ljava/lang/Long;
+    iget-object v3, v2, Lcom/android/internal/os/SomeArgs;->arg4:Ljava/lang/Object;
 
-    invoke-virtual {v1}, Ljava/lang/Long;->longValue()J
+    check-cast v3, Ljava/lang/Long;
 
-    move-result-wide v6
+    invoke-virtual {v3}, Ljava/lang/Long;->longValue()J
 
-    iget v4, v0, Lcom/android/internal/os/SomeArgs;->argi1:I
+    move-result-wide v8
 
-    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
+    iget v6, v2, Lcom/android/internal/os/SomeArgs;->argi1:I
 
-    iget-object v1, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$CallbackHandler;->this$0:Lcom/android/server/appwidget/AppWidgetServiceImpl;
+    invoke-virtual {v2}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
-    invoke-static/range {v1 .. v7}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->-wrap9(Lcom/android/server/appwidget/AppWidgetServiceImpl;Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;Lcom/android/internal/appwidget/IAppWidgetHost;ILandroid/widget/RemoteViews;J)V
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl$CallbackHandler;->this$0:Lcom/android/server/appwidget/AppWidgetServiceImpl;
+
+    invoke-static/range {v3 .. v9}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->-wrap9(Lcom/android/server/appwidget/AppWidgetServiceImpl;Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;Lcom/android/internal/appwidget/IAppWidgetHost;ILandroid/widget/RemoteViews;J)V
 
     goto :goto_0
 
     :pswitch_1
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    move-object/from16 v0, p1
 
-    check-cast v0, Lcom/android/internal/os/SomeArgs;
+    iget-object v2, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    iget-object v2, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+    check-cast v2, Lcom/android/internal/os/SomeArgs;
 
-    check-cast v2, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;
+    iget-object v4, v2, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
-    iget-object v3, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+    check-cast v4, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;
 
-    check-cast v3, Lcom/android/internal/appwidget/IAppWidgetHost;
+    iget-object v5, v2, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
 
-    iget-object v8, v0, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
+    check-cast v5, Lcom/android/internal/appwidget/IAppWidgetHost;
 
-    check-cast v8, Landroid/appwidget/AppWidgetProviderInfo;
+    iget-object v15, v2, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
 
-    iget v4, v0, Lcom/android/internal/os/SomeArgs;->argi1:I
+    check-cast v15, Landroid/appwidget/AppWidgetProviderInfo;
 
-    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
+    iget-object v3, v2, Lcom/android/internal/os/SomeArgs;->arg4:Ljava/lang/Object;
 
-    iget-object v1, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$CallbackHandler;->this$0:Lcom/android/server/appwidget/AppWidgetServiceImpl;
+    check-cast v3, Ljava/lang/Long;
 
-    invoke-static {v1, v2, v3, v4, v8}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->-wrap7(Lcom/android/server/appwidget/AppWidgetServiceImpl;Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;Lcom/android/internal/appwidget/IAppWidgetHost;ILandroid/appwidget/AppWidgetProviderInfo;)V
+    invoke-virtual {v3}, Ljava/lang/Long;->longValue()J
+
+    move-result-wide v8
+
+    iget v6, v2, Lcom/android/internal/os/SomeArgs;->argi1:I
+
+    invoke-virtual {v2}, Lcom/android/internal/os/SomeArgs;->recycle()V
+
+    move-object/from16 v0, p0
+
+    iget-object v11, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl$CallbackHandler;->this$0:Lcom/android/server/appwidget/AppWidgetServiceImpl;
+
+    move-object v12, v4
+
+    move-object v13, v5
+
+    move v14, v6
+
+    move-wide/from16 v16, v8
+
+    invoke-static/range {v11 .. v17}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->-wrap7(Lcom/android/server/appwidget/AppWidgetServiceImpl;Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;Lcom/android/internal/appwidget/IAppWidgetHost;ILandroid/appwidget/AppWidgetProviderInfo;J)V
 
     goto :goto_0
 
     :pswitch_2
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    move-object/from16 v0, p1
 
-    check-cast v0, Lcom/android/internal/os/SomeArgs;
+    iget-object v2, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    iget-object v2, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+    check-cast v2, Lcom/android/internal/os/SomeArgs;
 
-    check-cast v2, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;
+    iget-object v4, v2, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
-    iget-object v3, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+    check-cast v4, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;
 
-    check-cast v3, Lcom/android/internal/appwidget/IAppWidgetHost;
+    iget-object v5, v2, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
 
-    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
+    check-cast v5, Lcom/android/internal/appwidget/IAppWidgetHost;
 
-    iget-object v1, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$CallbackHandler;->this$0:Lcom/android/server/appwidget/AppWidgetServiceImpl;
+    invoke-virtual {v2}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
-    invoke-static {v1, v2, v3}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->-wrap8(Lcom/android/server/appwidget/AppWidgetServiceImpl;Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;Lcom/android/internal/appwidget/IAppWidgetHost;)V
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl$CallbackHandler;->this$0:Lcom/android/server/appwidget/AppWidgetServiceImpl;
+
+    invoke-static {v3, v4, v5}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->-wrap8(Lcom/android/server/appwidget/AppWidgetServiceImpl;Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;Lcom/android/internal/appwidget/IAppWidgetHost;)V
 
     goto :goto_0
 
     :pswitch_3
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    move-object/from16 v0, p1
 
-    check-cast v0, Lcom/android/internal/os/SomeArgs;
+    iget-object v2, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    iget-object v2, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+    check-cast v2, Lcom/android/internal/os/SomeArgs;
 
-    check-cast v2, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;
+    iget-object v4, v2, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
-    iget-object v3, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+    check-cast v4, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;
 
-    check-cast v3, Lcom/android/internal/appwidget/IAppWidgetHost;
+    iget-object v5, v2, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
 
-    iget v4, v0, Lcom/android/internal/os/SomeArgs;->argi1:I
+    check-cast v5, Lcom/android/internal/appwidget/IAppWidgetHost;
 
-    iget v9, v0, Lcom/android/internal/os/SomeArgs;->argi2:I
+    iget-object v3, v2, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
 
-    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
+    check-cast v3, Ljava/lang/Long;
 
-    iget-object v1, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$CallbackHandler;->this$0:Lcom/android/server/appwidget/AppWidgetServiceImpl;
+    invoke-virtual {v3}, Ljava/lang/Long;->longValue()J
 
-    invoke-static {v1, v2, v3, v4, v9}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->-wrap6(Lcom/android/server/appwidget/AppWidgetServiceImpl;Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;Lcom/android/internal/appwidget/IAppWidgetHost;II)V
+    move-result-wide v8
 
-    goto :goto_0
+    iget v6, v2, Lcom/android/internal/os/SomeArgs;->argi1:I
+
+    iget v0, v2, Lcom/android/internal/os/SomeArgs;->argi2:I
+
+    move/from16 v21, v0
+
+    invoke-virtual {v2}, Lcom/android/internal/os/SomeArgs;->recycle()V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl$CallbackHandler;->this$0:Lcom/android/server/appwidget/AppWidgetServiceImpl;
+
+    move-object/from16 v17, v0
+
+    move-object/from16 v18, v4
+
+    move-object/from16 v19, v5
+
+    move/from16 v20, v6
+
+    move-wide/from16 v22, v8
+
+    invoke-static/range {v17 .. v23}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->-wrap6(Lcom/android/server/appwidget/AppWidgetServiceImpl;Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;Lcom/android/internal/appwidget/IAppWidgetHost;IIJ)V
+
+    goto/16 :goto_0
 
     :pswitch_data_0
     .packed-switch 0x1

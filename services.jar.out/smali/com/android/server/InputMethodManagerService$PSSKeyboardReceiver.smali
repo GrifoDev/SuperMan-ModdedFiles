@@ -50,7 +50,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "InputMethodService onReceive() intentAction"
+    const-string/jumbo v4, "PSSKeyboardReceiver : onReceive() intentAction"
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -64,7 +64,7 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Lcom/samsung/android/util/SemLog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     const-string/jumbo v2, "com.sec.android.sidesync.action.PSS_KEYBOARD"
 
@@ -88,7 +88,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "onReceive() getIntExtra "
+    const-string/jumbo v4, "PSSKeyboardReceiver : onReceive(), getIntExtra - "
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -102,7 +102,7 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Lcom/samsung/android/util/SemLog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     if-ne v0, v6, :cond_3
 
@@ -116,7 +116,17 @@
 
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$PSSKeyboardReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
 
-    invoke-static {v2}, Lcom/android/server/InputMethodManagerService;->-wrap3(Lcom/android/server/InputMethodManagerService;)Z
+    invoke-static {v2}, Lcom/android/server/InputMethodManagerService;->-wrap4(Lcom/android/server/InputMethodManagerService;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    iget-object v2, p0, Lcom/android/server/InputMethodManagerService$PSSKeyboardReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
+
+    const-string/jumbo v3, "com.sec.android.inputmethod.iwnnime.japan/.standardcommon.IWnnLanguageSwitcher"
+
+    invoke-static {v2, v3}, Lcom/android/server/InputMethodManagerService;->-wrap3(Lcom/android/server/InputMethodManagerService;Ljava/lang/String;)Z
 
     move-result v2
 
@@ -135,19 +145,19 @@
 
     invoke-virtual {v2, v5, v7}, Lcom/android/server/InputMethodManagerService;->hideCurrentInputLocked(ILandroid/os/ResultReceiver;)Z
 
-    invoke-static {}, Lcom/android/server/InputMethodManagerService;->-get6()Z
+    invoke-static {}, Lcom/android/server/InputMethodManagerService;->-get7()Z
 
     move-result v2
 
     if-nez v2, :cond_0
 
-    invoke-static {}, Lcom/android/server/InputMethodManagerService;->-get5()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/InputMethodManagerService;->-get6()Ljava/lang/String;
 
     move-result-object v2
 
     if-eqz v2, :cond_0
 
-    invoke-static {}, Lcom/android/server/InputMethodManagerService;->-get5()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/InputMethodManagerService;->-get6()Ljava/lang/String;
 
     move-result-object v2
 
@@ -175,7 +185,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "InputMethodService onReceive() keyboardState : "
+    const-string/jumbo v4, "PSSKeyboardReceiver :  onReceive(), keyboardState - "
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -193,14 +203,14 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Lcom/samsung/android/util/SemLog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_1
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$PSSKeyboardReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
 
-    invoke-static {v2}, Lcom/android/server/InputMethodManagerService;->-wrap1(Lcom/android/server/InputMethodManagerService;)Z
+    invoke-static {v2}, Lcom/android/server/InputMethodManagerService;->-wrap2(Lcom/android/server/InputMethodManagerService;)Z
 
     move-result v2
 
@@ -210,7 +220,7 @@
 
     const-string/jumbo v3, "com.samsung.inputmethod/.SamsungIME"
 
-    invoke-static {v2, v3}, Lcom/android/server/InputMethodManagerService;->-wrap2(Lcom/android/server/InputMethodManagerService;Ljava/lang/String;)Z
+    invoke-static {v2, v3}, Lcom/android/server/InputMethodManagerService;->-wrap3(Lcom/android/server/InputMethodManagerService;Ljava/lang/String;)Z
 
     move-result v2
 
@@ -261,7 +271,7 @@
 
     invoke-virtual {v2}, Lcom/android/server/InputMethodManagerService;->hideKeyboardDialog()V
 
-    invoke-static {v5}, Lcom/android/server/InputMethodManagerService;->-set8(I)I
+    invoke-static {v5}, Lcom/android/server/InputMethodManagerService;->-set7(I)I
 
     goto :goto_1
 .end method

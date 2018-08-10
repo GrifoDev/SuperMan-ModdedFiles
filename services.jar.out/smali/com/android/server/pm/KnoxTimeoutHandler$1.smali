@@ -1,5 +1,5 @@
 .class Lcom/android/server/pm/KnoxTimeoutHandler$1;
-.super Landroid/content/BroadcastReceiver;
+.super Landroid/os/ContainerStateReceiver;
 .source "KnoxTimeoutHandler.java"
 
 
@@ -24,223 +24,121 @@
 
     iput-object p1, p0, Lcom/android/server/pm/KnoxTimeoutHandler$1;->this$0:Lcom/android/server/pm/KnoxTimeoutHandler;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-direct {p0}, Landroid/os/ContainerStateReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 7
+.method public onContainerLocked(Landroid/content/Context;ILandroid/os/Bundle;)V
+    .locals 4
 
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    const-string/jumbo v0, "PersonaManagerService::Timeout"
 
-    move-result-object v0
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    if-eqz v0, :cond_0
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "com.sec.knox.container.INTENT_ACTION_LOCK_TIMEOUT"
+    const-string/jumbo v2, "onContainerLocked("
 
-    invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    if-nez v1, :cond_1
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v4, "KnoxTimeoutHandler"
+    move-result-object v1
 
-    const-string/jumbo v5, "invalid bundle!"
+    const-string/jumbo v2, ")"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    return-void
+    move-result-object v1
 
-    :cond_0
-    const-string/jumbo v4, "KnoxTimeoutHandler"
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const-string/jumbo v5, "invalid action!"
+    move-result-object v1
 
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    return-void
+    iget-object v0, p0, Lcom/android/server/pm/KnoxTimeoutHandler$1;->this$0:Lcom/android/server/pm/KnoxTimeoutHandler;
 
-    :cond_1
-    const-string/jumbo v4, "personaId"
+    invoke-static {v0}, Lcom/android/server/pm/KnoxTimeoutHandler;->-get5(Lcom/android/server/pm/KnoxTimeoutHandler;)Landroid/os/Handler;
 
-    const/4 v5, 0x0
+    move-result-object v0
 
-    invoke-virtual {v1, v4, v5}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+    iget-object v1, p0, Lcom/android/server/pm/KnoxTimeoutHandler$1;->this$0:Lcom/android/server/pm/KnoxTimeoutHandler;
 
-    move-result v3
+    invoke-static {v1}, Lcom/android/server/pm/KnoxTimeoutHandler;->-get5(Lcom/android/server/pm/KnoxTimeoutHandler;)Landroid/os/Handler;
 
-    const-string/jumbo v4, "KnoxTimeoutHandler"
+    move-result-object v1
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    const/4 v2, 0x3
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    const/4 v3, 0x0
 
-    const-string/jumbo v6, " time out  for "
+    invoke-virtual {v1, v2, p2, v3}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v5
-
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v4, p0, Lcom/android/server/pm/KnoxTimeoutHandler$1;->this$0:Lcom/android/server/pm/KnoxTimeoutHandler;
-
-    invoke-static {v4}, Lcom/android/server/pm/KnoxTimeoutHandler;->-get1(Lcom/android/server/pm/KnoxTimeoutHandler;)Lcom/android/server/pm/PersonaManagerService;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v3}, Lcom/android/server/pm/PersonaManagerService;->exists(I)Z
-
-    move-result v4
-
-    if-nez v4, :cond_2
-
-    const-string/jumbo v4, "KnoxTimeoutHandler"
-
-    const-string/jumbo v5, "container userId does not exist!"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
     return-void
+.end method
 
-    :cond_2
-    iget-object v4, p0, Lcom/android/server/pm/KnoxTimeoutHandler$1;->this$0:Lcom/android/server/pm/KnoxTimeoutHandler;
+.method public onContainerUnlocked(Landroid/content/Context;ILandroid/os/Bundle;)V
+    .locals 4
 
-    invoke-static {v4}, Lcom/android/server/pm/KnoxTimeoutHandler;->-get1(Lcom/android/server/pm/KnoxTimeoutHandler;)Lcom/android/server/pm/PersonaManagerService;
+    const-string/jumbo v0, "PersonaManagerService::Timeout"
 
-    move-result-object v4
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v3}, Lcom/android/server/pm/PersonaManagerService;->getPersonaInfo(I)Lcom/samsung/android/knox/SemPersonaInfo;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v2
+    const-string/jumbo v2, "onContainerUnlocked("
 
-    if-eqz v2, :cond_3
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-boolean v4, v2, Lcom/samsung/android/knox/SemPersonaInfo;->removePersona:Z
+    move-result-object v1
 
-    if-eqz v4, :cond_3
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v4, "KnoxTimeoutHandler"
+    move-result-object v1
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    const-string/jumbo v2, ")"
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v6, "INTENT_ACTION_LOCK_TIMEOUT is received but container "
+    move-result-object v1
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v5
+    iget-object v0, p0, Lcom/android/server/pm/KnoxTimeoutHandler$1;->this$0:Lcom/android/server/pm/KnoxTimeoutHandler;
 
-    const-string/jumbo v6, " is removed, no locking needed"
+    invoke-static {v0}, Lcom/android/server/pm/KnoxTimeoutHandler;->-get5(Lcom/android/server/pm/KnoxTimeoutHandler;)Landroid/os/Handler;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    move-result-object v5
+    iget-object v1, p0, Lcom/android/server/pm/KnoxTimeoutHandler$1;->this$0:Lcom/android/server/pm/KnoxTimeoutHandler;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v1}, Lcom/android/server/pm/KnoxTimeoutHandler;->-get5(Lcom/android/server/pm/KnoxTimeoutHandler;)Landroid/os/Handler;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    const/4 v2, 0x2
 
-    return-void
+    const/4 v3, 0x0
 
-    :cond_3
-    iget-object v4, p0, Lcom/android/server/pm/KnoxTimeoutHandler$1;->this$0:Lcom/android/server/pm/KnoxTimeoutHandler;
+    invoke-virtual {v1, v2, p2, v3}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
 
-    invoke-static {v4}, Lcom/android/server/pm/KnoxTimeoutHandler;->-get0(Lcom/android/server/pm/KnoxTimeoutHandler;)I
+    move-result-object v1
 
-    move-result v4
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    if-ne v3, v4, :cond_4
-
-    iget-object v4, p0, Lcom/android/server/pm/KnoxTimeoutHandler$1;->this$0:Lcom/android/server/pm/KnoxTimeoutHandler;
-
-    invoke-static {v4}, Lcom/android/server/pm/KnoxTimeoutHandler;->-get1(Lcom/android/server/pm/KnoxTimeoutHandler;)Lcom/android/server/pm/PersonaManagerService;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v3}, Lcom/android/server/pm/PersonaManagerService;->isUserHasTrust(I)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_4
-
-    const-string/jumbo v4, "KnoxTimeoutHandler"
-
-    const-string/jumbo v5, "User is inside container and its trust is granted. By pass keyguard and reset security timeout"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v4, p0, Lcom/android/server/pm/KnoxTimeoutHandler$1;->this$0:Lcom/android/server/pm/KnoxTimeoutHandler;
-
-    invoke-static {v4, v3}, Lcom/android/server/pm/KnoxTimeoutHandler;->-wrap6(Lcom/android/server/pm/KnoxTimeoutHandler;I)V
-
-    return-void
-
-    :cond_4
-    const-string/jumbo v4, "KnoxTimeoutHandler"
-
-    const-string/jumbo v5, "lock it up"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v4, p0, Lcom/android/server/pm/KnoxTimeoutHandler$1;->this$0:Lcom/android/server/pm/KnoxTimeoutHandler;
-
-    invoke-static {v4}, Lcom/android/server/pm/KnoxTimeoutHandler;->-get1(Lcom/android/server/pm/KnoxTimeoutHandler;)Lcom/android/server/pm/PersonaManagerService;
-
-    move-result-object v4
-
-    sget-object v5, Landroid/content/pm/PersonaNewEvent;->USER_LOCK:Landroid/content/pm/PersonaNewEvent;
-
-    invoke-virtual {v4, v5, v3}, Lcom/android/server/pm/PersonaManagerService;->fireEvent(Landroid/content/pm/PersonaNewEvent;I)Lcom/samsung/android/knox/SemPersonaState;
-
-    iget-object v4, p0, Lcom/android/server/pm/KnoxTimeoutHandler$1;->this$0:Lcom/android/server/pm/KnoxTimeoutHandler;
-
-    invoke-static {v4}, Lcom/android/server/pm/KnoxTimeoutHandler;->-get0(Lcom/android/server/pm/KnoxTimeoutHandler;)I
-
-    move-result v4
-
-    if-ne v3, v4, :cond_5
-
-    const-string/jumbo v4, "KnoxTimeoutHandler"
-
-    const-string/jumbo v5, "keyguard show"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v4, p0, Lcom/android/server/pm/KnoxTimeoutHandler$1;->this$0:Lcom/android/server/pm/KnoxTimeoutHandler;
-
-    invoke-static {v4}, Lcom/android/server/pm/KnoxTimeoutHandler;->-get1(Lcom/android/server/pm/KnoxTimeoutHandler;)Lcom/android/server/pm/PersonaManagerService;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v3}, Lcom/android/server/pm/PersonaManagerService;->showKeyguard(I)V
-
-    :cond_5
     return-void
 .end method

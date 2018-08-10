@@ -217,50 +217,50 @@
 .end method
 
 .method private createType3Message()[B
-    .locals 22
+    .locals 23
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/proxy/auth/ntlm/NTLMType3Message;->ntResponse:[B
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    if-eqz v18, :cond_0
+    if-eqz v19, :cond_0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/proxy/auth/ntlm/NTLMType3Message;->lmResponse:[B
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    if-nez v18, :cond_1
+    if-nez v19, :cond_1
 
     :cond_0
-    const/16 v18, 0x0
+    const/16 v19, 0x0
 
-    return-object v18
+    return-object v19
 
     :cond_1
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/proxy/auth/ntlm/NTLMType3Message;->username:Ljava/lang/String;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    if-eqz v18, :cond_0
+    if-eqz v19, :cond_0
 
-    const/16 v18, 0x1
+    const/16 v19, 0x1
 
     :try_start_0
     move-object/from16 v0, p0
 
-    move/from16 v1, v18
+    move/from16 v1, v19
 
     invoke-virtual {v0, v1}, Lcom/android/server/enterprise/proxy/auth/ntlm/NTLMType3Message;->isFlagSet(I)Z
 
-    move-result v18
+    move-result v19
 
-    if-eqz v18, :cond_5
+    if-eqz v19, :cond_5
 
     const-string/jumbo v8, "UTF-16LE"
 
@@ -273,17 +273,17 @@
 
     iget-object v0, v0, Lcom/android/server/enterprise/proxy/auth/ntlm/NTLMType3Message;->domain:Ljava/lang/String;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    if-eqz v18, :cond_2
+    if-eqz v19, :cond_2
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/proxy/auth/ntlm/NTLMType3Message;->domain:Ljava/lang/String;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-virtual {v0, v8}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
 
@@ -292,62 +292,62 @@
     array-length v5, v4
 
     :cond_2
-    const/16 v16, 0x0
-
     const/16 v17, 0x0
 
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/enterprise/proxy/auth/ntlm/NTLMType3Message;->workstation:Ljava/lang/String;
-
-    move-object/from16 v18, v0
-
-    if-eqz v18, :cond_3
+    const/16 v18, 0x0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/proxy/auth/ntlm/NTLMType3Message;->workstation:Ljava/lang/String;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    move-object/from16 v0, v18
+    if-eqz v19, :cond_3
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/enterprise/proxy/auth/ntlm/NTLMType3Message;->workstation:Ljava/lang/String;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
 
     invoke-virtual {v0, v8}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
 
-    move-result-object v16
+    move-result-object v17
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
     array-length v0, v0
 
-    move/from16 v17, v0
+    move/from16 v18, v0
 
     :cond_3
-    const/4 v14, 0x0
-
     const/4 v15, 0x0
 
-    const-string/jumbo v18, "Cp850"
+    const/16 v16, 0x0
 
-    move-object/from16 v0, v18
+    const-string/jumbo v19, "Cp850"
+
+    move-object/from16 v0, v19
 
     invoke-virtual {v8, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v18
+    move-result v19
 
-    if-eqz v18, :cond_4
+    if-eqz v19, :cond_4
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/proxy/auth/ntlm/NTLMType3Message;->username:Ljava/lang/String;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v19
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     move-object/from16 v1, p0
 
@@ -358,25 +358,29 @@
 
     iget-object v0, v0, Lcom/android/server/enterprise/proxy/auth/ntlm/NTLMType3Message;->username:Ljava/lang/String;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-virtual {v0, v8}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
 
-    move-result-object v14
+    move-result-object v15
 
-    array-length v15, v14
+    array-length v0, v15
+
+    move/from16 v16, v0
 
     const/4 v12, 0x0
+
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/proxy/auth/ntlm/NTLMType3Message;->ntResponse:[B
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     array-length v10, v0
 
@@ -384,59 +388,59 @@
 
     iget-object v0, v0, Lcom/android/server/enterprise/proxy/auth/ntlm/NTLMType3Message;->lmResponse:[B
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     array-length v9, v0
 
-    add-int/lit8 v18, v5, 0x40
+    add-int/lit8 v19, v5, 0x40
 
-    add-int v18, v18, v15
+    add-int v19, v19, v16
 
-    add-int v18, v18, v17
+    add-int v19, v19, v18
 
-    add-int v18, v18, v9
+    add-int v19, v19, v9
 
-    add-int v18, v18, v10
+    add-int v19, v19, v10
 
-    add-int/lit8 v18, v18, 0x0
+    add-int/lit8 v19, v19, 0x0
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
-    new-array v13, v0, [B
+    new-array v14, v0, [B
 
-    sget-object v18, Lcom/android/server/enterprise/proxy/auth/ntlm/NTLMType3Message;->NTLM_HEADER_BYTES:[B
-
-    const/16 v19, 0x0
+    sget-object v19, Lcom/android/server/enterprise/proxy/auth/ntlm/NTLMType3Message;->NTLM_HEADER_BYTES:[B
 
     const/16 v20, 0x0
 
-    const/16 v21, 0x8
+    const/16 v21, 0x0
 
-    move-object/from16 v0, v18
+    const/16 v22, 0x8
 
-    move/from16 v1, v19
+    move-object/from16 v0, v19
 
-    move/from16 v2, v20
+    move/from16 v1, v20
 
-    move/from16 v3, v21
+    move/from16 v2, v21
 
-    invoke-static {v0, v1, v13, v2, v3}, Ljava/lang/System;->arraycopy([BI[BII)V
+    move/from16 v3, v22
 
-    const/16 v18, 0x8
+    invoke-static {v0, v1, v14, v2, v3}, Ljava/lang/System;->arraycopy([BI[BII)V
 
-    const/16 v19, 0x3
+    const/16 v19, 0x8
 
-    const/16 v20, 0x4
+    const/16 v20, 0x3
 
-    move/from16 v0, v18
+    const/16 v21, 0x4
 
-    move/from16 v1, v19
+    move/from16 v0, v19
 
-    move/from16 v2, v20
+    move/from16 v1, v20
 
-    invoke-static {v13, v0, v1, v2}, Lcom/android/server/enterprise/proxy/auth/ntlm/NTLMUtils;->setUnsignedValue([BIII)V
+    move/from16 v2, v21
+
+    invoke-static {v14, v0, v1, v2}, Lcom/android/server/enterprise/proxy/auth/ntlm/NTLMUtils;->setUnsignedValue([BIII)V
 
     const/16 v11, 0x40
 
@@ -444,15 +448,15 @@
 
     iget-object v0, v0, Lcom/android/server/enterprise/proxy/auth/ntlm/NTLMType3Message;->lmResponse:[B
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    const/16 v19, 0xc
+    const/16 v20, 0xc
 
-    move/from16 v0, v19
+    move/from16 v0, v20
 
-    move-object/from16 v1, v18
+    move-object/from16 v1, v19
 
-    invoke-static {v13, v0, v11, v1}, Lcom/android/server/enterprise/proxy/auth/ntlm/NTLMUtils;->setSecurityDataAndAttributes([BII[B)V
+    invoke-static {v14, v0, v11, v1}, Lcom/android/server/enterprise/proxy/auth/ntlm/NTLMUtils;->setSecurityDataAndAttributes([BII[B)V
 
     add-int/lit8 v11, v9, 0x40
 
@@ -460,67 +464,67 @@
 
     iget-object v0, v0, Lcom/android/server/enterprise/proxy/auth/ntlm/NTLMType3Message;->ntResponse:[B
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    const/16 v19, 0x14
+    const/16 v20, 0x14
 
-    move/from16 v0, v19
+    move/from16 v0, v20
 
-    move-object/from16 v1, v18
+    move-object/from16 v1, v19
 
-    invoke-static {v13, v0, v11, v1}, Lcom/android/server/enterprise/proxy/auth/ntlm/NTLMUtils;->setSecurityDataAndAttributes([BII[B)V
+    invoke-static {v14, v0, v11, v1}, Lcom/android/server/enterprise/proxy/auth/ntlm/NTLMUtils;->setSecurityDataAndAttributes([BII[B)V
 
     add-int/2addr v11, v10
 
-    const/16 v18, 0x1c
-
-    move/from16 v0, v18
-
-    invoke-static {v13, v0, v11, v4}, Lcom/android/server/enterprise/proxy/auth/ntlm/NTLMUtils;->setSecurityDataAndAttributes([BII[B)V
-
-    add-int/2addr v11, v5
-
-    const/16 v18, 0x24
-
-    move/from16 v0, v18
-
-    invoke-static {v13, v0, v11, v14}, Lcom/android/server/enterprise/proxy/auth/ntlm/NTLMUtils;->setSecurityDataAndAttributes([BII[B)V
-
-    add-int/2addr v11, v15
-
-    const/16 v18, 0x2c
-
-    move/from16 v0, v18
-
-    move-object/from16 v1, v16
-
-    invoke-static {v13, v0, v11, v1}, Lcom/android/server/enterprise/proxy/auth/ntlm/NTLMUtils;->setSecurityDataAndAttributes([BII[B)V
-
-    add-int v11, v11, v17
-
-    const/16 v18, 0x34
-
-    move/from16 v0, v18
-
-    invoke-static {v13, v0, v11, v12}, Lcom/android/server/enterprise/proxy/auth/ntlm/NTLMUtils;->setSecurityDataAndAttributes([BII[B)V
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/server/enterprise/proxy/auth/ntlm/NTLMType3Message;->getFlags()I
-
-    move-result v18
-
-    const/16 v19, 0x3c
-
-    const/16 v20, 0x4
+    const/16 v19, 0x1c
 
     move/from16 v0, v19
 
-    move/from16 v1, v18
+    invoke-static {v14, v0, v11, v4}, Lcom/android/server/enterprise/proxy/auth/ntlm/NTLMUtils;->setSecurityDataAndAttributes([BII[B)V
 
-    move/from16 v2, v20
+    add-int/2addr v11, v5
 
-    invoke-static {v13, v0, v1, v2}, Lcom/android/server/enterprise/proxy/auth/ntlm/NTLMUtils;->setUnsignedValue([BIII)V
+    const/16 v19, 0x24
 
-    return-object v13
+    move/from16 v0, v19
+
+    invoke-static {v14, v0, v11, v15}, Lcom/android/server/enterprise/proxy/auth/ntlm/NTLMUtils;->setSecurityDataAndAttributes([BII[B)V
+
+    add-int v11, v11, v16
+
+    const/16 v19, 0x2c
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, v17
+
+    invoke-static {v14, v0, v11, v1}, Lcom/android/server/enterprise/proxy/auth/ntlm/NTLMUtils;->setSecurityDataAndAttributes([BII[B)V
+
+    add-int v11, v11, v18
+
+    const/16 v19, 0x34
+
+    move/from16 v0, v19
+
+    invoke-static {v14, v0, v11, v12}, Lcom/android/server/enterprise/proxy/auth/ntlm/NTLMUtils;->setSecurityDataAndAttributes([BII[B)V
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/enterprise/proxy/auth/ntlm/NTLMType3Message;->getFlags()I
+
+    move-result v19
+
+    const/16 v20, 0x3c
+
+    const/16 v21, 0x4
+
+    move/from16 v0, v20
+
+    move/from16 v1, v19
+
+    move/from16 v2, v21
+
+    invoke-static {v14, v0, v1, v2}, Lcom/android/server/enterprise/proxy/auth/ntlm/NTLMUtils;->setUnsignedValue([BIII)V
+
+    return-object v14
 
     :cond_5
     const-string/jumbo v8, "Cp850"
@@ -534,9 +538,9 @@
     move-exception v6
 
     :goto_1
-    const/16 v18, 0x0
+    const/16 v19, 0x0
 
-    return-object v18
+    return-object v19
 
     :catch_1
     move-exception v7
@@ -884,61 +888,59 @@
 .end method
 
 .method private processParityForBytes([B)V
-    .locals 6
-
-    const/4 v3, 0x0
+    .locals 5
 
     const/4 v1, 0x0
 
     :goto_0
-    array-length v4, p1
+    array-length v3, p1
 
-    if-ge v1, v4, :cond_2
+    if-ge v1, v3, :cond_2
 
     aget-byte v0, p1, v1
 
-    ushr-int/lit8 v4, v0, 0x7
+    ushr-int/lit8 v3, v0, 0x7
 
-    ushr-int/lit8 v5, v0, 0x6
+    ushr-int/lit8 v4, v0, 0x6
 
-    xor-int/2addr v4, v5
+    xor-int/2addr v3, v4
 
-    ushr-int/lit8 v5, v0, 0x5
+    ushr-int/lit8 v4, v0, 0x5
 
-    xor-int/2addr v4, v5
+    xor-int/2addr v3, v4
 
-    ushr-int/lit8 v5, v0, 0x4
+    ushr-int/lit8 v4, v0, 0x4
 
-    xor-int/2addr v4, v5
+    xor-int/2addr v3, v4
 
-    ushr-int/lit8 v5, v0, 0x3
+    ushr-int/lit8 v4, v0, 0x3
 
-    xor-int/2addr v4, v5
+    xor-int/2addr v3, v4
 
-    ushr-int/lit8 v5, v0, 0x2
+    ushr-int/lit8 v4, v0, 0x2
 
-    xor-int/2addr v4, v5
+    xor-int/2addr v3, v4
 
-    ushr-int/lit8 v5, v0, 0x1
+    ushr-int/lit8 v4, v0, 0x1
 
-    xor-int/2addr v4, v5
+    xor-int/2addr v3, v4
 
-    and-int/lit8 v4, v4, 0x1
+    and-int/lit8 v3, v3, 0x1
 
-    if-nez v4, :cond_0
+    if-nez v3, :cond_0
 
     const/4 v2, 0x1
 
     :goto_1
     if-eqz v2, :cond_1
 
-    aget-byte v4, p1, v1
+    aget-byte v3, p1, v1
 
-    or-int/lit8 v4, v4, 0x1
+    or-int/lit8 v3, v3, 0x1
 
-    int-to-byte v4, v4
+    int-to-byte v3, v3
 
-    aput-byte v4, p1, v1
+    aput-byte v3, p1, v1
 
     :goto_2
     add-int/lit8 v1, v1, 0x1
@@ -946,18 +948,18 @@
     goto :goto_0
 
     :cond_0
-    move v2, v3
+    const/4 v2, 0x0
 
     goto :goto_1
 
     :cond_1
-    aget-byte v4, p1, v1
+    aget-byte v3, p1, v1
 
-    and-int/lit8 v4, v4, -0x2
+    and-int/lit8 v3, v3, -0x2
 
-    int-to-byte v4, v4
+    int-to-byte v3, v3
 
-    aput-byte v4, p1, v1
+    aput-byte v3, p1, v1
 
     goto :goto_2
 

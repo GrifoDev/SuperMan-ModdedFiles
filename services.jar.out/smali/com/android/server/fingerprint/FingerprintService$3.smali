@@ -35,11 +35,13 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/fingerprint/FingerprintService$3;->this$0:Lcom/android/server/fingerprint/FingerprintService;
 
-    invoke-static {v0}, Lcom/android/server/fingerprint/FingerprintService;->-wrap13(Lcom/android/server/fingerprint/FingerprintService;)V
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/android/server/fingerprint/FingerprintService;->resetFailedAttempts(Z)V
 
     return-void
 .end method

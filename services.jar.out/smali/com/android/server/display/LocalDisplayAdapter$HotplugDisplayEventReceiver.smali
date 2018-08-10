@@ -20,11 +20,13 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/display/LocalDisplayAdapter;Landroid/os/Looper;)V
-    .locals 0
+    .locals 1
 
     iput-object p1, p0, Lcom/android/server/display/LocalDisplayAdapter$HotplugDisplayEventReceiver;->this$0:Lcom/android/server/display/LocalDisplayAdapter;
 
-    invoke-direct {p0, p2}, Landroid/view/DisplayEventReceiver;-><init>(Landroid/os/Looper;)V
+    const/4 v0, 0x0
+
+    invoke-direct {p0, p2, v0}, Landroid/view/DisplayEventReceiver;-><init>(Landroid/os/Looper;I)V
 
     return-void
 .end method

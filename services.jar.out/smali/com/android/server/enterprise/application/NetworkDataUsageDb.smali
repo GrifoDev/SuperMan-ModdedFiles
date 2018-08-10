@@ -120,10 +120,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_0
+
+    invoke-static {v0}, Lcom/android/server/enterprise/application/NetworkDataUsageDb;->createDmAppMgrTable(Landroid/database/sqlite/SQLiteDatabase;)V
 
     :cond_0
-    :goto_1
     return-object v0
 
     :catch_0
@@ -136,11 +139,6 @@
     invoke-static {v3, v4}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
-
-    :cond_1
-    invoke-static {v0}, Lcom/android/server/enterprise/application/NetworkDataUsageDb;->createDmAppMgrTable(Landroid/database/sqlite/SQLiteDatabase;)V
-
-    goto :goto_1
 .end method
 
 .method private static isTableExists(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;)Z
@@ -508,27 +506,16 @@
     return v18
 
     :cond_0
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_3
 
     invoke-virtual/range {p1 .. p1}, Ljava/util/Hashtable;->isEmpty()Z
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v26
 
+    xor-int/lit8 v26, v26, 0x1
+
     if-eqz v26, :cond_3
 
-    :cond_1
-    :goto_0
-    if-eqz v8, :cond_2
-
-    invoke-virtual {v8}, Landroid/database/sqlite/SQLiteDatabase;->close()V
-
-    :cond_2
-    return v18
-
-    :cond_3
-    :try_start_1
     invoke-virtual/range {p1 .. p1}, Ljava/util/Hashtable;->keySet()Ljava/util/Set;
 
     move-result-object v12
@@ -537,23 +524,23 @@
 
     move-result-object v11
 
-    :cond_4
-    :goto_1
+    :cond_1
+    :goto_0
     invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v26
 
-    if-eqz v26, :cond_1
+    if-eqz v26, :cond_3
 
     invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v10
 
     check-cast v10, Ljava/lang/Integer;
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    :try_start_2
+    :try_start_1
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v10}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -602,7 +589,7 @@
 
     move-result v26
 
-    if-eqz v26, :cond_6
+    if-eqz v26, :cond_5
 
     new-instance v19, Landroid/content/ContentValues;
 
@@ -783,36 +770,42 @@
     move-object/from16 v3, v28
 
     invoke-virtual {v8, v0, v1, v2, v3}, Landroid/database/sqlite/SQLiteDatabase;->update(Ljava/lang/String;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result v4
 
-    if-lez v4, :cond_5
+    if-lez v4, :cond_2
 
     const/16 v18, 0x1
 
-    :cond_5
-    :goto_2
-    if-eqz v5, :cond_4
+    :cond_2
+    :goto_1
+    if-eqz v5, :cond_1
 
-    :try_start_3
+    :try_start_2
     invoke-interface {v5}, Landroid/database/Cursor;->close()V
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
-    goto/16 :goto_1
+    goto/16 :goto_0
 
     :catch_0
     move-exception v9
 
     const/16 v18, 0x0
 
-    goto/16 :goto_0
+    :cond_3
+    if-eqz v8, :cond_4
 
-    :cond_6
-    :try_start_4
+    invoke-virtual {v8}, Landroid/database/sqlite/SQLiteDatabase;->close()V
+
+    :cond_4
+    return v18
+
+    :cond_5
+    :try_start_3
     new-instance v19, Landroid/content/ContentValues;
 
     invoke-direct/range {v19 .. v19}, Landroid/content/ContentValues;-><init>()V
@@ -908,9 +901,9 @@
     move-object/from16 v2, v19
 
     invoke-virtual {v8, v0, v1, v2}, Landroid/database/sqlite/SQLiteDatabase;->insert(Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentValues;)J
-    :try_end_4
-    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_1
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    :try_end_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     move-result-wide v6
 
@@ -918,16 +911,16 @@
 
     cmp-long v26, v26, v6
 
-    if-gez v26, :cond_5
+    if-gez v26, :cond_2
 
     const/16 v18, 0x1
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :catch_1
     move-exception v9
 
-    :try_start_5
+    :try_start_4
     const-string/jumbo v26, "NetworkDataUsageDb"
 
     new-instance v27, Ljava/lang/StringBuilder;
@@ -953,25 +946,25 @@
     move-result-object v27
 
     invoke-static/range {v26 .. v27}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_1
 
-    :try_start_6
+    :try_start_5
     invoke-interface {v5}, Landroid/database/Cursor;->close()V
 
-    goto/16 :goto_1
+    goto/16 :goto_0
 
     :catchall_0
     move-exception v26
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_6
 
     invoke-interface {v5}, Landroid/database/Cursor;->close()V
 
-    :cond_7
+    :cond_6
     throw v26
-    :try_end_6
-    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_0
+    :try_end_5
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_0
 .end method

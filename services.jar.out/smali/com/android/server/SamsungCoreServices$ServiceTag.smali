@@ -34,15 +34,7 @@
 
 .field public static final enum TAG_HORIZONTAL_MODE_SERVICE:Lcom/android/server/SamsungCoreServices$ServiceTag;
 
-.field public static final enum TAG_MULTISCREEN_MANAGER_SERVICE:Lcom/android/server/SamsungCoreServices$ServiceTag;
-
 .field public static final enum TAG_MULTITAPKEY_MANAGER:Lcom/android/server/SamsungCoreServices$ServiceTag;
-
-.field public static final enum TAG_MULTIWINDOW_FOCUSED_FRAME_CONTROLLER:Lcom/android/server/SamsungCoreServices$ServiceTag;
-
-.field public static final enum TAG_MULTIWINDOW_MANAGER_INTERNAL:Lcom/android/server/SamsungCoreServices$ServiceTag;
-
-.field public static final enum TAG_MULTIWINDOW_MANAGER_SERVICE:Lcom/android/server/SamsungCoreServices$ServiceTag;
 
 .field public static final enum TAG_MULTIWINDOW_PHONE_WINDOW_MANAGER:Lcom/android/server/SamsungCoreServices$ServiceTag;
 
@@ -129,19 +121,9 @@
 
     new-instance v0, Lcom/android/server/SamsungCoreServices$ServiceTag;
 
-    const-string/jumbo v1, "TAG_MULTISCREEN_MANAGER_SERVICE"
-
-    const/4 v2, 0x6
-
-    invoke-direct {v0, v1, v2}, Lcom/android/server/SamsungCoreServices$ServiceTag;-><init>(Ljava/lang/String;I)V
-
-    sput-object v0, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_MULTISCREEN_MANAGER_SERVICE:Lcom/android/server/SamsungCoreServices$ServiceTag;
-
-    new-instance v0, Lcom/android/server/SamsungCoreServices$ServiceTag;
-
     const-string/jumbo v1, "TAG_HORIZONTAL_MODE_SERVICE"
 
-    const/4 v2, 0x7
+    const/4 v2, 0x6
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/SamsungCoreServices$ServiceTag;-><init>(Ljava/lang/String;I)V
 
@@ -151,7 +133,7 @@
 
     const-string/jumbo v1, "TAG_SAMSUNG_WINDOW_STATE"
 
-    const/16 v2, 0x8
+    const/4 v2, 0x7
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/SamsungCoreServices$ServiceTag;-><init>(Ljava/lang/String;I)V
 
@@ -159,29 +141,9 @@
 
     new-instance v0, Lcom/android/server/SamsungCoreServices$ServiceTag;
 
-    const-string/jumbo v1, "TAG_MULTIWINDOW_MANAGER_SERVICE"
-
-    const/16 v2, 0x9
-
-    invoke-direct {v0, v1, v2}, Lcom/android/server/SamsungCoreServices$ServiceTag;-><init>(Ljava/lang/String;I)V
-
-    sput-object v0, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_MULTIWINDOW_MANAGER_SERVICE:Lcom/android/server/SamsungCoreServices$ServiceTag;
-
-    new-instance v0, Lcom/android/server/SamsungCoreServices$ServiceTag;
-
-    const-string/jumbo v1, "TAG_MULTIWINDOW_MANAGER_INTERNAL"
-
-    const/16 v2, 0xa
-
-    invoke-direct {v0, v1, v2}, Lcom/android/server/SamsungCoreServices$ServiceTag;-><init>(Ljava/lang/String;I)V
-
-    sput-object v0, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_MULTIWINDOW_MANAGER_INTERNAL:Lcom/android/server/SamsungCoreServices$ServiceTag;
-
-    new-instance v0, Lcom/android/server/SamsungCoreServices$ServiceTag;
-
     const-string/jumbo v1, "TAG_MULTIWINDOW_PHONE_WINDOW_MANAGER"
 
-    const/16 v2, 0xb
+    const/16 v2, 0x8
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/SamsungCoreServices$ServiceTag;-><init>(Ljava/lang/String;I)V
 
@@ -189,19 +151,9 @@
 
     new-instance v0, Lcom/android/server/SamsungCoreServices$ServiceTag;
 
-    const-string/jumbo v1, "TAG_MULTIWINDOW_FOCUSED_FRAME_CONTROLLER"
-
-    const/16 v2, 0xc
-
-    invoke-direct {v0, v1, v2}, Lcom/android/server/SamsungCoreServices$ServiceTag;-><init>(Ljava/lang/String;I)V
-
-    sput-object v0, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_MULTIWINDOW_FOCUSED_FRAME_CONTROLLER:Lcom/android/server/SamsungCoreServices$ServiceTag;
-
-    new-instance v0, Lcom/android/server/SamsungCoreServices$ServiceTag;
-
     const-string/jumbo v1, "TAG_SAMSUNG_STARTING_WINDOW_MANAGER"
 
-    const/16 v2, 0xd
+    const/16 v2, 0x9
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/SamsungCoreServices$ServiceTag;-><init>(Ljava/lang/String;I)V
 
@@ -211,7 +163,7 @@
 
     const-string/jumbo v1, "TAG_MULTIWINDOW_STACK_COLOR_LAYER"
 
-    const/16 v2, 0xe
+    const/16 v2, 0xa
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/SamsungCoreServices$ServiceTag;-><init>(Ljava/lang/String;I)V
 
@@ -221,7 +173,7 @@
 
     const-string/jumbo v1, "TAG_DSS_CONTROLLER"
 
-    const/16 v2, 0xf
+    const/16 v2, 0xb
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/SamsungCoreServices$ServiceTag;-><init>(Ljava/lang/String;I)V
 
@@ -231,7 +183,7 @@
 
     const-string/jumbo v1, "TAG_TSP_STATE_MANAGER"
 
-    const/16 v2, 0x10
+    const/16 v2, 0xc
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/SamsungCoreServices$ServiceTag;-><init>(Ljava/lang/String;I)V
 
@@ -241,13 +193,13 @@
 
     const-string/jumbo v1, "TAG_PACKAGE_CONFIGURATION_CONTROLLER"
 
-    const/16 v2, 0x11
+    const/16 v2, 0xd
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/SamsungCoreServices$ServiceTag;-><init>(Ljava/lang/String;I)V
 
     sput-object v0, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_PACKAGE_CONFIGURATION_CONTROLLER:Lcom/android/server/SamsungCoreServices$ServiceTag;
 
-    const/16 v0, 0x12
+    const/16 v0, 0xe
 
     new-array v0, v0, [Lcom/android/server/SamsungCoreServices$ServiceTag;
 
@@ -277,75 +229,51 @@
 
     aput-object v1, v0, v2
 
-    sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_MULTISCREEN_MANAGER_SERVICE:Lcom/android/server/SamsungCoreServices$ServiceTag;
+    sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_HORIZONTAL_MODE_SERVICE:Lcom/android/server/SamsungCoreServices$ServiceTag;
 
     const/4 v2, 0x6
 
     aput-object v1, v0, v2
 
-    sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_HORIZONTAL_MODE_SERVICE:Lcom/android/server/SamsungCoreServices$ServiceTag;
+    sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_SAMSUNG_WINDOW_STATE:Lcom/android/server/SamsungCoreServices$ServiceTag;
 
     const/4 v2, 0x7
 
     aput-object v1, v0, v2
 
-    sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_SAMSUNG_WINDOW_STATE:Lcom/android/server/SamsungCoreServices$ServiceTag;
+    sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_MULTIWINDOW_PHONE_WINDOW_MANAGER:Lcom/android/server/SamsungCoreServices$ServiceTag;
 
     const/16 v2, 0x8
 
     aput-object v1, v0, v2
 
-    sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_MULTIWINDOW_MANAGER_SERVICE:Lcom/android/server/SamsungCoreServices$ServiceTag;
+    sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_SAMSUNG_STARTING_WINDOW_MANAGER:Lcom/android/server/SamsungCoreServices$ServiceTag;
 
     const/16 v2, 0x9
 
     aput-object v1, v0, v2
 
-    sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_MULTIWINDOW_MANAGER_INTERNAL:Lcom/android/server/SamsungCoreServices$ServiceTag;
+    sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_MULTIWINDOW_STACK_COLOR_LAYER:Lcom/android/server/SamsungCoreServices$ServiceTag;
 
     const/16 v2, 0xa
 
     aput-object v1, v0, v2
 
-    sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_MULTIWINDOW_PHONE_WINDOW_MANAGER:Lcom/android/server/SamsungCoreServices$ServiceTag;
+    sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_DSS_CONTROLLER:Lcom/android/server/SamsungCoreServices$ServiceTag;
 
     const/16 v2, 0xb
 
     aput-object v1, v0, v2
 
-    sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_MULTIWINDOW_FOCUSED_FRAME_CONTROLLER:Lcom/android/server/SamsungCoreServices$ServiceTag;
+    sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_TSP_STATE_MANAGER:Lcom/android/server/SamsungCoreServices$ServiceTag;
 
     const/16 v2, 0xc
 
     aput-object v1, v0, v2
 
-    sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_SAMSUNG_STARTING_WINDOW_MANAGER:Lcom/android/server/SamsungCoreServices$ServiceTag;
-
-    const/16 v2, 0xd
-
-    aput-object v1, v0, v2
-
-    sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_MULTIWINDOW_STACK_COLOR_LAYER:Lcom/android/server/SamsungCoreServices$ServiceTag;
-
-    const/16 v2, 0xe
-
-    aput-object v1, v0, v2
-
-    sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_DSS_CONTROLLER:Lcom/android/server/SamsungCoreServices$ServiceTag;
-
-    const/16 v2, 0xf
-
-    aput-object v1, v0, v2
-
-    sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_TSP_STATE_MANAGER:Lcom/android/server/SamsungCoreServices$ServiceTag;
-
-    const/16 v2, 0x10
-
-    aput-object v1, v0, v2
-
     sget-object v1, Lcom/android/server/SamsungCoreServices$ServiceTag;->TAG_PACKAGE_CONFIGURATION_CONTROLLER:Lcom/android/server/SamsungCoreServices$ServiceTag;
 
-    const/16 v2, 0x11
+    const/16 v2, 0xd
 
     aput-object v1, v0, v2
 

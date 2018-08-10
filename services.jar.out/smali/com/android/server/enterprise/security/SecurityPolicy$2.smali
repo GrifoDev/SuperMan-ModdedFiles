@@ -1,11 +1,11 @@
 .class Lcom/android/server/enterprise/security/SecurityPolicy$2;
-.super Landroid/content/BroadcastReceiver;
+.super Landroid/os/ContainerStateReceiver;
 .source "SecurityPolicy.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/enterprise/security/SecurityPolicy;->formatExternalStorageCard()Z
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/server/enterprise/security/SecurityPolicy;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,89 +17,89 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/enterprise/security/SecurityPolicy;
 
-.field final synthetic val$lock:Ljava/lang/Object;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/server/enterprise/security/SecurityPolicy;Ljava/lang/Object;)V
+.method constructor <init>(Lcom/android/server/enterprise/security/SecurityPolicy;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/enterprise/security/SecurityPolicy$2;->this$0:Lcom/android/server/enterprise/security/SecurityPolicy;
 
-    iput-object p2, p0, Lcom/android/server/enterprise/security/SecurityPolicy$2;->val$lock:Ljava/lang/Object;
-
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-direct {p0}, Landroid/os/ContainerStateReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 6
+.method public onContainerLocked(Landroid/content/Context;ILandroid/os/Bundle;)V
+    .locals 3
 
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    const-string/jumbo v0, "SecurityPolicy"
 
-    move-result-object v0
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-virtual {p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v3
+    const-string/jumbo v2, "PersonaObserver.onContainerLocked() : container has locked, containerId = "
 
-    invoke-virtual {v3}, Landroid/net/Uri;->getPath()Ljava/lang/String;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v1
 
-    const-string/jumbo v3, "android.intent.action.MEDIA_MOUNTED"
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result-object v1
 
-    move-result v3
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    if-eqz v3, :cond_0
+    move-result-object v1
 
-    iget-object v4, p0, Lcom/android/server/enterprise/security/SecurityPolicy$2;->val$lock:Ljava/lang/Object;
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    monitor-enter v4
+    iget-object v0, p0, Lcom/android/server/enterprise/security/SecurityPolicy$2;->this$0:Lcom/android/server/enterprise/security/SecurityPolicy;
 
-    :try_start_0
-    iget-object v3, p0, Lcom/android/server/enterprise/security/SecurityPolicy$2;->this$0:Lcom/android/server/enterprise/security/SecurityPolicy;
+    invoke-virtual {v0, p2}, Lcom/android/server/enterprise/security/SecurityPolicy;->stopBannerService(I)Z
 
-    const/4 v5, 0x1
+    return-void
+.end method
 
-    invoke-static {v3, v5}, Lcom/android/server/enterprise/security/SecurityPolicy;->-set1(Lcom/android/server/enterprise/security/SecurityPolicy;Z)Z
+.method public onContainerUnlocked(Landroid/content/Context;ILandroid/os/Bundle;)V
+    .locals 3
 
-    iget-object v3, p0, Lcom/android/server/enterprise/security/SecurityPolicy$2;->val$lock:Ljava/lang/Object;
+    const-string/jumbo v0, "SecurityPolicy"
 
-    invoke-virtual {v3}, Ljava/lang/Object;->notify()V
-    :try_end_0
-    .catch Ljava/lang/IllegalMonitorStateException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    :goto_0
-    monitor-exit v4
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "PersonaObserver.onContainerUnlocked() : container has activated, containerId = "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/android/server/enterprise/security/SecurityPolicy$2;->this$0:Lcom/android/server/enterprise/security/SecurityPolicy;
+
+    invoke-virtual {v0, p2}, Lcom/android/server/enterprise/security/SecurityPolicy;->isRebootBannerEnabled(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/enterprise/security/SecurityPolicy$2;->this$0:Lcom/android/server/enterprise/security/SecurityPolicy;
+
+    invoke-virtual {v0, p2}, Lcom/android/server/enterprise/security/SecurityPolicy;->startBannerService(I)Z
 
     :cond_0
     return-void
-
-    :catch_0
-    move-exception v1
-
-    :try_start_1
-    const-string/jumbo v3, "SecurityPolicy"
-
-    const-string/jumbo v5, "formatStorageCard - IllegalMonitorStateException"
-
-    invoke-static {v3, v5}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception v3
-
-    monitor-exit v4
-
-    throw v3
 .end method

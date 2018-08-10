@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/input/InputManagerService;->getKeyboardLayout(Ljava/lang/String;)Landroid/hardware/input/KeyboardLayout;
+    value = Lcom/android/server/input/InputManagerService;->getKeyboardLayouts()[Landroid/hardware/input/KeyboardLayout;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,16 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/input/InputManagerService;
 
-.field final synthetic val$result:[Landroid/hardware/input/KeyboardLayout;
+.field final synthetic val$list:Ljava/util/ArrayList;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/input/InputManagerService;[Landroid/hardware/input/KeyboardLayout;)V
+.method constructor <init>(Lcom/android/server/input/InputManagerService;Ljava/util/ArrayList;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/input/InputManagerService$10;->this$0:Lcom/android/server/input/InputManagerService;
 
-    iput-object p2, p0, Lcom/android/server/input/InputManagerService$10;->val$result:[Landroid/hardware/input/KeyboardLayout;
+    iput-object p2, p0, Lcom/android/server/input/InputManagerService$10;->val$list:Ljava/util/ArrayList;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -39,13 +39,11 @@
 
 # virtual methods
 .method public visitKeyboardLayout(Landroid/content/res/Resources;ILandroid/hardware/input/KeyboardLayout;)V
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/input/InputManagerService$10;->val$result:[Landroid/hardware/input/KeyboardLayout;
+    iget-object v0, p0, Lcom/android/server/input/InputManagerService$10;->val$list:Ljava/util/ArrayList;
 
-    const/4 v1, 0x0
-
-    aput-object p3, v0, v1
+    invoke-virtual {v0, p3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method

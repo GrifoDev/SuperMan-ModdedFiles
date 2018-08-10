@@ -39,9 +39,9 @@
 
 
 # instance fields
-.field private final mForeground:Z
-
 .field private final mHandler:Landroid/os/Handler;
+
+.field private final mIsRestartable:Z
 
 .field private mName:Ljava/lang/CharSequence;
 
@@ -57,28 +57,12 @@
 
 
 # direct methods
-.method static synthetic -get0(Lcom/android/server/am/AppErrorDialog;)Lcom/android/server/am/ProcessRecord;
-    .locals 1
+.method static synthetic -wrap0(Lcom/android/server/am/AppErrorDialog;I)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/AppErrorDialog;->mProc:Lcom/android/server/am/ProcessRecord;
+    invoke-direct {p0, p1}, Lcom/android/server/am/AppErrorDialog;->setResult(I)V
 
-    return-object v0
-.end method
-
-.method static synthetic -get1(Lcom/android/server/am/AppErrorDialog;)Lcom/android/server/am/AppErrorResult;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/am/AppErrorDialog;->mResult:Lcom/android/server/am/AppErrorResult;
-
-    return-object v0
-.end method
-
-.method static synthetic -get2(Lcom/android/server/am/AppErrorDialog;)Lcom/android/server/am/ActivityManagerService;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/am/AppErrorDialog;->mService:Lcom/android/server/am/ActivityManagerService;
-
-    return-object v0
+    return-void
 .end method
 
 .method static constructor <clinit>()V
@@ -100,9 +84,9 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Lcom/android/server/am/ActivityManagerService;Lcom/android/server/am/AppErrorDialog$Data;)V
-    .locals 9
+    .locals 8
 
-    const/4 v5, 0x0
+    const/4 v7, 0x0
 
     const/4 v4, 0x1
 
@@ -140,12 +124,12 @@
 
     iget-object v3, p3, Lcom/android/server/am/AppErrorDialog$Data;->task:Lcom/android/server/am/TaskRecord;
 
-    if-eqz v3, :cond_1
+    if-nez v3, :cond_1
 
-    move v3, v4
+    iget-boolean v3, p3, Lcom/android/server/am/AppErrorDialog$Data;->isRestartableForService:Z
 
     :goto_0
-    iput-boolean v3, p0, Lcom/android/server/am/AppErrorDialog;->mForeground:Z
+    iput-boolean v3, p0, Lcom/android/server/am/AppErrorDialog;->mIsRestartable:Z
 
     invoke-static {}, Landroid/text/BidiFormatter;->getInstance()Landroid/text/BidiFormatter;
 
@@ -159,91 +143,66 @@
 
     move-result v3
 
-    if-ne v3, v4, :cond_4
+    if-ne v3, v4, :cond_3
 
     invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v3
 
-    iget-object v6, p0, Lcom/android/server/am/AppErrorDialog;->mProc:Lcom/android/server/am/ProcessRecord;
+    iget-object v5, p0, Lcom/android/server/am/AppErrorDialog;->mProc:Lcom/android/server/am/ProcessRecord;
 
-    iget-object v6, v6, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
+    iget-object v5, v5, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
 
-    invoke-virtual {v3, v6}, Landroid/content/pm/PackageManager;->getApplicationLabel(Landroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
+    invoke-virtual {v3, v5}, Landroid/content/pm/PackageManager;->getApplicationLabel(Landroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
 
     move-result-object v3
 
     iput-object v3, p0, Lcom/android/server/am/AppErrorDialog;->mName:Ljava/lang/CharSequence;
 
-    if-eqz v3, :cond_4
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    if-eqz v3, :cond_3
 
     iget-boolean v3, p0, Lcom/android/server/am/AppErrorDialog;->mRepeating:Z
 
     if-eqz v3, :cond_2
 
-    const v3, 0x104039d
+    const v3, 0x1040094
 
     :goto_1
-    const/4 v7, 0x2
+    const/4 v5, 0x2
 
-    new-array v7, v7, [Ljava/lang/Object;
+    new-array v5, v5, [Ljava/lang/Object;
 
-    iget-object v8, p0, Lcom/android/server/am/AppErrorDialog;->mName:Ljava/lang/CharSequence;
+    iget-object v6, p0, Lcom/android/server/am/AppErrorDialog;->mName:Ljava/lang/CharSequence;
 
-    invoke-interface {v8}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    invoke-interface {v6}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v6
 
-    invoke-virtual {v1, v8}, Landroid/text/BidiFormatter;->unicodeWrap(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v1, v6}, Landroid/text/BidiFormatter;->unicodeWrap(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v6
 
-    aput-object v8, v7, v5
+    aput-object v6, v5, v7
 
-    iget-object v5, p0, Lcom/android/server/am/AppErrorDialog;->mProc:Lcom/android/server/am/ProcessRecord;
+    iget-object v6, p0, Lcom/android/server/am/AppErrorDialog;->mProc:Lcom/android/server/am/ProcessRecord;
 
-    iget-object v5, v5, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
+    iget-object v6, v6, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
 
-    iget-object v5, v5, Landroid/content/pm/ApplicationInfo;->processName:Ljava/lang/String;
+    iget-object v6, v6, Landroid/content/pm/ApplicationInfo;->processName:Ljava/lang/String;
 
-    invoke-virtual {v1, v5}, Landroid/text/BidiFormatter;->unicodeWrap(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v1, v6}, Landroid/text/BidiFormatter;->unicodeWrap(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v6
 
-    aput-object v5, v7, v4
+    aput-object v6, v5, v4
 
-    invoke-virtual {v2, v3, v7}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    iget-object v3, p0, Lcom/android/server/am/AppErrorDialog;->mService:Lcom/android/server/am/ActivityManagerService;
-
-    sget-boolean v3, Lcom/android/server/am/ActivityManagerService;->mIsSPDError:Z
-
-    if-eqz v3, :cond_3
-
-    const-string/jumbo v3, " [01]"
-
-    :goto_2
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2, v3, v5}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v3
 
     invoke-virtual {p0, v3}, Lcom/android/server/am/AppErrorDialog;->setTitle(Ljava/lang/CharSequence;)V
 
-    :goto_3
+    :goto_2
     invoke-virtual {p0, v4}, Lcom/android/server/am/AppErrorDialog;->setCancelable(Z)V
 
     iget-object v3, p0, Lcom/android/server/am/AppErrorDialog;->mHandler:Landroid/os/Handler;
@@ -334,96 +293,116 @@
     return-void
 
     :cond_1
-    move v3, v5
+    move v3, v4
 
     goto/16 :goto_0
 
     :cond_2
-    const v3, 0x104039b
+    const v3, 0x1040093
 
     goto/16 :goto_1
 
     :cond_3
-    const-string/jumbo v3, ""
-
-    goto :goto_2
-
-    :cond_4
     iget-object v3, p0, Lcom/android/server/am/AppErrorDialog;->mProc:Lcom/android/server/am/ProcessRecord;
 
     iget-object v3, v3, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
 
     iput-object v3, p0, Lcom/android/server/am/AppErrorDialog;->mName:Ljava/lang/CharSequence;
 
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
     iget-boolean v3, p0, Lcom/android/server/am/AppErrorDialog;->mRepeating:Z
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_4
 
-    const v3, 0x104039e
+    const v3, 0x1040099
 
-    :goto_4
-    new-array v7, v4, [Ljava/lang/Object;
+    :goto_3
+    new-array v5, v4, [Ljava/lang/Object;
 
-    iget-object v8, p0, Lcom/android/server/am/AppErrorDialog;->mName:Ljava/lang/CharSequence;
+    iget-object v6, p0, Lcom/android/server/am/AppErrorDialog;->mName:Ljava/lang/CharSequence;
 
-    invoke-interface {v8}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    invoke-interface {v6}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v6
 
-    invoke-virtual {v1, v8}, Landroid/text/BidiFormatter;->unicodeWrap(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v1, v6}, Landroid/text/BidiFormatter;->unicodeWrap(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v6
 
-    aput-object v8, v7, v5
+    aput-object v6, v5, v7
 
-    invoke-virtual {v2, v3, v7}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    iget-object v3, p0, Lcom/android/server/am/AppErrorDialog;->mService:Lcom/android/server/am/ActivityManagerService;
-
-    sget-boolean v3, Lcom/android/server/am/ActivityManagerService;->mIsSPDError:Z
-
-    if-eqz v3, :cond_6
-
-    const-string/jumbo v3, " [01]"
-
-    :goto_5
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2, v3, v5}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v3
 
     invoke-virtual {p0, v3}, Lcom/android/server/am/AppErrorDialog;->setTitle(Ljava/lang/CharSequence;)V
 
-    goto/16 :goto_3
+    goto/16 :goto_2
 
-    :cond_5
-    const v3, 0x104039c
+    :cond_4
+    const v3, 0x1040098
 
-    goto :goto_4
+    goto :goto_3
+.end method
 
-    :cond_6
-    const-string/jumbo v3, ""
+.method private setResult(I)V
+    .locals 3
 
-    goto :goto_5
+    iget-object v1, p0, Lcom/android/server/am/AppErrorDialog;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    monitor-enter v1
+
+    :try_start_0
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForLockedSection()V
+
+    iget-object v0, p0, Lcom/android/server/am/AppErrorDialog;->mProc:Lcom/android/server/am/ProcessRecord;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/am/AppErrorDialog;->mProc:Lcom/android/server/am/ProcessRecord;
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->crashDialog:Landroid/app/Dialog;
+
+    if-ne v0, p0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/am/AppErrorDialog;->mProc:Lcom/android/server/am/ProcessRecord;
+
+    const/4 v2, 0x0
+
+    iput-object v2, v0, Lcom/android/server/am/ProcessRecord;->crashDialog:Landroid/app/Dialog;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    monitor-exit v1
+
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
+
+    iget-object v0, p0, Lcom/android/server/am/AppErrorDialog;->mResult:Lcom/android/server/am/AppErrorResult;
+
+    invoke-virtual {v0, p1}, Lcom/android/server/am/AppErrorResult;->set(I)V
+
+    iget-object v0, p0, Lcom/android/server/am/AppErrorDialog;->mHandler:Landroid/os/Handler;
+
+    const/4 v1, 0x6
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
+
+    throw v0
 .end method
 
 
 # virtual methods
 .method public dismiss()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/am/AppErrorDialog;->mResult:Lcom/android/server/am/AppErrorResult;
 
@@ -431,11 +410,9 @@
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/am/AppErrorDialog;->mResult:Lcom/android/server/am/AppErrorResult;
+    const/4 v0, 0x1
 
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Lcom/android/server/am/AppErrorResult;->set(I)V
+    invoke-direct {p0, v0}, Lcom/android/server/am/AppErrorDialog;->setResult(I)V
 
     :cond_0
     invoke-super {p0}, Lcom/android/server/am/BaseErrorDialog;->dismiss()V
@@ -473,10 +450,9 @@
     packed-switch v0, :pswitch_data_0
 
     :goto_0
-    :pswitch_0
     return-void
 
-    :pswitch_1
+    :pswitch_0
     iget-object v0, p0, Lcom/android/server/am/AppErrorDialog;->mHandler:Landroid/os/Handler;
 
     const/4 v1, 0x3
@@ -489,7 +465,7 @@
 
     goto :goto_0
 
-    :pswitch_2
+    :pswitch_1
     iget-object v0, p0, Lcom/android/server/am/AppErrorDialog;->mHandler:Landroid/os/Handler;
 
     const/4 v1, 0x2
@@ -502,7 +478,7 @@
 
     goto :goto_0
 
-    :pswitch_3
+    :pswitch_2
     iget-object v0, p0, Lcom/android/server/am/AppErrorDialog;->mHandler:Landroid/os/Handler;
 
     const/4 v1, 0x1
@@ -515,7 +491,7 @@
 
     goto :goto_0
 
-    :pswitch_4
+    :pswitch_3
     iget-object v0, p0, Lcom/android/server/am/AppErrorDialog;->mHandler:Landroid/os/Handler;
 
     const/4 v1, 0x5
@@ -529,12 +505,11 @@
     goto :goto_0
 
     :pswitch_data_0
-    .packed-switch 0x1020396
-        :pswitch_3
-        :pswitch_0
+    .packed-switch 0x10201cf
         :pswitch_2
+        :pswitch_3
         :pswitch_1
-        :pswitch_4
+        :pswitch_0
     .end packed-switch
 .end method
 
@@ -559,7 +534,7 @@
 
     move-result-object v11
 
-    const v12, 0x1090034
+    const v12, 0x1090035
 
     const/4 v13, 0x1
 
@@ -569,7 +544,7 @@
 
     if-nez v11, :cond_2
 
-    iget-boolean v5, p0, Lcom/android/server/am/AppErrorDialog;->mForeground:Z
+    iget-boolean v5, p0, Lcom/android/server/am/AppErrorDialog;->mIsRestartable:Z
 
     :goto_0
     iget-object v11, p0, Lcom/android/server/am/AppErrorDialog;->mProc:Lcom/android/server/am/ProcessRecord;
@@ -581,7 +556,7 @@
     const/4 v4, 0x1
 
     :goto_1
-    const v11, 0x1020399
+    const v11, 0x10201d2
 
     invoke-virtual {p0, v11}, Lcom/android/server/am/AppErrorDialog;->findViewById(I)Landroid/view/View;
 
@@ -598,7 +573,7 @@
     :goto_2
     invoke-virtual {v8, v11}, Landroid/widget/TextView;->setVisibility(I)V
 
-    const v11, 0x1020398
+    const v11, 0x10201d1
 
     invoke-virtual {p0, v11}, Lcom/android/server/am/AppErrorDialog;->findViewById(I)Landroid/view/View;
 
@@ -642,11 +617,16 @@
 
     move-result v11
 
-    if-eqz v11, :cond_6
+    xor-int/lit8 v11, v11, 0x1
+
+    if-eqz v11, :cond_1
+
+    const/16 v11, 0x8
+
+    invoke-virtual {v7, v11}, Landroid/widget/TextView;->setVisibility(I)V
 
     :cond_1
-    :goto_4
-    const v11, 0x1020396
+    const v11, 0x10201cf
 
     invoke-virtual {p0, v11}, Lcom/android/server/am/AppErrorDialog;->findViewById(I)Landroid/view/View;
 
@@ -654,18 +634,18 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    if-nez v5, :cond_7
+    if-nez v5, :cond_6
 
     const/4 v11, 0x0
 
-    :goto_5
+    :goto_4
     invoke-virtual {v0, v11}, Landroid/widget/TextView;->setVisibility(I)V
 
     invoke-virtual {v0, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     sget-boolean v11, Lcom/android/server/am/ActivityManagerService;->IS_USER_BUILD:Z
 
-    if-nez v11, :cond_8
+    if-nez v11, :cond_7
 
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -679,12 +659,12 @@
 
     move-result v11
 
-    if-eqz v11, :cond_8
+    if-eqz v11, :cond_7
 
     const/4 v10, 0x1
 
-    :goto_6
-    const v11, 0x102039a
+    :goto_5
+    const v11, 0x10201d0
 
     invoke-virtual {p0, v11}, Lcom/android/server/am/AppErrorDialog;->findViewById(I)Landroid/view/View;
 
@@ -694,14 +674,14 @@
 
     invoke-virtual {v6, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    if-eqz v10, :cond_9
+    if-eqz v10, :cond_8
 
     const/4 v11, 0x0
 
-    :goto_7
+    :goto_6
     invoke-virtual {v6, v11}, Landroid/widget/TextView;->setVisibility(I)V
 
-    const v11, 0x1020388
+    const v11, 0x102025c
 
     invoke-virtual {p0, v11}, Lcom/android/server/am/AppErrorDialog;->findViewById(I)Landroid/view/View;
 
@@ -726,7 +706,7 @@
     :cond_4
     const/16 v11, 0x8
 
-    goto :goto_2
+    goto/16 :goto_2
 
     :cond_5
     const/16 v11, 0x8
@@ -736,24 +716,17 @@
     :cond_6
     const/16 v11, 0x8
 
-    invoke-virtual {v7, v11}, Landroid/widget/TextView;->setVisibility(I)V
-
     goto :goto_4
 
     :cond_7
-    const/16 v11, 0x8
+    const/4 v10, 0x0
 
     goto :goto_5
 
     :cond_8
-    const/4 v10, 0x0
-
-    goto :goto_6
-
-    :cond_9
     const/16 v11, 0x8
 
-    goto :goto_7
+    goto :goto_6
 .end method
 
 .method public onStart()V

@@ -34,7 +34,7 @@
 
     invoke-direct {p0, v2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    invoke-static {p1}, Lcom/android/server/ConnectivityService;->-get0(Lcom/android/server/ConnectivityService;)Landroid/content/Context;
+    invoke-static {p1}, Lcom/android/server/ConnectivityService;->-get1(Lcom/android/server/ConnectivityService;)Landroid/content/Context;
 
     move-result-object v2
 
@@ -51,7 +51,7 @@
     if-ne v2, v0, :cond_0
 
     :goto_0
-    invoke-static {p1, v0}, Lcom/android/server/ConnectivityService;->-set3(Lcom/android/server/ConnectivityService;Z)Z
+    invoke-static {p1, v0}, Lcom/android/server/ConnectivityService;->-set2(Lcom/android/server/ConnectivityService;Z)Z
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -63,7 +63,7 @@
 
     move-result-object v0
 
-    invoke-static {p1}, Lcom/android/server/ConnectivityService;->-get4(Lcom/android/server/ConnectivityService;)Z
+    invoke-static {p1}, Lcom/android/server/ConnectivityService;->-get5(Lcom/android/server/ConnectivityService;)Z
 
     move-result v1
 
@@ -75,9 +75,9 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/android/server/ConnectivityService;->-wrap19(Ljava/lang/String;)V
+    invoke-static {v0}, Lcom/android/server/ConnectivityService;->-wrap23(Ljava/lang/String;)V
 
-    invoke-static {p1}, Lcom/android/server/ConnectivityService;->-wrap35(Lcom/android/server/ConnectivityService;)V
+    invoke-static {p1}, Lcom/android/server/ConnectivityService;->-wrap39(Lcom/android/server/ConnectivityService;)V
 
     return-void
 
@@ -100,7 +100,7 @@
 
     iget-object v3, p0, Lcom/android/server/ConnectivityService$MPTCPObserver;->this$0:Lcom/android/server/ConnectivityService;
 
-    invoke-static {v3}, Lcom/android/server/ConnectivityService;->-get0(Lcom/android/server/ConnectivityService;)Landroid/content/Context;
+    invoke-static {v3}, Lcom/android/server/ConnectivityService;->-get1(Lcom/android/server/ConnectivityService;)Landroid/content/Context;
 
     move-result-object v3
 
@@ -117,7 +117,7 @@
     if-ne v3, v0, :cond_0
 
     :goto_0
-    invoke-static {v2, v0}, Lcom/android/server/ConnectivityService;->-set3(Lcom/android/server/ConnectivityService;Z)Z
+    invoke-static {v2, v0}, Lcom/android/server/ConnectivityService;->-set2(Lcom/android/server/ConnectivityService;Z)Z
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -131,7 +131,7 @@
 
     iget-object v1, p0, Lcom/android/server/ConnectivityService$MPTCPObserver;->this$0:Lcom/android/server/ConnectivityService;
 
-    invoke-static {v1}, Lcom/android/server/ConnectivityService;->-get4(Lcom/android/server/ConnectivityService;)Z
+    invoke-static {v1}, Lcom/android/server/ConnectivityService;->-get5(Lcom/android/server/ConnectivityService;)Z
 
     move-result v1
 
@@ -143,11 +143,11 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/android/server/ConnectivityService;->-wrap19(Ljava/lang/String;)V
+    invoke-static {v0}, Lcom/android/server/ConnectivityService;->-wrap23(Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/server/ConnectivityService$MPTCPObserver;->this$0:Lcom/android/server/ConnectivityService;
 
-    invoke-static {v0}, Lcom/android/server/ConnectivityService;->-wrap35(Lcom/android/server/ConnectivityService;)V
+    invoke-static {v0}, Lcom/android/server/ConnectivityService;->-wrap39(Lcom/android/server/ConnectivityService;)V
 
     return-void
 

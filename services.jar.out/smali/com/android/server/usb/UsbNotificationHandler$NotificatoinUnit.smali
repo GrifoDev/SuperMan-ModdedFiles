@@ -153,7 +153,7 @@
     :try_start_1
     iget-object v10, p0, Lcom/android/server/usb/UsbNotificationHandler$NotificatoinUnit;->this$0:Lcom/android/server/usb/UsbNotificationHandler;
 
-    invoke-static {v10}, Lcom/android/server/usb/UsbNotificationHandler;->-get1(Lcom/android/server/usb/UsbNotificationHandler;)Landroid/content/Context;
+    invoke-static {v10}, Lcom/android/server/usb/UsbNotificationHandler;->-get2(Lcom/android/server/usb/UsbNotificationHandler;)Landroid/content/Context;
 
     move-result-object v10
 
@@ -242,22 +242,20 @@
 
     if-nez p2, :cond_7
 
-    new-instance v2, Ljava/lang/String;
-
-    const-string/jumbo v10, ""
-
-    invoke-direct {v2, v10}, Ljava/lang/String;-><init>(Ljava/lang/String;)V
+    const/4 v2, 0x0
 
     :goto_0
     new-instance v10, Landroid/app/Notification$Builder;
 
     iget-object v11, p0, Lcom/android/server/usb/UsbNotificationHandler$NotificatoinUnit;->this$0:Lcom/android/server/usb/UsbNotificationHandler;
 
-    invoke-static {v11}, Lcom/android/server/usb/UsbNotificationHandler;->-get1(Lcom/android/server/usb/UsbNotificationHandler;)Landroid/content/Context;
+    invoke-static {v11}, Lcom/android/server/usb/UsbNotificationHandler;->-get2(Lcom/android/server/usb/UsbNotificationHandler;)Landroid/content/Context;
 
     move-result-object v11
 
-    invoke-direct {v10, v11}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
+    sget-object v12, Lcom/android/internal/notification/SystemNotificationChannels;->USB:Ljava/lang/String;
+
+    invoke-direct {v10, v11, v12}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
     iput-object v10, p0, Lcom/android/server/usb/UsbNotificationHandler$NotificatoinUnit;->mNotificationBuilder:Landroid/app/Notification$Builder;
 
@@ -313,12 +311,6 @@
     const/4 v11, 0x0
 
     invoke-virtual {v10, v11}, Landroid/app/Notification$Builder;->setVibrate([J)Landroid/app/Notification$Builder;
-
-    iget-object v10, p0, Lcom/android/server/usb/UsbNotificationHandler$NotificatoinUnit;->mNotificationBuilder:Landroid/app/Notification$Builder;
-
-    const/4 v11, -0x2
-
-    invoke-virtual {v10, v11}, Landroid/app/Notification$Builder;->setPriority(I)Landroid/app/Notification$Builder;
 
     iget-object v10, p0, Lcom/android/server/usb/UsbNotificationHandler$NotificatoinUnit;->mNotificationBuilder:Landroid/app/Notification$Builder;
 
@@ -524,7 +516,7 @@
     throw v10
 
     :cond_9
-    if-eqz p6, :cond_a
+    if-eqz p6, :cond_5
 
     :try_start_4
     iget-object v10, p0, Lcom/android/server/usb/UsbNotificationHandler$NotificatoinUnit;->mNotificationBuilder:Landroid/app/Notification$Builder;
@@ -534,11 +526,6 @@
     invoke-virtual {v10, v0}, Landroid/app/Notification$Builder;->setContentIntent(Landroid/app/PendingIntent;)Landroid/app/Notification$Builder;
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
-
-    goto/16 :goto_2
-
-    :cond_a
-    if-nez p6, :cond_5
 
     goto/16 :goto_2
 .end method

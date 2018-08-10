@@ -43,35 +43,20 @@
 
 # virtual methods
 .method public execute(Landroid/location/IGnssStatusListener;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    :try_start_0
-    iget-wide v2, p0, Lcom/android/server/location/GnssStatusListenerHelper$5;->val$timestamp:J
+    iget-wide v0, p0, Lcom/android/server/location/GnssStatusListenerHelper$5;->val$timestamp:J
 
-    iget-object v1, p0, Lcom/android/server/location/GnssStatusListenerHelper$5;->val$nmea:Ljava/lang/String;
+    iget-object v2, p0, Lcom/android/server/location/GnssStatusListenerHelper$5;->val$nmea:Ljava/lang/String;
 
-    invoke-interface {p1, v2, v3, v1}, Landroid/location/IGnssStatusListener;->onNmeaReceived(JLjava/lang/String;)V
-    :try_end_0
-    .catch Landroid/os/DeadObjectException; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-interface {p1, v0, v1, v2}, Landroid/location/IGnssStatusListener;->onNmeaReceived(JLjava/lang/String;)V
 
-    :goto_0
     return-void
-
-    :catch_0
-    move-exception v0
-
-    invoke-virtual {v0}, Landroid/os/DeadObjectException;->printStackTrace()V
-
-    iget-object v1, p0, Lcom/android/server/location/GnssStatusListenerHelper$5;->this$0:Lcom/android/server/location/GnssStatusListenerHelper;
-
-    invoke-virtual {v1, p1}, Lcom/android/server/location/GnssStatusListenerHelper;->removeListener(Landroid/os/IInterface;)V
-
-    goto :goto_0
 .end method
 
 .method public bridge synthetic execute(Landroid/os/IInterface;)V

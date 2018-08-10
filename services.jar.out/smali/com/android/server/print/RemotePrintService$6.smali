@@ -45,7 +45,7 @@
 
     iget-object v1, p0, Lcom/android/server/print/RemotePrintService$6;->val$priorityList:Ljava/util/List;
 
-    invoke-static {v0, v1}, Lcom/android/server/print/RemotePrintService;->-wrap8(Lcom/android/server/print/RemotePrintService;Ljava/util/List;)V
+    invoke-static {v0, v1}, Lcom/android/server/print/RemotePrintService;->-wrap9(Lcom/android/server/print/RemotePrintService;Ljava/util/List;)V
 
     return-void
 .end method

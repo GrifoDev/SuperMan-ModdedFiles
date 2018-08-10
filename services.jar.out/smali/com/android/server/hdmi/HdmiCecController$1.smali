@@ -3,7 +3,7 @@
 .source "HdmiCecController.java"
 
 # interfaces
-.implements Lcom/android/internal/util/Predicate;
+.implements Ljava/util/function/Predicate;
 
 
 # annotations
@@ -19,7 +19,7 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Lcom/android/internal/util/Predicate",
+        "Ljava/util/function/Predicate",
         "<",
         "Ljava/lang/Integer;",
         ">;"
@@ -44,7 +44,7 @@
 
 
 # virtual methods
-.method public apply(Ljava/lang/Integer;)Z
+.method public test(Ljava/lang/Integer;)Z
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecController$1;->this$0:Lcom/android/server/hdmi/HdmiCecController;
@@ -57,25 +57,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     return v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
-.method public bridge synthetic apply(Ljava/lang/Object;)Z
+.method public bridge synthetic test(Ljava/lang/Object;)Z
     .locals 1
 
     check-cast p1, Ljava/lang/Integer;
 
-    invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecController$1;->apply(Ljava/lang/Integer;)Z
+    invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecController$1;->test(Ljava/lang/Integer;)Z
 
     move-result v0
 

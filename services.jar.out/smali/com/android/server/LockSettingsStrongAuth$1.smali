@@ -83,11 +83,21 @@
 
     goto :goto_0
 
+    :pswitch_4
+    iget-object v0, p0, Lcom/android/server/LockSettingsStrongAuth$1;->this$0:Lcom/android/server/LockSettingsStrongAuth;
+
+    iget v1, p1, Landroid/os/Message;->arg1:I
+
+    invoke-static {v0, v1}, Lcom/android/server/LockSettingsStrongAuth;->-wrap4(Lcom/android/server/LockSettingsStrongAuth;I)V
+
+    goto :goto_0
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_2
         :pswitch_0
         :pswitch_1
         :pswitch_3
+        :pswitch_4
     .end packed-switch
 .end method

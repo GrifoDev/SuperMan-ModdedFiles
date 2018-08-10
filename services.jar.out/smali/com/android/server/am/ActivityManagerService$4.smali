@@ -1,5 +1,5 @@
 .class Lcom/android/server/am/ActivityManagerService$4;
-.super Lcom/android/internal/app/IAppOpsCallback$Stub;
+.super Ljava/lang/Thread;
 .source "ActivityManagerService.java"
 
 
@@ -19,41 +19,155 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/ActivityManagerService;)V
+.method constructor <init>(Lcom/android/server/am/ActivityManagerService;Ljava/lang/String;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$4;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-direct {p0}, Lcom/android/internal/app/IAppOpsCallback$Stub;-><init>()V
+    invoke-direct {p0, p2}, Ljava/lang/Thread;-><init>(Ljava/lang/String;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public opChanged(IILjava/lang/String;)V
-    .locals 1
+.method public run()V
+    .locals 12
 
-    const/16 v0, 0x3f
+    iget-object v8, p0, Lcom/android/server/am/ActivityManagerService$4;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    if-ne p1, v0, :cond_0
+    iget-object v9, v8, Lcom/android/server/am/ActivityManagerService;->mProcessCpuTracker:Lcom/android/internal/os/ProcessCpuTracker;
 
-    if-eqz p3, :cond_0
+    monitor-enter v9
 
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$4;->this$0:Lcom/android/server/am/ActivityManagerService;
+    :try_start_0
+    iget-object v8, p0, Lcom/android/server/am/ActivityManagerService$4;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mAppOpsService:Lcom/android/server/AppOpsService;
+    iget-object v8, v8, Lcom/android/server/am/ActivityManagerService;->mProcessCpuInitLatch:Ljava/util/concurrent/CountDownLatch;
 
-    invoke-virtual {v0, p1, p2, p3}, Lcom/android/server/AppOpsService;->checkOperation(IILjava/lang/String;)I
+    invoke-virtual {v8}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
-    move-result v0
+    iget-object v8, p0, Lcom/android/server/am/ActivityManagerService$4;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    if-eqz v0, :cond_0
+    iget-object v8, v8, Lcom/android/server/am/ActivityManagerService;->mProcessCpuTracker:Lcom/android/internal/os/ProcessCpuTracker;
 
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$4;->this$0:Lcom/android/server/am/ActivityManagerService;
+    invoke-virtual {v8}, Lcom/android/internal/os/ProcessCpuTracker;->init()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-virtual {v0, p2}, Lcom/android/server/am/ActivityManagerService;->runInBackgroundDisabled(I)V
+    monitor-exit v9
+
+    :goto_0
+    :try_start_1
+    monitor-enter p0
+    :try_end_1
+    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+
+    :try_start_2
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v6
+
+    iget-object v8, p0, Lcom/android/server/am/ActivityManagerService$4;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v8, v8, Lcom/android/server/am/ActivityManagerService;->mLastCpuTime:Ljava/util/concurrent/atomic/AtomicLong;
+
+    invoke-virtual {v8}, Ljava/util/concurrent/atomic/AtomicLong;->get()J
+
+    move-result-wide v8
+
+    const-wide/32 v10, 0xfffffff
+
+    add-long/2addr v8, v10
+
+    sub-long v2, v8, v6
+
+    iget-object v8, p0, Lcom/android/server/am/ActivityManagerService$4;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    iget-wide v8, v8, Lcom/android/server/am/ActivityManagerService;->mLastWriteTime:J
+
+    const-wide/32 v10, 0x1b7740
+
+    add-long/2addr v8, v10
+
+    sub-long v4, v8, v6
+
+    cmp-long v8, v4, v2
+
+    if-gez v8, :cond_0
+
+    move-wide v2, v4
 
     :cond_0
-    return-void
+    const-wide/16 v8, 0x0
+
+    cmp-long v8, v2, v8
+
+    if-lez v8, :cond_1
+
+    iget-object v8, p0, Lcom/android/server/am/ActivityManagerService$4;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v8, v8, Lcom/android/server/am/ActivityManagerService;->mProcessCpuMutexFree:Ljava/util/concurrent/atomic/AtomicBoolean;
+
+    const/4 v9, 0x1
+
+    invoke-virtual {v8, v9}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
+
+    invoke-virtual {p0, v2, v3}, Lcom/android/server/am/ActivityManagerService$4;->wait(J)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+
+    :cond_1
+    :try_start_3
+    monitor-exit p0
+    :try_end_3
+    .catch Ljava/lang/InterruptedException; {:try_start_3 .. :try_end_3} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
+
+    :goto_1
+    :try_start_4
+    iget-object v8, p0, Lcom/android/server/am/ActivityManagerService$4;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    invoke-virtual {v8}, Lcom/android/server/am/ActivityManagerService;->updateCpuStatsNow()V
+    :try_end_4
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->-get0()Ljava/lang/String;
+
+    move-result-object v8
+
+    const-string/jumbo v9, "Unexpected exception collecting process stats"
+
+    invoke-static {v8, v9, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v8
+
+    monitor-exit v9
+
+    throw v8
+
+    :catchall_1
+    move-exception v8
+
+    :try_start_5
+    monitor-exit p0
+
+    throw v8
+    :try_end_5
+    .catch Ljava/lang/InterruptedException; {:try_start_5 .. :try_end_5} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_0
+
+    :catch_1
+    move-exception v1
+
+    goto :goto_1
 .end method

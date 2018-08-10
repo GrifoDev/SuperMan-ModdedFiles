@@ -1,11 +1,14 @@
 .class Lcom/android/server/RCPManagerService$2;
-.super Landroid/app/IUserSwitchObserver$Stub;
+.super Ljava/lang/Object;
 .source "RCPManagerService.java"
+
+# interfaces
+.implements Ljava/lang/Runnable;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/RCPManagerService;-><init>(Landroid/content/Context;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/server/RCPManagerService;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,262 +27,242 @@
 
     iput-object p1, p0, Lcom/android/server/RCPManagerService$2;->this$0:Lcom/android/server/RCPManagerService;
 
-    invoke-direct {p0}, Landroid/app/IUserSwitchObserver$Stub;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onForegroundProfileSwitch(I)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onUserSwitchComplete(I)V
-    .locals 3
-
-    const-string/jumbo v0, "onUserSwitchComplete"
-
-    invoke-static {v0}, Lcom/android/server/RCPManagerService;->-wrap2(Ljava/lang/String;)I
-
-    invoke-static {}, Lcom/android/server/RCPManagerService;->-get2()Ljava/lang/String;
-
-    move-result-object v0
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "onUserSwitchComplete with userid = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-.end method
-
-.method public onUserSwitching(ILandroid/os/IRemoteCallback;)V
-    .locals 6
-
-    const-string/jumbo v3, "onUserSwitching"
-
-    invoke-static {v3}, Lcom/android/server/RCPManagerService;->-wrap2(Ljava/lang/String;)I
-
-    invoke-static {}, Lcom/android/server/RCPManagerService;->-get2()Ljava/lang/String;
-
-    move-result-object v3
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "onUserSwitching with userid = "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v3, p0, Lcom/android/server/RCPManagerService$2;->this$0:Lcom/android/server/RCPManagerService;
-
-    invoke-static {v3}, Lcom/android/server/RCPManagerService;->-get3(Lcom/android/server/RCPManagerService;)Ljava/util/HashMap;
-
-    move-result-object v3
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/content/ICommandExeCallBack;
-
-    if-eqz v1, :cond_0
-
-    invoke-static {}, Lcom/android/server/RCPManagerService;->-get2()Ljava/lang/String;
-
-    move-result-object v3
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "calling exceuteCommand() for user "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    const-string/jumbo v5, " via his ICommandExeCallBack"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+.method public run()V
+    .locals 13
 
     :try_start_0
-    iget-object v3, p0, Lcom/android/server/RCPManagerService$2;->this$0:Lcom/android/server/RCPManagerService;
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    invoke-static {v3}, Lcom/android/server/RCPManagerService;->-get7(Lcom/android/server/RCPManagerService;)Ljava/util/Map;
+    move-result-wide v2
 
-    move-result-object v3
+    const-wide/16 v10, 0x3e8
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    div-long v6, v2, v10
 
-    move-result-object v4
+    const-wide/16 v10, 0x3c
 
-    invoke-interface {v3, v4}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    iget-object v3, p0, Lcom/android/server/RCPManagerService$2;->this$0:Lcom/android/server/RCPManagerService;
-
-    invoke-static {v3}, Lcom/android/server/RCPManagerService;->-get7(Lcom/android/server/RCPManagerService;)Ljava/util/Map;
-
-    move-result-object v3
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    invoke-interface {v3, v4}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/app/Command;
+    div-long v4, v6, v10
 
     invoke-static {}, Lcom/android/server/RCPManagerService;->-get2()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v10
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v11, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, " checking packages in command queue: "
+    const-string/jumbo v12, " RCPManagerService elapsedRealtime in milliseconds: "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v11
 
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v11
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string/jumbo v12, " , inSeconds : "
 
-    move-result-object v4
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v11
 
-    if-eqz v0, :cond_0
+    invoke-virtual {v11, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    const-string/jumbo v12, " , inMinutes : "
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11, v4, v5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v10, p0, Lcom/android/server/RCPManagerService$2;->this$0:Lcom/android/server/RCPManagerService;
+
+    const/4 v11, 0x1
+
+    invoke-virtual {v10, v11}, Lcom/android/server/RCPManagerService;->getPersonas(Z)Ljava/util/List;
+
+    move-result-object v9
+
+    if-eqz v9, :cond_1
+
+    invoke-interface {v9}, Ljava/util/List;->size()I
+
+    move-result v10
+
+    if-lez v10, :cond_1
 
     invoke-static {}, Lcom/android/server/RCPManagerService;->-get2()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v10
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v11, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, " pkg in commandqueue is: "
+    const-string/jumbo v12, "RCPManagerService : No of Personas = "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v11
 
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-interface {v9}, Ljava/util/List;->size()I
 
-    move-result-object v4
+    move-result v12
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v11
 
-    invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-interface {v1, v0}, Landroid/content/ICommandExeCallBack;->execute(Landroid/app/Command;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    move-result-object v11
 
-    :cond_0
+    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v10, p0, Lcom/android/server/RCPManagerService$2;->this$0:Lcom/android/server/RCPManagerService;
+
+    invoke-static {}, Lcom/android/server/RCPManagerService;->-get1()Ljava/lang/Integer;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/Integer;->intValue()I
+
+    move-result v11
+
+    invoke-virtual {v10, v11}, Lcom/android/server/RCPManagerService;->scanAndStartRCPProxy(I)V
+
+    iget-object v10, p0, Lcom/android/server/RCPManagerService$2;->this$0:Lcom/android/server/RCPManagerService;
+
+    const-string/jumbo v11, "com.sec.knox.bridge.receiver.ACTION_USER_SWITCHED"
+
+    invoke-static {}, Lcom/android/server/RCPManagerService;->-get1()Ljava/lang/Integer;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Ljava/lang/Integer;->intValue()I
+
+    move-result v12
+
+    invoke-static {v10, v11, v12}, Lcom/android/server/RCPManagerService;->-wrap7(Lcom/android/server/RCPManagerService;Ljava/lang/String;I)V
+
+    invoke-interface {v9}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v8
+
     :goto_0
-    iget-object v3, p0, Lcom/android/server/RCPManagerService$2;->this$0:Lcom/android/server/RCPManagerService;
+    invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
-    invoke-virtual {v3, p1}, Lcom/android/server/RCPManagerService;->startRCPProxy(I)V
+    move-result v10
 
-    if-nez p1, :cond_1
+    if-eqz v10, :cond_0
 
-    iget-object v3, p0, Lcom/android/server/RCPManagerService$2;->this$0:Lcom/android/server/RCPManagerService;
+    invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    const-string/jumbo v4, "samsung.knox.intent.action.MODE_SWITCH_CHANGED"
+    move-result-object v1
 
-    invoke-static {v3, v4, p1}, Lcom/android/server/RCPManagerService;->-wrap7(Lcom/android/server/RCPManagerService;Ljava/lang/String;I)V
-
-    :cond_1
-    return-void
-
-    :catch_0
-    move-exception v2
+    check-cast v1, Landroid/content/pm/UserInfo;
 
     invoke-static {}, Lcom/android/server/RCPManagerService;->-get2()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v10
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v11, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, "Remote exception thrown by service "
+    const-string/jumbo v12, "RCPManagerService : scanAndStartRCPProxy called for PersonaId : "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v11
 
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    iget v12, v1, Landroid/content/pm/UserInfo;->id:I
 
-    move-result-object v4
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v11
 
-    move-result-object v4
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v11
+
+    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v10, p0, Lcom/android/server/RCPManagerService$2;->this$0:Lcom/android/server/RCPManagerService;
+
+    iget v11, v1, Landroid/content/pm/UserInfo;->id:I
+
+    invoke-virtual {v10, v11}, Lcom/android/server/RCPManagerService;->scanAndStartRCPProxy(I)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    invoke-static {}, Lcom/android/server/RCPManagerService;->-get2()Ljava/lang/String;
+
+    move-result-object v10
+
+    new-instance v11, Ljava/lang/StringBuilder;
+
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v12, " RCPManagerService : Exception while scanAndStartRCPProxy() for users "
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-static {v10, v11}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    :goto_1
+    return-void
+
+    :cond_1
+    :try_start_1
+    invoke-static {}, Lcom/android/server/RCPManagerService;->-get2()Ljava/lang/String;
+
+    move-result-object v10
+
+    const-string/jumbo v11, "RCPManagerService :  PersonaInfoList is null or empty "
+
+    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+
+    goto :goto_1
 .end method

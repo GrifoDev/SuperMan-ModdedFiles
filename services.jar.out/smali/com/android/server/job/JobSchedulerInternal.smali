@@ -4,7 +4,13 @@
 
 
 # virtual methods
+.method public abstract addBackingUpUid(I)V
+.end method
+
 .method public abstract cancelJobsForPackageAndUid(Ljava/lang/String;I)V
+.end method
+
+.method public abstract clearAllBackingUpUids()V
 .end method
 
 .method public abstract getSystemScheduledPendingJobs()Ljava/util/List;
@@ -17,4 +23,7 @@
             ">;"
         }
     .end annotation
+.end method
+
+.method public abstract removeBackingUpUid(I)V
 .end method

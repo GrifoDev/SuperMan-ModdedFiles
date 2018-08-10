@@ -1,4 +1,4 @@
-.class public Lcom/android/server/power/PowerManagerUtil$TraceDumper;
+.class public final Lcom/android/server/power/PowerManagerUtil$TraceDumper;
 .super Ljava/lang/Object;
 .source "PowerManagerUtil.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x9
+    accessFlags = 0x19
     name = "TraceDumper"
 .end annotation
 

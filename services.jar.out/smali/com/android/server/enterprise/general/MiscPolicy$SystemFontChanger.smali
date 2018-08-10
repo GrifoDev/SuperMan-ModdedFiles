@@ -254,7 +254,11 @@
 
     move-result v21
 
-    if-eqz v21, :cond_6
+    xor-int/lit8 v21, v21, 0x1
+
+    if-eqz v21, :cond_5
+
+    return v15
 
     :cond_5
     invoke-virtual/range {v16 .. v16}, Lcom/android/server/enterprise/general/Typeface;->getTypefaceFilename()Ljava/lang/String;
@@ -303,7 +307,7 @@
 
     move-result-object v6
 
-    if-nez v6, :cond_7
+    if-nez v6, :cond_6
 
     const-string/jumbo v21, "MiscPolicy"
 
@@ -316,12 +320,9 @@
     return v21
 
     :cond_6
-    return v15
-
-    :cond_7
     const/16 v20, 0x0
 
-    if-eqz v16, :cond_9
+    if-eqz v16, :cond_8
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
@@ -342,7 +343,7 @@
 
     move/from16 v0, v21
 
-    if-ge v9, v0, :cond_8
+    if-ge v9, v0, :cond_7
 
     move-object/from16 v0, v16
 
@@ -450,10 +451,10 @@
 
     return v15
 
-    :cond_8
+    :cond_7
     invoke-static/range {v18 .. v19}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    :cond_9
+    :cond_8
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/general/MiscPolicy$SystemFontChanger;->this$0:Lcom/android/server/enterprise/general/MiscPolicy;
@@ -1092,7 +1093,7 @@
 
     iput v0, v7, Landroid/content/res/Configuration;->FlipFont:I
 
-    invoke-interface {v6, v7}, Landroid/app/IActivityManager;->updateConfiguration(Landroid/content/res/Configuration;)V
+    invoke-interface {v6, v7}, Landroid/app/IActivityManager;->updateConfiguration(Landroid/content/res/Configuration;)Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0

@@ -1,5 +1,5 @@
 .class Lcom/android/server/DirEncryptService;
-.super Landroid/os/storage/IDirEncryptService$Stub;
+.super Lcom/samsung/android/security/IDirEncryptService$Stub;
 .source "DirEncryptService.java"
 
 # interfaces
@@ -17,6 +17,8 @@
 
 # static fields
 .field private static final ENCRYPT_TAG:Ljava/lang/String; = "DirEncryptConnector"
+
+.field private static final RECOVERY_DIR:Ljava/io/File;
 
 .field private static final REQUESTER_DM:Ljava/lang/String; = "dm"
 
@@ -78,12 +80,26 @@
     return v0
 .end method
 
+.method static constructor <clinit>()V
+    .locals 2
+
+    new-instance v0, Ljava/io/File;
+
+    const-string/jumbo v1, "/cache/recovery"
+
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    sput-object v0, Lcom/android/server/DirEncryptService;->RECOVERY_DIR:Ljava/io/File;
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
 
     const/4 v1, 0x0
 
-    invoke-direct {p0}, Landroid/os/storage/IDirEncryptService$Stub;-><init>()V
+    invoke-direct {p0}, Lcom/samsung/android/security/IDirEncryptService$Stub;-><init>()V
 
     const/4 v0, 0x0
 
@@ -196,6 +212,334 @@
     const/4 v0, 0x1
 
     return v0
+.end method
+
+.method private copyFile(Ljava/io/File;Ljava/io/File;)V
+    .locals 9
+
+    const/4 v1, 0x0
+
+    const/4 v0, 0x0
+
+    :try_start_0
+    new-instance v2, Ljava/io/FileInputStream;
+
+    invoke-direct {v2, p1}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+
+    invoke-virtual {v2}, Ljava/io/FileInputStream;->getChannel()Ljava/nio/channels/FileChannel;
+
+    move-result-object v1
+
+    new-instance v2, Ljava/io/FileOutputStream;
+
+    invoke-direct {v2, p2}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
+
+    invoke-virtual {v2}, Ljava/io/FileOutputStream;->getChannel()Ljava/nio/channels/FileChannel;
+
+    move-result-object v0
+
+    const-wide/16 v2, 0x0
+
+    invoke-virtual {v1}, Ljava/nio/channels/FileChannel;->size()J
+
+    move-result-wide v4
+
+    invoke-virtual/range {v0 .. v5}, Ljava/nio/channels/FileChannel;->transferFrom(Ljava/nio/channels/ReadableByteChannel;JJ)J
+
+    const/16 v8, 0x1a0
+
+    invoke-virtual {p2}, Ljava/io/File;->getPath()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2, v8}, Landroid/system/Os;->chmod(Ljava/lang/String;I)V
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_3
+    .catch Landroid/system/ErrnoException; {:try_start_0 .. :try_end_0} :catch_1
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-eqz v1, :cond_0
+
+    :try_start_1
+    invoke-virtual {v1}, Ljava/nio/channels/FileChannel;->close()V
+
+    :cond_0
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0}, Ljava/nio/channels/FileChannel;->close()V
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+
+    :cond_1
+    :goto_0
+    const-string/jumbo v2, "DirEncryptService"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "copyFile : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " -> "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :catch_0
+    move-exception v7
+
+    const-string/jumbo v2, "DirEncryptService"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Error close FileChannel : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v7}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :catch_1
+    move-exception v6
+
+    :try_start_2
+    const-string/jumbo v2, "DirEncryptService"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Error chmod ode logs : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v6}, Landroid/system/ErrnoException;->getMessage()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    if-eqz v1, :cond_2
+
+    :try_start_3
+    invoke-virtual {v1}, Ljava/nio/channels/FileChannel;->close()V
+
+    :cond_2
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0}, Ljava/nio/channels/FileChannel;->close()V
+    :try_end_3
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_2
+
+    goto :goto_0
+
+    :catch_2
+    move-exception v7
+
+    const-string/jumbo v2, "DirEncryptService"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Error close FileChannel : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v7}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_0
+
+    :catch_3
+    move-exception v7
+
+    :try_start_4
+    const-string/jumbo v2, "DirEncryptService"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Error copy ode logs : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v7}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+
+    if-eqz v1, :cond_3
+
+    :try_start_5
+    invoke-virtual {v1}, Ljava/nio/channels/FileChannel;->close()V
+
+    :cond_3
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0}, Ljava/nio/channels/FileChannel;->close()V
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_4
+
+    goto/16 :goto_0
+
+    :catch_4
+    move-exception v7
+
+    const-string/jumbo v2, "DirEncryptService"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Error close FileChannel : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v7}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_0
+
+    :catchall_0
+    move-exception v2
+
+    if-eqz v1, :cond_4
+
+    :try_start_6
+    invoke-virtual {v1}, Ljava/nio/channels/FileChannel;->close()V
+
+    :cond_4
+    if-eqz v0, :cond_5
+
+    invoke-virtual {v0}, Ljava/nio/channels/FileChannel;->close()V
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_5
+
+    :cond_5
+    :goto_1
+    throw v2
+
+    :catch_5
+    move-exception v7
+
+    const-string/jumbo v3, "DirEncryptService"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "Error close FileChannel : "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v7}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
 .end method
 
 .method private findRequester(I)Ljava/lang/String;
@@ -482,27 +826,25 @@
 .end method
 
 .method private moveDumpstate()Z
-    .locals 10
+    .locals 9
 
-    const/4 v9, 0x0
-
-    const-string/jumbo v1, "trigger_restart_min_framework"
+    const/4 v8, 0x0
 
     const-string/jumbo v0, "trigger_restart_min_framework"
 
-    const-string/jumbo v7, "vold.decrypt"
+    const-string/jumbo v6, "vold.decrypt"
 
-    invoke-static {v7}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v6}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
     const/4 v5, 0x0
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v6
 
-    if-eqz v7, :cond_0
+    if-eqz v6, :cond_0
 
     const/4 v5, 0x1
 
@@ -510,55 +852,119 @@
     return v5
 
     :cond_0
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    sget-object v6, Lcom/android/server/DirEncryptService;->RECOVERY_DIR:Ljava/io/File;
 
-    move-result v7
+    invoke-virtual {v6}, Ljava/io/File;->exists()Z
 
-    if-eqz v7, :cond_1
+    move-result v6
 
-    const/4 v5, 0x1
+    if-nez v6, :cond_1
 
-    goto :goto_0
+    const-string/jumbo v6, "DirEncryptService"
+
+    const-string/jumbo v7, "moveDumpstate - RECOVERY_DIR was not exist!!"
+
+    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v8
 
     :cond_1
+    sget-object v6, Lcom/android/server/DirEncryptService;->RECOVERY_DIR:Ljava/io/File;
+
+    invoke-virtual {v6}, Ljava/io/File;->list()[Ljava/lang/String;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_2
+
+    array-length v6, v3
+
+    if-gtz v6, :cond_3
+
+    :cond_2
+    const-string/jumbo v6, "DirEncryptService"
+
+    const-string/jumbo v7, "moveDumpstate - fileList is null!!"
+
+    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v8
+
+    :cond_3
     const/4 v4, 0x0
 
-    const-string/jumbo v7, "mount"
+    :goto_1
+    array-length v6, v3
 
-    invoke-static {v7}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    if-ge v4, v6, :cond_5
 
-    move-result-object v6
+    aget-object v6, v3, v4
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_4
 
-    invoke-static {v6}, Landroid/os/storage/IMountService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/storage/IMountService;
+    aget-object v6, v3, v4
 
-    move-result-object v4
+    invoke-virtual {v6}, Ljava/lang/String;->length()I
 
-    :try_start_0
-    invoke-interface {v4}, Landroid/os/storage/IMountService;->moveDumpstates()I
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    move-result v6
 
+    if-lez v6, :cond_4
+
+    aget-object v6, v3, v4
+
+    const-string/jumbo v7, "last_ode_dumpstate"
+
+    invoke-virtual {v6, v7}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_4
+
+    new-instance v2, Ljava/io/File;
+
+    sget-object v6, Lcom/android/server/DirEncryptService;->RECOVERY_DIR:Ljava/io/File;
+
+    aget-object v7, v3, v4
+
+    invoke-direct {v2, v6, v7}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    new-instance v6, Ljava/io/File;
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "/data/log/"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    aget-object v8, v3, v4
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-direct {v6, v7}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-direct {p0, v2, v6}, Lcom/android/server/DirEncryptService;->copyFile(Ljava/io/File;Ljava/io/File;)V
+
+    invoke-virtual {v2}, Ljava/io/File;->delete()Z
+
+    :cond_4
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_1
+
+    :cond_5
     const/4 v5, 0x1
 
     goto :goto_0
-
-    :cond_2
-    const-string/jumbo v7, "DirEncryptService"
-
-    const-string/jumbo v8, "Can\'t get mount service"
-
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v9
-
-    :catch_0
-    move-exception v3
-
-    invoke-virtual {v3}, Landroid/os/RemoteException;->printStackTrace()V
-
-    return v9
 .end method
 
 
@@ -606,18 +1012,6 @@
     invoke-static {v1, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
-.end method
-
-.method public checkPolicyEnable()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/DirEncryptService;->mDep:Lcom/android/server/DirEncryptPrefs;
-
-    invoke-virtual {v0}, Lcom/android/server/DirEncryptPrefs;->checkPolicyEnable()Z
-
-    move-result v0
-
-    return v0
 .end method
 
 .method public clearPrefs(Ljava/lang/String;)V
@@ -689,8 +1083,22 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    xor-int/lit8 v6, v6, 0x1
 
+    if-eqz v6, :cond_2
+
+    :cond_1
+    const-string/jumbo v6, "DirEncryptService"
+
+    const-string/jumbo v7, "Invalid requester"
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v6, 0xcc
+
+    return v6
+
+    :cond_2
     const/16 v2, 0xc9
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
@@ -713,7 +1121,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_3
 
     const/4 v2, 0x0
 
@@ -744,25 +1152,14 @@
 
     return v2
 
-    :cond_1
-    const-string/jumbo v6, "DirEncryptService"
-
-    const-string/jumbo v7, "Invalid requester"
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v6, 0xcc
-
-    return v6
-
-    :cond_2
+    :cond_3
     const-string/jumbo v6, "HiddenMount"
 
     invoke-virtual {v6, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_4
 
     const-string/jumbo v6, "DirEncryptService"
 
@@ -788,7 +1185,7 @@
 
     goto :goto_0
 
-    :cond_3
+    :cond_4
     const-string/jumbo v6, "DirEncryptService"
 
     const-string/jumbo v7, "SD card not mounted, so not applying policies this time"
@@ -1026,7 +1423,11 @@
 
     move-result-object v3
 
-    invoke-virtual {v3, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-static {p3}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
@@ -1140,71 +1541,14 @@
     goto :goto_0
 .end method
 
-.method public registerListener(Landroid/os/storage/IDirEncryptServiceListener;)V
+.method public registerListener(Lcom/samsung/android/security/IDirEncryptServiceListener;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/DirEncryptService;->mHelper:Lcom/android/server/DirEncryptServiceHelper;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/DirEncryptServiceHelper;->registerListener(Landroid/os/storage/IDirEncryptServiceListener;)V
+    invoke-virtual {v0, p1}, Lcom/android/server/DirEncryptServiceHelper;->registerListener(Lcom/samsung/android/security/IDirEncryptServiceListener;)V
 
     return-void
-.end method
-
-.method public revertSecureStorageForKnoxMigration(Ljava/lang/String;I)V
-    .locals 6
-
-    invoke-static {}, Lcom/samsung/android/security/SemSdCardEncryption;->isEncryptionFeatureEnabled()Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    return-void
-
-    :cond_0
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
-
-    move-result v0
-
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-
-    move-result-wide v2
-
-    invoke-direct {p0, v0}, Lcom/android/server/DirEncryptService;->authByUid(I)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    iget-object v1, p0, Lcom/android/server/DirEncryptService;->mHelper:Lcom/android/server/DirEncryptServiceHelper;
-
-    invoke-virtual {v1}, Lcom/android/server/DirEncryptServiceHelper;->ready()V
-
-    iget-object v1, p0, Lcom/android/server/DirEncryptService;->mHandler:Lcom/android/server/DirEncryptService$DirEncryptServiceHandler;
-
-    const/16 v4, 0xb
-
-    const/4 v5, 0x0
-
-    invoke-virtual {v1, v4, p2, v5, p1}, Lcom/android/server/DirEncryptService$DirEncryptServiceHandler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
-
-    :goto_0
-    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return-void
-
-    :cond_1
-    const-string/jumbo v1, "DirEncryptService"
-
-    const-string/jumbo v4, "revertSecureStorageForKnoxMigration error: invalid uid"
-
-    invoke-static {v1, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
 .end method
 
 .method public setNeedToCreateKey(Z)V
@@ -1300,10 +1644,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_1
+
+    const/4 v0, 0x0
 
     :cond_1
-    :goto_0
     const-string/jumbo v3, "DirEncryptService"
 
     const-string/jumbo v6, "setPassword....."
@@ -1314,9 +1661,9 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_2
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2
 
     iget-object v3, p0, Lcom/android/server/DirEncryptService;->mHandler:Lcom/android/server/DirEncryptService$DirEncryptServiceHandler;
 
@@ -1328,7 +1675,7 @@
 
     invoke-virtual {v3}, Landroid/os/Message;->sendToTarget()V
 
-    :goto_1
+    :goto_0
     invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     const/16 v3, 0xd
@@ -1336,18 +1683,13 @@
     return v3
 
     :cond_2
-    const/4 v0, 0x0
-
-    goto :goto_0
-
-    :cond_3
     const-string/jumbo v3, "DirEncryptService"
 
     const-string/jumbo v6, "setPassword error: invalid uid"
 
     invoke-static {v3, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_1
+    goto :goto_0
 .end method
 
 .method public setSdCardEncryptionPolicy(IILjava/lang/String;)I
@@ -2548,12 +2890,12 @@
     return-void
 .end method
 
-.method public unregisterListener(Landroid/os/storage/IDirEncryptServiceListener;)V
+.method public unregisterListener(Lcom/samsung/android/security/IDirEncryptServiceListener;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/DirEncryptService;->mHelper:Lcom/android/server/DirEncryptServiceHelper;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/DirEncryptServiceHelper;->unregisterListener(Landroid/os/storage/IDirEncryptServiceListener;)V
+    invoke-virtual {v0, p1}, Lcom/android/server/DirEncryptServiceHelper;->unregisterListener(Lcom/samsung/android/security/IDirEncryptServiceListener;)V
 
     return-void
 .end method

@@ -268,7 +268,7 @@
 
     iget-object v9, p0, Lcom/android/server/notification/ValidateNotificationPeople$PeopleRankingReconsideration;->this$0:Lcom/android/server/notification/ValidateNotificationPeople;
 
-    invoke-static {v9}, Lcom/android/server/notification/ValidateNotificationPeople;->-get4(Lcom/android/server/notification/ValidateNotificationPeople;)Landroid/util/LruCache;
+    invoke-static {v9}, Lcom/android/server/notification/ValidateNotificationPeople;->-get3(Lcom/android/server/notification/ValidateNotificationPeople;)Landroid/util/LruCache;
 
     move-result-object v10
 
@@ -289,7 +289,7 @@
 
     iget-object v9, p0, Lcom/android/server/notification/ValidateNotificationPeople$PeopleRankingReconsideration;->this$0:Lcom/android/server/notification/ValidateNotificationPeople;
 
-    invoke-static {v9}, Lcom/android/server/notification/ValidateNotificationPeople;->-get4(Lcom/android/server/notification/ValidateNotificationPeople;)Landroid/util/LruCache;
+    invoke-static {v9}, Lcom/android/server/notification/ValidateNotificationPeople;->-get3(Lcom/android/server/notification/ValidateNotificationPeople;)Landroid/util/LruCache;
 
     move-result-object v9
 
@@ -553,7 +553,7 @@
 
     iget-object v9, p0, Lcom/android/server/notification/ValidateNotificationPeople$PeopleRankingReconsideration;->this$0:Lcom/android/server/notification/ValidateNotificationPeople;
 
-    invoke-static {v9}, Lcom/android/server/notification/ValidateNotificationPeople;->-get5(Lcom/android/server/notification/ValidateNotificationPeople;)Lcom/android/server/notification/NotificationUsageStats;
+    invoke-static {v9}, Lcom/android/server/notification/ValidateNotificationPeople;->-get4(Lcom/android/server/notification/ValidateNotificationPeople;)Lcom/android/server/notification/NotificationUsageStats;
 
     move-result-object v11
 
@@ -586,24 +586,6 @@
     invoke-virtual {v11, v12, v9, v10, v13}, Lcom/android/server/notification/NotificationUsageStats;->registerPeopleAffinity(Lcom/android/server/notification/NotificationRecord;ZZZ)V
 
     :cond_c
-    iget-object v9, p0, Lcom/android/server/notification/ValidateNotificationPeople$PeopleRankingReconsideration;->this$0:Lcom/android/server/notification/ValidateNotificationPeople;
-
-    invoke-static {v9}, Lcom/android/server/notification/ValidateNotificationPeople;->-get2(Lcom/android/server/notification/ValidateNotificationPeople;)Landroid/content/Context;
-
-    move-result-object v9
-
-    const-string/jumbo v10, "validate_people_lookup_latency"
-
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
-
-    move-result-wide v12
-
-    sub-long/2addr v12, v4
-
-    long-to-int v11, v12
-
-    invoke-static {v9, v10, v11}, Lcom/android/internal/logging/MetricsLogger;->histogram(Landroid/content/Context;Ljava/lang/String;I)V
-
     return-void
 
     :cond_d

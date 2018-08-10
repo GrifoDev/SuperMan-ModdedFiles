@@ -10,9 +10,7 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/server/enterprise/ccm/ClientCertificateManager$1;,
-        Lcom/android/server/enterprise/ccm/ClientCertificateManager$InternalHandler;,
-        Lcom/android/server/enterprise/ccm/ClientCertificateManager$PersonaObserver;,
-        Lcom/android/server/enterprise/ccm/ClientCertificateManager$SystemPersonaObserver;
+        Lcom/android/server/enterprise/ccm/ClientCertificateManager$InternalHandler;
     }
 .end annotation
 
@@ -24,6 +22,10 @@
 
 .field private static final CCM_SAVED_BUILD_FINGERPRINT:Ljava/lang/String; = "persist.sys.ccm.date"
 
+.field private static final CHECK_LICENSE_TIMEOUT_MILLIS:I = 0x5dc
+
+.field private static final CSR_MAX_SUBJECT_LENGTH:I = 0x200
+
 .field private static final DBG:Z
 
 .field private static final DKS_TIMEOUT_MILLIS:I = 0x14
@@ -32,9 +34,11 @@
 
 .field private static final KNOX_CCM_PERMISSION:Ljava/lang/String; = "com.sec.enterprise.knox.permission.KNOX_CCM"
 
-.field private static final KNOX_CCM_PERMISSION_NEW:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_CCM"
+.field private static final KNOX_CCM_PERMISSION_NEW:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_CCM_KEYSTORE"
 
-.field private static TAG:Ljava/lang/String;
+.field private static TAG:Ljava/lang/String; = null
+
+.field private static final UPDATE_ACM_TIMEOUT_MILLIS:I = 0x1388
 
 .field private static final defaultPackageList:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -47,17 +51,29 @@
     .end annotation
 .end field
 
+.field private static mContainerEventHandler:Landroid/os/Handler;
+
 .field private static mInternalHandler:Landroid/os/Handler;
+
+.field private static mLicenseHandler:Landroid/os/Handler;
+
+.field private static mUpdateACMHandler:Landroid/os/Handler;
 
 
 # instance fields
 .field private final INVALID_SLOT_ID:J
+
+.field private LicenseHandlerThread:Landroid/os/HandlerThread;
 
 .field private final TIMA_SERVICE:Ljava/lang/String;
 
 .field private final TZ_CCM_APP_NAME:Ljava/lang/String;
 
 .field private final TZ_CCM_SUCCESS:J
+
+.field private UpdateACMHandlerThread:Landroid/os/HandlerThread;
+
+.field private mContainerEventHandlerThread:Landroid/os/HandlerThread;
 
 .field private mContext:Landroid/content/Context;
 
@@ -71,25 +87,13 @@
 
 .field private mPersonaMgr:Lcom/samsung/android/knox/SemPersonaManager;
 
-.field private mPersonaObr:Lcom/android/server/enterprise/ccm/ClientCertificateManager$SystemPersonaObserver;
-
-.field private mPersonaObservers:Ljava/util/HashMap;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/HashMap",
-            "<",
-            "Ljava/lang/Integer;",
-            "Lcom/android/server/enterprise/ccm/ClientCertificateManager$PersonaObserver;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 .field mReceiver:Landroid/content/BroadcastReceiver;
 
 .field private mSlotCount:I
 
 .field private final mTimaService:Landroid/service/tima/ITimaService;
+
+.field private mUm:Landroid/os/UserManager;
 
 .field private thread:Landroid/os/HandlerThread;
 
@@ -114,15 +118,15 @@
 .method static synthetic -get2()Landroid/os/Handler;
     .locals 1
 
-    sget-object v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mInternalHandler:Landroid/os/Handler;
+    sget-object v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mContainerEventHandler:Landroid/os/Handler;
 
     return-object v0
 .end method
 
-.method static synthetic -get3(Lcom/android/server/enterprise/ccm/ClientCertificateManager;)Lcom/samsung/android/knox/SemPersonaManager;
+.method static synthetic -get3()Landroid/os/Handler;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mPersonaMgr:Lcom/samsung/android/knox/SemPersonaManager;
+    sget-object v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mInternalHandler:Landroid/os/Handler;
 
     return-object v0
 .end method
@@ -145,22 +149,6 @@
     move-result v0
 
     return v0
-.end method
-
-.method static synthetic -wrap10(Lcom/android/server/enterprise/ccm/ClientCertificateManager;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->registerPersonaObserver(I)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap11(Lcom/android/server/enterprise/ccm/ClientCertificateManager;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->unregisterPersonaObserver(I)V
-
-    return-void
 .end method
 
 .method static synthetic -wrap2(Lcom/android/server/enterprise/ccm/ClientCertificateManager;II)Z
@@ -196,27 +184,27 @@
 .method static synthetic -wrap5(Lcom/android/server/enterprise/ccm/ClientCertificateManager;I)Z
     .locals 1
 
-    invoke-direct {p0, p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->isCCMDefaultCertStore(I)Z
+    invoke-direct {p0, p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->isKnoxWorkSpace(I)Z
 
     move-result v0
 
     return v0
 .end method
 
-.method static synthetic -wrap6(Lcom/android/server/enterprise/ccm/ClientCertificateManager;IZ)Z
+.method static synthetic -wrap6(Lcom/android/server/enterprise/ccm/ClientCertificateManager;)Z
     .locals 1
 
-    invoke-direct {p0, p1, p2}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->setCCMAsDefaultCertStore(IZ)Z
+    invoke-direct {p0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->notifyLicenseStatusInternal()Z
 
     move-result v0
 
     return v0
 .end method
 
-.method static synthetic -wrap7(Lcom/android/server/enterprise/ccm/ClientCertificateManager;I)Z
+.method static synthetic -wrap7(Lcom/android/server/enterprise/ccm/ClientCertificateManager;Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;I)Z
     .locals 1
 
-    invoke-direct {p0, p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->setCCMProfileDefaultForContainer(I)Z
+    invoke-direct {p0, p1, p2}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->updateAccessMethod(Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;I)Z
 
     move-result v0
 
@@ -254,7 +242,7 @@
 
     sput-object v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    const/4 v0, 0x2
+    const/4 v0, 0x5
 
     new-array v0, v0, [Ljava/lang/String;
 
@@ -270,6 +258,24 @@
 
     aput-object v1, v0, v2
 
+    const-string/jumbo v1, "com.sec.android.app.shealth"
+
+    const/4 v2, 0x2
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "com.samsung.android.spaymini"
+
+    const/4 v2, 0x3
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "com.samsung.android.oneconnect"
+
+    const/4 v2, 0x4
+
+    aput-object v1, v0, v2
+
     invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v0
@@ -280,194 +286,170 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 8
+    .locals 4
 
-    const/4 v7, 0x1
+    const/4 v2, 0x0
 
-    const/4 v6, 0x0
-
-    const/4 v5, 0x0
+    const/4 v1, 0x0
 
     invoke-direct {p0}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;-><init>()V
 
-    iput-object v5, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mContext:Landroid/content/Context;
+    iput-object v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mContext:Landroid/content/Context;
 
-    iput-object v5, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    iput-object v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    iput-object v5, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEDM:Lcom/samsung/android/knox/EnterpriseDeviceManager;
+    iput-object v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEDM:Lcom/samsung/android/knox/EnterpriseDeviceManager;
 
-    iput-object v5, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mPersonaMgr:Lcom/samsung/android/knox/SemPersonaManager;
+    iput-object v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mPersonaMgr:Lcom/samsung/android/knox/SemPersonaManager;
 
-    new-instance v4, Lcom/android/server/enterprise/ccm/ClientCertificateManager$SystemPersonaObserver;
+    iput-object v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mUm:Landroid/os/UserManager;
 
-    invoke-direct {v4, p0, v5}, Lcom/android/server/enterprise/ccm/ClientCertificateManager$SystemPersonaObserver;-><init>(Lcom/android/server/enterprise/ccm/ClientCertificateManager;Lcom/android/server/enterprise/ccm/ClientCertificateManager$SystemPersonaObserver;)V
+    iput v2, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mSlotCount:I
 
-    iput-object v4, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mPersonaObr:Lcom/android/server/enterprise/ccm/ClientCertificateManager$SystemPersonaObserver;
+    iput-object v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mDefaultCertAlias:Ljava/lang/String;
 
-    new-instance v4, Ljava/util/HashMap;
+    const-string/jumbo v1, "tima"
 
-    invoke-direct {v4}, Ljava/util/HashMap;-><init>()V
+    iput-object v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TIMA_SERVICE:Ljava/lang/String;
 
-    iput-object v4, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mPersonaObservers:Ljava/util/HashMap;
+    iput-boolean v2, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mIsTimaVersion30:Z
 
-    iput v6, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mSlotCount:I
+    const-wide/16 v2, 0x0
 
-    iput-object v5, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mDefaultCertAlias:Ljava/lang/String;
+    iput-wide v2, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TZ_CCM_SUCCESS:J
 
-    const-string/jumbo v4, "tima"
+    const-wide v2, 0xffffffffL
 
-    iput-object v4, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TIMA_SERVICE:Ljava/lang/String;
+    iput-wide v2, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->INVALID_SLOT_ID:J
 
-    iput-boolean v6, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mIsTimaVersion30:Z
+    const-string/jumbo v1, "tz_ccm"
 
-    const-wide/16 v4, 0x0
+    iput-object v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TZ_CCM_APP_NAME:Ljava/lang/String;
 
-    iput-wide v4, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TZ_CCM_SUCCESS:J
+    new-instance v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager$1;
 
-    const-wide v4, 0xffffffffL
+    invoke-direct {v1, p0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager$1;-><init>(Lcom/android/server/enterprise/ccm/ClientCertificateManager;)V
 
-    iput-wide v4, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->INVALID_SLOT_ID:J
+    iput-object v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    const-string/jumbo v4, "tz_ccm"
+    sget-boolean v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    iput-object v4, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TZ_CCM_APP_NAME:Ljava/lang/String;
+    if-eqz v1, :cond_0
 
-    new-instance v4, Lcom/android/server/enterprise/ccm/ClientCertificateManager$1;
+    sget-object v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    invoke-direct {v4, p0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager$1;-><init>(Lcom/android/server/enterprise/ccm/ClientCertificateManager;)V
+    const-string/jumbo v2, "ClientCertificateManager Constructor"
 
-    iput-object v4, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mReceiver:Landroid/content/BroadcastReceiver;
-
-    sget-boolean v4, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
-
-    if-eqz v4, :cond_0
-
-    sget-object v4, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v5, "ClientCertificateManager Constructor"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     iput-object p1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mContext:Landroid/content/Context;
 
-    new-instance v4, Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    new-instance v1, Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    iget-object v5, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mContext:Landroid/content/Context;
 
-    invoke-direct {v4, v5}, Lcom/android/server/enterprise/storage/EdmStorageProvider;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, v2}, Lcom/android/server/enterprise/storage/EdmStorageProvider;-><init>(Landroid/content/Context;)V
 
-    iput-object v4, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    iput-object v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    const-string/jumbo v4, "tima"
+    const-string/jumbo v1, "tima"
 
-    invoke-static {v4}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v4
-
-    invoke-static {v4}, Landroid/service/tima/ITimaService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/service/tima/ITimaService;
-
-    move-result-object v4
-
-    iput-object v4, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mTimaService:Landroid/service/tima/ITimaService;
-
-    invoke-direct {p0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->setupIntentFilters()V
-
-    iget-object v4, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v5, "persona"
-
-    invoke-virtual {v4, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Lcom/samsung/android/knox/SemPersonaManager;
-
-    iput-object v4, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mPersonaMgr:Lcom/samsung/android/knox/SemPersonaManager;
-
-    iget-object v4, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mPersonaMgr:Lcom/samsung/android/knox/SemPersonaManager;
-
-    if-eqz v4, :cond_1
-
-    iget-object v4, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mPersonaMgr:Lcom/samsung/android/knox/SemPersonaManager;
-
-    iget-object v5, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mPersonaObr:Lcom/android/server/enterprise/ccm/ClientCertificateManager$SystemPersonaObserver;
-
-    invoke-virtual {v4, v5}, Lcom/samsung/android/knox/SemPersonaManager;->registerSystemPersonaObserver(Landroid/content/pm/ISystemPersonaObserver;)Z
-
-    iget-object v4, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mPersonaMgr:Lcom/samsung/android/knox/SemPersonaManager;
-
-    invoke-virtual {v4, v7}, Lcom/samsung/android/knox/SemPersonaManager;->getPersonas(Z)Ljava/util/List;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_1
-
-    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v1
 
-    check-cast v1, Lcom/samsung/android/knox/SemPersonaInfo;
+    invoke-static {v1}, Landroid/service/tima/ITimaService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/service/tima/ITimaService;
 
-    iget v4, v1, Lcom/samsung/android/knox/SemPersonaInfo;->id:I
+    move-result-object v1
 
-    invoke-direct {p0, v4}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->registerPersonaObserver(I)V
+    iput-object v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mTimaService:Landroid/service/tima/ITimaService;
 
-    goto :goto_0
+    iget-object v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mContext:Landroid/content/Context;
 
-    :cond_1
+    const-string/jumbo v2, "user"
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/os/UserManager;
+
+    iput-object v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mUm:Landroid/os/UserManager;
+
+    invoke-direct {p0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getPersonaManager()Lcom/samsung/android/knox/SemPersonaManager;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mPersonaMgr:Lcom/samsung/android/knox/SemPersonaManager;
+
+    invoke-direct {p0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->setupIntentFilters()V
+
+    sget-object v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v2, "ClientCertificateManager Constructor get SemPersonaManager"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     invoke-direct {p0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getSlotCount()I
 
-    move-result v4
+    move-result v1
 
-    iput v4, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mSlotCount:I
+    iput v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mSlotCount:I
 
-    iget-object v4, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mTimaService:Landroid/service/tima/ITimaService;
+    iget-object v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mTimaService:Landroid/service/tima/ITimaService;
 
-    if-eqz v4, :cond_3
+    if-eqz v1, :cond_2
 
     :try_start_0
-    sget-boolean v4, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    sget-boolean v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    if-eqz v4, :cond_2
+    if-eqz v1, :cond_1
 
-    sget-object v4, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    sget-object v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v5, "Called TIMA service getTimaVersion"
+    const-string/jumbo v2, "Called TIMA service getTimaVersion"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_2
-    iget-object v4, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mTimaService:Landroid/service/tima/ITimaService;
+    :cond_1
+    iget-object v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mTimaService:Landroid/service/tima/ITimaService;
 
-    invoke-interface {v4}, Landroid/service/tima/ITimaService;->getTimaVersion()Ljava/lang/String;
+    invoke-interface {v1}, Landroid/service/tima/ITimaService;->getTimaVersion()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v1
 
-    const-string/jumbo v5, "3.0"
+    const-string/jumbo v2, "3.0"
 
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v1
 
-    if-eqz v4, :cond_3
+    if-eqz v1, :cond_2
 
-    const/4 v4, 0x1
+    const/4 v1, 0x1
 
-    iput-boolean v4, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mIsTimaVersion30:Z
+    iput-boolean v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mIsTimaVersion30:Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_2
+    :goto_0
+    iget-boolean v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mIsTimaVersion30:Z
+
+    if-eqz v1, :cond_3
+
+    invoke-direct {p0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->updateEnterpriseDBForDefaultCCMProfile()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    sget-object v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v2, "Called update adminInfo for ccm profile succeed"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_3
     :goto_1
@@ -476,13 +458,22 @@
     :catch_0
     move-exception v0
 
-    sget-object v4, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    sget-object v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
     invoke-static {v0}, Landroid/util/Log;->getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v2
 
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :cond_4
+    sget-object v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v2, "Called update adminInfo for ccm profile failed"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1
 .end method
@@ -622,6 +613,8 @@
 
     move-result-object v0
 
+    if-eqz v0, :cond_2
+
     const-string/jumbo v7, "SELECT * FROM MUMCONTAINER;"
 
     const/4 v8, 0x0
@@ -634,14 +627,14 @@
 
     move-result v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_3
 
     :goto_0
     invoke-interface {v2}, Landroid/database/Cursor;->isAfterLast()Z
 
     move-result v7
 
-    if-nez v7, :cond_2
+    if-nez v7, :cond_3
 
     const/4 v7, 0x0
 
@@ -692,7 +685,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_7
 
     sget-object v7, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
@@ -703,11 +696,22 @@
     return-void
 
     :cond_2
-    if-eqz v2, :cond_3
+    :try_start_1
+    sget-object v7, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v8, "DB is null"
+
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :cond_3
+    if-eqz v2, :cond_4
 
     invoke-interface {v2}, Landroid/database/Cursor;->close()V
 
-    :cond_3
+    :cond_4
     if-eqz v0, :cond_1
 
     invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->close()V
@@ -717,24 +721,24 @@
     :catchall_0
     move-exception v7
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_5
 
     invoke-interface {v2}, Landroid/database/Cursor;->close()V
 
-    :cond_4
-    if-eqz v0, :cond_5
+    :cond_5
+    if-eqz v0, :cond_6
 
     invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->close()V
 
-    :cond_5
+    :cond_6
     throw v7
 
-    :cond_6
+    :cond_7
     invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
 
     move-result v7
 
-    if-nez v7, :cond_a
+    if-nez v7, :cond_b
 
     const/4 v6, 0x0
 
@@ -743,7 +747,7 @@
 
     move-result v7
 
-    if-ge v6, v7, :cond_b
+    if-ge v6, v7, :cond_c
 
     const/4 v5, -0x1
 
@@ -762,65 +766,6 @@
     move-result v7
 
     const-string/jumbo v8, "com.samsung.android.email.provider"
-
-    invoke-direct {p0, v7, v8}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getPackageUid(ILjava/lang/String;)I
-
-    move-result v5
-
-    if-eq v5, v13, :cond_8
-
-    invoke-interface {v1, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Ljava/lang/String;
-
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/Integer;->intValue()I
-
-    move-result v8
-
-    invoke-interface {v3, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Ljava/lang/String;
-
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/Integer;->intValue()I
-
-    move-result v7
-
-    invoke-static {v12, v8, v7, v5, v11}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->ccm_manage_exempt_list(ZIIIZ)J
-
-    :cond_7
-    :goto_3
-    add-int/lit8 v6, v6, 0x1
-
-    goto :goto_2
-
-    :cond_8
-    invoke-interface {v3, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Ljava/lang/String;
-
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/Integer;->intValue()I
-
-    move-result v7
-
-    const-string/jumbo v8, "com.samsung.android.email.sync"
 
     invoke-direct {p0, v7, v8}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getPackageUid(ILjava/lang/String;)I
 
@@ -858,7 +803,11 @@
 
     invoke-static {v12, v8, v7, v5, v11}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->ccm_manage_exempt_list(ZIIIZ)J
 
-    goto :goto_3
+    :cond_8
+    :goto_3
+    add-int/lit8 v6, v6, 0x1
+
+    goto :goto_2
 
     :cond_9
     invoke-interface {v3, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -875,13 +824,13 @@
 
     move-result v7
 
-    const-string/jumbo v8, "com.android.exchange"
+    const-string/jumbo v8, "com.samsung.android.email.sync"
 
     invoke-direct {p0, v7, v8}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getPackageUid(ILjava/lang/String;)I
 
     move-result v5
 
-    if-eq v5, v13, :cond_7
+    if-eq v5, v13, :cond_a
 
     invoke-interface {v1, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -916,6 +865,61 @@
     goto :goto_3
 
     :cond_a
+    invoke-interface {v3, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v7
+
+    check-cast v7, Ljava/lang/String;
+
+    invoke-static {v7}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/Integer;->intValue()I
+
+    move-result v7
+
+    const-string/jumbo v8, "com.android.exchange"
+
+    invoke-direct {p0, v7, v8}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getPackageUid(ILjava/lang/String;)I
+
+    move-result v5
+
+    if-eq v5, v13, :cond_8
+
+    invoke-interface {v1, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v7
+
+    check-cast v7, Ljava/lang/String;
+
+    invoke-static {v7}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/Integer;->intValue()I
+
+    move-result v8
+
+    invoke-interface {v3, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v7
+
+    check-cast v7, Ljava/lang/String;
+
+    invoke-static {v7}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/Integer;->intValue()I
+
+    move-result v7
+
+    invoke-static {v12, v8, v7, v5, v11}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->ccm_manage_exempt_list(ZIIIZ)J
+
+    goto :goto_3
+
+    :cond_b
     sget-object v7, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
     const-string/jumbo v8, "No Admin for this container"
@@ -924,7 +928,7 @@
 
     return-void
 
-    :cond_b
+    :cond_c
     return-void
 .end method
 
@@ -944,6 +948,12 @@
 .end method
 
 .method static native ccm_gen_csr_using_template(IILjava/lang/String;Ljava/lang/String;[B)[B
+.end method
+
+.method static native ccm_gen_csr_without_template(III[BLjava/lang/String;[B)[B
+.end method
+
+.method static native ccm_gen_key_pair(IILjava/lang/String;I)[B
 .end method
 
 .method static native ccm_generate_csr(IILjava/lang/String;)[B
@@ -968,99 +978,6 @@
 .end method
 
 .method static native ccm_update_lock_status(IIZ)J
-.end method
-
-.method private checkAFW(I)Z
-    .locals 5
-
-    sget-boolean v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
-
-    if-eqz v2, :cond_0
-
-    sget-object v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "in checkAFW: inAFW userId - "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    const/4 v1, 0x0
-
-    if-nez p1, :cond_1
-
-    iget-object v2, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v3, "device_policy"
-
-    invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/app/admin/DevicePolicyManager;
-
-    invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->getDeviceOwner()Ljava/lang/String;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_1
-
-    const/4 v1, 0x1
-
-    sget-boolean v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
-
-    if-eqz v2, :cond_1
-
-    sget-object v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v3, "in checkAFW: inAFW isAFW set true for userId 0"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1
-    sget-boolean v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
-
-    if-eqz v2, :cond_2
-
-    sget-object v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "in checkAFW: inAFW isAFW - "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_2
-    return v1
 .end method
 
 .method private checkAliasExists(IILjava/lang/String;Z)Z
@@ -1312,259 +1229,305 @@
 .method private checkMPforCCM()V
     .locals 11
 
-    const/4 v10, 0x0
+    const/16 v10, 0x20
 
     const/4 v7, 0x0
 
-    iget-object v8, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mContext:Landroid/content/Context;
+    const/4 v5, 0x0
 
-    const-string/jumbo v9, "user"
+    iget-object v6, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mUm:Landroid/os/UserManager;
 
-    invoke-virtual {v8, v9}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Landroid/os/UserManager;
-
-    if-eqz v6, :cond_0
-
-    invoke-virtual {v6, v10}, Landroid/os/UserManager;->getProfiles(I)Ljava/util/List;
-
-    move-result-object v7
-
-    :cond_0
-    if-eqz v7, :cond_8
-
-    invoke-interface {v7}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v6, v7}, Landroid/os/UserManager;->getProfiles(I)Ljava/util/List;
 
     move-result-object v5
 
-    :cond_1
-    :goto_0
-    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
+    if-eqz v5, :cond_a
 
-    move-result v8
-
-    if-eqz v8, :cond_8
-
-    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v5}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
 
-    check-cast v4, Landroid/content/pm/UserInfo;
+    :cond_0
+    :goto_0
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
-    sget-boolean v8, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    move-result v6
 
-    if-eqz v8, :cond_2
+    if-eqz v6, :cond_a
 
-    sget-object v8, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    check-cast v3, Landroid/content/pm/UserInfo;
 
-    const-string/jumbo v10, "checkMPforCCM() user "
+    sget-boolean v6, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-eqz v6, :cond_1
 
-    move-result-object v9
+    sget-object v6, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    iget v10, v4, Landroid/content/pm/UserInfo;->id:I
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v9
+    const-string/jumbo v8, "checkMPforCCM() user "
 
-    const-string/jumbo v10, ", CCM? "
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v7
 
-    move-result-object v9
+    iget v8, v3, Landroid/content/pm/UserInfo;->id:I
 
-    iget-boolean v10, v4, Landroid/content/pm/UserInfo;->hasCCMBeenProvisioned:Z
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    move-result-object v7
 
-    move-result-object v9
+    const-string/jumbo v8, ", CCM? "
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v7
 
-    invoke-static {v8, v9}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    iget-boolean v8, v3, Landroid/content/pm/UserInfo;->hasCCMBeenProvisioned:Z
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    iget-boolean v6, v3, Landroid/content/pm/UserInfo;->hasCCMBeenProvisioned:Z
+
+    if-nez v6, :cond_5
+
+    const/4 v2, 0x0
+
+    iget-object v6, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v7, "device_policy"
+
+    invoke-virtual {v6, v7}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/admin/DevicePolicyManager;
+
+    iget v6, v3, Landroid/content/pm/UserInfo;->id:I
+
+    if-nez v6, :cond_4
+
+    invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->getDeviceOwner()Ljava/lang/String;
+
+    move-result-object v6
+
+    if-eqz v6, :cond_2
+
+    const/4 v2, 0x1
 
     :cond_2
-    iget-boolean v8, v4, Landroid/content/pm/UserInfo;->hasCCMBeenProvisioned:Z
+    :goto_1
+    sget-boolean v6, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    if-nez v8, :cond_6
+    if-eqz v6, :cond_3
 
-    const/4 v3, 0x0
+    sget-object v6, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    iget-object v8, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mContext:Landroid/content/Context;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v9, "device_policy"
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v8, v9}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    const-string/jumbo v8, "checkMPforCCM() user "
 
-    move-result-object v1
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    check-cast v1, Landroid/app/admin/DevicePolicyManager;
+    move-result-object v7
 
-    iget v8, v4, Landroid/content/pm/UserInfo;->id:I
+    iget v8, v3, Landroid/content/pm/UserInfo;->id:I
 
-    if-nez v8, :cond_5
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Landroid/app/admin/DevicePolicyManager;->getDeviceOwner()Ljava/lang/String;
+    move-result-object v7
 
-    move-result-object v8
+    const-string/jumbo v8, ", provision? "
 
-    if-eqz v8, :cond_3
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/4 v3, 0x1
+    move-result-object v7
+
+    invoke-virtual {v7, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_3
-    :goto_1
-    sget-boolean v8, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    if-eqz v2, :cond_0
 
-    if-eqz v8, :cond_4
+    iget v6, v3, Landroid/content/pm/UserInfo;->id:I
 
-    sget-object v8, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    sget-object v7, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;->AFW:Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    invoke-direct {p0, v6, v7}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->provisionUser(ILcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;)V
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    sget-boolean v6, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    const-string/jumbo v10, "checkMPforCCM() user "
+    if-eqz v6, :cond_0
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sget-object v6, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    move-result-object v9
+    const-string/jumbo v7, "in checkMPforCCM(): provisionUser user.id CCMProfile.AccessControlMethod.AFW inAFW"
 
-    iget v10, v4, Landroid/content/pm/UserInfo;->id:I
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    const-string/jumbo v10, ", provision? "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v8, v9}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_4
-    if-eqz v3, :cond_1
-
-    iget v8, v4, Landroid/content/pm/UserInfo;->id:I
-
-    sget-object v9, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;->AFW:Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
-
-    invoke-direct {p0, v8, v9}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->provisionUser(ILcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;)V
-
-    sget-boolean v8, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
-
-    if-eqz v8, :cond_1
-
-    sget-object v8, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v9, "in checkMPforCCM(): provisionUser user.id CCMProfile.AccessControlMethod.AFW inAFW"
-
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 
-    :cond_5
-    iget v8, v4, Landroid/content/pm/UserInfo;->flags:I
+    :cond_4
+    iget v6, v3, Landroid/content/pm/UserInfo;->flags:I
 
-    and-int/lit8 v8, v8, 0x20
+    and-int/lit8 v6, v6, 0x20
 
-    const/16 v9, 0x20
+    if-ne v6, v10, :cond_2
 
-    if-ne v8, v9, :cond_3
+    invoke-virtual {v3}, Landroid/content/pm/UserInfo;->isKnoxWorkspace()Z
 
-    const/4 v3, 0x1
+    move-result v6
+
+    if-nez v6, :cond_2
+
+    const/4 v2, 0x1
 
     goto :goto_1
 
+    :cond_5
+    sget-boolean v6, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v6, :cond_6
+
+    sget-object v6, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "checkMPforCCM() user "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    iget v8, v3, Landroid/content/pm/UserInfo;->id:I
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
     :cond_6
-    iget v8, v4, Landroid/content/pm/UserInfo;->id:I
+    iget-object v6, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mContext:Landroid/content/Context;
 
-    invoke-direct {p0, v8}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getMUMContainerOwnerUid(I)I
+    const-string/jumbo v7, "device_policy"
 
-    move-result v2
+    invoke-virtual {v6, v7}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    iget v8, v4, Landroid/content/pm/UserInfo;->id:I
+    move-result-object v0
 
-    invoke-static {v8, v2}, Landroid/os/UserHandle;->getUid(II)I
+    check-cast v0, Landroid/app/admin/DevicePolicyManager;
 
-    move-result v0
+    invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->getDeviceOwner()Ljava/lang/String;
 
-    sget-boolean v8, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    move-result-object v6
 
-    if-eqz v8, :cond_7
+    if-nez v6, :cond_7
 
-    sget-object v8, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    iget v6, v3, Landroid/content/pm/UserInfo;->flags:I
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    and-int/lit8 v6, v6, 0x20
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v10, "checkMPforCCM() mumContainerOwnerUid "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v8, v9}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    if-ne v6, v10, :cond_0
 
     :cond_7
-    sget-boolean v8, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    iget v6, v3, Landroid/content/pm/UserInfo;->id:I
 
-    if-eqz v8, :cond_1
+    invoke-direct {p0, v6}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getProfileOwnerUid(I)I
 
-    sget-object v8, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    move-result v6
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    if-gez v6, :cond_8
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    return-void
 
-    const-string/jumbo v10, "checkMPforCCM() adminId "
+    :cond_8
+    iget v6, v3, Landroid/content/pm/UserInfo;->id:I
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {p0, v6}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->isAccessControlMethodAFW(I)Z
 
-    move-result-object v9
+    move-result v6
 
-    invoke-virtual {v9, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    if-nez v6, :cond_0
 
-    move-result-object v9
+    iget v6, v3, Landroid/content/pm/UserInfo;->id:I
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-direct {p0, v6}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->isKnoxWorkSpace(I)Z
 
-    move-result-object v9
+    move-result v6
 
-    invoke-static {v8, v9}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    xor-int/lit8 v6, v6, 0x1
+
+    if-eqz v6, :cond_0
+
+    new-instance v1, Landroid/os/Message;
+
+    invoke-direct {v1}, Landroid/os/Message;-><init>()V
+
+    sget-object v6, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mUpdateACMHandler:Landroid/os/Handler;
+
+    if-eqz v6, :cond_9
+
+    const/4 v6, 0x3
+
+    iput v6, v1, Landroid/os/Message;->what:I
+
+    sget-object v6, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;->AFW:Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
+
+    iput-object v6, v1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    iget v6, v3, Landroid/content/pm/UserInfo;->id:I
+
+    iput v6, v1, Landroid/os/Message;->arg1:I
+
+    sget-object v6, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mUpdateACMHandler:Landroid/os/Handler;
+
+    const-wide/16 v8, 0x1388
+
+    invoke-virtual {v6, v1, v8, v9}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     goto/16 :goto_0
 
-    :cond_8
+    :cond_9
+    sget-object v6, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v7, "updateAccessMethod Failed"
+
+    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_0
+
+    :cond_a
     return-void
 .end method
 
@@ -2677,306 +2640,319 @@
 .end method
 
 .method private deleteCertificateUsingAdminId(IILjava/lang/String;)Z
-    .locals 18
+    .locals 20
 
-    sget-boolean v13, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    sget-boolean v15, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    if-eqz v13, :cond_0
+    if-eqz v15, :cond_0
 
-    sget-object v13, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    sget-object v15, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v14, "in deleteCertificateUsingAdminId"
+    const-string/jumbo v16, "in deleteCertificateUsingAdminId"
 
-    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     move-object/from16 v0, p0
 
-    iget-boolean v13, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mIsTimaVersion30:Z
+    iget-boolean v15, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mIsTimaVersion30:Z
 
-    if-nez v13, :cond_2
+    if-nez v15, :cond_2
 
-    sget-boolean v13, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    sget-boolean v15, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    if-eqz v13, :cond_1
+    if-eqz v15, :cond_1
 
-    sget-object v13, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    sget-object v15, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v14, "deleteCertificateUsingAdminId - TIMA version does not include CCM"
+    const-string/jumbo v16, "deleteCertificateUsingAdminId - TIMA version does not include CCM"
 
-    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
-    const/4 v13, 0x0
+    const/4 v15, 0x0
 
-    return v13
+    return v15
 
     :cond_2
     :try_start_0
     invoke-static/range {p1 .. p3}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->ccm_delete_certificate(IILjava/lang/String;)J
 
-    move-result-wide v14
+    move-result-wide v16
 
-    const-wide/16 v16, 0x0
+    const-wide/16 v18, 0x0
 
-    cmp-long v13, v16, v14
+    cmp-long v15, v18, v16
 
-    if-eqz v13, :cond_4
+    if-eqz v15, :cond_4
 
-    sget-boolean v13, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    sget-boolean v15, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    if-eqz v13, :cond_3
+    if-eqz v15, :cond_3
 
-    sget-object v13, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    sget-object v15, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v14, "deleteCertificateUsingAdminId - native ccm_delete_certificate failed"
+    const-string/jumbo v16, "deleteCertificateUsingAdminId - native ccm_delete_certificate failed"
 
-    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_3
-    const/4 v13, 0x0
+    const/4 v15, 0x0
 
-    return v13
+    return v15
 
     :cond_4
     const/4 v3, 0x0
 
-    const/4 v13, 0x4
+    const/4 v15, 0x4
 
-    new-array v9, v13, [Ljava/lang/String;
+    new-array v11, v15, [Ljava/lang/String;
 
-    const-string/jumbo v13, "adminUid"
+    const-string/jumbo v15, "adminUid"
 
-    const/4 v14, 0x0
+    const/16 v16, 0x0
 
-    aput-object v13, v9, v14
+    aput-object v15, v11, v16
 
-    const-string/jumbo v13, "uid"
+    const-string/jumbo v15, "uid"
 
-    const/4 v14, 0x1
+    const/16 v16, 0x1
 
-    aput-object v13, v9, v14
+    aput-object v15, v11, v16
 
-    const-string/jumbo v13, "alias"
+    const-string/jumbo v15, "alias"
 
-    const/4 v14, 0x2
+    const/16 v16, 0x2
 
-    aput-object v13, v9, v14
+    aput-object v15, v11, v16
 
-    const-string/jumbo v13, "csr"
+    const-string/jumbo v15, "csr"
 
-    const/4 v14, 0x3
+    const/16 v16, 0x3
 
-    aput-object v13, v9, v14
+    aput-object v15, v11, v16
 
-    const/4 v13, 0x4
+    const/4 v15, 0x4
 
-    new-array v11, v13, [Ljava/lang/String;
+    new-array v13, v15, [Ljava/lang/String;
 
     invoke-static/range {p1 .. p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v15
 
-    const/4 v14, 0x0
+    const/16 v16, 0x0
 
-    aput-object v13, v11, v14
+    aput-object v15, v13, v16
 
     invoke-static/range {p2 .. p2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v15
 
-    const/4 v14, 0x1
+    const/16 v16, 0x1
 
-    aput-object v13, v11, v14
+    aput-object v15, v13, v16
 
-    const/4 v13, 0x2
+    const/4 v15, 0x2
 
-    aput-object p3, v11, v13
+    aput-object p3, v13, v15
 
-    const/4 v13, 0x0
+    const/4 v15, 0x0
 
-    invoke-static {v13}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-static {v15}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v15
 
-    const/4 v14, 0x3
+    const/16 v16, 0x3
 
-    aput-object v13, v11, v14
+    aput-object v15, v13, v16
 
-    const/4 v13, 0x1
+    const/4 v15, 0x1
 
-    new-array v10, v13, [Ljava/lang/String;
+    new-array v12, v15, [Ljava/lang/String;
 
-    const-string/jumbo v13, "installerId"
+    const-string/jumbo v15, "installerId"
 
-    const/4 v14, 0x0
+    const/16 v16, 0x0
 
-    aput-object v13, v10, v14
+    aput-object v15, v12, v16
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    iget-object v15, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    const-string/jumbo v14, "CCMCertTable"
+    const-string/jumbo v16, "CCMCertTable"
 
-    invoke-virtual {v13, v14, v9, v11, v10}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getDataByFields(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Ljava/util/ArrayList;
+    move-object/from16 v0, v16
 
-    move-result-object v5
+    invoke-virtual {v15, v0, v11, v13, v12}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getDataByFields(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Ljava/util/ArrayList;
 
-    if-eqz v5, :cond_5
+    move-result-object v7
 
-    invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
+    if-eqz v7, :cond_6
 
-    move-result v13
+    invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
 
-    if-lez v13, :cond_5
+    move-result v15
 
-    const/4 v13, 0x0
+    if-lez v15, :cond_6
 
-    invoke-virtual {v5, v13}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    const/4 v15, 0x0
 
-    move-result-object v13
+    invoke-virtual {v7, v15}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    check-cast v13, Landroid/content/ContentValues;
+    move-result-object v6
 
-    const-string/jumbo v14, "installerId"
+    check-cast v6, Landroid/content/ContentValues;
 
-    invoke-virtual {v13, v14}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
+    if-nez v6, :cond_5
 
-    move-result-object v13
+    const/4 v15, 0x0
 
-    invoke-virtual {v13}, Ljava/lang/Integer;->intValue()I
+    return v15
+
+    :cond_5
+    const-string/jumbo v15, "installerId"
+
+    invoke-virtual {v6, v15}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_6
+
+    invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
 
     move-result v3
 
-    :cond_5
+    :cond_6
     invoke-static/range {p1 .. p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v2
 
     invoke-static/range {p2 .. p2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v5
 
     invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v9
 
-    const/4 v13, 0x5
+    const/4 v15, 0x5
 
-    new-array v8, v13, [Ljava/lang/String;
+    new-array v10, v15, [Ljava/lang/String;
 
-    const-string/jumbo v13, "adminUid"
+    const-string/jumbo v15, "adminUid"
 
-    const/4 v14, 0x0
+    const/16 v16, 0x0
 
-    aput-object v13, v8, v14
+    aput-object v15, v10, v16
 
-    const-string/jumbo v13, "uid"
+    const-string/jumbo v15, "uid"
 
-    const/4 v14, 0x1
+    const/16 v16, 0x1
 
-    aput-object v13, v8, v14
+    aput-object v15, v10, v16
 
-    const-string/jumbo v13, "alias"
+    const-string/jumbo v15, "alias"
 
-    const/4 v14, 0x2
+    const/16 v16, 0x2
 
-    aput-object v13, v8, v14
+    aput-object v15, v10, v16
 
-    const-string/jumbo v13, "installerId"
+    const-string/jumbo v15, "installerId"
 
-    const/4 v14, 0x3
+    const/16 v16, 0x3
 
-    aput-object v13, v8, v14
+    aput-object v15, v10, v16
 
-    const-string/jumbo v13, "csr"
+    const-string/jumbo v15, "csr"
 
-    const/4 v14, 0x4
+    const/16 v16, 0x4
 
-    aput-object v13, v8, v14
+    aput-object v15, v10, v16
 
-    const/4 v13, 0x5
+    const/4 v15, 0x5
 
-    new-array v12, v13, [Ljava/lang/String;
+    new-array v14, v15, [Ljava/lang/String;
 
-    const/4 v13, 0x0
+    const/4 v15, 0x0
 
-    aput-object v2, v12, v13
+    aput-object v2, v14, v15
 
-    const/4 v13, 0x1
+    const/4 v15, 0x1
 
-    aput-object v4, v12, v13
+    aput-object v5, v14, v15
 
-    const/4 v13, 0x2
+    const/4 v15, 0x2
 
-    aput-object p3, v12, v13
+    aput-object p3, v14, v15
 
-    const/4 v13, 0x3
+    const/4 v15, 0x3
 
-    aput-object v7, v12, v13
+    aput-object v9, v14, v15
 
-    const/4 v13, 0x0
+    const/4 v15, 0x0
 
-    invoke-static {v13}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
-
-    move-result-object v13
-
-    const/4 v14, 0x4
-
-    aput-object v13, v12, v14
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
-
-    const-string/jumbo v14, "CCMCertTable"
-
-    invoke-virtual {v13, v14, v8, v12}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->deleteDataByFields(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Z
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    const/4 v13, 0x1
-
-    return v13
-
-    :catch_0
-    move-exception v6
-
-    sget-boolean v13, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
-
-    if-eqz v13, :cond_6
-
-    sget-object v13, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
-
-    new-instance v14, Ljava/lang/StringBuilder;
-
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v15, "deleteCertificateUsingAdminId - Exception"
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v6}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-static {v15}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v15
 
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/16 v16, 0x4
 
-    move-result-object v14
+    aput-object v15, v14, v16
 
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    move-result-object v14
+    iget-object v15, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v16, "CCMCertTable"
 
-    :cond_6
-    const/4 v13, 0x0
+    move-object/from16 v0, v16
 
-    return v13
+    invoke-virtual {v15, v0, v10, v14}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->deleteDataByFields(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    const/4 v15, 0x1
+
+    return v15
+
+    :catch_0
+    move-exception v8
+
+    sget-boolean v15, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v15, :cond_7
+
+    sget-object v15, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    new-instance v16, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v17, "deleteCertificateUsingAdminId - Exception"
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    invoke-virtual {v8}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+
+    move-result-object v17
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v16
+
+    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_7
+    const/4 v15, 0x0
+
+    return v15
 .end method
 
 .method private deleteDefaultCCMProfile(J)V
@@ -3159,79 +3135,89 @@
 .end method
 
 .method private enforceAdminPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
-    .locals 6
+    .locals 7
 
-    iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
-
-    const/16 v2, 0x64
-
-    if-ge v1, v2, :cond_1
-
-    iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
-
-    invoke-direct {p0, v1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getProfileOwnerUid(I)I
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v0
 
-    iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    iget v2, p1, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
 
-    if-ne v1, v0, :cond_1
-
-    sget-boolean v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
-
-    if-eqz v1, :cond_0
-
-    sget-object v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v2, "ClientCertificateManager.enforceAdminPermission() call comes from the profile owner"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    new-instance v1, Lcom/samsung/android/knox/ContextInfo;
-
-    invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
+    invoke-direct {p0, v2}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->isKnoxWorkSpace(I)Z
 
     move-result v2
 
-    invoke-direct {v1, v0, v2}, Lcom/samsung/android/knox/ContextInfo;-><init>(II)V
+    if-nez v2, :cond_1
 
-    return-object v1
+    iget v2, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    if-ne v0, v2, :cond_1
+
+    iget v2, p1, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
+
+    invoke-direct {p0, v2}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getProfileOwnerUid(I)I
+
+    move-result v1
+
+    iget v2, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    if-ne v2, v1, :cond_1
+
+    sget-boolean v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v2, :cond_0
+
+    sget-object v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v3, "ClientCertificateManager.enforceAdminPermission() call comes from the profile owner"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    new-instance v2, Lcom/samsung/android/knox/ContextInfo;
+
+    invoke-static {v1}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v3
+
+    invoke-direct {v2, v1, v3}, Lcom/samsung/android/knox/ContextInfo;-><init>(II)V
+
+    return-object v2
 
     :cond_1
     invoke-direct {p0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getEDM()Lcom/samsung/android/knox/EnterpriseDeviceManager;
 
-    move-result-object v1
+    move-result-object v2
 
-    if-eqz v1, :cond_2
+    if-eqz v2, :cond_2
 
-    iget-object v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEDM:Lcom/samsung/android/knox/EnterpriseDeviceManager;
+    iget-object v2, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEDM:Lcom/samsung/android/knox/EnterpriseDeviceManager;
 
-    new-instance v2, Ljava/util/ArrayList;
+    new-instance v3, Ljava/util/ArrayList;
 
-    const/4 v3, 0x2
+    const/4 v4, 0x2
 
-    new-array v3, v3, [Ljava/lang/String;
+    new-array v4, v4, [Ljava/lang/String;
 
-    const-string/jumbo v4, "com.sec.enterprise.knox.permission.KNOX_CCM"
+    const-string/jumbo v5, "com.sec.enterprise.knox.permission.KNOX_CCM"
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
-    aput-object v4, v3, v5
+    aput-object v5, v4, v6
 
-    const-string/jumbo v4, "com.samsung.android.knox.permission.KNOX_CCM"
+    const-string/jumbo v5, "com.samsung.android.knox.permission.KNOX_CCM_KEYSTORE"
 
-    const/4 v5, 0x1
+    const/4 v6, 0x1
 
-    aput-object v4, v3, v5
+    aput-object v5, v4, v6
 
-    invoke-static {v3}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+    invoke-static {v4}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-direct {v2, v3}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+    invoke-direct {v3, v4}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    invoke-virtual {v1, p1, v2}, Lcom/samsung/android/knox/EnterpriseDeviceManager;->enforceActiveAdminPermissionByContext(Lcom/samsung/android/knox/ContextInfo;Ljava/util/List;)Lcom/samsung/android/knox/ContextInfo;
+    invoke-virtual {v2, p1, v3}, Lcom/samsung/android/knox/EnterpriseDeviceManager;->enforceActiveAdminPermissionByContext(Lcom/samsung/android/knox/ContextInfo;Ljava/util/List;)Lcom/samsung/android/knox/ContextInfo;
 
     move-result-object p1
 
@@ -3240,7 +3226,9 @@
 .end method
 
 .method private enforcePermission(Lcom/samsung/android/knox/ContextInfo;)V
-    .locals 2
+    .locals 5
+
+    const/4 v4, 0x0
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
@@ -3276,11 +3264,56 @@
 
     iget-object v0, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEDM:Lcom/samsung/android/knox/EnterpriseDeviceManager;
 
-    const-string/jumbo v1, "com.sec.enterprise.knox.permission.KNOX_CCM"
+    new-instance v1, Ljava/util/ArrayList;
 
-    invoke-virtual {v0, p1, v1}, Lcom/samsung/android/knox/EnterpriseDeviceManager;->enforceOwnerOnlyPermissionByContext(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Lcom/samsung/android/knox/ContextInfo;
+    const/4 v2, 0x2
+
+    new-array v2, v2, [Ljava/lang/String;
+
+    const-string/jumbo v3, "com.sec.enterprise.knox.permission.KNOX_CCM"
+
+    aput-object v3, v2, v4
+
+    const-string/jumbo v3, "com.samsung.android.knox.permission.KNOX_CCM_KEYSTORE"
+
+    const/4 v4, 0x1
+
+    aput-object v3, v2, v4
+
+    invoke-static {v2}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+
+    invoke-virtual {v0, p1, v1}, Lcom/samsung/android/knox/EnterpriseDeviceManager;->enforceOwnerOnlyPermissionByContext(Lcom/samsung/android/knox/ContextInfo;Ljava/util/List;)Lcom/samsung/android/knox/ContextInfo;
 
     :cond_2
+    return-void
+.end method
+
+.method private enforcePermissionDks()V
+    .locals 3
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v0
+
+    const/16 v1, 0x3e8
+
+    if-ne v0, v1, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v1, "com.samsung.android.knox.permission.KNOX_DKS_INTERNAL"
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingPermission(Ljava/lang/String;Ljava/lang/String;)V
+
     return-void
 .end method
 
@@ -3354,220 +3387,199 @@
 .end method
 
 .method private existDefaultProfile(J)Z
-    .locals 13
+    .locals 17
 
-    sget-boolean v10, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    sget-boolean v14, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    if-eqz v10, :cond_0
+    if-eqz v14, :cond_0
 
-    sget-object v10, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    sget-object v14, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    new-instance v15, Ljava/lang/StringBuilder;
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v12, "existDefaultProfile : "
+    const-string/jumbo v16, "existDefaultProfile : "
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v15
 
-    invoke-virtual {v11, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    move-wide/from16 v0, p1
 
-    move-result-object v11
+    invoke-virtual {v15, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v15
 
-    move-result-object v11
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v15
+
+    invoke-static {v14, v15}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    const/4 v3, 0x0
+    const/4 v6, 0x0
 
-    const-string/jumbo v1, "1000"
+    const-string/jumbo v4, "1000"
 
-    const-string/jumbo v2, "0"
+    const-string/jumbo v5, "0"
 
-    const/4 v10, 0x3
+    const/4 v14, 0x3
 
-    new-array v7, v10, [Ljava/lang/String;
+    new-array v10, v14, [Ljava/lang/String;
 
-    const-string/jumbo v10, "adminUid"
+    const-string/jumbo v14, "adminUid"
 
-    const/4 v11, 0x0
+    const/4 v15, 0x0
 
-    aput-object v10, v7, v11
+    aput-object v14, v10, v15
 
-    const-string/jumbo v10, "uid"
+    const-string/jumbo v14, "uid"
 
-    const/4 v11, 0x1
+    const/4 v15, 0x1
 
-    aput-object v10, v7, v11
+    aput-object v14, v10, v15
 
-    const-string/jumbo v10, "pkgName"
+    const-string/jumbo v14, "pkgName"
 
-    const/4 v11, 0x2
+    const/4 v15, 0x2
 
-    aput-object v10, v7, v11
+    aput-object v14, v10, v15
 
-    const/4 v10, 0x1
+    const/4 v14, 0x1
 
-    new-array v8, v10, [Ljava/lang/String;
+    new-array v11, v14, [Ljava/lang/String;
 
-    const-string/jumbo v10, "slotId"
+    const-string/jumbo v14, "slotId"
 
-    const/4 v11, 0x0
+    const/4 v15, 0x0
 
-    aput-object v10, v8, v11
+    aput-object v14, v11, v15
 
-    const/4 v5, 0x0
+    const/4 v8, 0x0
 
     :goto_0
-    sget-object v10, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->defaultPackageList:Ljava/util/List;
+    sget-object v14, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->defaultPackageList:Ljava/util/List;
 
-    invoke-interface {v10}, Ljava/util/List;->size()I
+    invoke-interface {v14}, Ljava/util/List;->size()I
 
-    move-result v10
+    move-result v14
 
-    if-ge v5, v10, :cond_1
+    if-ge v8, v14, :cond_1
 
-    sget-object v10, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->defaultPackageList:Ljava/util/List;
+    sget-object v14, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->defaultPackageList:Ljava/util/List;
 
-    invoke-interface {v10, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v14, v8}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v9
 
-    check-cast v6, Ljava/lang/String;
+    check-cast v9, Ljava/lang/String;
 
-    const/4 v10, 0x3
+    const/4 v14, 0x3
 
-    new-array v9, v10, [Ljava/lang/String;
+    new-array v12, v14, [Ljava/lang/String;
 
-    const/4 v10, 0x0
+    const/4 v14, 0x0
 
-    aput-object v1, v9, v10
+    aput-object v4, v12, v14
 
-    const/4 v10, 0x1
+    const/4 v14, 0x1
 
-    aput-object v2, v9, v10
+    aput-object v5, v12, v14
 
-    const/4 v10, 0x2
+    const/4 v14, 0x2
 
-    aput-object v6, v9, v10
+    aput-object v9, v12, v14
 
-    iget-object v10, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    move-object/from16 v0, p0
 
-    const-string/jumbo v11, "ClientCertificateManagerTable"
+    iget-object v14, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    invoke-virtual {v10, v11, v7, v9, v8}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getDataByFields(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Ljava/util/ArrayList;
+    const-string/jumbo v15, "ClientCertificateManagerTable"
 
-    move-result-object v0
+    invoke-virtual {v14, v15, v10, v12, v11}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getDataByFields(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Ljava/util/ArrayList;
 
-    if-eqz v0, :cond_2
+    move-result-object v3
 
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+    if-eqz v3, :cond_2
 
-    move-result v10
+    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
-    if-lez v10, :cond_2
+    move-result v14
 
-    invoke-virtual {v0, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    if-lez v14, :cond_2
 
-    move-result-object v10
+    invoke-virtual {v3, v8}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    check-cast v10, Landroid/content/ContentValues;
+    move-result-object v2
 
-    const-string/jumbo v11, "slotId"
+    check-cast v2, Landroid/content/ContentValues;
 
-    invoke-virtual {v10, v11}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
+    if-eqz v2, :cond_2
 
-    move-result-object v10
+    const-string/jumbo v14, "slotId"
 
-    invoke-virtual {v10}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v2, v14}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
 
-    move-result v4
+    move-result-object v13
 
-    int-to-long v10, v4
+    if-eqz v13, :cond_2
 
-    cmp-long v10, v10, p1
+    invoke-virtual {v13}, Ljava/lang/Integer;->intValue()I
 
-    if-nez v10, :cond_2
+    move-result v7
 
-    const/4 v3, 0x1
+    int-to-long v14, v7
+
+    cmp-long v14, v14, p1
+
+    if-nez v14, :cond_2
+
+    const/4 v6, 0x1
 
     :cond_1
-    return v3
+    return v6
 
     :cond_2
-    add-int/lit8 v5, v5, 0x1
+    add-int/lit8 v8, v8, 0x1
 
     goto :goto_0
 .end method
 
 .method private fixContextInfoForMP(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
-    .locals 4
+    .locals 3
 
-    if-eqz p1, :cond_0
+    sget-object v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    invoke-direct {p0, p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    move-result v1
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const/16 v2, 0x64
+    const-string/jumbo v2, "fixContextInfoForMP() returning "
 
-    if-ge v1, v2, :cond_0
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance v0, Lcom/samsung/android/knox/ContextInfo;
+    move-result-object v1
 
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
-
-    move-result v1
-
-    invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
-
-    move-result v2
-
-    invoke-direct {v0, v1, v2}, Lcom/samsung/android/knox/ContextInfo;-><init>(II)V
-
-    move-object p1, v0
-
-    sget-boolean v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
-
-    if-eqz v1, :cond_0
-
-    sget-object v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "fixContextInfoForMP() returning "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1}, Lcom/samsung/android/knox/ContextInfo;->toString()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {v0}, Lcom/samsung/android/knox/ContextInfo;->toString()Ljava/lang/String;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
     return-object p1
 .end method
 
 .method private getAdminIdForCaller(Lcom/samsung/android/knox/ContextInfo;ILjava/util/List;)I
-    .locals 19
+    .locals 25
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -3580,324 +3592,415 @@
         }
     .end annotation
 
-    const/4 v2, -0x1
+    const/4 v5, -0x1
 
-    const/4 v3, 0x0
+    const/4 v7, 0x0
 
-    const/4 v15, 0x2
+    const/16 v21, 0x2
 
     :try_start_0
-    new-array v11, v15, [Ljava/lang/String;
+    move/from16 v0, v21
 
-    const-string/jumbo v15, "uid"
+    new-array v0, v0, [Ljava/lang/String;
 
-    const/16 v16, 0x0
+    move-object/from16 v17, v0
 
-    aput-object v15, v11, v16
+    const-string/jumbo v21, "uid"
 
-    const-string/jumbo v15, "pkgName"
+    const/16 v22, 0x0
 
-    const/16 v16, 0x1
+    aput-object v21, v17, v22
 
-    aput-object v15, v11, v16
+    const-string/jumbo v21, "pkgName"
 
-    const/4 v15, 0x1
+    const/16 v22, 0x1
 
-    new-array v12, v15, [Ljava/lang/String;
+    aput-object v21, v17, v22
 
-    const-string/jumbo v15, "adminUid"
+    const/16 v21, 0x1
 
-    const/16 v16, 0x0
+    move/from16 v0, v21
 
-    aput-object v15, v12, v16
+    new-array v0, v0, [Ljava/lang/String;
+
+    move-object/from16 v18, v0
+
+    const-string/jumbo v21, "adminUid"
+
+    const/16 v22, 0x0
+
+    aput-object v21, v18, v22
 
     invoke-static/range {p2 .. p2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v14
+    move-result-object v20
 
-    const/4 v7, 0x0
+    const/4 v13, 0x0
 
     if-eqz p3, :cond_0
 
     invoke-interface/range {p3 .. p3}, Ljava/util/List;->isEmpty()Z
 
-    move-result v15
+    move-result v21
 
-    if-eqz v15, :cond_4
+    if-eqz v21, :cond_4
 
     :cond_0
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mContext:Landroid/content/Context;
+    iget-object v0, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v15}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    move-object/from16 v21, v0
 
-    move-result-object v15
+    invoke-virtual/range {v21 .. v21}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v21
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v16
+    move-result v22
 
-    invoke-virtual/range {v15 .. v16}, Landroid/content/pm/PackageManager;->getPackagesForUid(I)[Ljava/lang/String;
+    invoke-virtual/range {v21 .. v22}, Landroid/content/pm/PackageManager;->getPackagesForUid(I)[Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v13
 
     :goto_0
-    if-eqz v7, :cond_1
+    if-eqz v13, :cond_1
 
-    const/4 v15, 0x0
+    const/16 v21, 0x0
 
-    array-length v0, v7
+    array-length v0, v13
 
-    move/from16 v16, v0
+    move/from16 v22, v0
 
     :goto_1
-    move/from16 v0, v16
+    move/from16 v0, v21
 
-    if-ge v15, v0, :cond_1
+    move/from16 v1, v22
 
-    aget-object v6, v7, v15
+    if-ge v0, v1, :cond_1
 
-    const/16 v17, 0x2
+    aget-object v12, v13, v21
 
-    move/from16 v0, v17
+    const/16 v23, 0x2
 
-    new-array v13, v0, [Ljava/lang/String;
+    move/from16 v0, v23
 
-    const/16 v17, 0x0
+    new-array v0, v0, [Ljava/lang/String;
 
-    aput-object v14, v13, v17
+    move-object/from16 v19, v0
 
-    const/16 v17, 0x1
+    const/16 v23, 0x0
 
-    aput-object v6, v13, v17
+    aput-object v20, v19, v23
+
+    const/16 v23, 0x1
+
+    aput-object v12, v19, v23
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    move-object/from16 v17, v0
+    move-object/from16 v23, v0
 
-    const-string/jumbo v18, "ClientCertificateManagerTable"
+    const-string/jumbo v24, "ClientCertificateManagerTable"
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v18
+    move-object/from16 v1, v24
 
-    invoke-virtual {v0, v1, v11, v13, v12}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getDataByFields(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Ljava/util/ArrayList;
+    move-object/from16 v2, v17
 
-    move-result-object v4
+    move-object/from16 v3, v19
 
-    if-eqz v4, :cond_5
+    move-object/from16 v4, v18
 
-    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getDataByFields(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Ljava/util/ArrayList;
 
-    move-result v17
+    move-result-object v9
 
-    if-lez v17, :cond_5
+    if-eqz v9, :cond_5
 
-    const/4 v15, 0x0
+    invoke-virtual {v9}, Ljava/util/ArrayList;->size()I
 
-    invoke-virtual {v4, v15}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    move-result v23
 
-    move-result-object v15
+    if-lez v23, :cond_5
 
-    check-cast v15, Landroid/content/ContentValues;
+    const/16 v21, 0x0
 
-    const-string/jumbo v16, "adminUid"
+    move/from16 v0, v21
 
-    invoke-virtual/range {v15 .. v16}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
+    invoke-virtual {v9, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v15
+    move-result-object v21
 
-    invoke-virtual {v15}, Ljava/lang/Integer;->intValue()I
+    check-cast v21, Landroid/content/ContentValues;
 
-    move-result v2
+    const-string/jumbo v22, "adminUid"
+
+    invoke-virtual/range {v21 .. v22}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
+
+    move-result-object v11
+
+    if-eqz v11, :cond_1
+
+    invoke-virtual {v11}, Ljava/lang/Integer;->intValue()I
+
+    move-result v5
 
     :cond_1
-    const/4 v15, -0x1
+    const/16 v21, -0x1
 
-    if-ne v15, v2, :cond_3
+    move/from16 v0, v21
 
-    const/4 v15, 0x2
+    if-ne v0, v5, :cond_3
 
-    new-array v8, v15, [Ljava/lang/String;
+    const/16 v21, 0x2
 
-    const-string/jumbo v15, "uid"
+    move/from16 v0, v21
 
-    const/16 v16, 0x0
+    new-array v14, v0, [Ljava/lang/String;
 
-    aput-object v15, v8, v16
+    const-string/jumbo v21, "uid"
 
-    const-string/jumbo v15, "allowAllPkgs"
+    const/16 v22, 0x0
 
-    const/16 v16, 0x1
+    aput-object v21, v14, v22
 
-    aput-object v15, v8, v16
+    const-string/jumbo v21, "allowAllPkgs"
 
-    const/4 v15, 0x2
+    const/16 v22, 0x1
 
-    new-array v10, v15, [Ljava/lang/String;
+    aput-object v21, v14, v22
+
+    const/16 v21, 0x2
+
+    move/from16 v0, v21
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    move-object/from16 v16, v0
 
     invoke-static/range {p2 .. p2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v21
 
-    const/16 v16, 0x0
+    const/16 v22, 0x0
 
-    aput-object v15, v10, v16
+    aput-object v21, v16, v22
 
-    const/4 v15, 0x1
+    const/16 v21, 0x1
 
-    invoke-static {v15}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-static/range {v21 .. v21}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v21
 
-    const/16 v16, 0x1
+    const/16 v22, 0x1
 
-    aput-object v15, v10, v16
+    aput-object v21, v16, v22
 
-    const/4 v15, 0x1
+    const/16 v21, 0x1
 
-    new-array v9, v15, [Ljava/lang/String;
+    move/from16 v0, v21
 
-    const-string/jumbo v15, "adminUid"
+    new-array v15, v0, [Ljava/lang/String;
 
-    const/16 v16, 0x0
+    const-string/jumbo v21, "adminUid"
 
-    aput-object v15, v9, v16
+    const/16 v22, 0x0
 
-    const/4 v4, 0x0
+    aput-object v21, v15, v22
+
+    const/4 v9, 0x0
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    iget-object v0, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    const-string/jumbo v16, "ClientCertificateManagerTable"
+    move-object/from16 v21, v0
 
-    move-object/from16 v0, v16
+    const-string/jumbo v22, "ClientCertificateManagerTable"
 
-    invoke-virtual {v15, v0, v8, v10, v9}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getDataByFields(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Ljava/util/ArrayList;
+    move-object/from16 v0, v21
 
-    move-result-object v4
+    move-object/from16 v1, v22
 
-    if-eqz v4, :cond_2
+    move-object/from16 v2, v16
 
-    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v0, v1, v14, v2, v15}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getDataByFields(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Ljava/util/ArrayList;
 
-    move-result v15
+    move-result-object v9
 
-    if-lez v15, :cond_2
+    if-eqz v9, :cond_2
 
-    const/4 v15, 0x0
+    invoke-virtual {v9}, Ljava/util/ArrayList;->size()I
 
-    invoke-virtual {v4, v15}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    move-result v21
 
-    move-result-object v15
+    if-lez v21, :cond_2
 
-    check-cast v15, Landroid/content/ContentValues;
+    const/16 v21, 0x0
 
-    const-string/jumbo v16, "adminUid"
+    move/from16 v0, v21
 
-    invoke-virtual/range {v15 .. v16}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
+    invoke-virtual {v9, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v15
+    move-result-object v8
 
-    invoke-virtual {v15}, Ljava/lang/Integer;->intValue()I
+    check-cast v8, Landroid/content/ContentValues;
 
-    move-result v2
+    if-eqz v8, :cond_2
+
+    const-string/jumbo v21, "adminUid"
+
+    move-object/from16 v0, v21
+
+    invoke-virtual {v8, v0}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    if-eqz v6, :cond_2
+
+    invoke-virtual {v6}, Ljava/lang/Integer;->intValue()I
+
+    move-result v5
 
     :cond_2
-    sget-boolean v15, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    sget-boolean v21, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    if-eqz v15, :cond_3
+    if-eqz v21, :cond_3
 
-    sget-object v15, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    sget-object v21, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    new-instance v16, Ljava/lang/StringBuilder;
+    new-instance v22, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v17, "getAdminIdForCaller - "
+    const-string/jumbo v23, "getAdminIdForCaller - "
 
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v16
+    move-result-object v22
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v22
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v16
+    move-result-object v22
 
-    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v16
+    move-result-object v22
 
-    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v21 .. v22}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_3
     :goto_2
-    return v2
+    return v5
 
     :cond_4
     invoke-interface/range {p3 .. p3}, Ljava/util/List;->size()I
 
-    move-result v15
+    move-result v21
 
-    new-array v15, v15, [Ljava/lang/String;
+    move/from16 v0, v21
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    move-object/from16 v21, v0
 
     move-object/from16 v0, p3
 
-    invoke-interface {v0, v15}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    move-object/from16 v1, v21
 
-    move-result-object v7
+    invoke-interface {v0, v1}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    check-cast v7, [Ljava/lang/String;
+    move-result-object v13
+
+    check-cast v13, [Ljava/lang/String;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     goto/16 :goto_0
 
     :cond_5
-    add-int/lit8 v15, v15, 0x1
+    add-int/lit8 v21, v21, 0x1
 
     goto/16 :goto_1
 
     :catch_0
-    move-exception v5
+    move-exception v10
 
-    sget-boolean v15, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    sget-boolean v21, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    if-eqz v15, :cond_3
+    if-eqz v21, :cond_3
 
-    sget-object v15, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    sget-object v21, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    new-instance v16, Ljava/lang/StringBuilder;
+    new-instance v22, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v17, "getAdminIdForCaller - Exception"
+    const-string/jumbo v23, "getAdminIdForCaller - Exception"
 
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v16
+    move-result-object v22
 
-    invoke-virtual {v5}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
-    move-result-object v17
+    move-result-object v23
 
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v16
+    move-result-object v22
 
-    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v16
+    move-result-object v22
 
-    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v21 .. v22}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_2
+.end method
+
+.method private declared-synchronized getCCMVersionBoot()V
+    .locals 2
+
+    monitor-enter p0
+
+    :try_start_0
+    sget-boolean v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v0, :cond_0
+
+    sget-object v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v1, "in getCCMVersionBoot"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    new-instance v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager$2;
+
+    invoke-direct {v0, p0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager$2;-><init>(Lcom/android/server/enterprise/ccm/ClientCertificateManager;)V
+
+    invoke-virtual {v0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager$2;->start()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
 .end method
 
 .method private getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
@@ -3934,9 +4037,11 @@
     :cond_0
     iget v0, p1, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
 
-    const/16 v1, 0x64
+    invoke-direct {p0, v0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->isKnoxWorkSpace(I)Z
 
-    if-ge v0, v1, :cond_1
+    move-result v0
+
+    if-nez v0, :cond_1
 
     iget v0, p1, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
 
@@ -4144,171 +4249,189 @@
 .end method
 
 .method private getDeleteSlotList(II)J
-    .locals 12
+    .locals 11
 
-    const/4 v11, 0x2
+    sget-boolean v8, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    const/4 v10, 0x1
+    if-eqz v8, :cond_0
+
+    sget-object v8, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v10, "getDeleteSlotList, adminUid : "
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    const-string/jumbo v10, ", containerId"
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    const-wide v6, 0xffffffffL
+
+    const/4 v8, 0x2
+
+    new-array v3, v8, [Ljava/lang/String;
+
+    const-string/jumbo v8, "adminUid"
 
     const/4 v9, 0x0
 
-    sget-boolean v6, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    aput-object v8, v3, v9
 
-    if-eqz v6, :cond_0
+    const-string/jumbo v8, "uid"
 
-    sget-object v6, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    const/4 v9, 0x1
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    aput-object v8, v3, v9
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    const/4 v8, 0x2
 
-    const-string/jumbo v8, "getDeleteSlotList, adminUid : "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string/jumbo v8, ", containerId"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    const-wide v4, 0xffffffffL
-
-    new-array v1, v11, [Ljava/lang/String;
-
-    const-string/jumbo v6, "adminUid"
-
-    aput-object v6, v1, v9
-
-    const-string/jumbo v6, "uid"
-
-    aput-object v6, v1, v10
-
-    new-array v3, v11, [Ljava/lang/String;
+    new-array v5, v8, [Ljava/lang/String;
 
     invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v8
 
-    aput-object v6, v3, v9
+    const/4 v9, 0x0
+
+    aput-object v8, v5, v9
 
     invoke-static {p2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v8
 
-    aput-object v6, v3, v10
+    const/4 v9, 0x1
 
-    new-array v2, v10, [Ljava/lang/String;
+    aput-object v8, v5, v9
 
-    const-string/jumbo v6, "slotId"
+    const/4 v8, 0x1
 
-    aput-object v6, v2, v9
+    new-array v4, v8, [Ljava/lang/String;
 
-    iget-object v6, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    const-string/jumbo v8, "slotId"
 
-    const-string/jumbo v7, "ClientCertificateManagerTable"
+    const/4 v9, 0x0
 
-    invoke-virtual {v6, v7, v1, v3, v2}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getDataByFields(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Ljava/util/ArrayList;
+    aput-object v8, v4, v9
 
-    move-result-object v0
+    iget-object v8, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    if-eqz v0, :cond_1
+    const-string/jumbo v9, "ClientCertificateManagerTable"
 
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v8, v9, v3, v5, v4}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getDataByFields(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Ljava/util/ArrayList;
 
-    move-result v6
+    move-result-object v1
 
-    if-lez v6, :cond_1
+    if-eqz v1, :cond_3
 
-    sget-object v6, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v8, "cvList size : "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v8
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    if-lez v8, :cond_3
 
-    move-result-object v7
+    sget-object v8, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v10, "cvList size : "
 
-    invoke-virtual {v0, v9}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v9
 
-    check-cast v6, Landroid/content/ContentValues;
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
-    const-string/jumbo v7, "slotId"
+    move-result v10
 
-    invoke-virtual {v6, v7}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v9
 
-    invoke-virtual {v6}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result v6
+    move-result-object v9
 
-    int-to-long v4, v6
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    sget-boolean v6, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    const/4 v8, 0x0
 
-    if-eqz v6, :cond_1
+    invoke-virtual {v1, v8}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    sget-object v6, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    move-result-object v0
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    check-cast v0, Landroid/content/ContentValues;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    if-nez v0, :cond_1
 
-    const-string/jumbo v8, "getDeleteSlotList slotId : "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v4, v5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    return-wide v6
 
     :cond_1
-    return-wide v4
+    const-string/jumbo v8, "slotId"
+
+    invoke-virtual {v0, v8}, Landroid/content/ContentValues;->getAsLong(Ljava/lang/String;)Ljava/lang/Long;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_2
+
+    invoke-virtual {v2}, Ljava/lang/Long;->longValue()J
+
+    move-result-wide v6
+
+    :cond_2
+    sget-boolean v8, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v8, :cond_3
+
+    sget-object v8, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v10, "getDeleteSlotList slotId : "
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_3
+    return-wide v6
 .end method
 
 .method private getEDM()Lcom/samsung/android/knox/EnterpriseDeviceManager;
@@ -4349,9 +4472,11 @@
 .method private getMUMContainerOwnerUid(I)I
     .locals 1
 
-    const/16 v0, 0x64
+    invoke-direct {p0, p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->isKnoxWorkSpace(I)Z
 
-    if-ge p1, v0, :cond_0
+    move-result v0
+
+    if-nez v0, :cond_0
 
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getProfileOwnerUid(I)I
 
@@ -4560,6 +4685,31 @@
     invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     throw v6
+.end method
+
+.method private getPersonaManager()Lcom/samsung/android/knox/SemPersonaManager;
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mPersonaMgr:Lcom/samsung/android/knox/SemPersonaManager;
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v1, "persona"
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/samsung/android/knox/SemPersonaManager;
+
+    iput-object v0, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mPersonaMgr:Lcom/samsung/android/knox/SemPersonaManager;
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mPersonaMgr:Lcom/samsung/android/knox/SemPersonaManager;
+
+    return-object v0
 .end method
 
 .method private getProfileOwnerUid(I)I
@@ -4854,6 +5004,206 @@
     move-exception v1
 
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+
+    goto :goto_0
+.end method
+
+.method private hasGrantInternal(Ljava/lang/String;)Z
+    .locals 10
+
+    const/4 v1, 0x0
+
+    const/4 v6, 0x0
+
+    const/4 v5, 0x0
+
+    new-instance v0, Lcom/samsung/android/knox/ContextInfo;
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v7
+
+    invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
+
+    move-result v8
+
+    invoke-direct {v0, v7, v8}, Lcom/samsung/android/knox/ContextInfo;-><init>(II)V
+
+    invoke-direct {p0, v0, p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->isInstalledKeyChainAlias(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_4
+
+    :try_start_0
+    new-instance v3, Landroid/content/ContentValues;
+
+    invoke-direct {v3}, Landroid/content/ContentValues;-><init>()V
+
+    const-string/jumbo v7, "alias"
+
+    invoke-virtual {v3, v7, p1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v7, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    const-string/jumbo v8, "CCMCertGrantTable"
+
+    invoke-virtual {v7, v8, v3}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCount(Ljava/lang/String;Landroid/content/ContentValues;)I
+
+    move-result v6
+
+    if-eqz v6, :cond_2
+
+    new-instance v2, Landroid/content/ContentValues;
+
+    invoke-direct {v2}, Landroid/content/ContentValues;-><init>()V
+
+    const-string/jumbo v7, "alias"
+
+    invoke-virtual {v2, v7, p1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string/jumbo v7, "callingUid"
+
+    iget v8, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v8
+
+    invoke-virtual {v2, v7, v8}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    iget-object v7, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    const-string/jumbo v8, "CCMCertGrantTable"
+
+    const-string/jumbo v9, "allow"
+
+    invoke-virtual {v7, v8, v9, v2}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getIntList(Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentValues;)Ljava/util/List;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_1
+
+    invoke-interface {v1}, Ljava/util/List;->size()I
+
+    move-result v7
+
+    if-lez v7, :cond_1
+
+    sget-boolean v7, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v7, :cond_0
+
+    sget-object v7, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "hasGrantInternal - allow :"
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    const/4 v7, 0x2
+
+    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v7
+
+    invoke-interface {v1, v7}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_1
+
+    const/4 v7, 0x0
+
+    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v7
+
+    invoke-interface {v1, v7}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_1
+
+    const/4 v5, 0x1
+
+    :cond_1
+    :goto_0
+    return v5
+
+    :cond_2
+    sget-boolean v7, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v7, :cond_3
+
+    sget-object v7, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v8, "hasGrantInternal - uidCount = 0"
+
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_3
+    const/4 v5, 0x1
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v4
+
+    const/4 v5, 0x0
+
+    sget-boolean v7, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v7, :cond_1
+
+    sget-object v7, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "hasGrantInternal - Exception"
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v4}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :cond_4
+    const/4 v5, 0x1
 
     goto :goto_0
 .end method
@@ -6225,177 +6575,305 @@
     goto/16 :goto_4
 .end method
 
-.method private isCCMDefaultCertStore(I)Z
-    .locals 10
+.method private isAccessControlMethodAFW(I)Z
+    .locals 6
 
-    const/4 v9, 0x1
+    invoke-direct {p0, p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getProfileOwnerUid(I)I
 
-    const/4 v5, 0x0
+    move-result v2
 
-    sget-boolean v6, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    sget-boolean v3, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    if-eqz v6, :cond_0
+    if-eqz v3, :cond_0
 
-    sget-object v6, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    sget-object v3, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v8, "in isCCMDefaultCertStore useId "
+    const-string/jumbo v5, "in isAccessControlMethodAFW userId:"
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v4
 
-    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v4
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string/jumbo v5, ",uid:"
 
-    move-result-object v7
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v4
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    const/4 v6, 0x1
+    new-instance v0, Lcom/samsung/android/knox/ContextInfo;
+
+    invoke-direct {v0, v2, p1}, Lcom/samsung/android/knox/ContextInfo;-><init>(II)V
+
+    invoke-virtual {p0, v0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getCCMProfile(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/keystore/CCMProfile;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_2
+
+    sget-object v3, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;->AFW:Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
+
+    iget-object v4, v1, Lcom/samsung/android/knox/keystore/CCMProfile;->accessControlMethod:Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
+
+    if-ne v3, v4, :cond_2
+
+    sget-boolean v3, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v3, :cond_1
+
+    sget-object v3, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v4, "isAccessControlMethodAFW return - true"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    const/4 v3, 0x1
+
+    return v3
+
+    :cond_2
+    const/4 v3, 0x0
+
+    return v3
+.end method
+
+.method private isCCMDefaultCertStore(I)Z
+    .locals 11
+
+    const/4 v10, 0x1
+
+    const/4 v6, 0x0
+
+    sget-boolean v7, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v7, :cond_0
+
+    sget-object v7, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "in isCCMDefaultCertStore useId "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    const/4 v7, 0x1
 
     :try_start_0
-    new-array v0, v6, [Ljava/lang/String;
+    new-array v0, v7, [Ljava/lang/String;
 
-    const-string/jumbo v6, "enabled"
+    const-string/jumbo v7, "enabled"
 
-    const/4 v7, 0x0
+    const/4 v8, 0x0
 
-    aput-object v6, v0, v7
+    aput-object v7, v0, v8
 
     new-instance v2, Landroid/content/ContentValues;
 
     invoke-direct {v2}, Landroid/content/ContentValues;-><init>()V
 
-    const-string/jumbo v6, "uid"
+    const-string/jumbo v7, "uid"
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-virtual {v2, v6, v7}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    invoke-virtual {v2, v7, v8}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    iget-object v6, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    iget-object v7, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    const-string/jumbo v7, "CCMDefaultPolicy"
+    const-string/jumbo v8, "CCMDefaultPolicy"
 
-    invoke-virtual {v6, v7, v0, v2}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getValuesList(Ljava/lang/String;[Ljava/lang/String;Landroid/content/ContentValues;)Ljava/util/List;
+    invoke-virtual {v7, v8, v0, v2}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getValuesList(Ljava/lang/String;[Ljava/lang/String;Landroid/content/ContentValues;)Ljava/util/List;
 
-    move-result-object v4
+    move-result-object v5
 
-    if-eqz v4, :cond_1
+    if-eqz v5, :cond_2
 
-    invoke-interface {v4}, Ljava/util/List;->isEmpty()Z
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-interface {v5}, Ljava/util/List;->isEmpty()Z
 
-    move-result v6
+    move-result v7
 
-    if-eqz v6, :cond_3
+    xor-int/lit8 v7, v7, 0x1
 
-    :cond_1
-    :goto_0
-    sget-boolean v6, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    if-eqz v7, :cond_2
 
-    if-eqz v6, :cond_2
+    const/4 v7, 0x0
 
-    sget-object v6, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v8, "isCCMDefaultCertStore returning - "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_2
-    return v5
-
-    :cond_3
-    const/4 v6, 0x0
-
-    :try_start_1
-    invoke-interface {v4, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v5, v7}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Landroid/content/ContentValues;
 
-    if-eqz v1, :cond_1
+    if-nez v1, :cond_1
 
-    const-string/jumbo v6, "enabled"
+    return v6
 
-    invoke-virtual {v1, v6}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
+    :cond_1
+    const-string/jumbo v7, "enabled"
 
-    move-result-object v6
+    invoke-virtual {v1, v7}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
 
-    invoke-virtual {v6}, Ljava/lang/Integer;->intValue()I
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    move-result-object v4
 
-    move-result v6
+    if-eqz v4, :cond_2
 
-    if-ne v6, v9, :cond_4
+    invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    const/4 v5, 0x1
+    move-result v7
 
-    goto :goto_0
+    if-ne v7, v10, :cond_4
+
+    const/4 v6, 0x1
+
+    :cond_2
+    :goto_0
+    sget-boolean v7, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v7, :cond_3
+
+    sget-object v7, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "isCCMDefaultCertStore returning - "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_3
+    return v6
 
     :cond_4
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
     goto :goto_0
 
     :catch_0
     move-exception v3
 
-    sget-object v6, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    sget-object v7, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v8, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v8, "isCCMDefaultCertStore() failed"
+    const-string/jumbo v9, "isCCMDefaultCertStore() failed"
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-static {v3}, Landroid/util/Log;->getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v8
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v3}, Landroid/util/Log;->getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v9
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
+.end method
+
+.method private isDelegatedAppSupported()Z
+    .locals 5
+
+    const/4 v4, 0x0
+
+    invoke-static {}, Lcom/samsung/android/knox/EnterpriseKnoxManager;->getInstance()Lcom/samsung/android/knox/EnterpriseKnoxManager;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {v1}, Lcom/samsung/android/knox/EnterpriseKnoxManager;->getVersion()Lcom/samsung/android/knox/EnterpriseKnoxManager$EnterpriseKnoxSdkVersion;
+
+    move-result-object v0
+
+    sget-object v2, Lcom/samsung/android/knox/EnterpriseKnoxManager$EnterpriseKnoxSdkVersion;->KNOX_ENTERPRISE_SDK_VERSION_2_8:Lcom/samsung/android/knox/EnterpriseKnoxManager$EnterpriseKnoxSdkVersion;
+
+    invoke-virtual {v0, v2}, Lcom/samsung/android/knox/EnterpriseKnoxManager$EnterpriseKnoxSdkVersion;->compareTo(Ljava/lang/Enum;)I
+
+    move-result v2
+
+    if-ltz v2, :cond_0
+
+    const/4 v2, 0x1
+
+    return v2
+
+    :cond_0
+    sget-object v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v3, "isDelegatedAppSupported false"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v4
+
+    :cond_1
+    sget-object v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v3, "isDelegatedAppSupported false"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v4
 .end method
 
 .method private isInstalledKeyChainAlias(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Z
@@ -6467,9 +6945,11 @@
 
     move-result v4
 
-    const/16 v5, 0x64
+    invoke-direct {p0, v4}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->isKnoxWorkSpace(I)Z
 
-    if-ge v4, v5, :cond_7
+    move-result v5
+
+    if-nez v5, :cond_8
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
@@ -6477,7 +6957,7 @@
 
     const/16 v6, 0x3e8
 
-    if-ne v5, v6, :cond_6
+    if-ne v5, v6, :cond_7
 
     :goto_0
     const/4 v0, 0x0
@@ -6521,19 +7001,13 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_9
 
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v5
 
-    if-lez v5, :cond_8
-
-    sget-object v5, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v6, "isInstalledKeyChainAlias - Alias list empty or null"
-
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    if-lez v5, :cond_9
 
     invoke-interface {v0, p2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
     :try_end_0
@@ -6542,6 +7016,10 @@
     move-result v3
 
     :goto_1
+    sget-boolean v5, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v5, :cond_6
+
     sget-object v5, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -6564,14 +7042,8 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v3
-
     :cond_6
-    invoke-direct {p0, p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->fixContextInfoForMP(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
-
-    move-result-object p1
-
-    goto :goto_0
+    return v3
 
     :cond_7
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->fixContextInfoForMP(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
@@ -6581,6 +7053,27 @@
     goto :goto_0
 
     :cond_8
+    invoke-direct {p0, p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->fixContextInfoForMP(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
+
+    move-result-object p1
+
+    goto :goto_0
+
+    :cond_9
+    :try_start_1
+    sget-boolean v5, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v5, :cond_a
+
+    sget-object v5, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v6, "isInstalledKeyChainAlias - Alias list empty or null"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+
+    :cond_a
     const/4 v3, 0x0
 
     goto :goto_1
@@ -6590,7 +7083,7 @@
 
     sget-boolean v5, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    if-eqz v5, :cond_9
+    if-eqz v5, :cond_b
 
     sget-object v5, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
@@ -6618,10 +7111,72 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_9
+    :cond_b
     const/4 v3, 0x0
 
     goto :goto_1
+.end method
+
+.method private isKnoxWorkSpace(I)Z
+    .locals 4
+
+    iget-object v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mPersonaMgr:Lcom/samsung/android/knox/SemPersonaManager;
+
+    invoke-static {p1}, Lcom/samsung/android/knox/SemPersonaManager;->isPremiumContainer(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    sget-object v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "ClientCertificateManager.isPremiumContainer() : true for user : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_0
+    return v0
+
+    :cond_0
+    sget-object v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "ClientCertificateManager.isPremiumContainer() : false for user : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 .end method
 
 .method private markUserAsCCMProvisioned(I)V
@@ -6644,14 +7199,374 @@
     return-void
 .end method
 
-.method private provisionUser(I)V
-    .locals 1
+.method private notifyLicenseStatusInternal()Z
+    .locals 18
 
-    sget-object v0, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;->LOCK_STATE:Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
+    const/4 v9, 0x1
 
-    invoke-direct {p0, p1, v0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->provisionUser(ILcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;)V
+    const/4 v13, 0x0
 
-    return-void
+    :try_start_0
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    const-string/jumbo v15, "ClientCertificateManagerTable"
+
+    const-string/jumbo v16, "uid"
+
+    const/16 v17, 0x0
+
+    invoke-virtual/range {v14 .. v17}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getIntList(Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentValues;)Ljava/util/List;
+
+    move-result-object v13
+
+    if-eqz v13, :cond_5
+
+    invoke-interface {v13}, Ljava/util/List;->size()I
+
+    move-result v14
+
+    if-lez v14, :cond_5
+
+    const/4 v6, 0x0
+
+    :goto_0
+    invoke-interface {v13}, Ljava/util/List;->size()I
+
+    move-result v14
+
+    if-ge v6, v14, :cond_5
+
+    invoke-interface {v13, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v14
+
+    check-cast v14, Ljava/lang/Integer;
+
+    invoke-virtual {v14}, Ljava/lang/Integer;->intValue()I
+
+    move-result v14
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v14}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getMUMContainerOwnerUid(I)I
+
+    move-result v8
+
+    const/4 v14, -0x1
+
+    if-eq v8, v14, :cond_2
+
+    const/4 v14, 0x2
+
+    new-array v10, v14, [Ljava/lang/String;
+
+    const-string/jumbo v14, "adminUid"
+
+    const/4 v15, 0x0
+
+    aput-object v14, v10, v15
+
+    const-string/jumbo v14, "uid"
+
+    const/4 v15, 0x1
+
+    aput-object v14, v10, v15
+
+    const/4 v14, 0x2
+
+    new-array v12, v14, [Ljava/lang/String;
+
+    invoke-static {v8}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v14
+
+    const/4 v15, 0x0
+
+    aput-object v14, v12, v15
+
+    invoke-interface {v13, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v14
+
+    check-cast v14, Ljava/lang/Integer;
+
+    invoke-virtual {v14}, Ljava/lang/Integer;->intValue()I
+
+    move-result v14
+
+    invoke-static {v14}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v14
+
+    const/4 v15, 0x1
+
+    aput-object v14, v12, v15
+
+    const/4 v14, 0x2
+
+    new-array v11, v14, [Ljava/lang/String;
+
+    const-string/jumbo v14, "accessType"
+
+    const/4 v15, 0x0
+
+    aput-object v14, v11, v15
+
+    const-string/jumbo v14, "slotId"
+
+    const/4 v15, 0x1
+
+    aput-object v14, v11, v15
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    const-string/jumbo v15, "ClientCertificateManagerTable"
+
+    invoke-virtual {v14, v15, v10, v12, v11}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getDataByFields(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Ljava/util/ArrayList;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_2
+
+    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
+
+    move-result v14
+
+    if-eqz v14, :cond_2
+
+    const/4 v14, 0x0
+
+    invoke-virtual {v4, v14}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/content/ContentValues;
+
+    if-nez v3, :cond_0
+
+    sget-object v14, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v15, "contentvalue is null"
+
+    invoke-static {v14, v15}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v14, 0x0
+
+    return v14
+
+    :cond_0
+    const-string/jumbo v14, "accessType"
+
+    invoke-virtual {v3, v14}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    sget-boolean v14, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v14, :cond_1
+
+    sget-object v15, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    new-instance v14, Ljava/lang/StringBuilder;
+
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v16, "(notifyLicenseStatusInternal)uid="
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v14, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    invoke-interface {v13, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v14
+
+    check-cast v14, Ljava/lang/Integer;
+
+    invoke-virtual {v14}, Ljava/lang/Integer;->intValue()I
+
+    move-result v14
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    const-string/jumbo v16, ",adminid="
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v14, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    const-string/jumbo v16, ",CAT="
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v14, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-static {v15, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    const-string/jumbo v14, "AFW"
+
+    invoke-virtual {v14, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_3
+
+    sget-object v14, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mLicenseHandler:Landroid/os/Handler;
+
+    invoke-virtual {v14}, Landroid/os/Handler;->obtainMessage()Landroid/os/Message;
+
+    move-result-object v7
+
+    const/4 v14, 0x2
+
+    iput v14, v7, Landroid/os/Message;->what:I
+
+    iput v8, v7, Landroid/os/Message;->arg1:I
+
+    invoke-interface {v13, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v14
+
+    check-cast v14, Ljava/lang/Integer;
+
+    invoke-virtual {v14}, Ljava/lang/Integer;->intValue()I
+
+    move-result v14
+
+    iput v14, v7, Landroid/os/Message;->arg2:I
+
+    const-string/jumbo v14, "LOCK_STATE"
+
+    iput-object v14, v7, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    sget-object v14, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mLicenseHandler:Landroid/os/Handler;
+
+    const-wide/16 v16, 0x5dc
+
+    move-wide/from16 v0, v16
+
+    invoke-virtual {v14, v7, v0, v1}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
+
+    :cond_2
+    :goto_1
+    add-int/lit8 v6, v6, 0x1
+
+    goto/16 :goto_0
+
+    :cond_3
+    const-string/jumbo v14, "LOCK_STATE"
+
+    invoke-virtual {v14, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_2
+
+    sget-object v14, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mLicenseHandler:Landroid/os/Handler;
+
+    invoke-virtual {v14}, Landroid/os/Handler;->obtainMessage()Landroid/os/Message;
+
+    move-result-object v7
+
+    const/4 v14, 0x2
+
+    iput v14, v7, Landroid/os/Message;->what:I
+
+    iput v8, v7, Landroid/os/Message;->arg1:I
+
+    invoke-interface {v13, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v14
+
+    check-cast v14, Ljava/lang/Integer;
+
+    invoke-virtual {v14}, Ljava/lang/Integer;->intValue()I
+
+    move-result v14
+
+    iput v14, v7, Landroid/os/Message;->arg2:I
+
+    const-string/jumbo v14, "AFW"
+
+    iput-object v14, v7, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    sget-object v14, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mLicenseHandler:Landroid/os/Handler;
+
+    const-wide/16 v16, 0x5dc
+
+    move-wide/from16 v0, v16
+
+    invoke-virtual {v14, v7, v0, v1}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_1
+
+    :catch_0
+    move-exception v5
+
+    sget-boolean v14, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v14, :cond_4
+
+    sget-object v14, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    new-instance v15, Ljava/lang/StringBuilder;
+
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v16, "notifyLicenseStatusInternal Exception"
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v5}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+
+    move-result-object v16
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-static {v14, v15}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_4
+    const/4 v9, 0x0
+
+    :cond_5
+    return v9
 .end method
 
 .method private provisionUser(ILcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;)V
@@ -6717,47 +7632,178 @@
     return-void
 .end method
 
-.method private registerPersonaObserver(I)V
-    .locals 3
+.method private removeAllGrants()V
+    .locals 5
 
-    iget-object v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mPersonaMgr:Lcom/samsung/android/knox/SemPersonaManager;
+    iget-boolean v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mIsTimaVersion30:Z
 
-    invoke-virtual {v1, p1}, Lcom/samsung/android/knox/SemPersonaManager;->exists(I)Z
+    if-nez v1, :cond_1
 
-    move-result v1
+    sget-boolean v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mPersonaObservers:Ljava/util/HashMap;
+    sget-object v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const-string/jumbo v2, "removeAllGrants - TIMA version does not include CCM"
 
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    if-nez v1, :cond_0
-
-    new-instance v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager$PersonaObserver;
-
-    iget-object v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mContext:Landroid/content/Context;
-
-    const/4 v2, 0x1
-
-    invoke-direct {v0, p0, v1, p1, v2}, Lcom/android/server/enterprise/ccm/ClientCertificateManager$PersonaObserver;-><init>(Lcom/android/server/enterprise/ccm/ClientCertificateManager;Landroid/content/Context;II)V
-
-    iget-object v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mPersonaObservers:Ljava/util/HashMap;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     return-void
+
+    :cond_1
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    const-string/jumbo v2, "CCMCertGrantTable"
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v1, v2, v3, v4}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->deleteDataByFields(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_2
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    sget-boolean v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v1, :cond_2
+
+    sget-object v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "removeAllGrants - Exception"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+.end method
+
+.method private removeGrantsForAlias(Ljava/lang/String;)V
+    .locals 6
+
+    iget-boolean v3, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mIsTimaVersion30:Z
+
+    if-nez v3, :cond_1
+
+    sget-boolean v3, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v3, :cond_0
+
+    sget-object v3, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v4, "removeGrantsForAlias - TIMA version does not include CCM"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    return-void
+
+    :cond_1
+    if-eqz p1, :cond_2
+
+    invoke-virtual {p1}, Ljava/lang/String;->length()I
+
+    move-result v3
+
+    if-nez v3, :cond_3
+
+    :cond_2
+    return-void
+
+    :cond_3
+    const/4 v3, 0x1
+
+    :try_start_0
+    new-array v1, v3, [Ljava/lang/String;
+
+    const-string/jumbo v3, "alias"
+
+    const/4 v4, 0x0
+
+    aput-object v3, v1, v4
+
+    const/4 v3, 0x1
+
+    new-array v2, v3, [Ljava/lang/String;
+
+    const/4 v3, 0x0
+
+    aput-object p1, v2, v3
+
+    iget-object v3, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    const-string/jumbo v4, "CCMCertGrantTable"
+
+    invoke-virtual {v3, v4, v1, v2}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->deleteDataByFields(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_4
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    sget-boolean v3, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v3, :cond_4
+
+    sget-object v3, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "removeGrantsForAlias - Exception"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 .end method
 
 .method private resetDefaultCCMProfile(II)V
@@ -7410,6 +8456,132 @@
     goto :goto_0
 .end method
 
+.method private setGrantInternal(ILjava/lang/String;Z)V
+    .locals 7
+
+    sget-boolean v4, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v4, :cond_0
+
+    sget-object v4, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "In setGrantInternal - uid"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, ",alias:"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, ",value:"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, p3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    const/4 v0, 0x0
+
+    if-eqz p3, :cond_1
+
+    const/4 v0, 0x2
+
+    :goto_0
+    :try_start_0
+    new-instance v1, Landroid/content/ContentValues;
+
+    invoke-direct {v1}, Landroid/content/ContentValues;-><init>()V
+
+    const-string/jumbo v4, "callingUid"
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    invoke-virtual {v1, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    const-string/jumbo v4, "alias"
+
+    invoke-virtual {v1, v4, p2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string/jumbo v4, "allow"
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    invoke-virtual {v1, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    new-instance v2, Landroid/content/ContentValues;
+
+    invoke-direct {v2}, Landroid/content/ContentValues;-><init>()V
+
+    const-string/jumbo v4, "callingUid"
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    invoke-virtual {v2, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    const-string/jumbo v4, "alias"
+
+    invoke-virtual {v2, v4, p2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v4, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    const-string/jumbo v5, "CCMCertGrantTable"
+
+    invoke-virtual {v4, v5, v1, v2}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putValues(Ljava/lang/String;Landroid/content/ContentValues;Landroid/content/ContentValues;)Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_1
+    return-void
+
+    :cond_1
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v3
+
+    sget-object v4, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v5, "setGrantInternal() failed"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+.end method
+
 .method private setupIntentFilters()V
     .locals 3
 
@@ -7459,6 +8631,26 @@
     return-void
 .end method
 
+.method private setupPersonaStateReceiver()V
+    .locals 2
+
+    sget-object v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v1, " setupPersonaStateReceiver called1"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mContext:Landroid/content/Context;
+
+    new-instance v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager$3;
+
+    invoke-direct {v1, p0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager$3;-><init>(Lcom/android/server/enterprise/ccm/ClientCertificateManager;)V
+
+    invoke-static {v0, v1}, Landroid/os/ContainerStateReceiver;->register(Landroid/content/Context;Landroid/os/ContainerStateReceiver;)V
+
+    return-void
+.end method
+
 .method private unloadTui()Z
     .locals 3
 
@@ -7499,34 +8691,274 @@
     goto :goto_0
 .end method
 
-.method private unregisterPersonaObserver(I)V
-    .locals 3
+.method private updateAccessMethod(Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;I)Z
+    .locals 8
 
-    iget-object v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mPersonaObservers:Ljava/util/HashMap;
+    new-instance v2, Lcom/samsung/android/knox/keystore/CCMProfile;
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-direct {v2}, Lcom/samsung/android/knox/keystore/CCMProfile;-><init>()V
 
-    move-result-object v2
+    iput-object p1, v2, Lcom/samsung/android/knox/keystore/CCMProfile;->accessControlMethod:Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
 
-    invoke-virtual {v1, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    sget-object v3, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "updateAccessMethod uid:"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-direct {p0, p2}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getProfileOwnerUid(I)I
+
+    move-result v7
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v3, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-direct {p0, p2}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getProfileOwnerUid(I)I
+
+    move-result v3
+
+    iget-object v6, v2, Lcom/samsung/android/knox/keystore/CCMProfile;->accessControlMethod:Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
+
+    invoke-virtual {v6}, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;->getValue()I
+
+    move-result v6
+
+    const/4 v7, 0x0
+
+    invoke-static {v3, p2, v6, v7}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->ccm_create_slot(IIILjava/lang/String;)J
+
+    move-result-wide v4
+
+    const-wide v6, 0xffffffffL
+
+    cmp-long v3, v6, v4
+
+    if-nez v3, :cond_1
+
+    sget-boolean v3, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v3, :cond_0
+
+    sget-object v3, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v6, "updateAccessMethod - native create_slot failed"
+
+    invoke-static {v3, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    const/4 v3, 0x0
+
+    return v3
+
+    :cond_1
+    new-instance v0, Landroid/content/ContentValues;
+
+    invoke-direct {v0}, Landroid/content/ContentValues;-><init>()V
+
+    const-string/jumbo v3, "accessType"
+
+    iget-object v6, v2, Lcom/samsung/android/knox/keystore/CCMProfile;->accessControlMethod:Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
+
+    invoke-virtual {v6}, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;->name()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v0, v3, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    new-instance v1, Landroid/content/ContentValues;
+
+    invoke-direct {v1}, Landroid/content/ContentValues;-><init>()V
+
+    const-string/jumbo v3, "uid"
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v1, v3, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    const-string/jumbo v3, "adminUid"
+
+    invoke-direct {p0, p2}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getProfileOwnerUid(I)I
+
+    move-result v6
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v1, v3, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    iget-object v3, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    const-string/jumbo v6, "ClientCertificateManagerTable"
+
+    invoke-virtual {v3, v6, v0, v1}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putValues(Ljava/lang/String;Landroid/content/ContentValues;Landroid/content/ContentValues;)Z
+
+    const/4 v3, 0x1
+
+    return v3
+.end method
+
+.method private updateContainerLockStatus()V
+    .locals 10
+
+    const/4 v9, 0x1
+
+    const/4 v8, 0x0
+
+    const/4 v4, 0x0
+
+    iget-object v5, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v6, "user"
+
+    invoke-virtual {v5, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/os/UserManager;
+
+    iget-object v5, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v6, "keyguard"
+
+    invoke-virtual {v5, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager$PersonaObserver;
+    check-cast v0, Landroid/app/KeyguardManager;
 
-    if-eqz v0, :cond_0
+    if-eqz v3, :cond_0
 
-    invoke-virtual {v0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager$PersonaObserver;->unregisterPersonaObserverReceiver()V
+    invoke-virtual {v3, v8}, Landroid/os/UserManager;->getProfiles(I)Ljava/util/List;
 
-    iget-object v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mPersonaObservers:Ljava/util/HashMap;
+    move-result-object v4
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    :cond_0
+    invoke-interface {v4}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    :cond_1
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    :cond_0
+    move-result v5
+
+    if-eqz v5, :cond_3
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/content/pm/UserInfo;
+
+    iget v5, v1, Landroid/content/pm/UserInfo;->id:I
+
+    invoke-direct {p0, v5}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->isKnoxWorkSpace(I)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    sget-boolean v5, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v5, :cond_2
+
+    sget-object v5, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "updateContainerLockStatus():userid:"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    iget v7, v1, Landroid/content/pm/UserInfo;->id:I
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, ",isDevicelocked:"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    iget v7, v1, Landroid/content/pm/UserInfo;->id:I
+
+    invoke-virtual {v0, v7}, Landroid/app/KeyguardManager;->isDeviceLocked(I)Z
+
+    move-result v7
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, ",isDeviceSecure:"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    iget v7, v1, Landroid/content/pm/UserInfo;->id:I
+
+    invoke-virtual {v0, v7}, Landroid/app/KeyguardManager;->isDeviceSecure(I)Z
+
+    move-result v7
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_2
+    iget v5, v1, Landroid/content/pm/UserInfo;->id:I
+
+    invoke-virtual {v0, v5}, Landroid/app/KeyguardManager;->isDeviceSecure(I)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    iget v5, v1, Landroid/content/pm/UserInfo;->id:I
+
+    invoke-virtual {v0, v5}, Landroid/app/KeyguardManager;->isDeviceLocked(I)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    iget v5, v1, Landroid/content/pm/UserInfo;->id:I
+
+    invoke-direct {p0, v5, v9, v9, v8}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->updateLockStatus(IZZZ)Z
+
+    goto :goto_0
+
+    :cond_3
     return-void
 .end method
 
@@ -7702,81 +9134,70 @@
 .end method
 
 .method private updateLockStatus(IZZZ)Z
-    .locals 11
+    .locals 10
 
-    const/4 v10, 0x0
+    const/4 v9, 0x0
 
     const/4 v1, 0x0
 
     const/4 v3, 0x0
 
-    iget-boolean v8, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mIsTimaVersion30:Z
+    iget-boolean v7, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mIsTimaVersion30:Z
 
-    if-nez v8, :cond_1
+    if-nez v7, :cond_1
 
-    sget-boolean v8, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    sget-boolean v7, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    if-eqz v8, :cond_0
+    if-eqz v7, :cond_0
 
-    sget-object v8, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    sget-object v7, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v9, "updateLockStatus - TIMA version does not include CCM"
+    const-string/jumbo v8, "updateLockStatus - TIMA version does not include CCM"
 
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    return v10
+    return v9
 
     :cond_1
     if-nez p4, :cond_2
 
     :try_start_0
-    iget v8, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mSlotCount:I
+    iget v7, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mSlotCount:I
 
-    if-gtz v8, :cond_2
+    if-gtz v7, :cond_2
 
-    return v10
+    return v9
 
     :cond_2
     if-eqz p2, :cond_4
 
-    const/4 v8, 0x0
+    const/4 v7, 0x0
 
-    invoke-static {v8, p1, p3}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->ccm_update_lock_status(IIZ)J
+    invoke-static {v7, p1, p3}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->ccm_update_lock_status(IIZ)J
 
     :cond_3
     :goto_0
-    const/4 v8, 0x1
+    const/4 v7, 0x1
 
-    return v8
+    return v7
 
     :cond_4
-    const/4 v7, 0x0
+    const/4 v6, 0x0
 
-    iget-object v8, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v9, "user"
-
-    invoke-virtual {v8, v9}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Landroid/os/UserManager;
-
-    if-eqz v6, :cond_5
+    iget-object v7, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mUm:Landroid/os/UserManager;
 
     const/4 v8, 0x0
 
-    invoke-virtual {v6, v8}, Landroid/os/UserManager;->getProfiles(I)Ljava/util/List;
+    invoke-virtual {v7, v8}, Landroid/os/UserManager;->getProfiles(I)Ljava/util/List;
 
-    move-result-object v7
+    move-result-object v6
 
-    :cond_5
-    iget-object v8, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mContext:Landroid/content/Context;
+    iget-object v7, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v9, "keyguard"
+    const-string/jumbo v8, "keyguard"
 
-    invoke-virtual {v8, v9}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v7, v8}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -7786,18 +9207,18 @@
 
     move-result v1
 
-    if-eqz v7, :cond_7
+    if-eqz v6, :cond_6
 
-    invoke-interface {v7}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {v6}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v5
 
     :goto_1
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v8
+    move-result v7
 
-    if-eqz v8, :cond_3
+    if-eqz v7, :cond_3
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -7805,35 +9226,50 @@
 
     check-cast v4, Landroid/content/pm/UserInfo;
 
-    invoke-virtual {v4}, Landroid/content/pm/UserInfo;->isKnoxWorkspace()Z
+    sget-boolean v7, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    move-result v8
+    if-eqz v7, :cond_5
 
-    if-eqz v8, :cond_6
+    sget-object v7, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    sget-object v8, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    new-instance v8, Ljava/lang/StringBuilder;
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v9, "updateLockStatus, user.id "
 
-    const-string/jumbo v10, "skipping updateLockStatus for KnoxWorkspace, user.id "
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v8
 
-    move-result-object v9
+    iget v9, v4, Landroid/content/pm/UserInfo;->id:I
 
-    iget v10, v4, Landroid/content/pm/UserInfo;->id:I
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v8
 
-    move-result-object v9
+    const-string/jumbo v9, ", locked : "
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v8
 
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_5
+    iget v7, v4, Landroid/content/pm/UserInfo;->id:I
+
+    const/4 v8, 0x0
+
+    invoke-static {v8, v7, v1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->ccm_update_lock_status(IIZ)J
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -7848,52 +9284,19 @@
 
     :cond_6
     :try_start_1
-    sget-object v8, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    sget-object v7, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    const-string/jumbo v8, "updateLockStatus, users null, so falling back to just userId"
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v10, "updateLockStatus, user.id "
+    const/4 v7, 0x0
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    iget v10, v4, Landroid/content/pm/UserInfo;->id:I
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget v8, v4, Landroid/content/pm/UserInfo;->id:I
-
-    const/4 v9, 0x0
-
-    invoke-static {v9, v8, v1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->ccm_update_lock_status(IIZ)J
-
-    goto :goto_1
-
-    :cond_7
-    sget-object v8, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v9, "updateLockStatus, users null, so falling back to just userId"
-
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v8, 0x0
-
-    invoke-static {v8, p1, v1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->ccm_update_lock_status(IIZ)J
+    invoke-static {v7, p1, v1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->ccm_update_lock_status(IIZ)J
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto/16 :goto_0
+    goto :goto_0
 .end method
 
 .method private validateCallerContainer(Lcom/samsung/android/knox/ContextInfo;I)Z
@@ -7976,9 +9379,11 @@
     :cond_0
     if-eq v2, p2, :cond_6
 
-    const/16 v5, 0x64
+    invoke-direct {p0, v2}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->isKnoxWorkSpace(I)Z
 
-    if-ge v2, v5, :cond_2
+    move-result v5
+
+    if-nez v5, :cond_2
 
     if-le v2, v8, :cond_2
 
@@ -8940,13 +10345,28 @@
 
     const/4 v6, 0x0
 
-    invoke-direct {p0, p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->fixContextInfoForMP(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
+    if-eqz p1, :cond_0
 
-    move-result-object p1
+    if-nez p2, :cond_2
 
+    :cond_0
     sget-boolean v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
+
+    sget-object v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v3, "addPackageToExemptList - Invalid input"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    return v6
+
+    :cond_2
+    sget-boolean v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v2, :cond_3
 
     sget-object v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
@@ -8974,30 +10394,15 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_0
+    :cond_3
+    invoke-direct {p0, p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->fixContextInfoForMP(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
+
+    move-result-object p1
+
     invoke-direct {p0, p2}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getValidString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p2
 
-    if-eqz p1, :cond_1
-
-    if-nez p2, :cond_3
-
-    :cond_1
-    sget-boolean v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
-
-    if-eqz v2, :cond_2
-
-    sget-object v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v3, "addPackageToExemptList - Invalid input"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_2
-    return v6
-
-    :cond_3
     sget-boolean v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
     if-eqz v2, :cond_4
@@ -9243,7 +10648,7 @@
 
     move-result v0
 
-    invoke-direct {p0, v0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->checkAFW(I)Z
+    invoke-direct {p0, v0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->isCCMDefaultCertStore(I)Z
 
     move-result v1
 
@@ -9252,26 +10657,6 @@
     sget-boolean v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
     if-eqz v1, :cond_5
-
-    sget-object v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v2, "deleteCCMProfile - Ignore user operation inAFW"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_5
-    return v3
-
-    :cond_6
-    invoke-direct {p0, v0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->isCCMDefaultCertStore(I)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_8
-
-    sget-boolean v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
-
-    if-eqz v1, :cond_7
 
     sget-object v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
@@ -9295,7 +10680,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_7
+    :cond_5
     const/4 v1, -0x1
 
     invoke-direct {p0, v1, v0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->deleteCSRProfileUsingAdminId(II)Z
@@ -9308,18 +10693,18 @@
 
     return v4
 
-    :cond_8
+    :cond_6
     iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
     invoke-virtual {p0, v1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->isCCMPolicyEnabledByAdmin(I)Z
 
     move-result v1
 
-    if-nez v1, :cond_a
+    if-nez v1, :cond_8
 
     sget-boolean v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_7
 
     sget-object v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
@@ -9327,21 +10712,21 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_9
+    :cond_7
     return v3
 
-    :cond_a
+    :cond_8
     iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
     invoke-direct {p0, v1, v0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->deleteCSRProfileUsingAdminId(II)Z
 
     move-result v1
 
-    if-nez v1, :cond_b
+    if-nez v1, :cond_9
 
     sget-boolean v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_9
 
     sget-object v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
@@ -9349,10 +10734,32 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_b
+    :cond_9
     iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
     invoke-direct {p0, v1, v0, v3}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->deleteCertificateProfileUsingAdminId(IIZ)Z
+
+    move-result v1
+
+    if-nez v1, :cond_b
+
+    sget-boolean v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v1, :cond_a
+
+    sget-object v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v2, "in deleteCCMProfile - failed to delete certificates"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_a
+    return v3
+
+    :cond_b
+    iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-direct {p0, v1, v0, v3}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->deleteCCMProfileUsingAdminId(IIZ)Z
 
     move-result v1
 
@@ -9364,7 +10771,7 @@
 
     sget-object v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v2, "in deleteCCMProfile - failed to delete certificates"
+    const-string/jumbo v2, "in deleteCCMProfile - failed to delete profile"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -9372,28 +10779,8 @@
     return v3
 
     :cond_d
-    iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    invoke-direct {p0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->removeAllGrants()V
 
-    invoke-direct {p0, v1, v0, v3}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->deleteCCMProfileUsingAdminId(IIZ)Z
-
-    move-result v1
-
-    if-nez v1, :cond_f
-
-    sget-boolean v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
-
-    if-eqz v1, :cond_e
-
-    sget-object v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v2, "in deleteCCMProfile - failed to delete profile"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_e
-    return v3
-
-    :cond_f
     invoke-direct {p0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getSlotCount()I
 
     move-result v1
@@ -10009,6 +11396,462 @@
     return-object v2
 .end method
 
+.method public generateCSRUsingByteArray(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Ljava/lang/String;[BI)[B
+    .locals 10
+
+    sget-boolean v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v2, :cond_0
+
+    sget-object v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v3, "in generateCSRUsingByteArray"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    invoke-direct {p0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->isDelegatedAppSupported()Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    const/4 v2, 0x0
+
+    return-object v2
+
+    :cond_1
+    iget-boolean v2, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mIsTimaVersion30:Z
+
+    if-nez v2, :cond_3
+
+    sget-boolean v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v2, :cond_2
+
+    sget-object v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v3, "generateCSRUsingByteArray - TIMA version does not include CCM"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_2
+    const/4 v2, 0x0
+
+    return-object v2
+
+    :cond_3
+    if-eqz p2, :cond_4
+
+    if-nez p4, :cond_6
+
+    :cond_4
+    sget-boolean v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v2, :cond_5
+
+    sget-object v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v3, "generateCSRUsingByteArray - Invalid Arguments"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_5
+    const/4 v2, 0x0
+
+    return-object v2
+
+    :cond_6
+    if-eqz p1, :cond_4
+
+    invoke-virtual {p2}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    if-eqz v2, :cond_4
+
+    if-eqz p3, :cond_7
+
+    invoke-virtual {p3}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    const/16 v3, 0x40
+
+    if-gt v2, v3, :cond_4
+
+    :cond_7
+    invoke-direct {p0, p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->fixContextInfoForMP(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
+
+    move-result-object p1
+
+    array-length v2, p4
+
+    const/16 v3, 0x200
+
+    if-le v2, v3, :cond_9
+
+    sget-boolean v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v2, :cond_8
+
+    sget-object v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v3, "generateCSRUsingByteArray - subject length exceeds maximum value 512"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_8
+    const/4 v2, 0x0
+
+    return-object v2
+
+    :cond_9
+    invoke-virtual {p0, p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->isCCMPolicyEnabledForCaller(Lcom/samsung/android/knox/ContextInfo;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_b
+
+    sget-boolean v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v2, :cond_a
+
+    sget-object v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v3, "generateCSRUsingByteArray - CCM is not enabled for caller"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_a
+    const/4 v2, 0x0
+
+    return-object v2
+
+    :cond_b
+    invoke-direct {p0, p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
+
+    move-result v1
+
+    const/4 v2, 0x0
+
+    invoke-direct {p0, p1, v1, v2}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getAdminIdForCaller(Lcom/samsung/android/knox/ContextInfo;ILjava/util/List;)I
+
+    move-result v0
+
+    const/4 v2, -0x1
+
+    if-ne v2, v0, :cond_d
+
+    sget-boolean v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v2, :cond_c
+
+    sget-object v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v3, "generateCSRUsingByteArray - failed to get admin Id"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_c
+    const/4 v2, 0x0
+
+    return-object v2
+
+    :cond_d
+    sget-boolean v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v2, :cond_e
+
+    sget-object v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "generateCSRUsingByteArray - challengePassword is "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_e
+    const/4 v7, 0x0
+
+    const/4 v5, 0x0
+
+    if-eqz p3, :cond_13
+
+    invoke-virtual {p3}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    if-lez v2, :cond_13
+
+    :try_start_0
+    new-instance v9, Lcom/android/org/bouncycastle/asn1/ASN1EncodableVector;
+
+    invoke-direct {v9}, Lcom/android/org/bouncycastle/asn1/ASN1EncodableVector;-><init>()V
+
+    new-instance v2, Lcom/android/org/bouncycastle/asn1/DERPrintableString;
+
+    invoke-direct {v2, p3}, Lcom/android/org/bouncycastle/asn1/DERPrintableString;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v9, v2}, Lcom/android/org/bouncycastle/asn1/ASN1EncodableVector;->add(Lcom/android/org/bouncycastle/asn1/ASN1Encodable;)V
+
+    new-instance v6, Lcom/android/org/bouncycastle/asn1/x509/Attribute;
+
+    sget-object v2, Lcom/android/org/bouncycastle/asn1/pkcs/PKCSObjectIdentifiers;->pkcs_9_at_challengePassword:Lcom/android/org/bouncycastle/asn1/ASN1ObjectIdentifier;
+
+    new-instance v3, Lcom/android/org/bouncycastle/asn1/DERSet;
+
+    invoke-direct {v3, v9}, Lcom/android/org/bouncycastle/asn1/DERSet;-><init>(Lcom/android/org/bouncycastle/asn1/ASN1EncodableVector;)V
+
+    invoke-direct {v6, v2, v3}, Lcom/android/org/bouncycastle/asn1/x509/Attribute;-><init>(Lcom/android/org/bouncycastle/asn1/ASN1ObjectIdentifier;Lcom/android/org/bouncycastle/asn1/ASN1Set;)V
+
+    invoke-virtual {v6}, Lcom/android/org/bouncycastle/asn1/x509/Attribute;->getEncoded()[B
+
+    move-result-object v7
+
+    array-length v2, v7
+
+    const/16 v3, 0x7f
+
+    if-le v2, v3, :cond_10
+
+    sget-boolean v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v2, :cond_f
+
+    sget-object v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v3, "generateCSRUsingByteArray - challenge password too long"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_f
+    const/4 v2, 0x0
+
+    return-object v2
+
+    :cond_10
+    array-length v2, v7
+
+    if-gtz v2, :cond_12
+
+    sget-boolean v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v2, :cond_11
+
+    sget-object v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v3, "generateCSRUsingByteArray - challenge password length equal or less than 0"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_11
+    const/4 v2, 0x0
+
+    return-object v2
+
+    :cond_12
+    array-length v2, v7
+
+    add-int/lit8 v2, v2, 0x2
+
+    new-array v5, v2, [B
+
+    array-length v2, v7
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x2
+
+    invoke-static {v7, v3, v5, v4, v2}, Ljava/lang/System;->arraycopy([BI[BII)V
+
+    const/16 v2, -0x60
+
+    const/4 v3, 0x0
+
+    aput-byte v2, v5, v3
+
+    array-length v2, v7
+
+    int-to-byte v2, v2
+
+    const/4 v3, 0x1
+
+    aput-byte v2, v5, v3
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_13
+    :goto_0
+    move v2, p5
+
+    move-object v3, p4
+
+    move-object v4, p2
+
+    invoke-static/range {v0 .. v5}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->ccm_gen_csr_without_template(III[BLjava/lang/String;[B)[B
+
+    move-result-object v2
+
+    return-object v2
+
+    :catch_0
+    move-exception v8
+
+    sget-boolean v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v2, :cond_13
+
+    sget-object v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "generateCSRUsingByteArray - encode challengePassword Exception "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v8}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+.end method
+
+.method public generateCSRUsingString(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)[B
+    .locals 8
+
+    const/4 v3, 0x0
+
+    sget-boolean v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v0, :cond_0
+
+    sget-object v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v1, "in generateCSRUsingString"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    invoke-direct {p0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->isDelegatedAppSupported()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    return-object v3
+
+    :cond_1
+    if-nez p4, :cond_3
+
+    sget-boolean v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v0, :cond_2
+
+    sget-object v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v1, "generateCSRUsingString - Invalid Arguments"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_2
+    return-object v3
+
+    :cond_3
+    const/4 v4, 0x0
+
+    :try_start_0
+    new-instance v7, Lcom/android/org/bouncycastle/jce/X509Principal;
+
+    invoke-direct {v7, p4}, Lcom/android/org/bouncycastle/jce/X509Principal;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v7}, Lcom/android/org/bouncycastle/jce/X509Principal;->getEncoded()[B
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v4
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move-object v2, p2
+
+    move-object v3, p3
+
+    move v5, p5
+
+    invoke-virtual/range {v0 .. v5}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->generateCSRUsingByteArray(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Ljava/lang/String;[BI)[B
+
+    move-result-object v0
+
+    return-object v0
+
+    :catch_0
+    move-exception v6
+
+    sget-boolean v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v0, :cond_4
+
+    sget-object v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "in generateCSRUsingString - x509Principal Exception "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v6}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_4
+    return-object v3
+.end method
+
 .method public generateCSRUsingTemplate(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)[B
     .locals 11
 
@@ -10311,6 +12154,133 @@
     move-result-object v7
 
     return-object v7
+.end method
+
+.method public generateKeyPair(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;I)[B
+    .locals 6
+
+    const/4 v5, 0x0
+
+    sget-boolean v3, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v3, :cond_0
+
+    sget-object v3, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v4, "in generateKeyPair"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    invoke-direct {p0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->isDelegatedAppSupported()Z
+
+    move-result v3
+
+    if-nez v3, :cond_1
+
+    return-object v5
+
+    :cond_1
+    invoke-direct {p0, p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->fixContextInfoForMP(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
+
+    move-result-object p1
+
+    iget-boolean v3, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mIsTimaVersion30:Z
+
+    if-nez v3, :cond_3
+
+    sget-boolean v3, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v3, :cond_2
+
+    sget-object v3, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v4, "generateKeyPair - TIMA version does not include CCM"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_2
+    return-object v5
+
+    :cond_3
+    invoke-virtual {p0, p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->isCCMPolicyEnabledForCaller(Lcom/samsung/android/knox/ContextInfo;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_5
+
+    sget-boolean v3, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v3, :cond_4
+
+    sget-object v3, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v4, "generateKeyPair - CCM is not enabled for caller"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_4
+    return-object v5
+
+    :cond_5
+    invoke-direct {p0, p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
+
+    move-result v2
+
+    invoke-direct {p0, p1, v2, v5}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getAdminIdForCaller(Lcom/samsung/android/knox/ContextInfo;ILjava/util/List;)I
+
+    move-result v0
+
+    const/4 v3, -0x1
+
+    if-ne v3, v0, :cond_7
+
+    sget-boolean v3, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v3, :cond_6
+
+    sget-object v3, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v4, "generateKeyPair - failed to get admin Id"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_6
+    return-object v5
+
+    :cond_7
+    invoke-static {v0, v2, p2, p3}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->ccm_gen_key_pair(IILjava/lang/String;I)[B
+
+    move-result-object v1
+
+    if-nez v1, :cond_9
+
+    sget-boolean v3, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v3, :cond_8
+
+    sget-object v3, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v4, "generateKeyPair - failed in ccm_gen_key_pair"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_8
+    return-object v5
+
+    :cond_9
+    sget-boolean v3, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v3, :cond_a
+
+    sget-object v3, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v4, "generateKeyPair - succeed in ccm_gen_key_pair"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_a
+    return-object v1
 .end method
 
 .method public getAliasesForCaller(Lcom/samsung/android/knox/ContextInfo;)Ljava/util/List;
@@ -10935,414 +12905,503 @@
 .end method
 
 .method public getCCMProfile(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/keystore/CCMProfile;
-    .locals 14
+    .locals 21
 
-    const/4 v13, 0x0
+    new-instance v13, Lcom/samsung/android/knox/keystore/CCMProfile;
 
-    new-instance v5, Lcom/samsung/android/knox/keystore/CCMProfile;
+    invoke-direct {v13}, Lcom/samsung/android/knox/keystore/CCMProfile;-><init>()V
 
-    invoke-direct {v5}, Lcom/samsung/android/knox/keystore/CCMProfile;-><init>()V
+    sget-boolean v18, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    sget-boolean v10, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    if-eqz v18, :cond_0
 
-    if-eqz v10, :cond_0
+    sget-object v18, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    sget-object v10, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    const-string/jumbo v19, "in getCCMProfile"
 
-    const-string/jumbo v11, "in getCCMProfile"
-
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    invoke-direct {p0, p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->fixContextInfoForMP(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
+    invoke-direct/range {p0 .. p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->fixContextInfoForMP(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
     move-result-object p1
 
     if-nez p1, :cond_2
 
-    sget-boolean v10, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    sget-boolean v18, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    if-eqz v10, :cond_1
+    if-eqz v18, :cond_1
 
-    sget-object v10, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    sget-object v18, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v11, "getCCMProfile - null cxtInfo"
+    const-string/jumbo v19, "getCCMProfile - null cxtInfo"
 
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
-    return-object v13
+    const/16 v18, 0x0
+
+    return-object v18
 
     :cond_2
-    iget-boolean v10, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mIsTimaVersion30:Z
+    move-object/from16 v0, p0
 
-    if-nez v10, :cond_4
+    iget-boolean v0, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mIsTimaVersion30:Z
 
-    sget-boolean v10, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    move/from16 v18, v0
 
-    if-eqz v10, :cond_3
+    if-nez v18, :cond_4
 
-    sget-object v10, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    sget-boolean v18, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    const-string/jumbo v11, "getCCMProfile - TIMA version does not include CCM"
+    if-eqz v18, :cond_3
 
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    sget-object v18, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v19, "getCCMProfile - TIMA version does not include CCM"
+
+    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_3
-    return-object v13
+    const/16 v18, 0x0
+
+    return-object v18
 
     :cond_4
     :try_start_0
-    invoke-direct {p0, p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
+    invoke-direct/range {p0 .. p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
 
-    move-result v9
+    move-result v17
 
-    const/4 v10, 0x0
+    const/16 v18, 0x0
 
-    invoke-direct {p0, p1, v9, v10}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getAdminIdForCaller(Lcom/samsung/android/knox/ContextInfo;ILjava/util/List;)I
+    move-object/from16 v0, p0
 
-    move-result v1
+    move-object/from16 v1, p1
 
-    sget-boolean v10, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    move/from16 v2, v17
 
-    if-eqz v10, :cond_5
+    move-object/from16 v3, v18
 
-    sget-object v10, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getAdminIdForCaller(Lcom/samsung/android/knox/ContextInfo;ILjava/util/List;)I
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    move-result v5
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    sget-boolean v18, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    const-string/jumbo v12, "AdminId - "
+    if-eqz v18, :cond_5
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sget-object v18, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    move-result-object v11
+    new-instance v19, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v11
+    const-string/jumbo v20, "AdminId - "
 
-    const-string/jumbo v12, " UserId - "
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v19
 
-    move-result-object v11
+    move-object/from16 v0, v19
 
-    invoke-virtual {v11, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v19
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string/jumbo v20, " UserId - "
 
-    move-result-object v11
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    move/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v19
+
+    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_5
-    const/4 v10, -0x1
+    const/16 v18, -0x1
 
-    if-ne v10, v1, :cond_7
+    move/from16 v0, v18
 
-    sget-boolean v10, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    if-ne v0, v5, :cond_7
 
-    if-eqz v10, :cond_6
+    sget-boolean v18, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    sget-object v10, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    if-eqz v18, :cond_6
 
-    const-string/jumbo v11, "getCCMProfile - admin not found"
+    sget-object v18, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v19, "getCCMProfile - admin not found"
+
+    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_6
-    return-object v13
+    const/16 v18, 0x0
+
+    return-object v18
 
     :cond_7
-    const/4 v10, 0x2
+    const/16 v18, 0x2
 
-    new-array v6, v10, [Ljava/lang/String;
+    move/from16 v0, v18
 
-    const-string/jumbo v10, "adminUid"
+    new-array v14, v0, [Ljava/lang/String;
 
-    const/4 v11, 0x0
+    const-string/jumbo v18, "adminUid"
 
-    aput-object v10, v6, v11
+    const/16 v19, 0x0
 
-    const-string/jumbo v10, "uid"
+    aput-object v18, v14, v19
 
-    const/4 v11, 0x1
+    const-string/jumbo v18, "uid"
 
-    aput-object v10, v6, v11
+    const/16 v19, 0x1
 
-    const/4 v10, 0x2
+    aput-object v18, v14, v19
 
-    new-array v8, v10, [Ljava/lang/String;
+    const/16 v18, 0x2
 
-    invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    move/from16 v0, v18
 
-    move-result-object v10
+    new-array v0, v0, [Ljava/lang/String;
 
-    const/4 v11, 0x0
+    move-object/from16 v16, v0
 
-    aput-object v10, v8, v11
+    invoke-static {v5}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    invoke-static {v9}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    move-result-object v18
 
-    move-result-object v10
+    const/16 v19, 0x0
 
-    const/4 v11, 0x1
+    aput-object v18, v16, v19
 
-    aput-object v10, v8, v11
+    invoke-static/range {v17 .. v17}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    const/4 v10, 0x4
+    move-result-object v18
 
-    new-array v7, v10, [Ljava/lang/String;
+    const/16 v19, 0x1
 
-    const-string/jumbo v10, "accessType"
+    aput-object v18, v16, v19
 
-    const/4 v11, 0x0
+    const/16 v18, 0x4
 
-    aput-object v10, v7, v11
+    move/from16 v0, v18
 
-    const-string/jumbo v10, "allowAllPkgs"
+    new-array v15, v0, [Ljava/lang/String;
 
-    const/4 v11, 0x1
+    const-string/jumbo v18, "accessType"
 
-    aput-object v10, v7, v11
+    const/16 v19, 0x0
 
-    const-string/jumbo v10, "loginRetry"
+    aput-object v18, v15, v19
 
-    const/4 v11, 0x2
+    const-string/jumbo v18, "allowAllPkgs"
 
-    aput-object v10, v7, v11
+    const/16 v19, 0x1
 
-    const-string/jumbo v10, "loginExpiration"
+    aput-object v18, v15, v19
 
-    const/4 v11, 0x3
+    const-string/jumbo v18, "loginRetry"
 
-    aput-object v10, v7, v11
+    const/16 v19, 0x2
 
-    iget-object v10, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    aput-object v18, v15, v19
 
-    const-string/jumbo v11, "ClientCertificateManagerTable"
+    const-string/jumbo v18, "loginExpiration"
 
-    invoke-virtual {v10, v11, v6, v8, v7}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getDataByFields(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Ljava/util/ArrayList;
+    const/16 v19, 0x3
 
-    move-result-object v2
+    aput-object v18, v15, v19
 
-    if-eqz v2, :cond_9
+    move-object/from16 v0, p0
 
-    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+    iget-object v0, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    move-result v10
+    move-object/from16 v18, v0
 
-    if-lez v10, :cond_9
+    const-string/jumbo v19, "ClientCertificateManagerTable"
 
-    const/4 v10, 0x0
+    move-object/from16 v0, v18
 
-    invoke-virtual {v2, v10}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    move-object/from16 v1, v19
 
-    move-result-object v10
+    move-object/from16 v2, v16
 
-    check-cast v10, Landroid/content/ContentValues;
+    invoke-virtual {v0, v1, v14, v2, v15}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getDataByFields(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Ljava/util/ArrayList;
 
-    const-string/jumbo v11, "accessType"
+    move-result-object v8
 
-    invoke-virtual {v10, v11}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
+    if-eqz v8, :cond_c
 
-    move-result-object v0
+    invoke-virtual {v8}, Ljava/util/ArrayList;->size()I
 
-    invoke-static {v0}, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;->valueOf(Ljava/lang/String;)Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
+    move-result v18
 
-    move-result-object v10
+    if-lez v18, :cond_c
 
-    iput-object v10, v5, Lcom/samsung/android/knox/keystore/CCMProfile;->accessControlMethod:Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
+    const/16 v18, 0x0
 
-    const/4 v10, 0x0
+    move/from16 v0, v18
 
-    invoke-virtual {v2, v10}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v8, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v10
+    move-result-object v7
 
-    check-cast v10, Landroid/content/ContentValues;
+    check-cast v7, Landroid/content/ContentValues;
 
-    const-string/jumbo v11, "allowAllPkgs"
+    if-nez v7, :cond_8
 
-    invoke-virtual {v10, v11}, Landroid/content/ContentValues;->getAsBoolean(Ljava/lang/String;)Ljava/lang/Boolean;
+    const/16 v18, 0x0
 
-    move-result-object v10
-
-    invoke-virtual {v10}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v10
-
-    iput-boolean v10, v5, Lcom/samsung/android/knox/keystore/CCMProfile;->whiteListAllPackages:Z
-
-    sget-object v10, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;->TRUSTED_PINPAD:Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
-
-    iget-object v11, v5, Lcom/samsung/android/knox/keystore/CCMProfile;->accessControlMethod:Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
-
-    if-ne v10, v11, :cond_8
-
-    new-instance v10, Lcom/samsung/android/knox/keystore/TUIProperty;
-
-    invoke-direct {v10}, Lcom/samsung/android/knox/keystore/TUIProperty;-><init>()V
-
-    iput-object v10, v5, Lcom/samsung/android/knox/keystore/CCMProfile;->tuiProperty:Lcom/samsung/android/knox/keystore/TUIProperty;
-
-    iget-object v11, v5, Lcom/samsung/android/knox/keystore/CCMProfile;->tuiProperty:Lcom/samsung/android/knox/keystore/TUIProperty;
-
-    const/4 v10, 0x0
-
-    invoke-virtual {v2, v10}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v10
-
-    check-cast v10, Landroid/content/ContentValues;
-
-    const-string/jumbo v12, "loginRetry"
-
-    invoke-virtual {v10, v12}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Ljava/lang/Integer;->intValue()I
-
-    move-result v10
-
-    iput v10, v11, Lcom/samsung/android/knox/keystore/TUIProperty;->loginRetry:I
-
-    iget-object v11, v5, Lcom/samsung/android/knox/keystore/CCMProfile;->tuiProperty:Lcom/samsung/android/knox/keystore/TUIProperty;
-
-    const/4 v10, 0x0
-
-    invoke-virtual {v2, v10}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v10
-
-    check-cast v10, Landroid/content/ContentValues;
-
-    const-string/jumbo v12, "loginExpiration"
-
-    invoke-virtual {v10, v12}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Ljava/lang/Integer;->intValue()I
-
-    move-result v10
-
-    iput v10, v11, Lcom/samsung/android/knox/keystore/TUIProperty;->loginRetry:I
+    return-object v18
 
     :cond_8
-    new-instance v3, Landroid/content/ContentValues;
+    const-string/jumbo v18, "accessType"
 
-    invoke-direct {v3}, Landroid/content/ContentValues;-><init>()V
+    move-object/from16 v0, v18
 
-    const-string/jumbo v10, "adminUid"
+    invoke-virtual {v7, v0}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v4
 
-    move-result-object v11
+    invoke-static {v4}, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;->valueOf(Ljava/lang/String;)Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
 
-    invoke-virtual {v3, v10, v11}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    move-result-object v18
 
-    const-string/jumbo v10, "uid"
+    move-object/from16 v0, v18
 
-    invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    iput-object v0, v13, Lcom/samsung/android/knox/keystore/CCMProfile;->accessControlMethod:Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
 
-    move-result-object v11
+    const-string/jumbo v18, "allowAllPkgs"
 
-    invoke-virtual {v3, v10, v11}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    move-object/from16 v0, v18
 
-    iget-object v10, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    invoke-virtual {v7, v0}, Landroid/content/ContentValues;->getAsBoolean(Ljava/lang/String;)Ljava/lang/Boolean;
 
-    const-string/jumbo v11, "ClientCertificateManagerTable"
+    move-result-object v6
 
-    const-string/jumbo v12, "pkgName"
+    if-eqz v6, :cond_9
 
-    invoke-virtual {v10, v11, v12, v3}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getStringList(Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentValues;)Ljava/util/List;
+    invoke-virtual {v6}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result-object v10
+    move-result v18
 
-    iput-object v10, v5, Lcom/samsung/android/knox/keystore/CCMProfile;->packageList:Ljava/util/List;
+    move/from16 v0, v18
 
-    sget-boolean v10, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    iput-boolean v0, v13, Lcom/samsung/android/knox/keystore/CCMProfile;->whiteListAllPackages:Z
 
-    if-eqz v10, :cond_9
+    :cond_9
+    sget-object v18, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;->TRUSTED_PINPAD:Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
 
-    sget-object v10, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    iget-object v0, v13, Lcom/samsung/android/knox/keystore/CCMProfile;->accessControlMethod:Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    move-object/from16 v19, v0
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    move-object/from16 v0, v18
 
-    const-string/jumbo v12, "PackageList - "
+    move-object/from16 v1, v19
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-ne v0, v1, :cond_b
 
-    move-result-object v11
+    new-instance v18, Lcom/samsung/android/knox/keystore/TUIProperty;
 
-    iget-object v12, v5, Lcom/samsung/android/knox/keystore/CCMProfile;->packageList:Ljava/util/List;
+    invoke-direct/range {v18 .. v18}, Lcom/samsung/android/knox/keystore/TUIProperty;-><init>()V
 
-    invoke-interface {v12}, Ljava/util/List;->toArray()[Ljava/lang/Object;
+    move-object/from16 v0, v18
+
+    iput-object v0, v13, Lcom/samsung/android/knox/keystore/CCMProfile;->tuiProperty:Lcom/samsung/android/knox/keystore/TUIProperty;
+
+    const-string/jumbo v18, "loginRetry"
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v7, v0}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
 
     move-result-object v12
 
-    invoke-static {v12}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
+    const-string/jumbo v18, "loginExpiration"
 
-    move-result-object v12
+    move-object/from16 v0, v18
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7, v0}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
 
     move-result-object v11
 
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    if-eqz v12, :cond_a
+
+    iget-object v0, v13, Lcom/samsung/android/knox/keystore/CCMProfile;->tuiProperty:Lcom/samsung/android/knox/keystore/TUIProperty;
+
+    move-object/from16 v18, v0
+
+    invoke-virtual {v12}, Ljava/lang/Integer;->intValue()I
+
+    move-result v19
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, v18
+
+    iput v0, v1, Lcom/samsung/android/knox/keystore/TUIProperty;->loginRetry:I
+
+    :cond_a
+    if-eqz v11, :cond_b
+
+    iget-object v0, v13, Lcom/samsung/android/knox/keystore/CCMProfile;->tuiProperty:Lcom/samsung/android/knox/keystore/TUIProperty;
+
+    move-object/from16 v18, v0
+
+    invoke-virtual {v11}, Ljava/lang/Integer;->intValue()I
+
+    move-result v19
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, v18
+
+    iput v0, v1, Lcom/samsung/android/knox/keystore/TUIProperty;->loginRetry:I
+
+    :cond_b
+    new-instance v9, Landroid/content/ContentValues;
+
+    invoke-direct {v9}, Landroid/content/ContentValues;-><init>()V
+
+    const-string/jumbo v18, "adminUid"
+
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v19
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v9, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    const-string/jumbo v18, "uid"
+
+    invoke-static/range {v17 .. v17}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v19
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v9, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    move-object/from16 v18, v0
+
+    const-string/jumbo v19, "ClientCertificateManagerTable"
+
+    const-string/jumbo v20, "pkgName"
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v19
+
+    move-object/from16 v2, v20
+
+    invoke-virtual {v0, v1, v2, v9}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getStringList(Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentValues;)Ljava/util/List;
+
+    move-result-object v18
+
+    move-object/from16 v0, v18
+
+    iput-object v0, v13, Lcom/samsung/android/knox/keystore/CCMProfile;->packageList:Ljava/util/List;
+
+    sget-boolean v18, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v18, :cond_c
+
+    sget-object v18, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    new-instance v19, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v20, "PackageList - "
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    iget-object v0, v13, Lcom/samsung/android/knox/keystore/CCMProfile;->packageList:Ljava/util/List;
+
+    move-object/from16 v20, v0
+
+    invoke-interface/range {v20 .. v20}, Ljava/util/List;->toArray()[Ljava/lang/Object;
+
+    move-result-object v20
+
+    invoke-static/range {v20 .. v20}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v19
+
+    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_9
+    :cond_c
     :goto_0
-    return-object v5
+    return-object v13
 
     :catch_0
-    move-exception v4
+    move-exception v10
 
-    const/4 v5, 0x0
+    const/4 v13, 0x0
 
-    sget-boolean v10, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    sget-boolean v18, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    if-eqz v10, :cond_9
+    if-eqz v18, :cond_c
 
-    sget-object v10, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    sget-object v18, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    new-instance v19, Ljava/lang/StringBuilder;
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v12, "getCCMProfile - Exception "
+    const-string/jumbo v20, "getCCMProfile - Exception "
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v19
 
-    invoke-virtual {v4}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v20
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v19
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object v19
 
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method
@@ -11991,17 +14050,17 @@
 .end method
 
 .method public getSlotIdForCaller(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)J
-    .locals 22
+    .locals 24
 
-    sget-boolean v18, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    sget-boolean v19, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    if-eqz v18, :cond_0
+    if-eqz v19, :cond_0
 
-    sget-object v18, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    sget-object v19, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v19, "in getSlotIdForCaller"
+    const-string/jumbo v20, "in getSlotIdForCaller"
 
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v19 .. v20}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     invoke-direct/range {p0 .. p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->fixContextInfoForMP(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
@@ -12012,61 +14071,61 @@
 
     iget v0, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mSlotCount:I
 
-    move/from16 v18, v0
+    move/from16 v19, v0
 
-    if-gtz v18, :cond_2
+    if-gtz v19, :cond_2
 
-    sget-boolean v18, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    sget-boolean v19, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    if-eqz v18, :cond_1
+    if-eqz v19, :cond_1
 
-    sget-object v18, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    sget-object v19, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v19, "getSlotIdForCaller - CCM profile is not set"
+    const-string/jumbo v20, "getSlotIdForCaller - CCM profile is not set"
 
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v19 .. v20}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
-    const-wide/16 v18, -0x1
+    const-wide/16 v20, -0x1
 
-    return-wide v18
+    return-wide v20
 
     :cond_2
     if-nez p1, :cond_4
 
-    sget-boolean v18, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    sget-boolean v19, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    if-eqz v18, :cond_3
+    if-eqz v19, :cond_3
 
-    sget-object v18, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    sget-object v19, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v19, "getSlotIdForCaller - null cxtInfo"
+    const-string/jumbo v20, "getSlotIdForCaller - null cxtInfo"
 
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v19 .. v20}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_3
-    const-wide/16 v18, -0x1
+    const-wide/16 v20, -0x1
 
-    return-wide v18
+    return-wide v20
 
     :cond_4
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mContext:Landroid/content/Context;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    if-nez v18, :cond_5
+    if-nez v19, :cond_5
 
-    sget-object v18, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    sget-object v19, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v19, "getSlotIdForCaller - Invalid Context "
+    const-string/jumbo v20, "getSlotIdForCaller - Invalid Context "
 
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v19 .. v20}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-wide/16 v18, -0x1
+    const-wide/16 v20, -0x1
 
-    return-wide v18
+    return-wide v20
 
     :cond_5
     move-object/from16 v0, p0
@@ -12081,94 +14140,96 @@
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v18
+    move-result v19
 
-    invoke-static/range {v18 .. v18}, Landroid/os/UserHandle;->getAppId(I)I
+    invoke-static/range {v19 .. v19}, Landroid/os/UserHandle;->getAppId(I)I
 
     move-result v4
 
-    sget-boolean v18, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    sget-boolean v19, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    if-eqz v18, :cond_6
+    if-eqz v19, :cond_6
 
-    sget-object v18, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    sget-object v19, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    new-instance v19, Ljava/lang/StringBuilder;
+    new-instance v20, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v20, "getSlotIdForCaller callingUid - "
+    const-string/jumbo v21, "getSlotIdForCaller callingUid - "
 
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v20
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v20
 
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v19
+    move-result-object v20
 
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v19 .. v20}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_6
-    const/16 v18, 0x3e8
+    const/16 v19, 0x3e8
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
     if-ne v4, v0, :cond_11
 
     invoke-direct/range {p0 .. p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
 
-    move-result v15
+    move-result v18
 
-    const/4 v11, 0x0
+    const/4 v12, 0x0
 
-    sget-boolean v18, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    sget-boolean v19, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    if-eqz v18, :cond_7
+    if-eqz v19, :cond_7
 
-    sget-object v18, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    sget-object v19, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    new-instance v19, Ljava/lang/StringBuilder;
+    new-instance v20, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v20, "getSlotIdForCaller UserId - "
+    const-string/jumbo v21, "getSlotIdForCaller UserId - "
 
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v20
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
-    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move/from16 v1, v18
 
-    move-result-object v19
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v20, ", alias - "
+    move-result-object v20
 
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v21, ", alias - "
 
-    move-result-object v19
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, v19
+    move-result-object v20
+
+    move-object/from16 v0, v20
 
     move-object/from16 v1, p2
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v20
 
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v19
+    move-result-object v20
 
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v19 .. v20}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_7
     const/4 v8, 0x0
@@ -12177,9 +14238,9 @@
 
     iget-object v0, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mDefaultCertAlias:Ljava/lang/String;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    if-nez v18, :cond_8
+    if-nez v19, :cond_8
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getDefaultCertificateAlias()Ljava/lang/String;
 
@@ -12190,29 +14251,29 @@
 
     iget-object v0, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mDefaultCertAlias:Ljava/lang/String;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
     move-object/from16 v0, p2
 
-    move-object/from16 v1, v18
+    move-object/from16 v1, v19
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v18
+    move-result v19
 
-    if-nez v18, :cond_9
+    if-nez v19, :cond_9
 
-    const-string/jumbo v18, "Digital Signature"
+    const-string/jumbo v19, "Digital Signature"
 
     move-object/from16 v0, p2
 
-    move-object/from16 v1, v18
+    move-object/from16 v1, v19
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v18
+    move-result v19
 
-    if-eqz v18, :cond_a
+    if-eqz v19, :cond_a
 
     :cond_9
     const/4 v8, 0x1
@@ -12224,29 +14285,29 @@
 
     invoke-direct {v6}, Landroid/content/ContentValues;-><init>()V
 
-    const-string/jumbo v18, "uid"
+    const-string/jumbo v19, "uid"
 
-    invoke-static {v15}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static/range {v18 .. v18}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v19
+    move-result-object v20
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v20
 
     invoke-virtual {v6, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    const-string/jumbo v18, "csr"
+    const-string/jumbo v19, "csr"
 
-    const/16 v19, 0x0
+    const/16 v20, 0x0
 
-    invoke-static/range {v19 .. v19}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v19
+    move-result-object v20
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v20
 
     invoke-virtual {v6, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
@@ -12254,13 +14315,13 @@
 
     invoke-virtual/range {p2 .. p2}, Ljava/lang/String;->length()I
 
-    move-result v18
+    move-result v19
 
-    if-lez v18, :cond_b
+    if-lez v19, :cond_b
 
-    const-string/jumbo v18, "alias"
+    const-string/jumbo v19, "alias"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     move-object/from16 v1, p2
 
@@ -12272,67 +14333,67 @@
 
     iget-object v0, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    const-string/jumbo v19, "CCMCertTable"
+    const-string/jumbo v20, "CCMCertTable"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v20
 
     invoke-virtual {v0, v1, v6}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCount(Ljava/lang/String;Landroid/content/ContentValues;)I
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v18
+    move-result v19
 
-    add-int/lit8 v11, v18, 0x0
+    add-int/lit8 v12, v19, 0x0
 
     :cond_c
     :goto_0
     if-nez v8, :cond_d
 
-    if-lez v11, :cond_10
+    if-lez v12, :cond_10
 
     :cond_d
     :goto_1
-    const/16 v18, 0x1
+    const/16 v19, 0x1
 
-    move/from16 v0, v18
-
-    new-array v12, v0, [Ljava/lang/String;
-
-    const-string/jumbo v18, "uid"
-
-    const/16 v19, 0x0
-
-    aput-object v18, v12, v19
-
-    const/16 v18, 0x1
-
-    move/from16 v0, v18
-
-    new-array v14, v0, [Ljava/lang/String;
-
-    invoke-static {v15}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
-
-    move-result-object v18
-
-    const/16 v19, 0x0
-
-    aput-object v18, v14, v19
-
-    const/16 v18, 0x1
-
-    move/from16 v0, v18
+    move/from16 v0, v19
 
     new-array v13, v0, [Ljava/lang/String;
 
-    const-string/jumbo v18, "slotId"
+    const-string/jumbo v19, "uid"
 
-    const/16 v19, 0x0
+    const/16 v20, 0x0
 
-    aput-object v18, v13, v19
+    aput-object v19, v13, v20
+
+    const/16 v19, 0x1
+
+    move/from16 v0, v19
+
+    new-array v15, v0, [Ljava/lang/String;
+
+    invoke-static/range {v18 .. v18}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v19
+
+    const/16 v20, 0x0
+
+    aput-object v19, v15, v20
+
+    const/16 v19, 0x1
+
+    move/from16 v0, v19
+
+    new-array v14, v0, [Ljava/lang/String;
+
+    const-string/jumbo v19, "slotId"
+
+    const/16 v20, 0x0
+
+    aput-object v19, v14, v20
 
     const/4 v5, 0x0
 
@@ -12341,15 +14402,15 @@
 
     iget-object v0, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    const-string/jumbo v19, "ClientCertificateManagerTable"
+    const-string/jumbo v20, "ClientCertificateManagerTable"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v20
 
-    invoke-virtual {v0, v1, v12, v14, v13}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getDataByFields(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Ljava/util/ArrayList;
+    invoke-virtual {v0, v1, v13, v15, v14}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getDataByFields(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Ljava/util/ArrayList;
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
@@ -12361,27 +14422,29 @@
 
     invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
 
-    move-result v18
+    move-result v19
 
-    if-lez v18, :cond_f
+    if-lez v19, :cond_f
 
-    const/16 v18, 0x0
+    const/16 v19, 0x0
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
     invoke-virtual {v5, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v18
+    move-result-object v19
 
-    check-cast v18, Landroid/content/ContentValues;
+    check-cast v19, Landroid/content/ContentValues;
 
-    const-string/jumbo v19, "slotId"
+    const-string/jumbo v20, "slotId"
 
-    invoke-virtual/range {v18 .. v19}, Landroid/content/ContentValues;->getAsLong(Ljava/lang/String;)Ljava/lang/Long;
+    invoke-virtual/range {v19 .. v20}, Landroid/content/ContentValues;->getAsLong(Ljava/lang/String;)Ljava/lang/Long;
 
-    move-result-object v18
+    move-result-object v9
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/Long;->longValue()J
+    if-eqz v9, :cond_f
+
+    invoke-virtual {v9}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v16
 
@@ -12391,35 +14454,35 @@
     :catch_0
     move-exception v7
 
-    sget-boolean v18, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    sget-boolean v19, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    if-eqz v18, :cond_c
+    if-eqz v19, :cond_c
 
-    sget-object v18, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    sget-object v19, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    new-instance v19, Ljava/lang/StringBuilder;
+    new-instance v20, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v20, "getSlotIdForCaller - slotId Exception"
+    const-string/jumbo v21, "getSlotIdForCaller - slotId Exception"
 
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    invoke-virtual {v7}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v20
 
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
-    move-result-object v19
+    move-result-object v21
 
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v20
 
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-static/range {v19 .. v20}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
@@ -12428,44 +14491,44 @@
 
     invoke-virtual/range {p2 .. p2}, Ljava/lang/String;->length()I
 
-    move-result v18
+    move-result v19
 
-    if-nez v18, :cond_f
+    if-nez v19, :cond_f
 
     goto/16 :goto_1
 
     :catch_1
     move-exception v7
 
-    sget-boolean v18, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    sget-boolean v19, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    if-eqz v18, :cond_e
+    if-eqz v19, :cond_e
 
-    sget-object v18, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    sget-object v19, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    new-instance v19, Ljava/lang/StringBuilder;
+    new-instance v20, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v20, "getSlotIdForCaller - retrieving slot Id Exception"
+    const-string/jumbo v21, "getSlotIdForCaller - retrieving slot Id Exception"
 
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    invoke-virtual {v7}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v20
 
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
-    move-result-object v19
+    move-result-object v21
 
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v20
 
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-static/range {v19 .. v20}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_2
 
@@ -12474,34 +14537,34 @@
 
     iget-object v0, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mContext:Landroid/content/Context;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    invoke-virtual/range {v18 .. v18}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual/range {v19 .. v19}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v18
+    move-result-object v19
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v19
+    move-result v20
 
-    invoke-virtual/range {v18 .. v19}, Landroid/content/pm/PackageManager;->getPackagesForUid(I)[Ljava/lang/String;
+    invoke-virtual/range {v19 .. v20}, Landroid/content/pm/PackageManager;->getPackagesForUid(I)[Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v11
 
-    const/16 v18, 0x0
+    const/16 v19, 0x0
 
-    array-length v0, v10
+    array-length v0, v11
 
-    move/from16 v19, v0
+    move/from16 v20, v0
 
     :goto_3
-    move/from16 v0, v18
+    move/from16 v0, v19
 
-    move/from16 v1, v19
+    move/from16 v1, v20
 
     if-ge v0, v1, :cond_12
 
-    aget-object v9, v10, v18
+    aget-object v10, v11, v19
 
     move-object/from16 v0, p0
 
@@ -12509,37 +14572,37 @@
 
     move-object/from16 v2, p2
 
-    invoke-virtual {v0, v1, v9, v2}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getSlotIdForPackage(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Ljava/lang/String;)J
+    invoke-virtual {v0, v1, v10, v2}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getSlotIdForPackage(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Ljava/lang/String;)J
 
     move-result-wide v16
 
-    const-wide/16 v20, 0x0
+    const-wide/16 v22, 0x0
 
-    cmp-long v20, v16, v20
+    cmp-long v21, v16, v22
 
-    if-ltz v20, :cond_13
+    if-ltz v21, :cond_13
 
     :cond_12
     return-wide v16
 
     :cond_13
-    add-int/lit8 v18, v18, 0x1
+    add-int/lit8 v19, v19, 0x1
 
     goto :goto_3
 .end method
 
 .method public getSlotIdForPackage(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Ljava/lang/String;)J
-    .locals 20
+    .locals 22
 
-    sget-boolean v15, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    sget-boolean v17, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    if-eqz v15, :cond_0
+    if-eqz v17, :cond_0
 
-    sget-object v15, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    sget-object v17, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v16, "in getSlotIdForPackage"
+    const-string/jumbo v18, "in getSlotIdForPackage"
 
-    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     invoke-direct/range {p0 .. p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->fixContextInfoForMP(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
@@ -12548,46 +14611,50 @@
 
     move-object/from16 v0, p0
 
-    iget v15, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mSlotCount:I
+    iget v0, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mSlotCount:I
 
-    if-gtz v15, :cond_2
+    move/from16 v17, v0
 
-    sget-boolean v15, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    if-gtz v17, :cond_2
 
-    if-eqz v15, :cond_1
+    sget-boolean v17, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    sget-object v15, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    if-eqz v17, :cond_1
 
-    const-string/jumbo v16, "getSlotIdForPackage - CCM profile is not set"
+    sget-object v17, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v18, "getSlotIdForPackage - CCM profile is not set"
+
+    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
-    const-wide/16 v16, -0x1
+    const-wide/16 v18, -0x1
 
-    return-wide v16
+    return-wide v18
 
     :cond_2
     move-object/from16 v0, p0
 
-    iget-boolean v15, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mIsTimaVersion30:Z
+    iget-boolean v0, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mIsTimaVersion30:Z
 
-    if-nez v15, :cond_4
+    move/from16 v17, v0
 
-    sget-boolean v15, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    if-nez v17, :cond_4
 
-    if-eqz v15, :cond_3
+    sget-boolean v17, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    sget-object v15, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    if-eqz v17, :cond_3
 
-    const-string/jumbo v16, "getSlotIdForPackage - TIMA version does not include CCM"
+    sget-object v17, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v18, "getSlotIdForPackage - TIMA version does not include CCM"
+
+    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_3
-    const-wide/16 v16, -0x1
+    const-wide/16 v18, -0x1
 
-    return-wide v16
+    return-wide v18
 
     :cond_4
     move-object/from16 v0, p0
@@ -12603,603 +14670,735 @@
     if-nez p1, :cond_6
 
     :cond_5
-    sget-object v15, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    sget-object v17, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v16, "getSlotIdForPackage failed - Invalid arguments"
+    const-string/jumbo v18, "getSlotIdForPackage failed - Invalid arguments"
 
-    invoke-static/range {v15 .. v16}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v17 .. v18}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-wide/16 v16, -0x1
+    const-wide/16 v18, -0x1
 
-    return-wide v16
+    return-wide v18
 
     :cond_6
     invoke-direct/range {p0 .. p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
 
-    move-result v14
+    move-result v16
 
     invoke-virtual/range {p0 .. p2}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->isCCMPolicyEnabledForPackage(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Z
 
-    move-result v15
+    move-result v17
 
-    if-nez v15, :cond_8
+    if-nez v17, :cond_8
 
-    sget-boolean v15, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    sget-boolean v17, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    if-eqz v15, :cond_7
+    if-eqz v17, :cond_7
 
-    sget-object v15, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    sget-object v17, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v16, " getSlotIdForPackage - token access is not permitted"
+    const-string/jumbo v18, " getSlotIdForPackage - token access is not permitted"
 
-    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_7
-    const-wide/16 v16, -0x1
+    const-wide/16 v18, -0x1
 
-    return-wide v16
+    return-wide v18
 
     :cond_8
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mDefaultCertAlias:Ljava/lang/String;
+    iget-object v0, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mDefaultCertAlias:Ljava/lang/String;
 
-    if-nez v15, :cond_9
+    move-object/from16 v17, v0
+
+    if-nez v17, :cond_9
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getDefaultCertificateAlias()Ljava/lang/String;
 
     :cond_9
-    const/4 v7, 0x0
+    const/4 v8, 0x0
 
     if-eqz p3, :cond_d
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mDefaultCertAlias:Ljava/lang/String;
+    iget-object v0, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mDefaultCertAlias:Ljava/lang/String;
+
+    move-object/from16 v17, v0
 
     move-object/from16 v0, p3
 
-    invoke-virtual {v0, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-object/from16 v1, v17
 
-    move-result v15
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-nez v15, :cond_a
+    move-result v17
 
-    const-string/jumbo v15, "Digital Signature"
+    if-nez v17, :cond_a
+
+    const-string/jumbo v17, "Digital Signature"
 
     move-object/from16 v0, p3
 
-    invoke-virtual {v0, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-object/from16 v1, v17
 
-    move-result v15
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-eqz v15, :cond_d
+    move-result v17
+
+    if-eqz v17, :cond_d
 
     :cond_a
     invoke-static {}, Lcom/android/server/ServiceKeeper;->isTableActive()Z
 
-    move-result v15
+    move-result v17
 
-    if-nez v15, :cond_b
+    if-nez v17, :cond_b
 
     invoke-static {}, Lcom/android/server/ServiceKeeper;->authorizeLoadProcedure()Z
 
     :cond_b
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mContext:Landroid/content/Context;
+    iget-object v0, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mContext:Landroid/content/Context;
+
+    move-object/from16 v17, v0
 
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
-    move-result v16
+    move-result v18
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v19
+
+    const-string/jumbo v20, "knox_ccm_policy"
+
+    const-string/jumbo v21, "getSlotIdForPackage"
+
+    invoke-static/range {v17 .. v21}, Lcom/android/server/ServiceKeeper;->isAuthorized(Landroid/content/Context;IILjava/lang/String;Ljava/lang/String;)I
 
     move-result v17
 
-    sget-object v18, Lcom/samsung/android/knox/EnterpriseDeviceManager;->KNOX_CCM_POLICY_SERVICE:Ljava/lang/String;
+    if-eqz v17, :cond_c
 
-    const-string/jumbo v19, "getSlotIdForPackage"
+    new-instance v7, Ljava/lang/SecurityException;
 
-    invoke-static/range {v15 .. v19}, Lcom/android/server/ServiceKeeper;->isAuthorized(Landroid/content/Context;IILjava/lang/String;Ljava/lang/String;)I
+    new-instance v17, Ljava/lang/StringBuilder;
 
-    move-result v15
+    invoke-direct/range {v17 .. v17}, Ljava/lang/StringBuilder;-><init>()V
 
-    if-eqz v15, :cond_c
+    const-string/jumbo v18, "Security Exception Occurred while pid["
 
-    new-instance v6, Ljava/lang/SecurityException;
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance v15, Ljava/lang/StringBuilder;
-
-    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v16, "Security Exception Occurred while pid["
-
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v15
+    move-result-object v17
 
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
-    move-result v16
+    move-result v18
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v17
 
-    const-string/jumbo v16, "] with uid["
+    const-string/jumbo v18, "] with uid["
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v17
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v16
+    move-result v18
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v17
 
-    const-string/jumbo v16, "] trying to access methodName ["
+    const-string/jumbo v18, "] trying to access methodName ["
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v17
 
-    const-string/jumbo v16, "getSlotIdForPackage"
+    const-string/jumbo v18, "getSlotIdForPackage"
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v17
 
-    const-string/jumbo v16, "] in ["
+    const-string/jumbo v18, "] in ["
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v17
 
-    sget-object v16, Lcom/samsung/android/knox/EnterpriseDeviceManager;->KNOX_CCM_POLICY_SERVICE:Ljava/lang/String;
+    const-string/jumbo v18, "knox_ccm_policy"
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v17
 
-    const-string/jumbo v16, "] service"
+    const-string/jumbo v18, "] service"
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v17
 
-    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v17 .. v17}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v17
 
-    invoke-direct {v6, v15}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+    move-object/from16 v0, v17
 
-    throw v6
+    invoke-direct {v7, v0}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+
+    throw v7
 
     :cond_c
-    const/4 v7, 0x1
+    const/4 v8, 0x1
 
     :cond_d
-    const/4 v8, 0x0
+    const/4 v10, 0x0
 
-    const-wide/16 v12, -0x1
+    const-wide/16 v14, -0x1
 
-    sget-boolean v15, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    sget-boolean v17, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    if-eqz v15, :cond_e
+    if-eqz v17, :cond_e
 
-    sget-object v15, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    sget-object v17, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    new-instance v16, Ljava/lang/StringBuilder;
+    new-instance v18, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v17, "UserId - "
+    const-string/jumbo v19, "UserId - "
 
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v16
+    move-result-object v18
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
-    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move/from16 v1, v16
 
-    move-result-object v16
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v17, " packageName - "
+    move-result-object v18
 
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v19, " packageName - "
 
-    move-result-object v16
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, v16
+    move-result-object v18
+
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p2
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v16
+    move-result-object v18
 
-    const-string/jumbo v17, " alias - "
+    const-string/jumbo v19, " alias - "
 
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v16
+    move-result-object v18
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p3
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v16
+    move-result-object v18
 
-    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v16
+    move-result-object v18
 
-    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_e
-    if-nez v7, :cond_13
+    if-nez v8, :cond_13
 
-    new-instance v4, Landroid/content/ContentValues;
+    new-instance v5, Landroid/content/ContentValues;
 
-    invoke-direct {v4}, Landroid/content/ContentValues;-><init>()V
+    invoke-direct {v5}, Landroid/content/ContentValues;-><init>()V
 
-    const-string/jumbo v15, "uid"
-
-    invoke-static {v14}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v16
-
-    move-object/from16 v0, v16
-
-    invoke-virtual {v4, v15, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
-
-    const-string/jumbo v15, "pkgName"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v4, v15, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
-
-    const-string/jumbo v15, "csr"
-
-    const/16 v16, 0x0
+    const-string/jumbo v17, "uid"
 
     invoke-static/range {v16 .. v16}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v16
+    move-result-object v18
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
-    invoke-virtual {v4, v15, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    move-object/from16 v1, v18
+
+    invoke-virtual {v5, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    const-string/jumbo v17, "pkgName"
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, p2
+
+    invoke-virtual {v5, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string/jumbo v17, "csr"
+
+    const/16 v18, 0x0
+
+    invoke-static/range {v18 .. v18}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v18
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v18
+
+    invoke-virtual {v5, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
     if-eqz p3, :cond_f
 
     invoke-virtual/range {p3 .. p3}, Ljava/lang/String;->length()I
 
-    move-result v15
+    move-result v17
 
-    if-lez v15, :cond_f
+    if-lez v17, :cond_f
 
-    const-string/jumbo v15, "alias"
+    const-string/jumbo v17, "alias"
 
-    move-object/from16 v0, p3
+    move-object/from16 v0, v17
 
-    invoke-virtual {v4, v15, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+    move-object/from16 v1, p3
+
+    invoke-virtual {v5, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_f
     :try_start_0
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    iget-object v0, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    const-string/jumbo v16, "CCMCertTable"
+    move-object/from16 v17, v0
 
-    move-object/from16 v0, v16
+    const-string/jumbo v18, "CCMCertTable"
 
-    invoke-virtual {v15, v0, v4}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCount(Ljava/lang/String;Landroid/content/ContentValues;)I
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v18
+
+    invoke-virtual {v0, v1, v5}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCount(Ljava/lang/String;Landroid/content/ContentValues;)I
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v15
+    move-result v17
 
-    add-int/lit8 v8, v15, 0x0
+    add-int/lit8 v10, v17, 0x0
 
     :cond_10
     :goto_0
-    if-nez v8, :cond_13
+    if-nez v10, :cond_13
 
-    new-instance v3, Landroid/content/ContentValues;
+    new-instance v4, Landroid/content/ContentValues;
 
-    invoke-direct {v3}, Landroid/content/ContentValues;-><init>()V
+    invoke-direct {v4}, Landroid/content/ContentValues;-><init>()V
 
-    const-string/jumbo v15, "uid"
-
-    invoke-static {v14}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v16
-
-    move-object/from16 v0, v16
-
-    invoke-virtual {v3, v15, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
-
-    const-string/jumbo v15, "allowAllPkgs"
-
-    const/16 v16, 0x1
+    const-string/jumbo v17, "uid"
 
     invoke-static/range {v16 .. v16}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v16
+    move-result-object v18
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
-    invoke-virtual {v3, v15, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    move-object/from16 v1, v18
 
-    const-string/jumbo v15, "csr"
+    invoke-virtual {v4, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    const/16 v16, 0x0
+    const-string/jumbo v17, "allowAllPkgs"
 
-    invoke-static/range {v16 .. v16}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/16 v18, 0x1
 
-    move-result-object v16
+    invoke-static/range {v18 .. v18}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-object/from16 v0, v16
+    move-result-object v18
 
-    invoke-virtual {v3, v15, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v18
+
+    invoke-virtual {v4, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    const-string/jumbo v17, "csr"
+
+    const/16 v18, 0x0
+
+    invoke-static/range {v18 .. v18}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v18
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v18
+
+    invoke-virtual {v4, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
     if-eqz p3, :cond_11
 
     invoke-virtual/range {p3 .. p3}, Ljava/lang/String;->length()I
 
-    move-result v15
+    move-result v17
 
-    if-lez v15, :cond_11
+    if-lez v17, :cond_11
 
-    const-string/jumbo v15, "alias"
+    const-string/jumbo v17, "alias"
 
-    move-object/from16 v0, p3
+    move-object/from16 v0, v17
 
-    invoke-virtual {v3, v15, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+    move-object/from16 v1, p3
+
+    invoke-virtual {v4, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_11
     :try_start_1
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    iget-object v0, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    const-string/jumbo v16, "CCMCertTable"
+    move-object/from16 v17, v0
 
-    move-object/from16 v0, v16
+    const-string/jumbo v18, "CCMCertTable"
 
-    invoke-virtual {v15, v0, v3}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCount(Ljava/lang/String;Landroid/content/ContentValues;)I
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v18
+
+    invoke-virtual {v0, v1, v4}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCount(Ljava/lang/String;Landroid/content/ContentValues;)I
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
-    move-result v15
+    move-result v17
 
-    add-int/2addr v8, v15
+    add-int v10, v10, v17
 
     :cond_12
     :goto_1
-    if-lez v8, :cond_13
+    if-lez v10, :cond_13
 
-    sget-boolean v15, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    sget-boolean v17, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    if-eqz v15, :cond_13
+    if-eqz v17, :cond_13
 
-    sget-object v15, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    sget-object v17, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v16, "in getSlotIdForPackage - all packages are allowed access"
+    const-string/jumbo v18, "in getSlotIdForPackage - all packages are allowed access"
 
-    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_13
-    if-nez v7, :cond_14
+    if-nez v8, :cond_14
 
-    if-lez v8, :cond_17
+    if-lez v10, :cond_16
 
     :cond_14
-    :goto_2
-    const/4 v15, 0x1
+    const/16 v17, 0x1
 
-    new-array v9, v15, [Ljava/lang/String;
+    move/from16 v0, v17
 
-    const-string/jumbo v15, "uid"
+    new-array v11, v0, [Ljava/lang/String;
 
-    const/16 v16, 0x0
+    const-string/jumbo v17, "uid"
 
-    aput-object v15, v9, v16
+    const/16 v18, 0x0
 
-    const/4 v15, 0x1
+    aput-object v17, v11, v18
 
-    new-array v11, v15, [Ljava/lang/String;
+    const/16 v17, 0x1
 
-    invoke-static {v14}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    move/from16 v0, v17
 
-    move-result-object v15
+    new-array v13, v0, [Ljava/lang/String;
 
-    const/16 v16, 0x0
+    invoke-static/range {v16 .. v16}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    aput-object v15, v11, v16
+    move-result-object v17
 
-    const/4 v15, 0x1
+    const/16 v18, 0x0
 
-    new-array v10, v15, [Ljava/lang/String;
+    aput-object v17, v13, v18
 
-    const-string/jumbo v15, "slotId"
+    const/16 v17, 0x1
 
-    const/16 v16, 0x0
+    move/from16 v0, v17
 
-    aput-object v15, v10, v16
+    new-array v12, v0, [Ljava/lang/String;
 
-    const/4 v2, 0x0
+    const-string/jumbo v17, "slotId"
+
+    const/16 v18, 0x0
+
+    aput-object v17, v12, v18
+
+    const/4 v3, 0x0
 
     :try_start_2
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    iget-object v0, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    const-string/jumbo v16, "ClientCertificateManagerTable"
+    move-object/from16 v17, v0
 
-    move-object/from16 v0, v16
+    const-string/jumbo v18, "ClientCertificateManagerTable"
 
-    invoke-virtual {v15, v0, v9, v11, v10}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getDataByFields(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Ljava/util/ArrayList;
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v18
+
+    invoke-virtual {v0, v1, v11, v13, v12}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getDataByFields(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Ljava/util/ArrayList;
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
 
-    move-result-object v2
+    move-result-object v3
 
     :cond_15
-    :goto_3
-    if-eqz v2, :cond_16
+    :goto_2
+    if-eqz v3, :cond_17
 
-    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
-    move-result v15
+    move-result v17
 
-    if-lez v15, :cond_16
+    if-lez v17, :cond_17
 
-    const/4 v15, 0x0
+    const/16 v17, 0x0
 
-    invoke-virtual {v2, v15}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    move/from16 v0, v17
 
-    move-result-object v15
+    invoke-virtual {v3, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    check-cast v15, Landroid/content/ContentValues;
+    move-result-object v2
 
-    const-string/jumbo v16, "slotId"
+    check-cast v2, Landroid/content/ContentValues;
 
-    invoke-virtual/range {v15 .. v16}, Landroid/content/ContentValues;->getAsLong(Ljava/lang/String;)Ljava/lang/Long;
+    if-nez v2, :cond_18
 
-    move-result-object v15
-
-    invoke-virtual {v15}, Ljava/lang/Long;->longValue()J
-
-    move-result-wide v12
-
-    :cond_16
-    return-wide v12
+    return-wide v14
 
     :catch_0
-    move-exception v5
+    move-exception v6
 
-    sget-boolean v15, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    sget-boolean v17, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    if-eqz v15, :cond_10
+    if-eqz v17, :cond_10
 
-    sget-object v15, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    sget-object v17, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    new-instance v16, Ljava/lang/StringBuilder;
+    new-instance v18, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v17, "getSlotIdForPackage - slotId Exception"
+    const-string/jumbo v19, "getSlotIdForPackage - slotId Exception"
 
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v16
+    move-result-object v18
 
-    invoke-virtual {v5}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
-    move-result-object v17
+    move-result-object v19
 
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v16
+    move-result-object v18
 
-    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v16
+    move-result-object v18
 
-    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 
     :catch_1
-    move-exception v5
+    move-exception v6
 
-    sget-boolean v15, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    sget-boolean v17, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    if-eqz v15, :cond_12
+    if-eqz v17, :cond_12
 
-    sget-object v15, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    sget-object v17, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    new-instance v16, Ljava/lang/StringBuilder;
+    new-instance v18, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v17, "getSlotIdForPackage - allPackages Exception"
+    const-string/jumbo v19, "getSlotIdForPackage - allPackages Exception"
 
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v16
+    move-result-object v18
 
-    invoke-virtual {v5}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
-    move-result-object v17
+    move-result-object v19
 
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v16
+    move-result-object v18
 
-    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v16
+    move-result-object v18
 
-    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_1
 
-    :cond_17
+    :cond_16
     if-eqz p3, :cond_14
 
     invoke-virtual/range {p3 .. p3}, Ljava/lang/String;->length()I
 
-    move-result v15
+    move-result v17
 
-    if-nez v15, :cond_16
+    if-eqz v17, :cond_14
+
+    :cond_17
+    :goto_3
+    return-wide v14
+
+    :catch_2
+    move-exception v6
+
+    sget-boolean v17, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v17, :cond_15
+
+    sget-object v17, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    new-instance v18, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v19, "getSlotIdForPackage - retrieving slot Id Exception"
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    invoke-virtual {v6}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+
+    move-result-object v19
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v18
+
+    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_2
 
-    :catch_2
-    move-exception v5
+    :cond_18
+    const-string/jumbo v17, "slotId"
 
-    sget-boolean v15, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    move-object/from16 v0, v17
 
-    if-eqz v15, :cond_15
+    invoke-virtual {v2, v0}, Landroid/content/ContentValues;->getAsLong(Ljava/lang/String;)Ljava/lang/Long;
 
-    sget-object v15, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    move-result-object v9
 
-    new-instance v16, Ljava/lang/StringBuilder;
+    if-eqz v9, :cond_17
 
-    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v9}, Ljava/lang/Long;->longValue()J
 
-    const-string/jumbo v17, "getSlotIdForPackage - retrieving slot Id Exception"
+    move-result-wide v14
 
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    goto :goto_3
+.end method
 
-    move-result-object v16
+.method public hasGrant(Ljava/lang/String;)Z
+    .locals 3
 
-    invoke-virtual {v5}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    new-instance v0, Lcom/samsung/android/knox/ContextInfo;
 
-    move-result-object v17
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v1
 
-    move-result-object v16
+    invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
 
-    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result v2
 
-    move-result-object v16
+    invoke-direct {v0, v1, v2}, Lcom/samsung/android/knox/ContextInfo;-><init>(II)V
 
-    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {p0, p1, v0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->hasGrantWithCxt(Ljava/lang/String;Lcom/samsung/android/knox/ContextInfo;)Z
 
-    goto/16 :goto_3
+    move-result v1
+
+    return v1
+.end method
+
+.method public hasGrantWithCxt(Ljava/lang/String;Lcom/samsung/android/knox/ContextInfo;)Z
+    .locals 3
+
+    const/4 v2, 0x0
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p1}, Ljava/lang/String;->length()I
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    :cond_0
+    return v2
+
+    :cond_1
+    iget-boolean v0, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mIsTimaVersion30:Z
+
+    if-nez v0, :cond_3
+
+    sget-boolean v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v0, :cond_2
+
+    sget-object v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v1, "hasGrant - TIMA version does not include CCM"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_2
+    return v2
+
+    :cond_3
+    invoke-virtual {p0, p2}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->isCCMPolicyEnabledForCaller(Lcom/samsung/android/knox/ContextInfo;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_4
+
+    return v2
+
+    :cond_4
+    invoke-direct {p0, p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->hasGrantInternal(Ljava/lang/String;)Z
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public insertOrUpdateCCMProfile(Lcom/samsung/android/knox/ContextInfo;Lcom/samsung/android/knox/keystore/CCMProfile;)Z
@@ -13759,7 +15958,7 @@
 
     move-result-object v15
 
-    if-eqz v15, :cond_14
+    if-eqz v15, :cond_12
 
     const-string/jumbo v2, "RSA"
 
@@ -13767,7 +15966,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_12
+    if-nez v2, :cond_14
 
     const-string/jumbo v2, "EC"
 
@@ -13775,34 +15974,14 @@
 
     move-result v2
 
+    xor-int/lit8 v2, v2, 0x1
+
     if-eqz v2, :cond_14
 
     :cond_12
-    invoke-virtual {v13}, Lcom/android/server/enterprise/ccm/CertificateHandler;->getPemCertificateChain()[B
-
-    move-result-object v16
-
-    if-nez v16, :cond_16
-
     sget-boolean v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
     if-eqz v2, :cond_13
-
-    sget-object v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v3, "installCertificate - failed to get certificate chain"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_13
-    const/4 v2, 0x0
-
-    return v2
-
-    :cond_14
-    sget-boolean v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
-
-    if-eqz v2, :cond_15
 
     sget-object v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
@@ -13823,6 +16002,28 @@
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_13
+    const/4 v2, 0x0
+
+    return v2
+
+    :cond_14
+    invoke-virtual {v13}, Lcom/android/server/enterprise/ccm/CertificateHandler;->getPemCertificateChain()[B
+
+    move-result-object v16
+
+    if-nez v16, :cond_16
+
+    sget-boolean v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v2, :cond_15
+
+    sget-object v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v3, "installCertificate - failed to get certificate chain"
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -14029,7 +16230,7 @@
     return v2
 .end method
 
-.method public installKeyPair(Lcom/samsung/android/knox/ContextInfo;[B[BLjava/lang/String;Ljava/lang/String;)Z
+.method public installKeyPair(Lcom/samsung/android/knox/ContextInfo;[B[B[BLjava/lang/String;Ljava/lang/String;)Z
     .locals 16
 
     sget-boolean v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
@@ -14086,16 +16287,16 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz p3, :cond_6
+    if-eqz p3, :cond_7
 
-    if-eqz p4, :cond_6
+    if-eqz p5, :cond_7
 
     :try_start_0
     const-string/jumbo v2, "USRPKEY_"
 
     const-string/jumbo v3, ""
 
-    move-object/from16 v0, p4
+    move-object/from16 v0, p5
 
     invoke-virtual {v0, v2, v3}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
 
@@ -14119,9 +16320,9 @@
 
     invoke-interface {v11, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    if-eqz p5, :cond_2
+    if-eqz p6, :cond_2
 
-    move-object/from16 v0, p5
+    move-object/from16 v0, p6
 
     invoke-interface {v11, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -14157,13 +16358,13 @@
     :cond_3
     const/4 v15, 0x0
 
-    if-eqz p5, :cond_4
+    if-eqz p6, :cond_4
 
     new-instance v15, Ljava/util/ArrayList;
 
     invoke-direct {v15}, Ljava/util/ArrayList;-><init>()V
 
-    move-object/from16 v0, p5
+    move-object/from16 v0, p6
 
     invoke-interface {v15, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -14203,6 +16404,13 @@
 
     invoke-virtual {v12, v0}, Ljava/io/ByteArrayOutputStream;->write([B)V
 
+    if-eqz p4, :cond_6
+
+    move-object/from16 v0, p4
+
+    invoke-virtual {v12, v0}, Ljava/io/ByteArrayOutputStream;->write([B)V
+
+    :cond_6
     const/4 v2, 0x1
 
     iput-boolean v2, v4, Lcom/samsung/android/knox/keystore/CertificateProfile;->isCSRResponse:Z
@@ -14223,7 +16431,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_7
 
     const/4 v2, 0x0
 
@@ -14238,7 +16446,7 @@
 
     return v2
 
-    :cond_6
+    :cond_7
     const/4 v2, 0x1
 
     return v2
@@ -15130,7 +17338,9 @@
 
     move-result-object v5
 
-    invoke-virtual {v5, v0}, Landroid/content/pm/PackageManager;->getPackagesForUid(I)[Ljava/lang/String;
+    iget v6, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v5, v6}, Landroid/content/pm/PackageManager;->getPackagesForUid(I)[Ljava/lang/String;
 
     move-result-object v2
 
@@ -15417,8 +17627,6 @@
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
 
     move-result v9
-
-    invoke-direct {p0, p1, v9}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->validateCallerContainer(Lcom/samsung/android/knox/ContextInfo;I)Z
 
     const/4 v8, 0x0
 
@@ -15942,6 +18150,8 @@
     const-string/jumbo v8, "CCMCertTable"
 
     invoke-virtual {v7, v8, v4, v5}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->deleteDataByFields(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Z
+
+    invoke-direct {p0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->removeAllGrants()V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -15988,6 +18198,22 @@
     goto :goto_0
 .end method
 
+.method public notifyLicenseStatus()Z
+    .locals 2
+
+    sget-object v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v1, "notifyLicenseStatus call: double EnterpriseLicenseService notification contract"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-direct {p0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->notifyLicenseStatusInternal()Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public notifyToAddSystemService(Ljava/lang/String;Landroid/os/IBinder;)V
     .locals 0
 
@@ -15995,36 +18221,99 @@
 .end method
 
 .method public onAdminAdded(I)V
-    .locals 3
+    .locals 6
 
-    sget-boolean v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+    const/4 v5, 0x0
 
-    if-eqz v0, :cond_0
+    sget-boolean v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
-    sget-object v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+    if-eqz v2, :cond_0
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    sget-object v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, "onAdminAdded - "
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v4, "onAdminAdded - "
 
-    move-result-object v1
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    move-result-object v1
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v3
 
-    move-result-object v1
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
+    iget-object v2, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v3, "device_policy"
+
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/admin/DevicePolicyManager;
+
+    if-nez p1, :cond_1
+
+    invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->getDeviceOwner()Ljava/lang/String;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_1
+
+    invoke-direct {p0, v5}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->isKnoxWorkSpace(I)Z
+
+    move-result v2
+
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_1
+
+    new-instance v1, Landroid/os/Message;
+
+    invoke-direct {v1}, Landroid/os/Message;-><init>()V
+
+    sget-object v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mUpdateACMHandler:Landroid/os/Handler;
+
+    if-eqz v2, :cond_2
+
+    const/4 v2, 0x3
+
+    iput v2, v1, Landroid/os/Message;->what:I
+
+    sget-object v2, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;->AFW:Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
+
+    iput-object v2, v1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    iput v5, v1, Landroid/os/Message;->arg1:I
+
+    sget-object v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mUpdateACMHandler:Landroid/os/Handler;
+
+    const-wide/16 v4, 0x1388
+
+    invoke-virtual {v2, v1, v4, v5}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
+
+    :cond_1
+    :goto_0
     return-void
+
+    :cond_2
+    sget-object v2, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v3, "updateAccessMethod Failed"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 .end method
 
 .method public onAdminRemoved(I)V
@@ -16354,9 +18643,11 @@
 
     move-result v3
 
-    const/16 v0, 0x64
+    invoke-direct {p0, v3}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->isKnoxWorkSpace(I)Z
 
-    if-ge v3, v0, :cond_6
+    move-result v0
+
+    if-nez v0, :cond_6
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
@@ -16550,6 +18841,8 @@
     return v5
 
     :cond_10
+    invoke-direct {p0, p2}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->removeGrantsForAlias(Ljava/lang/String;)V
+
     const/4 v0, 0x1
 
     return v0
@@ -16782,9 +19075,9 @@
 .end method
 
 .method public setCCMProfile(Lcom/samsung/android/knox/ContextInfo;Lcom/samsung/android/knox/keystore/CCMProfile;)Z
-    .locals 32
+    .locals 31
 
-    const/16 v23, 0x1
+    const/16 v22, 0x1
 
     const-wide/16 v24, 0x0
 
@@ -16912,7 +19205,7 @@
 
     if-ne v6, v12, :cond_f
 
-    const/16 v29, 0x0
+    const/16 v28, 0x0
 
     move-object/from16 v0, p0
 
@@ -16929,11 +19222,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v29
+    move-result-object v28
 
     :cond_8
     :goto_0
-    if-nez v29, :cond_a
+    if-nez v28, :cond_a
 
     sget-boolean v6, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
@@ -17045,24 +19338,24 @@
 
     invoke-interface {v6}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v20
+    move-result-object v19
 
     :cond_10
-    invoke-interface/range {v20 .. v20}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
     if-eqz v6, :cond_12
 
-    invoke-interface/range {v20 .. v20}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v19
+    move-result-object v18
 
-    check-cast v19, Ljava/lang/String;
+    check-cast v18, Ljava/lang/String;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v18
 
     invoke-direct {v0, v1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getValidString(Ljava/lang/String;)Ljava/lang/String;
 
@@ -17133,24 +19426,24 @@
 
     invoke-virtual {v6, v7}, Landroid/content/pm/PackageManager;->getPackagesForUid(I)[Ljava/lang/String;
 
-    move-result-object v22
+    move-result-object v21
 
     const/4 v6, 0x0
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v21
 
     array-length v7, v0
 
     :goto_1
     if-ge v6, v7, :cond_15
 
-    aget-object v21, v22, v6
+    aget-object v20, v21, v6
 
     move-object/from16 v0, p2
 
     iget-object v8, v0, Lcom/samsung/android/knox/keystore/CCMProfile;->packageList:Ljava/util/List;
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
     invoke-interface {v8, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
     :try_end_1
@@ -17168,7 +19461,7 @@
     :cond_15
     invoke-direct/range {p0 .. p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
 
-    move-result v30
+    move-result v29
 
     move-object/from16 v0, p1
 
@@ -17182,7 +19475,7 @@
 
     move-result v7
 
-    move/from16 v0, v30
+    move/from16 v0, v29
 
     move-object/from16 v1, v17
 
@@ -17209,36 +19502,6 @@
     move-wide/from16 v0, v24
 
     invoke-virtual {v7, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string/jumbo v8, " , userId is "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    move/from16 v0, v30
-
-    invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string/jumbo v8, " , accessControlMethod is "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    move-object/from16 v0, p2
-
-    iget-object v8, v0, Lcom/samsung/android/knox/keystore/CCMProfile;->accessControlMethod:Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
-
-    invoke-virtual {v8}, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;->getValue()I
-
-    move-result v8
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v7
 
@@ -17304,7 +19567,7 @@
 
     iget v6, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    move/from16 v0, v30
+    move/from16 v0, v29
 
     invoke-static {v6, v0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->ccm_delete_slot(II)J
 
@@ -17314,7 +19577,7 @@
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v30
+    move/from16 v1, v29
 
     invoke-direct {v0, v6, v1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->resetDefaultCCMProfile(II)V
 
@@ -17350,9 +19613,9 @@
 
     const/4 v9, 0x0
 
-    const/16 v31, 0x0
+    const/16 v30, 0x0
 
-    move/from16 v0, v31
+    move/from16 v0, v30
 
     invoke-interface {v6, v7, v9, v0, v8}, Landroid/service/tima/ITimaService;->tuiInitSecret([BIILjava/lang/String;)I
 
@@ -17375,7 +19638,7 @@
 
     iget v6, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    move/from16 v0, v30
+    move/from16 v0, v29
 
     invoke-static {v6, v0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->ccm_delete_slot(II)J
 
@@ -17385,7 +19648,7 @@
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v30
+    move/from16 v1, v29
 
     invoke-direct {v0, v6, v1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->resetDefaultCCMProfile(II)V
 
@@ -17428,9 +19691,9 @@
 
     invoke-virtual/range {v6 .. v11}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->setTokenTUIProperty(IIILjava/lang/String;[B)I
 
-    move-result v28
+    move-result v23
 
-    if-eqz v28, :cond_1f
+    if-eqz v23, :cond_1f
 
     sget-boolean v6, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
 
@@ -17447,7 +19710,7 @@
 
     iget v6, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    move/from16 v0, v30
+    move/from16 v0, v29
 
     invoke-static {v6, v0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->ccm_delete_slot(II)J
 
@@ -17457,7 +19720,7 @@
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v30
+    move/from16 v1, v29
 
     invoke-direct {v0, v6, v1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->resetDefaultCCMProfile(II)V
 
@@ -17503,7 +19766,7 @@
 
     iget v6, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    move/from16 v0, v30
+    move/from16 v0, v29
 
     invoke-static {v6, v0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->ccm_delete_slot(II)J
 
@@ -17513,7 +19776,7 @@
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v30
+    move/from16 v1, v29
 
     invoke-direct {v0, v6, v1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->resetDefaultCCMProfile(II)V
 
@@ -17541,51 +19804,7 @@
     move-result-wide v26
 
     :try_start_3
-    move-object/from16 v0, p0
-
-    iget-object v6, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mPersonaMgr:Lcom/samsung/android/knox/SemPersonaManager;
-
-    if-eqz v6, :cond_21
-
-    move-object/from16 v0, p0
-
-    iget-object v6, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mPersonaMgr:Lcom/samsung/android/knox/SemPersonaManager;
-
-    move/from16 v0, v30
-
-    invoke-virtual {v6, v0}, Lcom/samsung/android/knox/SemPersonaManager;->exists(I)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_21
-
-    const/16 v16, 0x1
-
-    move-object/from16 v0, p0
-
-    iget-object v6, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mPersonaMgr:Lcom/samsung/android/knox/SemPersonaManager;
-
-    move/from16 v0, v30
-
-    invoke-virtual {v6, v0}, Lcom/samsung/android/knox/SemPersonaManager;->getPersonaInfo(I)Lcom/samsung/android/knox/SemPersonaInfo;
-
-    move-result-object v18
-
-    if-eqz v18, :cond_21
-
-    move-object/from16 v0, p0
-
-    iget-object v6, v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mPersonaMgr:Lcom/samsung/android/knox/SemPersonaManager;
-
-    move/from16 v0, v30
-
-    invoke-virtual {v6, v0}, Lcom/samsung/android/knox/SemPersonaManager;->getStateManager(I)Lcom/samsung/android/knox/SemPersonaManager$StateManager;
-
-    move-result-object v6
-
-    sget-object v7, Lcom/samsung/android/knox/SemPersonaState;->ACTIVE:Lcom/samsung/android/knox/SemPersonaState;
-
-    invoke-virtual {v6, v7}, Lcom/samsung/android/knox/SemPersonaManager$StateManager;->inState(Lcom/samsung/android/knox/SemPersonaState;)Z
+    invoke-static/range {v29 .. v29}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
     :try_end_3
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
@@ -17593,6 +19812,8 @@
     move-result v6
 
     if-eqz v6, :cond_21
+
+    const/16 v16, 0x1
 
     const/4 v15, 0x0
 
@@ -17643,7 +19864,7 @@
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v30
+    move/from16 v1, v29
 
     move/from16 v2, v16
 
@@ -17659,7 +19880,7 @@
 
     const/4 v9, 0x1
 
-    move/from16 v0, v30
+    move/from16 v0, v29
 
     invoke-static {v7, v6, v0, v8, v9}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->ccm_manage_exempt_list(ZIIIZ)J
 
@@ -17667,7 +19888,7 @@
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v30
+    move/from16 v1, v29
 
     invoke-direct {v0, v1, v6}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->setCCMAsDefaultCertStore(IZ)Z
 
@@ -17689,7 +19910,7 @@
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v30
+    move/from16 v1, v29
 
     invoke-direct {v0, v1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->isCCMDefaultCertStore(I)Z
 
@@ -17706,7 +19927,7 @@
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_23
-    return v23
+    return v22
 
     :catch_3
     move-exception v14
@@ -18559,6 +20780,112 @@
     return v9
 .end method
 
+.method public setGrant(ILjava/lang/String;Z)V
+    .locals 4
+
+    iget-boolean v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mIsTimaVersion30:Z
+
+    if-nez v1, :cond_1
+
+    sget-boolean v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v1, :cond_0
+
+    sget-object v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v2, "setGrant - TIMA version does not include CCM"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    return-void
+
+    :cond_1
+    if-eqz p2, :cond_3
+
+    invoke-virtual {p2}, Ljava/lang/String;->length()I
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    new-instance v0, Lcom/samsung/android/knox/ContextInfo;
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v1
+
+    invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
+
+    move-result v2
+
+    invoke-direct {v0, v1, v2}, Lcom/samsung/android/knox/ContextInfo;-><init>(II)V
+
+    invoke-virtual {p0, v0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->isCCMPolicyEnabledForCaller(Lcom/samsung/android/knox/ContextInfo;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    invoke-direct {p0, v0, p2}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->isInstalledKeyChainAlias(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    sget-boolean v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v1, :cond_2
+
+    sget-object v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "setGrant - uid :"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, ",alias:"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "value:"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_2
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->setGrantInternal(ILjava/lang/String;Z)V
+
+    :cond_3
+    return-void
+.end method
+
 .method public setTokenTUIProperty(IIILjava/lang/String;[B)I
     .locals 4
 
@@ -18631,21 +20958,59 @@
 .method public systemReady()V
     .locals 3
 
+    const/16 v2, 0xa
+
     invoke-direct {p0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->handleCCMBuildUpdate()V
 
-    invoke-direct {p0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->checkMPforCCM()V
+    invoke-direct {p0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->setupPersonaStateReceiver()V
+
+    invoke-direct {p0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getCCMVersionBoot()V
 
     new-instance v0, Landroid/os/HandlerThread;
 
     const-string/jumbo v1, "CCM InternalHandlerThread"
 
-    const/16 v2, 0xa
-
     invoke-direct {v0, v1, v2}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;I)V
 
     iput-object v0, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->thread:Landroid/os/HandlerThread;
 
+    new-instance v0, Landroid/os/HandlerThread;
+
+    const-string/jumbo v1, "CCM LicenseHandlerThread"
+
+    invoke-direct {v0, v1, v2}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;I)V
+
+    iput-object v0, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->LicenseHandlerThread:Landroid/os/HandlerThread;
+
+    new-instance v0, Landroid/os/HandlerThread;
+
+    const-string/jumbo v1, "CCM UpdateACMHandlerThread"
+
+    invoke-direct {v0, v1, v2}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;I)V
+
+    iput-object v0, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->UpdateACMHandlerThread:Landroid/os/HandlerThread;
+
+    new-instance v0, Landroid/os/HandlerThread;
+
+    const-string/jumbo v1, "CCM ContainerEventHandlerThread"
+
+    invoke-direct {v0, v1, v2}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;I)V
+
+    iput-object v0, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mContainerEventHandlerThread:Landroid/os/HandlerThread;
+
     iget-object v0, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->thread:Landroid/os/HandlerThread;
+
+    invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V
+
+    iget-object v0, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->UpdateACMHandlerThread:Landroid/os/HandlerThread;
+
+    invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V
+
+    iget-object v0, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->LicenseHandlerThread:Landroid/os/HandlerThread;
+
+    invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V
+
+    iget-object v0, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mContainerEventHandlerThread:Landroid/os/HandlerThread;
 
     invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V
 
@@ -18667,5 +21032,285 @@
 
     sput-object v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mInternalHandler:Landroid/os/Handler;
 
+    new-instance v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager$InternalHandler;
+
+    iget-object v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->LicenseHandlerThread:Landroid/os/HandlerThread;
+
+    invoke-virtual {v1}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
+
+    move-result-object v1
+
+    invoke-direct {v0, p0, v1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager$InternalHandler;-><init>(Lcom/android/server/enterprise/ccm/ClientCertificateManager;Landroid/os/Looper;)V
+
+    sput-object v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mLicenseHandler:Landroid/os/Handler;
+
+    new-instance v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager$InternalHandler;
+
+    iget-object v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->UpdateACMHandlerThread:Landroid/os/HandlerThread;
+
+    invoke-virtual {v1}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
+
+    move-result-object v1
+
+    invoke-direct {v0, p0, v1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager$InternalHandler;-><init>(Lcom/android/server/enterprise/ccm/ClientCertificateManager;Landroid/os/Looper;)V
+
+    sput-object v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mUpdateACMHandler:Landroid/os/Handler;
+
+    new-instance v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager$InternalHandler;
+
+    iget-object v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mContainerEventHandlerThread:Landroid/os/HandlerThread;
+
+    invoke-virtual {v1}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
+
+    move-result-object v1
+
+    invoke-direct {v0, p0, v1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager$InternalHandler;-><init>(Lcom/android/server/enterprise/ccm/ClientCertificateManager;Landroid/os/Looper;)V
+
+    sput-object v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mContainerEventHandler:Landroid/os/Handler;
+
+    invoke-direct {p0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->checkMPforCCM()V
+
+    invoke-direct {p0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->updateContainerLockStatus()V
+
     return-void
+.end method
+
+.method public updateDBdata(Ljava/lang/String;Landroid/content/ContentValues;Landroid/content/ContentValues;)Z
+    .locals 4
+
+    invoke-direct {p0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->enforcePermissionDks()V
+
+    if-eqz p2, :cond_0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    invoke-virtual {v1, p1, p2, p3}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putValues(Ljava/lang/String;Landroid/content/ContentValues;Landroid/content/ContentValues;)Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_0
+    const-string/jumbo v1, "ClientCertificateManagerTable"
+
+    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-direct {p0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getSlotCount()I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mSlotCount:I
+
+    :cond_1
+    const/4 v1, 0x1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    sget-boolean v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v1, :cond_2
+
+    sget-object v1, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "updateDBdata - Exception"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_2
+    const/4 v1, 0x0
+
+    return v1
+.end method
+
+.method updateLicenseStatus(IILjava/lang/String;)Z
+    .locals 9
+
+    const/4 v7, 0x0
+
+    const/4 v8, 0x0
+
+    const/4 v3, 0x0
+
+    if-nez p3, :cond_0
+
+    return v8
+
+    :cond_0
+    const-string/jumbo v6, "LOCK_STATE"
+
+    invoke-virtual {p3, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_3
+
+    invoke-direct {p0, p2}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->isKnoxWorkSpace(I)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_2
+
+    sget-object v0, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;->LOCK_STATE:Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
+
+    const-string/jumbo v3, "LOCK_STATE"
+
+    :goto_0
+    invoke-virtual {v0}, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;->getValue()I
+
+    move-result v6
+
+    invoke-static {p1, p2, v6, v7}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->ccm_create_slot(IIILjava/lang/String;)J
+
+    move-result-wide v4
+
+    const-wide v6, 0xffffffffL
+
+    cmp-long v6, v6, v4
+
+    if-nez v6, :cond_6
+
+    sget-boolean v6, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v6, :cond_1
+
+    sget-object v6, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v7, "updateLicenseStatus - native create_slot failed"
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    return v8
+
+    :cond_2
+    return v8
+
+    :cond_3
+    const-string/jumbo v6, "AFW"
+
+    invoke-virtual {p3, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_5
+
+    invoke-direct {p0, p2}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->isKnoxWorkSpace(I)Z
+
+    move-result v6
+
+    if-nez v6, :cond_4
+
+    sget-object v0, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;->AFW:Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
+
+    const-string/jumbo v3, "AFW"
+
+    goto :goto_0
+
+    :cond_4
+    return v8
+
+    :cond_5
+    return v8
+
+    :cond_6
+    sget-boolean v6, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->DBG:Z
+
+    if-eqz v6, :cond_7
+
+    sget-object v6, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->TAG:Ljava/lang/String;
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "[updateLicenseStatus]ccm_create_slot, slotId = "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v4, v5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    const-string/jumbo v8, ",newacs="
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_7
+    new-instance v1, Landroid/content/ContentValues;
+
+    invoke-direct {v1}, Landroid/content/ContentValues;-><init>()V
+
+    const-string/jumbo v6, "accessType"
+
+    invoke-virtual {v1, v6, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    new-instance v2, Landroid/content/ContentValues;
+
+    invoke-direct {v2}, Landroid/content/ContentValues;-><init>()V
+
+    const-string/jumbo v6, "uid"
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v7
+
+    invoke-virtual {v2, v6, v7}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    const-string/jumbo v6, "adminUid"
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v7
+
+    invoke-virtual {v2, v6, v7}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    iget-object v6, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    const-string/jumbo v7, "ClientCertificateManagerTable"
+
+    invoke-virtual {v6, v7, v1, v2}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putValues(Ljava/lang/String;Landroid/content/ContentValues;Landroid/content/ContentValues;)Z
+
+    move-result v6
+
+    return v6
 .end method

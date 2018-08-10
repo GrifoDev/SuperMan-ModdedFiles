@@ -801,7 +801,7 @@
 .end method
 
 .method public getDateFormat(Lcom/samsung/android/knox/ContextInfo;)Ljava/lang/String;
-    .locals 3
+    .locals 5
 
     const/4 v1, 0x0
 
@@ -821,9 +821,17 @@
 
     move-result-object v0
 
-    iget-object v2, v0, Llibcore/icu/LocaleData;->shortDateFormat4:Ljava/lang/String;
+    iget-object v2, v0, Llibcore/icu/LocaleData;->shortDateFormat:Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
+    const-string/jumbo v3, "\\byy\\b"
+
+    const-string/jumbo v4, "y"
+
+    invoke-virtual {v2, v3, v4}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
 
     move-result-object v1
 
@@ -1114,17 +1122,23 @@
 .end method
 
 .method public setAutomaticTime(Lcom/samsung/android/knox/ContextInfo;Z)Z
-    .locals 11
+    .locals 14
 
-    const/4 v7, 0x1
+    new-instance v9, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;
 
-    const/4 v8, 0x0
+    iget-object v0, p0, Lcom/android/server/enterprise/datetime/DateTimePolicy;->mContext:Landroid/content/Context;
 
-    new-instance v1, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;
+    invoke-direct {v9, v0}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;-><init>(Landroid/content/Context;)V
 
-    iget-object v6, p0, Lcom/android/server/enterprise/datetime/DateTimePolicy;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/server/enterprise/datetime/DateTimePolicy;->mContext:Landroid/content/Context;
 
-    invoke-direct {v1, v6}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;-><init>(Landroid/content/Context;)V
+    const-string/jumbo v1, "device_policy"
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v7
+
+    check-cast v7, Landroid/app/admin/DevicePolicyManager;
 
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/datetime/DateTimePolicy;->enforceOwnerOnlyAndDateTimePermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
@@ -1132,94 +1146,180 @@
 
     invoke-virtual {p0, p1}, Lcom/android/server/enterprise/datetime/DateTimePolicy;->isDateTimeChangeEnabled(Lcom/samsung/android/knox/ContextInfo;)Z
 
-    move-result v6
+    move-result v0
 
-    if-nez v6, :cond_0
+    if-nez v0, :cond_0
 
-    return v8
+    const/4 v0, 0x0
+
+    return v0
 
     :cond_0
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v4
+    move-result-wide v12
 
-    iget-object v6, p0, Lcom/android/server/enterprise/datetime/DateTimePolicy;->mContext:Landroid/content/Context;
+    const/4 v10, 0x0
 
-    invoke-virtual {v6}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    :try_start_0
+    invoke-virtual {v7}, Landroid/app/admin/DevicePolicyManager;->getAutoTimeRequired()Z
 
-    move-result-object v9
+    move-result v0
 
-    const-string/jumbo v10, "auto_time"
+    if-nez v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/server/enterprise/datetime/DateTimePolicy;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "auto_time"
 
     if-eqz p2, :cond_2
 
-    move v6, v7
+    const/4 v0, 0x1
 
     :goto_0
-    invoke-static {v9, v10, v6}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v1, v2, v0}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    move-result v2
+    move-result v10
 
-    iget-object v6, p0, Lcom/android/server/enterprise/datetime/DateTimePolicy;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/server/enterprise/datetime/DateTimePolicy;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v6}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v6
+    move-result-object v1
 
-    const-string/jumbo v9, "auto_time_zone"
+    const-string/jumbo v2, "auto_time_zone"
 
     if-eqz p2, :cond_3
 
+    const/4 v0, 0x1
+
     :goto_1
-    invoke-static {v6, v9, v7}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v1, v2, v0}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    move-result v6
+    move-result v0
 
-    and-int/2addr v2, v6
+    and-int/2addr v10, v0
+
+    if-eqz v10, :cond_1
 
     invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
 
+    move-result v6
+
+    invoke-static {}, Landroid/os/Process;->myPid()I
+
     move-result v3
 
-    if-eqz v2, :cond_1
+    const-string/jumbo v4, "DateTimePolicy"
 
-    if-nez v3, :cond_1
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    :try_start_0
-    const-string/jumbo v6, "Datetime"
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "setAutomaticTime"
+    const-string/jumbo v1, "Admin "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " has "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    if-eqz p2, :cond_4
+
+    const-string/jumbo v0, "enabled"
+
+    :goto_2
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " automatic time."
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    const/4 v0, 0x5
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x1
+
+    invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-nez v6, :cond_1
+
+    :try_start_1
+    const-string/jumbo v0, "Datetime"
+
+    const-string/jumbo v1, "setAutomaticTime"
 
     invoke-virtual {p0, p1}, Lcom/android/server/enterprise/datetime/DateTimePolicy;->getAutomaticTime(Lcom/samsung/android/knox/ContextInfo;)Z
 
-    move-result v8
+    move-result v2
 
-    invoke-virtual {v1, v6, v7, v8}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;->SetBooleanTypePolicy(Ljava/lang/String;Ljava/lang/String;Z)I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-virtual {v9, v0, v1, v2}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;->SetBooleanTypePolicy(Ljava/lang/String;Ljava/lang/String;Z)I
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :cond_1
-    :goto_2
-    invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    :goto_3
+    invoke-static {v12, v13}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return v2
+    return v10
 
     :cond_2
-    move v6, v8
+    const/4 v0, 0x0
 
     goto :goto_0
 
     :cond_3
-    move v7, v8
+    const/4 v0, 0x0
 
     goto :goto_1
 
-    :catch_0
-    move-exception v0
-
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    :cond_4
+    :try_start_2
+    const-string/jumbo v0, "disabled"
 
     goto :goto_2
+
+    :catch_0
+    move-exception v8
+
+    invoke-virtual {v8}, Ljava/lang/Exception;->printStackTrace()V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    goto :goto_3
+
+    :catchall_0
+    move-exception v0
+
+    invoke-static {v12, v13}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v0
 .end method
 
 .method public setDateFormat(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Z
@@ -1249,8 +1349,14 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    xor-int/lit8 v2, v2, 0x1
 
+    if-eqz v2, :cond_1
+
+    :cond_0
+    return v6
+
+    :cond_1
     const-wide/16 v2, 0x3e8
 
     div-long v2, p2, v2
@@ -1259,7 +1365,7 @@
 
     cmp-long v2, v2, v4
 
-    if-gez v2, :cond_1
+    if-gez v2, :cond_2
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
@@ -1273,75 +1379,151 @@
 
     return v2
 
-    :cond_0
-    return v6
-
-    :cond_1
+    :cond_2
     return v6
 .end method
 
 .method public setDateTimeChangeEnabled(Lcom/samsung/android/knox/ContextInfo;Z)Z
-    .locals 8
+    .locals 12
 
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/datetime/DateTimePolicy;->enforceOwnerOnlyAndDateTimePermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
     move-result-object p1
 
-    iget-object v4, p0, Lcom/android/server/enterprise/datetime/DateTimePolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    iget-object v0, p0, Lcom/android/server/enterprise/datetime/DateTimePolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    iget v5, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    const-string/jumbo v6, "RESTRICTION"
+    const-string/jumbo v2, "RESTRICTION"
 
-    const-string/jumbo v7, "DateTimeEnabled"
+    const-string/jumbo v3, "DateTimeEnabled"
 
-    invoke-virtual {v4, v5, v6, v7, p2}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putBoolean(ILjava/lang/String;Ljava/lang/String;Z)Z
+    invoke-virtual {v0, v1, v2, v3, p2}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putBoolean(ILjava/lang/String;Ljava/lang/String;Z)Z
 
-    move-result v2
+    move-result v9
+
+    if-eqz v9, :cond_0
 
     invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
 
-    move-result v3
+    move-result v6
 
-    if-eqz v2, :cond_0
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    if-nez v3, :cond_0
-
-    new-instance v1, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;
-
-    iget-object v4, p0, Lcom/android/server/enterprise/datetime/DateTimePolicy;->mContext:Landroid/content/Context;
-
-    invoke-direct {v1, v4}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;-><init>(Landroid/content/Context;)V
+    move-result-wide v10
 
     :try_start_0
-    const-string/jumbo v4, "Datetime"
+    invoke-static {}, Landroid/os/Process;->myPid()I
 
-    const-string/jumbo v5, "setDateTimeChangeEnabled"
+    move-result v3
+
+    const-string/jumbo v4, "DateTimePolicy"
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "Admin "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " has "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    if-eqz p2, :cond_1
+
+    const-string/jumbo v0, "enabled"
+
+    :goto_0
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " date time changes."
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    const/4 v0, 0x5
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x1
+
+    invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    if-nez v6, :cond_0
+
+    new-instance v8, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;
+
+    iget-object v0, p0, Lcom/android/server/enterprise/datetime/DateTimePolicy;->mContext:Landroid/content/Context;
+
+    invoke-direct {v8, v0}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;-><init>(Landroid/content/Context;)V
+
+    :try_start_1
+    const-string/jumbo v0, "Datetime"
+
+    const-string/jumbo v1, "setDateTimeChangeEnabled"
 
     invoke-virtual {p0, p1}, Lcom/android/server/enterprise/datetime/DateTimePolicy;->isDateTimeChangeEnabled(Lcom/samsung/android/knox/ContextInfo;)Z
 
-    move-result v6
+    move-result v2
 
-    invoke-virtual {v1, v4, v5, v6}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;->SetBooleanTypePolicy(Ljava/lang/String;Ljava/lang/String;Z)I
+    invoke-virtual {v8, v0, v1, v2}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;->SetBooleanTypePolicy(Ljava/lang/String;Ljava/lang/String;Z)I
 
-    const-string/jumbo v4, "DateTimePolicyService"
+    const-string/jumbo v0, "DateTimePolicyService"
 
-    const-string/jumbo v5, "setDateTimeChangeEnabled calling gearPolicyManager  "
+    const-string/jumbo v1, "setDateTimeChangeEnabled calling gearPolicyManager  "
 
-    invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
     :cond_0
-    :goto_0
-    return v2
+    :goto_1
+    return v9
 
-    :catch_0
-    move-exception v0
-
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    :cond_1
+    :try_start_2
+    const-string/jumbo v0, "disabled"
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     goto :goto_0
+
+    :catchall_0
+    move-exception v0
+
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v0
+
+    :catch_0
+    move-exception v7
+
+    invoke-virtual {v7}, Ljava/lang/Exception;->printStackTrace()V
+
+    goto :goto_1
 .end method
 
 .method public setNtpInfo(Lcom/samsung/android/knox/ContextInfo;Lcom/samsung/android/knox/datetime/NtpInfo;)Z
@@ -1488,9 +1670,11 @@
 
     move-result v5
 
-    const/16 v8, 0x64
+    invoke-static {v5}, Lcom/android/server/enterprise/adapterlayer/PersonaManagerAdapter;->isValidKnoxId(I)Z
 
-    if-lt v5, v8, :cond_0
+    move-result v8
+
+    if-eqz v8, :cond_0
 
     return v10
 
@@ -1525,7 +1709,14 @@
 
     move-result v8
 
-    if-eqz v8, :cond_5
+    xor-int/lit8 v8, v8, 0x1
+
+    if-eqz v8, :cond_3
+
+    const/4 v3, 0x0
+
+    :goto_0
+    return v3
 
     :cond_3
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
@@ -1584,23 +1775,17 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_4
-    :goto_0
+    :goto_1
     invoke-static {v6, v7}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    :goto_1
-    return v3
-
-    :cond_5
-    const/4 v3, 0x0
-
-    goto :goto_1
+    goto :goto_0
 
     :catch_0
     move-exception v1
 
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method public setTimeZone(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Z
@@ -1629,14 +1814,26 @@
 
     move-result v7
 
-    if-nez v7, :cond_2
+    if-nez v7, :cond_1
 
     invoke-virtual {p0, p1}, Lcom/android/server/enterprise/datetime/DateTimePolicy;->isDateTimeChangeEnabled(Lcom/samsung/android/knox/ContextInfo;)Z
 
     move-result v7
 
+    xor-int/lit8 v7, v7, 0x1
+
     if-eqz v7, :cond_2
 
+    :cond_1
+    const-string/jumbo v7, "DateTimePolicyService"
+
+    const-string/jumbo v8, "setTimeZone() has failed : Not allowed by admin."
+
+    invoke-static {v7, v8}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    return v3
+
+    :cond_2
     invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
 
     move-result v6
@@ -1660,7 +1857,7 @@
 
     const/4 v3, 0x1
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_3
 
     new-instance v2, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;
 
@@ -1691,20 +1888,11 @@
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    :cond_1
+    :cond_3
     :goto_0
     invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     :goto_1
-    return v3
-
-    :cond_2
-    const-string/jumbo v7, "DateTimePolicyService"
-
-    const-string/jumbo v8, "setTimeZone() has failed : Not allowed by admin."
-
-    invoke-static {v7, v8}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
     return v3
 
     :catch_0

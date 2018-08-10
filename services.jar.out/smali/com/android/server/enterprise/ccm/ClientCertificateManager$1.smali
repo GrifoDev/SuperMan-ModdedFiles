@@ -32,11 +32,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 12
-
-    const/16 v11, 0xa
-
-    const/16 v10, 0x64
+    .locals 10
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -162,26 +158,32 @@
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_3
-    if-lt v3, v10, :cond_4
+    iget-object v7, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager$1;->this$0:Lcom/android/server/enterprise/ccm/ClientCertificateManager;
+
+    invoke-static {v7, v3}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->-wrap5(Lcom/android/server/enterprise/ccm/ClientCertificateManager;I)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_5
 
     iget-object v7, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager$1;->this$0:Lcom/android/server/enterprise/ccm/ClientCertificateManager;
 
-    invoke-static {v7, v3}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->-wrap10(Lcom/android/server/enterprise/ccm/ClientCertificateManager;I)V
+    sget-object v8, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;->LOCK_STATE:Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
+
+    invoke-static {v7, v3, v8}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->-wrap9(Lcom/android/server/enterprise/ccm/ClientCertificateManager;ILcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;)V
 
     :cond_4
-    if-ge v3, v10, :cond_5
+    :goto_0
+    return-void
 
-    if-lt v3, v11, :cond_5
-
+    :cond_5
     iget-object v7, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager$1;->this$0:Lcom/android/server/enterprise/ccm/ClientCertificateManager;
 
     sget-object v8, Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;->AFW:Lcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;
 
     invoke-static {v7, v3, v8}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->-wrap9(Lcom/android/server/enterprise/ccm/ClientCertificateManager;ILcom/samsung/android/knox/keystore/CCMProfile$AccessControlMethod;)V
 
-    :cond_5
-    :goto_0
-    return-void
+    goto :goto_0
 
     :cond_6
     const-string/jumbo v7, "android.intent.action.USER_REMOVED"
@@ -190,21 +192,16 @@
 
     move-result v7
 
-    if-eqz v7, :cond_8
-
-    if-lt v6, v10, :cond_7
-
-    const/16 v7, 0xc8
-
-    if-gt v6, v7, :cond_7
+    if-eqz v7, :cond_7
 
     iget-object v7, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager$1;->this$0:Lcom/android/server/enterprise/ccm/ClientCertificateManager;
 
-    invoke-static {v7, v6}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->-wrap11(Lcom/android/server/enterprise/ccm/ClientCertificateManager;I)V
+    invoke-static {v7, v6}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->-wrap5(Lcom/android/server/enterprise/ccm/ClientCertificateManager;I)Z
 
-    goto :goto_0
+    move-result v7
 
-    :cond_7
+    if-nez v7, :cond_4
+
     iget-object v7, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager$1;->this$0:Lcom/android/server/enterprise/ccm/ClientCertificateManager;
 
     const/4 v8, -0x1
@@ -225,14 +222,14 @@
 
     goto :goto_0
 
-    :cond_8
+    :cond_7
     const-string/jumbo v7, "android.intent.action.SCREEN_ON"
 
     invoke-virtual {v7, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-nez v7, :cond_9
+    if-nez v7, :cond_8
 
     const-string/jumbo v7, "android.intent.action.SCREEN_OFF"
 
@@ -240,7 +237,7 @@
 
     move-result v7
 
-    if-nez v7, :cond_9
+    if-nez v7, :cond_8
 
     const-string/jumbo v7, "android.intent.action.USER_PRESENT"
 
@@ -248,26 +245,26 @@
 
     move-result v7
 
-    if-eqz v7, :cond_b
+    if-eqz v7, :cond_a
 
-    :cond_9
+    :cond_8
     iget-object v7, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager$1;->this$0:Lcom/android/server/enterprise/ccm/ClientCertificateManager;
 
     invoke-static {v7}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->-wrap4(Lcom/android/server/enterprise/ccm/ClientCertificateManager;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_4
 
     new-instance v4, Landroid/os/Message;
 
     invoke-direct {v4}, Landroid/os/Message;-><init>()V
 
-    invoke-static {}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->-get2()Landroid/os/Handler;
+    invoke-static {}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->-get3()Landroid/os/Handler;
 
     move-result-object v7
 
-    if-eqz v7, :cond_a
+    if-eqz v7, :cond_9
 
     invoke-static {}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->-get1()Ljava/lang/String;
 
@@ -283,7 +280,7 @@
 
     iput-object p2, v4, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    invoke-static {}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->-get2()Landroid/os/Handler;
+    invoke-static {}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->-get3()Landroid/os/Handler;
 
     move-result-object v7
 
@@ -293,7 +290,7 @@
 
     goto :goto_0
 
-    :cond_a
+    :cond_9
     invoke-static {}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->-get1()Ljava/lang/String;
 
     move-result-object v7
@@ -302,26 +299,26 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    :cond_b
+    :cond_a
     const-string/jumbo v7, "android.app.action.DEVICE_OWNER_CHANGED"
 
     invoke-virtual {v7, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_4
 
     sget-object v5, Landroid/os/UserHandle;->OWNER:Landroid/os/UserHandle;
 
-    if-nez v5, :cond_d
+    if-nez v5, :cond_c
 
     invoke-static {}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->-get0()Z
 
     move-result v7
 
-    if-eqz v7, :cond_c
+    if-eqz v7, :cond_b
 
     invoke-static {}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->-get1()Ljava/lang/String;
 
@@ -331,17 +328,13 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_c
+    :cond_b
     return-void
 
-    :cond_d
+    :cond_c
     invoke-virtual {v5}, Landroid/os/UserHandle;->getIdentifier()I
 
     move-result v0
-
-    if-ge v0, v10, :cond_5
-
-    if-lt v0, v11, :cond_5
 
     iget-object v7, p0, Lcom/android/server/enterprise/ccm/ClientCertificateManager$1;->this$0:Lcom/android/server/enterprise/ccm/ClientCertificateManager;
 

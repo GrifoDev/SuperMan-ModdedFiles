@@ -150,45 +150,10 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    xor-int/lit8 v3, v3, 0x1
 
-    :cond_1
-    :goto_1
-    new-instance v1, Ljava/io/File;
+    if-eqz v3, :cond_1
 
-    const-string/jumbo v3, "subtypes.xml"
-
-    invoke-direct {v1, v0, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
-
-    new-instance v3, Landroid/util/AtomicFile;
-
-    invoke-direct {v3, v1}, Landroid/util/AtomicFile;-><init>(Ljava/io/File;)V
-
-    iput-object v3, p0, Lcom/android/server/InputMethodManagerService$InputMethodFileManager;->mAdditionalInputMethodSubtypeFile:Landroid/util/AtomicFile;
-
-    invoke-virtual {v1}, Ljava/io/File;->exists()Z
-
-    move-result v3
-
-    if-nez v3, :cond_4
-
-    iget-object v3, p0, Lcom/android/server/InputMethodManagerService$InputMethodFileManager;->mAdditionalSubtypesMap:Ljava/util/HashMap;
-
-    iget-object v4, p0, Lcom/android/server/InputMethodManagerService$InputMethodFileManager;->mAdditionalInputMethodSubtypeFile:Landroid/util/AtomicFile;
-
-    invoke-static {v3, v4, p1}, Lcom/android/server/InputMethodManagerService$InputMethodFileManager;->writeAdditionalInputMethodSubtypes(Ljava/util/HashMap;Landroid/util/AtomicFile;Ljava/util/HashMap;)V
-
-    :goto_2
-    return-void
-
-    :cond_2
-    invoke-static {p2}, Landroid/os/Environment;->getUserSystemDirectory(I)Ljava/io/File;
-
-    move-result-object v2
-
-    goto :goto_0
-
-    :cond_3
     const-string/jumbo v3, "InputMethodManagerService"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -215,16 +180,49 @@
 
     invoke-static {v3, v4}, Lcom/samsung/android/util/SemLog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_1
+    :cond_1
+    new-instance v1, Ljava/io/File;
 
-    :cond_4
+    const-string/jumbo v3, "subtypes.xml"
+
+    invoke-direct {v1, v0, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    new-instance v3, Landroid/util/AtomicFile;
+
+    invoke-direct {v3, v1}, Landroid/util/AtomicFile;-><init>(Ljava/io/File;)V
+
+    iput-object v3, p0, Lcom/android/server/InputMethodManagerService$InputMethodFileManager;->mAdditionalInputMethodSubtypeFile:Landroid/util/AtomicFile;
+
+    invoke-virtual {v1}, Ljava/io/File;->exists()Z
+
+    move-result v3
+
+    if-nez v3, :cond_3
+
+    iget-object v3, p0, Lcom/android/server/InputMethodManagerService$InputMethodFileManager;->mAdditionalSubtypesMap:Ljava/util/HashMap;
+
+    iget-object v4, p0, Lcom/android/server/InputMethodManagerService$InputMethodFileManager;->mAdditionalInputMethodSubtypeFile:Landroid/util/AtomicFile;
+
+    invoke-static {v3, v4, p1}, Lcom/android/server/InputMethodManagerService$InputMethodFileManager;->writeAdditionalInputMethodSubtypes(Ljava/util/HashMap;Landroid/util/AtomicFile;Ljava/util/HashMap;)V
+
+    :goto_1
+    return-void
+
+    :cond_2
+    invoke-static {p2}, Landroid/os/Environment;->getUserSystemDirectory(I)Ljava/io/File;
+
+    move-result-object v2
+
+    goto :goto_0
+
+    :cond_3
     iget-object v3, p0, Lcom/android/server/InputMethodManagerService$InputMethodFileManager;->mAdditionalSubtypesMap:Ljava/util/HashMap;
 
     iget-object v4, p0, Lcom/android/server/InputMethodManagerService$InputMethodFileManager;->mAdditionalInputMethodSubtypeFile:Landroid/util/AtomicFile;
 
     invoke-static {v3, v4}, Lcom/android/server/InputMethodManagerService$InputMethodFileManager;->readAdditionalInputMethodSubtypes(Ljava/util/HashMap;Landroid/util/AtomicFile;)V
 
-    goto :goto_2
+    goto :goto_1
 .end method
 
 .method private deleteAllInputMethodSubtypes(Ljava/lang/String;)V
@@ -907,13 +905,13 @@
         }
     .end annotation
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_1
 
     invoke-virtual {p2}, Ljava/util/HashMap;->size()I
 
     move-result v10
 
-    if-lez v10, :cond_2
+    if-lez v10, :cond_1
 
     const/4 v6, 0x1
 
@@ -972,7 +970,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_8
+    if-eqz v10, :cond_7
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -980,15 +978,66 @@
 
     check-cast v4, Ljava/lang/String;
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_2
 
     invoke-virtual {p2, v4}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
     move-result v10
 
-    if-eqz v10, :cond_3
+    xor-int/lit8 v10, v10, 0x1
+
+    if-eqz v10, :cond_2
+
+    const-string/jumbo v10, "InputMethodManagerService"
+
+    new-instance v11, Ljava/lang/StringBuilder;
+
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v12, "IME uninstalled or not valid.: "
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-static {v10, v11}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_1
+
+    :catch_0
+    move-exception v1
+
+    const-string/jumbo v10, "InputMethodManagerService"
+
+    const-string/jumbo v11, "Error writing subtypes"
+
+    invoke-static {v10, v11, v1}, Lcom/samsung/android/util/SemLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {p1, v2}, Landroid/util/AtomicFile;->failWrite(Ljava/io/FileOutputStream;)V
 
     :cond_0
+    :goto_2
+    return-void
+
+    :cond_1
+    const/4 v6, 0x0
+
+    goto :goto_0
+
+    :cond_2
+    :try_start_1
     const-string/jumbo v10, "imi"
 
     const/4 v11, 0x0
@@ -1013,8 +1062,8 @@
 
     const/4 v3, 0x0
 
-    :goto_2
-    if-ge v3, v0, :cond_7
+    :goto_3
+    if-ge v3, v0, :cond_6
 
     invoke-interface {v9, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -1032,7 +1081,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_1
+    if-eqz v10, :cond_3
 
     const-string/jumbo v10, "subtypeId"
 
@@ -1048,7 +1097,7 @@
 
     invoke-interface {v7, v12, v10, v11}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    :cond_1
+    :cond_3
     const-string/jumbo v10, "icon"
 
     invoke-virtual {v8}, Landroid/view/inputmethod/InputMethodSubtype;->getIconResId()I
@@ -1123,11 +1172,11 @@
 
     move-result v10
 
-    if-eqz v10, :cond_5
+    if-eqz v10, :cond_4
 
     const/4 v10, 0x1
 
-    :goto_3
+    :goto_4
     invoke-static {v10}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v10
@@ -1142,11 +1191,11 @@
 
     move-result v10
 
-    if-eqz v10, :cond_6
+    if-eqz v10, :cond_5
 
     const/4 v10, 0x1
 
-    :goto_4
+    :goto_5
     invoke-static {v10}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v10
@@ -1163,69 +1212,19 @@
 
     add-int/lit8 v3, v3, 0x1
 
-    goto/16 :goto_2
-
-    :cond_2
-    const/4 v6, 0x0
-
-    goto/16 :goto_0
-
-    :cond_3
-    const-string/jumbo v10, "InputMethodManagerService"
-
-    new-instance v11, Ljava/lang/StringBuilder;
-
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v12, "IME uninstalled or not valid.: "
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-static {v10, v11}, Lcom/samsung/android/util/SemLog;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto/16 :goto_1
-
-    :catch_0
-    move-exception v1
-
-    const-string/jumbo v10, "InputMethodManagerService"
-
-    const-string/jumbo v11, "Error writing subtypes"
-
-    invoke-static {v10, v11, v1}, Lcom/samsung/android/util/SemLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    if-eqz v2, :cond_4
-
-    invoke-virtual {p1, v2}, Landroid/util/AtomicFile;->failWrite(Ljava/io/FileOutputStream;)V
+    goto/16 :goto_3
 
     :cond_4
-    :goto_5
-    return-void
-
-    :cond_5
-    const/4 v10, 0x0
-
-    goto :goto_3
-
-    :cond_6
     const/4 v10, 0x0
 
     goto :goto_4
 
-    :cond_7
-    :try_start_1
+    :cond_5
+    const/4 v10, 0x0
+
+    goto :goto_5
+
+    :cond_6
     const-string/jumbo v10, "imi"
 
     const/4 v11, 0x0
@@ -1234,7 +1233,7 @@
 
     goto/16 :goto_1
 
-    :cond_8
+    :cond_7
     const-string/jumbo v10, "subtypes"
 
     const/4 v11, 0x0
@@ -1247,7 +1246,7 @@
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto :goto_5
+    goto/16 :goto_2
 .end method
 
 

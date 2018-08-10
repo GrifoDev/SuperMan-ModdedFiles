@@ -20,7 +20,7 @@
 
 .field private static final KNOX_RCP_SYNC_MGMT_PERMISSION:Ljava/lang/String; = "com.sec.enterprise.knox.permission.KNOX_RCP_SYNC_MGMT"
 
-.field private static final KNOX_RCP_SYNC_MGMT_PERMISSION_NEW:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_RCP_SYNC_MGMT"
+.field private static final KNOX_RCP_SYNC_MGMT_PERMISSION_NEW:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_CONTAINER_RCP"
 
 .field private static final TABLE_NAME:Ljava/lang/String; = "RCP_DATA"
 
@@ -301,7 +301,7 @@
 
     aput-object v7, v6, v8
 
-    const-string/jumbo v7, "com.samsung.android.knox.permission.KNOX_RCP_SYNC_MGMT"
+    const-string/jumbo v7, "com.samsung.android.knox.permission.KNOX_CONTAINER_RCP"
 
     const/4 v8, 0x1
 
@@ -531,6 +531,8 @@
 
     move-result-object v8
 
+    if-eqz v8, :cond_0
+
     iget-object v1, p0, Lcom/android/server/enterprise/storage/RCPPolicyProvider;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -539,6 +541,7 @@
 
     invoke-interface {v8, v1, p1}, Landroid/database/Cursor;->setNotificationUri(Landroid/content/ContentResolver;Landroid/net/Uri;)V
 
+    :cond_0
     return-object v8
 
     nop
@@ -566,7 +569,7 @@
 
     aput-object v5, v4, v6
 
-    const-string/jumbo v5, "com.samsung.android.knox.permission.KNOX_RCP_SYNC_MGMT"
+    const-string/jumbo v5, "com.samsung.android.knox.permission.KNOX_CONTAINER_RCP"
 
     const/4 v6, 0x1
 

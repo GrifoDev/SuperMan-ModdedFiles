@@ -43,8 +43,31 @@
 
 # virtual methods
 .method public onLocationChanged(Landroid/location/Location;)V
-    .locals 0
+    .locals 2
 
+    iget-object v0, p0, Lcom/android/server/location/GnssLocationProvider$NetworkLocationListener;->this$0:Lcom/android/server/location/GnssLocationProvider;
+
+    iget-boolean v0, v0, Lcom/android/server/location/GnssLocationProvider;->mIzatServiceEnabled:Z
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "network"
+
+    invoke-virtual {p1}, Landroid/location/Location;->getProvider()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/location/GnssLocationProvider$NetworkLocationListener;->this$0:Lcom/android/server/location/GnssLocationProvider;
+
+    invoke-static {v0, p1}, Lcom/android/server/location/GnssLocationProvider;->-wrap33(Lcom/android/server/location/GnssLocationProvider;Landroid/location/Location;)V
+
+    :cond_0
     return-void
 .end method
 

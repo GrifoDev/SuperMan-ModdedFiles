@@ -36,7 +36,7 @@
 
     iget-object v0, p0, Lcom/android/server/power/Notifier$1;->this$0:Lcom/android/server/power/Notifier;
 
-    invoke-static {v0}, Lcom/android/server/power/Notifier;->-get7(Lcom/android/server/power/Notifier;)Lcom/android/server/power/SuspendBlocker;
+    invoke-static {v0}, Lcom/android/server/power/Notifier;->-get11(Lcom/android/server/power/Notifier;)Lcom/android/server/power/SuspendBlocker;
 
     move-result-object v0
 

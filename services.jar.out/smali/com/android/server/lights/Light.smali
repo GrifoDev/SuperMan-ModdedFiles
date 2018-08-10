@@ -46,5 +46,8 @@
 .method public abstract setFlashing(IIII)V
 .end method
 
+.method public abstract setVrMode(Z)V
+.end method
+
 .method public abstract turnOff()V
 .end method

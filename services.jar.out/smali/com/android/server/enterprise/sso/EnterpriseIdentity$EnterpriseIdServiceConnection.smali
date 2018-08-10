@@ -59,7 +59,7 @@
 
     iput-object v0, p0, Lcom/android/server/enterprise/sso/EnterpriseIdentity$EnterpriseIdServiceConnection;->mService:Lcom/samsung/android/knox/sso/serviceprovider/GenericSSOSupportSolution;
 
-    invoke-static {}, Lcom/android/server/enterprise/sso/EnterpriseIdentity;->-get4()Ljava/util/Map;
+    invoke-static {}, Lcom/android/server/enterprise/sso/EnterpriseIdentity;->-get2()Ljava/util/Map;
 
     move-result-object v0
 
@@ -71,7 +71,7 @@
 
     invoke-interface {v0, v1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {}, Lcom/android/server/enterprise/sso/EnterpriseIdentity;->-get4()Ljava/util/Map;
+    invoke-static {}, Lcom/android/server/enterprise/sso/EnterpriseIdentity;->-get2()Ljava/util/Map;
 
     move-result-object v0
 
@@ -83,13 +83,13 @@
 
     invoke-interface {v0, v1, p0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {}, Lcom/android/server/enterprise/sso/EnterpriseIdentity;->-get2()Ljava/util/concurrent/CountDownLatch;
+    invoke-static {}, Lcom/android/server/enterprise/sso/EnterpriseIdentity;->-get1()Ljava/util/concurrent/CountDownLatch;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    invoke-static {}, Lcom/android/server/enterprise/sso/EnterpriseIdentity;->-get2()Ljava/util/concurrent/CountDownLatch;
+    invoke-static {}, Lcom/android/server/enterprise/sso/EnterpriseIdentity;->-get1()Ljava/util/concurrent/CountDownLatch;
 
     move-result-object v0
 
@@ -112,7 +112,7 @@
 
     iput-object v2, p0, Lcom/android/server/enterprise/sso/EnterpriseIdentity$EnterpriseIdServiceConnection;->mService:Lcom/samsung/android/knox/sso/serviceprovider/GenericSSOSupportSolution;
 
-    invoke-static {}, Lcom/android/server/enterprise/sso/EnterpriseIdentity;->-get4()Ljava/util/Map;
+    invoke-static {}, Lcom/android/server/enterprise/sso/EnterpriseIdentity;->-get2()Ljava/util/Map;
 
     move-result-object v0
 
@@ -124,13 +124,13 @@
 
     invoke-interface {v0, v1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {}, Lcom/android/server/enterprise/sso/EnterpriseIdentity;->-get2()Ljava/util/concurrent/CountDownLatch;
+    invoke-static {}, Lcom/android/server/enterprise/sso/EnterpriseIdentity;->-get1()Ljava/util/concurrent/CountDownLatch;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    invoke-static {}, Lcom/android/server/enterprise/sso/EnterpriseIdentity;->-get2()Ljava/util/concurrent/CountDownLatch;
+    invoke-static {}, Lcom/android/server/enterprise/sso/EnterpriseIdentity;->-get1()Ljava/util/concurrent/CountDownLatch;
 
     move-result-object v0
 

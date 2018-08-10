@@ -60,7 +60,7 @@
 
     move-result-wide v2
 
-    invoke-static {v0, v2, v3}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->-set3(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;J)J
+    invoke-static {v0, v2, v3}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->-set4(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;J)J
 
     :cond_0
     :goto_0
@@ -91,7 +91,7 @@
 
     const-wide/16 v2, 0x0
 
-    invoke-static {v0, v2, v3}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->-set3(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;J)J
+    invoke-static {v0, v2, v3}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->-set4(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;J)J
 
     new-instance v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$3$1;
 

@@ -90,18 +90,9 @@
 
     const/4 v3, 0x0
 
-    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get0()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    return-void
-
-    :cond_0
     sget-object v0, Lcom/android/server/power/ShutdownThread$Slog;->logFileWriter:Lcom/android/server/power/ShutdownThread$LogFileWriter;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     const-string/jumbo v0, "ShutdownDelay"
 
@@ -139,7 +130,7 @@
 
     sput-object v3, Lcom/android/server/power/ShutdownThread$Slog;->logFileWriter:Lcom/android/server/power/ShutdownThread$LogFileWriter;
 
-    :cond_1
+    :cond_0
     return-void
 .end method
 
@@ -254,7 +245,7 @@
 
     move-result v1
 
-    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get6()Lcom/android/server/power/ShutdownDialog;
+    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get7()Lcom/android/server/power/ShutdownDialog;
 
     move-result-object v3
 
@@ -376,7 +367,7 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get6()Lcom/android/server/power/ShutdownDialog;
+    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get7()Lcom/android/server/power/ShutdownDialog;
 
     move-result-object v3
 
@@ -398,21 +389,6 @@
 
     move-result-object v0
 
-    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get0()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    const-string/jumbo v1, "1"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    :cond_0
     const-string/jumbo v1, "ShutdownDelay"
 
     const-string/jumbo v2, "Shutdown logFileWriter start"
@@ -421,7 +397,7 @@
 
     sget-object v1, Lcom/android/server/power/ShutdownThread$Slog;->logFileWriter:Lcom/android/server/power/ShutdownThread$LogFileWriter;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_0
 
     new-instance v1, Lcom/android/server/power/ShutdownThread$LogFileWriter;
 
@@ -433,10 +409,7 @@
 
     sput-object v1, Lcom/android/server/power/ShutdownThread$Slog;->logFileWriter:Lcom/android/server/power/ShutdownThread$LogFileWriter;
 
-    :cond_1
-    return-void
-
-    :cond_2
+    :cond_0
     return-void
 .end method
 
@@ -529,9 +502,11 @@
 
     move-result-object v0
 
-    const-string/jumbo v2, "%02d-%02d %02d:%02d:%02d : "
+    const-string/jumbo v2, "%02d-%02d %02d:%02d:%02d.%03d : "
 
-    new-array v3, v10, [Ljava/lang/Object;
+    const/4 v3, 0x6
+
+    new-array v3, v3, [Ljava/lang/Object;
 
     invoke-virtual {v0, v7}, Ljava/util/Calendar;->get(I)I
 
@@ -594,6 +569,18 @@
     const/4 v5, 0x4
 
     aput-object v4, v3, v5
+
+    const/16 v4, 0xe
+
+    invoke-virtual {v0, v4}, Ljava/util/Calendar;->get(I)I
+
+    move-result v4
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    aput-object v4, v3, v10
 
     invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -754,7 +741,7 @@
 
     const-string/jumbo v0, "recovery"
 
-    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get12()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get14()Ljava/lang/String;
 
     move-result-object v1
 
@@ -766,7 +753,7 @@
 
     const-string/jumbo v0, "recovery-update"
 
-    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get12()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get14()Ljava/lang/String;
 
     move-result-object v1
 

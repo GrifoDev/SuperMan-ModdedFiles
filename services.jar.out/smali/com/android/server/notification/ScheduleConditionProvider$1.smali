@@ -65,6 +65,18 @@
     invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
+    const-string/jumbo v3, "android.intent.action.TIMEZONE_CHANGED"
+
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
     iget-object v3, p0, Lcom/android/server/notification/ScheduleConditionProvider$1;->this$0:Lcom/android/server/notification/ScheduleConditionProvider;
 
     invoke-static {v3}, Lcom/android/server/notification/ScheduleConditionProvider;->-get0(Lcom/android/server/notification/ScheduleConditionProvider;)Landroid/util/ArrayMap;
@@ -74,18 +86,6 @@
     monitor-enter v4
 
     :try_start_0
-    const-string/jumbo v3, "android.intent.action.TIMEZONE_CHANGED"
-
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_2
-
     iget-object v3, p0, Lcom/android/server/notification/ScheduleConditionProvider$1;->this$0:Lcom/android/server/notification/ScheduleConditionProvider;
 
     invoke-static {v3}, Lcom/android/server/notification/ScheduleConditionProvider;->-get0(Lcom/android/server/notification/ScheduleConditionProvider;)Landroid/util/ArrayMap;
@@ -152,6 +152,7 @@
     :cond_2
     monitor-exit v4
 
+    :cond_3
     iget-object v3, p0, Lcom/android/server/notification/ScheduleConditionProvider$1;->this$0:Lcom/android/server/notification/ScheduleConditionProvider;
 
     invoke-static {v3}, Lcom/android/server/notification/ScheduleConditionProvider;->-wrap0(Lcom/android/server/notification/ScheduleConditionProvider;)V

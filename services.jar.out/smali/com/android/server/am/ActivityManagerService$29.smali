@@ -3,12 +3,12 @@
 .source "ActivityManagerService.java"
 
 # interfaces
-.implements Ljava/util/Comparator;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/am/ActivityManagerService;->reportMemUsage(Ljava/util/ArrayList;)V
+    value = Lcom/android/server/am/ActivityManagerService;->cleanUpApplicationRecordLocked(Lcom/android/server/am/ProcessRecord;ZZIZ)Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -16,26 +16,20 @@
     name = null
 .end annotation
 
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Ljava/util/Comparator",
-        "<",
-        "Lcom/android/server/am/ProcessMemInfo;",
-        ">;"
-    }
-.end annotation
-
 
 # instance fields
 .field final synthetic this$0:Lcom/android/server/am/ActivityManagerService;
 
+.field final synthetic val$app:Lcom/android/server/am/ProcessRecord;
+
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/ActivityManagerService;)V
+.method constructor <init>(Lcom/android/server/am/ActivityManagerService;Lcom/android/server/am/ProcessRecord;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$29;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    iput-object p2, p0, Lcom/android/server/am/ActivityManagerService$29;->val$app:Lcom/android/server/am/ProcessRecord;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -44,74 +38,35 @@
 
 
 # virtual methods
-.method public compare(Lcom/android/server/am/ProcessMemInfo;Lcom/android/server/am/ProcessMemInfo;)I
-    .locals 6
+.method public run()V
+    .locals 3
 
-    const/4 v1, 0x1
+    :try_start_0
+    const-string/jumbo v2, "backup"
 
-    const/4 v0, -0x1
+    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
-    iget v2, p1, Lcom/android/server/am/ProcessMemInfo;->oomAdj:I
+    move-result-object v2
 
-    iget v3, p2, Lcom/android/server/am/ProcessMemInfo;->oomAdj:I
+    invoke-static {v2}, Landroid/app/backup/IBackupManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/backup/IBackupManager;
 
-    if-eq v2, v3, :cond_1
+    move-result-object v0
 
-    iget v2, p1, Lcom/android/server/am/ProcessMemInfo;->oomAdj:I
+    iget-object v2, p0, Lcom/android/server/am/ActivityManagerService$29;->val$app:Lcom/android/server/am/ProcessRecord;
 
-    iget v3, p2, Lcom/android/server/am/ProcessMemInfo;->oomAdj:I
+    iget-object v2, v2, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
 
-    if-ge v2, v3, :cond_0
+    iget-object v2, v2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+
+    invoke-interface {v0, v2}, Landroid/app/backup/IBackupManager;->agentDisconnected(Ljava/lang/String;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_0
-    return v0
+    return-void
 
-    :cond_0
-    move v0, v1
+    :catch_0
+    move-exception v1
 
     goto :goto_0
-
-    :cond_1
-    iget-wide v2, p1, Lcom/android/server/am/ProcessMemInfo;->pss:J
-
-    iget-wide v4, p2, Lcom/android/server/am/ProcessMemInfo;->pss:J
-
-    cmp-long v2, v2, v4
-
-    if-eqz v2, :cond_3
-
-    iget-wide v2, p1, Lcom/android/server/am/ProcessMemInfo;->pss:J
-
-    iget-wide v4, p2, Lcom/android/server/am/ProcessMemInfo;->pss:J
-
-    cmp-long v2, v2, v4
-
-    if-gez v2, :cond_2
-
-    :goto_1
-    return v1
-
-    :cond_2
-    move v1, v0
-
-    goto :goto_1
-
-    :cond_3
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 1
-
-    check-cast p1, Lcom/android/server/am/ProcessMemInfo;
-
-    check-cast p2, Lcom/android/server/am/ProcessMemInfo;
-
-    invoke-virtual {p0, p1, p2}, Lcom/android/server/am/ActivityManagerService$29;->compare(Lcom/android/server/am/ProcessMemInfo;Lcom/android/server/am/ProcessMemInfo;)I
-
-    move-result v0
-
-    return v0
 .end method

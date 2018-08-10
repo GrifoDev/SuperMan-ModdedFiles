@@ -1,4 +1,4 @@
-.class Lcom/android/server/job/controllers/IdleController$IdlenessTracker;
+.class final Lcom/android/server/job/controllers/IdleController$IdlenessTracker;
 .super Landroid/content/BroadcastReceiver;
 .source "IdleController.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x10
     name = "IdlenessTracker"
 .end annotation
 
@@ -208,7 +208,9 @@
 
     iget-boolean v0, p0, Lcom/android/server/job/controllers/IdleController$IdlenessTracker;->mScreenOn:Z
 
-    if-nez v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_1
 
     iput-boolean v1, p0, Lcom/android/server/job/controllers/IdleController$IdlenessTracker;->mIdle:Z
 

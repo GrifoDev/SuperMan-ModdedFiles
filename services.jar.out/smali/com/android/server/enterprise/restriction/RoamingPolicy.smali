@@ -9,7 +9,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/server/enterprise/restriction/RoamingPolicy$1;
+        Lcom/android/server/enterprise/restriction/RoamingPolicy$1;,
+        Lcom/android/server/enterprise/restriction/RoamingPolicy$2;
     }
 .end annotation
 
@@ -21,6 +22,8 @@
 
 
 # instance fields
+.field private mBroadCastReceiver:Landroid/content/BroadcastReceiver;
+
 .field private mContext:Landroid/content/Context;
 
 .field private mEDM:Lcom/samsung/android/knox/EnterpriseDeviceManager;
@@ -29,7 +32,7 @@
 
 .field private mTelMgr:Landroid/telephony/TelephonyManager;
 
-.field private final phoneStateListner:Landroid/telephony/PhoneStateListener;
+.field private phoneStateListner:Landroid/telephony/PhoneStateListener;
 
 
 # direct methods
@@ -41,26 +44,26 @@
     return-object v0
 .end method
 
+.method static synthetic -get1(Lcom/android/server/enterprise/restriction/RoamingPolicy;)Landroid/telephony/PhoneStateListener;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/enterprise/restriction/RoamingPolicy;->phoneStateListner:Landroid/telephony/PhoneStateListener;
+
+    return-object v0
+.end method
+
+.method static synthetic -set0(Lcom/android/server/enterprise/restriction/RoamingPolicy;Landroid/telephony/PhoneStateListener;)Landroid/telephony/PhoneStateListener;
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/enterprise/restriction/RoamingPolicy;->phoneStateListner:Landroid/telephony/PhoneStateListener;
+
+    return-object p1
+.end method
+
 .method static synthetic -wrap0(Lcom/android/server/enterprise/restriction/RoamingPolicy;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/server/enterprise/restriction/RoamingPolicy;->restoreUserAutoSyncSetting()V
-
-    return-void
-.end method
-
-.method static synthetic -wrap1(Lcom/android/server/enterprise/restriction/RoamingPolicy;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/enterprise/restriction/RoamingPolicy;->setMasterSyncAutomatically(Z)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap2(Lcom/android/server/enterprise/restriction/RoamingPolicy;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/server/enterprise/restriction/RoamingPolicy;->storeUserAutoSyncSetting()V
+    invoke-direct {p0}, Lcom/android/server/enterprise/restriction/RoamingPolicy;->blockSyncIfRoaming()V
 
     return-void
 .end method
@@ -74,9 +77,23 @@
 
     new-instance v0, Lcom/android/server/enterprise/restriction/RoamingPolicy$1;
 
-    invoke-direct {v0, p0}, Lcom/android/server/enterprise/restriction/RoamingPolicy$1;-><init>(Lcom/android/server/enterprise/restriction/RoamingPolicy;)V
+    invoke-static {}, Landroid/telephony/SubscriptionManager;->getDefaultDataSubscriptionId()I
+
+    move-result v1
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-direct {v0, p0, v1}, Lcom/android/server/enterprise/restriction/RoamingPolicy$1;-><init>(Lcom/android/server/enterprise/restriction/RoamingPolicy;Ljava/lang/Integer;)V
 
     iput-object v0, p0, Lcom/android/server/enterprise/restriction/RoamingPolicy;->phoneStateListner:Landroid/telephony/PhoneStateListener;
+
+    new-instance v0, Lcom/android/server/enterprise/restriction/RoamingPolicy$2;
+
+    invoke-direct {v0, p0}, Lcom/android/server/enterprise/restriction/RoamingPolicy$2;-><init>(Lcom/android/server/enterprise/restriction/RoamingPolicy;)V
+
+    iput-object v0, p0, Lcom/android/server/enterprise/restriction/RoamingPolicy;->mBroadCastReceiver:Landroid/content/BroadcastReceiver;
 
     iput-object v2, p0, Lcom/android/server/enterprise/restriction/RoamingPolicy;->mEDM:Lcom/samsung/android/knox/EnterpriseDeviceManager;
 
@@ -114,20 +131,122 @@
     return-void
 .end method
 
-.method private deregisterRoamingListener()V
-    .locals 3
+.method private blockSyncIfRoaming()V
+    .locals 5
 
-    iget-object v0, p0, Lcom/android/server/enterprise/restriction/RoamingPolicy;->mTelMgr:Landroid/telephony/TelephonyManager;
+    iget-object v3, p0, Lcom/android/server/enterprise/restriction/RoamingPolicy;->mTelMgr:Landroid/telephony/TelephonyManager;
 
-    iget-object v1, p0, Lcom/android/server/enterprise/restriction/RoamingPolicy;->phoneStateListner:Landroid/telephony/PhoneStateListener;
+    invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->isNetworkRoaming()Z
 
-    const/4 v2, 0x0
+    move-result v0
 
-    invoke-virtual {v0, v1, v2}, Landroid/telephony/TelephonyManager;->listen(Landroid/telephony/PhoneStateListener;I)V
+    iget-object v3, p0, Lcom/android/server/enterprise/restriction/RoamingPolicy;->mTelMgr:Landroid/telephony/TelephonyManager;
+
+    invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->getPhoneCount()I
+
+    move-result v3
+
+    const/4 v4, 0x1
+
+    if-le v3, v4, :cond_0
+
+    invoke-static {}, Landroid/telephony/SubscriptionManager;->getDefaultDataSubscriptionId()I
+
+    move-result v3
+
+    invoke-static {v3}, Landroid/telephony/SubscriptionManager;->getPhoneId(I)I
+
+    move-result v2
+
+    iget-object v3, p0, Lcom/android/server/enterprise/restriction/RoamingPolicy;->mTelMgr:Landroid/telephony/TelephonyManager;
+
+    const-string/jumbo v3, "gsm.operator.isroaming"
+
+    const-string/jumbo v4, "false"
+
+    invoke-static {v2, v3, v4}, Landroid/telephony/TelephonyManager;->semGetTelephonyProperty(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_1
+
+    const-string/jumbo v3, "true"
+
+    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    :cond_0
+    :goto_0
+    if-eqz v0, :cond_2
+
+    const-string/jumbo v3, "RoamingPolicy"
+
+    const-string/jumbo v4, "Entering Roaming"
+
+    invoke-static {v3, v4}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-direct {p0}, Lcom/android/server/enterprise/restriction/RoamingPolicy;->storeUserAutoSyncSetting()V
+
+    const/4 v3, 0x0
+
+    invoke-virtual {p0, v3}, Lcom/android/server/enterprise/restriction/RoamingPolicy;->isRoamingSyncEnabled(Lcom/samsung/android/knox/ContextInfo;)Z
+
+    move-result v3
+
+    invoke-direct {p0, v3}, Lcom/android/server/enterprise/restriction/RoamingPolicy;->setMasterSyncAutomatically(Z)V
+
+    :goto_1
+    return-void
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    :cond_2
+    const-string/jumbo v3, "RoamingPolicy"
+
+    const-string/jumbo v4, "Leaving Roaming"
+
+    invoke-static {v3, v4}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-direct {p0}, Lcom/android/server/enterprise/restriction/RoamingPolicy;->restoreUserAutoSyncSetting()V
 
+    goto :goto_1
+.end method
+
+.method private deregisterRoamingListener()V
+    .locals 4
+
+    iget-object v1, p0, Lcom/android/server/enterprise/restriction/RoamingPolicy;->mTelMgr:Landroid/telephony/TelephonyManager;
+
+    iget-object v2, p0, Lcom/android/server/enterprise/restriction/RoamingPolicy;->phoneStateListner:Landroid/telephony/PhoneStateListener;
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v1, v2, v3}, Landroid/telephony/TelephonyManager;->listen(Landroid/telephony/PhoneStateListener;I)V
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/enterprise/restriction/RoamingPolicy;->mContext:Landroid/content/Context;
+
+    iget-object v2, p0, Lcom/android/server/enterprise/restriction/RoamingPolicy;->mBroadCastReceiver:Landroid/content/BroadcastReceiver;
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
     return-void
+
+    :catch_0
+    move-exception v0
+
+    goto :goto_0
 .end method
 
 .method private enforceOwnerOnlyAndRoamingPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
@@ -194,15 +313,29 @@
 .end method
 
 .method private registerRoamingListener()V
-    .locals 3
+    .locals 4
 
-    iget-object v0, p0, Lcom/android/server/enterprise/restriction/RoamingPolicy;->mTelMgr:Landroid/telephony/TelephonyManager;
+    iget-object v1, p0, Lcom/android/server/enterprise/restriction/RoamingPolicy;->mTelMgr:Landroid/telephony/TelephonyManager;
 
-    iget-object v1, p0, Lcom/android/server/enterprise/restriction/RoamingPolicy;->phoneStateListner:Landroid/telephony/PhoneStateListener;
+    iget-object v2, p0, Lcom/android/server/enterprise/restriction/RoamingPolicy;->phoneStateListner:Landroid/telephony/PhoneStateListener;
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    invoke-virtual {v0, v1, v2}, Landroid/telephony/TelephonyManager;->listen(Landroid/telephony/PhoneStateListener;I)V
+    invoke-virtual {v1, v2, v3}, Landroid/telephony/TelephonyManager;->listen(Landroid/telephony/PhoneStateListener;I)V
+
+    new-instance v0, Landroid/content/IntentFilter;
+
+    invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
+
+    const-string/jumbo v1, "android.intent.action.ACTION_DEFAULT_DATA_SUBSCRIPTION_CHANGED"
+
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    iget-object v1, p0, Lcom/android/server/enterprise/restriction/RoamingPolicy;->mContext:Landroid/content/Context;
+
+    iget-object v2, p0, Lcom/android/server/enterprise/restriction/RoamingPolicy;->mBroadCastReceiver:Landroid/content/BroadcastReceiver;
+
+    invoke-virtual {v1, v2, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
     return-void
 .end method
@@ -681,11 +814,13 @@
 
     const-string/jumbo v0, "RoamingPolicy"
 
-    const-string/jumbo v1, "Roaming Sync is not being applied, so de-register listener"
+    const-string/jumbo v1, "Roaming Sync is not being applied, so de-register listener and restore sync setting"
 
     invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-direct {p0}, Lcom/android/server/enterprise/restriction/RoamingPolicy;->deregisterRoamingListener()V
+
+    invoke-direct {p0}, Lcom/android/server/enterprise/restriction/RoamingPolicy;->restoreUserAutoSyncSetting()V
 
     :cond_0
     return-void
@@ -734,6 +869,10 @@
 
     invoke-direct {v4, v12}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    const-string/jumbo v12, "com.samsung.networkui"
+
+    invoke-virtual {v4, v12}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+
     const-string/jumbo v12, "roamingData"
 
     const/4 v13, 0x0
@@ -757,6 +896,10 @@
     const-string/jumbo v12, "com.samsung.android.knox.intent.action.ROAMING_SETROAMINGDATA_INTERNAL"
 
     invoke-direct {v5, v12}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v12, "com.samsung.networkui"
+
+    invoke-virtual {v5, v12}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
     const-string/jumbo v12, "roamingData"
 
@@ -1055,6 +1198,8 @@
     :cond_1
     :try_start_2
     invoke-direct {p0}, Lcom/android/server/enterprise/restriction/RoamingPolicy;->deregisterRoamingListener()V
+
+    invoke-direct {p0}, Lcom/android/server/enterprise/restriction/RoamingPolicy;->restoreUserAutoSyncSetting()V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 

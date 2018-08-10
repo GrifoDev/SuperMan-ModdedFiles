@@ -129,8 +129,6 @@
 .method public mergeContact(Landroid/database/Cursor;)V
     .locals 7
 
-    const/4 v2, 0x0
-
     iget v4, p0, Lcom/android/server/notification/ValidateNotificationPeople$LookupResult;->mAffinity:F
 
     const/high16 v5, 0x3f000000    # 0.5f
@@ -147,7 +145,7 @@
 
     move-result v1
 
-    if-ltz v1, :cond_4
+    if-ltz v1, :cond_3
 
     invoke-interface {p1, v1}, Landroid/database/Cursor;->getInt(I)I
 
@@ -195,12 +193,12 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_4
 
     const/4 v2, 0x1
 
-    :cond_1
-    if-eqz v2, :cond_2
+    :goto_1
+    if-eqz v2, :cond_1
 
     iget v4, p0, Lcom/android/server/notification/ValidateNotificationPeople$LookupResult;->mAffinity:F
 
@@ -212,12 +210,12 @@
 
     iput v4, p0, Lcom/android/server/notification/ValidateNotificationPeople$LookupResult;->mAffinity:F
 
-    :cond_2
+    :cond_1
     invoke-static {}, Lcom/android/server/notification/ValidateNotificationPeople;->-get0()Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_2
 
     const-string/jumbo v4, "ValidateNoPeople"
 
@@ -241,11 +239,11 @@
 
     invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_3
-    :goto_1
+    :cond_2
+    :goto_2
     return-void
 
-    :cond_4
+    :cond_3
     const/4 v0, -0x1
 
     const-string/jumbo v4, "ValidateNoPeople"
@@ -256,12 +254,17 @@
 
     goto :goto_0
 
+    :cond_4
+    const/4 v2, 0x0
+
+    goto :goto_1
+
     :cond_5
     invoke-static {}, Lcom/android/server/notification/ValidateNotificationPeople;->-get0()Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_2
 
     const-string/jumbo v4, "ValidateNoPeople"
 
@@ -269,5 +272,5 @@
 
     invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_1
+    goto :goto_2
 .end method

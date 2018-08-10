@@ -17,7 +17,7 @@
 # static fields
 .field private static final DEFAULT_BG_CRITICAL_JOB_COUNT:I = 0x1
 
-.field private static final DEFAULT_BG_LOW_JOB_COUNT:I = 0x2
+.field private static final DEFAULT_BG_LOW_JOB_COUNT:I = 0x1
 
 .field private static final DEFAULT_BG_MODERATE_JOB_COUNT:I = 0x4
 
@@ -27,15 +27,27 @@
 
 .field private static final DEFAULT_HEAVY_USE_FACTOR:F = 0.9f
 
+.field private static final DEFAULT_MAX_STANDARD_RESCHEDULE_COUNT:I = 0x7fffffff
+
+.field private static final DEFAULT_MAX_WORK_RESCHEDULE_COUNT:I = 0x7fffffff
+
+.field private static final DEFAULT_MIN_BATTERY_NOT_LOW_COUNT:I = 0x1
+
 .field private static final DEFAULT_MIN_CHARGING_COUNT:I = 0x1
 
 .field private static final DEFAULT_MIN_CONNECTIVITY_COUNT:I = 0x1
 
 .field private static final DEFAULT_MIN_CONTENT_COUNT:I = 0x1
 
+.field private static final DEFAULT_MIN_EXP_BACKOFF_TIME:J = 0x2710L
+
 .field private static final DEFAULT_MIN_IDLE_COUNT:I = 0x1
 
+.field private static final DEFAULT_MIN_LINEAR_BACKOFF_TIME:J = 0x2710L
+
 .field private static final DEFAULT_MIN_READY_JOBS_COUNT:I = 0x1
+
+.field private static final DEFAULT_MIN_STORAGE_NOT_LOW_COUNT:I = 0x1
 
 .field private static final DEFAULT_MODERATE_USE_FACTOR:F = 0.5f
 
@@ -51,15 +63,27 @@
 
 .field private static final KEY_HEAVY_USE_FACTOR:Ljava/lang/String; = "heavy_use_factor"
 
+.field private static final KEY_MAX_STANDARD_RESCHEDULE_COUNT:Ljava/lang/String; = "max_standard_reschedule_count"
+
+.field private static final KEY_MAX_WORK_RESCHEDULE_COUNT:Ljava/lang/String; = "max_work_reschedule_count"
+
+.field private static final KEY_MIN_BATTERY_NOT_LOW_COUNT:Ljava/lang/String; = "min_battery_not_low_count"
+
 .field private static final KEY_MIN_CHARGING_COUNT:Ljava/lang/String; = "min_charging_count"
 
 .field private static final KEY_MIN_CONNECTIVITY_COUNT:Ljava/lang/String; = "min_connectivity_count"
 
 .field private static final KEY_MIN_CONTENT_COUNT:Ljava/lang/String; = "min_content_count"
 
+.field private static final KEY_MIN_EXP_BACKOFF_TIME:Ljava/lang/String; = "min_exp_backoff_time"
+
 .field private static final KEY_MIN_IDLE_COUNT:Ljava/lang/String; = "min_idle_count"
 
+.field private static final KEY_MIN_LINEAR_BACKOFF_TIME:Ljava/lang/String; = "min_linear_backoff_time"
+
 .field private static final KEY_MIN_READY_JOBS_COUNT:Ljava/lang/String; = "min_ready_jobs_count"
+
+.field private static final KEY_MIN_STORAGE_NOT_LOW_COUNT:Ljava/lang/String; = "min_storage_not_low_count"
 
 .field private static final KEY_MODERATE_USE_FACTOR:Ljava/lang/String; = "moderate_use_factor"
 
@@ -77,15 +101,27 @@
 
 .field HEAVY_USE_FACTOR:F
 
+.field MAX_STANDARD_RESCHEDULE_COUNT:I
+
+.field MAX_WORK_RESCHEDULE_COUNT:I
+
+.field MIN_BATTERY_NOT_LOW_COUNT:I
+
 .field MIN_CHARGING_COUNT:I
 
 .field MIN_CONNECTIVITY_COUNT:I
 
 .field MIN_CONTENT_COUNT:I
 
+.field MIN_EXP_BACKOFF_TIME:J
+
 .field MIN_IDLE_COUNT:I
 
+.field MIN_LINEAR_BACKOFF_TIME:J
+
 .field MIN_READY_JOBS_COUNT:I
+
+.field MIN_STORAGE_NOT_LOW_COUNT:I
 
 .field MODERATE_USE_FACTOR:F
 
@@ -98,7 +134,11 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/job/JobSchedulerService;Landroid/os/Handler;)V
-    .locals 3
+    .locals 6
+
+    const-wide/16 v4, 0x2710
+
+    const v3, 0x7fffffff
 
     const/4 v2, 0x4
 
@@ -111,6 +151,10 @@
     iput v1, p0, Lcom/android/server/job/JobSchedulerService$Constants;->MIN_IDLE_COUNT:I
 
     iput v1, p0, Lcom/android/server/job/JobSchedulerService$Constants;->MIN_CHARGING_COUNT:I
+
+    iput v1, p0, Lcom/android/server/job/JobSchedulerService$Constants;->MIN_BATTERY_NOT_LOW_COUNT:I
+
+    iput v1, p0, Lcom/android/server/job/JobSchedulerService$Constants;->MIN_STORAGE_NOT_LOW_COUNT:I
 
     iput v1, p0, Lcom/android/server/job/JobSchedulerService$Constants;->MIN_CONNECTIVITY_COUNT:I
 
@@ -134,11 +178,17 @@
 
     iput v2, p0, Lcom/android/server/job/JobSchedulerService$Constants;->BG_MODERATE_JOB_COUNT:I
 
-    const/4 v0, 0x2
-
-    iput v0, p0, Lcom/android/server/job/JobSchedulerService$Constants;->BG_LOW_JOB_COUNT:I
+    iput v1, p0, Lcom/android/server/job/JobSchedulerService$Constants;->BG_LOW_JOB_COUNT:I
 
     iput v1, p0, Lcom/android/server/job/JobSchedulerService$Constants;->BG_CRITICAL_JOB_COUNT:I
+
+    iput v3, p0, Lcom/android/server/job/JobSchedulerService$Constants;->MAX_STANDARD_RESCHEDULE_COUNT:I
+
+    iput v3, p0, Lcom/android/server/job/JobSchedulerService$Constants;->MAX_WORK_RESCHEDULE_COUNT:I
+
+    iput-wide v4, p0, Lcom/android/server/job/JobSchedulerService$Constants;->MIN_LINEAR_BACKOFF_TIME:J
+
+    iput-wide v4, p0, Lcom/android/server/job/JobSchedulerService$Constants;->MIN_EXP_BACKOFF_TIME:J
 
     new-instance v0, Landroid/util/KeyValueListParser;
 
@@ -203,6 +253,30 @@
     move-result v1
 
     iput v1, p0, Lcom/android/server/job/JobSchedulerService$Constants;->MIN_CHARGING_COUNT:I
+
+    iget-object v1, p0, Lcom/android/server/job/JobSchedulerService$Constants;->mParser:Landroid/util/KeyValueListParser;
+
+    const-string/jumbo v3, "min_battery_not_low_count"
+
+    const/4 v4, 0x1
+
+    invoke-virtual {v1, v3, v4}, Landroid/util/KeyValueListParser;->getInt(Ljava/lang/String;I)I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/server/job/JobSchedulerService$Constants;->MIN_BATTERY_NOT_LOW_COUNT:I
+
+    iget-object v1, p0, Lcom/android/server/job/JobSchedulerService$Constants;->mParser:Landroid/util/KeyValueListParser;
+
+    const-string/jumbo v3, "min_storage_not_low_count"
+
+    const/4 v4, 0x1
+
+    invoke-virtual {v1, v3, v4}, Landroid/util/KeyValueListParser;->getInt(Ljava/lang/String;I)I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/server/job/JobSchedulerService$Constants;->MIN_STORAGE_NOT_LOW_COUNT:I
 
     iget-object v1, p0, Lcom/android/server/job/JobSchedulerService$Constants;->mParser:Landroid/util/KeyValueListParser;
 
@@ -334,7 +408,7 @@
 
     const-string/jumbo v3, "bg_low_job_count"
 
-    const/4 v4, 0x2
+    const/4 v4, 0x1
 
     invoke-virtual {v1, v3, v4}, Landroid/util/KeyValueListParser;->getInt(Ljava/lang/String;I)I
 
@@ -382,10 +456,58 @@
     rsub-int/lit8 v1, v1, 0x10
 
     iput v1, p0, Lcom/android/server/job/JobSchedulerService$Constants;->BG_CRITICAL_JOB_COUNT:I
+
+    :cond_3
+    iget-object v1, p0, Lcom/android/server/job/JobSchedulerService$Constants;->mParser:Landroid/util/KeyValueListParser;
+
+    const-string/jumbo v3, "max_standard_reschedule_count"
+
+    const v4, 0x7fffffff
+
+    invoke-virtual {v1, v3, v4}, Landroid/util/KeyValueListParser;->getInt(Ljava/lang/String;I)I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/server/job/JobSchedulerService$Constants;->MAX_STANDARD_RESCHEDULE_COUNT:I
+
+    iget-object v1, p0, Lcom/android/server/job/JobSchedulerService$Constants;->mParser:Landroid/util/KeyValueListParser;
+
+    const-string/jumbo v3, "max_work_reschedule_count"
+
+    const v4, 0x7fffffff
+
+    invoke-virtual {v1, v3, v4}, Landroid/util/KeyValueListParser;->getInt(Ljava/lang/String;I)I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/server/job/JobSchedulerService$Constants;->MAX_WORK_RESCHEDULE_COUNT:I
+
+    iget-object v1, p0, Lcom/android/server/job/JobSchedulerService$Constants;->mParser:Landroid/util/KeyValueListParser;
+
+    const-string/jumbo v3, "min_linear_backoff_time"
+
+    const-wide/16 v4, 0x2710
+
+    invoke-virtual {v1, v3, v4, v5}, Landroid/util/KeyValueListParser;->getLong(Ljava/lang/String;J)J
+
+    move-result-wide v4
+
+    iput-wide v4, p0, Lcom/android/server/job/JobSchedulerService$Constants;->MIN_LINEAR_BACKOFF_TIME:J
+
+    iget-object v1, p0, Lcom/android/server/job/JobSchedulerService$Constants;->mParser:Landroid/util/KeyValueListParser;
+
+    const-string/jumbo v3, "min_exp_backoff_time"
+
+    const-wide/16 v4, 0x2710
+
+    invoke-virtual {v1, v3, v4, v5}, Landroid/util/KeyValueListParser;->getLong(Ljava/lang/String;J)J
+
+    move-result-wide v4
+
+    iput-wide v4, p0, Lcom/android/server/job/JobSchedulerService$Constants;->MIN_EXP_BACKOFF_TIME:J
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    :cond_3
     monitor-exit v2
 
     return-void
@@ -415,7 +537,7 @@
 
 # virtual methods
 .method dump(Ljava/io/PrintWriter;)V
-    .locals 1
+    .locals 2
 
     const-string/jumbo v0, "  Settings:"
 
@@ -452,6 +574,42 @@
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     iget v0, p0, Lcom/android/server/job/JobSchedulerService$Constants;->MIN_CHARGING_COUNT:I
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(I)V
+
+    invoke-virtual {p1}, Ljava/io/PrintWriter;->println()V
+
+    const-string/jumbo v0, "    "
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string/jumbo v0, "min_battery_not_low_count"
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string/jumbo v0, "="
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget v0, p0, Lcom/android/server/job/JobSchedulerService$Constants;->MIN_BATTERY_NOT_LOW_COUNT:I
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(I)V
+
+    invoke-virtual {p1}, Ljava/io/PrintWriter;->println()V
+
+    const-string/jumbo v0, "    "
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string/jumbo v0, "min_storage_not_low_count"
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string/jumbo v0, "="
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget v0, p0, Lcom/android/server/job/JobSchedulerService$Constants;->MIN_STORAGE_NOT_LOW_COUNT:I
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(I)V
 
@@ -634,6 +792,78 @@
     iget v0, p0, Lcom/android/server/job/JobSchedulerService$Constants;->BG_CRITICAL_JOB_COUNT:I
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(I)V
+
+    invoke-virtual {p1}, Ljava/io/PrintWriter;->println()V
+
+    const-string/jumbo v0, "    "
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string/jumbo v0, "max_standard_reschedule_count"
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string/jumbo v0, "="
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget v0, p0, Lcom/android/server/job/JobSchedulerService$Constants;->MAX_STANDARD_RESCHEDULE_COUNT:I
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(I)V
+
+    invoke-virtual {p1}, Ljava/io/PrintWriter;->println()V
+
+    const-string/jumbo v0, "    "
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string/jumbo v0, "max_work_reschedule_count"
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string/jumbo v0, "="
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget v0, p0, Lcom/android/server/job/JobSchedulerService$Constants;->MAX_WORK_RESCHEDULE_COUNT:I
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(I)V
+
+    invoke-virtual {p1}, Ljava/io/PrintWriter;->println()V
+
+    const-string/jumbo v0, "    "
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string/jumbo v0, "min_linear_backoff_time"
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string/jumbo v0, "="
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-wide v0, p0, Lcom/android/server/job/JobSchedulerService$Constants;->MIN_LINEAR_BACKOFF_TIME:J
+
+    invoke-virtual {p1, v0, v1}, Ljava/io/PrintWriter;->print(J)V
+
+    invoke-virtual {p1}, Ljava/io/PrintWriter;->println()V
+
+    const-string/jumbo v0, "    "
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string/jumbo v0, "min_exp_backoff_time"
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string/jumbo v0, "="
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-wide v0, p0, Lcom/android/server/job/JobSchedulerService$Constants;->MIN_EXP_BACKOFF_TIME:J
+
+    invoke-virtual {p1, v0, v1}, Ljava/io/PrintWriter;->print(J)V
 
     invoke-virtual {p1}, Ljava/io/PrintWriter;->println()V
 

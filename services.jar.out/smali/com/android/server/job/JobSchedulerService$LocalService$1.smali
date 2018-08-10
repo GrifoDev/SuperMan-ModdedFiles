@@ -59,10 +59,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    :goto_0
-    return-void
+    if-eqz v0, :cond_1
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/job/JobSchedulerService$LocalService$1;->val$pendingJobs:Ljava/util/List;
@@ -73,5 +72,6 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    :cond_1
+    return-void
 .end method

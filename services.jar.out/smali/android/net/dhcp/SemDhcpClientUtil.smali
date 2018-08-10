@@ -28,7 +28,7 @@
 
 .field private static final LEASE_FILE_VERSION:I = 0x2
 
-.field private static final MAX_COUNT:I = 0x5
+.field private static final MAX_COUNT:I = 0xa
 
 .field private static final TAG:Ljava/lang/String; = "DhcpClient"
 

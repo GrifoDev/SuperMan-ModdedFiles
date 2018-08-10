@@ -43,7 +43,7 @@
 
     const-string/jumbo v4, "gsm.nitz.time"
 
-    const-string/jumbo v5, "NONE"
+    const-string/jumbo v5, "0"
 
     invoke-static {v4, v5}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -59,7 +59,19 @@
 
     div-long v0, v4, v8
 
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+    const-string/jumbo v4, "ril.nitz.savedattime"
+
+    const-string/jumbo v5, "0"
+
+    invoke-static {v4, v5}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Ljava/lang/Long;->valueOf(Ljava/lang/String;)Ljava/lang/Long;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v4
 

@@ -240,7 +240,7 @@
 
     iget v8, p0, Lcom/android/server/pm/PackageManagerService$EMPackageHandler;->emSize:I
 
-    invoke-static/range {v2 .. v8}, Lcom/android/server/pm/PackageManagerService;->-wrap17(Lcom/android/server/pm/PackageManagerService;[Ljava/lang/String;[Ljava/util/ArrayList;[I[Z[II)I
+    invoke-static/range {v2 .. v8}, Lcom/android/server/pm/PackageManagerService;->-wrap27(Lcom/android/server/pm/PackageManagerService;[Ljava/lang/String;[Ljava/util/ArrayList;[I[Z[II)I
 
     move-result v2
 
@@ -523,7 +523,7 @@
 
     iget v8, p0, Lcom/android/server/pm/PackageManagerService$EMPackageHandler;->emID:I
 
-    invoke-static/range {v2 .. v8}, Lcom/android/server/pm/PackageManagerService;->-wrap49(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;ZLjava/util/ArrayList;ILandroid/content/IIntentReceiver;I)V
+    invoke-static/range {v2 .. v8}, Lcom/android/server/pm/PackageManagerService;->-wrap62(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;ZLjava/util/ArrayList;ILandroid/content/IIntentReceiver;I)V
 
     :goto_2
     iget v2, p0, Lcom/android/server/pm/PackageManagerService$EMPackageHandler;->emCurrentPosition:I
@@ -575,7 +575,7 @@
 
     const/4 v7, 0x0
 
-    invoke-static/range {v2 .. v8}, Lcom/android/server/pm/PackageManagerService;->-wrap49(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;ZLjava/util/ArrayList;ILandroid/content/IIntentReceiver;I)V
+    invoke-static/range {v2 .. v8}, Lcom/android/server/pm/PackageManagerService;->-wrap62(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;ZLjava/util/ArrayList;ILandroid/content/IIntentReceiver;I)V
 
     goto :goto_2
 
@@ -757,19 +757,11 @@
 
     invoke-virtual {v2, v12}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    const/4 v2, 0x0
-
-    iput v2, p0, Lcom/android/server/pm/PackageManagerService$EMPackageHandler;->emSize:I
+    invoke-virtual {p0}, Lcom/android/server/pm/PackageManagerService$EMPackageHandler;->resetTask()V
 
     goto/16 :goto_0
 
     :pswitch_4
-    iget-object v2, p0, Lcom/android/server/pm/PackageManagerService$EMPackageHandler;->this$0:Lcom/android/server/pm/PackageManagerService;
-
-    iget-object v2, v2, Lcom/android/server/pm/PackageManagerService;->mEMPackageHander:Lcom/android/server/pm/PackageManagerService$EMPackageHandler;
-
-    invoke-virtual {v2}, Lcom/android/server/pm/PackageManagerService$EMPackageHandler;->makeNewID()V
-
     iget-object v2, p0, Lcom/android/server/pm/PackageManagerService$EMPackageHandler;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     iget-object v2, v2, Lcom/android/server/pm/PackageManagerService;->mEMPackageHander:Lcom/android/server/pm/PackageManagerService$EMPackageHandler;
@@ -869,8 +861,6 @@
     invoke-virtual {v2, v3}, Lcom/android/server/pm/PackageManagerService$EMPackageHandler;->sendEmptyMessage(I)Z
 
     goto/16 :goto_0
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -1005,6 +995,46 @@
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/samsung/android/emergencymode/Elog;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public resetTask()V
+    .locals 3
+
+    const/4 v2, 0x0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p0}, Lcom/android/server/pm/PackageManagerService$EMPackageHandler;->makeNewID()V
+
+    iget v0, p0, Lcom/android/server/pm/PackageManagerService$EMPackageHandler;->emID:I
+
+    iput v0, p0, Lcom/android/server/pm/PackageManagerService$EMPackageHandler;->emPreviousID:I
+
+    iput-object v1, p0, Lcom/android/server/pm/PackageManagerService$EMPackageHandler;->emPackages:[Ljava/lang/String;
+
+    iput-object v1, p0, Lcom/android/server/pm/PackageManagerService$EMPackageHandler;->emComponents:[Ljava/util/ArrayList;
+
+    iput-object v1, p0, Lcom/android/server/pm/PackageManagerService$EMPackageHandler;->emUids:[I
+
+    iput-object v1, p0, Lcom/android/server/pm/PackageManagerService$EMPackageHandler;->emDontKillFlags:[Z
+
+    iput-object v1, p0, Lcom/android/server/pm/PackageManagerService$EMPackageHandler;->emNewState:[I
+
+    iput v2, p0, Lcom/android/server/pm/PackageManagerService$EMPackageHandler;->emSize:I
+
+    iput v2, p0, Lcom/android/server/pm/PackageManagerService$EMPackageHandler;->emTotSize:I
+
+    iput v2, p0, Lcom/android/server/pm/PackageManagerService$EMPackageHandler;->emCurrentPosition:I
+
+    iput v2, p0, Lcom/android/server/pm/PackageManagerService$EMPackageHandler;->emProgression:I
+
+    const-string/jumbo v0, "PackageManager"
+
+    const-string/jumbo v1, "EMPackageHandler memory references are released"
 
     invoke-static {v0, v1}, Lcom/samsung/android/emergencymode/Elog;->d(Ljava/lang/String;Ljava/lang/String;)V
 

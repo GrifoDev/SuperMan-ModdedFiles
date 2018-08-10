@@ -17,6 +17,10 @@
 # instance fields
 .field change:I
 
+.field ephemeral:Z
+
+.field procStateSeq:J
+
 .field processState:I
 
 .field uid:I

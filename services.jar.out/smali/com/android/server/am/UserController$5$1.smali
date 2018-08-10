@@ -20,16 +20,20 @@
 # instance fields
 .field final synthetic this$1:Lcom/android/server/am/UserController$5;
 
+.field final synthetic val$userId:I
+
 .field final synthetic val$uss:Lcom/android/server/am/UserState;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/UserController$5;Lcom/android/server/am/UserState;)V
+.method constructor <init>(Lcom/android/server/am/UserController$5;ILcom/android/server/am/UserState;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/UserController$5$1;->this$1:Lcom/android/server/am/UserController$5;
 
-    iput-object p2, p0, Lcom/android/server/am/UserController$5$1;->val$uss:Lcom/android/server/am/UserState;
+    iput p2, p0, Lcom/android/server/am/UserController$5$1;->val$userId:I
+
+    iput-object p3, p0, Lcom/android/server/am/UserController$5$1;->val$uss:Lcom/android/server/am/UserState;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -39,15 +43,17 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/am/UserController$5$1;->this$1:Lcom/android/server/am/UserController$5;
 
     iget-object v0, v0, Lcom/android/server/am/UserController$5;->this$0:Lcom/android/server/am/UserController;
 
-    iget-object v1, p0, Lcom/android/server/am/UserController$5$1;->val$uss:Lcom/android/server/am/UserState;
+    iget v1, p0, Lcom/android/server/am/UserController$5$1;->val$userId:I
 
-    invoke-virtual {v0, v1}, Lcom/android/server/am/UserController;->finishUserStopped(Lcom/android/server/am/UserState;)V
+    iget-object v2, p0, Lcom/android/server/am/UserController$5$1;->val$uss:Lcom/android/server/am/UserState;
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/am/UserController;->finishUserStopping(ILcom/android/server/am/UserState;)V
 
     return-void
 .end method

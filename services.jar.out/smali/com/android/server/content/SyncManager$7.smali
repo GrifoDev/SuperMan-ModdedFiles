@@ -39,7 +39,7 @@
 
     iget-object v6, p0, Lcom/android/server/content/SyncManager$7;->this$0:Lcom/android/server/content/SyncManager;
 
-    invoke-static {v6}, Lcom/android/server/content/SyncManager;->-wrap7(Lcom/android/server/content/SyncManager;)Ljava/util/List;
+    invoke-static {v6}, Lcom/android/server/content/SyncManager;->-wrap8(Lcom/android/server/content/SyncManager;)Ljava/util/List;
 
     move-result-object v1
 
@@ -108,7 +108,7 @@
 
     iget-object v6, p0, Lcom/android/server/content/SyncManager$7;->this$0:Lcom/android/server/content/SyncManager;
 
-    invoke-static {v6}, Lcom/android/server/content/SyncManager;->-get4(Lcom/android/server/content/SyncManager;)Landroid/app/job/JobScheduler;
+    invoke-static {v6}, Lcom/android/server/content/SyncManager;->-get6(Lcom/android/server/content/SyncManager;)Landroid/app/job/JobScheduler;
 
     move-result-object v6
 

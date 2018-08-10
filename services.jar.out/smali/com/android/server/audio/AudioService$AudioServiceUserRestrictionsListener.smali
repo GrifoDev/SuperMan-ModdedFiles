@@ -61,29 +61,57 @@
 
     iget-object v2, p0, Lcom/android/server/audio/AudioService$AudioServiceUserRestrictionsListener;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v2, v0, p1}, Lcom/android/server/audio/AudioService;->-wrap64(Lcom/android/server/audio/AudioService;ZI)V
+    invoke-static {v2, v0, p1}, Lcom/android/server/audio/AudioService;->-wrap75(Lcom/android/server/audio/AudioService;ZI)V
 
     :cond_0
     const-string/jumbo v2, "no_adjust_volume"
 
     invoke-virtual {p3, v2}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
+    move-result v2
+
+    if-nez v2, :cond_2
+
+    const-string/jumbo v2, "disallow_unmute_device"
+
+    invoke-virtual {p3, v2}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+
     move-result v1
 
+    :goto_0
     const-string/jumbo v2, "no_adjust_volume"
+
+    invoke-virtual {p2, v2}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_3
+
+    const-string/jumbo v2, "disallow_unmute_device"
 
     invoke-virtual {p2, v2}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
     move-result v0
 
+    :goto_1
     if-eq v1, v0, :cond_1
 
     iget-object v2, p0, Lcom/android/server/audio/AudioService$AudioServiceUserRestrictionsListener;->this$0:Lcom/android/server/audio/AudioService;
 
     const/4 v3, 0x0
 
-    invoke-static {v2, v0, v3, p1}, Lcom/android/server/audio/AudioService;->-wrap63(Lcom/android/server/audio/AudioService;ZII)V
+    invoke-static {v2, v0, v3, p1}, Lcom/android/server/audio/AudioService;->-wrap74(Lcom/android/server/audio/AudioService;ZII)V
 
     :cond_1
     return-void
+
+    :cond_2
+    const/4 v1, 0x1
+
+    goto :goto_0
+
+    :cond_3
+    const/4 v0, 0x1
+
+    goto :goto_1
 .end method

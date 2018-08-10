@@ -61,124 +61,147 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/job/controllers/ContentObserverController;Lcom/android/server/job/controllers/JobStatus;)V
-    .locals 8
+    .locals 10
 
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
     iput-object p1, p0, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->this$0:Lcom/android/server/job/controllers/ContentObserverController;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v5, Ljava/util/ArrayList;
+    new-instance v7, Ljava/util/ArrayList;
 
-    invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v5, p0, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mMyObservers:Ljava/util/ArrayList;
+    iput-object v7, p0, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mMyObservers:Ljava/util/ArrayList;
 
     iput-object p2, p0, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mJobStatus:Lcom/android/server/job/controllers/JobStatus;
 
-    new-instance v5, Lcom/android/server/job/controllers/ContentObserverController$TriggerRunnable;
+    new-instance v7, Lcom/android/server/job/controllers/ContentObserverController$TriggerRunnable;
 
-    invoke-direct {v5, p0}, Lcom/android/server/job/controllers/ContentObserverController$TriggerRunnable;-><init>(Lcom/android/server/job/controllers/ContentObserverController$JobInstance;)V
+    invoke-direct {v7, p0}, Lcom/android/server/job/controllers/ContentObserverController$TriggerRunnable;-><init>(Lcom/android/server/job/controllers/ContentObserverController$JobInstance;)V
 
-    iput-object v5, p0, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mExecuteRunner:Ljava/lang/Runnable;
+    iput-object v7, p0, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mExecuteRunner:Ljava/lang/Runnable;
 
-    new-instance v5, Lcom/android/server/job/controllers/ContentObserverController$TriggerRunnable;
+    new-instance v7, Lcom/android/server/job/controllers/ContentObserverController$TriggerRunnable;
 
-    invoke-direct {v5, p0}, Lcom/android/server/job/controllers/ContentObserverController$TriggerRunnable;-><init>(Lcom/android/server/job/controllers/ContentObserverController$JobInstance;)V
+    invoke-direct {v7, p0}, Lcom/android/server/job/controllers/ContentObserverController$TriggerRunnable;-><init>(Lcom/android/server/job/controllers/ContentObserverController$JobInstance;)V
 
-    iput-object v5, p0, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mTimeoutRunner:Ljava/lang/Runnable;
+    iput-object v7, p0, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mTimeoutRunner:Ljava/lang/Runnable;
 
     invoke-virtual {p2}, Lcom/android/server/job/controllers/JobStatus;->getJob()Landroid/app/job/JobInfo;
 
+    move-result-object v7
+
+    invoke-virtual {v7}, Landroid/app/job/JobInfo;->getTriggerContentUris()[Landroid/app/job/JobInfo$TriggerContentUri;
+
     move-result-object v5
 
-    invoke-virtual {v5}, Landroid/app/job/JobInfo;->getTriggerContentUris()[Landroid/app/job/JobInfo$TriggerContentUri;
+    invoke-virtual {p2}, Lcom/android/server/job/controllers/JobStatus;->getSourceUserId()I
 
-    move-result-object v3
+    move-result v3
 
-    if-eqz v3, :cond_2
+    iget-object v7, p1, Lcom/android/server/job/controllers/ContentObserverController;->mObservers:Landroid/util/SparseArray;
 
-    array-length v5, v3
+    invoke-virtual {v7, v3}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/util/ArrayMap;
+
+    if-nez v2, :cond_0
+
+    new-instance v2, Landroid/util/ArrayMap;
+
+    invoke-direct {v2}, Landroid/util/ArrayMap;-><init>()V
+
+    iget-object v7, p1, Lcom/android/server/job/controllers/ContentObserverController;->mObservers:Landroid/util/SparseArray;
+
+    invoke-virtual {v7, v3, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    :cond_0
+    if-eqz v5, :cond_3
+
+    array-length v7, v5
 
     :goto_0
-    if-ge v4, v5, :cond_2
+    if-ge v6, v7, :cond_3
 
-    aget-object v2, v3, v4
+    aget-object v4, v5, v6
 
-    iget-object v6, p1, Lcom/android/server/job/controllers/ContentObserverController;->mObservers:Landroid/util/ArrayMap;
-
-    invoke-virtual {v6, v2}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v4}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Lcom/android/server/job/controllers/ContentObserverController$ObserverInstance;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1
 
     new-instance v1, Lcom/android/server/job/controllers/ContentObserverController$ObserverInstance;
 
-    iget-object v6, p1, Lcom/android/server/job/controllers/ContentObserverController;->mHandler:Landroid/os/Handler;
+    iget-object v8, p1, Lcom/android/server/job/controllers/ContentObserverController;->mHandler:Landroid/os/Handler;
 
-    invoke-direct {v1, p1, v6, v2}, Lcom/android/server/job/controllers/ContentObserverController$ObserverInstance;-><init>(Lcom/android/server/job/controllers/ContentObserverController;Landroid/os/Handler;Landroid/app/job/JobInfo$TriggerContentUri;)V
+    invoke-virtual {p2}, Lcom/android/server/job/controllers/JobStatus;->getSourceUserId()I
 
-    iget-object v6, p1, Lcom/android/server/job/controllers/ContentObserverController;->mObservers:Landroid/util/ArrayMap;
+    move-result v9
 
-    invoke-virtual {v6, v2, v1}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-direct {v1, p1, v8, v4, v9}, Lcom/android/server/job/controllers/ContentObserverController$ObserverInstance;-><init>(Lcom/android/server/job/controllers/ContentObserverController;Landroid/os/Handler;Landroid/app/job/JobInfo$TriggerContentUri;I)V
 
-    invoke-virtual {v2}, Landroid/app/job/JobInfo$TriggerContentUri;->getFlags()I
+    invoke-virtual {v2, v4, v1}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result v6
+    invoke-virtual {v4}, Landroid/app/job/JobInfo$TriggerContentUri;->getFlags()I
 
-    and-int/lit8 v6, v6, 0x1
+    move-result v8
 
-    if-eqz v6, :cond_1
+    and-int/lit8 v8, v8, 0x1
+
+    if-eqz v8, :cond_2
 
     const/4 v0, 0x1
 
     :goto_1
-    iget-object v6, p1, Lcom/android/server/job/controllers/ContentObserverController;->mContext:Landroid/content/Context;
+    iget-object v8, p1, Lcom/android/server/job/controllers/ContentObserverController;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v6}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v8}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v6
+    move-result-object v8
 
-    invoke-virtual {v2}, Landroid/app/job/JobInfo$TriggerContentUri;->getUri()Landroid/net/Uri;
+    invoke-virtual {v4}, Landroid/app/job/JobInfo$TriggerContentUri;->getUri()Landroid/net/Uri;
 
-    move-result-object v7
+    move-result-object v9
 
-    invoke-virtual {v6, v7, v0, v1}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+    invoke-virtual {v8, v9, v0, v1, v3}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
 
-    :cond_0
-    iget-object v6, v1, Lcom/android/server/job/controllers/ContentObserverController$ObserverInstance;->mJobs:Landroid/util/ArraySet;
+    :cond_1
+    iget-object v8, v1, Lcom/android/server/job/controllers/ContentObserverController$ObserverInstance;->mJobs:Landroid/util/ArraySet;
 
-    invoke-virtual {v6, p0}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v8, p0}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
-    iget-object v6, p0, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mMyObservers:Ljava/util/ArrayList;
+    iget-object v8, p0, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mMyObservers:Ljava/util/ArrayList;
 
-    invoke-virtual {v6, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v6, v6, 0x1
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     const/4 v0, 0x0
 
     goto :goto_1
 
-    :cond_2
+    :cond_3
     return-void
 .end method
 
 
 # virtual methods
 .method detachLocked()V
-    .locals 5
+    .locals 6
 
-    iget-object v3, p0, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mMyObservers:Ljava/util/ArrayList;
+    iget-object v4, p0, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mMyObservers:Ljava/util/ArrayList;
 
-    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
@@ -187,39 +210,49 @@
     :goto_0
     if-ge v1, v0, :cond_1
 
-    iget-object v3, p0, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mMyObservers:Ljava/util/ArrayList;
+    iget-object v4, p0, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mMyObservers:Ljava/util/ArrayList;
 
-    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v4, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Lcom/android/server/job/controllers/ContentObserverController$ObserverInstance;
 
-    iget-object v3, v2, Lcom/android/server/job/controllers/ContentObserverController$ObserverInstance;->mJobs:Landroid/util/ArraySet;
+    iget-object v4, v2, Lcom/android/server/job/controllers/ContentObserverController$ObserverInstance;->mJobs:Landroid/util/ArraySet;
 
-    invoke-virtual {v3, p0}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
+    invoke-virtual {v4, p0}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
 
-    iget-object v3, v2, Lcom/android/server/job/controllers/ContentObserverController$ObserverInstance;->mJobs:Landroid/util/ArraySet;
+    iget-object v4, v2, Lcom/android/server/job/controllers/ContentObserverController$ObserverInstance;->mJobs:Landroid/util/ArraySet;
 
-    invoke-virtual {v3}, Landroid/util/ArraySet;->size()I
+    invoke-virtual {v4}, Landroid/util/ArraySet;->size()I
 
-    move-result v3
+    move-result v4
 
-    if-nez v3, :cond_0
+    if-nez v4, :cond_0
 
-    iget-object v3, p0, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->this$0:Lcom/android/server/job/controllers/ContentObserverController;
+    iget-object v4, p0, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->this$0:Lcom/android/server/job/controllers/ContentObserverController;
 
-    iget-object v3, v3, Lcom/android/server/job/controllers/ContentObserverController;->mContext:Landroid/content/Context;
+    iget-object v4, v4, Lcom/android/server/job/controllers/ContentObserverController;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v2}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
+
+    iget-object v4, p0, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->this$0:Lcom/android/server/job/controllers/ContentObserverController;
+
+    iget-object v4, v4, Lcom/android/server/job/controllers/ContentObserverController;->mObservers:Landroid/util/SparseArray;
+
+    iget v5, v2, Lcom/android/server/job/controllers/ContentObserverController$ObserverInstance;->mUserId:I
+
+    invoke-virtual {v4, v5}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object v3
 
-    invoke-virtual {v3, v2}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
+    check-cast v3, Landroid/util/ArrayMap;
 
-    iget-object v3, p0, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->this$0:Lcom/android/server/job/controllers/ContentObserverController;
-
-    iget-object v3, v3, Lcom/android/server/job/controllers/ContentObserverController;->mObservers:Landroid/util/ArrayMap;
+    if-eqz v3, :cond_0
 
     iget-object v4, v2, Lcom/android/server/job/controllers/ContentObserverController$ObserverInstance;->mUri:Landroid/app/job/JobInfo$TriggerContentUri;
 

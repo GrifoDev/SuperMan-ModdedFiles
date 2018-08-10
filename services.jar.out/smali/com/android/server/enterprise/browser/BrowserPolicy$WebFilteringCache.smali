@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x8
     name = "WebFilteringCache"
 .end annotation
 
@@ -38,16 +38,12 @@
 
 .field public mUrlFilterStateCache:Z
 
-.field final synthetic this$0:Lcom/android/server/enterprise/browser/BrowserPolicy;
-
 
 # direct methods
-.method public constructor <init>(Lcom/android/server/enterprise/browser/BrowserPolicy;I)V
+.method public constructor <init>(I)V
     .locals 2
 
     const/4 v1, 0x0
-
-    iput-object p1, p0, Lcom/android/server/enterprise/browser/BrowserPolicy$WebFilteringCache;->this$0:Lcom/android/server/enterprise/browser/BrowserPolicy;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -65,7 +61,7 @@
 
     iput-boolean v1, p0, Lcom/android/server/enterprise/browser/BrowserPolicy$WebFilteringCache;->mIsUrlFilterReportUpdated:Z
 
-    iput p2, p0, Lcom/android/server/enterprise/browser/BrowserPolicy$WebFilteringCache;->mContainerId:I
+    iput p1, p0, Lcom/android/server/enterprise/browser/BrowserPolicy$WebFilteringCache;->mContainerId:I
 
     new-instance v0, Ljava/util/ArrayList;
 

@@ -35,45 +35,21 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 3
 
-    const/4 v3, 0x0
-
-    const/4 v2, 0x1
+    const/4 v2, 0x0
 
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$8;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    iget-object v1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$8;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
-
-    invoke-static {v1}, Lcom/android/server/accessibility/AccessibilityManagerService;->-get10(Lcom/android/server/accessibility/AccessibilityManagerService;)Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-static {v1}, Landroid/view/accessibility/AccessibilityManager;->getInstance(Landroid/content/Context;)Landroid/view/accessibility/AccessibilityManager;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/android/server/accessibility/AccessibilityManagerService;->-set5(Lcom/android/server/accessibility/AccessibilityManagerService;Landroid/view/accessibility/AccessibilityManager;)Landroid/view/accessibility/AccessibilityManager;
+    invoke-static {v0, v2}, Lcom/android/server/accessibility/AccessibilityManagerService;->-wrap31(Lcom/android/server/accessibility/AccessibilityManagerService;Z)V
 
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$8;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    invoke-static {v0, v3}, Lcom/android/server/accessibility/AccessibilityManagerService;->-wrap28(Lcom/android/server/accessibility/AccessibilityManagerService;Z)V
+    invoke-virtual {v0}, Lcom/android/server/accessibility/AccessibilityManagerService;->semDisableScreenNotificationEffect()Z
 
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$8;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    invoke-static {v0}, Lcom/android/server/accessibility/AccessibilityManagerService;->-get7(Lcom/android/server/accessibility/AccessibilityManagerService;)Landroid/view/accessibility/AccessibilityManager;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v2, v3}, Landroid/view/accessibility/AccessibilityManager;->semSetMdnieAccessibilityMode(IZ)Z
-
-    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$8;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
-
-    invoke-static {v0}, Lcom/android/server/accessibility/AccessibilityManagerService;->-get7(Lcom/android/server/accessibility/AccessibilityManagerService;)Landroid/view/accessibility/AccessibilityManager;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v2, v2}, Landroid/view/accessibility/AccessibilityManager;->semSetMdnieAccessibilityMode(IZ)Z
+    invoke-virtual {v0}, Lcom/android/server/accessibility/AccessibilityManagerService;->semEnableScreenNotificationEffect()Z
 
     invoke-static {}, Lcom/android/server/accessibility/AccessibilityManagerService;->-get1()I
 
@@ -85,11 +61,7 @@
 
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$8;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    invoke-static {v0}, Lcom/android/server/accessibility/AccessibilityManagerService;->-get7(Lcom/android/server/accessibility/AccessibilityManagerService;)Landroid/view/accessibility/AccessibilityManager;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v2, v3}, Landroid/view/accessibility/AccessibilityManager;->semSetMdnieAccessibilityMode(IZ)Z
+    invoke-virtual {v0}, Lcom/android/server/accessibility/AccessibilityManagerService;->semDisableScreenNotificationEffect()Z
 
     invoke-static {}, Lcom/android/server/accessibility/AccessibilityManagerService;->-get0()I
 
@@ -101,11 +73,7 @@
 
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$8;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    invoke-static {v0}, Lcom/android/server/accessibility/AccessibilityManagerService;->-get7(Lcom/android/server/accessibility/AccessibilityManagerService;)Landroid/view/accessibility/AccessibilityManager;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v2, v2}, Landroid/view/accessibility/AccessibilityManager;->semSetMdnieAccessibilityMode(IZ)Z
+    invoke-virtual {v0}, Lcom/android/server/accessibility/AccessibilityManagerService;->semEnableScreenNotificationEffect()Z
 
     invoke-static {}, Lcom/android/server/accessibility/AccessibilityManagerService;->-get1()I
 
@@ -117,11 +85,7 @@
 
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$8;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    invoke-static {v0}, Lcom/android/server/accessibility/AccessibilityManagerService;->-get7(Lcom/android/server/accessibility/AccessibilityManagerService;)Landroid/view/accessibility/AccessibilityManager;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v2, v3}, Landroid/view/accessibility/AccessibilityManager;->semSetMdnieAccessibilityMode(IZ)Z
+    invoke-virtual {v0}, Lcom/android/server/accessibility/AccessibilityManagerService;->semDisableScreenNotificationEffect()Z
 
     invoke-static {}, Lcom/android/server/accessibility/AccessibilityManagerService;->-get0()I
 
@@ -131,7 +95,7 @@
 
     invoke-static {v0, v1}, Landroid/os/SystemClock;->sleep(J)V
 
-    invoke-static {v3}, Lcom/android/server/accessibility/AccessibilityManagerService;->-set1(Z)Z
+    invoke-static {v2}, Lcom/android/server/accessibility/AccessibilityManagerService;->-set1(Z)Z
 
     const-string/jumbo v0, "AccessibilityManagerService"
 

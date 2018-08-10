@@ -10,7 +10,6 @@
         Lcom/android/server/lights/LightsService$2;,
         Lcom/android/server/lights/LightsService$3;,
         Lcom/android/server/lights/LightsService$4;,
-        Lcom/android/server/lights/LightsService$5;,
         Lcom/android/server/lights/LightsService$LightImpl;,
         Lcom/android/server/lights/LightsService$SvcLEDHandler;,
         Lcom/android/server/lights/LightsService$SvcLEDReceiver;
@@ -83,8 +82,6 @@
 
 .field public static final TAG_LED:Ljava/lang/String; = "[SvcLED] "
 
-.field public static final TAG_SMARTGLOW:Ljava/lang/String; = "[SMARTGLOW] "
-
 .field private static mPrevSvcLedState:I
 
 .field private static mSvcLedColor:I
@@ -117,8 +114,6 @@
 
 .field private mCoverOpened:Z
 
-.field private mCoverServLight:Lcom/android/server/lights/Light;
-
 .field mCoverStateListener:Lcom/samsung/android/cover/CoverManager$StateListener;
 
 .field private mCoverType:I
@@ -143,8 +138,6 @@
 
 .field final mLights:[Lcom/android/server/lights/LightsService$LightImpl;
 
-.field private mNativePointer:J
-
 .field private final mNewWakeLockPaths:[Ljava/lang/String;
 
 .field private mSensorManager:Landroid/hardware/SensorManager;
@@ -164,10 +157,6 @@
 .field private mUsePatternLED:Z
 
 .field private mUseSoftwareAutoBrightness:Z
-
-.field private mVrModeEnabled:Z
-
-.field private final mVrStateCallbacks:Landroid/service/vr/IVrStateCallbacks;
 
 .field mWakeLockAcquired:Z
 
@@ -193,23 +182,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get10(Lcom/android/server/lights/LightsService;)J
-    .locals 2
-
-    iget-wide v0, p0, Lcom/android/server/lights/LightsService;->mNativePointer:J
-
-    return-wide v0
-.end method
-
-.method static synthetic -get11(Lcom/android/server/lights/LightsService;)Lcom/android/server/lights/LightsService$SvcLEDHandler;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/lights/LightsService;->mSvcLEDHandler:Lcom/android/server/lights/LightsService$SvcLEDHandler;
-
-    return-object v0
-.end method
-
-.method static synthetic -get12(Lcom/android/server/lights/LightsService;)Landroid/os/HandlerThread;
+.method static synthetic -get10(Lcom/android/server/lights/LightsService;)Landroid/os/HandlerThread;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/lights/LightsService;->mSvcLEDThread:Landroid/os/HandlerThread;
@@ -217,7 +190,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get13()I
+.method static synthetic -get11()I
     .locals 1
 
     sget v0, Lcom/android/server/lights/LightsService;->mSvcLedState:I
@@ -225,7 +198,7 @@
     return v0
 .end method
 
-.method static synthetic -get14(Lcom/android/server/lights/LightsService;)I
+.method static synthetic -get12(Lcom/android/server/lights/LightsService;)I
     .locals 1
 
     iget v0, p0, Lcom/android/server/lights/LightsService;->mUpdateSvcLEDDelay:I
@@ -233,7 +206,7 @@
     return v0
 .end method
 
-.method static synthetic -get15(Lcom/android/server/lights/LightsService;)Landroid/app/PendingIntent;
+.method static synthetic -get13(Lcom/android/server/lights/LightsService;)Landroid/app/PendingIntent;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/lights/LightsService;->mUpdateSvcLEDPendingIntent:Landroid/app/PendingIntent;
@@ -241,7 +214,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get16(Lcom/android/server/lights/LightsService;)Z
+.method static synthetic -get14(Lcom/android/server/lights/LightsService;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/lights/LightsService;->mUseLEDAutoBrightness:Z
@@ -249,7 +222,7 @@
     return v0
 .end method
 
-.method static synthetic -get17(Lcom/android/server/lights/LightsService;)Z
+.method static synthetic -get15(Lcom/android/server/lights/LightsService;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/lights/LightsService;->mUsePatternLED:Z
@@ -257,18 +230,10 @@
     return v0
 .end method
 
-.method static synthetic -get18(Lcom/android/server/lights/LightsService;)Z
+.method static synthetic -get16(Lcom/android/server/lights/LightsService;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/lights/LightsService;->mUseSoftwareAutoBrightness:Z
-
-    return v0
-.end method
-
-.method static synthetic -get19(Lcom/android/server/lights/LightsService;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/lights/LightsService;->mVrModeEnabled:Z
 
     return v0
 .end method
@@ -297,15 +262,7 @@
     return v0
 .end method
 
-.method static synthetic -get5(Lcom/android/server/lights/LightsService;)Lcom/android/server/lights/Light;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/lights/LightsService;->mCoverServLight:Lcom/android/server/lights/Light;
-
-    return-object v0
-.end method
-
-.method static synthetic -get6(Lcom/android/server/lights/LightsService;)I
+.method static synthetic -get5(Lcom/android/server/lights/LightsService;)I
     .locals 1
 
     iget v0, p0, Lcom/android/server/lights/LightsService;->mCoverType:I
@@ -313,7 +270,7 @@
     return v0
 .end method
 
-.method static synthetic -get7(Lcom/android/server/lights/LightsService;)I
+.method static synthetic -get6(Lcom/android/server/lights/LightsService;)I
     .locals 1
 
     iget v0, p0, Lcom/android/server/lights/LightsService;->mDelayForcedSvcLEDTask:I
@@ -321,7 +278,7 @@
     return v0
 .end method
 
-.method static synthetic -get8(Lcom/android/server/lights/LightsService;)Landroid/os/Handler;
+.method static synthetic -get7(Lcom/android/server/lights/LightsService;)Landroid/os/Handler;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/lights/LightsService;->mH:Landroid/os/Handler;
@@ -329,12 +286,20 @@
     return-object v0
 .end method
 
-.method static synthetic -get9(Lcom/android/server/lights/LightsService;)Z
+.method static synthetic -get8(Lcom/android/server/lights/LightsService;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/lights/LightsService;->mIsLEDChanged:Z
 
     return v0
+.end method
+
+.method static synthetic -get9(Lcom/android/server/lights/LightsService;)Lcom/android/server/lights/LightsService$SvcLEDHandler;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/lights/LightsService;->mSvcLEDHandler:Lcom/android/server/lights/LightsService$SvcLEDHandler;
+
+    return-object v0
 .end method
 
 .method static synthetic -set0(Lcom/android/server/lights/LightsService;Lcom/android/server/lights/Light;)Lcom/android/server/lights/Light;
@@ -356,23 +321,7 @@
 .method static synthetic -set10(Lcom/android/server/lights/LightsService;Z)Z
     .locals 0
 
-    iput-boolean p1, p0, Lcom/android/server/lights/LightsService;->mUsePatternLED:Z
-
-    return p1
-.end method
-
-.method static synthetic -set11(Lcom/android/server/lights/LightsService;Z)Z
-    .locals 0
-
     iput-boolean p1, p0, Lcom/android/server/lights/LightsService;->mUseSoftwareAutoBrightness:Z
-
-    return p1
-.end method
-
-.method static synthetic -set12(Lcom/android/server/lights/LightsService;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/server/lights/LightsService;->mVrModeEnabled:Z
 
     return p1
 .end method
@@ -385,15 +334,7 @@
     return p1
 .end method
 
-.method static synthetic -set3(Lcom/android/server/lights/LightsService;Lcom/android/server/lights/Light;)Lcom/android/server/lights/Light;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/server/lights/LightsService;->mCoverServLight:Lcom/android/server/lights/Light;
-
-    return-object p1
-.end method
-
-.method static synthetic -set4(Lcom/android/server/lights/LightsService;I)I
+.method static synthetic -set3(Lcom/android/server/lights/LightsService;I)I
     .locals 0
 
     iput p1, p0, Lcom/android/server/lights/LightsService;->mCoverType:I
@@ -401,7 +342,7 @@
     return p1
 .end method
 
-.method static synthetic -set5(Lcom/android/server/lights/LightsService;I)I
+.method static synthetic -set4(Lcom/android/server/lights/LightsService;I)I
     .locals 0
 
     iput p1, p0, Lcom/android/server/lights/LightsService;->mDelayForcedSvcLEDTask:I
@@ -409,7 +350,7 @@
     return p1
 .end method
 
-.method static synthetic -set6(Lcom/android/server/lights/LightsService;Z)Z
+.method static synthetic -set5(Lcom/android/server/lights/LightsService;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/lights/LightsService;->mInitCompleteForSvcLED:Z
@@ -417,7 +358,7 @@
     return p1
 .end method
 
-.method static synthetic -set7(Lcom/android/server/lights/LightsService;Z)Z
+.method static synthetic -set6(Lcom/android/server/lights/LightsService;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/lights/LightsService;->mIsLEDChanged:Z
@@ -425,7 +366,7 @@
     return p1
 .end method
 
-.method static synthetic -set8(Lcom/android/server/lights/LightsService;Lcom/android/server/lights/LightsService$SvcLEDHandler;)Lcom/android/server/lights/LightsService$SvcLEDHandler;
+.method static synthetic -set7(Lcom/android/server/lights/LightsService;Lcom/android/server/lights/LightsService$SvcLEDHandler;)Lcom/android/server/lights/LightsService$SvcLEDHandler;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/lights/LightsService;->mSvcLEDHandler:Lcom/android/server/lights/LightsService$SvcLEDHandler;
@@ -433,10 +374,18 @@
     return-object p1
 .end method
 
-.method static synthetic -set9(Lcom/android/server/lights/LightsService;Z)Z
+.method static synthetic -set8(Lcom/android/server/lights/LightsService;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/lights/LightsService;->mUseLEDAutoBrightness:Z
+
+    return p1
+.end method
+
+.method static synthetic -set9(Lcom/android/server/lights/LightsService;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/server/lights/LightsService;->mUsePatternLED:Z
 
     return p1
 .end method
@@ -524,10 +473,6 @@
 
     const/4 v2, 0x0
 
-    sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->NOVEL_PROJECT:Z
-
-    if-nez v0, :cond_0
-
     invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
 
     move-result-object v0
@@ -538,7 +483,6 @@
 
     move-result v0
 
-    :goto_0
     sput-boolean v0, Lcom/android/server/lights/LightsService;->SUPPORT_LED_INDICATOR:Z
 
     sput v2, Lcom/android/server/lights/LightsService;->mSvcLedState:I
@@ -554,11 +498,6 @@
     sput v2, Lcom/android/server/lights/LightsService;->mSvcLedOffMS:I
 
     return-void
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
@@ -566,7 +505,7 @@
 
     const/4 v7, 0x0
 
-    const/16 v6, 0xe
+    const/16 v6, 0x8
 
     const/4 v3, 0x2
 
@@ -636,31 +575,25 @@
 
     invoke-direct {v2, p0}, Lcom/android/server/lights/LightsService$1;-><init>(Lcom/android/server/lights/LightsService;)V
 
-    iput-object v2, p0, Lcom/android/server/lights/LightsService;->mVrStateCallbacks:Landroid/service/vr/IVrStateCallbacks;
+    iput-object v2, p0, Lcom/android/server/lights/LightsService;->mService:Lcom/android/server/lights/LightsManager;
 
     new-instance v2, Lcom/android/server/lights/LightsService$2;
 
     invoke-direct {v2, p0}, Lcom/android/server/lights/LightsService$2;-><init>(Lcom/android/server/lights/LightsService;)V
 
-    iput-object v2, p0, Lcom/android/server/lights/LightsService;->mService:Lcom/android/server/lights/LightsManager;
+    iput-object v2, p0, Lcom/android/server/lights/LightsService;->mH:Landroid/os/Handler;
 
     new-instance v2, Lcom/android/server/lights/LightsService$3;
 
     invoke-direct {v2, p0}, Lcom/android/server/lights/LightsService$3;-><init>(Lcom/android/server/lights/LightsService;)V
 
-    iput-object v2, p0, Lcom/android/server/lights/LightsService;->mH:Landroid/os/Handler;
-
-    new-instance v2, Lcom/android/server/lights/LightsService$4;
-
-    invoke-direct {v2, p0}, Lcom/android/server/lights/LightsService$4;-><init>(Lcom/android/server/lights/LightsService;)V
-
     iput-object v2, p0, Lcom/android/server/lights/LightsService;->mCoverStateListener:Lcom/samsung/android/cover/CoverManager$StateListener;
 
     iput-boolean v4, p0, Lcom/android/server/lights/LightsService;->isLightSensorEnabled:Z
 
-    new-instance v2, Lcom/android/server/lights/LightsService$5;
+    new-instance v2, Lcom/android/server/lights/LightsService$4;
 
-    invoke-direct {v2, p0}, Lcom/android/server/lights/LightsService$5;-><init>(Lcom/android/server/lights/LightsService;)V
+    invoke-direct {v2, p0}, Lcom/android/server/lights/LightsService$4;-><init>(Lcom/android/server/lights/LightsService;)V
 
     iput-object v2, p0, Lcom/android/server/lights/LightsService;->mLightListener:Landroid/hardware/SensorEventListener;
 
@@ -672,27 +605,21 @@
 
     iput v2, p0, Lcom/android/server/lights/LightsService;->mLedLowPower:I
 
-    const/4 v2, 0x5
+    const/4 v2, 0x3
 
     iput v2, p0, Lcom/android/server/lights/LightsService;->mLastSvcLedId:I
 
     iput-boolean v4, p0, Lcom/android/server/lights/LightsService;->mWakeLockAcquired:Z
 
-    invoke-static {}, Lcom/android/server/lights/LightsService;->init_native()J
-
-    move-result-wide v2
-
-    iput-wide v2, p0, Lcom/android/server/lights/LightsService;->mNativePointer:J
-
     iput-object p1, p0, Lcom/android/server/lights/LightsService;->mContext:Landroid/content/Context;
 
     iput-boolean v4, p0, Lcom/android/server/lights/LightsService;->mInitCompleteForSvcLED:Z
 
-    new-instance v2, Lcom/android/server/lights/LightsService$6;
+    new-instance v2, Lcom/android/server/lights/LightsService$5;
 
     const-string/jumbo v3, "mSvcLEDThread"
 
-    invoke-direct {v2, p0, v3}, Lcom/android/server/lights/LightsService$6;-><init>(Lcom/android/server/lights/LightsService;Ljava/lang/String;)V
+    invoke-direct {v2, p0, v3}, Lcom/android/server/lights/LightsService$5;-><init>(Lcom/android/server/lights/LightsService;Ljava/lang/String;)V
 
     iput-object v2, p0, Lcom/android/server/lights/LightsService;->mSvcLEDThread:Landroid/os/HandlerThread;
 
@@ -925,9 +852,6 @@
     goto :goto_0
 .end method
 
-.method private static native finalize_native(J)V
-.end method
-
 .method private getVrDisplayMode()I
     .locals 4
 
@@ -1052,9 +976,6 @@
     return-void
 .end method
 
-.method private static native init_native()J
-.end method
-
 .method private initializeWakeLockPath()V
     .locals 3
 
@@ -1150,13 +1071,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_1
-    :goto_0
-    return-void
+    if-eqz v0, :cond_1
 
-    :cond_2
     iget-object v0, p0, Lcom/android/server/lights/LightsService;->mWakeUnlockPath:Ljava/lang/String;
 
     const-string/jumbo v1, "LightsService"
@@ -1167,10 +1085,11 @@
 
     iput-boolean v0, p0, Lcom/android/server/lights/LightsService;->mWakeLockAcquired:Z
 
-    goto :goto_0
+    :cond_1
+    return-void
 .end method
 
-.method static native setLight_native(JIIIIII)V
+.method static native setLight_native(IIIIII)V
 .end method
 
 .method private setSvcLedLightLocked(I)V
@@ -1315,28 +1234,28 @@
     :cond_4
     packed-switch v9, :pswitch_data_0
 
-    const/4 v10, 0x7
+    const/4 v10, 0x5
 
     const/4 v2, 0x0
 
     goto :goto_2
 
     :pswitch_0
-    const/4 v10, 0x5
+    const/4 v10, 0x3
 
     const/16 v2, 0xb
 
     goto :goto_2
 
     :pswitch_1
-    const/4 v10, 0x6
+    const/4 v10, 0x4
 
     const/16 v2, 0xc
 
     goto :goto_2
 
     :pswitch_2
-    const/4 v10, 0x6
+    const/4 v10, 0x4
 
     sget v2, Lcom/android/server/lights/LightsService;->mSvcLedMode:I
 
@@ -1350,21 +1269,21 @@
     goto :goto_2
 
     :pswitch_4
-    const/4 v10, 0x5
+    const/4 v10, 0x3
 
     const/16 v2, 0xa
 
     goto :goto_2
 
     :pswitch_5
-    const/4 v10, 0x5
+    const/4 v10, 0x3
 
     const/16 v2, 0xd
 
     goto :goto_2
 
     :pswitch_6
-    const/4 v10, 0x5
+    const/4 v10, 0x3
 
     const/16 v2, 0xe
 
@@ -1422,7 +1341,7 @@
 
     sput v0, Lcom/android/server/lights/LightsService;->mPrevSvcLedState:I
 
-    const/4 v0, 0x5
+    const/4 v0, 0x3
 
     if-ne p1, v0, :cond_6
 
@@ -1599,7 +1518,7 @@
     goto/16 :goto_0
 
     :cond_6
-    const/4 v0, 0x6
+    const/4 v0, 0x4
 
     if-ne p1, v0, :cond_9
 
@@ -1704,77 +1623,17 @@
 
 
 # virtual methods
-.method protected finalize()V
-    .locals 2
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/Throwable;
-        }
-    .end annotation
-
-    iget-wide v0, p0, Lcom/android/server/lights/LightsService;->mNativePointer:J
-
-    invoke-static {v0, v1}, Lcom/android/server/lights/LightsService;->finalize_native(J)V
-
-    invoke-super {p0}, Lcom/android/server/SystemService;->finalize()V
-
-    return-void
-.end method
-
 .method public onBootPhase(I)V
-    .locals 5
+    .locals 1
 
-    const/16 v2, 0x1f4
+    const/16 v0, 0x1f4
 
-    if-ne p1, v2, :cond_0
+    if-ne p1, v0, :cond_0
 
-    const-string/jumbo v2, "vrmanager"
-
-    invoke-virtual {p0, v2}, Lcom/android/server/lights/LightsService;->getBinderService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/service/vr/IVrManager;
-
-    :try_start_0
-    iget-object v2, p0, Lcom/android/server/lights/LightsService;->mVrStateCallbacks:Landroid/service/vr/IVrStateCallbacks;
-
-    invoke-interface {v1, v2}, Landroid/service/vr/IVrManager;->registerListener(Landroid/service/vr/IVrStateCallbacks;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
     invoke-virtual {p0}, Lcom/android/server/lights/LightsService;->systemReady()V
 
     :cond_0
     return-void
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v2, "LightsService"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "Failed to register VR mode state listener: "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Lcom/android/server/power/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
 .end method
 
 .method public onStart()V

@@ -48,6 +48,8 @@
 
 
 # instance fields
+.field private mAuditLogService:Lcom/android/server/enterprise/auditlog/AuditLogService;
+
 .field private mContext:Landroid/content/Context;
 
 .field private mEDM:Lcom/samsung/android/knox/EnterpriseDeviceManager;
@@ -57,81 +59,45 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
-
-    const/4 v6, 0x4
-
-    const/4 v5, 0x3
-
-    const/4 v4, 0x2
-
-    const/4 v3, 0x1
-
-    const/4 v2, 0x0
+    .locals 3
 
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->mSupportedAccountTypes:[Ljava/lang/String;
 
-    invoke-static {}, Lcom/android/server/enterprise/email/SettingsUtils;->isSupportNewEmail()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x5
-
-    new-array v0, v0, [Ljava/lang/String;
-
-    const-string/jumbo v1, "com.android.email"
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "com.android.exchange"
-
-    aput-object v1, v0, v3
-
-    const-string/jumbo v1, "com.android.ldap"
-
-    aput-object v1, v0, v4
-
-    const-string/jumbo v1, "com.osp.app.signin"
-
-    aput-object v1, v0, v5
-
-    const-string/jumbo v1, "com.google"
-
-    aput-object v1, v0, v6
-
-    sput-object v0, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->mSupportedAccountTypes:[Ljava/lang/String;
-
-    :goto_0
-    return-void
-
-    :cond_0
     const/16 v0, 0x9
 
     new-array v0, v0, [Ljava/lang/String;
 
     const-string/jumbo v1, "com.samsung.android.email"
 
+    const/4 v2, 0x0
+
     aput-object v1, v0, v2
 
     const-string/jumbo v1, "com.samsung.android.exchange"
 
-    aput-object v1, v0, v3
+    const/4 v2, 0x1
+
+    aput-object v1, v0, v2
 
     const-string/jumbo v1, "com.samsung.android.ldap"
 
-    aput-object v1, v0, v4
+    const/4 v2, 0x2
+
+    aput-object v1, v0, v2
 
     const-string/jumbo v1, "com.osp.app.signin"
 
-    aput-object v1, v0, v5
+    const/4 v2, 0x3
+
+    aput-object v1, v0, v2
 
     const-string/jumbo v1, "com.google"
 
-    aput-object v1, v0, v6
+    const/4 v2, 0x4
+
+    aput-object v1, v0, v2
 
     const-string/jumbo v1, "com.google.android.gm.legacyimap"
 
@@ -159,17 +125,19 @@
 
     sput-object v0, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->mSupportedAccountTypes:[Ljava/lang/String;
 
-    goto :goto_0
+    return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
 
-    invoke-direct {p0}, Lcom/samsung/android/knox/accounts/IDeviceAccountPolicy$Stub;-><init>()V
-
     const/4 v0, 0x0
 
+    invoke-direct {p0}, Lcom/samsung/android/knox/accounts/IDeviceAccountPolicy$Stub;-><init>()V
+
     iput-object v0, p0, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->mEDM:Lcom/samsung/android/knox/EnterpriseDeviceManager;
+
+    iput-object v0, p0, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->mAuditLogService:Lcom/android/server/enterprise/auditlog/AuditLogService;
 
     iput-object p1, p0, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->mContext:Landroid/content/Context;
 
@@ -184,125 +152,8 @@
     return-void
 .end method
 
-.method private addAccountsToBWLInternal(ILjava/lang/String;Ljava/util/List;Ljava/lang/String;)Z
-    .locals 7
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(I",
-            "Ljava/lang/String;",
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;",
-            "Ljava/lang/String;",
-            ")Z"
-        }
-    .end annotation
-
-    invoke-virtual {p0}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->getSupportedAccountTypes()Ljava/util/List;
-
-    move-result-object v5
-
-    invoke-interface {v5, p2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_0
-
-    if-nez p3, :cond_1
-
-    :cond_0
-    const-string/jumbo v5, "DeviceAccountPolicy"
-
-    const-string/jumbo v6, "addAccountsToBWLInternal() : invalid parameter."
-
-    invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v5, 0x0
-
-    return v5
-
-    :cond_1
-    const/4 v4, 0x1
-
-    :try_start_0
-    invoke-interface {p3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_3
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    new-instance v2, Landroid/content/ContentValues;
-
-    invoke-direct {v2}, Landroid/content/ContentValues;-><init>()V
-
-    const-string/jumbo v5, "adminUid"
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v6
-
-    invoke-virtual {v2, v5, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
-
-    const-string/jumbo v5, "type"
-
-    invoke-virtual {v2, v5, p2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
-
-    const-string/jumbo v5, "name"
-
-    invoke-virtual {v2, v5, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
-
-    const-string/jumbo v5, "listType"
-
-    invoke-virtual {v2, v5, p4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
-
-    if-eqz v4, :cond_2
-
-    iget-object v5, p0, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
-
-    const-string/jumbo v6, "AccountBlackWhiteList"
-
-    invoke-virtual {v5, v6, v2}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putValuesNoUpdate(Ljava/lang/String;Landroid/content/ContentValues;)Z
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v4
-
-    goto :goto_0
-
-    :cond_2
-    const/4 v4, 0x0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v3
-
-    const-string/jumbo v5, "DeviceAccountPolicy"
-
-    const-string/jumbo v6, "Handled Exception in addAccountsToBWLInternal()"
-
-    invoke-static {v5, v6, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    const/4 v4, 0x0
-
-    :cond_3
-    return v4
-.end method
-
 .method private addAccountsToBWLInternal(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;)Z
-    .locals 1
+    .locals 19
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -317,17 +168,445 @@
         }
     .end annotation
 
-    invoke-direct {p0, p1}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->enforceSecurityPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
+    invoke-direct/range {p0 .. p1}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->enforceSecurityPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
     move-result-object p1
 
-    iget v0, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->getSupportedAccountTypes()Ljava/util/List;
 
-    invoke-direct {p0, v0, p2, p3, p4}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->addAccountsToBWLInternal(ILjava/lang/String;Ljava/util/List;Ljava/lang/String;)Z
+    move-result-object v2
 
-    move-result v0
+    move-object/from16 v0, p2
 
-    return v0
+    invoke-interface {v2, v0}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    if-nez p3, :cond_1
+
+    :cond_0
+    const-string/jumbo v2, "DeviceAccountPolicy"
+
+    const-string/jumbo v3, "addAccountsToBWLInternal() : invalid parameter."
+
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v2, 0x0
+
+    return v2
+
+    :cond_1
+    const/16 v18, 0x1
+
+    invoke-static/range {p1 .. p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
+
+    move-result v10
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v16
+
+    :try_start_0
+    invoke-interface/range {p3 .. p3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v12
+
+    :cond_2
+    :goto_0
+    invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_7
+
+    invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v11
+
+    check-cast v11, Ljava/lang/String;
+
+    const/4 v13, 0x1
+
+    new-instance v14, Landroid/content/ContentValues;
+
+    invoke-direct {v14}, Landroid/content/ContentValues;-><init>()V
+
+    const-string/jumbo v2, "adminUid"
+
+    move-object/from16 v0, p1
+
+    iget v3, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    invoke-virtual {v14, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    const-string/jumbo v2, "type"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v14, v2, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string/jumbo v2, "name"
+
+    invoke-virtual {v14, v2, v11}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string/jumbo v2, "listType"
+
+    move-object/from16 v0, p4
+
+    invoke-virtual {v14, v2, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    const-string/jumbo v3, "AccountBlackWhiteList"
+
+    invoke-virtual {v2, v3, v14}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putValuesNoUpdate(Ljava/lang/String;Landroid/content/ContentValues;)Z
+
+    move-result v13
+
+    if-eqz v18, :cond_3
+
+    move/from16 v18, v13
+
+    :goto_1
+    if-eqz v13, :cond_2
+
+    const-string/jumbo v2, "ADDITION_BLACKLIST"
+
+    move-object/from16 v0, p4
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_4
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->getAuditLogService()Lcom/android/server/enterprise/auditlog/AuditLogService;
+
+    move-result-object v2
+
+    invoke-static {}, Landroid/os/Process;->myPid()I
+
+    move-result v7
+
+    const-string/jumbo v8, "DeviceAccountPolicy"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Admin "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    move-object/from16 v0, p1
+
+    iget v4, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " has added account "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " to the addition blacklist."
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v4, 0x5
+
+    const/4 v5, 0x1
+
+    const/4 v6, 0x1
+
+    move-object/from16 v3, p1
+
+    invoke-virtual/range {v2 .. v10}, Lcom/android/server/enterprise/auditlog/AuditLogService;->AuditLoggerAsUser(Lcom/samsung/android/knox/ContextInfo;IIZILjava/lang/String;Ljava/lang/String;I)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    goto/16 :goto_0
+
+    :catch_0
+    move-exception v15
+
+    :try_start_1
+    const-string/jumbo v2, "DeviceAccountPolicy"
+
+    const-string/jumbo v3, "Handled Exception in addAccountsToBWLInternal()"
+
+    invoke-static {v2, v3, v15}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    const/16 v18, 0x0
+
+    invoke-static/range {v16 .. v17}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    :goto_2
+    return v18
+
+    :cond_3
+    const/16 v18, 0x0
+
+    goto :goto_1
+
+    :cond_4
+    :try_start_2
+    const-string/jumbo v2, "ADDITION_WHITELIST"
+
+    move-object/from16 v0, p4
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_5
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->getAuditLogService()Lcom/android/server/enterprise/auditlog/AuditLogService;
+
+    move-result-object v2
+
+    invoke-static {}, Landroid/os/Process;->myPid()I
+
+    move-result v7
+
+    const-string/jumbo v8, "DeviceAccountPolicy"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Admin "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    move-object/from16 v0, p1
+
+    iget v4, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " has added account "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " to the addition whitelist."
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v4, 0x5
+
+    const/4 v5, 0x1
+
+    const/4 v6, 0x1
+
+    move-object/from16 v3, p1
+
+    invoke-virtual/range {v2 .. v10}, Lcom/android/server/enterprise/auditlog/AuditLogService;->AuditLoggerAsUser(Lcom/samsung/android/knox/ContextInfo;IIZILjava/lang/String;Ljava/lang/String;I)V
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    goto/16 :goto_0
+
+    :catchall_0
+    move-exception v2
+
+    invoke-static/range {v16 .. v17}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v2
+
+    :cond_5
+    :try_start_3
+    const-string/jumbo v2, "REMOVAL_BLACKLIST"
+
+    move-object/from16 v0, p4
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_6
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->getAuditLogService()Lcom/android/server/enterprise/auditlog/AuditLogService;
+
+    move-result-object v2
+
+    invoke-static {}, Landroid/os/Process;->myPid()I
+
+    move-result v7
+
+    const-string/jumbo v8, "DeviceAccountPolicy"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Admin "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    move-object/from16 v0, p1
+
+    iget v4, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " has added account "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " to the removal blacklist."
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v4, 0x5
+
+    const/4 v5, 0x1
+
+    const/4 v6, 0x1
+
+    move-object/from16 v3, p1
+
+    invoke-virtual/range {v2 .. v10}, Lcom/android/server/enterprise/auditlog/AuditLogService;->AuditLoggerAsUser(Lcom/samsung/android/knox/ContextInfo;IIZILjava/lang/String;Ljava/lang/String;I)V
+
+    goto/16 :goto_0
+
+    :cond_6
+    const-string/jumbo v2, "REMOVAL_WHITELIST"
+
+    move-object/from16 v0, p4
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->getAuditLogService()Lcom/android/server/enterprise/auditlog/AuditLogService;
+
+    move-result-object v2
+
+    invoke-static {}, Landroid/os/Process;->myPid()I
+
+    move-result v7
+
+    const-string/jumbo v8, "DeviceAccountPolicy"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Admin "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    move-object/from16 v0, p1
+
+    iget v4, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " has added account "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " to the removal whitelist."
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v4, 0x5
+
+    const/4 v5, 0x1
+
+    const/4 v6, 0x1
+
+    move-object/from16 v3, p1
+
+    invoke-virtual/range {v2 .. v10}, Lcom/android/server/enterprise/auditlog/AuditLogService;->AuditLoggerAsUser(Lcom/samsung/android/knox/ContextInfo;IIZILjava/lang/String;Ljava/lang/String;I)V
+    :try_end_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    goto/16 :goto_0
+
+    :cond_7
+    invoke-static/range {v16 .. v17}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    goto/16 :goto_2
 .end method
 
 .method private checkAccountMatch(Ljava/util/Iterator;Ljava/lang/String;)Z
@@ -447,122 +726,440 @@
 .end method
 
 .method private clearAccountsFromBWLInternal(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 12
+    .locals 20
 
-    const/4 v11, 0x3
-
-    const/4 v10, 0x2
-
-    const/4 v8, 0x0
-
-    const/4 v9, 0x1
-
-    invoke-direct {p0, p1}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->enforceSecurityPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
+    invoke-direct/range {p0 .. p1}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->enforceSecurityPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
     move-result-object p1
 
-    iget v0, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    move-object/from16 v0, p1
 
-    const/4 v4, 0x0
+    iget v11, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    new-array v1, v11, [Ljava/lang/String;
+    const/4 v15, 0x0
 
-    const-string/jumbo v7, "adminUid"
+    const/4 v2, 0x3
 
-    aput-object v7, v1, v8
+    new-array v12, v2, [Ljava/lang/String;
 
-    const-string/jumbo v7, "type"
+    const-string/jumbo v2, "adminUid"
 
-    aput-object v7, v1, v9
+    const/4 v3, 0x0
 
-    const-string/jumbo v7, "listType"
+    aput-object v2, v12, v3
 
-    aput-object v7, v1, v10
+    const-string/jumbo v2, "type"
 
-    new-array v5, v11, [Ljava/lang/String;
+    const/4 v3, 0x1
 
-    invoke-static {v0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    aput-object v2, v12, v3
 
-    move-result-object v7
+    const-string/jumbo v2, "listType"
 
-    aput-object v7, v5, v8
+    const/4 v3, 0x2
 
-    aput-object p2, v5, v9
+    aput-object v2, v12, v3
 
-    aput-object p3, v5, v10
+    const/4 v2, 0x3
+
+    new-array v0, v2, [Ljava/lang/String;
+
+    move-object/from16 v18, v0
+
+    invoke-static {v11}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    aput-object v2, v18, v3
+
+    const/4 v2, 0x1
+
+    aput-object p2, v18, v2
+
+    const/4 v2, 0x2
+
+    aput-object p3, v18, v2
+
+    invoke-static/range {p1 .. p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
+
+    move-result v10
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v16
 
     :try_start_0
-    new-instance v6, Landroid/content/ContentValues;
+    new-instance v19, Landroid/content/ContentValues;
 
-    invoke-direct {v6}, Landroid/content/ContentValues;-><init>()V
+    invoke-direct/range {v19 .. v19}, Landroid/content/ContentValues;-><init>()V
 
-    const-string/jumbo v7, "adminUid"
+    const-string/jumbo v2, "adminUid"
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v8
-
-    invoke-virtual {v6, v7, v8}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
-
-    const-string/jumbo v7, "type"
-
-    invoke-virtual {v6, v7, p2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
-
-    const-string/jumbo v7, "listType"
-
-    invoke-virtual {v6, v7, p3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v7, p0, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
-
-    const-string/jumbo v8, "AccountBlackWhiteList"
-
-    invoke-virtual {v7, v8, v1, v6}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getValuesList(Ljava/lang/String;[Ljava/lang/String;Landroid/content/ContentValues;)Ljava/util/List;
+    invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v3
 
-    if-eqz v3, :cond_0
+    move-object/from16 v0, v19
 
-    invoke-interface {v3}, Ljava/util/List;->isEmpty()Z
+    invoke-virtual {v0, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    const-string/jumbo v2, "type"
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p2
+
+    invoke-virtual {v0, v2, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string/jumbo v2, "listType"
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p3
+
+    invoke-virtual {v0, v2, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    const-string/jumbo v3, "AccountBlackWhiteList"
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v2, v3, v12, v0}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getValuesList(Ljava/lang/String;[Ljava/lang/String;Landroid/content/ContentValues;)Ljava/util/List;
+
+    move-result-object v14
+
+    if-eqz v14, :cond_0
+
+    invoke-interface {v14}, Ljava/util/List;->isEmpty()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    :cond_0
+    const-string/jumbo v2, "DeviceAccountPolicy"
+
+    const-string/jumbo v3, "clearAccountsFromBWLInternal() : no accounts."
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    const/4 v2, 0x1
+
+    invoke-static/range {v16 .. v17}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return v2
+
+    :cond_1
+    :try_start_1
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    const-string/jumbo v3, "AccountBlackWhiteList"
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v2, v3, v12, v0}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->deleteDataByFields(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Z
+
+    move-result v15
+
+    if-eqz v15, :cond_2
+
+    const-string/jumbo v2, "ADDITION_BLACKLIST"
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->getAuditLogService()Lcom/android/server/enterprise/auditlog/AuditLogService;
+
+    move-result-object v2
+
+    invoke-static {}, Landroid/os/Process;->myPid()I
 
     move-result v7
 
-    if-eqz v7, :cond_1
+    const-string/jumbo v8, "DeviceAccountPolicy"
 
-    :cond_0
-    const-string/jumbo v7, "DeviceAccountPolicy"
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v8, "clearAccountsFromBWLInternal() : no accounts."
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v4, "Admin "
 
-    return v9
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_1
-    iget-object v7, p0, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    move-result-object v3
 
-    const-string/jumbo v8, "AccountBlackWhiteList"
+    move-object/from16 v0, p1
 
-    invoke-virtual {v7, v8, v1, v5}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->deleteDataByFields(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Z
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    iget v4, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    move-result v4
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v3
+
+    const-string/jumbo v4, " has removed all accounts from addition blacklist."
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v4, 0x5
+
+    const/4 v5, 0x1
+
+    const/4 v6, 0x1
+
+    move-object/from16 v3, p1
+
+    invoke-virtual/range {v2 .. v10}, Lcom/android/server/enterprise/auditlog/AuditLogService;->AuditLoggerAsUser(Lcom/samsung/android/knox/ContextInfo;IIZILjava/lang/String;Ljava/lang/String;I)V
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :cond_2
     :goto_0
-    return v4
+    invoke-static/range {v16 .. v17}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    :catch_0
-    move-exception v2
+    :goto_1
+    return v15
 
-    const-string/jumbo v7, "DeviceAccountPolicy"
+    :cond_3
+    :try_start_2
+    const-string/jumbo v2, "ADDITION_WHITELIST"
 
-    const-string/jumbo v8, "Handled Exception in clearAccountsFromBWLInternal()"
+    move-object/from16 v0, p3
 
-    invoke-static {v7, v8, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const/4 v4, 0x0
+    move-result v2
+
+    if-eqz v2, :cond_4
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->getAuditLogService()Lcom/android/server/enterprise/auditlog/AuditLogService;
+
+    move-result-object v2
+
+    invoke-static {}, Landroid/os/Process;->myPid()I
+
+    move-result v7
+
+    const-string/jumbo v8, "DeviceAccountPolicy"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Admin "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    move-object/from16 v0, p1
+
+    iget v4, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " has removed all accounts from addition whitelist."
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v4, 0x5
+
+    const/4 v5, 0x1
+
+    const/4 v6, 0x1
+
+    move-object/from16 v3, p1
+
+    invoke-virtual/range {v2 .. v10}, Lcom/android/server/enterprise/auditlog/AuditLogService;->AuditLoggerAsUser(Lcom/samsung/android/knox/ContextInfo;IIZILjava/lang/String;Ljava/lang/String;I)V
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     goto :goto_0
+
+    :catch_0
+    move-exception v13
+
+    :try_start_3
+    const-string/jumbo v2, "DeviceAccountPolicy"
+
+    const-string/jumbo v3, "Handled Exception in clearAccountsFromBWLInternal()"
+
+    invoke-static {v2, v3, v13}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    const/4 v15, 0x0
+
+    invoke-static/range {v16 .. v17}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    goto :goto_1
+
+    :cond_4
+    :try_start_4
+    const-string/jumbo v2, "REMOVAL_BLACKLIST"
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_5
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->getAuditLogService()Lcom/android/server/enterprise/auditlog/AuditLogService;
+
+    move-result-object v2
+
+    invoke-static {}, Landroid/os/Process;->myPid()I
+
+    move-result v7
+
+    const-string/jumbo v8, "DeviceAccountPolicy"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Admin "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    move-object/from16 v0, p1
+
+    iget v4, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " has removed all accounts from removal blacklist."
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v4, 0x5
+
+    const/4 v5, 0x1
+
+    const/4 v6, 0x1
+
+    move-object/from16 v3, p1
+
+    invoke-virtual/range {v2 .. v10}, Lcom/android/server/enterprise/auditlog/AuditLogService;->AuditLoggerAsUser(Lcom/samsung/android/knox/ContextInfo;IIZILjava/lang/String;Ljava/lang/String;I)V
+    :try_end_4
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+
+    goto/16 :goto_0
+
+    :catchall_0
+    move-exception v2
+
+    invoke-static/range {v16 .. v17}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v2
+
+    :cond_5
+    :try_start_5
+    const-string/jumbo v2, "REMOVAL_WHITELIST"
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->getAuditLogService()Lcom/android/server/enterprise/auditlog/AuditLogService;
+
+    move-result-object v2
+
+    invoke-static {}, Landroid/os/Process;->myPid()I
+
+    move-result v7
+
+    const-string/jumbo v8, "DeviceAccountPolicy"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Admin "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    move-object/from16 v0, p1
+
+    iget v4, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " has removed all accounts from removal whitelist."
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v4, 0x5
+
+    const/4 v5, 0x1
+
+    const/4 v6, 0x1
+
+    move-object/from16 v3, p1
+
+    invoke-virtual/range {v2 .. v10}, Lcom/android/server/enterprise/auditlog/AuditLogService;->AuditLoggerAsUser(Lcom/samsung/android/knox/ContextInfo;IIZILjava/lang/String;Ljava/lang/String;I)V
+    :try_end_5
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_0
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+
+    goto/16 :goto_0
 .end method
 
 .method private enforceSecurityPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
@@ -746,6 +1343,29 @@
 
     :cond_2
     return-object v2
+.end method
+
+.method private getAuditLogService()Lcom/android/server/enterprise/auditlog/AuditLogService;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->mAuditLogService:Lcom/android/server/enterprise/auditlog/AuditLogService;
+
+    if-nez v0, :cond_0
+
+    const-string/jumbo v0, "auditlog"
+
+    invoke-static {v0}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getPolicyService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/enterprise/auditlog/AuditLogService;
+
+    iput-object v0, p0, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->mAuditLogService:Lcom/android/server/enterprise/auditlog/AuditLogService;
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->mAuditLogService:Lcom/android/server/enterprise/auditlog/AuditLogService;
+
+    return-object v0
 .end method
 
 .method private getEDM()Lcom/samsung/android/knox/EnterpriseDeviceManager;
@@ -1134,7 +1754,7 @@
 .end method
 
 .method private removeAccountsFromBWLInternal(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;)Z
-    .locals 10
+    .locals 21
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1149,140 +1769,475 @@
         }
     .end annotation
 
-    const/4 v9, 0x0
-
-    invoke-direct {p0, p1}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->enforceSecurityPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
+    invoke-direct/range {p0 .. p1}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->enforceSecurityPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
     move-result-object p1
 
-    iget v2, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    move-object/from16 v0, p1
 
-    invoke-virtual {p0}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->getSupportedAccountTypes()Ljava/util/List;
+    iget v13, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    move-result-object v7
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->getSupportedAccountTypes()Ljava/util/List;
 
-    invoke-interface {v7, p2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+    move-result-object v2
 
-    move-result v7
+    move-object/from16 v0, p2
 
-    if-eqz v7, :cond_0
+    invoke-interface {v2, v0}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
 
     if-nez p3, :cond_1
 
     :cond_0
-    const-string/jumbo v7, "DeviceAccountPolicy"
+    const-string/jumbo v2, "DeviceAccountPolicy"
 
-    const-string/jumbo v8, "removeAccountsFromBWLInternal() : invalid parameter."
+    const-string/jumbo v3, "removeAccountsFromBWLInternal() : invalid parameter."
 
-    invoke-static {v7, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v9
+    const/4 v2, 0x0
+
+    return v2
 
     :cond_1
-    const/4 v5, 0x1
+    const/16 v17, 0x1
+
+    invoke-static/range {p1 .. p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
+
+    move-result v10
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v18
 
     :try_start_0
-    invoke-interface {p3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface/range {p3 .. p3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object v12
 
+    :cond_2
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_7
+
+    invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v11
+
+    check-cast v11, Ljava/lang/String;
+
+    const/4 v15, 0x1
+
+    const/4 v2, 0x4
+
+    new-array v14, v2, [Ljava/lang/String;
+
+    const-string/jumbo v2, "adminUid"
+
+    const/4 v3, 0x0
+
+    aput-object v2, v14, v3
+
+    const-string/jumbo v2, "type"
+
+    const/4 v3, 0x1
+
+    aput-object v2, v14, v3
+
+    const-string/jumbo v2, "name"
+
+    const/4 v3, 0x2
+
+    aput-object v2, v14, v3
+
+    const-string/jumbo v2, "listType"
+
+    const/4 v3, 0x3
+
+    aput-object v2, v14, v3
+
+    const/4 v2, 0x4
+
+    new-array v0, v2, [Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    invoke-static {v13}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    aput-object v2, v20, v3
+
+    const/4 v2, 0x1
+
+    aput-object p2, v20, v2
+
+    const/4 v2, 0x2
+
+    aput-object v11, v20, v2
+
+    const/4 v2, 0x3
+
+    aput-object p4, v20, v2
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    const-string/jumbo v3, "AccountBlackWhiteList"
+
+    move-object/from16 v0, v20
+
+    invoke-virtual {v2, v3, v14, v0}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->deleteDataByFields(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Z
+
+    move-result v15
+
+    if-eqz v17, :cond_3
+
+    move/from16 v17, v15
+
+    :goto_1
+    if-eqz v15, :cond_2
+
+    const-string/jumbo v2, "ADDITION_BLACKLIST"
+
+    move-object/from16 v0, p4
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_4
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->getAuditLogService()Lcom/android/server/enterprise/auditlog/AuditLogService;
+
+    move-result-object v2
+
+    invoke-static {}, Landroid/os/Process;->myPid()I
 
     move-result v7
 
-    if-eqz v7, :cond_3
+    const-string/jumbo v8, "DeviceAccountPolicy"
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    check-cast v0, Ljava/lang/String;
+    const-string/jumbo v4, "Admin "
 
-    const/4 v7, 0x4
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-array v3, v7, [Ljava/lang/String;
+    move-result-object v3
 
-    const-string/jumbo v7, "adminUid"
+    move-object/from16 v0, p1
 
-    const/4 v8, 0x0
+    iget v4, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    aput-object v7, v3, v8
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v7, "type"
+    move-result-object v3
 
-    const/4 v8, 0x1
+    const-string/jumbo v4, " has removed account "
 
-    aput-object v7, v3, v8
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v7, "name"
+    move-result-object v3
 
-    const/4 v8, 0x2
+    invoke-virtual {v3, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    aput-object v7, v3, v8
+    move-result-object v3
 
-    const-string/jumbo v7, "listType"
+    const-string/jumbo v4, " from addition blacklist."
 
-    const/4 v8, 0x3
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    aput-object v7, v3, v8
+    move-result-object v3
 
-    const/4 v7, 0x4
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    new-array v6, v7, [Ljava/lang/String;
+    move-result-object v9
 
-    invoke-static {v2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    const/4 v4, 0x5
 
-    move-result-object v7
+    const/4 v5, 0x1
 
-    const/4 v8, 0x0
+    const/4 v6, 0x1
 
-    aput-object v7, v6, v8
+    move-object/from16 v3, p1
 
-    const/4 v7, 0x1
-
-    aput-object p2, v6, v7
-
-    const/4 v7, 0x2
-
-    aput-object v0, v6, v7
-
-    const/4 v7, 0x3
-
-    aput-object p4, v6, v7
-
-    if-eqz v5, :cond_2
-
-    iget-object v7, p0, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
-
-    const-string/jumbo v8, "AccountBlackWhiteList"
-
-    invoke-virtual {v7, v8, v3, v6}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->deleteDataByFields(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Z
+    invoke-virtual/range {v2 .. v10}, Lcom/android/server/enterprise/auditlog/AuditLogService;->AuditLoggerAsUser(Lcom/samsung/android/knox/ContextInfo;IIZILjava/lang/String;Ljava/lang/String;I)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result v5
-
-    goto :goto_0
-
-    :cond_2
-    const/4 v5, 0x0
-
-    goto :goto_0
+    goto/16 :goto_0
 
     :catch_0
-    move-exception v4
+    move-exception v16
 
-    const-string/jumbo v7, "DeviceAccountPolicy"
+    :try_start_1
+    const-string/jumbo v2, "DeviceAccountPolicy"
 
-    const-string/jumbo v8, "Handled Exception in removeAccountsFromBWLInternal()"
+    const-string/jumbo v3, "Handled Exception in removeAccountsFromBWLInternal()"
 
-    invoke-static {v7, v8, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    move-object/from16 v0, v16
 
-    const/4 v5, 0x0
+    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    const/16 v17, 0x0
+
+    invoke-static/range {v18 .. v19}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    :goto_2
+    return v17
 
     :cond_3
-    return v5
+    const/16 v17, 0x0
+
+    goto :goto_1
+
+    :cond_4
+    :try_start_2
+    const-string/jumbo v2, "ADDITION_WHITELIST"
+
+    move-object/from16 v0, p4
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_5
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->getAuditLogService()Lcom/android/server/enterprise/auditlog/AuditLogService;
+
+    move-result-object v2
+
+    invoke-static {}, Landroid/os/Process;->myPid()I
+
+    move-result v7
+
+    const-string/jumbo v8, "DeviceAccountPolicy"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Admin "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    move-object/from16 v0, p1
+
+    iget v4, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " has removed account "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " from addition whitelist."
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v4, 0x5
+
+    const/4 v5, 0x1
+
+    const/4 v6, 0x1
+
+    move-object/from16 v3, p1
+
+    invoke-virtual/range {v2 .. v10}, Lcom/android/server/enterprise/auditlog/AuditLogService;->AuditLoggerAsUser(Lcom/samsung/android/knox/ContextInfo;IIZILjava/lang/String;Ljava/lang/String;I)V
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    goto/16 :goto_0
+
+    :catchall_0
+    move-exception v2
+
+    invoke-static/range {v18 .. v19}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v2
+
+    :cond_5
+    :try_start_3
+    const-string/jumbo v2, "REMOVAL_BLACKLIST"
+
+    move-object/from16 v0, p4
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_6
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->getAuditLogService()Lcom/android/server/enterprise/auditlog/AuditLogService;
+
+    move-result-object v2
+
+    invoke-static {}, Landroid/os/Process;->myPid()I
+
+    move-result v7
+
+    const-string/jumbo v8, "DeviceAccountPolicy"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Admin "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    move-object/from16 v0, p1
+
+    iget v4, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " has removed account "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " from removal blacklist."
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v4, 0x5
+
+    const/4 v5, 0x1
+
+    const/4 v6, 0x1
+
+    move-object/from16 v3, p1
+
+    invoke-virtual/range {v2 .. v10}, Lcom/android/server/enterprise/auditlog/AuditLogService;->AuditLoggerAsUser(Lcom/samsung/android/knox/ContextInfo;IIZILjava/lang/String;Ljava/lang/String;I)V
+
+    goto/16 :goto_0
+
+    :cond_6
+    const-string/jumbo v2, "REMOVAL_WHITELIST"
+
+    move-object/from16 v0, p4
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->getAuditLogService()Lcom/android/server/enterprise/auditlog/AuditLogService;
+
+    move-result-object v2
+
+    invoke-static {}, Landroid/os/Process;->myPid()I
+
+    move-result v7
+
+    const-string/jumbo v8, "DeviceAccountPolicy"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Admin "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    move-object/from16 v0, p1
+
+    iget v4, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " has removed account "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " from removal whitelist."
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v4, 0x5
+
+    const/4 v5, 0x1
+
+    const/4 v6, 0x1
+
+    move-object/from16 v3, p1
+
+    invoke-virtual/range {v2 .. v10}, Lcom/android/server/enterprise/auditlog/AuditLogService;->AuditLoggerAsUser(Lcom/samsung/android/knox/ContextInfo;IIZILjava/lang/String;Ljava/lang/String;I)V
+    :try_end_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    goto/16 :goto_0
+
+    :cond_7
+    invoke-static/range {v18 .. v19}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    goto/16 :goto_2
 .end method
 
 
@@ -1642,7 +2597,7 @@
 
     if-eqz p3, :cond_3
 
-    const v7, 0x10409c4
+    const v7, 0x1040079
 
     invoke-static {v7}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -1794,7 +2749,7 @@
 
     if-eqz p3, :cond_3
 
-    const v5, 0x10409c3
+    const v5, 0x104007a
 
     invoke-static {v5}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 

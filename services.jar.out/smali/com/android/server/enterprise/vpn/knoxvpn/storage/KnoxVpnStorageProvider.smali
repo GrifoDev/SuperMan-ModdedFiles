@@ -231,12 +231,14 @@
     :cond_3
     :try_start_4
     invoke-interface {v8}, Landroid/database/Cursor;->close()V
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
     move-object v10, v11
 
     :cond_4
+    invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->close()V
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+
     monitor-exit v12
 
     return-object v10
@@ -457,6 +459,8 @@
     invoke-interface {v9}, Landroid/database/Cursor;->close()V
 
     :cond_3
+    invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->close()V
+
     return-object v10
 
     :catchall_0

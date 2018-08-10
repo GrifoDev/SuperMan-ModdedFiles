@@ -31,39 +31,15 @@
 .end method
 
 .method public static beginStartingService(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 2
-
-    const-string/jumbo v0, "DcmNextiPlayReadyReceiver"
-
-    const-string/jumbo v1, "DcmNextiPlayReadyReceiver : before start service"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
-
-    const-string/jumbo v1, "start Service"
-
-    invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    .locals 0
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
-
-    const-string/jumbo v0, "DcmNextiPlayReadyReceiver"
-
-    const-string/jumbo v1, "DcmNextiPlayReadyReceiver : after start service"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method
 
 .method public static finishStartingService(Landroid/app/Service;I)V
-    .locals 2
-
-    const-string/jumbo v0, "DcmNextiPlayReadyReceiver"
-
-    const-string/jumbo v1, "DcmNextiPlayReadyReceiver : finishStartingService"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    .locals 0
 
     return-void
 .end method
@@ -84,6 +60,22 @@
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "MSM8998"
+
+    const-string/jumbo v1, "ro.chipname"
+
+    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
 
     if-eqz v0, :cond_0
 

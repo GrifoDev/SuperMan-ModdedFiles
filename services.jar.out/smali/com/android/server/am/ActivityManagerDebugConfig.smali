@@ -16,6 +16,8 @@
 
 .field static final DEBUG_APP:Z = false
 
+.field static final DEBUG_BACKGROUND_CHECK:Z = false
+
 .field static final DEBUG_BACKUP:Z = false
 
 .field static final DEBUG_BROADCAST:Z = false
@@ -32,6 +34,8 @@
 
 .field static final DEBUG_FOCUS:Z = false
 
+.field static final DEBUG_FOREGROUND_SERVICE:Z = false
+
 .field static final DEBUG_IDLE:Z = false
 
 .field static final DEBUG_IMMERSIVE:Z = false
@@ -42,9 +46,15 @@
 
 .field static final DEBUG_LRU:Z = false
 
+.field static final DEBUG_METRICS:Z = false
+
 .field static final DEBUG_MU:Z = false
 
+.field static final DEBUG_NETWORK:Z = false
+
 .field static final DEBUG_OOM_ADJ:Z = false
+
+.field static final DEBUG_OOM_ADJ_REASON:Z = false
 
 .field static final DEBUG_PAUSE:Z = false
 
@@ -104,83 +114,85 @@
 
 .field static final DEBUG_WHITELISTS:Z = false
 
-.field static final POSTFIX_ADD_REMOVE:Ljava/lang/String;
+.field static final POSTFIX_ADD_REMOVE:Ljava/lang/String; = ""
 
-.field static final POSTFIX_APP:Ljava/lang/String;
+.field static final POSTFIX_APP:Ljava/lang/String; = ""
 
-.field static final POSTFIX_BACKUP:Ljava/lang/String;
+.field static final POSTFIX_BACKUP:Ljava/lang/String; = ""
 
-.field static final POSTFIX_BROADCAST:Ljava/lang/String;
+.field static final POSTFIX_BROADCAST:Ljava/lang/String; = ""
 
-.field static final POSTFIX_CLEANUP:Ljava/lang/String;
+.field static final POSTFIX_CLEANUP:Ljava/lang/String; = ""
 
-.field static final POSTFIX_CONFIGURATION:Ljava/lang/String;
+.field static final POSTFIX_CONFIGURATION:Ljava/lang/String; = ""
 
-.field static final POSTFIX_CONTAINERS:Ljava/lang/String;
+.field static final POSTFIX_CONTAINERS:Ljava/lang/String; = ""
 
-.field static final POSTFIX_FOCUS:Ljava/lang/String;
+.field static final POSTFIX_FOCUS:Ljava/lang/String; = ""
 
-.field static final POSTFIX_IDLE:Ljava/lang/String;
+.field static final POSTFIX_IDLE:Ljava/lang/String; = ""
 
-.field static final POSTFIX_IMMERSIVE:Ljava/lang/String;
+.field static final POSTFIX_IMMERSIVE:Ljava/lang/String; = ""
 
-.field static final POSTFIX_LOCKSCREEN:Ljava/lang/String;
+.field static final POSTFIX_LOCKSCREEN:Ljava/lang/String; = ""
 
-.field static final POSTFIX_LOCKTASK:Ljava/lang/String;
+.field static final POSTFIX_LOCKTASK:Ljava/lang/String; = ""
 
-.field static final POSTFIX_LRU:Ljava/lang/String;
+.field static final POSTFIX_LRU:Ljava/lang/String; = ""
 
 .field static final POSTFIX_MU:Ljava/lang/String; = "_MU"
 
-.field static final POSTFIX_OOM_ADJ:Ljava/lang/String;
+.field static final POSTFIX_NETWORK:Ljava/lang/String; = "_Network"
 
-.field static final POSTFIX_PAUSE:Ljava/lang/String;
+.field static final POSTFIX_OOM_ADJ:Ljava/lang/String; = ""
 
-.field static final POSTFIX_POWER:Ljava/lang/String;
+.field static final POSTFIX_PAUSE:Ljava/lang/String; = ""
 
-.field static final POSTFIX_PROCESSES:Ljava/lang/String;
+.field static final POSTFIX_POWER:Ljava/lang/String; = ""
 
-.field static final POSTFIX_PROCESS_OBSERVERS:Ljava/lang/String;
+.field static final POSTFIX_PROCESSES:Ljava/lang/String; = ""
 
-.field static final POSTFIX_PROVIDER:Ljava/lang/String;
+.field static final POSTFIX_PROCESS_OBSERVERS:Ljava/lang/String; = ""
 
-.field static final POSTFIX_PSS:Ljava/lang/String;
+.field static final POSTFIX_PROVIDER:Ljava/lang/String; = ""
 
-.field static final POSTFIX_RECENTS:Ljava/lang/String;
+.field static final POSTFIX_PSS:Ljava/lang/String; = ""
 
-.field static final POSTFIX_RELEASE:Ljava/lang/String;
+.field static final POSTFIX_RECENTS:Ljava/lang/String; = ""
 
-.field static final POSTFIX_RESULTS:Ljava/lang/String;
+.field static final POSTFIX_RELEASE:Ljava/lang/String; = ""
 
-.field static final POSTFIX_SAVED_STATE:Ljava/lang/String;
+.field static final POSTFIX_RESULTS:Ljava/lang/String; = ""
 
-.field static final POSTFIX_SCREENSHOTS:Ljava/lang/String;
+.field static final POSTFIX_SAVED_STATE:Ljava/lang/String; = ""
 
-.field static final POSTFIX_SERVICE:Ljava/lang/String;
+.field static final POSTFIX_SCREENSHOTS:Ljava/lang/String; = ""
 
-.field static final POSTFIX_SERVICE_EXECUTING:Ljava/lang/String;
+.field static final POSTFIX_SERVICE:Ljava/lang/String; = ""
 
-.field static final POSTFIX_STACK:Ljava/lang/String;
+.field static final POSTFIX_SERVICE_EXECUTING:Ljava/lang/String; = ""
 
-.field static final POSTFIX_STATES:Ljava/lang/String;
+.field static final POSTFIX_STACK:Ljava/lang/String; = ""
 
-.field static final POSTFIX_SWITCH:Ljava/lang/String;
+.field static final POSTFIX_STATES:Ljava/lang/String; = ""
 
-.field static final POSTFIX_TASKS:Ljava/lang/String;
+.field static final POSTFIX_SWITCH:Ljava/lang/String; = ""
 
-.field static final POSTFIX_THUMBNAILS:Ljava/lang/String;
+.field static final POSTFIX_TASKS:Ljava/lang/String; = ""
 
-.field static final POSTFIX_TRANSITION:Ljava/lang/String;
+.field static final POSTFIX_THUMBNAILS:Ljava/lang/String; = ""
 
-.field static final POSTFIX_UID_OBSERVERS:Ljava/lang/String;
+.field static final POSTFIX_TRANSITION:Ljava/lang/String; = ""
 
-.field static final POSTFIX_URI_PERMISSION:Ljava/lang/String;
+.field static final POSTFIX_UID_OBSERVERS:Ljava/lang/String; = ""
 
-.field static final POSTFIX_USER_LEAVING:Ljava/lang/String;
+.field static final POSTFIX_URI_PERMISSION:Ljava/lang/String; = ""
 
-.field static final POSTFIX_VISIBILITY:Ljava/lang/String;
+.field static final POSTFIX_USER_LEAVING:Ljava/lang/String; = ""
 
-.field static final POSTFIX_VISIBLE_BEHIND:Ljava/lang/String;
+.field static final POSTFIX_VISIBILITY:Ljava/lang/String; = ""
+
+.field static final POSTFIX_VISIBLE_BEHIND:Ljava/lang/String; = ""
 
 .field static final SAFE_DEBUG:Z
 
@@ -202,158 +214,6 @@
     sget-boolean v0, Lcom/android/server/am/ActivityManagerDebugConfig;->SAFE_DEBUG:Z
 
     sput-boolean v0, Lcom/android/server/am/ActivityManagerDebugConfig;->DEBUG_TASKWATCHER:Z
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_ADD_REMOVE:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_APP:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_BACKUP:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_BROADCAST:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_CLEANUP:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_CONFIGURATION:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_CONTAINERS:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_FOCUS:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_IDLE:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_IMMERSIVE:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_LOCKSCREEN:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_LOCKTASK:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_LRU:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_OOM_ADJ:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_PAUSE:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_POWER:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_PROCESS_OBSERVERS:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_PROCESSES:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_PROVIDER:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_PSS:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_RECENTS:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_RELEASE:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_RESULTS:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_SAVED_STATE:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_SCREENSHOTS:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_SERVICE:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_SERVICE_EXECUTING:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_STACK:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_STATES:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_SWITCH:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_TASKS:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_THUMBNAILS:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_TRANSITION:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_UID_OBSERVERS:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_URI_PERMISSION:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_USER_LEAVING:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_VISIBILITY:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerDebugConfig;->POSTFIX_VISIBLE_BEHIND:Ljava/lang/String;
 
     return-void
 .end method

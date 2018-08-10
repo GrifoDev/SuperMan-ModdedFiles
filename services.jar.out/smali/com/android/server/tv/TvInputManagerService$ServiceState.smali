@@ -23,11 +23,12 @@
 
 .field private final connection:Landroid/content/ServiceConnection;
 
-.field private final hardwareInputList:Ljava/util/List;
+.field private final hardwareInputMap:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List",
+            "Ljava/util/Map",
             "<",
+            "Ljava/lang/String;",
             "Landroid/media/tv/TvInputInfo;",
             ">;"
         }
@@ -87,10 +88,10 @@
     return-object v0
 .end method
 
-.method static synthetic -get4(Lcom/android/server/tv/TvInputManagerService$ServiceState;)Ljava/util/List;
+.method static synthetic -get4(Lcom/android/server/tv/TvInputManagerService$ServiceState;)Ljava/util/Map;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/server/tv/TvInputManagerService$ServiceState;->hardwareInputList:Ljava/util/List;
+    iget-object v0, p0, Lcom/android/server/tv/TvInputManagerService$ServiceState;->hardwareInputMap:Ljava/util/Map;
 
     return-object v0
 .end method
@@ -172,11 +173,11 @@
 
     iput-object v0, p0, Lcom/android/server/tv/TvInputManagerService$ServiceState;->sessionTokens:Ljava/util/List;
 
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance v0, Ljava/util/HashMap;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/tv/TvInputManagerService$ServiceState;->hardwareInputList:Ljava/util/List;
+    iput-object v0, p0, Lcom/android/server/tv/TvInputManagerService$ServiceState;->hardwareInputMap:Ljava/util/Map;
 
     iput-object p2, p0, Lcom/android/server/tv/TvInputManagerService$ServiceState;->component:Landroid/content/ComponentName;
 
@@ -196,7 +197,7 @@
 
     move-result-object v0
 
-    invoke-static {v0, p2}, Lcom/android/server/tv/TvInputManagerService;->-wrap3(Landroid/content/pm/PackageManager;Landroid/content/ComponentName;)Z
+    invoke-static {v0, p2}, Lcom/android/server/tv/TvInputManagerService;->-wrap2(Landroid/content/pm/PackageManager;Landroid/content/ComponentName;)Z
 
     move-result v0
 

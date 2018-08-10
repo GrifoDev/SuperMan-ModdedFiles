@@ -235,7 +235,7 @@
     invoke-static {v6, v7}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     :try_start_0
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
     move-result-object v0
 
@@ -491,7 +491,7 @@
 
     iget-object v10, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;->this$1:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;
 
-    invoke-static {v10}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->-get18(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;)Ljava/util/ArrayList;
+    invoke-static {v10}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->-get16(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;)Ljava/util/ArrayList;
 
     move-result-object v10
 
@@ -747,7 +747,7 @@
 
     iget-wide v12, v4, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;->intervalCalculated:J
 
-    invoke-static {v10, v11, v12, v13}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->-wrap0(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;IJ)V
+    invoke-static {v10, v11, v12, v13}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->-wrap3(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;IJ)V
 
     :cond_d
     :goto_1
@@ -794,7 +794,7 @@
 
     iget-object v10, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;->this$1:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;
 
-    invoke-static {v10}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->-get18(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;)Ljava/util/ArrayList;
+    invoke-static {v10}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->-get16(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;)Ljava/util/ArrayList;
 
     move-result-object v10
 
@@ -1292,7 +1292,7 @@
 .end method
 
 .method public queryTrafficPeriodicity(Lcom/android/server/AlarmManagerServiceExt$AlarmExt;J)J
-    .locals 28
+    .locals 30
 
     const/16 v18, 0x1
 
@@ -1318,7 +1318,7 @@
 
     invoke-virtual {v5}, Landroid/app/PendingIntent;->getCreatorPackage()Ljava/lang/String;
 
-    move-result-object v22
+    move-result-object v23
 
     invoke-static {}, Lcom/android/server/AlarmManagerServiceExt;->-get0()Z
 
@@ -1379,9 +1379,9 @@
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;->mSafeLock:Ljava/lang/Object;
 
-    move-object/from16 v25, v0
+    move-object/from16 v26, v0
 
-    monitor-enter v25
+    monitor-enter v26
 
     :try_start_0
     move-object/from16 v0, p0
@@ -1404,7 +1404,7 @@
 
     const-wide/16 v10, -0x1
 
-    monitor-exit v25
+    monitor-exit v26
 
     return-wide v10
 
@@ -1436,11 +1436,13 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    monitor-exit v25
+    monitor-exit v26
 
     return-wide p2
 
     :cond_2
+    const/16 v21, 0x0
+
     :try_start_2
     move-object/from16 v0, p0
 
@@ -1478,9 +1480,9 @@
 
     iget-wide v0, v14, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;->targetWhen:J
 
-    move-wide/from16 v26, v0
+    move-wide/from16 v28, v0
 
-    cmp-long v5, v10, v26
+    cmp-long v5, v10, v28
 
     if-gez v5, :cond_b
 
@@ -1512,22 +1514,22 @@
 
     invoke-interface {v5}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v24
+    move-result-object v25
 
     :cond_3
-    invoke-interface/range {v24 .. v24}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface/range {v25 .. v25}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
     if-eqz v5, :cond_4
 
-    invoke-interface/range {v24 .. v24}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface/range {v25 .. v25}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v23
+    move-result-object v24
 
-    check-cast v23, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;
+    check-cast v24, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v24
 
     iget v5, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;->alarmHashCode:I
 
@@ -1544,7 +1546,7 @@
 
     iget-object v5, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;->this$1:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;
 
-    invoke-static {v5}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->-get18(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;)Ljava/util/ArrayList;
+    invoke-static {v5}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->-get16(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;)Ljava/util/ArrayList;
 
     move-result-object v5
 
@@ -1561,9 +1563,9 @@
 
     invoke-interface/range {v20 .. v20}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v21
+    move-result-object v22
 
-    check-cast v21, Ljava/lang/String;
+    check-cast v22, Ljava/lang/String;
 
     move-object/from16 v0, p1
 
@@ -1579,7 +1581,7 @@
 
     move-result-object v5
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     invoke-virtual {v5, v0}, Ljava/lang/String;->matches(Ljava/lang/String;)Z
     :try_end_2
@@ -1591,7 +1593,7 @@
 
     const-wide/16 v10, 0x0
 
-    monitor-exit v25
+    monitor-exit v26
 
     return-wide v10
 
@@ -1611,9 +1613,9 @@
 
     int-to-long v10, v5
 
-    const-wide/16 v26, 0x1388
+    const-wide/16 v28, 0x1388
 
-    cmp-long v5, v10, v26
+    cmp-long v5, v10, v28
 
     if-gez v5, :cond_7
 
@@ -1711,7 +1713,7 @@
     :cond_a
     const-wide/16 v10, -0x1
 
-    monitor-exit v25
+    monitor-exit v26
 
     return-wide v10
 
@@ -1724,7 +1726,7 @@
 
     :cond_c
     :goto_0
-    monitor-exit v25
+    monitor-exit v26
 
     const-wide/16 v10, 0x0
 
@@ -1738,9 +1740,9 @@
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    move-result-wide v26
+    move-result-wide v28
 
-    sub-long v12, v10, v26
+    sub-long v12, v10, v28
 
     new-instance v14, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;
 
@@ -1748,7 +1750,7 @@
 
     invoke-direct {v14, v0}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;-><init>(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;)V
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
     iput-object v0, v14, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;->pkgName:Ljava/lang/String;
 
@@ -1813,9 +1815,9 @@
 
     int-to-long v10, v5
 
-    const-wide/16 v26, 0x1388
+    const-wide/16 v28, 0x1388
 
-    cmp-long v5, v10, v26
+    cmp-long v5, v10, v28
 
     if-gez v5, :cond_f
 
@@ -1861,7 +1863,7 @@
     :catchall_0
     move-exception v5
 
-    monitor-exit v25
+    monitor-exit v26
 
     throw v5
 .end method
@@ -2550,7 +2552,7 @@
     const/4 v7, -0x1
 
     :try_start_0
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
     move-result-object v5
 
@@ -2562,7 +2564,7 @@
 
     move-result v9
 
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
     move-result-object v5
 

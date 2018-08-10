@@ -322,7 +322,7 @@
 
     const-string/jumbo v21, "com.sec.feature.nsflp"
 
-    invoke-virtual/range {v20 .. v21}, Landroid/content/pm/PackageManager;->getSystemFeatureLevel(Ljava/lang/String;)I
+    invoke-virtual/range {v20 .. v21}, Landroid/content/pm/PackageManager;->semGetSystemFeatureLevel(Ljava/lang/String;)I
 
     move-result v11
 
@@ -426,6 +426,7 @@
     invoke-static/range {v20 .. v21}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_3
+    :goto_1
     :try_start_0
     move-object/from16 v0, p0
 
@@ -521,13 +522,47 @@
     goto/16 :goto_0
 
     :cond_4
-    const/16 v20, 0x1e
+    const/16 v20, 0x12d
 
     move/from16 v0, v20
 
     if-lt v11, v0, :cond_1
 
-    goto/16 :goto_0
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/ServiceWatcher;->isQualcommModel()Z
+
+    move-result v20
+
+    if-eqz v20, :cond_1
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/ServiceWatcher;->mTag:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    new-instance v21, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v22, "bindBestPackageLocked : "
+
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    move-object/from16 v0, v21
+
+    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v21
+
+    invoke-static/range {v20 .. v21}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_1
 
     :cond_5
     const/high16 v19, -0x80000000
@@ -635,11 +670,11 @@
     return v20
 
     :cond_8
-    if-eqz v5, :cond_9
+    if-eqz v5, :cond_b
 
     const/16 v17, 0x0
 
-    :goto_1
+    :goto_2
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/ServiceWatcher;->mBoundComponent:Landroid/content/ComponentName;
@@ -652,7 +687,7 @@
 
     move-result v20
 
-    if-eqz v20, :cond_b
+    if-eqz v20, :cond_d
 
     move-object/from16 v0, p0
 
@@ -662,7 +697,7 @@
 
     move/from16 v0, v20
 
-    if-ne v6, v0, :cond_b
+    if-ne v6, v0, :cond_d
 
     move-object/from16 v0, p0
 
@@ -674,40 +709,18 @@
 
     move/from16 v1, v20
 
-    if-ne v0, v1, :cond_a
+    if-ne v0, v1, :cond_c
 
     const/4 v3, 0x1
 
-    :goto_2
-    if-nez p2, :cond_c
-
-    if-eqz v3, :cond_c
-
     :goto_3
-    const/16 v20, 0x1
+    if-nez p2, :cond_9
 
-    return v20
+    xor-int/lit8 v20, v3, 0x1
+
+    if-eqz v20, :cond_a
 
     :cond_9
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/ServiceWatcher;->mCurrentUserId:I
-
-    move/from16 v17, v0
-
-    goto :goto_1
-
-    :cond_a
-    const/4 v3, 0x0
-
-    goto :goto_2
-
-    :cond_b
-    const/4 v3, 0x0
-
-    goto :goto_2
-
-    :cond_c
     invoke-direct/range {p0 .. p0}, Lcom/android/server/ServiceWatcher;->unbindLocked()V
 
     move-object/from16 v0, p0
@@ -715,6 +728,28 @@
     move/from16 v1, v17
 
     invoke-direct {v0, v4, v6, v1}, Lcom/android/server/ServiceWatcher;->bindToPackageLocked(Landroid/content/ComponentName;II)V
+
+    :cond_a
+    const/16 v20, 0x1
+
+    return v20
+
+    :cond_b
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/ServiceWatcher;->mCurrentUserId:I
+
+    move/from16 v17, v0
+
+    goto :goto_2
+
+    :cond_c
+    const/4 v3, 0x0
+
+    goto :goto_3
+
+    :cond_d
+    const/4 v3, 0x0
 
     goto :goto_3
 .end method
@@ -854,6 +889,34 @@
 
     :cond_0
     return-object v5
+.end method
+
+.method private isServiceMissing()Z
+    .locals 5
+
+    new-instance v1, Landroid/content/Intent;
+
+    iget-object v2, p0, Lcom/android/server/ServiceWatcher;->mAction:Ljava/lang/String;
+
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const/high16 v0, 0xc0000
+
+    iget-object v2, p0, Lcom/android/server/ServiceWatcher;->mPm:Landroid/content/pm/PackageManager;
+
+    iget v3, p0, Lcom/android/server/ServiceWatcher;->mCurrentUserId:I
+
+    const/high16 v4, 0xc0000
+
+    invoke-virtual {v2, v1, v4, v3}, Landroid/content/pm/PackageManager;->queryIntentServicesAsUser(Landroid/content/Intent;II)Ljava/util/List;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
+
+    move-result v2
+
+    return v2
 .end method
 
 .method private isSignatureMatch([Landroid/content/pm/Signature;)Z
@@ -1044,6 +1107,98 @@
     throw v1
 .end method
 
+.method public isQualcommModel()Z
+    .locals 9
+
+    const/4 v8, 0x1
+
+    const-string/jumbo v4, "ril.modem.board"
+
+    const-string/jumbo v3, "ro.board.platform"
+
+    const-string/jumbo v1, "msm"
+
+    const-string/jumbo v0, "mdm"
+
+    const-string/jumbo v2, "sdm"
+
+    const-string/jumbo v7, "ril.modem.board"
+
+    invoke-static {v7}, Landroid/os/SemSystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    const-string/jumbo v7, "ro.board.platform"
+
+    invoke-static {v7}, Landroid/os/SemSystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    if-eqz v6, :cond_1
+
+    invoke-virtual {v6}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+
+    move-result-object v6
+
+    const-string/jumbo v7, "msm"
+
+    invoke-virtual {v6, v7}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v7
+
+    if-nez v7, :cond_0
+
+    const-string/jumbo v7, "mdm"
+
+    invoke-virtual {v6, v7}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v7
+
+    if-nez v7, :cond_0
+
+    const-string/jumbo v7, "sdm"
+
+    invoke-virtual {v6, v7}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_3
+
+    :cond_0
+    return v8
+
+    :cond_1
+    if-eqz v5, :cond_3
+
+    invoke-virtual {v5}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string/jumbo v7, "msm"
+
+    invoke-virtual {v5, v7}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v7
+
+    if-nez v7, :cond_2
+
+    const-string/jumbo v7, "sdm"
+
+    invoke-virtual {v5, v7}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_3
+
+    :cond_2
+    return v8
+
+    :cond_3
+    const/4 v7, 0x0
+
+    return v7
+.end method
+
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 4
 
@@ -1160,8 +1315,19 @@
 
     const/4 v6, 0x1
 
+    const/4 v1, 0x0
+
     const/4 v4, 0x0
 
+    invoke-direct {p0}, Lcom/android/server/ServiceWatcher;->isServiceMissing()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    return v1
+
+    :cond_0
     iget-object v1, p0, Lcom/android/server/ServiceWatcher;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
@@ -1203,7 +1369,7 @@
 
     iget-object v0, p0, Lcom/android/server/ServiceWatcher;->mServicePackageName:Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
     iget-object v0, p0, Lcom/android/server/ServiceWatcher;->mPackageMonitor:Lcom/android/internal/content/PackageMonitor;
 
@@ -1213,7 +1379,7 @@
 
     invoke-virtual {v0, v1, v4, v2, v6}, Lcom/android/internal/content/PackageMonitor;->register(Landroid/content/Context;Landroid/os/Looper;Landroid/os/UserHandle;Z)V
 
-    :cond_0
+    :cond_1
     return v6
 
     :catchall_0

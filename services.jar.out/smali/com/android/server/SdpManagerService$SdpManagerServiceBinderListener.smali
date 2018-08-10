@@ -59,7 +59,7 @@
 
     iget-object v1, p0, Lcom/android/server/SdpManagerService$SdpManagerServiceBinderListener;->this$0:Lcom/android/server/SdpManagerService;
 
-    invoke-static {v1}, Lcom/android/server/SdpManagerService;->-get0(Lcom/android/server/SdpManagerService;)Ljava/util/Map;
+    invoke-static {v1}, Lcom/android/server/SdpManagerService;->-get1(Lcom/android/server/SdpManagerService;)Ljava/util/Map;
 
     move-result-object v2
 
@@ -68,7 +68,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/SdpManagerService$SdpManagerServiceBinderListener;->this$0:Lcom/android/server/SdpManagerService;
 
-    invoke-static {v1}, Lcom/android/server/SdpManagerService;->-get0(Lcom/android/server/SdpManagerService;)Ljava/util/Map;
+    invoke-static {v1}, Lcom/android/server/SdpManagerService;->-get1(Lcom/android/server/SdpManagerService;)Ljava/util/Map;
 
     move-result-object v1
 
@@ -100,7 +100,7 @@
 
     iget-object v1, p0, Lcom/android/server/SdpManagerService$SdpManagerServiceBinderListener;->this$0:Lcom/android/server/SdpManagerService;
 
-    invoke-static {v1}, Lcom/android/server/SdpManagerService;->-get0(Lcom/android/server/SdpManagerService;)Ljava/util/Map;
+    invoke-static {v1}, Lcom/android/server/SdpManagerService;->-get1(Lcom/android/server/SdpManagerService;)Ljava/util/Map;
 
     move-result-object v1
 

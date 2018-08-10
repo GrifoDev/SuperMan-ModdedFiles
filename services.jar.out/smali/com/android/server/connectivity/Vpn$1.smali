@@ -34,15 +34,13 @@
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 8
 
-    const/4 v2, 0x0
-
-    const/4 v3, 0x0
-
     invoke-virtual {p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
     move-result-object v1
 
     if-nez v1, :cond_0
+
+    const/4 v3, 0x0
 
     :goto_0
     if-nez v3, :cond_1
@@ -120,7 +118,7 @@
 
     iget-object v7, p0, Lcom/android/server/connectivity/Vpn$1;->this$0:Lcom/android/server/connectivity/Vpn;
 
-    invoke-static {v7}, Lcom/android/server/connectivity/Vpn;->-get18(Lcom/android/server/connectivity/Vpn;)I
+    invoke-static {v7}, Lcom/android/server/connectivity/Vpn;->-get20(Lcom/android/server/connectivity/Vpn;)I
 
     move-result v7
 
@@ -172,9 +170,8 @@
 
     move-result v4
 
-    if-eqz v4, :cond_5
+    xor-int/lit8 v2, v4, 0x1
 
-    :goto_2
     if-eqz v2, :cond_3
 
     iget-object v4, p0, Lcom/android/server/connectivity/Vpn$1;->this$0:Lcom/android/server/connectivity/Vpn;
@@ -183,7 +180,7 @@
 
     const/4 v7, 0x0
 
-    invoke-static {v4, v6, v7}, Lcom/android/server/connectivity/Vpn;->-wrap1(Lcom/android/server/connectivity/Vpn;Ljava/lang/String;Z)Z
+    invoke-static {v4, v6, v7}, Lcom/android/server/connectivity/Vpn;->-wrap0(Lcom/android/server/connectivity/Vpn;Ljava/lang/String;Z)Z
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
@@ -195,9 +192,4 @@
     monitor-exit v5
 
     throw v4
-
-    :cond_5
-    const/4 v2, 0x1
-
-    goto :goto_2
 .end method

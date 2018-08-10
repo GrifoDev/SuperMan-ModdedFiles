@@ -79,7 +79,7 @@
     return-void
 
     :cond_1
-    const-string/jumbo v4, "android.intent.action.ACTION_DEFAULT_SUBSCRIPTION_CHANGED"
+    const-string/jumbo v4, "android.telephony.action.DEFAULT_SUBSCRIPTION_CHANGED"
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

@@ -39,13 +39,13 @@
         }
     .end annotation
 
-    const-string/jumbo v2, "com.android.internal.app.RESOLVE_INFO"
+    const-string/jumbo v2, "android.app.extra.RESOLVE_INFO"
 
     invoke-virtual {p1, v2}, Landroid/os/Bundle;->getParcelableArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
 
     move-result-object v0
 
-    const-string/jumbo v2, "com.android.internal.app.SEQUENCE"
+    const-string/jumbo v2, "android.app.extra.SEQUENCE"
 
     const/4 v3, -0x1
 
@@ -55,7 +55,7 @@
 
     iget-object v2, p0, Lcom/android/server/pm/EphemeralResolverConnection$GetEphemeralResolveInfoCaller$1;->this$1:Lcom/android/server/pm/EphemeralResolverConnection$GetEphemeralResolveInfoCaller;
 
-    invoke-virtual {v2, v0, v1}, Lcom/android/server/pm/EphemeralResolverConnection$GetEphemeralResolveInfoCaller;->onRemoteMethodResult(Ljava/lang/Object;I)V
+    invoke-static {v2, v0, v1}, Lcom/android/server/pm/EphemeralResolverConnection$GetEphemeralResolveInfoCaller;->-wrap0(Lcom/android/server/pm/EphemeralResolverConnection$GetEphemeralResolveInfoCaller;Ljava/lang/Object;I)V
 
     return-void
 .end method

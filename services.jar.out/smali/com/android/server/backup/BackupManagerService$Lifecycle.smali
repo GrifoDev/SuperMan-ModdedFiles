@@ -56,7 +56,7 @@
 
     invoke-virtual {v3, p1}, Lcom/android/server/backup/Trampoline;->initialize(I)V
 
-    invoke-static {p1}, Lcom/android/server/backup/BackupManagerService;->-wrap4(I)Z
+    invoke-static {p1}, Lcom/android/server/backup/BackupManagerService;->-wrap9(I)Z
 
     move-result v3
 
@@ -116,7 +116,7 @@
     if-eqz v1, :cond_3
 
     :goto_1
-    invoke-static {v4, p1}, Lcom/android/server/backup/BackupManagerService;->-wrap23(ZI)V
+    invoke-static {v4, p1}, Lcom/android/server/backup/BackupManagerService;->-wrap27(ZI)V
 
     const-string/jumbo v3, "backup_enabled"
 
@@ -129,7 +129,7 @@
     :try_start_0
     sget-object v3, Lcom/android/server/backup/BackupManagerService;->sInstance:Lcom/android/server/backup/Trampoline;
 
-    invoke-static {p1}, Lcom/android/server/backup/BackupManagerService;->-wrap5(I)Z
+    invoke-static {p1}, Lcom/android/server/backup/BackupManagerService;->-wrap11(I)Z
 
     move-result v4
 

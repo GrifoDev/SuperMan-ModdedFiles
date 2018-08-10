@@ -3,8 +3,16 @@
 .source "PersistentDataStore.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/android/server/display/PersistentDataStore$DisplayState;
+    }
+.end annotation
+
+
 # static fields
-.field static final TAG:Ljava/lang/String; = "DisplayManager"
+.field static final TAG:Ljava/lang/String; = "PersistentDataStore"
 
 
 # instance fields
@@ -12,11 +20,27 @@
 
 .field private mDirty:Z
 
+.field private final mDisplayStates:Ljava/util/HashMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/HashMap",
+            "<",
+            "Ljava/lang/String;",
+            "Lcom/android/server/display/PersistentDataStore$DisplayState;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private mIsFitToActiveDisplay:Z
+
+.field private mLastConnectedDlnaDevice:Lcom/android/server/display/DlnaDevice;
+
+.field private mLastConnectedGoogleCast:Ljava/lang/String;
+
+.field private mLastConnectedWifiDisplay:Landroid/hardware/display/WifiDisplay;
+
 .field private mLoaded:Z
-
-.field private mRememberedDlnaDevice:Landroid/hardware/display/SemDlnaDevice;
-
-.field private mRememberedGCastDevice:Ljava/lang/String;
 
 .field private mRememberedWifiDisplays:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
@@ -44,7 +68,13 @@
 
     const-string/jumbo v0, ""
 
-    iput-object v0, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedGCastDevice:Ljava/lang/String;
+    iput-object v0, p0, Lcom/android/server/display/PersistentDataStore;->mLastConnectedGoogleCast:Ljava/lang/String;
+
+    new-instance v0, Ljava/util/HashMap;
+
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+
+    iput-object v0, p0, Lcom/android/server/display/PersistentDataStore;->mDisplayStates:Ljava/util/HashMap;
 
     new-instance v0, Landroid/util/AtomicFile;
 
@@ -67,14 +97,6 @@
     iget-object v0, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedWifiDisplays:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedDlnaDevice:Landroid/hardware/display/SemDlnaDevice;
-
-    const-string/jumbo v0, ""
-
-    iput-object v0, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedGCastDevice:Ljava/lang/String;
 
     return-void
 .end method
@@ -124,10 +146,45 @@
     return v2
 .end method
 
+.method private getDisplayState(Ljava/lang/String;Z)Lcom/android/server/display/PersistentDataStore$DisplayState;
+    .locals 3
+
+    const/4 v2, 0x0
+
+    invoke-virtual {p0}, Lcom/android/server/display/PersistentDataStore;->loadIfNeeded()V
+
+    iget-object v1, p0, Lcom/android/server/display/PersistentDataStore;->mDisplayStates:Ljava/util/HashMap;
+
+    invoke-virtual {v1, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/display/PersistentDataStore$DisplayState;
+
+    if-nez v0, :cond_0
+
+    if-eqz p2, :cond_0
+
+    new-instance v0, Lcom/android/server/display/PersistentDataStore$DisplayState;
+
+    invoke-direct {v0, v2}, Lcom/android/server/display/PersistentDataStore$DisplayState;-><init>(Lcom/android/server/display/PersistentDataStore$DisplayState;)V
+
+    iget-object v1, p0, Lcom/android/server/display/PersistentDataStore;->mDisplayStates:Ljava/util/HashMap;
+
+    invoke-virtual {v1, p1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    invoke-direct {p0}, Lcom/android/server/display/PersistentDataStore;->setDirty()V
+
+    :cond_0
+    return-object v0
+.end method
+
 .method private load()V
     .locals 7
 
     invoke-direct {p0}, Lcom/android/server/display/PersistentDataStore;->clearState()V
+
+    invoke-virtual {p0}, Lcom/android/server/display/PersistentDataStore;->clearLastConnectedDevice()V
 
     :try_start_0
     iget-object v5, p0, Lcom/android/server/display/PersistentDataStore;->mAtomicFile:Landroid/util/AtomicFile;
@@ -175,7 +232,7 @@
     move-exception v2
 
     :try_start_2
-    const-string/jumbo v5, "DisplayManager"
+    const-string/jumbo v5, "PersistentDataStore"
 
     const-string/jumbo v6, "Failed to load display manager persistent store data."
 
@@ -193,7 +250,7 @@
     move-exception v1
 
     :try_start_3
-    const-string/jumbo v5, "DisplayManager"
+    const-string/jumbo v5, "PersistentDataStore"
 
     const-string/jumbo v6, "Failed to load display manager persistent store data."
 
@@ -213,6 +270,91 @@
     invoke-static {v3}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
     throw v5
+.end method
+
+.method private loadDisplaysFromXml(Lorg/xmlpull/v1/XmlPullParser;)V
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;,
+            Lorg/xmlpull/v1/XmlPullParserException;
+        }
+    .end annotation
+
+    const/4 v5, 0x0
+
+    invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
+
+    move-result v0
+
+    :cond_0
+    :goto_0
+    invoke-static {p1, v0}, Lcom/android/internal/util/XmlUtils;->nextElementWithin(Lorg/xmlpull/v1/XmlPullParser;I)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
+    invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "display"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const-string/jumbo v3, "unique-id"
+
+    invoke-interface {p1, v5, v3}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    if-nez v2, :cond_1
+
+    new-instance v3, Lorg/xmlpull/v1/XmlPullParserException;
+
+    const-string/jumbo v4, "Missing unique-id attribute on display."
+
+    invoke-direct {v3, v4}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+
+    throw v3
+
+    :cond_1
+    iget-object v3, p0, Lcom/android/server/display/PersistentDataStore;->mDisplayStates:Ljava/util/HashMap;
+
+    invoke-virtual {v3, v2}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    new-instance v3, Lorg/xmlpull/v1/XmlPullParserException;
+
+    const-string/jumbo v4, "Found duplicate display."
+
+    invoke-direct {v3, v4}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+
+    throw v3
+
+    :cond_2
+    new-instance v1, Lcom/android/server/display/PersistentDataStore$DisplayState;
+
+    invoke-direct {v1, v5}, Lcom/android/server/display/PersistentDataStore$DisplayState;-><init>(Lcom/android/server/display/PersistentDataStore$DisplayState;)V
+
+    invoke-virtual {v1, p1}, Lcom/android/server/display/PersistentDataStore$DisplayState;->loadFromXml(Lorg/xmlpull/v1/XmlPullParser;)V
+
+    iget-object v3, p0, Lcom/android/server/display/PersistentDataStore;->mDisplayStates:Ljava/util/HashMap;
+
+    invoke-virtual {v3, v2, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto :goto_0
+
+    :cond_3
+    return-void
 .end method
 
 .method private loadFromXml(Lorg/xmlpull/v1/XmlPullParser;)V
@@ -238,7 +380,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_6
 
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
@@ -259,7 +401,7 @@
 
     move-result-object v1
 
-    const-string/jumbo v2, "remembered-dlna-device"
+    const-string/jumbo v2, "display-states"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -267,20 +409,59 @@
 
     if-eqz v1, :cond_2
 
-    const-string/jumbo v1, "DisplayManager"
-
-    const-string/jumbo v2, "loadFromXml call loadRememberedDlnaDeviceFromXml"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-direct {p0, p1}, Lcom/android/server/display/PersistentDataStore;->loadRememberedDlnaDeviceFromXml(Lorg/xmlpull/v1/XmlPullParser;)V
+    invoke-direct {p0, p1}, Lcom/android/server/display/PersistentDataStore;->loadDisplaysFromXml(Lorg/xmlpull/v1/XmlPullParser;)V
 
     :cond_2
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
     move-result-object v1
 
-    const-string/jumbo v2, "remembered-gcast-device"
+    const-string/jumbo v2, "last-connected-wifi-display"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    invoke-direct {p0, p1}, Lcom/android/server/display/PersistentDataStore;->loadLastConnectedWifiDisplyFromXml(Lorg/xmlpull/v1/XmlPullParser;)V
+
+    :cond_3
+    invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "last-connected-dlna-device"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    invoke-direct {p0, p1}, Lcom/android/server/display/PersistentDataStore;->loadLastConnectedDlnaDeviceFromXml(Lorg/xmlpull/v1/XmlPullParser;)V
+
+    :cond_4
+    invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "last-connected-gcast-device"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_5
+
+    invoke-direct {p0, p1}, Lcom/android/server/display/PersistentDataStore;->loadLastConnectedGoogleCastFromXml(Lorg/xmlpull/v1/XmlPullParser;)V
+
+    :cond_5
+    invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "remembered-active-display-fit-status"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -288,39 +469,16 @@
 
     if-eqz v1, :cond_0
 
-    const-string/jumbo v1, "DisplayManager"
-
-    const-string/jumbo v2, "loadFromXml call loadRememberedGCastDeviceFromXml"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-direct {p0, p1}, Lcom/android/server/display/PersistentDataStore;->loadRememberedGCastDeviceFromXml(Lorg/xmlpull/v1/XmlPullParser;)V
+    invoke-direct {p0, p1}, Lcom/android/server/display/PersistentDataStore;->loadRememberedActiveDisplayFitStatusFromXml(Lorg/xmlpull/v1/XmlPullParser;)V
 
     goto :goto_0
 
-    :cond_3
+    :cond_6
     return-void
 .end method
 
-.method private loadIfNeeded()V
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/display/PersistentDataStore;->mLoaded:Z
-
-    if-nez v0, :cond_0
-
-    invoke-direct {p0}, Lcom/android/server/display/PersistentDataStore;->load()V
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/server/display/PersistentDataStore;->mLoaded:Z
-
-    :cond_0
-    return-void
-.end method
-
-.method private loadRememberedDlnaDeviceFromXml(Lorg/xmlpull/v1/XmlPullParser;)V
-    .locals 11
+.method private loadLastConnectedDlnaDeviceFromXml(Lorg/xmlpull/v1/XmlPullParser;)V
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -328,155 +486,42 @@
         }
     .end annotation
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    const-string/jumbo v0, "deviceName"
+    const-string/jumbo v2, "uid"
 
-    invoke-interface {p1, v2, v0}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {p1, v3, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    const-string/jumbo v0, "p2pmac"
+    const-string/jumbo v2, "deviceName"
 
-    invoke-interface {p1, v2, v0}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {p1, v3, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    const-string/jumbo v0, "macfromarp"
+    if-nez v1, :cond_0
 
-    invoke-interface {p1, v2, v0}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    new-instance v2, Lorg/xmlpull/v1/XmlPullParserException;
 
-    move-result-object v4
+    const-string/jumbo v3, "Missing uid or deviceName attribute on dlna-device."
 
-    const-string/jumbo v0, "nettype"
+    invoke-direct {v2, v3}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    invoke-interface {p1, v2, v0}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v5
-
-    const-string/jumbo v0, "uid"
-
-    invoke-interface {p1, v2, v0}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v6
-
-    const-string/jumbo v0, "dlnatype"
-
-    invoke-interface {p1, v2, v0}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v10
-
-    const-string/jumbo v0, "uri"
-
-    invoke-interface {p1, v2, v0}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v9
-
-    const-string/jumbo v0, "DisplayManager"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v7, "loadRememberedDlnaDeviceFromXml deviceName:"
-
-    invoke-virtual {v2, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v7, ", p2pMacAddress:"
-
-    invoke-virtual {v2, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v7, ", macAddressFromARP:"
-
-    invoke-virtual {v2, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v7, ", netType:"
-
-    invoke-virtual {v2, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v7, ", uid:"
-
-    invoke-virtual {v2, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v7, ", type:"
-
-    invoke-virtual {v2, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v0, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-eqz v6, :cond_0
-
-    if-nez v1, :cond_1
+    throw v2
 
     :cond_0
-    new-instance v0, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance v2, Lcom/android/server/display/DlnaDevice;
 
-    const-string/jumbo v2, "Missing uid or deviceName attribute on dlna-device."
+    invoke-direct {v2, v1, v0}, Lcom/android/server/display/DlnaDevice;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-direct {v0, v2}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_1
-    new-instance v0, Landroid/hardware/display/SemDlnaDevice;
-
-    const-string/jumbo v2, ""
-
-    invoke-static {v10}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v7
-
-    const/4 v8, 0x0
-
-    invoke-direct/range {v0 .. v9}, Landroid/hardware/display/SemDlnaDevice;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IZLjava/lang/String;)V
-
-    iput-object v0, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedDlnaDevice:Landroid/hardware/display/SemDlnaDevice;
+    iput-object v2, p0, Lcom/android/server/display/PersistentDataStore;->mLastConnectedDlnaDevice:Lcom/android/server/display/DlnaDevice;
 
     return-void
 .end method
 
-.method private loadRememberedGCastDeviceFromXml(Lorg/xmlpull/v1/XmlPullParser;)V
-    .locals 4
+.method private loadLastConnectedGoogleCastFromXml(Lorg/xmlpull/v1/XmlPullParser;)V
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -492,13 +537,124 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "DisplayManager"
+    if-nez v0, :cond_0
+
+    new-instance v1, Lorg/xmlpull/v1/XmlPullParserException;
+
+    const-string/jumbo v2, "Missing deviceName attribute on gcast-device."
+
+    invoke-direct {v1, v2}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    :cond_0
+    iput-object v0, p0, Lcom/android/server/display/PersistentDataStore;->mLastConnectedGoogleCast:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method private loadLastConnectedWifiDisplyFromXml(Lorg/xmlpull/v1/XmlPullParser;)V
+    .locals 9
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;,
+            Lorg/xmlpull/v1/XmlPullParserException;
+        }
+    .end annotation
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
+
+    const-string/jumbo v0, "deviceAddress"
+
+    invoke-interface {p1, v5, v0}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string/jumbo v0, "deviceName"
+
+    invoke-interface {p1, v5, v0}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string/jumbo v0, "deviceAlias"
+
+    invoke-interface {p1, v5, v0}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string/jumbo v0, "deviceType"
+
+    invoke-interface {p1, v5, v0}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v7
+
+    const-string/jumbo v0, "deviceInfo"
+
+    invoke-interface {p1, v5, v0}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    if-eqz v1, :cond_0
+
+    if-nez v2, :cond_1
+
+    :cond_0
+    new-instance v0, Lorg/xmlpull/v1/XmlPullParserException;
+
+    const-string/jumbo v4, "Missing deviceAddress or deviceName attribute on wifi-display."
+
+    invoke-direct {v0, v4}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_1
+    new-instance v0, Landroid/hardware/display/WifiDisplay;
+
+    move v5, v4
+
+    move v6, v4
+
+    invoke-direct/range {v0 .. v7}, Landroid/hardware/display/WifiDisplay;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZZLjava/lang/String;)V
+
+    iput-object v0, p0, Lcom/android/server/display/PersistentDataStore;->mLastConnectedWifiDisplay:Landroid/hardware/display/WifiDisplay;
+
+    iget-object v0, p0, Lcom/android/server/display/PersistentDataStore;->mLastConnectedWifiDisplay:Landroid/hardware/display/WifiDisplay;
+
+    invoke-static {v8}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v4
+
+    invoke-virtual {v0, v4}, Landroid/hardware/display/WifiDisplay;->setDeviceInfo(I)V
+
+    return-void
+.end method
+
+.method private loadRememberedActiveDisplayFitStatusFromXml(Lorg/xmlpull/v1/XmlPullParser;)V
+    .locals 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;,
+            Lorg/xmlpull/v1/XmlPullParserException;
+        }
+    .end annotation
+
+    const-string/jumbo v1, "activeDisplayFitStatus"
+
+    const/4 v2, 0x0
+
+    invoke-interface {p1, v2, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "PersistentDataStore"
 
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "loadRememberedGCastDeviceFromXml deviceName:"
+    const-string/jumbo v3, "loadRememberedActiveDisplayFitStatusFromXml activeDisplayFitStatus : "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -514,18 +670,13 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-nez v0, :cond_0
+    const-string/jumbo v1, "true"
 
-    new-instance v1, Lorg/xmlpull/v1/XmlPullParserException;
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "Missing deviceName attribute on gcast-device."
+    move-result v1
 
-    invoke-direct {v1, v2}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
-
-    throw v1
-
-    :cond_0
-    iput-object v0, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedGCastDevice:Ljava/lang/String;
+    iput-boolean v1, p0, Lcom/android/server/display/PersistentDataStore;->mIsFitToActiveDisplay:Z
 
     return-void
 .end method
@@ -699,7 +850,7 @@
     :catch_0
     move-exception v0
 
-    const-string/jumbo v4, "DisplayManager"
+    const-string/jumbo v4, "PersistentDataStore"
 
     const-string/jumbo v5, "Failed to save display manager persistent store data."
 
@@ -731,47 +882,47 @@
 .end method
 
 .method private saveToXml(Lorg/xmlpull/v1/XmlSerializer;)V
-    .locals 6
+    .locals 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    const/4 v3, 0x1
+    const/4 v7, 0x1
 
-    const/4 v5, 0x0
+    const/4 v9, 0x0
 
-    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {v7}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v2
+    move-result-object v6
 
-    invoke-interface {p1, v5, v2}, Lorg/xmlpull/v1/XmlSerializer;->startDocument(Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-interface {p1, v9, v6}, Lorg/xmlpull/v1/XmlSerializer;->startDocument(Ljava/lang/String;Ljava/lang/Boolean;)V
 
-    const-string/jumbo v2, "http://xmlpull.org/v1/doc/features.html#indent-output"
+    const-string/jumbo v6, "http://xmlpull.org/v1/doc/features.html#indent-output"
 
-    invoke-interface {p1, v2, v3}, Lorg/xmlpull/v1/XmlSerializer;->setFeature(Ljava/lang/String;Z)V
+    invoke-interface {p1, v6, v7}, Lorg/xmlpull/v1/XmlSerializer;->setFeature(Ljava/lang/String;Z)V
 
-    const-string/jumbo v2, "display-manager-state"
+    const-string/jumbo v6, "display-manager-state"
 
-    invoke-interface {p1, v5, v2}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p1, v9, v6}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    const-string/jumbo v2, "remembered-wifi-displays"
+    const-string/jumbo v6, "remembered-wifi-displays"
 
-    invoke-interface {p1, v5, v2}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p1, v9, v6}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    iget-object v2, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedWifiDisplays:Ljava/util/ArrayList;
+    iget-object v6, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedWifiDisplays:Ljava/util/ArrayList;
 
-    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {v6}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v6
 
-    if-eqz v2, :cond_1
+    if-eqz v6, :cond_2
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -779,326 +930,397 @@
 
     check-cast v0, Landroid/hardware/display/WifiDisplay;
 
-    const-string/jumbo v2, "wifi-display"
+    const-string/jumbo v6, "wifi-display"
 
-    invoke-interface {p1, v5, v2}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p1, v9, v6}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    const-string/jumbo v2, "deviceAddress"
+    const-string/jumbo v6, "deviceAddress"
 
     invoke-virtual {v0}, Landroid/hardware/display/WifiDisplay;->getDeviceAddress()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v7
 
-    invoke-interface {p1, v5, v2, v3}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p1, v9, v6, v7}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    const-string/jumbo v2, "deviceName"
+    const-string/jumbo v6, "deviceName"
 
     invoke-virtual {v0}, Landroid/hardware/display/WifiDisplay;->getDeviceName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v7
 
-    invoke-interface {p1, v5, v2, v3}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    invoke-virtual {v0}, Landroid/hardware/display/WifiDisplay;->getDeviceAlias()Ljava/lang/String;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_0
-
-    const-string/jumbo v2, "deviceAlias"
+    invoke-interface {p1, v9, v6, v7}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     invoke-virtual {v0}, Landroid/hardware/display/WifiDisplay;->getDeviceAlias()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-interface {p1, v5, v2, v3}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    if-eqz v6, :cond_0
+
+    const-string/jumbo v6, "deviceAlias"
+
+    invoke-virtual {v0}, Landroid/hardware/display/WifiDisplay;->getDeviceAlias()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-interface {p1, v9, v6, v7}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     :cond_0
-    const-string/jumbo v2, "deviceType"
+    invoke-virtual {v0}, Landroid/hardware/display/WifiDisplay;->getPrimaryDeviceType()Ljava/lang/String;
+
+    move-result-object v6
+
+    if-eqz v6, :cond_1
+
+    const-string/jumbo v6, "deviceType"
 
     invoke-virtual {v0}, Landroid/hardware/display/WifiDisplay;->getPrimaryDeviceType()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v7
 
-    invoke-interface {p1, v5, v2, v3}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p1, v9, v6, v7}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    const-string/jumbo v2, "wifi-display"
+    :cond_1
+    const-string/jumbo v6, "wifi-display"
 
-    invoke-interface {p1, v5, v2}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p1, v9, v6}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     goto :goto_0
 
-    :cond_1
-    const-string/jumbo v2, "remembered-wifi-displays"
+    :cond_2
+    const-string/jumbo v6, "remembered-wifi-displays"
 
-    invoke-interface {p1, v5, v2}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p1, v9, v6}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    iget-object v2, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedDlnaDevice:Landroid/hardware/display/SemDlnaDevice;
+    const-string/jumbo v6, "display-states"
 
-    if-eqz v2, :cond_3
+    invoke-interface {p1, v9, v6}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    const-string/jumbo v2, "remembered-dlna-device"
+    iget-object v6, p0, Lcom/android/server/display/PersistentDataStore;->mDisplayStates:Ljava/util/HashMap;
 
-    invoke-interface {p1, v5, v2}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-virtual {v6}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;
 
-    const-string/jumbo v2, "deviceName"
+    move-result-object v6
 
-    iget-object v3, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedDlnaDevice:Landroid/hardware/display/SemDlnaDevice;
-
-    invoke-virtual {v3}, Landroid/hardware/display/SemDlnaDevice;->getDeviceName()Ljava/lang/String;
+    invoke-interface {v6}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
-    invoke-interface {p1, v5, v2, v3}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    :goto_1
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
-    const-string/jumbo v2, "p2pmac"
+    move-result v6
 
-    iget-object v3, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedDlnaDevice:Landroid/hardware/display/SemDlnaDevice;
+    if-eqz v6, :cond_3
 
-    invoke-virtual {v3}, Landroid/hardware/display/SemDlnaDevice;->getP2pMacAddress()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-interface {p1, v5, v2, v3}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    const-string/jumbo v2, "macfromarp"
-
-    iget-object v3, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedDlnaDevice:Landroid/hardware/display/SemDlnaDevice;
-
-    invoke-virtual {v3}, Landroid/hardware/display/SemDlnaDevice;->getMacAddressFromArp()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-interface {p1, v5, v2, v3}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    const-string/jumbo v2, "nettype"
-
-    iget-object v3, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedDlnaDevice:Landroid/hardware/display/SemDlnaDevice;
-
-    invoke-virtual {v3}, Landroid/hardware/display/SemDlnaDevice;->getNetType()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-interface {p1, v5, v2, v3}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    const-string/jumbo v2, "uid"
-
-    iget-object v3, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedDlnaDevice:Landroid/hardware/display/SemDlnaDevice;
-
-    invoke-virtual {v3}, Landroid/hardware/display/SemDlnaDevice;->getUid()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-interface {p1, v5, v2, v3}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    const-string/jumbo v2, "dlnatype"
-
-    iget-object v3, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedDlnaDevice:Landroid/hardware/display/SemDlnaDevice;
-
-    invoke-virtual {v3}, Landroid/hardware/display/SemDlnaDevice;->getDlnaType()I
-
-    move-result v3
-
-    invoke-static {v3}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-interface {p1, v5, v2, v3}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    iget-object v2, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedDlnaDevice:Landroid/hardware/display/SemDlnaDevice;
-
-    invoke-virtual {v2}, Landroid/hardware/display/SemDlnaDevice;->getUri()Ljava/lang/String;
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
-    if-eqz v2, :cond_2
+    check-cast v2, Ljava/util/Map$Entry;
 
-    const-string/jumbo v2, "uri"
+    invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    iget-object v3, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedDlnaDevice:Landroid/hardware/display/SemDlnaDevice;
+    move-result-object v5
 
-    invoke-virtual {v3}, Landroid/hardware/display/SemDlnaDevice;->getUri()Ljava/lang/String;
+    check-cast v5, Ljava/lang/String;
 
-    move-result-object v3
-
-    invoke-interface {p1, v5, v2, v3}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    :cond_2
-    const-string/jumbo v2, "remembered-dlna-device"
-
-    invoke-interface {p1, v5, v2}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    const-string/jumbo v2, "DisplayManager"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "saveToXml deviceName:"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedDlnaDevice:Landroid/hardware/display/SemDlnaDevice;
-
-    invoke-virtual {v4}, Landroid/hardware/display/SemDlnaDevice;->getDeviceName()Ljava/lang/String;
+    invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v4
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    check-cast v4, Lcom/android/server/display/PersistentDataStore$DisplayState;
 
-    move-result-object v3
+    const-string/jumbo v6, "display"
 
-    const-string/jumbo v4, ", p2pMacAddress:"
+    invoke-interface {p1, v9, v6}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v6, "unique-id"
 
-    move-result-object v3
+    invoke-interface {p1, v9, v6, v5}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    iget-object v4, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedDlnaDevice:Landroid/hardware/display/SemDlnaDevice;
+    invoke-virtual {v4, p1}, Lcom/android/server/display/PersistentDataStore$DisplayState;->saveToXml(Lorg/xmlpull/v1/XmlSerializer;)V
 
-    invoke-virtual {v4}, Landroid/hardware/display/SemDlnaDevice;->getP2pMacAddress()Ljava/lang/String;
+    const-string/jumbo v6, "display"
 
-    move-result-object v4
+    invoke-interface {p1, v9, v6}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v4, ", macAddressFromARP:"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedDlnaDevice:Landroid/hardware/display/SemDlnaDevice;
-
-    invoke-virtual {v4}, Landroid/hardware/display/SemDlnaDevice;->getMacAddressFromArp()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v4, ", netType:"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedDlnaDevice:Landroid/hardware/display/SemDlnaDevice;
-
-    invoke-virtual {v4}, Landroid/hardware/display/SemDlnaDevice;->getNetType()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v4, ", uid:"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedDlnaDevice:Landroid/hardware/display/SemDlnaDevice;
-
-    invoke-virtual {v4}, Landroid/hardware/display/SemDlnaDevice;->getUid()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v4, ", dlnatype:"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedDlnaDevice:Landroid/hardware/display/SemDlnaDevice;
-
-    invoke-virtual {v4}, Landroid/hardware/display/SemDlnaDevice;->getDlnaType()I
-
-    move-result v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v4, ", uri:"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedDlnaDevice:Landroid/hardware/display/SemDlnaDevice;
-
-    invoke-virtual {v4}, Landroid/hardware/display/SemDlnaDevice;->getUri()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    goto :goto_1
 
     :cond_3
-    iget-object v2, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedGCastDevice:Ljava/lang/String;
+    const-string/jumbo v6, "display-states"
 
-    if-eqz v2, :cond_4
+    invoke-interface {p1, v9, v6}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    const-string/jumbo v2, "remembered-gcast-device"
+    iget-object v6, p0, Lcom/android/server/display/PersistentDataStore;->mLastConnectedWifiDisplay:Landroid/hardware/display/WifiDisplay;
 
-    invoke-interface {p1, v5, v2}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    if-eqz v6, :cond_6
 
-    const-string/jumbo v2, "deviceName"
+    const-string/jumbo v6, "last-connected-wifi-display"
 
-    iget-object v3, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedGCastDevice:Ljava/lang/String;
+    invoke-interface {p1, v9, v6}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-interface {p1, v5, v2, v3}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    const-string/jumbo v6, "deviceAddress"
 
-    const-string/jumbo v2, "remembered-gcast-device"
+    iget-object v7, p0, Lcom/android/server/display/PersistentDataStore;->mLastConnectedWifiDisplay:Landroid/hardware/display/WifiDisplay;
 
-    invoke-interface {p1, v5, v2}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-virtual {v7}, Landroid/hardware/display/WifiDisplay;->getDeviceAddress()Ljava/lang/String;
 
-    const-string/jumbo v2, "DisplayManager"
+    move-result-object v7
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-interface {p1, v9, v6, v7}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v6, "deviceName"
 
-    const-string/jumbo v4, "saveToXml remembered GCastDevice deviceName:"
+    iget-object v7, p0, Lcom/android/server/display/PersistentDataStore;->mLastConnectedWifiDisplay:Landroid/hardware/display/WifiDisplay;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7}, Landroid/hardware/display/WifiDisplay;->getDeviceName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v7
 
-    iget-object v4, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedGCastDevice:Ljava/lang/String;
+    invoke-interface {p1, v9, v6, v7}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v6, p0, Lcom/android/server/display/PersistentDataStore;->mLastConnectedWifiDisplay:Landroid/hardware/display/WifiDisplay;
 
-    move-result-object v3
+    invoke-virtual {v6}, Landroid/hardware/display/WifiDisplay;->getDeviceAlias()Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v6
 
-    move-result-object v3
+    if-eqz v6, :cond_4
 
-    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v6, "deviceAlias"
+
+    iget-object v7, p0, Lcom/android/server/display/PersistentDataStore;->mLastConnectedWifiDisplay:Landroid/hardware/display/WifiDisplay;
+
+    invoke-virtual {v7}, Landroid/hardware/display/WifiDisplay;->getDeviceAlias()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-interface {p1, v9, v6, v7}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     :cond_4
-    const-string/jumbo v2, "display-manager-state"
+    iget-object v6, p0, Lcom/android/server/display/PersistentDataStore;->mLastConnectedWifiDisplay:Landroid/hardware/display/WifiDisplay;
 
-    invoke-interface {p1, v5, v2}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-virtual {v6}, Landroid/hardware/display/WifiDisplay;->getPrimaryDeviceType()Ljava/lang/String;
+
+    move-result-object v6
+
+    if-eqz v6, :cond_5
+
+    const-string/jumbo v6, "deviceType"
+
+    iget-object v7, p0, Lcom/android/server/display/PersistentDataStore;->mLastConnectedWifiDisplay:Landroid/hardware/display/WifiDisplay;
+
+    invoke-virtual {v7}, Landroid/hardware/display/WifiDisplay;->getPrimaryDeviceType()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-interface {p1, v9, v6, v7}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    :cond_5
+    const-string/jumbo v6, "deviceInfo"
+
+    iget-object v7, p0, Lcom/android/server/display/PersistentDataStore;->mLastConnectedWifiDisplay:Landroid/hardware/display/WifiDisplay;
+
+    invoke-virtual {v7}, Landroid/hardware/display/WifiDisplay;->getDeviceInfo()I
+
+    move-result v7
+
+    invoke-static {v7}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-interface {p1, v9, v6, v7}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    const-string/jumbo v6, "last-connected-wifi-display"
+
+    invoke-interface {p1, v9, v6}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    const-string/jumbo v6, "PersistentDataStore"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "saveToXml WifiDisplay name : "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    iget-object v8, p0, Lcom/android/server/display/PersistentDataStore;->mLastConnectedWifiDisplay:Landroid/hardware/display/WifiDisplay;
+
+    invoke-virtual {v8}, Landroid/hardware/display/WifiDisplay;->getDeviceName()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_6
+    iget-object v6, p0, Lcom/android/server/display/PersistentDataStore;->mLastConnectedDlnaDevice:Lcom/android/server/display/DlnaDevice;
+
+    if-eqz v6, :cond_7
+
+    const-string/jumbo v6, "last-connected-dlna-device"
+
+    invoke-interface {p1, v9, v6}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    const-string/jumbo v6, "uid"
+
+    iget-object v7, p0, Lcom/android/server/display/PersistentDataStore;->mLastConnectedDlnaDevice:Lcom/android/server/display/DlnaDevice;
+
+    invoke-virtual {v7}, Lcom/android/server/display/DlnaDevice;->getUid()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-interface {p1, v9, v6, v7}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    const-string/jumbo v6, "deviceName"
+
+    iget-object v7, p0, Lcom/android/server/display/PersistentDataStore;->mLastConnectedDlnaDevice:Lcom/android/server/display/DlnaDevice;
+
+    invoke-virtual {v7}, Lcom/android/server/display/DlnaDevice;->getDeviceName()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-interface {p1, v9, v6, v7}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    const-string/jumbo v6, "last-connected-dlna-device"
+
+    invoke-interface {p1, v9, v6}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    const-string/jumbo v6, "PersistentDataStore"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "saveToXml DlnaDevice uid : "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    iget-object v8, p0, Lcom/android/server/display/PersistentDataStore;->mLastConnectedDlnaDevice:Lcom/android/server/display/DlnaDevice;
+
+    invoke-virtual {v8}, Lcom/android/server/display/DlnaDevice;->getUid()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_7
+    iget-object v6, p0, Lcom/android/server/display/PersistentDataStore;->mLastConnectedGoogleCast:Ljava/lang/String;
+
+    invoke-virtual {v6}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v6
+
+    if-nez v6, :cond_8
+
+    const-string/jumbo v6, "last-connected-gcast-device"
+
+    invoke-interface {p1, v9, v6}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    const-string/jumbo v6, "deviceName"
+
+    iget-object v7, p0, Lcom/android/server/display/PersistentDataStore;->mLastConnectedGoogleCast:Ljava/lang/String;
+
+    invoke-interface {p1, v9, v6, v7}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    const-string/jumbo v6, "last-connected-gcast-device"
+
+    invoke-interface {p1, v9, v6}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    const-string/jumbo v6, "PersistentDataStore"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "saveToXml GoogleCast name : "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    iget-object v8, p0, Lcom/android/server/display/PersistentDataStore;->mLastConnectedGoogleCast:Ljava/lang/String;
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_8
+    const-string/jumbo v6, "remembered-active-display-fit-status"
+
+    invoke-interface {p1, v9, v6}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    const-string/jumbo v6, "activeDisplayFitStatus"
+
+    iget-boolean v7, p0, Lcom/android/server/display/PersistentDataStore;->mIsFitToActiveDisplay:Z
+
+    invoke-static {v7}, Ljava/lang/String;->valueOf(Z)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-interface {p1, v9, v6, v7}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    const-string/jumbo v6, "remembered-active-display-fit-status"
+
+    invoke-interface {p1, v9, v6}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    const-string/jumbo v6, "PersistentDataStore"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "saveToXml remembered active display fit status value:"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    iget-boolean v8, p0, Lcom/android/server/display/PersistentDataStore;->mIsFitToActiveDisplay:Z
+
+    invoke-static {v8}, Ljava/lang/String;->valueOf(Z)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v6, "display-manager-state"
+
+    invoke-interface {p1, v9, v6}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlSerializer;->endDocument()V
 
@@ -1122,7 +1344,7 @@
 
     if-eqz p1, :cond_1
 
-    invoke-direct {p0}, Lcom/android/server/display/PersistentDataStore;->loadIfNeeded()V
+    invoke-virtual {p0}, Lcom/android/server/display/PersistentDataStore;->loadIfNeeded()V
 
     const/4 v3, 0x0
 
@@ -1237,27 +1459,219 @@
     return-object v3
 .end method
 
-.method public forgetRememberedDlnaDevice()V
+.method public clearLastConnectedDevice()V
     .locals 1
 
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedDlnaDevice:Landroid/hardware/display/SemDlnaDevice;
+    iput-object v0, p0, Lcom/android/server/display/PersistentDataStore;->mLastConnectedWifiDisplay:Landroid/hardware/display/WifiDisplay;
+
+    iput-object v0, p0, Lcom/android/server/display/PersistentDataStore;->mLastConnectedDlnaDevice:Lcom/android/server/display/DlnaDevice;
+
+    const-string/jumbo v0, ""
+
+    iput-object v0, p0, Lcom/android/server/display/PersistentDataStore;->mLastConnectedGoogleCast:Ljava/lang/String;
 
     invoke-direct {p0}, Lcom/android/server/display/PersistentDataStore;->setDirty()V
 
     return-void
 .end method
 
-.method public forgetRememberedGCastDevice()V
-    .locals 1
+.method public dump(Ljava/io/PrintWriter;)V
+    .locals 8
 
-    const-string/jumbo v0, ""
+    const-string/jumbo v6, "PersistentDataStore"
 
-    iput-object v0, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedGCastDevice:Ljava/lang/String;
+    invoke-virtual {p1, v6}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    invoke-direct {p0}, Lcom/android/server/display/PersistentDataStore;->setDirty()V
+    new-instance v6, Ljava/lang/StringBuilder;
 
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "  mLoaded="
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    iget-boolean v7, p0, Lcom/android/server/display/PersistentDataStore;->mLoaded:Z
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {p1, v6}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "  mDirty="
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    iget-boolean v7, p0, Lcom/android/server/display/PersistentDataStore;->mDirty:Z
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {p1, v6}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string/jumbo v6, "  RememberedWifiDisplays:"
+
+    invoke-virtual {p1, v6}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const/4 v4, 0x0
+
+    iget-object v6, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedWifiDisplays:Ljava/util/ArrayList;
+
+    invoke-interface {v6}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_0
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/hardware/display/WifiDisplay;
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "    "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    add-int/lit8 v5, v4, 0x1
+
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, ": "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {p1, v6}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    move v4, v5
+
+    goto :goto_0
+
+    :cond_0
+    const-string/jumbo v6, "  DisplayStates:"
+
+    invoke-virtual {p1, v6}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const/4 v4, 0x0
+
+    iget-object v6, p0, Lcom/android/server/display/PersistentDataStore;->mDisplayStates:Ljava/util/HashMap;
+
+    invoke-virtual {v6}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;
+
+    move-result-object v6
+
+    invoke-interface {v6}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
+
+    :goto_1
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_1
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/util/Map$Entry;
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "    "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    add-int/lit8 v5, v4, 0x1
+
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, ": "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Ljava/lang/String;
+
+    invoke-virtual {v7, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {p1, v6}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Lcom/android/server/display/PersistentDataStore$DisplayState;
+
+    const-string/jumbo v7, "      "
+
+    invoke-static {v6, p1, v7}, Lcom/android/server/display/PersistentDataStore$DisplayState;->-wrap0(Lcom/android/server/display/PersistentDataStore$DisplayState;Ljava/io/PrintWriter;Ljava/lang/String;)V
+
+    move v4, v5
+
+    goto :goto_1
+
+    :cond_1
     return-void
 .end method
 
@@ -1286,30 +1700,86 @@
     return v1
 .end method
 
-.method public getRememberedDlnaDevice()Landroid/hardware/display/SemDlnaDevice;
+.method public getColorMode(Lcom/android/server/display/DisplayDevice;)I
+    .locals 4
+
+    const/4 v3, -0x1
+
+    invoke-virtual {p1}, Lcom/android/server/display/DisplayDevice;->hasStableUniqueId()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    return v3
+
+    :cond_0
+    invoke-virtual {p1}, Lcom/android/server/display/DisplayDevice;->getUniqueId()Ljava/lang/String;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    invoke-direct {p0, v1, v2}, Lcom/android/server/display/PersistentDataStore;->getDisplayState(Ljava/lang/String;Z)Lcom/android/server/display/PersistentDataStore$DisplayState;
+
+    move-result-object v0
+
+    if-nez v0, :cond_1
+
+    return v3
+
+    :cond_1
+    invoke-virtual {v0}, Lcom/android/server/display/PersistentDataStore$DisplayState;->getColorMode()I
+
+    move-result v1
+
+    return v1
+.end method
+
+.method public getLastConnectedDlnaDevice()Lcom/android/server/display/DlnaDevice;
     .locals 1
 
-    invoke-direct {p0}, Lcom/android/server/display/PersistentDataStore;->loadIfNeeded()V
+    invoke-virtual {p0}, Lcom/android/server/display/PersistentDataStore;->loadIfNeeded()V
 
-    iget-object v0, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedDlnaDevice:Landroid/hardware/display/SemDlnaDevice;
+    iget-object v0, p0, Lcom/android/server/display/PersistentDataStore;->mLastConnectedDlnaDevice:Lcom/android/server/display/DlnaDevice;
 
     return-object v0
 .end method
 
-.method public getRememberedGCastDevice()Ljava/lang/String;
+.method public getLastConnectedGoogleCast()Ljava/lang/String;
     .locals 1
 
-    invoke-direct {p0}, Lcom/android/server/display/PersistentDataStore;->loadIfNeeded()V
+    invoke-virtual {p0}, Lcom/android/server/display/PersistentDataStore;->loadIfNeeded()V
 
-    iget-object v0, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedGCastDevice:Ljava/lang/String;
+    iget-object v0, p0, Lcom/android/server/display/PersistentDataStore;->mLastConnectedGoogleCast:Ljava/lang/String;
 
     return-object v0
+.end method
+
+.method public getLastConnectedWifiDisplay()Landroid/hardware/display/WifiDisplay;
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/server/display/PersistentDataStore;->loadIfNeeded()V
+
+    iget-object v0, p0, Lcom/android/server/display/PersistentDataStore;->mLastConnectedWifiDisplay:Landroid/hardware/display/WifiDisplay;
+
+    return-object v0
+.end method
+
+.method public getRememberedActiveDisplayFitStatus()Z
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/server/display/PersistentDataStore;->loadIfNeeded()V
+
+    iget-boolean v0, p0, Lcom/android/server/display/PersistentDataStore;->mIsFitToActiveDisplay:Z
+
+    return v0
 .end method
 
 .method public getRememberedWifiDisplay(Ljava/lang/String;)Landroid/hardware/display/WifiDisplay;
     .locals 2
 
-    invoke-direct {p0}, Lcom/android/server/display/PersistentDataStore;->loadIfNeeded()V
+    invoke-virtual {p0}, Lcom/android/server/display/PersistentDataStore;->loadIfNeeded()V
 
     invoke-direct {p0, p1}, Lcom/android/server/display/PersistentDataStore;->findRememberedWifiDisplay(Ljava/lang/String;)I
 
@@ -1336,7 +1806,7 @@
 .method public getRememberedWifiDisplays()[Landroid/hardware/display/WifiDisplay;
     .locals 2
 
-    invoke-direct {p0}, Lcom/android/server/display/PersistentDataStore;->loadIfNeeded()V
+    invoke-virtual {p0}, Lcom/android/server/display/PersistentDataStore;->loadIfNeeded()V
 
     iget-object v0, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedWifiDisplays:Ljava/util/ArrayList;
 
@@ -1357,26 +1827,57 @@
     return-object v0
 .end method
 
-.method public rememberDlnaDevice(Landroid/hardware/display/SemDlnaDevice;)Z
-    .locals 2
+.method public loadIfNeeded()V
+    .locals 1
 
-    invoke-direct {p0}, Lcom/android/server/display/PersistentDataStore;->loadIfNeeded()V
+    iget-boolean v0, p0, Lcom/android/server/display/PersistentDataStore;->mLoaded:Z
 
-    iget-object v0, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedDlnaDevice:Landroid/hardware/display/SemDlnaDevice;
+    if-nez v0, :cond_0
 
-    if-eqz v0, :cond_0
+    invoke-direct {p0}, Lcom/android/server/display/PersistentDataStore;->load()V
 
-    iget-object v0, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedDlnaDevice:Landroid/hardware/display/SemDlnaDevice;
+    const/4 v0, 0x1
 
-    invoke-virtual {v0, p1}, Landroid/hardware/display/SemDlnaDevice;->equals(Landroid/hardware/display/SemDlnaDevice;)Z
+    iput-boolean v0, p0, Lcom/android/server/display/PersistentDataStore;->mLoaded:Z
 
-    move-result v0
+    :cond_0
+    return-void
+.end method
 
-    if-eqz v0, :cond_0
+.method public rememberActiveDisplayFitStatus(Z)Z
+    .locals 3
 
-    const-string/jumbo v0, "DisplayManager"
+    const-string/jumbo v0, "PersistentDataStore"
 
-    const-string/jumbo v1, "rememberDlnaDevice already existed."
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "rememberActiveDisplayFitStatus = "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {p0}, Lcom/android/server/display/PersistentDataStore;->loadIfNeeded()V
+
+    iget-boolean v0, p0, Lcom/android/server/display/PersistentDataStore;->mIsFitToActiveDisplay:Z
+
+    if-ne p1, v0, :cond_0
+
+    const-string/jumbo v0, "PersistentDataStore"
+
+    const-string/jumbo v1, "mIsFitToActiveDisplay already remembered"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -1385,7 +1886,7 @@
     return v0
 
     :cond_0
-    iput-object p1, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedDlnaDevice:Landroid/hardware/display/SemDlnaDevice;
+    iput-boolean p1, p0, Lcom/android/server/display/PersistentDataStore;->mIsFitToActiveDisplay:Z
 
     invoke-direct {p0}, Lcom/android/server/display/PersistentDataStore;->setDirty()V
 
@@ -1394,75 +1895,12 @@
     return v0
 .end method
 
-.method public rememberGCastDevice(Landroid/media/MediaRouter$RouteInfo;)Z
-    .locals 4
-
-    invoke-direct {p0}, Lcom/android/server/display/PersistentDataStore;->loadIfNeeded()V
-
-    invoke-virtual {p1}, Landroid/media/MediaRouter$RouteInfo;->getPresentationDisplay()Landroid/view/Display;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/view/Display;->getName()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "DisplayManager"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "rememberGCastDevice name = "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v1, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedGCastDevice:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    const-string/jumbo v1, "DisplayManager"
-
-    const-string/jumbo v2, "rememberGCastDevice already existed."
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v1, 0x0
-
-    return v1
-
-    :cond_0
-    iput-object v0, p0, Lcom/android/server/display/PersistentDataStore;->mRememberedGCastDevice:Ljava/lang/String;
-
-    invoke-direct {p0}, Lcom/android/server/display/PersistentDataStore;->setDirty()V
-
-    const/4 v1, 0x1
-
-    return v1
-.end method
-
 .method public rememberWifiDisplay(Landroid/hardware/display/WifiDisplay;)Z
     .locals 4
 
     const/4 v3, 0x0
 
-    invoke-direct {p0}, Lcom/android/server/display/PersistentDataStore;->loadIfNeeded()V
+    invoke-virtual {p0}, Lcom/android/server/display/PersistentDataStore;->loadIfNeeded()V
 
     invoke-virtual {p1}, Landroid/hardware/display/WifiDisplay;->getDeviceAddress()Ljava/lang/String;
 
@@ -1525,4 +1963,133 @@
 
     :cond_0
     return-void
+.end method
+
+.method public setColorMode(Lcom/android/server/display/DisplayDevice;I)Z
+    .locals 4
+
+    const/4 v3, 0x1
+
+    const/4 v2, 0x0
+
+    invoke-virtual {p1}, Lcom/android/server/display/DisplayDevice;->hasStableUniqueId()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    return v2
+
+    :cond_0
+    invoke-virtual {p1}, Lcom/android/server/display/DisplayDevice;->getUniqueId()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {p0, v1, v3}, Lcom/android/server/display/PersistentDataStore;->getDisplayState(Ljava/lang/String;Z)Lcom/android/server/display/PersistentDataStore$DisplayState;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p2}, Lcom/android/server/display/PersistentDataStore$DisplayState;->setColorMode(I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-direct {p0}, Lcom/android/server/display/PersistentDataStore;->setDirty()V
+
+    return v3
+
+    :cond_1
+    return v2
+.end method
+
+.method public setLastConnectedDlnaDevice(Lcom/android/server/display/DlnaDevice;)Z
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/server/display/PersistentDataStore;->loadIfNeeded()V
+
+    iget-object v0, p0, Lcom/android/server/display/PersistentDataStore;->mLastConnectedDlnaDevice:Lcom/android/server/display/DlnaDevice;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/display/PersistentDataStore;->mLastConnectedDlnaDevice:Lcom/android/server/display/DlnaDevice;
+
+    invoke-virtual {v0, p1}, Lcom/android/server/display/DlnaDevice;->equals(Lcom/android/server/display/DlnaDevice;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x0
+
+    return v0
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/server/display/PersistentDataStore;->clearLastConnectedDevice()V
+
+    iput-object p1, p0, Lcom/android/server/display/PersistentDataStore;->mLastConnectedDlnaDevice:Lcom/android/server/display/DlnaDevice;
+
+    invoke-direct {p0}, Lcom/android/server/display/PersistentDataStore;->setDirty()V
+
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
+.method public setLastConnectedGoogleCast(Ljava/lang/String;)Z
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/server/display/PersistentDataStore;->loadIfNeeded()V
+
+    iget-object v0, p0, Lcom/android/server/display/PersistentDataStore;->mLastConnectedGoogleCast:Ljava/lang/String;
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x0
+
+    return v0
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/server/display/PersistentDataStore;->clearLastConnectedDevice()V
+
+    iput-object p1, p0, Lcom/android/server/display/PersistentDataStore;->mLastConnectedGoogleCast:Ljava/lang/String;
+
+    invoke-direct {p0}, Lcom/android/server/display/PersistentDataStore;->setDirty()V
+
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
+.method public setLastConnectedWifiDisplay(Landroid/hardware/display/WifiDisplay;)Z
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/server/display/PersistentDataStore;->loadIfNeeded()V
+
+    iget-object v0, p0, Lcom/android/server/display/PersistentDataStore;->mLastConnectedWifiDisplay:Landroid/hardware/display/WifiDisplay;
+
+    invoke-virtual {p1, v0}, Landroid/hardware/display/WifiDisplay;->equals(Landroid/hardware/display/WifiDisplay;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x0
+
+    return v0
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/server/display/PersistentDataStore;->clearLastConnectedDevice()V
+
+    iput-object p1, p0, Lcom/android/server/display/PersistentDataStore;->mLastConnectedWifiDisplay:Landroid/hardware/display/WifiDisplay;
+
+    invoke-direct {p0}, Lcom/android/server/display/PersistentDataStore;->setDirty()V
+
+    const/4 v0, 0x1
+
+    return v0
 .end method

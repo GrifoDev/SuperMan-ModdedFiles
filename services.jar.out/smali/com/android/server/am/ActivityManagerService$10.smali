@@ -32,37 +32,78 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 5
+    .locals 3
 
-    const/16 v4, 0x33
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    const-string/jumbo v0, "delay_delete"
+    move-result-object v1
 
-    const/4 v1, 0x0
+    const-string/jumbo v2, "com.android.server.am.BROADCAST_DHA_DEBUG_ON"
 
-    invoke-virtual {p2, v0, v1}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-nez v1, :cond_3
 
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$10;->this$0:Lcom/android/server/am/ActivityManagerService;
+    const-string/jumbo v1, "ro.debug_level"
 
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mHandler:Lcom/android/server/am/ActivityManagerService$MainHandler;
+    const-string/jumbo v2, "Unknown"
 
-    const-wide/32 v2, 0x493e0
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v0, v4, v2, v3}, Lcom/android/server/am/ActivityManagerService$MainHandler;->sendEmptyMessageDelayed(IJ)Z
+    move-result-object v0
 
+    const-string/jumbo v1, "Unknown"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string/jumbo v1, "0x4f4c"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    :cond_0
+    return-void
+
+    :cond_1
+    const/4 v1, 0x1
+
+    sput-boolean v1, Lcom/android/server/am/DynamicHiddenApp;->DEBUG:Z
+
+    :cond_2
     :goto_0
     return-void
 
-    :cond_0
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$10;->this$0:Lcom/android/server/am/ActivityManagerService;
+    :cond_3
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mHandler:Lcom/android/server/am/ActivityManagerService$MainHandler;
+    move-result-object v1
 
-    invoke-virtual {v0, v4}, Lcom/android/server/am/ActivityManagerService$MainHandler;->sendEmptyMessage(I)Z
+    const-string/jumbo v2, "com.android.server.am.BROADCAST_SET_DHA_PARAMETER"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    sget-boolean v1, Lcom/android/server/am/ActivityManagerService;->SHIP_BUILD:Z
+
+    if-nez v1, :cond_2
+
+    iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$10;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v1, v1, Lcom/android/server/am/ActivityManagerService;->mDynamicHiddenApp:Lcom/android/server/am/DynamicHiddenApp;
+
+    invoke-virtual {v1}, Lcom/android/server/am/DynamicHiddenApp;->updateDHAParameter()V
 
     goto :goto_0
 .end method

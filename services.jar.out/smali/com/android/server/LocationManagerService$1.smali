@@ -65,67 +65,128 @@
 
     invoke-direct {v1, p2}, Landroid/os/Messenger;-><init>(Landroid/os/IBinder;)V
 
-    invoke-static {v0, v1}, Lcom/android/server/LocationManagerService;->-set3(Lcom/android/server/LocationManagerService;Landroid/os/Messenger;)Landroid/os/Messenger;
+    invoke-static {v0, v1}, Lcom/android/server/LocationManagerService;->-set5(Lcom/android/server/LocationManagerService;Landroid/os/Messenger;)Landroid/os/Messenger;
 
     iget-object v0, p0, Lcom/android/server/LocationManagerService$1;->this$0:Lcom/android/server/LocationManagerService;
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Lcom/android/server/LocationManagerService;->-set2(Lcom/android/server/LocationManagerService;Z)Z
+    invoke-static {v0, v1}, Lcom/android/server/LocationManagerService;->-set1(Lcom/android/server/LocationManagerService;Z)Z
 
     return-void
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
-    .locals 4
+    .locals 5
 
-    const/4 v3, 0x1
+    const-string/jumbo v2, "LocationManagerService"
 
-    const-string/jumbo v0, "LocationManagerService"
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v4, "onServiceDisconnected, "
 
-    const-string/jumbo v2, "onServiceDisconnected, "
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v2, p0, Lcom/android/server/LocationManagerService$1;->this$0:Lcom/android/server/LocationManagerService;
+
+    invoke-static {v2}, Lcom/android/server/LocationManagerService;->-get19(Lcom/android/server/LocationManagerService;)Ljava/util/HashMap;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    :cond_0
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result-object v1
+    move-result v2
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    if-eqz v2, :cond_1
 
-    move-result-object v1
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v0
 
-    iget-object v0, p0, Lcom/android/server/LocationManagerService$1;->this$0:Lcom/android/server/LocationManagerService;
+    check-cast v0, Ljava/lang/String;
 
-    invoke-static {v0, v3}, Lcom/android/server/LocationManagerService;->-set1(Lcom/android/server/LocationManagerService;Z)Z
+    const-string/jumbo v2, "passive"
 
-    iget-object v0, p0, Lcom/android/server/LocationManagerService$1;->this$0:Lcom/android/server/LocationManagerService;
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-static {v0, v3}, Lcom/android/server/LocationManagerService;->-set4(Lcom/android/server/LocationManagerService;Z)Z
+    move-result v2
 
-    iget-object v0, p0, Lcom/android/server/LocationManagerService$1;->this$0:Lcom/android/server/LocationManagerService;
+    if-nez v2, :cond_0
 
-    invoke-static {v0, v3}, Lcom/android/server/LocationManagerService;->-set0(Lcom/android/server/LocationManagerService;Z)Z
+    iget-object v2, p0, Lcom/android/server/LocationManagerService$1;->this$0:Lcom/android/server/LocationManagerService;
 
-    iget-object v0, p0, Lcom/android/server/LocationManagerService$1;->this$0:Lcom/android/server/LocationManagerService;
+    invoke-virtual {v2, v0}, Lcom/android/server/LocationManagerService;->isProviderRunning(Ljava/lang/String;)Z
 
-    const/4 v1, 0x0
+    move-result v2
 
-    invoke-static {v0, v1}, Lcom/android/server/LocationManagerService;->-set2(Lcom/android/server/LocationManagerService;Z)Z
+    if-nez v2, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/LocationManagerService$1;->this$0:Lcom/android/server/LocationManagerService;
+    iget-object v2, p0, Lcom/android/server/LocationManagerService$1;->this$0:Lcom/android/server/LocationManagerService;
 
-    const/4 v1, 0x0
+    invoke-virtual {v2, v0}, Lcom/android/server/LocationManagerService;->resumeProvider(Ljava/lang/String;)V
 
-    invoke-static {v0, v1}, Lcom/android/server/LocationManagerService;->-set3(Lcom/android/server/LocationManagerService;Landroid/os/Messenger;)Landroid/os/Messenger;
+    goto :goto_0
+
+    :cond_1
+    iget-object v2, p0, Lcom/android/server/LocationManagerService$1;->this$0:Lcom/android/server/LocationManagerService;
+
+    const/4 v3, 0x0
+
+    invoke-static {v2, v3}, Lcom/android/server/LocationManagerService;->-set1(Lcom/android/server/LocationManagerService;Z)Z
+
+    iget-object v2, p0, Lcom/android/server/LocationManagerService$1;->this$0:Lcom/android/server/LocationManagerService;
+
+    const/4 v3, 0x0
+
+    invoke-static {v2, v3}, Lcom/android/server/LocationManagerService;->-set5(Lcom/android/server/LocationManagerService;Landroid/os/Messenger;)Landroid/os/Messenger;
+
+    iget-object v2, p0, Lcom/android/server/LocationManagerService$1;->this$0:Lcom/android/server/LocationManagerService;
+
+    invoke-static {v2}, Lcom/android/server/LocationManagerService;->-get15(Lcom/android/server/LocationManagerService;)Ljava/util/HashSet;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/HashSet;->clear()V
+
+    iget-object v2, p0, Lcom/android/server/LocationManagerService$1;->this$0:Lcom/android/server/LocationManagerService;
+
+    invoke-static {v2}, Lcom/android/server/LocationManagerService;->-get24(Lcom/android/server/LocationManagerService;)Ljava/util/HashSet;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/HashSet;->clear()V
+
+    iget-object v2, p0, Lcom/android/server/LocationManagerService$1;->this$0:Lcom/android/server/LocationManagerService;
+
+    invoke-static {v2}, Lcom/android/server/LocationManagerService;->-get4(Lcom/android/server/LocationManagerService;)Landroid/util/ArraySet;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/util/ArraySet;->clear()V
 
     return-void
 .end method

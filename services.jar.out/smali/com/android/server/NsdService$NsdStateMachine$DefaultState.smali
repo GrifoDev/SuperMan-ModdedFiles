@@ -77,6 +77,12 @@
 
     check-cast v1, Lcom/android/internal/util/AsyncChannel;
 
+    const-string/jumbo v3, "NsdService"
+
+    const-string/jumbo v4, "New client listening to asynchronous messages"
+
+    invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     const v3, 0x11002
 
     invoke-virtual {v1, v3}, Lcom/android/internal/util/AsyncChannel;->sendMessage(I)V
@@ -141,8 +147,32 @@
 
     packed-switch v3, :pswitch_data_0
 
-    :goto_1
     :pswitch_0
+    const-string/jumbo v3, "NsdService"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "Client connection lost with reason: "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget v5, p1, Landroid/os/Message;->arg1:I
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_1
     iget-object v3, p0, Lcom/android/server/NsdService$NsdStateMachine$DefaultState;->this$1:Lcom/android/server/NsdService$NsdStateMachine;
 
     iget-object v3, v3, Lcom/android/server/NsdService$NsdStateMachine;->this$0:Lcom/android/server/NsdService;
@@ -207,6 +237,15 @@
 
     goto :goto_1
 
+    :pswitch_2
+    const-string/jumbo v3, "NsdService"
+
+    const-string/jumbo v4, "Client disconnected"
+
+    invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+
     :sswitch_2
     new-instance v0, Lcom/android/internal/util/AsyncChannel;
 
@@ -230,7 +269,7 @@
 
     invoke-virtual {v0, v3, v4, v5}, Lcom/android/internal/util/AsyncChannel;->connect(Landroid/content/Context;Landroid/os/Handler;Landroid/os/Messenger;)V
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :sswitch_3
     iget-object v3, p0, Lcom/android/server/NsdService$NsdStateMachine$DefaultState;->this$1:Lcom/android/server/NsdService$NsdStateMachine;
@@ -239,7 +278,7 @@
 
     const v4, 0x60003
 
-    invoke-static {v3, p1, v4, v6}, Lcom/android/server/NsdService;->-wrap15(Lcom/android/server/NsdService;Landroid/os/Message;II)V
+    invoke-static {v3, p1, v4, v6}, Lcom/android/server/NsdService;->-wrap14(Lcom/android/server/NsdService;Landroid/os/Message;II)V
 
     goto/16 :goto_0
 
@@ -250,7 +289,7 @@
 
     const v4, 0x60007
 
-    invoke-static {v3, p1, v4, v6}, Lcom/android/server/NsdService;->-wrap15(Lcom/android/server/NsdService;Landroid/os/Message;II)V
+    invoke-static {v3, p1, v4, v6}, Lcom/android/server/NsdService;->-wrap14(Lcom/android/server/NsdService;Landroid/os/Message;II)V
 
     goto/16 :goto_0
 
@@ -261,7 +300,7 @@
 
     const v4, 0x6000a
 
-    invoke-static {v3, p1, v4, v6}, Lcom/android/server/NsdService;->-wrap15(Lcom/android/server/NsdService;Landroid/os/Message;II)V
+    invoke-static {v3, p1, v4, v6}, Lcom/android/server/NsdService;->-wrap14(Lcom/android/server/NsdService;Landroid/os/Message;II)V
 
     goto/16 :goto_0
 
@@ -272,7 +311,7 @@
 
     const v4, 0x6000d
 
-    invoke-static {v3, p1, v4, v6}, Lcom/android/server/NsdService;->-wrap15(Lcom/android/server/NsdService;Landroid/os/Message;II)V
+    invoke-static {v3, p1, v4, v6}, Lcom/android/server/NsdService;->-wrap14(Lcom/android/server/NsdService;Landroid/os/Message;II)V
 
     goto/16 :goto_0
 
@@ -283,7 +322,7 @@
 
     const v4, 0x60013
 
-    invoke-static {v3, p1, v4, v6}, Lcom/android/server/NsdService;->-wrap15(Lcom/android/server/NsdService;Landroid/os/Message;II)V
+    invoke-static {v3, p1, v4, v6}, Lcom/android/server/NsdService;->-wrap14(Lcom/android/server/NsdService;Landroid/os/Message;II)V
 
     goto/16 :goto_0
 
@@ -303,6 +342,6 @@
     .packed-switch 0x2
         :pswitch_1
         :pswitch_0
-        :pswitch_0
+        :pswitch_2
     .end packed-switch
 .end method

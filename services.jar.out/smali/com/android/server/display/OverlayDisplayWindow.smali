@@ -269,6 +269,8 @@
 
     iput-object v0, p0, Lcom/android/server/display/OverlayDisplayWindow;->mOnScaleGestureListener:Landroid/view/ScaleGestureDetector$OnScaleGestureListener;
 
+    invoke-static {}, Landroid/view/ThreadedRenderer;->disableVsync()V
+
     iput-object p1, p0, Lcom/android/server/display/OverlayDisplayWindow;->mContext:Landroid/content/Context;
 
     iput-object p2, p0, Lcom/android/server/display/OverlayDisplayWindow;->mName:Ljava/lang/String;
@@ -345,7 +347,7 @@
 
     move-result-object v0
 
-    const v1, 0x10900b0
+    const v1, 0x10900b3
 
     const/4 v3, 0x0
 
@@ -363,7 +365,7 @@
 
     iget-object v1, p0, Lcom/android/server/display/OverlayDisplayWindow;->mWindowContent:Landroid/view/View;
 
-    const v3, 0x102044d
+    const v3, 0x10203e0
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -413,7 +415,7 @@
 
     iget-object v1, p0, Lcom/android/server/display/OverlayDisplayWindow;->mWindowContent:Landroid/view/View;
 
-    const v3, 0x102044e
+    const v3, 0x10203e1
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -606,7 +608,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x1040512
+    const v2, 0x10402c0
 
     invoke-virtual {v0, v2, v1}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -634,7 +636,7 @@
 
     move-result-object v1
 
-    const v2, 0x1040513
+    const v2, 0x10402bf
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

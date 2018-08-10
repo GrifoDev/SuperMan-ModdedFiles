@@ -100,7 +100,7 @@
     :goto_0
     add-int/lit8 v14, v15, -0x1
 
-    if-lez v15, :cond_a
+    if-lez v15, :cond_9
 
     invoke-virtual {v7}, Landroid/util/SparseArray;->clear()V
 
@@ -129,7 +129,9 @@
 
     invoke-interface {v13, v11, v0}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
 
-    const-string/jumbo v3, ""
+    invoke-static {}, Lcom/android/server/SdpManagerService;->-get0()Ljava/lang/String;
+
+    move-result-object v3
 
     const/4 v4, -0x1
 
@@ -142,7 +144,7 @@
 
     move/from16 v0, v17
 
-    if-eq v9, v0, :cond_7
+    if-eq v9, v0, :cond_6
 
     packed-switch v9, :pswitch_data_0
 
@@ -186,7 +188,7 @@
 
     move-result v17
 
-    if-eqz v17, :cond_2
+    if-eqz v17, :cond_1
 
     const-string/jumbo v17, "id"
 
@@ -202,7 +204,7 @@
 
     move-result v17
 
-    if-eqz v17, :cond_2
+    if-eqz v17, :cond_1
 
     const/16 v17, 0x0
 
@@ -228,35 +230,34 @@
 
     move-result v4
 
-    if-ltz v4, :cond_1
+    if-ltz v4, :cond_2
 
     invoke-virtual {v3}, Ljava/lang/String;->isEmpty()Z
 
     move-result v17
 
-    if-eqz v17, :cond_3
+    xor-int/lit8 v12, v17, 0x1
 
     :cond_1
-    const/4 v12, 0x0
-
-    :cond_2
     :goto_3
-    if-eqz v12, :cond_4
+    if-eqz v12, :cond_3
 
     invoke-virtual {v7, v4, v3}, Landroid/util/SparseArray;->append(ILjava/lang/Object;)V
 
-    const-string/jumbo v3, ""
+    invoke-static {}, Lcom/android/server/SdpManagerService;->-get0()Ljava/lang/String;
+
+    move-result-object v3
 
     const/4 v4, -0x1
 
     goto :goto_2
 
-    :cond_3
-    const/4 v12, 0x1
+    :cond_2
+    const/4 v12, 0x0
 
     goto :goto_3
 
-    :cond_4
+    :cond_3
     new-instance v17, Ljava/lang/Exception;
 
     const-string/jumbo v18, "Suspicious of damaged file..."
@@ -312,9 +313,9 @@
 
     move-object/from16 v2, v19
 
-    invoke-static {v0, v1, v6, v2}, Lcom/android/server/SdpManagerService;->-wrap13(Lcom/android/server/SdpManagerService;Ljava/lang/String;Ljava/lang/Exception;Ljava/lang/String;)V
+    invoke-static {v0, v1, v6, v2}, Lcom/android/server/SdpManagerService;->-wrap30(Lcom/android/server/SdpManagerService;Ljava/lang/String;Ljava/lang/Exception;Ljava/lang/String;)V
 
-    if-eqz v8, :cond_5
+    if-eqz v8, :cond_4
 
     invoke-virtual {v8}, Landroid/util/XmlMoreAtomicFile;->processDamagedFile()V
     :try_end_1
@@ -322,29 +323,29 @@
 
     const/4 v8, 0x0
 
-    :cond_5
-    if-eqz v11, :cond_6
+    :cond_4
+    if-eqz v11, :cond_5
 
     :try_start_2
     invoke-virtual {v11}, Ljava/io/FileInputStream;->close()V
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_2
 
-    :cond_6
+    :cond_5
     :goto_4
     move v15, v14
 
     goto/16 :goto_0
 
-    :cond_7
-    if-eqz v11, :cond_8
+    :cond_6
+    if-eqz v11, :cond_7
 
     :try_start_3
     invoke-virtual {v11}, Ljava/io/FileInputStream;->close()V
     :try_end_3
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_1
 
-    :cond_8
+    :cond_7
     :goto_5
     return-object v7
 
@@ -361,14 +362,14 @@
     :catchall_0
     move-exception v17
 
-    if-eqz v11, :cond_9
+    if-eqz v11, :cond_8
 
     :try_start_4
     invoke-virtual {v11}, Ljava/io/FileInputStream;->close()V
     :try_end_4
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_3
 
-    :cond_9
+    :cond_8
     :goto_6
     throw v17
 
@@ -377,12 +378,10 @@
 
     goto :goto_6
 
-    :cond_a
+    :cond_9
     const/16 v17, 0x0
 
     return-object v17
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -481,7 +480,7 @@
 
     iget-object v12, v12, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->this$0:Lcom/android/server/SdpManagerService;
 
-    invoke-static {v12}, Lcom/android/server/SdpManagerService;->-get6(Lcom/android/server/SdpManagerService;)Landroid/util/SparseArray;
+    invoke-static {v12}, Lcom/android/server/SdpManagerService;->-get7(Lcom/android/server/SdpManagerService;)Landroid/util/SparseArray;
 
     move-result-object v12
 
@@ -499,6 +498,8 @@
 
     :catch_0
     move-exception v2
+
+    invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
 
     const/16 v12, -0x63
 
@@ -556,7 +557,7 @@
 
     iget-object v12, v12, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->this$0:Lcom/android/server/SdpManagerService;
 
-    invoke-static {v12}, Lcom/android/server/SdpManagerService;->-get6(Lcom/android/server/SdpManagerService;)Landroid/util/SparseArray;
+    invoke-static {v12}, Lcom/android/server/SdpManagerService;->-get7(Lcom/android/server/SdpManagerService;)Landroid/util/SparseArray;
 
     move-result-object v12
 
@@ -571,7 +572,7 @@
 
     iget-object v12, v12, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->this$0:Lcom/android/server/SdpManagerService;
 
-    invoke-static {v12}, Lcom/android/server/SdpManagerService;->-get6(Lcom/android/server/SdpManagerService;)Landroid/util/SparseArray;
+    invoke-static {v12}, Lcom/android/server/SdpManagerService;->-get7(Lcom/android/server/SdpManagerService;)Landroid/util/SparseArray;
 
     move-result-object v12
 
@@ -583,7 +584,7 @@
 
     iget-object v12, v12, Lcom/android/server/SdpManagerService$SdpEngineDatabase;->this$0:Lcom/android/server/SdpManagerService;
 
-    invoke-static {v12}, Lcom/android/server/SdpManagerService;->-get6(Lcom/android/server/SdpManagerService;)Landroid/util/SparseArray;
+    invoke-static {v12}, Lcom/android/server/SdpManagerService;->-get7(Lcom/android/server/SdpManagerService;)Landroid/util/SparseArray;
 
     move-result-object v12
 
@@ -681,11 +682,9 @@
 
     const-string/jumbo v14, "Failed to update engine list..."
 
-    invoke-static {v12, v13, v3, v14}, Lcom/android/server/SdpManagerService;->-wrap13(Lcom/android/server/SdpManagerService;Ljava/lang/String;Ljava/lang/Exception;Ljava/lang/String;)V
+    invoke-static {v12, v13, v3, v14}, Lcom/android/server/SdpManagerService;->-wrap30(Lcom/android/server/SdpManagerService;Ljava/lang/String;Ljava/lang/Exception;Ljava/lang/String;)V
 
     invoke-virtual {v3}, Ljava/lang/Exception;->printStackTrace()V
-
-    if-eqz v4, :cond_4
 
     if-eqz v5, :cond_4
 

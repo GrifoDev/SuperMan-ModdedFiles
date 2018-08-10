@@ -40,7 +40,7 @@
 
     iget-object v1, p0, Lcom/android/server/ConnectivityService$1;->this$0:Lcom/android/server/ConnectivityService;
 
-    invoke-static {v1, v0, p2, p3, p4}, Lcom/android/server/ConnectivityService;->-wrap27(Lcom/android/server/ConnectivityService;IZJ)V
+    invoke-static {v1, v0, p2, p3, p4}, Lcom/android/server/ConnectivityService;->-wrap31(Lcom/android/server/ConnectivityService;IZJ)V
 
     return-void
 .end method

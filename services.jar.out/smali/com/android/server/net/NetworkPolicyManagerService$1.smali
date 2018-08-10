@@ -62,6 +62,12 @@
 
     if-eqz v3, :cond_0
 
+    invoke-static {}, Lcom/android/server/net/NetworkPolicyManagerService;->-get14()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
     invoke-virtual {p1}, Landroid/telephony/ServiceState;->getRilDataRadioTechnology()I
 
     move-result v2
@@ -71,6 +77,10 @@
     move-result v3
 
     if-eqz v3, :cond_2
+
+    const/16 v3, 0xe
+
+    if-eq v2, v3, :cond_2
 
     invoke-virtual {p1}, Landroid/telephony/ServiceState;->getCdmaRoamingIndicator()I
 
@@ -111,7 +121,7 @@
 
     if-eq v3, v1, :cond_0
 
-    invoke-static {v1}, Lcom/android/server/net/NetworkPolicyManagerService;->-set4(Z)Z
+    invoke-static {v1}, Lcom/android/server/net/NetworkPolicyManagerService;->-set6(Z)Z
 
     iget-object v3, p0, Lcom/android/server/net/NetworkPolicyManagerService$1;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 

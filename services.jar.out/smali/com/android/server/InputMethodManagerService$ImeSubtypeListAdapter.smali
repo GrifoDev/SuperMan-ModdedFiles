@@ -158,7 +158,7 @@
     invoke-virtual {v4, v10}, Landroid/widget/TextView;->setVisibility(I)V
 
     :goto_1
-    const v8, 0x10203ff
+    const v8, 0x1020429
 
     invoke-virtual {v6, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -199,6 +199,20 @@
     move-result-object v8
 
     const-string/jumbo v9, "com.samsung.inputmethod"
+
+    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_5
+
+    iget-object v8, v2, Lcom/android/internal/inputmethod/InputMethodSubtypeSwitchingController$ImeSubtypeListItem;->mImi:Landroid/view/inputmethod/InputMethodInfo;
+
+    invoke-virtual {v8}, Landroid/view/inputmethod/InputMethodInfo;->getPackageName()Ljava/lang/String;
+
+    move-result-object v8
+
+    const-string/jumbo v9, "com.sec.android.inputmethod.beta"
 
     invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

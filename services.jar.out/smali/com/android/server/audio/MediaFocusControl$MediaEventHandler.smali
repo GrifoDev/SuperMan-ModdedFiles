@@ -9,22 +9,16 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0xa
     name = "MediaEventHandler"
 .end annotation
 
 
-# instance fields
-.field final synthetic this$0:Lcom/android/server/audio/MediaFocusControl;
-
-
 # direct methods
-.method constructor <init>(Lcom/android/server/audio/MediaFocusControl;Landroid/os/Looper;)V
+.method constructor <init>(Landroid/os/Looper;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/server/audio/MediaFocusControl$MediaEventHandler;->this$0:Lcom/android/server/audio/MediaFocusControl;
-
-    invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+    invoke-direct {p0, p1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
     return-void
 .end method
@@ -42,14 +36,14 @@
     return-void
 
     :pswitch_0
-    invoke-static {}, Lcom/android/server/audio/MediaFocusControl;->-get0()Ljava/lang/Object;
+    invoke-static {}, Lcom/android/server/audio/MediaFocusControl;->-get1()Ljava/lang/Object;
 
     move-result-object v2
 
     monitor-enter v2
 
     :try_start_0
-    invoke-static {}, Lcom/android/server/audio/MediaFocusControl;->-get0()Ljava/lang/Object;
+    invoke-static {}, Lcom/android/server/audio/MediaFocusControl;->-get1()Ljava/lang/Object;
 
     move-result-object v1
 

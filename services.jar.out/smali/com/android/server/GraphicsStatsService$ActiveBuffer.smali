@@ -18,11 +18,11 @@
 
 
 # instance fields
-.field final mPackageName:Ljava/lang/String;
+.field final mCallback:Landroid/view/IGraphicsStatsCallback;
+
+.field final mInfo:Lcom/android/server/GraphicsStatsService$BufferInfo;
 
 .field final mPid:I
-
-.field mPreviousData:Lcom/android/server/GraphicsStatsService$HistoricalData;
 
 .field mProcessBuffer:Landroid/os/MemoryFile;
 
@@ -34,8 +34,8 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/GraphicsStatsService;Landroid/os/IBinder;IILjava/lang/String;)V
-    .locals 5
+.method constructor <init>(Lcom/android/server/GraphicsStatsService;Landroid/view/IGraphicsStatsCallback;IILjava/lang/String;I)V
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;,
@@ -43,25 +43,45 @@
         }
     .end annotation
 
-    const/16 v4, 0x1d0
-
-    const/4 v3, 0x0
+    const/4 v6, 0x0
 
     iput-object p1, p0, Lcom/android/server/GraphicsStatsService$ActiveBuffer;->this$0:Lcom/android/server/GraphicsStatsService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    new-instance v0, Lcom/android/server/GraphicsStatsService$BufferInfo;
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v4
+
+    move-object v1, p1
+
+    move-object v2, p5
+
+    move v3, p6
+
+    invoke-direct/range {v0 .. v5}, Lcom/android/server/GraphicsStatsService$BufferInfo;-><init>(Lcom/android/server/GraphicsStatsService;Ljava/lang/String;IJ)V
+
+    iput-object v0, p0, Lcom/android/server/GraphicsStatsService$ActiveBuffer;->mInfo:Lcom/android/server/GraphicsStatsService$BufferInfo;
+
     iput p3, p0, Lcom/android/server/GraphicsStatsService$ActiveBuffer;->mUid:I
 
     iput p4, p0, Lcom/android/server/GraphicsStatsService$ActiveBuffer;->mPid:I
 
-    iput-object p5, p0, Lcom/android/server/GraphicsStatsService$ActiveBuffer;->mPackageName:Ljava/lang/String;
+    iput-object p2, p0, Lcom/android/server/GraphicsStatsService$ActiveBuffer;->mCallback:Landroid/view/IGraphicsStatsCallback;
 
-    iput-object p2, p0, Lcom/android/server/GraphicsStatsService$ActiveBuffer;->mToken:Landroid/os/IBinder;
+    iget-object v0, p0, Lcom/android/server/GraphicsStatsService$ActiveBuffer;->mCallback:Landroid/view/IGraphicsStatsCallback;
+
+    invoke-interface {v0}, Landroid/view/IGraphicsStatsCallback;->asBinder()Landroid/os/IBinder;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/server/GraphicsStatsService$ActiveBuffer;->mToken:Landroid/os/IBinder;
 
     iget-object v0, p0, Lcom/android/server/GraphicsStatsService$ActiveBuffer;->mToken:Landroid/os/IBinder;
 
-    invoke-interface {v0, p0, v3}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
+    invoke-interface {v0, p0, v6}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
 
     new-instance v0, Landroid/os/MemoryFile;
 
@@ -75,7 +95,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
@@ -83,33 +103,26 @@
 
     move-result-object v1
 
-    invoke-direct {v0, v1, v4}, Landroid/os/MemoryFile;-><init>(Ljava/lang/String;I)V
+    invoke-static {p1}, Lcom/android/server/GraphicsStatsService;->-get0(Lcom/android/server/GraphicsStatsService;)I
+
+    move-result v2
+
+    invoke-direct {v0, v1, v2}, Landroid/os/MemoryFile;-><init>(Ljava/lang/String;I)V
 
     iput-object v0, p0, Lcom/android/server/GraphicsStatsService$ActiveBuffer;->mProcessBuffer:Landroid/os/MemoryFile;
 
-    iget v0, p0, Lcom/android/server/GraphicsStatsService$ActiveBuffer;->mUid:I
-
-    iget-object v1, p0, Lcom/android/server/GraphicsStatsService$ActiveBuffer;->mPackageName:Ljava/lang/String;
-
-    invoke-static {p1, v0, v1}, Lcom/android/server/GraphicsStatsService;->-wrap0(Lcom/android/server/GraphicsStatsService;ILjava/lang/String;)Lcom/android/server/GraphicsStatsService$HistoricalData;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/server/GraphicsStatsService$ActiveBuffer;->mPreviousData:Lcom/android/server/GraphicsStatsService$HistoricalData;
-
-    iget-object v0, p0, Lcom/android/server/GraphicsStatsService$ActiveBuffer;->mPreviousData:Lcom/android/server/GraphicsStatsService$HistoricalData;
-
-    if-eqz v0, :cond_0
-
     iget-object v0, p0, Lcom/android/server/GraphicsStatsService$ActiveBuffer;->mProcessBuffer:Landroid/os/MemoryFile;
 
-    iget-object v1, p0, Lcom/android/server/GraphicsStatsService$ActiveBuffer;->mPreviousData:Lcom/android/server/GraphicsStatsService$HistoricalData;
+    invoke-static {p1}, Lcom/android/server/GraphicsStatsService;->-get1(Lcom/android/server/GraphicsStatsService;)[B
 
-    iget-object v1, v1, Lcom/android/server/GraphicsStatsService$HistoricalData;->mBuffer:[B
+    move-result-object v1
 
-    invoke-virtual {v0, v1, v3, v3, v4}, Landroid/os/MemoryFile;->writeBytes([BIII)V
+    invoke-static {p1}, Lcom/android/server/GraphicsStatsService;->-get0(Lcom/android/server/GraphicsStatsService;)I
 
-    :cond_0
+    move-result v2
+
+    invoke-virtual {v0, v1, v6, v6, v2}, Landroid/os/MemoryFile;->writeBytes([BIII)V
+
     return-void
 .end method
 

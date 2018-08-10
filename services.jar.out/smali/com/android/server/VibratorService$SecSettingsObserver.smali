@@ -36,7 +36,7 @@
 
     move-result-object v0
 
-    invoke-static {}, Lcom/android/server/VibratorService;->-get12()[Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/VibratorService;->-get4()[Ljava/lang/String;
 
     move-result-object v1
 
@@ -68,7 +68,9 @@
 
     invoke-super {p0, p1}, Landroid/database/ContentObserver;->onChange(Z)V
 
-    invoke-static {}, Lcom/android/server/VibratorService;->-get8()Z
+    iget-object v4, p0, Lcom/android/server/VibratorService$SecSettingsObserver;->this$0:Lcom/android/server/VibratorService;
+
+    invoke-static {v4}, Lcom/android/server/VibratorService;->-get8(Lcom/android/server/VibratorService;)Z
 
     move-result v4
 
@@ -83,7 +85,9 @@
     return-void
 
     :cond_0
-    invoke-static {}, Lcom/android/server/VibratorService;->-get1()[I
+    iget-object v4, p0, Lcom/android/server/VibratorService$SecSettingsObserver;->this$0:Lcom/android/server/VibratorService;
+
+    invoke-static {v4}, Lcom/android/server/VibratorService;->-get1(Lcom/android/server/VibratorService;)[I
 
     move-result-object v4
 
@@ -91,7 +95,9 @@
 
     add-int/lit8 v1, v4, -0x1
 
-    invoke-static {}, Lcom/android/server/VibratorService;->-get2()[I
+    iget-object v4, p0, Lcom/android/server/VibratorService$SecSettingsObserver;->this$0:Lcom/android/server/VibratorService;
+
+    invoke-static {v4}, Lcom/android/server/VibratorService;->-get2(Lcom/android/server/VibratorService;)[I
 
     move-result-object v4
 
@@ -153,7 +159,7 @@
 
     move-result-object v4
 
-    invoke-static {}, Lcom/android/server/VibratorService;->-get12()[Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/VibratorService;->-get4()[Ljava/lang/String;
 
     move-result-object v5
 
@@ -170,7 +176,7 @@
     if-le v0, v3, :cond_3
 
     :goto_1
-    invoke-static {v4, v0}, Lcom/android/server/VibratorService;->-set7(Lcom/android/server/VibratorService;I)I
+    invoke-static {v4, v0}, Lcom/android/server/VibratorService;->-set6(Lcom/android/server/VibratorService;I)I
 
     const-string/jumbo v4, "VibratorService"
 
@@ -181,7 +187,9 @@
     goto :goto_0
 
     :cond_3
-    invoke-static {}, Lcom/android/server/VibratorService;->-get2()[I
+    iget-object v5, p0, Lcom/android/server/VibratorService$SecSettingsObserver;->this$0:Lcom/android/server/VibratorService;
+
+    invoke-static {v5}, Lcom/android/server/VibratorService;->-get2(Lcom/android/server/VibratorService;)[I
 
     move-result-object v5
 
@@ -196,7 +204,7 @@
 
     move-result-object v4
 
-    invoke-static {}, Lcom/android/server/VibratorService;->-get12()[Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/VibratorService;->-get4()[Ljava/lang/String;
 
     move-result-object v5
 
@@ -224,7 +232,9 @@
     goto :goto_0
 
     :cond_4
-    invoke-static {}, Lcom/android/server/VibratorService;->-get1()[I
+    iget-object v5, p0, Lcom/android/server/VibratorService$SecSettingsObserver;->this$0:Lcom/android/server/VibratorService;
+
+    invoke-static {v5}, Lcom/android/server/VibratorService;->-get1(Lcom/android/server/VibratorService;)[I
 
     move-result-object v5
 
@@ -239,7 +249,7 @@
 
     move-result-object v4
 
-    invoke-static {}, Lcom/android/server/VibratorService;->-get12()[Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/VibratorService;->-get4()[Ljava/lang/String;
 
     move-result-object v5
 
@@ -253,38 +263,23 @@
 
     iget-object v4, p0, Lcom/android/server/VibratorService$SecSettingsObserver;->this$0:Lcom/android/server/VibratorService;
 
-    if-le v0, v1, :cond_6
+    if-le v0, v1, :cond_5
 
     :goto_3
-    invoke-static {v4, v0}, Lcom/android/server/VibratorService;->-set6(Lcom/android/server/VibratorService;I)I
+    invoke-static {v4, v0}, Lcom/android/server/VibratorService;->-set4(Lcom/android/server/VibratorService;I)I
 
-    invoke-static {}, Lcom/android/server/VibratorService;->-get4()Z
-
-    move-result v4
-
-    if-nez v4, :cond_5
-
-    iget-object v4, p0, Lcom/android/server/VibratorService$SecSettingsObserver;->this$0:Lcom/android/server/VibratorService;
-
-    iget-object v5, p0, Lcom/android/server/VibratorService$SecSettingsObserver;->this$0:Lcom/android/server/VibratorService;
-
-    invoke-static {v5}, Lcom/android/server/VibratorService;->-get10(Lcom/android/server/VibratorService;)I
-
-    move-result v5
-
-    invoke-static {v4, v5}, Lcom/android/server/VibratorService;->-set1(Lcom/android/server/VibratorService;I)I
-
-    :cond_5
     const-string/jumbo v4, "VibratorService"
 
     const-string/jumbo v5, "Notification magnitude has changed"
 
     invoke-static {v4, v5}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_0
+    goto :goto_0
 
-    :cond_6
-    invoke-static {}, Lcom/android/server/VibratorService;->-get1()[I
+    :cond_5
+    iget-object v5, p0, Lcom/android/server/VibratorService$SecSettingsObserver;->this$0:Lcom/android/server/VibratorService;
+
+    invoke-static {v5}, Lcom/android/server/VibratorService;->-get1(Lcom/android/server/VibratorService;)[I
 
     move-result-object v5
 
@@ -295,11 +290,11 @@
     :pswitch_3
     iget-object v4, p0, Lcom/android/server/VibratorService$SecSettingsObserver;->this$0:Lcom/android/server/VibratorService;
 
-    invoke-static {v4}, Lcom/android/server/VibratorService;->-get9(Lcom/android/server/VibratorService;)Z
+    invoke-static {v4}, Lcom/android/server/VibratorService;->-get10(Lcom/android/server/VibratorService;)Z
 
     move-result v4
 
-    if-nez v4, :cond_7
+    if-nez v4, :cond_6
 
     const-string/jumbo v4, "VibratorService"
 
@@ -309,8 +304,10 @@
 
     return-void
 
-    :cond_7
-    invoke-static {}, Lcom/android/server/VibratorService;->-get0()[I
+    :cond_6
+    iget-object v4, p0, Lcom/android/server/VibratorService$SecSettingsObserver;->this$0:Lcom/android/server/VibratorService;
+
+    invoke-static {v4}, Lcom/android/server/VibratorService;->-get0(Lcom/android/server/VibratorService;)[I
 
     move-result-object v4
 
@@ -318,7 +315,7 @@
 
     add-int/lit8 v2, v4, -0x1
 
-    if-ge v2, v5, :cond_8
+    if-ge v2, v5, :cond_7
 
     const-string/jumbo v4, "VibratorService"
 
@@ -344,14 +341,14 @@
 
     return-void
 
-    :cond_8
+    :cond_7
     iget-object v4, p0, Lcom/android/server/VibratorService$SecSettingsObserver;->this$0:Lcom/android/server/VibratorService;
 
     invoke-static {v4}, Lcom/android/server/VibratorService;->-get5(Lcom/android/server/VibratorService;)Landroid/content/ContentResolver;
 
     move-result-object v4
 
-    invoke-static {}, Lcom/android/server/VibratorService;->-get12()[Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/VibratorService;->-get4()[Ljava/lang/String;
 
     move-result-object v5
 
@@ -370,6 +367,25 @@
     :goto_4
     invoke-static {v4, v0}, Lcom/android/server/VibratorService;->-set2(Lcom/android/server/VibratorService;I)I
 
+    iget-object v4, p0, Lcom/android/server/VibratorService$SecSettingsObserver;->this$0:Lcom/android/server/VibratorService;
+
+    invoke-static {v4}, Lcom/android/server/VibratorService;->-get9(Lcom/android/server/VibratorService;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_8
+
+    iget-object v4, p0, Lcom/android/server/VibratorService$SecSettingsObserver;->this$0:Lcom/android/server/VibratorService;
+
+    invoke-static {v4}, Lcom/android/server/VibratorService;->-get7(Lcom/android/server/VibratorService;)I
+
+    move-result v4
+
+    int-to-long v4, v4
+
+    invoke-static {v4, v5}, Lcom/android/server/VibratorService;->vibratorForceTouchIntensity(J)V
+
+    :cond_8
     const-string/jumbo v4, "VibratorService"
 
     const-string/jumbo v5, "Force magnitude has changed"
@@ -379,7 +395,9 @@
     goto/16 :goto_0
 
     :cond_9
-    invoke-static {}, Lcom/android/server/VibratorService;->-get0()[I
+    iget-object v5, p0, Lcom/android/server/VibratorService$SecSettingsObserver;->this$0:Lcom/android/server/VibratorService;
+
+    invoke-static {v5}, Lcom/android/server/VibratorService;->-get0(Lcom/android/server/VibratorService;)[I
 
     move-result-object v5
 
@@ -413,7 +431,7 @@
 
     move-result-object v0
 
-    invoke-static {}, Lcom/android/server/VibratorService;->-get12()[Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/VibratorService;->-get4()[Ljava/lang/String;
 
     move-result-object v1
 

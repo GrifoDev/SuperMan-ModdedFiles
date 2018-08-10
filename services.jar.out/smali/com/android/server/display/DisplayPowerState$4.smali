@@ -41,11 +41,11 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/server/display/DisplayPowerState;->-set1(Lcom/android/server/display/DisplayPowerState;Z)Z
+    invoke-static {v0, v1}, Lcom/android/server/display/DisplayPowerState;->-set0(Lcom/android/server/display/DisplayPowerState;Z)Z
 
     iget-object v0, p0, Lcom/android/server/display/DisplayPowerState$4;->this$0:Lcom/android/server/display/DisplayPowerState;
 
-    invoke-static {v0}, Lcom/android/server/display/DisplayPowerState;->-get6(Lcom/android/server/display/DisplayPowerState;)Z
+    invoke-static {v0}, Lcom/android/server/display/DisplayPowerState;->-get5(Lcom/android/server/display/DisplayPowerState;)Z
 
     move-result v0
 
@@ -53,13 +53,13 @@
 
     iget-object v0, p0, Lcom/android/server/display/DisplayPowerState$4;->this$0:Lcom/android/server/display/DisplayPowerState;
 
-    invoke-static {v0}, Lcom/android/server/display/DisplayPowerState;->-get4(Lcom/android/server/display/DisplayPowerState;)Lcom/android/server/display/ColorFade;
+    invoke-static {v0}, Lcom/android/server/display/DisplayPowerState;->-get3(Lcom/android/server/display/DisplayPowerState;)Lcom/android/server/display/ColorFade;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/server/display/DisplayPowerState$4;->this$0:Lcom/android/server/display/DisplayPowerState;
 
-    invoke-static {v1}, Lcom/android/server/display/DisplayPowerState;->-get5(Lcom/android/server/display/DisplayPowerState;)F
+    invoke-static {v1}, Lcom/android/server/display/DisplayPowerState;->-get4(Lcom/android/server/display/DisplayPowerState;)F
 
     move-result v1
 
@@ -70,7 +70,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Lcom/android/server/display/DisplayPowerState;->-set2(Lcom/android/server/display/DisplayPowerState;Z)Z
+    invoke-static {v0, v1}, Lcom/android/server/display/DisplayPowerState;->-set1(Lcom/android/server/display/DisplayPowerState;Z)Z
 
     iget-object v0, p0, Lcom/android/server/display/DisplayPowerState$4;->this$0:Lcom/android/server/display/DisplayPowerState;
 

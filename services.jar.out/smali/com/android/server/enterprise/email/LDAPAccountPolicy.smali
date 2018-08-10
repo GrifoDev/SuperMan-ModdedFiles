@@ -464,7 +464,7 @@
     :try_start_0
     invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
 
-    move-result v7
+    move-result v5
 
     invoke-direct/range {p0 .. p1}, Lcom/android/server/enterprise/email/LDAPAccountPolicy;->enforceLDAPPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
@@ -472,19 +472,19 @@
 
     invoke-static/range {p1 .. p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
 
-    move-result v18
+    move-result v11
 
     move-object/from16 v0, p1
 
-    iget v8, v0, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
+    iget v6, v0, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
 
     if-nez p2, :cond_0
 
-    const-string/jumbo v19, "LDAPAccountPolicyService"
+    const-string/jumbo v18, "LDAPAccountPolicyService"
 
-    const-string/jumbo v20, "createLDAPAccount() : failed. ldap is not vaild."
+    const-string/jumbo v19, "createLDAPAccount() : failed. ldap is not vaild."
 
-    invoke-static/range {v19 .. v20}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static/range {v18 .. v19}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
@@ -494,243 +494,295 @@
 
     :cond_0
     :try_start_1
+    invoke-static {v11}, Lcom/android/server/enterprise/email/SettingsUtils;->getEmailPackageName(I)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v8, v6}, Lcom/android/server/enterprise/email/SettingsUtils;->isPackageInstalled(Ljava/lang/String;I)Z
+
+    move-result v18
+
+    if-nez v18, :cond_1
+
+    const-wide/16 v18, -0x1
+
+    const/16 v20, -0x8
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v20
+
+    move-wide/from16 v2, v18
+
+    invoke-direct {v0, v11, v1, v2, v3}, Lcom/android/server/enterprise/email/LDAPAccountPolicy;->sendBroadcastCreateLDAPAcctResultIntent(IIJ)V
+
+    const-string/jumbo v18, "LDAPAccountPolicyService"
+
+    new-instance v19, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v20, "createLDAPAccount : Error :: Email app is not installed on user "
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v19
+
+    invoke-static/range {v18 .. v19}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    monitor-exit p0
+
+    return-void
+
+    :cond_1
+    :try_start_2
+    move-object/from16 v0, p2
+
+    iget-boolean v0, v0, Lcom/samsung/android/knox/accounts/LDAPAccount;->isSSL:Z
+
+    move/from16 v18, v0
+
+    if-eqz v18, :cond_2
+
+    const/16 v18, 0x1
+
+    move/from16 v0, v18
+
+    move-object/from16 v1, p2
+
+    iput v0, v1, Lcom/samsung/android/knox/accounts/LDAPAccount;->trustAll:I
+
+    :cond_2
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v16
+
+    invoke-static {v11}, Lcom/android/server/enterprise/email/SettingsUtils;->getEmailPackageName(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    const-string/jumbo v18, "LDAPAccountPolicyService"
+
+    const-string/jumbo v19, "createLDAPAccount_new()"
+
+    invoke-static/range {v18 .. v19}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+
+    :try_start_3
+    move-object/from16 v0, p2
+
+    iget-object v0, v0, Lcom/samsung/android/knox/accounts/LDAPAccount;->password:Ljava/lang/String;
+
+    move-object/from16 v18, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    move-object/from16 v2, v18
+
+    invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/email/LDAPAccountPolicy;->setAccountEmailPassword(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)J
+
+    move-result-wide v14
+
+    new-instance v9, Landroid/content/Intent;
+
+    const-string/jumbo v18, "edm.intent.action.internal.CREATE_LDAPACCOUNT"
+
+    move-object/from16 v0, v18
+
+    invoke-direct {v9, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v18, "user_id"
+
+    move-object/from16 v0, p2
+
+    iget-wide v0, v0, Lcom/samsung/android/knox/accounts/LDAPAccount;->id:J
+
+    move-wide/from16 v20, v0
+
+    move-object/from16 v0, v18
+
+    move-wide/from16 v1, v20
+
+    invoke-virtual {v9, v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
+
+    const-string/jumbo v18, "user_name"
+
+    move-object/from16 v0, p2
+
+    iget-object v0, v0, Lcom/samsung/android/knox/accounts/LDAPAccount;->userName:Ljava/lang/String;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v9, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v18, "user_password_id"
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v9, v0, v14, v15}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
+
+    const-string/jumbo v18, "port"
+
+    move-object/from16 v0, p2
+
+    iget v0, v0, Lcom/samsung/android/knox/accounts/LDAPAccount;->port:I
+
+    move/from16 v19, v0
+
+    move-object/from16 v0, v18
+
+    move/from16 v1, v19
+
+    invoke-virtual {v9, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    const-string/jumbo v18, "isssl"
+
     move-object/from16 v0, p2
 
     iget-boolean v0, v0, Lcom/samsung/android/knox/accounts/LDAPAccount;->isSSL:Z
 
     move/from16 v19, v0
 
-    if-eqz v19, :cond_1
+    move-object/from16 v0, v18
 
-    const/16 v19, 0x1
+    move/from16 v1, v19
 
-    move/from16 v0, v19
+    invoke-virtual {v9, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    move-object/from16 v1, p2
+    const-string/jumbo v18, "service"
 
-    iput v0, v1, Lcom/samsung/android/knox/accounts/LDAPAccount;->trustAll:I
+    const-string/jumbo v19, "ldap"
 
-    :cond_1
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+    move-object/from16 v0, v18
 
-    move-result-wide v16
+    move-object/from16 v1, v19
 
-    invoke-static/range {v18 .. v18}, Lcom/android/server/enterprise/email/SettingsUtils;->getEmailPackageName(I)Ljava/lang/String;
+    invoke-virtual {v9, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    move-result-object v6
-
-    const-string/jumbo v19, "LDAPAccountPolicyService"
-
-    const-string/jumbo v20, "createLDAPAccount_new()"
-
-    invoke-static/range {v19 .. v20}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
-
-    :try_start_2
-    move-object/from16 v0, p2
-
-    iget-object v0, v0, Lcom/samsung/android/knox/accounts/LDAPAccount;->password:Ljava/lang/String;
-
-    move-object/from16 v19, v0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, p1
-
-    move-object/from16 v2, v19
-
-    invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/email/LDAPAccountPolicy;->setAccountEmailPassword(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)J
-
-    move-result-wide v14
-
-    new-instance v10, Landroid/content/Intent;
-
-    const-string/jumbo v19, "edm.intent.action.internal.CREATE_LDAPACCOUNT"
-
-    move-object/from16 v0, v19
-
-    invoke-direct {v10, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const-string/jumbo v19, "user_id"
-
-    move-object/from16 v0, p2
-
-    iget-wide v0, v0, Lcom/samsung/android/knox/accounts/LDAPAccount;->id:J
-
-    move-wide/from16 v20, v0
-
-    move-object/from16 v0, v19
-
-    move-wide/from16 v1, v20
-
-    invoke-virtual {v10, v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
-
-    const-string/jumbo v19, "user_name"
-
-    move-object/from16 v0, p2
-
-    iget-object v0, v0, Lcom/samsung/android/knox/accounts/LDAPAccount;->userName:Ljava/lang/String;
-
-    move-object/from16 v20, v0
-
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, v20
-
-    invoke-virtual {v10, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    const-string/jumbo v19, "user_password_id"
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v10, v0, v14, v15}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
-
-    const-string/jumbo v19, "port"
-
-    move-object/from16 v0, p2
-
-    iget v0, v0, Lcom/samsung/android/knox/accounts/LDAPAccount;->port:I
-
-    move/from16 v20, v0
-
-    move-object/from16 v0, v19
-
-    move/from16 v1, v20
-
-    invoke-virtual {v10, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
-
-    const-string/jumbo v19, "isssl"
-
-    move-object/from16 v0, p2
-
-    iget-boolean v0, v0, Lcom/samsung/android/knox/accounts/LDAPAccount;->isSSL:Z
-
-    move/from16 v20, v0
-
-    move-object/from16 v0, v19
-
-    move/from16 v1, v20
-
-    invoke-virtual {v10, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
-
-    const-string/jumbo v19, "service"
-
-    const-string/jumbo v20, "ldap"
-
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, v20
-
-    invoke-virtual {v10, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    const-string/jumbo v19, "isanonymous"
+    const-string/jumbo v18, "isanonymous"
 
     move-object/from16 v0, p2
 
     iget-boolean v0, v0, Lcom/samsung/android/knox/accounts/LDAPAccount;->isAnonymous:Z
 
-    move/from16 v20, v0
+    move/from16 v19, v0
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
-    move/from16 v1, v20
+    move/from16 v1, v19
 
-    invoke-virtual {v10, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    invoke-virtual {v9, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    const-string/jumbo v19, "host"
+    const-string/jumbo v18, "host"
 
     move-object/from16 v0, p2
 
     iget-object v0, v0, Lcom/samsung/android/knox/accounts/LDAPAccount;->host:Ljava/lang/String;
 
-    move-object/from16 v20, v0
+    move-object/from16 v19, v0
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v19
 
-    invoke-virtual {v10, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v9, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    const-string/jumbo v19, "basedn"
+    const-string/jumbo v18, "basedn"
 
     move-object/from16 v0, p2
 
     iget-object v0, v0, Lcom/samsung/android/knox/accounts/LDAPAccount;->baseDN:Ljava/lang/String;
 
-    move-object/from16 v20, v0
+    move-object/from16 v19, v0
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v19
 
-    invoke-virtual {v10, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v9, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    const-string/jumbo v19, "trustall"
+    const-string/jumbo v18, "trustall"
 
     move-object/from16 v0, p2
 
     iget v0, v0, Lcom/samsung/android/knox/accounts/LDAPAccount;->trustAll:I
 
-    move/from16 v20, v0
+    move/from16 v19, v0
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
-    move/from16 v1, v20
+    move/from16 v1, v19
 
-    invoke-virtual {v10, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+    invoke-virtual {v9, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    invoke-virtual {v10, v6}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v9, v4}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/email/LDAPAccountPolicy;->mContext:Landroid/content/Context;
 
-    move-object/from16 v19, v0
+    move-object/from16 v18, v0
 
-    new-instance v20, Landroid/os/UserHandle;
-
-    move-object/from16 v0, v20
-
-    move/from16 v1, v18
-
-    invoke-direct {v0, v1}, Landroid/os/UserHandle;-><init>(I)V
-
-    const-string/jumbo v21, "android.permission.sec.MDM_EMAIL"
+    new-instance v19, Landroid/os/UserHandle;
 
     move-object/from16 v0, v19
 
-    move-object/from16 v1, v20
+    invoke-direct {v0, v11}, Landroid/os/UserHandle;-><init>(I)V
 
-    move-object/from16 v2, v21
+    const-string/jumbo v20, "android.permission.sec.MDM_EMAIL"
 
-    invoke-virtual {v0, v10, v1, v2}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;)V
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v19
+
+    move-object/from16 v2, v20
+
+    invoke-virtual {v0, v9, v1, v2}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;)V
 
     move-object/from16 v0, p2
 
     iget-object v0, v0, Lcom/samsung/android/knox/accounts/LDAPAccount;->password:Ljava/lang/String;
 
-    move-object/from16 v19, v0
+    move-object/from16 v18, v0
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    move-object/from16 v2, v19
+    move-object/from16 v2, v18
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/email/LDAPAccountPolicy;->setAccountEmailPassword(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)J
 
     move-result-wide v12
 
-    new-instance v11, Landroid/content/Intent;
+    new-instance v10, Landroid/content/Intent;
 
-    const-string/jumbo v19, "com.samsung.android.knox.intent.action.CREATE_LDAPACCOUNT_INTERNAL"
+    const-string/jumbo v18, "com.samsung.android.knox.intent.action.CREATE_LDAPACCOUNT_INTERNAL"
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
-    invoke-direct {v11, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v10, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v19, "com.samsung.android.knox.intent.extra.USER_ID_INTERNAL"
+    const-string/jumbo v18, "com.samsung.android.knox.intent.extra.USER_ID_INTERNAL"
 
     move-object/from16 v0, p2
 
@@ -738,231 +790,227 @@
 
     move-wide/from16 v20, v0
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
     move-wide/from16 v1, v20
 
-    invoke-virtual {v11, v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
+    invoke-virtual {v10, v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
 
-    const-string/jumbo v19, "com.samsung.android.knox.intent.extra.USER_NAME_INTERNAL"
+    const-string/jumbo v18, "com.samsung.android.knox.intent.extra.USER_NAME_INTERNAL"
 
     move-object/from16 v0, p2
 
     iget-object v0, v0, Lcom/samsung/android/knox/accounts/LDAPAccount;->userName:Ljava/lang/String;
 
-    move-object/from16 v20, v0
+    move-object/from16 v19, v0
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v19
 
-    invoke-virtual {v11, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v10, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    const-string/jumbo v19, "com.samsung.android.knox.intent.extra.USER_PASSWORD_ID_INTERNAL"
+    const-string/jumbo v18, "com.samsung.android.knox.intent.extra.USER_PASSWORD_ID_INTERNAL"
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
-    invoke-virtual {v11, v0, v12, v13}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
+    invoke-virtual {v10, v0, v12, v13}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
 
-    const-string/jumbo v19, "com.samsung.android.knox.intent.extra.PORT_INTERNAL"
+    const-string/jumbo v18, "com.samsung.android.knox.intent.extra.PORT_INTERNAL"
 
     move-object/from16 v0, p2
 
     iget v0, v0, Lcom/samsung/android/knox/accounts/LDAPAccount;->port:I
 
-    move/from16 v20, v0
+    move/from16 v19, v0
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
-    move/from16 v1, v20
+    move/from16 v1, v19
 
-    invoke-virtual {v11, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+    invoke-virtual {v10, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    const-string/jumbo v19, "com.samsung.android.knox.intent.extra.IS_SSL_INTERNAL"
+    const-string/jumbo v18, "com.samsung.android.knox.intent.extra.IS_SSL_INTERNAL"
 
     move-object/from16 v0, p2
 
     iget-boolean v0, v0, Lcom/samsung/android/knox/accounts/LDAPAccount;->isSSL:Z
 
-    move/from16 v20, v0
+    move/from16 v19, v0
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
-    move/from16 v1, v20
+    move/from16 v1, v19
 
-    invoke-virtual {v11, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    invoke-virtual {v10, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    const-string/jumbo v19, "com.samsung.android.knox.intent.extra.SERVICE_INTERNAL"
+    const-string/jumbo v18, "com.samsung.android.knox.intent.extra.SERVICE_INTERNAL"
 
-    const-string/jumbo v20, "ldap"
+    const-string/jumbo v19, "ldap"
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v19
 
-    invoke-virtual {v11, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v10, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    const-string/jumbo v19, "com.samsung.android.knox.intent.extra.IS_ANONYMOUS_INTERNAL"
+    const-string/jumbo v18, "com.samsung.android.knox.intent.extra.IS_ANONYMOUS_INTERNAL"
 
     move-object/from16 v0, p2
 
     iget-boolean v0, v0, Lcom/samsung/android/knox/accounts/LDAPAccount;->isAnonymous:Z
 
-    move/from16 v20, v0
+    move/from16 v19, v0
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
-    move/from16 v1, v20
+    move/from16 v1, v19
 
-    invoke-virtual {v11, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    invoke-virtual {v10, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    const-string/jumbo v19, "com.samsung.android.knox.intent.extra.HOST_INTERNAL"
+    const-string/jumbo v18, "com.samsung.android.knox.intent.extra.HOST_INTERNAL"
 
     move-object/from16 v0, p2
 
     iget-object v0, v0, Lcom/samsung/android/knox/accounts/LDAPAccount;->host:Ljava/lang/String;
 
-    move-object/from16 v20, v0
+    move-object/from16 v19, v0
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v19
 
-    invoke-virtual {v11, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v10, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    const-string/jumbo v19, "com.samsung.android.knox.intent.extra.BASE_DN_INTERNAL"
+    const-string/jumbo v18, "com.samsung.android.knox.intent.extra.BASE_DN_INTERNAL"
 
     move-object/from16 v0, p2
 
     iget-object v0, v0, Lcom/samsung/android/knox/accounts/LDAPAccount;->baseDN:Ljava/lang/String;
 
-    move-object/from16 v20, v0
+    move-object/from16 v19, v0
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v19
 
-    invoke-virtual {v11, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v10, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    const-string/jumbo v19, "com.samsung.android.knox.intent.extra.TRUST_ALL_INTERNAL"
+    const-string/jumbo v18, "com.samsung.android.knox.intent.extra.TRUST_ALL_INTERNAL"
 
     move-object/from16 v0, p2
 
     iget v0, v0, Lcom/samsung/android/knox/accounts/LDAPAccount;->trustAll:I
 
-    move/from16 v20, v0
+    move/from16 v19, v0
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
-    move/from16 v1, v20
+    move/from16 v1, v19
 
-    invoke-virtual {v11, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+    invoke-virtual {v10, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    invoke-virtual {v11, v6}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v10, v4}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/email/LDAPAccountPolicy;->mContext:Landroid/content/Context;
 
-    move-object/from16 v19, v0
+    move-object/from16 v18, v0
 
-    new-instance v20, Landroid/os/UserHandle;
-
-    move-object/from16 v0, v20
-
-    move/from16 v1, v18
-
-    invoke-direct {v0, v1}, Landroid/os/UserHandle;-><init>(I)V
-
-    const-string/jumbo v21, "com.samsung.android.knox.permission.KNOX_EMAIL"
+    new-instance v19, Landroid/os/UserHandle;
 
     move-object/from16 v0, v19
 
-    move-object/from16 v1, v20
+    invoke-direct {v0, v11}, Landroid/os/UserHandle;-><init>(I)V
 
-    move-object/from16 v2, v21
+    const-string/jumbo v20, "com.samsung.android.knox.permission.KNOX_EMAIL"
 
-    invoke-virtual {v0, v11, v1, v2}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;)V
+    move-object/from16 v0, v18
 
-    const-string/jumbo v19, "LDAPAccountPolicyService"
+    move-object/from16 v1, v19
 
-    const-string/jumbo v20, "createLDAPAccount_new() : successfully sent intent to Email app. "
+    move-object/from16 v2, v20
 
-    invoke-static/range {v19 .. v20}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    invoke-virtual {v0, v10, v1, v2}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;)V
 
-    :try_start_3
-    invoke-static/range {v16 .. v17}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    const-string/jumbo v18, "LDAPAccountPolicyService"
+
+    const-string/jumbo v19, "createLDAPAccount_new() : successfully sent intent to Email app. "
+
+    invoke-static/range {v18 .. v19}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    :try_start_4
+    invoke-static/range {v16 .. v17}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
     monitor-exit p0
 
     return-void
 
     :catch_0
-    move-exception v9
-
-    :try_start_4
-    const-string/jumbo v19, "LDAPAccountPolicyService"
-
-    const-string/jumbo v20, "createLDAPAccount_new() : unexpected Exception occurs. "
-
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, v20
-
-    invoke-static {v0, v1, v9}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    move-exception v7
 
     :try_start_5
+    const-string/jumbo v18, "LDAPAccountPolicyService"
+
+    const-string/jumbo v19, "createLDAPAccount_new() : unexpected Exception occurs. "
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v19
+
+    invoke-static {v0, v1, v7}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+
+    :try_start_6
     invoke-static/range {v16 .. v17}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    const-wide/16 v20, -0x1
+    const-wide/16 v18, -0x1
 
-    const/16 v19, -0x8
+    const/16 v20, -0x8
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v18
+    move/from16 v1, v20
 
-    move/from16 v2, v19
+    move-wide/from16 v2, v18
 
-    move-wide/from16 v3, v20
+    invoke-direct {v0, v11, v1, v2, v3}, Lcom/android/server/enterprise/email/LDAPAccountPolicy;->sendBroadcastCreateLDAPAcctResultIntent(IIJ)V
 
-    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/enterprise/email/LDAPAccountPolicy;->sendBroadcastCreateLDAPAcctResultIntent(IIJ)V
+    const-string/jumbo v18, "LDAPAccountPolicyService"
 
-    const-string/jumbo v19, "LDAPAccountPolicyService"
+    const-string/jumbo v19, "createLDAPAccount() : failed with unknown error."
 
-    const-string/jumbo v20, "createLDAPAccount() : failed with unknown error."
-
-    invoke-static/range {v19 .. v20}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_1
+    invoke-static/range {v18 .. v19}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
     monitor-exit p0
 
     return-void
 
     :catchall_0
-    move-exception v19
+    move-exception v18
 
-    :try_start_6
+    :try_start_7
     invoke-static/range {v16 .. v17}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v19
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_1
+    throw v18
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_1
 
     :catchall_1
-    move-exception v19
+    move-exception v18
 
     monitor-exit p0
 
-    throw v19
+    throw v18
 .end method
 
 .method public declared-synchronized deleteLDAPAccount(Lcom/samsung/android/knox/ContextInfo;J)Z
@@ -984,6 +1032,8 @@
     invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
 
     move-result v5
+
+    const/4 v4, 0x0
 
     invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/enterprise/email/LDAPAccountPolicy;->getLDAPAccount(Lcom/samsung/android/knox/ContextInfo;J)Lcom/samsung/android/knox/accounts/LDAPAccount;
 
@@ -1051,26 +1101,57 @@
 
     move-result v8
 
-    if-eqz v8, :cond_2
+    xor-int/lit8 v8, v8, 0x1
 
-    :cond_1
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+    if-eqz v8, :cond_1
+
+    const-string/jumbo v8, "LDAPAccountPolicyService"
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v10, "deleteLDAPAccount() : MDM DeviceAccountPolicy restriction - cannot delete account : "
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    monitor-exit p0
+
+    return v11
+
+    :cond_1
+    :try_start_2
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
     move-result-wide v6
 
-    :try_start_2
+    :try_start_3
     iget-object v8, p0, Lcom/android/server/enterprise/email/LDAPAccountPolicy;->mContext:Landroid/content/Context;
 
     invoke-static {v8, p1, p2, p3}, Lcom/android/server/enterprise/email/EmailProviderHelper;->deleteLDAPAccount(Landroid/content/Context;Lcom/samsung/android/knox/ContextInfo;J)Z
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     move-result v4
 
-    :try_start_3
+    :try_start_4
     invoke-static {v6, v7}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     :goto_0
@@ -1105,42 +1186,12 @@
     move-result-object v9
 
     invoke-static {v8, v9}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    monitor-exit p0
-
-    return v4
-
-    :cond_2
-    :try_start_4
-    const-string/jumbo v8, "LDAPAccountPolicyService"
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v10, "deleteLDAPAccount() : MDM DeviceAccountPolicy restriction - cannot delete account : "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v8, v9}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     monitor-exit p0
 
-    return v11
+    return v4
 
     :catch_0
     move-exception v3

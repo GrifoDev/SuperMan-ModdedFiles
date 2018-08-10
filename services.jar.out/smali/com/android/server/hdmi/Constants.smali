@@ -212,16 +212,6 @@
 
 .field static final MESSAGE_VENDOR_REMOTE_BUTTON_UP:I = 0x8b
 
-.field static final OPTION_CEC_AUTO_DEVICE_OFF:I = 0x4
-
-.field static final OPTION_CEC_AUTO_WAKEUP:I = 0x1
-
-.field static final OPTION_CEC_ENABLE:I = 0x2
-
-.field static final OPTION_CEC_SERVICE_CONTROL:I = 0x3
-
-.field static final OPTION_CEC_SET_LANGUAGE:I = 0x5
-
 .field static final OPTION_MHL_ENABLE:I = 0x67
 
 .field static final OPTION_MHL_INPUT_SWITCHING:I = 0x65
@@ -267,14 +257,6 @@
 .field static final ROUTING_PATH_TOP_MASK:I = 0xf000
 
 .field static final ROUTING_PATH_TOP_SHIFT:I = 0xc
-
-.field static final SEND_RESULT_BUSY:I = 0x2
-
-.field static final SEND_RESULT_FAILURE:I = 0x3
-
-.field static final SEND_RESULT_NAK:I = 0x1
-
-.field static final SEND_RESULT_SUCCESS:I = 0x0
 
 .field static final SYSTEM_AUDIO_STATUS_OFF:I = 0x0
 

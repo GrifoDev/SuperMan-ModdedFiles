@@ -356,6 +356,75 @@
     goto :goto_0
 .end method
 
+.method declared-synchronized purgePath(Ljava/lang/String;)V
+    .locals 4
+
+    monitor-enter p0
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/server/LockSettingsStorage$Cache;->mCache:Landroid/util/ArrayMap;
+
+    invoke-virtual {v2}, Landroid/util/ArrayMap;->size()I
+
+    move-result v2
+
+    add-int/lit8 v1, v2, -0x1
+
+    :goto_0
+    if-ltz v1, :cond_1
+
+    iget-object v2, p0, Lcom/android/server/LockSettingsStorage$Cache;->mCache:Landroid/util/ArrayMap;
+
+    invoke-virtual {v2, v1}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/LockSettingsStorage$Cache$CacheKey;
+
+    iget v2, v0, Lcom/android/server/LockSettingsStorage$Cache$CacheKey;->type:I
+
+    const/4 v3, 0x1
+
+    if-ne v2, v3, :cond_0
+
+    iget-object v2, v0, Lcom/android/server/LockSettingsStorage$Cache$CacheKey;->key:Ljava/lang/String;
+
+    invoke-virtual {v2, p1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/server/LockSettingsStorage$Cache;->mCache:Landroid/util/ArrayMap;
+
+    invoke-virtual {v2, v1}, Landroid/util/ArrayMap;->removeAt(I)Ljava/lang/Object;
+
+    :cond_0
+    add-int/lit8 v1, v1, -0x1
+
+    goto :goto_0
+
+    :cond_1
+    iget v2, p0, Lcom/android/server/LockSettingsStorage$Cache;->mVersion:I
+
+    add-int/lit8 v2, v2, 0x1
+
+    iput v2, p0, Lcom/android/server/LockSettingsStorage$Cache;->mVersion:I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    monitor-exit p0
+
+    throw v2
+.end method
+
 .method putFile(Ljava/lang/String;[B)V
     .locals 2
 

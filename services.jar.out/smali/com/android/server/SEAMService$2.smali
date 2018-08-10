@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/SEAMService;->registerSPDCompleteReceiver()V
+    value = Lcom/android/server/SEAMService;->registerBootReceiver()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -32,41 +32,11 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
+    .locals 1
 
-    invoke-static {}, Lcom/android/server/SEAMService;->-get1()Lcom/android/server/SKLogger;
+    const/4 v0, 0x1
 
-    move-result-object v0
-
-    const-string/jumbo v1, "SEAMService"
-
-    const-string/jumbo v2, "SPD Complete intent received"
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
-
-    const-string/jumbo v0, "selinux.reload_policy"
-
-    const-string/jumbo v1, "1"
-
-    invoke-static {v0, v1}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
-
-    invoke-static {}, Lcom/android/server/SEAMService;->-get1()Lcom/android/server/SKLogger;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "SEAMService"
-
-    const-string/jumbo v2, "done with reload policy after spd update"
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/server/SEAMService$2;->this$0:Lcom/android/server/SEAMService;
-
-    invoke-static {v0}, Lcom/android/server/SEAMService;->-get0(Lcom/android/server/SEAMService;)Lcom/android/server/pm/PackageManagerService;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/server/pm/PackageManagerService;->reloadSBAPolicy()V
+    invoke-static {v0}, Lcom/android/server/SEAMService;->-set0(Z)Z
 
     return-void
 .end method

@@ -27,7 +27,7 @@
 .method public onBootPhase(I)V
     .locals 2
 
-    const/16 v0, 0x258
+    const/16 v0, 0x226
 
     if-ne p1, v0, :cond_0
 
@@ -45,6 +45,10 @@
 
 .method public onStart()V
     .locals 2
+
+    iget-object v0, p0, Lcom/android/server/appwidget/AppWidgetService;->mImpl:Lcom/android/server/appwidget/AppWidgetServiceImpl;
+
+    invoke-virtual {v0}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->onStart()V
 
     const-string/jumbo v0, "appwidget"
 

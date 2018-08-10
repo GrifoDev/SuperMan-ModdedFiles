@@ -614,7 +614,7 @@
 
     if-eqz v13, :cond_6
 
-    if-lez v2, :cond_b
+    if-lez v2, :cond_a
 
     sget-byte v13, Lcom/android/server/CommonTimeManagementService;->BASE_SERVER_PRIO:B
 
@@ -656,7 +656,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_c
+    if-eqz v11, :cond_b
 
     invoke-direct/range {p0 .. p0}, Lcom/android/server/CommonTimeManagementService;->scheduleTimeConfigReconnect()V
 
@@ -715,14 +715,10 @@
 
     move-result v13
 
-    if-eqz v13, :cond_a
+    xor-int/lit8 v13, v13, 0x1
 
-    :cond_9
-    const/4 v5, 0x0
+    if-eqz v13, :cond_9
 
-    goto :goto_3
-
-    :cond_a
     sget-object v13, Lcom/android/server/CommonTimeManagementService;->TAG:Ljava/lang/String;
 
     const-string/jumbo v15, "Switching common time service binding from %s to %s."
@@ -763,12 +759,17 @@
 
     goto/16 :goto_3
 
-    :cond_b
+    :cond_9
+    const/4 v5, 0x0
+
+    goto/16 :goto_3
+
+    :cond_a
     sget-byte v9, Lcom/android/server/CommonTimeManagementService;->BASE_SERVER_PRIO:B
 
-    goto :goto_4
+    goto/16 :goto_4
 
-    :cond_c
+    :cond_b
     sget v13, Lcom/android/server/CommonTimeManagementService;->NO_INTERFACE_TIMEOUT:I
 
     if-ltz v13, :cond_6
@@ -807,7 +808,7 @@
 
     invoke-virtual {v13, v14, v0, v1}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    goto :goto_5
+    goto/16 :goto_5
 .end method
 
 .method private scheduleTimeConfigReconnect()V
@@ -855,51 +856,15 @@
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 5
 
-    const/4 v4, 0x1
-
-    const/4 v3, 0x0
-
     iget-object v0, p0, Lcom/android/server/CommonTimeManagementService;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v1, "android.permission.DUMP"
+    sget-object v1, Lcom/android/server/CommonTimeManagementService;->TAG:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->checkCallingOrSelfPermission(Ljava/lang/String;)I
+    invoke-static {v0, v1, p2}, Lcom/android/internal/util/DumpUtils;->checkDumpPermission(Landroid/content/Context;Ljava/lang/String;Ljava/io/PrintWriter;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
-
-    const-string/jumbo v0, "Permission Denial: can\'t dump CommonTimeManagement service from from pid=%d, uid=%d"
-
-    const/4 v1, 0x2
-
-    new-array v1, v1, [Ljava/lang/Object;
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v2
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    aput-object v2, v1, v3
-
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
-
-    move-result v2
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    aput-object v2, v1, v4
-
-    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    if-nez v0, :cond_0
 
     return-void
 

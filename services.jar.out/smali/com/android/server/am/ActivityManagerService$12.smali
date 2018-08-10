@@ -1,5 +1,5 @@
 .class Lcom/android/server/am/ActivityManagerService$12;
-.super Landroid/content/BroadcastReceiver;
+.super Landroid/os/CountDownTimer;
 .source "ActivityManagerService.java"
 
 
@@ -19,65 +19,40 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/ActivityManagerService;)V
+.method constructor <init>(Lcom/android/server/am/ActivityManagerService;JJ)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$12;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-direct {p0, p2, p3, p4, p5}, Landroid/os/CountDownTimer;-><init>(JJ)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 6
+.method public onFinish()V
+    .locals 2
 
-    iget-object v3, p0, Lcom/android/server/am/ActivityManagerService$12;->this$0:Lcom/android/server/am/ActivityManagerService;
-
-    iget-object v3, v3, Lcom/android/server/am/ActivityManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
-
-    invoke-virtual {v3}, Lcom/android/server/am/ActivityStackSupervisor;->getLastStack()Lcom/android/server/am/ActivityStack;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_0
-
-    invoke-virtual {v2}, Lcom/android/server/am/ActivityStack;->topRunningActivityLocked()Lcom/android/server/am/ActivityRecord;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_0
-
-    iget-object v3, p0, Lcom/android/server/am/ActivityManagerService$12;->this$0:Lcom/android/server/am/ActivityManagerService;
-
-    iget-object v3, v3, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v4, "power"
-
-    invoke-virtual {v3, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->-get0()Ljava/lang/String;
 
     move-result-object v0
 
-    check-cast v0, Landroid/os/PowerManager;
+    const-string/jumbo v1, "setMaxStartingBackgroundTimer onfinish"
 
-    if-eqz v0, :cond_0
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v0}, Landroid/os/PowerManager;->isInteractive()Z
+    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$12;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    move-result v3
+    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mServices:Lcom/android/server/am/ActiveServices;
 
-    if-eqz v3, :cond_0
+    invoke-virtual {v0}, Lcom/android/server/am/ActiveServices;->setMaxStartingBackground()V
 
-    iget-object v3, p0, Lcom/android/server/am/ActivityManagerService$12;->this$0:Lcom/android/server/am/ActivityManagerService;
+    return-void
+.end method
 
-    iget-object v4, v1, Lcom/android/server/am/ActivityRecord;->processName:Ljava/lang/String;
+.method public onTick(J)V
+    .locals 0
 
-    const/4 v5, 0x0
-
-    invoke-static {v3, v5, v4}, Lcom/android/server/am/ActivityManagerService;->-wrap9(Lcom/android/server/am/ActivityManagerService;ILjava/lang/String;)V
-
-    :cond_0
     return-void
 .end method

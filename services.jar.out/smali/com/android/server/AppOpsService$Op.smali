@@ -17,6 +17,8 @@
 # instance fields
 .field public duration:I
 
+.field public lastAccessPkg:Ljava/lang/String;
+
 .field public mode:I
 
 .field public nesting:I

@@ -17,14 +17,14 @@
 
 
 # static fields
-.field private static final BROWSER_POLICY_SERVICE:Ljava/lang/String; = "FirewallPolicy"
-
-.field static final NUM_OF_CONTAINER:I = 0x2
-
 .field private static final TAG:Ljava/lang/String; = "BrowserPolicy"
 
 
 # instance fields
+.field private final FIREWALL_POLICY_SERVICE:Ljava/lang/String;
+
+.field private final NUM_OF_CONTAINER:I
+
 .field private mCache:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -46,6 +46,8 @@
 
 .field private mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
+.field private mEnterpriseDumpHelper:Lcom/android/server/enterprise/utils/EnterpriseDumpHelper;
+
 .field private mUserCache:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -61,14 +63,6 @@
 
 
 # direct methods
-.method static synthetic -get0(Lcom/android/server/enterprise/browser/BrowserPolicy;)Landroid/content/Context;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mContext:Landroid/content/Context;
-
-    return-object v0
-.end method
-
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
 
@@ -86,6 +80,14 @@
 
     iput-object v0, p0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mUserCache:Ljava/util/HashMap;
 
+    const/4 v0, 0x2
+
+    iput v0, p0, Lcom/android/server/enterprise/browser/BrowserPolicy;->NUM_OF_CONTAINER:I
+
+    const-string/jumbo v0, "FirewallPolicy"
+
+    iput-object v0, p0, Lcom/android/server/enterprise/browser/BrowserPolicy;->FIREWALL_POLICY_SERVICE:Ljava/lang/String;
+
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mEDM:Lcom/samsung/android/knox/EnterpriseDeviceManager;
@@ -99,6 +101,14 @@
     invoke-direct {v0, v1}, Lcom/android/server/enterprise/storage/EdmStorageProvider;-><init>(Landroid/content/Context;)V
 
     iput-object v0, p0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    new-instance v0, Lcom/android/server/enterprise/utils/EnterpriseDumpHelper;
+
+    iget-object v1, p0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mContext:Landroid/content/Context;
+
+    invoke-direct {v0, v1}, Lcom/android/server/enterprise/utils/EnterpriseDumpHelper;-><init>(Landroid/content/Context;)V
+
+    iput-object v0, p0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mEnterpriseDumpHelper:Lcom/android/server/enterprise/utils/EnterpriseDumpHelper;
 
     invoke-virtual {p0}, Lcom/android/server/enterprise/browser/BrowserPolicy;->loadProxySettings()V
 
@@ -139,10 +149,6 @@
     invoke-virtual {v0, p1, v1}, Lcom/samsung/android/knox/EnterpriseDeviceManager;->enforceActiveAdminPermissionByContext(Lcom/samsung/android/knox/ContextInfo;Ljava/util/List;)Lcom/samsung/android/knox/ContextInfo;
 
     move-result-object p1
-
-    iget v0, p1, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
-
-    invoke-static {v0}, Lcom/sec/enterprise/knox/EnterpriseContainerManager;->enforceContainerPermission(I)I
 
     return-object p1
 .end method
@@ -219,10 +225,6 @@
     invoke-virtual {v0, p1, v1}, Lcom/samsung/android/knox/EnterpriseDeviceManager;->enforceActiveAdminPermissionByContext(Lcom/samsung/android/knox/ContextInfo;Ljava/util/List;)Lcom/samsung/android/knox/ContextInfo;
 
     move-result-object p1
-
-    iget v0, p1, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
-
-    invoke-static {v0}, Lcom/sec/enterprise/knox/EnterpriseContainerManager;->enforceContainerPermission(I)I
 
     return-object p1
 .end method
@@ -329,34 +331,15 @@
 .end method
 
 .method private getURLFilterEnabled(Lcom/samsung/android/knox/ContextInfo;ZZ)Z
-    .locals 5
+    .locals 4
 
-    iget-object v3, p0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mContext:Landroid/content/Context;
-
-    invoke-static {v3, p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->isManagedProfileUser(Landroid/content/Context;Lcom/samsung/android/knox/ContextInfo;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const-string/jumbo v3, "BrowserPolicy"
-
-    const-string/jumbo v4, " getURLFilterEnabled calls from Profile return default value"
-
-    invoke-static {v3, v4}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    const/4 v3, 0x0
-
-    return v3
-
-    :cond_0
     iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
 
     invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
 
     move-result v2
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_0
 
     new-instance p1, Lcom/samsung/android/knox/ContextInfo;
 
@@ -364,14 +347,14 @@
 
     invoke-direct {p1, v3, v1}, Lcom/samsung/android/knox/ContextInfo;-><init>(II)V
 
-    :cond_1
+    :cond_0
     invoke-direct {p0, v2}, Lcom/android/server/enterprise/browser/BrowserPolicy;->getWebFilteringCache(I)Lcom/android/server/enterprise/browser/BrowserPolicy$WebFilteringCache;
 
     move-result-object v0
 
     iget-boolean v3, v0, Lcom/android/server/enterprise/browser/BrowserPolicy$WebFilteringCache;->mIsUrlFilterStateUpdated:Z
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_1
 
     const-string/jumbo v3, "filtering"
 
@@ -387,7 +370,7 @@
 
     invoke-direct {p0, v0, v2}, Lcom/android/server/enterprise/browser/BrowserPolicy;->refreshWebFiltering(Lcom/android/server/enterprise/browser/BrowserPolicy$WebFilteringCache;I)V
 
-    :cond_2
+    :cond_1
     iget-boolean v3, v0, Lcom/android/server/enterprise/browser/BrowserPolicy$WebFilteringCache;->mUrlFilterStateCache:Z
 
     return v3
@@ -407,25 +390,6 @@
         }
     .end annotation
 
-    const/4 v5, 0x0
-
-    iget-object v3, p0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mContext:Landroid/content/Context;
-
-    invoke-static {v3, p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->isManagedProfileUser(Landroid/content/Context;Lcom/samsung/android/knox/ContextInfo;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const-string/jumbo v3, "BrowserPolicy"
-
-    const-string/jumbo v4, " getURLFilterList calls from Profile return default value"
-
-    invoke-static {v3, v4}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    return-object v5
-
-    :cond_0
     const/4 v1, 0x0
 
     invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
@@ -480,7 +444,7 @@
 
     move-result-object v0
 
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_2
 
     iget-object v4, v0, Lcom/android/server/enterprise/browser/BrowserPolicy$WebFilteringCache;->mUrlBlacklistAllAdmin:Ljava/util/List;
 
@@ -489,7 +453,7 @@
     :try_start_0
     iget-boolean v3, v0, Lcom/android/server/enterprise/browser/BrowserPolicy$WebFilteringCache;->mIsUrlBlacklistUpdated:Z
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_1
 
     const/4 v3, 0x1
 
@@ -497,13 +461,13 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
     invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_0
 
     const-string/jumbo v3, "BrowserPolicy"
 
@@ -525,14 +489,14 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :cond_1
+    :cond_0
     :goto_0
     monitor-exit v4
 
     :goto_1
     return-object v1
 
-    :cond_2
+    :cond_1
     :try_start_1
     iget-object v1, v0, Lcom/android/server/enterprise/browser/BrowserPolicy$WebFilteringCache;->mUrlBlacklistAllAdmin:Ljava/util/List;
     :try_end_1
@@ -547,7 +511,7 @@
 
     throw v3
 
-    :cond_3
+    :cond_2
     const/4 v3, 0x0
 
     invoke-direct {p0, p1, v3}, Lcom/android/server/enterprise/browser/BrowserPolicy;->getUrlBlackList(Lcom/samsung/android/knox/ContextInfo;Z)Ljava/util/List;
@@ -715,25 +679,6 @@
 .method private getURLFilterReportEnabled(Lcom/samsung/android/knox/ContextInfo;ZZ)Z
     .locals 5
 
-    iget-object v2, p0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mContext:Landroid/content/Context;
-
-    invoke-static {v2, p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->isManagedProfileUser(Landroid/content/Context;Lcom/samsung/android/knox/ContextInfo;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    const-string/jumbo v2, "BrowserPolicy"
-
-    const-string/jumbo v3, " getURLFilterReportEnabled calls from Profile return default value"
-
-    invoke-static {v2, v3}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    const/4 v2, 0x0
-
-    return v2
-
-    :cond_0
     invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
 
     move-result v1
@@ -744,7 +689,7 @@
 
     iget-boolean v2, v0, Lcom/android/server/enterprise/browser/BrowserPolicy$WebFilteringCache;->mIsUrlFilterReportUpdated:Z
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_0
 
     const-string/jumbo v2, "logging"
 
@@ -784,7 +729,7 @@
 
     invoke-direct {p0, v0, v1}, Lcom/android/server/enterprise/browser/BrowserPolicy;->refreshWebFiltering(Lcom/android/server/enterprise/browser/BrowserPolicy$WebFilteringCache;I)V
 
-    :cond_1
+    :cond_0
     iget-boolean v2, v0, Lcom/android/server/enterprise/browser/BrowserPolicy$WebFilteringCache;->mUrlFilterReportState:Z
 
     return v2
@@ -1233,7 +1178,7 @@
 
     new-instance v3, Lcom/android/server/enterprise/browser/BrowserPolicy$WebFilteringCache;
 
-    invoke-direct {v3, p0, v1}, Lcom/android/server/enterprise/browser/BrowserPolicy$WebFilteringCache;-><init>(Lcom/android/server/enterprise/browser/BrowserPolicy;I)V
+    invoke-direct {v3, v1}, Lcom/android/server/enterprise/browser/BrowserPolicy$WebFilteringCache;-><init>(I)V
 
     aput-object v3, v0, v1
 
@@ -1351,23 +1296,6 @@
 .method private saveURLBlockedReport(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)V
     .locals 8
 
-    iget-object v5, p0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mContext:Landroid/content/Context;
-
-    invoke-static {v5, p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->isManagedProfileUser(Landroid/content/Context;Lcom/samsung/android/knox/ContextInfo;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_0
-
-    const-string/jumbo v5, "BrowserPolicy"
-
-    const-string/jumbo v6, " saveURLBlockedReport calls from Profile return default value"
-
-    invoke-static {v5, v6}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    return-void
-
-    :cond_0
     const-string/jumbo v5, "BrowserPolicy"
 
     const-string/jumbo v6, "saveURLBlockedReport"
@@ -1450,7 +1378,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_0
 
     const-string/jumbo v5, "BrowserPolicy"
 
@@ -1458,7 +1386,7 @@
 
     invoke-static {v5, v6}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_1
+    :cond_0
     return-void
 .end method
 
@@ -1975,92 +1903,13 @@
 
     move-result v13
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_1
 
-    if-eqz v13, :cond_2
+    xor-int/lit8 v15, v13, 0x1
 
-    :goto_0
-    if-eqz v9, :cond_1
-
-    if-nez v14, :cond_1
-
-    new-instance v8, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;
-
-    move-object/from16 v0, p0
-
-    iget-object v15, v0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mContext:Landroid/content/Context;
-
-    invoke-direct {v8, v15}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;-><init>(Landroid/content/Context;)V
-
-    :try_start_0
-    const-string/jumbo v15, "Firewall"
-
-    const-string/jumbo v16, "setURLFilterReportEnabled"
-
-    const/16 v17, 0x1
-
-    const/16 v18, 0x0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, p1
-
-    move/from16 v2, v17
-
-    move/from16 v3, v18
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/enterprise/browser/BrowserPolicy;->getURLFilterReportEnabled(Lcom/samsung/android/knox/ContextInfo;ZZ)Z
-
-    move-result v17
-
-    move-object/from16 v0, v16
-
-    move/from16 v1, v17
-
-    invoke-virtual {v8, v15, v0, v1}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;->SetBooleanTypePolicy(Ljava/lang/String;Ljava/lang/String;Z)I
-
-    const-string/jumbo v15, "BrowserPolicy"
-
-    const-string/jumbo v16, "setURLFilterReportEnabled() calling gearPolicyManager "
-
-    invoke-static/range {v15 .. v16}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    if-eqz v15, :cond_2
 
     :cond_1
-    :goto_1
-    const-string/jumbo v15, "BrowserPolicy"
-
-    new-instance v16, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v17, "setURLFilterReportEnabled - return = "
-
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v16
-
-    move-object/from16 v0, v16
-
-    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v16
-
-    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v16
-
-    invoke-static/range {v15 .. v16}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    if-eqz v9, :cond_3
-
-    const/4 v15, 0x1
-
-    :goto_2
-    return v15
-
-    :cond_2
     const-string/jumbo v15, "BrowserPolicy"
 
     const-string/jumbo v16, "setURLFilterReportEnabled - Clean url report"
@@ -2115,19 +1964,98 @@
 
     invoke-virtual {v15, v0, v10, v11}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->deleteDataByFields(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Z
 
-    goto/16 :goto_0
+    :cond_2
+    if-eqz v9, :cond_3
+
+    if-nez v14, :cond_3
+
+    new-instance v8, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mContext:Landroid/content/Context;
+
+    invoke-direct {v8, v15}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;-><init>(Landroid/content/Context;)V
+
+    :try_start_0
+    const-string/jumbo v15, "Firewall"
+
+    const-string/jumbo v16, "setURLFilterReportEnabled"
+
+    const/16 v17, 0x1
+
+    const/16 v18, 0x0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    move/from16 v2, v17
+
+    move/from16 v3, v18
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/enterprise/browser/BrowserPolicy;->getURLFilterReportEnabled(Lcom/samsung/android/knox/ContextInfo;ZZ)Z
+
+    move-result v17
+
+    move-object/from16 v0, v16
+
+    move/from16 v1, v17
+
+    invoke-virtual {v8, v15, v0, v1}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;->SetBooleanTypePolicy(Ljava/lang/String;Ljava/lang/String;Z)I
+
+    const-string/jumbo v15, "BrowserPolicy"
+
+    const-string/jumbo v16, "setURLFilterReportEnabled() calling gearPolicyManager "
+
+    invoke-static/range {v15 .. v16}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_3
+    :goto_0
+    const-string/jumbo v15, "BrowserPolicy"
+
+    new-instance v16, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v17, "setURLFilterReportEnabled - return = "
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v16
+
+    invoke-static/range {v15 .. v16}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    if-eqz v9, :cond_4
+
+    const/4 v15, 0x1
+
+    :goto_1
+    return v15
 
     :catch_0
     move-exception v7
 
     invoke-virtual {v7}, Ljava/lang/Exception;->printStackTrace()V
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_3
+    :cond_4
     const/4 v15, 0x0
 
-    goto :goto_2
+    goto :goto_1
 .end method
 
 .method private static validateProxyParameters(Ljava/lang/String;Ljava/lang/String;)Z
@@ -2485,6 +2413,45 @@
     invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
+.end method
+
+.method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
+    .locals 5
+
+    const/4 v4, 0x0
+
+    iget-object v0, p0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v1, "android.permission.DUMP"
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->checkCallingOrSelfPermission(Ljava/lang/String;)I
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "Permission Denial: can\'t dump SecurityPolicy"
+
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mEnterpriseDumpHelper:Lcom/android/server/enterprise/utils/EnterpriseDumpHelper;
+
+    const-string/jumbo v1, "BROWSER"
+
+    const/4 v2, 0x1
+
+    new-array v2, v2, [Ljava/lang/String;
+
+    const-string/jumbo v3, "browserSettings"
+
+    aput-object v3, v2, v4
+
+    invoke-virtual {v0, p2, v1, v2}, Lcom/android/server/enterprise/utils/EnterpriseDumpHelper;->dumpTable(Ljava/io/PrintWriter;Ljava/lang/String;[Ljava/lang/String;)V
+
+    return-void
 .end method
 
 .method public getBrowserSettingStatus(Lcom/samsung/android/knox/ContextInfo;I)Z
@@ -3457,13 +3424,13 @@
 .method loadProxySettings()V
     .locals 15
 
-    const/4 v12, 0x0
-
     const/4 v11, 0x2
 
     new-array v3, v11, [Ljava/lang/String;
 
     const-string/jumbo v11, "adminUid"
+
+    const/4 v12, 0x0
 
     aput-object v11, v3, v12
 
@@ -3596,7 +3563,7 @@
 
     new-instance v13, Lcom/android/server/enterprise/browser/BrowserPolicy$BrowserProxyCache;
 
-    invoke-direct {v13, p0, v10, v4}, Lcom/android/server/enterprise/browser/BrowserPolicy$BrowserProxyCache;-><init>(Lcom/android/server/enterprise/browser/BrowserPolicy;II)V
+    invoke-direct {v13, v10, v4}, Lcom/android/server/enterprise/browser/BrowserPolicy$BrowserProxyCache;-><init>(II)V
 
     invoke-virtual {v11, v12, v13}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -3623,9 +3590,7 @@
 
     check-cast v11, Lcom/android/server/enterprise/browser/BrowserPolicy$BrowserProxyCache;
 
-    const/4 v12, 0x0
-
-    invoke-virtual {v11, v2, v8, v12}, Lcom/android/server/enterprise/browser/BrowserPolicy$BrowserProxyCache;->setProxy(ILjava/lang/String;Z)V
+    invoke-virtual {v11, v2, v8}, Lcom/android/server/enterprise/browser/BrowserPolicy$BrowserProxyCache;->setProxy(ILjava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -4037,7 +4002,7 @@
 .end method
 
 .method public setBrowserSettingStatus(Lcom/samsung/android/knox/ContextInfo;ZI)Z
-    .locals 20
+    .locals 18
 
     invoke-direct/range {p0 .. p1}, Lcom/android/server/enterprise/browser/BrowserPolicy;->enforceBrowserPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
@@ -4045,17 +4010,17 @@
 
     move-object/from16 v0, p1
 
-    iget v10, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    iget v9, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    invoke-static {v10}, Landroid/os/UserHandle;->getUserId(I)I
+    invoke-static {v9}, Landroid/os/UserHandle;->getUserId(I)I
 
     move-result v8
 
-    const/16 v16, 0x0
+    const/4 v13, 0x0
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v18
+    move-result-wide v16
 
     :try_start_0
     move-object/from16 v0, p0
@@ -4066,17 +4031,17 @@
 
     const-string/jumbo v4, "browserSettings"
 
-    invoke-virtual {v2, v10, v3, v4}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getInt(ILjava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v2, v9, v3, v4}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getInt(ILjava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result v13
+    move-result v12
 
     :goto_0
     if-eqz p2, :cond_1
 
-    or-int v13, v13, p3
+    or-int v12, v12, p3
 
     :goto_1
     :try_start_1
@@ -4088,30 +4053,14 @@
 
     const-string/jumbo v4, "browserSettings"
 
-    invoke-virtual {v2, v10, v3, v4, v13}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putInt(ILjava/lang/String;Ljava/lang/String;I)Z
-
-    move-result v16
-
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
-
-    move-result-object v9
-
-    const-string/jumbo v2, "com.android.browser"
-
-    invoke-interface {v9, v2, v8}, Landroid/app/IActivityManager;->forceStopPackage(Ljava/lang/String;I)V
-
-    const-string/jumbo v2, "com.sec.android.app.sbrowser"
-
-    invoke-interface {v9, v2, v8}, Landroid/app/IActivityManager;->forceStopPackage(Ljava/lang/String;I)V
-
-    const-string/jumbo v2, "com.android.chrome"
-
-    invoke-interface {v9, v2, v8}, Landroid/app/IActivityManager;->forceStopPackage(Ljava/lang/String;I)V
+    invoke-virtual {v2, v9, v3, v4, v12}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putInt(ILjava/lang/String;Ljava/lang/String;I)Z
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    invoke-static/range {v18 .. v19}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    move-result v13
+
+    invoke-static/range {v16 .. v17}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     :goto_2
     const-string/jumbo v2, "BrowserPolicy"
@@ -4126,9 +4075,7 @@
 
     move-result-object v3
 
-    move/from16 v0, v16
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v13}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
@@ -4162,7 +4109,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v16, :cond_0
+    if-eqz v13, :cond_0
 
     sparse-switch p3, :sswitch_data_0
 
@@ -4174,10 +4121,10 @@
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    return v16
+    return v13
 
     :catch_0
-    move-exception v11
+    move-exception v10
 
     :try_start_2
     const-string/jumbo v2, "BrowserPolicy"
@@ -4208,26 +4155,26 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3, v11}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-static {v2, v3, v10}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    const/16 v13, 0x1f
+    const/16 v12, 0x1f
 
-    goto/16 :goto_0
+    goto :goto_0
 
     :cond_1
     move/from16 v0, p3
 
     not-int v2, v0
 
-    and-int/2addr v13, v2
+    and-int/2addr v12, v2
 
-    goto/16 :goto_1
+    goto :goto_1
 
     :catch_1
-    move-exception v12
+    move-exception v11
 
     :try_start_3
     const-string/jumbo v2, "BrowserPolicy"
@@ -4258,18 +4205,18 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3, v12}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-static {v2, v3, v11}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    invoke-static/range {v18 .. v19}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static/range {v16 .. v17}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     goto/16 :goto_2
 
     :catchall_0
     move-exception v2
 
-    invoke-static/range {v18 .. v19}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static/range {v16 .. v17}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     throw v2
 
@@ -4325,7 +4272,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
@@ -4394,6 +4341,8 @@
 
     goto/16 :goto_3
 
+    nop
+
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_0
@@ -4404,7 +4353,7 @@
 .end method
 
 .method public setHttpProxy(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Z
-    .locals 18
+    .locals 17
 
     invoke-direct/range {p0 .. p1}, Lcom/android/server/enterprise/browser/BrowserPolicy;->enforceBrowserProxyPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
@@ -4412,352 +4361,336 @@
 
     move-object/from16 v0, p1
 
-    iget v2, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    iget v1, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
     move-object/from16 v0, p1
 
-    iget v4, v0, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
+    iget v3, v0, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
 
-    invoke-static {v2}, Landroid/os/UserHandle;->getUserId(I)I
+    invoke-static {v1}, Landroid/os/UserHandle;->getUserId(I)I
 
-    move-result v14
+    move-result v13
 
     if-nez p2, :cond_0
 
-    const/4 v15, 0x0
+    const/4 v14, 0x0
 
-    return v15
+    return v14
 
     :cond_0
-    const/4 v13, 0x0
+    const/4 v12, 0x0
 
-    const-string/jumbo v15, ":"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v15}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v15
-
-    if-eqz v15, :cond_1
-
-    const-string/jumbo v15, ":"
+    const-string/jumbo v14, ":"
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v15}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    invoke-virtual {v0, v14}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    move-result-object v11
+    move-result v14
 
-    const/4 v15, 0x0
+    if-eqz v14, :cond_1
 
-    aget-object v9, v11, v15
+    const-string/jumbo v14, ":"
 
-    const/4 v15, 0x1
+    move-object/from16 v0, p2
 
-    aget-object v12, v11, v15
+    invoke-virtual {v0, v14}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v10
+
+    const/4 v14, 0x0
+
+    aget-object v8, v10, v14
+
+    const/4 v14, 0x1
+
+    aget-object v11, v10, v14
 
     :goto_0
-    invoke-static {v9, v12}, Lcom/android/server/enterprise/browser/BrowserPolicy;->validateProxyParameters(Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-static {v8, v11}, Lcom/android/server/enterprise/browser/BrowserPolicy;->validateProxyParameters(Ljava/lang/String;Ljava/lang/String;)Z
 
-    move-result v15
+    move-result v14
 
-    if-nez v15, :cond_2
+    if-nez v14, :cond_2
 
-    const/4 v15, 0x0
+    const/4 v14, 0x0
 
-    return v15
+    return v14
 
     :cond_1
-    move-object/from16 v9, p2
+    move-object/from16 v8, p2
 
-    const-string/jumbo v12, "80"
+    const-string/jumbo v11, "80"
 
     goto :goto_0
 
     :cond_2
     invoke-virtual/range {p2 .. p2}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v9
 
-    invoke-virtual {v10}, Ljava/lang/String;->isEmpty()Z
+    invoke-virtual {v9}, Ljava/lang/String;->isEmpty()Z
 
-    move-result v15
+    move-result v14
 
-    if-eqz v15, :cond_3
+    if-eqz v14, :cond_3
 
-    const/4 v15, 0x0
+    const/4 v14, 0x0
 
-    return v15
+    return v14
 
     :cond_3
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mCache:Ljava/util/HashMap;
+    iget-object v14, v0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mCache:Ljava/util/HashMap;
 
-    invoke-static {v14}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v13}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v16
+    move-result-object v15
 
-    invoke-virtual/range {v15 .. v16}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {v14, v15}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v15
+    move-result v14
 
-    if-nez v15, :cond_4
+    if-nez v14, :cond_4
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mCache:Ljava/util/HashMap;
+    iget-object v14, v0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mCache:Ljava/util/HashMap;
 
-    invoke-static {v14}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v13}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v16
+    move-result-object v15
 
-    new-instance v17, Ljava/util/HashMap;
+    new-instance v16, Ljava/util/HashMap;
 
-    invoke-direct/range {v17 .. v17}, Ljava/util/HashMap;-><init>()V
+    invoke-direct/range {v16 .. v16}, Ljava/util/HashMap;-><init>()V
 
-    invoke-virtual/range {v15 .. v17}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual/range {v14 .. v16}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_4
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mCache:Ljava/util/HashMap;
+    iget-object v14, v0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mCache:Ljava/util/HashMap;
 
-    invoke-static {v14}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v16
-
-    invoke-virtual/range {v15 .. v16}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v13}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v15
 
-    check-cast v15, Ljava/util/HashMap;
+    invoke-virtual {v14, v15}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v14
 
-    move-result-object v16
+    check-cast v14, Ljava/util/HashMap;
 
-    invoke-virtual/range {v15 .. v16}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result v15
+    move-result-object v15
 
-    if-nez v15, :cond_5
+    invoke-virtual {v14, v15}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v14
+
+    if-nez v14, :cond_5
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mCache:Ljava/util/HashMap;
+    iget-object v14, v0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mCache:Ljava/util/HashMap;
 
-    invoke-static {v14}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v16
-
-    invoke-virtual/range {v15 .. v16}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v13}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v15
 
-    check-cast v15, Ljava/util/HashMap;
+    invoke-virtual {v14, v15}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v14
 
-    move-result-object v16
+    check-cast v14, Ljava/util/HashMap;
 
-    new-instance v17, Lcom/android/server/enterprise/browser/BrowserPolicy$BrowserProxyCache;
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-object/from16 v0, v17
+    move-result-object v15
 
-    move-object/from16 v1, p0
+    new-instance v16, Lcom/android/server/enterprise/browser/BrowserPolicy$BrowserProxyCache;
 
-    invoke-direct {v0, v1, v14, v4}, Lcom/android/server/enterprise/browser/BrowserPolicy$BrowserProxyCache;-><init>(Lcom/android/server/enterprise/browser/BrowserPolicy;II)V
+    move-object/from16 v0, v16
 
-    invoke-virtual/range {v15 .. v17}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-direct {v0, v13, v3}, Lcom/android/server/enterprise/browser/BrowserPolicy$BrowserProxyCache;-><init>(II)V
+
+    invoke-virtual/range {v14 .. v16}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_5
     :try_start_0
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mCache:Ljava/util/HashMap;
+    iget-object v14, v0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mCache:Ljava/util/HashMap;
 
-    invoke-static {v14}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v16
-
-    invoke-virtual/range {v15 .. v16}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v13}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v15
 
-    check-cast v15, Ljava/util/HashMap;
+    invoke-virtual {v14, v15}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v14
 
-    move-result-object v16
+    check-cast v14, Ljava/util/HashMap;
 
-    invoke-virtual/range {v15 .. v16}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v15
 
-    check-cast v3, Lcom/android/server/enterprise/browser/BrowserPolicy$BrowserProxyCache;
+    invoke-virtual {v14, v15}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v3}, Lcom/android/server/enterprise/browser/BrowserPolicy$BrowserProxyCache;->isAlreadySet()Z
+    move-result-object v2
 
-    move-result v15
+    check-cast v2, Lcom/android/server/enterprise/browser/BrowserPolicy$BrowserProxyCache;
 
-    if-eqz v15, :cond_6
+    invoke-virtual {v2}, Lcom/android/server/enterprise/browser/BrowserPolicy$BrowserProxyCache;->isAlreadySet()Z
 
-    invoke-virtual {v3, v2}, Lcom/android/server/enterprise/browser/BrowserPolicy$BrowserProxyCache;->isOwner(I)Z
+    move-result v14
 
-    move-result v15
+    if-eqz v14, :cond_6
 
-    if-eqz v15, :cond_a
+    invoke-virtual {v2, v1}, Lcom/android/server/enterprise/browser/BrowserPolicy$BrowserProxyCache;->isOwner(I)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_a
 
     :cond_6
-    new-instance v5, Landroid/content/ContentValues;
+    new-instance v4, Landroid/content/ContentValues;
 
-    invoke-direct {v5}, Landroid/content/ContentValues;-><init>()V
+    invoke-direct {v4}, Landroid/content/ContentValues;-><init>()V
 
-    const-string/jumbo v15, "proxyServer"
+    const-string/jumbo v14, "proxyServer"
 
-    invoke-virtual {v5, v15, v10}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v4, v14, v9}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    iget-object v14, v0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    const-string/jumbo v16, "BROWSER_PROXY"
+    const-string/jumbo v15, "BROWSER_PROXY"
 
-    move-object/from16 v0, v16
+    invoke-virtual {v14, v1, v3, v15, v4}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putValues(IILjava/lang/String;Landroid/content/ContentValues;)Z
 
-    invoke-virtual {v15, v2, v4, v0, v5}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putValues(IILjava/lang/String;Landroid/content/ContentValues;)Z
+    move-result v12
 
-    move-result v13
+    if-eqz v12, :cond_7
 
-    if-eqz v13, :cond_7
-
-    const/4 v15, 0x0
-
-    invoke-virtual {v3, v2, v10, v15}, Lcom/android/server/enterprise/browser/BrowserPolicy$BrowserProxyCache;->setProxy(ILjava/lang/String;Z)V
+    invoke-virtual {v2, v1, v9}, Lcom/android/server/enterprise/browser/BrowserPolicy$BrowserProxyCache;->setProxy(ILjava/lang/String;)V
 
     :cond_7
     :goto_1
-    if-eqz v13, :cond_8
+    if-eqz v12, :cond_8
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mContext:Landroid/content/Context;
+    iget-object v14, v0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v16, "BrowserPolicy/getHttpProxy"
+    const-string/jumbo v15, "BrowserPolicy/getHttpProxy"
 
-    move-object/from16 v0, v16
+    invoke-static {v14, v15, v13}, Lcom/android/server/enterprise/content/SecContentProvider;->notifyPolicyChangesAsUser(Landroid/content/Context;Ljava/lang/String;I)V
 
-    invoke-static {v15, v0, v14}, Lcom/android/server/enterprise/content/SecContentProvider;->notifyPolicyChangesAsUser(Landroid/content/Context;Ljava/lang/String;I)V
+    const-string/jumbo v14, "BrowserPolicy"
 
-    const-string/jumbo v15, "BrowserPolicy"
+    const-string/jumbo v15, "setHttpProxy() : SecContentProvider updated."
 
-    const-string/jumbo v16, "setHttpProxy() : SecContentProvider updated."
-
-    invoke-static/range {v15 .. v16}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v14, v15}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_8
     :goto_2
-    if-eqz v13, :cond_9
+    if-eqz v12, :cond_9
 
-    if-nez v14, :cond_9
+    if-nez v13, :cond_9
 
-    new-instance v8, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;
+    new-instance v7, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mContext:Landroid/content/Context;
+    iget-object v14, v0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mContext:Landroid/content/Context;
 
-    invoke-direct {v8, v15}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;-><init>(Landroid/content/Context;)V
+    invoke-direct {v7, v14}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;-><init>(Landroid/content/Context;)V
 
     :try_start_1
-    const-string/jumbo v15, "BrowserPolicy"
+    const-string/jumbo v14, "BrowserPolicy"
 
-    const-string/jumbo v16, "setHttpProxy"
+    const-string/jumbo v15, "setHttpProxy"
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, p2
 
-    move-object/from16 v1, p2
+    invoke-virtual {v7, v14, v15, v0}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;->SetStringTypePolicy(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v8, v15, v0, v1}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;->SetStringTypePolicy(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v14, "BrowserPolicy"
 
-    const-string/jumbo v15, "BrowserPolicy"
+    const-string/jumbo v15, "setHttpProxy()  calling gearPolicyManager "
 
-    const-string/jumbo v16, "setHttpProxy()  calling gearPolicyManager "
-
-    invoke-static/range {v15 .. v16}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v14, v15}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
     :cond_9
     :goto_3
-    const-string/jumbo v15, "BrowserPolicy"
+    const-string/jumbo v14, "BrowserPolicy"
 
-    new-instance v16, Ljava/lang/StringBuilder;
+    new-instance v15, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v17, "setHttpProxy("
+    const-string/jumbo v16, "setHttpProxy("
 
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v16
+    move-result-object v15
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, p2
 
-    move-object/from16 v1, p2
+    invoke-virtual {v15, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v15
 
-    move-result-object v16
+    const-string/jumbo v16, ") : "
 
-    const-string/jumbo v17, ") : "
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v15
 
-    move-result-object v16
+    invoke-virtual {v15, v12}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, v16
+    move-result-object v15
 
-    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v16
+    move-result-object v15
 
-    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v14, v15}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    move-result-object v16
-
-    invoke-static/range {v15 .. v16}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
-
-    return v13
+    return v12
 
     :cond_a
-    const/4 v13, 0x0
+    const/4 v12, 0x0
 
     goto :goto_1
 
     :catch_0
-    move-exception v7
+    move-exception v6
 
-    const-string/jumbo v15, "BrowserPolicy"
+    const-string/jumbo v14, "BrowserPolicy"
 
-    const-string/jumbo v16, "setHttpProxy() : failed."
+    const-string/jumbo v15, "setHttpProxy() : failed."
 
-    move-object/from16 v0, v16
+    invoke-static {v14, v15, v6}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    invoke-static {v15, v0, v7}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    const/4 v13, 0x0
+    const/4 v12, 0x0
 
     goto :goto_2
 
     :catch_1
-    move-exception v6
+    move-exception v5
 
-    invoke-virtual {v6}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v5}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_3
 .end method

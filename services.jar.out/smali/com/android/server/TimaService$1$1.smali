@@ -38,19 +38,13 @@
 
     iget-object v0, v0, Lcom/android/server/TimaService$1;->this$0:Lcom/android/server/TimaService;
 
+    invoke-static {v0}, Lcom/android/server/TimaService;->-wrap3(Lcom/android/server/TimaService;)V
+
+    iget-object v0, p0, Lcom/android/server/TimaService$1$1;->this$1:Lcom/android/server/TimaService$1;
+
+    iget-object v0, v0, Lcom/android/server/TimaService$1;->this$0:Lcom/android/server/TimaService;
+
     invoke-static {v0}, Lcom/android/server/TimaService;->-wrap4(Lcom/android/server/TimaService;)V
-
-    iget-object v0, p0, Lcom/android/server/TimaService$1$1;->this$1:Lcom/android/server/TimaService$1;
-
-    iget-object v0, v0, Lcom/android/server/TimaService$1;->this$0:Lcom/android/server/TimaService;
-
-    invoke-static {v0}, Lcom/android/server/TimaService;->-wrap2(Lcom/android/server/TimaService;)Ljava/lang/String;
-
-    iget-object v0, p0, Lcom/android/server/TimaService$1$1;->this$1:Lcom/android/server/TimaService$1;
-
-    iget-object v0, v0, Lcom/android/server/TimaService$1;->this$0:Lcom/android/server/TimaService;
-
-    invoke-static {v0}, Lcom/android/server/TimaService;->-wrap5(Lcom/android/server/TimaService;)V
 
     return-void
 .end method

@@ -27,7 +27,7 @@
 
 .field public final mOffsetType:I
 
-.field public final mOrgCd:F
+.field public mOrgCd:F
 
 .field final synthetic this$0:Lcom/android/server/display/AutomaticBrightnessController;
 
@@ -59,7 +59,7 @@
 
     iput v0, p0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mHighBoundary:F
 
-    invoke-static {p1}, Lcom/android/server/display/AutomaticBrightnessController;->-get5(Lcom/android/server/display/AutomaticBrightnessController;)Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;
+    invoke-static {p1}, Lcom/android/server/display/AutomaticBrightnessController;->-get7(Lcom/android/server/display/AutomaticBrightnessController;)Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;
 
     move-result-object v0
 

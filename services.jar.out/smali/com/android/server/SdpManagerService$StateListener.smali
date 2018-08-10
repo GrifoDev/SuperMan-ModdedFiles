@@ -16,13 +16,6 @@
     name = "StateListener"
 .end annotation
 
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/server/SdpManagerService$StateListener$-void__init__com_android_server_SdpManagerService_this$0_int_engineId_android_os_ISdpListener_listener_LambdaImpl0;,
-        Lcom/android/server/SdpManagerService$StateListener$-void_dispose__LambdaImpl0;
-    }
-.end annotation
-
 
 # instance fields
 .field mEngineId:I
@@ -71,9 +64,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/server/SdpManagerService$StateListener$-void__init__com_android_server_SdpManagerService_this$0_int_engineId_android_os_ISdpListener_listener_LambdaImpl0;
+    new-instance v1, Lcom/android/server/-$Lambda$lhXyqUMYqEEsOESeK7W8eqkbJis;
 
-    invoke-direct {v1, p0}, Lcom/android/server/SdpManagerService$StateListener$-void__init__com_android_server_SdpManagerService_this$0_int_engineId_android_os_ISdpListener_listener_LambdaImpl0;-><init>(Lcom/android/server/SdpManagerService$StateListener;)V
+    invoke-direct {v1, p0}, Lcom/android/server/-$Lambda$lhXyqUMYqEEsOESeK7W8eqkbJis;-><init>(Ljava/lang/Object;)V
 
     invoke-virtual {v0, v1}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
 
@@ -82,78 +75,6 @@
 
 
 # virtual methods
-.method synthetic -com_android_server_SdpManagerService$StateListener_lambda$1(Landroid/os/IBinder;)V
-    .locals 3
-
-    const/4 v1, 0x0
-
-    :try_start_0
-    invoke-interface {p1, p0, v1}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
-
-    const/4 v1, 0x1
-
-    iput-boolean v1, p0, Lcom/android/server/SdpManagerService$StateListener;->mIsValid:Z
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
-    return-void
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v1, "SdpManagerService"
-
-    const-string/jumbo v2, "Failed to link death listener..."
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
-
-    invoke-virtual {p0}, Lcom/android/server/SdpManagerService$StateListener;->releaseReferences()V
-
-    goto :goto_0
-.end method
-
-.method synthetic -com_android_server_SdpManagerService$StateListener_lambda$2(Landroid/os/IBinder;)V
-    .locals 4
-
-    const/4 v2, 0x0
-
-    :try_start_0
-    invoke-interface {p1, p0, v2}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
-    :try_end_0
-    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
-    return-void
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v2, "SdpManagerService"
-
-    const-string/jumbo v3, "Failed to unlink death listener"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
-
-    goto :goto_0
-
-    :catch_1
-    move-exception v1
-
-    const-string/jumbo v2, "SdpManagerService"
-
-    const-string/jumbo v3, "Listener might be already finalized..."
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-.end method
-
 .method asBinder()Landroid/os/IBinder;
     .locals 2
 
@@ -194,7 +115,7 @@
 
     iget v2, p0, Lcom/android/server/SdpManagerService$StateListener;->mEngineId:I
 
-    invoke-static {v0, v2}, Lcom/android/server/SdpManagerService;->-wrap9(Lcom/android/server/SdpManagerService;I)V
+    invoke-static {v0, v2}, Lcom/android/server/SdpManagerService;->-wrap18(Lcom/android/server/SdpManagerService;I)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -241,9 +162,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/server/SdpManagerService$StateListener$-void_dispose__LambdaImpl0;
+    new-instance v1, Lcom/android/server/-$Lambda$lhXyqUMYqEEsOESeK7W8eqkbJis$1;
 
-    invoke-direct {v1, p0}, Lcom/android/server/SdpManagerService$StateListener$-void_dispose__LambdaImpl0;-><init>(Lcom/android/server/SdpManagerService$StateListener;)V
+    invoke-direct {v1, p0}, Lcom/android/server/-$Lambda$lhXyqUMYqEEsOESeK7W8eqkbJis$1;-><init>(Ljava/lang/Object;)V
 
     invoke-virtual {v0, v1}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
 
@@ -296,6 +217,78 @@
     iget-boolean v0, p0, Lcom/android/server/SdpManagerService$StateListener;->mIsValid:Z
 
     return v0
+.end method
+
+.method synthetic lambda$-com_android_server_SdpManagerService$StateListener_123389(Landroid/os/IBinder;)V
+    .locals 3
+
+    const/4 v1, 0x0
+
+    :try_start_0
+    invoke-interface {p1, p0, v1}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
+
+    const/4 v1, 0x1
+
+    iput-boolean v1, p0, Lcom/android/server/SdpManagerService$StateListener;->mIsValid:Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "SdpManagerService"
+
+    const-string/jumbo v2, "Failed to link death listener..."
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+
+    invoke-virtual {p0}, Lcom/android/server/SdpManagerService$StateListener;->releaseReferences()V
+
+    goto :goto_0
+.end method
+
+.method synthetic lambda$-com_android_server_SdpManagerService$StateListener_124628(Landroid/os/IBinder;)V
+    .locals 4
+
+    const/4 v2, 0x0
+
+    :try_start_0
+    invoke-interface {p1, p0, v2}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
+    :try_end_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v2, "SdpManagerService"
+
+    const-string/jumbo v3, "Failed to unlink death listener"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+
+    goto :goto_0
+
+    :catch_1
+    move-exception v1
+
+    const-string/jumbo v2, "SdpManagerService"
+
+    const-string/jumbo v3, "Listener might be already finalized..."
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 .end method
 
 .method releaseReferences()V

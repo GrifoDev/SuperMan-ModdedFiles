@@ -109,26 +109,13 @@
     iget-object v2, p0, Lcom/android/server/backup/BackupManagerService$ProvisionedObserver;->this$0:Lcom/android/server/backup/BackupManagerService;
 
     iget-boolean v2, v2, Lcom/android/server/backup/BackupManagerService;->mProvisioned:Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     if-eqz v2, :cond_0
 
-    if-eqz v1, :cond_2
+    xor-int/lit8 v2, v1, 0x1
 
-    :cond_0
-    :goto_1
-    monitor-exit v3
+    if-eqz v2, :cond_0
 
-    return-void
-
-    :cond_1
-    const/4 v2, 0x1
-
-    goto :goto_0
-
-    :cond_2
-    :try_start_1
     iget-object v2, p0, Lcom/android/server/backup/BackupManagerService$ProvisionedObserver;->this$0:Lcom/android/server/backup/BackupManagerService;
 
     iget-boolean v2, v2, Lcom/android/server/backup/BackupManagerService;->mEnabled:Z
@@ -152,10 +139,18 @@
     const-wide/16 v4, 0x0
 
     invoke-virtual {v2, v4, v5}, Lcom/android/server/backup/BackupManagerService;->scheduleNextFullBackupJob(J)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_1
+    :cond_0
+    monitor-exit v3
+
+    return-void
+
+    :cond_1
+    const/4 v2, 0x1
+
+    goto :goto_0
 
     :catchall_0
     move-exception v2

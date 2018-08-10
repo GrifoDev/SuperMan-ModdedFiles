@@ -64,7 +64,7 @@
     :try_start_0
     iget-object v5, p0, Lcom/android/server/enterprise/security/SecurityPolicy$ResetKeyChain;->this$0:Lcom/android/server/enterprise/security/SecurityPolicy;
 
-    invoke-static {v5}, Lcom/android/server/enterprise/security/SecurityPolicy;->-get0(Lcom/android/server/enterprise/security/SecurityPolicy;)Landroid/content/Context;
+    invoke-static {v5}, Lcom/android/server/enterprise/security/SecurityPolicy;->-get1(Lcom/android/server/enterprise/security/SecurityPolicy;)Landroid/content/Context;
 
     move-result-object v5
 

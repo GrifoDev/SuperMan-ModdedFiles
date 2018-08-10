@@ -60,7 +60,7 @@
 
     iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$2;->this$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-    invoke-static {v0, p2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->-wrap9(Lcom/android/server/devicepolicy/DevicePolicyManagerService;Landroid/content/Intent;)V
+    invoke-static {v0, p2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->-wrap12(Lcom/android/server/devicepolicy/DevicePolicyManagerService;Landroid/content/Intent;)V
 
     :cond_0
     return-void

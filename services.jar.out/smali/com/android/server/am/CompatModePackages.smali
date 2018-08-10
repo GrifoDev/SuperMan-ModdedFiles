@@ -18,7 +18,7 @@
 
 .field private static final MSG_WRITE:I = 0x12c
 
-.field private static final TAG:Ljava/lang/String;
+.field private static final TAG:Ljava/lang/String; = "ActivityManager"
 
 .field private static final TAG_CONFIGURATION:Ljava/lang/String;
 
@@ -48,10 +48,6 @@
 # direct methods
 .method static constructor <clinit>()V
     .locals 2
-
-    const-string/jumbo v0, "ActivityManager"
-
-    sput-object v0, Lcom/android/server/am/CompatModePackages;->TAG:Ljava/lang/String;
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -706,7 +702,7 @@
 
     const/4 v11, 0x0
 
-    invoke-virtual {v8, v9, v10, v11}, Lcom/android/server/am/ActivityStack;->ensureActivityConfigurationLocked(Lcom/android/server/am/ActivityRecord;IZ)Z
+    invoke-virtual {v9, v10, v11}, Lcom/android/server/am/ActivityRecord;->ensureActivityConfigurationLocked(IZ)Z
 
     const/4 v10, 0x0
 
@@ -730,23 +726,44 @@
 
 # virtual methods
 .method public compatibilityInfoForPackageLocked(Landroid/content/pm/ApplicationInfo;)Landroid/content/res/CompatibilityInfo;
-    .locals 5
+    .locals 6
 
-    const/4 v1, 0x0
-
-    new-instance v0, Landroid/content/res/CompatibilityInfo;
-
-    iget-object v2, p0, Lcom/android/server/am/CompatModePackages;->mService:Lcom/android/server/am/ActivityManagerService;
-
-    iget-object v2, v2, Lcom/android/server/am/ActivityManagerService;->mConfiguration:Landroid/content/res/Configuration;
-
-    iget v2, v2, Landroid/content/res/Configuration;->screenLayout:I
+    const/4 v2, 0x0
 
     iget-object v3, p0, Lcom/android/server/am/CompatModePackages;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v3, v3, Lcom/android/server/am/ActivityManagerService;->mConfiguration:Landroid/content/res/Configuration;
+    invoke-virtual {v3}, Lcom/android/server/am/ActivityManagerService;->getGlobalConfiguration()Landroid/content/res/Configuration;
 
-    iget v3, v3, Landroid/content/res/Configuration;->smallestScreenWidthDp:I
+    move-result-object v1
+
+    new-instance v0, Landroid/content/res/CompatibilityInfo;
+
+    iget v3, v1, Landroid/content/res/Configuration;->screenLayout:I
+
+    iget v4, v1, Landroid/content/res/Configuration;->smallestScreenWidthDp:I
+
+    iget-object v5, p1, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+
+    invoke-direct {p0, v5}, Lcom/android/server/am/CompatModePackages;->getPackageFlags(Ljava/lang/String;)I
+
+    move-result v5
+
+    and-int/lit8 v5, v5, 0x2
+
+    if-eqz v5, :cond_0
+
+    const/4 v2, 0x1
+
+    :cond_0
+    invoke-direct {v0, p1, v3, v4, v2}, Landroid/content/res/CompatibilityInfo;-><init>(Landroid/content/pm/ApplicationInfo;IIZ)V
+
+    return-object v0
+.end method
+
+.method public computeCompatModeLocked(Landroid/content/pm/ApplicationInfo;)I
+    .locals 6
+
+    const/4 v3, 0x0
 
     iget-object v4, p1, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
@@ -758,57 +775,32 @@
 
     if-eqz v4, :cond_0
 
-    const/4 v1, 0x1
-
-    :cond_0
-    invoke-direct {v0, p1, v2, v3, v1}, Landroid/content/res/CompatibilityInfo;-><init>(Landroid/content/pm/ApplicationInfo;IIZ)V
-
-    return-object v0
-.end method
-
-.method public computeCompatModeLocked(Landroid/content/pm/ApplicationInfo;)I
-    .locals 5
-
-    const/4 v2, 0x0
-
-    iget-object v3, p1, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
-
-    invoke-direct {p0, v3}, Lcom/android/server/am/CompatModePackages;->getPackageFlags(Ljava/lang/String;)I
-
-    move-result v3
-
-    and-int/lit8 v3, v3, 0x2
-
-    if-eqz v3, :cond_0
-
     const/4 v0, 0x1
 
     :goto_0
-    new-instance v1, Landroid/content/res/CompatibilityInfo;
-
-    iget-object v3, p0, Lcom/android/server/am/CompatModePackages;->mService:Lcom/android/server/am/ActivityManagerService;
-
-    iget-object v3, v3, Lcom/android/server/am/ActivityManagerService;->mConfiguration:Landroid/content/res/Configuration;
-
-    iget v3, v3, Landroid/content/res/Configuration;->screenLayout:I
-
     iget-object v4, p0, Lcom/android/server/am/CompatModePackages;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v4, v4, Lcom/android/server/am/ActivityManagerService;->mConfiguration:Landroid/content/res/Configuration;
+    invoke-virtual {v4}, Lcom/android/server/am/ActivityManagerService;->getGlobalConfiguration()Landroid/content/res/Configuration;
 
-    iget v4, v4, Landroid/content/res/Configuration;->smallestScreenWidthDp:I
+    move-result-object v1
 
-    invoke-direct {v1, p1, v3, v4, v0}, Landroid/content/res/CompatibilityInfo;-><init>(Landroid/content/pm/ApplicationInfo;IIZ)V
+    new-instance v2, Landroid/content/res/CompatibilityInfo;
 
-    invoke-virtual {v1}, Landroid/content/res/CompatibilityInfo;->alwaysSupportsScreen()Z
+    iget v4, v1, Landroid/content/res/Configuration;->screenLayout:I
 
-    move-result v3
+    iget v5, v1, Landroid/content/res/Configuration;->smallestScreenWidthDp:I
 
-    if-eqz v3, :cond_1
+    invoke-direct {v2, p1, v4, v5, v0}, Landroid/content/res/CompatibilityInfo;-><init>(Landroid/content/pm/ApplicationInfo;IIZ)V
 
-    const/4 v2, -0x2
+    invoke-virtual {v2}, Landroid/content/res/CompatibilityInfo;->alwaysSupportsScreen()Z
 
-    return v2
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    const/4 v3, -0x2
+
+    return v3
 
     :cond_0
     const/4 v0, 0x0
@@ -816,23 +808,23 @@
     goto :goto_0
 
     :cond_1
-    invoke-virtual {v1}, Landroid/content/res/CompatibilityInfo;->neverSupportsScreen()Z
+    invoke-virtual {v2}, Landroid/content/res/CompatibilityInfo;->neverSupportsScreen()Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_2
+    if-eqz v4, :cond_2
 
-    const/4 v2, -0x1
+    const/4 v3, -0x1
 
-    return v2
+    return v3
 
     :cond_2
     if-eqz v0, :cond_3
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
     :cond_3
-    return v2
+    return v3
 .end method
 
 .method public getFrontActivityAskCompatModeLocked()Z
@@ -1025,15 +1017,13 @@
 
     move-result v4
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_2
 
     invoke-virtual {v1}, Landroid/content/res/CompatibilityInfo;->neverSupportsScreen()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
-
-    const/4 v3, 0x0
+    xor-int/lit8 v3, v4, 0x1
 
     :goto_1
     if-eqz p2, :cond_1
@@ -1058,11 +1048,6 @@
     return-void
 
     :cond_2
-    const/4 v3, 0x1
-
-    goto :goto_1
-
-    :cond_3
     const/4 v3, 0x0
 
     goto :goto_1
@@ -1090,34 +1075,34 @@
 .end method
 
 .method saveCompatModes()V
-    .locals 20
+    .locals 21
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/CompatModePackages;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    monitor-enter v18
+    monitor-enter v19
 
     :try_start_0
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForLockedSection()V
 
-    new-instance v13, Ljava/util/HashMap;
+    new-instance v14, Ljava/util/HashMap;
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/CompatModePackages;->mPackages:Ljava/util/HashMap;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
-    invoke-direct {v13, v0}, Ljava/util/HashMap;-><init>(Ljava/util/Map;)V
+    invoke-direct {v14, v0}, Ljava/util/HashMap;-><init>(Ljava/util/Map;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit v18
+    monitor-exit v19
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
@@ -1128,115 +1113,99 @@
 
     iget-object v0, v0, Lcom/android/server/am/CompatModePackages;->mFile:Landroid/util/AtomicFile;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    invoke-virtual/range {v17 .. v17}, Landroid/util/AtomicFile;->startWrite()Ljava/io/FileOutputStream;
+    invoke-virtual/range {v18 .. v18}, Landroid/util/AtomicFile;->startWrite()Ljava/io/FileOutputStream;
 
     move-result-object v7
 
-    new-instance v11, Lcom/android/internal/util/FastXmlSerializer;
+    new-instance v12, Lcom/android/internal/util/FastXmlSerializer;
 
-    invoke-direct {v11}, Lcom/android/internal/util/FastXmlSerializer;-><init>()V
+    invoke-direct {v12}, Lcom/android/internal/util/FastXmlSerializer;-><init>()V
 
-    sget-object v17, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
+    sget-object v18, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
 
-    invoke-virtual/range {v17 .. v17}, Ljava/nio/charset/Charset;->name()Ljava/lang/String;
+    invoke-virtual/range {v18 .. v18}, Ljava/nio/charset/Charset;->name()Ljava/lang/String;
 
-    move-result-object v17
-
-    move-object/from16 v0, v17
-
-    invoke-interface {v11, v7, v0}, Lorg/xmlpull/v1/XmlSerializer;->setOutput(Ljava/io/OutputStream;Ljava/lang/String;)V
-
-    const/16 v17, 0x1
-
-    invoke-static/range {v17 .. v17}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v17
-
-    const/16 v18, 0x0
+    move-result-object v18
 
     move-object/from16 v0, v18
 
-    move-object/from16 v1, v17
-
-    invoke-interface {v11, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->startDocument(Ljava/lang/String;Ljava/lang/Boolean;)V
-
-    const-string/jumbo v17, "http://xmlpull.org/v1/doc/features.html#indent-output"
+    invoke-interface {v12, v7, v0}, Lorg/xmlpull/v1/XmlSerializer;->setOutput(Ljava/io/OutputStream;Ljava/lang/String;)V
 
     const/16 v18, 0x1
 
-    move-object/from16 v0, v17
+    invoke-static/range {v18 .. v18}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move/from16 v1, v18
+    move-result-object v18
 
-    invoke-interface {v11, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->setFeature(Ljava/lang/String;Z)V
+    const/16 v19, 0x0
 
-    const-string/jumbo v17, "compat-packages"
+    move-object/from16 v0, v19
 
-    const/16 v18, 0x0
+    move-object/from16 v1, v18
+
+    invoke-interface {v12, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->startDocument(Ljava/lang/String;Ljava/lang/Boolean;)V
+
+    const-string/jumbo v18, "http://xmlpull.org/v1/doc/features.html#indent-output"
+
+    const/16 v19, 0x1
 
     move-object/from16 v0, v18
 
-    move-object/from16 v1, v17
+    move/from16 v1, v19
 
-    invoke-interface {v11, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {v12, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->setFeature(Ljava/lang/String;Z)V
+
+    const-string/jumbo v18, "compat-packages"
+
+    const/16 v19, 0x0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v18
+
+    invoke-interface {v12, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 
-    move-result-object v14
+    move-result-object v15
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/CompatModePackages;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    move-object/from16 v0, v17
+    invoke-virtual/range {v18 .. v18}, Lcom/android/server/am/ActivityManagerService;->getGlobalConfiguration()Landroid/content/res/Configuration;
 
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mConfiguration:Landroid/content/res/Configuration;
+    move-result-object v8
 
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, v17
-
-    iget v15, v0, Landroid/content/res/Configuration;->screenLayout:I
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/CompatModePackages;->mService:Lcom/android/server/am/ActivityManagerService;
-
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, v17
-
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mConfiguration:Landroid/content/res/Configuration;
-
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, v17
-
-    iget v0, v0, Landroid/content/res/Configuration;->smallestScreenWidthDp:I
+    iget v0, v8, Landroid/content/res/Configuration;->screenLayout:I
 
     move/from16 v16, v0
 
-    invoke-virtual {v13}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;
+    iget v0, v8, Landroid/content/res/Configuration;->smallestScreenWidthDp:I
 
-    move-result-object v17
+    move/from16 v17, v0
 
-    invoke-interface/range {v17 .. v17}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v14}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;
 
-    move-result-object v9
+    move-result-object v18
+
+    invoke-interface/range {v18 .. v18}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v10
 
     :cond_0
     :goto_0
-    invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v17
+    move-result v18
 
-    if-eqz v17, :cond_2
+    if-eqz v18, :cond_2
 
-    invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v6
 
@@ -1244,36 +1213,36 @@
 
     invoke-interface {v6}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v12
+    move-result-object v13
 
-    check-cast v12, Ljava/lang/String;
+    check-cast v13, Ljava/lang/String;
 
     invoke-interface {v6}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v17
+    move-result-object v18
 
-    check-cast v17, Ljava/lang/Integer;
+    check-cast v18, Ljava/lang/Integer;
 
-    invoke-virtual/range {v17 .. v17}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/Integer;->intValue()I
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
-    move-result v10
+    move-result v11
 
-    if-eqz v10, :cond_0
+    if-eqz v11, :cond_0
 
     const/4 v3, 0x0
 
-    const/16 v17, 0x0
-
     const/16 v18, 0x0
 
+    const/16 v19, 0x0
+
     :try_start_2
-    move/from16 v0, v17
+    move/from16 v0, v18
 
-    move/from16 v1, v18
+    move/from16 v1, v19
 
-    invoke-interface {v14, v12, v0, v1}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
+    invoke-interface {v15, v13, v0, v1}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
     :try_end_2
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_1
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
@@ -1284,73 +1253,75 @@
     if-eqz v3, :cond_0
 
     :try_start_3
-    new-instance v8, Landroid/content/res/CompatibilityInfo;
+    new-instance v9, Landroid/content/res/CompatibilityInfo;
 
-    const/16 v17, 0x0
+    const/16 v18, 0x0
 
     move/from16 v0, v16
 
     move/from16 v1, v17
 
-    invoke-direct {v8, v3, v15, v0, v1}, Landroid/content/res/CompatibilityInfo;-><init>(Landroid/content/pm/ApplicationInfo;IIZ)V
+    move/from16 v2, v18
 
-    invoke-virtual {v8}, Landroid/content/res/CompatibilityInfo;->alwaysSupportsScreen()Z
+    invoke-direct {v9, v3, v0, v1, v2}, Landroid/content/res/CompatibilityInfo;-><init>(Landroid/content/pm/ApplicationInfo;IIZ)V
 
-    move-result v17
+    invoke-virtual {v9}, Landroid/content/res/CompatibilityInfo;->alwaysSupportsScreen()Z
 
-    if-nez v17, :cond_0
+    move-result v18
 
-    invoke-virtual {v8}, Landroid/content/res/CompatibilityInfo;->neverSupportsScreen()Z
+    if-nez v18, :cond_0
 
-    move-result v17
+    invoke-virtual {v9}, Landroid/content/res/CompatibilityInfo;->neverSupportsScreen()Z
 
-    if-nez v17, :cond_0
+    move-result v18
 
-    const-string/jumbo v17, "pkg"
+    if-nez v18, :cond_0
 
-    const/16 v18, 0x0
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v17
-
-    invoke-interface {v11, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    const-string/jumbo v17, "name"
-
-    const/16 v18, 0x0
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v17
-
-    invoke-interface {v11, v0, v1, v12}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    const-string/jumbo v17, "mode"
-
-    invoke-static {v10}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v18
+    const-string/jumbo v18, "pkg"
 
     const/16 v19, 0x0
 
     move-object/from16 v0, v19
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v18
 
-    move-object/from16 v2, v18
+    invoke-interface {v12, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-interface {v11, v0, v1, v2}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    const-string/jumbo v18, "name"
 
-    const-string/jumbo v17, "pkg"
+    const/16 v19, 0x0
 
-    const/16 v18, 0x0
+    move-object/from16 v0, v19
 
-    move-object/from16 v0, v18
+    move-object/from16 v1, v18
 
-    move-object/from16 v1, v17
+    invoke-interface {v12, v0, v1, v13}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-interface {v11, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    const-string/jumbo v18, "mode"
+
+    invoke-static {v11}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v19
+
+    const/16 v20, 0x0
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v18
+
+    move-object/from16 v2, v19
+
+    invoke-interface {v12, v0, v1, v2}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    const-string/jumbo v18, "pkg"
+
+    const/16 v19, 0x0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v18
+
+    invoke-interface {v12, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
     :try_end_3
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
 
@@ -1359,13 +1330,13 @@
     :catch_0
     move-exception v5
 
-    sget-object v17, Lcom/android/server/am/CompatModePackages;->TAG:Ljava/lang/String;
+    sget-object v18, Lcom/android/server/am/CompatModePackages;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v18, "Error writing compat packages"
+    const-string/jumbo v19, "Error writing compat packages"
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v18
+    move-object/from16 v1, v19
 
     invoke-static {v0, v1, v5}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
@@ -1375,9 +1346,9 @@
 
     iget-object v0, v0, Lcom/android/server/am/CompatModePackages;->mFile:Landroid/util/AtomicFile;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
     invoke-virtual {v0, v7}, Landroid/util/AtomicFile;->failWrite(Ljava/io/FileOutputStream;)V
 
@@ -1386,13 +1357,13 @@
     return-void
 
     :catchall_0
-    move-exception v17
+    move-exception v18
 
-    monitor-exit v18
+    monitor-exit v19
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
-    throw v17
+    throw v18
 
     :catch_1
     move-exception v4
@@ -1401,25 +1372,25 @@
 
     :cond_2
     :try_start_4
-    const-string/jumbo v17, "compat-packages"
+    const-string/jumbo v18, "compat-packages"
 
-    const/16 v18, 0x0
+    const/16 v19, 0x0
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v18
 
-    invoke-interface {v11, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {v12, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-interface {v11}, Lorg/xmlpull/v1/XmlSerializer;->endDocument()V
+    invoke-interface {v12}, Lorg/xmlpull/v1/XmlSerializer;->endDocument()V
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/CompatModePackages;->mFile:Landroid/util/AtomicFile;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
     invoke-virtual {v0, v7}, Landroid/util/AtomicFile;->finishWrite(Ljava/io/FileOutputStream;)V
     :try_end_4

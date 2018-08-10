@@ -1,14 +1,11 @@
 .class Lcom/android/server/fingerprint/FingerprintService$6;
-.super Ljava/lang/Object;
+.super Lcom/android/server/fingerprint/InternalRemovalClient;
 .source "FingerprintService.java"
-
-# interfaces
-.implements Landroid/content/ServiceConnection;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/fingerprint/FingerprintService;->getVendorDaemon()V
+    value = Lcom/android/server/fingerprint/FingerprintService;->startRemove(Landroid/os/IBinder;IIILandroid/hardware/fingerprint/IFingerprintServiceReceiver;ZZ)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -22,68 +19,52 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/fingerprint/FingerprintService;)V
-    .locals 0
+.method constructor <init>(Lcom/android/server/fingerprint/FingerprintService;Landroid/content/Context;JLandroid/os/IBinder;Landroid/hardware/fingerprint/IFingerprintServiceReceiver;IIIZLjava/lang/String;)V
+    .locals 11
 
     iput-object p1, p0, Lcom/android/server/fingerprint/FingerprintService$6;->this$0:Lcom/android/server/fingerprint/FingerprintService;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    move-object v0, p0
+
+    move-object v1, p2
+
+    move-wide v2, p3
+
+    move-object/from16 v4, p5
+
+    move-object/from16 v5, p6
+
+    move/from16 v6, p7
+
+    move/from16 v7, p8
+
+    move/from16 v8, p9
+
+    move/from16 v9, p10
+
+    move-object/from16 v10, p11
+
+    invoke-direct/range {v0 .. v10}, Lcom/android/server/fingerprint/InternalRemovalClient;-><init>(Landroid/content/Context;JLandroid/os/IBinder;Landroid/hardware/fingerprint/IFingerprintServiceReceiver;IIIZLjava/lang/String;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
-    .locals 3
-
-    const/4 v2, 0x0
-
-    const-string/jumbo v0, "FingerprintService"
-
-    const-string/jumbo v1, "getVendorDaemon onServiceConnected"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+.method public getFingerprintDaemon()Landroid/hardware/biometrics/fingerprint/V2_1/IBiometricsFingerprint;
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/fingerprint/FingerprintService$6;->this$0:Lcom/android/server/fingerprint/FingerprintService;
 
-    invoke-static {p2}, Landroid/hardware/fingerprint/IFingerprintDaemon$Stub;->asInterface(Landroid/os/IBinder;)Landroid/hardware/fingerprint/IFingerprintDaemon;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/android/server/fingerprint/FingerprintService;->-set1(Lcom/android/server/fingerprint/FingerprintService;Landroid/hardware/fingerprint/IFingerprintDaemon;)Landroid/hardware/fingerprint/IFingerprintDaemon;
-
-    iget-object v0, p0, Lcom/android/server/fingerprint/FingerprintService$6;->this$0:Lcom/android/server/fingerprint/FingerprintService;
-
-    invoke-static {v0}, Lcom/android/server/fingerprint/FingerprintService;->-get5(Lcom/android/server/fingerprint/FingerprintService;)Landroid/os/Handler;
+    invoke-virtual {v0}, Lcom/android/server/fingerprint/FingerprintService;->getFingerprintDaemon()Lvendor/samsung/hardware/biometrics/fingerprint/V2_1/ISecBiometricsFingerprint;
 
     move-result-object v0
 
-    const/16 v1, 0x2711
-
-    invoke-virtual {v0, v1, v2, v2}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
-
-    return-void
+    return-object v0
 .end method
 
-.method public onServiceDisconnected(Landroid/content/ComponentName;)V
-    .locals 2
-
-    const-string/jumbo v0, "FingerprintService"
-
-    const-string/jumbo v1, "getVendorDaemon onServiceDisconnected"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v0, p0, Lcom/android/server/fingerprint/FingerprintService$6;->this$0:Lcom/android/server/fingerprint/FingerprintService;
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/android/server/fingerprint/FingerprintService;->-set1(Lcom/android/server/fingerprint/FingerprintService;Landroid/hardware/fingerprint/IFingerprintDaemon;)Landroid/hardware/fingerprint/IFingerprintDaemon;
+.method public notifyUserActivity()V
+    .locals 0
 
     return-void
 .end method

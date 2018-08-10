@@ -93,7 +93,7 @@
 
     sget-object v2, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
-    const-string/jumbo v3, "com.samsung.android.knox.permission.KNOX_GENERIC_VPN"
+    const-string/jumbo v3, "com.samsung.android.knox.permission.KNOX_VPN_GENERIC"
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;)V
 

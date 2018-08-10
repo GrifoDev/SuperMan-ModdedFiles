@@ -6,10 +6,28 @@
 .implements Lcom/android/server/enterprise/EnterpriseServiceCallback;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/android/server/enterprise/lso/LSOService$1;
+    }
+.end annotation
+
+
 # static fields
+.field private static final CUSTOM_LAYER:I = 0x2
+
+.field private static final DEBUG:Z
+
+.field private static final DEFAULT_LAYER:I = 0x1
+
+.field private static final EMERGENCY_PHONE_LAYER:I = 0x3
+
 .field private static final MAX_SUPPORTED_LAYER:I = 0x3
 
 .field private static final NO_ADMIN_SET:I = -0x1
+
+.field private static final RESET_ALL_LAYER:I = 0x0
 
 .field private static final TAG:Ljava/lang/String; = "LSOService"
 
@@ -27,6 +45,8 @@
 
 .field private mOverlayAdminUid:I
 
+.field private final mReceiver:Landroid/content/BroadcastReceiver;
+
 .field private mWallpaperAdminUid:I
 
 .field private screenDimesions:Landroid/graphics/Point;
@@ -35,145 +55,191 @@
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;)V
-    .locals 4
+.method static synthetic -wrap0(Lcom/android/server/enterprise/lso/LSOService;I)V
+    .locals 0
 
-    invoke-direct {p0}, Lcom/samsung/android/knox/lockscreen/ILockscreenOverlay$Stub;-><init>()V
+    invoke-direct {p0, p1}, Lcom/android/server/enterprise/lso/LSOService;->updateSystemUIMonitor(I)V
 
-    const/4 v2, 0x0
+    return-void
+.end method
 
-    iput-object v2, p0, Lcom/android/server/enterprise/lso/LSOService;->mEDM:Lcom/samsung/android/knox/EnterpriseDeviceManager;
+.method static constructor <clinit>()V
+    .locals 2
 
-    iput-object p1, p0, Lcom/android/server/enterprise/lso/LSOService;->mContext:Landroid/content/Context;
+    const-string/jumbo v0, "eng"
 
-    new-instance v2, Lcom/android/server/enterprise/lso/LSOStorageProvider;
+    const-string/jumbo v1, "ro.build.type"
 
-    iget-object v3, p0, Lcom/android/server/enterprise/lso/LSOService;->mContext:Landroid/content/Context;
-
-    invoke-direct {v2, v3}, Lcom/android/server/enterprise/lso/LSOStorageProvider;-><init>(Landroid/content/Context;)V
-
-    iput-object v2, p0, Lcom/android/server/enterprise/lso/LSOService;->storageProvider:Lcom/android/server/enterprise/lso/LSOStorageProvider;
-
-    iget-object v2, p0, Lcom/android/server/enterprise/lso/LSOService;->storageProvider:Lcom/android/server/enterprise/lso/LSOStorageProvider;
-
-    invoke-virtual {v2}, Lcom/android/server/enterprise/lso/LSOStorageProvider;->getOverlayAdminUid()I
-
-    move-result v2
-
-    iput v2, p0, Lcom/android/server/enterprise/lso/LSOService;->mOverlayAdminUid:I
-
-    iget-object v2, p0, Lcom/android/server/enterprise/lso/LSOService;->storageProvider:Lcom/android/server/enterprise/lso/LSOStorageProvider;
-
-    invoke-virtual {v2}, Lcom/android/server/enterprise/lso/LSOStorageProvider;->getWallpaperAdminUid()I
-
-    move-result v2
-
-    iput v2, p0, Lcom/android/server/enterprise/lso/LSOService;->mWallpaperAdminUid:I
-
-    iget v2, p0, Lcom/android/server/enterprise/lso/LSOService;->mOverlayAdminUid:I
-
-    const/4 v3, -0x1
-
-    if-eq v2, v3, :cond_0
-
-    iget-object v2, p0, Lcom/android/server/enterprise/lso/LSOService;->storageProvider:Lcom/android/server/enterprise/lso/LSOStorageProvider;
-
-    invoke-virtual {v2}, Lcom/android/server/enterprise/lso/LSOStorageProvider;->getAdminPref()Lcom/samsung/android/knox/lockscreen/LSOAttributeSet;
-
-    move-result-object v2
-
-    iput-object v2, p0, Lcom/android/server/enterprise/lso/LSOService;->lsoPref:Lcom/samsung/android/knox/lockscreen/LSOAttributeSet;
-
-    :cond_0
-    new-instance v2, Landroid/graphics/Point;
-
-    invoke-direct {v2}, Landroid/graphics/Point;-><init>()V
-
-    iput-object v2, p0, Lcom/android/server/enterprise/lso/LSOService;->screenDimesions:Landroid/graphics/Point;
-
-    iget-object v2, p0, Lcom/android/server/enterprise/lso/LSOService;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v3, "window"
-
-    invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    check-cast v1, Landroid/view/WindowManager;
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-interface {v1}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
+    move-result v0
+
+    sput-boolean v0, Lcom/android/server/enterprise/lso/LSOService;->DEBUG:Z
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;)V
+    .locals 5
+
+    invoke-direct {p0}, Lcom/samsung/android/knox/lockscreen/ILockscreenOverlay$Stub;-><init>()V
+
+    const/4 v3, 0x0
+
+    iput-object v3, p0, Lcom/android/server/enterprise/lso/LSOService;->mEDM:Lcom/samsung/android/knox/EnterpriseDeviceManager;
+
+    new-instance v3, Lcom/android/server/enterprise/lso/LSOService$1;
+
+    invoke-direct {v3, p0}, Lcom/android/server/enterprise/lso/LSOService$1;-><init>(Lcom/android/server/enterprise/lso/LSOService;)V
+
+    iput-object v3, p0, Lcom/android/server/enterprise/lso/LSOService;->mReceiver:Landroid/content/BroadcastReceiver;
+
+    iput-object p1, p0, Lcom/android/server/enterprise/lso/LSOService;->mContext:Landroid/content/Context;
+
+    new-instance v3, Lcom/android/server/enterprise/lso/LSOStorageProvider;
+
+    iget-object v4, p0, Lcom/android/server/enterprise/lso/LSOService;->mContext:Landroid/content/Context;
+
+    invoke-direct {v3, v4}, Lcom/android/server/enterprise/lso/LSOStorageProvider;-><init>(Landroid/content/Context;)V
+
+    iput-object v3, p0, Lcom/android/server/enterprise/lso/LSOService;->storageProvider:Lcom/android/server/enterprise/lso/LSOStorageProvider;
+
+    iget-object v3, p0, Lcom/android/server/enterprise/lso/LSOService;->storageProvider:Lcom/android/server/enterprise/lso/LSOStorageProvider;
+
+    invoke-virtual {v3}, Lcom/android/server/enterprise/lso/LSOStorageProvider;->getOverlayAdminUid()I
+
+    move-result v3
+
+    iput v3, p0, Lcom/android/server/enterprise/lso/LSOService;->mOverlayAdminUid:I
+
+    iget-object v3, p0, Lcom/android/server/enterprise/lso/LSOService;->storageProvider:Lcom/android/server/enterprise/lso/LSOStorageProvider;
+
+    invoke-virtual {v3}, Lcom/android/server/enterprise/lso/LSOStorageProvider;->getWallpaperAdminUid()I
+
+    move-result v3
+
+    iput v3, p0, Lcom/android/server/enterprise/lso/LSOService;->mWallpaperAdminUid:I
+
+    iget v3, p0, Lcom/android/server/enterprise/lso/LSOService;->mOverlayAdminUid:I
+
+    const/4 v4, -0x1
+
+    if-eq v3, v4, :cond_0
+
+    iget-object v3, p0, Lcom/android/server/enterprise/lso/LSOService;->storageProvider:Lcom/android/server/enterprise/lso/LSOStorageProvider;
+
+    invoke-virtual {v3}, Lcom/android/server/enterprise/lso/LSOStorageProvider;->getAdminPref()Lcom/samsung/android/knox/lockscreen/LSOAttributeSet;
+
+    move-result-object v3
+
+    iput-object v3, p0, Lcom/android/server/enterprise/lso/LSOService;->lsoPref:Lcom/samsung/android/knox/lockscreen/LSOAttributeSet;
+
+    :cond_0
+    new-instance v3, Landroid/graphics/Point;
+
+    invoke-direct {v3}, Landroid/graphics/Point;-><init>()V
+
+    iput-object v3, p0, Lcom/android/server/enterprise/lso/LSOService;->screenDimesions:Landroid/graphics/Point;
+
+    iget-object v3, p0, Lcom/android/server/enterprise/lso/LSOService;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v4, "window"
+
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v2
 
-    iget-object v3, p0, Lcom/android/server/enterprise/lso/LSOService;->screenDimesions:Landroid/graphics/Point;
+    check-cast v2, Landroid/view/WindowManager;
 
-    invoke-virtual {v2, v3}, Landroid/view/Display;->getSize(Landroid/graphics/Point;)V
+    invoke-interface {v2}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
 
-    iget-object v2, p0, Lcom/android/server/enterprise/lso/LSOService;->screenDimesions:Landroid/graphics/Point;
+    move-result-object v3
 
-    iget v2, v2, Landroid/graphics/Point;->x:I
+    iget-object v4, p0, Lcom/android/server/enterprise/lso/LSOService;->screenDimesions:Landroid/graphics/Point;
 
-    iget-object v3, p0, Lcom/android/server/enterprise/lso/LSOService;->screenDimesions:Landroid/graphics/Point;
-
-    iget v3, v3, Landroid/graphics/Point;->y:I
-
-    if-le v2, v3, :cond_1
-
-    iget-object v2, p0, Lcom/android/server/enterprise/lso/LSOService;->screenDimesions:Landroid/graphics/Point;
+    invoke-virtual {v3, v4}, Landroid/view/Display;->getSize(Landroid/graphics/Point;)V
 
     iget-object v3, p0, Lcom/android/server/enterprise/lso/LSOService;->screenDimesions:Landroid/graphics/Point;
 
     iget v3, v3, Landroid/graphics/Point;->x:I
 
-    iput v3, v2, Landroid/graphics/Point;->y:I
+    iget-object v4, p0, Lcom/android/server/enterprise/lso/LSOService;->screenDimesions:Landroid/graphics/Point;
+
+    iget v4, v4, Landroid/graphics/Point;->y:I
+
+    if-le v3, v4, :cond_1
+
+    iget-object v3, p0, Lcom/android/server/enterprise/lso/LSOService;->screenDimesions:Landroid/graphics/Point;
+
+    iget-object v4, p0, Lcom/android/server/enterprise/lso/LSOService;->screenDimesions:Landroid/graphics/Point;
+
+    iget v4, v4, Landroid/graphics/Point;->x:I
+
+    iput v4, v3, Landroid/graphics/Point;->y:I
 
     :goto_0
-    const/4 v2, 0x4
+    const/4 v3, 0x4
 
-    new-array v2, v2, [Lcom/samsung/android/knox/lockscreen/LSOItemData;
+    new-array v3, v3, [Lcom/samsung/android/knox/lockscreen/LSOItemData;
 
-    iput-object v2, p0, Lcom/android/server/enterprise/lso/LSOService;->mItemData:[Lcom/samsung/android/knox/lockscreen/LSOItemData;
+    iput-object v3, p0, Lcom/android/server/enterprise/lso/LSOService;->mItemData:[Lcom/samsung/android/knox/lockscreen/LSOItemData;
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
     :goto_1
-    const/4 v2, 0x3
+    const/4 v3, 0x3
 
-    if-gt v0, v2, :cond_2
+    if-gt v1, v3, :cond_2
 
-    iget-object v2, p0, Lcom/android/server/enterprise/lso/LSOService;->mItemData:[Lcom/samsung/android/knox/lockscreen/LSOItemData;
+    iget-object v3, p0, Lcom/android/server/enterprise/lso/LSOService;->mItemData:[Lcom/samsung/android/knox/lockscreen/LSOItemData;
 
-    iget-object v3, p0, Lcom/android/server/enterprise/lso/LSOService;->storageProvider:Lcom/android/server/enterprise/lso/LSOStorageProvider;
+    iget-object v4, p0, Lcom/android/server/enterprise/lso/LSOService;->storageProvider:Lcom/android/server/enterprise/lso/LSOStorageProvider;
 
-    invoke-virtual {v3, v0}, Lcom/android/server/enterprise/lso/LSOStorageProvider;->getOverlay(I)Lcom/samsung/android/knox/lockscreen/LSOItemData;
+    invoke-virtual {v4, v1}, Lcom/android/server/enterprise/lso/LSOStorageProvider;->getOverlay(I)Lcom/samsung/android/knox/lockscreen/LSOItemData;
 
-    move-result-object v3
+    move-result-object v4
 
-    aput-object v3, v2, v0
+    aput-object v4, v3, v1
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
     :cond_1
-    iget-object v2, p0, Lcom/android/server/enterprise/lso/LSOService;->screenDimesions:Landroid/graphics/Point;
-
     iget-object v3, p0, Lcom/android/server/enterprise/lso/LSOService;->screenDimesions:Landroid/graphics/Point;
 
-    iget v3, v3, Landroid/graphics/Point;->y:I
+    iget-object v4, p0, Lcom/android/server/enterprise/lso/LSOService;->screenDimesions:Landroid/graphics/Point;
 
-    iput v3, v2, Landroid/graphics/Point;->x:I
+    iget v4, v4, Landroid/graphics/Point;->y:I
+
+    iput v4, v3, Landroid/graphics/Point;->x:I
 
     goto :goto_0
 
     :cond_2
+    new-instance v0, Landroid/content/IntentFilter;
+
+    const-string/jumbo v3, "com.samsung.android.knox.intent.action.KNOXFRAMEWORK_SYSTEMUI_UPDATE_INTENT_INTERNAL"
+
+    invoke-direct {v0, v3}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+
+    iget-object v3, p0, Lcom/android/server/enterprise/lso/LSOService;->mContext:Landroid/content/Context;
+
+    iget-object v4, p0, Lcom/android/server/enterprise/lso/LSOService;->mReceiver:Landroid/content/BroadcastReceiver;
+
+    invoke-virtual {v3, v4, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+
     return-void
 .end method
 
 .method private copyFileFromParcel(Landroid/os/ParcelFileDescriptor;Ljava/lang/String;)Ljava/lang/String;
-    .locals 13
+    .locals 12
 
-    const/4 v12, 0x0
+    const/4 v11, 0x0
 
     const-string/jumbo v9, "/data/system/enterprise/temp"
 
@@ -183,7 +249,7 @@
 
     if-nez v9, :cond_0
 
-    return-object v12
+    return-object v11
 
     :cond_0
     new-instance v9, Ljava/lang/StringBuilder;
@@ -268,29 +334,9 @@
     :try_start_3
     const-string/jumbo v9, "LSOService"
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    const-string/jumbo v10, "copyFileFromParcel() : failed to copy image from parcel "
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v11, "failed to copy image from parcel "
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v3}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-static {v9, v10}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v9, v10, v3}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
@@ -312,7 +358,7 @@
 
     :cond_2
     :goto_3
-    return-object v12
+    return-object v11
 
     :cond_3
     :try_start_6
@@ -450,14 +496,14 @@
     :catch_7
     move-exception v3
 
-    goto/16 :goto_1
+    goto :goto_1
 
     :catch_8
     move-exception v3
 
     move-object v4, v5
 
-    goto/16 :goto_1
+    goto :goto_1
 .end method
 
 .method private declared-synchronized deleteFiles(I)V
@@ -472,9 +518,45 @@
 
     move-result-wide v2
 
-    if-eqz p1, :cond_1
+    if-nez p1, :cond_0
+
+    const/4 v1, 0x1
+
+    :goto_0
+    const/4 v4, 0x3
+
+    if-gt v1, v4, :cond_1
 
     :try_start_1
+    new-instance v4, Ljava/io/File;
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "/data/system/enterprise/lso/"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-direct {v4, v5}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-static {v4}, Lcom/samsung/android/knox/lockscreen/LSOUtils;->deleteRecursive(Ljava/io/File;)V
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_0
     new-instance v4, Ljava/io/File;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -502,39 +584,38 @@
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    :cond_0
+    :cond_1
     :try_start_2
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    :goto_0
+    :goto_1
     monitor-exit p0
 
     return-void
 
-    :cond_1
-    const/4 v1, 0x1
-
-    :goto_1
-    const/4 v4, 0x3
-
-    if-gt v1, v4, :cond_0
+    :catch_0
+    move-exception v0
 
     :try_start_3
-    new-instance v4, Ljava/io/File;
+    const-string/jumbo v4, "LSOService"
 
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "/data/system/enterprise/lso/"
+    const-string/jumbo v6, "deleteFiles() : failed layer - "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
-    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-static {p1}, Lcom/samsung/android/knox/lockscreen/LSOConstants;->getLayerName(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
@@ -542,26 +623,16 @@
 
     move-result-object v5
 
-    invoke-direct {v4, v5}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    invoke-static {v4}, Lcom/samsung/android/knox/lockscreen/LSOUtils;->deleteRecursive(Ljava/io/File;)V
+    invoke-static {v4, v5, v0}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
     :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_1
-
-    :catch_0
-    move-exception v0
 
     :try_start_4
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    goto :goto_0
+    goto :goto_1
 
     :catchall_0
     move-exception v4
@@ -582,23 +653,58 @@
 .end method
 
 .method private deleteWallpaperFiles()V
-    .locals 3
+    .locals 5
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v0
+    move-result-wide v2
 
-    const-string/jumbo v2, "/data/system/enterprise/lso/lockscreen_wallpaper.jpg"
+    :try_start_0
+    const-string/jumbo v1, "/data/system/enterprise/lso/lockscreen_wallpaper.jpg"
 
-    invoke-static {v2}, Lcom/samsung/android/knox/lockscreen/LSOUtils;->deleteFile(Ljava/lang/String;)V
+    invoke-static {v1}, Lcom/samsung/android/knox/lockscreen/LSOUtils;->deleteFile(Ljava/lang/String;)V
 
-    const-string/jumbo v2, "/data/system/enterprise/lso/lockscreen_wallpaper_ripple.jpg"
+    const-string/jumbo v1, "/data/system/enterprise/lso/lockscreen_wallpaper_ripple.jpg"
 
-    invoke-static {v2}, Lcom/samsung/android/knox/lockscreen/LSOUtils;->deleteFile(Ljava/lang/String;)V
+    invoke-static {v1}, Lcom/samsung/android/knox/lockscreen/LSOUtils;->deleteFile(Ljava/lang/String;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
+    :goto_0
     return-void
+
+    :catch_0
+    move-exception v0
+
+    :try_start_1
+    const-string/jumbo v1, "LSOService"
+
+    const-string/jumbo v4, "deleteWallpaperFiles() : failed but ignore this error"
+
+    invoke-static {v1, v4}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    sget-boolean v1, Lcom/android/server/enterprise/lso/LSOService;->DEBUG:Z
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :cond_0
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v1
+
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v1
 .end method
 
 .method private enforceOwnerOnlyPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
@@ -710,95 +816,134 @@
     return-object v0
 .end method
 
-.method private sendConfigChangeNotfication(Z)V
-    .locals 10
+.method private sendConfigChangeNotification(I)V
+    .locals 9
 
-    const/4 v4, 0x1
+    const/4 v6, 0x1
 
-    const/4 v5, 0x0
+    const/4 v8, 0x0
+
+    const/4 v7, 0x2
+
+    invoke-virtual {p0, v8, v7}, Lcom/android/server/enterprise/lso/LSOService;->isConfigured(Lcom/samsung/android/knox/ContextInfo;I)Z
+
+    move-result v3
+
+    invoke-virtual {p0, v8, v6}, Lcom/android/server/enterprise/lso/LSOService;->isConfigured(Lcom/samsung/android/knox/ContextInfo;I)Z
+
+    move-result v2
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v4
+
+    :try_start_0
+    new-instance v1, Landroid/content/Intent;
+
+    const-string/jumbo v7, "com.samsung.android.knox.intent.action.LSO_CONFIG_CHANGED_INTERNAL"
+
+    invoke-direct {v1, v7}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v7, "com.samsung.android.knox.intent.extra.KNOX_WALLPAPER_ENABLED_INTERNAL"
+
+    if-eqz v2, :cond_0
+
+    :goto_0
+    invoke-virtual {v1, v7, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    iget-object v6, p0, Lcom/android/server/enterprise/lso/LSOService;->mContext:Landroid/content/Context;
+
+    sget-object v7, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+
+    const/4 v8, 0x0
+
+    invoke-virtual {v6, v1, v7, v8}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;)V
 
     const-string/jumbo v6, "LSOService"
 
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v8, "sendConfigChangeNotfication() enable = "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
+    const-string/jumbo v7, "sendConfigChangeNotification() - done"
 
     invoke-static {v6, v7}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    :goto_1
+    :try_start_1
+    invoke-direct {p0, p1, v2}, Lcom/android/server/enterprise/lso/LSOService;->setLockscreenInvisibleOverlaySystemUI(IZ)V
+
+    invoke-direct {p0, p1, v3}, Lcom/android/server/enterprise/lso/LSOService;->setLockscreenWallpaperSystemUI(IZ)V
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+
+    :goto_2
+    return-void
+
+    :cond_0
+    const/4 v6, 0x0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    :try_start_2
+    const-string/jumbo v6, "LSOService"
+
+    const-string/jumbo v7, "sendConfigChangeNotification() : failed to send intent."
+
+    invoke-static {v6, v7, v0}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    goto :goto_1
+
+    :catchall_0
+    move-exception v6
+
+    invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v6
+
+    :catch_1
+    move-exception v0
+
+    const-string/jumbo v6, "LSOService"
+
+    const-string/jumbo v7, "sendConfigChangeNotification() : failed to update system ui."
+
+    invoke-static {v6, v7, v0}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    goto :goto_2
+.end method
+
+.method private setLockscreenInvisibleOverlaySystemUI(IZ)V
+    .locals 6
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v2
 
     :try_start_0
-    iget-object v6, p0, Lcom/android/server/enterprise/lso/LSOService;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v6}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v7
-
-    const-string/jumbo v8, "mdm_wallpaper_enabled"
-
-    if-eqz p1, :cond_0
-
-    move v6, v4
-
-    :goto_0
-    const/4 v9, 0x0
-
-    invoke-static {v7, v8, v6, v9}, Landroid/provider/Settings$System;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
-
-    new-instance v1, Landroid/content/Intent;
-
-    const-string/jumbo v6, "com.samsung.android.knox.intent.action.LSO_CONFIG_CHANGED_INTERNAL"
-
-    invoke-direct {v1, v6}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const-string/jumbo v6, "com.samsung.android.knox.intent.extra.KNOX_WALLPAPER_ENABLED_INTERNAL"
-
-    if-eqz p1, :cond_1
-
-    :goto_1
-    invoke-virtual {v1, v6, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
-
     iget-object v4, p0, Lcom/android/server/enterprise/lso/LSOService;->mContext:Landroid/content/Context;
 
-    sget-object v5, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+    invoke-static {v4}, Lcom/android/server/enterprise/adapterlayer/SystemUIAdapter;->getInstance(Landroid/content/Context;)Lcom/android/server/enterprise/adapterlayer/SystemUIAdapter;
 
-    const-string/jumbo v6, "com.samsung.android.knox.permission.KNOX_LOCKSCREEN"
+    move-result-object v1
 
-    invoke-virtual {v4, v1, v5, v6}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;)V
+    invoke-virtual {v1, p1, p2}, Lcom/android/server/enterprise/adapterlayer/SystemUIAdapter;->setLockscreenInvisibleOverlayAsUser(IZ)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    :goto_2
+    :goto_0
     return-void
-
-    :cond_0
-    move v6, v5
-
-    goto :goto_0
-
-    :cond_1
-    move v4, v5
-
-    goto :goto_1
 
     :catch_0
     move-exception v0
@@ -806,7 +951,7 @@
     :try_start_1
     const-string/jumbo v4, "LSOService"
 
-    const-string/jumbo v5, "sendConfigChangeNotfication() : failed to update setting and sending intent."
+    const-string/jumbo v5, "setLockscreenInvisibleOverlaySystemUI() failed. "
 
     invoke-static {v4, v5, v0}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
     :try_end_1
@@ -814,7 +959,7 @@
 
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    goto :goto_2
+    goto :goto_0
 
     :catchall_0
     move-exception v4
@@ -824,45 +969,86 @@
     throw v4
 .end method
 
+.method private setLockscreenWallpaperSystemUI(IZ)V
+    .locals 6
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v2
+
+    :try_start_0
+    iget-object v4, p0, Lcom/android/server/enterprise/lso/LSOService;->mContext:Landroid/content/Context;
+
+    invoke-static {v4}, Lcom/android/server/enterprise/adapterlayer/SystemUIAdapter;->getInstance(Landroid/content/Context;)Lcom/android/server/enterprise/adapterlayer/SystemUIAdapter;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1, p2}, Lcom/android/server/enterprise/adapterlayer/SystemUIAdapter;->setLockscreenWallpaperAsUser(IZ)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    :try_start_1
+    const-string/jumbo v4, "LSOService"
+
+    const-string/jumbo v5, "setLockscreenWallpaperSystemUI() failed. "
+
+    invoke-static {v4, v5, v0}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v4
+
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v4
+.end method
+
+.method private updateSystemUIMonitor(I)V
+    .locals 2
+
+    const/4 v1, 0x0
+
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/enterprise/lso/LSOService;->isConfigured(Lcom/samsung/android/knox/ContextInfo;I)Z
+
+    move-result v0
+
+    invoke-direct {p0, p1, v0}, Lcom/android/server/enterprise/lso/LSOService;->setLockscreenInvisibleOverlaySystemUI(IZ)V
+
+    const/4 v0, 0x2
+
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/enterprise/lso/LSOService;->isConfigured(Lcom/samsung/android/knox/ContextInfo;I)Z
+
+    move-result v0
+
+    invoke-direct {p0, p1, v0}, Lcom/android/server/enterprise/lso/LSOService;->setLockscreenWallpaperSystemUI(IZ)V
+
+    return-void
+.end method
+
 
 # virtual methods
 .method public canConfigure(Lcom/samsung/android/knox/ContextInfo;I)Z
     .locals 9
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
 
-    const/4 v8, -0x1
+    const/4 v8, 0x2
 
-    const-string/jumbo v5, "LSOService"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v7, "canConfigure("
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v7, ")"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    const/4 v7, -0x1
 
     const/4 v0, 0x0
 
@@ -873,113 +1059,147 @@
 
     move-result-object p1
 
-    iget v4, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    iget v3, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    const/4 p2, -0x1
+    if-eq v7, p2, :cond_0
 
-    const/4 v2, 0x1
-
-    iget v5, p0, Lcom/android/server/enterprise/lso/LSOService;->mOverlayAdminUid:I
-
-    if-eq v5, v8, :cond_0
-
-    iget v5, p0, Lcom/android/server/enterprise/lso/LSOService;->mOverlayAdminUid:I
-
-    if-ne v5, v4, :cond_1
+    if-nez p2, :cond_6
 
     :cond_0
-    const/4 v0, 0x1
+    :goto_0
+    iget v4, p0, Lcom/android/server/enterprise/lso/LSOService;->mOverlayAdminUid:I
+
+    if-eq v4, v7, :cond_1
+
+    iget v4, p0, Lcom/android/server/enterprise/lso/LSOService;->mOverlayAdminUid:I
+
+    if-ne v4, v3, :cond_2
 
     :cond_1
-    add-int/lit8 v2, v2, 0x1
+    const/4 v0, 0x1
 
-    iget v5, p0, Lcom/android/server/enterprise/lso/LSOService;->mWallpaperAdminUid:I
+    :cond_2
+    if-eq v7, p2, :cond_3
 
-    if-eq v5, v8, :cond_2
+    if-nez p2, :cond_7
 
-    iget v5, p0, Lcom/android/server/enterprise/lso/LSOService;->mWallpaperAdminUid:I
+    :cond_3
+    :goto_1
+    iget v4, p0, Lcom/android/server/enterprise/lso/LSOService;->mWallpaperAdminUid:I
+
+    if-eq v4, v7, :cond_4
+
+    iget v4, p0, Lcom/android/server/enterprise/lso/LSOService;->mWallpaperAdminUid:I
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    if-ne v5, v4, :cond_3
+    if-ne v4, v3, :cond_5
 
-    :cond_2
+    :cond_4
     add-int/lit8 v0, v0, 0x1
 
-    :cond_3
-    :goto_0
-    if-lez v2, :cond_4
+    :cond_5
+    :goto_2
+    if-ne v7, p2, :cond_9
 
-    if-ne v2, v0, :cond_4
+    if-lt v0, v8, :cond_8
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    :goto_1
-    const-string/jumbo v5, "LSOService"
+    :goto_3
+    const-string/jumbo v4, "LSOService"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "canConfigure("
+    const-string/jumbo v6, "canConfigure("
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {v6, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v7, ") - "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {p2}, Lcom/samsung/android/knox/lockscreen/LSOConstants;->getLSOFeatureName(I)Ljava/lang/String;
 
     move-result-object v6
 
-    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string/jumbo v6, ") - "
 
-    move-result-object v6
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v5, v6}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    move-result-object v5
 
-    return v3
+    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    return v2
+
+    :cond_6
+    const/4 v4, 0x1
+
+    if-ne v4, p2, :cond_2
+
+    goto :goto_0
+
+    :cond_7
+    if-ne v8, p2, :cond_5
+
+    goto :goto_1
 
     :catch_0
     move-exception v1
 
-    const-string/jumbo v5, "LSOService"
+    const-string/jumbo v4, "LSOService"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "Unhandled exception in canConfigure: "
+    const-string/jumbo v6, "canConfigure() Unhandled exception."
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-static {v5, v6}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_2
 
-    :cond_4
-    const/4 v3, 0x0
+    :cond_8
+    const/4 v2, 0x0
 
-    goto :goto_1
+    goto :goto_3
+
+    :cond_9
+    if-lez v0, :cond_a
+
+    const/4 v2, 0x1
+
+    goto :goto_3
+
+    :cond_a
+    const/4 v2, 0x0
+
+    goto :goto_3
 .end method
 
 .method public declared-synchronized copyFile(Ljava/lang/String;Ljava/lang/String;II)Ljava/lang/String;
@@ -1055,15 +1275,9 @@
 
     monitor-enter p0
 
-    :try_start_0
-    const-string/jumbo v3, "LSOService"
-
-    const-string/jumbo v6, "copyFiles()"
-
-    invoke-static {v3, v6}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
     const/4 v2, 0x0
 
+    :try_start_0
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -1195,10 +1409,46 @@
     if-nez v2, :cond_3
 
     invoke-direct {p0, p3}, Lcom/android/server/enterprise/lso/LSOService;->deleteFiles(I)V
+
+    :cond_3
+    const-string/jumbo v3, "LSOService"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "copyFiles1() "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-static {p3}, Lcom/samsung/android/knox/lockscreen/LSOConstants;->getLayerName(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, "result = "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v3, v6}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_0
 
-    :cond_3
     monitor-exit p0
 
     return v2
@@ -1207,9 +1457,18 @@
     move-exception v0
 
     :try_start_9
-    invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    const-string/jumbo v3, "LSOService"
+
+    const-string/jumbo v6, "copyFiles1() error occurs. "
+
+    invoke-static {v3, v6, v0}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
     :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_0
+    .catchall {:try_start_9 .. :try_end_9} :catchall_1
+
+    :try_start_a
+    invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    :try_end_a
+    .catchall {:try_start_a .. :try_end_a} :catchall_0
 
     goto :goto_0
 
@@ -1223,12 +1482,12 @@
     :catchall_1
     move-exception v3
 
-    :try_start_a
+    :try_start_b
     invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     throw v3
-    :try_end_a
-    .catchall {:try_start_a .. :try_end_a} :catchall_0
+    :try_end_b
+    .catchall {:try_start_b .. :try_end_b} :catchall_0
 .end method
 
 .method public declared-synchronized copyFiles(Lcom/samsung/android/knox/lockscreen/LSOItemData;Ljava/lang/String;I)Z
@@ -1245,33 +1504,9 @@
     return v12
 
     :cond_0
-    :try_start_0
-    const-string/jumbo v12, "LSOService"
-
-    new-instance v13, Ljava/lang/StringBuilder;
-
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v14, "copyFiles() - "
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v13, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v13
-
-    invoke-static {v12, v13}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
     const/4 v12, 0x0
 
+    :try_start_0
     invoke-static {v12}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -1323,7 +1558,7 @@
 
     const-string/jumbo v12, "LSOService"
 
-    const-string/jumbo v13, "copyFiles - attrSet ATTR_IMAGE_SRC : file no created"
+    const-string/jumbo v13, "copyFiles2 - attrSet ATTR_IMAGE_SRC : file no created"
 
     invoke-static {v12, v13}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_1
@@ -1366,7 +1601,7 @@
 
     const-string/jumbo v12, "LSOService"
 
-    const-string/jumbo v13, "copyFiles - LSO_ITEM_TYPE_CONTAINER : file no created"
+    const-string/jumbo v13, "copyFiles2 - LSO_ITEM_TYPE_CONTAINER : file no created"
 
     invoke-static {v12, v13}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_2
@@ -1461,7 +1696,7 @@
 
     const-string/jumbo v12, "LSOService"
 
-    const-string/jumbo v13, "copyFiles - LSO_ITEM_TYPE_IMAGE : file no created"
+    const-string/jumbo v13, "copyFiles2 - LSO_ITEM_TYPE_IMAGE : file no created"
 
     invoke-static {v12, v13}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_3
@@ -1510,16 +1745,50 @@
     :try_start_5
     const-string/jumbo v12, "LSOService"
 
-    const-string/jumbo v13, "copyFiles() - failed. "
+    const-string/jumbo v13, "copyFiles2() - failed. "
 
     invoke-static {v12, v13, v4}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
     const/4 v9, 0x0
 
     :cond_7
     :goto_2
+    const-string/jumbo v12, "LSOService"
+
+    new-instance v13, Ljava/lang/StringBuilder;
+
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v14, "copyFiles2() - "
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v13, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    const-string/jumbo v14, ", ret ="
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13, v9}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-static {v12, v13}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+
     monitor-exit p0
 
     return v9
@@ -1565,6 +1834,8 @@
 
     throw v12
 
+    nop
+
     :pswitch_data_0
     .packed-switch 0x3
         :pswitch_1
@@ -1572,17 +1843,199 @@
     .end packed-switch
 .end method
 
-.method public getData(Lcom/samsung/android/knox/ContextInfo;I)Lcom/samsung/android/knox/lockscreen/LSOItemData;
-    .locals 2
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
+.method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
+    .locals 7
 
+    const/4 v6, 0x0
+
+    iget-object v4, p0, Lcom/android/server/enterprise/lso/LSOService;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v5, "android.permission.DUMP"
+
+    invoke-virtual {v4, v5}, Landroid/content/Context;->checkCallingOrSelfPermission(Ljava/lang/String;)I
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    const-string/jumbo v4, "Permission Denial: can\'t dump LSOService"
+
+    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    return-void
+
+    :cond_0
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const/4 v4, 0x2
+
+    invoke-virtual {p0, v6, v4}, Lcom/android/server/enterprise/lso/LSOService;->isConfigured(Lcom/samsung/android/knox/ContextInfo;I)Z
+
+    move-result v0
+
+    const-string/jumbo v4, "LOCKSCREEN_WALLPAPER : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-static {}, Ljava/lang/System;->lineSeparator()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    if-eqz v0, :cond_1
+
+    const-string/jumbo v4, "  AdminUid: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget v5, p0, Lcom/android/server/enterprise/lso/LSOService;->mWallpaperAdminUid:I
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-static {}, Ljava/lang/System;->lineSeparator()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_1
+    const/4 v4, 0x1
+
+    invoke-virtual {p0, v6, v4}, Lcom/android/server/enterprise/lso/LSOService;->isConfigured(Lcom/samsung/android/knox/ContextInfo;I)Z
+
+    move-result v0
+
+    const-string/jumbo v4, "LOCKSCREEN_OVERLAY : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-static {}, Ljava/lang/System;->lineSeparator()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    if-eqz v0, :cond_4
+
+    const-string/jumbo v4, "  AdminUid: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget v5, p0, Lcom/android/server/enterprise/lso/LSOService;->mOverlayAdminUid:I
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const/4 v2, 0x1
+
+    :goto_0
+    const/4 v4, 0x3
+
+    if-gt v2, v4, :cond_3
+
+    invoke-virtual {p0, v6, v2}, Lcom/android/server/enterprise/lso/LSOService;->getData(Lcom/samsung/android/knox/ContextInfo;I)Lcom/samsung/android/knox/lockscreen/LSOItemData;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_2
+
+    invoke-static {}, Ljava/lang/System;->lineSeparator()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string/jumbo v4, "    Layer "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-static {v2}, Lcom/samsung/android/knox/lockscreen/LSOConstants;->getLayerName(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, " : "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v1}, Lcom/samsung/android/knox/lockscreen/LSOItemData;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_2
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_3
+    invoke-static {}, Ljava/lang/System;->lineSeparator()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_4
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->write(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public declared-synchronized getData(Lcom/samsung/android/knox/ContextInfo;I)Lcom/samsung/android/knox/lockscreen/LSOItemData;
+    .locals 3
+
+    monitor-enter p0
+
+    :try_start_0
     const-string/jumbo v0, "LSOService"
 
-    const-string/jumbo v1, "getData()"
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "getData() "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {p2}, Lcom/samsung/android/knox/lockscreen/LSOConstants;->getLayerName(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
 
     invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -1602,94 +2055,205 @@
     invoke-direct {v0, v1}, Ljava/security/InvalidParameterException;-><init>(Ljava/lang/String;)V
 
     throw v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
 
     :cond_1
+    :try_start_1
+    sget-boolean v0, Lcom/android/server/enterprise/lso/LSOService;->DEBUG:Z
+
+    if-eqz v0, :cond_2
+
+    const-string/jumbo v0, "LSOService"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "getData() - "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/server/enterprise/lso/LSOService;->mItemData:[Lcom/samsung/android/knox/lockscreen/LSOItemData;
+
+    aget-object v2, v2, p2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_2
     iget-object v0, p0, Lcom/android/server/enterprise/lso/LSOService;->mItemData:[Lcom/samsung/android/knox/lockscreen/LSOItemData;
 
     aget-object v0, v0, p2
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    monitor-exit p0
 
     return-object v0
 .end method
 
 .method public getPreferences(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/lockscreen/LSOAttributeSet;
-    .locals 1
+    .locals 3
 
+    sget-boolean v0, Lcom/android/server/enterprise/lso/LSOService;->DEBUG:Z
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "LSOService"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "getPreferences() - lsoPref = "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/server/enterprise/lso/LSOService;->lsoPref:Lcom/samsung/android/knox/lockscreen/LSOAttributeSet;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
     iget-object v0, p0, Lcom/android/server/enterprise/lso/LSOService;->lsoPref:Lcom/samsung/android/knox/lockscreen/LSOAttributeSet;
 
     return-object v0
 .end method
 
 .method public isConfigured(Lcom/samsung/android/knox/ContextInfo;I)Z
-    .locals 7
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
+    .locals 5
 
-    const/4 v6, -0x1
+    const/4 v4, 0x2
 
-    const-string/jumbo v3, "LSOService"
+    const/4 v3, -0x1
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    const/4 v1, 0x0
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    if-eq v3, p2, :cond_0
 
-    const-string/jumbo v5, "isConfigured("
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    const-string/jumbo v5, ")"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    const/4 v0, 0x0
-
-    const/4 v2, 0x0
-
-    const/4 v0, 0x1
-
-    iget v3, p0, Lcom/android/server/enterprise/lso/LSOService;->mOverlayAdminUid:I
-
-    if-eq v3, v6, :cond_0
-
-    const/4 v2, 0x1
+    if-nez p2, :cond_4
 
     :cond_0
-    add-int/lit8 v0, v0, 0x1
+    :goto_0
+    iget v2, p0, Lcom/android/server/enterprise/lso/LSOService;->mOverlayAdminUid:I
 
-    iget v3, p0, Lcom/android/server/enterprise/lso/LSOService;->mWallpaperAdminUid:I
-
-    if-eq v3, v6, :cond_1
-
-    add-int/lit8 v2, v2, 0x1
-
-    :cond_1
-    if-lez v2, :cond_2
+    if-eq v2, v3, :cond_1
 
     const/4 v1, 0x1
 
-    :goto_0
-    return v1
+    :cond_1
+    if-eq v3, p2, :cond_2
+
+    if-nez p2, :cond_5
 
     :cond_2
-    const/4 v1, 0x0
+    :goto_1
+    iget v2, p0, Lcom/android/server/enterprise/lso/LSOService;->mWallpaperAdminUid:I
+
+    if-eq v2, v3, :cond_3
+
+    add-int/lit8 v1, v1, 0x1
+
+    :cond_3
+    if-ne v3, p2, :cond_7
+
+    if-lt v1, v4, :cond_6
+
+    const/4 v0, 0x1
+
+    :goto_2
+    const-string/jumbo v2, "LSOService"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "isConfigured("
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-static {p2}, Lcom/samsung/android/knox/lockscreen/LSOConstants;->getLSOFeatureName(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, ") - "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    return v0
+
+    :cond_4
+    const/4 v2, 0x1
+
+    if-ne v2, p2, :cond_1
 
     goto :goto_0
+
+    :cond_5
+    if-ne v4, p2, :cond_3
+
+    goto :goto_1
+
+    :cond_6
+    const/4 v0, 0x0
+
+    goto :goto_2
+
+    :cond_7
+    if-lez v1, :cond_8
+
+    const/4 v0, 0x1
+
+    goto :goto_2
+
+    :cond_8
+    const/4 v0, 0x0
+
+    goto :goto_2
 .end method
 
 .method public notifyToAddSystemService(Ljava/lang/String;Landroid/os/IBinder;)V
@@ -1705,8 +2269,27 @@
 .end method
 
 .method public onAdminRemoved(I)V
-    .locals 0
+    .locals 3
 
+    new-instance v1, Lcom/samsung/android/knox/ContextInfo;
+
+    const/4 v2, 0x0
+
+    invoke-direct {v1, p1, v2}, Lcom/samsung/android/knox/ContextInfo;-><init>(II)V
+
+    invoke-static {v1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
+
+    move-result v0
+
+    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
+
+    move-result v1
+
+    if-ne v0, v1, :cond_0
+
+    invoke-direct {p0, v0}, Lcom/android/server/enterprise/lso/LSOService;->updateSystemUIMonitor(I)V
+
+    :cond_0
     return-void
 .end method
 
@@ -1767,11 +2350,6 @@
 
 .method public resetData(Lcom/samsung/android/knox/ContextInfo;I)V
     .locals 12
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
 
     const/4 v5, 0x3
 
@@ -1779,25 +2357,21 @@
 
     const/4 v3, 0x1
 
-    const/4 v11, 0x0
-
     const-string/jumbo v0, "LSOService"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "resetData("
+    const-string/jumbo v2, "resetData() - "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-static {p2}, Lcom/samsung/android/knox/lockscreen/LSOConstants;->getLayerName(I)Ljava/lang/String;
 
-    move-result-object v1
-
-    const-string/jumbo v2, ")"
+    move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1809,11 +2383,15 @@
 
     invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/4 v10, 0x0
+    const/4 v9, 0x0
 
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/lso/LSOService;->enforceOwnerOnlyPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
     move-result-object p1
+
+    invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
+
+    move-result v6
 
     if-ltz p2, :cond_0
 
@@ -1822,7 +2400,23 @@
     :cond_0
     new-instance v0, Ljava/security/InvalidParameterException;
 
-    const-string/jumbo v1, "Invalid layer. Layer must be 0...3"
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Invalid layer. Layer must be 0...3 but requseted "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
 
     invoke-direct {v0, v1}, Ljava/security/InvalidParameterException;-><init>(Ljava/lang/String;)V
 
@@ -1837,7 +2431,7 @@
 
     const-string/jumbo v0, "LSOService"
 
-    const-string/jumbo v1, "Not allowed to reset Overlay"
+    const-string/jumbo v1, "resetData() : Not allowed to reset Overlay"
 
     invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -1848,7 +2442,7 @@
 
     iget v1, p0, Lcom/android/server/enterprise/lso/LSOService;->mOverlayAdminUid:I
 
-    if-ne v0, v1, :cond_5
+    if-ne v0, v1, :cond_8
 
     invoke-direct {p0, p2}, Lcom/android/server/enterprise/lso/LSOService;->deleteFiles(I)V
 
@@ -1873,18 +2467,32 @@
     iput-object v4, p0, Lcom/android/server/enterprise/lso/LSOService;->lsoPref:Lcom/samsung/android/knox/lockscreen/LSOAttributeSet;
 
     :cond_3
-    if-eqz p2, :cond_7
+    if-nez p2, :cond_4
 
+    const/4 v7, 0x1
+
+    :goto_0
+    if-gt v7, v5, :cond_5
+
+    iget-object v0, p0, Lcom/android/server/enterprise/lso/LSOService;->mItemData:[Lcom/samsung/android/knox/lockscreen/LSOItemData;
+
+    aput-object v4, v0, v7
+
+    add-int/lit8 v7, v7, 0x1
+
+    goto :goto_0
+
+    :cond_4
     iget-object v0, p0, Lcom/android/server/enterprise/lso/LSOService;->mItemData:[Lcom/samsung/android/knox/lockscreen/LSOItemData;
 
     aput-object v4, v0, p2
 
-    :cond_4
-    const/4 v10, 0x1
+    :cond_5
+    const/4 v9, 0x1
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v8
+    move-result-wide v10
 
     :try_start_0
     invoke-static {}, Landroid/os/Process;->myPid()I
@@ -1919,12 +2527,6 @@
 
     move-result-object v5
 
-    iget v0, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
-
-    invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
-
-    move-result v6
-
     const/4 v0, 0x5
 
     const/4 v1, 0x1
@@ -1933,47 +2535,85 @@
 
     invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
     :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    :cond_5
-    if-eqz v10, :cond_6
+    :goto_1
+    if-eqz v9, :cond_6
 
-    invoke-direct {p0, v11}, Lcom/android/server/enterprise/lso/LSOService;->sendConfigChangeNotfication(Z)V
+    invoke-direct {p0, v6}, Lcom/android/server/enterprise/lso/LSOService;->sendConfigChangeNotification(I)V
 
     :cond_6
     return-void
 
+    :catch_0
+    move-exception v8
+
+    :try_start_1
+    sget-boolean v0, Lcom/android/server/enterprise/lso/LSOService;->DEBUG:Z
+
+    if-eqz v0, :cond_7
+
+    invoke-virtual {v8}, Ljava/lang/Exception;->printStackTrace()V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
     :cond_7
-    const/4 v7, 0x1
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    :goto_0
-    if-gt v7, v5, :cond_4
-
-    iget-object v0, p0, Lcom/android/server/enterprise/lso/LSOService;->mItemData:[Lcom/samsung/android/knox/lockscreen/LSOItemData;
-
-    aput-object v4, v0, v7
-
-    add-int/lit8 v7, v7, 0x1
-
-    goto :goto_0
+    goto :goto_1
 
     :catchall_0
     move-exception v0
 
-    invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     throw v0
+
+    :cond_8
+    const-string/jumbo v0, "LSOService"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "resetData() : requested uid is diffren with present admin = "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget v2, p0, Lcom/android/server/enterprise/lso/LSOService;->mOverlayAdminUid:I
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, " but "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget v2, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_1
 .end method
 
 .method public resetWallpaper(Lcom/samsung/android/knox/ContextInfo;)V
     .locals 10
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
 
     const-string/jumbo v0, "LSOService"
 
@@ -1986,6 +2626,10 @@
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/lso/LSOService;->enforceOwnerOnlyPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
     move-result-object p1
+
+    invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
+
+    move-result v6
 
     const/4 v0, 0x2
 
@@ -2021,12 +2665,6 @@
     iput v0, p0, Lcom/android/server/enterprise/lso/LSOService;->mWallpaperAdminUid:I
 
     const/4 v7, 0x1
-
-    iget v0, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
-
-    invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
-
-    move-result v6
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
@@ -2080,9 +2718,7 @@
     :cond_1
     if-eqz v7, :cond_2
 
-    const/4 v0, 0x0
-
-    invoke-direct {p0, v0}, Lcom/android/server/enterprise/lso/LSOService;->sendConfigChangeNotfication(Z)V
+    invoke-direct {p0, v6}, Lcom/android/server/enterprise/lso/LSOService;->sendConfigChangeNotification(I)V
 
     :cond_2
     return-void
@@ -2096,307 +2732,342 @@
 .end method
 
 .method public declared-synchronized setData(Lcom/samsung/android/knox/ContextInfo;Lcom/samsung/android/knox/lockscreen/LSOItemData;I)I
-    .locals 12
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
+    .locals 15
 
     monitor-enter p0
 
     :try_start_0
-    const-string/jumbo v0, "LSOService"
+    const-string/jumbo v2, "LSOService"
 
-    const-string/jumbo v1, "setData()"
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {p0, p1}, Lcom/android/server/enterprise/lso/LSOService;->enforceOwnerOnlyPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
+    const-string/jumbo v4, "setData() "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-static/range {p3 .. p3}, Lcom/samsung/android/knox/lockscreen/LSOConstants;->getLayerName(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-direct/range {p0 .. p1}, Lcom/android/server/enterprise/lso/LSOService;->enforceOwnerOnlyPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
     move-result-object p1
 
-    iget v9, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    invoke-static/range {p1 .. p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
+
+    move-result v14
+
+    move-object/from16 v0, p1
+
+    iget v11, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    const/4 v0, 0x1
+    const/4 v2, 0x1
 
-    if-lt p3, v0, :cond_0
+    move/from16 v0, p3
 
-    const/4 v0, 0x3
+    if-lt v0, v2, :cond_0
 
-    if-le p3, v0, :cond_1
+    const/4 v2, 0x3
+
+    move/from16 v0, p3
+
+    if-le v0, v2, :cond_1
 
     :cond_0
     :try_start_1
-    new-instance v0, Ljava/security/InvalidParameterException;
+    new-instance v2, Ljava/security/InvalidParameterException;
 
-    const-string/jumbo v1, "Invalid layer. Layer must be 1...3"
+    const-string/jumbo v3, "Invalid layer. Layer must be 1...3"
 
-    invoke-direct {v0, v1}, Ljava/security/InvalidParameterException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/security/InvalidParameterException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v2
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :catchall_0
-    move-exception v0
+    move-exception v2
 
     :try_start_2
-    invoke-virtual {p2}, Lcom/samsung/android/knox/lockscreen/LSOItemData;->closeFileDescriptor()V
+    invoke-virtual/range {p2 .. p2}, Lcom/samsung/android/knox/lockscreen/LSOItemData;->closeFileDescriptor()V
 
-    throw v0
+    throw v2
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     :catchall_1
-    move-exception v0
+    move-exception v2
 
     monitor-exit p0
 
-    throw v0
+    throw v2
 
     :cond_1
-    const/4 v0, 0x1
+    const/4 v2, 0x1
 
     :try_start_3
-    invoke-virtual {p0, p1, v0}, Lcom/android/server/enterprise/lso/LSOService;->canConfigure(Lcom/samsung/android/knox/ContextInfo;I)Z
+    move-object/from16 v0, p1
 
-    move-result v0
+    invoke-virtual {p0, v0, v2}, Lcom/android/server/enterprise/lso/LSOService;->canConfigure(Lcom/samsung/android/knox/ContextInfo;I)Z
 
-    if-nez v0, :cond_2
+    move-result v2
 
-    const-string/jumbo v0, "LSOService"
+    if-nez v2, :cond_2
 
-    const-string/jumbo v1, "Lockscreen is configured by another admin. Overwrite not allowed."
+    const-string/jumbo v2, "LSOService"
 
-    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+    const-string/jumbo v3, "Lockscreen is configured by another admin. Overwrite not allowed."
+
+    invoke-static {v2, v3}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     :try_start_4
-    invoke-virtual {p2}, Lcom/samsung/android/knox/lockscreen/LSOItemData;->closeFileDescriptor()V
+    invoke-virtual/range {p2 .. p2}, Lcom/samsung/android/knox/lockscreen/LSOItemData;->closeFileDescriptor()V
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
-    const/4 v0, -0x1
+    const/4 v2, -0x1
 
     monitor-exit p0
 
-    return v0
+    return v2
 
     :cond_2
     :try_start_5
-    iget-object v0, p0, Lcom/android/server/enterprise/lso/LSOService;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/android/server/enterprise/lso/LSOService;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v1, "phone"
+    const-string/jumbo v3, "phone"
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v8
+    move-result-object v10
 
-    check-cast v8, Landroid/telephony/TelephonyManager;
+    check-cast v10, Landroid/telephony/TelephonyManager;
 
-    const/4 v0, 0x3
+    const/4 v2, 0x3
 
-    if-ne p3, v0, :cond_3
+    move/from16 v0, p3
 
-    if-eqz v8, :cond_4
+    if-ne v0, v2, :cond_4
 
-    invoke-virtual {v8}, Landroid/telephony/TelephonyManager;->isVoiceCapable()Z
+    if-eqz v10, :cond_3
 
-    move-result v0
+    invoke-virtual {v10}, Landroid/telephony/TelephonyManager;->isVoiceCapable()Z
 
-    if-eqz v0, :cond_4
+    move-result v2
+
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_4
 
     :cond_3
-    invoke-virtual {p0, v9, p2, p3}, Lcom/android/server/enterprise/lso/LSOService;->copyFiles(ILcom/samsung/android/knox/lockscreen/LSOItemData;I)Z
+    const-string/jumbo v2, "LSOService"
+
+    const-string/jumbo v3, "setData() failed because telephony is not supported."
+
+    invoke-static {v2, v3}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    move-result v0
-
-    if-nez v0, :cond_5
-
     :try_start_6
-    invoke-virtual {p2}, Lcom/samsung/android/knox/lockscreen/LSOItemData;->closeFileDescriptor()V
+    invoke-virtual/range {p2 .. p2}, Lcom/samsung/android/knox/lockscreen/LSOItemData;->closeFileDescriptor()V
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
-    const/4 v0, -0x4
+    const/4 v2, -0x3
 
     monitor-exit p0
 
-    return v0
+    return v2
 
     :cond_4
     :try_start_7
-    const-string/jumbo v0, "LSOService"
+    move-object/from16 v0, p2
 
-    const-string/jumbo v1, "Telephony is not supported"
+    move/from16 v1, p3
 
-    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v11, v0, v1}, Lcom/android/server/enterprise/lso/LSOService;->copyFiles(ILcom/samsung/android/knox/lockscreen/LSOItemData;I)Z
     :try_end_7
     .catchall {:try_start_7 .. :try_end_7} :catchall_0
 
+    move-result v2
+
+    if-nez v2, :cond_5
+
     :try_start_8
-    invoke-virtual {p2}, Lcom/samsung/android/knox/lockscreen/LSOItemData;->closeFileDescriptor()V
+    invoke-virtual/range {p2 .. p2}, Lcom/samsung/android/knox/lockscreen/LSOItemData;->closeFileDescriptor()V
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_1
 
-    const/4 v0, -0x3
+    const/4 v2, -0x4
 
     monitor-exit p0
 
-    return v0
+    return v2
 
     :cond_5
     :try_start_9
-    iget-object v1, p0, Lcom/android/server/enterprise/lso/LSOService;->storageProvider:Lcom/android/server/enterprise/lso/LSOStorageProvider;
+    iget-object v3, p0, Lcom/android/server/enterprise/lso/LSOService;->storageProvider:Lcom/android/server/enterprise/lso/LSOStorageProvider;
 
-    int-to-long v2, v9
+    int-to-long v4, v11
 
-    iget-object v6, p0, Lcom/android/server/enterprise/lso/LSOService;->lsoPref:Lcom/samsung/android/knox/lockscreen/LSOAttributeSet;
+    iget-object v8, p0, Lcom/android/server/enterprise/lso/LSOService;->lsoPref:Lcom/samsung/android/knox/lockscreen/LSOAttributeSet;
 
-    move-object v4, p2
+    move-object/from16 v6, p2
 
-    move v5, p3
+    move/from16 v7, p3
 
-    invoke-virtual/range {v1 .. v6}, Lcom/android/server/enterprise/lso/LSOStorageProvider;->setOverlayData(JLcom/samsung/android/knox/lockscreen/LSOItemData;ILcom/samsung/android/knox/lockscreen/LSOAttributeSet;)Z
+    invoke-virtual/range {v3 .. v8}, Lcom/android/server/enterprise/lso/LSOStorageProvider;->setOverlayData(JLcom/samsung/android/knox/lockscreen/LSOItemData;ILcom/samsung/android/knox/lockscreen/LSOAttributeSet;)Z
 
-    move-result v7
+    move-result v9
 
-    if-nez v7, :cond_7
+    if-nez v9, :cond_7
 
-    iget-object v0, p0, Lcom/android/server/enterprise/lso/LSOService;->storageProvider:Lcom/android/server/enterprise/lso/LSOStorageProvider;
+    iget-object v2, p0, Lcom/android/server/enterprise/lso/LSOService;->storageProvider:Lcom/android/server/enterprise/lso/LSOStorageProvider;
 
-    invoke-virtual {v0}, Lcom/android/server/enterprise/lso/LSOStorageProvider;->getOverlayAdminUid()I
+    invoke-virtual {v2}, Lcom/android/server/enterprise/lso/LSOStorageProvider;->getOverlayAdminUid()I
 
-    move-result v0
+    move-result v2
 
-    iput v0, p0, Lcom/android/server/enterprise/lso/LSOService;->mOverlayAdminUid:I
+    iput v2, p0, Lcom/android/server/enterprise/lso/LSOService;->mOverlayAdminUid:I
 
-    iget-object v0, p0, Lcom/android/server/enterprise/lso/LSOService;->mItemData:[Lcom/samsung/android/knox/lockscreen/LSOItemData;
+    iget-object v2, p0, Lcom/android/server/enterprise/lso/LSOService;->mItemData:[Lcom/samsung/android/knox/lockscreen/LSOItemData;
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    aput-object v1, v0, p3
+    aput-object v3, v2, p3
 
-    iget v0, p0, Lcom/android/server/enterprise/lso/LSOService;->mOverlayAdminUid:I
+    iget v2, p0, Lcom/android/server/enterprise/lso/LSOService;->mOverlayAdminUid:I
 
-    const/4 v1, -0x1
+    const/4 v3, -0x1
 
-    if-ne v0, v1, :cond_6
+    if-ne v2, v3, :cond_6
 
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
-    iput-object v0, p0, Lcom/android/server/enterprise/lso/LSOService;->lsoPref:Lcom/samsung/android/knox/lockscreen/LSOAttributeSet;
+    iput-object v2, p0, Lcom/android/server/enterprise/lso/LSOService;->lsoPref:Lcom/samsung/android/knox/lockscreen/LSOAttributeSet;
 
     :cond_6
-    invoke-direct {p0, p3}, Lcom/android/server/enterprise/lso/LSOService;->deleteFiles(I)V
+    move/from16 v0, p3
+
+    invoke-direct {p0, v0}, Lcom/android/server/enterprise/lso/LSOService;->deleteFiles(I)V
     :try_end_9
     .catchall {:try_start_9 .. :try_end_9} :catchall_0
 
     :try_start_a
-    invoke-virtual {p2}, Lcom/samsung/android/knox/lockscreen/LSOItemData;->closeFileDescriptor()V
+    invoke-virtual/range {p2 .. p2}, Lcom/samsung/android/knox/lockscreen/LSOItemData;->closeFileDescriptor()V
     :try_end_a
     .catchall {:try_start_a .. :try_end_a} :catchall_1
 
-    const/4 v0, -0x4
+    const/4 v2, -0x4
 
     monitor-exit p0
 
-    return v0
+    return v2
 
     :cond_7
     :try_start_b
-    iput v9, p0, Lcom/android/server/enterprise/lso/LSOService;->mOverlayAdminUid:I
+    iput v11, p0, Lcom/android/server/enterprise/lso/LSOService;->mOverlayAdminUid:I
 
-    iget-object v0, p0, Lcom/android/server/enterprise/lso/LSOService;->mItemData:[Lcom/samsung/android/knox/lockscreen/LSOItemData;
+    iget-object v2, p0, Lcom/android/server/enterprise/lso/LSOService;->mItemData:[Lcom/samsung/android/knox/lockscreen/LSOItemData;
 
-    aput-object p2, v0, p3
+    aput-object p2, v2, p3
     :try_end_b
     .catchall {:try_start_b .. :try_end_b} :catchall_0
 
     :try_start_c
-    invoke-virtual {p2}, Lcom/samsung/android/knox/lockscreen/LSOItemData;->closeFileDescriptor()V
+    invoke-virtual/range {p2 .. p2}, Lcom/samsung/android/knox/lockscreen/LSOItemData;->closeFileDescriptor()V
 
-    const/4 v0, 0x1
-
-    invoke-direct {p0, v0}, Lcom/android/server/enterprise/lso/LSOService;->sendConfigChangeNotfication(Z)V
-
-    invoke-static {v9}, Landroid/os/UserHandle;->getUserId(I)I
-
-    move-result v6
+    invoke-direct {p0, v14}, Lcom/android/server/enterprise/lso/LSOService;->sendConfigChangeNotification(I)V
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
     :try_end_c
     .catchall {:try_start_c .. :try_end_c} :catchall_1
 
-    move-result-wide v10
+    move-result-wide v12
 
     :try_start_d
     invoke-static {}, Landroid/os/Process;->myPid()I
 
-    move-result v3
+    move-result v5
 
-    const-string/jumbo v4, "LSOService"
+    const-string/jumbo v6, "LSOService"
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v1, "Admin "
+    const-string/jumbo v3, "Admin "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v2
 
-    iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    move-object/from16 v0, p1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    iget v3, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    move-result-object v0
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v1, " has changed banner settings."
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v3, " has changed banner settings."
 
-    move-result-object v0
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v5
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const/4 v0, 0x5
+    move-result-object v7
 
-    const/4 v1, 0x1
+    const/4 v2, 0x5
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
+    const/4 v4, 0x1
+
+    move v8, v14
+
+    invoke-static/range {v2 .. v8}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
     :try_end_d
     .catchall {:try_start_d .. :try_end_d} :catchall_2
 
     :try_start_e
-    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v12, v13}, Landroid/os/Binder;->restoreCallingIdentity(J)V
     :try_end_e
     .catchall {:try_start_e .. :try_end_e} :catchall_1
 
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
     monitor-exit p0
 
-    return v0
+    return v2
 
     :catchall_2
-    move-exception v0
+    move-exception v2
 
     :try_start_f
-    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v12, v13}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v0
+    throw v2
     :try_end_f
     .catchall {:try_start_f .. :try_end_f} :catchall_1
 .end method
@@ -2420,6 +3091,12 @@
 
     if-ne v0, v4, :cond_0
 
+    const-string/jumbo v0, "LSOService"
+
+    const-string/jumbo v1, "setPreferences() : There is no configured data from admin. "
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+
     return v3
 
     :cond_0
@@ -2431,7 +3108,7 @@
 
     const-string/jumbo v0, "LSOService"
 
-    const-string/jumbo v1, "Lockscreen is configured by another admin. Overwrite not allowed."
+    const-string/jumbo v1, "setPreferences() : Lockscreen is configured by another admin. Overwrite not allowed."
 
     invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -2451,6 +3128,12 @@
     aget-object v0, v0, v1
 
     if-nez v0, :cond_2
+
+    const-string/jumbo v0, "LSOService"
+
+    const-string/jumbo v1, "setPreferences() : layer doesn\'t configure so cannot set pref."
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
     return v3
 
@@ -2542,12 +3225,7 @@
 .end method
 
 .method public setWallpaper(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Landroid/os/ParcelFileDescriptor;)I
-    .locals 18
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
+    .locals 19
 
     const-string/jumbo v4, "LSOService"
 
@@ -2583,9 +3261,15 @@
 
     move-result-object p1
 
+    invoke-static/range {p1 .. p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
+
+    move-result v10
+
     move-object/from16 v0, p1
 
-    iget v15, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    iget v0, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    move/from16 v18, v0
 
     const/4 v4, 0x2
 
@@ -2601,7 +3285,7 @@
 
     const-string/jumbo v4, "LSOService"
 
-    const-string/jumbo v5, "Lockscreen is configured by another admin. Overwrite not allowed."
+    const-string/jumbo v5, "setWallpaper() : Lockscreen is configured by another admin. Overwrite not allowed."
 
     invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -2617,9 +3301,9 @@
     :cond_1
     const-string/jumbo v4, "LSOService"
 
-    const-string/jumbo v5, "imageFilePath or image is null, please check path"
+    const-string/jumbo v5, "setWallpaper() : imageFilePath or image is null, please check path"
 
-    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     const/4 v4, -0x4
 
@@ -2634,9 +3318,9 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/lso/LSOService;->copyFileFromParcel(Landroid/os/ParcelFileDescriptor;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v14
+    move-result-object v15
 
-    if-nez v14, :cond_3
+    if-nez v15, :cond_3
 
     const-string/jumbo v4, "LSOService"
 
@@ -2737,7 +3421,7 @@
 
     iget-object v6, v0, Lcom/android/server/enterprise/lso/LSOService;->screenDimesions:Landroid/graphics/Point;
 
-    invoke-static {v14, v4, v5, v6}, Lcom/samsung/android/knox/lockscreen/LSOUtils;->convertImageFormat(Ljava/lang/String;Landroid/graphics/Bitmap$CompressFormat;Ljava/lang/String;Landroid/graphics/Point;)Z
+    invoke-static {v15, v4, v5, v6}, Lcom/samsung/android/knox/lockscreen/LSOUtils;->convertImageFormat(Ljava/lang/String;Landroid/graphics/Bitmap$CompressFormat;Ljava/lang/String;Landroid/graphics/Point;)Z
 
     move-result v11
 
@@ -2745,7 +3429,7 @@
 
     const-string/jumbo v4, "LSOService"
 
-    const-string/jumbo v5, "Create Ripple image"
+    const-string/jumbo v5, "setWallpaper() : Create Ripple image"
 
     invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -2770,11 +3454,11 @@
 
     const-string/jumbo v4, "LSOService"
 
-    const-string/jumbo v5, "Error in copying file"
+    const-string/jumbo v5, "setWallpaper() : Error in copying file"
 
     invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-static {v14}, Lcom/samsung/android/knox/lockscreen/LSOUtils;->deleteFile(Ljava/lang/String;)V
+    invoke-static {v15}, Lcom/samsung/android/knox/lockscreen/LSOUtils;->deleteFile(Ljava/lang/String;)V
 
     const/4 v4, -0x4
 
@@ -2782,6 +3466,15 @@
 
     :catch_0
     move-exception v12
+
+    :try_start_4
+    const-string/jumbo v4, "LSOService"
+
+    const-string/jumbo v5, "setWallpaper() : error occurs"
+
+    invoke-static {v4, v5, v12}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     const/4 v11, 0x0
 
@@ -2801,13 +3494,21 @@
 
     iget-object v4, v0, Lcom/android/server/enterprise/lso/LSOService;->storageProvider:Lcom/android/server/enterprise/lso/LSOStorageProvider;
 
-    int-to-long v6, v15
+    move/from16 v0, v18
 
-    invoke-virtual {v4, v6, v7, v14}, Lcom/android/server/enterprise/lso/LSOStorageProvider;->setWallpaperData(JLjava/lang/String;)Z
+    int-to-long v6, v0
 
-    move-result v13
+    invoke-virtual {v4, v6, v7, v15}, Lcom/android/server/enterprise/lso/LSOStorageProvider;->setWallpaperData(JLjava/lang/String;)Z
 
-    if-nez v13, :cond_9
+    move-result v14
+
+    if-nez v14, :cond_9
+
+    const-string/jumbo v4, "LSOService"
+
+    const-string/jumbo v5, "setWallpaper() : Failed to set wallpaper data. "
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
 
     const/4 v4, -0x1
 
@@ -2815,7 +3516,7 @@
 
     iput v4, v0, Lcom/android/server/enterprise/lso/LSOService;->mWallpaperAdminUid:I
 
-    invoke-static {v14}, Lcom/samsung/android/knox/lockscreen/LSOUtils;->deleteFile(Ljava/lang/String;)V
+    invoke-static {v15}, Lcom/samsung/android/knox/lockscreen/LSOUtils;->deleteFile(Ljava/lang/String;)V
 
     invoke-direct/range {p0 .. p0}, Lcom/android/server/enterprise/lso/LSOService;->deleteWallpaperFiles()V
 
@@ -2824,25 +3525,21 @@
     return v4
 
     :cond_9
+    move/from16 v0, v18
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lcom/android/server/enterprise/lso/LSOService;->mWallpaperAdminUid:I
+
     move-object/from16 v0, p0
 
-    iput v15, v0, Lcom/android/server/enterprise/lso/LSOService;->mWallpaperAdminUid:I
-
-    const/4 v4, 0x1
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v4}, Lcom/android/server/enterprise/lso/LSOService;->sendConfigChangeNotfication(Z)V
-
-    invoke-static {v15}, Landroid/os/UserHandle;->getUserId(I)I
-
-    move-result v10
+    invoke-direct {v0, v10}, Lcom/android/server/enterprise/lso/LSOService;->sendConfigChangeNotification(I)V
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v16
 
-    :try_start_4
+    :try_start_5
     invoke-static {}, Landroid/os/Process;->myPid()I
 
     move-result v7
@@ -2890,16 +3587,25 @@
     const/4 v6, 0x1
 
     invoke-static/range {v4 .. v10}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+    :try_end_5
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_1
+    .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
     invoke-static/range {v16 .. v17}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    invoke-static {v14}, Lcom/samsung/android/knox/lockscreen/LSOUtils;->deleteFile(Ljava/lang/String;)V
+    :goto_1
+    invoke-static {v15}, Lcom/samsung/android/knox/lockscreen/LSOUtils;->deleteFile(Ljava/lang/String;)V
 
     const/4 v4, 0x0
 
     return v4
+
+    :catch_1
+    move-exception v13
+
+    invoke-static/range {v16 .. v17}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    goto :goto_1
 
     :catchall_1
     move-exception v4

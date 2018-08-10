@@ -35,9 +35,7 @@
 
 # virtual methods
 .method public onSyncRequest(Lcom/android/server/content/SyncStorageEngine$EndPoint;ILandroid/os/Bundle;)V
-    .locals 11
-
-    const-wide/16 v6, 0x0
+    .locals 7
 
     iget-object v0, p0, Lcom/android/server/content/SyncManager$8;->this$0:Lcom/android/server/content/SyncManager;
 
@@ -47,15 +45,13 @@
 
     iget-object v4, p1, Lcom/android/server/content/SyncStorageEngine$EndPoint;->provider:Ljava/lang/String;
 
-    const/4 v10, 0x0
+    const/4 v6, -0x2
 
     move v3, p2
 
     move-object v5, p3
 
-    move-wide v8, v6
-
-    invoke-virtual/range {v0 .. v10}, Lcom/android/server/content/SyncManager;->scheduleSync(Landroid/accounts/Account;IILjava/lang/String;Landroid/os/Bundle;JJZ)V
+    invoke-virtual/range {v0 .. v6}, Lcom/android/server/content/SyncManager;->scheduleSync(Landroid/accounts/Account;IILjava/lang/String;Landroid/os/Bundle;I)V
 
     return-void
 .end method

@@ -41,6 +41,12 @@
 .method public run()V
     .locals 2
 
+    const-string/jumbo v0, "DreamManagerService"
+
+    const-string/jumbo v1, "Performing gentle wake from dream."
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
     iget-object v0, p0, Lcom/android/server/dreams/DreamManagerService$6;->this$0:Lcom/android/server/dreams/DreamManagerService;
 
     invoke-static {v0}, Lcom/android/server/dreams/DreamManagerService;->-get1(Lcom/android/server/dreams/DreamManagerService;)Lcom/android/server/dreams/DreamController;

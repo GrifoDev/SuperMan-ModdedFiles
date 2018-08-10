@@ -93,13 +93,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_3
-    :goto_0
-    return-void
+    if-eqz v1, :cond_3
 
-    :cond_4
     iget-object v1, p0, Lcom/android/server/usage/UsageStatsService$PackageReceiver;->this$0:Lcom/android/server/usage/UsageStatsService;
 
     invoke-virtual {p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
@@ -116,5 +113,6 @@
 
     invoke-virtual {v1, v2, v3}, Lcom/android/server/usage/UsageStatsService;->clearAppIdleForPackage(Ljava/lang/String;I)V
 
-    goto :goto_0
+    :cond_3
+    return-void
 .end method

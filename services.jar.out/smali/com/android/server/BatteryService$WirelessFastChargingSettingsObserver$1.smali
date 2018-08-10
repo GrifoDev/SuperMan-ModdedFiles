@@ -43,7 +43,7 @@
 
     iget-object v2, v2, Lcom/android/server/BatteryService$WirelessFastChargingSettingsObserver;->this$0:Lcom/android/server/BatteryService;
 
-    invoke-static {v2}, Lcom/android/server/BatteryService;->-get18(Lcom/android/server/BatteryService;)Ljava/lang/Object;
+    invoke-static {v2}, Lcom/android/server/BatteryService;->-get19(Lcom/android/server/BatteryService;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -54,7 +54,7 @@
 
     iget-object v3, v3, Lcom/android/server/BatteryService$WirelessFastChargingSettingsObserver;->this$0:Lcom/android/server/BatteryService;
 
-    invoke-static {v3}, Lcom/android/server/BatteryService;->-get9(Lcom/android/server/BatteryService;)Landroid/content/Context;
+    invoke-static {v3}, Lcom/android/server/BatteryService;->-get10(Lcom/android/server/BatteryService;)Landroid/content/Context;
 
     move-result-object v3
 
@@ -79,7 +79,7 @@
     if-ne v4, v1, :cond_0
 
     :goto_0
-    invoke-static {v3, v1}, Lcom/android/server/BatteryService;->-set13(Lcom/android/server/BatteryService;Z)Z
+    invoke-static {v3, v1}, Lcom/android/server/BatteryService;->-set15(Lcom/android/server/BatteryService;Z)Z
 
     invoke-static {}, Lcom/android/server/BatteryService;->-get1()Ljava/lang/String;
 
@@ -99,7 +99,7 @@
 
     iget-object v4, v4, Lcom/android/server/BatteryService$WirelessFastChargingSettingsObserver;->this$0:Lcom/android/server/BatteryService;
 
-    invoke-static {v4}, Lcom/android/server/BatteryService;->-get31(Lcom/android/server/BatteryService;)Z
+    invoke-static {v4}, Lcom/android/server/BatteryService;->-get33(Lcom/android/server/BatteryService;)Z
 
     move-result v4
 
@@ -121,11 +121,11 @@
 
     iget-object v3, v3, Lcom/android/server/BatteryService$WirelessFastChargingSettingsObserver;->this$0:Lcom/android/server/BatteryService;
 
-    invoke-static {v3}, Lcom/android/server/BatteryService;->-get31(Lcom/android/server/BatteryService;)Z
+    invoke-static {v3}, Lcom/android/server/BatteryService;->-get33(Lcom/android/server/BatteryService;)Z
 
     move-result v3
 
-    invoke-static {v1, v3}, Lcom/android/server/BatteryService;->-wrap10(Lcom/android/server/BatteryService;Z)V
+    invoke-static {v1, v3}, Lcom/android/server/BatteryService;->-wrap12(Lcom/android/server/BatteryService;Z)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

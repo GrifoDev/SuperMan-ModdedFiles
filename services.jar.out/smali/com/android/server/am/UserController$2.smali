@@ -17,16 +17,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/am/UserController;
 
-.field final synthetic val$userInfo:Landroid/content/pm/UserInfo;
+.field final synthetic val$userId:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/UserController;Landroid/content/pm/UserInfo;)V
+.method constructor <init>(Lcom/android/server/am/UserController;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/UserController$2;->this$0:Lcom/android/server/am/UserController;
 
-    iput-object p2, p0, Lcom/android/server/am/UserController$2;->val$userInfo:Landroid/content/pm/UserInfo;
+    iput p2, p0, Lcom/android/server/am/UserController$2;->val$userId:I
 
     invoke-direct {p0}, Landroid/content/IIntentReceiver$Stub;-><init>()V
 
@@ -36,19 +36,38 @@
 
 # virtual methods
 .method public performReceive(Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;ZZI)V
-    .locals 2
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
 
-    iget-object v0, p0, Lcom/android/server/am/UserController$2;->this$0:Lcom/android/server/am/UserController;
-
-    invoke-static {v0}, Lcom/android/server/am/UserController;->-wrap0(Lcom/android/server/am/UserController;)Lcom/android/server/pm/UserManagerService;
+    invoke-static {}, Lcom/android/server/am/UserController;->-get0()Ljava/lang/String;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/server/am/UserController$2;->val$userInfo:Landroid/content/pm/UserInfo;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    iget v1, v1, Landroid/content/pm/UserInfo;->id:I
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v0, v1}, Lcom/android/server/pm/UserManagerService;->makeInitialized(I)V
+    const-string/jumbo v2, "Finished processing BOOT_COMPLETED for u"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget v2, p0, Lcom/android/server/am/UserController$2;->val$userId:I
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method

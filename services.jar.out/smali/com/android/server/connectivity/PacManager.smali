@@ -57,9 +57,9 @@
 
 .field private mEnterpriseProxyServer:Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;
 
-.field private mHasDownloaded:Z
+.field private volatile mHasDownloaded:Z
 
-.field private mHasSentBroadcast:Z
+.field private volatile mHasSentBroadcast:Z
 
 .field private mIsEnterpriseProxy:Z
 
@@ -75,7 +75,7 @@
 
 .field private mPacRefreshIntent:Landroid/app/PendingIntent;
 
-.field private mPacUrl:Landroid/net/Uri;
+.field private volatile mPacUrl:Landroid/net/Uri;
     .annotation build Lcom/android/internal/annotations/GuardedBy;
         value = "mProxyLock"
     .end annotation
@@ -1119,76 +1119,76 @@
 
 # virtual methods
 .method public declared-synchronized setCurrentProxyScriptUrl(Landroid/net/ProxyInfo;)Z
-    .locals 6
+    .locals 5
 
     const/4 v2, 0x1
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p1}, Landroid/net/ProxyInfo;->getEnterpriseProxy()I
 
-    move-result v3
+    move-result v1
 
     const/4 v4, 0x2
 
-    if-ne v3, v4, :cond_1
+    if-ne v1, v4, :cond_1
 
-    move v3, v2
+    move v1, v2
 
     :goto_0
-    iput-boolean v3, p0, Lcom/android/server/connectivity/PacManager;->mIsEnterpriseProxy:Z
+    iput-boolean v1, p0, Lcom/android/server/connectivity/PacManager;->mIsEnterpriseProxy:Z
 
-    sget-object v3, Landroid/net/Uri;->EMPTY:Landroid/net/Uri;
+    sget-object v1, Landroid/net/Uri;->EMPTY:Landroid/net/Uri;
 
     invoke-virtual {p1}, Landroid/net/ProxyInfo;->getPacFileUrl()Landroid/net/Uri;
 
     move-result-object v4
 
-    invoke-virtual {v3, v4}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v4}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_0
+    if-eqz v1, :cond_0
 
-    iget-boolean v3, p0, Lcom/android/server/connectivity/PacManager;->mIsEnterpriseProxy:Z
+    iget-boolean v1, p0, Lcom/android/server/connectivity/PacManager;->mIsEnterpriseProxy:Z
 
-    if-eqz v3, :cond_4
+    if-eqz v1, :cond_3
 
     :cond_0
     invoke-virtual {p1}, Landroid/net/ProxyInfo;->getPacFileUrl()Landroid/net/Uri;
 
-    move-result-object v3
+    move-result-object v1
 
     iget-object v4, p0, Lcom/android/server/connectivity/PacManager;->mPacUrl:Landroid/net/Uri;
 
-    invoke-virtual {v3, v4}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v4}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_2
+    if-eqz v1, :cond_2
 
     invoke-virtual {p1}, Landroid/net/ProxyInfo;->getPort()I
 
-    move-result v3
+    move-result v1
 
-    if-lez v3, :cond_2
+    if-lez v1, :cond_2
 
-    const-string/jumbo v3, "localhost"
+    const-string/jumbo v1, "localhost"
 
     invoke-virtual {p1}, Landroid/net/ProxyInfo;->getHost()Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_2
+    if-eqz v1, :cond_2
 
-    iget v3, p0, Lcom/android/server/connectivity/PacManager;->mLastPort:I
+    iget v1, p0, Lcom/android/server/connectivity/PacManager;->mLastPort:I
 
     invoke-virtual {p1}, Landroid/net/ProxyInfo;->getPort()I
     :try_end_0
@@ -1196,14 +1196,14 @@
 
     move-result v4
 
-    if-ne v3, v4, :cond_2
+    if-ne v1, v4, :cond_2
 
     monitor-exit p0
 
-    return v1
+    return v3
 
     :cond_1
-    move v3, v1
+    move v1, v3
 
     goto :goto_0
 
@@ -1216,19 +1216,18 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     :try_start_2
-    sget-object v4, Landroid/net/Uri;->EMPTY:Landroid/net/Uri;
+    sget-object v1, Landroid/net/Uri;->EMPTY:Landroid/net/Uri;
 
     invoke-virtual {p1}, Landroid/net/ProxyInfo;->getPacFileUrl()Landroid/net/Uri;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v4, v5}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v4}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v1
 
-    if-eqz v4, :cond_3
+    xor-int/lit8 v1, v1, 0x1
 
-    :goto_1
     iget-boolean v4, p0, Lcom/android/server/connectivity/PacManager;->mIsEnterpriseProxy:Z
 
     invoke-direct {p0, v1, v4}, Lcom/android/server/connectivity/PacManager;->unbind(ZZ)V
@@ -1274,11 +1273,6 @@
 
     return v2
 
-    :cond_3
-    move v1, v2
-
-    goto :goto_1
-
     :catchall_0
     move-exception v1
 
@@ -1296,15 +1290,15 @@
 
     throw v1
 
-    :cond_4
+    :cond_3
     :try_start_5
     invoke-direct {p0}, Lcom/android/server/connectivity/PacManager;->getAlarmManager()Landroid/app/AlarmManager;
 
-    move-result-object v2
+    move-result-object v1
 
-    iget-object v3, p0, Lcom/android/server/connectivity/PacManager;->mPacRefreshIntent:Landroid/app/PendingIntent;
+    iget-object v2, p0, Lcom/android/server/connectivity/PacManager;->mPacRefreshIntent:Landroid/app/PendingIntent;
 
-    invoke-virtual {v2, v3}, Landroid/app/AlarmManager;->cancel(Landroid/app/PendingIntent;)V
+    invoke-virtual {v1, v2}, Landroid/app/AlarmManager;->cancel(Landroid/app/PendingIntent;)V
 
     iget-object v2, p0, Lcom/android/server/connectivity/PacManager;->mProxyLock:Ljava/lang/Object;
 
@@ -1313,24 +1307,24 @@
     .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
     :try_start_6
-    sget-object v3, Landroid/net/Uri;->EMPTY:Landroid/net/Uri;
+    sget-object v1, Landroid/net/Uri;->EMPTY:Landroid/net/Uri;
 
-    iput-object v3, p0, Lcom/android/server/connectivity/PacManager;->mPacUrl:Landroid/net/Uri;
+    iput-object v1, p0, Lcom/android/server/connectivity/PacManager;->mPacUrl:Landroid/net/Uri;
 
-    const/4 v3, 0x0
+    const/4 v1, 0x0
 
-    iput-object v3, p0, Lcom/android/server/connectivity/PacManager;->mCurrentPac:Ljava/lang/String;
+    iput-object v1, p0, Lcom/android/server/connectivity/PacManager;->mCurrentPac:Ljava/lang/String;
 
-    iget-object v3, p0, Lcom/android/server/connectivity/PacManager;->mProxyService:Lcom/android/net/IProxyService;
+    iget-object v1, p0, Lcom/android/server/connectivity/PacManager;->mProxyService:Lcom/android/net/IProxyService;
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_2
 
-    if-eqz v3, :cond_5
+    if-eqz v1, :cond_4
 
     :try_start_7
-    iget-object v3, p0, Lcom/android/server/connectivity/PacManager;->mProxyService:Lcom/android/net/IProxyService;
+    iget-object v1, p0, Lcom/android/server/connectivity/PacManager;->mProxyService:Lcom/android/net/IProxyService;
 
-    invoke-interface {v3}, Lcom/android/net/IProxyService;->stopPacSystem()V
+    invoke-interface {v1}, Lcom/android/net/IProxyService;->stopPacSystem()V
     :try_end_7
     .catch Landroid/os/RemoteException; {:try_start_7 .. :try_end_7} :catch_0
     .catchall {:try_start_7 .. :try_end_7} :catchall_3
@@ -1338,13 +1332,13 @@
     :try_start_8
     invoke-direct {p0}, Lcom/android/server/connectivity/PacManager;->unbind()V
 
-    :cond_5
-    :goto_2
-    const/4 v3, 0x0
+    :cond_4
+    :goto_1
+    const/4 v1, 0x0
 
     const/4 v4, 0x0
 
-    invoke-direct {p0, v3, v4}, Lcom/android/server/connectivity/PacManager;->unbind(ZZ)V
+    invoke-direct {p0, v1, v4}, Lcom/android/server/connectivity/PacManager;->unbind(ZZ)V
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_2
 
@@ -1355,17 +1349,17 @@
 
     monitor-exit p0
 
-    return v1
+    return v3
 
     :catch_0
     move-exception v0
 
     :try_start_a
-    const-string/jumbo v3, "PacManager"
+    const-string/jumbo v1, "PacManager"
 
     const-string/jumbo v4, "Failed to stop PAC service"
 
-    invoke-static {v3, v4, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v1, v4, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_a
     .catchall {:try_start_a .. :try_end_a} :catchall_3
 
@@ -1374,7 +1368,7 @@
     :try_end_b
     .catchall {:try_start_b .. :try_end_b} :catchall_2
 
-    goto :goto_2
+    goto :goto_1
 
     :catchall_2
     move-exception v1

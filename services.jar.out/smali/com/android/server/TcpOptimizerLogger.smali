@@ -139,7 +139,19 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    const-string/jumbo v0, "time - pid\tprocName\taddr\tsid\tstate\terrno\tmark\tscreen"
+    const-string/jumbo v0, "addr is existed : TCP or UDP"
+
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string/jumbo v0, "addr is xxx.xxx.xxx.xxx_53 or xxxx:xxxx:xxxx:xxxx::xxxx_53 : UDP(DNS)"
+
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string/jumbo v0, "addr is _0 : UNIX DOMAIN SOCKET"
+
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string/jumbo v0, "time - procName\tuid\tpid\ttid\taddr\tsid\tstate\terrno\tmark\tscreen"
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 

@@ -32,1589 +32,716 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 22
+    .locals 12
 
-    invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    const/4 v10, 0x0
 
-    move-result-object v5
+    const/4 v11, 0x1
 
-    const-string/jumbo v17, "android.net.wifi.p2p.STATE_CHANGED"
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-object/from16 v0, v17
+    move-result-object v0
 
-    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string/jumbo v8, "android.net.wifi.p2p.STATE_CHANGED"
 
-    move-result v17
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-eqz v17, :cond_2
+    move-result v8
 
-    const-string/jumbo v17, "wifi_p2p_state"
+    if-eqz v8, :cond_2
 
-    const/16 v18, 0x1
+    const-string/jumbo v8, "wifi_p2p_state"
 
-    move-object/from16 v0, p2
+    invoke-virtual {p2, v8, v11}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-object/from16 v1, v17
+    move-result v8
 
-    move/from16 v2, v18
+    const/4 v9, 0x2
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    if-ne v8, v9, :cond_1
 
-    move-result v17
-
-    const/16 v18, 0x2
-
-    move/from16 v0, v17
-
-    move/from16 v1, v18
-
-    if-ne v0, v1, :cond_1
-
-    const/4 v10, 0x1
+    const/4 v2, 0x1
 
     :goto_0
-    const-string/jumbo v17, "WifiDisplayController"
+    const-string/jumbo v8, "WifiDisplayController"
 
-    new-instance v18, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v19, "Received WIFI_P2P_STATE_CHANGED_ACTION: enabled="
+    const-string/jumbo v10, "Received WIFI_P2P_STATE_CHANGED_ACTION: enabled="
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v9
 
-    move-object/from16 v0, v18
+    invoke-virtual {v9, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    move-result-object v9
 
-    move-result-object v18
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v9
 
-    move-result-object v18
+    invoke-static {v8, v9}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static/range {v17 .. v18}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    iget-object v8, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, v17
-
-    invoke-static {v0, v10}, Lcom/android/server/display/WifiDisplayController;->-wrap15(Lcom/android/server/display/WifiDisplayController;Z)V
+    invoke-static {v8, v2}, Lcom/android/server/display/WifiDisplayController;->-wrap14(Lcom/android/server/display/WifiDisplayController;Z)V
 
     :cond_0
     :goto_1
     return-void
 
     :cond_1
-    const/4 v10, 0x0
+    const/4 v2, 0x0
 
     goto :goto_0
 
     :cond_2
-    const-string/jumbo v17, "android.net.wifi.p2p.PEERS_CHANGED"
+    const-string/jumbo v8, "android.net.wifi.p2p.PEERS_CHANGED"
 
-    move-object/from16 v0, v17
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v8
 
-    move-result v17
+    if-eqz v8, :cond_3
 
-    if-eqz v17, :cond_3
+    const-string/jumbo v8, "WifiDisplayController"
 
-    const-string/jumbo v17, "WifiDisplayController"
+    const-string/jumbo v9, "Received WIFI_P2P_PEERS_CHANGED_ACTION."
 
-    const-string/jumbo v18, "Received WIFI_P2P_PEERS_CHANGED_ACTION."
+    invoke-static {v8, v9}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static/range {v17 .. v18}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    iget-object v8, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    invoke-static/range {v17 .. v17}, Lcom/android/server/display/WifiDisplayController;->-wrap13(Lcom/android/server/display/WifiDisplayController;)V
+    invoke-static {v8}, Lcom/android/server/display/WifiDisplayController;->-wrap12(Lcom/android/server/display/WifiDisplayController;)V
 
     goto :goto_1
 
     :cond_3
-    const-string/jumbo v17, "android.net.wifi.p2p.CONNECTION_STATE_CHANGE"
+    const-string/jumbo v8, "android.net.wifi.p2p.CONNECTION_STATE_CHANGE"
 
-    move-object/from16 v0, v17
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v8
 
-    move-result v17
+    if-eqz v8, :cond_4
 
-    if-eqz v17, :cond_4
+    const-string/jumbo v8, "networkInfo"
 
-    const-string/jumbo v17, "networkInfo"
+    invoke-virtual {p2, v8}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
 
-    move-object/from16 v0, p2
+    move-result-object v5
 
-    move-object/from16 v1, v17
+    check-cast v5, Landroid/net/NetworkInfo;
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+    const-string/jumbo v8, "WifiDisplayController"
 
-    move-result-object v13
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    check-cast v13, Landroid/net/NetworkInfo;
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v17, "WifiDisplayController"
+    const-string/jumbo v10, "Received WIFI_P2P_CONNECTION_CHANGED_ACTION: networkInfo="
 
-    new-instance v18, Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v9
 
-    const-string/jumbo v19, "Received WIFI_P2P_CONNECTION_CHANGED_ACTION: networkInfo="
+    invoke-virtual {v9, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v9
 
-    move-result-object v18
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-object/from16 v0, v18
+    move-result-object v9
 
-    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-static {v8, v9}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v18
+    iget-object v8, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v18
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, v17
-
-    invoke-static {v0, v13}, Lcom/android/server/display/WifiDisplayController;->-wrap11(Lcom/android/server/display/WifiDisplayController;Landroid/net/NetworkInfo;)V
+    invoke-static {v8, v5}, Lcom/android/server/display/WifiDisplayController;->-wrap10(Lcom/android/server/display/WifiDisplayController;Landroid/net/NetworkInfo;)V
 
     goto :goto_1
 
     :cond_4
-    const-string/jumbo v17, "android.net.wifi.p2p.THIS_DEVICE_CHANGED"
+    const-string/jumbo v8, "android.net.wifi.p2p.THIS_DEVICE_CHANGED"
 
-    move-object/from16 v0, v17
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v8
 
-    move-result v17
+    if-eqz v8, :cond_5
 
-    if-eqz v17, :cond_5
+    iget-object v9, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    move-object/from16 v0, p0
+    const-string/jumbo v8, "wifiP2pDevice"
 
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
+    invoke-virtual {p2, v8}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
 
-    move-object/from16 v18, v0
+    move-result-object v8
 
-    const-string/jumbo v17, "wifiP2pDevice"
+    check-cast v8, Landroid/net/wifi/p2p/WifiP2pDevice;
 
-    move-object/from16 v0, p2
+    invoke-static {v9, v8}, Lcom/android/server/display/WifiDisplayController;->-set18(Lcom/android/server/display/WifiDisplayController;Landroid/net/wifi/p2p/WifiP2pDevice;)Landroid/net/wifi/p2p/WifiP2pDevice;
 
-    move-object/from16 v1, v17
+    const-string/jumbo v8, "WifiDisplayController"
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    move-result-object v17
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    check-cast v17, Landroid/net/wifi/p2p/WifiP2pDevice;
+    const-string/jumbo v10, "Received WIFI_P2P_THIS_DEVICE_CHANGED_ACTION: mThisDevice= "
 
-    move-object/from16 v0, v18
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v1, v17
+    move-result-object v9
 
-    invoke-static {v0, v1}, Lcom/android/server/display/WifiDisplayController;->-set14(Lcom/android/server/display/WifiDisplayController;Landroid/net/wifi/p2p/WifiP2pDevice;)Landroid/net/wifi/p2p/WifiP2pDevice;
+    iget-object v10, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    const-string/jumbo v17, "WifiDisplayController"
+    invoke-static {v10}, Lcom/android/server/display/WifiDisplayController;->-get27(Lcom/android/server/display/WifiDisplayController;)Landroid/net/wifi/p2p/WifiP2pDevice;
 
-    new-instance v18, Ljava/lang/StringBuilder;
+    move-result-object v10
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v19, "Received WIFI_P2P_THIS_DEVICE_CHANGED_ACTION: mThisDevice= "
+    move-result-object v9
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v9
 
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v19, v0
-
-    invoke-static/range {v19 .. v19}, Lcom/android/server/display/WifiDisplayController;->-get25(Lcom/android/server/display/WifiDisplayController;)Landroid/net/wifi/p2p/WifiP2pDevice;
-
-    move-result-object v19
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v18
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_1
 
     :cond_5
-    const-string/jumbo v17, "android.net.wifi.WIFI_AP_STATE_CHANGED"
+    const-string/jumbo v8, "android.media.VOLUME_CHANGED_ACTION"
 
-    move-object/from16 v0, v17
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v8
 
-    move-result v17
+    if-eqz v8, :cond_6
 
-    if-eqz v17, :cond_8
+    const-string/jumbo v8, "android.media.EXTRA_VOLUME_STREAM_TYPE"
 
-    const/16 v6, 0xe
+    invoke-virtual {p2, v8, v10}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    const-string/jumbo v17, "wifi_state"
+    move-result v1
 
-    const/16 v18, 0xe
+    iget-object v8, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    move-object/from16 v0, p2
+    invoke-static {v8}, Lcom/android/server/display/WifiDisplayController;->-get23(Lcom/android/server/display/WifiDisplayController;)Z
 
-    move-object/from16 v1, v17
+    move-result v8
 
-    move/from16 v2, v18
+    if-eqz v8, :cond_0
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    iget-object v8, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    move-result v6
+    invoke-static {v8}, Lcom/android/server/display/WifiDisplayController;->-get29(Lcom/android/server/display/WifiDisplayController;)I
 
-    move-object/from16 v0, p0
+    move-result v8
 
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
+    if-ne v8, v11, :cond_0
 
-    move-object/from16 v17, v0
+    const/4 v8, 0x3
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/display/WifiDisplayController;->-get27(Lcom/android/server/display/WifiDisplayController;)Z
+    if-ne v1, v8, :cond_0
 
-    move-result v17
+    iget-object v8, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    if-eqz v17, :cond_6
+    const-string/jumbo v9, "android.media.EXTRA_VOLUME_STREAM_VALUE"
 
-    const/16 v17, 0xb
+    invoke-virtual {p2, v9, v10}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move/from16 v0, v17
+    move-result v9
 
-    if-ne v6, v0, :cond_6
+    invoke-static {v8, v9}, Lcom/android/server/display/WifiDisplayController;->-set17(Lcom/android/server/display/WifiDisplayController;I)I
 
-    move-object/from16 v0, p0
+    const-string/jumbo v8, "WifiDisplayController"
 
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    move-object/from16 v17, v0
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const/16 v18, 0x0
+    const-string/jumbo v10, "send command: current stream vol:"
 
-    invoke-static/range {v17 .. v18}, Lcom/android/server/display/WifiDisplayController;->-set16(Lcom/android/server/display/WifiDisplayController;Z)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    invoke-static/range {v17 .. v17}, Lcom/android/server/display/WifiDisplayController;->-wrap27(Lcom/android/server/display/WifiDisplayController;)V
-
-    :cond_6
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    invoke-static/range {v17 .. v17}, Lcom/android/server/display/WifiDisplayController;->-get9(Lcom/android/server/display/WifiDisplayController;)Landroid/content/Context;
-
-    move-result-object v17
-
-    invoke-virtual/range {v17 .. v17}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v17
-
-    const-string/jumbo v18, "wifi_display_on"
-
-    const/16 v19, 0x0
-
-    invoke-static/range {v17 .. v19}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v17
-
-    if-eqz v17, :cond_7
-
-    const/4 v15, 0x1
-
-    :goto_2
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    invoke-static/range {v17 .. v17}, Lcom/android/server/display/WifiDisplayController;->-get9(Lcom/android/server/display/WifiDisplayController;)Landroid/content/Context;
-
-    move-result-object v17
-
-    const-string/jumbo v18, "display"
-
-    invoke-virtual/range {v17 .. v18}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v8
-
-    check-cast v8, Landroid/hardware/display/DisplayManager;
-
-    invoke-virtual {v8}, Landroid/hardware/display/DisplayManager;->getWifiDisplayStatus()Landroid/hardware/display/WifiDisplayStatus;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v9
 
-    if-eqz v15, :cond_0
+    iget-object v10, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    const/16 v17, 0xd
+    invoke-static {v10}, Lcom/android/server/display/WifiDisplayController;->-get26(Lcom/android/server/display/WifiDisplayController;)I
 
-    move/from16 v0, v17
+    move-result v10
 
-    if-ne v6, v0, :cond_0
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v9}, Landroid/hardware/display/WifiDisplayStatus;->getScanState()I
+    move-result-object v9
 
-    move-result v17
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    if-nez v17, :cond_0
+    move-result-object v9
 
-    invoke-virtual {v9}, Landroid/hardware/display/WifiDisplayStatus;->getActiveDisplayState()I
+    invoke-static {v8, v9}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v17
+    iget-object v8, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    if-nez v17, :cond_0
+    const-string/jumbo v9, "vol"
 
-    invoke-virtual {v9}, Landroid/hardware/display/WifiDisplayStatus;->getFeatureState()I
+    iget-object v10, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    move-result v17
+    invoke-static {v10}, Lcom/android/server/display/WifiDisplayController;->-get26(Lcom/android/server/display/WifiDisplayController;)I
 
-    const/16 v18, 0x1
+    move-result v10
 
-    move/from16 v0, v17
+    invoke-static {v10}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move/from16 v1, v18
+    move-result-object v10
 
-    if-ne v0, v1, :cond_0
+    invoke-virtual {v8, v9, v10}, Lcom/android/server/display/WifiDisplayController;->setParam(Ljava/lang/String;Ljava/lang/Object;)V
 
-    invoke-virtual {v9}, Landroid/hardware/display/WifiDisplayStatus;->getConnectedState()I
+    goto/16 :goto_1
 
-    move-result v17
+    :cond_6
+    const-string/jumbo v8, "android.net.wifi.p2p.REQUEST_STATE_CHANGE"
 
-    const/16 v18, -0x1
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move/from16 v0, v17
+    move-result v8
 
-    move/from16 v1, v18
+    if-eqz v8, :cond_8
 
-    if-ne v0, v1, :cond_0
+    const-string/jumbo v8, "requestState"
 
-    move-object/from16 v0, p0
+    invoke-virtual {p2, v8, v10}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
+    move-result v7
 
-    move-object/from16 v17, v0
+    const-string/jumbo v8, "WifiDisplayController"
 
-    const/16 v18, 0x0
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-static/range {v17 .. v18}, Lcom/android/server/display/WifiDisplayController;->-set16(Lcom/android/server/display/WifiDisplayController;Z)Z
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-object/from16 v0, p0
+    const-string/jumbo v10, "Received WifiP2pManager.WIFI_P2P_REQUEST_CHANGED_ACTION : requestAccepted = "
 
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v17, v0
+    move-result-object v9
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/display/WifiDisplayController;->-wrap27(Lcom/android/server/display/WifiDisplayController;)V
+    invoke-virtual {v9, v7}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v8, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
+
+    invoke-static {v8}, Lcom/android/server/display/WifiDisplayController;->-get32(Lcom/android/server/display/WifiDisplayController;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_0
+
+    iget-object v8, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
+
+    invoke-static {v8}, Lcom/android/server/display/WifiDisplayController;->-get5(Lcom/android/server/display/WifiDisplayController;)Landroid/net/wifi/p2p/WifiP2pDevice;
+
+    move-result-object v8
+
+    if-eqz v8, :cond_0
+
+    iget-object v8, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
+
+    invoke-static {v8}, Lcom/android/server/display/WifiDisplayController;->-get2(Lcom/android/server/display/WifiDisplayController;)Landroid/hardware/display/SemDeviceInfo;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Landroid/hardware/display/SemDeviceInfo;->isPinRequest()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_0
+
+    if-eqz v7, :cond_7
+
+    const-string/jumbo v8, "WifiDisplayController"
+
+    const-string/jumbo v9, "User accepted PIN connect"
+
+    invoke-static {v8, v9}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v8, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
+
+    invoke-static {v8}, Lcom/android/server/display/WifiDisplayController;->-get15(Lcom/android/server/display/WifiDisplayController;)Landroid/os/Handler;
+
+    move-result-object v8
+
+    iget-object v9, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
+
+    invoke-static {v9}, Lcom/android/server/display/WifiDisplayController;->-get6(Lcom/android/server/display/WifiDisplayController;)Ljava/lang/Runnable;
+
+    move-result-object v9
+
+    const-wide/16 v10, 0x7530
+
+    invoke-virtual {v8, v9, v10, v11}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     goto/16 :goto_1
 
     :cond_7
-    const/4 v15, 0x0
+    const-string/jumbo v8, "WifiDisplayController"
 
-    goto :goto_2
+    const-string/jumbo v9, "User cancelled PIN connect or timeout"
+
+    invoke-static {v8, v9}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v8, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
+
+    invoke-static {v8}, Lcom/android/server/display/WifiDisplayController;->-wrap7(Lcom/android/server/display/WifiDisplayController;)V
+
+    goto/16 :goto_1
 
     :cond_8
-    const-string/jumbo v17, "android.net.wifi.STATE_CHANGE"
+    const-string/jumbo v8, "com.samsung.intent.action.WIFI_DISPLAY_TCP_TRANSPORT"
 
-    move-object/from16 v0, v17
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v8
 
-    move-result v17
+    if-eqz v8, :cond_9
 
-    if-eqz v17, :cond_a
+    iget-object v8, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    const-string/jumbo v17, "networkInfo"
+    invoke-static {v8}, Lcom/android/server/display/WifiDisplayController;->-get29(Lcom/android/server/display/WifiDisplayController;)I
 
-    move-object/from16 v0, p2
+    move-result v8
 
-    move-object/from16 v1, v17
+    if-eq v8, v11, :cond_0
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+    iget-object v8, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    move-result-object v11
+    invoke-static {v8, v11}, Lcom/android/server/display/WifiDisplayController;->-set19(Lcom/android/server/display/WifiDisplayController;I)I
 
-    check-cast v11, Landroid/net/NetworkInfo;
+    iget-object v8, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    if-eqz v11, :cond_0
+    const-string/jumbo v9, "tcp"
 
-    invoke-virtual {v11}, Landroid/net/NetworkInfo;->isConnected()Z
+    invoke-static {v11}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result v17
+    move-result-object v10
 
-    if-eqz v17, :cond_0
+    invoke-virtual {v8, v9, v10}, Lcom/android/server/display/WifiDisplayController;->setParam(Ljava/lang/String;Ljava/lang/Object;)V
 
-    const-string/jumbo v17, "wifiInfo"
-
-    move-object/from16 v0, p2
-
-    move-object/from16 v1, v17
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
-
-    move-result-object v16
-
-    check-cast v16, Landroid/net/wifi/WifiInfo;
-
-    if-nez v16, :cond_9
-
-    return-void
+    goto/16 :goto_1
 
     :cond_9
-    invoke-virtual/range {v16 .. v16}, Landroid/net/wifi/WifiInfo;->getFrequency()I
+    const-string/jumbo v8, "com.samsung.intent.action.WIFI_DISPLAY_UDP_TRANSPORT"
 
-    move-result v4
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-object/from16 v0, p0
+    move-result v8
 
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
+    if-eqz v8, :cond_a
 
-    move-object/from16 v17, v0
+    iget-object v8, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/display/WifiDisplayController;->-get22(Lcom/android/server/display/WifiDisplayController;)Z
+    invoke-static {v8}, Lcom/android/server/display/WifiDisplayController;->-get29(Lcom/android/server/display/WifiDisplayController;)I
 
-    move-result v17
+    move-result v8
 
-    if-eqz v17, :cond_0
+    if-eqz v8, :cond_0
 
-    move-object/from16 v0, p0
+    iget-object v8, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
+    invoke-static {v8, v10}, Lcom/android/server/display/WifiDisplayController;->-set19(Lcom/android/server/display/WifiDisplayController;I)I
 
-    move-object/from16 v17, v0
+    iget-object v8, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    move-object/from16 v0, p0
+    const-string/jumbo v9, "udp"
 
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
+    invoke-static {v11}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-object/from16 v18, v0
+    move-result-object v10
 
-    invoke-static/range {v18 .. v18}, Lcom/android/server/display/WifiDisplayController;->-get3(Lcom/android/server/display/WifiDisplayController;)I
-
-    move-result v18
-
-    invoke-static/range {v17 .. v18}, Lcom/android/server/display/WifiDisplayController;->-wrap2(Lcom/android/server/display/WifiDisplayController;I)Z
-
-    move-result v17
-
-    if-nez v17, :cond_0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    invoke-static/range {v17 .. v17}, Lcom/android/server/display/WifiDisplayController;->-get18(Lcom/android/server/display/WifiDisplayController;)Z
-
-    move-result v17
-
-    if-nez v17, :cond_0
-
-    const-string/jumbo v17, "WifiDisplayController"
-
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v19, "AP is connected! AP Frquency:"
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, " ? WfdFrequency:"
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v19, v0
-
-    invoke-static/range {v19 .. v19}, Lcom/android/server/display/WifiDisplayController;->-get32(Lcom/android/server/display/WifiDisplayController;)I
-
-    move-result v19
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v18
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    invoke-static/range {v17 .. v17}, Lcom/android/server/display/WifiDisplayController;->-get32(Lcom/android/server/display/WifiDisplayController;)I
-
-    move-result v17
-
-    move/from16 v0, v17
-
-    if-eq v4, v0, :cond_0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    const v18, 0x22073
-
-    invoke-static/range {v17 .. v18}, Lcom/android/server/display/WifiDisplayController;->-wrap18(Lcom/android/server/display/WifiDisplayController;I)V
+    invoke-virtual {v8, v9, v10}, Lcom/android/server/display/WifiDisplayController;->setParam(Ljava/lang/String;Ljava/lang/Object;)V
 
     goto/16 :goto_1
 
     :cond_a
-    const-string/jumbo v17, "android.intent.action.HDMI_PLUGGED"
+    const-string/jumbo v8, "com.samsung.intent.action.WIFI_DISPLAY_FORCE_UDP"
 
-    move-object/from16 v0, v17
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v8
 
-    move-result v17
+    if-eqz v8, :cond_b
 
-    if-eqz v17, :cond_d
+    iget-object v8, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    move-object/from16 v0, p0
+    const-string/jumbo v9, "fudp"
 
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
+    const-string/jumbo v10, "value"
 
-    move-object/from16 v17, v0
+    invoke-virtual {p2, v10, v11}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/display/WifiDisplayController;->-get17(Lcom/android/server/display/WifiDisplayController;)Z
+    move-result v10
 
-    move-result v17
+    invoke-static {v10}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    if-eqz v17, :cond_b
+    move-result-object v10
 
-    move-object/from16 v0, p0
+    invoke-virtual {v8, v9, v10}, Lcom/android/server/display/WifiDisplayController;->setParam(Ljava/lang/String;Ljava/lang/Object;)V
 
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    invoke-static/range {v17 .. v17}, Lcom/android/server/display/WifiDisplayController;->-get9(Lcom/android/server/display/WifiDisplayController;)Landroid/content/Context;
-
-    move-result-object v17
-
-    new-instance v18, Landroid/content/Intent;
-
-    const-string/jumbo v19, "com.samsung.intent.action.DISMISS_WIFI_DISPLAY_POPUP"
-
-    invoke-direct/range {v18 .. v19}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    sget-object v19, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
-
-    invoke-virtual/range {v17 .. v19}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+    goto/16 :goto_1
 
     :cond_b
-    move-object/from16 v0, p0
+    const-string/jumbo v8, "com.samsung.keyguard.KEYGUARD_STATE_UPDATE"
 
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-object/from16 v17, v0
+    move-result v8
 
-    const-string/jumbo v18, "state"
+    if-eqz v8, :cond_e
 
-    const/16 v19, 0x0
+    iget-object v8, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    move-object/from16 v0, p2
+    invoke-static {v8}, Lcom/android/server/display/WifiDisplayController;->-get2(Lcom/android/server/display/WifiDisplayController;)Landroid/hardware/display/SemDeviceInfo;
 
-    move-object/from16 v1, v18
+    move-result-object v8
 
-    move/from16 v2, v19
+    invoke-virtual {v8}, Landroid/hardware/display/SemDeviceInfo;->isInitiateFromTvMode()Z
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    move-result v8
 
-    move-result v18
+    if-eqz v8, :cond_0
 
-    invoke-static/range {v17 .. v18}, Lcom/android/server/display/WifiDisplayController;->-set10(Lcom/android/server/display/WifiDisplayController;Z)Z
+    iget-object v8, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    move-object/from16 v0, p0
+    invoke-static {v8}, Lcom/android/server/display/WifiDisplayController;->-get7(Lcom/android/server/display/WifiDisplayController;)Landroid/content/Context;
 
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
+    move-result-object v8
 
-    move-object/from16 v17, v0
+    const-string/jumbo v9, "power"
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/display/WifiDisplayController;->-get15(Lcom/android/server/display/WifiDisplayController;)Z
+    invoke-virtual {v8, v9}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result v17
+    move-result-object v6
 
-    if-eqz v17, :cond_c
+    check-cast v6, Landroid/os/PowerManager;
 
-    move-object/from16 v0, p0
+    invoke-virtual {v6}, Landroid/os/PowerManager;->isInteractive()Z
 
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
+    move-result v8
 
-    move-object/from16 v17, v0
+    if-eqz v8, :cond_0
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/display/WifiDisplayController;->-get35(Lcom/android/server/display/WifiDisplayController;)Z
+    const-string/jumbo v8, "bouncerShowing"
 
-    move-result v17
+    invoke-virtual {p2, v8, v10}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
-    if-eqz v17, :cond_c
+    move-result v3
 
-    const-string/jumbo v17, "WifiDisplayController"
+    const-string/jumbo v8, "WifiDisplayController"
 
-    const-string/jumbo v18, "Screen Mirroring is disabled because HDMI is connected..."
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-static/range {v17 .. v18}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-object/from16 v0, p0
+    const-string/jumbo v10, "Received KEYGUARD_STATE_UPDATE = "
 
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v17, v0
+    move-result-object v9
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/display/WifiDisplayController;->-get0(Lcom/android/server/display/WifiDisplayController;)Landroid/hardware/display/WifiDisplay;
+    invoke-virtual {v9, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v17
+    move-result-object v9
 
-    if-eqz v17, :cond_c
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-object/from16 v0, p0
+    move-result-object v9
 
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
+    invoke-static {v8, v9}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-object/from16 v17, v0
+    if-eqz v3, :cond_c
 
-    const v18, 0x22074
+    iget-object v8, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    invoke-static/range {v17 .. v18}, Lcom/android/server/display/WifiDisplayController;->-wrap18(Lcom/android/server/display/WifiDisplayController;I)V
+    const-string/jumbo v9, "usls"
 
-    move-object/from16 v0, p0
+    iget-object v10, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
+    invoke-static {v10}, Lcom/android/server/display/WifiDisplayController;->-wrap5(Lcom/android/server/display/WifiDisplayController;)Ljava/lang/String;
 
-    move-object/from16 v17, v0
+    move-result-object v10
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/display/WifiDisplayController;->-wrap10(Lcom/android/server/display/WifiDisplayController;)V
+    invoke-virtual {v8, v9, v10}, Lcom/android/server/display/WifiDisplayController;->setParam(Ljava/lang/String;Ljava/lang/Object;)V
+
+    goto/16 :goto_1
 
     :cond_c
-    const-string/jumbo v17, "WifiDisplayController"
+    iget-object v8, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    new-instance v18, Ljava/lang/StringBuilder;
+    invoke-static {v8}, Lcom/android/server/display/WifiDisplayController;->-get7(Lcom/android/server/display/WifiDisplayController;)Landroid/content/Context;
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v8
 
-    const-string/jumbo v19, "Received ACTION_HDMI_PLUGGED : mHDMIConnected = "
+    const-string/jumbo v9, "keyguard"
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v9}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v18
+    move-result-object v4
 
-    move-object/from16 v0, p0
+    check-cast v4, Landroid/app/KeyguardManager;
 
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
+    invoke-virtual {v4}, Landroid/app/KeyguardManager;->semIsKeyguardShowingAndNotOccluded()Z
 
-    move-object/from16 v19, v0
+    move-result v8
 
-    invoke-static/range {v19 .. v19}, Lcom/android/server/display/WifiDisplayController;->-get15(Lcom/android/server/display/WifiDisplayController;)Z
+    if-eqz v8, :cond_d
 
-    move-result v19
+    iget-object v8, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    const-string/jumbo v9, "usls"
 
-    move-result-object v18
+    const-string/jumbo v10, "swipe"
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v18
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v8, v9, v10}, Lcom/android/server/display/WifiDisplayController;->setParam(Ljava/lang/String;Ljava/lang/Object;)V
 
     goto/16 :goto_1
 
     :cond_d
-    const-string/jumbo v17, "android.intent.action.WIFI_DISPLAY_URL_FROM_NATIVE"
+    iget-object v8, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    move-object/from16 v0, v17
+    const-string/jumbo v9, "usls"
 
-    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string/jumbo v10, "none"
 
-    move-result v17
-
-    if-eqz v17, :cond_e
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    const-string/jumbo v18, "URL"
-
-    move-object/from16 v0, p2
-
-    move-object/from16 v1, v18
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v18
-
-    invoke-static/range {v17 .. v18}, Lcom/android/server/display/WifiDisplayController;->-set15(Lcom/android/server/display/WifiDisplayController;Ljava/lang/String;)Ljava/lang/String;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    invoke-static/range {v17 .. v17}, Lcom/android/server/display/WifiDisplayController;->-get26(Lcom/android/server/display/WifiDisplayController;)Ljava/lang/String;
-
-    move-result-object v17
-
-    if-eqz v17, :cond_0
-
-    const-string/jumbo v17, "WifiDisplayController"
-
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v19, "dongle Update URL:"
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v19, v0
-
-    invoke-static/range {v19 .. v19}, Lcom/android/server/display/WifiDisplayController;->-get26(Lcom/android/server/display/WifiDisplayController;)Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v18
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    invoke-static/range {v17 .. v17}, Lcom/android/server/display/WifiDisplayController;->-get16(Lcom/android/server/display/WifiDisplayController;)Landroid/os/Handler;
-
-    move-result-object v17
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v18, v0
-
-    invoke-static/range {v18 .. v18}, Lcom/android/server/display/WifiDisplayController;->-get24(Lcom/android/server/display/WifiDisplayController;)Ljava/lang/Runnable;
-
-    move-result-object v18
-
-    invoke-virtual/range {v17 .. v18}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    invoke-static/range {v17 .. v17}, Lcom/android/server/display/WifiDisplayController;->-get16(Lcom/android/server/display/WifiDisplayController;)Landroid/os/Handler;
-
-    move-result-object v17
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v18, v0
-
-    invoke-static/range {v18 .. v18}, Lcom/android/server/display/WifiDisplayController;->-get28(Lcom/android/server/display/WifiDisplayController;)Ljava/lang/Runnable;
-
-    move-result-object v18
-
-    const-wide/16 v20, 0x2ee
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v18
-
-    move-wide/from16 v2, v20
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v8, v9, v10}, Lcom/android/server/display/WifiDisplayController;->setParam(Ljava/lang/String;Ljava/lang/Object;)V
 
     goto/16 :goto_1
 
     :cond_e
-    const-string/jumbo v17, "com.samsung.settings.POWERSAVING_CHANGED"
+    const-string/jumbo v8, "android.intent.action.SCREEN_ON"
 
-    move-object/from16 v0, v17
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v8
 
-    move-result v17
+    if-eqz v8, :cond_10
 
-    if-eqz v17, :cond_12
+    iget-object v8, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    const-string/jumbo v7, "true"
+    invoke-static {v8}, Lcom/android/server/display/WifiDisplayController;->-get2(Lcom/android/server/display/WifiDisplayController;)Landroid/hardware/display/SemDeviceInfo;
 
-    const-string/jumbo v17, "changed"
+    move-result-object v8
 
-    move-object/from16 v0, p2
+    invoke-virtual {v8}, Landroid/hardware/display/SemDeviceInfo;->isInitiateFromTvMode()Z
 
-    move-object/from16 v1, v17
+    move-result v8
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
+    if-eqz v8, :cond_0
 
-    move-result v17
+    iget-object v8, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    if-eqz v17, :cond_f
+    invoke-static {v8}, Lcom/android/server/display/WifiDisplayController;->-get25(Lcom/android/server/display/WifiDisplayController;)Z
 
-    const-string/jumbo v17, "changed"
+    move-result v8
 
-    move-object/from16 v0, p2
+    if-eqz v8, :cond_f
 
-    move-object/from16 v1, v17
+    const-string/jumbo v8, "WifiDisplayController"
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+    const-string/jumbo v9, "Received ACTION_SCREEN_ON by user"
 
-    move-result-object v7
+    invoke-static {v8, v9}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v8, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
+
+    invoke-static {v8}, Lcom/android/server/display/WifiDisplayController;->-get7(Lcom/android/server/display/WifiDisplayController;)Landroid/content/Context;
+
+    move-result-object v8
+
+    const-string/jumbo v9, "keyguard"
+
+    invoke-virtual {v8, v9}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/app/KeyguardManager;
+
+    invoke-virtual {v4}, Landroid/app/KeyguardManager;->semIsKeyguardShowingAndNotOccluded()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_0
+
+    iget-object v8, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
+
+    const-string/jumbo v9, "usls"
+
+    const-string/jumbo v10, "swipe"
+
+    invoke-virtual {v8, v9, v10}, Lcom/android/server/display/WifiDisplayController;->setParam(Ljava/lang/String;Ljava/lang/Object;)V
+
+    goto/16 :goto_1
 
     :cond_f
-    move-object/from16 v0, p0
+    const-string/jumbo v8, "WifiDisplayController"
 
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
+    const-string/jumbo v9, "Received ACTION_SCREEN_ON by controller"
 
-    move-object/from16 v17, v0
+    invoke-static {v8, v9}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/display/WifiDisplayController;->-wrap5(Lcom/android/server/display/WifiDisplayController;)I
+    iget-object v8, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    move-result v17
+    invoke-static {v8, v11}, Lcom/android/server/display/WifiDisplayController;->-set16(Lcom/android/server/display/WifiDisplayController;Z)Z
 
-    const/16 v18, 0x1
-
-    move/from16 v0, v17
-
-    move/from16 v1, v18
-
-    if-ne v0, v1, :cond_11
-
-    const-string/jumbo v17, "true"
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v17
-
-    if-eqz v17, :cond_11
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    invoke-static/range {v17 .. v17}, Lcom/android/server/display/WifiDisplayController;->-get30(Lcom/android/server/display/WifiDisplayController;)Z
-
-    move-result v17
-
-    if-nez v17, :cond_10
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    invoke-static/range {v17 .. v17}, Lcom/android/server/display/WifiDisplayController;->-get22(Lcom/android/server/display/WifiDisplayController;)Z
-
-    move-result v17
-
-    if-eqz v17, :cond_11
+    goto/16 :goto_1
 
     :cond_10
-    const-string/jumbo v17, "WifiDisplayController"
+    const-string/jumbo v8, "android.intent.action.SCREEN_OFF"
 
-    const-string/jumbo v18, "received power saving mode enabled"
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-static/range {v17 .. v18}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result v8
 
-    move-object/from16 v0, p0
+    if-eqz v8, :cond_0
 
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
+    iget-object v8, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    move-object/from16 v17, v0
+    invoke-static {v8}, Lcom/android/server/display/WifiDisplayController;->-get2(Lcom/android/server/display/WifiDisplayController;)Landroid/hardware/display/SemDeviceInfo;
 
-    const v18, 0x22084
+    move-result-object v8
 
-    invoke-static/range {v17 .. v18}, Lcom/android/server/display/WifiDisplayController;->-wrap18(Lcom/android/server/display/WifiDisplayController;I)V
+    invoke-virtual {v8}, Landroid/hardware/display/SemDeviceInfo;->isInitiateFromTvMode()Z
 
-    goto/16 :goto_1
+    move-result v8
 
-    :cond_11
-    move-object/from16 v0, p0
+    if-eqz v8, :cond_0
 
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
+    const-string/jumbo v8, "WifiDisplayController"
 
-    move-object/from16 v17, v0
+    const-string/jumbo v9, "Received ACTION_SCREEN_OFF"
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/display/WifiDisplayController;->-get27(Lcom/android/server/display/WifiDisplayController;)Z
+    invoke-static {v8, v9}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v17
+    iget-object v8, p0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    if-eqz v17, :cond_0
+    const-string/jumbo v9, "usls"
 
-    move-object/from16 v0, p0
+    const-string/jumbo v10, "screen_off"
 
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    invoke-static/range {v17 .. v17}, Lcom/android/server/display/WifiDisplayController;->-wrap5(Lcom/android/server/display/WifiDisplayController;)I
-
-    move-result v17
-
-    if-nez v17, :cond_0
-
-    const-string/jumbo v17, "true"
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v17
-
-    if-eqz v17, :cond_0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    invoke-static/range {v17 .. v17}, Lcom/android/server/display/WifiDisplayController;->-wrap3(Lcom/android/server/display/WifiDisplayController;)Z
-
-    move-result v17
-
-    if-nez v17, :cond_0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    const/16 v18, 0x0
-
-    invoke-static/range {v17 .. v18}, Lcom/android/server/display/WifiDisplayController;->-set16(Lcom/android/server/display/WifiDisplayController;Z)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    invoke-static/range {v17 .. v17}, Lcom/android/server/display/WifiDisplayController;->-wrap27(Lcom/android/server/display/WifiDisplayController;)V
-
-    goto/16 :goto_1
-
-    :cond_12
-    const-string/jumbo v17, "com.samsung.intent.action.WIFI_DISPLAY_NOT_ALLOWED"
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v17
-
-    if-eqz v17, :cond_15
-
-    const-string/jumbo v17, "WifiDisplayController"
-
-    const-string/jumbo v18, "LimitedContents : com.samsung.intent.action.WIFI_DISPLAY_NOT_ALLOWED"
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getType()Ljava/lang/String;
-
-    move-result-object v12
-
-    if-nez v12, :cond_13
-
-    const-string/jumbo v17, "WifiDisplayController"
-
-    const-string/jumbo v18, "LimitedContents type is null"
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_13
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    invoke-static/range {v17 .. v17}, Lcom/android/server/display/WifiDisplayController;->-get22(Lcom/android/server/display/WifiDisplayController;)Z
-
-    move-result v17
-
-    if-eqz v17, :cond_0
-
-    const-string/jumbo v17, "recording"
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v12, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v17
-
-    if-eqz v17, :cond_14
-
-    const-string/jumbo v17, "WifiDisplayController"
-
-    const-string/jumbo v18, "LimitedContents : recording"
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    const v18, 0x22087
-
-    invoke-static/range {v17 .. v18}, Lcom/android/server/display/WifiDisplayController;->-wrap18(Lcom/android/server/display/WifiDisplayController;I)V
-
-    goto/16 :goto_1
-
-    :cond_14
-    const-string/jumbo v17, "playback"
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v12, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v17
-
-    if-eqz v17, :cond_0
-
-    const-string/jumbo v17, "WifiDisplayController"
-
-    const-string/jumbo v18, "LimitedContents : playback"
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    const v18, 0x22086
-
-    invoke-static/range {v17 .. v18}, Lcom/android/server/display/WifiDisplayController;->-wrap18(Lcom/android/server/display/WifiDisplayController;I)V
-
-    goto/16 :goto_1
-
-    :cond_15
-    const-string/jumbo v17, "sidesync.app.action.DISMISS_FINISH_DIALOG"
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v17
-
-    if-eqz v17, :cond_16
-
-    const-string/jumbo v17, "WifiDisplayController"
-
-    const-string/jumbo v18, "sidesync.app.action.DISMISS_FINISH_DIALOG"
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    invoke-static/range {v17 .. v17}, Lcom/android/server/display/WifiDisplayController;->-get27(Lcom/android/server/display/WifiDisplayController;)Z
-
-    move-result v17
-
-    if-eqz v17, :cond_0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    const/16 v18, 0x0
-
-    invoke-static/range {v17 .. v18}, Lcom/android/server/display/WifiDisplayController;->-set16(Lcom/android/server/display/WifiDisplayController;Z)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    invoke-static/range {v17 .. v17}, Lcom/android/server/display/WifiDisplayController;->-get16(Lcom/android/server/display/WifiDisplayController;)Landroid/os/Handler;
-
-    move-result-object v17
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v18, v0
-
-    invoke-static/range {v18 .. v18}, Lcom/android/server/display/WifiDisplayController;->-get29(Lcom/android/server/display/WifiDisplayController;)Ljava/lang/Runnable;
-
-    move-result-object v18
-
-    const-wide/16 v20, 0x2ee
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v18
-
-    move-wide/from16 v2, v20
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    goto/16 :goto_1
-
-    :cond_16
-    const-string/jumbo v17, "com.sec.android.sidesync.action.FINISH_SIDESYNC_APP"
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v17
-
-    if-eqz v17, :cond_17
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    invoke-static/range {v17 .. v17}, Lcom/android/server/display/WifiDisplayController;->-get27(Lcom/android/server/display/WifiDisplayController;)Z
-
-    move-result v17
-
-    if-eqz v17, :cond_0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    const/16 v18, 0x0
-
-    invoke-static/range {v17 .. v18}, Lcom/android/server/display/WifiDisplayController;->-set16(Lcom/android/server/display/WifiDisplayController;Z)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    invoke-static/range {v17 .. v17}, Lcom/android/server/display/WifiDisplayController;->-get16(Lcom/android/server/display/WifiDisplayController;)Landroid/os/Handler;
-
-    move-result-object v17
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v18, v0
-
-    invoke-static/range {v18 .. v18}, Lcom/android/server/display/WifiDisplayController;->-get29(Lcom/android/server/display/WifiDisplayController;)Ljava/lang/Runnable;
-
-    move-result-object v18
-
-    const-wide/16 v20, 0x2ee
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v18
-
-    move-wide/from16 v2, v20
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    goto/16 :goto_1
-
-    :cond_17
-    const-string/jumbo v17, "com.samsung.wfd.RESULT_WFD_UPDATE"
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v17
-
-    if-eqz v17, :cond_18
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    const-string/jumbo v18, "result"
-
-    const/16 v19, 0x0
-
-    move-object/from16 v0, p2
-
-    move-object/from16 v1, v18
-
-    move/from16 v2, v19
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
-
-    move-result v18
-
-    invoke-static/range {v17 .. v18}, Lcom/android/server/display/WifiDisplayController;->-set9(Lcom/android/server/display/WifiDisplayController;Z)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    const/16 v18, 0x0
-
-    invoke-static/range {v17 .. v18}, Lcom/android/server/display/WifiDisplayController;->-set8(Lcom/android/server/display/WifiDisplayController;Z)Z
-
-    const-string/jumbo v17, "WifiDisplayController"
-
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v19, "SEM_ACTION_RESULT_WFD_UPDATE << result:"
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v19, v0
-
-    invoke-static/range {v19 .. v19}, Lcom/android/server/display/WifiDisplayController;->-get14(Lcom/android/server/display/WifiDisplayController;)Z
-
-    move-result v19
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v18
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_1
-
-    :cond_18
-    const-string/jumbo v17, "android.net.wifi.p2p.REQUEST_STATE_CHANGE"
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v17
-
-    if-eqz v17, :cond_1a
-
-    const-string/jumbo v17, "requestState"
-
-    const/16 v18, 0x0
-
-    move-object/from16 v0, p2
-
-    move-object/from16 v1, v17
-
-    move/from16 v2, v18
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
-
-    move-result v14
-
-    const-string/jumbo v17, "WifiDisplayController"
-
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v19, "Received WifiP2pManager.WIFI_P2P_REQUEST_CHANGED_ACTION : requestAccepted = "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v18
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    invoke-static/range {v17 .. v17}, Lcom/android/server/display/WifiDisplayController;->-get34(Lcom/android/server/display/WifiDisplayController;)Z
-
-    move-result v17
-
-    if-nez v17, :cond_0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    invoke-static/range {v17 .. v17}, Lcom/android/server/display/WifiDisplayController;->-get6(Lcom/android/server/display/WifiDisplayController;)Landroid/net/wifi/p2p/WifiP2pDevice;
-
-    move-result-object v17
-
-    if-eqz v17, :cond_0
-
-    if-eqz v14, :cond_19
-
-    const-string/jumbo v17, "WifiDisplayController"
-
-    const-string/jumbo v18, "User accepted PIN connect"
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    const v18, 0x2208a
-
-    invoke-static/range {v17 .. v18}, Lcom/android/server/display/WifiDisplayController;->-wrap18(Lcom/android/server/display/WifiDisplayController;I)V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    invoke-static/range {v17 .. v17}, Lcom/android/server/display/WifiDisplayController;->-get16(Lcom/android/server/display/WifiDisplayController;)Landroid/os/Handler;
-
-    move-result-object v17
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v18, v0
-
-    invoke-static/range {v18 .. v18}, Lcom/android/server/display/WifiDisplayController;->-get8(Lcom/android/server/display/WifiDisplayController;)Ljava/lang/Runnable;
-
-    move-result-object v18
-
-    const-wide/16 v20, 0x7530
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v18
-
-    move-wide/from16 v2, v20
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    goto/16 :goto_1
-
-    :cond_19
-    const-string/jumbo v17, "WifiDisplayController"
-
-    const-string/jumbo v18, "User cancelled PIN connect or timeout"
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    invoke-static/range {v17 .. v17}, Lcom/android/server/display/WifiDisplayController;->-wrap10(Lcom/android/server/display/WifiDisplayController;)V
-
-    goto/16 :goto_1
-
-    :cond_1a
-    const-string/jumbo v17, "android.intent.action.BOOT_COMPLETED"
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v17
-
-    if-eqz v17, :cond_1b
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    const/16 v18, 0x1
-
-    invoke-static/range {v17 .. v18}, Lcom/android/server/display/WifiDisplayController;->-set11(Lcom/android/server/display/WifiDisplayController;Z)Z
-
-    goto/16 :goto_1
-
-    :cond_1b
-    const-string/jumbo v17, "com.kddi.android.sptab_source.SUCCESS_CONNECT_SOURCE"
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v17
-
-    if-eqz v17, :cond_1c
-
-    const-string/jumbo v17, "WifiDisplayController"
-
-    const-string/jumbo v18, "received:com.kddi.android.sptab_source.SUCCESS_CONNECT_SOURCE"
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    const/16 v18, 0x1
-
-    invoke-static/range {v17 .. v18}, Lcom/android/server/display/WifiDisplayController;->-set12(Lcom/android/server/display/WifiDisplayController;Z)Z
-
-    goto/16 :goto_1
-
-    :cond_1c
-    const-string/jumbo v17, "com.kddi.android.sptab_source.SUCCESS_DISCONNECT_SOURCE"
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v17
-
-    if-eqz v17, :cond_0
-
-    const-string/jumbo v17, "WifiDisplayController"
-
-    const-string/jumbo v18, "received:com.kddi.android.sptab_source.SUCCESS_DISCONNECT_SOURCE"
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$7;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    move-object/from16 v17, v0
-
-    const/16 v18, 0x0
-
-    invoke-static/range {v17 .. v18}, Lcom/android/server/display/WifiDisplayController;->-set12(Lcom/android/server/display/WifiDisplayController;Z)Z
+    invoke-virtual {v8, v9, v10}, Lcom/android/server/display/WifiDisplayController;->setParam(Ljava/lang/String;Ljava/lang/Object;)V
 
     goto/16 :goto_1
 .end method

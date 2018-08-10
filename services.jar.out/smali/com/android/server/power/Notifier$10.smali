@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/power/Notifier;->onMultipleScreenStateChanging(II)V
+    value = Lcom/android/server/power/Notifier;->onSubScreenStateChanged(III)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/power/Notifier;
 
-.field final synthetic val$reason:I
-
 .field final synthetic val$state:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/power/Notifier;II)V
+.method constructor <init>(Lcom/android/server/power/Notifier;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/power/Notifier$10;->this$0:Lcom/android/server/power/Notifier;
 
     iput p2, p0, Lcom/android/server/power/Notifier$10;->val$state:I
-
-    iput p3, p0, Lcom/android/server/power/Notifier$10;->val$reason:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,43 +39,36 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 2
+
+    iget v0, p0, Lcom/android/server/power/Notifier$10;->val$state:I
+
+    const/4 v1, 0x2
+
+    if-ne v0, v1, :cond_1
 
     const-string/jumbo v0, "PowerManagerNotifier"
 
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "onMultipleScreenStateChanging : state="
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget v2, p0, Lcom/android/server/power/Notifier$10;->val$state:I
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, ", reason="
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget v2, p0, Lcom/android/server/power/Notifier$10;->val$reason:I
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
+    const-string/jumbo v1, "sendBroadcast SubScreen On"
 
     invoke-static {v0, v1}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    :cond_0
+    :goto_0
     return-void
+
+    :cond_1
+    iget v0, p0, Lcom/android/server/power/Notifier$10;->val$state:I
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_0
+
+    const-string/jumbo v0, "PowerManagerNotifier"
+
+    const-string/jumbo v1, "sendBroadcast SubScreen Off"
+
+    invoke-static {v0, v1}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 .end method

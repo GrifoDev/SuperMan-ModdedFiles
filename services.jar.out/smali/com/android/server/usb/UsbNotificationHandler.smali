@@ -27,6 +27,8 @@
 
 .field private final TAG:Ljava/lang/String;
 
+.field private curLocale:Ljava/util/Locale;
+
 .field private final mBootCompletedReceiver:Landroid/content/BroadcastReceiver;
 
 .field private final mContext:Landroid/content/Context;
@@ -47,6 +49,8 @@
     .end annotation
 .end field
 
+.field private res:Landroid/content/res/Resources;
+
 
 # direct methods
 .method static synthetic -get0(Lcom/android/server/usb/UsbNotificationHandler;)Ljava/lang/String;
@@ -57,12 +61,36 @@
     return-object v0
 .end method
 
-.method static synthetic -get1(Lcom/android/server/usb/UsbNotificationHandler;)Landroid/content/Context;
+.method static synthetic -get1(Lcom/android/server/usb/UsbNotificationHandler;)Ljava/util/Locale;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/usb/UsbNotificationHandler;->curLocale:Ljava/util/Locale;
+
+    return-object v0
+.end method
+
+.method static synthetic -get2(Lcom/android/server/usb/UsbNotificationHandler;)Landroid/content/Context;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/usb/UsbNotificationHandler;->mContext:Landroid/content/Context;
 
     return-object v0
+.end method
+
+.method static synthetic -get3(Lcom/android/server/usb/UsbNotificationHandler;)Landroid/content/res/Resources;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/usb/UsbNotificationHandler;->res:Landroid/content/res/Resources;
+
+    return-object v0
+.end method
+
+.method static synthetic -set0(Lcom/android/server/usb/UsbNotificationHandler;Ljava/util/Locale;)Ljava/util/Locale;
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/usb/UsbNotificationHandler;->curLocale:Ljava/util/Locale;
+
+    return-object p1
 .end method
 
 .method static synthetic -wrap0(Lcom/android/server/usb/UsbNotificationHandler;III)V
@@ -109,6 +137,24 @@
     iput-object p3, p0, Lcom/android/server/usb/UsbNotificationHandler;->TAG:Ljava/lang/String;
 
     iput-object p1, p0, Lcom/android/server/usb/UsbNotificationHandler;->mContext:Landroid/content/Context;
+
+    iget-object v0, p0, Lcom/android/server/usb/UsbNotificationHandler;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/server/usb/UsbNotificationHandler;->res:Landroid/content/res/Resources;
+
+    iget-object v0, p0, Lcom/android/server/usb/UsbNotificationHandler;->res:Landroid/content/res/Resources;
+
+    invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v0
+
+    iget-object v0, v0, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
+
+    iput-object v0, p0, Lcom/android/server/usb/UsbNotificationHandler;->curLocale:Ljava/util/Locale;
 
     iget-object v0, p0, Lcom/android/server/usb/UsbNotificationHandler;->mContext:Landroid/content/Context;
 

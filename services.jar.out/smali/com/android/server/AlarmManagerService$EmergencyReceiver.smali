@@ -88,7 +88,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_3
 
     iget-object v6, p0, Lcom/android/server/AlarmManagerService$EmergencyReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
@@ -96,7 +96,7 @@
 
     move-result-object v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_0
 
     iget-object v6, p0, Lcom/android/server/AlarmManagerService$EmergencyReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
@@ -108,24 +108,27 @@
 
     move-result v6
 
+    xor-int/lit8 v6, v6, 0x1
+
     if-eqz v6, :cond_1
 
+    :cond_0
+    return-void
+
+    :cond_1
     iget-object v6, p0, Lcom/android/server/AlarmManagerService$EmergencyReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
-    invoke-static {v6}, Lcom/android/server/AlarmManagerService;->-get2(Lcom/android/server/AlarmManagerService;)Landroid/os/Handler;
+    invoke-static {v6}, Lcom/android/server/AlarmManagerService;->-get1(Lcom/android/server/AlarmManagerService;)Landroid/os/Handler;
 
     move-result-object v6
 
     invoke-virtual {v6, v9}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    :cond_0
+    :cond_2
     :goto_0
     return-void
 
-    :cond_1
-    return-void
-
-    :cond_2
+    :cond_3
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v6
@@ -136,7 +139,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_6
 
     iget-object v6, p0, Lcom/android/server/AlarmManagerService$EmergencyReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
@@ -144,7 +147,7 @@
 
     move-result-object v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_4
 
     iget-object v6, p0, Lcom/android/server/AlarmManagerService$EmergencyReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
@@ -156,11 +159,17 @@
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    xor-int/lit8 v6, v6, 0x1
 
+    if-eqz v6, :cond_5
+
+    :cond_4
+    return-void
+
+    :cond_5
     iget-object v6, p0, Lcom/android/server/AlarmManagerService$EmergencyReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
-    invoke-static {v6}, Lcom/android/server/AlarmManagerService;->-get2(Lcom/android/server/AlarmManagerService;)Landroid/os/Handler;
+    invoke-static {v6}, Lcom/android/server/AlarmManagerService;->-get1(Lcom/android/server/AlarmManagerService;)Landroid/os/Handler;
 
     move-result-object v6
 
@@ -168,10 +177,7 @@
 
     goto :goto_0
 
-    :cond_3
-    return-void
-
-    :cond_4
+    :cond_6
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v6
@@ -182,7 +188,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_7
 
     const-string/jumbo v6, "reason"
 
@@ -190,11 +196,11 @@
 
     move-result v4
 
-    if-ne v4, v9, :cond_0
+    if-ne v4, v9, :cond_2
 
     iget-object v6, p0, Lcom/android/server/AlarmManagerService$EmergencyReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
-    invoke-static {v6}, Lcom/android/server/AlarmManagerService;->-get2(Lcom/android/server/AlarmManagerService;)Landroid/os/Handler;
+    invoke-static {v6}, Lcom/android/server/AlarmManagerService;->-get1(Lcom/android/server/AlarmManagerService;)Landroid/os/Handler;
 
     move-result-object v6
 
@@ -204,7 +210,7 @@
 
     goto :goto_0
 
-    :cond_5
+    :cond_7
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v6
@@ -215,7 +221,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_2
 
     iget-object v6, p0, Lcom/android/server/AlarmManagerService$EmergencyReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
@@ -223,7 +229,7 @@
 
     move-result-object v6
 
-    if-eqz v6, :cond_6
+    if-eqz v6, :cond_8
 
     iget-object v6, p0, Lcom/android/server/AlarmManagerService$EmergencyReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
@@ -235,8 +241,14 @@
 
     move-result v6
 
-    if-eqz v6, :cond_6
+    xor-int/lit8 v6, v6, 0x1
 
+    if-eqz v6, :cond_9
+
+    :cond_8
+    return-void
+
+    :cond_9
     invoke-virtual {p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
     move-result-object v0
@@ -247,7 +259,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2
 
     const-string/jumbo v6, "com.sec.android.app.clockpackage"
 
@@ -255,7 +267,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_2
 
     :try_start_0
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
@@ -273,19 +285,21 @@
     move-result-object v1
 
     :goto_1
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_a
 
     iget-boolean v6, v1, Landroid/content/pm/ApplicationInfo;->enabled:Z
 
-    if-eqz v6, :cond_7
+    if-eqz v6, :cond_a
 
     iget-object v6, p0, Lcom/android/server/AlarmManagerService$EmergencyReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
-    invoke-static {v6}, Lcom/android/server/AlarmManagerService;->-get2(Lcom/android/server/AlarmManagerService;)Landroid/os/Handler;
+    invoke-static {v6}, Lcom/android/server/AlarmManagerService;->-get1(Lcom/android/server/AlarmManagerService;)Landroid/os/Handler;
 
     move-result-object v6
 
-    invoke-virtual {v6, v9}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+    const/4 v7, 0x3
+
+    invoke-virtual {v6, v7}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
     const-string/jumbo v6, "AlarmManager"
 
@@ -311,19 +325,18 @@
 
     goto/16 :goto_0
 
-    :cond_6
-    return-void
-
-    :cond_7
-    if-eqz v1, :cond_0
+    :cond_a
+    if-eqz v1, :cond_2
 
     iget-boolean v6, v1, Landroid/content/pm/ApplicationInfo;->enabled:Z
 
-    if-nez v6, :cond_0
+    xor-int/lit8 v6, v6, 0x1
+
+    if-eqz v6, :cond_2
 
     iget-object v6, p0, Lcom/android/server/AlarmManagerService$EmergencyReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
-    invoke-static {v6}, Lcom/android/server/AlarmManagerService;->-get2(Lcom/android/server/AlarmManagerService;)Landroid/os/Handler;
+    invoke-static {v6}, Lcom/android/server/AlarmManagerService;->-get1(Lcom/android/server/AlarmManagerService;)Landroid/os/Handler;
 
     move-result-object v6
 

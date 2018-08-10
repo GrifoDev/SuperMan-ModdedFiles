@@ -1,14 +1,11 @@
 .class Lcom/android/server/location/GnssLocationProvider_samsung$1;
-.super Ljava/lang/Object;
+.super Landroid/net/ConnectivityManager$NetworkCallback;
 .source "GnssLocationProvider_samsung.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/location/GnssLocationProvider_samsung;->checkUDPSuplInit()V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/server/location/GnssLocationProvider_samsung;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -18,8 +15,6 @@
 
 
 # instance fields
-.field socket:Ljava/net/DatagramSocket;
-
 .field final synthetic this$0:Lcom/android/server/location/GnssLocationProvider_samsung;
 
 
@@ -29,117 +24,76 @@
 
     iput-object p1, p0, Lcom/android/server/location/GnssLocationProvider_samsung$1;->this$0:Lcom/android/server/location/GnssLocationProvider_samsung;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/net/ConnectivityManager$NetworkCallback;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 6
+.method public onAvailable(Landroid/net/Network;)V
+    .locals 2
+
+    const-string/jumbo v0, "GnssLocationProvider_ex"
+
+    const-string/jumbo v1, "mEmergencyNetworkConnectivityCallback : onAvailable"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/android/server/location/GnssLocationProvider_samsung$1;->this$0:Lcom/android/server/location/GnssLocationProvider_samsung;
+
+    invoke-static {v0}, Lcom/android/server/location/GnssLocationProvider_samsung;->-get1(Lcom/android/server/location/GnssLocationProvider_samsung;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/location/GnssLocationProvider_samsung$1;->this$0:Lcom/android/server/location/GnssLocationProvider_samsung;
+
+    const/4 v1, 0x1
+
+    invoke-static {v0, v1}, Lcom/android/server/location/GnssLocationProvider_samsung;->-set0(Lcom/android/server/location/GnssLocationProvider_samsung;Z)Z
+
+    iget-object v0, p0, Lcom/android/server/location/GnssLocationProvider_samsung$1;->this$0:Lcom/android/server/location/GnssLocationProvider_samsung;
+
+    invoke-static {v0}, Lcom/android/server/location/GnssLocationProvider_samsung;->-wrap1(Lcom/android/server/location/GnssLocationProvider_samsung;)V
 
     :cond_0
-    :goto_0
-    iget-object v4, p0, Lcom/android/server/location/GnssLocationProvider_samsung$1;->this$0:Lcom/android/server/location/GnssLocationProvider_samsung;
+    return-void
+.end method
 
-    invoke-static {v4}, Lcom/android/server/location/GnssLocationProvider_samsung;->-get0(Lcom/android/server/location/GnssLocationProvider_samsung;)Z
+.method public onLost(Landroid/net/Network;)V
+    .locals 2
 
-    move-result v4
+    const-string/jumbo v0, "GnssLocationProvider_ex"
 
-    if-eqz v4, :cond_2
+    const-string/jumbo v1, "mEmergencyNetworkConnectivityCallback : onLost"
 
-    const/16 v4, 0x5dc
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :try_start_0
-    new-array v0, v4, [B
+    iget-object v0, p0, Lcom/android/server/location/GnssLocationProvider_samsung$1;->this$0:Lcom/android/server/location/GnssLocationProvider_samsung;
 
-    new-instance v3, Ljava/net/DatagramPacket;
+    const/4 v1, 0x0
 
-    array-length v4, v0
+    invoke-static {v0, v1}, Lcom/android/server/location/GnssLocationProvider_samsung;->-set0(Lcom/android/server/location/GnssLocationProvider_samsung;Z)Z
 
-    invoke-direct {v3, v0, v4}, Ljava/net/DatagramPacket;-><init>([BI)V
+    return-void
+.end method
 
-    new-instance v4, Ljava/net/DatagramSocket;
+.method public onUnavailable()V
+    .locals 2
 
-    const/16 v5, 0x1c6b
+    const-string/jumbo v0, "GnssLocationProvider_ex"
 
-    invoke-direct {v4, v5}, Ljava/net/DatagramSocket;-><init>(I)V
+    const-string/jumbo v1, "mEmergencyNetworkConnectivityCallback : onUnavailable"
 
-    iput-object v4, p0, Lcom/android/server/location/GnssLocationProvider_samsung$1;->socket:Ljava/net/DatagramSocket;
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v4, p0, Lcom/android/server/location/GnssLocationProvider_samsung$1;->socket:Ljava/net/DatagramSocket;
+    iget-object v0, p0, Lcom/android/server/location/GnssLocationProvider_samsung$1;->this$0:Lcom/android/server/location/GnssLocationProvider_samsung;
 
-    const v5, 0xea60
+    const/4 v1, 0x0
 
-    invoke-virtual {v4, v5}, Ljava/net/DatagramSocket;->setSoTimeout(I)V
+    invoke-static {v0, v1}, Lcom/android/server/location/GnssLocationProvider_samsung;->-set0(Lcom/android/server/location/GnssLocationProvider_samsung;Z)Z
 
-    iget-object v4, p0, Lcom/android/server/location/GnssLocationProvider_samsung$1;->socket:Ljava/net/DatagramSocket;
-
-    invoke-virtual {v4, v3}, Ljava/net/DatagramSocket;->receive(Ljava/net/DatagramPacket;)V
-
-    const-string/jumbo v4, "GnssLocationProvider_ex"
-
-    const-string/jumbo v5, "received data through 7275 UDP port"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {v3}, Ljava/net/DatagramPacket;->getLength()I
-
-    move-result v4
-
-    if-lez v4, :cond_1
-
-    new-instance v2, Landroid/content/Intent;
-
-    const-string/jumbo v4, "android.intent.action.AGPS_UDP_RECEIVED"
-
-    invoke-direct {v2, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const-string/jumbo v4, "packet_data"
-
-    invoke-virtual {v3}, Ljava/net/DatagramPacket;->getData()[B
-
-    move-result-object v5
-
-    invoke-virtual {v2, v4, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[B)Landroid/content/Intent;
-
-    const-string/jumbo v4, "packet_length"
-
-    invoke-virtual {v3}, Ljava/net/DatagramPacket;->getLength()I
-
-    move-result v5
-
-    invoke-virtual {v2, v4, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
-
-    iget-object v4, p0, Lcom/android/server/location/GnssLocationProvider_samsung$1;->this$0:Lcom/android/server/location/GnssLocationProvider_samsung;
-
-    iget-object v4, v4, Lcom/android/server/location/GnssLocationProvider_samsung;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v4, v2}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
-
-    :cond_1
-    iget-object v4, p0, Lcom/android/server/location/GnssLocationProvider_samsung$1;->socket:Ljava/net/DatagramSocket;
-
-    invoke-virtual {v4}, Ljava/net/DatagramSocket;->close()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v1
-
-    iget-object v4, p0, Lcom/android/server/location/GnssLocationProvider_samsung$1;->socket:Ljava/net/DatagramSocket;
-
-    if-eqz v4, :cond_0
-
-    iget-object v4, p0, Lcom/android/server/location/GnssLocationProvider_samsung$1;->socket:Ljava/net/DatagramSocket;
-
-    invoke-virtual {v4}, Ljava/net/DatagramSocket;->close()V
-
-    goto :goto_0
-
-    :cond_2
     return-void
 .end method

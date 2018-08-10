@@ -3,12 +3,12 @@
 .source "PackageManagerService.java"
 
 # interfaces
-.implements Ljava/util/Comparator;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/pm/PackageManagerService;->createIdmapForPackagePairLI(Landroid/content/pm/PackageParser$Package;Landroid/content/pm/PackageParser$Package;Landroid/os/UserHandle;ZZ)Z
+    value = Lcom/android/server/pm/PackageManagerService;->grantRuntimePermission(Ljava/lang/String;Ljava/lang/String;IZ)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -16,26 +16,24 @@
     name = null
 .end annotation
 
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Ljava/util/Comparator",
-        "<",
-        "Landroid/content/pm/PackageParser$Package;",
-        ">;"
-    }
-.end annotation
-
 
 # instance fields
 .field final synthetic this$0:Lcom/android/server/pm/PackageManagerService;
 
+.field final synthetic val$appId:I
+
+.field final synthetic val$userId:I
+
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/PackageManagerService;)V
+.method constructor <init>(Lcom/android/server/pm/PackageManagerService;II)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$9;->this$0:Lcom/android/server/pm/PackageManagerService;
+
+    iput p2, p0, Lcom/android/server/pm/PackageManagerService$9;->val$appId:I
+
+    iput p3, p0, Lcom/android/server/pm/PackageManagerService$9;->val$userId:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -44,28 +42,18 @@
 
 
 # virtual methods
-.method public compare(Landroid/content/pm/PackageParser$Package;Landroid/content/pm/PackageParser$Package;)I
-    .locals 2
+.method public run()V
+    .locals 4
 
-    iget v0, p1, Landroid/content/pm/PackageParser$Package;->mOverlayPriority:I
+    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$9;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    iget v1, p2, Landroid/content/pm/PackageParser$Package;->mOverlayPriority:I
+    iget v1, p0, Lcom/android/server/pm/PackageManagerService$9;->val$appId:I
 
-    sub-int/2addr v0, v1
+    iget v2, p0, Lcom/android/server/pm/PackageManagerService$9;->val$userId:I
 
-    return v0
-.end method
+    const-string/jumbo v3, "permission grant or revoke changed gids"
 
-.method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 1
+    invoke-static {v0, v1, v2, v3}, Lcom/android/server/pm/PackageManagerService;->-wrap46(Lcom/android/server/pm/PackageManagerService;IILjava/lang/String;)V
 
-    check-cast p1, Landroid/content/pm/PackageParser$Package;
-
-    check-cast p2, Landroid/content/pm/PackageParser$Package;
-
-    invoke-virtual {p0, p1, p2}, Lcom/android/server/pm/PackageManagerService$9;->compare(Landroid/content/pm/PackageParser$Package;Landroid/content/pm/PackageParser$Package;)I
-
-    move-result v0
-
-    return v0
+    return-void
 .end method

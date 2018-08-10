@@ -126,12 +126,6 @@
 
     if-lez v1, :cond_0
 
-    invoke-static {v1}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
     iget-object v2, p0, Lcom/android/server/trust/TrustManagerService$Receiver;->this$0:Lcom/android/server/trust/TrustManagerService;
 
     iget-object v3, p0, Lcom/android/server/trust/TrustManagerService$Receiver;->this$0:Lcom/android/server/trust/TrustManagerService;
@@ -140,7 +134,7 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3, v1}, Lcom/android/server/trust/TrustManagerService;->-wrap6(Lcom/android/server/trust/TrustManagerService;Lcom/android/internal/widget/LockPatternUtils;I)V
+    invoke-static {v2, v3, v1}, Lcom/android/server/trust/TrustManagerService;->-wrap7(Lcom/android/server/trust/TrustManagerService;Lcom/android/internal/widget/LockPatternUtils;I)V
 
     goto :goto_0
 
@@ -203,11 +197,32 @@
 
     iget-object v2, p0, Lcom/android/server/trust/TrustManagerService$Receiver;->this$0:Lcom/android/server/trust/TrustManagerService;
 
+    invoke-static {v2}, Lcom/android/server/trust/TrustManagerService;->-get8(Lcom/android/server/trust/TrustManagerService;)Landroid/util/SparseBooleanArray;
+
+    move-result-object v3
+
+    monitor-enter v3
+
+    :try_start_2
+    iget-object v2, p0, Lcom/android/server/trust/TrustManagerService$Receiver;->this$0:Lcom/android/server/trust/TrustManagerService;
+
+    invoke-static {v2}, Lcom/android/server/trust/TrustManagerService;->-get8(Lcom/android/server/trust/TrustManagerService;)Landroid/util/SparseBooleanArray;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v1}, Landroid/util/SparseBooleanArray;->delete(I)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+
+    monitor-exit v3
+
+    iget-object v2, p0, Lcom/android/server/trust/TrustManagerService$Receiver;->this$0:Lcom/android/server/trust/TrustManagerService;
+
     invoke-virtual {v2, v1}, Lcom/android/server/trust/TrustManagerService;->refreshAgentList(I)V
 
     iget-object v2, p0, Lcom/android/server/trust/TrustManagerService$Receiver;->this$0:Lcom/android/server/trust/TrustManagerService;
 
-    invoke-static {v2, v1}, Lcom/android/server/trust/TrustManagerService;->-wrap7(Lcom/android/server/trust/TrustManagerService;I)V
+    invoke-static {v2, v1}, Lcom/android/server/trust/TrustManagerService;->-wrap8(Lcom/android/server/trust/TrustManagerService;I)V
 
     goto :goto_0
 
@@ -219,6 +234,13 @@
     throw v2
 
     :catchall_1
+    move-exception v2
+
+    monitor-exit v3
+
+    throw v2
+
+    :catchall_2
     move-exception v2
 
     monitor-exit v3

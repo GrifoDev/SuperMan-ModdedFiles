@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 5
+    .locals 6
 
     iget-object v1, p0, Lcom/android/server/print/PrintManagerService$PrintManagerImpl$3;->this$1:Lcom/android/server/print/PrintManagerService$PrintManagerImpl;
 
@@ -73,7 +73,9 @@
 
     const/4 v4, 0x1
 
-    invoke-static {v1, v3, v4}, Lcom/android/server/print/PrintManagerService$PrintManagerImpl;->-wrap0(Lcom/android/server/print/PrintManagerService$PrintManagerImpl;IZ)Lcom/android/server/print/UserState;
+    const/4 v5, 0x0
+
+    invoke-static {v1, v3, v4, v5}, Lcom/android/server/print/PrintManagerService$PrintManagerImpl;->-wrap0(Lcom/android/server/print/PrintManagerService$PrintManagerImpl;IZZ)Lcom/android/server/print/UserState;
 
     move-result-object v0
 

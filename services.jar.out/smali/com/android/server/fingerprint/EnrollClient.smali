@@ -3,46 +3,22 @@
 .source "EnrollClient.java"
 
 
+# static fields
+.field private static final ENROLLMENT_TIMEOUT_MS:I = 0xea60
+
+.field private static final MS_PER_SEC:J = 0x3e8L
+
+
 # instance fields
 .field private mCryptoToken:[B
 
-.field protected mDuplicatedImgCnt:I
+.field mDuplicatedImgCnt:I
 
 .field mPrevRemaining:I
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;JLandroid/os/IBinder;Landroid/hardware/fingerprint/IFingerprintServiceReceiver;II[BZLjava/lang/String;)V
-    .locals 12
-
-    const/4 v11, 0x0
-
-    move-object v0, p0
-
-    move-object v1, p1
-
-    move-wide v2, p2
-
-    move-object/from16 v4, p4
-
-    move-object/from16 v5, p5
-
-    move/from16 v6, p6
-
-    move/from16 v7, p7
-
-    move-object/from16 v8, p8
-
-    move/from16 v9, p9
-
-    move-object/from16 v10, p10
-
-    invoke-direct/range {v0 .. v11}, Lcom/android/server/fingerprint/EnrollClient;-><init>(Landroid/content/Context;JLandroid/os/IBinder;Landroid/hardware/fingerprint/IFingerprintServiceReceiver;II[BZLjava/lang/String;Landroid/os/Bundle;)V
-
-    return-void
-.end method
-
-.method public constructor <init>(Landroid/content/Context;JLandroid/os/IBinder;Landroid/hardware/fingerprint/IFingerprintServiceReceiver;II[BZLjava/lang/String;Landroid/os/Bundle;)V
     .locals 14
 
     move-object v2, p0
@@ -63,9 +39,7 @@
 
     move-object/from16 v11, p10
 
-    move-object/from16 v12, p11
-
-    invoke-direct/range {v2 .. v12}, Lcom/android/server/fingerprint/ClientMonitor;-><init>(Landroid/content/Context;JLandroid/os/IBinder;Landroid/hardware/fingerprint/IFingerprintServiceReceiver;IIZLjava/lang/String;Landroid/os/Bundle;)V
+    invoke-direct/range {v2 .. v11}, Lcom/android/server/fingerprint/ClientMonitor;-><init>(Landroid/content/Context;JLandroid/os/IBinder;Landroid/hardware/fingerprint/IFingerprintServiceReceiver;IIZLjava/lang/String;)V
 
     const/4 v2, 0x0
 
@@ -75,16 +49,14 @@
 
     iput v2, p0, Lcom/android/server/fingerprint/EnrollClient;->mDuplicatedImgCnt:I
 
-    if-nez p8, :cond_0
+    if-eqz p8, :cond_0
 
-    const/4 v2, 0x0
+    move-object/from16 v0, p8
 
-    :goto_0
-    iput-object v2, p0, Lcom/android/server/fingerprint/EnrollClient;->mCryptoToken:[B
+    array-length v2, v0
 
-    return-void
+    if-lez v2, :cond_0
 
-    :cond_0
     move-object/from16 v0, p8
 
     array-length v2, v0
@@ -95,55 +67,90 @@
 
     move-result-object v2
 
-    goto :goto_0
-.end method
+    iput-object v2, p0, Lcom/android/server/fingerprint/EnrollClient;->mCryptoToken:[B
 
-.method private sendEnrollResult(III)Z
-    .locals 10
+    :cond_0
+    iget-object v2, p0, Lcom/android/server/fingerprint/EnrollClient;->mCryptoToken:[B
 
-    const/16 v9, 0x64
-
-    const/4 v8, 0x0
-
-    const/4 v7, 0x1
+    if-eqz v2, :cond_2
 
     sget-boolean v2, Lcom/android/server/fingerprint/EnrollClient;->DEBUG:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_3
 
+    new-instance v13, Ljava/lang/StringBuilder;
+
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v3, p0, Lcom/android/server/fingerprint/EnrollClient;->mCryptoToken:[B
+
+    const/4 v2, 0x0
+
+    array-length v4, v3
+
+    :goto_0
+    if-ge v2, v4, :cond_1
+
+    aget-byte v12, v3, v2
+
+    const-string/jumbo v5, "%02x "
+
+    const/4 v6, 0x1
+
+    new-array v6, v6, [Ljava/lang/Object;
+
+    and-int/lit16 v7, v12, 0xff
+
+    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v7
+
+    const/4 v8, 0x0
+
+    aput-object v7, v6, v8
+
+    invoke-static {v5, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v13, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_1
     const-string/jumbo v2, "FingerprintService"
 
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "ClientMonitor : sendEnrollResult : fpId="
+    const-string/jumbo v4, "EnrollClient : len = "
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    iget-object v4, p0, Lcom/android/server/fingerprint/EnrollClient;->mCryptoToken:[B
+
+    array-length v4, v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    const-string/jumbo v4, ", groupId="
+    const-string/jumbo v4, " data = "
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
-
-    const-string/jumbo v4, ", remaining="
+    move-result-object v4
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
@@ -151,21 +158,63 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_0
+    :cond_2
+    :goto_1
+    return-void
+
+    :cond_3
+    const-string/jumbo v2, "FingerprintService"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "EnrollClient : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/android/server/fingerprint/EnrollClient;->mCryptoToken:[B
+
+    array-length v4, v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+.end method
+
+.method private sendEnrollResult(III)Z
+    .locals 12
+
+    const/16 v9, 0x64
+
+    const/4 v8, 0x0
+
+    const/4 v7, 0x1
+
     invoke-virtual {p0}, Lcom/android/server/fingerprint/EnrollClient;->getReceiver()Landroid/hardware/fingerprint/IFingerprintServiceReceiver;
 
     move-result-object v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_0
 
     return v7
 
-    :cond_1
+    :cond_0
     iget v2, p0, Lcom/android/server/fingerprint/EnrollClient;->mPrevRemaining:I
 
-    if-le p3, v2, :cond_2
+    if-le p3, v2, :cond_1
 
     invoke-virtual {p0}, Lcom/android/server/fingerprint/EnrollClient;->getContext()Landroid/content/Context;
 
@@ -173,7 +222,9 @@
 
     invoke-static {v2}, Lcom/android/server/fingerprint/FingerprintUtils;->vibrateFingerprintSuccess(Landroid/content/Context;)V
 
-    :cond_2
+    :cond_1
+    iput p3, p0, Lcom/android/server/fingerprint/EnrollClient;->mPrevRemaining:I
+
     invoke-virtual {p0}, Lcom/android/server/fingerprint/EnrollClient;->getContext()Landroid/content/Context;
 
     move-result-object v2
@@ -183,8 +234,6 @@
     invoke-static {v2, v3}, Lcom/android/internal/logging/MetricsLogger;->action(Landroid/content/Context;I)V
 
     :try_start_0
-    iput p3, p0, Lcom/android/server/fingerprint/EnrollClient;->mPrevRemaining:I
-
     invoke-virtual {p0}, Lcom/android/server/fingerprint/EnrollClient;->getHalDeviceId()J
 
     move-result-wide v2
@@ -197,37 +246,46 @@
 
     invoke-interface/range {v1 .. v6}, Landroid/hardware/fingerprint/IFingerprintServiceReceiver;->onEnrollResult(JIII)V
 
-    if-ne p3, v9, :cond_3
+    if-ne p3, v9, :cond_2
 
-    const-string/jumbo v2, "com.samsung.android.intent.action.FINGERPRINT_ADDED"
+    invoke-virtual {p0}, Lcom/android/server/fingerprint/EnrollClient;->getContext()Landroid/content/Context;
 
-    invoke-virtual {p0, v2, p1, p2}, Lcom/android/server/fingerprint/EnrollClient;->sendBroadcast(Ljava/lang/String;II)V
+    move-result-object v2
 
-    const-string/jumbo v2, "FPEN"
+    const-string/jumbo v3, "com.samsung.android.intent.action.FINGERPRINT_ADDED"
+
+    invoke-static {v2, v3, p1, p2}, Lcom/android/server/fingerprint/FingerprintService;->semSendBroadcast(Landroid/content/Context;Ljava/lang/String;II)V
+
+    invoke-virtual {p0}, Lcom/android/server/fingerprint/EnrollClient;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "FPEN"
 
     invoke-static {p1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    const-wide/16 v4, -0x1
+    const-wide/16 v10, -0x1
 
-    invoke-virtual {p0, v2, v3, v4, v5}, Lcom/android/server/fingerprint/EnrollClient;->insertSurveyLog(Ljava/lang/String;Ljava/lang/String;J)V
+    invoke-static {v2, v3, v4, v10, v11}, Lcom/android/server/fingerprint/FingerprintService;->semInsertSurveyLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;J)V
 
     const/4 v2, 0x0
 
     iput v2, p0, Lcom/android/server/fingerprint/EnrollClient;->mPrevRemaining:I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_3
-    if-ne p3, v9, :cond_4
+    :cond_2
+    if-ne p3, v9, :cond_3
 
     move v2, v7
 
     :goto_0
     return v2
 
-    :cond_4
+    :cond_3
     move v2, v8
 
     goto :goto_0
@@ -246,7 +304,15 @@
 
 
 # virtual methods
-.method public onAcquired(I)Z
+.method public binderDied()V
+    .locals 0
+
+    invoke-virtual {p0, p0}, Lcom/android/server/fingerprint/EnrollClient;->semClientDied(Lcom/android/server/fingerprint/ClientMonitor;)V
+
+    return-void
+.end method
+
+.method public onAcquired(II)Z
     .locals 1
 
     const/16 v0, 0x3ea
@@ -260,7 +326,7 @@
     iput v0, p0, Lcom/android/server/fingerprint/EnrollClient;->mDuplicatedImgCnt:I
 
     :cond_0
-    invoke-super {p0, p1}, Lcom/android/server/fingerprint/ClientMonitor;->onAcquired(I)Z
+    invoke-super {p0, p1, p2}, Lcom/android/server/fingerprint/ClientMonitor;->onAcquired(II)Z
 
     move-result v0
 
@@ -301,7 +367,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "onEnrollResult : groupId != getGroupId(), groupId: "
+    const-string/jumbo v2, "groupId != getGroupId(), groupId: "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -385,10 +451,6 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/android/server/fingerprint/FingerprintUtils;->semAddFingerprintForUser(Landroid/content/Context;IILjava/lang/CharSequence;I)V
 
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, v0}, Lcom/android/server/fingerprint/EnrollClient;->setNavigationBar(Z)V
-
     :cond_2
     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/fingerprint/EnrollClient;->sendEnrollResult(III)Z
 
@@ -397,7 +459,7 @@
     return v0
 .end method
 
-.method public onEnumerationResult(II)Z
+.method public onEnumerationResult(III)Z
     .locals 2
 
     sget-boolean v0, Lcom/android/server/fingerprint/EnrollClient;->DEBUG:Z
@@ -416,7 +478,7 @@
     return v0
 .end method
 
-.method public onRemoved(II)Z
+.method public onRemoved(III)Z
     .locals 2
 
     sget-boolean v0, Lcom/android/server/fingerprint/EnrollClient;->DEBUG:Z
@@ -435,16 +497,17 @@
     return v0
 .end method
 
+.method public abstract semClientDied(Lcom/android/server/fingerprint/ClientMonitor;)V
+.end method
+
 .method public start()I
     .locals 12
 
-    const/4 v11, 0x3
-
-    const/4 v8, 0x1
+    const/4 v11, 0x1
 
     const/4 v10, 0x0
 
-    invoke-virtual {p0}, Lcom/android/server/fingerprint/EnrollClient;->getFingerprintDaemon()Landroid/hardware/fingerprint/IFingerprintDaemon;
+    invoke-virtual {p0}, Lcom/android/server/fingerprint/EnrollClient;->getFingerprintDaemon()Landroid/hardware/biometrics/fingerprint/V2_1/IBiometricsFingerprint;
 
     move-result-object v2
 
@@ -452,17 +515,15 @@
 
     const-string/jumbo v6, "FingerprintService"
 
-    const-string/jumbo v7, "enroll: no fingeprintd!"
+    const-string/jumbo v7, "enroll: no fingerprint HAL!"
 
-    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {p0, v8}, Lcom/android/server/fingerprint/EnrollClient;->onError(I)Z
+    const/4 v6, 0x3
 
-    return v11
+    return v6
 
     :cond_0
-    const/4 v5, 0x0
-
     iput v10, p0, Lcom/android/server/fingerprint/EnrollClient;->mPrevRemaining:I
 
     :try_start_0
@@ -478,9 +539,9 @@
 
     const/4 v8, 0x0
 
-    invoke-interface {v2, v6, v7, v8}, Landroid/hardware/fingerprint/IFingerprintDaemon;->enroll([BII)I
+    invoke-interface {v2, v6, v7, v8}, Landroid/hardware/biometrics/fingerprint/V2_1/IBiometricsFingerprint;->enroll([BII)I
 
-    move-result v4
+    move-result v5
 
     const-string/jumbo v6, "FingerprintService"
 
@@ -510,7 +571,7 @@
 
     move-result-object v7
 
-    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v7
 
@@ -520,7 +581,7 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v4, :cond_1
+    if-eqz v5, :cond_1
 
     const-string/jumbo v6, "FingerprintService"
 
@@ -534,7 +595,7 @@
 
     move-result-object v7
 
-    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v7
 
@@ -544,22 +605,43 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    invoke-virtual {p0}, Lcom/android/server/fingerprint/EnrollClient;->getContext()Landroid/content/Context;
+
+    move-result-object v6
+
+    const-string/jumbo v7, "fingerprintd_enroll_start_error"
+
+    invoke-static {v6, v7, v5}, Lcom/android/internal/logging/MetricsLogger;->histogram(Landroid/content/Context;Ljava/lang/String;I)V
+
     const/4 v6, 0x1
 
-    invoke-virtual {p0, v6}, Lcom/android/server/fingerprint/EnrollClient;->onError(I)Z
+    const/4 v7, 0x0
 
-    return v4
-
-    :cond_1
-    const/4 v6, 0x1
-
-    invoke-virtual {p0, v6}, Lcom/android/server/fingerprint/EnrollClient;->setNavigationBar(Z)V
+    invoke-virtual {p0, v6, v7}, Lcom/android/server/fingerprint/EnrollClient;->onError(II)Z
     :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    return v10
+    return v5
 
     :catch_0
+    move-exception v4
+
+    const-string/jumbo v6, "FingerprintService"
+
+    const-string/jumbo v7, "startEnroll failed"
+
+    invoke-static {v6, v7, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    const/4 v6, 0x2
+
+    invoke-virtual {p0, v6, v10}, Lcom/android/server/fingerprint/EnrollClient;->onError(II)Z
+
+    :cond_1
+    :goto_0
+    return v10
+
+    :catch_1
     move-exception v3
 
     const-string/jumbo v6, "FingerprintService"
@@ -568,7 +650,9 @@
 
     invoke-static {v6, v7, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    return v11
+    invoke-virtual {p0, v11, v10}, Lcom/android/server/fingerprint/EnrollClient;->onError(II)Z
+
+    goto :goto_0
 .end method
 
 .method public stop(Z)I
@@ -576,33 +660,42 @@
 
     const/4 v10, 0x0
 
-    invoke-virtual {p0}, Lcom/android/server/fingerprint/EnrollClient;->getFingerprintDaemon()Landroid/hardware/fingerprint/IFingerprintDaemon;
+    iget-boolean v5, p0, Lcom/android/server/fingerprint/EnrollClient;->mAlreadyCancelled:Z
 
-    move-result-object v2
-
-    if-nez v2, :cond_0
+    if-eqz v5, :cond_0
 
     const-string/jumbo v5, "FingerprintService"
 
-    const-string/jumbo v6, "stopEnrollment: no fingeprintd!"
+    const-string/jumbo v6, "stopEnroll: already cancelled!"
 
     invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v5, 0x1
+    return v10
 
-    invoke-virtual {p0, v5}, Lcom/android/server/fingerprint/EnrollClient;->onError(I)Z
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/server/fingerprint/EnrollClient;->getFingerprintDaemon()Landroid/hardware/biometrics/fingerprint/V2_1/IBiometricsFingerprint;
+
+    move-result-object v2
+
+    if-nez v2, :cond_1
+
+    const-string/jumbo v5, "FingerprintService"
+
+    const-string/jumbo v6, "stopEnrollment: no fingerprint HAL!"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     const/4 v5, 0x3
 
     return v5
 
-    :cond_0
+    :cond_1
     :try_start_0
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
 
-    invoke-interface {v2}, Landroid/hardware/fingerprint/IFingerprintDaemon;->cancelEnrollment()I
+    invoke-interface {v2}, Landroid/hardware/biometrics/fingerprint/V2_1/IBiometricsFingerprint;->cancel()I
 
     move-result v4
 
@@ -644,7 +737,7 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2
 
     const-string/jumbo v5, "FingerprintService"
 
@@ -667,18 +760,10 @@
     move-result-object v6
 
     invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v4
-
-    :cond_1
-    const/4 v5, 0x0
-
-    invoke-virtual {p0, v5}, Lcom/android/server/fingerprint/EnrollClient;->setNavigationBar(Z)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :goto_0
-    return v10
+    return v4
 
     :catch_0
     move-exception v3
@@ -689,5 +774,10 @@
 
     invoke-static {v5, v6, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_0
+    :cond_2
+    const/4 v5, 0x1
+
+    iput-boolean v5, p0, Lcom/android/server/fingerprint/EnrollClient;->mAlreadyCancelled:Z
+
+    return v10
 .end method

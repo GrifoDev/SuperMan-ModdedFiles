@@ -1,11 +1,11 @@
 .class Lcom/android/server/accounts/AccountManagerService$3;
-.super Lcom/android/server/accounts/AccountManagerService$Session;
+.super Landroid/app/AppOpsManager$OnOpChangedInternalListener;
 .source "AccountManagerService.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/accounts/AccountManagerService;->copyAccountToUser(Landroid/accounts/IAccountManagerResponse;Landroid/accounts/Account;II)V
+    value = Lcom/android/server/accounts/AccountManagerService;-><init>(Lcom/android/server/accounts/AccountManagerService$Injector;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,159 +17,85 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/accounts/AccountManagerService;
 
-.field final synthetic val$account:Landroid/accounts/Account;
-
-.field final synthetic val$response:Landroid/accounts/IAccountManagerResponse;
-
-.field final synthetic val$toAccounts:Lcom/android/server/accounts/AccountManagerService$UserAccounts;
-
-.field final synthetic val$userFrom:I
-
 
 # direct methods
-.method constructor <init>(Lcom/android/server/accounts/AccountManagerService;Lcom/android/server/accounts/AccountManagerService;Lcom/android/server/accounts/AccountManagerService$UserAccounts;Landroid/accounts/IAccountManagerResponse;Ljava/lang/String;ZZLjava/lang/String;ZLandroid/accounts/Account;Landroid/accounts/IAccountManagerResponse;Lcom/android/server/accounts/AccountManagerService$UserAccounts;I)V
-    .locals 10
+.method constructor <init>(Lcom/android/server/accounts/AccountManagerService;)V
+    .locals 0
 
-    iput-object p2, p0, Lcom/android/server/accounts/AccountManagerService$3;->this$0:Lcom/android/server/accounts/AccountManagerService;
+    iput-object p1, p0, Lcom/android/server/accounts/AccountManagerService$3;->this$0:Lcom/android/server/accounts/AccountManagerService;
 
-    move-object/from16 v0, p10
-
-    iput-object v0, p0, Lcom/android/server/accounts/AccountManagerService$3;->val$account:Landroid/accounts/Account;
-
-    move-object/from16 v0, p11
-
-    iput-object v0, p0, Lcom/android/server/accounts/AccountManagerService$3;->val$response:Landroid/accounts/IAccountManagerResponse;
-
-    move-object/from16 v0, p12
-
-    iput-object v0, p0, Lcom/android/server/accounts/AccountManagerService$3;->val$toAccounts:Lcom/android/server/accounts/AccountManagerService$UserAccounts;
-
-    move/from16 v0, p13
-
-    iput v0, p0, Lcom/android/server/accounts/AccountManagerService$3;->val$userFrom:I
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object v3, p3
-
-    move-object v4, p4
-
-    move-object v5, p5
-
-    move/from16 v6, p6
-
-    move/from16 v7, p7
-
-    move-object/from16 v8, p8
-
-    move/from16 v9, p9
-
-    invoke-direct/range {v1 .. v9}, Lcom/android/server/accounts/AccountManagerService$Session;-><init>(Lcom/android/server/accounts/AccountManagerService;Lcom/android/server/accounts/AccountManagerService$UserAccounts;Landroid/accounts/IAccountManagerResponse;Ljava/lang/String;ZZLjava/lang/String;Z)V
+    invoke-direct {p0}, Landroid/app/AppOpsManager$OnOpChangedInternalListener;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onResult(Landroid/os/Bundle;)V
-    .locals 6
+.method public onOpChanged(ILjava/lang/String;)V
+    .locals 8
 
-    const/4 v0, 0x1
+    :try_start_0
+    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
 
-    invoke-static {p1, v0}, Landroid/os/Bundle;->setDefusable(Landroid/os/Bundle;Z)Landroid/os/Bundle;
+    move-result v5
 
-    if-eqz p1, :cond_0
+    iget-object v6, p0, Lcom/android/server/accounts/AccountManagerService$3;->this$0:Lcom/android/server/accounts/AccountManagerService;
 
-    const-string/jumbo v0, "booleanResult"
+    invoke-static {v6}, Lcom/android/server/accounts/AccountManagerService;->-get4(Lcom/android/server/accounts/AccountManagerService;)Landroid/content/pm/PackageManager;
 
-    const/4 v1, 0x0
+    move-result-object v6
 
-    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {v6, p2, v5}, Landroid/content/pm/PackageManager;->getPackageUidAsUser(Ljava/lang/String;I)I
 
-    move-result v0
+    move-result v4
 
-    if-eqz v0, :cond_0
+    iget-object v6, p0, Lcom/android/server/accounts/AccountManagerService$3;->this$0:Lcom/android/server/accounts/AccountManagerService;
 
-    iget-object v0, p0, Lcom/android/server/accounts/AccountManagerService$3;->this$0:Lcom/android/server/accounts/AccountManagerService;
+    invoke-static {v6}, Lcom/android/server/accounts/AccountManagerService;->-get0(Lcom/android/server/accounts/AccountManagerService;)Landroid/app/AppOpsManager;
 
-    iget-object v1, p0, Lcom/android/server/accounts/AccountManagerService$3;->val$response:Landroid/accounts/IAccountManagerResponse;
+    move-result-object v6
 
-    iget-object v3, p0, Lcom/android/server/accounts/AccountManagerService$3;->val$account:Landroid/accounts/Account;
+    const/16 v7, 0x3e
 
-    iget-object v4, p0, Lcom/android/server/accounts/AccountManagerService$3;->val$toAccounts:Lcom/android/server/accounts/AccountManagerService$UserAccounts;
+    invoke-virtual {v6, v7, v4, p2}, Landroid/app/AppOpsManager;->checkOpNoThrow(IILjava/lang/String;)I
 
-    iget v5, p0, Lcom/android/server/accounts/AccountManagerService$3;->val$userFrom:I
+    move-result v1
 
-    move-object v2, p1
+    if-nez v1, :cond_0
 
-    invoke-static/range {v0 .. v5}, Lcom/android/server/accounts/AccountManagerService;->-wrap8(Lcom/android/server/accounts/AccountManagerService;Landroid/accounts/IAccountManagerResponse;Landroid/os/Bundle;Landroid/accounts/Account;Lcom/android/server/accounts/AccountManagerService$UserAccounts;I)V
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
+    move-result-wide v2
+
+    :try_start_1
+    iget-object v6, p0, Lcom/android/server/accounts/AccountManagerService$3;->this$0:Lcom/android/server/accounts/AccountManagerService;
+
+    const/4 v7, 0x1
+
+    invoke-static {v6, p2, v4, v7}, Lcom/android/server/accounts/AccountManagerService;->-wrap12(Lcom/android/server/accounts/AccountManagerService;Ljava/lang/String;IZ)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :try_start_2
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    :cond_0
     :goto_0
     return-void
 
-    :cond_0
-    invoke-super {p0, p1}, Lcom/android/server/accounts/AccountManagerService$Session;->onResult(Landroid/os/Bundle;)V
+    :catchall_0
+    move-exception v6
+
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v6
+    :try_end_2
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_2 .. :try_end_2} :catch_0
+
+    :catch_0
+    move-exception v0
 
     goto :goto_0
-.end method
-
-.method public run()V
-    .locals 2
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    iget-object v0, p0, Lcom/android/server/accounts/AccountManagerService$3;->mAuthenticator:Landroid/accounts/IAccountAuthenticator;
-
-    iget-object v1, p0, Lcom/android/server/accounts/AccountManagerService$3;->val$account:Landroid/accounts/Account;
-
-    invoke-interface {v0, p0, v1}, Landroid/accounts/IAccountAuthenticator;->getAccountCredentialsForCloning(Landroid/accounts/IAccountAuthenticatorResponse;Landroid/accounts/Account;)V
-
-    return-void
-.end method
-
-.method protected toDebugString(J)Ljava/lang/String;
-    .locals 3
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-super {p0, p1, p2}, Lcom/android/server/accounts/AccountManagerService$Session;->toDebugString(J)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string/jumbo v1, ", getAccountCredentialsForClone"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string/jumbo v1, ", "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/server/accounts/AccountManagerService$3;->val$account:Landroid/accounts/Account;
-
-    iget-object v1, v1, Landroid/accounts/Account;->type:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
 .end method

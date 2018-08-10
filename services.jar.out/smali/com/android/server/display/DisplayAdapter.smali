@@ -18,8 +18,6 @@
 
 .field public static final DISPLAY_DEVICE_EVENT_REMOVED:I = 0x3
 
-.field private static final NEXT_COLOR_TRANSFORM_ID:Ljava/util/concurrent/atomic/AtomicInteger;
-
 .field private static final NEXT_DISPLAY_MODE_ID:Ljava/util/concurrent/atomic/AtomicInteger;
 
 
@@ -47,19 +45,13 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    const/4 v1, 0x1
-
     new-instance v0, Ljava/util/concurrent/atomic/AtomicInteger;
+
+    const/4 v1, 0x1
 
     invoke-direct {v0, v1}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>(I)V
 
     sput-object v0, Lcom/android/server/display/DisplayAdapter;->NEXT_DISPLAY_MODE_ID:Ljava/util/concurrent/atomic/AtomicInteger;
-
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicInteger;
-
-    invoke-direct {v0, v1}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>(I)V
-
-    sput-object v0, Lcom/android/server/display/DisplayAdapter;->NEXT_COLOR_TRANSFORM_ID:Ljava/util/concurrent/atomic/AtomicInteger;
 
     return-void
 .end method
@@ -80,22 +72,6 @@
     iput-object p5, p0, Lcom/android/server/display/DisplayAdapter;->mName:Ljava/lang/String;
 
     return-void
-.end method
-
-.method public static createColorTransform(I)Landroid/view/Display$ColorTransform;
-    .locals 2
-
-    new-instance v0, Landroid/view/Display$ColorTransform;
-
-    sget-object v1, Lcom/android/server/display/DisplayAdapter;->NEXT_COLOR_TRANSFORM_ID:Ljava/util/concurrent/atomic/AtomicInteger;
-
-    invoke-virtual {v1}, Ljava/util/concurrent/atomic/AtomicInteger;->getAndIncrement()I
-
-    move-result v1
-
-    invoke-direct {v0, v1, p0}, Landroid/view/Display$ColorTransform;-><init>(II)V
-
-    return-object v0
 .end method
 
 .method public static createMode(IIF)Landroid/view/Display$Mode;

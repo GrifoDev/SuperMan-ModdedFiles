@@ -43,7 +43,7 @@
 
     iget-object v0, p0, Lcom/android/server/statusbar/StatusBarManagerService$2;->this$0:Lcom/android/server/statusbar/StatusBarManagerService;
 
-    invoke-static {v0}, Lcom/android/server/statusbar/StatusBarManagerService;->-get1(Lcom/android/server/statusbar/StatusBarManagerService;)Lcom/android/server/notification/NotificationDelegate;
+    invoke-static {v0}, Lcom/android/server/statusbar/StatusBarManagerService;->-get2(Lcom/android/server/statusbar/StatusBarManagerService;)Lcom/android/server/notification/NotificationDelegate;
 
     move-result-object v0
 

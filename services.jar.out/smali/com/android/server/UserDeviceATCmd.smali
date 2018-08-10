@@ -580,19 +580,13 @@
 
     move-result v7
 
-    if-eqz v7, :cond_b
+    if-eqz v7, :cond_a
 
     const-string/jumbo v7, "UserDeviceATCmd"
 
     const-string/jumbo v8, "AT+URDEVICE=0,1,0,0"
 
     invoke-static {v7, v8}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-direct {p0}, Lcom/android/server/UserDeviceATCmd;->isFactoryBinary()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_a
 
     const-string/jumbo v7, "sys.powerctl"
 
@@ -618,7 +612,6 @@
 
     move-result-object v4
 
-    :goto_4
     const-string/jumbo v7, "UserDeviceATCmd"
 
     const-string/jumbo v8, "0,1,0,0 is complete."
@@ -628,27 +621,6 @@
     goto/16 :goto_1
 
     :cond_a
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string/jumbo v8, "NG"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    goto :goto_4
-
-    :cond_b
     const/4 v7, 0x3
 
     aget-object v7, v5, v7
@@ -671,7 +643,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_e
+    if-eqz v7, :cond_c
 
     const-string/jumbo v7, "UserDeviceATCmd"
 
@@ -679,19 +651,13 @@
 
     invoke-static {v7, v8}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-direct {p0}, Lcom/android/server/UserDeviceATCmd;->isFactoryBinary()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_d
-
     iget-object v7, p0, Lcom/android/server/UserDeviceATCmd;->mEMMgr:Lcom/samsung/android/service/EngineeringMode/EngineeringModeManager;
 
     invoke-virtual {v7}, Lcom/samsung/android/service/EngineeringMode/EngineeringModeManager;->sendFuseCmd()I
 
     move-result v7
 
-    if-ne v7, v10, :cond_c
+    if-ne v7, v10, :cond_b
 
     new-instance v7, Ljava/lang/StringBuilder;
 
@@ -711,7 +677,7 @@
 
     move-result-object v4
 
-    :goto_5
+    :goto_4
     const-string/jumbo v7, "UserDeviceATCmd"
 
     const-string/jumbo v8, "0,2,0,0 is complete."
@@ -720,49 +686,28 @@
 
     goto/16 :goto_1
 
+    :cond_b
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    const-string/jumbo v8, "NG"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    goto :goto_4
+
     :cond_c
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string/jumbo v8, "NG"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    goto :goto_5
-
-    :cond_d
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string/jumbo v8, "NG"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    goto :goto_5
-
-    :cond_e
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V

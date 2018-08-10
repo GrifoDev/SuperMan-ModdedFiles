@@ -44,13 +44,11 @@
 .method constructor <init>(ILjava/lang/String;ILandroid/content/ComponentName;Ljava/lang/String;)V
     .locals 1
 
+    const/16 v0, 0x13
+
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const/16 v0, 0x11
-
     iput v0, p0, Lcom/android/server/am/ActivityManagerService$Association;->mLastState:I
-
-    const/16 v0, 0x12
 
     new-array v0, v0, [J
 

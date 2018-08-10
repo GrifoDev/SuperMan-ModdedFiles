@@ -3,12 +3,12 @@
 .source "ShutdownThread.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/power/ShutdownThread;->startShutdownThread()V
+    value = Lcom/android/server/power/ShutdownThread;->createBeforeMConfirmDialog(Landroid/content/Context;Lcom/android/server/power/ShutdownThread$CloseDialogReceiver;)Landroid/app/Dialog;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,9 +17,15 @@
 .end annotation
 
 
+# instance fields
+.field final synthetic val$ctx:Landroid/content/Context;
+
+
 # direct methods
-.method constructor <init>()V
+.method constructor <init>(Landroid/content/Context;)V
     .locals 0
+
+    iput-object p1, p0, Lcom/android/server/power/ShutdownThread$12;->val$ctx:Landroid/content/Context;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -28,36 +34,14 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 3
+.method public onClick(Landroid/content/DialogInterface;I)V
+    .locals 2
 
-    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get20()Lcom/android/server/power/ShutdownThread;
+    iget-object v0, p0, Lcom/android/server/power/ShutdownThread$12;->val$ctx:Landroid/content/Context;
 
-    move-result-object v1
+    const/4 v1, 0x1
 
-    invoke-static {v1}, Lcom/android/server/power/ShutdownThread;->-get8(Lcom/android/server/power/ShutdownThread;)Landroid/content/Context;
-
-    move-result-object v1
-
-    const v2, 0x104012a
-
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get20()Lcom/android/server/power/ShutdownThread;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/android/server/power/ShutdownThread;->-get8(Lcom/android/server/power/ShutdownThread;)Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Lcom/android/server/power/ShutdownThread;->-wrap7(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lcom/android/server/power/ShutdownThread;->-wrap10(Landroid/content/Context;Z)V
 
     return-void
 .end method

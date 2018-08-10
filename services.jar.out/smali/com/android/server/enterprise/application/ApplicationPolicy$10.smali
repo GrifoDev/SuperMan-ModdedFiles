@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/enterprise/application/ApplicationPolicy;->registerUserUnlockedListener()V
+    value = Lcom/android/server/enterprise/application/ApplicationPolicy;->registerBootCompletedListener()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -32,92 +32,75 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 4
+    .locals 6
 
-    const/16 v3, -0x2710
+    const-string/jumbo v4, "ApplicationPolicy"
 
-    const-string/jumbo v1, "android.intent.action.USER_UNLOCKED"
+    const-string/jumbo v5, "boot completed - refreshWidgetStatus"
 
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->v(Ljava/lang/String;Ljava/lang/String;)V
 
-    move-result-object v2
+    iget-object v4, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$10;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const/4 v5, 0x1
 
-    move-result v1
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-set1(Lcom/android/server/enterprise/application/ApplicationPolicy;Z)Z
 
-    if-eqz v1, :cond_0
+    iget-object v4, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$10;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
 
-    iget-object v1, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$10;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
+    invoke-static {v4}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap9(Lcom/android/server/enterprise/application/ApplicationPolicy;)V
 
-    invoke-static {v1}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap11(Lcom/android/server/enterprise/application/ApplicationPolicy;)V
+    new-instance v4, Lcom/android/server/enterprise/application/ApplicationPolicy$10$1;
 
-    const-string/jumbo v1, "ApplicationPolicy"
+    invoke-direct {v4, p0}, Lcom/android/server/enterprise/application/ApplicationPolicy$10$1;-><init>(Lcom/android/server/enterprise/application/ApplicationPolicy$10;)V
 
-    const-string/jumbo v2, "user unlocked - refreshWidgetStatus"
+    invoke-virtual {v4}, Lcom/android/server/enterprise/application/ApplicationPolicy$10$1;->start()V
 
-    invoke-static {v1, v2}, Lcom/android/server/enterprise/log/Log;->v(Ljava/lang/String;Ljava/lang/String;)V
+    iget-object v4, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$10;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
 
-    const-string/jumbo v1, "android.intent.extra.user_handle"
+    iget-object v4, v4, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    invoke-virtual {p2, v1, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    const-string/jumbo v5, "user"
 
-    move-result v0
-
-    if-eq v0, v3, :cond_1
-
-    const-string/jumbo v1, "ApplicationPolicy"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "calling refreshWidgetStatus for userId "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v2
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    check-cast v2, Landroid/os/UserManager;
 
-    move-result-object v2
+    if-eqz v2, :cond_0
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Landroid/os/UserManager;->getUsers()Ljava/util/List;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-static {v1, v2}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    if-eqz v3, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$10;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
+    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    invoke-static {v1, v0}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap15(Lcom/android/server/enterprise/application/ApplicationPolicy;I)V
+    move-result-object v1
 
-    :cond_0
     :goto_0
-    return-void
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    :cond_1
-    const-string/jumbo v1, "ApplicationPolicy"
+    move-result v4
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    if-eqz v4, :cond_0
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    const-string/jumbo v3, "could not call refreshWidgetStatus due to USER_NULL userId "
+    move-result-object v0
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    check-cast v0, Landroid/content/pm/UserInfo;
 
-    move-result-object v2
+    iget-object v4, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$10;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    iget v5, v0, Landroid/content/pm/UserInfo;->id:I
 
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap17(Lcom/android/server/enterprise/application/ApplicationPolicy;I)V
 
     goto :goto_0
+
+    :cond_0
+    return-void
 .end method

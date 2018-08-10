@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/location/GnssStatusListenerHelper;->onSvStatusChanged(I[I[F[F[F)V
+    value = Lcom/android/server/location/GnssStatusListenerHelper;->onSvStatusChanged(I[I[F[F[F[F)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -22,6 +22,8 @@
 
 .field final synthetic val$azimuths:[F
 
+.field final synthetic val$carrierFreqs:[F
+
 .field final synthetic val$cn0s:[F
 
 .field final synthetic val$elevations:[F
@@ -32,7 +34,7 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/location/GnssStatusListenerHelper;I[I[F[F[F)V
+.method constructor <init>(Lcom/android/server/location/GnssStatusListenerHelper;I[I[F[F[F[F)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/location/GnssStatusListenerHelper$4;->this$0:Lcom/android/server/location/GnssStatusListenerHelper;
@@ -47,6 +49,8 @@
 
     iput-object p6, p0, Lcom/android/server/location/GnssStatusListenerHelper$4;->val$azimuths:[F
 
+    iput-object p7, p0, Lcom/android/server/location/GnssStatusListenerHelper$4;->val$carrierFreqs:[F
+
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -55,7 +59,7 @@
 
 # virtual methods
 .method public execute(Landroid/location/IGnssStatusListener;)V
-    .locals 6
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -72,9 +76,11 @@
 
     iget-object v5, p0, Lcom/android/server/location/GnssStatusListenerHelper$4;->val$azimuths:[F
 
+    iget-object v6, p0, Lcom/android/server/location/GnssStatusListenerHelper$4;->val$carrierFreqs:[F
+
     move-object v0, p1
 
-    invoke-interface/range {v0 .. v5}, Landroid/location/IGnssStatusListener;->onSvStatusChanged(I[I[F[F[F)V
+    invoke-interface/range {v0 .. v6}, Landroid/location/IGnssStatusListener;->onSvStatusChanged(I[I[F[F[F[F)V
 
     return-void
 .end method

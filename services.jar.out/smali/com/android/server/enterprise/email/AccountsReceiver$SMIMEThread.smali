@@ -103,6 +103,8 @@
 
     move-result-object v0
 
+    if-eqz v0, :cond_0
+
     const/4 v2, 0x1
 
     if-ne v8, v2, :cond_1

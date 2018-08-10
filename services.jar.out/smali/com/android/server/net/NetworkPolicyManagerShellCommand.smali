@@ -31,57 +31,37 @@
 .end method
 
 .method private addRestrictBackgroundBlacklist()I
-    .locals 4
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v3, 0x0
+    const/4 v0, 0x1
 
-    invoke-direct {p0}, Lcom/android/server/net/NetworkPolicyManagerShellCommand;->getUidFromNextArg()I
+    invoke-direct {p0, v0}, Lcom/android/server/net/NetworkPolicyManagerShellCommand;->setUidPolicy(I)I
 
     move-result v0
 
-    if-gez v0, :cond_0
-
     return v0
-
-    :cond_0
-    iget-object v1, p0, Lcom/android/server/net/NetworkPolicyManagerShellCommand;->mInterface:Landroid/net/INetworkPolicyManager;
-
-    const/4 v2, 0x1
-
-    invoke-interface {v1, v0, v2}, Landroid/net/INetworkPolicyManager;->setUidPolicy(II)V
-
-    return v3
 .end method
 
 .method private addRestrictBackgroundWhitelist()I
-    .locals 3
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v2, 0x0
+    const/4 v0, 0x4
 
-    invoke-direct {p0}, Lcom/android/server/net/NetworkPolicyManagerShellCommand;->getUidFromNextArg()I
+    invoke-direct {p0, v0}, Lcom/android/server/net/NetworkPolicyManagerShellCommand;->setUidPolicy(I)I
 
     move-result v0
 
-    if-gez v0, :cond_0
-
     return v0
-
-    :cond_0
-    iget-object v1, p0, Lcom/android/server/net/NetworkPolicyManagerShellCommand;->mInterface:Landroid/net/INetworkPolicyManager;
-
-    invoke-interface {v1, v0}, Landroid/net/INetworkPolicyManager;->addRestrictBackgroundWhitelistedUid(I)V
-
-    return v2
 .end method
 
 .method private getNetworkId(Landroid/net/NetworkPolicy;)Ljava/lang/String;
@@ -392,66 +372,44 @@
 .end method
 
 .method private listRestrictBackgroundBlacklist()I
-    .locals 7
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v6, 0x0
+    const-string/jumbo v0, "Restrict background blacklisted UIDs"
 
-    invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyManagerShellCommand;->getOutPrintWriter()Ljava/io/PrintWriter;
+    const/4 v1, 0x1
 
-    move-result-object v1
+    invoke-direct {p0, v0, v1}, Lcom/android/server/net/NetworkPolicyManagerShellCommand;->listUidPolicies(Ljava/lang/String;I)I
 
-    iget-object v4, p0, Lcom/android/server/net/NetworkPolicyManagerShellCommand;->mInterface:Landroid/net/INetworkPolicyManager;
+    move-result v0
 
-    const/4 v5, 0x1
-
-    invoke-interface {v4, v5}, Landroid/net/INetworkPolicyManager;->getUidsWithPolicy(I)[I
-
-    move-result-object v3
-
-    const-string/jumbo v4, "Restrict background blacklisted UIDs: "
-
-    invoke-virtual {v1, v4}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    array-length v4, v3
-
-    if-nez v4, :cond_1
-
-    const-string/jumbo v4, "none"
-
-    invoke-virtual {v1, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    :cond_0
-    invoke-virtual {v1}, Ljava/io/PrintWriter;->println()V
-
-    return v6
-
-    :cond_1
-    const/4 v0, 0x0
-
-    :goto_0
-    array-length v4, v3
-
-    if-ge v0, v4, :cond_0
-
-    aget v2, v3, v0
-
-    invoke-virtual {v1, v2}, Ljava/io/PrintWriter;->print(I)V
-
-    const/16 v4, 0x20
-
-    invoke-virtual {v1, v4}, Ljava/io/PrintWriter;->print(C)V
-
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
+    return v0
 .end method
 
 .method private listRestrictBackgroundWhitelist()I
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    const-string/jumbo v0, "Restrict background whitelisted UIDs"
+
+    const/4 v1, 0x4
+
+    invoke-direct {p0, v0, v1}, Lcom/android/server/net/NetworkPolicyManagerShellCommand;->listUidPolicies(Ljava/lang/String;I)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method private listUidPolicies(Ljava/lang/String;I)I
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -467,11 +425,13 @@
 
     iget-object v4, p0, Lcom/android/server/net/NetworkPolicyManagerShellCommand;->mInterface:Landroid/net/INetworkPolicyManager;
 
-    invoke-interface {v4}, Landroid/net/INetworkPolicyManager;->getRestrictBackgroundWhitelistedUids()[I
+    invoke-interface {v4, p2}, Landroid/net/INetworkPolicyManager;->getUidsWithPolicy(I)[I
 
     move-result-object v3
 
-    const-string/jumbo v4, "Restrict background whitelisted UIDs: "
+    invoke-virtual {v1, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string/jumbo v4, ": "
 
     invoke-virtual {v1, v4}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
@@ -609,55 +569,96 @@
 .end method
 
 .method private removeRestrictBackgroundBlacklist()I
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v2, 0x0
+    const-string/jumbo v0, "not blacklisted"
 
-    invoke-direct {p0}, Lcom/android/server/net/NetworkPolicyManagerShellCommand;->getUidFromNextArg()I
+    const/4 v1, 0x1
+
+    invoke-direct {p0, v0, v1}, Lcom/android/server/net/NetworkPolicyManagerShellCommand;->resetUidPolicy(Ljava/lang/String;I)I
 
     move-result v0
 
-    if-gez v0, :cond_0
-
     return v0
-
-    :cond_0
-    iget-object v1, p0, Lcom/android/server/net/NetworkPolicyManagerShellCommand;->mInterface:Landroid/net/INetworkPolicyManager;
-
-    invoke-interface {v1, v0, v2}, Landroid/net/INetworkPolicyManager;->setUidPolicy(II)V
-
-    return v2
 .end method
 
 .method private removeRestrictBackgroundWhitelist()I
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v2, 0x0
+    const-string/jumbo v0, "not whitelisted"
 
-    invoke-direct {p0}, Lcom/android/server/net/NetworkPolicyManagerShellCommand;->getUidFromNextArg()I
+    const/4 v1, 0x4
+
+    invoke-direct {p0, v0, v1}, Lcom/android/server/net/NetworkPolicyManagerShellCommand;->resetUidPolicy(Ljava/lang/String;I)I
 
     move-result v0
 
-    if-gez v0, :cond_0
-
     return v0
+.end method
 
-    :cond_0
-    iget-object v1, p0, Lcom/android/server/net/NetworkPolicyManagerShellCommand;->mInterface:Landroid/net/INetworkPolicyManager;
+.method private resetUidPolicy(Ljava/lang/String;I)I
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
 
-    invoke-interface {v1, v0}, Landroid/net/INetworkPolicyManager;->removeRestrictBackgroundWhitelistedUid(I)V
+    const/4 v4, 0x0
+
+    invoke-direct {p0}, Lcom/android/server/net/NetworkPolicyManagerShellCommand;->getUidFromNextArg()I
+
+    move-result v2
+
+    if-gez v2, :cond_0
 
     return v2
+
+    :cond_0
+    iget-object v3, p0, Lcom/android/server/net/NetworkPolicyManagerShellCommand;->mInterface:Landroid/net/INetworkPolicyManager;
+
+    invoke-interface {v3, v2}, Landroid/net/INetworkPolicyManager;->getUidPolicy(I)I
+
+    move-result v0
+
+    if-eq v0, p2, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyManagerShellCommand;->getOutPrintWriter()Ljava/io/PrintWriter;
+
+    move-result-object v1
+
+    const-string/jumbo v3, "Error: UID "
+
+    invoke-virtual {v1, v3}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    invoke-virtual {v1, v2}, Ljava/io/PrintWriter;->print(I)V
+
+    const/16 v3, 0x20
+
+    invoke-virtual {v1, v3}, Ljava/io/PrintWriter;->print(C)V
+
+    invoke-virtual {v1, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const/4 v3, -0x1
+
+    return v3
+
+    :cond_1
+    iget-object v3, p0, Lcom/android/server/net/NetworkPolicyManagerShellCommand;->mInterface:Landroid/net/INetworkPolicyManager;
+
+    invoke-interface {v3, v2, v4}, Landroid/net/INetworkPolicyManager;->setUidPolicy(II)V
+
+    return v4
 .end method
 
 .method private runAdd()I
@@ -1261,7 +1262,6 @@
     move-result-object v4
 
     :cond_6
-    :goto_2
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v13
@@ -1354,10 +1354,18 @@
 
     invoke-interface {v13, v8}, Landroid/net/INetworkPolicyManager;->setNetworkPolicies([Landroid/net/NetworkPolicy;)V
 
-    goto :goto_2
+    const/4 v13, 0x0
+
+    return v13
 
     :cond_7
-    const/4 v13, 0x0
+    const-string/jumbo v13, "Error: didn\'t find network with SSID "
+
+    invoke-virtual {v11, v13}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    invoke-virtual {v11, v5}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const/4 v13, -0x1
 
     return v13
 .end method
@@ -1396,6 +1404,32 @@
     move v1, v2
 
     goto :goto_0
+.end method
+
+.method private setUidPolicy(I)I
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    const/4 v2, 0x0
+
+    invoke-direct {p0}, Lcom/android/server/net/NetworkPolicyManagerShellCommand;->getUidFromNextArg()I
+
+    move-result v0
+
+    if-gez v0, :cond_0
+
+    return v0
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/server/net/NetworkPolicyManagerShellCommand;->mInterface:Landroid/net/INetworkPolicyManager;
+
+    invoke-interface {v1, v0, p1}, Landroid/net/INetworkPolicyManager;->setUidPolicy(II)V
+
+    return v2
 .end method
 
 

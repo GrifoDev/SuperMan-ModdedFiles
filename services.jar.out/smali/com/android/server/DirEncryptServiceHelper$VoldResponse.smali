@@ -15,19 +15,13 @@
 
 
 # static fields
-.field public static final CHANGE_ECRYPTFS_PASSWORD:I = 0x2b1
-
 .field public static final ENCRYPT:I = 0x2ab
 
 .field public static final ENC_META_CHECK:I = 0x2b4
 
 .field public static final FILE_OPEN_ERR:I = 0x2b5
 
-.field public static final KNOX_REVERT_SS:I = 0x2b7
-
 .field public static final MOUNT:I = 0x2af
-
-.field public static final MOUNT_PATH_STATUS:I = 0x2b2
 
 .field public static final NO_META_DATA:I = 0x2b3
 
@@ -44,8 +38,6 @@
 .field public static final PWD_UPDATE:I = 0x2a9
 
 .field private static final RESPONSE_BASE:I = 0x2a8
-
-.field public static final SS_MIGRATION:I = 0x2b6
 
 .field public static final UNMOUNT:I = 0x2b0
 

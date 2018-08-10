@@ -63,13 +63,10 @@
 
     iget-boolean v0, v0, Lcom/android/server/dreams/DreamController$DreamRecord;->mConnected:Z
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v0, :cond_0
 
-    :cond_1
     const-string/jumbo v0, "DreamController"
 
     const-string/jumbo v1, "Bound dream did not connect in the time allotted"
@@ -82,5 +79,6 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/dreams/DreamController;->stopDream(Z)V
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method

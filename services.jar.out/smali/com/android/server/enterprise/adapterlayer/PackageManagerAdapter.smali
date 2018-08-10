@@ -414,6 +414,58 @@
     return-object v1
 .end method
 
+.method public static isExistUserId(I)Z
+    .locals 5
+
+    const/4 v1, 0x0
+
+    if-nez p0, :cond_0
+
+    const/4 v1, 0x1
+
+    :cond_0
+    :try_start_0
+    invoke-static {}, Lcom/android/server/pm/UserManagerService;->getInstance()Lcom/android/server/pm/UserManagerService;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p0}, Lcom/android/server/pm/UserManagerService;->exists(I)Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    :goto_0
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v2, "PackageManagerAdapter"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "isExistUserId() failed. user "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3, v0}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    goto :goto_0
+.end method
+
 .method private isUserRunningAndUnlocked(I)Z
     .locals 3
 
@@ -954,33 +1006,41 @@
 .end method
 
 .method public deletePackageAsUser(Ljava/lang/String;II)Z
-    .locals 5
+    .locals 9
 
-    const/4 v3, 0x0
+    const/4 v8, 0x0
 
     :try_start_0
-    new-instance v2, Lcom/android/server/enterprise/adapterlayer/PackageManagerAdapter$PackageDeleteObserver;
+    new-instance v3, Lcom/android/server/enterprise/adapterlayer/PackageManagerAdapter$PackageDeleteObserver;
 
-    invoke-direct {v2, p0}, Lcom/android/server/enterprise/adapterlayer/PackageManagerAdapter$PackageDeleteObserver;-><init>(Lcom/android/server/enterprise/adapterlayer/PackageManagerAdapter;)V
+    invoke-direct {v3, p0}, Lcom/android/server/enterprise/adapterlayer/PackageManagerAdapter$PackageDeleteObserver;-><init>(Lcom/android/server/enterprise/adapterlayer/PackageManagerAdapter;)V
 
-    sget-object v4, Lcom/android/server/enterprise/adapterlayer/PackageManagerAdapter;->mIPackageManager:Landroid/content/pm/IPackageManager;
+    sget-object v0, Lcom/android/server/enterprise/adapterlayer/PackageManagerAdapter;->mIPackageManager:Landroid/content/pm/IPackageManager;
 
-    invoke-interface {v4, p1, v2, p2, p3}, Landroid/content/pm/IPackageManager;->deletePackageAsUser(Ljava/lang/String;Landroid/content/pm/IPackageDeleteObserver;II)V
+    const/4 v2, -0x1
 
-    monitor-enter v2
+    move-object v1, p1
+
+    move v4, p2
+
+    move v5, p3
+
+    invoke-interface/range {v0 .. v5}, Landroid/content/pm/IPackageManager;->deletePackageAsUser(Ljava/lang/String;ILandroid/content/pm/IPackageDeleteObserver;II)V
+
+    monitor-enter v3
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
 
     :goto_0
     :try_start_1
-    iget-boolean v4, v2, Lcom/android/server/enterprise/adapterlayer/PackageManagerAdapter$PackageDeleteObserver;->finished:Z
+    iget-boolean v0, v3, Lcom/android/server/enterprise/adapterlayer/PackageManagerAdapter$PackageDeleteObserver;->finished:Z
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    if-nez v4, :cond_0
+    if-nez v0, :cond_0
 
     :try_start_2
-    invoke-virtual {v2}, Lcom/android/server/enterprise/adapterlayer/PackageManagerAdapter$PackageDeleteObserver;->wait()V
+    invoke-virtual {v3}, Lcom/android/server/enterprise/adapterlayer/PackageManagerAdapter$PackageDeleteObserver;->wait()V
     :try_end_2
     .catch Ljava/lang/InterruptedException; {:try_start_2 .. :try_end_2} :catch_0
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
@@ -988,32 +1048,32 @@
     goto :goto_0
 
     :catch_0
-    move-exception v1
+    move-exception v7
 
     goto :goto_0
 
     :cond_0
     :try_start_3
-    monitor-exit v2
+    monitor-exit v3
 
-    iget-boolean v3, v2, Lcom/android/server/enterprise/adapterlayer/PackageManagerAdapter$PackageDeleteObserver;->result:Z
+    iget-boolean v8, v3, Lcom/android/server/enterprise/adapterlayer/PackageManagerAdapter$PackageDeleteObserver;->result:Z
 
     :goto_1
-    return v3
+    return v8
 
     :catchall_0
-    move-exception v4
+    move-exception v0
 
-    monitor-exit v2
+    monitor-exit v3
 
-    throw v4
+    throw v0
     :try_end_3
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
 
     :catch_1
-    move-exception v0
+    move-exception v6
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v6}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_1
 .end method
@@ -1558,7 +1618,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_5
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
@@ -1583,7 +1643,7 @@
     invoke-interface {v9, v4}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
 
     :cond_0
-    if-nez p1, :cond_1
+    if-nez p1, :cond_3
 
     sget-object v13, Lcom/android/server/enterprise/adapterlayer/PackageManagerAdapter;->mContext:Landroid/content/Context;
 
@@ -1595,7 +1655,7 @@
 
     check-cast v8, Landroid/os/UserManager;
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_3
 
     move/from16 v0, p1
 
@@ -1603,41 +1663,27 @@
 
     move-result-object v12
 
-    if-eqz v12, :cond_1
+    if-eqz v12, :cond_3
 
     invoke-interface {v12}, Ljava/util/List;->isEmpty()Z
 
     move-result v13
 
+    xor-int/lit8 v13, v13, 0x1
+
     if-eqz v13, :cond_3
 
-    :cond_1
-    invoke-interface {v9}, Ljava/util/Set;->size()I
-
-    move-result v13
-
-    if-lez v13, :cond_2
-
-    invoke-interface {v5, v9}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
-
-    :cond_2
-    invoke-static {v6, v7}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    :goto_0
-    return-object v5
-
-    :cond_3
     invoke-interface {v12}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v11
 
-    :cond_4
-    :goto_1
+    :cond_1
+    :goto_0
     invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v13
 
-    if-eqz v13, :cond_1
+    if-eqz v13, :cond_3
 
     invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1649,7 +1695,7 @@
 
     move/from16 v0, p1
 
-    if-eq v13, v0, :cond_4
+    if-eq v13, v0, :cond_1
 
     iget v13, v10, Landroid/content/pm/UserInfo;->id:I
 
@@ -1659,7 +1705,7 @@
 
     move-result v13
 
-    if-nez v13, :cond_5
+    if-nez v13, :cond_2
 
     const-string/jumbo v13, "PackageManagerAdapter"
 
@@ -1687,9 +1733,9 @@
 
     invoke-static {v13, v14}, Lcom/android/server/enterprise/log/Log;->v(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_5
+    :cond_2
     iget v13, v10, Landroid/content/pm/UserInfo;->id:I
 
     const/4 v14, 0x1
@@ -1698,16 +1744,31 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_1
 
     invoke-interface {v9, v4}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_6
+    :cond_3
+    invoke-interface {v9}, Ljava/util/Set;->size()I
+
+    move-result v13
+
+    if-lez v13, :cond_4
+
+    invoke-interface {v5, v9}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+
+    :cond_4
+    invoke-static {v6, v7}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    :goto_1
+    return-object v5
+
+    :cond_5
     const/4 v5, 0x0
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method public getPackageInfo(Ljava/lang/String;II)Landroid/content/pm/PackageInfo;
@@ -1959,9 +2020,11 @@
 
     add-int/2addr v6, v7
 
-    mul-int/lit8 v6, v6, 0x64
-
     int-to-long v6, v6
+
+    const-wide/16 v8, 0x64
+
+    mul-long/2addr v6, v8
 
     div-long/2addr v6, v4
 
@@ -1969,7 +2032,7 @@
 .end method
 
 .method public getTopCpuUsageProcesses(IZ)Ljava/util/List;
-    .locals 18
+    .locals 20
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(IZ)",
@@ -2104,6 +2167,8 @@
 
     invoke-static {v12, v13}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
+    if-eqz v9, :cond_3
+
     invoke-interface {v9}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v8
@@ -2207,21 +2272,21 @@
 
     add-int v16, v16, v17
 
-    mul-int/lit8 v16, v16, 0x64
-
     move/from16 v0, v16
 
-    int-to-long v0, v0
+    int-to-double v0, v0
 
     move-wide/from16 v16, v0
 
-    div-long v16, v16, v14
+    const-wide/high16 v18, 0x4059000000000000L    # 100.0
 
-    move-wide/from16 v0, v16
+    mul-double v16, v16, v18
 
-    long-to-double v0, v0
+    long-to-double v0, v14
 
-    move-wide/from16 v16, v0
+    move-wide/from16 v18, v0
+
+    div-double v16, v16, v18
 
     move-wide/from16 v0, v16
 

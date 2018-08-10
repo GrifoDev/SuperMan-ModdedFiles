@@ -4,7 +4,7 @@
 
 
 # virtual methods
-.method public abstract enqueueNotification(Ljava/lang/String;Ljava/lang/String;IILjava/lang/String;ILandroid/app/Notification;[II)V
+.method public abstract enqueueNotification(Ljava/lang/String;Ljava/lang/String;IILjava/lang/String;ILandroid/app/Notification;I)V
 .end method
 
 .method public abstract removeForegroundServiceFlagFromNotification(Ljava/lang/String;II)V

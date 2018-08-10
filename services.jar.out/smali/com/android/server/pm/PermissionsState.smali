@@ -312,66 +312,144 @@
 .end method
 
 .method private grantPermission(Lcom/android/server/pm/BasePermission;I)I
-    .locals 8
+    .locals 6
 
-    const/4 v5, 0x1
+    const/4 v5, -0x1
 
-    const/4 v4, 0x0
+    iget-object v4, p1, Lcom/android/server/pm/BasePermission;->name:Ljava/lang/String;
 
-    const/4 v7, -0x1
+    invoke-virtual {p0, v4, p2}, Lcom/android/server/pm/PermissionsState;->hasPermission(Ljava/lang/String;I)Z
 
-    iget-object v6, p1, Lcom/android/server/pm/BasePermission;->name:Ljava/lang/String;
+    move-result v4
 
-    invoke-virtual {p0, v6, p2}, Lcom/android/server/pm/PermissionsState;->hasPermission(Ljava/lang/String;I)Z
+    if-eqz v4, :cond_0
 
-    move-result v6
-
-    if-eqz v6, :cond_0
-
-    return v7
+    return v5
 
     :cond_0
     invoke-virtual {p1, p2}, Lcom/android/server/pm/BasePermission;->computeGids(I)[I
 
-    move-result-object v6
+    move-result-object v4
 
-    invoke-static {v6}, Lcom/android/internal/util/ArrayUtils;->isEmpty([I)Z
+    invoke-static {v4}, Lcom/android/internal/util/ArrayUtils;->isEmpty([I)Z
 
-    move-result v6
+    move-result v4
 
-    if-eqz v6, :cond_1
+    xor-int/lit8 v0, v4, 0x1
 
-    move v0, v4
-
-    :goto_0
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     invoke-virtual {p0, p2}, Lcom/android/server/pm/PermissionsState;->computeGids(I)[I
 
     move-result-object v2
 
-    :goto_1
+    :goto_0
     invoke-direct {p0, p1}, Lcom/android/server/pm/PermissionsState;->ensurePermissionData(Lcom/android/server/pm/BasePermission;)Lcom/android/server/pm/PermissionsState$PermissionData;
 
     move-result-object v3
 
     invoke-virtual {v3, p2}, Lcom/android/server/pm/PermissionsState$PermissionData;->grant(I)Z
 
-    move-result v6
+    move-result v4
 
-    if-nez v6, :cond_3
+    if-nez v4, :cond_2
 
-    return v7
+    return v5
 
     :cond_1
-    move v0, v5
+    sget-object v2, Lcom/android/server/pm/PermissionsState;->NO_GIDS:[I
 
     goto :goto_0
 
     :cond_2
+    if-eqz v0, :cond_3
+
+    invoke-virtual {p0, p2}, Lcom/android/server/pm/PermissionsState;->computeGids(I)[I
+
+    move-result-object v1
+
+    array-length v4, v2
+
+    array-length v5, v1
+
+    if-eq v4, v5, :cond_3
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :cond_3
+    const/4 v4, 0x0
+
+    return v4
+.end method
+
+.method private revokePermission(Lcom/android/server/pm/BasePermission;I)I
+    .locals 7
+
+    const/4 v6, -0x1
+
+    iget-object v4, p1, Lcom/android/server/pm/BasePermission;->name:Ljava/lang/String;
+
+    invoke-virtual {p0, v4, p2}, Lcom/android/server/pm/PermissionsState;->hasPermission(Ljava/lang/String;I)Z
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    return v6
+
+    :cond_0
+    invoke-virtual {p1, p2}, Lcom/android/server/pm/BasePermission;->computeGids(I)[I
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/android/internal/util/ArrayUtils;->isEmpty([I)Z
+
+    move-result v4
+
+    xor-int/lit8 v0, v4, 0x1
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {p0, p2}, Lcom/android/server/pm/PermissionsState;->computeGids(I)[I
+
+    move-result-object v2
+
+    :goto_0
+    iget-object v4, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
+
+    iget-object v5, p1, Lcom/android/server/pm/BasePermission;->name:Ljava/lang/String;
+
+    invoke-virtual {v4, v5}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/server/pm/PermissionsState$PermissionData;
+
+    invoke-virtual {v3, p2}, Lcom/android/server/pm/PermissionsState$PermissionData;->revoke(I)Z
+
+    move-result v4
+
+    if-nez v4, :cond_2
+
+    return v6
+
+    :cond_1
     sget-object v2, Lcom/android/server/pm/PermissionsState;->NO_GIDS:[I
 
-    goto :goto_1
+    goto :goto_0
+
+    :cond_2
+    invoke-virtual {v3}, Lcom/android/server/pm/PermissionsState$PermissionData;->isDefault()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_3
+
+    iget-object v4, p1, Lcom/android/server/pm/BasePermission;->name:Ljava/lang/String;
+
+    invoke-direct {p0, v4}, Lcom/android/server/pm/PermissionsState;->ensureNoPermissionData(Ljava/lang/String;)V
 
     :cond_3
     if-eqz v0, :cond_4
@@ -380,113 +458,19 @@
 
     move-result-object v1
 
-    array-length v6, v2
+    array-length v4, v2
 
-    array-length v7, v1
+    array-length v5, v1
 
-    if-eq v6, v7, :cond_4
+    if-eq v4, v5, :cond_4
 
-    return v5
+    const/4 v4, 0x1
+
+    return v4
 
     :cond_4
-    return v4
-.end method
-
-.method private revokePermission(Lcom/android/server/pm/BasePermission;I)I
-    .locals 9
-
-    const/4 v5, 0x1
-
     const/4 v4, 0x0
 
-    const/4 v8, -0x1
-
-    iget-object v6, p1, Lcom/android/server/pm/BasePermission;->name:Ljava/lang/String;
-
-    invoke-virtual {p0, v6, p2}, Lcom/android/server/pm/PermissionsState;->hasPermission(Ljava/lang/String;I)Z
-
-    move-result v6
-
-    if-nez v6, :cond_0
-
-    return v8
-
-    :cond_0
-    invoke-virtual {p1, p2}, Lcom/android/server/pm/BasePermission;->computeGids(I)[I
-
-    move-result-object v6
-
-    invoke-static {v6}, Lcom/android/internal/util/ArrayUtils;->isEmpty([I)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_1
-
-    move v0, v4
-
-    :goto_0
-    if-eqz v0, :cond_2
-
-    invoke-virtual {p0, p2}, Lcom/android/server/pm/PermissionsState;->computeGids(I)[I
-
-    move-result-object v2
-
-    :goto_1
-    iget-object v6, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
-
-    iget-object v7, p1, Lcom/android/server/pm/BasePermission;->name:Ljava/lang/String;
-
-    invoke-virtual {v6, v7}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/android/server/pm/PermissionsState$PermissionData;
-
-    invoke-virtual {v3, p2}, Lcom/android/server/pm/PermissionsState$PermissionData;->revoke(I)Z
-
-    move-result v6
-
-    if-nez v6, :cond_3
-
-    return v8
-
-    :cond_1
-    move v0, v5
-
-    goto :goto_0
-
-    :cond_2
-    sget-object v2, Lcom/android/server/pm/PermissionsState;->NO_GIDS:[I
-
-    goto :goto_1
-
-    :cond_3
-    invoke-virtual {v3}, Lcom/android/server/pm/PermissionsState$PermissionData;->isDefault()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_4
-
-    iget-object v6, p1, Lcom/android/server/pm/BasePermission;->name:Ljava/lang/String;
-
-    invoke-direct {p0, v6}, Lcom/android/server/pm/PermissionsState;->ensureNoPermissionData(Ljava/lang/String;)V
-
-    :cond_4
-    if-eqz v0, :cond_5
-
-    invoke-virtual {p0, p2}, Lcom/android/server/pm/PermissionsState;->computeGids(I)[I
-
-    move-result-object v1
-
-    array-length v6, v2
-
-    array-length v7, v1
-
-    if-eq v6, v7, :cond_5
-
-    return v5
-
-    :cond_5
     return v4
 .end method
 
@@ -761,6 +745,99 @@
     return-void
 .end method
 
+.method public equals(Ljava/lang/Object;)Z
+    .locals 4
+
+    const/4 v3, 0x0
+
+    if-ne p0, p1, :cond_0
+
+    const/4 v1, 0x1
+
+    return v1
+
+    :cond_0
+    if-nez p1, :cond_1
+
+    return v3
+
+    :cond_1
+    invoke-virtual {p0}, Lcom/android/server/pm/PermissionsState;->getClass()Ljava/lang/Class;
+
+    move-result-object v1
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v2
+
+    if-eq v1, v2, :cond_2
+
+    return v3
+
+    :cond_2
+    move-object v0, p1
+
+    check-cast v0, Lcom/android/server/pm/PermissionsState;
+
+    iget-object v1, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
+
+    if-nez v1, :cond_3
+
+    iget-object v1, v0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
+
+    if-eqz v1, :cond_4
+
+    return v3
+
+    :cond_3
+    iget-object v1, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
+
+    iget-object v2, v0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
+
+    invoke-virtual {v1, v2}, Landroid/util/ArrayMap;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_4
+
+    return v3
+
+    :cond_4
+    iget-object v1, p0, Lcom/android/server/pm/PermissionsState;->mPermissionReviewRequired:Landroid/util/SparseBooleanArray;
+
+    if-nez v1, :cond_5
+
+    iget-object v1, v0, Lcom/android/server/pm/PermissionsState;->mPermissionReviewRequired:Landroid/util/SparseBooleanArray;
+
+    if-eqz v1, :cond_6
+
+    return v3
+
+    :cond_5
+    iget-object v1, p0, Lcom/android/server/pm/PermissionsState;->mPermissionReviewRequired:Landroid/util/SparseBooleanArray;
+
+    iget-object v2, v0, Lcom/android/server/pm/PermissionsState;->mPermissionReviewRequired:Landroid/util/SparseBooleanArray;
+
+    invoke-virtual {v1, v2}, Landroid/util/SparseBooleanArray;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_6
+
+    return v3
+
+    :cond_6
+    iget-object v1, p0, Lcom/android/server/pm/PermissionsState;->mGlobalGids:[I
+
+    iget-object v2, v0, Lcom/android/server/pm/PermissionsState;->mGlobalGids:[I
+
+    invoke-static {v1, v2}, Ljava/util/Arrays;->equals([I[I)Z
+
+    move-result v1
+
+    return v1
+.end method
+
 .method public getInstallPermissionState(Ljava/lang/String;)Lcom/android/server/pm/PermissionsState$PermissionState;
     .locals 1
 
@@ -855,7 +932,13 @@
     :cond_0
     new-instance v3, Landroid/util/ArraySet;
 
-    invoke-direct {v3}, Landroid/util/ArraySet;-><init>()V
+    iget-object v4, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
+
+    invoke-virtual {v4}, Landroid/util/ArrayMap;->size()I
+
+    move-result v4
+
+    invoke-direct {v3, v4}, Landroid/util/ArraySet;-><init>(I)V
 
     iget-object v4, p0, Lcom/android/server/pm/PermissionsState;->mPermissions:Landroid/util/ArrayMap;
 
@@ -880,27 +963,30 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2
 
     invoke-interface {v3, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     :cond_1
+    :goto_1
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_2
     const/4 v4, -0x1
 
-    if-eq p1, v4, :cond_2
+    if-eq p1, v4, :cond_1
 
     invoke-virtual {p0, v1, p1}, Lcom/android/server/pm/PermissionsState;->hasRuntimePermission(Ljava/lang/String;I)Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_1
 
     invoke-interface {v3, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    :cond_2
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
+    goto :goto_1
 
     :cond_3
     return-object v3

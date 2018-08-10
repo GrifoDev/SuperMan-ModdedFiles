@@ -1064,11 +1064,9 @@
 
     invoke-virtual {v2, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Ljava/lang/String;
-
-    move-object v1, v2
+    check-cast v1, Ljava/lang/String;
 
     :goto_0
     if-eqz v1, :cond_1
@@ -1100,11 +1098,9 @@
 
     invoke-virtual {v2, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Ljava/lang/String;
-
-    move-object v1, v2
+    check-cast v1, Ljava/lang/String;
 
     :goto_0
     if-eqz v1, :cond_1

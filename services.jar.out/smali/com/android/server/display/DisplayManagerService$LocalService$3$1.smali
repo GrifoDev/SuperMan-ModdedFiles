@@ -43,7 +43,7 @@
 
     iget-object v1, v1, Lcom/android/server/display/DisplayManagerService$LocalService;->this$0:Lcom/android/server/display/DisplayManagerService;
 
-    invoke-static {v1}, Lcom/android/server/display/DisplayManagerService;->-get7(Lcom/android/server/display/DisplayManagerService;)Ljava/lang/Object;
+    invoke-static {v1}, Lcom/android/server/display/DisplayManagerService;->-get8(Lcom/android/server/display/DisplayManagerService;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -94,19 +94,11 @@
 
     iget-object v4, v4, Lcom/android/server/display/DisplayManagerService$LocalService$3;->this$1:Lcom/android/server/display/DisplayManagerService$LocalService;
 
-    invoke-static {v4}, Lcom/android/server/display/DisplayManagerService$LocalService;->-get3(Lcom/android/server/display/DisplayManagerService$LocalService;)I
+    invoke-static {v4}, Lcom/android/server/display/DisplayManagerService$LocalService;->-get1(Lcom/android/server/display/DisplayManagerService$LocalService;)I
 
     move-result v4
 
-    iget-object v5, p0, Lcom/android/server/display/DisplayManagerService$LocalService$3$1;->this$2:Lcom/android/server/display/DisplayManagerService$LocalService$3;
-
-    iget-object v5, v5, Lcom/android/server/display/DisplayManagerService$LocalService$3;->this$1:Lcom/android/server/display/DisplayManagerService$LocalService;
-
-    invoke-static {v5}, Lcom/android/server/display/DisplayManagerService$LocalService;->-get1(Lcom/android/server/display/DisplayManagerService$LocalService;)I
-
-    move-result v5
-
-    invoke-static {v1, v3, v4, v5}, Lcom/android/server/display/DisplayManagerService$LocalService$3;->-wrap0(Lcom/android/server/display/DisplayManagerService$LocalService$3;III)V
+    invoke-static {v1, v3, v4}, Lcom/android/server/display/DisplayManagerService$LocalService$3;->-wrap0(Lcom/android/server/display/DisplayManagerService$LocalService$3;II)V
 
     const-string/jumbo v1, "DisplayManagerInternal.requestDesiredDisplayState"
 

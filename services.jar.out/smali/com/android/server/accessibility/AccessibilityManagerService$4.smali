@@ -50,7 +50,7 @@
 
     iget-object v3, p0, Lcom/android/server/accessibility/AccessibilityManagerService$4;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    invoke-static {v3, v5}, Lcom/android/server/accessibility/AccessibilityManagerService;->-set7(Lcom/android/server/accessibility/AccessibilityManagerService;Z)Z
+    invoke-static {v3, v5}, Lcom/android/server/accessibility/AccessibilityManagerService;->-set5(Lcom/android/server/accessibility/AccessibilityManagerService;Z)Z
 
     iget-object v3, p0, Lcom/android/server/accessibility/AccessibilityManagerService$4;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
@@ -60,7 +60,7 @@
 
     move-result v4
 
-    invoke-static {v3, v4}, Lcom/android/server/accessibility/AccessibilityManagerService;->-wrap30(Lcom/android/server/accessibility/AccessibilityManagerService;I)V
+    invoke-static {v3, v4}, Lcom/android/server/accessibility/AccessibilityManagerService;->-wrap34(Lcom/android/server/accessibility/AccessibilityManagerService;I)V
 
     :cond_0
     :goto_0
@@ -83,7 +83,7 @@
 
     move-result v4
 
-    invoke-static {v3, v4}, Lcom/android/server/accessibility/AccessibilityManagerService;->-wrap32(Lcom/android/server/accessibility/AccessibilityManagerService;I)V
+    invoke-static {v3, v4}, Lcom/android/server/accessibility/AccessibilityManagerService;->-wrap36(Lcom/android/server/accessibility/AccessibilityManagerService;I)V
 
     goto :goto_0
 
@@ -104,7 +104,7 @@
 
     move-result v4
 
-    invoke-static {v3, v4}, Lcom/android/server/accessibility/AccessibilityManagerService;->-wrap27(Lcom/android/server/accessibility/AccessibilityManagerService;I)V
+    invoke-static {v3, v4}, Lcom/android/server/accessibility/AccessibilityManagerService;->-wrap29(Lcom/android/server/accessibility/AccessibilityManagerService;I)V
 
     goto :goto_0
 
@@ -115,11 +115,20 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_5
 
     iget-object v3, p0, Lcom/android/server/accessibility/AccessibilityManagerService$4;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    invoke-static {v3}, Lcom/android/server/accessibility/AccessibilityManagerService;->-wrap15(Lcom/android/server/accessibility/AccessibilityManagerService;)Lcom/android/server/accessibility/AccessibilityManagerService$UserState;
+    invoke-static {v3}, Lcom/android/server/accessibility/AccessibilityManagerService;->-get18(Lcom/android/server/accessibility/AccessibilityManagerService;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    monitor-enter v4
+
+    :try_start_0
+    iget-object v3, p0, Lcom/android/server/accessibility/AccessibilityManagerService$4;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
+
+    invoke-static {v3}, Lcom/android/server/accessibility/AccessibilityManagerService;->-wrap16(Lcom/android/server/accessibility/AccessibilityManagerService;)Lcom/android/server/accessibility/AccessibilityManagerService$UserState;
 
     move-result-object v1
 
@@ -127,23 +136,36 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_4
 
     iget-object v3, p0, Lcom/android/server/accessibility/AccessibilityManagerService$4;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    invoke-static {v3, v1}, Lcom/android/server/accessibility/AccessibilityManagerService;->-wrap3(Lcom/android/server/accessibility/AccessibilityManagerService;Lcom/android/server/accessibility/AccessibilityManagerService$UserState;)Z
+    invoke-static {v3, v1}, Lcom/android/server/accessibility/AccessibilityManagerService;->-wrap6(Lcom/android/server/accessibility/AccessibilityManagerService;Lcom/android/server/accessibility/AccessibilityManagerService$UserState;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_4
 
     iget-object v3, p0, Lcom/android/server/accessibility/AccessibilityManagerService$4;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    invoke-static {v3, v1}, Lcom/android/server/accessibility/AccessibilityManagerService;->-wrap23(Lcom/android/server/accessibility/AccessibilityManagerService;Lcom/android/server/accessibility/AccessibilityManagerService$UserState;)V
+    invoke-static {v3, v1}, Lcom/android/server/accessibility/AccessibilityManagerService;->-wrap25(Lcom/android/server/accessibility/AccessibilityManagerService;Lcom/android/server/accessibility/AccessibilityManagerService$UserState;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_4
+    :goto_1
+    monitor-exit v4
 
     goto :goto_0
 
-    :cond_4
+    :catchall_0
+    move-exception v3
+
+    monitor-exit v4
+
+    throw v3
+
+    :cond_5
     const-string/jumbo v3, "android.os.action.SETTING_RESTORED"
 
     invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -174,7 +196,7 @@
 
     monitor-enter v4
 
-    :try_start_0
+    :try_start_1
     iget-object v3, p0, Lcom/android/server/accessibility/AccessibilityManagerService$4;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
     const-string/jumbo v5, "previous_value"
@@ -190,14 +212,12 @@
     move-result-object v6
 
     invoke-virtual {v3, v5, v6}, Lcom/android/server/accessibility/AccessibilityManagerService;->restoreEnabledAccessibilityServicesLocked(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    monitor-exit v4
+    goto :goto_1
 
-    goto/16 :goto_0
-
-    :catchall_0
+    :catchall_1
     move-exception v3
 
     monitor-exit v4

@@ -3,6 +3,14 @@
 .source "StatusBarManagerInternal.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/android/server/statusbar/StatusBarManagerInternal$GlobalActionsListener;
+    }
+.end annotation
+
+
 # virtual methods
 .method public abstract appTransitionCancelled()V
 .end method
@@ -16,9 +24,6 @@
 .method public abstract appTransitionStarting(JJ)V
 .end method
 
-.method public abstract buzzBeepBlinked()V
-.end method
-
 .method public abstract cancelPreloadRecentApps()V
 .end method
 
@@ -28,12 +33,6 @@
 .method public abstract hideRecentApps(ZZ)V
 .end method
 
-.method public abstract notificationLightOff()V
-.end method
-
-.method public abstract notificationLightPulse(III)V
-.end method
-
 .method public abstract onCameraLaunchGestureDetected(I)V
 .end method
 
@@ -41,6 +40,9 @@
 .end method
 
 .method public abstract setCurrentUser(I)V
+.end method
+
+.method public abstract setGlobalActionsListener(Lcom/android/server/statusbar/StatusBarManagerInternal$GlobalActionsListener;)V
 .end method
 
 .method public abstract setNotificationDelegate(Lcom/android/server/notification/NotificationDelegate;)V
@@ -55,13 +57,19 @@
 .method public abstract showAssistDisclosure()V
 .end method
 
+.method public abstract showGlobalActions()V
+.end method
+
+.method public abstract showPictureInPictureMenu()V
+.end method
+
 .method public abstract showRecentApps(ZZ)V
 .end method
 
 .method public abstract showScreenPinningRequest(I)V
 .end method
 
-.method public abstract showTvPictureInPictureMenu()V
+.method public abstract showSnapWindowGuideView(ILjava/lang/String;)V
 .end method
 
 .method public abstract startAssist(Landroid/os/Bundle;)V
@@ -74,9 +82,6 @@
 .end method
 
 .method public abstract toggleSplitScreen()V
-.end method
-
-.method public abstract toggleSplitScreenByKey()V
 .end method
 
 .method public abstract topAppWindowChanged(Z)V

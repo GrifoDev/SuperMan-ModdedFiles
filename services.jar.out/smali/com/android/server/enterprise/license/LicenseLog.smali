@@ -12,6 +12,16 @@
     return-void
 .end method
 
+.method public static deleteAllLog()Z
+    .locals 1
+
+    invoke-static {}, Lcom/android/server/enterprise/license/LicenseLogService;->deleteAllLog()Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public static deleteLog(Ljava/lang/String;)Z
     .locals 1
 

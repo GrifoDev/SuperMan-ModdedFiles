@@ -15,5 +15,11 @@
 
 
 # virtual methods
+.method public abstract getLastCoverOpenTime()J
+.end method
+
+.method public abstract onPabPointAdded(II)V
+.end method
+
 .method public abstract updateBrightness()V
 .end method

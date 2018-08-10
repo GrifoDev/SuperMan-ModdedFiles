@@ -16,6 +16,8 @@
 # static fields
 .field static final DEBUG:Z = false
 
+.field private static final DEBUG_DUALVIEW:Z
+
 .field private static final DISPLAY_PATTERN:Ljava/util/regex/Pattern;
 
 .field private static final MAX_HEIGHT:I = 0x1000
@@ -51,7 +53,15 @@
 
 
 # direct methods
-.method static synthetic -get0(Lcom/android/server/display/OverlayDisplayAdapter;)Landroid/os/Handler;
+.method static synthetic -get0()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/server/display/OverlayDisplayAdapter;->DEBUG_DUALVIEW:Z
+
+    return v0
+.end method
+
+.method static synthetic -get1(Lcom/android/server/display/OverlayDisplayAdapter;)Landroid/os/Handler;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/display/OverlayDisplayAdapter;->mUiHandler:Landroid/os/Handler;
@@ -85,6 +95,12 @@
     move-result-object v0
 
     sput-object v0, Lcom/android/server/display/OverlayDisplayAdapter;->MODE_PATTERN:Ljava/util/regex/Pattern;
+
+    invoke-static {}, Landroid/os/Debug;->semIsProductDev()Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/server/display/OverlayDisplayAdapter;->DEBUG_DUALVIEW:Z
 
     return-void
 .end method
@@ -182,7 +198,7 @@
 .end method
 
 .method private updateOverlayDisplayDevicesLocked()V
-    .locals 30
+    .locals 31
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/display/OverlayDisplayAdapter;->getContext()Landroid/content/Context;
 
@@ -196,18 +212,22 @@
 
     invoke-static {v2, v3}, Landroid/provider/Settings$Global;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v22
 
-    if-nez v21, :cond_0
+    if-nez v22, :cond_0
 
-    const-string/jumbo v21, ""
+    const-string/jumbo v22, ""
 
     :cond_0
+    const/4 v9, -0x1
+
+    sget-boolean v2, Lcom/android/server/display/OverlayDisplayAdapter;->DEBUG_DUALVIEW:Z
+
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/display/OverlayDisplayAdapter;->mCurrentOverlaySetting:Ljava/lang/String;
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -218,7 +238,7 @@
     return-void
 
     :cond_1
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     move-object/from16 v1, p0
 
@@ -246,22 +266,22 @@
 
     invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v19
+    move-result-object v20
 
     :goto_0
-    invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface/range {v20 .. v20}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
     if-eqz v2, :cond_2
 
-    invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface/range {v20 .. v20}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v18
+    move-result-object v19
 
-    check-cast v18, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;
+    check-cast v19, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;
 
-    invoke-virtual/range {v18 .. v18}, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;->dismissLocked()V
+    invoke-virtual/range {v19 .. v19}, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;->dismissLocked()V
 
     goto :goto_0
 
@@ -277,44 +297,44 @@
 
     const-string/jumbo v2, ";"
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v25
 
     const/4 v2, 0x0
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v25
 
     array-length v0, v0
 
-    move/from16 v25, v0
+    move/from16 v26, v0
 
-    move/from16 v23, v2
+    move/from16 v24, v2
 
     :goto_1
-    move/from16 v0, v23
+    move/from16 v0, v24
 
-    move/from16 v1, v25
+    move/from16 v1, v26
 
     if-ge v0, v1, :cond_4
 
-    aget-object v20, v24, v23
+    aget-object v21, v25, v24
 
     sget-object v2, Lcom/android/server/display/OverlayDisplayAdapter;->DISPLAY_PATTERN:Ljava/util/regex/Pattern;
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     invoke-virtual {v2, v0}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
 
-    move-result-object v10
+    move-result-object v11
 
-    invoke-virtual {v10}, Ljava/util/regex/Matcher;->matches()Z
+    invoke-virtual {v11}, Ljava/util/regex/Matcher;->matches()Z
 
     move-result v2
 
-    if-eqz v2, :cond_b
+    if-eqz v2, :cond_a
 
     const/4 v2, 0x4
 
@@ -326,15 +346,15 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v23, "Too many overlay display devices specified: "
+    const-string/jumbo v24, "Too many overlay display devices specified: "
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v24
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -352,15 +372,15 @@
     :cond_5
     const/4 v2, 0x1
 
-    invoke-virtual {v10, v2}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
+    invoke-virtual {v11, v2}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
 
-    move-result-object v16
+    move-result-object v17
 
     const/4 v2, 0x2
 
-    invoke-virtual {v10, v2}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
+    invoke-virtual {v11, v2}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v13
 
     new-instance v5, Ljava/util/ArrayList;
 
@@ -368,7 +388,7 @@
 
     const-string/jumbo v2, "\\|"
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
@@ -378,183 +398,186 @@
 
     array-length v0, v3
 
-    move/from16 v26, v0
+    move/from16 v27, v0
 
     :goto_2
-    move/from16 v0, v26
+    move/from16 v0, v27
 
-    if-ge v2, v0, :cond_9
+    if-ge v2, v0, :cond_8
 
-    aget-object v14, v3, v2
+    aget-object v15, v3, v2
 
-    sget-object v27, Lcom/android/server/display/OverlayDisplayAdapter;->MODE_PATTERN:Ljava/util/regex/Pattern;
+    sget-object v28, Lcom/android/server/display/OverlayDisplayAdapter;->MODE_PATTERN:Ljava/util/regex/Pattern;
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v28
 
-    invoke-virtual {v0, v14}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
+    invoke-virtual {v0, v15}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
 
-    move-result-object v15
+    move-result-object v16
 
-    invoke-virtual {v15}, Ljava/util/regex/Matcher;->matches()Z
+    invoke-virtual/range {v16 .. v16}, Ljava/util/regex/Matcher;->matches()Z
 
-    move-result v27
+    move-result v28
 
-    if-eqz v27, :cond_8
+    if-eqz v28, :cond_7
 
-    const/16 v27, 0x1
+    const/16 v28, 0x1
 
     :try_start_0
-    move/from16 v0, v27
+    move-object/from16 v0, v16
 
-    invoke-virtual {v15, v0}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
+    move/from16 v1, v28
 
-    move-result-object v27
+    invoke-virtual {v0, v1}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
 
-    const/16 v28, 0xa
+    move-result-object v28
 
-    invoke-static/range {v27 .. v28}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;I)I
+    const/16 v29, 0xa
 
-    move-result v22
+    invoke-static/range {v28 .. v29}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;I)I
 
-    const/16 v27, 0x2
+    move-result v23
 
-    move/from16 v0, v27
+    const/16 v28, 0x2
 
-    invoke-virtual {v15, v0}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
+    move-object/from16 v0, v16
 
-    move-result-object v27
+    move/from16 v1, v28
 
-    const/16 v28, 0xa
+    invoke-virtual {v0, v1}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
 
-    invoke-static/range {v27 .. v28}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;I)I
+    move-result-object v28
 
-    move-result v13
+    const/16 v29, 0xa
 
-    const/16 v27, 0x3
+    invoke-static/range {v28 .. v29}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;I)I
 
-    move/from16 v0, v27
+    move-result v14
 
-    invoke-virtual {v15, v0}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
+    const/16 v28, 0x3
 
-    move-result-object v27
+    move-object/from16 v0, v16
 
-    const/16 v28, 0xa
+    move/from16 v1, v28
 
-    invoke-static/range {v27 .. v28}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;I)I
+    invoke-virtual {v0, v1}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
 
-    move-result v9
+    move-result-object v28
 
-    const/16 v27, 0x64
+    const/16 v29, 0xa
 
-    move/from16 v0, v22
+    invoke-static/range {v28 .. v29}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;I)I
 
-    move/from16 v1, v27
+    move-result v10
 
-    if-lt v0, v1, :cond_7
+    const/16 v28, 0x64
 
-    const/16 v27, 0x1000
+    move/from16 v0, v23
 
-    move/from16 v0, v22
+    move/from16 v1, v28
 
-    move/from16 v1, v27
+    if-lt v0, v1, :cond_6
 
-    if-gt v0, v1, :cond_7
+    const/16 v28, 0x1000
 
-    const/16 v27, 0x64
+    move/from16 v0, v23
 
-    move/from16 v0, v27
+    move/from16 v1, v28
 
-    if-lt v13, v0, :cond_7
+    if-gt v0, v1, :cond_6
 
-    const/16 v27, 0x1000
+    const/16 v28, 0x64
 
-    move/from16 v0, v27
+    move/from16 v0, v28
 
-    if-gt v13, v0, :cond_7
+    if-lt v14, v0, :cond_6
 
-    const/16 v27, 0x78
+    const/16 v28, 0x1000
 
-    move/from16 v0, v27
+    move/from16 v0, v28
 
-    if-lt v9, v0, :cond_7
+    if-gt v14, v0, :cond_6
 
-    const/16 v27, 0x280
+    const/16 v28, 0x78
 
-    move/from16 v0, v27
+    move/from16 v0, v28
 
-    if-gt v9, v0, :cond_7
+    if-lt v10, v0, :cond_6
 
-    new-instance v27, Lcom/android/server/display/OverlayDisplayAdapter$OverlayMode;
+    const/16 v28, 0x280
 
-    move-object/from16 v0, v27
+    move/from16 v0, v28
 
-    move/from16 v1, v22
+    if-gt v10, v0, :cond_6
 
-    invoke-direct {v0, v1, v13, v9}, Lcom/android/server/display/OverlayDisplayAdapter$OverlayMode;-><init>(III)V
+    new-instance v28, Lcom/android/server/display/OverlayDisplayAdapter$OverlayMode;
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v28
+
+    move/from16 v1, v23
+
+    invoke-direct {v0, v1, v14, v10}, Lcom/android/server/display/OverlayDisplayAdapter$OverlayMode;-><init>(III)V
+
+    move-object/from16 v0, v28
 
     invoke-virtual {v5, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_6
     :goto_3
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_2
 
-    :cond_7
-    const-string/jumbo v27, "OverlayDisplayAdapter"
+    :cond_6
+    const-string/jumbo v28, "OverlayDisplayAdapter"
 
-    new-instance v28, Ljava/lang/StringBuilder;
+    new-instance v29, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v28 .. v28}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v29 .. v29}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v29, "Ignoring out-of-range overlay display mode: "
+    const-string/jumbo v30, "Ignoring out-of-range overlay display mode: "
 
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v28
+    move-result-object v29
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v29
 
-    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v28
+    move-result-object v29
 
-    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v29 .. v29}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v28
+    move-result-object v29
 
-    invoke-static/range {v27 .. v28}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v28 .. v29}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_3
 
     :catch_0
-    move-exception v11
+    move-exception v12
+
+    goto :goto_3
+
+    :cond_7
+    invoke-virtual {v15}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v28
 
     goto :goto_3
 
     :cond_8
-    invoke-virtual {v14}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v27
-
-    if-eqz v27, :cond_6
-
-    goto :goto_3
-
-    :cond_9
     invoke-virtual {v5}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v2
 
-    if-nez v2, :cond_b
+    if-nez v2, :cond_a
 
     add-int/lit8 v8, v8, 0x1
 
-    move/from16 v17, v8
+    move/from16 v18, v8
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/display/OverlayDisplayAdapter;->getContext()Landroid/content/Context;
 
@@ -570,15 +593,15 @@
 
     invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v26
+    move-result-object v27
 
-    const/16 v27, 0x0
+    const/16 v28, 0x0
 
-    aput-object v26, v3, v27
+    aput-object v27, v3, v28
 
-    const v26, 0x1040511
+    const v27, 0x10402be
 
-    move/from16 v0, v26
+    move/from16 v0, v27
 
     invoke-virtual {v2, v0, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -588,11 +611,11 @@
 
     move-result v6
 
-    if-eqz v12, :cond_a
+    if-eqz v13, :cond_9
 
     const-string/jumbo v2, ",secure"
 
-    invoke-virtual {v12, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    invoke-virtual {v13, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result v7
 
@@ -603,9 +626,9 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v26, "Showing overlay display device #"
+    const-string/jumbo v27, "Showing overlay display device #"
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v27
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -615,9 +638,9 @@
 
     move-result-object v3
 
-    const-string/jumbo v26, ": name="
+    const-string/jumbo v27, ": name="
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v27
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -627,9 +650,9 @@
 
     move-result-object v3
 
-    const-string/jumbo v26, ", modes="
+    const-string/jumbo v27, ", modes="
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v27
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -637,13 +660,13 @@
 
     invoke-virtual {v5}, Ljava/util/ArrayList;->toArray()[Ljava/lang/Object;
 
-    move-result-object v26
+    move-result-object v27
 
-    invoke-static/range {v26 .. v26}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static/range {v27 .. v27}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v26
+    move-result-object v27
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v27
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -659,46 +682,46 @@
 
     iget-object v0, v0, Lcom/android/server/display/OverlayDisplayAdapter;->mOverlays:Ljava/util/ArrayList;
 
-    move-object/from16 v26, v0
+    move-object/from16 v27, v0
 
     new-instance v2, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;
 
     move-object/from16 v3, p0
 
-    invoke-direct/range {v2 .. v8}, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;-><init>(Lcom/android/server/display/OverlayDisplayAdapter;Ljava/lang/String;Ljava/util/List;IZI)V
+    invoke-direct/range {v2 .. v9}, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;-><init>(Lcom/android/server/display/OverlayDisplayAdapter;Ljava/lang/String;Ljava/util/List;IZII)V
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     :goto_5
-    add-int/lit8 v2, v23, 0x1
+    add-int/lit8 v2, v24, 0x1
 
-    move/from16 v23, v2
+    move/from16 v24, v2
 
     goto/16 :goto_1
 
-    :cond_a
+    :cond_9
     const/4 v7, 0x0
 
     goto :goto_4
 
-    :cond_b
+    :cond_a
     const-string/jumbo v2, "OverlayDisplayAdapter"
 
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v26, "Malformed overlay display devices setting: "
+    const-string/jumbo v27, "Malformed overlay display devices setting: "
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v27
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

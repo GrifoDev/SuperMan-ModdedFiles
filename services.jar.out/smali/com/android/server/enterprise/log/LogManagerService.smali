@@ -257,15 +257,16 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_1
-    return v2
+    if-eqz v1, :cond_1
 
-    :cond_2
     const/4 v1, 0x0
 
     return v1
+
+    :cond_1
+    return v2
 .end method
 
 .method private static createLogger(I)Lcom/android/server/enterprise/log/Logger;
@@ -364,65 +365,67 @@
 .end method
 
 .method private initLog()V
-    .locals 5
+    .locals 6
 
     new-instance v1, Ljava/io/File;
 
-    const-string/jumbo v3, "/data/system/enterprise/log.cfg"
+    const-string/jumbo v4, "/data/system/enterprise/log.cfg"
 
-    invoke-direct {v1, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v1}, Ljava/io/File;->exists()Z
-
-    move-result v3
-
-    if-nez v3, :cond_0
+    invoke-direct {v1, v4}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1}, Ljava/io/File;->getParentFile()Ljava/io/File;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3}, Ljava/io/File;->mkdirs()Z
+    invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
-    const/4 v3, 0x1
+    move-result v4
 
-    invoke-virtual {p0, v3}, Lcom/android/server/enterprise/log/LogManagerService;->enableLogging(I)I
+    if-nez v4, :cond_0
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {v2}, Ljava/io/File;->mkdirs()Z
+
+    const/4 v4, 0x1
+
+    invoke-virtual {p0, v4}, Lcom/android/server/enterprise/log/LogManagerService;->enableLogging(I)I
 
     :cond_0
     const/4 v0, 0x0
 
     :goto_0
-    sget-object v3, Lcom/android/server/enterprise/log/LogManagerService;->LOGGER_NAMES:[Ljava/lang/String;
+    sget-object v4, Lcom/android/server/enterprise/log/LogManagerService;->LOGGER_NAMES:[Ljava/lang/String;
 
-    array-length v3, v3
+    array-length v4, v4
 
-    if-ge v0, v3, :cond_2
+    if-ge v0, v4, :cond_2
 
-    sget-object v3, Lcom/android/server/enterprise/log/LogManagerService;->LOGGER_NAMES:[Ljava/lang/String;
+    sget-object v4, Lcom/android/server/enterprise/log/LogManagerService;->LOGGER_NAMES:[Ljava/lang/String;
 
-    aget-object v3, v3, v0
+    aget-object v4, v4, v0
 
-    const-string/jumbo v4, "/data/system/enterprise/log.cfg"
+    const-string/jumbo v5, "/data/system/enterprise/log.cfg"
 
-    invoke-static {v3, v4}, Lcom/android/server/enterprise/utils/Utils;->readPropertyValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/utils/Utils;->readPropertyValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
-
-    if-eqz v2, :cond_1
-
-    const-string/jumbo v3, "1"
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
+    move-result-object v3
 
     if-eqz v3, :cond_1
 
-    sget-object v3, Lcom/android/server/enterprise/log/LogManagerService;->LOGGER_TYPES:[I
+    const-string/jumbo v4, "1"
 
-    aget v3, v3, v0
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {p0, v3}, Lcom/android/server/enterprise/log/LogManagerService;->enableLogging(I)I
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    sget-object v4, Lcom/android/server/enterprise/log/LogManagerService;->LOGGER_TYPES:[I
+
+    aget v4, v4, v0
+
+    invoke-virtual {p0, v4}, Lcom/android/server/enterprise/log/LogManagerService;->enableLogging(I)I
 
     :cond_1
     add-int/lit8 v0, v0, 0x1

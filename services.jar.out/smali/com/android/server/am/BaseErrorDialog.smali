@@ -45,7 +45,7 @@
 
     const/high16 v3, 0x20000
 
-    const v1, 0x1030484
+    const v1, 0x1030408
 
     invoke-direct {p0, p1, v1}, Landroid/app/AlertDialog;-><init>(Landroid/content/Context;I)V
 
@@ -58,6 +58,8 @@
     invoke-direct {v1, p0}, Lcom/android/server/am/BaseErrorDialog$1;-><init>(Lcom/android/server/am/BaseErrorDialog;)V
 
     iput-object v1, p0, Lcom/android/server/am/BaseErrorDialog;->mHandler:Landroid/os/Handler;
+
+    invoke-virtual {p1}, Landroid/content/Context;->assertRuntimeOverlayThemable()V
 
     invoke-virtual {p0}, Lcom/android/server/am/BaseErrorDialog;->getWindow()Landroid/view/Window;
 

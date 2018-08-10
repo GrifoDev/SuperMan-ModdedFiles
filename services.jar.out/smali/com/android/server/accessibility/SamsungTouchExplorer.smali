@@ -87,7 +87,7 @@
 
 .field private final mReceivedPointerTracker:Lcom/android/server/accessibility/SamsungTouchExplorer$ReceivedPointerTracker;
 
-.field private final mScaledMinPointerDistanceToUseMiddleLocation:I
+.field private mScaledMinPointerDistanceToUseMiddleLocation:I
 
 .field private final mSendHoverEnterAndMoveDelayed:Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;
 
@@ -1150,17 +1150,17 @@
 .end method
 
 .method private handleMotionEventStateTouchExploring(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
-    .locals 24
+    .locals 26
 
     move-object/from16 v0, p0
 
-    iget-object v14, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mReceivedPointerTracker:Lcom/android/server/accessibility/SamsungTouchExplorer$ReceivedPointerTracker;
+    iget-object v15, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mReceivedPointerTracker:Lcom/android/server/accessibility/SamsungTouchExplorer$ReceivedPointerTracker;
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
-    move-result v18
+    move-result v19
 
-    packed-switch v18, :pswitch_data_0
+    packed-switch v19, :pswitch_data_0
 
     :cond_0
     :goto_0
@@ -1172,15 +1172,15 @@
 
     iget-object v0, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mAms:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    invoke-virtual/range {v18 .. v18}, Lcom/android/server/accessibility/AccessibilityManagerService;->onTouchInteractionStart()V
+    invoke-virtual/range {v19 .. v19}, Lcom/android/server/accessibility/AccessibilityManagerService;->onTouchInteractionStart()V
 
-    const/high16 v18, 0x100000
+    const/high16 v19, 0x100000
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v18
+    move/from16 v1, v19
 
     invoke-direct {v0, v1}, Lcom/android/server/accessibility/SamsungTouchExplorer;->sendAccessibilityEvent(I)V
 
@@ -1188,117 +1188,119 @@
 
     iget-object v0, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mSendHoverEnterAndMoveDelayed:Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    invoke-virtual/range {v18 .. v18}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;->cancel()V
+    invoke-virtual/range {v19 .. v19}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;->cancel()V
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mSendHoverExitDelayed:Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverExitDelayed;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    invoke-virtual/range {v18 .. v18}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverExitDelayed;->cancel()V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mSendTouchExplorationEndDelayed:Lcom/android/server/accessibility/SamsungTouchExplorer$SendAccessibilityEventDelayed;
-
-    move-object/from16 v18, v0
-
-    invoke-virtual/range {v18 .. v18}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendAccessibilityEventDelayed;->isPending()Z
-
-    move-result v18
-
-    if-eqz v18, :cond_1
+    invoke-virtual/range {v19 .. v19}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverExitDelayed;->cancel()V
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mSendTouchExplorationEndDelayed:Lcom/android/server/accessibility/SamsungTouchExplorer$SendAccessibilityEventDelayed;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    invoke-virtual/range {v18 .. v18}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendAccessibilityEventDelayed;->forceSendAndRemove()V
+    invoke-virtual/range {v19 .. v19}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendAccessibilityEventDelayed;->isPending()Z
+
+    move-result v19
+
+    if-eqz v19, :cond_1
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mSendTouchExplorationEndDelayed:Lcom/android/server/accessibility/SamsungTouchExplorer$SendAccessibilityEventDelayed;
+
+    move-object/from16 v19, v0
+
+    invoke-virtual/range {v19 .. v19}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendAccessibilityEventDelayed;->forceSendAndRemove()V
 
     :cond_1
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mSendTouchInteractionEndDelayed:Lcom/android/server/accessibility/SamsungTouchExplorer$SendAccessibilityEventDelayed;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    invoke-virtual/range {v18 .. v18}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendAccessibilityEventDelayed;->isPending()Z
+    invoke-virtual/range {v19 .. v19}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendAccessibilityEventDelayed;->isPending()Z
 
-    move-result v18
+    move-result v19
 
-    if-eqz v18, :cond_2
+    if-eqz v19, :cond_2
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mSendTouchInteractionEndDelayed:Lcom/android/server/accessibility/SamsungTouchExplorer$SendAccessibilityEventDelayed;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    invoke-virtual/range {v18 .. v18}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendAccessibilityEventDelayed;->forceSendAndRemove()V
+    invoke-virtual/range {v19 .. v19}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendAccessibilityEventDelayed;->forceSendAndRemove()V
 
     :cond_2
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mGestureDetector:Lcom/android/server/accessibility/SamsungAccessibilityGestureDetector;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    invoke-virtual/range {v18 .. v18}, Lcom/android/server/accessibility/SamsungAccessibilityGestureDetector;->firstTapDetected()Z
+    invoke-virtual/range {v19 .. v19}, Lcom/android/server/accessibility/SamsungAccessibilityGestureDetector;->firstTapDetected()Z
 
-    move-result v18
+    move-result v19
 
-    if-nez v18, :cond_0
+    if-nez v19, :cond_0
 
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mTouchExplorationInProgress:Z
 
-    move/from16 v18, v0
+    move/from16 v19, v0
 
-    if-nez v18, :cond_0
+    xor-int/lit8 v19, v19, 0x1
 
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mSendHoverEnterAndMoveDelayed:Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;
-
-    move-object/from16 v18, v0
-
-    invoke-static/range {v18 .. v18}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;->-wrap0(Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;)Z
-
-    move-result v18
-
-    if-nez v18, :cond_3
-
-    invoke-virtual {v14}, Lcom/android/server/accessibility/SamsungTouchExplorer$ReceivedPointerTracker;->getPrimaryPointerId()I
-
-    move-result v9
-
-    const/16 v18, 0x1
-
-    shl-int v12, v18, v9
+    if-eqz v19, :cond_0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mSendHoverEnterAndMoveDelayed:Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
+
+    invoke-static/range {v19 .. v19}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;->-wrap0(Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;)Z
+
+    move-result v19
+
+    if-nez v19, :cond_3
+
+    invoke-virtual {v15}, Lcom/android/server/accessibility/SamsungTouchExplorer$ReceivedPointerTracker;->getPrimaryPointerId()I
+
+    move-result v12
 
     const/16 v19, 0x1
 
-    move-object/from16 v0, v18
+    shl-int v13, v19, v12
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mSendHoverEnterAndMoveDelayed:Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;
+
+    move-object/from16 v19, v0
+
+    const/16 v20, 0x1
+
+    move-object/from16 v0, v19
 
     move-object/from16 v1, p1
 
-    move/from16 v2, v19
+    move/from16 v2, v20
 
     move/from16 v3, p3
 
-    invoke-virtual {v0, v1, v2, v12, v3}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;->post(Landroid/view/MotionEvent;ZII)V
+    invoke-virtual {v0, v1, v2, v13, v3}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;->post(Landroid/view/MotionEvent;ZII)V
 
     goto/16 :goto_0
 
@@ -1307,9 +1309,9 @@
 
     iget-object v0, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mSendHoverEnterAndMoveDelayed:Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     move-object/from16 v1, p1
 
@@ -1322,73 +1324,73 @@
 
     iget-object v0, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mSendHoverEnterAndMoveDelayed:Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    invoke-virtual/range {v18 .. v18}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;->cancel()V
+    invoke-virtual/range {v19 .. v19}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;->cancel()V
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mSendHoverExitDelayed:Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverExitDelayed;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    invoke-virtual/range {v18 .. v18}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverExitDelayed;->cancel()V
+    invoke-virtual/range {v19 .. v19}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverExitDelayed;->cancel()V
 
     goto/16 :goto_0
 
     :pswitch_3
-    invoke-virtual {v14}, Lcom/android/server/accessibility/SamsungTouchExplorer$ReceivedPointerTracker;->getPrimaryPointerId()I
+    invoke-virtual {v15}, Lcom/android/server/accessibility/SamsungTouchExplorer$ReceivedPointerTracker;->getPrimaryPointerId()I
 
-    move-result v9
+    move-result v12
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v9}, Landroid/view/MotionEvent;->findPointerIndex(I)I
+    invoke-virtual {v0, v12}, Landroid/view/MotionEvent;->findPointerIndex(I)I
 
-    move-result v13
+    move-result v14
 
-    const/16 v18, 0x1
+    const/16 v19, 0x1
 
-    shl-int v12, v18, v9
+    shl-int v13, v19, v12
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getPointerCount()I
 
-    move-result v18
+    move-result v19
 
-    packed-switch v18, :pswitch_data_1
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mSendHoverEnterAndMoveDelayed:Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;
-
-    move-object/from16 v18, v0
-
-    invoke-static/range {v18 .. v18}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;->-wrap0(Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;)Z
-
-    move-result v18
-
-    if-eqz v18, :cond_9
+    packed-switch v19, :pswitch_data_1
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mSendHoverEnterAndMoveDelayed:Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    invoke-virtual/range {v18 .. v18}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;->cancel()V
+    invoke-static/range {v19 .. v19}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;->-wrap0(Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;)Z
+
+    move-result v19
+
+    if-eqz v19, :cond_9
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mSendHoverEnterAndMoveDelayed:Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;
+
+    move-object/from16 v19, v0
+
+    invoke-virtual/range {v19 .. v19}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;->cancel()V
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mSendHoverExitDelayed:Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverExitDelayed;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    invoke-virtual/range {v18 .. v18}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverExitDelayed;->cancel()V
+    invoke-virtual/range {v19 .. v19}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverExitDelayed;->cancel()V
 
     :goto_1
-    const/16 v18, 0x4
+    const/16 v19, 0x4
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
     move-object/from16 v1, p0
 
@@ -1409,21 +1411,21 @@
 
     iget-object v0, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mSendHoverEnterAndMoveDelayed:Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    invoke-static/range {v18 .. v18}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;->-wrap0(Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;)Z
+    invoke-static/range {v19 .. v19}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;->-wrap0(Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;)Z
 
-    move-result v18
+    move-result v19
 
-    if-eqz v18, :cond_4
+    if-eqz v19, :cond_4
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mSendHoverEnterAndMoveDelayed:Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     move-object/from16 v1, p1
 
@@ -1436,9 +1438,9 @@
 
     iget-boolean v0, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mTouchExplorationInProgress:Z
 
-    move/from16 v18, v0
+    move/from16 v19, v0
 
-    if-eqz v18, :cond_0
+    if-eqz v19, :cond_0
 
     move-object/from16 v0, p0
 
@@ -1446,17 +1448,23 @@
 
     invoke-direct {v0, v1}, Lcom/android/server/accessibility/SamsungTouchExplorer;->sendTouchExplorationGestureStartAndHoverEnterIfNeeded(I)V
 
-    const/16 v18, 0x7
+    const/16 v19, -0x1
+
+    move/from16 v0, v19
+
+    if-eq v12, v0, :cond_0
+
+    const/16 v19, 0x7
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    move/from16 v2, v18
+    move/from16 v2, v19
 
     move/from16 v3, p3
 
-    invoke-direct {v0, v1, v2, v12, v3}, Lcom/android/server/accessibility/SamsungTouchExplorer;->sendMotionEvent(Landroid/view/MotionEvent;III)V
+    invoke-direct {v0, v1, v2, v13, v3}, Lcom/android/server/accessibility/SamsungTouchExplorer;->sendMotionEvent(Landroid/view/MotionEvent;III)V
 
     goto/16 :goto_0
 
@@ -1465,89 +1473,41 @@
 
     iget-object v0, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mSendHoverEnterAndMoveDelayed:Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    invoke-static/range {v18 .. v18}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;->-wrap0(Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;)Z
+    invoke-static/range {v19 .. v19}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;->-wrap0(Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;)Z
 
-    move-result v18
+    move-result v19
 
-    if-eqz v18, :cond_7
+    if-eqz v19, :cond_7
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mSendHoverEnterAndMoveDelayed:Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    invoke-virtual/range {v18 .. v18}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;->cancel()V
+    invoke-virtual/range {v19 .. v19}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;->cancel()V
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mSendHoverExitDelayed:Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverExitDelayed;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    invoke-virtual/range {v18 .. v18}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverExitDelayed;->cancel()V
+    invoke-virtual/range {v19 .. v19}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverExitDelayed;->cancel()V
 
     :cond_5
     :goto_2
-    const/16 v18, 0x0
-
-    move-object/from16 v0, p1
-
-    move/from16 v1, v18
-
-    invoke-virtual {v0, v1}, Landroid/view/MotionEvent;->getPointerId(I)I
-
-    move-result v8
-
-    const/16 v18, 0x1
-
-    move-object/from16 v0, p1
-
-    move/from16 v1, v18
-
-    invoke-virtual {v0, v1}, Landroid/view/MotionEvent;->getPointerId(I)I
-
-    move-result v17
-
-    invoke-virtual {v14, v8}, Lcom/android/server/accessibility/SamsungTouchExplorer$ReceivedPointerTracker;->getReceivedPointerDownX(I)F
-
-    move-result v18
-
     const/16 v19, 0x0
 
     move-object/from16 v0, p1
 
     move/from16 v1, v19
 
-    invoke-virtual {v0, v1}, Landroid/view/MotionEvent;->getX(I)F
+    invoke-virtual {v0, v1}, Landroid/view/MotionEvent;->getPointerId(I)I
 
-    move-result v19
-
-    sub-float v6, v18, v19
-
-    invoke-virtual {v14, v8}, Lcom/android/server/accessibility/SamsungTouchExplorer$ReceivedPointerTracker;->getReceivedPointerDownY(I)F
-
-    move-result v18
-
-    const/16 v19, 0x0
-
-    move-object/from16 v0, p1
-
-    move/from16 v1, v19
-
-    invoke-virtual {v0, v1}, Landroid/view/MotionEvent;->getY(I)F
-
-    move-result v19
-
-    sub-float v7, v18, v19
-
-    move/from16 v0, v17
-
-    invoke-virtual {v14, v0}, Lcom/android/server/accessibility/SamsungTouchExplorer$ReceivedPointerTracker;->getReceivedPointerDownX(I)F
-
-    move-result v18
+    move-result v9
 
     const/16 v19, 0x1
 
@@ -1555,49 +1515,83 @@
 
     move/from16 v1, v19
 
-    invoke-virtual {v0, v1}, Landroid/view/MotionEvent;->getX(I)F
-
-    move-result v19
-
-    sub-float v15, v18, v19
-
-    move/from16 v0, v17
-
-    invoke-virtual {v14, v0}, Lcom/android/server/accessibility/SamsungTouchExplorer$ReceivedPointerTracker;->getReceivedPointerDownY(I)F
+    invoke-virtual {v0, v1}, Landroid/view/MotionEvent;->getPointerId(I)I
 
     move-result v18
 
-    const/16 v19, 0x1
-
-    move-object/from16 v0, p1
-
-    move/from16 v1, v19
-
-    invoke-virtual {v0, v1}, Landroid/view/MotionEvent;->getY(I)F
+    invoke-virtual {v15, v9}, Lcom/android/server/accessibility/SamsungTouchExplorer$ReceivedPointerTracker;->getReceivedPointerDownX(I)F
 
     move-result v19
 
-    sub-float v16, v18, v19
+    const/16 v20, 0x0
 
-    float-to-double v0, v6
+    move-object/from16 v0, p1
 
-    move-wide/from16 v18, v0
+    move/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Landroid/view/MotionEvent;->getX(I)F
+
+    move-result v20
+
+    sub-float v7, v19, v20
+
+    invoke-virtual {v15, v9}, Lcom/android/server/accessibility/SamsungTouchExplorer$ReceivedPointerTracker;->getReceivedPointerDownY(I)F
+
+    move-result v19
+
+    const/16 v20, 0x0
+
+    move-object/from16 v0, p1
+
+    move/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Landroid/view/MotionEvent;->getY(I)F
+
+    move-result v20
+
+    sub-float v8, v19, v20
+
+    move/from16 v0, v18
+
+    invoke-virtual {v15, v0}, Lcom/android/server/accessibility/SamsungTouchExplorer$ReceivedPointerTracker;->getReceivedPointerDownX(I)F
+
+    move-result v19
+
+    const/16 v20, 0x1
+
+    move-object/from16 v0, p1
+
+    move/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Landroid/view/MotionEvent;->getX(I)F
+
+    move-result v20
+
+    sub-float v16, v19, v20
+
+    move/from16 v0, v18
+
+    invoke-virtual {v15, v0}, Lcom/android/server/accessibility/SamsungTouchExplorer$ReceivedPointerTracker;->getReceivedPointerDownY(I)F
+
+    move-result v19
+
+    const/16 v20, 0x1
+
+    move-object/from16 v0, p1
+
+    move/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Landroid/view/MotionEvent;->getY(I)F
+
+    move-result v20
+
+    sub-float v17, v19, v20
 
     float-to-double v0, v7
 
     move-wide/from16 v20, v0
 
-    invoke-static/range {v18 .. v21}, Ljava/lang/Math;->hypot(DD)D
-
-    move-result-wide v18
-
-    float-to-double v0, v15
-
-    move-wide/from16 v20, v0
-
-    move/from16 v0, v16
-
-    float-to-double v0, v0
+    float-to-double v0, v8
 
     move-wide/from16 v22, v0
 
@@ -1605,7 +1599,23 @@
 
     move-result-wide v20
 
-    invoke-static/range {v18 .. v21}, Ljava/lang/Math;->max(DD)D
+    move/from16 v0, v16
+
+    float-to-double v0, v0
+
+    move-wide/from16 v22, v0
+
+    move/from16 v0, v17
+
+    float-to-double v0, v0
+
+    move-wide/from16 v24, v0
+
+    invoke-static/range {v22 .. v25}, Ljava/lang/Math;->hypot(DD)D
+
+    move-result-wide v22
+
+    invoke-static/range {v20 .. v23}, Ljava/lang/Math;->max(DD)D
 
     move-result-wide v10
 
@@ -1613,48 +1623,48 @@
 
     iget-object v0, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mGestureDetector:Lcom/android/server/accessibility/SamsungAccessibilityGestureDetector;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     iget v0, v0, Lcom/android/server/accessibility/SamsungAccessibilityGestureDetector;->TOUCH_SLOP:I
 
-    move/from16 v18, v0
+    move/from16 v19, v0
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
     int-to-double v0, v0
 
-    move-wide/from16 v18, v0
+    move-wide/from16 v20, v0
 
-    cmpg-double v18, v10, v18
+    cmpg-double v19, v10, v20
 
-    if-gez v18, :cond_6
+    if-gez v19, :cond_6
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mMultiFingerDetected:I
 
-    move/from16 v18, v0
+    move/from16 v19, v0
 
-    const/16 v19, 0x1
+    const/16 v20, 0x1
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
-    move/from16 v1, v19
+    move/from16 v1, v20
 
     if-gt v0, v1, :cond_0
 
     :cond_6
     invoke-direct/range {p0 .. p1}, Lcom/android/server/accessibility/SamsungTouchExplorer;->isDraggingGesture(Landroid/view/MotionEvent;)Z
 
-    move-result v18
+    move-result v19
 
-    if-eqz v18, :cond_8
+    if-eqz v19, :cond_8
 
-    const/16 v18, 0x2
+    const/16 v19, 0x2
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
     move-object/from16 v1, p0
 
@@ -1662,29 +1672,63 @@
 
     move-object/from16 v0, p0
 
-    iput v9, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mDraggingPointerId:I
+    iput v12, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mDraggingPointerId:I
 
-    invoke-virtual {v14}, Lcom/android/server/accessibility/SamsungTouchExplorer$ReceivedPointerTracker;->getLastReceivedDownEdgeFlags()I
+    move-object/from16 v0, p0
 
-    move-result v18
+    iget-object v0, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mContext:Landroid/content/Context;
+
+    move-object/from16 v19, v0
+
+    invoke-virtual/range {v19 .. v19}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    iget v4, v0, Landroid/util/DisplayMetrics;->density:F
+
+    const/high16 v19, 0x43480000    # 200.0f
+
+    mul-float v19, v19, v4
+
+    move/from16 v0, v19
+
+    float-to-int v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lcom/android/server/accessibility/SamsungTouchExplorer;->mScaledMinPointerDistanceToUseMiddleLocation:I
+
+    invoke-virtual {v15}, Lcom/android/server/accessibility/SamsungTouchExplorer$ReceivedPointerTracker;->getLastReceivedDownEdgeFlags()I
+
+    move-result v19
 
     move-object/from16 v0, p1
 
-    move/from16 v1, v18
+    move/from16 v1, v19
 
     invoke-virtual {v0, v1}, Landroid/view/MotionEvent;->setEdgeFlags(I)V
 
-    const/16 v18, 0x0
+    const/16 v19, 0x0
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    move/from16 v2, v18
+    move/from16 v2, v19
 
     move/from16 v3, p3
 
-    invoke-direct {v0, v1, v2, v12, v3}, Lcom/android/server/accessibility/SamsungTouchExplorer;->sendMotionEvent(Landroid/view/MotionEvent;III)V
+    invoke-direct {v0, v1, v2, v13, v3}, Lcom/android/server/accessibility/SamsungTouchExplorer;->sendMotionEvent(Landroid/view/MotionEvent;III)V
 
     goto/16 :goto_0
 
@@ -1693,43 +1737,43 @@
 
     iget-boolean v0, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mTouchExplorationInProgress:Z
 
-    move/from16 v18, v0
+    move/from16 v19, v0
 
-    if-eqz v18, :cond_5
+    if-eqz v19, :cond_5
 
-    invoke-virtual {v14, v9}, Lcom/android/server/accessibility/SamsungTouchExplorer$ReceivedPointerTracker;->getReceivedPointerDownX(I)F
-
-    move-result v18
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v13}, Landroid/view/MotionEvent;->getX(I)F
+    invoke-virtual {v15, v12}, Lcom/android/server/accessibility/SamsungTouchExplorer$ReceivedPointerTracker;->getReceivedPointerDownX(I)F
 
     move-result v19
 
-    sub-float v4, v18, v19
-
-    invoke-virtual {v14, v9}, Lcom/android/server/accessibility/SamsungTouchExplorer$ReceivedPointerTracker;->getReceivedPointerDownY(I)F
-
-    move-result v18
-
     move-object/from16 v0, p2
 
-    invoke-virtual {v0, v13}, Landroid/view/MotionEvent;->getY(I)F
+    invoke-virtual {v0, v14}, Landroid/view/MotionEvent;->getX(I)F
+
+    move-result v20
+
+    sub-float v5, v19, v20
+
+    invoke-virtual {v15, v12}, Lcom/android/server/accessibility/SamsungTouchExplorer$ReceivedPointerTracker;->getReceivedPointerDownY(I)F
 
     move-result v19
 
-    sub-float v5, v18, v19
+    move-object/from16 v0, p2
 
-    float-to-double v0, v4
+    invoke-virtual {v0, v14}, Landroid/view/MotionEvent;->getY(I)F
 
-    move-wide/from16 v18, v0
+    move-result v20
+
+    sub-float v6, v19, v20
 
     float-to-double v0, v5
 
     move-wide/from16 v20, v0
 
-    invoke-static/range {v18 .. v21}, Ljava/lang/Math;->hypot(DD)D
+    float-to-double v0, v6
+
+    move-wide/from16 v22, v0
+
+    invoke-static/range {v20 .. v23}, Ljava/lang/Math;->hypot(DD)D
 
     move-result-wide v10
 
@@ -1737,17 +1781,17 @@
 
     iget v0, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mDoubleTapSlop:I
 
-    move/from16 v18, v0
+    move/from16 v19, v0
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
     int-to-double v0, v0
 
-    move-wide/from16 v18, v0
+    move-wide/from16 v20, v0
 
-    cmpg-double v18, v10, v18
+    cmpg-double v19, v10, v20
 
-    if-ltz v18, :cond_0
+    if-ltz v19, :cond_0
 
     move-object/from16 v0, p0
 
@@ -1758,9 +1802,9 @@
     goto/16 :goto_2
 
     :cond_8
-    const/16 v18, 0x4
+    const/16 v19, 0x4
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
     move-object/from16 v1, p0
 
@@ -1790,72 +1834,72 @@
 
     iget-object v0, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mAms:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    invoke-virtual/range {v18 .. v18}, Lcom/android/server/accessibility/AccessibilityManagerService;->onTouchInteractionEnd()V
+    invoke-virtual/range {v19 .. v19}, Lcom/android/server/accessibility/AccessibilityManagerService;->onTouchInteractionEnd()V
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getActionIndex()I
 
-    move-result v18
+    move-result v19
 
     move-object/from16 v0, p1
 
-    move/from16 v1, v18
+    move/from16 v1, v19
 
     invoke-virtual {v0, v1}, Landroid/view/MotionEvent;->getPointerId(I)I
 
-    move-result v9
+    move-result v12
 
-    const/16 v18, 0x1
+    const/16 v19, 0x1
 
-    shl-int v12, v18, v9
+    shl-int v13, v19, v12
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mSendHoverEnterAndMoveDelayed:Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    invoke-static/range {v18 .. v18}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;->-wrap0(Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;)Z
+    invoke-static/range {v19 .. v19}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;->-wrap0(Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverEnterAndMoveDelayed;)Z
 
-    move-result v18
+    move-result v19
 
-    if-eqz v18, :cond_a
+    if-eqz v19, :cond_a
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mSendHoverExitDelayed:Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverExitDelayed;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     move-object/from16 v1, p1
 
     move/from16 v2, p3
 
-    invoke-virtual {v0, v1, v12, v2}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverExitDelayed;->post(Landroid/view/MotionEvent;II)V
+    invoke-virtual {v0, v1, v13, v2}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendHoverExitDelayed;->post(Landroid/view/MotionEvent;II)V
 
     :goto_3
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mSendTouchInteractionEndDelayed:Lcom/android/server/accessibility/SamsungTouchExplorer$SendAccessibilityEventDelayed;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    invoke-virtual/range {v18 .. v18}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendAccessibilityEventDelayed;->isPending()Z
+    invoke-virtual/range {v19 .. v19}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendAccessibilityEventDelayed;->isPending()Z
 
-    move-result v18
+    move-result v19
 
-    if-nez v18, :cond_0
+    if-nez v19, :cond_0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mSendTouchInteractionEndDelayed:Lcom/android/server/accessibility/SamsungTouchExplorer$SendAccessibilityEventDelayed;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    invoke-virtual/range {v18 .. v18}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendAccessibilityEventDelayed;->post()V
+    invoke-virtual/range {v19 .. v19}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendAccessibilityEventDelayed;->post()V
 
     goto/16 :goto_0
 
@@ -1867,8 +1911,6 @@
     invoke-direct {v0, v1}, Lcom/android/server/accessibility/SamsungTouchExplorer;->sendHoverExitAndTouchExplorationGestureEndIfNeeded(I)V
 
     goto :goto_3
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -2263,80 +2305,110 @@
 
     invoke-virtual {p1, p2}, Landroid/view/MotionEvent;->setAction(I)V
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    const/4 v1, -0x1
+    const/4 v2, -0x1
 
-    if-ne p3, v1, :cond_3
+    if-ne p3, v2, :cond_3
 
-    move-object v0, p1
+    move-object v1, p1
 
     :goto_0
     if-nez p2, :cond_4
 
-    invoke-virtual {v0}, Landroid/view/MotionEvent;->getEventTime()J
+    invoke-virtual {v1}, Landroid/view/MotionEvent;->getEventTime()J
 
     move-result-wide v2
 
-    invoke-virtual {v0, v2, v3}, Landroid/view/MotionEvent;->setDownTime(J)V
+    invoke-virtual {v1, v2, v3}, Landroid/view/MotionEvent;->setDownTime(J)V
 
     :goto_1
-    iget v1, p0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mLongPressingPointerId:I
+    iget v2, p0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mLongPressingPointerId:I
 
-    if-ltz v1, :cond_0
+    if-ltz v2, :cond_0
 
-    iget v1, p0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mLongPressingPointerDeltaX:I
-
-    neg-int v1, v1
-
-    iget v2, p0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mLongPressingPointerDeltaY:I
+    iget v2, p0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mLongPressingPointerDeltaX:I
 
     neg-int v2, v2
 
-    invoke-direct {p0, v0, v1, v2}, Lcom/android/server/accessibility/SamsungTouchExplorer;->offsetEvent(Landroid/view/MotionEvent;II)Landroid/view/MotionEvent;
+    iget v3, p0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mLongPressingPointerDeltaY:I
 
-    move-result-object v0
+    neg-int v3, v3
+
+    invoke-direct {p0, v1, v2, v3}, Lcom/android/server/accessibility/SamsungTouchExplorer;->offsetEvent(Landroid/view/MotionEvent;II)Landroid/view/MotionEvent;
+
+    move-result-object v1
 
     :cond_0
-    const/high16 v1, 0x40000000    # 2.0f
+    const/high16 v2, 0x40000000    # 2.0f
 
-    or-int/2addr p4, v1
+    or-int/2addr p4, v2
 
-    iget-object v1, p0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mNext:Lcom/android/server/accessibility/EventStreamTransformation;
+    iget-object v2, p0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mNext:Lcom/android/server/accessibility/EventStreamTransformation;
 
-    if-eqz v1, :cond_1
+    if-eqz v2, :cond_1
 
-    iget-object v1, p0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mNext:Lcom/android/server/accessibility/EventStreamTransformation;
+    iget-object v2, p0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mNext:Lcom/android/server/accessibility/EventStreamTransformation;
 
-    invoke-interface {v1, v0, v4, p4}, Lcom/android/server/accessibility/EventStreamTransformation;->onMotionEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
+    invoke-interface {v2, v1, v4, p4}, Lcom/android/server/accessibility/EventStreamTransformation;->onMotionEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
 
     :cond_1
-    iget-object v1, p0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mInjectedPointerTracker:Lcom/android/server/accessibility/SamsungTouchExplorer$InjectedPointerTracker;
+    iget-object v2, p0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mInjectedPointerTracker:Lcom/android/server/accessibility/SamsungTouchExplorer$InjectedPointerTracker;
 
-    invoke-virtual {v1, v0}, Lcom/android/server/accessibility/SamsungTouchExplorer$InjectedPointerTracker;->onMotionEvent(Landroid/view/MotionEvent;)V
+    invoke-virtual {v2, v1}, Lcom/android/server/accessibility/SamsungTouchExplorer$InjectedPointerTracker;->onMotionEvent(Landroid/view/MotionEvent;)V
 
-    if-eq v0, p1, :cond_2
+    if-eq v1, p1, :cond_2
 
-    invoke-virtual {v0}, Landroid/view/MotionEvent;->recycle()V
+    invoke-virtual {v1}, Landroid/view/MotionEvent;->recycle()V
 
     :cond_2
     return-void
 
     :cond_3
+    :try_start_0
     invoke-virtual {p1, p3}, Landroid/view/MotionEvent;->split(I)Landroid/view/MotionEvent;
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v0
+    move-result-object v1
 
     goto :goto_0
 
-    :cond_4
-    iget-object v1, p0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mInjectedPointerTracker:Lcom/android/server/accessibility/SamsungTouchExplorer$InjectedPointerTracker;
+    :catch_0
+    move-exception v0
 
-    invoke-virtual {v1}, Lcom/android/server/accessibility/SamsungTouchExplorer$InjectedPointerTracker;->getLastInjectedDownEventTime()J
+    const-string/jumbo v2, "SamsungTouchExplorer"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "sendMotionEvent: Failed to split motion event: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_4
+    iget-object v2, p0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mInjectedPointerTracker:Lcom/android/server/accessibility/SamsungTouchExplorer$InjectedPointerTracker;
+
+    invoke-virtual {v2}, Lcom/android/server/accessibility/SamsungTouchExplorer$InjectedPointerTracker;->getLastInjectedDownEventTime()J
 
     move-result-wide v2
 
-    invoke-virtual {v0, v2, v3}, Landroid/view/MotionEvent;->setDownTime(J)V
+    invoke-virtual {v1, v2, v3}, Landroid/view/MotionEvent;->setDownTime(J)V
 
     goto :goto_1
 .end method
@@ -2514,13 +2586,25 @@
     return-void
 
     :sswitch_0
+    iget-object v1, p0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mAms:Lcom/android/server/accessibility/AccessibilityManagerService;
+
+    invoke-virtual {v1}, Lcom/android/server/accessibility/AccessibilityManagerService;->getSIPisShown()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    return-void
+
+    :cond_3
+    :sswitch_1
     iget-object v1, p0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mInjectedPointerTracker:Lcom/android/server/accessibility/SamsungTouchExplorer$InjectedPointerTracker;
 
     invoke-static {v1}, Lcom/android/server/accessibility/SamsungTouchExplorer$InjectedPointerTracker;->-get0(Lcom/android/server/accessibility/SamsungTouchExplorer$InjectedPointerTracker;)Landroid/view/MotionEvent;
 
     move-result-object v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4
 
     iget-object v1, p0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mInjectedPointerTracker:Lcom/android/server/accessibility/SamsungTouchExplorer$InjectedPointerTracker;
 
@@ -2534,14 +2618,14 @@
 
     invoke-static {v1, v2}, Lcom/android/server/accessibility/SamsungTouchExplorer$InjectedPointerTracker;->-set0(Lcom/android/server/accessibility/SamsungTouchExplorer$InjectedPointerTracker;Landroid/view/MotionEvent;)Landroid/view/MotionEvent;
 
-    :cond_3
+    :cond_4
     const/4 v1, -0x1
 
     iput v1, p0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mLastTouchedWindowId:I
 
     goto :goto_0
 
-    :sswitch_1
+    :sswitch_2
     invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getWindowId()I
 
     move-result v1
@@ -2550,14 +2634,12 @@
 
     goto :goto_0
 
-    nop
-
     :sswitch_data_0
     .sparse-switch
         0x20 -> :sswitch_0
-        0x80 -> :sswitch_1
-        0x100 -> :sswitch_1
-        0x8000 -> :sswitch_0
+        0x80 -> :sswitch_2
+        0x100 -> :sswitch_2
+        0x8000 -> :sswitch_1
     .end sparse-switch
 .end method
 
@@ -2631,6 +2713,43 @@
     invoke-virtual {v4}, Lcom/android/server/accessibility/SamsungTouchExplorer$SendAccessibilityEventDelayed;->forceSendAndRemove()V
 
     :cond_2
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mAms:Lcom/android/server/accessibility/AccessibilityManagerService;
+
+    move-object/from16 v0, p0
+
+    iget v5, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mLastTouchedWindowId:I
+
+    invoke-virtual {v4, v5}, Lcom/android/server/accessibility/AccessibilityManagerService;->isLastExploreWindowIsSIPType(I)Z
+
+    move-result v4
+
+    if-nez v4, :cond_3
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mAms:Lcom/android/server/accessibility/AccessibilityManagerService;
+
+    sget-object v5, Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;->ACTION_CLICK:Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;
+
+    invoke-virtual {v4, v5}, Lcom/android/server/accessibility/AccessibilityManagerService;->performActionOnAccessibilityFocusedItem(Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_3
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :cond_3
+    const-string/jumbo v4, "SamsungTouchExplorer"
+
+    const-string/jumbo v5, "ACTION_CLICK failed. Dispatching motion events to simulate click."
+
+    invoke-static {v4, v5}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getActionIndex()I
 
     move-result v23
@@ -2657,13 +2776,13 @@
 
     move-result v24
 
-    if-nez v24, :cond_3
+    if-nez v24, :cond_4
 
     const/4 v4, 0x1
 
     return v4
 
-    :cond_3
+    :cond_4
     const/4 v4, 0x1
 
     new-array v10, v4, [Landroid/view/MotionEvent$PointerProperties;
@@ -2764,7 +2883,7 @@
 
     move/from16 v0, v24
 
-    if-ne v0, v4, :cond_4
+    if-ne v0, v4, :cond_5
 
     const/16 v25, 0x1
 
@@ -2785,7 +2904,7 @@
 
     return v4
 
-    :cond_4
+    :cond_5
     const/16 v25, 0x0
 
     goto :goto_0
@@ -2893,6 +3012,8 @@
     iget v2, p0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mCurrentState:I
 
     if-ne v2, v4, :cond_1
+
+    if-eqz p1, :cond_1
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
@@ -3016,26 +3137,37 @@
 .method public onMotionEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
     .locals 3
 
+    const/16 v0, 0x2002
+
+    invoke-virtual {p1, v0}, Landroid/view/MotionEvent;->isFromSource(I)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
     const/16 v0, 0x1002
 
     invoke-virtual {p1, v0}, Landroid/view/MotionEvent;->isFromSource(I)Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
+    if-eqz v0, :cond_2
+
+    :cond_0
     iget-object v0, p0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mNext:Lcom/android/server/accessibility/EventStreamTransformation;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mNext:Lcom/android/server/accessibility/EventStreamTransformation;
 
     invoke-interface {v0, p1, p2, p3}, Lcom/android/server/accessibility/EventStreamTransformation;->onMotionEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
 
-    :cond_0
+    :cond_1
     return-void
 
-    :cond_1
+    :cond_2
     iget-object v0, p0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mReceivedPointerTracker:Lcom/android/server/accessibility/SamsungTouchExplorer$ReceivedPointerTracker;
 
     invoke-virtual {v0, p2}, Lcom/android/server/accessibility/SamsungTouchExplorer$ReceivedPointerTracker;->onMotionEvent(Landroid/view/MotionEvent;)V
@@ -3046,24 +3178,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     return-void
 
-    :cond_2
+    :cond_3
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v0
 
     const/4 v1, 0x3
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_4
 
     invoke-direct {p0, p1, p3}, Lcom/android/server/accessibility/SamsungTouchExplorer;->clear(Landroid/view/MotionEvent;I)V
 
     return-void
 
-    :cond_3
+    :cond_4
     iget v0, p0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mCurrentState:I
 
     packed-switch v0, :pswitch_data_0
@@ -3176,6 +3308,28 @@
 
     :cond_0
     :goto_0
+    const-string/jumbo v1, "SamsungTouchExplorer"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "MultiFinger TAP GestureId "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     if-lez v0, :cond_1
 
     iget-object v1, p0, Lcom/android/server/accessibility/SamsungTouchExplorer;->mAms:Lcom/android/server/accessibility/AccessibilityManagerService;
@@ -3228,7 +3382,7 @@
     goto :goto_0
 
     :cond_8
-    if-ne p1, v2, :cond_0
+    if-ne p1, v2, :cond_e
 
     if-ne p2, v3, :cond_9
 
@@ -3272,6 +3426,35 @@
     if-nez p3, :cond_0
 
     const/16 v0, 0x2d
+
+    goto :goto_0
+
+    :cond_e
+    if-ne p1, v4, :cond_0
+
+    if-ne p2, v3, :cond_f
+
+    if-nez p3, :cond_0
+
+    const/16 v0, 0x2e
+
+    goto :goto_0
+
+    :cond_f
+    if-ne p2, v1, :cond_10
+
+    if-nez p3, :cond_0
+
+    const/16 v0, 0x2f
+
+    goto :goto_0
+
+    :cond_10
+    if-ne p2, v2, :cond_0
+
+    if-nez p3, :cond_0
+
+    const/16 v0, 0x30
 
     goto :goto_0
 .end method

@@ -68,7 +68,7 @@
 
     iget-object v4, p0, Lcom/android/server/notification/ZenModeHelper$Metrics;->this$0:Lcom/android/server/notification/ZenModeHelper;
 
-    invoke-static {v4}, Lcom/android/server/notification/ZenModeHelper;->-get2(Lcom/android/server/notification/ZenModeHelper;)Lcom/android/server/notification/ZenModeHelper$H;
+    invoke-static {v4}, Lcom/android/server/notification/ZenModeHelper;->-get1(Lcom/android/server/notification/ZenModeHelper;)Lcom/android/server/notification/ZenModeHelper$H;
 
     move-result-object v4
 
@@ -86,7 +86,7 @@
 
     iget-object v5, p0, Lcom/android/server/notification/ZenModeHelper$Metrics;->this$0:Lcom/android/server/notification/ZenModeHelper;
 
-    invoke-static {v5}, Lcom/android/server/notification/ZenModeHelper;->-get4(Lcom/android/server/notification/ZenModeHelper;)I
+    invoke-static {v5}, Lcom/android/server/notification/ZenModeHelper;->-get3(Lcom/android/server/notification/ZenModeHelper;)I
 
     move-result v5
 
@@ -107,7 +107,7 @@
 
     iget-object v4, p0, Lcom/android/server/notification/ZenModeHelper$Metrics;->this$0:Lcom/android/server/notification/ZenModeHelper;
 
-    invoke-static {v4}, Lcom/android/server/notification/ZenModeHelper;->-get1(Lcom/android/server/notification/ZenModeHelper;)Landroid/content/Context;
+    invoke-static {v4}, Lcom/android/server/notification/ZenModeHelper;->-get0(Lcom/android/server/notification/ZenModeHelper;)Landroid/content/Context;
 
     move-result-object v4
 
@@ -138,7 +138,7 @@
     :cond_1
     iget-object v4, p0, Lcom/android/server/notification/ZenModeHelper$Metrics;->this$0:Lcom/android/server/notification/ZenModeHelper;
 
-    invoke-static {v4}, Lcom/android/server/notification/ZenModeHelper;->-get4(Lcom/android/server/notification/ZenModeHelper;)I
+    invoke-static {v4}, Lcom/android/server/notification/ZenModeHelper;->-get3(Lcom/android/server/notification/ZenModeHelper;)I
 
     move-result v4
 

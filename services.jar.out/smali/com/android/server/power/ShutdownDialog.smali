@@ -45,7 +45,9 @@
 
 .field private static final PATH_SHUTDOWNSOUND_MULTI_CSC:Ljava/lang/String; = "//system/csc_contents/PowerOff.ogg"
 
-.field private static final PATH_SHUTDOWNSOUND_SKU:Ljava/lang/String; = "/media/audio/ui/PowerOff.ogg"
+.field private static final PATH_SHUTDOWNSOUND_SKU_OGG:Ljava/lang/String; = "/media/audio/ui/PowerOff.ogg"
+
+.field private static final PATH_SHUTDOWNSOUND_SKU_WAV:Ljava/lang/String; = "/media/audio/ui/PowerOff.wav"
 
 .field private static final PATH_SHUTDOWN_AFTER:Ljava/lang/String; = "//system/media/shutdownafter.qmg"
 
@@ -83,6 +85,16 @@
 
 .field private bitmapQRear:I
 
+.field final ccrCode:Ljava/lang/String;
+
+.field final ccrFile:Ljava/lang/String;
+
+.field final chameleonCode:Ljava/lang/String;
+
+.field final chameleonFile:Ljava/lang/String;
+
+.field final chameleonFileExist:Z
+
 .field private final coverQmgList:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -97,6 +109,8 @@
 .field private doLoopAnim:Z
 
 .field private final drawBufferLock:Ljava/lang/Object;
+
+.field final isDaimler:Z
 
 .field private final logHandler:Landroid/os/Handler;
 
@@ -132,6 +146,8 @@
 .field private shutdownSoundPath:Ljava/lang/String;
 
 .field private silentShutdown:Z
+
+.field private final supportChameleon:Z
 
 
 # direct methods
@@ -398,6 +414,40 @@
 
     iput-object v2, p0, Lcom/android/server/power/ShutdownDialog;->SHUTDOWN_ANIM_FILES:[Ljava/lang/String;
 
+    const-string/jumbo v2, "/carrier/chameleon.xml"
+
+    iput-object v2, p0, Lcom/android/server/power/ShutdownDialog;->chameleonFile:Ljava/lang/String;
+
+    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "CscFeature_Common_UseChameleon"
+
+    invoke-virtual {v2, v3, v5}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v2
+
+    iput-boolean v2, p0, Lcom/android/server/power/ShutdownDialog;->supportChameleon:Z
+
+    new-instance v2, Ljava/io/File;
+
+    const-string/jumbo v3, "/carrier/chameleon.xml"
+
+    invoke-direct {v2, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v2}, Ljava/io/File;->exists()Z
+
+    move-result v2
+
+    iput-boolean v2, p0, Lcom/android/server/power/ShutdownDialog;->chameleonFileExist:Z
+
+    invoke-direct {p0}, Lcom/android/server/power/ShutdownDialog;->getChameleonCode()Ljava/lang/String;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/android/server/power/ShutdownDialog;->chameleonCode:Ljava/lang/String;
+
     new-array v2, v6, [Landroid/graphics/Bitmap;
 
     iput-object v2, p0, Lcom/android/server/power/ShutdownDialog;->bitmapQ:[Landroid/graphics/Bitmap;
@@ -453,6 +503,32 @@
     iget-object v2, p0, Lcom/android/server/power/ShutdownDialog;->mStatePrepare:Lcom/android/server/power/ShutdownDialog$StatePrepare;
 
     iput-object v2, p0, Lcom/android/server/power/ShutdownDialog;->mState:Lcom/android/server/power/ShutdownDialog$DrawState;
+
+    const-string/jumbo v2, "/efs/daimler/ccr_config.xml"
+
+    iput-object v2, p0, Lcom/android/server/power/ShutdownDialog;->ccrFile:Ljava/lang/String;
+
+    const-string/jumbo v2, "ro.product.model"
+
+    const-string/jumbo v3, "Unknown"
+
+    invoke-static {v2, v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "SM-T230NZ"
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    iput-boolean v2, p0, Lcom/android/server/power/ShutdownDialog;->isDaimler:Z
+
+    invoke-direct {p0}, Lcom/android/server/power/ShutdownDialog;->getCCRCode()Ljava/lang/String;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/android/server/power/ShutdownDialog;->ccrCode:Ljava/lang/String;
 
     iput-object p1, p0, Lcom/android/server/power/ShutdownDialog;->mContext:Landroid/content/Context;
 
@@ -531,7 +607,7 @@
 
     iget v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    const v3, 0x680588
+    const v3, 0x6a0580
 
     or-int/2addr v2, v3
 
@@ -548,6 +624,20 @@
     or-int/lit8 v2, v2, 0x2
 
     iput v2, v1, Landroid/view/WindowManager$LayoutParams;->systemUiVisibility:I
+
+    iget v2, v1, Landroid/view/WindowManager$LayoutParams;->rotationAnimation:I
+
+    or-int/lit8 v2, v2, 0x2
+
+    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->rotationAnimation:I
+
+    invoke-virtual {p0}, Lcom/android/server/power/ShutdownDialog;->getWindow()Landroid/view/Window;
+
+    move-result-object v2
+
+    const/high16 v3, 0x10000
+
+    invoke-virtual {v2, v3}, Landroid/view/Window;->clearFlags(I)V
 
     invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
@@ -752,6 +842,21 @@
 .method private createShutdownQmgPlayList()V
     .locals 9
 
+    iget-boolean v6, p0, Lcom/android/server/power/ShutdownDialog;->isDaimler:Z
+
+    if-eqz v6, :cond_0
+
+    iget-object v6, p0, Lcom/android/server/power/ShutdownDialog;->ccrCode:Ljava/lang/String;
+
+    invoke-direct {p0, v6}, Lcom/android/server/power/ShutdownDialog;->addToPlaylistIfExists(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_0
+
+    return-void
+
+    :cond_0
     iget-object v6, p0, Lcom/android/server/power/ShutdownDialog;->qmgList:Ljava/util/List;
 
     invoke-interface {v6}, Ljava/util/List;->clear()V
@@ -760,13 +865,9 @@
 
     invoke-interface {v6}, Ljava/util/List;->clear()V
 
-    const/4 v3, 0x0
+    iget-object v6, p0, Lcom/android/server/power/ShutdownDialog;->chameleonCode:Ljava/lang/String;
 
-    invoke-direct {p0}, Lcom/android/server/power/ShutdownDialog;->getChameleonCode()Ljava/lang/String;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_0
+    if-eqz v6, :cond_1
 
     new-instance v6, Ljava/lang/StringBuffer;
 
@@ -774,7 +875,9 @@
 
     invoke-direct {v6, v7}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v6, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    iget-object v7, p0, Lcom/android/server/power/ShutdownDialog;->chameleonCode:Ljava/lang/String;
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     move-result-object v6
 
@@ -792,23 +895,12 @@
 
     move-result v6
 
-    if-eqz v6, :cond_0
-
-    return-void
-
-    :cond_0
-    const-string/jumbo v6, "//system/PST/shutdown.qmg"
-
-    invoke-direct {p0, v6}, Lcom/android/server/power/ShutdownDialog;->addToPlaylistIfExists(Ljava/lang/String;)Z
-
-    move-result v6
-
     if-eqz v6, :cond_1
 
     return-void
 
     :cond_1
-    const-string/jumbo v6, "//system/csc_contents/shutdown.qmg"
+    const-string/jumbo v6, "//system/PST/shutdown.qmg"
 
     invoke-direct {p0, v6}, Lcom/android/server/power/ShutdownDialog;->addToPlaylistIfExists(Ljava/lang/String;)Z
 
@@ -819,11 +911,7 @@
     return-void
 
     :cond_2
-    iget-object v6, p0, Lcom/android/server/power/ShutdownDialog;->b2bAnimPath:Ljava/lang/String;
-
-    if-eqz v6, :cond_3
-
-    iget-object v6, p0, Lcom/android/server/power/ShutdownDialog;->b2bAnimPath:Ljava/lang/String;
+    const-string/jumbo v6, "//system/csc_contents/shutdown.qmg"
 
     invoke-direct {p0, v6}, Lcom/android/server/power/ShutdownDialog;->addToPlaylistIfExists(Ljava/lang/String;)Z
 
@@ -834,13 +922,28 @@
     return-void
 
     :cond_3
+    iget-object v6, p0, Lcom/android/server/power/ShutdownDialog;->b2bAnimPath:Ljava/lang/String;
+
+    if-eqz v6, :cond_4
+
+    iget-object v6, p0, Lcom/android/server/power/ShutdownDialog;->b2bAnimPath:Ljava/lang/String;
+
+    invoke-direct {p0, v6}, Lcom/android/server/power/ShutdownDialog;->addToPlaylistIfExists(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_4
+
+    return-void
+
+    :cond_4
     invoke-direct {p0}, Lcom/android/server/power/ShutdownDialog;->readColorId()I
 
     move-result v2
 
     invoke-direct {p0, v2}, Lcom/android/server/power/ShutdownDialog;->getQmgCodeById(I)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
     const-string/jumbo v6, "persist.sys.omc_respath"
 
@@ -848,9 +951,67 @@
 
     move-result-object v5
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_8
 
-    if-eqz v4, :cond_4
+    iget-boolean v6, p0, Lcom/android/server/power/ShutdownDialog;->supportChameleon:Z
+
+    if-eqz v6, :cond_5
+
+    iget-object v6, p0, Lcom/android/server/power/ShutdownDialog;->chameleonCode:Ljava/lang/String;
+
+    if-eqz v6, :cond_8
+
+    :cond_5
+    const-string/jumbo v6, "ro.csc.sales_code"
+
+    invoke-static {v6}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_6
+
+    iget-object v6, p0, Lcom/android/server/power/ShutdownDialog;->chameleonCode:Ljava/lang/String;
+
+    if-eqz v6, :cond_6
+
+    iget-object v6, p0, Lcom/android/server/power/ShutdownDialog;->chameleonCode:Ljava/lang/String;
+
+    invoke-virtual {v6, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_6
+
+    iget-object v6, p0, Lcom/android/server/power/ShutdownDialog;->chameleonCode:Ljava/lang/String;
+
+    invoke-virtual {v5, v4, v6}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "ShutdownDialog"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "!@Power off sound CHAMELEON - update animation path to : "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_6
+    if-eqz v3, :cond_7
 
     new-instance v6, Ljava/lang/StringBuilder;
 
@@ -862,7 +1023,7 @@
 
     move-result-object v6
 
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v6
 
@@ -906,7 +1067,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_7
 
     iget-object v6, p0, Lcom/android/server/power/ShutdownDialog;->SHUTDOWN_ANIM_FILES:[Ljava/lang/String;
 
@@ -938,11 +1099,11 @@
 
     move-result v6
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_7
 
     return-void
 
-    :cond_4
+    :cond_7
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -967,23 +1128,23 @@
 
     move-result v6
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_8
 
     return-void
 
-    :cond_5
+    :cond_8
     const-string/jumbo v6, "//system/media/video/shutdown/shutdown.qmg"
 
     invoke-direct {p0, v6}, Lcom/android/server/power/ShutdownDialog;->addToPlaylistIfExists(Ljava/lang/String;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_6
+    if-eqz v6, :cond_9
 
     return-void
 
-    :cond_6
-    if-eqz v4, :cond_7
+    :cond_9
+    if-eqz v3, :cond_a
 
     new-instance v6, Ljava/lang/StringBuilder;
 
@@ -995,7 +1156,7 @@
 
     move-result-object v6
 
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v6
 
@@ -1017,7 +1178,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_7
+    if-eqz v6, :cond_a
 
     const-string/jumbo v6, "//system/media/shutdownbefore.qmg"
 
@@ -1031,7 +1192,7 @@
 
     return-void
 
-    :cond_7
+    :cond_a
     new-instance v6, Ljava/io/File;
 
     const-string/jumbo v7, "//system/media/shutdown.qmg"
@@ -1042,7 +1203,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_8
+    if-eqz v6, :cond_b
 
     const-string/jumbo v6, "//system/media/shutdownbefore.qmg"
 
@@ -1058,18 +1219,18 @@
 
     return-void
 
-    :cond_8
+    :cond_b
     const-string/jumbo v6, "//system/media/shutdownloop.qmg"
 
     invoke-direct {p0, v6}, Lcom/android/server/power/ShutdownDialog;->addToPlaylistIfExists(Ljava/lang/String;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_9
+    if-eqz v6, :cond_c
 
     return-void
 
-    :cond_9
+    :cond_c
     return-void
 .end method
 
@@ -1226,55 +1387,204 @@
     goto :goto_2
 .end method
 
-.method private getChameleonCode()Ljava/lang/String;
-    .locals 4
+.method private getCCRCode()Ljava/lang/String;
+    .locals 5
 
-    new-instance v1, Ljava/io/File;
+    const/4 v3, 0x0
 
-    const-string/jumbo v2, "/carrier/chameleon.xml"
+    iget-boolean v2, p0, Lcom/android/server/power/ShutdownDialog;->isDaimler:Z
 
-    invoke-direct {v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    if-nez v2, :cond_0
 
-    invoke-virtual {v1}, Ljava/io/File;->exists()Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    const/4 v1, 0x0
-
-    return-object v1
+    return-object v3
 
     :cond_0
-    const-string/jumbo v1, "ro.csc.sales_code"
+    const-string/jumbo v2, "/efs/daimler/ccr_config.xml"
 
-    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    const-string/jumbo v3, "shutdown_animation"
+
+    invoke-static {v2, v3}, Lcom/android/server/power/ShutdownDialog;->search(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    const-string/jumbo v1, "ShutdownDialog"
+    if-nez v0, :cond_1
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    const-string/jumbo v0, "01"
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    :cond_1
+    new-instance v2, Ljava/lang/StringBuffer;
 
-    const-string/jumbo v3, "!@Power off sound CHAMELEON is activated : "
+    const-string/jumbo v3, "//system/media/shut_"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v2, v3}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v3, ".qmg"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "ShutdownDialog"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "ccrPath is "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    return-object v2
+.end method
+
+.method private getChameleonCode()Ljava/lang/String;
+    .locals 5
+
+    const/4 v3, 0x0
+
+    iget-boolean v2, p0, Lcom/android/server/power/ShutdownDialog;->supportChameleon:Z
+
+    if-nez v2, :cond_0
+
+    return-object v3
+
+    :cond_0
+    iget-boolean v2, p0, Lcom/android/server/power/ShutdownDialog;->chameleonFileExist:Z
+
+    if-nez v2, :cond_1
+
+    return-object v3
+
+    :cond_1
+    invoke-direct {p0}, Lcom/android/server/power/ShutdownDialog;->isCarrierActivated()Z
+
+    move-result v2
+
+    if-nez v2, :cond_2
+
+    return-object v3
+
+    :cond_2
+    const-string/jumbo v2, "/carrier/chameleon.xml"
+
+    const-string/jumbo v3, "Operators.AndroidOperatorNetworkCode"
+
+    invoke-static {v2, v3}, Lcom/android/server/power/ShutdownDialog;->search(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "ShutdownDialog"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "!@Power off sound CHAMELEON network code : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-nez v1, :cond_3
+
+    const-string/jumbo v1, "310000"
+
+    :cond_3
+    const-string/jumbo v2, "310120"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_4
+
+    const-string/jumbo v0, "SPR"
+
+    :goto_0
+    const-string/jumbo v2, "ShutdownDialog"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "!@Power off sound CHAMELEON is activated : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-object v0
+
+    :cond_4
+    const-string/jumbo v2, "311490"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_5
+
+    const-string/jumbo v0, "VMU"
+
+    goto :goto_0
+
+    :cond_5
+    const-string/jumbo v2, "311870"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_6
+
+    const-string/jumbo v0, "BST"
+
+    goto :goto_0
+
+    :cond_6
+    const-string/jumbo v0, "XAS"
+
+    goto :goto_0
 .end method
 
 .method private getCoverType(Lcom/samsung/android/cover/CoverManager;)I
@@ -1304,24 +1614,90 @@
     return v1
 .end method
 
-.method private getQmgCodeById(I)Ljava/lang/String;
-    .locals 2
+.method public static getElement(Ljava/lang/String;)Lorg/w3c/dom/Node;
+    .locals 8
 
-    const/4 v0, 0x0
+    new-instance v5, Ljava/io/File;
 
-    const/4 v1, 0x3
+    invoke-direct {v5, p0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    if-eq p1, v1, :cond_0
+    invoke-static {}, Ljavax/xml/parsers/DocumentBuilderFactory;->newInstance()Ljavax/xml/parsers/DocumentBuilderFactory;
 
-    const/4 v1, 0x4
+    move-result-object v1
 
-    if-ne p1, v1, :cond_1
+    :try_start_0
+    invoke-virtual {v1}, Ljavax/xml/parsers/DocumentBuilderFactory;->newDocumentBuilder()Ljavax/xml/parsers/DocumentBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v5}, Ljava/io/File;->exists()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_0
+
+    invoke-virtual {v0, v5}, Ljavax/xml/parsers/DocumentBuilder;->parse(Ljava/io/File;)Lorg/w3c/dom/Document;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Lorg/w3c/dom/Document;->getDocumentElement()Lorg/w3c/dom/Element;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v4
+
+    return-object v4
+
+    :catch_0
+    move-exception v2
+
+    const-string/jumbo v6, "ShutdownDialog"
+
+    const-string/jumbo v7, "Exception"
+
+    invoke-static {v6, v7, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :cond_0
-    const-string/jumbo v0, "WH"
+    const/4 v6, 0x0
+
+    return-object v6
+.end method
+
+.method private getQmgCodeById(I)Ljava/lang/String;
+    .locals 3
+
+    const/4 v1, 0x0
+
+    const-string/jumbo v2, "ro.build.product"
+
+    invoke-static {v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string/jumbo v2, "dream"
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    return-object v1
+
+    :cond_0
+    const/4 v2, 0x3
+
+    if-eq p1, v2, :cond_1
+
+    const/4 v2, 0x4
+
+    if-ne p1, v2, :cond_2
 
     :cond_1
-    return-object v0
+    const-string/jumbo v1, "WH"
+
+    :cond_2
+    return-object v1
 .end method
 
 .method private getSCoverState(Lcom/samsung/android/cover/CoverManager;)Z
@@ -1352,66 +1728,40 @@
 .end method
 
 .method private getShutdownSoundPath(Ljava/lang/String;)Ljava/lang/String;
-    .locals 9
+    .locals 8
 
-    const/4 v8, 0x0
+    const/4 v7, 0x0
 
     if-eqz p1, :cond_0
 
-    new-instance v5, Ljava/io/File;
+    new-instance v4, Ljava/io/File;
 
-    invoke-direct {v5, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v5}, Ljava/io/File;->exists()Z
+    invoke-virtual {v4}, Ljava/io/File;->exists()Z
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_0
+    if-eqz v4, :cond_0
 
     return-object p1
 
     :cond_0
-    const-string/jumbo v5, "persist.sys.omc_respath"
+    const-string/jumbo v4, "persist.sys.omc_respath"
 
-    invoke-static {v5}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
-    if-eqz v4, :cond_1
+    if-eqz v3, :cond_2
 
-    new-instance v5, Ljava/io/File;
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "/media/audio/ui/PowerOff.ogg"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-direct {v5, v6}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v5}, Ljava/io/File;->exists()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_1
+    new-instance v4, Ljava/io/File;
 
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
@@ -1425,129 +1775,204 @@
 
     move-result-object v5
 
-    return-object v5
+    invoke-direct {v4, v5}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v4}, Ljava/io/File;->exists()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, "/media/audio/ui/PowerOff.ogg"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    return-object v4
 
     :cond_1
-    invoke-direct {p0}, Lcom/android/server/power/ShutdownDialog;->getChameleonCode()Ljava/lang/String;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_2
+    new-instance v4, Ljava/io/File;
 
     new-instance v5, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v6, "/system/media/audio/ui/"
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
-    const-string/jumbo v6, "/PowerOff.ogg"
+    const-string/jumbo v6, "/media/audio/ui/PowerOff.wav"
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v5
 
-    new-instance v5, Ljava/io/File;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-direct {v5, v6}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v5}, Ljava/io/File;->exists()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_2
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
 
-    return-object v5
+    invoke-direct {v4, v5}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v4}, Ljava/io/File;->exists()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, "/media/audio/ui/PowerOff.wav"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    return-object v4
 
     :cond_2
-    new-instance v5, Ljava/io/File;
+    iget-object v4, p0, Lcom/android/server/power/ShutdownDialog;->chameleonCode:Ljava/lang/String;
 
-    const-string/jumbo v6, "//system/csc_contents/PowerOff.ogg"
+    if-eqz v4, :cond_3
 
-    invoke-direct {v5, v6}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/io/File;->exists()Z
+    const-string/jumbo v5, "/system/media/audio/ui/"
 
-    move-result v5
+    invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    if-eqz v5, :cond_3
+    iget-object v5, p0, Lcom/android/server/power/ShutdownDialog;->chameleonCode:Ljava/lang/String;
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, "/PowerOff.ogg"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    new-instance v4, Ljava/io/File;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-direct {v4, v5}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v4}, Ljava/io/File;->exists()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_3
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    return-object v4
+
+    :cond_3
+    new-instance v4, Ljava/io/File;
 
     const-string/jumbo v5, "//system/csc_contents/PowerOff.ogg"
 
-    return-object v5
+    invoke-direct {v4, v5}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    :cond_3
-    const-string/jumbo v3, "//system/media/audio/ui/PowerOff.wav"
+    invoke-virtual {v4}, Ljava/io/File;->exists()Z
 
-    new-instance v5, Ljava/io/File;
+    move-result v4
 
-    const-string/jumbo v6, "//system/media/audio/ui/PowerOff.wav"
+    if-eqz v4, :cond_4
 
-    invoke-direct {v5, v6}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    const-string/jumbo v4, "//system/csc_contents/PowerOff.ogg"
 
-    invoke-virtual {v5}, Ljava/io/File;->exists()Z
+    return-object v4
 
-    move-result v5
+    :cond_4
+    const-string/jumbo v2, "//system/media/audio/ui/PowerOff.wav"
 
-    if-eqz v5, :cond_4
+    new-instance v4, Ljava/io/File;
 
     const-string/jumbo v5, "//system/media/audio/ui/PowerOff.wav"
 
-    return-object v5
+    invoke-direct {v4, v5}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    :cond_4
-    iget-object v5, p0, Lcom/android/server/power/ShutdownDialog;->b2bSoundPath:Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/io/File;->exists()Z
 
-    if-eqz v5, :cond_5
+    move-result v4
 
-    new-instance v5, Ljava/io/File;
+    if-eqz v4, :cond_5
 
-    iget-object v6, p0, Lcom/android/server/power/ShutdownDialog;->b2bSoundPath:Ljava/lang/String;
+    const-string/jumbo v4, "//system/media/audio/ui/PowerOff.wav"
 
-    invoke-direct {v5, v6}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v5}, Ljava/io/File;->exists()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_5
-
-    iget-object v5, p0, Lcom/android/server/power/ShutdownDialog;->b2bSoundPath:Ljava/lang/String;
-
-    return-object v5
+    return-object v4
 
     :cond_5
-    const-string/jumbo v2, "//system/media/audio/ui/PowerOff.ogg"
+    iget-object v4, p0, Lcom/android/server/power/ShutdownDialog;->b2bSoundPath:Ljava/lang/String;
 
-    new-instance v5, Ljava/io/File;
+    if-eqz v4, :cond_6
 
-    const-string/jumbo v6, "//system/media/audio/ui/PowerOff.ogg"
+    new-instance v4, Ljava/io/File;
 
-    invoke-direct {v5, v6}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    iget-object v5, p0, Lcom/android/server/power/ShutdownDialog;->b2bSoundPath:Ljava/lang/String;
 
-    invoke-virtual {v5}, Ljava/io/File;->exists()Z
+    invoke-direct {v4, v5}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    move-result v5
+    invoke-virtual {v4}, Ljava/io/File;->exists()Z
 
-    if-eqz v5, :cond_6
+    move-result v4
+
+    if-eqz v4, :cond_6
+
+    iget-object v4, p0, Lcom/android/server/power/ShutdownDialog;->b2bSoundPath:Ljava/lang/String;
+
+    return-object v4
+
+    :cond_6
+    const-string/jumbo v1, "//system/media/audio/ui/PowerOff.ogg"
+
+    new-instance v4, Ljava/io/File;
 
     const-string/jumbo v5, "//system/media/audio/ui/PowerOff.ogg"
 
-    return-object v5
+    invoke-direct {v4, v5}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    :cond_6
-    return-object v8
+    invoke-virtual {v4}, Ljava/io/File;->exists()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_7
+
+    const-string/jumbo v4, "//system/media/audio/ui/PowerOff.ogg"
+
+    return-object v4
+
+    :cond_7
+    return-object v7
 .end method
 
 .method private getSystemVolume()I
@@ -1599,6 +2024,29 @@
     move-result-object v3
 
     invoke-static {v2, v3}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v1
+.end method
+
+.method private isCarrierActivated()Z
+    .locals 3
+
+    const-string/jumbo v1, "/carrier/chameleon.xml"
+
+    const-string/jumbo v2, "Operators.SubscriberCarrierId"
+
+    invoke-static {v1, v2}, Lcom/android/server/power/ShutdownDialog;->search(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v1, 0x1
+
+    return v1
+
+    :cond_0
+    const/4 v1, 0x0
 
     return v1
 .end method
@@ -2058,6 +2506,115 @@
     goto :goto_1
 .end method
 
+.method public static search(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    .locals 6
+
+    const/4 v5, 0x0
+
+    invoke-static {p0}, Lcom/android/server/power/ShutdownDialog;->getElement(Ljava/lang/String;)Lorg/w3c/dom/Node;
+
+    move-result-object v1
+
+    if-eqz p1, :cond_0
+
+    if-nez v1, :cond_1
+
+    :cond_0
+    return-object v5
+
+    :cond_1
+    new-instance v3, Ljava/util/StringTokenizer;
+
+    const-string/jumbo v4, "."
+
+    invoke-direct {v3, p1, v4}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_2
+    invoke-virtual {v3}, Ljava/util/StringTokenizer;->hasMoreTokens()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_3
+
+    invoke-virtual {v3}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Lcom/android/server/power/ShutdownDialog;->search(Lorg/w3c/dom/Node;Ljava/lang/String;)Lorg/w3c/dom/Node;
+
+    move-result-object v1
+
+    if-nez v1, :cond_2
+
+    return-object v5
+
+    :cond_3
+    invoke-interface {v1}, Lorg/w3c/dom/Node;->getFirstChild()Lorg/w3c/dom/Node;
+
+    move-result-object v0
+
+    if-nez v0, :cond_4
+
+    return-object v5
+
+    :cond_4
+    invoke-interface {v0}, Lorg/w3c/dom/Node;->getNodeValue()Ljava/lang/String;
+
+    move-result-object v4
+
+    return-object v4
+.end method
+
+.method public static search(Lorg/w3c/dom/Node;Ljava/lang/String;)Lorg/w3c/dom/Node;
+    .locals 6
+
+    const/4 v5, 0x0
+
+    if-nez p0, :cond_0
+
+    return-object v5
+
+    :cond_0
+    invoke-interface {p0}, Lorg/w3c/dom/Node;->getChildNodes()Lorg/w3c/dom/NodeList;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_2
+
+    invoke-interface {v1}, Lorg/w3c/dom/NodeList;->getLength()I
+
+    move-result v3
+
+    const/4 v2, 0x0
+
+    :goto_0
+    if-ge v2, v3, :cond_2
+
+    invoke-interface {v1, v2}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Lorg/w3c/dom/Node;->getNodeName()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    return-object v0
+
+    :cond_1
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    return-object v5
+.end method
+
 
 # virtual methods
 .method public appendTextLog(Ljava/lang/String;)V
@@ -2430,15 +2987,17 @@
 .end method
 
 .method public waitForAnimEnd(I)Z
-    .locals 10
+    .locals 12
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v6
 
-    mul-int/lit16 v3, p1, 0x3e8
+    int-to-long v8, p1
 
-    int-to-long v8, v3
+    const-wide/16 v10, 0x3e8
+
+    mul-long/2addr v8, v10
 
     add-long v4, v6, v8
 

@@ -153,9 +153,9 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 3
+    .locals 4
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -163,11 +163,11 @@
 
     iput-object v0, p0, Lcom/android/server/notification/SmartAlertController;->mSmartAlertMotionManager:Lcom/samsung/android/gesture/SemMotionRecognitionManager;
 
-    iput-boolean v1, p0, Lcom/android/server/notification/SmartAlertController;->mMotionEnabled:Z
+    iput-boolean v3, p0, Lcom/android/server/notification/SmartAlertController;->mMotionEnabled:Z
 
-    iput-boolean v1, p0, Lcom/android/server/notification/SmartAlertController;->mMotionRegistered:Z
+    iput-boolean v3, p0, Lcom/android/server/notification/SmartAlertController;->mMotionRegistered:Z
 
-    iput-boolean v1, p0, Lcom/android/server/notification/SmartAlertController;->mMissedEventExist:Z
+    iput-boolean v3, p0, Lcom/android/server/notification/SmartAlertController;->mMissedEventExist:Z
 
     const/4 v0, 0x5
 
@@ -177,7 +177,7 @@
 
     iput-object v0, p0, Lcom/android/server/notification/SmartAlertController;->mPickUpVibratePattern:[J
 
-    iput-boolean v1, p0, Lcom/android/server/notification/SmartAlertController;->mScreenOn:Z
+    iput-boolean v3, p0, Lcom/android/server/notification/SmartAlertController;->mScreenOn:Z
 
     new-instance v0, Lcom/android/server/notification/SmartAlertController$1;
 
@@ -267,9 +267,25 @@
 
     iput-object v0, p0, Lcom/android/server/notification/SmartAlertController;->mSmartAlertSettingObserver:Lcom/android/server/notification/SmartAlertController$SmartAlertSettingObserver;
 
+    iget-object v0, p0, Lcom/android/server/notification/SmartAlertController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "motion_pick_up"
+
+    invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/server/notification/SmartAlertController;->mSmartAlertSettingObserver:Lcom/android/server/notification/SmartAlertController$SmartAlertSettingObserver;
+
+    invoke-virtual {v0, v1, v3, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
     iget-object v0, p0, Lcom/android/server/notification/SmartAlertController;->mSmartAlertSettingObserver:Lcom/android/server/notification/SmartAlertController$SmartAlertSettingObserver;
 
-    invoke-virtual {v0}, Lcom/android/server/notification/SmartAlertController$SmartAlertSettingObserver;->observe()V
+    invoke-virtual {v0, v3}, Lcom/android/server/notification/SmartAlertController$SmartAlertSettingObserver;->onChange(Z)V
 
     return-void
 
@@ -457,6 +473,68 @@
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
+.end method
+
+.method public resetSmartAlertSettingObserver(I)V
+    .locals 4
+
+    const-string/jumbo v0, "SmartAlertController"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "resetSmartAlertSettingObserver: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/android/server/notification/SmartAlertController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/server/notification/SmartAlertController;->mSmartAlertSettingObserver:Lcom/android/server/notification/SmartAlertController$SmartAlertSettingObserver;
+
+    invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
+
+    iget-object v0, p0, Lcom/android/server/notification/SmartAlertController;->mSmartAlertSettingObserver:Lcom/android/server/notification/SmartAlertController$SmartAlertSettingObserver;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/android/server/notification/SmartAlertController$SmartAlertSettingObserver;->onChange(Z)V
+
+    iget-object v0, p0, Lcom/android/server/notification/SmartAlertController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "motion_pick_up"
+
+    invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/server/notification/SmartAlertController;->mSmartAlertSettingObserver:Lcom/android/server/notification/SmartAlertController$SmartAlertSettingObserver;
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v0, v1, v3, v2, p1}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
+
+    return-void
 .end method
 
 .method public unregisterListener()V

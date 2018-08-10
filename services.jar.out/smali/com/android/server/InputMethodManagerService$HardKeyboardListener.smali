@@ -90,7 +90,7 @@
 
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService$HardKeyboardListener;->this$0:Lcom/android/server/InputMethodManagerService;
 
-    invoke-static {v0}, Lcom/android/server/InputMethodManagerService;->-get17(Lcom/android/server/InputMethodManagerService;)Landroid/app/AlertDialog;
+    invoke-static {v0}, Lcom/android/server/InputMethodManagerService;->-get18(Lcom/android/server/InputMethodManagerService;)Landroid/app/AlertDialog;
 
     move-result-object v0
 
@@ -98,7 +98,7 @@
 
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService$HardKeyboardListener;->this$0:Lcom/android/server/InputMethodManagerService;
 
-    invoke-static {v0}, Lcom/android/server/InputMethodManagerService;->-get18(Lcom/android/server/InputMethodManagerService;)Landroid/view/View;
+    invoke-static {v0}, Lcom/android/server/InputMethodManagerService;->-get17(Lcom/android/server/InputMethodManagerService;)Landroid/view/View;
 
     move-result-object v0
 
@@ -106,7 +106,7 @@
 
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService$HardKeyboardListener;->this$0:Lcom/android/server/InputMethodManagerService;
 
-    invoke-static {v0}, Lcom/android/server/InputMethodManagerService;->-get17(Lcom/android/server/InputMethodManagerService;)Landroid/app/AlertDialog;
+    invoke-static {v0}, Lcom/android/server/InputMethodManagerService;->-get18(Lcom/android/server/InputMethodManagerService;)Landroid/app/AlertDialog;
 
     move-result-object v0
 
@@ -118,11 +118,11 @@
 
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService$HardKeyboardListener;->this$0:Lcom/android/server/InputMethodManagerService;
 
-    invoke-static {v0}, Lcom/android/server/InputMethodManagerService;->-get18(Lcom/android/server/InputMethodManagerService;)Landroid/view/View;
+    invoke-static {v0}, Lcom/android/server/InputMethodManagerService;->-get17(Lcom/android/server/InputMethodManagerService;)Landroid/view/View;
 
     move-result-object v0
 
-    const v2, 0x10203fd
+    const v2, 0x10202e2
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

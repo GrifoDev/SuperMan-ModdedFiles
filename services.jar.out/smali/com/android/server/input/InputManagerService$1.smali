@@ -32,289 +32,293 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 13
+    .locals 15
 
-    const/4 v12, 0x1
+    invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    const/4 v11, 0x0
+    move-result-object v1
 
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    const-string/jumbo v12, "android.intent.action.LOCALE_CHANGED"
 
-    move-result-object v0
+    invoke-virtual {v12, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const-string/jumbo v8, "android.intent.action.LOCALE_CHANGED"
+    move-result v12
 
-    invoke-virtual {v8, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-eqz v12, :cond_2
 
-    move-result v8
+    iget-object v12, p0, Lcom/android/server/input/InputManagerService$1;->this$0:Lcom/android/server/input/InputManagerService;
 
-    if-eqz v8, :cond_1
+    invoke-static {v12}, Lcom/android/server/input/InputManagerService;->-get8(Lcom/android/server/input/InputManagerService;)Z
 
-    iget-object v8, p0, Lcom/android/server/input/InputManagerService$1;->this$0:Lcom/android/server/input/InputManagerService;
+    move-result v12
 
-    invoke-static {v8}, Lcom/android/server/input/InputManagerService;->-get3(Lcom/android/server/input/InputManagerService;)Z
+    if-eqz v12, :cond_0
 
-    move-result v8
+    iget-object v12, p0, Lcom/android/server/input/InputManagerService$1;->this$0:Lcom/android/server/input/InputManagerService;
 
-    if-eqz v8, :cond_0
+    invoke-static {v12}, Lcom/android/server/input/InputManagerService;->-get2(Lcom/android/server/input/InputManagerService;)Landroid/content/Context;
 
-    iget-object v8, p0, Lcom/android/server/input/InputManagerService$1;->this$0:Lcom/android/server/input/InputManagerService;
+    move-result-object v12
 
-    invoke-static {v8}, Lcom/android/server/input/InputManagerService;->-get1(Lcom/android/server/input/InputManagerService;)Landroid/view/InputDevice;
+    invoke-virtual {v12}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v7
+    move-result-object v12
 
-    iget-object v8, p0, Lcom/android/server/input/InputManagerService$1;->this$0:Lcom/android/server/input/InputManagerService;
+    invoke-virtual {v12}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
-    invoke-static {v8}, Lcom/android/server/input/InputManagerService;->-wrap7(Lcom/android/server/input/InputManagerService;)V
+    move-result-object v12
 
-    iget-object v8, p0, Lcom/android/server/input/InputManagerService$1;->this$0:Lcom/android/server/input/InputManagerService;
+    iget-object v8, v12, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
 
-    invoke-static {v8, v7}, Lcom/android/server/input/InputManagerService;->-wrap22(Lcom/android/server/input/InputManagerService;Landroid/view/InputDevice;)V
+    iget-object v12, p0, Lcom/android/server/input/InputManagerService$1;->this$0:Lcom/android/server/input/InputManagerService;
+
+    invoke-static {v12}, Lcom/android/server/input/InputManagerService;->-get3(Lcom/android/server/input/InputManagerService;)Ljava/util/Locale;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Ljava/util/Locale;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v8}, Ljava/util/Locale;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v9, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_1
 
     :cond_0
     :goto_0
     return-void
 
     :cond_1
-    const-string/jumbo v8, "com.samsung.android.theme.themecenter.THEME_APPLY"
+    iget-object v12, p0, Lcom/android/server/input/InputManagerService$1;->this$0:Lcom/android/server/input/InputManagerService;
 
-    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {v12}, Lcom/android/server/input/InputManagerService;->-get4(Lcom/android/server/input/InputManagerService;)Landroid/view/InputDevice;
 
-    move-result v8
+    move-result-object v11
 
-    if-nez v8, :cond_0
+    iget-object v12, p0, Lcom/android/server/input/InputManagerService$1;->this$0:Lcom/android/server/input/InputManagerService;
 
-    const-string/jumbo v8, "com.sec.intent.action.SARDEVICE_CP"
+    invoke-static {v12}, Lcom/android/server/input/InputManagerService;->-wrap7(Lcom/android/server/input/InputManagerService;)V
 
-    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    iget-object v12, p0, Lcom/android/server/input/InputManagerService$1;->this$0:Lcom/android/server/input/InputManagerService;
 
-    move-result v8
+    invoke-static {v12, v11}, Lcom/android/server/input/InputManagerService;->-wrap22(Lcom/android/server/input/InputManagerService;Landroid/view/InputDevice;)V
 
-    if-eqz v8, :cond_4
+    iget-object v12, p0, Lcom/android/server/input/InputManagerService$1;->this$0:Lcom/android/server/input/InputManagerService;
 
-    const-string/jumbo v8, "cmd"
-
-    invoke-virtual {p2, v8}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    const-string/jumbo v8, "device"
-
-    invoke-virtual {p2, v8}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v8}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v3
-
-    const-string/jumbo v8, "InputManager"
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v10, "received SARDEVICE_CP, callAction = "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    const-string/jumbo v10, " deviceID = "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    const-string/jumbo v10, " cableConnection = "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    iget-object v10, p0, Lcom/android/server/input/InputManagerService$1;->this$0:Lcom/android/server/input/InputManagerService;
-
-    invoke-static {v10}, Lcom/android/server/input/InputManagerService;->-get0(Lcom/android/server/input/InputManagerService;)I
-
-    move-result v10
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    and-int/lit8 v8, v3, 0x1
-
-    if-nez v8, :cond_2
-
-    and-int/lit8 v8, v3, 0x20
-
-    if-eqz v8, :cond_0
-
-    :cond_2
-    const-string/jumbo v8, "on"
-
-    invoke-virtual {v8, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_3
-
-    iget-object v8, p0, Lcom/android/server/input/InputManagerService$1;->this$0:Lcom/android/server/input/InputManagerService;
-
-    invoke-static {v8, v12}, Lcom/android/server/input/InputManagerService;->-set0(Lcom/android/server/input/InputManagerService;Z)Z
-
-    iget-object v8, p0, Lcom/android/server/input/InputManagerService$1;->this$0:Lcom/android/server/input/InputManagerService;
-
-    invoke-virtual {v8, v3, v12}, Lcom/android/server/input/InputManagerService;->enableDeviceForBackOff(IZ)I
+    invoke-static {v12, v8}, Lcom/android/server/input/InputManagerService;->-set0(Lcom/android/server/input/InputManagerService;Ljava/util/Locale;)Ljava/util/Locale;
 
     goto :goto_0
 
-    :cond_3
-    iget-object v8, p0, Lcom/android/server/input/InputManagerService$1;->this$0:Lcom/android/server/input/InputManagerService;
+    :cond_2
+    const-string/jumbo v12, "com.samsung.android.theme.themecenter.THEME_APPLY"
 
-    invoke-static {v8, v11}, Lcom/android/server/input/InputManagerService;->-set0(Lcom/android/server/input/InputManagerService;Z)Z
+    invoke-virtual {v1, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    iget-object v8, p0, Lcom/android/server/input/InputManagerService$1;->this$0:Lcom/android/server/input/InputManagerService;
+    move-result v12
 
-    invoke-virtual {v8, v3, v11}, Lcom/android/server/input/InputManagerService;->enableDeviceForBackOff(IZ)I
+    if-nez v12, :cond_0
 
-    goto/16 :goto_0
+    const-string/jumbo v12, "com.samsung.android.intent.action.SET_INWATER_TOUCH"
 
-    :cond_4
-    const-string/jumbo v8, "android.intent.action.CONFIGURATION_CHANGED"
+    invoke-virtual {v1, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v12
 
-    move-result v8
+    if-eqz v12, :cond_6
 
-    if-nez v8, :cond_0
+    const-string/jumbo v12, "set"
 
-    const-string/jumbo v8, "com.samsung.android.intent.action.SET_INWATER_TOUCH"
+    const/4 v13, 0x0
 
-    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-object/from16 v0, p2
 
-    move-result v8
+    invoke-virtual {v0, v12, v13}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
-    if-eqz v8, :cond_0
+    move-result v6
 
-    const-string/jumbo v8, "set"
+    const-string/jumbo v12, "force"
 
-    invoke-virtual {p2, v8, v11}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    const/4 v13, 0x0
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v12, v13}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
     move-result v5
 
-    const-string/jumbo v8, "force"
+    const-string/jumbo v12, "package"
 
-    invoke-virtual {p2, v8, v11}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    move-object/from16 v0, p2
 
-    move-result v4
-
-    const-string/jumbo v8, "package"
-
-    invoke-virtual {p2, v8}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v6
-
-    const-string/jumbo v8, "type"
-
-    const/4 v9, 0x3
-
-    invoke-virtual {p2, v8, v9}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
-
-    move-result v1
-
-    const-string/jumbo v9, "InputManager"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v10, "received:"
-
-    invoke-virtual {v8, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string/jumbo v10, " packageName:"
-
-    invoke-virtual {v8, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v12}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v10
 
-    if-eqz v6, :cond_7
+    const-string/jumbo v12, "type"
 
-    move-object v8, v6
+    const/4 v13, 0x3
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v12, v13}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v2
+
+    const-string/jumbo v13, "InputManager"
+
+    new-instance v12, Ljava/lang/StringBuilder;
+
+    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v14, "received:"
+
+    invoke-virtual {v12, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    invoke-virtual {v12, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    const-string/jumbo v14, " packageName:"
+
+    invoke-virtual {v12, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    if-eqz v10, :cond_5
+
+    move-object v12, v10
 
     :goto_1
-    invoke-virtual {v10, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v12
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v12
 
-    invoke-static {v9, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v13, v12}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v8, "com.samsung.android.intent.action.SET_INWATER_TOUCH"
+    const-string/jumbo v12, "com.samsung.android.intent.action.SET_INWATER_TOUCH"
 
-    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v12
 
-    if-eqz v8, :cond_6
+    if-eqz v12, :cond_4
 
-    if-eqz v6, :cond_5
+    if-eqz v10, :cond_3
 
-    const-string/jumbo v8, ""
+    const-string/jumbo v12, ""
 
-    invoke-virtual {v6, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v10, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v12
 
-    if-eqz v8, :cond_6
+    if-eqz v12, :cond_4
+
+    :cond_3
+    const-string/jumbo v10, "retail"
+
+    :cond_4
+    if-eqz v10, :cond_0
+
+    const-string/jumbo v12, ""
+
+    invoke-virtual {v10, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    xor-int/lit8 v12, v12, 0x1
+
+    if-eqz v12, :cond_0
+
+    iget-object v12, p0, Lcom/android/server/input/InputManagerService$1;->this$0:Lcom/android/server/input/InputManagerService;
+
+    invoke-virtual {v12, v6, v2, v5, v10}, Lcom/android/server/input/InputManagerService;->setBlockDeviceMode(ZIZLjava/lang/String;)V
+
+    goto/16 :goto_0
 
     :cond_5
-    const-string/jumbo v6, "retail"
+    const-string/jumbo v12, "null"
+
+    goto :goto_1
 
     :cond_6
-    if-eqz v6, :cond_0
+    const-string/jumbo v12, "android.intent.action.CONFIGURATION_CHANGED"
 
-    const-string/jumbo v8, ""
+    invoke-virtual {v1, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v6, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v12
 
-    move-result v8
+    if-eqz v12, :cond_7
 
-    if-nez v8, :cond_0
+    iget-object v12, p0, Lcom/android/server/input/InputManagerService$1;->this$0:Lcom/android/server/input/InputManagerService;
 
-    iget-object v8, p0, Lcom/android/server/input/InputManagerService$1;->this$0:Lcom/android/server/input/InputManagerService;
+    invoke-static {v12}, Lcom/android/server/input/InputManagerService;->-get2(Lcom/android/server/input/InputManagerService;)Landroid/content/Context;
 
-    invoke-virtual {v8, v5, v1, v4, v6}, Lcom/android/server/input/InputManagerService;->setBlockDeviceMode(ZIZLjava/lang/String;)V
+    move-result-object v12
+
+    invoke-virtual {v12}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v7
+
+    iget v4, v7, Landroid/content/res/Configuration;->densityDpi:I
+
+    iget-object v12, p0, Lcom/android/server/input/InputManagerService$1;->this$0:Lcom/android/server/input/InputManagerService;
+
+    invoke-static {v12}, Lcom/android/server/input/InputManagerService;->-get5(Lcom/android/server/input/InputManagerService;)I
+
+    move-result v12
+
+    if-eq v12, v4, :cond_0
+
+    iget-object v12, p0, Lcom/android/server/input/InputManagerService$1;->this$0:Lcom/android/server/input/InputManagerService;
+
+    invoke-static {v12, v4}, Lcom/android/server/input/InputManagerService;->-set1(Lcom/android/server/input/InputManagerService;I)I
+
+    invoke-static {}, Landroid/view/PointerIcon;->clearSystemIcons()V
 
     goto/16 :goto_0
 
     :cond_7
-    const-string/jumbo v8, "null"
+    const-string/jumbo v12, "android.intent.action.BOOT_COMPLETED"
 
-    goto :goto_1
+    invoke-virtual {v1, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_0
+
+    invoke-static {}, Lcom/android/server/input/InputManagerService;->-get0()Z
+
+    move-result v12
+
+    if-eqz v12, :cond_0
+
+    iget-object v12, p0, Lcom/android/server/input/InputManagerService$1;->this$0:Lcom/android/server/input/InputManagerService;
+
+    iget-object v12, v12, Lcom/android/server/input/InputManagerService;->mBackgroundKeyCountService:Lcom/android/server/input/BackgroundKeyCountService;
+
+    if-eqz v12, :cond_0
+
+    iget-object v12, p0, Lcom/android/server/input/InputManagerService$1;->this$0:Lcom/android/server/input/InputManagerService;
+
+    iget-object v12, v12, Lcom/android/server/input/InputManagerService;->mBackgroundKeyCountService:Lcom/android/server/input/BackgroundKeyCountService;
+
+    invoke-virtual {v12}, Lcom/android/server/input/BackgroundKeyCountService;->kickOldies()V
+
+    goto/16 :goto_0
 .end method

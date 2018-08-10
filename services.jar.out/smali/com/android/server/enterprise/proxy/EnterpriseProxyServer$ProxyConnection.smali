@@ -193,10 +193,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_1
+
+    invoke-static {p2, v0}, Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;->sendLine(Ljava/net/Socket;Ljava/lang/String;)V
 
     :cond_1
-    :goto_0
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v1
@@ -204,11 +207,6 @@
     if-gtz v1, :cond_0
 
     return-void
-
-    :cond_2
-    invoke-static {p2, v0}, Lcom/android/server/enterprise/proxy/EnterpriseProxyServer;->sendLine(Ljava/net/Socket;Ljava/lang/String;)V
-
-    goto :goto_0
 .end method
 
 .method private getAbsolutePathFromAbsoluteURI(Ljava/net/URI;)Ljava/lang/String;

@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/display/WifiDisplayAdapter;->requestConnectLocked(ILjava/lang/String;)V
+    value = Lcom/android/server/display/WifiDisplayAdapter;->requestConnectDeviceLocked(Landroid/hardware/display/SemDeviceInfo;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
-.field final synthetic val$address:Ljava/lang/String;
-
-.field final synthetic val$connectingMode:I
+.field final synthetic val$deviceInfo:Landroid/hardware/display/SemDeviceInfo;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/display/WifiDisplayAdapter;ILjava/lang/String;)V
+.method constructor <init>(Lcom/android/server/display/WifiDisplayAdapter;Landroid/hardware/display/SemDeviceInfo;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/display/WifiDisplayAdapter$11;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
-    iput p2, p0, Lcom/android/server/display/WifiDisplayAdapter$11;->val$connectingMode:I
-
-    iput-object p3, p0, Lcom/android/server/display/WifiDisplayAdapter$11;->val$address:Ljava/lang/String;
+    iput-object p2, p0, Lcom/android/server/display/WifiDisplayAdapter$11;->val$deviceInfo:Landroid/hardware/display/SemDeviceInfo;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,11 +39,48 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$11;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
-    invoke-static {v0}, Lcom/android/server/display/WifiDisplayAdapter;->-get9(Lcom/android/server/display/WifiDisplayAdapter;)Lcom/android/server/display/WifiDisplayController;
+    iget-object v1, p0, Lcom/android/server/display/WifiDisplayAdapter$11;->val$deviceInfo:Landroid/hardware/display/SemDeviceInfo;
+
+    invoke-static {v0, v1}, Lcom/android/server/display/WifiDisplayAdapter;->-set3(Lcom/android/server/display/WifiDisplayAdapter;Landroid/hardware/display/SemDeviceInfo;)Landroid/hardware/display/SemDeviceInfo;
+
+    iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$11;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
+
+    invoke-static {v0}, Lcom/android/server/display/WifiDisplayAdapter;->-get4(Lcom/android/server/display/WifiDisplayAdapter;)Landroid/hardware/display/SemDeviceInfo;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/hardware/display/SemDeviceInfo;->getConnectType()I
+
+    move-result v0
+
+    packed-switch v0, :pswitch_data_0
+
+    const-string/jumbo v0, "WifiDisplayAdapter"
+
+    const-string/jumbo v1, "Fail to connect device because of unknown device type."
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$11;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
+
+    new-instance v1, Landroid/hardware/display/SemDeviceInfo;
+
+    invoke-direct {v1}, Landroid/hardware/display/SemDeviceInfo;-><init>()V
+
+    invoke-static {v0, v1}, Lcom/android/server/display/WifiDisplayAdapter;->-set3(Lcom/android/server/display/WifiDisplayAdapter;Landroid/hardware/display/SemDeviceInfo;)Landroid/hardware/display/SemDeviceInfo;
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :pswitch_0
+    iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$11;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
+
+    invoke-static {v0}, Lcom/android/server/display/WifiDisplayAdapter;->-get5(Lcom/android/server/display/WifiDisplayAdapter;)Lcom/android/server/display/WifiDisplayController;
 
     move-result-object v0
 
@@ -55,16 +88,41 @@
 
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$11;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
-    invoke-static {v0}, Lcom/android/server/display/WifiDisplayAdapter;->-get9(Lcom/android/server/display/WifiDisplayAdapter;)Lcom/android/server/display/WifiDisplayController;
+    invoke-static {v0}, Lcom/android/server/display/WifiDisplayAdapter;->-get5(Lcom/android/server/display/WifiDisplayAdapter;)Lcom/android/server/display/WifiDisplayController;
 
     move-result-object v0
 
-    iget v1, p0, Lcom/android/server/display/WifiDisplayAdapter$11;->val$connectingMode:I
+    iget-object v1, p0, Lcom/android/server/display/WifiDisplayAdapter$11;->val$deviceInfo:Landroid/hardware/display/SemDeviceInfo;
 
-    iget-object v2, p0, Lcom/android/server/display/WifiDisplayAdapter$11;->val$address:Ljava/lang/String;
+    invoke-virtual {v0, v1}, Lcom/android/server/display/WifiDisplayController;->requestDeviceConnect(Landroid/hardware/display/SemDeviceInfo;)V
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/display/WifiDisplayController;->requestConnect(ILjava/lang/String;)V
+    goto :goto_0
 
-    :cond_0
-    return-void
+    :pswitch_1
+    iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$11;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
+
+    invoke-static {v0}, Lcom/android/server/display/WifiDisplayAdapter;->-get8(Lcom/android/server/display/WifiDisplayAdapter;)Lcom/android/server/display/GoogleCastController;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$11;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
+
+    invoke-static {v0}, Lcom/android/server/display/WifiDisplayAdapter;->-get8(Lcom/android/server/display/WifiDisplayAdapter;)Lcom/android/server/display/GoogleCastController;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/server/display/WifiDisplayAdapter$11;->val$deviceInfo:Landroid/hardware/display/SemDeviceInfo;
+
+    invoke-virtual {v0, v1}, Lcom/android/server/display/GoogleCastController;->requestDeviceConnect(Landroid/hardware/display/SemDeviceInfo;)V
+
+    goto :goto_0
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_0
+        :pswitch_0
+        :pswitch_1
+    .end packed-switch
 .end method

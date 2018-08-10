@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/power/ShutdownThread;->setRebootProgress(ILjava/lang/CharSequence;)V
+    value = Lcom/android/server/power/ShutdownThread;->startShutdownDialog()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/power/ShutdownThread;
 
-.field final synthetic val$message:Ljava/lang/CharSequence;
-
-.field final synthetic val$progress:I
+.field final synthetic val$continueSignal:Ljava/util/concurrent/CountDownLatch;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/power/ShutdownThread;ILjava/lang/CharSequence;)V
+.method constructor <init>(Lcom/android/server/power/ShutdownThread;Ljava/util/concurrent/CountDownLatch;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/power/ShutdownThread$13;->this$0:Lcom/android/server/power/ShutdownThread;
 
-    iput p2, p0, Lcom/android/server/power/ShutdownThread$13;->val$progress:I
-
-    iput-object p3, p0, Lcom/android/server/power/ShutdownThread$13;->val$message:Ljava/lang/CharSequence;
+    iput-object p2, p0, Lcom/android/server/power/ShutdownThread$13;->val$continueSignal:Ljava/util/concurrent/CountDownLatch;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,40 +39,21 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/power/ShutdownThread$13;->this$0:Lcom/android/server/power/ShutdownThread;
-
-    invoke-static {v0}, Lcom/android/server/power/ShutdownThread;->-get10(Lcom/android/server/power/ShutdownThread;)Landroid/app/ProgressDialog;
+    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get31()Lcom/android/server/power/ShutdownThread;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/server/power/ShutdownThread$13;->this$0:Lcom/android/server/power/ShutdownThread;
-
-    invoke-static {v0}, Lcom/android/server/power/ShutdownThread;->-get10(Lcom/android/server/power/ShutdownThread;)Landroid/app/ProgressDialog;
+    invoke-static {v0}, Lcom/android/server/power/ShutdownThread;->-get9(Lcom/android/server/power/ShutdownThread;)Landroid/content/Context;
 
     move-result-object v0
 
-    iget v1, p0, Lcom/android/server/power/ShutdownThread$13;->val$progress:I
+    invoke-static {v0}, Lcom/android/server/power/ShutdownThread;->-wrap14(Landroid/content/Context;)V
 
-    invoke-virtual {v0, v1}, Landroid/app/ProgressDialog;->setProgress(I)V
+    iget-object v0, p0, Lcom/android/server/power/ShutdownThread$13;->val$continueSignal:Ljava/util/concurrent/CountDownLatch;
 
-    iget-object v0, p0, Lcom/android/server/power/ShutdownThread$13;->val$message:Ljava/lang/CharSequence;
+    invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/server/power/ShutdownThread$13;->this$0:Lcom/android/server/power/ShutdownThread;
-
-    invoke-static {v0}, Lcom/android/server/power/ShutdownThread;->-get10(Lcom/android/server/power/ShutdownThread;)Landroid/app/ProgressDialog;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/server/power/ShutdownThread$13;->val$message:Ljava/lang/CharSequence;
-
-    invoke-virtual {v0, v1}, Landroid/app/ProgressDialog;->setMessage(Ljava/lang/CharSequence;)V
-
-    :cond_0
     return-void
 .end method

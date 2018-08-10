@@ -50,8 +50,6 @@
 .method public onPackageInstalled(Ljava/lang/String;ILjava/lang/String;Landroid/os/Bundle;)V
     .locals 11
 
-    const/4 v4, 0x0
-
     const/4 v0, 0x1
 
     if-ne v0, p2, :cond_0
@@ -79,7 +77,7 @@
 
     if-eqz v10, :cond_3
 
-    const v0, 0x10405c0
+    const v0, 0x1040628
 
     :goto_1
     invoke-virtual {v2, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
@@ -104,7 +102,9 @@
 
     check-cast v9, Landroid/app/NotificationManager;
 
-    invoke-virtual {v9, p1, v4, v8}, Landroid/app/NotificationManager;->notify(Ljava/lang/String;ILandroid/app/Notification;)V
+    const/16 v0, 0x15
+
+    invoke-virtual {v9, p1, v0, v8}, Landroid/app/NotificationManager;->notify(Ljava/lang/String;ILandroid/app/Notification;)V
 
     :cond_0
     new-instance v3, Landroid/content/Intent;
@@ -184,7 +184,7 @@
     goto :goto_0
 
     :cond_3
-    const v0, 0x10405bf
+    const v0, 0x1040626
 
     goto :goto_1
 

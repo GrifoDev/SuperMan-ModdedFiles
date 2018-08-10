@@ -4,11 +4,8 @@
 
 
 # virtual methods
-.method public abstract registerRequestDisplayStateDoneListener(ILjava/lang/Runnable;)V
+.method public abstract registerRequestDisplayStateDoneListener(Ljava/lang/Runnable;)V
 .end method
 
 .method public abstract requestDisplayState(II)V
-.end method
-
-.method public abstract requestDisplayState(III)V
 .end method

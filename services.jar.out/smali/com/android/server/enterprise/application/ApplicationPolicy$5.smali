@@ -46,7 +46,7 @@
 
     iget v1, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$5;->val$userId:I
 
-    invoke-static {v0, v1}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap15(Lcom/android/server/enterprise/application/ApplicationPolicy;I)V
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap17(Lcom/android/server/enterprise/application/ApplicationPolicy;I)V
 
     iget-object v0, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$5;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
 
@@ -58,7 +58,7 @@
 
     iget v1, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$5;->val$uid:I
 
-    invoke-static {v0, v1}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap10(Lcom/android/server/enterprise/application/ApplicationPolicy;I)V
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap8(Lcom/android/server/enterprise/application/ApplicationPolicy;I)V
 
     iget-object v0, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$5;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
 

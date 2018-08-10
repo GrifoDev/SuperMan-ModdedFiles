@@ -35,11 +35,11 @@
 
 # virtual methods
 .method public run()V
-    .locals 10
+    .locals 11
 
     iget-object v1, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle$1;->this$1:Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;
 
-    invoke-static {v1}, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;->-get2(Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;)Ljava/util/List;
+    invoke-static {v1}, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;->-get3(Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;)Ljava/util/List;
 
     move-result-object v1
 
@@ -51,9 +51,11 @@
 
     invoke-interface {v1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v9
+    move-result-object v10
 
-    check-cast v9, Lcom/android/server/display/OverlayDisplayAdapter$OverlayMode;
+    check-cast v10, Lcom/android/server/display/OverlayDisplayAdapter$OverlayMode;
+
+    const/4 v9, 0x0
 
     new-instance v0, Lcom/android/server/display/OverlayDisplayWindow;
 
@@ -67,25 +69,25 @@
 
     iget-object v2, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle$1;->this$1:Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;
 
-    invoke-static {v2}, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;->-get3(Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;)Ljava/lang/String;
+    invoke-static {v2}, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;->-get4(Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;)Ljava/lang/String;
 
     move-result-object v2
 
-    iget v3, v9, Lcom/android/server/display/OverlayDisplayAdapter$OverlayMode;->mWidth:I
+    iget v3, v10, Lcom/android/server/display/OverlayDisplayAdapter$OverlayMode;->mWidth:I
 
-    iget v4, v9, Lcom/android/server/display/OverlayDisplayAdapter$OverlayMode;->mHeight:I
+    iget v4, v10, Lcom/android/server/display/OverlayDisplayAdapter$OverlayMode;->mHeight:I
 
-    iget v5, v9, Lcom/android/server/display/OverlayDisplayAdapter$OverlayMode;->mDensityDpi:I
+    iget v5, v10, Lcom/android/server/display/OverlayDisplayAdapter$OverlayMode;->mDensityDpi:I
 
     iget-object v6, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle$1;->this$1:Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;
 
-    invoke-static {v6}, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;->-get1(Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;)I
+    invoke-static {v6}, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;->-get2(Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;)I
 
     move-result v6
 
     iget-object v7, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle$1;->this$1:Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;
 
-    invoke-static {v7}, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;->-get4(Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;)Z
+    invoke-static {v7}, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;->-get5(Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayHandle;)Z
 
     move-result v7
 

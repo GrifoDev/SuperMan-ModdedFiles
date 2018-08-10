@@ -58,15 +58,7 @@
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v1, p0, Lcom/android/server/DockObserver$2;->this$0:Lcom/android/server/DockObserver;
-
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
-
-    move-result-wide v2
-
-    invoke-static {v1, v2, v3}, Lcom/android/server/DockObserver;->-set1(Lcom/android/server/DockObserver;J)J
+    invoke-static {v1, v2}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v1, p0, Lcom/android/server/DockObserver$2;->this$0:Lcom/android/server/DockObserver;
 
@@ -77,7 +69,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/DockObserver$2;->this$0:Lcom/android/server/DockObserver;
 
-    invoke-static {v1}, Lcom/android/server/DockObserver;->-get4(Lcom/android/server/DockObserver;)Ljava/lang/Object;
+    invoke-static {v1}, Lcom/android/server/DockObserver;->-get2(Lcom/android/server/DockObserver;)Ljava/lang/Object;
 
     move-result-object v2
 

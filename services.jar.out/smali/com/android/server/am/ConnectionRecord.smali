@@ -236,146 +236,159 @@
     :cond_3
     iget v1, p0, Lcom/android/server/am/ConnectionRecord;->flags:I
 
-    and-int/lit8 v1, v1, 0x8
+    const/high16 v2, 0x800000
+
+    and-int/2addr v1, v2
 
     if-eqz v1, :cond_4
 
-    const-string/jumbo v1, "ABCLT "
+    const-string/jumbo v1, "IMPB "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_4
     iget v1, p0, Lcom/android/server/am/ConnectionRecord;->flags:I
 
-    and-int/lit8 v1, v1, 0x10
+    and-int/lit8 v1, v1, 0x8
 
     if-eqz v1, :cond_5
 
-    const-string/jumbo v1, "OOM "
+    const-string/jumbo v1, "ABCLT "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_5
     iget v1, p0, Lcom/android/server/am/ConnectionRecord;->flags:I
 
-    and-int/lit8 v1, v1, 0x20
+    and-int/lit8 v1, v1, 0x10
 
     if-eqz v1, :cond_6
 
-    const-string/jumbo v1, "WPRI "
+    const-string/jumbo v1, "OOM "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_6
     iget v1, p0, Lcom/android/server/am/ConnectionRecord;->flags:I
 
-    and-int/lit8 v1, v1, 0x40
+    and-int/lit8 v1, v1, 0x20
 
     if-eqz v1, :cond_7
 
-    const-string/jumbo v1, "IMP "
+    const-string/jumbo v1, "WPRI "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_7
     iget v1, p0, Lcom/android/server/am/ConnectionRecord;->flags:I
 
-    and-int/lit16 v1, v1, 0x80
+    and-int/lit8 v1, v1, 0x40
 
     if-eqz v1, :cond_8
 
-    const-string/jumbo v1, "WACT "
+    const-string/jumbo v1, "IMP "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_8
     iget v1, p0, Lcom/android/server/am/ConnectionRecord;->flags:I
 
-    const/high16 v2, 0x2000000
-
-    and-int/2addr v1, v2
+    and-int/lit16 v1, v1, 0x80
 
     if-eqz v1, :cond_9
 
-    const-string/jumbo v1, "FGSA "
+    const-string/jumbo v1, "WACT "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_9
     iget v1, p0, Lcom/android/server/am/ConnectionRecord;->flags:I
 
-    const/high16 v2, 0x4000000
+    const/high16 v2, 0x2000000
 
     and-int/2addr v1, v2
 
     if-eqz v1, :cond_a
 
-    const-string/jumbo v1, "FGS "
+    const-string/jumbo v1, "FGSA "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_a
     iget v1, p0, Lcom/android/server/am/ConnectionRecord;->flags:I
 
-    const/high16 v2, 0x8000000
+    const/high16 v2, 0x4000000
 
     and-int/2addr v1, v2
 
     if-eqz v1, :cond_b
 
-    const-string/jumbo v1, "LACT "
+    const-string/jumbo v1, "FGS "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_b
     iget v1, p0, Lcom/android/server/am/ConnectionRecord;->flags:I
 
-    const/high16 v2, 0x10000000
+    const/high16 v2, 0x8000000
 
     and-int/2addr v1, v2
 
     if-eqz v1, :cond_c
 
-    const-string/jumbo v1, "VIS "
+    const-string/jumbo v1, "LACT "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_c
     iget v1, p0, Lcom/android/server/am/ConnectionRecord;->flags:I
 
-    const/high16 v2, 0x20000000
+    const/high16 v2, 0x10000000
 
     and-int/2addr v1, v2
 
     if-eqz v1, :cond_d
 
-    const-string/jumbo v1, "UI "
+    const-string/jumbo v1, "VIS "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_d
     iget v1, p0, Lcom/android/server/am/ConnectionRecord;->flags:I
 
-    const/high16 v2, 0x40000000    # 2.0f
+    const/high16 v2, 0x20000000
 
     and-int/2addr v1, v2
 
     if-eqz v1, :cond_e
 
-    const-string/jumbo v1, "!VIS "
+    const-string/jumbo v1, "UI "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_e
-    iget-boolean v1, p0, Lcom/android/server/am/ConnectionRecord;->serviceDead:Z
+    iget v1, p0, Lcom/android/server/am/ConnectionRecord;->flags:I
+
+    const/high16 v2, 0x40000000    # 2.0f
+
+    and-int/2addr v1, v2
 
     if-eqz v1, :cond_f
+
+    const-string/jumbo v1, "!VIS "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_f
+    iget-boolean v1, p0, Lcom/android/server/am/ConnectionRecord;->serviceDead:Z
+
+    if-eqz v1, :cond_10
 
     const-string/jumbo v1, "DEAD "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_f
+    :cond_10
     iget-object v1, p0, Lcom/android/server/am/ConnectionRecord;->binding:Lcom/android/server/am/AppBindRecord;
 
     iget-object v1, v1, Lcom/android/server/am/AppBindRecord;->service:Lcom/android/server/am/ServiceRecord;

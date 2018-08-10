@@ -1569,13 +1569,15 @@
 .end method
 
 .method private getPackageNameByPID(I)[Ljava/lang/String;
-    .locals 5
+    .locals 7
 
-    iget-object v3, p0, Lcom/android/server/VoIPInterfaceManager;->mContext:Landroid/content/Context;
+    const/4 v6, 0x0
 
-    const-string/jumbo v4, "activity"
+    iget-object v4, p0, Lcom/android/server/VoIPInterfaceManager;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v3, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    const-string/jumbo v5, "activity"
+
+    invoke-virtual {v4, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -1585,6 +1587,8 @@
 
     move-result-object v3
 
+    if-eqz v3, :cond_1
+
     invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
@@ -1592,9 +1596,9 @@
     :cond_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_1
+    if-eqz v4, :cond_1
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1602,24 +1606,22 @@
 
     check-cast v1, Landroid/app/ActivityManager$RunningAppProcessInfo;
 
-    iget v3, v1, Landroid/app/ActivityManager$RunningAppProcessInfo;->pid:I
+    iget v4, v1, Landroid/app/ActivityManager$RunningAppProcessInfo;->pid:I
 
-    if-ne v3, p1, :cond_0
+    if-ne v4, p1, :cond_0
 
-    iget-object v3, v1, Landroid/app/ActivityManager$RunningAppProcessInfo;->pkgList:[Ljava/lang/String;
+    iget-object v4, v1, Landroid/app/ActivityManager$RunningAppProcessInfo;->pkgList:[Ljava/lang/String;
 
-    array-length v3, v3
+    array-length v4, v4
 
-    if-lez v3, :cond_0
+    if-lez v4, :cond_0
 
-    iget-object v3, v1, Landroid/app/ActivityManager$RunningAppProcessInfo;->pkgList:[Ljava/lang/String;
+    iget-object v4, v1, Landroid/app/ActivityManager$RunningAppProcessInfo;->pkgList:[Ljava/lang/String;
 
-    return-object v3
+    return-object v4
 
     :cond_1
-    const/4 v3, 0x0
-
-    return-object v3
+    return-object v6
 .end method
 
 .method private isVoIPRunningAndDeregi()Z
@@ -1656,9 +1658,11 @@
 
     move-result-object v7
 
-    new-instance v5, Ljava/util/HashMap;
+    new-instance v5, Ljava/util/Hashtable;
 
-    invoke-direct {v5}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {v5}, Ljava/util/Hashtable;-><init>()V
+
+    if-eqz v7, :cond_3
 
     invoke-interface {v7}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
@@ -1697,7 +1701,7 @@
 
     move-result-object v9
 
-    invoke-virtual {v5, v8, v9}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v5, v8, v9}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     add-int/lit8 v1, v1, 0x1
 
@@ -1706,7 +1710,7 @@
     :cond_2
     iget-object v8, v2, Landroid/app/ActivityManager$RunningAppProcessInfo;->processName:Ljava/lang/String;
 
-    invoke-virtual {v5, v8}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v8}, Ljava/util/Hashtable;->containsKey(Ljava/lang/Object;)Z
 
     move-result v8
 
@@ -1720,7 +1724,7 @@
 
     move-result-object v9
 
-    invoke-virtual {v5, v8, v9}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v5, v8, v9}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
 
@@ -1748,7 +1752,7 @@
 
     move-result-object v8
 
-    invoke-virtual {v5, v8}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v5, v8}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v6
 
@@ -5406,12 +5410,15 @@
 
     move-result-wide v2
 
+    if-eqz v1, :cond_0
+
     :try_start_0
     invoke-interface {v1, p1, p2}, Lcom/android/internal/telephony/ITelephonyRegistry;->notifyCallState(ILjava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    :cond_0
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     :goto_0
@@ -5457,6 +5464,8 @@
 
     move-result-wide v8
 
+    if-eqz v0, :cond_0
+
     move-object v1, p1
 
     move-object v2, p2
@@ -5471,17 +5480,29 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    :goto_0
     invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    :goto_0
+    :goto_1
     return-void
+
+    :cond_0
+    :try_start_1
+    const-string/jumbo v1, "mTel is null"
+
+    invoke-direct {p0, v1}, Lcom/android/server/VoIPInterfaceManager;->log(Ljava/lang/String;)V
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
 
     :catch_0
     move-exception v6
 
     invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    goto :goto_0
+    goto :goto_1
 
     :catchall_0
     move-exception v1
@@ -6492,7 +6513,7 @@
 
     invoke-interface {v0, v2, p1}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
+    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
     return-void
 .end method
@@ -6576,7 +6597,9 @@
 .end method
 
 .method public setVoIPRinging(Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 3
+    .locals 4
+
+    const/4 v3, 0x1
 
     const-string/jumbo v1, "setVoIPRinging"
 
@@ -6628,6 +6651,8 @@
 
     invoke-virtual {v0, p2}, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->setRemotePartyNumber(Ljava/lang/String;)V
 
+    invoke-virtual {v0, v3}, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->setDirection(Z)V
+
     invoke-virtual {v0}, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->getBTStatus()Z
 
     move-result v1
@@ -6637,9 +6662,7 @@
     invoke-direct {p0}, Lcom/android/server/VoIPInterfaceManager;->notifyVoIPCallStateChangeIntoTelephony()V
 
     :cond_0
-    const/4 v1, 0x1
-
-    return v1
+    return v3
 
     :cond_1
     const-string/jumbo v1, "    setVoIPRinging() :temp == null"

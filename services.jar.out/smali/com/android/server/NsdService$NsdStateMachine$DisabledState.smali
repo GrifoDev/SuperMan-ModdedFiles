@@ -40,7 +40,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/server/NsdService;->-wrap17(Lcom/android/server/NsdService;Z)V
+    invoke-static {v0, v1}, Lcom/android/server/NsdService;->-wrap16(Lcom/android/server/NsdService;Z)V
 
     return-void
 .end method
@@ -65,7 +65,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/android/server/NsdService$NsdStateMachine;->-wrap0(Lcom/android/server/NsdService$NsdStateMachine;Lcom/android/internal/util/IState;)V
+    invoke-virtual {v0, v1}, Lcom/android/server/NsdService$NsdStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
 
     const/4 v0, 0x1
 

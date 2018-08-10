@@ -146,69 +146,40 @@
 .end method
 
 .method public isStorageCardEncrypted()Z
-    .locals 7
-
-    const/4 v4, 0x1
-
-    const/4 v3, 0x0
+    .locals 3
 
     invoke-static {}, Lcom/samsung/android/security/SemSdCardEncryption;->isEncryptionFeatureEnabled()Z
 
-    move-result v5
+    move-result v2
 
-    if-eqz v5, :cond_2
+    if-eqz v2, :cond_0
 
     :try_start_0
-    const-string/jumbo v5, "DirEncryptService"
+    const-string/jumbo v2, "DirEncryptService"
 
-    invoke-static {v5}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v5
-
-    invoke-static {v5}, Landroid/os/storage/IDirEncryptService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/storage/IDirEncryptService;
+    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v2
 
-    if-eqz v2, :cond_2
-
-    const/4 v5, 0x0
-
-    invoke-interface {v2, v5}, Landroid/os/storage/IDirEncryptService;->getSdCardEncryptionPreferences(Ljava/lang/String;)Lcom/samsung/android/security/SemSdCardEncryptionPolicy;
+    invoke-static {v2}, Lcom/samsung/android/security/IDirEncryptService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/security/IDirEncryptService;
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-eqz v1, :cond_0
 
-    return v3
-
-    :cond_0
-    invoke-interface {v2}, Landroid/os/storage/IDirEncryptService;->isStorageCardEncryptionPoliciesApplied()I
-
-    move-result v5
-
-    if-ne v5, v4, :cond_2
-
-    invoke-virtual {v1}, Lcom/samsung/android/security/SemSdCardEncryptionPolicy;->getEncryptState()I
+    invoke-interface {v1}, Lcom/samsung/android/security/IDirEncryptService;->isEncryptionAppliedSDCard()Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v5
+    move-result v2
 
-    const/4 v6, 0x3
-
-    if-ne v5, v6, :cond_1
-
-    :goto_0
-    return v3
-
-    :cond_1
-    move v3, v4
-
-    goto :goto_0
+    return v2
 
     :catch_0
     move-exception v0
 
-    :cond_2
-    return v3
+    :cond_0
+    const/4 v2, 0x0
+
+    return v2
 .end method

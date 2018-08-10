@@ -24,6 +24,8 @@
         Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$IniFile;,
         Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$MultiUserManager;,
         Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$PackageManagerReceiver;,
+        Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$SCPMBroadcastReceiver;,
+        Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$SCPMHelper;,
         Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;
     }
 .end annotation
@@ -168,6 +170,8 @@
 
 .field private mLockFgAct:Ljava/lang/Object;
 
+.field private final mLockSuspiciousPkgSet:Ljava/lang/Object;
+
 .field private final mLockUserApps:Ljava/lang/Object;
 
 .field private mMultiUserMgr:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$MultiUserManager;
@@ -191,7 +195,20 @@
     .end annotation
 .end field
 
+.field private mSCPMReceiver:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$SCPMBroadcastReceiver;
+
 .field private mScreenOffTime:J
+
+.field mSuspiciousPkgSet:Ljava/util/Set;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Set",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field private final mTargetPackages:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
@@ -204,12 +221,12 @@
     .end annotation
 .end field
 
-.field mUserAppList:Ljava/util/Set;
+.field mUserAppTagSet:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Set",
             "<",
-            "Ljava/lang/Integer;",
+            "Ljava/lang/String;",
             ">;"
         }
     .end annotation
@@ -306,23 +323,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get16(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;)Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$MultiUserManager;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mMultiUserMgr:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$MultiUserManager;
-
-    return-object v0
-.end method
-
-.method static synthetic -get17(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;)Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$PackageManagerReceiver;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mPMReceiver:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$PackageManagerReceiver;
-
-    return-object v0
-.end method
-
-.method static synthetic -get18(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;)Ljava/util/ArrayList;
+.method static synthetic -get16(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;)Ljava/util/ArrayList;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mPermanentWhitelistPackages:Ljava/util/ArrayList;
@@ -330,7 +331,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get19(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;)Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;
+.method static synthetic -get17(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;)Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->ta:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;
@@ -426,7 +427,15 @@
     return p1
 .end method
 
-.method static synthetic -set3(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;J)J
+.method static synthetic -set3(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$MultiUserManager;)Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$MultiUserManager;
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mMultiUserMgr:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$MultiUserManager;
+
+    return-object p1
+.end method
+
+.method static synthetic -set4(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;J)J
     .locals 1
 
     iput-wide p1, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mScreenOffTime:J
@@ -434,7 +443,37 @@
     return-wide p1
 .end method
 
-.method static synthetic -wrap0(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;IJ)V
+.method static synthetic -wrap0(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;Landroid/content/pm/ApplicationInfo;Ljava/lang/String;)Z
+    .locals 1
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->isTargetApplication(Landroid/content/pm/ApplicationInfo;Ljava/lang/String;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic -wrap1(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;Ljava/lang/String;I)Ljava/lang/String;
+    .locals 1
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->getPackageTag(Ljava/lang/String;I)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic -wrap2(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;Ljava/lang/String;)Ljava/lang/String;
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->getUserIdFromTag(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic -wrap3(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;IJ)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->updateRepeatingAlarmLocked(IJ)V
@@ -442,8 +481,16 @@
     return-void
 .end method
 
+.method static synthetic -wrap4(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;Landroid/content/Context;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->updateSuspiciousPolicy(Landroid/content/Context;)V
+
+    return-void
+.end method
+
 .method public constructor <init>(Lcom/android/server/AlarmManagerServiceExt;Landroid/content/Context;Lcom/android/server/AlarmManagerService;Ljava/lang/Object;)V
-    .locals 26
+    .locals 22
 
     move-object/from16 v0, p1
 
@@ -453,447 +500,467 @@
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    const/16 v22, 0x1
+    const/16 v18, 0x1
 
-    move/from16 v0, v22
+    move/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->WHITELIST:Z
 
-    const/16 v22, 0x0
+    const/16 v18, 0x0
 
-    move/from16 v0, v22
+    move/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->WHITELIST_PLUS_AUTO_ADD:Z
 
-    const/16 v22, 0x0
+    const/16 v18, 0x0
 
-    move/from16 v0, v22
+    move/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->ENABLE_FORCED_ADJUSTMENT:Z
 
-    const-wide/32 v22, 0x1b77400
+    const-wide/32 v18, 0x1b77400
 
-    invoke-static/range {v22 .. v23}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
+    invoke-static/range {v18 .. v19}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
 
-    move-result-object v22
+    move-result-object v18
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->gIntervalGcd:Ljava/math/BigInteger;
 
-    const/16 v22, 0x0
+    const/16 v18, 0x0
 
-    move/from16 v0, v22
+    move/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mEmailUid:I
 
-    const/16 v22, 0x0
+    const/16 v18, 0x0
 
-    move/from16 v0, v22
+    move/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mEmailPid:I
 
-    new-instance v22, Ljava/util/ArrayList;
+    new-instance v18, Ljava/util/ArrayList;
 
-    invoke-direct/range {v22 .. v22}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/util/ArrayList;-><init>()V
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mAdjustableRepeatingAlarms:Ljava/util/ArrayList;
 
-    new-instance v22, Ljava/util/ArrayList;
+    new-instance v18, Ljava/util/ArrayList;
 
-    invoke-direct/range {v22 .. v22}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/util/ArrayList;-><init>()V
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mTargetPackages:Ljava/util/ArrayList;
 
-    new-instance v22, Ljava/util/ArrayList;
+    new-instance v18, Ljava/util/ArrayList;
 
-    invoke-direct/range {v22 .. v22}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/util/ArrayList;-><init>()V
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mAccountsPackages:Ljava/util/ArrayList;
 
-    new-instance v22, Ljava/util/ArrayList;
+    new-instance v18, Ljava/util/ArrayList;
 
-    invoke-direct/range {v22 .. v22}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/util/ArrayList;-><init>()V
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mCscPackages:Ljava/util/ArrayList;
 
-    new-instance v22, Lcom/android/server/AlarmManagerServiceExt$PackageList;
+    new-instance v18, Lcom/android/server/AlarmManagerServiceExt$PackageList;
 
-    invoke-direct/range {v22 .. v22}, Lcom/android/server/AlarmManagerServiceExt$PackageList;-><init>()V
+    invoke-direct/range {v18 .. v18}, Lcom/android/server/AlarmManagerServiceExt$PackageList;-><init>()V
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mBlacklistPackages:Lcom/android/server/AlarmManagerServiceExt$PackageList;
 
-    new-instance v22, Lcom/android/server/AlarmManagerServiceExt$PackageList;
+    new-instance v18, Lcom/android/server/AlarmManagerServiceExt$PackageList;
 
-    invoke-direct/range {v22 .. v22}, Lcom/android/server/AlarmManagerServiceExt$PackageList;-><init>()V
+    invoke-direct/range {v18 .. v18}, Lcom/android/server/AlarmManagerServiceExt$PackageList;-><init>()V
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mBlacklistAppSync3P:Lcom/android/server/AlarmManagerServiceExt$PackageList;
 
-    new-instance v22, Ljava/util/ArrayList;
+    new-instance v18, Ljava/util/ArrayList;
 
-    invoke-direct/range {v22 .. v22}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/util/ArrayList;-><init>()V
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mBlacklistPackagesFromConfig:Ljava/util/ArrayList;
 
-    new-instance v22, Ljava/util/ArrayList;
+    new-instance v18, Ljava/util/ArrayList;
 
-    invoke-direct/range {v22 .. v22}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/util/ArrayList;-><init>()V
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mBlacklistPackagesFromConfig3P:Ljava/util/ArrayList;
 
-    new-instance v22, Ljava/util/ArrayList;
+    new-instance v18, Ljava/util/ArrayList;
 
-    invoke-direct/range {v22 .. v22}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/util/ArrayList;-><init>()V
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mPermanentWhitelistPackages:Ljava/util/ArrayList;
 
-    const/16 v22, 0x0
+    const/16 v18, 0x0
 
-    move/from16 v0, v22
+    move/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mGmsLocationBundling:Z
 
-    const/16 v22, 0x1
+    const/16 v18, 0x1
 
-    move/from16 v0, v22
+    move/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mChnAppsBundling:Z
 
-    const/16 v22, 0x1
+    const/16 v18, 0x1
 
-    move/from16 v0, v22
+    move/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mChnSolEnable:Z
 
-    const/16 v22, 0x1
+    const/16 v18, 0x1
 
-    move/from16 v0, v22
+    move/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mChnSolDeactivateInScreenOn:Z
 
-    const/16 v22, 0x1
+    const/16 v18, 0x1
 
-    move/from16 v0, v22
+    move/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mChnSolDeactivateInUSB:Z
 
-    const-wide/32 v22, 0xa4cb80
+    const-wide/32 v18, 0xa4cb80
 
-    move-wide/from16 v0, v22
+    move-wide/from16 v0, v18
 
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->DEFAULT_INTERVAL_IN_PSM:J
 
-    const-wide/32 v22, 0x493e0
+    const-wide/32 v18, 0x493e0
 
-    move-wide/from16 v0, v22
+    move-wide/from16 v0, v18
 
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mDefaultIntervalInChn:J
 
-    const-wide/16 v22, 0x2710
+    const-wide/16 v18, 0x2710
 
-    move-wide/from16 v0, v22
+    move-wide/from16 v0, v18
 
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mDefaultDeltaFromTriggers:J
 
-    const-wide/16 v22, 0x0
+    const-wide/16 v18, 0x0
 
-    move-wide/from16 v0, v22
+    move-wide/from16 v0, v18
 
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mNextSlotInPSM:J
 
-    const-wide/16 v22, 0x0
+    const-wide/16 v18, 0x0
 
-    move-wide/from16 v0, v22
+    move-wide/from16 v0, v18
 
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mNextAlarmWhen:J
 
-    const-wide/16 v22, 0x0
+    const-wide/16 v18, 0x0
 
-    move-wide/from16 v0, v22
+    move-wide/from16 v0, v18
 
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mNextSlotInChn:J
 
-    new-instance v22, Ljava/io/File;
+    new-instance v18, Ljava/io/File;
 
-    const-string/jumbo v23, "/data/system/gms_bundling.data"
+    const-string/jumbo v19, "/data/system/gms_bundling.data"
 
-    invoke-direct/range {v22 .. v23}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct/range {v18 .. v19}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->fileGmsBundlingState:Ljava/io/File;
 
-    new-instance v22, Ljava/lang/Object;
+    new-instance v18, Ljava/lang/Object;
 
-    invoke-direct/range {v22 .. v22}, Ljava/lang/Object;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/lang/Object;-><init>()V
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mLockExt:Ljava/lang/Object;
 
-    new-instance v22, Ljava/lang/Object;
+    new-instance v18, Ljava/lang/Object;
 
-    invoke-direct/range {v22 .. v22}, Ljava/lang/Object;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/lang/Object;-><init>()V
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mLockFgAct:Ljava/lang/Object;
 
-    const-wide/16 v22, 0x0
+    const-wide/16 v18, 0x0
 
-    move-wide/from16 v0, v22
+    move-wide/from16 v0, v18
 
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->statOpCount:J
 
-    const-wide/16 v22, 0x0
+    const-wide/16 v18, 0x0
 
-    move-wide/from16 v0, v22
+    move-wide/from16 v0, v18
 
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->statOpTime:D
 
-    const-wide/16 v22, 0x0
+    const-wide/16 v18, 0x0
 
-    move-wide/from16 v0, v22
+    move-wide/from16 v0, v18
 
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->statOpTimeMax:D
 
-    const-wide/16 v22, 0x0
+    const-wide/16 v18, 0x0
 
-    move-wide/from16 v0, v22
+    move-wide/from16 v0, v18
 
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->statOpTimeMaxUid:J
 
-    const-wide/16 v22, 0x0
+    const-wide/16 v18, 0x0
 
-    move-wide/from16 v0, v22
+    move-wide/from16 v0, v18
 
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mScreenOffTime:J
 
-    new-instance v22, Ljava/lang/Object;
+    new-instance v18, Ljava/lang/Object;
 
-    invoke-direct/range {v22 .. v22}, Ljava/lang/Object;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/lang/Object;-><init>()V
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mLockUserApps:Ljava/lang/Object;
 
-    new-instance v22, Ljava/util/HashSet;
+    new-instance v18, Ljava/util/HashSet;
 
-    invoke-direct/range {v22 .. v22}, Ljava/util/HashSet;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/util/HashSet;-><init>()V
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
-    iput-object v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mUserAppList:Ljava/util/Set;
+    iput-object v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mUserAppTagSet:Ljava/util/Set;
 
-    new-instance v22, Ljava/util/HashSet;
+    new-instance v18, Ljava/util/HashSet;
 
-    invoke-direct/range {v22 .. v22}, Ljava/util/HashSet;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/util/HashSet;-><init>()V
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->preloadedPackages:Ljava/util/Set;
 
-    const/16 v22, 0x0
+    new-instance v18, Ljava/lang/Object;
 
-    move-object/from16 v0, v22
+    invoke-direct/range {v18 .. v18}, Ljava/lang/Object;-><init>()V
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mLockSuspiciousPkgSet:Ljava/lang/Object;
+
+    new-instance v18, Ljava/util/HashSet;
+
+    invoke-direct/range {v18 .. v18}, Ljava/util/HashSet;-><init>()V
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mSuspiciousPkgSet:Ljava/util/Set;
+
+    const/16 v18, 0x0
+
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->pm:Landroid/content/pm/PackageManager;
 
-    new-instance v22, Ljava/util/ArrayList;
+    new-instance v18, Ljava/util/ArrayList;
 
-    invoke-direct/range {v22 .. v22}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/util/ArrayList;-><init>()V
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mExtraWhiteListPkgs:Ljava/util/ArrayList;
 
-    const/16 v22, 0x0
+    const/16 v18, 0x0
 
-    move/from16 v0, v22
+    move/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->isUSBConnected:Z
 
-    new-instance v22, Landroid/content/IntentFilter;
+    new-instance v18, Landroid/content/IntentFilter;
 
-    invoke-direct/range {v22 .. v22}, Landroid/content/IntentFilter;-><init>()V
+    invoke-direct/range {v18 .. v18}, Landroid/content/IntentFilter;-><init>()V
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->filter:Landroid/content/IntentFilter;
 
-    new-instance v22, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$1;
+    new-instance v18, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$1;
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
     invoke-direct {v0, v1}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$1;-><init>(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;)V
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mIntentReceiver:Landroid/content/BroadcastReceiver;
 
-    const/16 v22, 0x0
+    const/16 v18, 0x0
 
-    move/from16 v0, v22
+    move/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->isGalaxyViewUSBConnected:Z
 
-    new-instance v22, Landroid/content/IntentFilter;
+    new-instance v18, Landroid/content/IntentFilter;
 
-    invoke-direct/range {v22 .. v22}, Landroid/content/IntentFilter;-><init>()V
+    invoke-direct/range {v18 .. v18}, Landroid/content/IntentFilter;-><init>()V
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->filter2:Landroid/content/IntentFilter;
 
-    new-instance v22, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$2;
+    new-instance v18, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$2;
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
     invoke-direct {v0, v1}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$2;-><init>(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;)V
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mIntentReceiver2:Landroid/content/BroadcastReceiver;
 
-    new-instance v22, Landroid/content/IntentFilter;
+    new-instance v18, Landroid/content/IntentFilter;
 
-    invoke-direct/range {v22 .. v22}, Landroid/content/IntentFilter;-><init>()V
+    invoke-direct/range {v18 .. v18}, Landroid/content/IntentFilter;-><init>()V
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->boot_filter:Landroid/content/IntentFilter;
 
-    new-instance v22, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$3;
+    new-instance v18, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$3;
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
     invoke-direct {v0, v1}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$3;-><init>(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;)V
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mBootIntentReceiver:Landroid/content/BroadcastReceiver;
 
-    const/16 v22, 0x0
+    const/16 v18, 0x0
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
@@ -917,169 +984,169 @@
 
     iput-object v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mAmsLock:Ljava/lang/Object;
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
-    move-result-object v22
+    move-result-object v18
 
-    const-string/jumbo v23, "CscFeature_Common_ParamAppSync"
+    const-string/jumbo v19, "CscFeature_Common_ParamAppSync"
 
-    invoke-virtual/range {v22 .. v23}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual/range {v18 .. v19}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    const-string/jumbo v22, ","
+    const-string/jumbo v18, ","
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
-    invoke-virtual {v5, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    invoke-virtual {v4, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v10
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mLockExt:Ljava/lang/Object;
 
-    move-object/from16 v23, v0
+    move-object/from16 v19, v0
 
-    monitor-enter v23
+    monitor-enter v19
 
     :try_start_0
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mCscPackages:Ljava/util/ArrayList;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    invoke-virtual/range {v22 .. v22}, Ljava/util/ArrayList;->clear()V
+    invoke-virtual/range {v18 .. v18}, Ljava/util/ArrayList;->clear()V
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mBlacklistPackages:Lcom/android/server/AlarmManagerServiceExt$PackageList;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    invoke-virtual/range {v22 .. v22}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->clear()V
+    invoke-virtual/range {v18 .. v18}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->clear()V
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mBlacklistAppSync3P:Lcom/android/server/AlarmManagerServiceExt$PackageList;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    invoke-virtual/range {v22 .. v22}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->clear()V
+    invoke-virtual/range {v18 .. v18}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->clear()V
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mPermanentWhitelistPackages:Ljava/util/ArrayList;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    invoke-virtual/range {v22 .. v22}, Ljava/util/ArrayList;->clear()V
+    invoke-virtual/range {v18 .. v18}, Ljava/util/ArrayList;->clear()V
 
     invoke-direct/range {p0 .. p0}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->initializeFromConfigFile()V
 
-    const/16 v22, 0x0
+    const/16 v18, 0x0
 
-    aget-object v22, v12, v22
+    aget-object v18, v10, v18
 
-    const-string/jumbo v24, "whitelist"
+    const-string/jumbo v20, "whitelist"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v20
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v22
+    move-result v18
 
-    if-eqz v22, :cond_0
+    if-eqz v18, :cond_0
 
-    const/4 v11, 0x1
+    const/4 v9, 0x1
 
     :goto_0
-    array-length v0, v12
+    array-length v0, v10
 
-    move/from16 v22, v0
+    move/from16 v18, v0
 
-    move/from16 v0, v22
+    move/from16 v0, v18
 
-    if-ge v11, v0, :cond_2
+    if-ge v9, v0, :cond_2
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mCscPackages:Ljava/util/ArrayList;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    aget-object v24, v12, v11
+    aget-object v20, v10, v9
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v20
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    add-int/lit8 v11, v11, 0x1
+    add-int/lit8 v9, v9, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/16 v22, 0x0
+    const/16 v18, 0x0
 
-    aget-object v22, v12, v22
+    aget-object v18, v10, v18
 
-    const-string/jumbo v24, "blacklist"
+    const-string/jumbo v20, "blacklist"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v20
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v22
+    move-result v18
 
-    if-eqz v22, :cond_1
+    if-eqz v18, :cond_1
 
-    const/16 v22, 0x0
+    const/16 v18, 0x0
 
-    move/from16 v0, v22
+    move/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->WHITELIST:Z
 
-    const/16 v22, 0x0
+    const/16 v18, 0x0
 
-    move/from16 v0, v22
+    move/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->WHITELIST_PLUS_AUTO_ADD:Z
 
-    const/4 v11, 0x1
+    const/4 v9, 0x1
 
     :goto_1
-    array-length v0, v12
+    array-length v0, v10
 
-    move/from16 v22, v0
+    move/from16 v18, v0
 
-    move/from16 v0, v22
+    move/from16 v0, v18
 
-    if-ge v11, v0, :cond_2
+    if-ge v9, v0, :cond_2
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mCscPackages:Ljava/util/ArrayList;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    aget-object v24, v12, v11
+    aget-object v20, v10, v9
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v20
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -1087,17 +1154,17 @@
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mBlacklistPackages:Lcom/android/server/AlarmManagerServiceExt$PackageList;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    aget-object v24, v12, v11
+    aget-object v20, v10, v9
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v20
 
     invoke-virtual {v0, v1}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->add(Ljava/lang/String;)V
 
-    add-int/lit8 v11, v11, 0x1
+    add-int/lit8 v9, v9, 0x1
 
     goto :goto_1
 
@@ -1106,27 +1173,13 @@
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mCscPackages:Ljava/util/ArrayList;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    const-string/jumbo v24, "com.sec.spp.push"
+    const-string/jumbo v20, "com.sec.spp.push"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v24
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mCscPackages:Ljava/util/ArrayList;
-
-    move-object/from16 v22, v0
-
-    const-string/jumbo v24, "com.sec.chaton"
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, v24
+    move-object/from16 v1, v20
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -1134,27 +1187,13 @@
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mCscPackages:Ljava/util/ArrayList;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    const-string/jumbo v24, "com.facebook.katana"
+    const-string/jumbo v20, "com.sec.chaton"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v24
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mCscPackages:Ljava/util/ArrayList;
-
-    move-object/from16 v22, v0
-
-    const-string/jumbo v24, "com.twitter.android"
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, v24
+    move-object/from16 v1, v20
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -1162,27 +1201,13 @@
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mCscPackages:Ljava/util/ArrayList;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    const-string/jumbo v24, "com.facebook.orca"
+    const-string/jumbo v20, "com.facebook.katana"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v24
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mCscPackages:Ljava/util/ArrayList;
-
-    move-object/from16 v22, v0
-
-    const-string/jumbo v24, "com.kakao.talk"
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, v24
+    move-object/from16 v1, v20
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -1190,27 +1215,13 @@
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mCscPackages:Ljava/util/ArrayList;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    const-string/jumbo v24, "com.google.android.apps.plus"
+    const-string/jumbo v20, "com.twitter.android"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v24
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mCscPackages:Ljava/util/ArrayList;
-
-    move-object/from16 v22, v0
-
-    const-string/jumbo v24, "com.mobilesrepublic.appygeek"
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, v24
+    move-object/from16 v1, v20
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -1218,13 +1229,13 @@
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mCscPackages:Ljava/util/ArrayList;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    const-string/jumbo v24, "mnn.Android"
+    const-string/jumbo v20, "com.facebook.orca"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v20
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -1232,13 +1243,69 @@
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mCscPackages:Ljava/util/ArrayList;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    const-string/jumbo v24, "com.google.android.apps.maps"
+    const-string/jumbo v20, "com.kakao.talk"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mCscPackages:Ljava/util/ArrayList;
+
+    move-object/from16 v18, v0
+
+    const-string/jumbo v20, "com.google.android.apps.plus"
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mCscPackages:Ljava/util/ArrayList;
+
+    move-object/from16 v18, v0
+
+    const-string/jumbo v20, "com.mobilesrepublic.appygeek"
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mCscPackages:Ljava/util/ArrayList;
+
+    move-object/from16 v18, v0
+
+    const-string/jumbo v20, "mnn.Android"
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mCscPackages:Ljava/util/ArrayList;
+
+    move-object/from16 v18, v0
+
+    const-string/jumbo v20, "com.google.android.apps.maps"
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v20
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -1247,75 +1314,75 @@
 
     iget-boolean v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->WHITELIST:Z
 
-    move/from16 v22, v0
+    move/from16 v18, v0
 
-    if-eqz v22, :cond_6
+    if-eqz v18, :cond_6
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mBlacklistPackages:Lcom/android/server/AlarmManagerServiceExt$PackageList;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    invoke-virtual/range {v22 .. v22}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->loadAppSyncBlackList()V
+    invoke-virtual/range {v18 .. v18}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->loadAppSyncBlackList()V
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mBlacklistAppSync3P:Lcom/android/server/AlarmManagerServiceExt$PackageList;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    invoke-virtual/range {v22 .. v22}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->loadAppSync3PlusBlackList()V
+    invoke-virtual/range {v18 .. v18}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->loadAppSync3PlusBlackList()V
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mBlacklistPackagesFromConfig:Ljava/util/ArrayList;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    invoke-interface/range {v22 .. v22}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface/range {v18 .. v18}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v21
+    move-result-object v17
 
     :cond_3
     :goto_2
-    invoke-interface/range {v21 .. v21}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface/range {v17 .. v17}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v22
+    move-result v18
 
-    if-eqz v22, :cond_4
+    if-eqz v18, :cond_4
 
-    invoke-interface/range {v21 .. v21}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface/range {v17 .. v17}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v20
+    move-result-object v16
 
-    check-cast v20, Ljava/lang/String;
+    check-cast v16, Ljava/lang/String;
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mBlacklistPackages:Lcom/android/server/AlarmManagerServiceExt$PackageList;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v16
 
     invoke-virtual {v0, v1}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->contains(Ljava/lang/String;)Z
 
-    move-result v22
+    move-result v18
 
-    if-nez v22, :cond_3
+    if-nez v18, :cond_3
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mBlacklistPackages:Lcom/android/server/AlarmManagerServiceExt$PackageList;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v16
 
     invoke-virtual {v0, v1}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->add(Ljava/lang/String;)V
     :try_end_0
@@ -1324,11 +1391,11 @@
     goto :goto_2
 
     :catchall_0
-    move-exception v22
+    move-exception v18
 
-    monitor-exit v23
+    monitor-exit v19
 
-    throw v22
+    throw v18
 
     :cond_4
     :try_start_1
@@ -1336,51 +1403,51 @@
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mBlacklistPackagesFromConfig3P:Ljava/util/ArrayList;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    invoke-interface/range {v22 .. v22}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface/range {v18 .. v18}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v21
+    move-result-object v17
 
     :cond_5
     :goto_3
-    invoke-interface/range {v21 .. v21}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface/range {v17 .. v17}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v22
+    move-result v18
 
-    if-eqz v22, :cond_6
+    if-eqz v18, :cond_6
 
-    invoke-interface/range {v21 .. v21}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface/range {v17 .. v17}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v20
+    move-result-object v16
 
-    check-cast v20, Ljava/lang/String;
+    check-cast v16, Ljava/lang/String;
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mBlacklistAppSync3P:Lcom/android/server/AlarmManagerServiceExt$PackageList;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v16
 
     invoke-virtual {v0, v1}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->contains(Ljava/lang/String;)Z
 
-    move-result v22
+    move-result v18
 
-    if-nez v22, :cond_5
+    if-nez v18, :cond_5
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mBlacklistAppSync3P:Lcom/android/server/AlarmManagerServiceExt$PackageList;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v16
 
     invoke-virtual {v0, v1}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->add(Ljava/lang/String;)V
 
@@ -1391,13 +1458,13 @@
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mPermanentWhitelistPackages:Ljava/util/ArrayList;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    const-string/jumbo v24, "com.samsung.location"
+    const-string/jumbo v20, "com.samsung.location"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v20
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -1405,26 +1472,62 @@
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mTargetPackages:Ljava/util/ArrayList;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    invoke-virtual/range {v22 .. v22}, Ljava/util/ArrayList;->clear()V
+    invoke-virtual/range {v18 .. v18}, Ljava/util/ArrayList;->clear()V
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mCscPackages:Ljava/util/ArrayList;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    invoke-interface/range {v22 .. v22}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface/range {v18 .. v18}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v13
+
+    :goto_4
+    invoke-interface {v13}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v18
+
+    if-eqz v18, :cond_7
+
+    invoke-interface {v13}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v12
+
+    check-cast v12, Ljava/lang/String;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mTargetPackages:Ljava/util/ArrayList;
+
+    move-object/from16 v18, v0
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v12}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_4
+
+    :cond_7
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mPermanentWhitelistPackages:Ljava/util/ArrayList;
+
+    move-object/from16 v18, v0
+
+    invoke-interface/range {v18 .. v18}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v15
 
-    :goto_4
+    :goto_5
     invoke-interface {v15}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v22
+    move-result v18
 
-    if-eqz v22, :cond_7
+    if-eqz v18, :cond_8
 
     invoke-interface {v15}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1436,135 +1539,97 @@
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mTargetPackages:Ljava/util/ArrayList;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
     invoke-virtual {v0, v14}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto :goto_4
-
-    :cond_7
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mPermanentWhitelistPackages:Ljava/util/ArrayList;
-
-    move-object/from16 v22, v0
-
-    invoke-interface/range {v22 .. v22}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v17
-
-    :goto_5
-    invoke-interface/range {v17 .. v17}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v22
-
-    if-eqz v22, :cond_8
-
-    invoke-interface/range {v17 .. v17}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v16
-
-    check-cast v16, Ljava/lang/String;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mTargetPackages:Ljava/util/ArrayList;
-
-    move-object/from16 v22, v0
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_5
 
     :cond_8
-    const/4 v13, 0x0
+    const/4 v11, 0x0
 
     :goto_6
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mTargetPackages:Ljava/util/ArrayList;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    invoke-virtual/range {v22 .. v22}, Ljava/util/ArrayList;->size()I
+    invoke-virtual/range {v18 .. v18}, Ljava/util/ArrayList;->size()I
 
-    move-result v22
+    move-result v18
 
-    move/from16 v0, v22
+    move/from16 v0, v18
 
-    if-ge v13, v0, :cond_9
+    if-ge v11, v0, :cond_9
 
-    const-string/jumbo v24, "AlarmManagerEXT"
+    const-string/jumbo v20, "AlarmManagerEXT"
 
-    new-instance v22, Ljava/lang/StringBuilder;
+    new-instance v18, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v25, "<TargetPackages> "
+    const-string/jumbo v21, "<TargetPackages> "
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v25
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    move-object/from16 v0, v22
-
-    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    const-string/jumbo v25, ": "
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, v25
+    move-object/from16 v1, v21
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v25
+    move-result-object v18
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    const-string/jumbo v21, ": "
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v21
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mTargetPackages:Ljava/util/ArrayList;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
-    invoke-virtual {v0, v13}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v0, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v22
+    move-result-object v18
 
-    check-cast v22, Ljava/lang/String;
+    check-cast v18, Ljava/lang/String;
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v21
 
-    move-object/from16 v1, v22
+    move-object/from16 v1, v18
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v22
+    move-result-object v18
 
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v22
+    move-result-object v18
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v20
 
-    move-object/from16 v1, v22
+    move-object/from16 v1, v18
 
     invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    add-int/lit8 v13, v13, 0x1
+    add-int/lit8 v11, v11, 0x1
 
     goto :goto_6
 
@@ -1573,47 +1638,47 @@
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mContext:Landroid/content/Context;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    invoke-static/range {v22 .. v22}, Lcom/android/server/AlarmManagerServiceExt;->isAppSync3PlusTarget(Landroid/content/Context;)Z
+    invoke-static/range {v18 .. v18}, Lcom/android/server/AlarmManagerServiceExt;->isAppSync3PlusTarget(Landroid/content/Context;)Z
 
-    move-result v22
+    move-result v18
 
-    move/from16 v0, v22
+    move/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mChnAppsBundling:Z
 
-    const-string/jumbo v22, "AlarmManagerEXT"
+    const-string/jumbo v18, "AlarmManagerEXT"
 
-    new-instance v24, Ljava/lang/StringBuilder;
+    new-instance v20, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v25, "mChnAppsBundling = "
+    const-string/jumbo v21, "mChnAppsBundling = "
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v20
 
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mChnAppsBundling:Z
 
-    move/from16 v25, v0
+    move/from16 v21, v0
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v20
 
-    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v20
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v20
 
     invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -1621,13 +1686,13 @@
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->boot_filter:Landroid/content/IntentFilter;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    const-string/jumbo v24, "android.intent.action.BOOT_COMPLETED"
+    const-string/jumbo v20, "android.intent.action.BOOT_COMPLETED"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v20
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
@@ -1635,25 +1700,25 @@
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mContext:Landroid/content/Context;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mBootIntentReceiver:Landroid/content/BroadcastReceiver;
 
-    move-object/from16 v24, v0
+    move-object/from16 v20, v0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->boot_filter:Landroid/content/IntentFilter;
 
-    move-object/from16 v25, v0
+    move-object/from16 v21, v0
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v20
 
-    move-object/from16 v2, v25
+    move-object/from16 v2, v21
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
@@ -1661,37 +1726,37 @@
 
     iget-boolean v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mChnAppsBundling:Z
 
-    move/from16 v22, v0
+    move/from16 v18, v0
 
-    if-eqz v22, :cond_d
+    if-eqz v18, :cond_c
 
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mChnSolEnable:Z
 
-    move/from16 v22, v0
+    move/from16 v18, v0
 
-    if-eqz v22, :cond_d
+    if-eqz v18, :cond_c
 
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mChnSolDeactivateInUSB:Z
 
-    move/from16 v22, v0
+    move/from16 v18, v0
 
-    if-eqz v22, :cond_a
+    if-eqz v18, :cond_a
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->filter:Landroid/content/IntentFilter;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    const-string/jumbo v24, "android.intent.action.BATTERY_CHANGED"
+    const-string/jumbo v20, "android.intent.action.BATTERY_CHANGED"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v20
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
@@ -1699,44 +1764,44 @@
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mContext:Landroid/content/Context;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mIntentReceiver:Landroid/content/BroadcastReceiver;
 
-    move-object/from16 v24, v0
+    move-object/from16 v20, v0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->filter:Landroid/content/IntentFilter;
 
-    move-object/from16 v25, v0
+    move-object/from16 v21, v0
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v20
 
-    move-object/from16 v2, v25
+    move-object/from16 v2, v21
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
     :cond_a
-    sget-boolean v22, Lcom/android/server/AlarmManagerServiceExt;->sIsGalaxyView:Z
+    sget-boolean v18, Lcom/android/server/AlarmManagerServiceExt;->sIsGalaxyView:Z
 
-    if-eqz v22, :cond_b
+    if-eqz v18, :cond_b
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->filter2:Landroid/content/IntentFilter;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    const-string/jumbo v24, "android.hardware.usb.action.USB_STATE"
+    const-string/jumbo v20, "android.hardware.usb.action.USB_STATE"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v20
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
@@ -1744,32 +1809,48 @@
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mContext:Landroid/content/Context;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mIntentReceiver2:Landroid/content/BroadcastReceiver;
 
-    move-object/from16 v24, v0
+    move-object/from16 v20, v0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->filter2:Landroid/content/IntentFilter;
 
-    move-object/from16 v25, v0
+    move-object/from16 v21, v0
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v20
 
-    move-object/from16 v2, v25
+    move-object/from16 v2, v21
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
     :cond_b
-    new-instance v22, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$PackageManagerReceiver;
+    new-instance v18, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$SCPMBroadcastReceiver;
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, p0
+
+    move-object/from16 v2, p2
+
+    invoke-direct {v0, v1, v2}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$SCPMBroadcastReceiver;-><init>(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;Landroid/content/Context;)V
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mSCPMReceiver:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$SCPMBroadcastReceiver;
+
+    new-instance v18, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$PackageManagerReceiver;
+
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
@@ -1777,39 +1858,23 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$PackageManagerReceiver;-><init>(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;Landroid/content/Context;)V
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mPMReceiver:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$PackageManagerReceiver;
 
-    new-instance v22, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$MultiUserManager;
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, p0
-
-    move-object/from16 v2, p2
-
-    invoke-direct {v0, v1, v2}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$MultiUserManager;-><init>(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;Landroid/content/Context;)V
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mMultiUserMgr:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$MultiUserManager;
-
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mContext:Landroid/content/Context;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    invoke-virtual/range {v22 .. v22}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual/range {v18 .. v18}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v22
+    move-result-object v18
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
@@ -1819,27 +1884,13 @@
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->preloadedPackages:Ljava/util/Set;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    const-string/jumbo v24, "com.facebook.katana"
+    const-string/jumbo v20, "com.facebook.katana"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v24
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->preloadedPackages:Ljava/util/Set;
-
-    move-object/from16 v22, v0
-
-    const-string/jumbo v24, "com.facebook.orca"
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, v24
+    move-object/from16 v1, v20
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
@@ -1847,27 +1898,13 @@
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->preloadedPackages:Ljava/util/Set;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    const-string/jumbo v24, "com.facebook.pages.app"
+    const-string/jumbo v20, "com.facebook.orca"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v24
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->preloadedPackages:Ljava/util/Set;
-
-    move-object/from16 v22, v0
-
-    const-string/jumbo v24, "com.facebook.appmanager"
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, v24
+    move-object/from16 v1, v20
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
@@ -1875,27 +1912,13 @@
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->preloadedPackages:Ljava/util/Set;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    const-string/jumbo v24, "com.facebook.system"
+    const-string/jumbo v20, "com.facebook.pages.app"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v24
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->preloadedPackages:Ljava/util/Set;
-
-    move-object/from16 v22, v0
-
-    const-string/jumbo v24, "com.whatsapp"
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, v24
+    move-object/from16 v1, v20
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
@@ -1903,27 +1926,13 @@
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->preloadedPackages:Ljava/util/Set;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    const-string/jumbo v24, "com.instagram.android"
+    const-string/jumbo v20, "com.facebook.appmanager"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v24
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->preloadedPackages:Ljava/util/Set;
-
-    move-object/from16 v22, v0
-
-    const-string/jumbo v24, "com.skype.raider"
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, v24
+    move-object/from16 v1, v20
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
@@ -1931,27 +1940,13 @@
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->preloadedPackages:Ljava/util/Set;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    const-string/jumbo v24, "com.microsoft.skydrive"
+    const-string/jumbo v20, "com.facebook.system"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v24
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->preloadedPackages:Ljava/util/Set;
-
-    move-object/from16 v22, v0
-
-    const-string/jumbo v24, "com.samsung.android.opencalendar"
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, v24
+    move-object/from16 v1, v20
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
@@ -1959,86 +1954,81 @@
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->preloadedPackages:Ljava/util/Set;
 
-    move-object/from16 v22, v0
+    move-object/from16 v18, v0
 
-    invoke-interface/range {v22 .. v22}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    const-string/jumbo v20, "com.whatsapp"
 
-    move-result-object v19
+    move-object/from16 v0, v18
 
-    :cond_c
-    :goto_7
-    invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->hasNext()Z
+    move-object/from16 v1, v20
 
-    move-result v22
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    if-eqz v22, :cond_d
+    move-object/from16 v0, p0
 
-    invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->preloadedPackages:Ljava/util/Set;
 
-    move-result-object v18
+    move-object/from16 v18, v0
 
-    check-cast v18, Ljava/lang/String;
+    const-string/jumbo v20, "com.instagram.android"
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v20
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->preloadedPackages:Ljava/util/Set;
+
+    move-object/from16 v18, v0
+
+    const-string/jumbo v20, "com.skype.raider"
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v20
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->preloadedPackages:Ljava/util/Set;
+
+    move-object/from16 v18, v0
+
+    const-string/jumbo v20, "com.microsoft.skydrive"
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v20
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->preloadedPackages:Ljava/util/Set;
+
+    move-object/from16 v18, v0
+
+    const-string/jumbo v20, "com.samsung.android.opencalendar"
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v20
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    :cond_c
+    monitor-exit v19
+
     :try_start_2
-    move-object/from16 v0, p0
+    new-instance v18, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;
 
-    iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->pm:Landroid/content/pm/PackageManager;
-
-    move-object/from16 v22, v0
-
-    const/16 v24, 0x0
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, v18
-
-    move/from16 v2, v24
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
-
-    move-result-object v4
-
-    if-eqz v4, :cond_c
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mUserAppList:Ljava/util/Set;
-
-    move-object/from16 v22, v0
-
-    iget v0, v4, Landroid/content/pm/ApplicationInfo;->uid:I
-
-    move/from16 v24, v0
-
-    invoke-static/range {v24 .. v24}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v24
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, v24
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-    :try_end_2
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_2 .. :try_end_2} :catch_0
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    goto :goto_7
-
-    :catch_0
-    move-exception v6
-
-    goto :goto_7
-
-    :cond_d
-    monitor-exit v23
-
-    :try_start_3
-    new-instance v22, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;
-
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
@@ -2046,53 +2036,53 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;-><init>(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;Landroid/content/Context;)V
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->ta:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;
-    :try_end_3
-    .catch Ljava/net/SocketException; {:try_start_3 .. :try_end_3} :catch_4
-    .catch Ljava/net/UnknownHostException; {:try_start_3 .. :try_end_3} :catch_3
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_2
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
+    :try_end_2
+    .catch Ljava/net/SocketException; {:try_start_2 .. :try_end_2} :catch_3
+    .catch Ljava/net/UnknownHostException; {:try_start_2 .. :try_end_2} :catch_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
-    :goto_8
-    const-string/jumbo v22, "AlarmManagerEXT"
+    :goto_7
+    const-string/jumbo v18, "AlarmManagerEXT"
 
-    const-string/jumbo v23, "SyncScheduler created "
+    const-string/jumbo v19, "SyncScheduler created "
 
-    invoke-static/range {v22 .. v23}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v18 .. v19}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
+    :catch_0
+    move-exception v6
+
+    invoke-virtual {v6}, Ljava/lang/Exception;->printStackTrace()V
+
+    goto :goto_7
+
     :catch_1
-    move-exception v8
+    move-exception v5
 
-    invoke-virtual {v8}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v5}, Ljava/io/IOException;->printStackTrace()V
 
-    goto :goto_8
+    goto :goto_7
 
     :catch_2
-    move-exception v7
+    move-exception v8
 
-    invoke-virtual {v7}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {v8}, Ljava/net/UnknownHostException;->printStackTrace()V
 
-    goto :goto_8
+    goto :goto_7
 
     :catch_3
-    move-exception v10
+    move-exception v7
 
-    invoke-virtual {v10}, Ljava/net/UnknownHostException;->printStackTrace()V
+    invoke-virtual {v7}, Ljava/net/SocketException;->printStackTrace()V
 
-    goto :goto_8
-
-    :catch_4
-    move-exception v9
-
-    invoke-virtual {v9}, Ljava/net/SocketException;->printStackTrace()V
-
-    goto :goto_8
+    goto :goto_7
 .end method
 
 .method private addRepeatingAlarmLocked(Lcom/android/server/AlarmManagerServiceExt$AlarmExt;)V
@@ -2172,7 +2162,7 @@
 
     cmp-long v0, v0, v2
 
-    if-gtz v0, :cond_a
+    if-gtz v0, :cond_b
 
     iget-boolean v0, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mChnSolDeactivateInScreenOn:Z
 
@@ -2197,7 +2187,7 @@
 
     cmp-long v0, v0, v2
 
-    if-lez v0, :cond_a
+    if-lez v0, :cond_b
 
     :cond_0
     invoke-static {}, Lcom/android/server/AlarmManagerServiceExt;->-get0()Z
@@ -2333,13 +2323,32 @@
     invoke-static {v0, v8}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
-    const-wide/16 v0, 0x2710
+    invoke-virtual {p2}, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->isSuspiciousAlarm()Z
 
-    cmp-long v0, p5, v0
+    move-result v0
 
-    if-gtz v0, :cond_6
+    if-nez v0, :cond_7
+
+    iget-object v1, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mLockSuspiciousPkgSet:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
+    iget-object v0, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mSuspiciousPkgSet:Ljava/util/Set;
+
+    iget-object v2, p2, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->packageName:Ljava/lang/String;
+
+    invoke-interface {v0, v2}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v0
+
+    if-nez v0, :cond_6
 
     const/4 v0, 0x1
+
+    monitor-exit v1
 
     return v0
 
@@ -2351,7 +2360,7 @@
     :cond_3
     move-wide v0, p3
 
-    goto :goto_1
+    goto/16 :goto_1
 
     :cond_4
     iget-object v0, p2, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->listener:Landroid/app/IAlarmListener;
@@ -2368,6 +2377,9 @@
     goto :goto_2
 
     :cond_6
+    monitor-exit v1
+
+    :cond_7
     iget-wide v2, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mNextSlotInChn:J
 
     iget-wide v4, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mDefaultIntervalInChn:J
@@ -2394,7 +2406,7 @@
 
     cmp-long v0, v0, v2
 
-    if-lez v0, :cond_9
+    if-lez v0, :cond_a
 
     const/4 v0, 0x1
 
@@ -2415,372 +2427,46 @@
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_8
 
     iget-wide v0, p1, Lcom/android/server/AlarmManagerService$Alarm;->when:J
 
     iput-wide v0, p1, Lcom/android/server/AlarmManagerService$Alarm;->origWhen:J
 
-    :cond_7
+    :cond_8
     iget-wide v0, p2, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->repeatIntervalOriginal:J
 
     const-wide/16 v2, 0x0
 
     cmp-long v0, v0, v2
 
-    if-lez v0, :cond_8
+    if-lez v0, :cond_9
 
     iget-wide v0, p2, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->repeatInterval:J
 
     iput-wide v0, p1, Lcom/android/server/AlarmManagerService$Alarm;->repeatInterval:J
 
-    :cond_8
+    :cond_9
     const/4 v0, 0x1
 
     return v0
 
-    :cond_9
-    const/4 v0, 0x0
+    :catchall_0
+    move-exception v0
 
-    goto :goto_3
+    monitor-exit v1
+
+    throw v0
 
     :cond_a
     const/4 v0, 0x0
 
+    goto :goto_3
+
+    :cond_b
+    const/4 v0, 0x0
+
     return v0
-.end method
-
-.method private adjustAlarmForChinaGCMCoreReconnect(Lcom/android/server/AlarmManagerService$Alarm;Lcom/android/server/AlarmManagerServiceExt$AlarmExt;J)Z
-    .locals 17
-
-    move-object/from16 v0, p1
-
-    iget-object v11, v0, Lcom/android/server/AlarmManagerService$Alarm;->operation:Landroid/app/PendingIntent;
-
-    if-nez v11, :cond_0
-
-    const/4 v11, 0x0
-
-    return v11
-
-    :cond_0
-    invoke-direct/range {p0 .. p0}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->isChinaIccid()Z
-
-    move-result v11
-
-    if-eqz v11, :cond_4
-
-    sget-boolean v11, Lcom/android/server/AlarmManagerServiceExt$Sales;->CHINA:Z
-
-    if-eqz v11, :cond_4
-
-    const-string/jumbo v11, "com.google.android.gms"
-
-    move-object/from16 v0, p1
-
-    iget-object v12, v0, Lcom/android/server/AlarmManagerService$Alarm;->packageName:Ljava/lang/String;
-
-    invoke-virtual {v11, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v11
-
-    if-eqz v11, :cond_8
-
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
-
-    move-result-wide v4
-
-    move-object/from16 v0, p2
-
-    iget-object v11, v0, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->operation:Landroid/app/PendingIntent;
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v11}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->getInfoFromPendingIntent(Landroid/app/PendingIntent;)Landroid/content/Intent;
-
-    move-result-object v8
-
-    if-nez v8, :cond_5
-
-    const/4 v7, 0x0
-
-    :goto_0
-    if-eqz v7, :cond_6
-
-    const-string/jumbo v11, "com.google.android.intent.action.GCM_RECONNECT"
-
-    invoke-virtual {v7, v11}, Ljava/lang/String;->matches(Ljava/lang/String;)Z
-
-    move-result v11
-
-    if-eqz v11, :cond_6
-
-    const-wide/32 v2, 0x36ee80
-
-    invoke-static {}, Lcom/android/server/AlarmManagerServiceExt;->-get0()Z
-
-    move-result v11
-
-    if-eqz v11, :cond_1
-
-    const-string/jumbo v11, "AlarmManagerEXT"
-
-    new-instance v12, Ljava/lang/StringBuilder;
-
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v13, "GCMCTL:: GCM REC action matches : "
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    const-string/jumbo v13, " INT : "
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    const-wide/32 v14, 0x36ee80
-
-    invoke-virtual {v12, v14, v15}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v12
-
-    invoke-static {v11, v12}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1
-    const-wide/32 v12, 0x36ee80
-
-    add-long v14, v12, v4
-
-    move-object/from16 v0, p2
-
-    iget v11, v0, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->type:I
-
-    const/4 v12, 0x1
-
-    if-gt v11, v12, :cond_7
-
-    move-wide/from16 v12, p3
-
-    :goto_1
-    add-long/2addr v12, v14
-
-    move-object/from16 v0, p2
-
-    iput-wide v12, v0, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->when:J
-
-    move-object/from16 v0, p1
-
-    iput-wide v12, v0, Lcom/android/server/AlarmManagerService$Alarm;->when:J
-
-    const-wide/32 v12, 0x36ee80
-
-    add-long/2addr v12, v4
-
-    move-object/from16 v0, p2
-
-    iput-wide v12, v0, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->whenElapsed:J
-
-    move-object/from16 v0, p1
-
-    iput-wide v12, v0, Lcom/android/server/AlarmManagerService$Alarm;->whenElapsed:J
-
-    move-object/from16 v0, p1
-
-    iget-wide v12, v0, Lcom/android/server/AlarmManagerService$Alarm;->when:J
-
-    move-object/from16 v0, p1
-
-    iput-wide v12, v0, Lcom/android/server/AlarmManagerService$Alarm;->origWhen:J
-
-    move-object/from16 v0, p1
-
-    iget-wide v12, v0, Lcom/android/server/AlarmManagerService$Alarm;->whenElapsed:J
-
-    move-object/from16 v0, p2
-
-    iput-wide v12, v0, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->maxWhenElapsed:J
-
-    move-object/from16 v0, p1
-
-    iput-wide v12, v0, Lcom/android/server/AlarmManagerService$Alarm;->maxWhenElapsed:J
-
-    invoke-static {}, Lcom/android/server/AlarmManagerServiceExt;->-get0()Z
-
-    move-result v11
-
-    if-eqz v11, :cond_3
-
-    new-instance v9, Landroid/text/format/Time;
-
-    invoke-direct {v9}, Landroid/text/format/Time;-><init>()V
-
-    move-object/from16 v0, p2
-
-    iget-wide v12, v0, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->when:J
-
-    move-object/from16 v0, p2
-
-    iget v11, v0, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->type:I
-
-    const/4 v14, 0x1
-
-    if-gt v11, v14, :cond_2
-
-    const-wide/16 p3, 0x0
-
-    :cond_2
-    add-long v12, v12, p3
-
-    invoke-virtual {v9, v12, v13}, Landroid/text/format/Time;->set(J)V
-
-    invoke-virtual {v9}, Landroid/text/format/Time;->format2445()Ljava/lang/String;
-
-    move-result-object v10
-
-    new-instance v6, Ljava/lang/String;
-
-    new-instance v11, Ljava/lang/StringBuilder;
-
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v12, "--->>> GCMCTL T:"
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    move-object/from16 v0, p2
-
-    iget v12, v0, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->type:I
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    const-string/jumbo v12, ","
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    const-string/jumbo v12, " "
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    move-object/from16 v0, p2
-
-    iget-object v12, v0, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->operation:Landroid/app/PendingIntent;
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    const-string/jumbo v12, " ("
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    move-object/from16 v0, p2
-
-    iget-wide v12, v0, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->when:J
-
-    invoke-virtual {v11, v12, v13}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    const-string/jumbo v12, ", INT:"
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    move-object/from16 v0, p2
-
-    iget-wide v12, v0, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->repeatInterval:J
-
-    invoke-virtual {v11, v12, v13}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    const-string/jumbo v12, ","
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    move-object/from16 v0, p2
-
-    iget-wide v12, v0, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->repeatIntervalWindow:J
-
-    invoke-virtual {v11, v12, v13}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    const-string/jumbo v12, ")"
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-direct {v6, v11}, Ljava/lang/String;-><init>(Ljava/lang/String;)V
-
-    const-string/jumbo v11, "AlarmManagerEXT"
-
-    invoke-static {v11, v6}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_3
-    const/4 v11, 0x1
-
-    return v11
-
-    :cond_4
-    const/4 v11, 0x0
-
-    return v11
-
-    :cond_5
-    invoke-virtual {v8}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v7
-
-    goto/16 :goto_0
-
-    :cond_6
-    const/4 v11, 0x0
-
-    return v11
-
-    :cond_7
-    const-wide/16 v12, 0x0
-
-    goto/16 :goto_1
-
-    :cond_8
-    const/4 v11, 0x0
-
-    return v11
 .end method
 
 .method private adjustAlarmForFixedPeriodicWakeups(Lcom/android/server/AlarmManagerServiceExt$AlarmExt;JJJ)V
@@ -3364,7 +3050,7 @@
 
     move/from16 v18, v0
 
-    if-eqz v18, :cond_1
+    if-eqz v18, :cond_e
 
     move-object/from16 v0, p0
 
@@ -3376,19 +3062,15 @@
 
     move-result v18
 
-    if-eqz v18, :cond_2
+    xor-int/lit8 v18, v18, 0x1
 
-    :cond_1
-    const/16 v18, 0x0
+    if-eqz v18, :cond_e
 
-    return v18
-
-    :cond_2
     invoke-static {}, Lcom/android/server/AlarmManagerServiceExt;->-get0()Z
 
     move-result v18
 
-    if-eqz v18, :cond_3
+    if-eqz v18, :cond_1
 
     const-string/jumbo v18, "AlarmManagerEXT"
 
@@ -3396,7 +3078,7 @@
 
     invoke-static/range {v18 .. v19}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_3
+    :cond_1
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v12
@@ -3415,7 +3097,7 @@
 
     cmp-long v18, v18, v20
 
-    if-nez v18, :cond_b
+    if-nez v18, :cond_9
 
     const-wide/32 v18, 0xa4cb80
 
@@ -3427,7 +3109,7 @@
 
     iput-wide v0, v2, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mNextSlotInPSM:J
 
-    :cond_4
+    :cond_2
     :goto_0
     const-string/jumbo v18, "com.google.android.gms"
 
@@ -3441,7 +3123,7 @@
 
     move-result v18
 
-    if-eqz v18, :cond_6
+    if-eqz v18, :cond_4
 
     move-object/from16 v0, p2
 
@@ -3457,14 +3139,14 @@
 
     move-result-object v7
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_3
 
     invoke-virtual {v7}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v11
 
-    :cond_5
-    if-eqz v11, :cond_e
+    :cond_3
+    if-eqz v11, :cond_c
 
     invoke-virtual {v11}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
@@ -3476,13 +3158,13 @@
 
     move-result v18
 
-    if-eqz v18, :cond_e
+    if-eqz v18, :cond_c
 
     const/4 v10, 0x1
 
-    :cond_6
+    :cond_4
     :goto_1
-    if-eqz v10, :cond_1
+    if-eqz v10, :cond_e
 
     const-wide/16 v8, 0x0
 
@@ -3500,7 +3182,7 @@
 
     cmp-long v18, v18, v20
 
-    if-lez v18, :cond_7
+    if-lez v18, :cond_5
 
     move-object/from16 v0, p2
 
@@ -3528,7 +3210,7 @@
 
     mul-long v8, v18, v20
 
-    :cond_7
+    :cond_5
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mNextSlotInPSM:J
@@ -3547,7 +3229,7 @@
 
     move/from16 v1, v19
 
-    if-gt v0, v1, :cond_f
+    if-gt v0, v1, :cond_d
 
     move-wide/from16 v18, p3
 
@@ -3598,7 +3280,7 @@
 
     cmp-long v18, v18, v20
 
-    if-lez v18, :cond_8
+    if-lez v18, :cond_6
 
     move-object/from16 v0, p2
 
@@ -3636,7 +3318,7 @@
 
     iput-wide v0, v2, Lcom/android/server/AlarmManagerService$Alarm;->repeatInterval:J
 
-    :cond_8
+    :cond_6
     move-object/from16 v0, p2
 
     iget-wide v0, v0, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->whenElapsed:J
@@ -3667,7 +3349,7 @@
 
     move-result v18
 
-    if-eqz v18, :cond_a
+    if-eqz v18, :cond_8
 
     new-instance v16, Landroid/text/format/Time;
 
@@ -3691,11 +3373,11 @@
 
     move/from16 v1, v21
 
-    if-gt v0, v1, :cond_9
+    if-gt v0, v1, :cond_7
 
     const-wide/16 p3, 0x0
 
-    :cond_9
+    :cond_7
     add-long v18, v18, p3
 
     move-object/from16 v0, v16
@@ -3840,12 +3522,12 @@
 
     invoke-static {v0, v5}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_a
+    :cond_8
     const/16 v18, 0x1
 
     return v18
 
-    :cond_b
+    :cond_9
     move-object/from16 v0, p0
 
     iget-wide v14, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mNextSlotInPSM:J
@@ -3859,7 +3541,7 @@
 
     cmp-long v18, v18, v12
 
-    if-gez v18, :cond_c
+    if-gez v18, :cond_a
 
     move-object/from16 v0, p0
 
@@ -3879,7 +3561,7 @@
 
     goto :goto_3
 
-    :cond_c
+    :cond_a
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mNextSlotInPSM:J
@@ -3888,7 +3570,7 @@
 
     cmp-long v18, v14, v18
 
-    if-eqz v18, :cond_4
+    if-eqz v18, :cond_2
 
     move-object/from16 v0, p0
 
@@ -3900,7 +3582,7 @@
 
     cmp-long v18, v18, v20
 
-    if-eqz v18, :cond_4
+    if-eqz v18, :cond_2
 
     move-object/from16 v0, p0
 
@@ -3916,7 +3598,7 @@
 
     cmp-long v18, v18, v20
 
-    if-gtz v18, :cond_d
+    if-gtz v18, :cond_b
 
     move-object/from16 v0, p0
 
@@ -3975,7 +3657,7 @@
 
     move-result v18
 
-    if-eqz v18, :cond_4
+    if-eqz v18, :cond_2
 
     new-instance v16, Landroid/text/format/Time;
 
@@ -4035,7 +3717,7 @@
 
     goto/16 :goto_0
 
-    :cond_d
+    :cond_b
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mNextAlarmWhen:J
@@ -4090,7 +3772,7 @@
 
     goto :goto_4
 
-    :cond_e
+    :cond_c
     move-object/from16 v0, p1
 
     iget-object v0, v0, Lcom/android/server/AlarmManagerService$Alarm;->operation:Landroid/app/PendingIntent;
@@ -4105,13 +3787,13 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_4
 
     invoke-virtual {v4}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
 
     move-result-object v6
 
-    if-eqz v6, :cond_6
+    if-eqz v6, :cond_4
 
     invoke-virtual {v6}, Landroid/content/ComponentName;->toString()Ljava/lang/String;
 
@@ -4123,16 +3805,21 @@
 
     move-result v18
 
-    if-eqz v18, :cond_6
+    if-eqz v18, :cond_4
 
     const/4 v10, 0x1
 
     goto/16 :goto_1
 
-    :cond_f
+    :cond_d
     const-wide/16 v18, 0x0
 
     goto/16 :goto_2
+
+    :cond_e
+    const/16 v18, 0x0
+
+    return v18
 .end method
 
 .method private adjustAlarmTimeLocked(Lcom/android/server/AlarmManagerServiceExt$AlarmExt;JZ)V
@@ -4828,7 +4515,7 @@
 
     :cond_0
     :try_start_0
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
     move-result-object v1
 
@@ -4850,6 +4537,68 @@
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     return-object v3
+.end method
+
+.method private getPackageTag(Ljava/lang/String;I)Ljava/lang/String;
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "/"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method private getUserIdFromTag(Ljava/lang/String;)Ljava/lang/String;
+    .locals 3
+
+    if-nez p1, :cond_0
+
+    const-string/jumbo v1, "unknown"
+
+    return-object v1
+
+    :cond_0
+    const-string/jumbo v1, "/"
+
+    invoke-virtual {p1, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v0
+
+    array-length v1, v0
+
+    const/4 v2, 0x2
+
+    if-eq v1, v2, :cond_1
+
+    const-string/jumbo v1, "unknown"
+
+    return-object v1
+
+    :cond_1
+    const/4 v1, 0x1
+
+    aget-object v1, v0, v1
+
+    return-object v1
 .end method
 
 .method private initializeFromConfigFile()V
@@ -5485,49 +5234,59 @@
 .method private isChinaControlAlarm(Lcom/android/server/AlarmManagerService$Alarm;)Z
     .locals 4
 
+    const/4 v3, 0x0
+
     iget-boolean v1, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->isUSBConnected:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_2
 
     iget-boolean v1, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mChnAppsBundling:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2
 
     iget-boolean v1, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mChnSolEnable:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2
 
     iget-boolean v1, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->isGalaxyViewUSBConnected:Z
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_2
+
+    iget-object v1, p1, Lcom/android/server/AlarmManagerService$Alarm;->packageName:Ljava/lang/String;
+
+    if-nez v1, :cond_0
+
+    return v3
 
     :cond_0
-    :goto_0
-    const/4 v1, 0x0
+    iget-object v1, p1, Lcom/android/server/AlarmManagerService$Alarm;->packageName:Ljava/lang/String;
 
-    return v1
+    iget v2, p1, Lcom/android/server/AlarmManagerService$Alarm;->uid:I
 
-    :cond_1
-    iget v0, p1, Lcom/android/server/AlarmManagerService$Alarm;->uid:I
+    invoke-static {v2}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v2
+
+    invoke-direct {p0, v1, v2}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->getPackageTag(Ljava/lang/String;I)Ljava/lang/String;
+
+    move-result-object v0
 
     iget-object v2, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mLockUserApps:Ljava/lang/Object;
 
     monitor-enter v2
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mUserAppList:Ljava/util/Set;
+    iget-object v1, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mUserAppTagSet:Ljava/util/Set;
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-interface {v1, v3}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+    invoke-interface {v1, v0}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1
 
     const/4 v1, 0x1
 
@@ -5535,10 +5294,11 @@
 
     return v1
 
-    :cond_2
+    :cond_1
     monitor-exit v2
 
-    goto :goto_0
+    :cond_2
+    return v3
 
     :catchall_0
     move-exception v1
@@ -5548,47 +5308,59 @@
     throw v1
 .end method
 
-.method private isChinaIccid()Z
-    .locals 5
+.method private isIgnoreAlarmLocked(Lcom/android/server/AlarmManagerService$Alarm;)Z
+    .locals 4
 
-    const/4 v4, 0x0
+    iget-object v2, p1, Lcom/android/server/AlarmManagerService$Alarm;->operation:Landroid/app/PendingIntent;
 
-    iget-object v2, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mContext:Landroid/content/Context;
+    if-eqz v2, :cond_2
 
-    const-string/jumbo v3, "phone"
+    iget-object v2, p1, Lcom/android/server/AlarmManagerService$Alarm;->operation:Landroid/app/PendingIntent;
 
-    invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-direct {p0, v2}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->getInfoFromPendingIntent(Landroid/app/PendingIntent;)Landroid/content/Intent;
 
     move-result-object v1
 
-    check-cast v1, Landroid/telephony/TelephonyManager;
+    :goto_0
+    if-eqz v1, :cond_3
 
-    if-nez v1, :cond_0
-
-    return v4
-
-    :cond_0
-    invoke-virtual {v1}, Landroid/telephony/TelephonyManager;->getSimSerialNumber()Ljava/lang/String;
+    invoke-virtual {v1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    :goto_1
+    iget-object v2, p1, Lcom/android/server/AlarmManagerService$Alarm;->packageName:Ljava/lang/String;
 
-    const-string/jumbo v2, "8986"
+    if-eqz v2, :cond_0
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    iget-object v2, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mBlacklistPackages:Lcom/android/server/AlarmManagerServiceExt$PackageList;
+
+    iget-object v3, p1, Lcom/android/server/AlarmManagerService$Alarm;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v3}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->contains(Ljava/lang/String;)Z
 
     move-result v2
 
     if-nez v2, :cond_1
 
-    const-string/jumbo v2, "8985"
+    :cond_0
+    if-eqz v0, :cond_4
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "action.time_tick"
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_4
 
     :cond_1
     const/4 v2, 0x1
@@ -5596,74 +5368,76 @@
     return v2
 
     :cond_2
-    return v4
-.end method
-
-.method private isIgnoreAlarmLocked(Lcom/android/server/AlarmManagerService$Alarm;)Z
-    .locals 3
-
-    iget-object v1, p1, Lcom/android/server/AlarmManagerService$Alarm;->operation:Landroid/app/PendingIntent;
-
-    if-eqz v1, :cond_2
-
-    iget-object v1, p1, Lcom/android/server/AlarmManagerService$Alarm;->operation:Landroid/app/PendingIntent;
-
-    invoke-direct {p0, v1}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->getInfoFromPendingIntent(Landroid/app/PendingIntent;)Landroid/content/Intent;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v0
-
-    :goto_0
-    iget-object v1, p1, Lcom/android/server/AlarmManagerService$Alarm;->packageName:Ljava/lang/String;
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mBlacklistPackages:Lcom/android/server/AlarmManagerServiceExt$PackageList;
-
-    iget-object v2, p1, Lcom/android/server/AlarmManagerService$Alarm;->packageName:Ljava/lang/String;
-
-    invoke-virtual {v2}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->contains(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_1
-
-    :cond_0
-    if-eqz v0, :cond_3
-
-    invoke-virtual {v0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "action.time_tick"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_3
-
-    :cond_1
-    const/4 v1, 0x1
-
-    return v1
-
-    :cond_2
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     goto :goto_0
 
     :cond_3
+    const/4 v0, 0x0
+
+    goto :goto_1
+
+    :cond_4
+    const/4 v2, 0x0
+
+    return v2
+.end method
+
+.method private isSystemApplication(I)Z
+    .locals 2
+
+    const/4 v0, 0x0
+
+    and-int/lit8 v1, p1, 0x1
+
+    if-lez v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    return v0
+.end method
+
+.method private isTargetApplication(Landroid/content/pm/ApplicationInfo;Ljava/lang/String;)Z
+    .locals 2
+
     const/4 v1, 0x0
 
+    iget v0, p1, Landroid/content/pm/ApplicationInfo;->uid:I
+
+    invoke-static {v0}, Landroid/os/UserHandle;->isApp(I)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
     return v1
+
+    :cond_0
+    iget v0, p1, Landroid/content/pm/ApplicationInfo;->flags:I
+
+    invoke-direct {p0, v0}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->isSystemApplication(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->preloadedPackages:Ljava/util/Set;
+
+    invoke-interface {v0, p2}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_1
+
+    return v1
+
+    :cond_1
+    const/4 v0, 0x1
+
+    return v0
 .end method
 
 .method private lookForPackageLocked(Ljava/util/ArrayList;Landroid/app/PendingIntent;)Z
@@ -7035,264 +6809,556 @@
     return-void
 .end method
 
+.method private updateSuspiciousPolicy(Landroid/content/Context;)V
+    .locals 10
 
-# virtual methods
-.method public doDump(Ljava/io/PrintWriter;Ljava/lang/String;)V
-    .locals 18
+    const-wide/16 v6, 0x2710
 
-    const/4 v6, 0x0
+    new-instance v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$SCPMHelper;
 
-    const-string/jumbo v12, "  <AppSync3 Whitelist>"
+    invoke-direct {v0, p0, p1}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$SCPMHelper;-><init>(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;Landroid/content/Context;)V
 
-    move-object/from16 v0, p1
+    invoke-virtual {v0}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$SCPMHelper;->isSCPMAvailable()Z
 
-    invoke-virtual {v0, v12}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    move-result v8
+
+    if-nez v8, :cond_1
 
     invoke-static {}, Lcom/android/server/AlarmManagerServiceExt;->-get2()Z
 
-    move-result v12
+    move-result v8
 
-    if-eqz v12, :cond_1
+    if-eqz v8, :cond_0
+
+    const-string/jumbo v8, "AlarmManagerEXT"
+
+    const-string/jumbo v9, "SCPM is unavailable now"
+
+    invoke-static {v8, v9}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    sput-wide v6, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->SUSPICIOUS_TIME_THRESHOLD:J
+
+    iget-object v7, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mLockSuspiciousPkgSet:Ljava/lang/Object;
+
+    monitor-enter v7
+
+    :try_start_0
+    iget-object v6, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mSuspiciousPkgSet:Ljava/util/Set;
+
+    invoke-interface {v6}, Ljava/util/Set;->clear()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v7
+
+    return-void
+
+    :catchall_0
+    move-exception v6
+
+    monitor-exit v7
+
+    throw v6
+
+    :cond_1
+    invoke-virtual {v0}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$SCPMHelper;->getSuspiciousTimeLimitFromSCPM()J
+
+    move-result-wide v4
+
+    invoke-virtual {v0}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$SCPMHelper;->getSuspiciousPkgFromSCPM()Ljava/util/ArrayList;
+
+    move-result-object v3
+
+    const-wide/16 v8, 0x0
+
+    cmp-long v8, v4, v8
+
+    if-gez v8, :cond_2
+
+    move-wide v4, v6
+
+    :cond_2
+    sput-wide v4, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->SUSPICIOUS_TIME_THRESHOLD:J
+
+    invoke-static {}, Lcom/android/server/AlarmManagerServiceExt;->-get0()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_3
+
+    const-string/jumbo v6, "AlarmManagerEXT"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "[POLICY] SUSPICIOUS THRESHOLD TIME : "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    sget-wide v8, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->SUSPICIOUS_TIME_THRESHOLD:J
+
+    invoke-virtual {v7, v8, v9}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_3
+    iget-object v7, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mLockSuspiciousPkgSet:Ljava/lang/Object;
+
+    monitor-enter v7
+
+    :try_start_1
+    iget-object v6, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mSuspiciousPkgSet:Ljava/util/Set;
+
+    invoke-interface {v6}, Ljava/util/Set;->clear()V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    if-nez v3, :cond_4
+
+    monitor-exit v7
+
+    return-void
+
+    :cond_4
+    :try_start_2
+    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :cond_5
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_6
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/String;
+
+    iget-object v6, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mSuspiciousPkgSet:Ljava/util/Set;
+
+    invoke-interface {v6, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    invoke-static {}, Lcom/android/server/AlarmManagerServiceExt;->-get0()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_5
+
+    const-string/jumbo v6, "AlarmManagerEXT"
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "updatePolicy Pkg : "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v6, v8}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+
+    goto :goto_0
+
+    :catchall_1
+    move-exception v6
+
+    monitor-exit v7
+
+    throw v6
+
+    :cond_6
+    monitor-exit v7
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public doDump(Ljava/io/PrintWriter;Ljava/lang/String;)V
+    .locals 20
+
+    const/4 v7, 0x0
+
+    const-string/jumbo v13, "  <AppSync3 Whitelist>"
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    invoke-static {}, Lcom/android/server/AlarmManagerServiceExt;->-get2()Z
+
+    move-result v13
+
+    if-eqz v13, :cond_1
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mLockExt:Ljava/lang/Object;
+    iget-object v14, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mLockExt:Ljava/lang/Object;
 
-    monitor-enter v13
+    monitor-enter v14
 
     :try_start_0
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mCscPackages:Ljava/util/ArrayList;
+    iget-object v13, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mCscPackages:Ljava/util/ArrayList;
 
-    invoke-interface {v12}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {v13}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v9
+
+    :goto_0
+    invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v13
+
+    if-eqz v13, :cond_0
+
+    invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v8
 
-    :goto_0
-    invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v12
-
-    if-eqz v12, :cond_0
-
-    invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Ljava/lang/String;
+    check-cast v8, Ljava/lang/String;
 
     invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    new-instance v13, Ljava/lang/StringBuilder;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v14, "   (AppSync) "
+    const-string/jumbo v15, "   (AppSync) "
 
-    invoke-virtual {v12, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v13, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v13
 
-    invoke-virtual {v12, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v13, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v13
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v13
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v12}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_0
 
     :catchall_0
-    move-exception v12
+    move-exception v13
 
-    monitor-exit v13
+    monitor-exit v14
 
-    throw v12
+    throw v13
 
     :cond_0
     :try_start_1
     invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string/jumbo v12, "   (AppSync) ---------"
+    const-string/jumbo v13, "   (AppSync) ---------"
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v12}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    monitor-exit v13
+    monitor-exit v14
 
     :cond_1
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mLockUserApps:Ljava/lang/Object;
+    iget-object v14, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mLockUserApps:Ljava/lang/Object;
 
-    monitor-enter v13
+    monitor-enter v14
 
     :try_start_2
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mUserAppList:Ljava/util/Set;
+    iget-object v13, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mUserAppTagSet:Ljava/util/Set;
 
-    invoke-interface {v12}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {v13}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v11
+
+    :goto_1
+    invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v13
+
+    if-eqz v13, :cond_2
+
+    invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v10
 
-    :goto_1
-    invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v12
-
-    if-eqz v12, :cond_2
-
-    invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v12
-
-    check-cast v12, Ljava/lang/Integer;
-
-    invoke-virtual {v12}, Ljava/lang/Integer;->intValue()I
-
-    move-result v9
+    check-cast v10, Ljava/lang/String;
 
     invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    new-instance v13, Ljava/lang/StringBuilder;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v14, "   (AppSync) "
+    const-string/jumbo v15, "   (AppSync) "
 
-    invoke-virtual {v12, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v13, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v13
 
-    invoke-virtual {v12, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v13, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v13
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v13
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v12}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     goto :goto_1
 
     :catchall_1
-    move-exception v12
+    move-exception v13
 
-    monitor-exit v13
+    monitor-exit v14
 
-    throw v12
+    throw v13
 
     :cond_2
     :try_start_3
     invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string/jumbo v12, "   (AppSync) ---------"
+    const-string/jumbo v13, "   (AppSync) ---------"
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v12}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    monitor-exit v13
+    monitor-exit v14
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->ta:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;
+    iget-object v14, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mLockSuspiciousPkgSet:Ljava/lang/Object;
 
-    if-eqz v12, :cond_3
+    monitor-enter v14
 
+    :try_start_4
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->ta:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;
+    iget-object v13, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mSuspiciousPkgSet:Ljava/util/Set;
 
-    const/4 v13, 0x1
+    invoke-interface {v13}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v5
+
+    :goto_2
+    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v13
+
+    if-eqz v13, :cond_3
+
+    invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    new-instance v13, Ljava/lang/StringBuilder;
+
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v15, "   (AppSync) "
+
+    invoke-virtual {v13, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v13
+
+    check-cast v13, Ljava/lang/String;
+
+    invoke-virtual {v15, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v13
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v12, v13, v0}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;->printWhitelist(ZLjava/io/PrintWriter;)V
+    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_2
 
-    move-object/from16 v0, p0
+    goto :goto_2
 
-    iget-object v12, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->ta:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;
+    :catchall_2
+    move-exception v13
 
-    invoke-virtual {v12}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;->getWhitelistCount()I
+    monitor-exit v14
 
-    move-result v12
-
-    add-int/lit8 v6, v12, 0x0
+    throw v13
 
     :cond_3
+    :try_start_5
     invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    new-instance v12, Ljava/lang/StringBuilder;
-
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v13, "  (AppSync) ### "
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    const-string/jumbo v13, " added ###"
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v12
+    const-string/jumbo v13, "   (AppSync) ---------"
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v12}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_2
 
-    invoke-static {}, Lcom/android/server/AlarmManagerServiceExt;->-get2()Z
+    monitor-exit v14
 
-    move-result v12
+    new-instance v13, Ljava/lang/StringBuilder;
 
-    if-eqz v12, :cond_4
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    const-string/jumbo v14, "Suspicious Threshold Time : "
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v13
 
-    const-string/jumbo v13, "  (AppSync) Processing time (avg/max) : "
+    sget-wide v14, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->SUSPICIOUS_TIME_THRESHOLD:J
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v13, v14, v15}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v13
 
-    const-string/jumbo v13, "%.2f"
+    const-string/jumbo v14, "[millis]"
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v13
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->ta:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;
+
+    if-eqz v13, :cond_4
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->ta:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;
 
     const/4 v14, 0x1
 
-    new-array v14, v14, [Ljava/lang/Object;
+    move-object/from16 v0, p1
+
+    invoke-virtual {v13, v14, v0}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;->printWhitelist(ZLjava/io/PrintWriter;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->ta:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;
+
+    invoke-virtual {v13}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;->getWhitelistCount()I
+
+    move-result v13
+
+    add-int/lit8 v7, v13, 0x0
+
+    :cond_4
+    invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    new-instance v13, Ljava/lang/StringBuilder;
+
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v14, "  (AppSync) ### "
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    const-string/jumbo v14, " added ###"
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v13
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    invoke-static {}, Lcom/android/server/AlarmManagerServiceExt;->-get2()Z
+
+    move-result v13
+
+    if-eqz v13, :cond_5
+
+    invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    new-instance v13, Ljava/lang/StringBuilder;
+
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v14, "  (AppSync) Processing time (avg/max) : "
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    const-string/jumbo v14, "%.2f"
+
+    const/4 v15, 0x1
+
+    new-array v15, v15, [Ljava/lang/Object;
 
     move-object/from16 v0, p0
 
@@ -7302,68 +7368,337 @@
 
     invoke-static/range {v16 .. v17}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
-    move-result-object v15
+    move-result-object v16
 
-    const/16 v16, 0x0
+    const/16 v17, 0x0
 
-    aput-object v15, v14, v16
+    aput-object v16, v15, v17
 
-    invoke-static {v13, v14}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v14, v15}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v13
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v14, "/"
 
-    move-result-object v12
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v13, "/"
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
+    move-result-object v13
 
     move-object/from16 v0, p0
 
     iget-wide v14, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->statOpTimeMax:D
 
-    invoke-virtual {v12, v14, v15}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
+    invoke-virtual {v13, v14, v15}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v13
 
-    const-string/jumbo v13, "(UID:"
+    const-string/jumbo v14, "(UID:"
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v13
 
     move-object/from16 v0, p0
 
     iget-wide v14, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->statOpTimeMaxUid:J
 
-    invoke-virtual {v12, v14, v15}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v13, v14, v15}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v13
 
-    const-string/jumbo v13, ") [ms]"
+    const-string/jumbo v14, ") [ms]"
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v13
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v13
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v12}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    :cond_4
+    :cond_5
     invoke-static {}, Lcom/android/server/AlarmManagerServiceExt;->-get2()Z
 
-    move-result v12
+    move-result v13
 
-    if-eqz v12, :cond_8
+    if-eqz v13, :cond_9
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mLockExt:Ljava/lang/Object;
+
+    move-object/from16 v16, v0
+
+    monitor-enter v16
+
+    :try_start_6
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v14
+
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+
+    move-result-wide v18
+
+    sub-long v2, v14, v18
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mAdjustableRepeatingAlarms:Ljava/util/ArrayList;
+
+    invoke-virtual {v13}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v6
+
+    :goto_3
+    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v13
+
+    if-eqz v13, :cond_8
+
+    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;
+
+    new-instance v12, Landroid/text/format/Time;
+
+    invoke-direct {v12}, Landroid/text/format/Time;-><init>()V
+
+    iget-wide v0, v4, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->when:J
+
+    move-wide/from16 v18, v0
+
+    iget v13, v4, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->type:I
+
+    const/4 v14, 0x1
+
+    if-gt v13, v14, :cond_6
+
+    const-wide/16 v14, 0x0
+
+    :goto_4
+    add-long v14, v14, v18
+
+    invoke-virtual {v12, v14, v15}, Landroid/text/format/Time;->set(J)V
+
+    invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    new-instance v13, Ljava/lang/StringBuilder;
+
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v14, "    [AppSync] T:"
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    iget v14, v4, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->type:I
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    const-string/jumbo v14, ","
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v12}, Landroid/text/format/Time;->format2445()Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    const-string/jumbo v14, " "
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    iget-object v14, v4, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->operation:Landroid/app/PendingIntent;
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    const-string/jumbo v14, ", "
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    iget-wide v14, v4, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->when:J
+
+    invoke-virtual {v13, v14, v15}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    const-string/jumbo v14, ", INT:"
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    iget-wide v14, v4, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->repeatInterval:J
+
+    invoke-virtual {v13, v14, v15}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    const-string/jumbo v14, ","
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    iget-wide v14, v4, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->repeatIntervalWindow:J
+
+    invoke-virtual {v13, v14, v15}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    const-string/jumbo v14, "("
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    iget-boolean v13, v4, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->isExact:Z
+
+    if-eqz v13, :cond_7
+
+    const/4 v13, 0x1
+
+    :goto_5
+    invoke-virtual {v14, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    const-string/jumbo v14, ")"
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v13
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_3
+
+    goto/16 :goto_3
+
+    :catchall_3
+    move-exception v13
+
+    monitor-exit v16
+
+    throw v13
+
+    :cond_6
+    move-wide v14, v2
+
+    goto/16 :goto_4
+
+    :cond_7
+    const/4 v13, 0x0
+
+    goto :goto_5
+
+    :cond_8
+    monitor-exit v16
+
+    invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    new-instance v13, Ljava/lang/StringBuilder;
+
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v14, " GCD:"
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->gIntervalGcd:Ljava/math/BigInteger;
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v13
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->ta:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;
+
+    if-eqz v13, :cond_9
+
+    const-string/jumbo v13, "eng"
+
+    sget-object v14, Landroid/os/Build;->TYPE:Ljava/lang/String;
+
+    invoke-virtual {v13, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v13
+
+    if-eqz v13, :cond_9
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->ta:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v14
+
+    const/16 v16, 0x1
+
+    move/from16 v0, v16
+
+    move-object/from16 v1, p1
+
+    invoke-virtual {v13, v14, v15, v0, v1}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;->removeUnusedAlarmRecord(JZLjava/io/PrintWriter;)V
+
+    :cond_9
+    invoke-static {}, Lcom/android/server/AlarmManagerServiceExt;->-get2()Z
+
+    move-result v13
+
+    if-eqz v13, :cond_a
+
+    const-string/jumbo v13, "  <AppSync3 Blacklist>"
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     move-object/from16 v0, p0
 
@@ -7371,457 +7706,180 @@
 
     monitor-enter v14
 
-    :try_start_4
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v12
-
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
-
-    move-result-wide v16
-
-    sub-long v2, v12, v16
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mAdjustableRepeatingAlarms:Ljava/util/ArrayList;
-
-    invoke-virtual {v12}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v5
-
-    :goto_2
-    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v12
-
-    if-eqz v12, :cond_7
-
-    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;
-
-    new-instance v11, Landroid/text/format/Time;
-
-    invoke-direct {v11}, Landroid/text/format/Time;-><init>()V
-
-    iget-wide v0, v4, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->when:J
-
-    move-wide/from16 v16, v0
-
-    iget v12, v4, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->type:I
-
-    const/4 v13, 0x1
-
-    if-gt v12, v13, :cond_5
-
-    const-wide/16 v12, 0x0
-
-    :goto_3
-    add-long v12, v12, v16
-
-    invoke-virtual {v11, v12, v13}, Landroid/text/format/Time;->set(J)V
-
+    :try_start_7
     invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    new-instance v13, Ljava/lang/StringBuilder;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v13, "    [AppSync] T:"
+    const-string/jumbo v15, "   (AppSync) "
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    iget v13, v4, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->type:I
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    const-string/jumbo v13, ","
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v11}, Landroid/text/format/Time;->format2445()Ljava/lang/String;
+    invoke-virtual {v13, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v13
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, p0
 
-    move-result-object v12
+    iget-object v15, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mBlacklistPackages:Lcom/android/server/AlarmManagerServiceExt$PackageList;
 
-    const-string/jumbo v13, " "
+    invoke-virtual {v15}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->toString()Ljava/lang/String;
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v15
 
-    move-result-object v12
-
-    iget-object v13, v4, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->operation:Landroid/app/PendingIntent;
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    const-string/jumbo v13, ", "
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    iget-wide v0, v4, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->when:J
-
-    move-wide/from16 v16, v0
-
-    move-wide/from16 v0, v16
-
-    invoke-virtual {v12, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    const-string/jumbo v13, ", INT:"
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    iget-wide v0, v4, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->repeatInterval:J
-
-    move-wide/from16 v16, v0
-
-    move-wide/from16 v0, v16
-
-    invoke-virtual {v12, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    const-string/jumbo v13, ","
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    iget-wide v0, v4, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->repeatIntervalWindow:J
-
-    move-wide/from16 v16, v0
-
-    move-wide/from16 v0, v16
-
-    invoke-virtual {v12, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    const-string/jumbo v13, "("
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v13, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v13
 
-    iget-boolean v12, v4, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->isExact:Z
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    if-eqz v12, :cond_6
-
-    const/4 v12, 0x1
-
-    :goto_4
-    invoke-virtual {v13, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    const-string/jumbo v13, ")"
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v12
+    move-result-object v13
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v12}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_2
+    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    goto/16 :goto_2
+    invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    :catchall_2
-    move-exception v12
+    const-string/jumbo v13, "   (AppSync) ---------"
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_4
 
     monitor-exit v14
 
-    throw v12
+    const-string/jumbo v13, "  <AppSync3p Blacklist>"
 
-    :cond_5
-    move-wide v12, v2
+    move-object/from16 v0, p1
 
-    goto/16 :goto_3
+    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    :cond_6
-    const/4 v12, 0x0
+    move-object/from16 v0, p0
 
-    goto :goto_4
+    iget-object v14, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mLockExt:Ljava/lang/Object;
 
-    :cond_7
+    monitor-enter v14
+
+    :try_start_8
+    invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    new-instance v13, Ljava/lang/StringBuilder;
+
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v15, "   (AppSync) "
+
+    invoke-virtual {v13, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mBlacklistAppSync3P:Lcom/android/server/AlarmManagerServiceExt$PackageList;
+
+    invoke-virtual {v15}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->toString()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-virtual {v13, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v13
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string/jumbo v13, "   (AppSync) ---------"
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_5
+
     monitor-exit v14
 
+    :cond_a
     invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    new-instance v13, Ljava/lang/StringBuilder;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v13, " GCD:"
+    const-string/jumbo v14, "  Fixed Wakeups: "
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v13
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->gIntervalGcd:Ljava/math/BigInteger;
+    iget-boolean v14, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mChnAppsBundling:Z
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v13
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string/jumbo v14, "/"
 
-    move-result-object v12
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    move-object/from16 v0, p0
+
+    iget-boolean v14, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mChnSolEnable:Z
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    const-string/jumbo v14, "/"
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    move-object/from16 v0, p0
+
+    iget-boolean v14, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mChnSolDeactivateInScreenOn:Z
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v13
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v12}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->ta:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;
-
-    if-eqz v12, :cond_8
-
-    const-string/jumbo v12, "eng"
-
-    sget-object v13, Landroid/os/Build;->TYPE:Ljava/lang/String;
-
-    invoke-virtual {v12, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v12
-
-    if-eqz v12, :cond_8
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->ta:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;
-
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v14
-
-    const/4 v13, 0x1
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v12, v14, v15, v13, v0}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;->removeUnusedAlarmRecord(JZLjava/io/PrintWriter;)V
-
-    :cond_8
-    invoke-static {}, Lcom/android/server/AlarmManagerServiceExt;->-get2()Z
-
-    move-result v12
-
-    if-eqz v12, :cond_9
-
-    const-string/jumbo v12, "  <AppSync3 Blacklist>"
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v12}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mLockExt:Ljava/lang/Object;
-
-    monitor-enter v13
-
-    :try_start_5
-    invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    new-instance v12, Ljava/lang/StringBuilder;
-
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v14, "   (AppSync) "
-
-    invoke-virtual {v12, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mBlacklistPackages:Lcom/android/server/AlarmManagerServiceExt$PackageList;
-
-    invoke-virtual {v14}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->toString()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-virtual {v12, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v12
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v12}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    const-string/jumbo v12, "   (AppSync) ---------"
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v12}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_3
-
-    monitor-exit v13
-
-    const-string/jumbo v12, "  <AppSync3p Blacklist>"
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v12}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mLockExt:Ljava/lang/Object;
-
-    monitor-enter v13
-
-    :try_start_6
-    invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    new-instance v12, Ljava/lang/StringBuilder;
-
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v14, "   (AppSync) "
-
-    invoke-virtual {v12, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mBlacklistAppSync3P:Lcom/android/server/AlarmManagerServiceExt$PackageList;
-
-    invoke-virtual {v14}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->toString()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-virtual {v12, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v12
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v12}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    const-string/jumbo v12, "   (AppSync) ---------"
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v12}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_4
-
-    monitor-exit v13
-
-    :cond_9
-    invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    new-instance v12, Ljava/lang/StringBuilder;
-
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v13, "  Fixed Wakeups: "
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    move-object/from16 v0, p0
-
-    iget-boolean v13, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mChnAppsBundling:Z
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    const-string/jumbo v13, "/"
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    move-object/from16 v0, p0
-
-    iget-boolean v13, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mChnSolEnable:Z
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    const-string/jumbo v13, "/"
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    move-object/from16 v0, p0
-
-    iget-boolean v13, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mChnSolDeactivateInScreenOn:Z
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v12
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v12}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     return-void
 
-    :catchall_3
-    move-exception v12
-
-    monitor-exit v13
-
-    throw v12
-
     :catchall_4
-    move-exception v12
+    move-exception v13
 
-    monitor-exit v13
+    monitor-exit v14
 
-    throw v12
+    throw v13
+
+    :catchall_5
+    move-exception v13
+
+    monitor-exit v14
+
+    throw v13
 .end method
 
 .method public doGarbageCollection(J)V
@@ -8995,6 +9053,8 @@
     move-wide/from16 v12, v28
 
     :goto_2
+    invoke-virtual {v9, v12, v13}, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->checkSuspiciousAlarm(J)V
+
     const-wide/32 v18, 0x325aa0
 
     cmp-long v7, v28, v18
@@ -9088,7 +9148,7 @@
 
     move-object/from16 v1, p1
 
-    invoke-direct {v0, v1, v9, v10, v11}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->adjustAlarmForChinaGCMCoreReconnect(Lcom/android/server/AlarmManagerService$Alarm;Lcom/android/server/AlarmManagerServiceExt$AlarmExt;J)Z
+    invoke-direct {v0, v1, v9, v10, v11}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->adjustAlarmForGmsApplication(Lcom/android/server/AlarmManagerService$Alarm;Lcom/android/server/AlarmManagerServiceExt$AlarmExt;J)Z
 
     move-result v7
 
@@ -9171,9 +9231,17 @@
     :try_start_5
     move-object/from16 v0, p0
 
-    move-object/from16 v1, p1
+    invoke-direct {v0, v9}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->isChinaControlAlarm(Lcom/android/server/AlarmManagerService$Alarm;)Z
 
-    invoke-direct {v0, v1, v9, v10, v11}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->adjustAlarmForGmsApplication(Lcom/android/server/AlarmManagerService$Alarm;Lcom/android/server/AlarmManagerServiceExt$AlarmExt;J)Z
+    move-result v32
+
+    if-eqz v32, :cond_9
+
+    move-object/from16 v7, p0
+
+    move-object/from16 v8, p1
+
+    invoke-direct/range {v7 .. v13}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->adjustAlarmForChinaApplication(Lcom/android/server/AlarmManagerService$Alarm;Lcom/android/server/AlarmManagerServiceExt$AlarmExt;JJ)Z
 
     move-result v7
 
@@ -9191,23 +9259,9 @@
 
     :cond_9
     :try_start_6
-    move-object/from16 v0, p0
+    iget-object v7, v9, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->operation:Landroid/app/PendingIntent;
 
-    invoke-direct {v0, v9}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->isChinaControlAlarm(Lcom/android/server/AlarmManagerService$Alarm;)Z
-
-    move-result v32
-
-    if-eqz v32, :cond_a
-
-    move-object/from16 v7, p0
-
-    move-object/from16 v8, p1
-
-    invoke-direct/range {v7 .. v13}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->adjustAlarmForChinaApplication(Lcom/android/server/AlarmManagerService$Alarm;Lcom/android/server/AlarmManagerServiceExt$AlarmExt;JJ)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_a
+    if-nez v7, :cond_a
 
     iget-wide v0, v9, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->when:J
 
@@ -9221,22 +9275,6 @@
 
     :cond_a
     :try_start_7
-    iget-object v7, v9, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->operation:Landroid/app/PendingIntent;
-
-    if-nez v7, :cond_b
-
-    iget-wide v0, v9, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->when:J
-
-    move-wide/from16 v18, v0
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_1
-
-    monitor-exit v47
-
-    return-wide v18
-
-    :cond_b
-    :try_start_8
     move-object/from16 v0, p0
 
     iget-object v7, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mTargetPackages:Ljava/util/ArrayList;
@@ -9253,7 +9291,7 @@
 
     iget-boolean v8, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->WHITELIST:Z
 
-    if-ne v7, v8, :cond_1c
+    if-ne v7, v8, :cond_1b
 
     const-wide/16 v44, 0x0
 
@@ -9265,7 +9303,7 @@
 
     move-result v7
 
-    if-nez v7, :cond_c
+    if-nez v7, :cond_b
 
     const-string/jumbo v7, "com.samsung.android.email.sync"
 
@@ -9275,14 +9313,14 @@
 
     move-result v7
 
-    if-eqz v7, :cond_17
+    if-eqz v7, :cond_16
 
-    :cond_c
+    :cond_b
     move-object/from16 v0, p0
 
     iget v7, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mEmailUid:I
 
-    if-nez v7, :cond_d
+    if-nez v7, :cond_c
 
     iget-object v7, v9, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->operation:Landroid/app/PendingIntent;
 
@@ -9294,12 +9332,12 @@
 
     iput v7, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mEmailUid:I
 
-    :cond_d
+    :cond_c
     move-object/from16 v0, p0
 
     iget v7, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mEmailPid:I
 
-    if-nez v7, :cond_e
+    if-nez v7, :cond_d
 
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
@@ -9309,7 +9347,7 @@
 
     iput v7, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mEmailPid:I
 
-    :cond_e
+    :cond_d
     iget-object v7, v9, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->operation:Landroid/app/PendingIntent;
 
     move-object/from16 v0, p0
@@ -9318,7 +9356,7 @@
 
     move-result-object v21
 
-    if-eqz v21, :cond_10
+    if-eqz v21, :cond_f
 
     const-string/jumbo v7, "com.android.email.intent.extra.ACCOUNT"
 
@@ -9346,7 +9384,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_f
+    if-eqz v7, :cond_e
 
     const-string/jumbo v7, "AlarmManagerEXT"
 
@@ -9384,12 +9422,12 @@
 
     invoke-static {v7, v8}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_f
+    :cond_e
     const-wide/16 v18, -0x2
 
     cmp-long v7, v16, v18
 
-    if-nez v7, :cond_16
+    if-nez v7, :cond_15
 
     const-string/jumbo v7, "com.android.email.intent.action.ACTION_RESET_IDLE"
 
@@ -9401,7 +9439,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_16
+    if-eqz v7, :cond_15
 
     move-wide/from16 v0, v26
 
@@ -9431,25 +9469,25 @@
 
     iput-wide v0, v9, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->repeatInterval:J
 
-    :cond_10
+    :cond_f
     :goto_4
     const-wide/16 v18, 0x0
 
     cmp-long v7, v44, v18
 
-    if-ltz v7, :cond_11
+    if-ltz v7, :cond_10
 
     iget-wide v0, v9, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->repeatIntervalWindow:J
 
     move-wide/from16 v30, v0
 
-    :cond_11
+    :cond_10
     :goto_5
     invoke-static {}, Lcom/android/server/AlarmManagerServiceExt;->-get0()Z
 
     move-result v7
 
-    if-eqz v7, :cond_12
+    if-eqz v7, :cond_11
 
     const-string/jumbo v7, "AlarmManagerEXT"
 
@@ -9497,12 +9535,12 @@
 
     invoke-static {v7, v8}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_12
+    :cond_11
     const-wide/16 v18, 0x0
 
     cmp-long v7, v30, v18
 
-    if-nez v7, :cond_20
+    if-nez v7, :cond_1e
 
     iget-wide v0, v9, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->repeatIntervalOriginal:J
 
@@ -9512,7 +9550,7 @@
 
     cmp-long v7, v18, v48
 
-    if-ltz v7, :cond_20
+    if-ltz v7, :cond_1e
 
     iget-wide v0, v9, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->repeatIntervalOriginal:J
 
@@ -9522,7 +9560,7 @@
 
     cmp-long v7, v18, v48
 
-    if-gtz v7, :cond_20
+    if-gtz v7, :cond_1e
 
     const-wide/16 v18, 0x0
 
@@ -9540,13 +9578,13 @@
 
     invoke-direct {v0, v9}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->addRepeatingAlarmLocked(Lcom/android/server/AlarmManagerServiceExt$AlarmExt;)V
 
-    :cond_13
+    :cond_12
     :goto_6
     iget-wide v0, v9, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->when:J
 
     move-wide/from16 v40, v0
-    :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_1
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_1
 
     monitor-exit v47
 
@@ -9626,7 +9664,7 @@
 
     cmpl-double v7, v36, v18
 
-    if-lez v7, :cond_14
+    if-lez v7, :cond_13
 
     move-wide/from16 v0, v36
 
@@ -9650,12 +9688,12 @@
 
     iput-wide v0, v2, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->statOpTimeMaxUid:J
 
-    :cond_14
+    :cond_13
     invoke-static {}, Lcom/android/server/AlarmManagerServiceExt;->-get0()Z
 
     move-result v7
 
-    if-eqz v7, :cond_15
+    if-eqz v7, :cond_14
 
     const-string/jumbo v7, "AlarmManagerEXT"
 
@@ -9727,19 +9765,19 @@
 
     invoke-static {v7, v8}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_15
+    :cond_14
     return-wide v40
 
-    :cond_16
+    :cond_15
     const-wide/16 v18, -0x2
 
     cmp-long v7, v16, v18
 
-    if-eqz v7, :cond_10
+    if-eqz v7, :cond_f
 
-    if-eqz v20, :cond_10
+    if-eqz v20, :cond_f
 
-    :try_start_9
+    :try_start_8
     move-object/from16 v0, v20
 
     array-length v7, v0
@@ -9756,7 +9794,7 @@
 
     cmp-long v7, v18, v48
 
-    if-nez v7, :cond_10
+    if-nez v7, :cond_f
 
     iget-wide v0, v9, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->when:J
 
@@ -9782,18 +9820,18 @@
 
     goto/16 :goto_4
 
-    :cond_17
+    :cond_16
     const-wide/32 v18, 0x1b77400
 
     cmp-long v7, v26, v18
 
-    if-gtz v7, :cond_10
+    if-gtz v7, :cond_f
 
     const-wide/32 v18, 0x493e0
 
     cmp-long v7, v26, v18
 
-    if-ltz v7, :cond_10
+    if-ltz v7, :cond_f
 
     const-wide/32 v18, 0x186a0
 
@@ -9803,7 +9841,7 @@
 
     cmp-long v7, v18, v48
 
-    if-nez v7, :cond_10
+    if-nez v7, :cond_f
 
     const-wide/32 v18, 0x493e0
 
@@ -9813,7 +9851,7 @@
 
     cmp-long v7, v18, v48
 
-    if-nez v7, :cond_18
+    if-nez v7, :cond_17
 
     move-wide/from16 v0, v26
 
@@ -9827,7 +9865,7 @@
 
     cmp-long v7, v18, v48
 
-    if-lez v7, :cond_1b
+    if-lez v7, :cond_1a
 
     iget-wide v0, v9, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->repeatInterval:J
 
@@ -9838,12 +9876,12 @@
 
     iput-wide v0, v9, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->repeatIntervalWindow:J
 
-    :cond_18
+    :cond_17
     move-object/from16 v0, p0
 
     iget-object v7, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->ta:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;
 
-    if-eqz v7, :cond_19
+    if-eqz v7, :cond_18
 
     move-object/from16 v0, p0
 
@@ -9855,12 +9893,12 @@
 
     move-result-wide v44
 
-    :cond_19
+    :cond_18
     const-wide/16 v18, 0x0
 
     cmp-long v7, v44, v18
 
-    if-ltz v7, :cond_1a
+    if-ltz v7, :cond_19
 
     iget-wide v0, v9, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->repeatIntervalOriginal:J
 
@@ -9870,7 +9908,7 @@
 
     cmp-long v7, v18, v48
 
-    if-eqz v7, :cond_1a
+    if-eqz v7, :cond_19
 
     move-wide/from16 v0, v26
 
@@ -9886,14 +9924,14 @@
 
     iput-wide v0, v9, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->repeatIntervalWindow:J
 
-    :cond_1a
+    :cond_19
     iget-wide v0, v9, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->repeatIntervalOriginal:J
 
     move-wide/from16 v18, v0
 
     cmp-long v7, v12, v18
 
-    if-gez v7, :cond_10
+    if-gez v7, :cond_f
 
     const-wide/16 v44, 0x0
 
@@ -9912,8 +9950,8 @@
     const/4 v7, 0x1
 
     iput-boolean v7, v9, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->isIntervalChanged:Z
-    :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_1
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_1
 
     goto/16 :goto_4
 
@@ -9924,8 +9962,8 @@
 
     throw v7
 
-    :cond_1b
-    :try_start_a
+    :cond_1a
+    :try_start_9
     iget-wide v0, v9, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->repeatInterval:J
 
     move-wide/from16 v18, v0
@@ -9950,18 +9988,18 @@
 
     goto :goto_7
 
-    :cond_1c
+    :cond_1b
     const-wide/32 v18, 0x1b77400
 
     cmp-long v7, v26, v18
 
-    if-gtz v7, :cond_11
+    if-gtz v7, :cond_10
 
     const-wide/32 v18, 0x493e0
 
     cmp-long v7, v26, v18
 
-    if-ltz v7, :cond_11
+    if-ltz v7, :cond_10
 
     const-wide/32 v18, 0x186a0
 
@@ -9971,23 +10009,34 @@
 
     cmp-long v7, v18, v48
 
-    if-nez v7, :cond_11
+    if-nez v7, :cond_10
 
     move-object/from16 v0, p0
 
     iget-object v7, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->ta:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;
 
-    if-eqz v7, :cond_1d
+    if-eqz v7, :cond_1c
 
-    if-eqz v32, :cond_1e
+    xor-int/lit8 v7, v32, 0x1
 
-    :cond_1d
-    :goto_8
+    if-eqz v7, :cond_1c
+
+    move-object/from16 v0, p0
+
+    iget-object v7, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->ta:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;
+
+    move-wide/from16 v0, v26
+
+    invoke-virtual {v7, v9, v0, v1}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;->queryTrafficPeriodicity(Lcom/android/server/AlarmManagerServiceExt$AlarmExt;J)J
+
+    move-result-wide v30
+
+    :cond_1c
     const-wide/16 v18, 0x0
 
     cmp-long v7, v30, v18
 
-    if-lez v7, :cond_11
+    if-lez v7, :cond_10
 
     move-wide/from16 v0, v26
 
@@ -10001,33 +10050,20 @@
 
     cmp-long v7, v18, v48
 
-    if-lez v7, :cond_1f
+    if-lez v7, :cond_1d
 
     iget-wide v0, v9, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->repeatInterval:J
 
     move-wide/from16 v18, v0
 
-    :goto_9
+    :goto_8
     move-wide/from16 v0, v18
 
     iput-wide v0, v9, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->repeatIntervalWindow:J
 
     goto/16 :goto_5
 
-    :cond_1e
-    move-object/from16 v0, p0
-
-    iget-object v7, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->ta:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;
-
-    move-wide/from16 v0, v26
-
-    invoke-virtual {v7, v9, v0, v1}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;->queryTrafficPeriodicity(Lcom/android/server/AlarmManagerServiceExt$AlarmExt;J)J
-
-    move-result-wide v30
-
-    goto :goto_8
-
-    :cond_1f
+    :cond_1d
     iget-wide v0, v9, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->repeatInterval:J
 
     move-wide/from16 v18, v0
@@ -10050,14 +10086,14 @@
 
     move-result-wide v18
 
-    goto :goto_9
+    goto :goto_8
 
-    :cond_20
+    :cond_1e
     const-wide/16 v18, 0x0
 
     cmp-long v7, v30, v18
 
-    if-lez v7, :cond_13
+    if-lez v7, :cond_12
 
     iget-wide v0, v9, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->repeatIntervalOriginal:J
 
@@ -10067,7 +10103,7 @@
 
     cmp-long v7, v18, v48
 
-    if-ltz v7, :cond_26
+    if-ltz v7, :cond_24
 
     iget-wide v0, v9, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->repeatIntervalOriginal:J
 
@@ -10077,7 +10113,7 @@
 
     cmp-long v7, v18, v48
 
-    if-gtz v7, :cond_26
+    if-gtz v7, :cond_24
 
     move-object/from16 v0, p0
 
@@ -10127,7 +10163,7 @@
 
     cmp-long v7, v18, v48
 
-    if-nez v7, :cond_25
+    if-nez v7, :cond_23
 
     move-object/from16 v0, p0
 
@@ -10149,23 +10185,23 @@
 
     invoke-direct {v0, v9}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->addRepeatingAlarmLocked(Lcom/android/server/AlarmManagerServiceExt$AlarmExt;)V
 
-    :cond_21
-    :goto_a
+    :cond_1f
+    :goto_9
     invoke-static {}, Lcom/android/server/AlarmManagerServiceExt;->-get3()Z
 
     move-result v7
 
-    if-eqz v7, :cond_22
+    if-eqz v7, :cond_20
 
     iget-boolean v7, v9, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->isWhitelist:Z
 
-    if-eqz v7, :cond_22
+    if-eqz v7, :cond_20
 
     iget v7, v9, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->type:I
 
     const/4 v8, 0x1
 
-    if-gt v7, v8, :cond_27
+    if-gt v7, v8, :cond_25
 
     iget-wide v0, v9, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->when:J
 
@@ -10173,7 +10209,7 @@
 
     sub-long v18, v18, v10
 
-    :goto_b
+    :goto_a
     move-wide/from16 v0, v18
 
     iput-wide v0, v9, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->whenElapsed:J
@@ -10210,12 +10246,12 @@
 
     iput-wide v0, v2, Lcom/android/server/AlarmManagerService$Alarm;->maxWhenElapsed:J
 
-    :cond_22
+    :cond_20
     invoke-static {}, Lcom/android/server/AlarmManagerServiceExt;->-get1()Z
 
     move-result v7
 
-    if-eqz v7, :cond_23
+    if-eqz v7, :cond_21
 
     move-object/from16 v0, p1
 
@@ -10229,7 +10265,7 @@
 
     iput-wide v0, v2, Lcom/android/server/AlarmManagerService$Alarm;->origWhen:J
 
-    :cond_23
+    :cond_21
     const-string/jumbo v7, "eng"
 
     sget-object v8, Landroid/os/Build;->TYPE:Ljava/lang/String;
@@ -10238,7 +10274,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_28
+    if-eqz v7, :cond_26
 
     move-object/from16 v0, p1
 
@@ -10254,9 +10290,9 @@
 
     cmp-long v7, v18, v48
 
-    if-eqz v7, :cond_28
+    if-eqz v7, :cond_26
 
-    :goto_c
+    :goto_b
     new-instance v39, Landroid/text/format/Time;
 
     invoke-direct/range {v39 .. v39}, Landroid/text/format/Time;-><init>()V
@@ -10269,11 +10305,11 @@
 
     const/4 v8, 0x1
 
-    if-gt v7, v8, :cond_24
+    if-gt v7, v8, :cond_22
 
     const-wide/16 v10, 0x0
 
-    :cond_24
+    :cond_22
     add-long v18, v18, v10
 
     move-object/from16 v0, v39
@@ -10398,7 +10434,7 @@
 
     goto/16 :goto_6
 
-    :cond_25
+    :cond_23
     iget-wide v0, v9, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->repeatIntervalOriginal:J
 
     move-wide/from16 v18, v0
@@ -10411,9 +10447,9 @@
 
     invoke-direct {v0, v9, v1, v2, v7}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->adjustAlarmTimeLocked(Lcom/android/server/AlarmManagerServiceExt$AlarmExt;JZ)V
 
-    goto/16 :goto_a
+    goto/16 :goto_9
 
-    :cond_26
+    :cond_24
     iget-wide v0, v9, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->repeatIntervalOriginal:J
 
     move-wide/from16 v18, v0
@@ -10422,19 +10458,19 @@
 
     cmp-long v7, v18, v48
 
-    if-nez v7, :cond_21
+    if-nez v7, :cond_1f
 
     const-wide/32 v18, 0x1b77400
 
     cmp-long v7, v30, v18
 
-    if-gtz v7, :cond_21
+    if-gtz v7, :cond_1f
 
     const-wide/32 v18, 0x493e0
 
     cmp-long v7, v30, v18
 
-    if-ltz v7, :cond_21
+    if-ltz v7, :cond_1f
 
     move-object/from16 v0, p0
 
@@ -10482,46 +10518,63 @@
 
     invoke-direct {v0, v9}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->addRepeatingAlarmLocked(Lcom/android/server/AlarmManagerServiceExt$AlarmExt;)V
 
-    goto/16 :goto_a
+    goto/16 :goto_9
 
-    :cond_27
+    :cond_25
     iget-wide v0, v9, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->when:J
 
     move-wide/from16 v18, v0
 
-    goto/16 :goto_b
+    goto/16 :goto_a
 
-    :cond_28
+    :cond_26
     invoke-static {}, Lcom/android/server/AlarmManagerServiceExt;->-get0()Z
-    :try_end_a
-    .catchall {:try_start_a .. :try_end_a} :catchall_1
+    :try_end_9
+    .catchall {:try_start_9 .. :try_end_9} :catchall_1
 
     move-result v7
 
-    if-eqz v7, :cond_13
+    if-eqz v7, :cond_12
 
-    goto/16 :goto_c
+    goto/16 :goto_b
 .end method
 
 .method public updateAlarmTriggerInfo(Lcom/android/server/AlarmManagerService$Alarm;IJ)V
     .locals 9
 
-    iget-object v4, p1, Lcom/android/server/AlarmManagerService$Alarm;->operation:Landroid/app/PendingIntent;
+    const/4 v4, 0x0
 
-    if-nez v4, :cond_0
+    iget-object v5, p1, Lcom/android/server/AlarmManagerService$Alarm;->operation:Landroid/app/PendingIntent;
 
-    iget-object v4, p1, Lcom/android/server/AlarmManagerService$Alarm;->listener:Landroid/app/IAlarmListener;
+    if-nez v5, :cond_0
 
-    if-nez v4, :cond_0
+    iget-object v5, p1, Lcom/android/server/AlarmManagerService$Alarm;->listener:Landroid/app/IAlarmListener;
+
+    if-nez v5, :cond_0
 
     return-void
 
     :cond_0
     const/4 v2, 0x0
 
-    const/4 v3, 0x0
+    iget-object v5, p1, Lcom/android/server/AlarmManagerService$Alarm;->packageName:Ljava/lang/String;
 
-    iget v2, p1, Lcom/android/server/AlarmManagerService$Alarm;->uid:I
+    if-nez v5, :cond_1
+
+    return-void
+
+    :cond_1
+    iget-object v5, p1, Lcom/android/server/AlarmManagerService$Alarm;->packageName:Ljava/lang/String;
+
+    iget v6, p1, Lcom/android/server/AlarmManagerService$Alarm;->uid:I
+
+    invoke-static {v6}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v6
+
+    invoke-direct {p0, v5, v6}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->getPackageTag(Ljava/lang/String;I)Ljava/lang/String;
+
+    move-result-object v3
 
     iget-object v5, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mLockExt:Ljava/lang/Object;
 
@@ -10535,57 +10588,56 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
-    iget-object v4, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mUserAppList:Ljava/util/Set;
+    iget-object v7, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mUserAppTagSet:Ljava/util/Set;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v7
-
-    invoke-interface {v4, v7}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+    invoke-interface {v7, v3}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    move-result v4
+    move-result v7
 
-    if-nez v4, :cond_1
+    if-nez v7, :cond_2
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    :cond_1
+    :cond_2
     :try_start_2
     monitor-exit v6
 
-    iget-boolean v4, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->isUSBConnected:Z
+    iget-boolean v6, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->isUSBConnected:Z
 
-    if-nez v4, :cond_2
+    if-nez v6, :cond_4
 
-    iget-boolean v4, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mChnAppsBundling:Z
+    iget-boolean v6, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mChnAppsBundling:Z
 
-    if-eqz v4, :cond_2
+    if-eqz v6, :cond_3
 
     iget-boolean v4, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mChnSolEnable:Z
 
-    if-eqz v4, :cond_2
+    :cond_3
+    xor-int/lit8 v4, v4, 0x1
+
+    if-nez v4, :cond_4
 
     iget-boolean v4, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->isGalaxyViewUSBConnected:Z
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_4
 
-    if-eqz v3, :cond_5
+    if-eqz v2, :cond_7
 
-    :cond_2
+    :cond_4
     iget-object v4, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mAdjustableRepeatingAlarms:Ljava/util/ArrayList;
 
     invoke-interface {v4}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :cond_3
+    :cond_5
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_6
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -10601,7 +10653,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_5
 
     iput p2, v0, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->count:I
 
@@ -10609,7 +10661,7 @@
 
     iget-boolean v4, v0, Lcom/android/server/AlarmManagerServiceExt$AlarmExt;->isPassedAlarm:Z
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_6
 
     const/4 v4, 0x0
 
@@ -10638,15 +10690,15 @@
 
     throw v4
 
-    :cond_4
+    :cond_6
     :try_start_4
     iget-object v4, p1, Lcom/android/server/AlarmManagerService$Alarm;->operation:Landroid/app/PendingIntent;
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_7
 
     iget-object v4, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->ta:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_7
 
     iget-object v4, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->ta:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;
 
@@ -10656,7 +10708,7 @@
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
-    :cond_5
+    :cond_7
     monitor-exit v5
 
     return-void

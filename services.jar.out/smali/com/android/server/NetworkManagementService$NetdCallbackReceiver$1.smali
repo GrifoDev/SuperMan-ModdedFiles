@@ -41,13 +41,13 @@
 
     iget-object v0, v0, Lcom/android/server/NetworkManagementService$NetdCallbackReceiver;->this$0:Lcom/android/server/NetworkManagementService;
 
-    invoke-static {v0}, Lcom/android/server/NetworkManagementService;->-wrap1(Lcom/android/server/NetworkManagementService;)V
+    invoke-static {v0}, Lcom/android/server/NetworkManagementService;->-wrap4(Lcom/android/server/NetworkManagementService;)V
 
     iget-object v0, p0, Lcom/android/server/NetworkManagementService$NetdCallbackReceiver$1;->this$1:Lcom/android/server/NetworkManagementService$NetdCallbackReceiver;
 
     iget-object v0, v0, Lcom/android/server/NetworkManagementService$NetdCallbackReceiver;->this$0:Lcom/android/server/NetworkManagementService;
 
-    invoke-static {v0}, Lcom/android/server/NetworkManagementService;->-wrap13(Lcom/android/server/NetworkManagementService;)V
+    invoke-static {v0}, Lcom/android/server/NetworkManagementService;->-wrap15(Lcom/android/server/NetworkManagementService;)V
 
     return-void
 .end method

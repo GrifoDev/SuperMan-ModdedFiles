@@ -49,7 +49,7 @@
 
     const-string/jumbo v2, ""
 
-    invoke-static {v0, v1, v2}, Lcom/android/server/fingerprint/FingerprintService;->-wrap4(Lcom/android/server/fingerprint/FingerprintService;ILjava/lang/String;)I
+    invoke-static {v0, v1, v2}, Lcom/android/server/fingerprint/FingerprintService;->-wrap19(Lcom/android/server/fingerprint/FingerprintService;ILjava/lang/String;)V
 
     return-void
 .end method

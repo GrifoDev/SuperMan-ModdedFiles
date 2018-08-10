@@ -17,8 +17,6 @@
 # static fields
 .field private static final FILE_MAGIC:I = 0x414e4554
 
-.field private static final TAG:Ljava/lang/String; = "NetworkStatsCollection"
-
 .field private static final VERSION_NETWORK_INIT:I = 0x1
 
 .field private static final VERSION_UID_INIT:I = 0x1
@@ -337,6 +335,35 @@
     return-object v0
 .end method
 
+.method private getSortedKeys()Ljava/util/ArrayList;
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/ArrayList",
+            "<",
+            "Lcom/android/server/net/NetworkStatsCollection$Key;",
+            ">;"
+        }
+    .end annotation
+
+    invoke-static {}, Lcom/google/android/collect/Lists;->newArrayList()Ljava/util/ArrayList;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/server/net/NetworkStatsCollection;->mStats:Landroid/util/ArrayMap;
+
+    invoke-virtual {v1}, Landroid/util/ArrayMap;->keySet()Ljava/util/Set;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
+
+    invoke-static {v0}, Ljava/util/Collections;->sort(Ljava/util/List;)V
+
+    return-object v0
+.end method
+
 .method private noteRecordedHistory(JJJ)V
     .locals 3
 
@@ -513,30 +540,21 @@
 .method public dump(Lcom/android/internal/util/IndentingPrintWriter;)V
     .locals 5
 
-    invoke-static {}, Lcom/google/android/collect/Lists;->newArrayList()Ljava/util/ArrayList;
+    invoke-direct {p0}, Lcom/android/server/net/NetworkStatsCollection;->getSortedKeys()Ljava/util/ArrayList;
 
     move-result-object v3
-
-    iget-object v4, p0, Lcom/android/server/net/NetworkStatsCollection;->mStats:Landroid/util/ArrayMap;
-
-    invoke-virtual {v4}, Landroid/util/ArrayMap;->keySet()Ljava/util/Set;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
-
-    invoke-static {v3}, Ljava/util/Collections;->sort(Ljava/util/List;)V
 
     invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
+    :cond_0
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_0
+    if-eqz v3, :cond_2
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -544,53 +562,70 @@
 
     check-cast v1, Lcom/android/server/net/NetworkStatsCollection$Key;
 
-    const-string/jumbo v4, "ident="
+    iget v3, v1, Lcom/android/server/net/NetworkStatsCollection$Key;->uid:I
 
-    invoke-virtual {p1, v4}, Lcom/android/internal/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
+    const/4 v4, -0x1
 
-    iget-object v4, v1, Lcom/android/server/net/NetworkStatsCollection$Key;->ident:Lcom/android/server/net/NetworkIdentitySet;
+    if-eq v3, v4, :cond_1
 
-    invoke-virtual {v4}, Lcom/android/server/net/NetworkIdentitySet;->toString()Ljava/lang/String;
+    iget-object v3, v1, Lcom/android/server/net/NetworkStatsCollection$Key;->ident:Lcom/android/server/net/NetworkIdentitySet;
 
-    move-result-object v4
+    invoke-virtual {v3}, Lcom/android/server/net/NetworkIdentitySet;->isAnyMemberMetered()Z
 
-    invoke-virtual {p1, v4}, Lcom/android/internal/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
+    move-result v3
 
-    const-string/jumbo v4, " uid="
+    xor-int/lit8 v3, v3, 0x1
 
-    invoke-virtual {p1, v4}, Lcom/android/internal/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
+    if-nez v3, :cond_0
 
-    iget v4, v1, Lcom/android/server/net/NetworkStatsCollection$Key;->uid:I
+    :cond_1
+    const-string/jumbo v3, "ident="
 
-    invoke-virtual {p1, v4}, Lcom/android/internal/util/IndentingPrintWriter;->print(I)V
+    invoke-virtual {p1, v3}, Lcom/android/internal/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
-    const-string/jumbo v4, " set="
+    iget-object v3, v1, Lcom/android/server/net/NetworkStatsCollection$Key;->ident:Lcom/android/server/net/NetworkIdentitySet;
 
-    invoke-virtual {p1, v4}, Lcom/android/internal/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {v3}, Lcom/android/server/net/NetworkIdentitySet;->toString()Ljava/lang/String;
 
-    iget v4, v1, Lcom/android/server/net/NetworkStatsCollection$Key;->set:I
+    move-result-object v3
 
-    invoke-static {v4}, Landroid/net/NetworkStats;->setToString(I)Ljava/lang/String;
+    invoke-virtual {p1, v3}, Lcom/android/internal/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
-    move-result-object v4
+    const-string/jumbo v3, " uid="
 
-    invoke-virtual {p1, v4}, Lcom/android/internal/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, v3}, Lcom/android/internal/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
-    const-string/jumbo v4, " tag="
+    iget v3, v1, Lcom/android/server/net/NetworkStatsCollection$Key;->uid:I
 
-    invoke-virtual {p1, v4}, Lcom/android/internal/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, v3}, Lcom/android/internal/util/IndentingPrintWriter;->print(I)V
 
-    iget v4, v1, Lcom/android/server/net/NetworkStatsCollection$Key;->tag:I
+    const-string/jumbo v3, " set="
 
-    invoke-static {v4}, Landroid/net/NetworkStats;->tagToString(I)Ljava/lang/String;
+    invoke-virtual {p1, v3}, Lcom/android/internal/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
-    move-result-object v4
+    iget v3, v1, Lcom/android/server/net/NetworkStatsCollection$Key;->set:I
 
-    invoke-virtual {p1, v4}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+    invoke-static {v3}, Landroid/net/NetworkStats;->setToString(I)Ljava/lang/String;
 
-    iget-object v4, p0, Lcom/android/server/net/NetworkStatsCollection;->mStats:Landroid/util/ArrayMap;
+    move-result-object v3
 
-    invoke-virtual {v4, v1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p1, v3}, Lcom/android/internal/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
+
+    const-string/jumbo v3, " tag="
+
+    invoke-virtual {p1, v3}, Lcom/android/internal/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
+
+    iget v3, v1, Lcom/android/server/net/NetworkStatsCollection$Key;->tag:I
+
+    invoke-static {v3}, Landroid/net/NetworkStats;->tagToString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {p1, v3}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+
+    iget-object v3, p0, Lcom/android/server/net/NetworkStatsCollection;->mStats:Landroid/util/ArrayMap;
+
+    invoke-virtual {v3, v1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -598,15 +633,15 @@
 
     invoke-virtual {p1}, Lcom/android/internal/util/IndentingPrintWriter;->increaseIndent()V
 
-    const/4 v4, 0x1
+    const/4 v3, 0x1
 
-    invoke-virtual {v0, p1, v4}, Landroid/net/NetworkStatsHistory;->dump(Lcom/android/internal/util/IndentingPrintWriter;Z)V
+    invoke-virtual {v0, p1, v3}, Landroid/net/NetworkStatsHistory;->dump(Lcom/android/internal/util/IndentingPrintWriter;Z)V
 
     invoke-virtual {p1}, Lcom/android/internal/util/IndentingPrintWriter;->decreaseIndent()V
 
     goto :goto_0
 
-    :cond_0
+    :cond_2
     return-void
 .end method
 
@@ -1122,7 +1157,7 @@
 
     move-result v4
 
-    if-ge v11, v4, :cond_3
+    if-ge v11, v4, :cond_4
 
     iget-object v4, p0, Lcom/android/server/net/NetworkStatsCollection;->mStats:Landroid/util/ArrayMap;
 
@@ -1194,7 +1229,7 @@
 
     iget-object v4, v12, Lcom/android/server/net/NetworkStatsCollection$Key;->ident:Lcom/android/server/net/NetworkIdentitySet;
 
-    invoke-virtual {v4}, Lcom/android/server/net/NetworkIdentitySet;->isAnyMemberRoaming()Z
+    invoke-virtual {v4}, Lcom/android/server/net/NetworkIdentitySet;->isAnyMemberMetered()Z
 
     move-result v4
 
@@ -1203,6 +1238,19 @@
     const/4 v4, 0x1
 
     :goto_1
+    iput v4, v2, Landroid/net/NetworkStats$Entry;->metered:I
+
+    iget-object v4, v12, Lcom/android/server/net/NetworkStatsCollection$Key;->ident:Lcom/android/server/net/NetworkIdentitySet;
+
+    invoke-virtual {v4}, Lcom/android/server/net/NetworkIdentitySet;->isAnyMemberRoaming()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_3
+
+    const/4 v4, 0x1
+
+    :goto_2
     iput v4, v2, Landroid/net/NetworkStats$Entry;->roaming:I
 
     iget-wide v4, v10, Landroid/net/NetworkStatsHistory$Entry;->rxBytes:J
@@ -1236,7 +1284,7 @@
     :cond_1
     add-int/lit8 v11, v11, 0x1
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_2
     const/4 v4, 0x0
@@ -1244,6 +1292,11 @@
     goto :goto_1
 
     :cond_3
+    const/4 v4, 0x0
+
+    goto :goto_2
+
+    :cond_4
     return-object v13
 .end method
 
@@ -2231,6 +2284,94 @@
 
     :cond_3
     invoke-virtual {p1}, Ljava/io/DataOutputStream;->flush()V
+
+    return-void
+.end method
+
+.method public writeToProto(Landroid/util/proto/ProtoOutputStream;J)V
+    .locals 12
+
+    invoke-virtual {p1, p2, p3}, Landroid/util/proto/ProtoOutputStream;->start(J)J
+
+    move-result-wide v4
+
+    invoke-direct {p0}, Lcom/android/server/net/NetworkStatsCollection;->getSortedKeys()Ljava/util/ArrayList;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/server/net/NetworkStatsCollection$Key;
+
+    const-wide v10, 0x21100000001L
+
+    invoke-virtual {p1, v10, v11}, Landroid/util/proto/ProtoOutputStream;->start(J)J
+
+    move-result-wide v8
+
+    const-wide v10, 0x11100000001L
+
+    invoke-virtual {p1, v10, v11}, Landroid/util/proto/ProtoOutputStream;->start(J)J
+
+    move-result-wide v6
+
+    iget-object v3, v1, Lcom/android/server/net/NetworkStatsCollection$Key;->ident:Lcom/android/server/net/NetworkIdentitySet;
+
+    const-wide v10, 0x11100000001L
+
+    invoke-virtual {v3, p1, v10, v11}, Lcom/android/server/net/NetworkIdentitySet;->writeToProto(Landroid/util/proto/ProtoOutputStream;J)V
+
+    iget v3, v1, Lcom/android/server/net/NetworkStatsCollection$Key;->uid:I
+
+    const-wide v10, 0x10300000002L
+
+    invoke-virtual {p1, v10, v11, v3}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+
+    iget v3, v1, Lcom/android/server/net/NetworkStatsCollection$Key;->set:I
+
+    const-wide v10, 0x10300000003L
+
+    invoke-virtual {p1, v10, v11, v3}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+
+    iget v3, v1, Lcom/android/server/net/NetworkStatsCollection$Key;->tag:I
+
+    const-wide v10, 0x10300000004L
+
+    invoke-virtual {p1, v10, v11, v3}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+
+    invoke-virtual {p1, v6, v7}, Landroid/util/proto/ProtoOutputStream;->end(J)V
+
+    iget-object v3, p0, Lcom/android/server/net/NetworkStatsCollection;->mStats:Landroid/util/ArrayMap;
+
+    invoke-virtual {v3, v1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/net/NetworkStatsHistory;
+
+    const-wide v10, 0x11100000002L
+
+    invoke-virtual {v0, p1, v10, v11}, Landroid/net/NetworkStatsHistory;->writeToProto(Landroid/util/proto/ProtoOutputStream;J)V
+
+    invoke-virtual {p1, v8, v9}, Landroid/util/proto/ProtoOutputStream;->end(J)V
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p1, v4, v5}, Landroid/util/proto/ProtoOutputStream;->end(J)V
 
     return-void
 .end method

@@ -18,7 +18,7 @@
 
 .field static final MAX_DONE_EXECUTING_COUNT:I = 0x6
 
-.field private static final TAG:Ljava/lang/String;
+.field private static final TAG:Ljava/lang/String; = "ActivityManager"
 
 
 # instance fields
@@ -41,8 +41,6 @@
 .end field
 
 .field callStart:Z
-
-.field callerActivityToken:Landroid/os/IBinder;
 
 .field final connections:Landroid/util/ArrayMap;
     .annotation system Ldalvik/annotation/Signature;
@@ -83,8 +81,6 @@
 
 .field destroying:Z
 
-.field displayId:I
-
 .field executeFg:Z
 
 .field executeNesting:I
@@ -92,6 +88,10 @@
 .field executingStart:J
 
 .field final exported:Z
+
+.field fgRequired:Z
+
+.field fgWaiting:Z
 
 .field foregroundId:I
 
@@ -168,16 +168,6 @@
     sget-object v0, Lcom/android/server/am/ServiceRecord;->TAG:Ljava/lang/String;
 
     return-object v0
-.end method
-
-.method static constructor <clinit>()V
-    .locals 1
-
-    const-string/jumbo v0, "ActivityManager"
-
-    sput-object v0, Lcom/android/server/am/ServiceRecord;->TAG:Ljava/lang/String;
-
-    return-void
 .end method
 
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService;Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;Landroid/content/ComponentName;Landroid/content/Intent$FilterComparison;Landroid/content/pm/ServiceInfo;ZLjava/lang/Runnable;)V
@@ -273,10 +263,6 @@
 
     iput-boolean p6, p0, Lcom/android/server/am/ServiceRecord;->createdFromFg:Z
 
-    const/4 v0, 0x0
-
-    iput v0, p0, Lcom/android/server/am/ServiceRecord;->displayId:I
-
     return-void
 .end method
 
@@ -284,10 +270,6 @@
 # virtual methods
 .method public cancelNotification()V
     .locals 4
-
-    iget v2, p0, Lcom/android/server/am/ServiceRecord;->foregroundId:I
-
-    if-eqz v2, :cond_0
 
     iget-object v1, p0, Lcom/android/server/am/ServiceRecord;->packageName:Ljava/lang/String;
 
@@ -303,7 +285,6 @@
 
     invoke-virtual {v2, v3}, Lcom/android/server/am/ActivityManagerService$MainHandler;->post(Ljava/lang/Runnable;)Z
 
-    :cond_0
     return-void
 .end method
 

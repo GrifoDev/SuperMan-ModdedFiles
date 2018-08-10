@@ -220,27 +220,13 @@
     :try_start_1
     const-string/jumbo v32, "DcmNextiPlayReadyService"
 
-    const-string/jumbo v33, "Catch SecurityException Exceptions"
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v32, "DcmNextiPlayReadyService"
-
     invoke-virtual {v10}, Ljava/lang/SecurityException;->getLocalizedMessage()Ljava/lang/String;
 
     move-result-object v33
 
     invoke-static/range {v32 .. v33}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {v10}, Ljava/lang/SecurityException;->printStackTrace()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    const-string/jumbo v32, "DcmNextiPlayReadyService"
-
-    const-string/jumbo v33, "resetting flag for later threads"
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     const/16 v32, 0x1
 
@@ -393,12 +379,6 @@
 
     :cond_3
     :goto_2
-    const-string/jumbo v32, "DcmNextiPlayReadyService"
-
-    const-string/jumbo v33, "resetting flag for later threads"
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
     const/16 v32, 0x1
 
     sput v32, Lcom/android/server/DcmNextiPlayReadyService;->THREAD_EXECUTING:I
@@ -460,12 +440,6 @@
     :try_start_4
     const-string/jumbo v32, "DcmNextiPlayReadyService"
 
-    const-string/jumbo v33, "epoch time parsing error"
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v32, "DcmNextiPlayReadyService"
-
     invoke-virtual {v11}, Ljava/text/ParseException;->getLocalizedMessage()Ljava/lang/String;
 
     move-result-object v33
@@ -473,12 +447,6 @@
     invoke-static/range {v32 .. v33}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
-
-    const-string/jumbo v32, "DcmNextiPlayReadyService"
-
-    const-string/jumbo v33, "resetting flag for later threads"
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     const/16 v32, 0x1
 
@@ -496,27 +464,13 @@
     :try_start_5
     const-string/jumbo v32, "DcmNextiPlayReadyService"
 
-    const-string/jumbo v33, "Catch other Exceptions"
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v32, "DcmNextiPlayReadyService"
-
     invoke-virtual {v8}, Ljava/lang/Exception;->getLocalizedMessage()Ljava/lang/String;
 
     move-result-object v33
 
     invoke-static/range {v32 .. v33}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {v8}, Ljava/lang/Exception;->printStackTrace()V
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
-
-    const-string/jumbo v32, "DcmNextiPlayReadyService"
-
-    const-string/jumbo v33, "resetting flag for later threads"
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     const/16 v32, 0x1
 
@@ -534,27 +488,13 @@
     :try_start_6
     const-string/jumbo v32, "DcmNextiPlayReadyService"
 
-    const-string/jumbo v33, "Catch IOException Exceptions"
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v32, "DcmNextiPlayReadyService"
-
     invoke-virtual {v7}, Ljava/io/IOException;->getLocalizedMessage()Ljava/lang/String;
 
     move-result-object v33
 
     invoke-static/range {v32 .. v33}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {v7}, Ljava/io/IOException;->printStackTrace()V
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
-
-    const-string/jumbo v32, "DcmNextiPlayReadyService"
-
-    const-string/jumbo v33, "resetting flag for later threads"
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     const/16 v32, 0x1
 
@@ -572,27 +512,13 @@
     :try_start_7
     const-string/jumbo v32, "DcmNextiPlayReadyService"
 
-    const-string/jumbo v33, "Catch IllegalArgumentException Exceptions"
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v32, "DcmNextiPlayReadyService"
-
     invoke-virtual {v9}, Ljava/lang/IllegalArgumentException;->getLocalizedMessage()Ljava/lang/String;
 
     move-result-object v33
 
     invoke-static/range {v32 .. v33}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {v9}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
     :try_end_7
     .catchall {:try_start_7 .. :try_end_7} :catchall_0
-
-    const-string/jumbo v32, "DcmNextiPlayReadyService"
-
-    const-string/jumbo v33, "resetting flag for later threads"
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     const/16 v32, 0x1
 
@@ -606,12 +532,6 @@
 
     :catchall_0
     move-exception v32
-
-    const-string/jumbo v33, "DcmNextiPlayReadyService"
-
-    const-string/jumbo v34, "resetting flag for later threads"
-
-    invoke-static/range {v33 .. v34}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     const/16 v33, 0x1
 

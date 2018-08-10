@@ -7,7 +7,7 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/server/RCPManagerService$1;,
-        Lcom/android/server/RCPManagerService$BootReceiver;,
+        Lcom/android/server/RCPManagerService$2;,
         Lcom/android/server/RCPManagerService$EmergencyModeReceiver;,
         Lcom/android/server/RCPManagerService$ExchangeDataInfo;,
         Lcom/android/server/RCPManagerService$KnoxLayoutChangeReceiver;,
@@ -52,6 +52,10 @@
     .end annotation
 .end field
 
+.field private static mInstallLock:Ljava/lang/Object;
+
+.field private static mPackageTasker:Lcom/android/server/pm/Installer;
+
 .field private static mUcmService:Lcom/samsung/android/knox/ucm/core/IUcmService;
 
 .field private static sContext:Landroid/content/Context;
@@ -60,7 +64,17 @@
 # instance fields
 .field private final KNOX_DEBUG:Z
 
+.field final SHROTCUT_INFO_XML:Ljava/lang/String;
+
+.field final TAG_ATTR_CLASS:Ljava/lang/String;
+
+.field final TAG_ATTR_PACKAGE:Ljava/lang/String;
+
 .field private final TAG_BRIDGE_PROXY:Ljava/lang/String;
+
+.field final TAG_EXPORT_SHORTCUT_INFO:Ljava/lang/String;
+
+.field final TAG_SHORTCUT:Ljava/lang/String;
 
 .field private mBridgeCommandExeUserMap:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
@@ -73,6 +87,10 @@
         }
     .end annotation
 .end field
+
+.field private mBridgeHandleThread:Landroid/os/HandlerThread;
+
+.field private mBridgeHandler:Landroid/os/Handler;
 
 .field private mBridgeProviderUserMap:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
@@ -101,6 +119,8 @@
 .field private final mBridgeProxyEnabled:Ljava/lang/String;
 
 .field private mBridgeRedesign:Z
+
+.field mBridgeRunnable:Ljava/lang/Runnable;
 
 .field private mBridgeSyncUserMap:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
@@ -169,6 +189,8 @@
     .end annotation
 .end field
 
+.field private mPm:Lcom/samsung/android/knox/SemPersonaManager;
+
 .field private mRCPGlobalContactsDirMap:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -206,9 +228,23 @@
 
 .field private mSimplePersonaInfos:Lcom/android/server/bridge/operations/SimplePersonaInfos;
 
+.field private mUm:Landroid/os/UserManager;
+
 .field modeSwitchReceiver:Lcom/android/server/RCPManagerService$ModeSwitcherReceiver;
 
 .field receiver:Lcom/android/server/RCPManagerService$PackageReceiver;
+
+.field private shortcutInfos:Ljava/util/HashMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/HashMap",
+            "<",
+            "Ljava/lang/Integer;",
+            "Ljava/lang/Object;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field private taskHandler:Landroid/os/Handler;
 
@@ -241,20 +277,12 @@
 .method static synthetic -get3(Lcom/android/server/RCPManagerService;)Ljava/util/HashMap;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/server/RCPManagerService;->mBridgeCommandExeUserMap:Ljava/util/HashMap;
-
-    return-object v0
-.end method
-
-.method static synthetic -get4(Lcom/android/server/RCPManagerService;)Ljava/util/HashMap;
-    .locals 1
-
     iget-object v0, p0, Lcom/android/server/RCPManagerService;->mBridgeProxyAliveList:Ljava/util/HashMap;
 
     return-object v0
 .end method
 
-.method static synthetic -get5(Lcom/android/server/RCPManagerService;)Z
+.method static synthetic -get4(Lcom/android/server/RCPManagerService;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/RCPManagerService;->mBridgeRedesign:Z
@@ -262,23 +290,7 @@
     return v0
 .end method
 
-.method static synthetic -get6(Lcom/android/server/RCPManagerService;)Ljava/util/HashMap;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/RCPManagerService;->mBridgeSyncUserMap:Ljava/util/HashMap;
-
-    return-object v0
-.end method
-
-.method static synthetic -get7(Lcom/android/server/RCPManagerService;)Ljava/util/Map;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/RCPManagerService;->mCommandQueue:Ljava/util/Map;
-
-    return-object v0
-.end method
-
-.method static synthetic -get8(Lcom/android/server/RCPManagerService;)Lcom/android/server/bridge/operations/SimplePersonaInfos;
+.method static synthetic -get5(Lcom/android/server/RCPManagerService;)Lcom/android/server/bridge/operations/SimplePersonaInfos;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/RCPManagerService;->mSimplePersonaInfos:Lcom/android/server/bridge/operations/SimplePersonaInfos;
@@ -286,7 +298,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get9(Lcom/android/server/RCPManagerService;)Landroid/os/Handler;
+.method static synthetic -get6(Lcom/android/server/RCPManagerService;)Landroid/os/UserManager;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/RCPManagerService;->mUm:Landroid/os/UserManager;
+
+    return-object v0
+.end method
+
+.method static synthetic -get7(Lcom/android/server/RCPManagerService;)Landroid/os/Handler;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/RCPManagerService;->taskHandler:Landroid/os/Handler;
@@ -423,191 +443,225 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 21
+    .locals 18
 
     invoke-direct/range {p0 .. p0}, Lcom/samsung/android/knox/ISemRemoteContentManager$Stub;-><init>()V
 
-    new-instance v17, Ljava/util/HashMap;
+    new-instance v13, Ljava/util/HashMap;
 
-    invoke-direct/range {v17 .. v17}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {v13}, Ljava/util/HashMap;-><init>()V
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, p0
 
-    move-object/from16 v1, p0
+    iput-object v13, v0, Lcom/android/server/RCPManagerService;->mBridgeProviderUserMap:Ljava/util/HashMap;
 
-    iput-object v0, v1, Lcom/android/server/RCPManagerService;->mBridgeProviderUserMap:Ljava/util/HashMap;
+    new-instance v13, Ljava/util/HashMap;
 
-    new-instance v17, Ljava/util/HashMap;
+    invoke-direct {v13}, Ljava/util/HashMap;-><init>()V
 
-    invoke-direct/range {v17 .. v17}, Ljava/util/HashMap;-><init>()V
+    move-object/from16 v0, p0
 
-    move-object/from16 v0, v17
+    iput-object v13, v0, Lcom/android/server/RCPManagerService;->mBridgeSyncUserMap:Ljava/util/HashMap;
 
-    move-object/from16 v1, p0
+    new-instance v13, Ljava/util/HashMap;
 
-    iput-object v0, v1, Lcom/android/server/RCPManagerService;->mBridgeSyncUserMap:Ljava/util/HashMap;
+    invoke-direct {v13}, Ljava/util/HashMap;-><init>()V
 
-    new-instance v17, Ljava/util/HashMap;
+    move-object/from16 v0, p0
 
-    invoke-direct/range {v17 .. v17}, Ljava/util/HashMap;-><init>()V
+    iput-object v13, v0, Lcom/android/server/RCPManagerService;->mRCPGlobalContactsDirMap:Ljava/util/HashMap;
 
-    move-object/from16 v0, v17
+    new-instance v13, Ljava/util/HashMap;
 
-    move-object/from16 v1, p0
+    invoke-direct {v13}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v0, v1, Lcom/android/server/RCPManagerService;->mRCPGlobalContactsDirMap:Ljava/util/HashMap;
+    move-object/from16 v0, p0
 
-    new-instance v17, Ljava/util/HashMap;
+    iput-object v13, v0, Lcom/android/server/RCPManagerService;->mBridgeCommandExeUserMap:Ljava/util/HashMap;
 
-    invoke-direct/range {v17 .. v17}, Ljava/util/HashMap;-><init>()V
+    new-instance v13, Ljava/util/HashMap;
 
-    move-object/from16 v0, v17
+    invoke-direct {v13}, Ljava/util/HashMap;-><init>()V
 
-    move-object/from16 v1, p0
+    move-object/from16 v0, p0
 
-    iput-object v0, v1, Lcom/android/server/RCPManagerService;->mBridgeCommandExeUserMap:Ljava/util/HashMap;
+    iput-object v13, v0, Lcom/android/server/RCPManagerService;->mRCPInterfaceMap:Ljava/util/HashMap;
 
-    new-instance v17, Ljava/util/HashMap;
+    new-instance v13, Ljava/util/ArrayList;
 
-    invoke-direct/range {v17 .. v17}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {v13}, Ljava/util/ArrayList;-><init>()V
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, p0
 
-    move-object/from16 v1, p0
+    iput-object v13, v0, Lcom/android/server/RCPManagerService;->mRCPProxyAliveList:Ljava/util/List;
 
-    iput-object v0, v1, Lcom/android/server/RCPManagerService;->mRCPInterfaceMap:Ljava/util/HashMap;
+    new-instance v13, Ljava/util/HashMap;
 
-    new-instance v17, Ljava/util/ArrayList;
+    invoke-direct {v13}, Ljava/util/HashMap;-><init>()V
 
-    invoke-direct/range {v17 .. v17}, Ljava/util/ArrayList;-><init>()V
+    move-object/from16 v0, p0
 
-    move-object/from16 v0, v17
+    iput-object v13, v0, Lcom/android/server/RCPManagerService;->mBridgeProxyAliveList:Ljava/util/HashMap;
 
-    move-object/from16 v1, p0
+    new-instance v13, Ljava/util/HashMap;
 
-    iput-object v0, v1, Lcom/android/server/RCPManagerService;->mRCPProxyAliveList:Ljava/util/List;
+    invoke-direct {v13}, Ljava/util/HashMap;-><init>()V
 
-    new-instance v17, Ljava/util/HashMap;
+    move-object/from16 v0, p0
 
-    invoke-direct/range {v17 .. v17}, Ljava/util/HashMap;-><init>()V
+    iput-object v13, v0, Lcom/android/server/RCPManagerService;->mPkgReceiverList:Ljava/util/HashMap;
 
-    move-object/from16 v0, v17
+    new-instance v13, Ljava/util/HashMap;
 
-    move-object/from16 v1, p0
+    invoke-direct {v13}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v0, v1, Lcom/android/server/RCPManagerService;->mBridgeProxyAliveList:Ljava/util/HashMap;
+    move-object/from16 v0, p0
 
-    new-instance v17, Ljava/util/HashMap;
+    iput-object v13, v0, Lcom/android/server/RCPManagerService;->mPersonaObservers:Ljava/util/HashMap;
 
-    invoke-direct/range {v17 .. v17}, Ljava/util/HashMap;-><init>()V
+    const-string/jumbo v13, "eng"
 
-    move-object/from16 v0, v17
+    const-string/jumbo v14, "ro.build.type"
 
-    move-object/from16 v1, p0
+    invoke-static {v14}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    iput-object v0, v1, Lcom/android/server/RCPManagerService;->mPkgReceiverList:Ljava/util/HashMap;
+    move-result-object v14
 
-    new-instance v17, Ljava/util/HashMap;
+    invoke-virtual {v13, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-direct/range {v17 .. v17}, Ljava/util/HashMap;-><init>()V
+    move-result v13
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, p0
 
-    move-object/from16 v1, p0
+    iput-boolean v13, v0, Lcom/android/server/RCPManagerService;->KNOX_DEBUG:Z
 
-    iput-object v0, v1, Lcom/android/server/RCPManagerService;->mPersonaObservers:Ljava/util/HashMap;
+    const-string/jumbo v13, "Bridge_PROXY"
 
-    const-string/jumbo v17, "eng"
+    move-object/from16 v0, p0
 
-    const-string/jumbo v18, "ro.build.type"
+    iput-object v13, v0, Lcom/android/server/RCPManagerService;->TAG_BRIDGE_PROXY:Ljava/lang/String;
 
-    invoke-static/range {v18 .. v18}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    const/4 v13, 0x1
 
-    move-result-object v18
+    move-object/from16 v0, p0
 
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    iput-boolean v13, v0, Lcom/android/server/RCPManagerService;->mBridgeRedesign:Z
 
-    move-result v17
+    const-string/jumbo v13, "Enabled"
 
-    move/from16 v0, v17
+    move-object/from16 v0, p0
 
-    move-object/from16 v1, p0
+    iput-object v13, v0, Lcom/android/server/RCPManagerService;->mBridgeProxyEnabled:Ljava/lang/String;
 
-    iput-boolean v0, v1, Lcom/android/server/RCPManagerService;->KNOX_DEBUG:Z
+    const/4 v13, 0x0
 
-    const-string/jumbo v17, "Bridge_PROXY"
+    move-object/from16 v0, p0
 
-    move-object/from16 v0, v17
+    iput-object v13, v0, Lcom/android/server/RCPManagerService;->mSimplePersonaInfos:Lcom/android/server/bridge/operations/SimplePersonaInfos;
 
-    move-object/from16 v1, p0
+    const/4 v13, 0x0
 
-    iput-object v0, v1, Lcom/android/server/RCPManagerService;->TAG_BRIDGE_PROXY:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    const/16 v17, 0x1
+    iput-object v13, v0, Lcom/android/server/RCPManagerService;->mUm:Landroid/os/UserManager;
 
-    move/from16 v0, v17
+    const/4 v13, 0x0
 
-    move-object/from16 v1, p0
+    move-object/from16 v0, p0
 
-    iput-boolean v0, v1, Lcom/android/server/RCPManagerService;->mBridgeRedesign:Z
+    iput-object v13, v0, Lcom/android/server/RCPManagerService;->mPm:Lcom/samsung/android/knox/SemPersonaManager;
 
-    const-string/jumbo v17, "Enabled"
+    const-string/jumbo v13, "export_shortcut_info.xml"
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, p0
 
-    move-object/from16 v1, p0
+    iput-object v13, v0, Lcom/android/server/RCPManagerService;->SHROTCUT_INFO_XML:Ljava/lang/String;
 
-    iput-object v0, v1, Lcom/android/server/RCPManagerService;->mBridgeProxyEnabled:Ljava/lang/String;
+    const-string/jumbo v13, "export_shortcut_info"
 
-    const/16 v17, 0x0
+    move-object/from16 v0, p0
 
-    move-object/from16 v0, v17
+    iput-object v13, v0, Lcom/android/server/RCPManagerService;->TAG_EXPORT_SHORTCUT_INFO:Ljava/lang/String;
 
-    move-object/from16 v1, p0
+    const-string/jumbo v13, "SHORTCUT"
 
-    iput-object v0, v1, Lcom/android/server/RCPManagerService;->mSimplePersonaInfos:Lcom/android/server/bridge/operations/SimplePersonaInfos;
+    move-object/from16 v0, p0
 
-    new-instance v17, Ljava/util/HashMap;
+    iput-object v13, v0, Lcom/android/server/RCPManagerService;->TAG_SHORTCUT:Ljava/lang/String;
 
-    invoke-direct/range {v17 .. v17}, Ljava/util/HashMap;-><init>()V
+    const-string/jumbo v13, "package"
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, p0
 
-    move-object/from16 v1, p0
+    iput-object v13, v0, Lcom/android/server/RCPManagerService;->TAG_ATTR_PACKAGE:Ljava/lang/String;
 
-    iput-object v0, v1, Lcom/android/server/RCPManagerService;->mCommandQueue:Ljava/util/Map;
+    const-string/jumbo v13, "class"
 
-    const/16 v17, 0x0
+    move-object/from16 v0, p0
 
-    move-object/from16 v0, v17
+    iput-object v13, v0, Lcom/android/server/RCPManagerService;->TAG_ATTR_CLASS:Ljava/lang/String;
 
-    move-object/from16 v1, p0
+    new-instance v13, Ljava/util/HashMap;
 
-    iput-object v0, v1, Lcom/android/server/RCPManagerService;->mKnoxLayoutChangeReceiver:Lcom/android/server/RCPManagerService$KnoxLayoutChangeReceiver;
+    invoke-direct {v13}, Ljava/util/HashMap;-><init>()V
 
-    new-instance v17, Lcom/android/server/RCPManagerService$1;
+    move-object/from16 v0, p0
 
-    move-object/from16 v0, v17
+    iput-object v13, v0, Lcom/android/server/RCPManagerService;->shortcutInfos:Ljava/util/HashMap;
 
-    move-object/from16 v1, p0
+    new-instance v13, Ljava/util/HashMap;
 
-    invoke-direct {v0, v1}, Lcom/android/server/RCPManagerService$1;-><init>(Lcom/android/server/RCPManagerService;)V
+    invoke-direct {v13}, Ljava/util/HashMap;-><init>()V
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, p0
 
-    move-object/from16 v1, p0
+    iput-object v13, v0, Lcom/android/server/RCPManagerService;->mCommandQueue:Ljava/util/Map;
 
-    iput-object v0, v1, Lcom/android/server/RCPManagerService;->mBtReceiver:Landroid/content/BroadcastReceiver;
+    const/4 v13, 0x0
 
-    new-instance v17, Ljava/util/ArrayList;
+    move-object/from16 v0, p0
 
-    invoke-direct/range {v17 .. v17}, Ljava/util/ArrayList;-><init>()V
+    iput-object v13, v0, Lcom/android/server/RCPManagerService;->mKnoxLayoutChangeReceiver:Lcom/android/server/RCPManagerService$KnoxLayoutChangeReceiver;
 
-    move-object/from16 v0, v17
+    const/4 v13, 0x0
 
-    move-object/from16 v1, p0
+    move-object/from16 v0, p0
 
-    iput-object v0, v1, Lcom/android/server/RCPManagerService;->mExchangeDataInfos:Ljava/util/List;
+    iput-object v13, v0, Lcom/android/server/RCPManagerService;->mBridgeHandler:Landroid/os/Handler;
+
+    const/4 v13, 0x0
+
+    move-object/from16 v0, p0
+
+    iput-object v13, v0, Lcom/android/server/RCPManagerService;->mBridgeHandleThread:Landroid/os/HandlerThread;
+
+    new-instance v13, Lcom/android/server/RCPManagerService$1;
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v13, v0}, Lcom/android/server/RCPManagerService$1;-><init>(Lcom/android/server/RCPManagerService;)V
+
+    move-object/from16 v0, p0
+
+    iput-object v13, v0, Lcom/android/server/RCPManagerService;->mBtReceiver:Landroid/content/BroadcastReceiver;
+
+    new-instance v13, Lcom/android/server/RCPManagerService$2;
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v13, v0}, Lcom/android/server/RCPManagerService$2;-><init>(Lcom/android/server/RCPManagerService;)V
+
+    move-object/from16 v0, p0
+
+    iput-object v13, v0, Lcom/android/server/RCPManagerService;->mBridgeRunnable:Ljava/lang/Runnable;
+
+    new-instance v13, Ljava/util/ArrayList;
+
+    invoke-direct {v13}, Ljava/util/ArrayList;-><init>()V
+
+    move-object/from16 v0, p0
+
+    iput-object v13, v0, Lcom/android/server/RCPManagerService;->mExchangeDataInfos:Ljava/util/List;
 
     move-object/from16 v0, p1
 
@@ -617,475 +671,408 @@
 
     sput-object p1, Lcom/android/server/RCPManagerService;->sContext:Landroid/content/Context;
 
-    new-instance v17, Landroid/os/Handler;
-
-    invoke-direct/range {v17 .. v17}, Landroid/os/Handler;-><init>()V
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Lcom/android/server/RCPManagerService;->taskHandler:Landroid/os/Handler;
-
-    sget-object v17, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v18, "RCPManagerService() registering receiver for package added and user switch"
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
-
-    move-object/from16 v17, v0
-
-    new-instance v18, Lcom/android/server/RCPManagerService$BootReceiver;
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, p0
-
-    invoke-direct {v0, v1}, Lcom/android/server/RCPManagerService$BootReceiver;-><init>(Lcom/android/server/RCPManagerService;)V
-
-    new-instance v19, Landroid/content/IntentFilter;
-
-    const-string/jumbo v20, "android.intent.action.BOOT_COMPLETED"
-
-    invoke-direct/range {v19 .. v20}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual/range {v17 .. v19}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
-
-    new-instance v7, Landroid/content/IntentFilter;
-
-    invoke-direct {v7}, Landroid/content/IntentFilter;-><init>()V
-
-    const-string/jumbo v17, "android.intent.action.USER_ADDED"
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v7, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    const-string/jumbo v17, "android.intent.action.USER_REMOVED"
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v7, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    const-string/jumbo v17, "android.intent.action.USER_STARTED"
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v7, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    const-string/jumbo v17, "android.intent.action.MANAGED_PROFILE_ADDED"
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v7, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    const-string/jumbo v17, "com.samsung.knox.fmc_incoming_call"
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v7, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    new-instance v17, Lcom/android/server/RCPManagerService$ModeSwitcherReceiver;
-
-    const/16 v18, 0x0
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, p0
-
-    move-object/from16 v2, v18
-
-    invoke-direct {v0, v1, v2}, Lcom/android/server/RCPManagerService$ModeSwitcherReceiver;-><init>(Lcom/android/server/RCPManagerService;Lcom/android/server/RCPManagerService$ModeSwitcherReceiver;)V
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Lcom/android/server/RCPManagerService;->modeSwitchReceiver:Lcom/android/server/RCPManagerService$ModeSwitcherReceiver;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/RCPManagerService;->modeSwitchReceiver:Lcom/android/server/RCPManagerService$ModeSwitcherReceiver;
-
-    move-object/from16 v17, v0
+    const-string/jumbo v13, "user"
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v17
+    invoke-virtual {v0, v13}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-virtual {v0, v1, v7}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    move-result-object v13
+
+    check-cast v13, Landroid/os/UserManager;
+
+    move-object/from16 v0, p0
+
+    iput-object v13, v0, Lcom/android/server/RCPManagerService;->mUm:Landroid/os/UserManager;
+
+    const-string/jumbo v13, "persona"
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v13}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v13
+
+    check-cast v13, Lcom/samsung/android/knox/SemPersonaManager;
+
+    move-object/from16 v0, p0
+
+    iput-object v13, v0, Lcom/android/server/RCPManagerService;->mPm:Lcom/samsung/android/knox/SemPersonaManager;
+
+    new-instance v13, Landroid/os/Handler;
+
+    invoke-direct {v13}, Landroid/os/Handler;-><init>()V
+
+    move-object/from16 v0, p0
+
+    iput-object v13, v0, Lcom/android/server/RCPManagerService;->taskHandler:Landroid/os/Handler;
+
+    sget-object v13, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v14, "RCPManagerService() registering receiver for package added and user switch"
+
+    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     new-instance v4, Landroid/content/IntentFilter;
 
-    const-string/jumbo v17, "com.samsung.android.plugin.ACTION_PLUGIN_CHANGE_NOTI"
+    invoke-direct {v4}, Landroid/content/IntentFilter;-><init>()V
 
-    move-object/from16 v0, v17
+    const-string/jumbo v13, "android.intent.action.USER_ADDED"
 
-    invoke-direct {v4, v0}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v4, v13}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string/jumbo v13, "android.intent.action.USER_REMOVED"
+
+    invoke-virtual {v4, v13}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string/jumbo v13, "android.intent.action.USER_STARTED"
+
+    invoke-virtual {v4, v13}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string/jumbo v13, "android.intent.action.MANAGED_PROFILE_ADDED"
+
+    invoke-virtual {v4, v13}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    new-instance v13, Lcom/android/server/RCPManagerService$ModeSwitcherReceiver;
+
+    const/4 v14, 0x0
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/RCPManagerService;->mBtReceiver:Landroid/content/BroadcastReceiver;
+    invoke-direct {v13, v0, v14}, Lcom/android/server/RCPManagerService$ModeSwitcherReceiver;-><init>(Lcom/android/server/RCPManagerService;Lcom/android/server/RCPManagerService$ModeSwitcherReceiver;)V
 
-    move-object/from16 v17, v0
+    move-object/from16 v0, p0
+
+    iput-object v13, v0, Lcom/android/server/RCPManagerService;->modeSwitchReceiver:Lcom/android/server/RCPManagerService$ModeSwitcherReceiver;
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/server/RCPManagerService;->modeSwitchReceiver:Lcom/android/server/RCPManagerService$ModeSwitcherReceiver;
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v17
+    invoke-virtual {v0, v13, v4}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    invoke-virtual {v0, v1, v4}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    new-instance v2, Landroid/content/IntentFilter;
+
+    const-string/jumbo v13, "com.samsung.android.plugin.ACTION_PLUGIN_CHANGE_NOTI"
+
+    invoke-direct {v2, v13}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/server/RCPManagerService;->mBtReceiver:Landroid/content/BroadcastReceiver;
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v13, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+
+    new-instance v3, Landroid/content/IntentFilter;
+
+    invoke-direct {v3}, Landroid/content/IntentFilter;-><init>()V
+
+    const-string/jumbo v13, "com.samsung.intent.action.EMERGENCY_STATE_CHANGED"
+
+    invoke-virtual {v3, v13}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    new-instance v13, Lcom/android/server/RCPManagerService$EmergencyModeReceiver;
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v13, v0}, Lcom/android/server/RCPManagerService$EmergencyModeReceiver;-><init>(Lcom/android/server/RCPManagerService;)V
+
+    move-object/from16 v0, p0
+
+    iput-object v13, v0, Lcom/android/server/RCPManagerService;->mEmergencyModeReceiver:Lcom/android/server/RCPManagerService$EmergencyModeReceiver;
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/server/RCPManagerService;->mEmergencyModeReceiver:Lcom/android/server/RCPManagerService$EmergencyModeReceiver;
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v13, v3}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
     new-instance v6, Landroid/content/IntentFilter;
 
     invoke-direct {v6}, Landroid/content/IntentFilter;-><init>()V
 
-    const-string/jumbo v17, "com.samsung.intent.action.EMERGENCY_STATE_CHANGED"
+    const-string/jumbo v13, "com.sec.knox.action.KNOX_LAYOUT_CHANGED"
 
-    move-object/from16 v0, v17
+    invoke-virtual {v6, v13}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    invoke-virtual {v6, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    new-instance v17, Lcom/android/server/RCPManagerService$EmergencyModeReceiver;
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, p0
-
-    invoke-direct {v0, v1}, Lcom/android/server/RCPManagerService$EmergencyModeReceiver;-><init>(Lcom/android/server/RCPManagerService;)V
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Lcom/android/server/RCPManagerService;->mEmergencyModeReceiver:Lcom/android/server/RCPManagerService$EmergencyModeReceiver;
+    new-instance v13, Lcom/android/server/RCPManagerService$KnoxLayoutChangeReceiver;
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/RCPManagerService;->mEmergencyModeReceiver:Lcom/android/server/RCPManagerService$EmergencyModeReceiver;
-
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, v17
-
-    invoke-virtual {v0, v1, v6}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
-
-    new-instance v9, Landroid/content/IntentFilter;
-
-    invoke-direct {v9}, Landroid/content/IntentFilter;-><init>()V
-
-    const-string/jumbo v17, "com.sec.knox.action.KNOX_LAYOUT_CHANGED"
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v9, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    new-instance v17, Lcom/android/server/RCPManagerService$KnoxLayoutChangeReceiver;
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, p0
-
-    invoke-direct {v0, v1}, Lcom/android/server/RCPManagerService$KnoxLayoutChangeReceiver;-><init>(Lcom/android/server/RCPManagerService;)V
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Lcom/android/server/RCPManagerService;->mKnoxLayoutChangeReceiver:Lcom/android/server/RCPManagerService$KnoxLayoutChangeReceiver;
+    invoke-direct {v13, v0}, Lcom/android/server/RCPManagerService$KnoxLayoutChangeReceiver;-><init>(Lcom/android/server/RCPManagerService;)V
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
-
-    move-object/from16 v17, v0
+    iput-object v13, v0, Lcom/android/server/RCPManagerService;->mKnoxLayoutChangeReceiver:Lcom/android/server/RCPManagerService$KnoxLayoutChangeReceiver;
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/RCPManagerService;->mKnoxLayoutChangeReceiver:Lcom/android/server/RCPManagerService$KnoxLayoutChangeReceiver;
-
-    move-object/from16 v18, v0
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v18
-
-    invoke-virtual {v0, v1, v9}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
-
-    sget-object v17, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v18, " registered the receiver "
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    new-instance v17, Lcom/android/server/bridge/operations/SimplePersonaInfos;
+    iget-object v13, v0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
+    iget-object v14, v0, Lcom/android/server/RCPManagerService;->mKnoxLayoutChangeReceiver:Lcom/android/server/RCPManagerService$KnoxLayoutChangeReceiver;
 
-    move-object/from16 v18, v0
+    invoke-virtual {v13, v14, v6}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    invoke-direct/range {v17 .. v18}, Lcom/android/server/bridge/operations/SimplePersonaInfos;-><init>(Landroid/content/Context;)V
+    sget-object v13, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
 
-    move-object/from16 v0, v17
+    const-string/jumbo v14, " registered the receiver "
 
-    move-object/from16 v1, p0
+    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iput-object v0, v1, Lcom/android/server/RCPManagerService;->mSimplePersonaInfos:Lcom/android/server/bridge/operations/SimplePersonaInfos;
+    new-instance v13, Lcom/android/server/bridge/operations/SimplePersonaInfos;
 
-    :try_start_0
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
-
-    move-result-object v17
-
-    new-instance v18, Lcom/android/server/RCPManagerService$2;
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, p0
-
-    invoke-direct {v0, v1}, Lcom/android/server/RCPManagerService$2;-><init>(Lcom/android/server/RCPManagerService;)V
-
-    invoke-interface/range {v17 .. v18}, Landroid/app/IActivityManager;->registerUserSwitchObserver(Landroid/app/IUserSwitchObserver;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
+    iget-object v14, v0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
 
-    move-object/from16 v17, v0
+    invoke-direct {v13, v14}, Lcom/android/server/bridge/operations/SimplePersonaInfos;-><init>(Landroid/content/Context;)V
 
-    const-string/jumbo v18, "persona"
+    move-object/from16 v0, p0
 
-    invoke-virtual/range {v17 .. v18}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    iput-object v13, v0, Lcom/android/server/RCPManagerService;->mSimplePersonaInfos:Lcom/android/server/bridge/operations/SimplePersonaInfos;
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
+
+    new-instance v14, Lcom/android/server/RCPManagerService$3;
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v14, v0}, Lcom/android/server/RCPManagerService$3;-><init>(Lcom/android/server/RCPManagerService;)V
+
+    invoke-static {v13, v14}, Landroid/os/ContainerStateReceiver;->register(Landroid/content/Context;Landroid/os/ContainerStateReceiver;)V
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/RCPManagerService;->registerKnoxModeChangeObserver()V
+
+    const/4 v13, 0x1
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v13}, Lcom/android/server/RCPManagerService;->getPersonas(Z)Ljava/util/List;
+
+    move-result-object v7
+
+    if-eqz v7, :cond_1
+
+    invoke-interface {v7}, Ljava/util/List;->size()I
+
+    move-result v13
+
+    if-lez v13, :cond_1
+
+    invoke-interface {v7}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v10
 
-    check-cast v10, Lcom/samsung/android/knox/SemPersonaManager;
+    :cond_0
+    :goto_0
+    invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
 
-    :try_start_1
-    new-instance v17, Lcom/android/server/RCPManagerService$3;
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, p0
-
-    invoke-direct {v0, v1}, Lcom/android/server/RCPManagerService$3;-><init>(Lcom/android/server/RCPManagerService;)V
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v10, v0}, Lcom/samsung/android/knox/SemPersonaManager;->registerSystemPersonaObserver(Landroid/content/pm/ISystemPersonaObserver;)Z
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
-
-    :goto_1
-    invoke-direct/range {p0 .. p0}, Lcom/android/server/RCPManagerService;->registerKnoxModeChangeObserver()V
-
-    const/16 v17, 0x1
-
-    move/from16 v0, v17
-
-    invoke-virtual {v10, v0}, Lcom/samsung/android/knox/SemPersonaManager;->getPersonas(Z)Ljava/util/List;
-
-    move-result-object v13
+    move-result v13
 
     if-eqz v13, :cond_1
 
-    invoke-interface {v13}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v16
+    move-result-object v9
 
-    :cond_0
-    :goto_2
-    invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->hasNext()Z
+    check-cast v9, Landroid/content/pm/UserInfo;
 
-    move-result v17
+    if-eqz v9, :cond_0
 
-    if-eqz v17, :cond_1
+    iget v13, v9, Landroid/content/pm/UserInfo;->id:I
 
-    invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-static {v13}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
 
-    move-result-object v15
+    move-result v13
 
-    check-cast v15, Lcom/samsung/android/knox/SemPersonaInfo;
+    xor-int/lit8 v13, v13, 0x1
 
-    if-eqz v15, :cond_0
+    if-nez v13, :cond_0
 
-    iget-boolean v0, v15, Lcom/samsung/android/knox/SemPersonaInfo;->partial:Z
+    iget-boolean v13, v9, Landroid/content/pm/UserInfo;->partial:Z
 
-    move/from16 v17, v0
+    if-nez v13, :cond_0
 
-    if-nez v17, :cond_0
+    iget v13, v9, Landroid/content/pm/UserInfo;->attributes:I
 
-    iget-boolean v0, v15, Lcom/samsung/android/knox/SemPersonaInfo;->removePersona:Z
+    and-int/lit8 v13, v13, 0x40
 
-    move/from16 v17, v0
+    const/16 v14, 0x40
 
-    if-nez v17, :cond_0
-
-    iget-boolean v0, v15, Lcom/samsung/android/knox/SemPersonaInfo;->resetPersonaOnReboot:Z
-
-    move/from16 v17, v0
-
-    if-eqz v17, :cond_0
+    if-ne v13, v14, :cond_0
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
+    iget-object v13, v0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
 
-    move-object/from16 v17, v0
+    invoke-virtual {v13}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    invoke-virtual/range {v17 .. v17}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    move-result-object v13
 
-    move-result-object v17
+    const-string/jumbo v14, "kiosk_enabled"
 
-    const-string/jumbo v18, "kiosk_enabled"
+    iget v15, v9, Landroid/content/pm/UserInfo;->id:I
 
-    iget v0, v15, Lcom/samsung/android/knox/SemPersonaInfo;->id:I
+    const/16 v16, 0x1
 
-    move/from16 v19, v0
+    move/from16 v0, v16
 
-    const/16 v20, 0x1
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v18
-
-    move/from16 v2, v20
-
-    move/from16 v3, v19
-
-    invoke-static {v0, v1, v2, v3}, Landroid/provider/Settings$System;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
-
-    goto :goto_2
-
-    :catch_0
-    move-exception v5
-
-    invoke-virtual {v5}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-static {v13, v14, v0, v15}, Landroid/provider/Settings$System;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
 
     goto :goto_0
 
-    :catch_1
-    move-exception v5
-
-    sget-object v17, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v18, " Error registering with Persona service via registerSystemPersonaObserver"
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_1
-
     :cond_1
-    const/16 v17, 0x0
+    const/4 v13, 0x1
 
-    move/from16 v0, v17
+    move-object/from16 v0, p0
 
-    invoke-virtual {v10, v0}, Lcom/samsung/android/knox/SemPersonaManager;->getPersonasForUser(I)Ljava/util/List;
+    invoke-virtual {v0, v13}, Lcom/android/server/RCPManagerService;->getPersonas(Z)Ljava/util/List;
 
-    move-result-object v14
+    move-result-object v8
 
-    if-eqz v14, :cond_3
+    if-eqz v8, :cond_2
 
-    invoke-interface {v14}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {v8}, Ljava/util/List;->size()I
+
+    move-result v13
+
+    if-lez v13, :cond_2
+
+    invoke-interface {v8}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v12
 
-    :cond_2
-    :goto_3
+    :goto_1
     invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v17
+    move-result v13
 
-    if-eqz v17, :cond_3
+    if-eqz v13, :cond_2
 
     invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v11
 
-    check-cast v11, Lcom/samsung/android/knox/SemPersonaInfo;
+    check-cast v11, Landroid/content/pm/UserInfo;
 
-    iget-boolean v0, v11, Lcom/samsung/android/knox/SemPersonaInfo;->removePersona:Z
-
-    move/from16 v17, v0
-
-    if-nez v17, :cond_2
-
-    invoke-virtual {v11}, Lcom/samsung/android/knox/SemPersonaInfo;->getId()I
-
-    move-result v17
+    iget v13, v11, Landroid/content/pm/UserInfo;->id:I
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v17
+    invoke-direct {v0, v13}, Lcom/android/server/RCPManagerService;->registerPersonaObserver(I)V
 
-    invoke-direct {v0, v1}, Lcom/android/server/RCPManagerService;->registerPersonaObserver(I)V
+    goto :goto_1
 
-    goto :goto_3
+    :cond_2
+    const/4 v5, 0x0
+
+    const/16 v13, 0xfa
+
+    invoke-static {v13}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxVersionSupported(I)Z
+
+    move-result v13
+
+    if-eqz v13, :cond_3
+
+    sget-object v13, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v14, "----- Knox version 2.5.0 onwards detected -----"
+
+    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v13, 0x1
+
+    move-object/from16 v0, p0
+
+    iput-boolean v13, v0, Lcom/android/server/RCPManagerService;->mBridgeRedesign:Z
+
+    const/4 v5, 0x1
 
     :cond_3
-    invoke-static {}, Lcom/samsung/android/knox/SemPersonaManager;->getKnoxContainerVersion()Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
+    move-object/from16 v0, p0
 
-    move-result-object v17
+    iget-object v13, v0, Lcom/android/server/RCPManagerService;->mPm:Lcom/samsung/android/knox/SemPersonaManager;
 
-    sget-object v18, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->KNOX_CONTAINER_VERSION_2_5_0:Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;
+    invoke-virtual {v13}, Lcom/samsung/android/knox/SemPersonaManager;->isFOTAUpgrade()Z
 
-    invoke-virtual/range {v17 .. v18}, Lcom/samsung/android/knox/SemPersonaManager$KnoxContainerVersion;->compareTo(Ljava/lang/Enum;)I
+    move-result v13
 
-    move-result v17
+    if-eqz v13, :cond_4
 
-    if-gez v17, :cond_6
+    if-eqz v5, :cond_4
 
-    const/4 v8, 0x0
+    sget-object v13, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
 
-    :goto_4
-    if-eqz v8, :cond_4
+    const-string/jumbo v14, "----- handle FOTA to Knox 2.5.0 onwards -----"
 
-    sget-object v17, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v18, "----- Knox version 2.5.0 onwards detected -----"
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v17, 0x1
-
-    move/from16 v0, v17
-
-    move-object/from16 v1, p0
-
-    iput-boolean v0, v1, Lcom/android/server/RCPManagerService;->mBridgeRedesign:Z
+    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_4
-    invoke-virtual {v10}, Lcom/samsung/android/knox/SemPersonaManager;->isFOTAUpgrade()Z
+    new-instance v13, Landroid/os/HandlerThread;
 
-    move-result v17
+    const-string/jumbo v14, "RCPManagerService"
 
-    if-eqz v17, :cond_5
+    invoke-direct {v13, v14}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;)V
 
-    if-eqz v8, :cond_5
+    move-object/from16 v0, p0
 
-    sget-object v17, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+    iput-object v13, v0, Lcom/android/server/RCPManagerService;->mBridgeHandleThread:Landroid/os/HandlerThread;
 
-    const-string/jumbo v18, "----- handle FOTA to Knox 2.5.0 onwards -----"
+    move-object/from16 v0, p0
 
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    iget-object v13, v0, Lcom/android/server/RCPManagerService;->mBridgeHandleThread:Landroid/os/HandlerThread;
 
-    :cond_5
+    invoke-virtual {v13}, Landroid/os/HandlerThread;->start()V
+
+    new-instance v13, Landroid/os/Handler;
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/server/RCPManagerService;->mBridgeHandleThread:Landroid/os/HandlerThread;
+
+    invoke-virtual {v14}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
+
+    move-result-object v14
+
+    invoke-direct {v13, v14}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+
+    move-object/from16 v0, p0
+
+    iput-object v13, v0, Lcom/android/server/RCPManagerService;->mBridgeHandler:Landroid/os/Handler;
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/server/RCPManagerService;->mBridgeHandler:Landroid/os/Handler;
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/server/RCPManagerService;->mBridgeRunnable:Ljava/lang/Runnable;
+
+    const-wide/16 v16, 0x1388
+
+    move-wide/from16 v0, v16
+
+    invoke-virtual {v13, v14, v0, v1}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v13}, Lcom/android/server/RCPManagerService;->loadShortcutList(Landroid/content/Context;)V
+
     return-void
-
-    :cond_6
-    const/4 v8, 0x1
-
-    goto :goto_4
 .end method
 
 .method private bindToBridgeProxy(ILjava/lang/String;)V
@@ -1454,84 +1441,127 @@
     return v0
 .end method
 
+.method private static final checkManageUsersPermission(Ljava/lang/String;)V
+    .locals 3
+
+    invoke-static {}, Lcom/android/server/RCPManagerService;->hasManageUsersPermission()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Ljava/lang/SecurityException;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "You need MANAGE_USERS permission to: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_0
+    return-void
+.end method
+
 .method private delete(Ljava/io/File;)V
-    .locals 4
+    .locals 6
 
-    sget-object v1, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+    const/4 v2, 0x0
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    sget-object v3, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v3, "delete. "
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v5, "delete. "
 
-    move-result-object v2
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v2
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v4
 
-    move-result-object v2
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {p1}, Ljava/io/File;->isDirectory()Z
 
-    move-result v1
+    move-result v3
 
-    if-eqz v1, :cond_0
+    if-eqz v3, :cond_0
 
     invoke-virtual {p1}, Ljava/io/File;->listFiles()[Ljava/io/File;
 
-    move-result-object v2
+    move-result-object v1
 
-    const/4 v1, 0x0
+    if-eqz v1, :cond_0
 
-    array-length v3, v2
+    array-length v3, v1
+
+    if-lez v3, :cond_0
+
+    array-length v3, v1
 
     :goto_0
-    if-ge v1, v3, :cond_0
+    if-ge v2, v3, :cond_0
 
-    aget-object v0, v2, v1
+    aget-object v0, v1, v2
 
     invoke-direct {p0, v0}, Lcom/android/server/RCPManagerService;->delete(Ljava/io/File;)V
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_0
     invoke-virtual {p1}, Ljava/io/File;->delete()Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_1
+    if-nez v2, :cond_1
 
-    sget-object v1, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+    sget-object v2, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "failed to delete "
+    const-string/jumbo v4, "failed to delete "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
     return-void
@@ -2031,104 +2061,94 @@
 .end method
 
 .method private getAllPersonas()[I
-    .locals 12
+    .locals 11
 
-    const/4 v11, 0x0
+    const/4 v10, 0x0
+
+    const/4 v7, 0x1
 
     :try_start_0
-    iget-object v8, p0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
+    invoke-virtual {p0, v7}, Lcom/android/server/RCPManagerService;->getPersonas(Z)Ljava/util/List;
 
-    const-string/jumbo v9, "persona"
+    move-result-object v6
 
-    invoke-virtual {v8, v9}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    if-eqz v6, :cond_0
 
-    move-result-object v4
+    invoke-interface {v6}, Ljava/util/List;->isEmpty()Z
 
-    check-cast v4, Lcom/samsung/android/knox/SemPersonaManager;
+    move-result v7
 
-    const/4 v8, 0x0
-
-    invoke-virtual {v4, v8}, Lcom/samsung/android/knox/SemPersonaManager;->getPersonasForUser(I)Ljava/util/List;
-
-    move-result-object v7
-
-    if-eqz v7, :cond_0
-
-    invoke-interface {v7}, Ljava/util/List;->isEmpty()Z
-
-    move-result v8
-
-    if-eqz v8, :cond_1
+    if-eqz v7, :cond_1
 
     :cond_0
-    sget-object v8, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+    sget-object v7, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v9, "getAllPersonas(): List<SemPersonaInfo> is null or empty"
+    const-string/jumbo v8, "getAllPersonas(): List<SemPersonaInfo> is null or empty"
 
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return-object v11
+    return-object v10
 
     :cond_1
     const/4 v1, 0x0
 
-    invoke-interface {v7}, Ljava/util/List;->size()I
+    invoke-interface {v6}, Ljava/util/List;->size()I
 
-    move-result v8
+    move-result v7
 
-    new-array v3, v8, [I
+    new-array v3, v7, [I
 
-    invoke-interface {v7}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {v6}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v6
+    move-result-object v5
 
     move v2, v1
 
     :goto_0
-    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v8
+    move-result v7
 
-    if-eqz v8, :cond_2
+    if-eqz v7, :cond_2
 
-    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v4
 
-    check-cast v5, Lcom/samsung/android/knox/SemPersonaInfo;
+    check-cast v4, Landroid/content/pm/UserInfo;
 
     add-int/lit8 v1, v2, 0x1
 
-    iget v8, v5, Lcom/samsung/android/knox/SemPersonaInfo;->id:I
+    iget v7, v4, Landroid/content/pm/UserInfo;->id:I
 
-    aput v8, v3, v2
+    aput v7, v3, v2
 
     move v2, v1
 
     goto :goto_0
 
     :cond_2
-    sget-object v8, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+    sget-object v7, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    new-instance v8, Ljava/lang/StringBuilder;
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v10, "getAllPersonas(): size="
+    const-string/jumbo v9, "getAllPersonas(): size="
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v8
 
-    invoke-virtual {v9, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v8
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v8
 
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -2137,19 +2157,19 @@
     :catch_0
     move-exception v0
 
-    sget-object v8, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+    sget-object v7, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v9, "getAllPersonas(): Rorre..."
+    const-string/jumbo v8, "getAllPersonas(): Rorre..."
 
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    return-object v11
+    return-object v10
 .end method
 
 .method private getAllUserIds()Ljava/util/List;
-    .locals 9
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -2160,77 +2180,59 @@
         }
     .end annotation
 
-    iget-object v7, p0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
+    iget-object v5, p0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v8, "user"
+    const-string/jumbo v6, "activity"
 
-    invoke-virtual {v7, v8}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/os/UserManager;
-
-    iget-object v7, p0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v8, "activity"
-
-    invoke-virtual {v7, v8}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v5, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/app/ActivityManager;
 
-    iget-object v7, p0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
+    iget-object v5, p0, Lcom/android/server/RCPManagerService;->mUm:Landroid/os/UserManager;
 
-    const-string/jumbo v8, "persona"
-
-    invoke-virtual {v7, v8}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/samsung/android/knox/SemPersonaManager;
-
-    invoke-virtual {v2}, Landroid/os/UserManager;->getUsers()Ljava/util/List;
-
-    move-result-object v6
-
-    new-instance v3, Ljava/util/ArrayList;
-
-    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
-
-    invoke-interface {v6}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v5
-
-    :goto_0
-    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_0
-
-    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-virtual {v5}, Landroid/os/UserManager;->getUsers()Ljava/util/List;
 
     move-result-object v4
 
-    check-cast v4, Landroid/content/pm/UserInfo;
+    new-instance v1, Ljava/util/ArrayList;
 
-    iget v7, v4, Landroid/content/pm/UserInfo;->id:I
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    invoke-static {v7}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-interface {v4}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v7
+    move-result-object v3
 
-    invoke-interface {v3, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    :goto_0
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/content/pm/UserInfo;
+
+    iget v5, v2, Landroid/content/pm/UserInfo;->id:I
+
+    invoke-static {v5}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-interface {v1, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
     :cond_0
-    return-object v3
+    return-object v1
 .end method
 
 .method private getAllowedIds(I)Ljava/util/ArrayList;
-    .locals 10
+    .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -2245,84 +2247,70 @@
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    sget-object v7, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+    sget-object v6, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v9, "Calling User is "
+    const-string/jumbo v8, "Calling User is "
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v7
 
-    invoke-virtual {v8, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v7
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v7
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v7, "persona"
+    :try_start_0
+    invoke-static {p1}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
 
-    invoke-static {v7}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    move-result v2
 
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/samsung/android/knox/ISemPersonaManager$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/knox/ISemPersonaManager;
-
-    move-result-object v6
-
-    check-cast v6, Lcom/android/server/pm/PersonaManagerService;
-
-    const/4 v2, 0x0
-
-    if-eqz v6, :cond_0
-
-    invoke-virtual {v6, p1}, Lcom/android/server/pm/PersonaManagerService;->exists(I)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_0
-
-    const/4 v2, 0x1
-
-    :cond_0
     const/4 v4, -0x1
-
-    if-eqz v6, :cond_3
 
     if-eqz v2, :cond_3
 
-    invoke-virtual {v6, p1}, Lcom/android/server/pm/PersonaManagerService;->getParentId(I)I
+    iget-object v6, p0, Lcom/android/server/RCPManagerService;->mUm:Landroid/os/UserManager;
 
-    move-result v4
+    invoke-virtual {v6, p1}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
+
+    move-result-object v6
+
+    iget v4, v6, Landroid/content/pm/UserInfo;->profileGroupId:I
 
     :goto_0
-    if-ltz v4, :cond_1
+    if-ltz v4, :cond_0
 
-    new-instance v7, Ljava/lang/Integer;
+    new-instance v6, Ljava/lang/Integer;
 
-    invoke-direct {v7, v4}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v6, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {v1, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_1
+    :cond_0
     const/4 v5, 0x0
 
-    if-eqz v6, :cond_2
+    iget-object v6, p0, Lcom/android/server/RCPManagerService;->mUm:Landroid/os/UserManager;
+
+    if-eqz v6, :cond_1
+
+    iget-object v6, p0, Lcom/android/server/RCPManagerService;->mUm:Landroid/os/UserManager;
 
     const/4 v7, 0x1
 
-    invoke-virtual {v6, v4, v7}, Lcom/android/server/pm/PersonaManagerService;->getPersonasForUser(IZ)Ljava/util/List;
+    invoke-virtual {v6, v7}, Landroid/os/UserManager;->getUsers(Z)Ljava/util/List;
 
     move-result-object v5
 
-    :cond_2
+    :cond_1
     if-eqz v5, :cond_4
 
     const/4 v3, 0x0
@@ -2330,24 +2318,41 @@
     :goto_1
     invoke-interface {v5}, Ljava/util/List;->size()I
 
-    move-result v7
+    move-result v6
 
-    if-ge v3, v7, :cond_4
-
-    new-instance v8, Ljava/lang/Integer;
+    if-ge v3, v6, :cond_4
 
     invoke-interface {v5, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v6
 
-    check-cast v7, Lcom/samsung/android/knox/SemPersonaInfo;
+    check-cast v6, Landroid/content/pm/UserInfo;
 
-    iget v7, v7, Lcom/samsung/android/knox/SemPersonaInfo;->id:I
+    iget v6, v6, Landroid/content/pm/UserInfo;->id:I
 
-    invoke-direct {v8, v7}, Ljava/lang/Integer;-><init>(I)V
+    invoke-static {v6}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
 
-    invoke-virtual {v1, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-result v6
 
+    if-eqz v6, :cond_2
+
+    new-instance v7, Ljava/lang/Integer;
+
+    invoke-interface {v5, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/content/pm/UserInfo;
+
+    iget v6, v6, Landroid/content/pm/UserInfo;->id:I
+
+    invoke-direct {v7, v6}, Ljava/lang/Integer;-><init>(I)V
+
+    invoke-virtual {v1, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_2
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
@@ -2357,56 +2362,204 @@
 
     goto :goto_0
 
+    :catch_0
+    move-exception v0
+
+    sget-object v6, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v7, "exception"
+
+    invoke-static {v6, v7, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
     :cond_4
     return-object v1
 .end method
 
 .method private getAppNameByPID(I)Ljava/lang/String;
-    .locals 5
+    .locals 6
 
-    iget-object v3, p0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v4, "activity"
+    const-string/jumbo v5, "activity"
 
-    invoke-virtual {v3, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/app/ActivityManager;
-
-    invoke-virtual {v0}, Landroid/app/ActivityManager;->getRunningAppProcesses()Ljava/util/List;
-
-    move-result-object v3
-
-    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    :cond_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-virtual {v4, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v1
 
-    check-cast v1, Landroid/app/ActivityManager$RunningAppProcessInfo;
+    check-cast v1, Landroid/app/ActivityManager;
 
-    iget v3, v1, Landroid/app/ActivityManager$RunningAppProcessInfo;->pid:I
+    invoke-virtual {v1}, Landroid/app/ActivityManager;->getRunningAppProcesses()Ljava/util/List;
 
-    if-ne v3, p1, :cond_0
+    move-result-object v0
 
-    iget-object v3, v1, Landroid/app/ActivityManager$RunningAppProcessInfo;->processName:Ljava/lang/String;
+    if-eqz v0, :cond_1
 
-    return-object v3
+    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+
+    move-result v4
+
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_1
+
+    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
+
+    :cond_0
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/app/ActivityManager$RunningAppProcessInfo;
+
+    iget v4, v2, Landroid/app/ActivityManager$RunningAppProcessInfo;->pid:I
+
+    if-ne v4, p1, :cond_0
+
+    iget-object v4, v2, Landroid/app/ActivityManager$RunningAppProcessInfo;->processName:Ljava/lang/String;
+
+    return-object v4
 
     :cond_1
-    const-string/jumbo v3, ""
+    const-string/jumbo v4, ""
 
-    return-object v3
+    return-object v4
+.end method
+
+.method private static getAppPackageNamesAllWhiteLists(I)Ljava/util/List;
+    .locals 11
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I)",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    sget-object v9, Lcom/android/server/RCPManagerService;->sContext:Landroid/content/Context;
+
+    const-string/jumbo v10, "enterprise_policy"
+
+    invoke-virtual {v9, v10}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/app/enterprise/EnterpriseDeviceManager;
+
+    invoke-virtual {v3}, Landroid/app/enterprise/EnterpriseDeviceManager;->getApplicationPolicy()Landroid/app/enterprise/ApplicationPolicy;
+
+    move-result-object v2
+
+    new-instance v8, Ljava/util/ArrayList;
+
+    invoke-direct {v8}, Ljava/util/ArrayList;-><init>()V
+
+    invoke-virtual {v2}, Landroid/app/enterprise/ApplicationPolicy;->getAppPackageNamesAllWhiteLists()Ljava/util/List;
+
+    move-result-object v0
+
+    if-nez v0, :cond_1
+
+    :cond_0
+    return-object v8
+
+    :cond_1
+    invoke-static {p0}, Lcom/samsung/android/knox/SemPersonaManager;->getAdminComponentName(I)Landroid/content/ComponentName;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    const/4 v5, 0x0
+
+    :goto_0
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v9
+
+    if-ge v5, v9, :cond_0
+
+    const/4 v6, 0x0
+
+    invoke-interface {v0, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v9
+
+    if-eqz v9, :cond_2
+
+    invoke-interface {v0, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v9
+
+    check-cast v9, Landroid/app/enterprise/AppControlInfo;
+
+    iget-object v9, v9, Landroid/app/enterprise/AppControlInfo;->adminPackageName:Ljava/lang/String;
+
+    invoke-virtual {v1, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_2
+
+    const/4 v6, 0x1
+
+    :cond_2
+    if-eqz v6, :cond_3
+
+    const/4 v4, 0x0
+
+    :goto_1
+    invoke-interface {v0, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v9
+
+    check-cast v9, Landroid/app/enterprise/AppControlInfo;
+
+    iget-object v9, v9, Landroid/app/enterprise/AppControlInfo;->entries:Ljava/util/List;
+
+    invoke-interface {v9}, Ljava/util/List;->size()I
+
+    move-result v9
+
+    if-ge v4, v9, :cond_3
+
+    invoke-interface {v0, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v9
+
+    check-cast v9, Landroid/app/enterprise/AppControlInfo;
+
+    iget-object v9, v9, Landroid/app/enterprise/AppControlInfo;->entries:Ljava/util/List;
+
+    invoke-interface {v9, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v7
+
+    check-cast v7, Ljava/lang/String;
+
+    invoke-interface {v8, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_1
+
+    :cond_3
+    add-int/lit8 v5, v5, 0x1
+
+    goto :goto_0
 .end method
 
 .method private getExchangeDataMap(IZ)Ljava/util/HashMap;
@@ -2535,6 +2688,240 @@
     goto :goto_0
 .end method
 
+.method private getShortcutList(I)Ljava/util/List;
+    .locals 14
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I)",
+            "Ljava/util/List",
+            "<",
+            "Landroid/content/ComponentName;",
+            ">;"
+        }
+    .end annotation
+
+    const/4 v13, 0x1
+
+    const/4 v12, 0x2
+
+    const/4 v3, 0x0
+
+    new-instance v8, Ljava/io/File;
+
+    invoke-static {p1}, Landroid/os/Environment;->getUserSystemDirectory(I)Ljava/io/File;
+
+    move-result-object v10
+
+    const-string/jumbo v11, "export_shortcut_info.xml"
+
+    invoke-direct {v8, v10, v11}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    if-eqz v8, :cond_0
+
+    :try_start_0
+    invoke-virtual {v8}, Ljava/io/File;->canRead()Z
+
+    move-result v10
+
+    xor-int/lit8 v10, v10, 0x1
+
+    if-eqz v10, :cond_1
+
+    :cond_0
+    return-object v0
+
+    :cond_1
+    new-instance v4, Ljava/io/FileInputStream;
+
+    invoke-direct {v4, v8}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_5
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :try_start_1
+    invoke-static {}, Landroid/util/Xml;->newPullParser()Lorg/xmlpull/v1/XmlPullParser;
+
+    move-result-object v6
+
+    const/4 v10, 0x0
+
+    invoke-interface {v6, v4, v10}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
+
+    :cond_2
+    invoke-interface {v6}, Lorg/xmlpull/v1/XmlPullParser;->next()I
+
+    move-result v9
+
+    if-eq v9, v12, :cond_3
+
+    if-ne v9, v13, :cond_2
+
+    :cond_3
+    if-eq v9, v12, :cond_5
+
+    sget-object v10, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v11, "Unable to read shortcutfile"
+
+    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    if-eqz v4, :cond_4
+
+    :try_start_2
+    invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+
+    :cond_4
+    :goto_0
+    return-object v0
+
+    :catch_0
+    move-exception v2
+
+    goto :goto_0
+
+    :cond_5
+    const/4 v7, 0x0
+
+    const/4 v1, 0x0
+
+    :cond_6
+    :goto_1
+    :try_start_3
+    invoke-interface {v6}, Lorg/xmlpull/v1/XmlPullParser;->next()I
+
+    move-result v9
+
+    if-eq v9, v13, :cond_8
+
+    if-ne v9, v12, :cond_6
+
+    const-string/jumbo v10, "SHORTCUT"
+
+    invoke-interface {v6}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v10, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_6
+
+    const-string/jumbo v10, "package"
+
+    const/4 v11, 0x0
+
+    invoke-interface {v6, v11, v10}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v7
+
+    const-string/jumbo v10, "class"
+
+    const/4 v11, 0x0
+
+    invoke-interface {v6, v11, v10}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    new-instance v10, Landroid/content/ComponentName;
+
+    invoke-direct {v10, v7, v1}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-interface {v0, v10}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    :try_end_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+
+    goto :goto_1
+
+    :catch_1
+    move-exception v5
+
+    move-object v3, v4
+
+    :goto_2
+    :try_start_4
+    invoke-virtual {v5}, Ljava/lang/Exception;->printStackTrace()V
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+
+    if-eqz v3, :cond_7
+
+    :try_start_5
+    invoke-virtual {v3}, Ljava/io/FileInputStream;->close()V
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_3
+
+    :cond_7
+    :goto_3
+    return-object v0
+
+    :cond_8
+    if-eqz v4, :cond_9
+
+    :try_start_6
+    invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_2
+
+    :cond_9
+    :goto_4
+    move-object v3, v4
+
+    goto :goto_3
+
+    :catch_2
+    move-exception v2
+
+    goto :goto_4
+
+    :catch_3
+    move-exception v2
+
+    goto :goto_3
+
+    :catchall_0
+    move-exception v10
+
+    :goto_5
+    if-eqz v3, :cond_a
+
+    :try_start_7
+    invoke-virtual {v3}, Ljava/io/FileInputStream;->close()V
+    :try_end_7
+    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_4
+
+    :cond_a
+    :goto_6
+    throw v10
+
+    :catch_4
+    move-exception v2
+
+    goto :goto_6
+
+    :catchall_1
+    move-exception v10
+
+    move-object v3, v4
+
+    goto :goto_5
+
+    :catch_5
+    move-exception v5
+
+    goto :goto_2
+.end method
+
 .method static declared-synchronized getUcmService()Lcom/samsung/android/knox/ucm/core/IUcmService;
     .locals 2
 
@@ -2577,7 +2964,7 @@
 .end method
 
 .method private getUserAndPersonasIds(I)Ljava/util/ArrayList;
-    .locals 10
+    .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -2593,88 +2980,87 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     :try_start_0
-    iget-object v7, p0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
+    iget-object v6, p0, Lcom/android/server/RCPManagerService;->mUm:Landroid/os/UserManager;
 
-    const-string/jumbo v8, "persona"
-
-    invoke-virtual {v7, v8}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v6, p1}, Landroid/os/UserManager;->getProfileParent(I)Landroid/content/pm/UserInfo;
 
     move-result-object v2
 
-    check-cast v2, Lcom/samsung/android/knox/SemPersonaManager;
+    if-eqz v2, :cond_0
 
-    invoke-virtual {v2, p1}, Lcom/samsung/android/knox/SemPersonaManager;->getParentId(I)I
+    iget v6, v2, Landroid/content/pm/UserInfo;->id:I
 
-    move-result v3
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v7
-
-    invoke-virtual {v0, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    invoke-virtual {v2, v3}, Lcom/samsung/android/knox/SemPersonaManager;->getPersonasForUser(I)Ljava/util/List;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v6
 
-    if-eqz v6, :cond_0
-
-    invoke-interface {v6}, Ljava/util/List;->isEmpty()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_1
+    invoke-virtual {v0, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     :cond_0
-    sget-object v7, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+    const/4 v6, 0x1
 
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "getUserOrItsPersonasIds(): List<SemPersonaInfo> is null or empty for callingUserId="
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-object v0
-
-    :cond_1
-    invoke-interface {v6}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-virtual {p0, v6}, Lcom/android/server/RCPManagerService;->getPersonas(Z)Ljava/util/List;
 
     move-result-object v5
 
-    :goto_0
-    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
+    if-eqz v5, :cond_1
 
-    move-result v7
+    invoke-interface {v5}, Ljava/util/List;->isEmpty()Z
 
-    if-eqz v7, :cond_2
+    move-result v6
 
-    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    if-eqz v6, :cond_2
 
-    move-result-object v4
+    :cond_1
+    sget-object v6, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
 
-    check-cast v4, Lcom/samsung/android/knox/SemPersonaInfo;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    iget v7, v4, Lcom/samsung/android/knox/SemPersonaInfo;->id:I
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const-string/jumbo v8, "getUserOrItsPersonasIds(): List<SemPersonaInfo> is null or empty for callingUserId="
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v7
 
-    invoke-virtual {v0, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-object v0
+
+    :cond_2
+    invoke-interface {v5}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    :goto_0
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_3
+
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/content/pm/UserInfo;
+
+    iget v6, v3, Landroid/content/pm/UserInfo;->id:I
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v0, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -2687,140 +3073,142 @@
 
     return-object v0
 
-    :cond_2
+    :cond_3
     return-object v0
 .end method
 
 .method private getUserOrItsPersonasIds(I)[I
-    .locals 13
+    .locals 12
 
-    const/4 v12, 0x0
+    const/4 v11, 0x0
 
     :try_start_0
-    iget-object v9, p0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
+    iget-object v8, p0, Lcom/android/server/RCPManagerService;->mUm:Landroid/os/UserManager;
 
-    const-string/jumbo v10, "persona"
-
-    invoke-virtual {v9, v10}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v8, p1}, Landroid/os/UserManager;->getProfileParent(I)Landroid/content/pm/UserInfo;
 
     move-result-object v4
 
-    check-cast v4, Lcom/samsung/android/knox/SemPersonaManager;
+    if-eqz v4, :cond_0
 
-    invoke-virtual {v4, p1}, Lcom/samsung/android/knox/SemPersonaManager;->getParentId(I)I
+    iget v8, v4, Landroid/content/pm/UserInfo;->id:I
 
-    move-result v5
+    if-eq v8, p1, :cond_0
 
-    if-eq v5, p1, :cond_0
+    const/4 v8, 0x1
 
-    const/4 v9, 0x1
+    new-array v3, v8, [I
 
-    new-array v3, v9, [I
+    iget v8, v4, Landroid/content/pm/UserInfo;->id:I
 
     const/4 v9, 0x0
 
-    aput v5, v3, v9
+    aput v8, v3, v9
 
     return-object v3
 
     :cond_0
-    invoke-virtual {v4, v5}, Lcom/samsung/android/knox/SemPersonaManager;->getPersonasForUser(I)Ljava/util/List;
+    iget-object v8, p0, Lcom/android/server/RCPManagerService;->mUm:Landroid/os/UserManager;
 
-    move-result-object v8
+    const/4 v9, 0x1
 
-    if-eqz v8, :cond_1
+    invoke-virtual {v8, v9}, Landroid/os/UserManager;->getUsers(Z)Ljava/util/List;
 
-    invoke-interface {v8}, Ljava/util/List;->isEmpty()Z
+    move-result-object v7
 
-    move-result v9
+    if-eqz v7, :cond_1
 
-    if-eqz v9, :cond_2
+    invoke-interface {v7}, Ljava/util/List;->isEmpty()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_2
 
     :cond_1
-    sget-object v9, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+    sget-object v8, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v11, "getUserOrItsPersonasIds(): List<SemPersonaInfo> is null or empty for callingUserId="
+    const-string/jumbo v10, "getUserOrItsPersonasIds(): List<SemPersonaInfo> is null or empty for callingUserId="
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v9
 
-    invoke-virtual {v10, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v9
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v9
 
-    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return-object v12
+    return-object v11
 
     :cond_2
     const/4 v1, 0x0
 
-    invoke-interface {v8}, Ljava/util/List;->size()I
+    invoke-interface {v7}, Ljava/util/List;->size()I
 
-    move-result v9
+    move-result v8
 
-    new-array v3, v9, [I
+    new-array v3, v8, [I
 
-    invoke-interface {v8}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {v7}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v7
+    move-result-object v6
 
     move v2, v1
 
     :goto_0
-    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v9
+    move-result v8
 
-    if-eqz v9, :cond_3
+    if-eqz v8, :cond_3
 
-    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v5
 
-    check-cast v6, Lcom/samsung/android/knox/SemPersonaInfo;
+    check-cast v5, Landroid/content/pm/UserInfo;
 
     add-int/lit8 v1, v2, 0x1
 
-    iget v9, v6, Lcom/samsung/android/knox/SemPersonaInfo;->id:I
+    iget v8, v5, Landroid/content/pm/UserInfo;->id:I
 
-    aput v9, v3, v2
+    aput v8, v3, v2
 
     move v2, v1
 
     goto :goto_0
 
     :cond_3
-    sget-object v9, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+    sget-object v8, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v11, "getUserOrItsPersonasIds(): size="
+    const-string/jumbo v10, "getUserOrItsPersonasIds(): size="
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v9
 
-    invoke-virtual {v10, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v9
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v9
 
-    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -2829,470 +3217,599 @@
     :catch_0
     move-exception v0
 
-    sget-object v9, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+    sget-object v8, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v10, "getUserOrItsPersonasIds(): Rorre..."
+    const-string/jumbo v9, "getUserOrItsPersonasIds(): Rorre..."
 
-    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    return-object v12
+    return-object v11
+.end method
+
+.method private static final hasManageUsersPermission()Z
+    .locals 5
+
+    const/4 v2, 0x0
+
+    const/4 v1, 0x1
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v0
+
+    const/16 v3, 0x3e8
+
+    invoke-static {v0, v3}, Landroid/os/UserHandle;->isSameApp(II)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    const-string/jumbo v3, "android.permission.MANAGE_USERS"
+
+    const/4 v4, -0x1
+
+    invoke-static {v3, v0, v4, v1}, Landroid/app/ActivityManager;->checkComponentPermission(Ljava/lang/String;IIZ)I
+
+    move-result v3
+
+    if-nez v3, :cond_1
+
+    :cond_0
+    :goto_0
+    return v1
+
+    :cond_1
+    move v1, v2
+
+    goto :goto_0
 .end method
 
 .method public static isAllowedtoLaunch(Landroid/content/pm/ActivityInfo;)Z
-    .locals 23
+    .locals 24
 
-    const-string/jumbo v20, "SEC_FLOATING_FEATURE_VOICECALL_CONFIG_INCALLUI_PACKAGE_NAME"
+    const-string/jumbo v21, "SEC_FLOATING_FEATURE_VOICECALL_CONFIG_INCALLUI_PACKAGE_NAME"
 
-    const-string/jumbo v21, "com.android.incallui"
+    const-string/jumbo v22, "com.android.incallui"
 
-    invoke-static/range {v20 .. v21}, Lcom/android/server/RCPManagerService;->getFloatingPackageName(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static/range {v21 .. v22}, Lcom/android/server/RCPManagerService;->getFloatingPackageName(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v11
 
-    const-string/jumbo v20, "SEC_FLOATING_FEATURE_CONTACTS_CONFIG_PACKAGE_NAME"
+    const-string/jumbo v21, "SEC_FLOATING_FEATURE_CONTACTS_CONFIG_PACKAGE_NAME"
 
-    const-string/jumbo v21, "com.android.contacts"
+    const-string/jumbo v22, "com.android.contacts"
 
-    invoke-static/range {v20 .. v21}, Lcom/android/server/RCPManagerService;->getFloatingPackageName(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static/range {v21 .. v22}, Lcom/android/server/RCPManagerService;->getFloatingPackageName(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v10
 
-    const-string/jumbo v20, "SEC_FLOATING_FEATURE_SMARTMANAGER_CONFIG_PACKAGE_NAME"
+    const-string/jumbo v21, "SEC_FLOATING_FEATURE_SMARTMANAGER_CONFIG_PACKAGE_NAME"
 
-    const-string/jumbo v21, "com.samsung.android.sm"
+    const-string/jumbo v22, "com.samsung.android.sm"
 
-    invoke-static/range {v20 .. v21}, Lcom/android/server/RCPManagerService;->getFloatingPackageName(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static/range {v21 .. v22}, Lcom/android/server/RCPManagerService;->getFloatingPackageName(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v12
 
-    const/16 v20, 0x3c
+    const/16 v21, 0x49
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
     new-array v3, v0, [Ljava/lang/String;
 
-    const-string/jumbo v20, "com.android.mms"
+    const-string/jumbo v21, "com.android.mms"
 
-    const/16 v21, 0x0
+    const/16 v22, 0x0
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.android.phone"
+    const-string/jumbo v21, "com.android.phone"
 
-    const/16 v21, 0x1
+    const/16 v22, 0x1
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const/16 v20, 0x2
+    const/16 v21, 0x2
 
-    aput-object v11, v3, v20
+    aput-object v11, v3, v21
 
-    const-string/jumbo v20, "com.samsung.contacts"
+    const-string/jumbo v21, "com.samsung.contacts"
 
-    const/16 v21, 0x3
+    const/16 v22, 0x3
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const/16 v20, 0x4
+    const/16 v21, 0x4
 
-    aput-object v10, v3, v20
+    aput-object v10, v3, v21
 
-    const-string/jumbo v20, "com.sec.android.inputmethod"
+    const-string/jumbo v21, "com.sec.android.inputmethod"
 
-    const/16 v21, 0x5
+    const/16 v22, 0x5
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.samsung.knox.rcp.components"
+    const-string/jumbo v21, "com.samsung.knox.rcp.components"
 
-    const/16 v21, 0x6
+    const/16 v22, 0x6
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.android.settings"
+    const-string/jumbo v21, "com.android.settings"
 
-    const/16 v21, 0x7
+    const/16 v22, 0x7
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.android.systemui"
+    const-string/jumbo v21, "com.android.systemui"
 
-    const/16 v21, 0x8
+    const/16 v22, 0x8
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.sec.android.app.SecSetupWizard"
+    const-string/jumbo v21, "com.sec.android.app.SecSetupWizard"
 
-    const/16 v21, 0x9
+    const/16 v22, 0x9
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.samsung.safetyinformation"
+    const-string/jumbo v21, "com.samsung.safetyinformation"
 
-    const/16 v21, 0xa
+    const/16 v22, 0xa
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.google.android.gsf"
+    const-string/jumbo v21, "com.google.android.gsf"
 
-    const/16 v21, 0xb
+    const/16 v22, 0xb
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.sec.android.app.servicemodeapp"
+    const-string/jumbo v21, "com.sec.android.app.servicemodeapp"
 
-    const/16 v21, 0xc
+    const/16 v22, 0xc
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "android"
+    const-string/jumbo v21, "android"
 
-    const/16 v21, 0xd
+    const/16 v22, 0xd
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.android.server.telecom"
+    const-string/jumbo v21, "com.android.server.telecom"
 
-    const/16 v21, 0xe
+    const/16 v22, 0xe
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.sec.android.app.taskmanager"
+    const-string/jumbo v21, "com.sec.android.app.taskmanager"
 
-    const/16 v21, 0xf
+    const/16 v22, 0xf
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.sec.android.app.controlpanel"
+    const-string/jumbo v21, "com.sec.android.app.controlpanel"
 
-    const/16 v21, 0x10
+    const/16 v22, 0x10
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.android.providers.media"
+    const-string/jumbo v21, "com.android.providers.media"
 
-    const/16 v21, 0x11
+    const/16 v22, 0x11
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.google.android.marvin.talkback"
+    const-string/jumbo v21, "com.google.android.marvin.talkback"
 
-    const/16 v21, 0x12
+    const/16 v22, 0x12
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.sec.android.app.popupuireceiver"
+    const-string/jumbo v21, "com.sec.android.app.popupuireceiver"
 
-    const/16 v21, 0x13
+    const/16 v22, 0x13
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.samsung.SMT"
+    const-string/jumbo v21, "com.samsung.SMT"
 
-    const/16 v21, 0x14
+    const/16 v22, 0x14
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.sec.tetheringprovision"
+    const-string/jumbo v21, "com.sec.tetheringprovision"
 
-    const/16 v21, 0x15
+    const/16 v22, 0x15
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.google.android.gms"
+    const-string/jumbo v21, "com.google.android.gms"
 
-    const/16 v21, 0x16
+    const/16 v22, 0x16
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.samsung.android.app.sounddetector"
+    const-string/jumbo v21, "com.samsung.android.app.sounddetector"
 
-    const/16 v21, 0x17
+    const/16 v22, 0x17
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.samsung.android.app.colorblind"
+    const-string/jumbo v21, "com.samsung.android.app.colorblind"
 
-    const/16 v21, 0x18
+    const/16 v22, 0x18
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.samsung.android.app.assistantmenu"
+    const-string/jumbo v21, "com.samsung.android.app.assistantmenu"
 
-    const/16 v21, 0x19
+    const/16 v22, 0x19
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.samsung.tmowfc.wfcpref"
+    const-string/jumbo v21, "com.samsung.tmowfc.wfcpref"
 
-    const/16 v21, 0x1a
+    const/16 v22, 0x1a
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.samsung.spg"
+    const-string/jumbo v21, "com.samsung.spg"
 
-    const/16 v21, 0x1b
+    const/16 v22, 0x1b
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.samsung.android.phone"
+    const-string/jumbo v21, "com.samsung.android.phone"
 
-    const/16 v21, 0x1c
+    const/16 v22, 0x1c
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.android.nfc"
+    const-string/jumbo v21, "com.android.nfc"
 
-    const/16 v21, 0x1d
+    const/16 v22, 0x1d
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.samsung.android.app.talkback"
+    const-string/jumbo v21, "com.samsung.android.app.talkback"
 
-    const/16 v21, 0x1e
+    const/16 v22, 0x1e
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.samsung.android.app.screenreader"
+    const-string/jumbo v21, "com.samsung.android.app.screenreader"
 
-    const/16 v21, 0x1f
+    const/16 v22, 0x1f
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.samsung.android.app.advsounddetector"
+    const-string/jumbo v21, "com.samsung.android.app.advsounddetector"
 
-    const/16 v21, 0x20
+    const/16 v22, 0x20
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const/16 v20, 0x21
+    const/16 v21, 0x21
 
-    aput-object v12, v3, v20
+    aput-object v12, v3, v21
 
-    const-string/jumbo v20, "com.sec.android.app.simsettingmgr"
+    const-string/jumbo v21, "com.sec.android.app.simsettingmgr"
 
-    const/16 v21, 0x22
+    const/16 v22, 0x22
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.samsung.sdm"
+    const-string/jumbo v21, "com.samsung.sdm"
 
-    const/16 v21, 0x23
+    const/16 v22, 0x23
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "jp.softbank.mb.mail"
+    const-string/jumbo v21, "com.samsung.sdm.sdmviewer"
 
-    const/16 v21, 0x24
+    const/16 v22, 0x24
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.kddi.android.cmail"
+    const-string/jumbo v21, "jp.softbank.mb.mail"
 
-    const/16 v21, 0x25
+    const/16 v22, 0x25
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "ait.com.vn.main.plus.lte"
+    const-string/jumbo v21, "com.kddi.android.cmail"
 
-    const/16 v21, 0x26
+    const/16 v22, 0x26
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.sec.android.app.wfdbroker"
+    const-string/jumbo v21, "ait.com.vn.main.plus.lte"
 
-    const/16 v21, 0x27
+    const/16 v22, 0x27
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.policydm"
+    const-string/jumbo v21, "com.sec.android.app.wfdbroker"
 
-    const/16 v21, 0x28
+    const/16 v22, 0x28
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.samsung.android.securitylogagent"
+    const-string/jumbo v21, "com.policydm"
 
-    const/16 v21, 0x29
+    const/16 v22, 0x29
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.samsung.android.universalswitch"
+    const-string/jumbo v21, "com.samsung.android.securitylogagent"
 
-    const/16 v21, 0x2a
+    const/16 v22, 0x2a
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.google.android.tts"
+    const-string/jumbo v21, "com.samsung.android.universalswitch"
 
-    const/16 v21, 0x2b
+    const/16 v22, 0x2b
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.samsung.knox.appsupdateagent"
+    const-string/jumbo v21, "com.google.android.tts"
 
-    const/16 v21, 0x2c
+    const/16 v22, 0x2c
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.google.android.packageinstaller"
+    const-string/jumbo v21, "com.samsung.knox.appsupdateagent"
 
-    const/16 v21, 0x2d
+    const/16 v22, 0x2d
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.samsung.android.packageinstaller"
+    const-string/jumbo v21, "com.google.android.packageinstaller"
 
-    const/16 v21, 0x2e
+    const/16 v22, 0x2e
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.sec.knox.switcher"
+    const-string/jumbo v21, "com.samsung.android.packageinstaller"
 
-    const/16 v21, 0x2f
+    const/16 v22, 0x2f
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.sec.android.app.setupwizard"
+    const-string/jumbo v21, "com.sec.android.app.setupwizard"
 
-    const/16 v21, 0x30
+    const/16 v22, 0x30
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.samsung.vvm"
+    const-string/jumbo v21, "com.samsung.vvm"
 
-    const/16 v21, 0x31
+    const/16 v22, 0x31
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.sec.android.softphone"
+    const-string/jumbo v21, "com.sec.android.softphone"
 
-    const/16 v21, 0x32
+    const/16 v22, 0x32
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.samsung.android.messaging"
+    const-string/jumbo v21, "com.samsung.android.messaging"
 
-    const/16 v21, 0x33
+    const/16 v22, 0x33
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.ws.dm"
+    const-string/jumbo v21, "com.ws.dm"
 
-    const/16 v21, 0x34
+    const/16 v22, 0x34
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.samsung.android.server.iris"
+    const-string/jumbo v21, "com.samsung.android.mobileservice"
 
-    const/16 v21, 0x35
+    const/16 v22, 0x35
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.android.captiveportallogin"
+    const-string/jumbo v21, "com.android.htmlviewer"
 
-    const/16 v21, 0x36
+    const/16 v22, 0x36
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.android.phone.EnhancedLteServices"
+    const-string/jumbo v21, "com.android.chrome"
 
-    const/16 v21, 0x37
+    const/16 v22, 0x37
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.sec.android.preloadinstaller"
+    const-string/jumbo v21, "com.samsung.android.server.iris"
 
-    const/16 v21, 0x38
+    const/16 v22, 0x38
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.vzw.hss.myverizon"
+    const-string/jumbo v21, "com.android.captiveportallogin"
 
-    const/16 v21, 0x39
+    const/16 v22, 0x39
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.sec.vowifispg"
+    const-string/jumbo v21, "com.android.phone.EnhancedLteServices"
 
-    const/16 v21, 0x3a
+    const/16 v22, 0x3a
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const-string/jumbo v20, "com.samsung.android.nsdsvowifi"
+    const-string/jumbo v21, "com.sec.android.preloadinstaller"
 
-    const/16 v21, 0x3b
+    const/16 v22, 0x3b
 
-    aput-object v20, v3, v21
+    aput-object v21, v3, v22
 
-    const/16 v20, 0x2
+    const-string/jumbo v21, "com.vzw.hss.myverizon"
 
-    move/from16 v0, v20
+    const/16 v22, 0x3c
+
+    aput-object v21, v3, v22
+
+    const-string/jumbo v21, "com.sec.vowifispg"
+
+    const/16 v22, 0x3d
+
+    aput-object v21, v3, v22
+
+    const-string/jumbo v21, "com.samsung.android.nsdsvowifi"
+
+    const/16 v22, 0x3e
+
+    aput-object v21, v3, v22
+
+    const-string/jumbo v21, "com.sec.android.app.firewall"
+
+    const/16 v22, 0x3f
+
+    aput-object v21, v3, v22
+
+    const-string/jumbo v21, "com.samsung.android.isag.issmanager"
+
+    const/16 v22, 0x40
+
+    aput-object v21, v3, v22
+
+    const-string/jumbo v21, "com.sec.android.app.soundalive"
+
+    const/16 v22, 0x41
+
+    aput-object v21, v3, v22
+
+    const-string/jumbo v21, "com.sec.hearingadjust"
+
+    const/16 v22, 0x42
+
+    aput-object v21, v3, v22
+
+    const-string/jumbo v21, "com.samsung.android.app.aodservice"
+
+    const/16 v22, 0x43
+
+    aput-object v21, v3, v22
+
+    const-string/jumbo v21, "com.samsung.android.knox.containeragent"
+
+    const/16 v22, 0x44
+
+    aput-object v21, v3, v22
+
+    const-string/jumbo v21, "com.sec.android.service.singlesignon"
+
+    const/16 v22, 0x45
+
+    aput-object v21, v3, v22
+
+    const-string/jumbo v21, "com.samsung.networkui"
+
+    const/16 v22, 0x46
+
+    aput-object v21, v3, v22
+
+    const-string/jumbo v21, "com.android.certinstaller"
+
+    const/16 v22, 0x47
+
+    aput-object v21, v3, v22
+
+    const-string/jumbo v21, "com.android.stk"
+
+    const/16 v22, 0x48
+
+    aput-object v21, v3, v22
+
+    const/16 v21, 0x2
+
+    move/from16 v0, v21
 
     new-array v13, v0, [Ljava/lang/String;
 
-    new-instance v20, Ljava/lang/StringBuilder;
+    new-instance v21, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v20
+    move-result-object v21
 
-    const-string/jumbo v21, ".activities.GroupDetailActivity"
+    const-string/jumbo v22, ".activities.GroupDetailActivity"
 
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v20
+    move-result-object v21
 
-    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v20
+    move-result-object v21
 
-    const/16 v21, 0x0
+    const/16 v22, 0x0
 
-    aput-object v20, v13, v21
+    aput-object v21, v13, v22
 
-    const-string/jumbo v20, "com.samsung.contacts.emergency.EmergencyGroupDetailActivity"
+    const-string/jumbo v21, "com.samsung.contacts.emergency.EmergencyGroupDetailActivity"
 
-    const/16 v21, 0x1
+    const/16 v22, 0x1
 
-    aput-object v20, v13, v21
+    aput-object v21, v13, v22
 
     new-instance v7, Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    sget-object v20, Lcom/android/server/RCPManagerService;->sContext:Landroid/content/Context;
+    sget-object v21, Lcom/android/server/RCPManagerService;->sContext:Landroid/content/Context;
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     invoke-direct {v7, v0}, Lcom/android/server/enterprise/storage/EdmStorageProvider;-><init>(Landroid/content/Context;)V
 
-    sget-object v20, Lcom/android/server/RCPManagerService;->sContext:Landroid/content/Context;
+    sget-object v21, Lcom/android/server/RCPManagerService;->sContext:Landroid/content/Context;
 
-    const-string/jumbo v21, "persona"
+    const-string/jumbo v22, "persona"
 
-    invoke-virtual/range {v20 .. v21}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual/range {v21 .. v22}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v15
 
     check-cast v15, Lcom/samsung/android/knox/SemPersonaManager;
 
+    sget-object v21, Lcom/android/server/RCPManagerService;->sContext:Landroid/content/Context;
+
+    const-string/jumbo v22, "user"
+
+    invoke-virtual/range {v21 .. v22}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v20
+
+    check-cast v20, Landroid/os/UserManager;
+
     const/16 v16, 0x0
+
+    const/16 v17, 0x0
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v8
 
-    const/16 v20, 0x1
+    const/16 v21, 0x1
 
     :try_start_0
-    move/from16 v0, v20
+    move/from16 v0, v21
 
-    invoke-virtual {v15, v0}, Lcom/samsung/android/knox/SemPersonaManager;->getPersonas(Z)Ljava/util/List;
+    invoke-virtual {v15, v0}, Lcom/samsung/android/knox/SemPersonaManager;->getKnoxIds(Z)Ljava/util/List;
 
     move-result-object v16
 
@@ -3303,52 +3820,64 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result v20
+    move-result v21
 
-    if-nez v20, :cond_1
+    if-nez v21, :cond_1
 
     :cond_0
-    const/16 v20, 0x1
+    const/16 v21, 0x1
 
     invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return v20
+    return v21
 
     :cond_1
-    invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    const/16 v21, 0x0
 
-    const/16 v20, 0x0
-
+    :try_start_1
     move-object/from16 v0, v16
 
-    move/from16 v1, v20
+    move/from16 v1, v21
 
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
+    move-result-object v21
+
+    check-cast v21, Ljava/lang/Integer;
+
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/Integer;->intValue()I
+
+    move-result v21
+
+    invoke-virtual/range {v20 .. v21}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
     move-result-object v17
 
-    check-cast v17, Lcom/samsung/android/knox/SemPersonaInfo;
+    invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    sget-object v20, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
+    sget-object v21, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
 
-    if-eqz v20, :cond_2
+    if-eqz v21, :cond_2
 
-    sget-object v20, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
+    sget-object v21, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
 
-    invoke-virtual/range {v20 .. v20}, Ljava/util/ArrayList;->size()I
+    invoke-virtual/range {v21 .. v21}, Ljava/util/ArrayList;->size()I
 
-    move-result v20
+    move-result v21
 
-    if-nez v20, :cond_3
+    if-nez v21, :cond_3
 
     :cond_2
     move-object/from16 v0, v17
 
-    iget v0, v0, Lcom/samsung/android/knox/SemPersonaInfo;->id:I
+    iget v0, v0, Landroid/content/pm/UserInfo;->id:I
 
-    move/from16 v20, v0
+    move/from16 v21, v0
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
     invoke-virtual {v7, v0}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getMUMContainerOwnerUid(I)I
 
@@ -3360,67 +3889,92 @@
 
     if-eqz v18, :cond_3
 
-    sget-object v20, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
+    sget-object v21, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     move-object/from16 v1, v18
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
-    move-result v20
+    move-result v21
 
-    if-eqz v20, :cond_4
+    xor-int/lit8 v21, v21, 0x1
+
+    if-eqz v21, :cond_3
+
+    sget-object v21, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
+
+    invoke-virtual/range {v21 .. v21}, Ljava/util/ArrayList;->clear()V
+
+    sget-object v21, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v18
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v21, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
+
+    const-string/jumbo v22, "com.sec.android.fotaclient"
+
+    invoke-virtual/range {v21 .. v22}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v21, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
+
+    const-string/jumbo v22, "com.wssyncmldm"
+
+    invoke-virtual/range {v21 .. v22}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     :cond_3
-    :goto_0
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v8
 
     move-object/from16 v0, v17
 
-    iget v0, v0, Lcom/samsung/android/knox/SemPersonaInfo;->id:I
+    iget v0, v0, Landroid/content/pm/UserInfo;->id:I
 
-    move/from16 v20, v0
+    move/from16 v21, v0
 
-    move/from16 v0, v20
-
-    invoke-virtual {v15, v0}, Lcom/samsung/android/knox/SemPersonaManager;->getAppPackageNamesAllWhiteLists(I)Ljava/util/List;
+    invoke-static/range {v21 .. v21}, Lcom/android/server/RCPManagerService;->getAppPackageNamesAllWhiteLists(I)Ljava/util/List;
 
     move-result-object v5
 
-    sget-object v20, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
+    sget-object v21, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     invoke-virtual {v0, v5}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
     invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    invoke-static {v15}, Lcom/android/server/RCPManagerService;->isKioskLocked(Lcom/samsung/android/knox/SemPersonaManager;)Z
+    move-object/from16 v0, v20
 
-    move-result v20
+    invoke-static {v15, v0}, Lcom/android/server/RCPManagerService;->isKioskLocked(Lcom/samsung/android/knox/SemPersonaManager;Landroid/os/UserManager;)Z
 
-    if-eqz v20, :cond_5
+    move-result v21
+
+    if-eqz v21, :cond_4
 
     new-instance v4, Ljava/util/ArrayList;
 
     invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
 
-    const-string/jumbo v20, "com.samsung.knox.rcp.components"
+    const-string/jumbo v21, "com.samsung.knox.rcp.components"
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     invoke-virtual {v4, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     move-object/from16 v0, v17
 
-    iget v0, v0, Lcom/samsung/android/knox/SemPersonaInfo;->id:I
+    iget v0, v0, Landroid/content/pm/UserInfo;->id:I
 
-    move/from16 v20, v0
+    move/from16 v21, v0
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
     invoke-virtual {v7, v0}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getMUMContainerOwnerUid(I)I
 
@@ -3434,112 +3988,57 @@
 
     invoke-virtual {v4, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v20, "com.sec.android.fotaclient"
+    const-string/jumbo v21, "com.sec.android.fotaclient"
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     invoke-virtual {v4, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v20, "com.wssyncmldm"
+    const-string/jumbo v21, "com.wssyncmldm"
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     invoke-virtual {v4, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     invoke-virtual {v4, v11}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v20, "com.android.server.telecom"
+    const-string/jumbo v21, "com.android.server.telecom"
 
-    move-object/from16 v0, v20
-
-    invoke-virtual {v4, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v20, "com.android.phone"
-
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     invoke-virtual {v4, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v20, "com.sec.knox.switcher"
+    const-string/jumbo v21, "com.android.phone"
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     invoke-virtual {v4, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    if-eqz v4, :cond_b
+    const-string/jumbo v21, "com.samsung.android.knox.containercore"
 
-    move-object/from16 v0, p0
+    move-object/from16 v0, v21
 
-    iget-object v0, v0, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+    invoke-virtual {v4, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    move-object/from16 v20, v0
+    const-string/jumbo v21, "com.samsung.android.knox.containeragent"
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
-    invoke-virtual {v4, v0}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    move-result v20
+    const-string/jumbo v21, "com.sec.android.service.singlesignon"
 
-    if-eqz v20, :cond_b
+    move-object/from16 v0, v21
 
-    const/16 v20, 0x1
+    invoke-virtual {v4, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    return v20
+    const-string/jumbo v21, "android"
 
-    :catch_0
-    move-exception v6
+    move-object/from16 v0, v21
 
-    :try_start_1
-    invoke-virtual {v6}, Ljava/lang/Exception;->printStackTrace()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    invoke-virtual {v4, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const/16 v20, 0x1
-
-    invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return v20
-
-    :catchall_0
-    move-exception v20
-
-    invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    throw v20
-
-    :cond_4
-    sget-object v20, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
-
-    invoke-virtual/range {v20 .. v20}, Ljava/util/ArrayList;->clear()V
-
-    sget-object v20, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
-
-    move-object/from16 v0, v20
-
-    move-object/from16 v1, v18
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v20, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
-
-    const-string/jumbo v21, "com.sec.android.fotaclient"
-
-    invoke-virtual/range {v20 .. v21}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v20, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
-
-    const-string/jumbo v21, "com.wssyncmldm"
-
-    invoke-virtual/range {v20 .. v21}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto/16 :goto_0
-
-    :cond_5
-    sget-object v20, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
-
-    if-eqz v20, :cond_6
-
-    sget-object v20, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
+    if-eqz v4, :cond_a
 
     move-object/from16 v0, p0
 
@@ -3547,153 +4046,199 @@
 
     move-object/from16 v21, v0
 
-    invoke-virtual/range {v20 .. v21}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+    move-object/from16 v0, v21
 
-    move-result v20
+    invoke-virtual {v4, v0}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
-    if-eqz v20, :cond_6
+    move-result v21
 
-    const/16 v20, 0x1
+    if-eqz v21, :cond_a
 
-    return v20
+    const/16 v21, 0x1
 
-    :cond_6
-    const/16 v20, 0x0
+    return v21
+
+    :catch_0
+    move-exception v6
+
+    :try_start_2
+    invoke-virtual {v6}, Ljava/lang/Exception;->printStackTrace()V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    const/16 v21, 0x1
+
+    invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return v21
+
+    :catchall_0
+    move-exception v21
+
+    invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v21
+
+    :cond_4
+    sget-object v21, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
+
+    if-eqz v21, :cond_5
+
+    sget-object v21, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+
+    move-object/from16 v22, v0
+
+    invoke-virtual/range {v21 .. v22}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+
+    move-result v21
+
+    if-eqz v21, :cond_5
+
+    const/16 v21, 0x1
+
+    return v21
+
+    :cond_5
+    const/16 v21, 0x0
 
     array-length v0, v13
 
-    move/from16 v21, v0
+    move/from16 v22, v0
 
-    :goto_1
-    move/from16 v0, v20
+    :goto_0
+    move/from16 v0, v21
 
-    move/from16 v1, v21
+    move/from16 v1, v22
 
-    if-ge v0, v1, :cond_8
+    if-ge v0, v1, :cond_7
 
-    aget-object v19, v13, v20
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
-
-    move-object/from16 v22, v0
-
-    if-eqz v22, :cond_7
+    aget-object v19, v13, v21
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
 
-    move-object/from16 v22, v0
+    move-object/from16 v23, v0
 
-    move-object/from16 v0, v22
+    if-eqz v23, :cond_6
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+
+    move-object/from16 v23, v0
+
+    move-object/from16 v0, v23
 
     move-object/from16 v1, v19
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    move-result v22
+    move-result v23
 
-    if-eqz v22, :cond_7
+    if-eqz v23, :cond_6
 
-    const/16 v20, 0x0
+    const/16 v21, 0x0
 
-    return v20
+    return v21
+
+    :cond_6
+    add-int/lit8 v21, v21, 0x1
+
+    goto :goto_0
 
     :cond_7
-    add-int/lit8 v20, v20, 0x1
-
-    goto :goto_1
-
-    :cond_8
-    const/16 v20, 0x0
+    const/16 v21, 0x0
 
     array-length v0, v3
 
-    move/from16 v21, v0
+    move/from16 v22, v0
 
-    :goto_2
-    move/from16 v0, v20
+    :goto_1
+    move/from16 v0, v21
 
-    move/from16 v1, v21
+    move/from16 v1, v22
 
-    if-ge v0, v1, :cond_a
+    if-ge v0, v1, :cond_9
 
-    aget-object v2, v3, v20
+    aget-object v2, v3, v21
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
 
-    move-object/from16 v22, v0
+    move-object/from16 v23, v0
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v22
+    move-result v23
 
-    if-eqz v22, :cond_9
+    if-eqz v23, :cond_8
 
-    const/16 v20, 0x1
+    const/16 v21, 0x1
 
-    return v20
+    return v21
+
+    :cond_8
+    add-int/lit8 v21, v21, 0x1
+
+    goto :goto_1
 
     :cond_9
-    add-int/lit8 v20, v20, 0x1
+    move-object/from16 v0, p0
 
-    goto :goto_2
+    iget-object v0, v0, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+
+    move-object/from16 v21, v0
+
+    invoke-static/range {v21 .. v21}, Lcom/android/server/RCPManagerService;->isValidUCMPlugin(Ljava/lang/String;)Z
+
+    move-result v21
+
+    if-eqz v21, :cond_a
+
+    const/16 v21, 0x1
+
+    return v21
 
     :cond_a
-    move-object/from16 v0, p0
+    sget-object v21, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
 
-    iget-object v0, v0, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+    new-instance v22, Ljava/lang/StringBuilder;
 
-    move-object/from16 v20, v0
+    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static/range {v20 .. v20}, Lcom/android/server/RCPManagerService;->isValidUCMPlugin(Ljava/lang/String;)Z
+    const-string/jumbo v23, "blocked by isAllowedtoLaunch() : aInfo.packageName = "
 
-    move-result v20
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-eqz v20, :cond_b
-
-    const/16 v20, 0x1
-
-    return v20
-
-    :cond_b
-    sget-object v20, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
-
-    new-instance v21, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v22, "blocked by isAllowedtoLaunch() : aInfo.packageName = "
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
+    move-result-object v22
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
 
-    move-object/from16 v22, v0
+    move-object/from16 v23, v0
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v21
+    move-result-object v22
 
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v22
 
-    invoke-static/range {v20 .. v21}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v21 .. v22}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v20, 0x0
+    const/16 v21, 0x0
 
-    return v20
+    return v21
 .end method
 
 .method private isGearBTDevice(Landroid/bluetooth/BluetoothDevice;)Z
@@ -3766,325 +4311,327 @@
     return v5
 .end method
 
-.method private static isKioskLocked(Lcom/samsung/android/knox/SemPersonaManager;)Z
-    .locals 4
-
-    const/4 v3, 0x0
-
-    if-eqz p0, :cond_1
-
-    invoke-virtual {p0}, Lcom/samsung/android/knox/SemPersonaManager;->isKioskContainerExistOnDevice()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    invoke-virtual {p0}, Lcom/samsung/android/knox/SemPersonaManager;->getPersonaIds()[I
-
-    move-result-object v0
-
-    if-eqz v0, :cond_1
-
-    aget v1, v0, v3
-
-    invoke-virtual {p0, v1}, Lcom/samsung/android/knox/SemPersonaManager;->getStateManager(I)Lcom/samsung/android/knox/SemPersonaManager$StateManager;
-
-    move-result-object v1
-
-    sget-object v2, Lcom/samsung/android/knox/SemPersonaState;->LICENSE_LOCKED:Lcom/samsung/android/knox/SemPersonaState;
-
-    invoke-virtual {v1, v2}, Lcom/samsung/android/knox/SemPersonaManager$StateManager;->inState(Lcom/samsung/android/knox/SemPersonaState;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    aget v1, v0, v3
-
-    invoke-virtual {p0, v1}, Lcom/samsung/android/knox/SemPersonaManager;->getStateManager(I)Lcom/samsung/android/knox/SemPersonaManager$StateManager;
-
-    move-result-object v1
-
-    sget-object v2, Lcom/samsung/android/knox/SemPersonaState;->ADMIN_LOCKED:Lcom/samsung/android/knox/SemPersonaState;
-
-    invoke-virtual {v1, v2}, Lcom/samsung/android/knox/SemPersonaManager$StateManager;->inState(Lcom/samsung/android/knox/SemPersonaState;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    aget v1, v0, v3
-
-    invoke-virtual {p0, v1}, Lcom/samsung/android/knox/SemPersonaManager;->getStateManager(I)Lcom/samsung/android/knox/SemPersonaManager$StateManager;
-
-    move-result-object v1
-
-    sget-object v2, Lcom/samsung/android/knox/SemPersonaState;->SUPER_LOCKED:Lcom/samsung/android/knox/SemPersonaState;
-
-    invoke-virtual {v1, v2}, Lcom/samsung/android/knox/SemPersonaManager$StateManager;->inState(Lcom/samsung/android/knox/SemPersonaState;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    :cond_0
-    sget-object v1, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v2, "Kiosk exists and it is locked"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v1, 0x1
-
-    return v1
-
-    :cond_1
-    return v3
-.end method
-
-.method private static isValidUCMPlugin(Ljava/lang/String;)Z
-    .locals 10
+.method private static isKioskLocked(Lcom/samsung/android/knox/SemPersonaManager;Landroid/os/UserManager;)Z
+    .locals 6
 
     const/4 v5, 0x0
 
-    const/4 v4, 0x0
+    if-eqz p0, :cond_0
+
+    if-nez p1, :cond_1
+
+    :cond_0
+    return v5
+
+    :cond_1
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v2
 
     :try_start_0
-    invoke-static {}, Lcom/android/server/RCPManagerService;->getUcmService()Lcom/samsung/android/knox/ucm/core/IUcmService;
+    invoke-virtual {p0}, Lcom/samsung/android/knox/SemPersonaManager;->getKioskId()I
 
-    move-result-object v6
+    move-result v0
 
-    if-eqz v6, :cond_2
-
-    invoke-static {}, Lcom/android/server/RCPManagerService;->getUcmService()Lcom/samsung/android/knox/ucm/core/IUcmService;
-
-    move-result-object v6
-
-    invoke-interface {v6}, Lcom/samsung/android/knox/ucm/core/IUcmService;->listProviders()[Landroid/os/Bundle;
+    invoke-virtual {p1, v0}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
 
     move-result-object v1
 
     if-eqz v1, :cond_2
 
-    array-length v6, v1
+    invoke-virtual {v1}, Landroid/content/pm/UserInfo;->isSuperLocked()Z
 
-    if-eqz v6, :cond_2
+    move-result v4
 
-    array-length v6, v1
+    if-eqz v4, :cond_2
 
-    :goto_0
-    if-ge v5, v6, :cond_2
+    sget-object v4, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
 
-    aget-object v0, v1, v5
+    const-string/jumbo v5, "Kiosk exists and it is locked"
 
-    const-string/jumbo v7, "packageName"
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-virtual {v0, v7}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    const/4 v4, 0x1
+
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return v4
+
+    :cond_2
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return v5
+
+    :catchall_0
+    move-exception v4
+
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v4
+.end method
+
+.method private static isValidUCMPlugin(Ljava/lang/String;)Z
+    .locals 11
+
+    const/4 v6, 0x0
+
+    const/4 v5, 0x0
+
+    const/4 v3, 0x0
+
+    :try_start_0
+    invoke-static {}, Lcom/android/server/RCPManagerService;->getUcmService()Lcom/samsung/android/knox/ucm/core/IUcmService;
 
     move-result-object v3
 
-    sget-object v7, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+    if-eqz v3, :cond_2
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    invoke-interface {v3}, Lcom/samsung/android/knox/ucm/core/IUcmService;->listProviders()[Landroid/os/Bundle;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v1
 
-    const-string/jumbo v9, "Agent pkgName-"
+    if-eqz v1, :cond_2
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    array-length v7, v1
 
-    move-result-object v8
+    if-eqz v7, :cond_2
 
-    invoke-virtual {v8, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    array-length v7, v1
 
-    move-result-object v8
+    :goto_0
+    if-ge v6, v7, :cond_2
 
-    const-string/jumbo v9, ", Calling pkgName-"
+    aget-object v0, v1, v6
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v8, "packageName"
 
-    move-result-object v8
+    invoke-virtual {v0, v8}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v8, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v8
+    sget-object v8, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v10, "Agent pkgName-"
 
-    if-nez v3, :cond_1
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sget-object v7, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+    move-result-object v9
 
-    const-string/jumbo v8, "NULL agent Pkg name returned for bundle"
+    invoke-virtual {v9, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v9
+
+    const-string/jumbo v10, ", Calling pkgName-"
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-nez v4, :cond_1
+
+    sget-object v8, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v9, "NULL agent Pkg name returned for bundle"
+
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    add-int/lit8 v5, v5, 0x1
+    add-int/lit8 v6, v6, 0x1
 
     goto :goto_0
 
     :cond_1
-    invoke-virtual {v3, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v8
 
-    if-eqz v7, :cond_0
+    if-eqz v8, :cond_0
 
-    sget-object v5, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+    sget-object v6, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v6, "Matched found...."
+    const-string/jumbo v7, "Matched found...."
 
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
     :cond_2
     :goto_1
-    sget-object v5, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+    sget-object v6, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "isValidUCMPlugin : packageName-"
+    const-string/jumbo v8, "isValidUCMPlugin : packageName-"
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    const-string/jumbo v7, ", status-"
+    const-string/jumbo v8, ", status-"
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v4
+    return v5
 
     :catch_0
     move-exception v2
 
-    sget-object v5, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+    sget-object v6, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "isValidUCMPlugin-"
+    const-string/jumbo v8, "isValidUCMPlugin-"
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1
 .end method
 
-.method private registerKnoxModeChangeObserver()V
-    .locals 6
+.method private loadShortcutList(Landroid/content/Context;)V
+    .locals 7
 
-    sget-object v3, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+    const-string/jumbo v5, "user"
 
-    const-string/jumbo v4, "RCP.registerKnoxModeChangeObserver() Registered..."
+    invoke-virtual {p1, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v4
 
-    :try_start_0
-    const-string/jumbo v3, "persona"
+    check-cast v4, Landroid/os/UserManager;
 
-    invoke-static {v3}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    invoke-virtual {v4}, Landroid/os/UserManager;->getUsers()Ljava/util/List;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-static {v0}, Lcom/samsung/android/knox/ISemPersonaManager$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/knox/ISemPersonaManager;
+    if-eqz v3, :cond_0
+
+    invoke-interface {v3}, Ljava/util/List;->size()I
+
+    move-result v5
+
+    if-nez v5, :cond_1
+
+    :cond_0
+    return-void
+
+    :cond_1
+    iget-object v5, p0, Lcom/android/server/RCPManagerService;->shortcutInfos:Ljava/util/HashMap;
+
+    invoke-virtual {v5}, Ljava/util/HashMap;->clear()V
+
+    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    check-cast v2, Lcom/android/server/pm/PersonaManagerService;
-
-    if-nez v2, :cond_0
-
-    sget-object v3, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v4, "RCP.onKnoxModeChange() pms == null...  should not happened"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_0
-    new-instance v3, Lcom/android/server/RCPManagerService$4;
-
-    invoke-direct {v3, p0}, Lcom/android/server/RCPManagerService$4;-><init>(Lcom/android/server/RCPManagerService;)V
-
-    invoke-virtual {v2, v3}, Lcom/android/server/pm/PersonaManagerService;->registerKnoxModeChangeObserver(Landroid/content/pm/IKnoxModeChangeObserver;)Z
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
+    :cond_2
     :goto_0
-    return-void
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    :catch_0
-    move-exception v1
+    move-result v5
 
-    sget-object v3, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+    if-eqz v5, :cond_3
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v1
 
-    const-string/jumbo v5, " Error during calling BMS.registerKnoxModeChangeObserver(): "
+    check-cast v1, Landroid/content/pm/UserInfo;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Landroid/content/pm/UserInfo;->isKnoxWorkspace()Z
 
-    move-result-object v4
+    move-result v5
 
-    invoke-virtual {v1}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    if-eqz v5, :cond_2
 
-    move-result-object v5
+    invoke-virtual {v1}, Landroid/content/pm/UserInfo;->isBBCContainer()Z
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v5
 
-    move-result-object v4
+    xor-int/lit8 v5, v5, 0x1
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    if-eqz v5, :cond_2
 
-    move-result-object v4
+    iget v5, v1, Landroid/content/pm/UserInfo;->id:I
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {p0, v5}, Lcom/android/server/RCPManagerService;->getShortcutList(I)Ljava/util/List;
 
-    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+    move-result-object v0
+
+    iget-object v5, p0, Lcom/android/server/RCPManagerService;->shortcutInfos:Ljava/util/HashMap;
+
+    iget v6, v1, Landroid/content/pm/UserInfo;->id:I
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
+
+    :cond_3
+    return-void
+.end method
+
+.method private registerKnoxModeChangeObserver()V
+    .locals 2
+
+    sget-object v0, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v1, "RCP.registerKnoxModeChangeObserver() Registered..."
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
 .end method
 
 .method private registerPersonaObserver(I)V
@@ -4186,742 +4733,568 @@
     return-void
 .end method
 
-.method private scanAndStartBridgeProxy(I)V
-    .locals 24
+.method private removeShortcutList(I)V
+    .locals 4
 
-    move-object/from16 v0, p0
+    iget-object v2, p0, Lcom/android/server/RCPManagerService;->shortcutInfos:Ljava/util/HashMap;
 
-    iget-boolean v0, v0, Lcom/android/server/RCPManagerService;->KNOX_DEBUG:Z
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move/from16 v21, v0
+    move-result-object v3
 
-    if-eqz v21, :cond_0
-
-    const-string/jumbo v21, "Bridge_PROXY"
-
-    new-instance v22, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v23, " scanAndStartBridgeProxy called for "
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    move-object/from16 v0, v22
-
-    move/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v22
-
-    invoke-static/range {v21 .. v22}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
-
-    move-object/from16 v21, v0
-
-    const-string/jumbo v22, "persona"
-
-    invoke-virtual/range {v21 .. v22}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v17
-
-    check-cast v17, Lcom/samsung/android/knox/SemPersonaManager;
-
-    if-eqz v17, :cond_8
-
-    if-nez p1, :cond_5
-
-    const/16 v21, 0x0
-
-    move-object/from16 v0, v17
-
-    move/from16 v1, v21
-
-    invoke-virtual {v0, v1}, Lcom/samsung/android/knox/SemPersonaManager;->getPersonasForUser(I)Ljava/util/List;
-
-    move-result-object v13
-
-    if-eqz v13, :cond_1
-
-    invoke-interface {v13}, Ljava/util/List;->isEmpty()Z
-
-    move-result v21
-
-    if-eqz v21, :cond_2
-
-    :cond_1
-    const-string/jumbo v21, "Bridge_PROXY"
-
-    const-string/jumbo v22, "No need to instantiate BridgeProxy for USER_OWNER : No Persona"
-
-    invoke-static/range {v21 .. v22}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_2
-    const/4 v11, 0x0
-
-    const/4 v12, 0x0
-
-    invoke-interface {v13}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v14
-
-    :cond_3
-    invoke-interface {v14}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v21
-
-    if-eqz v21, :cond_4
-
-    invoke-interface {v14}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v12
-
-    check-cast v12, Lcom/samsung/android/knox/SemPersonaInfo;
-
-    iget-boolean v0, v12, Lcom/samsung/android/knox/SemPersonaInfo;->isBBCContainer:Z
-
-    move/from16 v21, v0
-
-    if-nez v21, :cond_3
-
-    const/4 v11, 0x1
-
-    :cond_4
-    if-nez v11, :cond_7
-
-    const-string/jumbo v21, "Bridge_PROXY"
-
-    const-string/jumbo v22, "No need to instantiate BridgeProxy for USER_OWNER : Persona is BBCContainer"
-
-    invoke-static/range {v21 .. v22}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_5
-    move-object/from16 v0, v17
-
-    move/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Lcom/samsung/android/knox/SemPersonaManager;->getPersonaInfo(I)Lcom/samsung/android/knox/SemPersonaInfo;
-
-    move-result-object v12
-
-    if-eqz v12, :cond_7
-
-    iget-boolean v0, v12, Lcom/samsung/android/knox/SemPersonaInfo;->isBBCContainer:Z
-
-    move/from16 v21, v0
-
-    if-eqz v21, :cond_7
-
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Lcom/android/server/RCPManagerService;->KNOX_DEBUG:Z
-
-    move/from16 v21, v0
-
-    if-eqz v21, :cond_6
-
-    const-string/jumbo v21, "Bridge_PROXY"
-
-    new-instance v22, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v23, "userId :"
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    move-object/from16 v0, v22
-
-    move/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    const-string/jumbo v23, " ,mPersonaInfo.isBBCContainer :"
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    iget-boolean v0, v12, Lcom/samsung/android/knox/SemPersonaInfo;->isBBCContainer:Z
-
-    move/from16 v23, v0
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v22
-
-    invoke-static/range {v21 .. v22}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_6
-    return-void
-
-    :cond_7
-    move-object/from16 v0, v17
-
-    move/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Lcom/samsung/android/knox/SemPersonaManager;->exists(I)Z
-
-    move-result v21
-
-    if-eqz v21, :cond_e
-
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Lcom/android/server/RCPManagerService;->KNOX_DEBUG:Z
-
-    move/from16 v21, v0
-
-    if-eqz v21, :cond_8
-
-    const-string/jumbo v21, "Bridge_PROXY"
-
-    new-instance v22, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v23, "scanAndStartBridgeProxy : starting BridgeProxy for persona - "
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    move-object/from16 v0, v22
-
-    move/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v22
-
-    invoke-static/range {v21 .. v22}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_8
-    :goto_0
-    const/16 v9, 0x80
+    invoke-virtual {v2, v3}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     :try_start_0
-    const-string/jumbo v21, "package"
+    new-instance v1, Ljava/io/File;
 
-    invoke-static/range {v21 .. v21}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    invoke-static {p1}, Landroid/os/Environment;->getUserSystemDirectory(I)Ljava/io/File;
 
-    move-result-object v21
+    move-result-object v2
 
-    invoke-static/range {v21 .. v21}, Landroid/content/pm/IPackageManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/content/pm/IPackageManager;
+    const-string/jumbo v3, "export_shortcut_info.xml"
+
+    invoke-direct {v1, v2, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    invoke-virtual {v1}, Ljava/io/File;->delete()Z
+
+    iget-object v2, p0, Lcom/android/server/RCPManagerService;->shortcutInfos:Ljava/util/HashMap;
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    goto :goto_0
+.end method
+
+.method private scanAndStartBridgeProxy(I)V
+    .locals 13
+
+    const/4 v12, 0x1
+
+    iget-boolean v9, p0, Lcom/android/server/RCPManagerService;->KNOX_DEBUG:Z
+
+    if-eqz v9, :cond_0
+
+    const-string/jumbo v9, "Bridge_PROXY"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, " scanAndStartBridgeProxy called for "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v10
 
-    move/from16 v0, p1
+    invoke-virtual {v10, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-interface {v10, v9, v0}, Landroid/content/pm/IPackageManager;->getInstalledApplications(II)Landroid/content/pm/ParceledListSlice;
+    move-result-object v10
 
-    move-result-object v20
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual/range {v20 .. v20}, Landroid/content/pm/ParceledListSlice;->getList()Ljava/util/List;
+    move-result-object v10
 
-    move-result-object v5
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-object/from16 v0, p0
+    :cond_0
+    if-nez p1, :cond_5
 
-    iget-boolean v0, v0, Lcom/android/server/RCPManagerService;->KNOX_DEBUG:Z
-
-    move/from16 v21, v0
-
-    if-eqz v21, :cond_9
-
-    const-string/jumbo v21, "Bridge_PROXY"
-
-    new-instance v22, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v23, " scanAndStartBridgeProxy appInfoList.size() "
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    invoke-interface {v5}, Ljava/util/List;->size()I
-
-    move-result v23
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v22
-
-    invoke-static/range {v21 .. v22}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_9
-    invoke-interface {v5}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-virtual {p0, v12}, Lcom/android/server/RCPManagerService;->getPersonas(Z)Ljava/util/List;
 
     move-result-object v4
 
-    :cond_a
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+    if-eqz v4, :cond_1
 
-    move-result v21
-
-    if-eqz v21, :cond_d
-
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/content/pm/ApplicationInfo;
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
-
-    const/4 v6, 0x0
-
-    const/16 v18, 0x0
-
-    const/16 v19, 0x0
-
-    :try_start_1
-    iget-object v6, v3, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
-
-    if-eqz v6, :cond_b
-
-    const-string/jumbo v21, "proxyName"
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v6, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v18
-
-    :cond_b
-    iget-object v0, v3, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
-
-    move-object/from16 v19, v0
-    :try_end_1
-    .catch Ljava/lang/NullPointerException; {:try_start_1 .. :try_end_1} :catch_0
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
-
-    :goto_1
-    if-eqz v18, :cond_a
-
-    if-eqz v19, :cond_a
-
-    :try_start_2
-    const-string/jumbo v21, "RCPProxy"
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, v18
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v21
-
-    if-eqz v21, :cond_a
-
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Lcom/android/server/RCPManagerService;->KNOX_DEBUG:Z
-
-    move/from16 v21, v0
-
-    if-eqz v21, :cond_c
-
-    const-string/jumbo v21, "Bridge_PROXY"
-
-    new-instance v22, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v23, " scanAndStartBridgeProxy proxyName "
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, v18
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    const-string/jumbo v23, " proxyPkg "
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, v19
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v22
-
-    invoke-static/range {v21 .. v22}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_c
-    move-object/from16 v0, p0
-
-    move/from16 v1, p1
-
-    move-object/from16 v2, v19
-
-    invoke-direct {v0, v1, v2}, Lcom/android/server/RCPManagerService;->bindToBridgeProxy(ILjava/lang/String;)V
-    :try_end_2
-    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_1
-
-    :cond_d
-    :goto_2
-    return-void
-
-    :cond_e
-    move-object/from16 v0, v17
-
-    move/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Lcom/samsung/android/knox/SemPersonaManager;->getParentId(I)I
-
-    move-result v15
-
-    move/from16 v0, p1
-
-    if-eq v15, v0, :cond_f
-
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Lcom/android/server/RCPManagerService;->KNOX_DEBUG:Z
-
-    move/from16 v21, v0
-
-    if-eqz v21, :cond_8
-
-    const-string/jumbo v21, "Bridge_PROXY"
-
-    new-instance v22, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v23, "scanAndStartBridgeProxy : starting BridgeProxy for persona - "
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    move-object/from16 v0, v22
-
-    move/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v22
-
-    invoke-static/range {v21 .. v22}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_0
-
-    :cond_f
-    move-object/from16 v0, v17
-
-    move/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Lcom/samsung/android/knox/SemPersonaManager;->getPersonasForUser(I)Ljava/util/List;
-
-    move-result-object v16
-
-    if-eqz v16, :cond_10
-
-    invoke-interface/range {v16 .. v16}, Ljava/util/List;->size()I
-
-    move-result v21
-
-    if-nez v21, :cond_12
-
-    :cond_10
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Lcom/android/server/RCPManagerService;->KNOX_DEBUG:Z
-
-    move/from16 v21, v0
-
-    if-eqz v21, :cond_11
-
-    const-string/jumbo v21, "Bridge_PROXY"
-
-    new-instance v22, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v23, "scanAndStartBridgeProxy: NOT starting Bridge Proxy for user = "
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    move-object/from16 v0, v22
-
-    move/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    const-string/jumbo v23, "; because it doesn\'t have personas or it is a guest!"
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v22
-
-    invoke-static/range {v21 .. v22}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_11
-    return-void
-
-    :cond_12
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Lcom/android/server/RCPManagerService;->KNOX_DEBUG:Z
-
-    move/from16 v21, v0
-
-    if-eqz v21, :cond_8
-
-    const-string/jumbo v21, "Bridge_PROXY"
-
-    new-instance v22, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v23, "scanAndStartBridgeProxy : starting BridgeProxy for owner - "
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    move-object/from16 v0, v22
-
-    move/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v22
-
-    invoke-static/range {v21 .. v22}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_0
-
-    :catch_0
-    move-exception v8
-
-    :try_start_3
-    const-string/jumbo v21, "Bridge_PROXY"
-
-    new-instance v22, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v23, " scanAndStartBridgeProxy() Failed to load meta-data, NullPointer: "
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    invoke-virtual {v8}, Ljava/lang/NullPointerException;->getMessage()Ljava/lang/String;
-
-    move-result-object v23
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v22
-
-    invoke-static/range {v21 .. v22}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_3
-    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_1
-
-    goto/16 :goto_1
-
-    :catch_1
-    move-exception v7
-
-    invoke-virtual {v7}, Landroid/os/RemoteException;->printStackTrace()V
-
-    goto/16 :goto_2
-.end method
-
-.method private sendRCPPolicyBroadcastToGearManager(Landroid/content/Context;I)V
-    .locals 12
-
-    const-string/jumbo v0, "samsung.knox.intent.action.NOTIFICATION_POLICY_CHANGED"
-
-    const-string/jumbo v1, "com.samsung.permission.READ_KNOX_NOTIFICATION"
-
-    const-string/jumbo v9, "persona"
-
-    invoke-virtual {p1, v9}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/samsung/android/knox/SemPersonaManager;
-
-    if-eqz v3, :cond_2
-
-    const-string/jumbo v9, "persona_policy"
-
-    invoke-virtual {v3, v9}, Lcom/samsung/android/knox/SemPersonaManager;->getPersonaService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Landroid/os/PersonaPolicyManager;
-
-    if-eqz v6, :cond_2
-
-    const/4 v9, -0x1
-
-    if-ne p2, v9, :cond_1
-
-    const/4 v9, 0x0
-
-    invoke-virtual {v3, v9}, Lcom/samsung/android/knox/SemPersonaManager;->getPersonasForUser(I)Ljava/util/List;
-
-    move-result-object v7
-
-    if-eqz v7, :cond_2
-
-    new-instance v2, Landroid/content/Intent;
-
-    const-string/jumbo v9, "samsung.knox.intent.action.NOTIFICATION_POLICY_CHANGED"
-
-    invoke-direct {v2, v9}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    invoke-interface {v7}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v5
-
-    :cond_0
-    :goto_0
-    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v4}, Ljava/util/List;->isEmpty()Z
 
     move-result v9
 
     if-eqz v9, :cond_2
 
+    :cond_1
+    const-string/jumbo v9, "Bridge_PROXY"
+
+    const-string/jumbo v10, "No need to instantiate BridgeProxy for USER_OWNER : No Persona"
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_2
+    const/4 v2, 0x0
+
+    const/4 v3, 0x0
+
+    invoke-interface {v4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v5
+
+    :cond_3
+    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v9
+
+    if-eqz v9, :cond_4
+
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    check-cast v4, Lcom/samsung/android/knox/SemPersonaInfo;
+    check-cast v3, Landroid/content/pm/UserInfo;
 
-    if-eqz v4, :cond_0
+    invoke-virtual {v3}, Landroid/content/pm/UserInfo;->isBBCContainer()Z
 
-    iget v9, v4, Lcom/samsung/android/knox/SemPersonaInfo;->id:I
+    move-result v9
 
-    const-string/jumbo v10, "Notifications"
+    if-nez v9, :cond_3
 
-    const-string/jumbo v11, "knox-sanitize-data"
+    const/4 v2, 0x1
 
-    invoke-virtual {v6, v9, v10, v11}, Landroid/os/PersonaPolicyManager;->getRCPDataPolicyForUser(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    :cond_4
+    if-nez v2, :cond_7
 
-    move-result-object v8
+    const-string/jumbo v9, "Bridge_PROXY"
 
-    const-string/jumbo v9, "personaId"
+    const-string/jumbo v10, "No need to instantiate BridgeProxy for USER_OWNER : Persona is BBCContainer"
 
-    iget v10, v4, Lcom/samsung/android/knox/SemPersonaInfo;->id:I
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v2, v9, v10}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+    return-void
 
-    const-string/jumbo v9, "policy"
+    :cond_5
+    iget-object v9, p0, Lcom/android/server/RCPManagerService;->mUm:Landroid/os/UserManager;
 
-    invoke-virtual {v2, v9, v8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v9, p1}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
 
-    sget-object v9, Landroid/os/UserHandle;->OWNER:Landroid/os/UserHandle;
+    move-result-object v3
 
-    const-string/jumbo v10, "com.samsung.permission.READ_KNOX_NOTIFICATION"
+    if-eqz v3, :cond_7
 
-    invoke-virtual {p1, v2, v9, v10}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;)V
+    invoke-virtual {v3}, Landroid/content/pm/UserInfo;->isBBCContainer()Z
+
+    move-result v9
+
+    if-eqz v9, :cond_7
+
+    iget-boolean v9, p0, Lcom/android/server/RCPManagerService;->KNOX_DEBUG:Z
+
+    if-eqz v9, :cond_6
+
+    const-string/jumbo v9, "Bridge_PROXY"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "userId :"
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string/jumbo v11, " ,mPersonaInfo.isBBCContainer :"
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v3}, Landroid/content/pm/UserInfo;->isBBCContainer()Z
+
+    move-result v11
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_6
+    return-void
+
+    :cond_7
+    iget-object v9, p0, Lcom/android/server/RCPManagerService;->mPm:Lcom/samsung/android/knox/SemPersonaManager;
+
+    invoke-virtual {v9, p1}, Lcom/samsung/android/knox/SemPersonaManager;->exists(I)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_b
+
+    iget-boolean v9, p0, Lcom/android/server/RCPManagerService;->KNOX_DEBUG:Z
+
+    if-eqz v9, :cond_8
+
+    const-string/jumbo v9, "Bridge_PROXY"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "scanAndStartBridgeProxy : starting BridgeProxy for persona - "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_8
+    :goto_0
+    const-string/jumbo v8, "com.samsung.android.knox.containeragent"
+
+    :try_start_0
+    invoke-static {p1}, Lcom/samsung/android/knox/SemPersonaManager;->isSecureFolderId(I)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_9
+
+    const-string/jumbo v8, "com.samsung.knox.securefolder"
+
+    :cond_9
+    const-string/jumbo v9, "package"
+
+    invoke-static {v9}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v9
+
+    invoke-static {v9}, Landroid/content/pm/IPackageManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/content/pm/IPackageManager;
+
+    move-result-object v1
+
+    const/4 v9, 0x1
+
+    invoke-interface {v1, v8, v9, p1}, Landroid/content/pm/IPackageManager;->getPackageInfo(Ljava/lang/String;II)Landroid/content/pm/PackageInfo;
+
+    invoke-direct {p0, p1, v8}, Lcom/android/server/RCPManagerService;->bindToBridgeProxy(ILjava/lang/String;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_1
+    if-nez p1, :cond_a
+
+    invoke-direct {p0, p1, v8}, Lcom/android/server/RCPManagerService;->bindToBridgeProxy(ILjava/lang/String;)V
+
+    :cond_a
+    return-void
+
+    :cond_b
+    iget-object v9, p0, Lcom/android/server/RCPManagerService;->mUm:Landroid/os/UserManager;
+
+    invoke-virtual {v9, p1}, Landroid/os/UserManager;->getProfileParent(I)Landroid/content/pm/UserInfo;
+
+    move-result-object v6
+
+    if-eqz v6, :cond_c
+
+    iget v9, v6, Landroid/content/pm/UserInfo;->id:I
+
+    if-eq v9, p1, :cond_c
+
+    iget-boolean v9, p0, Lcom/android/server/RCPManagerService;->KNOX_DEBUG:Z
+
+    if-eqz v9, :cond_8
+
+    const-string/jumbo v9, "Bridge_PROXY"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "scanAndStartBridgeProxy : starting BridgeProxy for persona - "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
-    :cond_1
+    :cond_c
+    iget-object v9, p0, Lcom/android/server/RCPManagerService;->mUm:Landroid/os/UserManager;
+
+    invoke-virtual {v9, v12}, Landroid/os/UserManager;->getUsers(Z)Ljava/util/List;
+
+    move-result-object v7
+
+    if-eqz v7, :cond_d
+
+    invoke-interface {v7}, Ljava/util/List;->size()I
+
+    move-result v9
+
+    if-nez v9, :cond_f
+
+    :cond_d
+    iget-boolean v9, p0, Lcom/android/server/RCPManagerService;->KNOX_DEBUG:Z
+
+    if-eqz v9, :cond_e
+
+    const-string/jumbo v9, "Bridge_PROXY"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "scanAndStartBridgeProxy: NOT starting Bridge Proxy for user = "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string/jumbo v11, "; because it doesn\'t have personas or it is a guest!"
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_e
+    return-void
+
+    :cond_f
+    iget-boolean v9, p0, Lcom/android/server/RCPManagerService;->KNOX_DEBUG:Z
+
+    if-eqz v9, :cond_8
+
+    const-string/jumbo v9, "Bridge_PROXY"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "scanAndStartBridgeProxy : starting BridgeProxy for owner - "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_0
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v9, "Bridge_PROXY"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "No need to start BridgeProxy for user "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+
+    goto/16 :goto_1
+.end method
+
+.method private sendRCPPolicyBroadcastToGearManager(Landroid/content/Context;I)V
+    .locals 11
+
+    const-string/jumbo v0, "samsung.knox.intent.action.NOTIFICATION_POLICY_CHANGED"
+
+    const-string/jumbo v1, "com.samsung.permission.READ_KNOX_NOTIFICATION"
+
+    new-instance v5, Landroid/os/PersonaPolicyManager;
+
+    const-string/jumbo v8, "persona_policy"
+
+    invoke-static {v8}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v8
+
+    invoke-static {v8}, Landroid/content/pm/IPersonaPolicyManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/content/pm/IPersonaPolicyManager;
+
+    move-result-object v8
+
+    invoke-direct {v5, p1, v8}, Landroid/os/PersonaPolicyManager;-><init>(Landroid/content/Context;Landroid/content/pm/IPersonaPolicyManager;)V
+
+    if-eqz v5, :cond_2
+
+    const/4 v8, -0x1
+
+    if-ne p2, v8, :cond_1
+
+    iget-object v8, p0, Lcom/android/server/RCPManagerService;->mUm:Landroid/os/UserManager;
+
+    const/4 v9, 0x1
+
+    invoke-virtual {v8, v9}, Landroid/os/UserManager;->getUsers(Z)Ljava/util/List;
+
+    move-result-object v6
+
+    if-eqz v6, :cond_2
+
+    new-instance v2, Landroid/content/Intent;
+
+    const-string/jumbo v8, "samsung.knox.intent.action.NOTIFICATION_POLICY_CHANGED"
+
+    invoke-direct {v2, v8}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    invoke-interface {v6}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    :cond_0
+    :goto_0
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_2
+
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/content/pm/UserInfo;
+
+    if-eqz v3, :cond_0
+
+    iget v8, v3, Landroid/content/pm/UserInfo;->id:I
+
+    invoke-static {v8}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_0
+
+    iget v8, v3, Landroid/content/pm/UserInfo;->id:I
+
     const-string/jumbo v9, "Notifications"
 
     const-string/jumbo v10, "knox-sanitize-data"
 
-    invoke-virtual {v6, p2, v9, v10}, Landroid/os/PersonaPolicyManager;->getRCPDataPolicyForUser(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v5, v8, v9, v10}, Landroid/os/PersonaPolicyManager;->getRCPDataPolicyForUser(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v7
+
+    const-string/jumbo v8, "personaId"
+
+    iget v9, v3, Landroid/content/pm/UserInfo;->id:I
+
+    invoke-virtual {v2, v8, v9}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    const-string/jumbo v8, "policy"
+
+    invoke-virtual {v2, v8, v7}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    sget-object v8, Landroid/os/UserHandle;->OWNER:Landroid/os/UserHandle;
+
+    const-string/jumbo v9, "com.samsung.permission.READ_KNOX_NOTIFICATION"
+
+    invoke-virtual {p1, v2, v8, v9}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_1
+    const-string/jumbo v8, "Notifications"
+
+    const-string/jumbo v9, "knox-sanitize-data"
+
+    invoke-virtual {v5, p2, v8, v9}, Landroid/os/PersonaPolicyManager;->getRCPDataPolicyForUser(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v7
 
     new-instance v2, Landroid/content/Intent;
 
-    const-string/jumbo v9, "samsung.knox.intent.action.NOTIFICATION_POLICY_CHANGED"
+    const-string/jumbo v8, "samsung.knox.intent.action.NOTIFICATION_POLICY_CHANGED"
 
-    invoke-direct {v2, v9}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v8}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v9, "personaId"
+    const-string/jumbo v8, "personaId"
 
-    invoke-virtual {v2, v9, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+    invoke-virtual {v2, v8, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    const-string/jumbo v9, "policy"
+    const-string/jumbo v8, "policy"
 
-    invoke-virtual {v2, v9, v8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v2, v8, v7}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    sget-object v9, Landroid/os/UserHandle;->OWNER:Landroid/os/UserHandle;
+    sget-object v8, Landroid/os/UserHandle;->OWNER:Landroid/os/UserHandle;
 
-    const-string/jumbo v10, "com.samsung.permission.READ_KNOX_NOTIFICATION"
+    const-string/jumbo v9, "com.samsung.permission.READ_KNOX_NOTIFICATION"
 
-    invoke-virtual {p1, v2, v9, v10}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;)V
+    invoke-virtual {p1, v2, v8, v9}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;)V
 
     :cond_2
+    return-void
+.end method
+
+.method public static setInstaller(Lcom/android/server/pm/Installer;Ljava/lang/Object;)V
+    .locals 0
+
+    sput-object p0, Lcom/android/server/RCPManagerService;->mPackageTasker:Lcom/android/server/pm/Installer;
+
+    sput-object p1, Lcom/android/server/RCPManagerService;->mInstallLock:Ljava/lang/Object;
+
     return-void
 .end method
 
@@ -5159,88 +5532,6 @@
     goto :goto_0
 .end method
 
-.method private switchPersonaAndLaunch(ILandroid/content/Intent;)V
-    .locals 4
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    sget-object v1, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "switchPersonaAndLaunch() with id = "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "; package = "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-gez p1, :cond_0
-
-    return-void
-
-    :cond_0
-    iget-object v1, p0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v2, "persona"
-
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/samsung/android/knox/SemPersonaManager;
-
-    sget-object v1, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "switch PERSONA to id = "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {v0, p1, p2}, Lcom/samsung/android/knox/SemPersonaManager;->switchPersonaAndLaunch(ILandroid/content/Intent;)Z
-
-    return-void
-.end method
-
 .method private unregisterBridgeProxy(I)V
     .locals 4
 
@@ -5391,203 +5682,196 @@
 .end method
 
 .method private updateKnoxInfo()V
-    .locals 12
+    .locals 11
 
-    const/4 v11, 0x0
+    const/4 v10, 0x0
 
-    sget-object v8, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+    sget-object v7, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v9, "updateKnoxInfo is called...."
+    const-string/jumbo v8, "updateKnoxInfo is called...."
 
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v8, p0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
+    iget-object v7, p0, Lcom/android/server/RCPManagerService;->mPm:Lcom/samsung/android/knox/SemPersonaManager;
 
-    const-string/jumbo v9, "persona"
+    invoke-virtual {v7}, Lcom/samsung/android/knox/SemPersonaManager;->getKioskId()I
 
-    invoke-virtual {v8, v9}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    move-result v7
 
-    move-result-object v1
+    if-lez v7, :cond_7
 
-    check-cast v1, Lcom/samsung/android/knox/SemPersonaManager;
-
-    if-eqz v1, :cond_6
-
-    invoke-virtual {v1}, Lcom/samsung/android/knox/SemPersonaManager;->isKioskContainerExistOnDevice()Z
-
-    move-result v8
-
-    if-eqz v8, :cond_8
+    iget-object v7, p0, Lcom/android/server/RCPManagerService;->mUm:Landroid/os/UserManager;
 
     const/4 v8, 0x1
 
-    invoke-virtual {v1, v8}, Lcom/samsung/android/knox/SemPersonaManager;->getPersonas(Z)Ljava/util/List;
+    invoke-virtual {v7, v8}, Landroid/os/UserManager;->getUsers(Z)Ljava/util/List;
 
-    move-result-object v5
+    move-result-object v2
 
-    const/4 v6, 0x0
+    const/4 v3, 0x0
 
-    if-eqz v5, :cond_1
+    if-eqz v2, :cond_1
 
-    invoke-interface {v5}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v4
+    move-result-object v6
 
     :cond_0
     :goto_0
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v8
+    move-result v7
 
-    if-eqz v8, :cond_1
+    if-eqz v7, :cond_1
 
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v5
 
-    check-cast v3, Lcom/samsung/android/knox/SemPersonaInfo;
+    check-cast v5, Landroid/content/pm/UserInfo;
 
-    iget-boolean v8, v3, Lcom/samsung/android/knox/SemPersonaInfo;->isBBCContainer:Z
+    invoke-virtual {v5}, Landroid/content/pm/UserInfo;->isBBCContainer()Z
 
-    if-nez v8, :cond_0
+    move-result v7
 
-    move-object v6, v3
+    if-nez v7, :cond_0
+
+    move-object v3, v5
 
     goto :goto_0
 
     :cond_1
-    if-nez v6, :cond_2
+    if-nez v3, :cond_2
 
-    sput-object v11, Lcom/android/server/am/ActivityManagerService;->mKnoxInfo:Landroid/os/Bundle;
+    sput-object v10, Lcom/android/server/am/ActivityManagerService;->mKnoxInfo:Landroid/os/Bundle;
 
-    sput-object v11, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
+    sput-object v10, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
 
     return-void
 
     :cond_2
-    sget-object v8, Lcom/android/server/am/ActivityManagerService;->mKnoxInfo:Landroid/os/Bundle;
+    sget-object v7, Lcom/android/server/am/ActivityManagerService;->mKnoxInfo:Landroid/os/Bundle;
 
-    if-nez v8, :cond_3
+    if-nez v7, :cond_3
 
-    new-instance v8, Landroid/os/Bundle;
+    new-instance v7, Landroid/os/Bundle;
 
-    invoke-direct {v8}, Landroid/os/Bundle;-><init>()V
+    invoke-direct {v7}, Landroid/os/Bundle;-><init>()V
 
-    sput-object v8, Lcom/android/server/am/ActivityManagerService;->mKnoxInfo:Landroid/os/Bundle;
+    sput-object v7, Lcom/android/server/am/ActivityManagerService;->mKnoxInfo:Landroid/os/Bundle;
 
     :cond_3
-    const-string/jumbo v8, "true"
-
-    sget-object v9, Lcom/android/server/am/ActivityManagerService;->mKnoxInfo:Landroid/os/Bundle;
-
-    const-string/jumbo v10, "isKnoxKioskMode"
-
-    invoke-virtual {v9, v10}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-nez v8, :cond_4
+    const-string/jumbo v7, "true"
 
     sget-object v8, Lcom/android/server/am/ActivityManagerService;->mKnoxInfo:Landroid/os/Bundle;
 
     const-string/jumbo v9, "isKnoxKioskMode"
 
-    const-string/jumbo v10, "true"
+    invoke-virtual {v8, v9}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v8, v9, v10}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-nez v7, :cond_4
+
+    sget-object v7, Lcom/android/server/am/ActivityManagerService;->mKnoxInfo:Landroid/os/Bundle;
+
+    const-string/jumbo v8, "isKnoxKioskMode"
+
+    const-string/jumbo v9, "true"
+
+    invoke-virtual {v7, v8, v9}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_4
-    sget-object v8, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
+    sget-object v7, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
 
-    if-nez v8, :cond_5
+    if-nez v7, :cond_5
 
-    new-instance v8, Ljava/util/ArrayList;
+    new-instance v7, Ljava/util/ArrayList;
 
-    invoke-direct {v8}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
 
-    sput-object v8, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
+    sput-object v7, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
 
     :cond_5
-    sget-object v8, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
+    sget-object v7, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
 
-    invoke-virtual {v8}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
 
-    move-result v8
+    move-result v7
 
-    if-nez v8, :cond_6
+    if-nez v7, :cond_6
 
     new-instance v0, Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    iget-object v8, p0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
+    iget-object v7, p0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
 
-    invoke-direct {v0, v8}, Lcom/android/server/enterprise/storage/EdmStorageProvider;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, v7}, Lcom/android/server/enterprise/storage/EdmStorageProvider;-><init>(Landroid/content/Context;)V
 
-    iget v8, v6, Lcom/samsung/android/knox/SemPersonaInfo;->id:I
+    iget v7, v3, Landroid/content/pm/UserInfo;->id:I
 
-    invoke-virtual {v0, v8}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getMUMContainerOwnerUid(I)I
+    invoke-virtual {v0, v7}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getMUMContainerOwnerUid(I)I
 
-    move-result v2
+    move-result v1
 
-    invoke-virtual {v0, v2}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getPackageNameForUid(I)Ljava/lang/String;
+    invoke-virtual {v0, v1}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getPackageNameForUid(I)Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v4
+
+    if-eqz v4, :cond_6
+
+    sget-object v7, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
+
+    invoke-virtual {v7, v4}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    xor-int/lit8 v7, v7, 0x1
 
     if-eqz v7, :cond_6
 
-    sget-object v8, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
+    sget-object v7, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
 
-    invoke-virtual {v8, v7}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+    invoke-virtual {v7}, Ljava/util/ArrayList;->clear()V
 
-    move-result v8
+    sget-object v7, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
 
-    if-eqz v8, :cond_7
+    invoke-virtual {v7, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v7, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
+
+    const-string/jumbo v8, "com.sec.android.fotaclient"
+
+    invoke-virtual {v7, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v7, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
+
+    const-string/jumbo v8, "com.wssyncmldm"
+
+    invoke-virtual {v7, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     :cond_6
     :goto_1
     return-void
 
     :cond_7
-    sget-object v8, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
+    sget-object v7, Lcom/android/server/am/ActivityManagerService;->mKnoxInfo:Landroid/os/Bundle;
 
-    invoke-virtual {v8}, Ljava/util/ArrayList;->clear()V
+    if-eqz v7, :cond_8
 
-    sget-object v8, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
+    sget-object v7, Lcom/android/server/am/ActivityManagerService;->mKnoxInfo:Landroid/os/Bundle;
 
-    invoke-virtual {v8, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    const-string/jumbo v8, "isKnoxKioskMode"
 
-    sget-object v8, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
+    const-string/jumbo v9, "false"
 
-    const-string/jumbo v9, "com.sec.android.fotaclient"
-
-    invoke-virtual {v8, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget-object v8, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
-
-    const-string/jumbo v9, "com.wssyncmldm"
-
-    invoke-virtual {v8, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto :goto_1
+    invoke-virtual {v7, v8, v9}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_8
-    sget-object v8, Lcom/android/server/am/ActivityManagerService;->mKnoxInfo:Landroid/os/Bundle;
-
-    if-eqz v8, :cond_9
-
-    sget-object v8, Lcom/android/server/am/ActivityManagerService;->mKnoxInfo:Landroid/os/Bundle;
-
-    const-string/jumbo v9, "isKnoxKioskMode"
-
-    const-string/jumbo v10, "false"
-
-    invoke-virtual {v8, v9, v10}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    :cond_9
-    sput-object v11, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
+    sput-object v10, Lcom/android/server/RCPManagerService;->kioskAllowedApps:Ljava/util/ArrayList;
 
     goto :goto_1
 .end method
@@ -5675,8 +5959,252 @@
     goto :goto_0
 .end method
 
+.method private writeShortcutInfo(ILjava/util/List;)V
+    .locals 10
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I",
+            "Ljava/util/List",
+            "<",
+            "Landroid/content/ComponentName;",
+            ">;)V"
+        }
+    .end annotation
+
+    if-eqz p2, :cond_0
+
+    invoke-interface {p2}, Ljava/util/List;->size()I
+
+    move-result v7
+
+    if-nez v7, :cond_1
+
+    :cond_0
+    return-void
+
+    :cond_1
+    const/4 v3, 0x0
+
+    sget-object v7, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "writeShortcutInfo() cList size: "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-interface {p2}, Ljava/util/List;->size()I
+
+    move-result v9
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v6, Landroid/util/AtomicFile;
+
+    new-instance v7, Ljava/io/File;
+
+    invoke-static {p1}, Landroid/os/Environment;->getUserSystemDirectory(I)Ljava/io/File;
+
+    move-result-object v8
+
+    const-string/jumbo v9, "export_shortcut_info.xml"
+
+    invoke-direct {v7, v8, v9}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    invoke-direct {v6, v7}, Landroid/util/AtomicFile;-><init>(Ljava/io/File;)V
+
+    :try_start_0
+    invoke-virtual {v6}, Landroid/util/AtomicFile;->startWrite()Ljava/io/FileOutputStream;
+
+    move-result-object v3
+
+    new-instance v0, Ljava/io/BufferedOutputStream;
+
+    invoke-direct {v0, v3}, Ljava/io/BufferedOutputStream;-><init>(Ljava/io/OutputStream;)V
+
+    new-instance v5, Lcom/android/internal/util/FastXmlSerializer;
+
+    invoke-direct {v5}, Lcom/android/internal/util/FastXmlSerializer;-><init>()V
+
+    const-string/jumbo v7, "utf-8"
+
+    invoke-interface {v5, v0, v7}, Lorg/xmlpull/v1/XmlSerializer;->setOutput(Ljava/io/OutputStream;Ljava/lang/String;)V
+
+    const/4 v7, 0x1
+
+    invoke-static {v7}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v7
+
+    const/4 v8, 0x0
+
+    invoke-interface {v5, v8, v7}, Lorg/xmlpull/v1/XmlSerializer;->startDocument(Ljava/lang/String;Ljava/lang/Boolean;)V
+
+    const-string/jumbo v7, "http://xmlpull.org/v1/doc/features.html#indent-output"
+
+    const/4 v8, 0x1
+
+    invoke-interface {v5, v7, v8}, Lorg/xmlpull/v1/XmlSerializer;->setFeature(Ljava/lang/String;Z)V
+
+    const-string/jumbo v7, "export_shortcut_info"
+
+    const/4 v8, 0x0
+
+    invoke-interface {v5, v8, v7}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    const/4 v4, 0x0
+
+    :goto_0
+    invoke-interface {p2}, Ljava/util/List;->size()I
+
+    move-result v7
+
+    if-ge v4, v7, :cond_2
+
+    invoke-interface {p2, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/content/ComponentName;
+
+    const-string/jumbo v7, "SHORTCUT"
+
+    const/4 v8, 0x0
+
+    invoke-interface {v5, v8, v7}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    const-string/jumbo v7, "package"
+
+    invoke-virtual {v1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v8
+
+    const/4 v9, 0x0
+
+    invoke-interface {v5, v9, v7, v8}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    const-string/jumbo v7, "class"
+
+    invoke-virtual {v1}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
+
+    move-result-object v8
+
+    const/4 v9, 0x0
+
+    invoke-interface {v5, v9, v7, v8}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    const-string/jumbo v7, "SHORTCUT"
+
+    const/4 v8, 0x0
+
+    invoke-interface {v5, v8, v7}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    const-string/jumbo v7, "export_shortcut_info"
+
+    const/4 v8, 0x0
+
+    invoke-interface {v5, v8, v7}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    invoke-interface {v5}, Lorg/xmlpull/v1/XmlSerializer;->endDocument()V
+
+    invoke-virtual {v6, v3}, Landroid/util/AtomicFile;->finishWrite(Ljava/io/FileOutputStream;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_1
+    return-void
+
+    :catch_0
+    move-exception v2
+
+    invoke-virtual {v6, v3}, Landroid/util/AtomicFile;->failWrite(Ljava/io/FileOutputStream;)V
+
+    sget-object v7, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v8, "writeShortcutInfo() Error writing shortcut info"
+
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+.end method
+
 
 # virtual methods
+.method public addExportShortcutInfo(Landroid/content/ComponentName;I)V
+    .locals 5
+
+    const-string/jumbo v1, "add export shortcut"
+
+    invoke-static {v1}, Lcom/android/server/RCPManagerService;->checkManageUsersPermission(Ljava/lang/String;)V
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v2
+
+    iget-object v1, p0, Lcom/android/server/RCPManagerService;->shortcutInfos:Ljava/util/HashMap;
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    invoke-virtual {v1, v4}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/ArrayList;
+
+    if-nez v0, :cond_0
+
+    iget-object v1, p0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
+
+    invoke-direct {p0, v1}, Lcom/android/server/RCPManagerService;->loadShortcutList(Landroid/content/Context;)V
+
+    iget-object v1, p0, Lcom/android/server/RCPManagerService;->shortcutInfos:Ljava/util/HashMap;
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    invoke-virtual {v1, v4}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/ArrayList;
+
+    :cond_0
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    invoke-direct {p0, p2, v0}, Lcom/android/server/RCPManagerService;->writeShortcutInfo(ILjava/util/List;)V
+
+    :cond_1
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return-void
+.end method
+
 .method public cancelCopyChunks(J)V
     .locals 5
 
@@ -5708,11 +6236,11 @@
 
     iget-object v1, p0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
 
-    invoke-static {v1}, Lcom/sec/knox/container/util/EnterprisePartitionManager;->getInstance(Landroid/content/Context;)Lcom/sec/knox/container/util/EnterprisePartitionManager;
+    invoke-static {v1}, Lcom/android/server/EnterprisePartitionManager;->getInstance(Landroid/content/Context;)Lcom/android/server/EnterprisePartitionManager;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1, p2}, Lcom/sec/knox/container/util/EnterprisePartitionManager;->cancelCopyChunks(J)V
+    invoke-virtual {v0, p1, p2}, Lcom/android/server/EnterprisePartitionManager;->cancelCopyChunks(J)V
 
     return-void
 .end method
@@ -5778,11 +6306,11 @@
 
     iget-object v1, p0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
 
-    invoke-static {v1}, Lcom/sec/knox/container/util/EnterprisePartitionManager;->getInstance(Landroid/content/Context;)Lcom/sec/knox/container/util/EnterprisePartitionManager;
+    invoke-static {v1}, Lcom/android/server/EnterprisePartitionManager;->getInstance(Landroid/content/Context;)Lcom/android/server/EnterprisePartitionManager;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1, p2, p3, p4}, Lcom/sec/knox/container/util/EnterprisePartitionManager;->changePermissionMigration(Ljava/lang/String;III)I
+    invoke-virtual {v0, p1, p2, p3, p4}, Lcom/android/server/EnterprisePartitionManager;->changePermissionMigration(Ljava/lang/String;III)I
 
     move-result v1
 
@@ -5902,7 +6430,7 @@
 
     iget-object v3, p0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
 
-    invoke-static {v3}, Lcom/sec/knox/container/util/EnterprisePartitionManager;->getInstance(Landroid/content/Context;)Lcom/sec/knox/container/util/EnterprisePartitionManager;
+    invoke-static {v3}, Lcom/android/server/EnterprisePartitionManager;->getInstance(Landroid/content/Context;)Lcom/android/server/EnterprisePartitionManager;
 
     move-result-object v2
 
@@ -5922,7 +6450,7 @@
 
     move/from16 v12, p10
 
-    invoke-virtual/range {v2 .. v12}, Lcom/sec/knox/container/util/EnterprisePartitionManager;->copyChunks(Ljava/lang/String;ILjava/lang/String;IJIJZ)I
+    invoke-virtual/range {v2 .. v12}, Lcom/android/server/EnterprisePartitionManager;->copyChunks(Ljava/lang/String;ILjava/lang/String;IJIJZ)I
 
     move-result v3
 
@@ -5974,89 +6502,83 @@
 .end method
 
 .method public copyFileInternal(ILjava/lang/String;ILjava/lang/String;)I
-    .locals 8
+    .locals 7
 
-    const-string/jumbo v2, "copyFile"
+    const/4 v5, 0x3
 
-    invoke-static {v2}, Lcom/android/server/RCPManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
+    const-string/jumbo v0, "copyFile"
 
-    sget-object v2, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+    invoke-static {v0}, Lcom/android/server/RCPManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    sget-object v0, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v4, "copyFile() srcContainerId="
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v2, "copyFile() srcContainerId="
 
-    move-result-object v3
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v3
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v4, "; srcFilePath="
+    move-result-object v1
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v2, "; srcFilePath="
 
-    move-result-object v3
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v3
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v4, "; destContainerId="
+    move-result-object v1
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v2, "; destContainerId="
 
-    move-result-object v3
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v3
+    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v4, "; destFilePath="
+    move-result-object v1
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v2, "; destFilePath="
 
-    move-result-object v3
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v3
+    invoke-virtual {v1, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v3
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v1
 
-    const-string/jumbo v2, "com.samsung.android.bbc.bbcagent"
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v0, "com.samsung.android.bbc.bbcagent"
 
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
-    move-result v3
+    move-result v1
 
-    invoke-direct {p0, v3}, Lcom/android/server/RCPManagerService;->getAppNameByPID(I)Ljava/lang/String;
+    invoke-direct {p0, v1}, Lcom/android/server/RCPManagerService;->getAppNameByPID(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
-    const-string/jumbo v2, "persona"
-
-    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/server/pm/PersonaManagerService;
-
-    const/4 v5, 0x3
+    move-object v0, p0
 
     move-object v1, p2
 
@@ -6066,67 +6588,164 @@
 
     move v4, p3
 
-    invoke-virtual/range {v0 .. v5}, Lcom/android/server/pm/PersonaManagerService;->copyPackageData(Ljava/lang/String;ILjava/lang/String;II)I
+    invoke-virtual/range {v0 .. v5}, Lcom/android/server/RCPManagerService;->copyPackageData(Ljava/lang/String;ILjava/lang/String;II)I
 
-    move-result v2
+    move-result v0
 
-    return v2
+    return v0
 
     :cond_0
     invoke-static {p2, p1}, Lcom/sec/knox/container/util/PathTranslator;->isPackageDataRelatedPath(Ljava/lang/String;I)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_1
+    if-nez v0, :cond_1
 
     invoke-static {p4, p3}, Lcom/sec/knox/container/util/PathTranslator;->isPackageDataRelatedPath(Ljava/lang/String;I)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_1
+    if-eqz v0, :cond_2
 
-    const-string/jumbo v2, "TAG"
+    :cond_1
+    const-string/jumbo v0, "TAG"
 
-    const-string/jumbo v3, "Package data related copy; calling proper delegation method"
+    const-string/jumbo v1, "Package data related copy; calling proper delegation method"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v2, "persona"
+    move-object v0, p0
 
-    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    move-object v1, p2
+
+    move v2, p1
+
+    move-object v3, p4
+
+    move v4, p3
+
+    invoke-virtual/range {v0 .. v5}, Lcom/android/server/RCPManagerService;->copyPackageData(Ljava/lang/String;ILjava/lang/String;II)I
+
+    move-result v0
+
+    return v0
+
+    :cond_2
+    iget-object v0, p0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/server/EnterprisePartitionManager;->getInstance(Landroid/content/Context;)Lcom/android/server/EnterprisePartitionManager;
+
+    move-result-object v6
+
+    invoke-virtual {v6, p2, p1, p4, p3}, Lcom/android/server/EnterprisePartitionManager;->copy(Ljava/lang/String;ILjava/lang/String;I)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public copyPackageData(Ljava/lang/String;ILjava/lang/String;II)I
+    .locals 10
+
+    const/4 v9, -0x1
+
+    new-instance v7, Lcom/android/server/KnoxFileHandler;
+
+    iget-object v0, p0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
+
+    invoke-direct {v7, v0}, Lcom/android/server/KnoxFileHandler;-><init>(Landroid/content/Context;)V
+
+    sget-object v0, Lcom/android/server/RCPManagerService;->mPackageTasker:Lcom/android/server/pm/Installer;
+
+    if-nez v0, :cond_0
+
+    return v9
+
+    :cond_0
+    invoke-static {p2}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v7, p2}, Lcom/android/server/KnoxFileHandler;->isMounted(I)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    return v9
+
+    :cond_1
+    invoke-static {p4}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-virtual {v7, p4}, Lcom/android/server/KnoxFileHandler;->isMounted(I)Z
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    return v9
+
+    :cond_2
+    invoke-static {p1, p2}, Lcom/sec/knox/container/util/PathTranslator;->getRealPath(Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object v1
 
-    check-cast v1, Lcom/android/server/pm/PersonaManagerService;
+    invoke-static {p3, p4}, Lcom/sec/knox/container/util/PathTranslator;->getRealPath(Ljava/lang/String;I)Ljava/lang/String;
 
-    const/4 v6, 0x3
+    move-result-object v3
 
-    move-object v2, p2
+    sget-object v8, Lcom/android/server/RCPManagerService;->mInstallLock:Ljava/lang/Object;
 
-    move v3, p1
+    monitor-enter v8
 
-    move-object v4, p4
+    :try_start_0
+    sget-object v0, Lcom/android/server/RCPManagerService;->mPackageTasker:Lcom/android/server/pm/Installer;
 
-    move v5, p3
+    move v2, p2
 
-    invoke-virtual/range {v1 .. v6}, Lcom/android/server/pm/PersonaManagerService;->copyPackageData(Ljava/lang/String;ILjava/lang/String;II)I
+    move v4, p4
 
-    move-result v2
+    move v5, p5
 
-    return v2
+    invoke-virtual/range {v0 .. v5}, Lcom/android/server/pm/Installer;->copyKnoxAppData(Ljava/lang/String;ILjava/lang/String;II)Z
+    :try_end_0
+    .catch Lcom/android/server/pm/Installer$InstallerException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :cond_1
-    iget-object v2, p0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
+    move-result v0
 
-    invoke-static {v2}, Lcom/sec/knox/container/util/EnterprisePartitionManager;->getInstance(Landroid/content/Context;)Lcom/sec/knox/container/util/EnterprisePartitionManager;
+    if-eqz v0, :cond_3
 
-    move-result-object v7
+    const/4 v0, 0x0
 
-    invoke-virtual {v7, p2, p1, p4, p3}, Lcom/sec/knox/container/util/EnterprisePartitionManager;->copy(Ljava/lang/String;ILjava/lang/String;I)I
+    monitor-exit v8
 
-    move-result v2
+    return v0
 
-    return v2
+    :catch_0
+    move-exception v6
+
+    monitor-exit v8
+
+    return v9
+
+    :cond_3
+    monitor-exit v8
+
+    return v9
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v8
+
+    throw v0
 .end method
 
 .method deleteAllPersonaData(I)V
@@ -6151,6 +6770,8 @@
     invoke-virtual {v6, v7}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_0
+    invoke-direct {p0, p1}, Lcom/android/server/RCPManagerService;->removeShortcutList(I)V
+
     iget-object v6, p0, Lcom/android/server/RCPManagerService;->mBridgeSyncUserMap:Ljava/util/HashMap;
 
     invoke-virtual {v6}, Ljava/util/HashMap;->isEmpty()Z
@@ -6348,11 +6969,11 @@
 
     iget-object v1, p0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
 
-    invoke-static {v1}, Lcom/sec/knox/container/util/EnterprisePartitionManager;->getInstance(Landroid/content/Context;)Lcom/sec/knox/container/util/EnterprisePartitionManager;
+    invoke-static {v1}, Lcom/android/server/EnterprisePartitionManager;->getInstance(Landroid/content/Context;)Lcom/android/server/EnterprisePartitionManager;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1, p2}, Lcom/sec/knox/container/util/EnterprisePartitionManager;->deleteFile(Ljava/lang/String;I)Z
+    invoke-virtual {v0, p1, p2}, Lcom/android/server/EnterprisePartitionManager;->deleteFile(Ljava/lang/String;I)Z
 
     move-result v1
 
@@ -6360,79 +6981,86 @@
 .end method
 
 .method public doSyncForSyncer(Ljava/lang/String;I)V
-    .locals 10
+    .locals 9
 
-    const/4 v5, 0x0
+    const/4 v8, 0x0
 
-    sget-object v6, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+    sget-object v5, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v8, "doSyncForSyncer  mSyncerName : "
+    const-string/jumbo v7, "doSyncForSyncer  mSyncerName : "
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v6
 
-    const-string/jumbo v8, " , provider ID : "
+    const-string/jumbo v7, " , provider ID : "
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-virtual {v7, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     if-nez p2, :cond_1
 
-    iget-object v6, p0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
+    iget-object v5, p0, Lcom/android/server/RCPManagerService;->mPm:Lcom/samsung/android/knox/SemPersonaManager;
 
-    const-string/jumbo v7, "persona"
-
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v5, v8}, Lcom/samsung/android/knox/SemPersonaManager;->getKnoxIds(Z)Ljava/util/List;
 
     move-result-object v4
 
-    check-cast v4, Lcom/samsung/android/knox/SemPersonaManager;
-
-    invoke-virtual {v4}, Lcom/samsung/android/knox/SemPersonaManager;->getPersonaIds()[I
-
-    move-result-object v3
-
     :goto_0
-    if-eqz v3, :cond_2
+    if-eqz v4, :cond_2
 
     const/4 v0, 0x0
 
-    array-length v6, v3
+    invoke-interface {v4}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
+    move-result-object v3
+
+    :cond_0
     :goto_1
-    if-ge v5, v6, :cond_2
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
-    aget v2, v3, v5
+    move-result v5
 
-    iget-object v7, p0, Lcom/android/server/RCPManagerService;->mBridgeSyncUserMap:Ljava/util/HashMap;
+    if-eqz v5, :cond_2
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Ljava/lang/Integer;
+
+    invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
+
+    move-result v2
+
+    iget-object v5, p0, Lcom/android/server/RCPManagerService;->mBridgeSyncUserMap:Ljava/util/HashMap;
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v8
+    move-result-object v6
 
-    invoke-virtual {v7, v8}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v5, v6}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -6441,93 +7069,93 @@
     if-eqz v0, :cond_0
 
     :try_start_0
-    sget-object v7, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+    sget-object v5, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v9, "calling do Sync for mSyncerName : "
+    const-string/jumbo v7, "calling do Sync for mSyncerName : "
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v6
 
-    invoke-virtual {v8, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v6
 
-    const-string/jumbo v9, " , provider ID : "
+    const-string/jumbo v7, " , provider ID : "
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v6
 
-    invoke-virtual {v8, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v6
 
-    const-string/jumbo v9, " ,Syncer :"
+    const-string/jumbo v7, " ,Syncer :"
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v6
 
-    invoke-virtual {v8, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v6
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v6
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-interface {v0, p1, p2}, Landroid/content/ISyncCallBack;->doSync(Ljava/lang/String;I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_0
-    :goto_2
-    add-int/lit8 v5, v5, 0x1
-
     goto :goto_1
-
-    :cond_1
-    const/4 v6, 0x1
-
-    new-array v3, v6, [I
-
-    aput v5, v3, v5
-
-    goto :goto_0
 
     :catch_0
     move-exception v1
 
-    const-string/jumbo v7, "Bridge_PROXY"
+    const-string/jumbo v5, "Bridge_PROXY"
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v9, "Remote exception thrown by service "
+    const-string/jumbo v7, "Remote exception thrown by service "
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v6
 
-    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v6
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v6
 
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_2
+    goto :goto_1
+
+    :cond_1
+    new-instance v4, Ljava/util/ArrayList;
+
+    invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
+
+    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    invoke-interface {v4, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto :goto_0
 
     :cond_2
     return-void
@@ -6536,433 +7164,489 @@
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 12
 
-    const/4 v11, 0x0
+    sget-object v10, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
 
-    sget-object v9, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+    const-string/jumbo v11, "RCP DumpState Started"
 
-    const-string/jumbo v10, "RCP DumpState Started"
+    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    iget-object v10, p0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
 
-    iget-object v9, p0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
+    const-string/jumbo v11, "android.permission.DUMP"
 
-    const-string/jumbo v10, "android.permission.DUMP"
+    invoke-virtual {v10, v11}, Landroid/content/Context;->checkCallingOrSelfPermission(Ljava/lang/String;)I
 
-    invoke-virtual {v9, v10}, Landroid/content/Context;->checkCallingOrSelfPermission(Ljava/lang/String;)I
+    move-result v10
 
-    move-result v9
+    if-eqz v10, :cond_0
 
-    if-eqz v9, :cond_0
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v11, "Permission Denial: can\'t dump RCPManagerService from from pid="
 
-    const-string/jumbo v10, "Permission Denial: can\'t dump RCPManagerService from from pid="
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
+    move-result-object v10
 
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
-    move-result v10
+    move-result v11
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
-    const-string/jumbo v10, ", uid="
+    const-string/jumbo v11, ", uid="
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v10
+    move-result v11
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
-    const-string/jumbo v10, " without permission "
+    const-string/jumbo v11, " without permission "
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
-    const-string/jumbo v10, "android.permission.DUMP"
+    const-string/jumbo v11, "android.permission.DUMP"
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {p2, v9}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, v10}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     return-void
 
     :cond_0
-    iget-object v9, p0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
+    iget-object v10, p0, Lcom/android/server/RCPManagerService;->mUm:Landroid/os/UserManager;
 
-    const-string/jumbo v10, "persona"
+    const/4 v11, 0x0
 
-    invoke-virtual {v9, v10}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v10, v11}, Landroid/os/UserManager;->getUsers(Z)Ljava/util/List;
 
     move-result-object v6
 
-    check-cast v6, Lcom/samsung/android/knox/SemPersonaManager;
+    if-eqz v6, :cond_7
 
-    invoke-virtual {v6}, Lcom/samsung/android/knox/SemPersonaManager;->getPersonas()Ljava/util/List;
-
-    move-result-object v4
-
-    if-eqz v4, :cond_1
-
-    invoke-interface {v4}, Ljava/util/List;->isEmpty()Z
-
-    move-result v9
-
-    if-eqz v9, :cond_3
-
-    :cond_1
-    const-string/jumbo v9, "No of Personas : Zero"
-
-    invoke-virtual {p2, v9}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    :cond_2
-    return-void
-
-    :cond_3
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-
-    move-result-wide v0
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v10, "No of Personas : "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-interface {v4}, Ljava/util/List;->size()I
+    invoke-interface {v6}, Ljava/util/List;->isEmpty()Z
 
     move-result v10
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    xor-int/lit8 v10, v10, 0x1
+
+    if-eqz v10, :cond_7
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v2
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "No of Personas : "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-interface {v6}, Ljava/util/List;->size()I
+
+    move-result v11
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {p2, v10}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    iget-object v10, p0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
+
+    invoke-static {v10, p2}, Lcom/android/server/bridge/operations/RCPDumpState;->getInstance(Landroid/content/Context;Ljava/io/PrintWriter;)Lcom/android/server/bridge/operations/RCPDumpState;
 
     move-result-object v9
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const/4 v5, 0x0
 
-    move-result-object v9
+    const/4 v8, 0x0
 
-    invoke-virtual {p2, v9}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    const/4 v4, -0x1
 
-    iget-object v9, p0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
+    const/4 v0, 0x0
 
-    invoke-static {v9, p2}, Lcom/android/server/bridge/operations/RCPDumpState;->getInstance(Landroid/content/Context;Ljava/io/PrintWriter;)Lcom/android/server/bridge/operations/RCPDumpState;
+    const/4 v1, 0x0
 
-    move-result-object v8
+    invoke-interface {v6}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    const/4 v3, 0x0
+    move-result-object v7
 
-    const/4 v7, 0x0
+    :cond_1
+    :goto_0
+    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
-    const/4 v2, -0x1
+    move-result v10
 
-    invoke-interface {v4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    if-eqz v10, :cond_6
+
+    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v5
 
-    :goto_0
-    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
+    check-cast v5, Landroid/content/pm/UserInfo;
 
-    move-result v9
+    iget v4, v5, Landroid/content/pm/UserInfo;->id:I
 
-    if-eqz v9, :cond_2
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v3
+    const-string/jumbo v11, "++++++++++++++++FileOpsTable of "
 
-    check-cast v3, Lcom/samsung/android/knox/SemPersonaInfo;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Lcom/samsung/android/knox/SemPersonaInfo;->getId()I
+    move-result-object v10
 
-    move-result v2
+    invoke-virtual {v10, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    move-result-object v10
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v11, "++++++++++++++++"
 
-    const-string/jumbo v10, "++++++++++++++++Start of RCPDumpState for Persona ID : "
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v10
 
-    move-result-object v9
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v3}, Lcom/samsung/android/knox/SemPersonaInfo;->getId()I
+    move-result-object v10
+
+    invoke-virtual {p2, v10}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    invoke-virtual {v9, p2, v4}, Lcom/android/server/bridge/operations/RCPDumpState;->dumpStateFileOpsTable(Ljava/io/PrintWriter;I)V
+
+    invoke-virtual {v5}, Landroid/content/pm/UserInfo;->isManagedProfile()Z
+
+    move-result v0
+
+    iget-object v10, p0, Lcom/android/server/RCPManagerService;->mUm:Landroid/os/UserManager;
+
+    new-instance v11, Landroid/os/UserHandle;
+
+    invoke-direct {v11, v4}, Landroid/os/UserHandle;-><init>(I)V
+
+    invoke-virtual {v10, v11}, Landroid/os/UserManager;->isUserRunning(Landroid/os/UserHandle;)Z
+
+    move-result v1
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "PersonaId : "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string/jumbo v11, " , isManagedProfile : "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string/jumbo v11, " , isUserRunning : "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {p2, v10}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    if-eqz v0, :cond_1
+
+    if-eqz v1, :cond_1
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "++++++++++++++++Start of RCPDumpState for Persona ID : "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    iget v11, v5, Landroid/content/pm/UserInfo;->id:I
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string/jumbo v11, "++++++++++++++++"
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {p2, v10}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string/jumbo v10, "Calendar"
+
+    const-string/jumbo v11, "knox-import-data"
+
+    invoke-virtual {p0, v4, v10, v11}, Lcom/android/server/RCPManagerService;->getPolicy(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "Calendar ~ IMPORT_DATA : "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {p2, v10}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string/jumbo v10, "true"
+
+    invoke-virtual {v8, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v10
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    if-eqz v10, :cond_2
 
-    move-result-object v9
+    const/4 v10, 0x0
 
-    const-string/jumbo v10, "++++++++++++++++"
+    invoke-virtual {v9, p2, v10, v4}, Lcom/android/server/bridge/operations/RCPDumpState;->dumpStateCalendar(Ljava/io/PrintWriter;II)V
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :cond_2
+    const-string/jumbo v10, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 
-    move-result-object v9
+    invoke-virtual {p2, v10}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string/jumbo v10, "Calendar"
 
-    move-result-object v9
+    const-string/jumbo v11, "knox-export-data"
 
-    invoke-virtual {p2, v9}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p0, v4, v10, v11}, Lcom/android/server/RCPManagerService;->getPolicy(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    iget-boolean v9, v3, Lcom/samsung/android/knox/SemPersonaInfo;->isSecureFolder:Z
+    move-result-object v8
 
-    if-eqz v9, :cond_4
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v11, "Calendar ~ EXPORT_DATA : "
 
-    const-string/jumbo v10, "Persona : "
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v10
 
-    move-result-object v9
+    invoke-virtual {v10, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v9, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v10
 
-    move-result-object v9
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const-string/jumbo v10, " isSecureFolder "
+    move-result-object v10
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v10}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    move-result-object v9
+    const-string/jumbo v10, "true"
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v8, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result-object v9
+    move-result v10
 
-    invoke-virtual {p2, v9}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    if-eqz v10, :cond_3
 
-    goto :goto_0
+    const/4 v10, 0x0
+
+    invoke-virtual {v9, p2, v4, v10}, Lcom/android/server/bridge/operations/RCPDumpState;->dumpStateCalendar(Ljava/io/PrintWriter;II)V
+
+    :cond_3
+    const-string/jumbo v10, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+
+    invoke-virtual {p2, v10}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string/jumbo v10, "Contacts"
+
+    const-string/jumbo v11, "knox-import-data"
+
+    invoke-virtual {p0, v4, v10, v11}, Lcom/android/server/RCPManagerService;->getPolicy(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "Contacts ~ IMPORT_DATA : "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {p2, v10}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string/jumbo v10, "true"
+
+    invoke-virtual {v8, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_4
+
+    const/4 v10, 0x0
+
+    invoke-virtual {v9, p2, v10, v4}, Lcom/android/server/bridge/operations/RCPDumpState;->dumpStateContact(Ljava/io/PrintWriter;II)V
 
     :cond_4
-    const-string/jumbo v9, "Calendar"
+    const-string/jumbo v10, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 
-    const-string/jumbo v10, "knox-import-data"
+    invoke-virtual {p2, v10}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    invoke-virtual {p0, v2, v9, v10}, Lcom/android/server/RCPManagerService;->getPolicy(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    const-string/jumbo v10, "Contacts"
 
-    move-result-object v7
+    const-string/jumbo v11, "knox-export-data"
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v4, v10, v11}, Lcom/android/server/RCPManagerService;->getPolicy(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v8
 
-    const-string/jumbo v10, "Calendar ~ IMPORT_DATA : "
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v9
+    const-string/jumbo v11, "Contacts ~ EXPORT_DATA : "
 
-    invoke-virtual {v9, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v10, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {p2, v9}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const-string/jumbo v9, "true"
+    move-result-object v10
 
-    invoke-virtual {v7, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v10}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    move-result v9
+    const-string/jumbo v10, "true"
 
-    if-eqz v9, :cond_5
-
-    invoke-virtual {v8, p2, v11, v2}, Lcom/android/server/bridge/operations/RCPDumpState;->dumpStateCalendar(Ljava/io/PrintWriter;II)V
-
-    :cond_5
-    const-string/jumbo v9, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-
-    invoke-virtual {p2, v9}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    const-string/jumbo v9, "Calendar"
-
-    const-string/jumbo v10, "knox-export-data"
-
-    invoke-virtual {p0, v2, v9, v10}, Lcom/android/server/RCPManagerService;->getPolicy(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v7
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v10, "Calendar ~ EXPORT_DATA : "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {p2, v9}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    const-string/jumbo v9, "true"
-
-    invoke-virtual {v7, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v9
-
-    if-eqz v9, :cond_6
-
-    invoke-virtual {v8, p2, v2, v11}, Lcom/android/server/bridge/operations/RCPDumpState;->dumpStateCalendar(Ljava/io/PrintWriter;II)V
-
-    :cond_6
-    const-string/jumbo v9, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-
-    invoke-virtual {p2, v9}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    const-string/jumbo v9, "Contacts"
-
-    const-string/jumbo v10, "knox-import-data"
-
-    invoke-virtual {p0, v2, v9, v10}, Lcom/android/server/RCPManagerService;->getPolicy(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v7
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v10, "Contacts ~ IMPORT_DATA : "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {p2, v9}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    const-string/jumbo v9, "true"
-
-    invoke-virtual {v7, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v9
-
-    if-eqz v9, :cond_7
-
-    invoke-virtual {v8, p2, v11, v2}, Lcom/android/server/bridge/operations/RCPDumpState;->dumpStateContact(Ljava/io/PrintWriter;II)V
-
-    :cond_7
-    const-string/jumbo v9, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-
-    invoke-virtual {p2, v9}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    const-string/jumbo v9, "Contacts"
-
-    const-string/jumbo v10, "knox-export-data"
-
-    invoke-virtual {p0, v2, v9, v10}, Lcom/android/server/RCPManagerService;->getPolicy(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v7
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v10, "Contacts ~ EXPORT_DATA : "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {p2, v9}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    const-string/jumbo v9, "true"
-
-    invoke-virtual {v7, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v9
-
-    if-eqz v9, :cond_8
-
-    invoke-virtual {v8, p2, v2, v11}, Lcom/android/server/bridge/operations/RCPDumpState;->dumpStateContact(Ljava/io/PrintWriter;II)V
-
-    :cond_8
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v10, "++++++++++++++++End of RCPDumpState for Persona ID : "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v3}, Lcom/samsung/android/knox/SemPersonaInfo;->getId()I
+    invoke-virtual {v8, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v10
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    if-eqz v10, :cond_5
 
-    move-result-object v9
+    const/4 v10, 0x0
 
-    const-string/jumbo v10, "++++++++++++++++"
+    invoke-virtual {v9, p2, v4, v10}, Lcom/android/server/bridge/operations/RCPDumpState;->dumpStateContact(Ljava/io/PrintWriter;II)V
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :cond_5
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string/jumbo v11, "++++++++++++++++End of RCPDumpState for Persona ID : "
 
-    move-result-object v9
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p2, v9}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    move-result-object v10
 
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    iget v11, v5, Landroid/content/pm/UserInfo;->id:I
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string/jumbo v11, "++++++++++++++++"
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {p2, v10}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     goto/16 :goto_0
+
+    :cond_6
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    :goto_1
+    return-void
+
+    :cond_7
+    const-string/jumbo v10, "No of Personas : Zero"
+
+    invoke-virtual {p2, v10}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    goto :goto_1
 .end method
 
 .method public declared-synchronized exchangeData(Ljava/lang/String;ILandroid/os/Bundle;)Landroid/os/Bundle;
@@ -7136,196 +7820,194 @@
 .end method
 
 .method public executeCommandForPersona(Landroid/app/Command;)V
-    .locals 8
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const-string/jumbo v5, "executeCommandForPersona"
+    const-string/jumbo v4, "executeCommandForPersona"
 
-    invoke-static {v5}, Lcom/android/server/RCPManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
+    invoke-static {v4}, Lcom/android/server/RCPManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
 
-    sget-object v5, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+    sget-object v4, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, " got command "
+    const-string/jumbo v6, " got command "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v5
 
-    iget v7, p1, Landroid/app/Command;->personaId:I
+    iget v6, p1, Landroid/app/Command;->personaId:I
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v5
 
-    const-string/jumbo v7, " "
+    const-string/jumbo v6, " "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v5
 
-    iget-object v7, p1, Landroid/app/Command;->packageToLaunch:Ljava/lang/String;
+    iget-object v6, p1, Landroid/app/Command;->packageToLaunch:Ljava/lang/String;
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v5
 
-    const-string/jumbo v7, " uri: "
+    const-string/jumbo v6, " uri: "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v5
 
-    iget-object v7, p1, Landroid/app/Command;->uri:Ljava/lang/String;
+    iget-object v6, p1, Landroid/app/Command;->uri:Ljava/lang/String;
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v5, p0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v6, "persona"
-
-    invoke-virtual {v5, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/samsung/android/knox/SemPersonaManager;
-
-    const/4 v4, 0x0
+    const/4 v1, 0x0
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v2
 
+    iget-object v4, p0, Lcom/android/server/RCPManagerService;->mPm:Lcom/samsung/android/knox/SemPersonaManager;
+
     iget v5, p1, Landroid/app/Command;->personaId:I
 
-    invoke-virtual {v1, v5}, Lcom/samsung/android/knox/SemPersonaManager;->exists(I)Z
+    invoke-virtual {v4, v5}, Lcom/samsung/android/knox/SemPersonaManager;->exists(I)Z
 
-    move-result v5
+    move-result v4
 
-    if-nez v5, :cond_2
+    if-nez v4, :cond_2
 
-    iget-object v5, p0, Lcom/android/server/RCPManagerService;->mCommandQueue:Ljava/util/Map;
+    iget-object v4, p0, Lcom/android/server/RCPManagerService;->mCommandQueue:Ljava/util/Map;
 
-    iget v6, p1, Landroid/app/Command;->personaId:I
+    iget v5, p1, Landroid/app/Command;->personaId:I
 
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-interface {v5, v6, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v4, v5, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_0
     :goto_0
-    if-eqz v4, :cond_1
+    if-eqz v1, :cond_1
 
-    iget v5, p1, Landroid/app/Command;->personaId:I
+    iget-object v4, p0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
 
-    invoke-direct {p0, v5, v4}, Lcom/android/server/RCPManagerService;->switchPersonaAndLaunch(ILandroid/content/Intent;)V
+    new-instance v5, Landroid/os/UserHandle;
+
+    iget v6, p1, Landroid/app/Command;->personaId:I
+
+    invoke-direct {v5, v6}, Landroid/os/UserHandle;-><init>(I)V
+
+    invoke-virtual {v4, v1, v5}, Landroid/content/Context;->startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
     :cond_1
-    sget-object v5, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+    sget-object v4, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v6, "executecommand is done."
+    const-string/jumbo v5, "executecommand is done."
 
-    invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     return-void
 
     :cond_2
-    iget-object v5, p1, Landroid/app/Command;->uri:Ljava/lang/String;
+    iget-object v4, p1, Landroid/app/Command;->uri:Ljava/lang/String;
 
-    if-eqz v5, :cond_3
+    if-eqz v4, :cond_3
 
     :try_start_0
-    iget-object v5, p1, Landroid/app/Command;->uri:Ljava/lang/String;
+    iget-object v4, p1, Landroid/app/Command;->uri:Ljava/lang/String;
 
-    const/4 v6, 0x0
+    const/4 v5, 0x0
 
-    invoke-static {v5, v6}, Landroid/content/Intent;->parseUri(Ljava/lang/String;I)Landroid/content/Intent;
+    invoke-static {v4, v5}, Landroid/content/Intent;->parseUri(Ljava/lang/String;I)Landroid/content/Intent;
     :try_end_0
     .catch Ljava/net/URISyntaxException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v4
+    move-result-object v1
 
     goto :goto_0
 
     :catch_0
     move-exception v0
 
-    sget-object v5, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+    sget-object v4, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v6, "failed to parse launch intent"
+    const-string/jumbo v5, "failed to parse launch intent"
 
-    invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
     :cond_3
-    const-string/jumbo v5, "launchIntent"
+    const-string/jumbo v4, "launchIntent"
 
-    iget-object v6, p1, Landroid/app/Command;->type:Ljava/lang/String;
+    iget-object v5, p1, Landroid/app/Command;->type:Ljava/lang/String;
 
-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_4
+    if-eqz v4, :cond_4
 
-    iget-object v4, p1, Landroid/app/Command;->intent:Landroid/content/Intent;
+    iget-object v1, p1, Landroid/app/Command;->intent:Landroid/content/Intent;
 
     goto :goto_0
 
     :cond_4
-    const-string/jumbo v5, "launchNotification"
+    const-string/jumbo v4, "launchNotification"
 
-    iget-object v6, p1, Landroid/app/Command;->type:Ljava/lang/String;
+    iget-object v5, p1, Landroid/app/Command;->type:Ljava/lang/String;
 
-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_0
+    if-eqz v4, :cond_0
+
+    iget-object v4, p1, Landroid/app/Command;->contentIntent:Landroid/app/PendingIntent;
+
+    if-eqz v4, :cond_0
+
+    new-instance v1, Landroid/content/Intent;
+
+    invoke-direct {v1}, Landroid/content/Intent;-><init>()V
+
+    const-string/jumbo v4, "launchContentIntent"
+
+    invoke-virtual {v1, v4}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v4, "pendingIntent"
 
     iget-object v5, p1, Landroid/app/Command;->contentIntent:Landroid/app/PendingIntent;
 
-    if-eqz v5, :cond_0
+    invoke-virtual {v1, v4, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    new-instance v4, Landroid/content/Intent;
+    const-string/jumbo v4, "intent"
 
-    invoke-direct {v4}, Landroid/content/Intent;-><init>()V
+    iget-object v5, p1, Landroid/app/Command;->intent:Landroid/content/Intent;
 
-    const-string/jumbo v5, "launchContentIntent"
-
-    invoke-virtual {v4, v5}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
-
-    const-string/jumbo v5, "pendingIntent"
-
-    iget-object v6, p1, Landroid/app/Command;->contentIntent:Landroid/app/PendingIntent;
-
-    invoke-virtual {v4, v5, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
-
-    const-string/jumbo v5, "intent"
-
-    iget-object v6, p1, Landroid/app/Command;->intent:Landroid/content/Intent;
-
-    invoke-virtual {v4, v5, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
+    invoke-virtual {v1, v4, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
     goto :goto_0
 .end method
@@ -7609,6 +8291,33 @@
     return-object v9
 .end method
 
+.method public getExportShortcutInfo(I)Ljava/util/List;
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I)",
+            "Ljava/util/List",
+            "<",
+            "Landroid/content/ComponentName;",
+            ">;"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/server/RCPManagerService;->shortcutInfos:Ljava/util/HashMap;
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/List;
+
+    return-object v0
+.end method
+
 .method public getFileInfo(Ljava/lang/String;I)Landroid/os/Bundle;
     .locals 4
 
@@ -7650,11 +8359,11 @@
 
     iget-object v1, p0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
 
-    invoke-static {v1}, Lcom/sec/knox/container/util/EnterprisePartitionManager;->getInstance(Landroid/content/Context;)Lcom/sec/knox/container/util/EnterprisePartitionManager;
+    invoke-static {v1}, Lcom/android/server/EnterprisePartitionManager;->getInstance(Landroid/content/Context;)Lcom/android/server/EnterprisePartitionManager;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1, p2}, Lcom/sec/knox/container/util/EnterprisePartitionManager;->getFileInfo(Ljava/lang/String;I)Landroid/os/Bundle;
+    invoke-virtual {v0, p1, p2}, Lcom/android/server/EnterprisePartitionManager;->getFileInfo(Ljava/lang/String;I)Landroid/os/Bundle;
 
     move-result-object v1
 
@@ -7713,15 +8422,79 @@
 
     iget-object v1, p0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
 
-    invoke-static {v1}, Lcom/sec/knox/container/util/EnterprisePartitionManager;->getInstance(Landroid/content/Context;)Lcom/sec/knox/container/util/EnterprisePartitionManager;
+    invoke-static {v1}, Lcom/android/server/EnterprisePartitionManager;->getInstance(Landroid/content/Context;)Lcom/android/server/EnterprisePartitionManager;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1, p2}, Lcom/sec/knox/container/util/EnterprisePartitionManager;->getFiles(Ljava/lang/String;I)Ljava/util/ArrayList;
+    invoke-virtual {v0, p1, p2}, Lcom/android/server/EnterprisePartitionManager;->getFiles(Ljava/lang/String;I)Ljava/util/ArrayList;
 
     move-result-object v1
 
     return-object v1
+.end method
+
+.method getPersonas(Z)Ljava/util/List;
+    .locals 5
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(Z)",
+            "Ljava/util/List",
+            "<",
+            "Landroid/content/pm/UserInfo;",
+            ">;"
+        }
+    .end annotation
+
+    const/4 v0, 0x0
+
+    iget-object v4, p0, Lcom/android/server/RCPManagerService;->mUm:Landroid/os/UserManager;
+
+    invoke-virtual {v4, p1}, Landroid/os/UserManager;->getUsers(Z)Ljava/util/List;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_1
+
+    invoke-interface {v3}, Ljava/util/List;->size()I
+
+    move-result v4
+
+    if-lez v4, :cond_1
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :cond_0
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/content/pm/UserInfo;
+
+    invoke-virtual {v1}, Landroid/content/pm/UserInfo;->isManagedProfile()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto :goto_0
+
+    :cond_1
+    return-object v0
 .end method
 
 .method public getPolicy(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -7738,6 +8511,38 @@
     const/4 v2, 0x0
 
     :try_start_0
+    iget-object v3, p0, Lcom/android/server/RCPManagerService;->mPm:Lcom/samsung/android/knox/SemPersonaManager;
+
+    if-nez v3, :cond_0
+
+    iget-object v3, p0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v6, "persona"
+
+    invoke-virtual {v3, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/samsung/android/knox/SemPersonaManager;
+
+    iput-object v3, p0, Lcom/android/server/RCPManagerService;->mPm:Lcom/samsung/android/knox/SemPersonaManager;
+
+    :cond_0
+    iget-object v3, p0, Lcom/android/server/RCPManagerService;->mPm:Lcom/samsung/android/knox/SemPersonaManager;
+
+    const-string/jumbo v6, "persona_policy"
+
+    invoke-virtual {v3, v6}, Lcom/samsung/android/knox/SemPersonaManager;->getPersonaService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/os/PersonaPolicyManager;
+
+    if-nez v1, :cond_1
+
+    return-object v2
+
+    :cond_1
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v4
@@ -7794,15 +8599,7 @@
 
     invoke-static {v3, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v3, "persona_policy"
-
-    invoke-static {v3}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/server/pm/PersonaPolicyManagerService;
-
-    invoke-virtual {v1, p1, p2, p3}, Lcom/android/server/pm/PersonaPolicyManagerService;->getRCPDataPolicyForUser(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v1, p1, p2, p3}, Landroid/os/PersonaPolicyManager;->getRCPDataPolicyForUser(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
@@ -7833,11 +8630,11 @@
 
     cmp-long v3, v4, v8
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2
 
     invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    :cond_0
+    :cond_2
     return-object v2
 
     :catch_0
@@ -7872,11 +8669,11 @@
 
     cmp-long v3, v4, v8
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_3
 
     invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    :cond_1
+    :cond_3
     return-object v2
 
     :catchall_0
@@ -7884,11 +8681,11 @@
 
     cmp-long v3, v4, v8
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_4
 
     invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    :cond_2
+    :cond_4
     return-object v2
 .end method
 
@@ -8052,6 +8849,31 @@
     return-object v2
 .end method
 
+.method getUserManager()Landroid/os/UserManager;
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/RCPManagerService;->mUm:Landroid/os/UserManager;
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v1, "user"
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/os/UserManager;
+
+    iput-object v0, p0, Lcom/android/server/RCPManagerService;->mUm:Landroid/os/UserManager;
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/RCPManagerService;->mUm:Landroid/os/UserManager;
+
+    return-object v0
+.end method
+
 .method public handleShortcut(ILjava/lang/String;Ljava/lang/String;Landroid/graphics/Bitmap;Ljava/lang/String;Ljava/lang/String;)V
     .locals 8
 
@@ -8207,11 +9029,11 @@
 
     iget-object v1, p0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
 
-    invoke-static {v1}, Lcom/sec/knox/container/util/EnterprisePartitionManager;->getInstance(Landroid/content/Context;)Lcom/sec/knox/container/util/EnterprisePartitionManager;
+    invoke-static {v1}, Lcom/android/server/EnterprisePartitionManager;->getInstance(Landroid/content/Context;)Lcom/android/server/EnterprisePartitionManager;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1, p2}, Lcom/sec/knox/container/util/EnterprisePartitionManager;->isFileExist(Ljava/lang/String;I)Z
+    invoke-virtual {v0, p1, p2}, Lcom/android/server/EnterprisePartitionManager;->isFileExist(Ljava/lang/String;I)Z
 
     move-result v1
 
@@ -8279,11 +9101,11 @@
 
     iget-object v1, p0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
 
-    invoke-static {v1}, Lcom/sec/knox/container/util/EnterprisePartitionManager;->getInstance(Landroid/content/Context;)Lcom/sec/knox/container/util/EnterprisePartitionManager;
+    invoke-static {v1}, Lcom/android/server/EnterprisePartitionManager;->getInstance(Landroid/content/Context;)Lcom/android/server/EnterprisePartitionManager;
 
     move-result-object v0
 
-    invoke-virtual {v0, p2, p1, p4, p3}, Lcom/sec/knox/container/util/EnterprisePartitionManager;->move(Ljava/lang/String;ILjava/lang/String;I)I
+    invoke-virtual {v0, p2, p1, p4, p3}, Lcom/android/server/EnterprisePartitionManager;->move(Ljava/lang/String;ILjava/lang/String;I)I
 
     move-result v1
 
@@ -8398,6 +9220,46 @@
     sget-object v1, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
 
     const-string/jumbo v2, "moveFilesForAppEx  getRCPInterface NULL "
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-wide/16 v2, -0x1
+
+    return-wide v2
+.end method
+
+.method public moveUnlimitedFiles(ILandroid/net/Uri;II)J
+    .locals 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0}, Lcom/android/server/RCPManagerService;->getRCPInterface()Landroid/content/IRCPInterface;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    sget-object v1, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v2, "moveFiles(>500) getRCPInterface not NULL "
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-interface {v0, p1, p2, p3, p4}, Landroid/content/IRCPInterface;->moveUnlimitedFilesForApp(ILandroid/net/Uri;II)J
+
+    move-result-wide v2
+
+    return-wide v2
+
+    :cond_0
+    sget-object v1, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v2, "moveFiles(>500) getRCPInterface NULL "
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -8725,268 +9587,221 @@
 .end method
 
 .method public queryProvider(Ljava/lang/String;Ljava/lang/String;I[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/content/CustomCursor;
-    .locals 18
+    .locals 12
 
-    const-string/jumbo v2, "queryProvider"
+    const-string/jumbo v1, "queryProvider"
 
-    invoke-static {v2}, Lcom/android/server/RCPManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
+    invoke-static {v1}, Lcom/android/server/RCPManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
 
     invoke-static {}, Lcom/android/server/RCPManagerService;->getCallingUserHandle()Landroid/os/UserHandle;
 
-    move-result-object v16
+    move-result-object v10
 
-    new-instance v17, Ljava/lang/Integer;
+    new-instance v11, Ljava/lang/Integer;
 
     invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
 
-    move-result v2
+    move-result v1
 
-    move-object/from16 v0, v17
+    invoke-direct {v11, v1}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-direct {v0, v2}, Ljava/lang/Integer;-><init>(I)V
+    sget-object v1, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
 
-    sget-object v2, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v3, "queryProvider My Context is "
 
-    const-string/jumbo v4, "queryProvider My Context is "
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    move-result-object v3
+    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, p0
+    move-result-object v2
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    const-string/jumbo v3, "User calling is "
 
-    move-result-object v3
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v4, "User calling is "
+    move-result-object v2
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v2
 
-    move-object/from16 v0, v16
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    move-result-object v3
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/server/RCPManagerService;->mBridgeProviderUserMap:Ljava/util/HashMap;
 
-    move-result-object v3
+    new-instance v2, Ljava/lang/Integer;
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {v2, p3}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "persona"
+    invoke-virtual {v1, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    move-result-object v0
+
+    check-cast v0, Landroid/content/IProviderCallBack;
+
+    sget-object v1, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "queryProvider():  mBridgeProviderUserMap.get(): value="
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "; containerId="
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-nez v0, :cond_0
+
+    const/4 v1, 0x0
+
+    return-object v1
+
+    :cond_0
+    :try_start_0
+    sget-object v1, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v2, "Found a provider to query. Calling it now"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object v1, p1
+
+    move-object v2, p2
+
+    move v3, p3
+
+    move-object/from16 v4, p4
+
+    move-object/from16 v5, p5
+
+    move-object/from16 v6, p6
+
+    move-object/from16 v7, p7
+
+    invoke-interface/range {v0 .. v7}, Landroid/content/IProviderCallBack;->queryProvider(Ljava/lang/String;Ljava/lang/String;I[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/content/CustomCursor;
 
     move-result-object v9
 
-    invoke-static {v9}, Lcom/samsung/android/knox/ISemPersonaManager$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/knox/ISemPersonaManager;
+    if-nez v9, :cond_1
 
-    move-result-object v14
+    sget-object v1, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
 
-    check-cast v14, Lcom/android/server/pm/PersonaManagerService;
+    const-string/jumbo v2, " resultCursor is null  "
 
-    const/4 v12, 0x0
-
-    invoke-virtual/range {v17 .. v17}, Ljava/lang/Integer;->intValue()I
-
-    move-result v10
-
-    const/4 v13, 0x0
-
-    if-eqz v14, :cond_0
-
-    invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
-
-    move-result v2
-
-    invoke-virtual {v14, v2}, Lcom/android/server/pm/PersonaManagerService;->exists(I)Z
-
-    move-result v12
-
-    invoke-virtual {v14, v10}, Lcom/android/server/pm/PersonaManagerService;->getParentUserForPersona(I)I
-
-    move-result v13
-
-    :cond_0
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/server/RCPManagerService;->mBridgeProviderUserMap:Ljava/util/HashMap;
-
-    new-instance v3, Ljava/lang/Integer;
-
-    move/from16 v0, p3
-
-    invoke-direct {v3, v0}, Ljava/lang/Integer;-><init>(I)V
-
-    invoke-virtual {v2, v3}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/content/IProviderCallBack;
-
-    sget-object v2, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "queryProvider():  mBridgeProviderUserMap.get(): value="
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v4, "; containerId="
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    move/from16 v0, p3
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-nez v1, :cond_1
-
-    const/4 v2, 0x0
-
-    return-object v2
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
-    :try_start_0
-    sget-object v2, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+    sget-object v1, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v3, "Found a provider to query. Calling it now"
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-object/from16 v2, p1
+    const-string/jumbo v3, " resultCursor: "
 
-    move-object/from16 v3, p2
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move/from16 v4, p3
+    move-result-object v2
 
-    move-object/from16 v5, p4
+    invoke-virtual {v2, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v6, p5
+    move-result-object v2
 
-    move-object/from16 v7, p6
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-object/from16 v8, p7
+    move-result-object v2
 
-    invoke-interface/range {v1 .. v8}, Landroid/content/IProviderCallBack;->queryProvider(Ljava/lang/String;Ljava/lang/String;I[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/content/CustomCursor;
-
-    move-result-object v15
-
-    if-nez v15, :cond_2
-
-    sget-object v2, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v3, " resultCursor is null  "
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_2
-    sget-object v2, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, " resultCursor: "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v15
+    return-object v9
 
     :catch_0
-    move-exception v11
+    move-exception v8
 
-    sget-object v2, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+    sget-object v1, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "Remote exception thrown by service "
+    const-string/jumbo v3, "Remote exception thrown by service "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    sget-object v2, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+    sget-object v1, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "queryProvider Calling userid is"
+    const-string/jumbo v3, "queryProvider Calling userid is"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v2
 
     invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
 
-    move-result v4
+    move-result v3
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    return-object v2
+    return-object v1
 .end method
 
 .method public registerCommandExe(Landroid/content/ICommandExeCallBack;I)V
@@ -9228,43 +10043,6 @@
     goto :goto_0
 .end method
 
-.method public registerDbObserver(Ljava/lang/String;I)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/RCPManagerService;->mBridgeProxyAliveList:Ljava/util/HashMap;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/server/RCPManagerService;->mBridgeProxyAliveList:Ljava/util/HashMap;
-
-    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/server/RCPManagerService;->mBridgeProxyAliveList:Ljava/util/HashMap;
-
-    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/server/bridge/BridgeProxy;
-
-    invoke-virtual {v0, p1}, Lcom/android/server/bridge/BridgeProxy;->registerDbObserver(Ljava/lang/String;)V
-
-    :cond_0
-    return-void
-.end method
-
 .method public registerExchangeData(Ljava/lang/String;Landroid/os/IRunnableCallback;I)Z
     .locals 5
 
@@ -9381,6 +10159,43 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
+.end method
+
+.method public registerObserver(Ljava/lang/String;I)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/RCPManagerService;->mBridgeProxyAliveList:Ljava/util/HashMap;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/RCPManagerService;->mBridgeProxyAliveList:Ljava/util/HashMap;
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/RCPManagerService;->mBridgeProxyAliveList:Ljava/util/HashMap;
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/bridge/BridgeProxy;
+
+    invoke-virtual {v0, p1}, Lcom/android/server/bridge/BridgeProxy;->registerObserver(Ljava/lang/String;)V
+
+    :cond_0
+    return-void
 .end method
 
 .method public registerProvider(Ljava/lang/String;Landroid/content/IProviderCallBack;I)V
@@ -9666,6 +10481,72 @@
     return-void
 .end method
 
+.method public removeExportShortcutInfo(Landroid/content/ComponentName;I)V
+    .locals 8
+
+    const-string/jumbo v6, "add export shortcut"
+
+    invoke-static {v6}, Lcom/android/server/RCPManagerService;->checkManageUsersPermission(Ljava/lang/String;)V
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v4
+
+    iget-object v6, p0, Lcom/android/server/RCPManagerService;->shortcutInfos:Ljava/util/HashMap;
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/util/ArrayList;
+
+    const/4 v2, 0x0
+
+    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :cond_0
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_1
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/content/ComponentName;
+
+    invoke-virtual {p1, v0}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_0
+
+    move-object v2, v0
+
+    goto :goto_0
+
+    :cond_1
+    if-eqz v2, :cond_2
+
+    invoke-virtual {v3, v2}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
+
+    :cond_2
+    invoke-direct {p0, p2, v3}, Lcom/android/server/RCPManagerService;->writeShortcutInfo(ILjava/util/List;)V
+
+    invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return-void
+.end method
+
 .method scanAndStartRCPProxy(I)V
     .locals 1
 
@@ -9701,80 +10582,48 @@
 .end method
 
 .method public switchPersona(I)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const-string/jumbo v1, "switchPersona"
+    const-string/jumbo v0, "switchPersona"
 
-    invoke-static {v1}, Lcom/android/server/RCPManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
+    invoke-static {v0}, Lcom/android/server/RCPManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
 
-    sget-object v1, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
+    sget-object v0, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "switchToUser() with id = "
+    const-string/jumbo v2, "switchToUser() with id = "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     if-gez p1, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/RCPManagerService;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v2, "persona"
-
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/samsung/android/knox/SemPersonaManager;
-
-    sget-object v1, Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "switch PERSONA to id = "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     return-void
 .end method
 
-.method public unRegisterDbObserver(Ljava/lang/String;I)V
+.method public unRegisterObserver(Ljava/lang/String;I)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/RCPManagerService;->mBridgeProxyAliveList:Ljava/util/HashMap;
@@ -9805,7 +10654,7 @@
 
     check-cast v0, Lcom/android/server/bridge/BridgeProxy;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/bridge/BridgeProxy;->unRegisterDbObserver(Ljava/lang/String;)V
+    invoke-virtual {v0, p1}, Lcom/android/server/bridge/BridgeProxy;->unRegisterObserver(Ljava/lang/String;)V
 
     :cond_0
     return-void

@@ -122,7 +122,7 @@
 
     if-ne v0, v5, :cond_1
 
-    const v2, 0x1080300
+    const v2, 0x1080320
 
     iget-object v0, p0, Lcom/android/server/DirEncryptServiceHelper$AnimatingNotification;->mContext:Landroid/content/Context;
 
@@ -130,7 +130,7 @@
 
     move-result-object v0
 
-    const v5, 0x1040674
+    const v5, 0x1040902
 
     invoke-virtual {v0, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -142,7 +142,7 @@
 
     move-result-object v0
 
-    const v5, 0x1040673
+    const v5, 0x1040901
 
     invoke-virtual {v0, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -250,6 +250,30 @@
 
     check-cast v7, Landroid/app/NotificationManager;
 
+    new-instance v0, Landroid/app/NotificationChannel;
+
+    invoke-static {}, Lcom/android/server/DirEncryptServiceHelper;->-get4()Ljava/lang/String;
+
+    move-result-object v5
+
+    iget-object v9, p0, Lcom/android/server/DirEncryptServiceHelper$AnimatingNotification;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v9}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v9
+
+    const v10, 0x1040901
+
+    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v10, 0x2
+
+    invoke-direct {v0, v5, v9, v10}, Landroid/app/NotificationChannel;-><init>(Ljava/lang/String;Ljava/lang/CharSequence;I)V
+
+    invoke-virtual {v7, v0}, Landroid/app/NotificationManager;->createNotificationChannel(Landroid/app/NotificationChannel;)V
+
     sget v0, Lcom/samsung/android/security/SemSdCardEncryption;->SECURITY_POLICY_NOTIFICATION_ID:I
 
     iget-object v5, p0, Lcom/android/server/DirEncryptServiceHelper$AnimatingNotification;->notification_builder:Landroid/app/Notification$Builder;
@@ -278,7 +302,7 @@
     return-void
 
     :cond_1
-    const v2, 0x108028c
+    const v2, 0x108029e
 
     :try_start_1
     iget-object v0, p0, Lcom/android/server/DirEncryptServiceHelper$AnimatingNotification;->mContext:Landroid/content/Context;
@@ -287,7 +311,7 @@
 
     move-result-object v0
 
-    const v5, 0x1040678
+    const v5, 0x10408fe
 
     invoke-virtual {v0, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -299,7 +323,7 @@
 
     move-result-object v0
 
-    const v5, 0x1040677
+    const v5, 0x10408fd
 
     invoke-virtual {v0, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

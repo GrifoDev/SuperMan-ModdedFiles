@@ -64,13 +64,13 @@
 
     iget-object v4, p0, Lcom/android/server/am/MARsTrigger$6;->this$0:Lcom/android/server/am/MARsTrigger;
 
-    iget-object v4, v4, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+    iget-object v4, v4, Lcom/android/server/am/MARsTrigger;->mHandlerManager:Lcom/android/server/am/MARsHandler;
 
     invoke-virtual {v1}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
 
     move-result-object v5
 
-    invoke-virtual {v4, v5, v0, v2, v3}, Lcom/android/server/am/MARsPolicyManager;->handlePackageStatusChange(Ljava/lang/String;Ljava/lang/String;ZI)V
+    invoke-virtual {v4, v5, v0, v2, v3}, Lcom/android/server/am/MARsHandler;->sendPkgStatusChangedMsgToMainHandler(Ljava/lang/String;Ljava/lang/String;ZI)V
 
     :cond_0
     return-void

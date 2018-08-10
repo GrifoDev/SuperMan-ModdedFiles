@@ -18,8 +18,6 @@
 
 .field private static final DBG:Z = false
 
-.field private static final EMERGENCY_CALL_POWER_KEY_TAP_INTERVAL:J = 0x190L
-
 .field private static final TAG:Ljava/lang/String; = "GestureLauncherService"
 
 
@@ -40,15 +38,7 @@
 
 .field private mContext:Landroid/content/Context;
 
-.field private mDuration:J
-
-.field private mEmergencyNumber:Ljava/lang/String;
-
 .field private final mGestureListener:Lcom/android/server/GestureLauncherService$GestureEventListener;
-
-.field private mHits:[J
-
-.field private mIsEmergencyOnPowerKeyTapEnabled:Z
 
 .field private mLastPowerDown:J
 
@@ -269,49 +259,49 @@
 .method private handleCameraLaunchGesture(ZI)Z
     .locals 6
 
-    const/4 v2, 0x1
+    const/4 v5, 0x0
 
-    const/4 v3, 0x0
+    iget-object v2, p0, Lcom/android/server/GestureLauncherService;->mContext:Landroid/content/Context;
 
-    iget-object v4, p0, Lcom/android/server/GestureLauncherService;->mContext:Landroid/content/Context;
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    move-result-object v2
 
-    move-result-object v4
+    const-string/jumbo v3, "user_setup_complete"
 
-    const-string/jumbo v5, "user_setup_complete"
+    const/4 v4, -0x2
 
-    invoke-static {v4, v5, v3}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v2, v3, v5, v4}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
 
-    move-result v4
+    move-result v2
 
-    if-eqz v4, :cond_0
+    if-eqz v2, :cond_0
 
-    move v1, v2
+    const/4 v1, 0x1
 
     :goto_0
     if-nez v1, :cond_1
 
-    return v3
+    return v5
 
     :cond_0
-    move v1, v3
+    const/4 v1, 0x0
 
     goto :goto_0
 
     :cond_1
     if-eqz p1, :cond_2
 
-    iget-object v3, p0, Lcom/android/server/GestureLauncherService;->mWakeLock:Landroid/os/PowerManager$WakeLock;
+    iget-object v2, p0, Lcom/android/server/GestureLauncherService;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     const-wide/16 v4, 0x1f4
 
-    invoke-virtual {v3, v4, v5}, Landroid/os/PowerManager$WakeLock;->acquire(J)V
+    invoke-virtual {v2, v4, v5}, Landroid/os/PowerManager$WakeLock;->acquire(J)V
 
     :cond_2
-    const-class v3, Lcom/android/server/statusbar/StatusBarManagerInternal;
+    const-class v2, Lcom/android/server/statusbar/StatusBarManagerInternal;
 
-    invoke-static {v3}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-static {v2}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -319,13 +309,15 @@
 
     invoke-interface {v0, p2}, Lcom/android/server/statusbar/StatusBarManagerInternal;->onCameraLaunchGestureDetected(I)V
 
+    const/4 v2, 0x1
+
     return v2
 .end method
 
 .method public static isCameraDoubleTapPowerEnabled(Landroid/content/res/Resources;)Z
     .locals 1
 
-    const v0, 0x11200ab
+    const v0, 0x1120031
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -368,48 +360,40 @@
 .end method
 
 .method public static isCameraLaunchEnabled(Landroid/content/res/Resources;)Z
-    .locals 5
-
-    const/4 v2, 0x1
+    .locals 4
 
     const/4 v1, 0x0
 
-    const v3, 0x10e009d
+    const v2, 0x10e0032
 
-    invoke-virtual {p0, v3}, Landroid/content/res/Resources;->getInteger(I)I
+    invoke-virtual {p0, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
-    move-result v3
+    move-result v2
 
-    const/4 v4, -0x1
+    const/4 v3, -0x1
 
-    if-eq v3, v4, :cond_1
+    if-eq v2, v3, :cond_1
 
-    move v0, v2
+    const/4 v0, 0x1
 
     :goto_0
     if-eqz v0, :cond_0
 
-    const-string/jumbo v3, "gesture.disable_camera_launch"
+    const-string/jumbo v2, "gesture.disable_camera_launch"
 
-    invoke-static {v3, v1}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-static {v2, v1}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_2
+    xor-int/lit8 v1, v1, 0x1
 
     :cond_0
-    :goto_1
     return v1
 
     :cond_1
-    move v0, v1
+    const/4 v0, 0x0
 
     goto :goto_0
-
-    :cond_2
-    move v1, v2
-
-    goto :goto_1
 .end method
 
 .method public static isCameraLaunchSettingEnabled(Landroid/content/Context;I)Z
@@ -445,34 +429,6 @@
     return v0
 .end method
 
-.method public static isEmergencyOnpowerButtonTapEnabled(Landroid/content/res/Resources;)Z
-    .locals 2
-
-    const-string/jumbo v0, "persist.sys.ecall_pwr_key_press"
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    const v0, 0x11200cb
-
-    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
-
-    move-result v0
-
-    :goto_0
-    return v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
-.end method
-
 .method public static isGestureLauncherEnabled(Landroid/content/res/Resources;)Z
     .locals 1
 
@@ -483,12 +439,6 @@
     if-nez v0, :cond_0
 
     invoke-static {p0}, Lcom/android/server/GestureLauncherService;->isCameraDoubleTapPowerEnabled(Landroid/content/res/Resources;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    invoke-static {p0}, Lcom/android/server/GestureLauncherService;->isEmergencyOnpowerButtonTapEnabled(Landroid/content/res/Resources;)Z
 
     move-result v0
 
@@ -535,7 +485,7 @@
 
     check-cast v2, Landroid/hardware/SensorManager;
 
-    const v4, 0x10e009d
+    const v4, 0x10e0032
 
     invoke-virtual {p1, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -547,7 +497,7 @@
 
     iput-boolean v6, p0, Lcom/android/server/GestureLauncherService;->mRegistered:Z
 
-    const v4, 0x104006d
+    const v4, 0x10401e3
 
     invoke-virtual {p1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -761,92 +711,16 @@
     goto :goto_0
 .end method
 
-.method private updateEmergencyCallTapPowerEnabled()V
-    .locals 6
-
-    iget-object v2, p0, Lcom/android/server/GestureLauncherService;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/android/server/GestureLauncherService;->isEmergencyOnpowerButtonTapEnabled(Landroid/content/res/Resources;)Z
-
-    move-result v2
-
-    iput-boolean v2, p0, Lcom/android/server/GestureLauncherService;->mIsEmergencyOnPowerKeyTapEnabled:Z
-
-    const v2, 0x104007a
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    iput-object v2, p0, Lcom/android/server/GestureLauncherService;->mEmergencyNumber:Ljava/lang/String;
-
-    const v2, 0x10e00ac
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v0
-
-    int-to-long v2, v0
-
-    const-wide/16 v4, 0x190
-
-    mul-long/2addr v2, v4
-
-    iput-wide v2, p0, Lcom/android/server/GestureLauncherService;->mDuration:J
-
-    new-array v2, v0, [J
-
-    iput-object v2, p0, Lcom/android/server/GestureLauncherService;->mHits:[J
-
-    const-string/jumbo v2, "GestureLauncherService"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "Gesture launcher mEmergencyNumber = "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/android/server/GestureLauncherService;->mEmergencyNumber:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v4, " hits = "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-.end method
-
 
 # virtual methods
 .method public interceptPowerKeyDown(Landroid/view/KeyEvent;ZLandroid/util/MutableBoolean;)Z
-    .locals 12
-
-    const/4 v5, 0x0
+    .locals 10
 
     const/4 v4, 0x0
+
+    const/4 v3, 0x0
+
+    const/4 v2, 0x0
 
     monitor-enter p0
 
@@ -859,126 +733,21 @@
 
     sub-long v0, v6, v8
 
-    iget-boolean v6, p0, Lcom/android/server/GestureLauncherService;->mIsEmergencyOnPowerKeyTapEnabled:Z
+    iget-boolean v5, p0, Lcom/android/server/GestureLauncherService;->mCameraDoubleTapPowerEnabled:Z
 
-    if-eqz v6, :cond_4
+    if-eqz v5, :cond_0
 
-    iget-object v6, p0, Lcom/android/server/GestureLauncherService;->mHits:[J
+    const-wide/16 v6, 0x12c
 
-    iget-object v7, p0, Lcom/android/server/GestureLauncherService;->mHits:[J
+    cmp-long v5, v0, v6
 
-    iget-object v8, p0, Lcom/android/server/GestureLauncherService;->mHits:[J
+    if-gez v5, :cond_0
 
-    array-length v8, v8
+    const/4 v3, 0x1
 
-    add-int/lit8 v8, v8, -0x1
-
-    const/4 v9, 0x1
-
-    const/4 v10, 0x0
-
-    invoke-static {v6, v9, v7, v10, v8}, Ljava/lang/System;->arraycopy([JI[JII)V
-
-    iget-object v6, p0, Lcom/android/server/GestureLauncherService;->mHits:[J
-
-    iget-object v7, p0, Lcom/android/server/GestureLauncherService;->mHits:[J
-
-    array-length v7, v7
-
-    add-int/lit8 v7, v7, -0x1
-
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
-
-    move-result-wide v8
-
-    aput-wide v8, v6, v7
-
-    const/4 v2, 0x0
-
-    :goto_0
-    iget-object v6, p0, Lcom/android/server/GestureLauncherService;->mHits:[J
-
-    array-length v6, v6
-
-    if-ge v2, v6, :cond_0
-
-    const-string/jumbo v6, "GestureLauncherService"
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v8, "mHits["
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string/jumbo v8, "] = "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    iget-object v8, p0, Lcom/android/server/GestureLauncherService;->mHits:[J
-
-    aget-wide v8, v8, v2
-
-    invoke-virtual {v7, v8, v9}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string/jumbo v8, "ms"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_0
+    move v2, p2
 
     :cond_0
-    iget-object v6, p0, Lcom/android/server/GestureLauncherService;->mHits:[J
-
-    const/4 v7, 0x0
-
-    aget-wide v6, v6, v7
-
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
-
-    move-result-wide v8
-
-    iget-wide v10, p0, Lcom/android/server/GestureLauncherService;->mDuration:J
-
-    sub-long/2addr v8, v10
-
-    cmp-long v6, v6, v8
-
-    if-ltz v6, :cond_1
-
-    const/4 v5, 0x1
-
-    move v4, p2
-
-    iget-object v6, p0, Lcom/android/server/GestureLauncherService;->mHits:[J
-
-    const-wide/16 v8, 0x0
-
-    invoke-static {v6, v8, v9}, Ljava/util/Arrays;->fill([JJ)V
-
-    :cond_1
-    :goto_1
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getEventTime()J
 
     move-result-wide v6
@@ -989,146 +758,79 @@
 
     monitor-exit p0
 
-    if-eqz v5, :cond_3
+    if-eqz v3, :cond_1
 
-    iget-boolean v6, p0, Lcom/android/server/GestureLauncherService;->mIsEmergencyOnPowerKeyTapEnabled:Z
+    const-string/jumbo v5, "GestureLauncherService"
 
-    if-eqz v6, :cond_2
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    iget-object v6, p0, Lcom/android/server/GestureLauncherService;->mEmergencyNumber:Ljava/lang/String;
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static {v6}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    const-string/jumbo v7, "Power button double tap gesture detected, launching camera. Interval="
 
-    move-result v6
-
-    if-eqz v6, :cond_5
-
-    :cond_2
-    const-string/jumbo v6, "GestureLauncherService"
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v8, "Power button double tap gesture detected, launching camera. Interval="
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string/jumbo v8, "ms"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v6, 0x0
-
-    const/4 v7, 0x1
-
-    invoke-direct {p0, v6, v7}, Lcom/android/server/GestureLauncherService;->handleCameraLaunchGesture(ZI)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_3
-
-    iget-object v6, p0, Lcom/android/server/GestureLauncherService;->mContext:Landroid/content/Context;
-
-    long-to-int v7, v0
-
-    const/16 v8, 0xff
-
-    invoke-static {v6, v8, v7}, Lcom/android/internal/logging/MetricsLogger;->action(Landroid/content/Context;II)V
-
-    :cond_3
-    :goto_2
-    iget-object v6, p0, Lcom/android/server/GestureLauncherService;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v7, "power_double_tap_interval"
-
-    long-to-int v8, v0
-
-    invoke-static {v6, v7, v8}, Lcom/android/internal/logging/MetricsLogger;->histogram(Landroid/content/Context;Ljava/lang/String;I)V
-
-    iput-boolean v5, p3, Landroid/util/MutableBoolean;->value:Z
-
-    if-eqz v4, :cond_6
-
-    :goto_3
-    return v5
-
-    :cond_4
-    :try_start_1
-    iget-boolean v6, p0, Lcom/android/server/GestureLauncherService;->mCameraDoubleTapPowerEnabled:Z
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    if-eqz v6, :cond_1
-
-    const-wide/16 v6, 0x12c
-
-    cmp-long v6, v0, v6
-
-    if-gez v6, :cond_1
-
-    const/4 v5, 0x1
-
-    move v4, p2
-
-    goto :goto_1
-
-    :catchall_0
-    move-exception v6
-
-    monitor-exit p0
-
-    throw v6
-
-    :cond_5
-    const-string/jumbo v6, "GestureLauncherService"
-
-    const-string/jumbo v7, "Power button Triple tap gesture detected, launching Emergency Call"
-
-    invoke-static {v6, v7}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    new-instance v3, Landroid/content/Intent;
-
-    const-string/jumbo v6, "android.intent.action.CALL_PRIVILEGED"
-
-    const-string/jumbo v7, "tel"
-
-    iget-object v8, p0, Lcom/android/server/GestureLauncherService;->mEmergencyNumber:Ljava/lang/String;
-
-    const/4 v9, 0x0
-
-    invoke-static {v7, v8, v9}, Landroid/net/Uri;->fromParts(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v7
-
-    invoke-direct {v3, v6, v7}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
-
-    invoke-virtual {p0}, Lcom/android/server/GestureLauncherService;->getContext()Landroid/content/Context;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v6
 
-    invoke-virtual {v6, v3}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {v6, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    goto :goto_2
+    move-result-object v6
 
-    :cond_6
-    const/4 v5, 0x0
+    const-string/jumbo v7, "ms"
 
-    goto :goto_3
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v5, 0x1
+
+    invoke-direct {p0, v4, v5}, Lcom/android/server/GestureLauncherService;->handleCameraLaunchGesture(ZI)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    iget-object v5, p0, Lcom/android/server/GestureLauncherService;->mContext:Landroid/content/Context;
+
+    long-to-int v6, v0
+
+    const/16 v7, 0xff
+
+    invoke-static {v5, v7, v6}, Lcom/android/internal/logging/MetricsLogger;->action(Landroid/content/Context;II)V
+
+    :cond_1
+    iget-object v5, p0, Lcom/android/server/GestureLauncherService;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v6, "power_double_tap_interval"
+
+    long-to-int v7, v0
+
+    invoke-static {v5, v6, v7}, Lcom/android/internal/logging/MetricsLogger;->histogram(Landroid/content/Context;Ljava/lang/String;I)V
+
+    iput-boolean v3, p3, Landroid/util/MutableBoolean;->value:Z
+
+    if-eqz v2, :cond_2
+
+    :goto_0
+    return v3
+
+    :catchall_0
+    move-exception v4
+
+    monitor-exit p0
+
+    throw v4
+
+    :cond_2
+    move v3, v4
+
+    goto :goto_0
 .end method
 
 .method public onBootPhase(I)V
@@ -1176,8 +878,6 @@
     invoke-direct {p0}, Lcom/android/server/GestureLauncherService;->updateCameraRegistered()V
 
     invoke-direct {p0}, Lcom/android/server/GestureLauncherService;->updateCameraDoubleTapPowerEnabled()V
-
-    invoke-direct {p0}, Lcom/android/server/GestureLauncherService;->updateEmergencyCallTapPowerEnabled()V
 
     invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
 

@@ -60,7 +60,7 @@
 
     move-result v13
 
-    if-eqz v13, :cond_4
+    if-eqz v13, :cond_5
 
     invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
@@ -124,7 +124,7 @@
 
     iget-object v4, v2, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_4
 
     const-string/jumbo v13, "proxyName"
 
@@ -138,11 +138,11 @@
 
     iget-object v13, v0, Lcom/android/server/RCPManagerService$PackageReceiver;->this$0:Lcom/android/server/RCPManagerService;
 
-    invoke-static {v13}, Lcom/android/server/RCPManagerService;->-get5(Lcom/android/server/RCPManagerService;)Z
+    invoke-static {v13}, Lcom/android/server/RCPManagerService;->-get4(Lcom/android/server/RCPManagerService;)Z
 
     move-result v13
 
-    if-eqz v13, :cond_2
+    if-eqz v13, :cond_4
 
     move-object/from16 v0, p0
 
@@ -177,7 +177,7 @@
     invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
-    if-eqz v10, :cond_3
+    if-eqz v10, :cond_2
 
     const-string/jumbo v13, "RCPProxy"
 
@@ -185,8 +185,14 @@
 
     move-result v13
 
+    xor-int/lit8 v13, v13, 0x1
+
     if-eqz v13, :cond_3
 
+    :cond_2
+    return-void
+
+    :cond_3
     invoke-static {v3}, Landroid/os/UserHandle;->getUserId(I)I
 
     move-result v12
@@ -199,11 +205,8 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_2
+    :cond_4
     :goto_0
-    return-void
-
-    :cond_3
     return-void
 
     :catch_0
@@ -235,7 +238,7 @@
 
     goto :goto_0
 
-    :cond_4
+    :cond_5
     invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v13
@@ -246,7 +249,7 @@
 
     move-result v13
 
-    if-eqz v13, :cond_5
+    if-eqz v13, :cond_6
 
     invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
@@ -262,13 +265,13 @@
 
     move-result v13
 
-    if-eqz v13, :cond_2
+    if-eqz v13, :cond_4
 
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/android/server/RCPManagerService$PackageReceiver;->this$0:Lcom/android/server/RCPManagerService;
 
-    invoke-static {v13}, Lcom/android/server/RCPManagerService;->-get4(Lcom/android/server/RCPManagerService;)Ljava/util/HashMap;
+    invoke-static {v13}, Lcom/android/server/RCPManagerService;->-get3(Lcom/android/server/RCPManagerService;)Ljava/util/HashMap;
 
     move-result-object v14
 
@@ -289,7 +292,7 @@
 
     iget-object v13, v0, Lcom/android/server/RCPManagerService$PackageReceiver;->this$0:Lcom/android/server/RCPManagerService;
 
-    invoke-static {v13}, Lcom/android/server/RCPManagerService;->-get4(Lcom/android/server/RCPManagerService;)Ljava/util/HashMap;
+    invoke-static {v13}, Lcom/android/server/RCPManagerService;->-get3(Lcom/android/server/RCPManagerService;)Ljava/util/HashMap;
 
     move-result-object v13
 
@@ -316,7 +319,7 @@
 
     throw v13
 
-    :cond_5
+    :cond_6
     invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v13
@@ -327,7 +330,7 @@
 
     move-result v13
 
-    if-eqz v13, :cond_2
+    if-eqz v13, :cond_4
 
     invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
@@ -345,7 +348,7 @@
 
     move-result v13
 
-    if-eqz v13, :cond_6
+    if-eqz v13, :cond_7
 
     const-string/jumbo v13, "Bridge_PROXY"
 
@@ -369,14 +372,14 @@
 
     invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_6
+    :cond_7
     const-string/jumbo v13, "com.samsung.knox.rcp.components"
 
     invoke-virtual {v13, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v13
 
-    if-eqz v13, :cond_2
+    if-eqz v13, :cond_4
 
     const-string/jumbo v13, "android.intent.extra.changed_component_name_list"
 
@@ -386,11 +389,11 @@
 
     move-result-object v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_4
 
     array-length v13, v7
 
-    if-lez v13, :cond_2
+    if-lez v13, :cond_4
 
     const/4 v13, 0x0
 
@@ -399,7 +402,7 @@
     move v14, v13
 
     :goto_1
-    if-ge v14, v15, :cond_2
+    if-ge v14, v15, :cond_4
 
     aget-object v6, v7, v14
 
@@ -407,7 +410,7 @@
 
     move-result v13
 
-    if-eqz v13, :cond_8
+    if-eqz v13, :cond_9
 
     :try_start_2
     const-string/jumbo v13, "package"
@@ -440,7 +443,7 @@
 
     move-result v13
 
-    if-eqz v13, :cond_7
+    if-eqz v13, :cond_8
 
     const-string/jumbo v13, "Bridge_PROXY"
 
@@ -482,10 +485,10 @@
 
     invoke-static {v13, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_7
+    :cond_8
     iget-boolean v13, v2, Landroid/content/pm/ApplicationInfo;->enabled:Z
 
-    if-eqz v13, :cond_9
+    if-eqz v13, :cond_a
 
     move-object/from16 v0, p0
 
@@ -518,20 +521,20 @@
 
     invoke-static {v13, v0, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :cond_8
+    :cond_9
     add-int/lit8 v13, v14, 0x1
 
     move v14, v13
 
     goto :goto_1
 
-    :cond_9
+    :cond_a
     :try_start_3
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/android/server/RCPManagerService$PackageReceiver;->this$0:Lcom/android/server/RCPManagerService;
 
-    invoke-static {v13}, Lcom/android/server/RCPManagerService;->-get4(Lcom/android/server/RCPManagerService;)Ljava/util/HashMap;
+    invoke-static {v13}, Lcom/android/server/RCPManagerService;->-get3(Lcom/android/server/RCPManagerService;)Ljava/util/HashMap;
 
     move-result-object v16
 
@@ -558,7 +561,7 @@
 
     iget-object v13, v0, Lcom/android/server/RCPManagerService$PackageReceiver;->this$0:Lcom/android/server/RCPManagerService;
 
-    invoke-static {v13}, Lcom/android/server/RCPManagerService;->-get4(Lcom/android/server/RCPManagerService;)Ljava/util/HashMap;
+    invoke-static {v13}, Lcom/android/server/RCPManagerService;->-get3(Lcom/android/server/RCPManagerService;)Ljava/util/HashMap;
 
     move-result-object v13
 

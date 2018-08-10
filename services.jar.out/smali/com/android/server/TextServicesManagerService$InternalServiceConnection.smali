@@ -1,4 +1,4 @@
-.class Lcom/android/server/TextServicesManagerService$InternalServiceConnection;
+.class final Lcom/android/server/TextServicesManagerService$InternalServiceConnection;
 .super Ljava/lang/Object;
 .source "TextServicesManagerService.java"
 
@@ -12,16 +12,12 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x12
     name = "InternalServiceConnection"
 .end annotation
 
 
 # instance fields
-.field private final mBundle:Landroid/os/Bundle;
-
-.field private final mLocale:Ljava/lang/String;
-
 .field private final mSciId:Ljava/lang/String;
 
 .field final synthetic this$0:Lcom/android/server/TextServicesManagerService;
@@ -36,7 +32,7 @@
     return-object v0
 .end method
 
-.method public constructor <init>(Lcom/android/server/TextServicesManagerService;Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)V
+.method public constructor <init>(Lcom/android/server/TextServicesManagerService;Ljava/lang/String;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/TextServicesManagerService$InternalServiceConnection;->this$0:Lcom/android/server/TextServicesManagerService;
@@ -44,10 +40,6 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p2, p0, Lcom/android/server/TextServicesManagerService$InternalServiceConnection;->mSciId:Ljava/lang/String;
-
-    iput-object p3, p0, Lcom/android/server/TextServicesManagerService$InternalServiceConnection;->mLocale:Ljava/lang/String;
-
-    iput-object p4, p0, Lcom/android/server/TextServicesManagerService$InternalServiceConnection;->mBundle:Landroid/os/Bundle;
 
     return-void
 .end method
@@ -75,7 +67,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-static {v0}, Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;->-get0(Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;)Lcom/android/server/TextServicesManagerService$InternalServiceConnection;
+    invoke-static {v0}, Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;->-get1(Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;)Lcom/android/server/TextServicesManagerService$InternalServiceConnection;
 
     move-result-object v2
 
@@ -145,7 +137,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-static {v0}, Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;->-get0(Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;)Lcom/android/server/TextServicesManagerService$InternalServiceConnection;
+    invoke-static {v0}, Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;->-get1(Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;)Lcom/android/server/TextServicesManagerService$InternalServiceConnection;
 
     move-result-object v1
 

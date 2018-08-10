@@ -129,7 +129,7 @@
     :goto_1
     iget-object v11, p0, Lcom/android/server/clipboardex/ClipboardExService$4;->val$addItem:Lcom/samsung/android/content/clipboard/data/SemClipData;
 
-    if-eqz v11, :cond_8
+    if-eqz v11, :cond_7
 
     iget-object v11, p0, Lcom/android/server/clipboardex/ClipboardExService$4;->this$0:Lcom/android/server/clipboardex/ClipboardExService;
 
@@ -149,7 +149,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_8
+    if-eqz v11, :cond_7
 
     iget-object v11, p0, Lcom/android/server/clipboardex/ClipboardExService$4;->this$0:Lcom/android/server/clipboardex/ClipboardExService;
 
@@ -161,7 +161,7 @@
 
     const-string/jumbo v13, "CBCT"
 
-    invoke-static {v11, v12, v13}, Lcom/android/server/clipboardex/ClipboardExService;->-wrap6(Lcom/android/server/clipboardex/ClipboardExService;ILjava/lang/String;)V
+    invoke-static {v11, v12, v13}, Lcom/android/server/clipboardex/ClipboardExService;->-wrap7(Lcom/android/server/clipboardex/ClipboardExService;ILjava/lang/String;)V
 
     iget-object v11, p0, Lcom/android/server/clipboardex/ClipboardExService$4;->this$0:Lcom/android/server/clipboardex/ClipboardExService;
 
@@ -177,22 +177,19 @@
 
     move-result-object v12
 
-    invoke-static {v11, v12}, Lcom/android/server/clipboardex/ClipboardExService;->-wrap7(Lcom/android/server/clipboardex/ClipboardExService;Lcom/samsung/android/content/clipboard/data/SemClipData;)V
-
-    iget-object v12, p0, Lcom/android/server/clipboardex/ClipboardExService$4;->this$0:Lcom/android/server/clipboardex/ClipboardExService;
+    invoke-static {v11, v12}, Lcom/android/server/clipboardex/ClipboardExService;->-wrap8(Lcom/android/server/clipboardex/ClipboardExService;Lcom/samsung/android/content/clipboard/data/SemClipData;)V
 
     iget-object v11, p0, Lcom/android/server/clipboardex/ClipboardExService$4;->this$0:Lcom/android/server/clipboardex/ClipboardExService;
 
-    invoke-virtual {v11}, Lcom/android/server/clipboardex/ClipboardExService;->isKnoxTwoEnabled()Z
+    iget-object v12, p0, Lcom/android/server/clipboardex/ClipboardExService$4;->this$0:Lcom/android/server/clipboardex/ClipboardExService;
 
-    move-result v11
+    invoke-virtual {v12}, Lcom/android/server/clipboardex/ClipboardExService;->isKnoxTwoEnabled()Z
 
-    if-eqz v11, :cond_7
+    move-result v12
 
-    const/4 v11, 0x0
+    xor-int/lit8 v12, v12, 0x1
 
-    :goto_2
-    invoke-static {v12, v11}, Lcom/android/server/clipboardex/ClipboardExService;->-set0(Lcom/android/server/clipboardex/ClipboardExService;Z)Z
+    invoke-static {v11, v12}, Lcom/android/server/clipboardex/ClipboardExService;->-set0(Lcom/android/server/clipboardex/ClipboardExService;Z)Z
 
     const-string/jumbo v11, "ClipboardExService"
 
@@ -222,12 +219,12 @@
 
     invoke-static {v11, v12}, Landroid/sec/clipboard/util/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    :goto_3
+    :goto_2
     iget v11, p0, Lcom/android/server/clipboardex/ClipboardExService$4;->val$format:I
 
     sparse-switch v11, :sswitch_data_0
 
-    :goto_4
+    :goto_3
     if-eqz v7, :cond_2
 
     new-instance v0, Ljava/io/File;
@@ -248,7 +245,7 @@
 
     move-result v11
 
-    if-nez v11, :cond_a
+    if-nez v11, :cond_9
 
     const-string/jumbo v11, "ClipboardExService"
 
@@ -273,7 +270,7 @@
     invoke-static {v11, v12}, Landroid/sec/clipboard/util/Log;->secW(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
-    :goto_5
+    :goto_4
     return-void
 
     :cond_3
@@ -355,7 +352,7 @@
     move-result-object v7
 
     :cond_5
-    :goto_6
+    :goto_5
     if-eqz v7, :cond_1
 
     invoke-virtual {v7}, Ljava/lang/String;->length()I
@@ -395,21 +392,16 @@
 
     move-result-object v7
 
-    goto :goto_6
+    goto :goto_5
 
     :cond_7
-    const/4 v11, 0x1
-
-    goto/16 :goto_2
-
-    :cond_8
     const-string/jumbo v11, "ClipboardExService"
 
     const-string/jumbo v12, "Failed to add data."
 
     invoke-static {v11, v12}, Landroid/sec/clipboard/util/Log;->secW(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_3
+    goto/16 :goto_2
 
     :sswitch_0
     iget-object v9, p0, Lcom/android/server/clipboardex/ClipboardExService$4;->val$data:Lcom/samsung/android/content/clipboard/data/SemClipData;
@@ -426,18 +418,18 @@
 
     move-result v11
 
-    if-eqz v11, :cond_9
+    if-eqz v11, :cond_8
 
     invoke-virtual {v9}, Lcom/samsung/android/content/clipboard/data/SemImageClipData;->getExtraDataPath()Ljava/lang/String;
 
     move-result-object v1
 
-    :cond_9
+    :cond_8
     iget-object v11, p0, Lcom/android/server/clipboardex/ClipboardExService$4;->this$0:Lcom/android/server/clipboardex/ClipboardExService;
 
     invoke-static {v11, v4, v1}, Lcom/android/server/clipboardex/ClipboardExService;->-wrap3(Lcom/android/server/clipboardex/ClipboardExService;Ljava/lang/String;Ljava/lang/String;)V
 
-    goto/16 :goto_4
+    goto/16 :goto_3
 
     :sswitch_1
     iget-object v10, p0, Lcom/android/server/clipboardex/ClipboardExService$4;->val$data:Lcom/samsung/android/content/clipboard/data/SemClipData;
@@ -454,7 +446,7 @@
 
     invoke-static {v11, v6, v12}, Lcom/android/server/clipboardex/ClipboardExService;->-wrap3(Lcom/android/server/clipboardex/ClipboardExService;Ljava/lang/String;Ljava/lang/String;)V
 
-    goto/16 :goto_4
+    goto/16 :goto_3
 
     :sswitch_2
     iget-object v3, p0, Lcom/android/server/clipboardex/ClipboardExService$4;->val$data:Lcom/samsung/android/content/clipboard/data/SemClipData;
@@ -471,9 +463,9 @@
 
     invoke-static {v11, v2, v12}, Lcom/android/server/clipboardex/ClipboardExService;->-wrap3(Lcom/android/server/clipboardex/ClipboardExService;Ljava/lang/String;Ljava/lang/String;)V
 
-    goto/16 :goto_4
+    goto/16 :goto_3
 
-    :cond_a
+    :cond_9
     if-eqz v5, :cond_2
 
     invoke-virtual {v5}, Ljava/io/File;->isDirectory()Z
@@ -512,7 +504,7 @@
 
     invoke-virtual {v11, v0}, Landroid/sec/clipboard/util/FileHelper;->delete(Ljava/io/File;)V
 
-    goto/16 :goto_5
+    goto/16 :goto_4
 
     :sswitch_data_0
     .sparse-switch

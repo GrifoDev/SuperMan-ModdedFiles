@@ -28,8 +28,6 @@
 
 .field private static mCtx:Landroid/content/Context;
 
-.field private static mPm:Lcom/samsung/android/knox/SemPersonaManager;
-
 
 # instance fields
 .field isInitialized:Z
@@ -68,8 +66,6 @@
 
     sput-object v0, Lcom/android/server/bridge/operations/SimplePersonaInfos;->mCtx:Landroid/content/Context;
 
-    sput-object v0, Lcom/android/server/bridge/operations/SimplePersonaInfos;->mPm:Lcom/samsung/android/knox/SemPersonaManager;
-
     return-void
 .end method
 
@@ -101,16 +97,6 @@
     iput-object v0, p0, Lcom/android/server/bridge/operations/SimplePersonaInfos;->mExtraInfo:Ljava/util/HashMap;
 
     sput-object p1, Lcom/android/server/bridge/operations/SimplePersonaInfos;->mCtx:Landroid/content/Context;
-
-    const-string/jumbo v0, "persona"
-
-    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/samsung/android/knox/SemPersonaManager;
-
-    sput-object v0, Lcom/android/server/bridge/operations/SimplePersonaInfos;->mPm:Lcom/samsung/android/knox/SemPersonaManager;
 
     invoke-virtual {p0}, Lcom/android/server/bridge/operations/SimplePersonaInfos;->initialize()V
 
@@ -359,45 +345,54 @@
 .end method
 
 .method public initialize()V
-    .locals 9
+    .locals 8
 
-    sget-object v5, Lcom/android/server/bridge/operations/SimplePersonaInfos;->mPm:Lcom/samsung/android/knox/SemPersonaManager;
+    const/4 v6, 0x1
 
-    if-nez v5, :cond_0
+    sget-object v4, Lcom/android/server/bridge/operations/SimplePersonaInfos;->mCtx:Landroid/content/Context;
 
-    const-string/jumbo v5, "SimplePersonaInfos"
-
-    const-string/jumbo v6, "initialize() failed"
-
-    invoke-static {v5, v6}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    if-nez v4, :cond_0
 
     return-void
 
     :cond_0
-    sget-object v5, Lcom/android/server/bridge/operations/SimplePersonaInfos;->mPm:Lcom/samsung/android/knox/SemPersonaManager;
+    sget-object v4, Lcom/android/server/bridge/operations/SimplePersonaInfos;->mCtx:Landroid/content/Context;
 
-    invoke-virtual {v5}, Lcom/samsung/android/knox/SemPersonaManager;->getPersonas()Ljava/util/List;
+    const-string/jumbo v5, "user"
 
-    move-result-object v1
+    invoke-virtual {v4, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    if-nez v1, :cond_1
+    move-result-object v3
 
-    const-string/jumbo v5, "SimplePersonaInfos"
+    check-cast v3, Landroid/os/UserManager;
 
-    const-string/jumbo v6, "initialize() failed, personas is null"
-
-    invoke-static {v5, v6}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    if-nez v3, :cond_1
 
     return-void
 
     :cond_1
-    iget-object v5, p0, Lcom/android/server/bridge/operations/SimplePersonaInfos;->mList:Ljava/util/LinkedList;
+    invoke-virtual {v3, v6}, Landroid/os/UserManager;->getUsers(Z)Ljava/util/List;
 
-    invoke-virtual {v5}, Ljava/util/LinkedList;->clear()V
+    move-result-object v1
 
-    iget-object v6, p0, Lcom/android/server/bridge/operations/SimplePersonaInfos;->lock:Ljava/lang/Object;
+    if-nez v1, :cond_2
 
-    monitor-enter v6
+    const-string/jumbo v4, "SimplePersonaInfos"
+
+    const-string/jumbo v5, "initialize() failed, personas is null"
+
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_2
+    iget-object v4, p0, Lcom/android/server/bridge/operations/SimplePersonaInfos;->mList:Ljava/util/LinkedList;
+
+    invoke-virtual {v4}, Ljava/util/LinkedList;->clear()V
+
+    iget-object v5, p0, Lcom/android/server/bridge/operations/SimplePersonaInfos;->lock:Ljava/lang/Object;
+
+    monitor-enter v5
 
     const/4 v0, 0x0
 
@@ -405,79 +400,56 @@
     :try_start_0
     invoke-interface {v1}, Ljava/util/List;->size()I
 
-    move-result v5
+    move-result v4
 
-    if-ge v0, v5, :cond_4
+    if-ge v0, v4, :cond_4
 
     invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
-    check-cast v2, Lcom/samsung/android/knox/SemPersonaInfo;
+    check-cast v2, Landroid/content/pm/UserInfo;
 
-    iget-boolean v5, v2, Lcom/samsung/android/knox/SemPersonaInfo;->isBBCContainer:Z
+    if-eqz v2, :cond_3
 
-    if-nez v5, :cond_2
+    invoke-virtual {v2}, Landroid/content/pm/UserInfo;->isBBCContainer()Z
 
-    sget-object v5, Lcom/android/server/bridge/operations/SimplePersonaInfos;->mCtx:Landroid/content/Context;
+    move-result v4
 
-    const-string/jumbo v7, "user"
+    xor-int/lit8 v4, v4, 0x1
 
-    invoke-virtual {v5, v7}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    if-eqz v4, :cond_3
 
-    move-result-object v4
+    iget v4, v2, Landroid/content/pm/UserInfo;->id:I
 
-    check-cast v4, Landroid/os/UserManager;
+    iget-object v6, v2, Landroid/content/pm/UserInfo;->name:Ljava/lang/String;
 
-    iget v5, v2, Lcom/samsung/android/knox/SemPersonaInfo;->id:I
+    const-string/jumbo v7, "default"
 
-    invoke-virtual {v4, v5}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
+    invoke-direct {p0, v4, v6, v7}, Lcom/android/server/bridge/operations/SimplePersonaInfos;->addItem(ILjava/lang/String;Ljava/lang/String;)V
 
-    move-result-object v3
-
-    if-eqz v3, :cond_2
-
-    iget-boolean v5, v2, Lcom/samsung/android/knox/SemPersonaInfo;->removePersona:Z
-
-    if-eqz v5, :cond_3
-
-    :cond_2
-    :goto_1
+    :cond_3
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    :cond_3
-    iget v5, v2, Lcom/samsung/android/knox/SemPersonaInfo;->id:I
+    :cond_4
+    const/4 v4, 0x1
 
-    iget-object v7, v3, Landroid/content/pm/UserInfo;->name:Ljava/lang/String;
-
-    iget-object v8, v2, Lcom/samsung/android/knox/SemPersonaInfo;->type:Ljava/lang/String;
-
-    invoke-direct {p0, v5, v7, v8}, Lcom/android/server/bridge/operations/SimplePersonaInfos;->addItem(ILjava/lang/String;Ljava/lang/String;)V
+    iput-boolean v4, p0, Lcom/android/server/bridge/operations/SimplePersonaInfos;->isInitialized:Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_1
-
-    :catchall_0
-    move-exception v5
-
-    monitor-exit v6
-
-    throw v5
-
-    :cond_4
-    const/4 v5, 0x1
-
-    :try_start_1
-    iput-boolean v5, p0, Lcom/android/server/bridge/operations/SimplePersonaInfos;->isInitialized:Z
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    monitor-exit v6
+    monitor-exit v5
 
     return-void
+
+    :catchall_0
+    move-exception v4
+
+    monitor-exit v5
+
+    throw v4
 .end method
 
 .method public removeItem(I)V

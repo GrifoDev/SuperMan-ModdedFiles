@@ -15,6 +15,8 @@
 
 
 # instance fields
+.field public monitor:Landroid/app/backup/IBackupManagerMonitor;
+
 .field public observer:Landroid/app/backup/IRestoreObserver;
 
 .field public session:Lcom/android/server/backup/BackupManagerService$ActiveRestoreSession;
@@ -25,7 +27,7 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/backup/BackupManagerService;Lcom/android/internal/backup/IBackupTransport;Lcom/android/server/backup/BackupManagerService$ActiveRestoreSession;Landroid/app/backup/IRestoreObserver;)V
+.method constructor <init>(Lcom/android/server/backup/BackupManagerService;Lcom/android/internal/backup/IBackupTransport;Lcom/android/server/backup/BackupManagerService$ActiveRestoreSession;Landroid/app/backup/IRestoreObserver;Landroid/app/backup/IBackupManagerMonitor;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/backup/BackupManagerService$RestoreGetSetsParams;->this$0:Lcom/android/server/backup/BackupManagerService;
@@ -37,6 +39,8 @@
     iput-object p3, p0, Lcom/android/server/backup/BackupManagerService$RestoreGetSetsParams;->session:Lcom/android/server/backup/BackupManagerService$ActiveRestoreSession;
 
     iput-object p4, p0, Lcom/android/server/backup/BackupManagerService$RestoreGetSetsParams;->observer:Landroid/app/backup/IRestoreObserver;
+
+    iput-object p5, p0, Lcom/android/server/backup/BackupManagerService$RestoreGetSetsParams;->monitor:Landroid/app/backup/IBackupManagerMonitor;
 
     return-void
 .end method

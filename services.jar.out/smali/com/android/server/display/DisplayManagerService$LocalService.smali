@@ -30,11 +30,7 @@
 
 .field private mRequestingBrightness:I
 
-.field private mRequestingID:I
-
 .field private mRequestingState:I
-
-.field private mRequestingSubBrightness:I
 
 .field final synthetic this$0:Lcom/android/server/display/DisplayManagerService;
 
@@ -59,14 +55,6 @@
 .method static synthetic -get2(Lcom/android/server/display/DisplayManagerService$LocalService;)I
     .locals 1
 
-    iget v0, p0, Lcom/android/server/display/DisplayManagerService$LocalService;->mRequestingID:I
-
-    return v0
-.end method
-
-.method static synthetic -get3(Lcom/android/server/display/DisplayManagerService$LocalService;)I
-    .locals 1
-
     iget v0, p0, Lcom/android/server/display/DisplayManagerService$LocalService;->mRequestingState:I
 
     return v0
@@ -83,37 +71,9 @@
 .method static synthetic -set1(Lcom/android/server/display/DisplayManagerService$LocalService;I)I
     .locals 0
 
-    iput p1, p0, Lcom/android/server/display/DisplayManagerService$LocalService;->mRequestingID:I
-
-    return p1
-.end method
-
-.method static synthetic -set2(Lcom/android/server/display/DisplayManagerService$LocalService;I)I
-    .locals 0
-
     iput p1, p0, Lcom/android/server/display/DisplayManagerService$LocalService;->mRequestingState:I
 
     return p1
-.end method
-
-.method static synthetic -wrap0(Lcom/android/server/display/DisplayManagerService$LocalService;I)Z
-    .locals 1
-
-    invoke-direct {p0, p1}, Lcom/android/server/display/DisplayManagerService$LocalService;->isValidDisplayId(I)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic -wrap1(Lcom/android/server/display/DisplayManagerService$LocalService;I)I
-    .locals 1
-
-    invoke-direct {p0, p1}, Lcom/android/server/display/DisplayManagerService$LocalService;->getDisplayBitById(I)I
-
-    move-result v0
-
-    return v0
 .end method
 
 .method private constructor <init>(Lcom/android/server/display/DisplayManagerService;)V
@@ -152,60 +112,6 @@
     return-void
 .end method
 
-.method private getDisplayBitById(I)I
-    .locals 2
-
-    const/4 v0, 0x0
-
-    if-nez p1, :cond_1
-
-    const/4 v0, 0x1
-
-    :cond_0
-    :goto_0
-    return v0
-
-    :cond_1
-    const/4 v1, 0x1
-
-    if-ne p1, v1, :cond_2
-
-    const/4 v0, 0x2
-
-    goto :goto_0
-
-    :cond_2
-    const/4 v1, 0x2
-
-    if-ne p1, v1, :cond_0
-
-    const/4 v0, 0x3
-
-    goto :goto_0
-.end method
-
-.method private isValidDisplayId(I)Z
-    .locals 3
-
-    const/4 v2, 0x1
-
-    const/4 v1, 0x0
-
-    if-eqz p1, :cond_0
-
-    if-ne p1, v2, :cond_1
-
-    :cond_0
-    return v2
-
-    :cond_1
-    const/4 v0, 0x2
-
-    if-eq p1, v0, :cond_0
-
-    return v1
-.end method
-
 .method private sendForceDisplayStateLocked(I)V
     .locals 2
 
@@ -215,7 +121,7 @@
 
     iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$LocalService;->this$0:Lcom/android/server/display/DisplayManagerService;
 
-    invoke-static {v0}, Lcom/android/server/display/DisplayManagerService;->-get4(Lcom/android/server/display/DisplayManagerService;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/server/display/DisplayManagerService;->-get5(Lcom/android/server/display/DisplayManagerService;)Landroid/os/Handler;
 
     move-result-object v0
 
@@ -232,7 +138,7 @@
 
     iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$LocalService;->this$0:Lcom/android/server/display/DisplayManagerService;
 
-    invoke-static {v0}, Lcom/android/server/display/DisplayManagerService;->-get4(Lcom/android/server/display/DisplayManagerService;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/server/display/DisplayManagerService;->-get5(Lcom/android/server/display/DisplayManagerService;)Landroid/os/Handler;
 
     move-result-object v0
 
@@ -259,7 +165,7 @@
 
     iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$LocalService;->this$0:Lcom/android/server/display/DisplayManagerService;
 
-    invoke-static {v0}, Lcom/android/server/display/DisplayManagerService;->-get7(Lcom/android/server/display/DisplayManagerService;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/display/DisplayManagerService;->-get8(Lcom/android/server/display/DisplayManagerService;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -289,7 +195,7 @@
 
     iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$LocalService;->this$0:Lcom/android/server/display/DisplayManagerService;
 
-    invoke-static {v0}, Lcom/android/server/display/DisplayManagerService;->-get2(Lcom/android/server/display/DisplayManagerService;)Lcom/android/server/display/DisplayPowerController;
+    invoke-static {v0}, Lcom/android/server/display/DisplayManagerService;->-get3(Lcom/android/server/display/DisplayManagerService;)Lcom/android/server/display/DisplayPowerController;
 
     move-result-object v0
 
@@ -301,7 +207,7 @@
 .end method
 
 .method public getDisplayInfo(I)Landroid/view/DisplayInfo;
-    .locals 3
+    .locals 4
 
     iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$LocalService;->this$0:Lcom/android/server/display/DisplayManagerService;
 
@@ -313,11 +219,35 @@
 
     move-result v2
 
-    invoke-static {v0, p1, v1, v2}, Lcom/android/server/display/DisplayManagerService;->-wrap2(Lcom/android/server/display/DisplayManagerService;III)Landroid/view/DisplayInfo;
+    const/4 v3, 0x0
+
+    invoke-static {v0, p1, v3, v1, v2}, Lcom/android/server/display/DisplayManagerService;->-wrap3(Lcom/android/server/display/DisplayManagerService;ILandroid/os/IBinder;II)Landroid/view/DisplayInfo;
 
     move-result-object v0
 
     return-object v0
+.end method
+
+.method public getDisplayToken(IZZ)Landroid/os/IBinder;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$LocalService;->this$0:Lcom/android/server/display/DisplayManagerService;
+
+    invoke-static {v0, p1, p2, p3}, Lcom/android/server/display/DisplayManagerService;->-wrap2(Lcom/android/server/display/DisplayManagerService;IZZ)Landroid/os/IBinder;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public getNonOverrideDisplayInfo(ILandroid/view/DisplayInfo;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$LocalService;->this$0:Lcom/android/server/display/DisplayManagerService;
+
+    invoke-static {v0, p1, p2}, Lcom/android/server/display/DisplayManagerService;->-wrap19(Lcom/android/server/display/DisplayManagerService;ILandroid/view/DisplayInfo;)V
+
+    return-void
 .end method
 
 .method public initPowerManagement(Landroid/hardware/display/DisplayManagerInternal$DisplayPowerCallbacks;Landroid/os/Handler;Landroid/hardware/SensorManager;)V
@@ -325,7 +255,7 @@
 
     iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$LocalService;->this$0:Lcom/android/server/display/DisplayManagerService;
 
-    invoke-static {v0}, Lcom/android/server/display/DisplayManagerService;->-get11(Lcom/android/server/display/DisplayManagerService;)Lcom/android/server/display/DisplayManagerService$SyncRoot;
+    invoke-static {v0}, Lcom/android/server/display/DisplayManagerService;->-get13(Lcom/android/server/display/DisplayManagerService;)Lcom/android/server/display/DisplayManagerService$SyncRoot;
 
     move-result-object v6
 
@@ -342,7 +272,7 @@
 
     iget-object v1, p0, Lcom/android/server/display/DisplayManagerService$LocalService;->this$0:Lcom/android/server/display/DisplayManagerService;
 
-    invoke-static {v1}, Lcom/android/server/display/DisplayManagerService;->-get0(Lcom/android/server/display/DisplayManagerService;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/server/display/DisplayManagerService;->-get1(Lcom/android/server/display/DisplayManagerService;)Landroid/content/Context;
 
     move-result-object v1
 
@@ -375,7 +305,7 @@
 
     iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$LocalService;->this$0:Lcom/android/server/display/DisplayManagerService;
 
-    invoke-static {v0}, Lcom/android/server/display/DisplayManagerService;->-get7(Lcom/android/server/display/DisplayManagerService;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/display/DisplayManagerService;->-get8(Lcom/android/server/display/DisplayManagerService;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -384,7 +314,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$LocalService;->this$0:Lcom/android/server/display/DisplayManagerService;
 
-    invoke-static {v0}, Lcom/android/server/display/DisplayManagerService;->-get6(Lcom/android/server/display/DisplayManagerService;)Z
+    invoke-static {v0}, Lcom/android/server/display/DisplayManagerService;->-get7(Lcom/android/server/display/DisplayManagerService;)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -407,7 +337,7 @@
 
     iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$LocalService;->this$0:Lcom/android/server/display/DisplayManagerService;
 
-    invoke-static {v0}, Lcom/android/server/display/DisplayManagerService;->-get2(Lcom/android/server/display/DisplayManagerService;)Lcom/android/server/display/DisplayPowerController;
+    invoke-static {v0}, Lcom/android/server/display/DisplayManagerService;->-get3(Lcom/android/server/display/DisplayManagerService;)Lcom/android/server/display/DisplayPowerController;
 
     move-result-object v0
 
@@ -418,12 +348,34 @@
     return v0
 .end method
 
+.method public isUidPresentOnDisplay(II)Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$LocalService;->this$0:Lcom/android/server/display/DisplayManagerService;
+
+    invoke-static {v0, p1, p2}, Lcom/android/server/display/DisplayManagerService;->-wrap5(Lcom/android/server/display/DisplayManagerService;II)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public overridePidDisplay(II)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$LocalService;->this$0:Lcom/android/server/display/DisplayManagerService;
+
+    invoke-static {v0, p1, p2}, Lcom/android/server/display/DisplayManagerService;->-wrap24(Lcom/android/server/display/DisplayManagerService;II)V
+
+    return-void
+.end method
+
 .method public performTraversalInTransactionFromWindowManager()V
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$LocalService;->this$0:Lcom/android/server/display/DisplayManagerService;
 
-    invoke-static {v0}, Lcom/android/server/display/DisplayManagerService;->-wrap17(Lcom/android/server/display/DisplayManagerService;)V
+    invoke-virtual {v0}, Lcom/android/server/display/DisplayManagerService;->performTraversalInTransactionFromWindowManagerInternal()V
 
     return-void
 .end method
@@ -444,7 +396,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$LocalService;->this$0:Lcom/android/server/display/DisplayManagerService;
 
-    invoke-static {v0, p1}, Lcom/android/server/display/DisplayManagerService;->-wrap21(Lcom/android/server/display/DisplayManagerService;Landroid/hardware/display/DisplayManagerInternal$DisplayTransactionListener;)V
+    invoke-static {v0, p1}, Lcom/android/server/display/DisplayManagerService;->-wrap29(Lcom/android/server/display/DisplayManagerService;Landroid/hardware/display/DisplayManagerInternal$DisplayTransactionListener;)V
 
     return-void
 .end method
@@ -454,7 +406,7 @@
 
     iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$LocalService;->this$0:Lcom/android/server/display/DisplayManagerService;
 
-    invoke-static {v0}, Lcom/android/server/display/DisplayManagerService;->-get2(Lcom/android/server/display/DisplayManagerService;)Lcom/android/server/display/DisplayPowerController;
+    invoke-static {v0}, Lcom/android/server/display/DisplayManagerService;->-get3(Lcom/android/server/display/DisplayManagerService;)Lcom/android/server/display/DisplayPowerController;
 
     move-result-object v0
 
@@ -470,7 +422,26 @@
 
     iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$LocalService;->this$0:Lcom/android/server/display/DisplayManagerService;
 
-    invoke-static {v0, p1}, Lcom/android/server/display/DisplayManagerService;->-wrap29(Lcom/android/server/display/DisplayManagerService;I)V
+    invoke-static {v0, p1}, Lcom/android/server/display/DisplayManagerService;->-wrap37(Lcom/android/server/display/DisplayManagerService;I)V
+
+    return-void
+.end method
+
+.method public setDisplayAccessUIDs(Landroid/util/SparseArray;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/util/SparseArray",
+            "<",
+            "Landroid/util/IntArray;",
+            ">;)V"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$LocalService;->this$0:Lcom/android/server/display/DisplayManagerService;
+
+    invoke-static {v0, p1}, Lcom/android/server/display/DisplayManagerService;->-wrap38(Lcom/android/server/display/DisplayManagerService;Landroid/util/SparseArray;)V
 
     return-void
 .end method
@@ -480,7 +451,7 @@
 
     iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$LocalService;->this$0:Lcom/android/server/display/DisplayManagerService;
 
-    invoke-static {v0, p1, p2}, Lcom/android/server/display/DisplayManagerService;->-wrap30(Lcom/android/server/display/DisplayManagerService;ILandroid/view/DisplayInfo;)V
+    invoke-static {v0, p1, p2}, Lcom/android/server/display/DisplayManagerService;->-wrap39(Lcom/android/server/display/DisplayManagerService;ILandroid/view/DisplayInfo;)V
 
     return-void
 .end method
@@ -490,7 +461,7 @@
 
     iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$LocalService;->this$0:Lcom/android/server/display/DisplayManagerService;
 
-    invoke-static {v0, p1, p2, p3}, Lcom/android/server/display/DisplayManagerService;->-wrap31(Lcom/android/server/display/DisplayManagerService;III)V
+    invoke-static {v0, p1, p2, p3}, Lcom/android/server/display/DisplayManagerService;->-wrap40(Lcom/android/server/display/DisplayManagerService;III)V
 
     return-void
 .end method
@@ -510,7 +481,17 @@
 
     move v5, p5
 
-    invoke-static/range {v0 .. v5}, Lcom/android/server/display/DisplayManagerService;->-wrap32(Lcom/android/server/display/DisplayManagerService;IZFIZ)V
+    invoke-static/range {v0 .. v5}, Lcom/android/server/display/DisplayManagerService;->-wrap41(Lcom/android/server/display/DisplayManagerService;IZFIZ)V
+
+    return-void
+.end method
+
+.method public setOverrideDisplaySize(III)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$LocalService;->this$0:Lcom/android/server/display/DisplayManagerService;
+
+    invoke-static {v0, p1, p2, p3}, Lcom/android/server/display/DisplayManagerService;->-wrap42(Lcom/android/server/display/DisplayManagerService;III)V
 
     return-void
 .end method
@@ -520,7 +501,7 @@
 
     iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$LocalService;->this$0:Lcom/android/server/display/DisplayManagerService;
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/display/DisplayManagerService;->swapLogicalDisplays(II)V
+    invoke-static {v0, p1, p2}, Lcom/android/server/display/DisplayManagerService;->-wrap48(Lcom/android/server/display/DisplayManagerService;II)V
 
     return-void
 .end method
@@ -536,7 +517,7 @@
 
     iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$LocalService;->this$0:Lcom/android/server/display/DisplayManagerService;
 
-    invoke-static {v0}, Lcom/android/server/display/DisplayManagerService;->-get7(Lcom/android/server/display/DisplayManagerService;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/display/DisplayManagerService;->-get8(Lcom/android/server/display/DisplayManagerService;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -577,7 +558,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$LocalService;->this$0:Lcom/android/server/display/DisplayManagerService;
 
-    invoke-static {v0, p1}, Lcom/android/server/display/DisplayManagerService;->-wrap37(Lcom/android/server/display/DisplayManagerService;Landroid/hardware/display/DisplayManagerInternal$DisplayTransactionListener;)V
+    invoke-static {v0, p1}, Lcom/android/server/display/DisplayManagerService;->-wrap49(Lcom/android/server/display/DisplayManagerService;Landroid/hardware/display/DisplayManagerInternal$DisplayTransactionListener;)V
 
     return-void
 .end method

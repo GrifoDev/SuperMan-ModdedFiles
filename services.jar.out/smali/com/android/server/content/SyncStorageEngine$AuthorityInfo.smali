@@ -23,6 +23,10 @@
 
 .field public static final SYNCABLE_NOT_INITIALIZED:I = 0x2
 
+.field public static final SYNCABLE_NO_ACCOUNT_ACCESS:I = 0x3
+
+.field public static final UNDEFINED:I = -0x2
+
 
 # instance fields
 .field backoffDelay:J

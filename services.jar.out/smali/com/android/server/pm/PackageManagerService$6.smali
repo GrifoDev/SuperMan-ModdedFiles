@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/pm/PackageManagerService;->freeStorageAndNotify(Ljava/lang/String;JLandroid/content/pm/IPackageDataObserver;)V
+    value = Lcom/android/server/pm/PackageManagerService;->updatePermissionStatesAndFlagsInternal(Ljava/lang/String;Ljava/util/List;IIIIZ)Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,24 +20,28 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/pm/PackageManagerService;
 
-.field final synthetic val$freeStorageSize:J
+.field final synthetic val$appId:I
 
-.field final synthetic val$observer:Landroid/content/pm/IPackageDataObserver;
+.field final synthetic val$appOp:I
 
-.field final synthetic val$volumeUuid:Ljava/lang/String;
+.field final synthetic val$pkgName:Ljava/lang/String;
+
+.field final synthetic val$userId:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;JLandroid/content/pm/IPackageDataObserver;)V
-    .locals 1
+.method constructor <init>(Lcom/android/server/pm/PackageManagerService;IIILjava/lang/String;)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$6;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    iput-object p2, p0, Lcom/android/server/pm/PackageManagerService$6;->val$volumeUuid:Ljava/lang/String;
+    iput p2, p0, Lcom/android/server/pm/PackageManagerService$6;->val$userId:I
 
-    iput-wide p3, p0, Lcom/android/server/pm/PackageManagerService$6;->val$freeStorageSize:J
+    iput p3, p0, Lcom/android/server/pm/PackageManagerService$6;->val$appId:I
 
-    iput-object p5, p0, Lcom/android/server/pm/PackageManagerService$6;->val$observer:Landroid/content/pm/IPackageDataObserver;
+    iput p4, p0, Lcom/android/server/pm/PackageManagerService$6;->val$appOp:I
+
+    iput-object p5, p0, Lcom/android/server/pm/PackageManagerService$6;->val$pkgName:Ljava/lang/String;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -47,147 +51,75 @@
 
 # virtual methods
 .method public run()V
-    .locals 8
+    .locals 7
+
+    const/4 v5, 0x0
+
+    iget v3, p0, Lcom/android/server/pm/PackageManagerService$6;->val$userId:I
+
+    iget v4, p0, Lcom/android/server/pm/PackageManagerService$6;->val$appId:I
+
+    invoke-static {v3, v4}, Landroid/os/UserHandle;->getUid(II)I
+
+    move-result v2
 
     iget-object v3, p0, Lcom/android/server/pm/PackageManagerService$6;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    iget-object v3, v3, Lcom/android/server/pm/PackageManagerService;->mHandler:Lcom/android/server/pm/PackageManagerService$PackageHandler;
+    iget-object v3, v3, Lcom/android/server/pm/PackageManagerService;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v3, p0}, Lcom/android/server/pm/PackageManagerService$PackageHandler;->removeCallbacks(Ljava/lang/Runnable;)V
+    const-class v4, Landroid/app/AppOpsManager;
 
-    const/4 v2, 0x1
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    iget-object v3, p0, Lcom/android/server/pm/PackageManagerService$6;->this$0:Lcom/android/server/pm/PackageManagerService;
+    move-result-object v1
 
-    iget-object v4, v3, Lcom/android/server/pm/PackageManagerService;->mInstallLock:Ljava/lang/Object;
+    check-cast v1, Landroid/app/AppOpsManager;
 
-    monitor-enter v4
+    iget v3, p0, Lcom/android/server/pm/PackageManagerService$6;->val$appOp:I
 
-    :try_start_0
-    iget-object v3, p0, Lcom/android/server/pm/PackageManagerService$6;->this$0:Lcom/android/server/pm/PackageManagerService;
+    const/4 v4, -0x1
 
-    iget-object v3, v3, Lcom/android/server/pm/PackageManagerService;->mInstaller:Lcom/android/server/pm/Installer;
+    if-eq v3, v4, :cond_2
 
-    iget-object v5, p0, Lcom/android/server/pm/PackageManagerService$6;->val$volumeUuid:Ljava/lang/String;
+    iget v3, p0, Lcom/android/server/pm/PackageManagerService$6;->val$appOp:I
 
-    iget-wide v6, p0, Lcom/android/server/pm/PackageManagerService$6;->val$freeStorageSize:J
+    iget-object v4, p0, Lcom/android/server/pm/PackageManagerService$6;->val$pkgName:Ljava/lang/String;
 
-    invoke-virtual {v3, v5, v6, v7}, Lcom/android/server/pm/Installer;->freeCache(Ljava/lang/String;J)V
-    :try_end_0
-    .catch Lcom/android/internal/os/InstallerConnection$InstallerException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    invoke-virtual {v1, v3, v2, v4}, Landroid/app/AppOpsManager;->checkOp(IILjava/lang/String;)I
+
+    move-result v3
+
+    if-nez v3, :cond_1
+
+    const/4 v0, 0x1
 
     :goto_0
-    monitor-exit v4
+    if-nez v0, :cond_0
 
-    iget-object v3, p0, Lcom/android/server/pm/PackageManagerService$6;->val$observer:Landroid/content/pm/IPackageDataObserver;
+    iget v3, p0, Lcom/android/server/pm/PackageManagerService$6;->val$appOp:I
 
-    if-eqz v3, :cond_0
+    invoke-virtual {v1, v3, v2, v5}, Landroid/app/AppOpsManager;->setUidMode(III)V
 
-    :try_start_1
-    const-string/jumbo v3, "PackageManager"
+    iget-object v3, p0, Lcom/android/server/pm/PackageManagerService$6;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    iget v4, p0, Lcom/android/server/pm/PackageManagerService$6;->val$appId:I
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    iget v5, p0, Lcom/android/server/pm/PackageManagerService$6;->val$userId:I
 
-    const-string/jumbo v5, "result of freeStorageAndNotify: "
+    const-string/jumbo v6, "Permission related app op changed"
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    const-string/jumbo v5, "{"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    iget-object v5, p0, Lcom/android/server/pm/PackageManagerService$6;->val$observer:Landroid/content/pm/IPackageDataObserver;
-
-    invoke-virtual {v5}, Ljava/lang/Object;->hashCode()I
-
-    move-result v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    const-string/jumbo v5, "}"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v3, p0, Lcom/android/server/pm/PackageManagerService$6;->val$observer:Landroid/content/pm/IPackageDataObserver;
-
-    const/4 v4, 0x0
-
-    invoke-interface {v3, v4, v2}, Landroid/content/pm/IPackageDataObserver;->onRemoveCompleted(Ljava/lang/String;Z)V
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
+    invoke-static {v3, v4, v5, v6}, Lcom/android/server/pm/PackageManagerService;->-wrap46(Lcom/android/server/pm/PackageManagerService;IILjava/lang/String;)V
 
     :cond_0
-    :goto_1
     return-void
 
-    :catch_0
-    move-exception v1
-
-    :try_start_2
-    const-string/jumbo v3, "PackageManager"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "Couldn\'t clear application caches: "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v3, v5}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    const/4 v2, 0x0
+    :cond_1
+    const/4 v0, 0x0
 
     goto :goto_0
 
-    :catchall_0
-    move-exception v3
+    :cond_2
+    const/4 v0, 0x0
 
-    monitor-exit v4
-
-    throw v3
-
-    :catch_1
-    move-exception v0
-
-    const-string/jumbo v3, "PackageManager"
-
-    const-string/jumbo v4, "RemoveException when invoking call back"
-
-    invoke-static {v3, v4}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_1
+    goto :goto_0
 .end method

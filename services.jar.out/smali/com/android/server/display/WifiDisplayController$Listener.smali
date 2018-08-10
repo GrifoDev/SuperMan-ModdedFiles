@@ -24,25 +24,16 @@
 .method public abstract onDisplayConnecting(Landroid/hardware/display/WifiDisplay;)V
 .end method
 
-.method public abstract onDisplayConnecting(Landroid/hardware/display/WifiDisplay;I)V
-.end method
-
 .method public abstract onDisplayConnectionFailed()V
 .end method
 
 .method public abstract onDisplayDisconnected()V
 .end method
 
-.method public abstract onDisplayDisconnecting()V
-.end method
-
 .method public abstract onDisplaySessionInfo(Landroid/hardware/display/WifiDisplaySessionInfo;)V
 .end method
 
 .method public abstract onFeatureStateChanged(I)V
-.end method
-
-.method public abstract onRotationChanged(I)V
 .end method
 
 .method public abstract onScanFinished()V

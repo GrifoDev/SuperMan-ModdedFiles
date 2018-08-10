@@ -44,7 +44,7 @@
 
     iget-object v1, p0, Lcom/android/server/lights/LightsService$SvcLEDReceiver;->this$0:Lcom/android/server/lights/LightsService;
 
-    invoke-static {v1}, Lcom/android/server/lights/LightsService;->-get12(Lcom/android/server/lights/LightsService;)Landroid/os/HandlerThread;
+    invoke-static {v1}, Lcom/android/server/lights/LightsService;->-get10(Lcom/android/server/lights/LightsService;)Landroid/os/HandlerThread;
 
     move-result-object v2
 
@@ -69,7 +69,7 @@
 
     iget-object v1, p0, Lcom/android/server/lights/LightsService$SvcLEDReceiver;->this$0:Lcom/android/server/lights/LightsService;
 
-    invoke-static {v1}, Lcom/android/server/lights/LightsService;->-get11(Lcom/android/server/lights/LightsService;)Lcom/android/server/lights/LightsService$SvcLEDHandler;
+    invoke-static {v1}, Lcom/android/server/lights/LightsService;->-get9(Lcom/android/server/lights/LightsService;)Lcom/android/server/lights/LightsService$SvcLEDHandler;
 
     move-result-object v1
 
@@ -79,7 +79,7 @@
 
     iget-object v1, p0, Lcom/android/server/lights/LightsService$SvcLEDReceiver;->this$0:Lcom/android/server/lights/LightsService;
 
-    invoke-static {v1}, Lcom/android/server/lights/LightsService;->-get11(Lcom/android/server/lights/LightsService;)Lcom/android/server/lights/LightsService$SvcLEDHandler;
+    invoke-static {v1}, Lcom/android/server/lights/LightsService;->-get9(Lcom/android/server/lights/LightsService;)Lcom/android/server/lights/LightsService$SvcLEDHandler;
 
     move-result-object v1
 
@@ -91,13 +91,13 @@
 
     iget-object v1, p0, Lcom/android/server/lights/LightsService$SvcLEDReceiver;->this$0:Lcom/android/server/lights/LightsService;
 
-    invoke-static {v1}, Lcom/android/server/lights/LightsService;->-get11(Lcom/android/server/lights/LightsService;)Lcom/android/server/lights/LightsService$SvcLEDHandler;
+    invoke-static {v1}, Lcom/android/server/lights/LightsService;->-get9(Lcom/android/server/lights/LightsService;)Lcom/android/server/lights/LightsService$SvcLEDHandler;
 
     move-result-object v1
 
     iget-object v3, p0, Lcom/android/server/lights/LightsService$SvcLEDReceiver;->this$0:Lcom/android/server/lights/LightsService;
 
-    invoke-static {v3}, Lcom/android/server/lights/LightsService;->-get7(Lcom/android/server/lights/LightsService;)I
+    invoke-static {v3}, Lcom/android/server/lights/LightsService;->-get6(Lcom/android/server/lights/LightsService;)I
 
     move-result v3
 

@@ -168,38 +168,6 @@
     goto :goto_0
 .end method
 
-.method public buzzBeepBlinked()V
-    .locals 2
-
-    iget-object v1, p0, Lcom/android/server/statusbar/StatusBarManagerService$1;->this$0:Lcom/android/server/statusbar/StatusBarManagerService;
-
-    invoke-static {v1}, Lcom/android/server/statusbar/StatusBarManagerService;->-get0(Lcom/android/server/statusbar/StatusBarManagerService;)Lcom/android/internal/statusbar/IStatusBar;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_0
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/statusbar/StatusBarManagerService$1;->this$0:Lcom/android/server/statusbar/StatusBarManagerService;
-
-    invoke-static {v1}, Lcom/android/server/statusbar/StatusBarManagerService;->-get0(Lcom/android/server/statusbar/StatusBarManagerService;)Lcom/android/internal/statusbar/IStatusBar;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Lcom/android/internal/statusbar/IStatusBar;->buzzBeepBlinked()V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :catch_0
-    move-exception v0
-
-    goto :goto_0
-.end method
-
 .method public cancelPreloadRecentApps()V
     .locals 2
 
@@ -296,82 +264,6 @@
     goto :goto_0
 .end method
 
-.method public notificationLightOff()V
-    .locals 2
-
-    iget-boolean v1, p0, Lcom/android/server/statusbar/StatusBarManagerService$1;->mNotificationLightOn:Z
-
-    if-eqz v1, :cond_0
-
-    const/4 v1, 0x0
-
-    iput-boolean v1, p0, Lcom/android/server/statusbar/StatusBarManagerService$1;->mNotificationLightOn:Z
-
-    iget-object v1, p0, Lcom/android/server/statusbar/StatusBarManagerService$1;->this$0:Lcom/android/server/statusbar/StatusBarManagerService;
-
-    invoke-static {v1}, Lcom/android/server/statusbar/StatusBarManagerService;->-get0(Lcom/android/server/statusbar/StatusBarManagerService;)Lcom/android/internal/statusbar/IStatusBar;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_0
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/statusbar/StatusBarManagerService$1;->this$0:Lcom/android/server/statusbar/StatusBarManagerService;
-
-    invoke-static {v1}, Lcom/android/server/statusbar/StatusBarManagerService;->-get0(Lcom/android/server/statusbar/StatusBarManagerService;)Lcom/android/internal/statusbar/IStatusBar;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Lcom/android/internal/statusbar/IStatusBar;->notificationLightOff()V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :catch_0
-    move-exception v0
-
-    goto :goto_0
-.end method
-
-.method public notificationLightPulse(III)V
-    .locals 2
-
-    const/4 v1, 0x1
-
-    iput-boolean v1, p0, Lcom/android/server/statusbar/StatusBarManagerService$1;->mNotificationLightOn:Z
-
-    iget-object v1, p0, Lcom/android/server/statusbar/StatusBarManagerService$1;->this$0:Lcom/android/server/statusbar/StatusBarManagerService;
-
-    invoke-static {v1}, Lcom/android/server/statusbar/StatusBarManagerService;->-get0(Lcom/android/server/statusbar/StatusBarManagerService;)Lcom/android/internal/statusbar/IStatusBar;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_0
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/statusbar/StatusBarManagerService$1;->this$0:Lcom/android/server/statusbar/StatusBarManagerService;
-
-    invoke-static {v1}, Lcom/android/server/statusbar/StatusBarManagerService;->-get0(Lcom/android/server/statusbar/StatusBarManagerService;)Lcom/android/internal/statusbar/IStatusBar;
-
-    move-result-object v1
-
-    invoke-interface {v1, p1, p2, p3}, Lcom/android/internal/statusbar/IStatusBar;->notificationLightPulse(III)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :catch_0
-    move-exception v0
-
-    goto :goto_0
-.end method
-
 .method public onCameraLaunchGestureDetected(I)V
     .locals 2
 
@@ -441,9 +333,43 @@
 
     iget-object v0, p0, Lcom/android/server/statusbar/StatusBarManagerService$1;->this$0:Lcom/android/server/statusbar/StatusBarManagerService;
 
-    invoke-static {v0, p1}, Lcom/android/server/statusbar/StatusBarManagerService;->-set0(Lcom/android/server/statusbar/StatusBarManagerService;I)I
+    invoke-static {v0, p1}, Lcom/android/server/statusbar/StatusBarManagerService;->-set1(Lcom/android/server/statusbar/StatusBarManagerService;I)I
 
     return-void
+.end method
+
+.method public setGlobalActionsListener(Lcom/android/server/statusbar/StatusBarManagerInternal$GlobalActionsListener;)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/statusbar/StatusBarManagerService$1;->this$0:Lcom/android/server/statusbar/StatusBarManagerService;
+
+    invoke-static {v0, p1}, Lcom/android/server/statusbar/StatusBarManagerService;->-set2(Lcom/android/server/statusbar/StatusBarManagerService;Lcom/android/server/statusbar/StatusBarManagerInternal$GlobalActionsListener;)Lcom/android/server/statusbar/StatusBarManagerInternal$GlobalActionsListener;
+
+    iget-object v0, p0, Lcom/android/server/statusbar/StatusBarManagerService$1;->this$0:Lcom/android/server/statusbar/StatusBarManagerService;
+
+    invoke-static {v0}, Lcom/android/server/statusbar/StatusBarManagerService;->-get1(Lcom/android/server/statusbar/StatusBarManagerService;)Lcom/android/server/statusbar/StatusBarManagerInternal$GlobalActionsListener;
+
+    move-result-object v1
+
+    iget-object v0, p0, Lcom/android/server/statusbar/StatusBarManagerService$1;->this$0:Lcom/android/server/statusbar/StatusBarManagerService;
+
+    invoke-static {v0}, Lcom/android/server/statusbar/StatusBarManagerService;->-get0(Lcom/android/server/statusbar/StatusBarManagerService;)Lcom/android/internal/statusbar/IStatusBar;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    invoke-interface {v1, v0}, Lcom/android/server/statusbar/StatusBarManagerInternal$GlobalActionsListener;->onStatusBarConnectedChanged(Z)V
+
+    return-void
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public setNotificationDelegate(Lcom/android/server/notification/NotificationDelegate;)V
@@ -451,7 +377,7 @@
 
     iget-object v0, p0, Lcom/android/server/statusbar/StatusBarManagerService$1;->this$0:Lcom/android/server/statusbar/StatusBarManagerService;
 
-    invoke-static {v0, p1}, Lcom/android/server/statusbar/StatusBarManagerService;->-set1(Lcom/android/server/statusbar/StatusBarManagerService;Lcom/android/server/notification/NotificationDelegate;)Lcom/android/server/notification/NotificationDelegate;
+    invoke-static {v0, p1}, Lcom/android/server/statusbar/StatusBarManagerService;->-set3(Lcom/android/server/statusbar/StatusBarManagerService;Lcom/android/server/notification/NotificationDelegate;)Lcom/android/server/notification/NotificationDelegate;
 
     return-void
 .end method
@@ -475,13 +401,13 @@
 
     move-object v7, p7
 
-    invoke-static/range {v0 .. v7}, Lcom/android/server/statusbar/StatusBarManagerService;->-wrap1(Lcom/android/server/statusbar/StatusBarManagerService;IIIILandroid/graphics/Rect;Landroid/graphics/Rect;Ljava/lang/String;)V
+    invoke-static/range {v0 .. v7}, Lcom/android/server/statusbar/StatusBarManagerService;->-wrap2(Lcom/android/server/statusbar/StatusBarManagerService;IIIILandroid/graphics/Rect;Landroid/graphics/Rect;Ljava/lang/String;)V
 
     return-void
 .end method
 
 .method public setWindowState(II)V
-    .locals 2
+    .locals 3
 
     iget-object v1, p0, Lcom/android/server/statusbar/StatusBarManagerService$1;->this$0:Lcom/android/server/statusbar/StatusBarManagerService;
 
@@ -489,7 +415,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     :try_start_0
     iget-object v1, p0, Lcom/android/server/statusbar/StatusBarManagerService$1;->this$0:Lcom/android/server/statusbar/StatusBarManagerService;
@@ -499,10 +425,47 @@
     move-result-object v1
 
     invoke-interface {v1, p1, p2}, Lcom/android/internal/statusbar/IStatusBar;->setWindowState(II)V
+
+    iget-object v1, p0, Lcom/android/server/statusbar/StatusBarManagerService$1;->this$0:Lcom/android/server/statusbar/StatusBarManagerService;
+
+    invoke-static {v1}, Lcom/android/server/statusbar/StatusBarManagerService;->-get3(Lcom/android/server/statusbar/StatusBarManagerService;)Lcom/android/server/pm/PersonaManagerService;
+
+    move-result-object v1
+
+    if-nez v1, :cond_0
+
+    iget-object v2, p0, Lcom/android/server/statusbar/StatusBarManagerService$1;->this$0:Lcom/android/server/statusbar/StatusBarManagerService;
+
+    const-string/jumbo v1, "persona"
+
+    invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/server/pm/PersonaManagerService;
+
+    invoke-static {v2, v1}, Lcom/android/server/statusbar/StatusBarManagerService;->-set4(Lcom/android/server/statusbar/StatusBarManagerService;Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PersonaManagerService;
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/server/statusbar/StatusBarManagerService$1;->this$0:Lcom/android/server/statusbar/StatusBarManagerService;
+
+    invoke-static {v1}, Lcom/android/server/statusbar/StatusBarManagerService;->-get3(Lcom/android/server/statusbar/StatusBarManagerService;)Lcom/android/server/pm/PersonaManagerService;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/server/statusbar/StatusBarManagerService$1;->this$0:Lcom/android/server/statusbar/StatusBarManagerService;
+
+    invoke-static {v1}, Lcom/android/server/statusbar/StatusBarManagerService;->-get3(Lcom/android/server/statusbar/StatusBarManagerService;)Lcom/android/server/pm/PersonaManagerService;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1, p2}, Lcom/android/server/pm/PersonaManagerService;->setKnoxWindowState(II)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_0
+    :cond_1
     :goto_0
     return-void
 
@@ -531,6 +494,70 @@
     move-result-object v1
 
     invoke-interface {v1}, Lcom/android/internal/statusbar/IStatusBar;->showAssistDisclosure()V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    goto :goto_0
+.end method
+
+.method public showGlobalActions()V
+    .locals 2
+
+    iget-object v1, p0, Lcom/android/server/statusbar/StatusBarManagerService$1;->this$0:Lcom/android/server/statusbar/StatusBarManagerService;
+
+    invoke-static {v1}, Lcom/android/server/statusbar/StatusBarManagerService;->-get0(Lcom/android/server/statusbar/StatusBarManagerService;)Lcom/android/internal/statusbar/IStatusBar;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/statusbar/StatusBarManagerService$1;->this$0:Lcom/android/server/statusbar/StatusBarManagerService;
+
+    invoke-static {v1}, Lcom/android/server/statusbar/StatusBarManagerService;->-get0(Lcom/android/server/statusbar/StatusBarManagerService;)Lcom/android/internal/statusbar/IStatusBar;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Lcom/android/internal/statusbar/IStatusBar;->showGlobalActionsMenu()V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    goto :goto_0
+.end method
+
+.method public showPictureInPictureMenu()V
+    .locals 2
+
+    iget-object v1, p0, Lcom/android/server/statusbar/StatusBarManagerService$1;->this$0:Lcom/android/server/statusbar/StatusBarManagerService;
+
+    invoke-static {v1}, Lcom/android/server/statusbar/StatusBarManagerService;->-get0(Lcom/android/server/statusbar/StatusBarManagerService;)Lcom/android/internal/statusbar/IStatusBar;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/statusbar/StatusBarManagerService$1;->this$0:Lcom/android/server/statusbar/StatusBarManagerService;
+
+    invoke-static {v1}, Lcom/android/server/statusbar/StatusBarManagerService;->-get0(Lcom/android/server/statusbar/StatusBarManagerService;)Lcom/android/internal/statusbar/IStatusBar;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Lcom/android/internal/statusbar/IStatusBar;->showPictureInPictureMenu()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -608,7 +635,7 @@
     goto :goto_0
 .end method
 
-.method public showTvPictureInPictureMenu()V
+.method public showSnapWindowGuideView(ILjava/lang/String;)V
     .locals 2
 
     iget-object v1, p0, Lcom/android/server/statusbar/StatusBarManagerService$1;->this$0:Lcom/android/server/statusbar/StatusBarManagerService;
@@ -626,7 +653,7 @@
 
     move-result-object v1
 
-    invoke-interface {v1}, Lcom/android/internal/statusbar/IStatusBar;->showTvPictureInPictureMenu()V
+    invoke-interface {v1, p1, p2}, Lcom/android/internal/statusbar/IStatusBar;->showSnapWindowGuideView(ILjava/lang/String;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -772,44 +799,12 @@
     goto :goto_0
 .end method
 
-.method public toggleSplitScreenByKey()V
-    .locals 2
-
-    iget-object v1, p0, Lcom/android/server/statusbar/StatusBarManagerService$1;->this$0:Lcom/android/server/statusbar/StatusBarManagerService;
-
-    invoke-static {v1}, Lcom/android/server/statusbar/StatusBarManagerService;->-get0(Lcom/android/server/statusbar/StatusBarManagerService;)Lcom/android/internal/statusbar/IStatusBar;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_0
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/statusbar/StatusBarManagerService$1;->this$0:Lcom/android/server/statusbar/StatusBarManagerService;
-
-    invoke-static {v1}, Lcom/android/server/statusbar/StatusBarManagerService;->-get0(Lcom/android/server/statusbar/StatusBarManagerService;)Lcom/android/internal/statusbar/IStatusBar;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Lcom/android/internal/statusbar/IStatusBar;->toggleSplitScreenByKey()V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :catch_0
-    move-exception v0
-
-    goto :goto_0
-.end method
-
 .method public topAppWindowChanged(Z)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/statusbar/StatusBarManagerService$1;->this$0:Lcom/android/server/statusbar/StatusBarManagerService;
 
-    invoke-static {v0, p1}, Lcom/android/server/statusbar/StatusBarManagerService;->-wrap2(Lcom/android/server/statusbar/StatusBarManagerService;Z)V
+    invoke-static {v0, p1}, Lcom/android/server/statusbar/StatusBarManagerService;->-wrap3(Lcom/android/server/statusbar/StatusBarManagerService;Z)V
 
     return-void
 .end method

@@ -53,7 +53,7 @@
     :goto_0
     iget-object v1, p0, Lcom/android/server/BatteryService$7;->this$0:Lcom/android/server/BatteryService;
 
-    invoke-static {v1}, Lcom/android/server/BatteryService;->-get18(Lcom/android/server/BatteryService;)Ljava/lang/Object;
+    invoke-static {v1}, Lcom/android/server/BatteryService;->-get19(Lcom/android/server/BatteryService;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -62,7 +62,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/BatteryService$7;->this$0:Lcom/android/server/BatteryService;
 
-    invoke-static {v1}, Lcom/android/server/BatteryService;->-get12(Lcom/android/server/BatteryService;)I
+    invoke-static {v1}, Lcom/android/server/BatteryService;->-get14(Lcom/android/server/BatteryService;)I
 
     move-result v1
 

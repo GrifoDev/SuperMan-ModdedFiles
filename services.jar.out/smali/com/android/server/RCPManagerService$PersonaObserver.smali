@@ -39,66 +39,6 @@
 
 
 # virtual methods
-.method public onAttributeChange(Landroid/content/pm/PersonaAttribute;Z)V
-    .locals 3
-
-    invoke-static {}, Lcom/android/server/RCPManagerService;->-get2()Ljava/lang/String;
-
-    move-result-object v0
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "onAttributeChange() attribute "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    sget-object v0, Landroid/content/pm/PersonaAttribute;->PASSWORD_CHANGE_REQUEST:Landroid/content/pm/PersonaAttribute;
-
-    invoke-virtual {p1, v0}, Landroid/content/pm/PersonaAttribute;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    sget-object v0, Landroid/content/pm/PersonaAttribute;->PASSWORD_CHANGE_REQUEST_ENFORCED:Landroid/content/pm/PersonaAttribute;
-
-    invoke-virtual {p1, v0}, Landroid/content/pm/PersonaAttribute;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/server/RCPManagerService$PersonaObserver;->this$0:Lcom/android/server/RCPManagerService;
-
-    invoke-static {v0}, Lcom/android/server/RCPManagerService;->-get9(Lcom/android/server/RCPManagerService;)Landroid/os/Handler;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/android/server/RCPManagerService$PersonaObserver$3;
-
-    invoke-direct {v1, p0}, Lcom/android/server/RCPManagerService$PersonaObserver$3;-><init>(Lcom/android/server/RCPManagerService$PersonaObserver;)V
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    :cond_1
-    return-void
-.end method
-
 .method public onKeyGuardStateChanged(Z)V
     .locals 2
 
@@ -191,7 +131,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/server/RCPManagerService$PersonaObserver;->this$0:Lcom/android/server/RCPManagerService;
 
-    invoke-static {v0}, Lcom/android/server/RCPManagerService;->-get9(Lcom/android/server/RCPManagerService;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/server/RCPManagerService;->-get7(Lcom/android/server/RCPManagerService;)Landroid/os/Handler;
 
     move-result-object v0
 
@@ -224,7 +164,7 @@
 
     iget-object v0, p0, Lcom/android/server/RCPManagerService$PersonaObserver;->this$0:Lcom/android/server/RCPManagerService;
 
-    invoke-static {v0}, Lcom/android/server/RCPManagerService;->-get9(Lcom/android/server/RCPManagerService;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/server/RCPManagerService;->-get7(Lcom/android/server/RCPManagerService;)Landroid/os/Handler;
 
     move-result-object v0
 

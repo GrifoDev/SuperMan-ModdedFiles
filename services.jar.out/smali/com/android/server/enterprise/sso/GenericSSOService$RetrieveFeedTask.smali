@@ -98,7 +98,7 @@
 
     iget-object v4, p0, Lcom/android/server/enterprise/sso/GenericSSOService$RetrieveFeedTask;->this$0:Lcom/android/server/enterprise/sso/GenericSSOService;
 
-    invoke-static {v4}, Lcom/android/server/enterprise/sso/GenericSSOService;->-get3(Lcom/android/server/enterprise/sso/GenericSSOService;)J
+    invoke-static {v4}, Lcom/android/server/enterprise/sso/GenericSSOService;->-get2(Lcom/android/server/enterprise/sso/GenericSSOService;)J
 
     move-result-wide v4
 
@@ -149,13 +149,13 @@
 .method protected onPostExecute(Ljava/lang/Void;)V
     .locals 1
 
-    invoke-static {}, Lcom/android/server/enterprise/sso/GenericSSOService;->-get2()Ljava/util/concurrent/CountDownLatch;
+    invoke-static {}, Lcom/android/server/enterprise/sso/GenericSSOService;->-get1()Ljava/util/concurrent/CountDownLatch;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    invoke-static {}, Lcom/android/server/enterprise/sso/GenericSSOService;->-get2()Ljava/util/concurrent/CountDownLatch;
+    invoke-static {}, Lcom/android/server/enterprise/sso/GenericSSOService;->-get1()Ljava/util/concurrent/CountDownLatch;
 
     move-result-object v0
 

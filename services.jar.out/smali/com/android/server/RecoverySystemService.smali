@@ -14,11 +14,19 @@
 # static fields
 .field private static final DEBUG:Z = false
 
+.field private static final INIT_SERVICE_CLEAR_BCB:Ljava/lang/String; = "init.svc.clear-bcb"
+
+.field private static final INIT_SERVICE_SETUP_BCB:Ljava/lang/String; = "init.svc.setup-bcb"
+
+.field private static final INIT_SERVICE_UNCRYPT:Ljava/lang/String; = "init.svc.uncrypt"
+
 .field private static final SOCKET_CONNECTION_MAX_RETRY:I = 0x1e
 
 .field private static final TAG:Ljava/lang/String; = "RecoverySystemService"
 
 .field private static final UNCRYPT_SOCKET:Ljava/lang/String; = "uncrypt"
+
+.field private static final sRequestLock:Ljava/lang/Object;
 
 
 # instance fields
@@ -32,6 +40,26 @@
     iget-object v0, p0, Lcom/android/server/RecoverySystemService;->mContext:Landroid/content/Context;
 
     return-object v0
+.end method
+
+.method static synthetic -get1()Ljava/lang/Object;
+    .locals 1
+
+    sget-object v0, Lcom/android/server/RecoverySystemService;->sRequestLock:Ljava/lang/Object;
+
+    return-object v0
+.end method
+
+.method static constructor <clinit>()V
+    .locals 1
+
+    new-instance v0, Ljava/lang/Object;
+
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+
+    sput-object v0, Lcom/android/server/RecoverySystemService;->sRequestLock:Ljava/lang/Object;
+
+    return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V

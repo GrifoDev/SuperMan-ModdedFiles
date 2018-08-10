@@ -1,4 +1,4 @@
-.class public Lcom/android/server/job/JobStore;
+.class public final Lcom/android/server/job/JobStore;
 .super Ljava/lang/Object;
 .source "JobStore.java"
 
@@ -406,6 +406,16 @@
 
     :cond_1
     return v0
+.end method
+
+.method public removeJobsOfNonUsers([I)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/job/JobStore;->mJobSet:Lcom/android/server/job/JobStore$JobSet;
+
+    invoke-virtual {v0, p1}, Lcom/android/server/job/JobStore$JobSet;->removeJobsOfNonUsers([I)V
+
+    return-void
 .end method
 
 .method public size()I

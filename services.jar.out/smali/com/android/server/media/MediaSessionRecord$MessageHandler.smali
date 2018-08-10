@@ -65,35 +65,35 @@
     :pswitch_1
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$MessageHandler;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap4(Lcom/android/server/media/MediaSessionRecord;)V
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap5(Lcom/android/server/media/MediaSessionRecord;)V
 
     goto :goto_0
 
     :pswitch_2
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$MessageHandler;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap5(Lcom/android/server/media/MediaSessionRecord;)V
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap6(Lcom/android/server/media/MediaSessionRecord;)V
 
     goto :goto_0
 
     :pswitch_3
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$MessageHandler;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap7(Lcom/android/server/media/MediaSessionRecord;)V
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap8(Lcom/android/server/media/MediaSessionRecord;)V
 
     goto :goto_0
 
     :pswitch_4
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$MessageHandler;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap6(Lcom/android/server/media/MediaSessionRecord;)V
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap7(Lcom/android/server/media/MediaSessionRecord;)V
 
     goto :goto_0
 
     :pswitch_5
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$MessageHandler;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap3(Lcom/android/server/media/MediaSessionRecord;)V
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap4(Lcom/android/server/media/MediaSessionRecord;)V
 
     goto :goto_0
 
@@ -108,21 +108,21 @@
 
     move-result-object v2
 
-    invoke-static {v1, v0, v2}, Lcom/android/server/media/MediaSessionRecord;->-wrap2(Lcom/android/server/media/MediaSessionRecord;Ljava/lang/String;Landroid/os/Bundle;)V
+    invoke-static {v1, v0, v2}, Lcom/android/server/media/MediaSessionRecord;->-wrap3(Lcom/android/server/media/MediaSessionRecord;Ljava/lang/String;Landroid/os/Bundle;)V
 
     goto :goto_0
 
     :pswitch_7
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$MessageHandler;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap9(Lcom/android/server/media/MediaSessionRecord;)V
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap10(Lcom/android/server/media/MediaSessionRecord;)V
 
     goto :goto_0
 
     :pswitch_8
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$MessageHandler;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap8(Lcom/android/server/media/MediaSessionRecord;)V
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap9(Lcom/android/server/media/MediaSessionRecord;)V
 
     goto :goto_0
 

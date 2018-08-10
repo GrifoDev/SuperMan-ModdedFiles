@@ -124,7 +124,7 @@
 
     iget-object v5, p0, Lcom/android/server/enterprise/kioskmode/KioskModeService$3;->this$0:Lcom/android/server/enterprise/kioskmode/KioskModeService;
 
-    invoke-static {v5, v4}, Lcom/android/server/enterprise/kioskmode/KioskModeService;->-wrap9(Lcom/android/server/enterprise/kioskmode/KioskModeService;I)V
+    invoke-static {v5, v4}, Lcom/android/server/enterprise/kioskmode/KioskModeService;->-wrap8(Lcom/android/server/enterprise/kioskmode/KioskModeService;I)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -172,7 +172,7 @@
 
     iget-object v5, p0, Lcom/android/server/enterprise/kioskmode/KioskModeService$3;->this$0:Lcom/android/server/enterprise/kioskmode/KioskModeService;
 
-    invoke-static {v5, v4}, Lcom/android/server/enterprise/kioskmode/KioskModeService;->-wrap9(Lcom/android/server/enterprise/kioskmode/KioskModeService;I)V
+    invoke-static {v5, v4}, Lcom/android/server/enterprise/kioskmode/KioskModeService;->-wrap8(Lcom/android/server/enterprise/kioskmode/KioskModeService;I)V
 
     return-void
 
@@ -191,7 +191,7 @@
 
     iget-object v5, p0, Lcom/android/server/enterprise/kioskmode/KioskModeService$3;->this$0:Lcom/android/server/enterprise/kioskmode/KioskModeService;
 
-    invoke-static {v5, v4}, Lcom/android/server/enterprise/kioskmode/KioskModeService;->-wrap9(Lcom/android/server/enterprise/kioskmode/KioskModeService;I)V
+    invoke-static {v5, v4}, Lcom/android/server/enterprise/kioskmode/KioskModeService;->-wrap8(Lcom/android/server/enterprise/kioskmode/KioskModeService;I)V
 
     :cond_3
     return-void

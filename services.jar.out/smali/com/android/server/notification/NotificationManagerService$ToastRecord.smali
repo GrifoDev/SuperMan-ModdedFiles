@@ -23,9 +23,11 @@
 
 .field final pkg:Ljava/lang/String;
 
+.field token:Landroid/os/Binder;
+
 
 # direct methods
-.method constructor <init>(ILjava/lang/String;Landroid/app/ITransientNotification;I)V
+.method constructor <init>(ILjava/lang/String;Landroid/app/ITransientNotification;ILandroid/os/Binder;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
     iput-object p3, p0, Lcom/android/server/notification/NotificationManagerService$ToastRecord;->callback:Landroid/app/ITransientNotification;
 
     iput p4, p0, Lcom/android/server/notification/NotificationManagerService$ToastRecord;->duration:I
+
+    iput-object p5, p0, Lcom/android/server/notification/NotificationManagerService$ToastRecord;->token:Landroid/os/Binder;
 
     return-void
 .end method
@@ -54,7 +58,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    return-void
 
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
@@ -75,9 +83,6 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    return-void
-
-    :cond_1
     return-void
 .end method
 

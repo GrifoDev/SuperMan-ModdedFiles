@@ -83,7 +83,7 @@
 
     const/4 v4, 0x1
 
-    invoke-static {v3, v4}, Lcom/android/server/accessibility/MagnificationGestureHandler;->-wrap0(Lcom/android/server/accessibility/MagnificationGestureHandler;I)V
+    invoke-static {v3, v4}, Lcom/android/server/accessibility/MagnificationGestureHandler;->-wrap1(Lcom/android/server/accessibility/MagnificationGestureHandler;I)V
 
     iget-object v3, p0, Lcom/android/server/accessibility/MagnificationGestureHandler$DetectingStateHandler$1;->this$1:Lcom/android/server/accessibility/MagnificationGestureHandler$DetectingStateHandler;
 

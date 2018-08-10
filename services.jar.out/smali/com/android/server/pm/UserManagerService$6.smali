@@ -1,11 +1,11 @@
 .class Lcom/android/server/pm/UserManagerService$6;
-.super Landroid/app/IStopUserCallback$Stub;
+.super Landroid/content/BroadcastReceiver;
 .source "UserManagerService.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/pm/UserManagerService;->removeUser(I)Z
+    value = Lcom/android/server/pm/UserManagerService;->finishRemoveUser(I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,32 +17,34 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/pm/UserManagerService;
 
+.field final synthetic val$userHandle:I
+
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/UserManagerService;)V
+.method constructor <init>(Lcom/android/server/pm/UserManagerService;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/pm/UserManagerService$6;->this$0:Lcom/android/server/pm/UserManagerService;
 
-    invoke-direct {p0}, Landroid/app/IStopUserCallback$Stub;-><init>()V
+    iput p2, p0, Lcom/android/server/pm/UserManagerService$6;->val$userHandle:I
+
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public userStopAborted(I)V
-    .locals 0
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 2
 
-    return-void
-.end method
+    new-instance v0, Lcom/android/server/pm/UserManagerService$6$1;
 
-.method public userStopped(I)V
-    .locals 1
+    iget v1, p0, Lcom/android/server/pm/UserManagerService$6;->val$userHandle:I
 
-    iget-object v0, p0, Lcom/android/server/pm/UserManagerService$6;->this$0:Lcom/android/server/pm/UserManagerService;
+    invoke-direct {v0, p0, v1}, Lcom/android/server/pm/UserManagerService$6$1;-><init>(Lcom/android/server/pm/UserManagerService$6;I)V
 
-    invoke-virtual {v0, p1}, Lcom/android/server/pm/UserManagerService;->finishRemoveUser(I)V
+    invoke-virtual {v0}, Lcom/android/server/pm/UserManagerService$6$1;->start()V
 
     return-void
 .end method

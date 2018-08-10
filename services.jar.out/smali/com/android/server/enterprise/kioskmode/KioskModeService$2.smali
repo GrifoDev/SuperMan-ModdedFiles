@@ -81,7 +81,7 @@
 
     iget v1, p0, Lcom/android/server/enterprise/kioskmode/KioskModeService$2;->val$userId:I
 
-    invoke-static {v0, v1}, Lcom/android/server/enterprise/kioskmode/KioskModeService;->-wrap10(Lcom/android/server/enterprise/kioskmode/KioskModeService;I)V
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/kioskmode/KioskModeService;->-wrap9(Lcom/android/server/enterprise/kioskmode/KioskModeService;I)V
 
     iget-object v0, p0, Lcom/android/server/enterprise/kioskmode/KioskModeService$2;->this$0:Lcom/android/server/enterprise/kioskmode/KioskModeService;
 

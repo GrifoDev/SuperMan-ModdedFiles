@@ -34,7 +34,7 @@
 .method public onChange(ZLandroid/net/Uri;)V
     .locals 8
 
-    const/4 v7, 0x1
+    const/4 v6, 0x1
 
     invoke-virtual {p2}, Landroid/net/Uri;->getLastPathSegment()Ljava/lang/String;
 
@@ -42,7 +42,7 @@
 
     iget-object v5, p0, Lcom/android/server/hdmi/HdmiControlService$SettingsObserver;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
-    invoke-virtual {v5, v2, v7}, Lcom/android/server/hdmi/HdmiControlService;->readBooleanSetting(Ljava/lang/String;Z)Z
+    invoke-virtual {v5, v2, v6}, Lcom/android/server/hdmi/HdmiControlService;->readBooleanSetting(Ljava/lang/String;Z)Z
 
     move-result v0
 
@@ -90,11 +90,7 @@
     :cond_2
     iget-object v5, p0, Lcom/android/server/hdmi/HdmiControlService$SettingsObserver;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
-    invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->-wrap1(Z)I
-
-    move-result v6
-
-    invoke-virtual {v5, v7, v6}, Lcom/android/server/hdmi/HdmiControlService;->setCecOption(II)V
+    invoke-virtual {v5, v6, v0}, Lcom/android/server/hdmi/HdmiControlService;->setCecOption(IZ)V
 
     goto :goto_0
 
@@ -152,7 +148,7 @@
     goto :goto_1
 
     :cond_5
-    const-string/jumbo v5, "mhl_input_switching_enabled"
+    const-string/jumbo v5, "hdmi_system_audio_control_enabled"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -162,11 +158,38 @@
 
     iget-object v5, p0, Lcom/android/server/hdmi/HdmiControlService$SettingsObserver;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
-    invoke-virtual {v5, v0}, Lcom/android/server/hdmi/HdmiControlService;->setMhlInputChangeEnabled(Z)V
+    invoke-virtual {v5}, Lcom/android/server/hdmi/HdmiControlService;->isTvDeviceEnabled()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    iget-object v5, p0, Lcom/android/server/hdmi/HdmiControlService$SettingsObserver;->this$0:Lcom/android/server/hdmi/HdmiControlService;
+
+    invoke-virtual {v5}, Lcom/android/server/hdmi/HdmiControlService;->tv()Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->setSystemAudioControlFeatureEnabled(Z)V
 
     goto :goto_0
 
     :cond_6
+    const-string/jumbo v5, "mhl_input_switching_enabled"
+
+    invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_7
+
+    iget-object v5, p0, Lcom/android/server/hdmi/HdmiControlService$SettingsObserver;->this$0:Lcom/android/server/hdmi/HdmiControlService;
+
+    invoke-virtual {v5, v0}, Lcom/android/server/hdmi/HdmiControlService;->setMhlInputChangeEnabled(Z)V
+
+    goto :goto_0
+
+    :cond_7
     const-string/jumbo v5, "mhl_power_charge_enabled"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -189,5 +212,5 @@
 
     invoke-virtual {v5, v7, v6}, Lcom/android/server/hdmi/HdmiMhlControllerStub;->setOption(II)V
 
-    goto :goto_0
+    goto/16 :goto_0
 .end method
